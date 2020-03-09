@@ -5,9 +5,13 @@ services:
     depends_on:
       - db
     environment:
-      - HOST=db
-      - USER=odoo
-      - PASSWORD=odoo
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+      SMTP_PASSWORD: "${SMTP_PASSWORD}"
+      SMTP_PORT: "${SMTP_PORT}"
+      SMTP_SERVER: "${SMTP_SERVER}"
+      SMTP_USER: "${SMTP_USER}"
     ports:
       - "8069:8069"
     volumes:
@@ -28,10 +32,10 @@ services:
   db:
     image: postgres:10
     environment:
-      - POSTGRES_DB=postgres
-      - POSTGRES_PASSWORD=odoo
-      - POSTGRES_USER=odoo
-      - PGDATA=/var/lib/postgresql/data/pgdata
+      POSTGRES_DB: postgres
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_USER: odoo
+      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
 volumes:
