@@ -18,17 +18,16 @@ Run docker compose.
 docker-compose up -d
 ```
 
-Create a database and install modules.
+Initialize database and install modules.
 
 ```bash
 export MODULES=base,project,hr_timesheet,timesheets_by_employee
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev all --stop-after-init"
-docker restart odoo-development_web_1
+docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart odoo-development_web_1
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-### Configure SMTP
+### Configure mail
 
 Create a `.env` file in the project root.
 
@@ -43,8 +42,7 @@ Install Odoo with the smtp params.
 
 ```bash
 export MODULES=base,project,hr_timesheet,timesheets_by_employee
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD"
-docker restart odoo-development_web_1
+docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart odoo-development_web_1
 ```
 
 ### Enable developer mode
@@ -90,10 +88,12 @@ docker-compose down -v
 ### Install custom module
 
 ```bash
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i employee_documents_expiry -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init"
-docker restart odoo-development_web_1
+export MODULE=employee_documents_expiry
+docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart odoo-development_web_1
 ````
 
 ### Create new db
+
+createdb -h $HOST -U $USER test
 
 [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test)
