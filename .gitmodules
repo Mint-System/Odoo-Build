@@ -1,0 +1,3 @@
+[submodule "addons/qm_data_system"]
+	path = addons/qm_data_system
+	url = https://github.com/Mint-System/Odoo-App-QM-Data-System.git
