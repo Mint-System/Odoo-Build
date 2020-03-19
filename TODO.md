@@ -1,5 +1,9 @@
 # TODO
 
+## CI/CD
+
+- [ ] Enable ci/cd for qm_data_system
+
 ## Git Submodule for odoo app
 
 - [x] Separate module code into git repo

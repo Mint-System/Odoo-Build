@@ -90,10 +90,36 @@ docker-compose down -v
 ```bash
 export MODULE=employee_documents_expiry
 docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart odoo-development_web_1
-````
+```
 
 ### Create new db
 
-createdb -h $HOST -U $USER test
+```bash
+docker exec -it odoo-development_web_1 bin/bash
+createdb -h $HOST -U $USER Test
+# Enter password
+psql -h $HOST -U $USER -l
+# Enter password
+odoo -i base -c /etc/odoo/odoo.conf -d Test --db_host $HOST -r $USER -w $PASSWORD --stop-after-init
+
+```
 
 [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test)
+
+### Delete db
+
+```bash
+docker exec -it odoo-development_web_1 bin/bash
+psql -h $HOST -U $USER -l
+# Enter password
+dropdb -h $HOST -U $USER Test
+# Enter password
+
+```
+
+### Save config
+
+```bash
+docker exec -it odoo-development_web_1 bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
+# odoo -s -d Test --db_host $HOST -r $USER -w $PASSWORD
+```
