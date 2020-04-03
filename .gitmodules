@@ -1,3 +1,6 @@
 [submodule "addons/qm_data_system"]
 	path = addons/qm_data_system
 	url = https://github.com/Mint-System/Odoo-App-QM-Data-System.git
+[submodule "addons/show_db_name"]
+	path = addons/show_db_name
+	url = https://github.com/Mint-System/Odoo-App-Show-DB-Name.git
