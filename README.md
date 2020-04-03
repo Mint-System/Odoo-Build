@@ -21,7 +21,7 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-export MODULES=base,project,hr_timesheet,timesheets_by_employee
+export MODULES=base,project,hr_timesheet
 docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart odoo-development_web_1
 ```
 
@@ -41,7 +41,7 @@ SMTP_USER=...
 Install Odoo with the smtp params.
 
 ```bash
-export MODULES=base,project,hr_timesheet,timesheets_by_employee
+export MODULES=base,project,hr_timesheet
 docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart odoo-development_web_1
 ```
 
@@ -88,7 +88,7 @@ docker-compose down -v
 ### Install custom module
 
 ```bash
-export MODULE=employee_documents_expiry
+export MODULE=show_db_name
 docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart odoo-development_web_1
 ```
 
