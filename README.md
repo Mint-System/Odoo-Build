@@ -21,8 +21,10 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-export MODULES=base,project,hr_timesheet
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart odoo-development_web_1
+MODULES=base,project,hr_timesheet
+DATABASE=odoo
+CONTAINER=odoo-development_web_1
+docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart $CONTAINER
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -41,8 +43,10 @@ SMTP_USER=...
 Install Odoo with the smtp params.
 
 ```bash
-export MODULES=base,project,hr_timesheet
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart odoo-development_web_1
+MODULES=base,project,hr_timesheet
+DATABASE=odoo
+CONTAINER=odoo-development_web_1
+docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart $CONTAINER
 ```
 
 ### Enable developer mode
@@ -88,8 +92,10 @@ docker-compose down -v
 ### Install custom module
 
 ```bash
-export MODULE=show_db_name
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart odoo-development_web_1
+MODULE=show_db_name
+DATABASE=odoo
+CONTAINER=odoo-development_web_1
+docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart $CONTAINER
 ```
 
 ### Create new db

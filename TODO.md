@@ -1,5 +1,9 @@
 # TODO
 
+## Odoo.sh
+
+- [ ] Complete tutorial https://www.odoo.com/documentation/user/13.0/odoo_sh/getting_started/first_module.html
+
 ## CI/CD
 
 - [ ] Enable ci/cd for qm_data_system
