@@ -4,3 +4,6 @@
 [submodule "addons/show_db_name"]
 	path = addons/show_db_name
 	url = https://github.com/Mint-System/Odoo-App-Show-DB-Name.git
+[submodule "addons/auth_oauth_keycloak"]
+	path = addons/auth_oauth_keycloak
+	url = https://github.com/Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
