@@ -21,7 +21,7 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-MODULES=base,project,hr_timesheet
+MODULES=base,web
 DATABASE=odoo
 CONTAINER=odoo-development_web_1
 docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart $CONTAINER
