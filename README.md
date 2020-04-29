@@ -21,9 +21,9 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-MODULES=base,web
+MODULES=base,web,website
 DATABASE=odoo
-CONTAINER=odoo-development_web_1
+CONTAINER=odoo
 docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart $CONTAINER
 ```
 
@@ -45,7 +45,7 @@ Install Odoo with the smtp params.
 ```bash
 MODULES=base,project,hr_timesheet
 DATABASE=odoo
-CONTAINER=odoo-development_web_1
+CONTAINER=odoo
 docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart $CONTAINER
 ```
 
@@ -59,13 +59,13 @@ http://localhost:8069/web?debug=1#id=&action=85&model=res.config.settings&view_t
 Scaffold a new module.
 
 ```bash
-docker exec -it odoo-development_web_1 bin/bash -c 'odoo scaffold qm_data_system /mnt/extra-addons'
+docker exec -it odoo bin/bash -c 'odoo scaffold qm_data_system /mnt/extra-addons'
 ```
 
 Restart Odoo.
 
 ```bash
-docker restart odoo-development_web_1
+docker restart odoo
 ```
 
 ### Manage database
@@ -94,14 +94,14 @@ docker-compose down -v
 ```bash
 MODULE=show_db_name
 DATABASE=odoo
-CONTAINER=odoo-development_web_1
+CONTAINER=odoo
 docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart $CONTAINER
 ```
 
 ### Create new db
 
 ```bash
-docker exec -it odoo-development_web_1 bin/bash
+docker exec -it odoo bin/bash
 createdb -h $HOST -U $USER Test
 # Enter password
 psql -h $HOST -U $USER -l
@@ -115,7 +115,7 @@ odoo -i base -c /etc/odoo/odoo.conf -d Test --db_host $HOST -r $USER -w $PASSWOR
 ### Delete db
 
 ```bash
-docker exec -it odoo-development_web_1 bin/bash
+docker exec -it odoo bin/bash
 psql -h $HOST -U $USER -l
 # Enter password
 dropdb -h $HOST -U $USER Test
@@ -126,6 +126,6 @@ dropdb -h $HOST -U $USER Test
 ### Save config
 
 ```bash
-docker exec -it odoo-development_web_1 bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
+docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
 # odoo -s -d Test --db_host $HOST -r $USER -w $PASSWORD
 ```

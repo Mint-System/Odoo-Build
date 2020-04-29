@@ -7,3 +7,6 @@
 [submodule "addons/auth_oauth_keycloak"]
 	path = addons/auth_oauth_keycloak
 	url = https://github.com/Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
+[submodule "addons/theme_mint_system"]
+	path = addons/theme_mint_system
+	url = https://github.com/Mint-System/Odoo-Theme-Mint-System.git
