@@ -21,33 +21,10 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-MODULES=base,web,website
-DATABASE=odoo
-CONTAINER=odoo
-docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init" && docker restart $CONTAINER
+./docker-install-odoo
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
-
-### Configure mail
-
-Create a `.env` file in the project root.
-
-```bash
-SMTP_PASSWORD=...
-SMTP_PORT=...
-SMTP_SERVER=...
-SMTP_USER=...
-```
-
-Install Odoo with the smtp params.
-
-```bash
-MODULES=base,project,hr_timesheet
-DATABASE=odoo
-CONTAINER=odoo
-docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=all --stop-after-init --smtp=\$SMTP_SERVER --smtp-port=\$SMTP_PORT --smtp-ssl --smtp-user=\$SMTP_USER --smtp-password=\$SMTP_PASSWORD" && docker restart $CONTAINER
-```
 
 ### Enable developer mode
 
@@ -92,10 +69,7 @@ docker-compose down -v
 ### Install custom module
 
 ```bash
-MODULE=show_db_name
-DATABASE=odoo
-CONTAINER=odoo
-docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULE -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --stop-after-init" && docker restart $CONTAINER
+./docker-odoo-install -m show_db_name
 ```
 
 ### Create new db
@@ -107,10 +81,9 @@ createdb -h $HOST -U $USER Test
 psql -h $HOST -U $USER -l
 # Enter password
 odoo -i base -c /etc/odoo/odoo.conf -d Test --db_host $HOST -r $USER -w $PASSWORD --stop-after-init
-
 ```
 
-[http://localhost:8069/?db=Test](http://localhost:8069/?db=Test)
+Open [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test) in your browser.
 
 ### Delete db
 
@@ -127,5 +100,4 @@ dropdb -h $HOST -U $USER Test
 
 ```bash
 docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
-# odoo -s -d Test --db_host $HOST -r $USER -w $PASSWORD
 ```
