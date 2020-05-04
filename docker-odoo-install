@@ -57,7 +57,7 @@ done
 [[ -z "$CONTAINER" ]] && { echo "Parameter -x|dev is empty" ; exit 1; }
 
 # Install with Docker exec
-docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=$DEV --stop-after-init" && docker restart $CONTAINER
+docker exec -it $CONTAINER bin/bash -c "odoo -i $MODULES -c /etc/odoo/odoo.conf -d $DATABASE --db_host \$HOST -r \$USER -w \$PASSWORD --dev=$DEV --without-demo=all --stop-after-init" && docker restart $CONTAINER
 
 # Notify if installation has finished
 echo "The Odoo installation for $CONTAINER has finished."

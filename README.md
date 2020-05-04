@@ -76,11 +76,13 @@ docker-compose down -v
 
 ```bash
 docker exec -it odoo bin/bash
-createdb -h $HOST -U $USER Test
+createdb -h $HOST -U $USER mint-system --locale=de_CH.utf8 --template=template0
 # Enter password
 psql -h $HOST -U $USER -l
 # Enter password
-odoo -i base -c /etc/odoo/odoo.conf -d Test --db_host $HOST -r $USER -w $PASSWORD --stop-after-init
+odoo -i base,web -c /etc/odoo/odoo.conf -d mint-system --db_host $HOST -r $USER -w $PASSWORD --without-demo=all --stop-after-init
+# Exit
+docker restart odoo
 ```
 
 Open [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test) in your browser.
@@ -91,7 +93,7 @@ Open [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test) in your br
 docker exec -it odoo bin/bash
 psql -h $HOST -U $USER -l
 # Enter password
-dropdb -h $HOST -U $USER Test
+dropdb -h $HOST -U $USER mint-system
 # Enter password
 
 ```
