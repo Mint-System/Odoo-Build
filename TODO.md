@@ -1,8 +1,8 @@
 # TODO
 
-## Mail
+## Scripts
 
-- [ ] Have a look at the odoo mail gateway
+- [ ] Add database replace option for odoo-restore
 
 ## Odoo.sh
 
@@ -10,12 +10,11 @@
 
 ## CI/CD
 
-- [ ] Enable ci/cd for qm_data_system
+- [ ] Enable ci/cd for modules
 
-## Git Submodule for odoo app
+# DONE
 
+- [x] Add backup and restore scripts
+- [x] Have a look at the odoo mail gateway
 - [x] Separate module code into git repo
-
-## App Integration
-
 - [x] Integrate third party app https://apps.odoo.com/apps/modules/13.0/timesheets_by_employee/
