@@ -1,0 +1,9 @@
+version: '2'
+
+tasks:
+  dev:
+    cmds:
+      - docker-compose up -d
+  stop:
+    cmds:
+      - docker-compose stop

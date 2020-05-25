@@ -3,3 +3,4 @@ __pycache__
 .env
 addons
 tmp
+default.vim

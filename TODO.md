@@ -1,9 +1,5 @@
 # TODO
 
-## Scripts
-
-- [ ] Add database replace option for odoo-restore
-
 ## Odoo.sh
 
 - [ ] Complete tutorial https://www.odoo.com/documentation/user/13.0/odoo_sh/getting_started/first_module.html
@@ -14,6 +10,7 @@
 
 # DONE
 
+- [x] Add database replace option for odoo-restore
 - [x] Add backup and restore scripts
 - [x] Have a look at the odoo mail gateway
 - [x] Separate module code into git repo
