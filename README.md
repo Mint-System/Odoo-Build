@@ -3,6 +3,13 @@ Odoo Development
 
 Setup Odoo development environment with Docker Compose.
 
+## Requirements
+
+The Odoo development environment has the following requirements:
+
+* [odoo-scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts/files)
+* docker-compose
+
 ## Usage
 
 Clone this repository.
@@ -21,7 +28,7 @@ docker-compose up -d
 Initialize database and install modules.
 
 ```bash
-./docker-install-odoo
+docker-install-odoo
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -69,7 +76,7 @@ docker-compose down -v
 ### Install custom module
 
 ```bash
-./docker-odoo-install -m show_db_name
+docker-odoo-install -m show_db_name
 ```
 
 ### Create new db
@@ -95,7 +102,6 @@ psql -h $HOST -U $USER -l
 # Enter password
 dropdb -h $HOST -U $USER mint-system
 # Enter password
-
 ```
 
 ### Save config
