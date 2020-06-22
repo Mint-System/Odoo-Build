@@ -27,17 +27,19 @@ services:
     ports:
       - "8000:80"
     environment:
-      PGADMIN_DEFAULT_EMAIL: admin@admin.com
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - odoo-pgadmin-data:/var/lib/pgadmin
   db:
     container_name: db
     image: postgres:10
+    ports:
+      - "5432:5432"
     environment:
-      POSTGRES_DB: postgres
-      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: odoo
       POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata

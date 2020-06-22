@@ -1,16 +1,43 @@
 Odoo Development
 ================
 
-Setup Odoo development environment with Docker Compose.
+The Mint System Odoo development environment.
+
+This projects provides a highly opiniated way to develope Odoo and Odoo modules. It supports the following scenarios:
+
+**Docker Compose**
+
+Spin up a Odoo, Postgres and PGadmin Docker container and experiment locally.
+
+**Import and Export Database**
+
+Use Odoo scripts to copy and restore a remote customer database in the local development environment. Investigate issues and deploy the database at whish.
+
+**Community Edition**
+
+Checkout the Odoo Community Edition and start editing source code.
+
+**Enterprise Modules**
+
+Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
+
+**Develope Modules**
+
+Scaffold a new module and develope new Odoo features locally.
 
 ## Requirements
 
 The Odoo development environment has the following requirements:
 
-* [odoo-scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts/files)
-* docker-compose
+* [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts/files)
+* [Docker Compose](https://docs.docker.com/compose/)
+* Python3
+* [Task](https://taskfile.dev/)
+* wkhtmltopdf
 
 ## Usage
+
+The usage section is set of recipes. Pick the one required according the scenarios.
 
 Clone this repository.
 
@@ -19,10 +46,12 @@ git clone https://github.com/Mint-System/Odoo-Development.git odoo-development
 cd odoo-development
 ```
 
+### Install Odoo with Docker
+
 Run docker compose.
 
 ```bash
-docker-compose up -d
+task up
 ```
 
 Initialize database and install modules.
@@ -35,15 +64,37 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 ### Enable developer mode
 
-Navigate to the [settings page](
-http://localhost:8069/web?debug=1#id=&action=85&model=res.config.settings&view_type=form&cids=&menu_id=4) and click on *Activate the developer mode (with assets)*.
+Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
 
-### Create new module
+### Install Odoo source requirements
+
+Pull the `odoo` submodule and install the python dependencies.
+
+```bash
+git submodule update odoo 
+cd odoo
+sudo pip3 install setuptools wheel watchdog
+sudo pip3 install -r requirements.txt
+```
+
+## Run database container only
+
+```bash
+task up-db
+```
+
+### Start Odoo from source
+
+```bash
+task src-run
+```
+
+### Create new module with Docker
 
 Scaffold a new module.
 
 ```bash
-docker exec -it odoo bin/bash -c 'odoo scaffold qm_data_system /mnt/extra-addons'
+docker exec -it odoo odoo scaffold sales-customization /mnt/extra-addons
 ```
 
 Restart Odoo.
@@ -52,7 +103,7 @@ Restart Odoo.
 docker restart odoo
 ```
 
-### Manage database
+### Manage database with Docker
 
 Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin:admin`.
 
@@ -65,7 +116,7 @@ Username: odoo
 Password: odoo
 ```
 
-### Uninstall
+### Remove Docker conainers
 
 Kill docker containers.
 
@@ -73,13 +124,13 @@ Kill docker containers.
 docker-compose down -v
 ```
 
-### Install custom module
+### Install custom module with Odoo scripts
 
 ```bash
 docker-odoo-install -m show_db_name
 ```
 
-### Create new db
+### Create new database with  Docker
 
 ```bash
 docker exec -it odoo bin/bash
@@ -94,7 +145,7 @@ docker restart odoo
 
 Open [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test) in your browser.
 
-### Delete db
+### Delete database with Docker
 
 ```bash
 docker exec -it odoo bin/bash
@@ -104,8 +155,14 @@ dropdb -h $HOST -U $USER mint-system
 # Enter password
 ```
 
-### Save config
+### Save config with Docker
 
 ```bash
 docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
+```
+
+### Stop all Docker containers
+
+```
+task stop
 ```

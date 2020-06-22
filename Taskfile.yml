@@ -1,9 +1,20 @@
 version: '2'
 
 tasks:
-  dev:
+  up:
     cmds:
       - docker-compose up -d
   stop:
     cmds:
       - docker-compose stop
+  up-db:
+    cmds:
+      - docker-compose up -d db
+  src-run:
+    dir: odoo
+    cmds:
+      - python3 odoo-bin --addons-path=addons,../addons,../enterprise --db_host=localhost -r odoo -w odoo --dev all
+  src-scaffold:
+    dir: odoo
+    cmds:
+      - python3 odoo-bin scaffold sales_order_description ../addons

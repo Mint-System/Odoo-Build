@@ -10,3 +10,12 @@
 [submodule "addons/theme_mint_system"]
 	path = addons/theme_mint_system
 	url = https://github.com/Mint-System/Odoo-Theme-Mint-System.git
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+[submodule "addons/sale_order_description"]
+	path = addons/sale_order_description
+	url = https://github.com/Mint-System/Odoo-App-Sale-Order-Description.git
