@@ -19,6 +19,7 @@ services:
       - odoo-odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - ./enterprise:/mnt/enterprise-addons
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
