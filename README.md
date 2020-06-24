@@ -57,7 +57,7 @@ task up
 Initialize database and install modules.
 
 ```bash
-docker-install-odoo
+docker-odoo-install
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
