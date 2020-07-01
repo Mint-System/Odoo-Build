@@ -19,3 +19,6 @@
 [submodule "addons/sale_order_description"]
 	path = addons/sale_order_description
 	url = https://github.com/Mint-System/Odoo-App-Sale-Order-Description.git
+[submodule "oca/project"]
+	path = oca/project
+	url = git@github.com:OCA/project.git

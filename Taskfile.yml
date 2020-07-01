@@ -13,7 +13,7 @@ tasks:
   src-run:
     dir: odoo
     cmds:
-      - python3 odoo-bin --addons-path=addons,../addons,../enterprise --db_host=localhost -r odoo -w odoo --dev all
+      - python3 odoo-bin --addons-path=addons,../addons,../enterprise,../oca/project --db_host=localhost -r odoo -w odoo --dev all
   src-scaffold:
     dir: odoo
     cmds:
