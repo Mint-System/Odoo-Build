@@ -22,3 +22,6 @@
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
+[submodule "addons/rest_api"]
+	path = addons/rest_api
+	url = git@github.com:yezyilomo/odoo-rest-api.git

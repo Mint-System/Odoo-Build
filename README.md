@@ -166,3 +166,16 @@ docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w 
 ```
 task stop
 ```
+
+### Install Odoo REST API dependencies
+
+```
+sudo pip3 install -r addons/rest_api/requirements.txt 
+```
+
+Or with Docker:
+
+```
+docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
+docker restart odoo
+```
