@@ -86,7 +86,7 @@ task up-db
 ### Start Odoo from source
 
 ```bash
-task src-run
+task up-src
 ```
 
 ### Create new module with Docker

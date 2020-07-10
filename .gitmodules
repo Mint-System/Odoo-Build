@@ -25,3 +25,6 @@
 [submodule "addons/rest_api"]
 	path = addons/rest_api
 	url = git@github.com:yezyilomo/odoo-rest-api.git
+[submodule "oca/l10n-switzerland"]
+	path = oca/l10n-switzerland
+	url = git@github.com:OCA/l10n-switzerland.git

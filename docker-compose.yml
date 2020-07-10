@@ -20,6 +20,8 @@ services:
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
       - ./enterprise:/mnt/enterprise-addons
+      - ./oca/l10n-switzerland:/mnt/oca/l10n-switzerland
+      - ./oca/project/:/mnt/oca/project
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
