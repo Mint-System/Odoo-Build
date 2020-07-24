@@ -4,3 +4,4 @@ __pycache__
 addons
 tmp
 default.vim
+managed-modules

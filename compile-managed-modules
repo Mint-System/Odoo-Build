@@ -1,0 +1,35 @@
+#!/bin/zsh
+
+# Create tag
+# git tag -a 1 -m "v1"
+
+# Show hash for tag
+# git rev-list -n 1 1   
+
+# Tag list
+# 1 b2bef9525fe5c51e0f5c8c7ae5d680b39b7c4ad8
+
+GIT_TAG=1
+ODOO_VERSION=13.0
+ODOO_ENTERPRISE_PATH="$(pwd)/enterprise"
+
+for module in "${(@f)"$(<managed_modules.txt)"}"
+{
+
+    # get version of module
+    VERSION=$(echo "{ $(grep 'version' $ODOO_ENTERPRISE_PATH/$module/__manifest__.py) }" | sed "s/'/\"/g" | sed "s/,//g" | jq .version | sed 's/"//g' | sed 's/null//g')
+
+    # set default version
+    [ -z "$VERSION" ] && VERSION=0.0
+
+    echo "Copy module $module version $VERSION to managed folder"
+    mkdir -p managed-modules
+    MANAGED_MODULE=managed-modules/$module-$ODOO_VERSION.$VERSION.$GIT_TAG
+    cp -r $ODOO_ENTERPRISE_PATH/$module $MANAGED_MODULE
+
+    echo "Remove auto install option"
+    sed -i '' -e "s/'auto_install': True,/'auto_install': False,/" $MANAGED_MODULE/__manifest__.py
+
+    echo "zip module $module"
+    zip -q -r  $MANAGED_MODULE.zip $MANAGED_MODULE
+}
