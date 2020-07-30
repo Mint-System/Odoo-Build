@@ -1,0 +1,10 @@
+#!/bin/zsh
+
+ODOO_ENTERPRISE_PATH="$(pwd)/enterprise"
+ODOO_ADDONS_PATH="$(pwd)/addons"
+
+for module in "${(@f)"$(<managed_modules.txt)"}"
+{
+    echo "Copy module $module to addons folder"
+    cp -r $ODOO_ENTERPRISE_PATH/$module $ODOO_ADDONS_PATH/$module
+}

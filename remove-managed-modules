@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+ODOO_ADDONS_PATH="$(pwd)/addons"
+
+for module in "${(@f)"$(<managed_modules.txt)"}"
+{
+    echo "Remove module $module from addons folder"
+    rm -rf $ODOO_ADDONS_PATH/$module
+}

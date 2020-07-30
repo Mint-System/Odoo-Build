@@ -2,7 +2,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: odoo:13-de33ddfad71f
+    image: odoo:b073a2f2d68c
     depends_on:
       - db
     environment:
@@ -19,8 +19,8 @@ services:
       - odoo-odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
-      - ./enterprise:/mnt/enterprise-addons
-      - ./oca/project/:/mnt/oca/project
+      # - ./enterprise:/mnt/enterprise-addons
+      # - ./oca/project/:/mnt/oca/project
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
