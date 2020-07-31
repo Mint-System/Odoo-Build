@@ -77,7 +77,7 @@ sudo pip3 install setuptools wheel watchdog
 sudo pip3 install -r requirements.txt
 ```
 
-## Run database container only
+### Run database container only
 
 ```bash
 task up-db
@@ -179,3 +179,17 @@ Or with Docker:
 docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
 docker restart odoo
 ```
+
+### Setup managed modules
+
+Update the entries in the list `managed_modules.txt`.
+
+Checkout a specific git revision in the Odoo enterprise repository.
+
+Run the script `compile-managed-modules` to create zip files for the managed modules.
+
+### Load and unload managed modules
+
+Run the script `copy-managed-modules` to load the managed modules into the addons folder.
+
+Execute the script `remove-managed-mdoules` to delete the managed modules from the addons folder.
