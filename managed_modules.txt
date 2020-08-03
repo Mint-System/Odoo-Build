@@ -42,3 +42,5 @@ hr_holidays_gantt
 web_dashboard
 sale_enterprise
 sale_timesheet_enterprise
+account_invoice_extract
+project_enterprise
