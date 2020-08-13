@@ -28,3 +28,12 @@
 [submodule "oca/l10n-switzerland"]
 	path = oca/l10n-switzerland
 	url = git@github.com:OCA/l10n-switzerland.git
+[submodule "oca/management-system"]
+	path = oca/management-system
+	url = git@github.com:OCA/management-system.git
+[submodule "oca/knowledge"]
+	path = oca/knowledge
+	url = git@github.com:OCA/knowledge.git
+[submodule "oca/crm"]
+	path = oca/crm
+	url = git@github.com:OCA/crm.git

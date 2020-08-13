@@ -19,6 +19,9 @@ services:
       - odoo-odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/extra-addons
+      - ./oca/management-system:/mnt/oca/management-system
+      - ./oca/knowledge:/mnt/oca/knowledge
+      - ./oca/knowledge:/mnt/oca/crm
       # - ./enterprise:/mnt/enterprise-addons
       # - ./oca/project/:/mnt/oca/project
   pgadmin:
