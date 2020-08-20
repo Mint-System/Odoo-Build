@@ -37,3 +37,6 @@
 [submodule "oca/crm"]
 	path = oca/crm
 	url = git@github.com:OCA/crm.git
+[submodule "oca/timesheet"]
+	path = oca/timesheet
+	url = git@github.com:OCA/timesheet.git
