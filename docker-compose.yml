@@ -18,7 +18,7 @@ services:
     volumes:
       - odoo-odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ./addons:/mnt/extra-addons
+      - ./addons:/mnt/addons
       - ./oca/management-system:/mnt/oca/management-system
       - ./oca/knowledge:/mnt/oca/knowledge
       - ./oca/knowledge:/mnt/oca/crm
@@ -36,6 +36,7 @@ services:
       PGADMIN_DEFAULT_PASSWORD: admin
     volumes:
       - odoo-pgadmin-data:/var/lib/pgadmin
+      - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
     image: postgres:10

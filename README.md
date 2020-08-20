@@ -163,19 +163,19 @@ docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w 
 
 ### Stop all Docker containers
 
-```
+```bash
 task stop
 ```
 
 ### Install Odoo REST API dependencies
 
-```
+```bash
 sudo pip3 install -r addons/rest_api/requirements.txt 
 ```
 
 Or with Docker:
 
-```
+```bash
 docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
 docker restart odoo
 ```
@@ -193,3 +193,9 @@ Run the script `compile-managed-modules` to create zip files for the managed mod
 Run the script `copy-managed-modules` to load the managed modules into the addons folder.
 
 Execute the script `remove-managed-mdoules` to delete the managed modules from the addons folder.
+
+### Export pgAdmin connections
+
+```bash
+docker exec -it pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com && cat /var/tmp/servers.json
+```
