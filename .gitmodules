@@ -40,3 +40,6 @@
 [submodule "oca/timesheet"]
 	path = oca/timesheet
 	url = git@github.com:OCA/timesheet.git
+[submodule "oca/web"]
+	path = oca/web
+	url = git@github.com:OCA/web.git
