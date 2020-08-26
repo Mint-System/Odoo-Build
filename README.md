@@ -62,19 +62,32 @@ docker-odoo-install
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-### Enable developer mode
+### Create and activate virtual env
 
-Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
+Create and acivate the virutal env.
+```bash
+cd odoo
+python3 -m venv venv
+source venv/bin/activate
+```
 
 ### Install Odoo source requirements
 
 Pull the `odoo` submodule and install the python dependencies.
 
 ```bash
-git submodule update odoo 
+git submodule update odoo
 cd odoo
-sudo pip3 install setuptools wheel watchdog
-sudo pip3 install -r requirements.txt
+pip3 install setuptools wheel watchdog
+pip3 install -r requirements.txt
+```
+
+**Py3o Repot Engine**
+
+If you are using the py3o report engine additional packages are required:
+
+```bash
+pip3 install py3o.template py3o.formats
 ```
 
 ### Run database container only
@@ -88,6 +101,10 @@ task up-db
 ```bash
 task up-src
 ```
+
+### Enable developer mode
+
+Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
 
 ### Create new module with Docker
 
@@ -105,16 +122,7 @@ docker restart odoo
 
 ### Manage database with Docker
 
-Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin:admin`.
-
-Add a new database connection with these credentials:
-
-```conf
-Name: odoo
-Host: db
-Username: odoo
-Password: odoo
-```
+Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
 ### Remove Docker conainers
 
@@ -130,7 +138,7 @@ docker-compose down -v
 docker-odoo-install -m show_db_name
 ```
 
-### Create new database with  Docker
+### Create new database with Docker
 
 ```bash
 docker exec -it odoo bin/bash

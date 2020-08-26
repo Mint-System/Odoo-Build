@@ -43,3 +43,9 @@
 [submodule "oca/web"]
 	path = oca/web
 	url = git@github.com:OCA/web.git
+[submodule "oca/reporting-engine"]
+	path = oca/reporting-engine
+	url = https://github.com/OCA/reporting-engine
+[submodule "oca/server-auth"]
+	path = oca/server-auth
+	url = git@github.com:OCA/server-auth.git
