@@ -10,6 +10,9 @@
 [submodule "addons/theme_mint_system"]
 	path = addons/theme_mint_system
 	url = https://github.com/Mint-System/Odoo-Theme-Mint-System.git
+[submodule "addons/stock_report"]
+	path = addons/stock_report
+	url = https://github.com/Mint-System/Odoo-App-Stock-Report.git
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git

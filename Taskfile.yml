@@ -10,10 +10,14 @@ tasks:
   up-db:
     cmds:
       - docker-compose up -d db pgadmin
+  src-install:
+    dir: odoo
+    cmds:
+      - source venv/bin/activate && ./odoo-bin --addons-path=addons --init base,web -d odoo --db_host=localhost -r odoo -w odoo --dev all
   up-src:
     dir: odoo
     cmds:
-      - source venv/bin/activate && ./odoo-bin --addons-path=addons,../addons,../enterprise,../oca/project,../oca/reporting-engine --db_host=localhost -r odoo -w odoo --dev all
+      - source venv/bin/activate && ./odoo-bin --config=../config/odoo-src.conf --db_host=localhost -r odoo -w odoo --dev all
   src-scaffold:
     dir: odoo
     cmds:

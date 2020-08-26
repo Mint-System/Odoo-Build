@@ -31,7 +31,7 @@ The Odoo development environment has the following requirements:
 
 * [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts/files)
 * [Docker Compose](https://docs.docker.com/compose/)
-* Python3
+* Python 3.7.X
 * [Task](https://taskfile.dev/)
 * wkhtmltopdf
 
@@ -46,7 +46,11 @@ git clone https://github.com/Mint-System/Odoo-Development.git odoo-development
 cd odoo-development
 ```
 
-### Install Odoo with Docker
+### Docker
+
+Run Odoo as Docker container.
+
+#### Install Odoo with Docker
 
 Run docker compose.
 
@@ -62,51 +66,7 @@ docker-odoo-install
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-### Create and activate virtual env
-
-Create and acivate the virutal env.
-```bash
-cd odoo
-python3 -m venv venv
-source venv/bin/activate
-```
-
-### Install Odoo source requirements
-
-Pull the `odoo` submodule and install the python dependencies.
-
-```bash
-git submodule update odoo
-cd odoo
-pip3 install setuptools wheel watchdog
-pip3 install -r requirements.txt
-```
-
-**Py3o Repot Engine**
-
-If you are using the py3o report engine additional packages are required:
-
-```bash
-pip3 install py3o.template py3o.formats
-```
-
-### Run database container only
-
-```bash
-task up-db
-```
-
-### Start Odoo from source
-
-```bash
-task up-src
-```
-
-### Enable developer mode
-
-Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
-
-### Create new module with Docker
+#### Create new module with Docker
 
 Scaffold a new module.
 
@@ -120,40 +80,28 @@ Restart Odoo.
 docker restart odoo
 ```
 
-### Manage database with Docker
-
-Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
-
-### Remove Docker conainers
-
-Kill docker containers.
-
-```bash
-docker-compose down -v
-```
-
-### Install custom module with Odoo scripts
+#### Install custom module with Odoo scripts
 
 ```bash
 docker-odoo-install -m show_db_name
 ```
 
-### Create new database with Docker
+#### Create new database with Docker
 
 ```bash
 docker exec -it odoo bin/bash
-createdb -h $HOST -U $USER mint-system --locale=de_CH.utf8 --template=template0
+createdb -h $HOST -U $USER odoo2 --locale=de_CH.utf8 --template=template0
 # Enter password
 psql -h $HOST -U $USER -l
 # Enter password
-odoo -i base,web -c /etc/odoo/odoo.conf -d mint-system --db_host $HOST -r $USER -w $PASSWORD --without-demo=all --stop-after-init
+odoo -i base,web -c /etc/odoo/odoo.conf -d odoo2 --db_host $HOST -r $USER -w $PASSWORD --without-demo=all --stop-after-init
 # Exit
 docker restart odoo
 ```
 
 Open [http://localhost:8069/?db=Test](http://localhost:8069/?db=Test) in your browser.
 
-### Delete database with Docker
+#### Delete database with Docker
 
 ```bash
 docker exec -it odoo bin/bash
@@ -163,22 +111,102 @@ dropdb -h $HOST -U $USER mint-system
 # Enter password
 ```
 
-### Save config with Docker
+#### Save config with Docker
 
 ```bash
 docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
 ```
 
-### Stop all Docker containers
+### Source
+
+Run Odoo from source.
+
+#### Create and activate virtual env
+
+Create and acivate the virutal env.
+```bash
+cd odoo
+python3 -m venv venv
+source venv/bin/activate
+```
+
+#### Install Odoo source requirements
+
+Pull the `odoo` submodule and install the python dependencies.
+
+```bash
+git submodule update odoo
+cd odoo
+pip install setuptools wheel watchdog phonenumbers
+pip install -r requirements.txt
+```
+
+**Py3o Report Engine**
+
+If you are using the py3o report engine additional packages are required:
+
+```bash
+pip install py3o.template py3o.formats
+# Macos
+brew cask install libreoffice
+# Ubuntu
+apt-get --no-install-recommends install libreoffice
+```
+
+#### Run database container only
+
+```bash
+task up-db
+```
+
+#### Install Odoo from source
+
+```bash
+task src-install
+```
+
+#### Start Odoo from source
+
+```bash
+task up-src
+```
+
+#### Create a new module from source
+
+
+```bash
+cd odoo
+./odoo-bin scaffold project_report ../addons
+```
+
+### Common
+
+#### Enable developer mode
+
+Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
+
+#### Manage database with Docker
+
+Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
+
+#### Remove Docker conainers
+
+Kill docker containers.
+
+```bash
+docker-compose down -v
+```
+
+#### Stop all Docker containers
 
 ```bash
 task stop
 ```
 
-### Install Odoo REST API dependencies
+#### Install Odoo REST API dependencies
 
 ```bash
-sudo pip3 install -r addons/rest_api/requirements.txt 
+pip install -r addons/rest_api/requirements.txt 
 ```
 
 Or with Docker:
@@ -188,7 +216,7 @@ docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
 docker restart odoo
 ```
 
-### Setup managed modules
+#### Setup managed modules
 
 Update the entries in the list `managed_modules.txt`.
 
@@ -196,13 +224,13 @@ Checkout a specific git revision in the Odoo enterprise repository.
 
 Run the script `compile-managed-modules` to create zip files for the managed modules.
 
-### Load and unload managed modules
+#### Load and unload managed modules
 
 Run the script `copy-managed-modules` to load the managed modules into the addons folder.
 
 Execute the script `remove-managed-mdoules` to delete the managed modules from the addons folder.
 
-### Export pgAdmin connections
+#### Export pgAdmin connections
 
 ```bash
 docker exec -it pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com && cat /var/tmp/servers.json
