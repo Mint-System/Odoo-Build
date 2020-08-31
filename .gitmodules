@@ -52,3 +52,6 @@
 [submodule "oca/server-auth"]
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
