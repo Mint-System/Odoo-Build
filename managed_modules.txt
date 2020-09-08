@@ -44,3 +44,13 @@ sale_enterprise
 sale_timesheet_enterprise
 account_invoice_extract
 project_enterprise
+mrp_plm
+purchase_enterprise
+web_responsive
+project_key
+project_stage_closed
+web_ir_actions_act_multi
+web_ir_actions_act_view_reload
+hr_timesheet_task_domain
+hr_timesheet_task_stage
+project_timesheet_time_control

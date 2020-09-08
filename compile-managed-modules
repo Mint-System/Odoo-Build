@@ -17,25 +17,41 @@
 
 GIT_TAG=1
 ODOO_VERSION=13.0
-ODOO_ENTERPRISE_PATH="$(pwd)/enterprise"
+ODOO_PATHS=( "$(pwd)/enterprise" "$(pwd)/oca/web" "$(pwd)/oca/project" "$(pwd)/oca/timesheet" )
+MODULES=($(awk -F= '{print $1}' managed_modules.txt))
 
-for module in "${(@f)"$(<managed_modules.txt)"}"
-{
+for MODULE in "${MODULES[@]}"
+do
+    for ODOO_PATH in "${ODOO_PATHS[@]}"
+    do
+        MODULE_PATH="$ODOO_PATH/$MODULE"
 
-    # get version of module
-    VERSION=$(echo "{ $(grep 'version' $ODOO_ENTERPRISE_PATH/$module/__manifest__.py) }" | sed "s/'/\"/g" | sed "s/,//g" | jq .version | sed 's/"//g' | sed 's/null//g')
+        if [[ -d "$MODULE_PATH" ]]
+        then
+            # get version of module
+            VERSION=$(grep 'version' "$MODULE_PATH/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
+            VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
-    # set default version
-    [ -z "$VERSION" ] && VERSION=0.0
+            # set default version
+            [ -z "$VERSION" ] && VERSION=0.0
 
-    echo "Copy module $module version $VERSION to managed folder"
-    mkdir -p managed-modules
-    MANAGED_MODULE=managed-modules/$module-$ODOO_VERSION.$VERSION.$GIT_TAG
-    cp -r $ODOO_ENTERPRISE_PATH/$module $MANAGED_MODULE
+            # check if oca version or enterprise version
+            if echo "$VERSION" | grep -q "^[0-9]\." 
+            then
+                VERSION=$ODOO_VERSION.$VERSION.$GIT_TAG
+            fi
 
-    echo "Remove auto install option"
-    sed -i '' -e "s/'auto_install': True,/'auto_install': False,/" $MANAGED_MODULE/__manifest__.py
+            # copy module to managed folder
+            echo "Copy module $MODULE $VERSION to managed folder"
+            mkdir -p managed-modules
+            MANAGED_MODULE_PATH="managed-modules/$MODULE-$VERSION"
+            cp -r $MODULE_PATH $MANAGED_MODULE_PATH
 
-    echo "zip module $module"
-    zip -q -r  $MANAGED_MODULE.zip $MANAGED_MODULE
-}
+            # configure and zip module
+            echo "Remove auto install option"
+            sed -i '' -e "s/'auto_install': True,/'auto_install': False,/" $MANAGED_MODULE_PATH/__manifest__.py
+            echo "zip module $MODULE"
+            zip -q -r  $MANAGED_MODULE_PATH.zip $MANAGED_MODULE_PATH
+        fi
+    done
+done

@@ -22,7 +22,7 @@ services:
       - ./oca/management-system:/mnt/oca/management-system
       - ./oca/knowledge:/mnt/oca/knowledge
       - ./oca/knowledge:/mnt/oca/crm
-      - ./enterprise:/mnt/enterprise
+      # - ./enterprise:/mnt/enterprise
       - ./oca/project/:/mnt/oca/project
   pgadmin:
     container_name: pgadmin
