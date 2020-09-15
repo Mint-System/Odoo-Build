@@ -233,5 +233,5 @@ Execute the script `remove-managed-mdoules` to delete the managed modules from t
 #### Export pgAdmin connections
 
 ```bash
-docker exec -it pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com && cat /var/tmp/servers.json
+docker exec pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com; cat /var/tmp/servers.json
 ```
