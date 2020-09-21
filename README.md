@@ -114,7 +114,8 @@ dropdb -h $HOST -U $USER mint-system
 #### Save config with Docker
 
 ```bash
-docker exec -it odoo bin/bash -c "odoo -s -d Test --db_host \$HOST -r \$USER -w \$PASSWORD"
+docker exec -it odoo bin/bash -c "odoo -s -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD"
+
 ```
 
 ### Source
