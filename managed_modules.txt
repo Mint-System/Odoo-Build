@@ -54,3 +54,6 @@ web_ir_actions_act_view_reload
 hr_timesheet_task_domain
 hr_timesheet_task_stage
 project_timesheet_time_control
+stock_barcode
+stock_barcode_mobile
+stock_barcode_quality_control

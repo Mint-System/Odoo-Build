@@ -1,0 +1,69 @@
+#!/bin/zsh
+
+function start() {
+    docker-compose up -d
+}
+
+function stop() {
+    docker-compose stop
+}
+
+function start-db() {
+    docker-compose up -d db pgadmin
+}
+
+function src-install() {
+    cd odoo
+    source venv/bin/activate && ./odoo-bin --addons-path=addons --init base,web -d odoo --db_host=localhost -r odoo -w odoo --dev all
+    cd ..
+}
+
+function start-src() {
+    cd odoo
+    source venv/bin/activate && ./odoo-bin --config=../config/odoo-src.conf --db_host=localhost -r odoo -w odoo --dev all
+    cd ..
+}
+
+function src-scaffold() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        cd odoo
+        python3 odoo-bin scaffold $1 ../addons
+        cd ..
+    fi
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    start-db)
+        start-db
+        ;;
+    src-install)
+        src-install
+        ;;
+    start-src)
+        start-src
+        ;;
+    src-scaffold)
+        src-scaffold $2
+        ;;
+    compile-managed-modules)
+        ./scripts/compile-managed-modules
+        ;;
+    copy-managed-modules)
+        ./scripts/copy-managed-modules
+        ;;
+    remove-managed-modules)
+        ./scripts/remove-managed-modules
+        ;;
+    *)
+        echo $"Usage: $0 {start||stop|start-db|src-install|start-src|src-scaffold|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
+        exit 1
+esac

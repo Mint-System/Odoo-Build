@@ -32,8 +32,8 @@ The Odoo development environment has the following requirements:
 * [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts/files)
 * [Docker Compose](https://docs.docker.com/compose/)
 * Python 3.7.X
-* [Task](https://taskfile.dev/)
 * wkhtmltopdf
+* bash/zsh alias `task='task'`
 
 ## Usage
 
@@ -55,7 +55,7 @@ Run Odoo as Docker container.
 Run docker compose.
 
 ```bash
-task up
+task start
 ```
 
 Initialize database and install modules.
@@ -71,7 +71,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 Scaffold a new module.
 
 ```bash
-docker exec -it odoo odoo scaffold sales-customization /mnt/extra-addons
+task src-scaffold sales-customization
 ```
 
 Restart Odoo.
@@ -115,7 +115,6 @@ dropdb -h $HOST -U $USER mint-system
 
 ```bash
 docker exec -it odoo bin/bash -c "odoo -s -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD"
-
 ```
 
 ### Source
@@ -124,7 +123,7 @@ Run Odoo from source.
 
 #### Create and activate virtual env
 
-Create and acivate the virutal env.
+Create and activate the virutal env.
 ```bash
 cd odoo
 python3 -m venv venv
@@ -157,7 +156,7 @@ apt-get --no-install-recommends install libreoffice
 #### Run database container only
 
 ```bash
-task up-db
+task start-db
 ```
 
 #### Install Odoo from source
@@ -169,7 +168,7 @@ task src-install
 #### Start Odoo from source
 
 ```bash
-task up-src
+task start-src
 ```
 
 #### Create a new module from source
@@ -192,7 +191,7 @@ Open database manager [http://localhost:8000/](http://localhost:8000/) and login
 
 #### Remove Docker conainers
 
-Kill docker containers.
+Kill docker containers and volumes.
 
 ```bash
 docker-compose down -v
@@ -223,13 +222,13 @@ Update the entries in the list `managed_modules.txt`.
 
 Checkout a specific git revision in the Odoo enterprise repository.
 
-Run the script `compile-managed-modules` to create zip files for the managed modules.
+Run `task compile-managed-modules` to create zip files for the managed modules.
 
 #### Load and unload managed modules
 
-Run the script `copy-managed-modules` to load the managed modules into the addons folder.
+Run `task copy-managed-modules` to load the managed modules into the addons folder.
 
-Execute the script `remove-managed-mdoules` to delete the managed modules from the addons folder.
+Execute the script `task remove-managed-mdoules` to delete the managed modules from the addons folder.
 
 #### Export pgAdmin connections
 
