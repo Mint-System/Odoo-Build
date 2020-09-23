@@ -2,8 +2,10 @@
 
 ODOO_ADDONS_PATH="$(pwd)/addons"
 
-for module in "${(@f)"$(<managed_modules.txt)"}"
+for MODULE in "${(@f)"$(<managed_modules.txt)"}"
 {
-    echo "Remove module $module from addons folder"
-    rm -rf $ODOO_ADDONS_PATH/$module
+    MODULE=$(basename "$MODULE")
+
+    echo "Remove module $MODULE from addons folder"
+    rm -rf $ODOO_ADDONS_PATH/$MODULE
 }

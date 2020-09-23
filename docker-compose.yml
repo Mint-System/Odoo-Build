@@ -19,11 +19,8 @@ services:
       - odoo-odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/addons
-      - ./oca/management-system:/mnt/oca/management-system
-      - ./oca/knowledge:/mnt/oca/knowledge
-      - ./oca/knowledge:/mnt/oca/crm
+      - ./oca:/mnt/oca
       # - ./enterprise:/mnt/enterprise
-      - ./oca/project/:/mnt/oca/project
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4
