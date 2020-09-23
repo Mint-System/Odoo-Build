@@ -12,6 +12,11 @@ function start-db() {
     docker-compose up -d db pgadmin
 }
 
+function log() {
+    docker logs odoo -f
+}
+
+
 function src-install() {
     cd odoo
     source venv/bin/activate && ./odoo-bin --addons-path=addons --init base,web -d odoo --db_host=localhost -r odoo -w odoo --dev all
@@ -41,6 +46,9 @@ case "$1" in
         ;;
     stop)
         stop
+        ;;
+    log)
+        log
         ;;
     start-db)
         start-db
