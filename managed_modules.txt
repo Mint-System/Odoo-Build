@@ -52,7 +52,7 @@ oca/project/project_stage_closed
 oca/web/web_ir_actions_act_multi
 oca/web/web_ir_actions_act_view_reload
 oca/timesheet/hr_timesheet_task_domain
-oca/timesheethr_timesheet_task_stage
+oca/timehseet/timesheethr_timesheet_task_stage
 oca/project/project_timesheet_time_control
 enterprise/stock_barcode
 enterprise/stock_barcode_mobile
