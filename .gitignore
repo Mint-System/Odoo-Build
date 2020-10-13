@@ -5,3 +5,4 @@ addons
 tmp
 default.vim
 managed-modules
+venv
