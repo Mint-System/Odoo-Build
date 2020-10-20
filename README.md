@@ -109,7 +109,7 @@ task start-db
 Initialize database
 
 ```bash
-task install-src
+task init-db
 ```
 
 Start Odoo from source

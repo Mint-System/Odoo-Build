@@ -55,3 +55,6 @@
 [submodule "oca/social"]
 	path = oca/social
 	url = git@github.com:OCA/social.git
+[submodule "addons/certificate_planer"]
+	path = addons/certificate_planer
+	url = https://github.com/Mint-System/Certificate-Planer.git
