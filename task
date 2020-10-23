@@ -52,6 +52,13 @@ function start-src() {
     cd ..
 }
 
+function update-module() {
+    cd odoo
+    locale
+    activate-venv && ./odoo-bin -u $1 -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    cd ..
+}
+
 function scaffold-src() {
     if test -z "$1" 
     then
@@ -98,6 +105,9 @@ case "$1" in
     start-src)
         start-src
         ;;
+    update-module)
+        update-module $2
+        ;;
     scaffold-src)
         scaffold-src $2
         ;;
@@ -114,6 +124,6 @@ case "$1" in
         ./scripts/remove-managed-modules
         ;;
     *)
-        echo $"Usage: $0 {start||stop|start-db|install-src|init-db|start-src|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
+        echo $"Usage: $0 {start||stop|start-db|install-src|init-db|start-sr|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
         exit 1
 esac

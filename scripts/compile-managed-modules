@@ -1,20 +1,5 @@
 #!/bin/zsh
 
-# Create tag on the enterprise repo
-# git tag -a v1 -m "v1"
-
-# Show hash for tag
-# git rev-list -n 1 v1 
-
-# Enterprise repo tag and hash list
-# v1 b2bef9525fe5c51e0f5c8c7ae5d680b39b7c4ad8
-
-# Odoo Docker repo tag and hash list
-# v1 odoo@sha256:27098953285743cdf4152b0c6f3678d573327b7d9acb61a2dffeb3224bcaa852 
-
-# Tag the docker image
-# docker tag b073a2f2d68c odoo:b073a2f2d68c
-
 GIT_TAG=1
 ODOO_VERSION=13.0
 MODULES=($(awk -F= '{print $1}' managed_modules.txt))
