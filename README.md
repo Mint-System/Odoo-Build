@@ -32,6 +32,18 @@ git clone https://github.com/Mint-System/Odoo-Development.git odoo-development
 cd odoo-development
 ```
 
+Clone submodules.
+
+```bash
+git submodule update --init --recursive
+```
+
+Disable auto install for Odoo apps.
+
+```bash
+task disable-auto-install
+```
+
 ### Docker
 
 Run Odoo with Docker container.
@@ -44,7 +56,7 @@ Run docker compose.
 task start
 ```
 
-Initialize database and install modules.
+Initialize database.
 
 ```bash
 docker-odoo-install
@@ -52,7 +64,7 @@ docker-odoo-install
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-#### Install custom module with Odoo scripts
+#### Install custom module
 
 ```bash
 docker-odoo-install -m show_db_name
@@ -70,7 +82,8 @@ Run Odoo from source.
 
 #### Create and activate virtual env
 
-Create and activate the virutal env.
+Create and activate the virtual env.
+
 ```bash
 task venv-init
 ```

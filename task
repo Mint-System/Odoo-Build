@@ -1,5 +1,10 @@
 #!/bin/zsh
 
+function disable-auto-install() {
+    echo "Disable auto install for all enterprise modules."
+    find ./enterprise -type f -name '__manifest__.py' -exec sed -i '' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
+}
+
 function start() {
     docker-compose up -d
 }
@@ -41,7 +46,7 @@ function install-src() {
 function init-db() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --init base,web -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    activate-venv && ./odoo-bin --init base -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
     cd ..
 }
 
@@ -81,6 +86,9 @@ function drop-db() {
 }
 
 case "$1" in
+    disable-auto-install)
+        disable-auto-install
+        ;;
     start)
         start
         ;;
@@ -124,6 +132,6 @@ case "$1" in
         ./scripts/remove-managed-modules
         ;;
     *)
-        echo $"Usage: $0 {start||stop|start-db|install-src|init-db|start-sr|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
+        echo $"Usage: $0 {disable-autoinstall|start||stop|start-db|install-src|init-db|start-src|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
         exit 1
 esac
