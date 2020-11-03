@@ -219,3 +219,17 @@ Execute the script `task remove-managed-mdoules` to delete the managed modules f
 ```bash
 docker exec pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com; cat /var/tmp/servers.json
 ```
+
+### Mail
+
+#### View emails
+
+Open the mail client [http://localhost](http://localhost).
+
+#### Send email
+
+Use curl to send an email to `support@localhost`:
+
+```bash
+task send-support-mail
+```

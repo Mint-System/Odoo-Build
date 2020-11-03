@@ -85,6 +85,10 @@ function drop-db() {
     fi
 }
 
+function send-support-mail() {
+    curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file ./data/email.txt
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -131,7 +135,10 @@ case "$1" in
     remove-managed-modules)
         ./scripts/remove-managed-modules
         ;;
+    send-support-mail)
+        send-support-mail
+        ;;
     *)
-        echo $"Usage: $0 {disable-autoinstall|start||stop|start-db|install-src|init-db|start-src|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
+        echo $"Usage: $0 {disable-autoinstall|start|stop|start-db|install-src|init-db|start-src|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
         exit 1
 esac

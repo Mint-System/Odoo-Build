@@ -1,0 +1,7 @@
+From: Mitchell Admin <admin@yourcompany.example.com>
+To: Odoo Support <support@localhost>
+Subject: Support Request
+
+Dear Odoo Support,
+
+I request your help

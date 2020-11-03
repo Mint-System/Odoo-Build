@@ -1,0 +1,2 @@
+"id","name","smtp_host","smtp_port","smtp_user","smtp_pass","smtp_encryption","smtp_debug","sequence","active","create_uid","create_date","write_uid","write_date"
+1,"Outgoing MailDev","mail",25,NULL,NULL,"none",False,10,True,2,"2020-11-03 10:27:52.597744",2,"2020-11-03 10:28:05.44752"
