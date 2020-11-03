@@ -46,6 +46,12 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
+  mail:
+    container_name: mail
+    image: maildev/maildev
+    ports:
+      - "1080:1080"
+      - "1025:1025"
 volumes:
   odoo-odoo-data:
   odoo-db-data:

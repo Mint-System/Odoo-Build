@@ -11,6 +11,16 @@ This projects provides a highly opiniated way to develope Odoo and Odoo modules.
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
 *  **Develope Modules**: Scaffold a new module and develope new Odoo features locally.
 
+**Table of Contents**
+
+* [Requirements](#requirements)
+* [Usage](#usage)
+    * [Docker](#docker)
+    * [Source](#source)
+    * [Common](#common)
+    * [Managed Modules](#managed-modules)
+    * [Mail](#mail)
+
 ## Requirements
 
 The Odoo development environment has the following requirements:
