@@ -45,7 +45,10 @@ cd odoo-development
 Clone submodules.
 
 ```bash
-git submodule update --init --recursive
+# Odoo 14.0
+git checkout 14.0 && git submodule update --init
+# Odoo 13.0
+git checkout 13.0 && git submodule update --init
 ```
 
 Disable auto install for Odoo apps.
