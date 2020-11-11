@@ -2,7 +2,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: odoo:6640ab6622b9
+    image: odoo:70de954aa8a5
     depends_on:
       - db
     environment:
@@ -36,7 +36,7 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:10
+    image: postgres:12
     ports:
       - "127.0.0.1:5432:5432"
     environment:
@@ -46,7 +46,6 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
-      - ./data:/mnt/data
   mail:
     container_name: mail
     image: marcosdiez/maildev

@@ -31,9 +31,6 @@
 [submodule "oca/l10n-switzerland"]
 	path = oca/l10n-switzerland
 	url = git@github.com:OCA/l10n-switzerland.git
-[submodule "oca/management-system"]
-	path = oca/management-system
-	url = git@github.com:OCA/management-system.git
 [submodule "oca/knowledge"]
 	path = oca/knowledge
 	url = git@github.com:OCA/knowledge.git
@@ -58,3 +55,6 @@
 [submodule "addons/certificate_planer"]
 	path = addons/certificate_planer
 	url = https://github.com/Mint-System/Certificate-Planer.git
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = https://github.com/OCA/hr-attendance.git
