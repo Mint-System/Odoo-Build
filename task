@@ -1,24 +1,31 @@
 #!/bin/zsh
 
+function help() {
+echo
+echo "$1 <command> [options]"
+echo
+echo "commands:"
+echo
+echo "   disable-auto-install                   Disable auto install for enterprise modules."
+echo "   start                                  Start docker container."
+echo "   stop                                   Stop docker container."
+echo "   kill                                   Remove docker container and volumes."
+echo "   start-db                               Start database container only."
+echo "   install-src                            Install Odoo requirements in source folder."
+echo "   init-db                                Initalize the Odoo database."
+echo "   start-src                              Start Odoo from source folder."
+echo "   update-module             [name]       Update target Odoo module."
+echo "   scaffold-src              [name]       Scaffold new Odoo module from source."
+echo "   drop-db                   [name]       Drop target Odoo database."
+echo "   compile-managed-modules                Package managed Odoo modules."
+echo "   copy-managed-modules                   Copy managed Odoo modules to addon folder."
+echo "   remove-managed-modules                 Remove managed Odoo modules from add folder"
+echo
+}
+
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
     find ./enterprise -type f -name '__manifest__.py' -exec sed -i '' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
-}
-
-function start() {
-    docker-compose up -d
-}
-
-function stop() {
-    docker-compose stop
-}
-
-function start-db() {
-    docker-compose up -d db pgadmin
-}
-
-function log() {
-    docker logs odoo -f
 }
 
 function venv-init() {
@@ -93,17 +100,23 @@ case "$1" in
     disable-auto-install)
         disable-auto-install
         ;;
+    checkout)
+        git checkout $2 && git submodule update --init
+        ;;
     start)
-        start
+        docker-compose up -d
         ;;
     stop)
-        stop
+        docker-compose stop
+        ;;
+    kill)
+        docker-compose down -v
         ;;
     log)
-        log
+        docker logs odoo -f
         ;;
     start-db)
-        start-db
+        docker-compose up -d db pgadmin
         ;;
     venv-init)
         venv-init
@@ -139,6 +152,6 @@ case "$1" in
         send-support-mail
         ;;
     *)
-        echo $"Usage: $0 {disable-autoinstall|start|stop|start-db|install-src|init-db|start-src|update-module|scaffold-src|drop-db|compile-managed-modules|copy-managed-modules|remove-managed-modules}"
+        help task
         exit 1
 esac
