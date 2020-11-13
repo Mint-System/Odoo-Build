@@ -8,6 +8,7 @@ echo "commands:"
 echo
 echo "   disable-auto-install                   Disable auto install for enterprise modules."
 echo "   start                                  Start docker container."
+echo "   log                                    Tail Odoo docker container logs."
 echo "   stop                                   Stop docker container."
 echo "   kill                                   Remove docker container and volumes."
 echo "   start-db                               Start database container only."

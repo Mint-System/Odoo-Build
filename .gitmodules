@@ -61,3 +61,6 @@
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = https://github.com/OCA/hr-holidays.git
+[submodule "oca/management-system"]
+	path = oca/management-system
+	url = https://github.com/OCA/management-system.git
