@@ -9,17 +9,17 @@ This projects provides a highly opiniated way to develope Odoo and Odoo modules.
 * **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database in the local development environment. Investigate issues and deploy the database at whish.
 * **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
-*  **Develope Modules**: Scaffold a new module and develope new Odoo features locally.
+* **Develope Modules**: Scaffold a new module and develope new Odoo features locally.
 
 **Table of Contents**
 
 * [Requirements](#requirements)
 * [Usage](#usage)
-    * [Docker](#docker)
-    * [Source](#source)
-    * [Common](#common)
-    * [Managed Modules](#managed-modules)
-    * [Mail](#mail)
+  * [Docker](#docker)
+  * [Source](#source)
+  * [Common](#common)
+  * [Managed Modules](#managed-modules)
+  * [Mail](#mail)
 
 ## Requirements
 
@@ -42,13 +42,11 @@ git clone https://github.com/Mint-System/Odoo-Development.git odoo-development
 cd odoo-development
 ```
 
-Clone submodules.
+Checkout branch.
 
 ```bash
-# Odoo 14.0
-git checkout 14.0 && git submodule update --init
-# Odoo 13.0
-git checkout 13.0 && git submodule update --init
+task checkout 13.0
+task checkout 14.0
 ```
 
 Disable auto install for Odoo apps.

@@ -6,21 +6,7 @@ echo "$1 <command> [options]"
 echo
 echo "commands:"
 echo
-echo "   disable-auto-install                   Disable auto install for enterprise modules."
-echo "   start                                  Start docker container."
-echo "   log                                    Tail Odoo docker container logs."
-echo "   stop                                   Stop docker container."
-echo "   kill                                   Remove docker container and volumes."
-echo "   start-db                               Start database container only."
-echo "   install-src                            Install Odoo requirements in source folder."
-echo "   init-db                                Initalize the Odoo database."
-echo "   start-src                              Start Odoo from source folder."
-echo "   update-module             [name]       Update target Odoo module."
-echo "   scaffold-src              [name]       Scaffold new Odoo module from source."
-echo "   drop-db                   [name]       Drop target Odoo database."
-echo "   compile-managed-modules                Package managed Odoo modules."
-echo "   copy-managed-modules                   Copy managed Odoo modules to addon folder."
-echo "   remove-managed-modules                 Remove managed Odoo modules from add folder"
+column -t -s"|" ./task.md | tail -n +3
 echo
 }
 
@@ -97,6 +83,17 @@ function send-support-mail() {
     curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file ./data/email.txt
 }
 
+function clear-assets() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        echo "Delete these assets:"
+        psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+        psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -113,7 +110,7 @@ case "$1" in
     kill)
         docker-compose down -v
         ;;
-    log)
+    logs)
         docker logs odoo -f
         ;;
     start-db)
@@ -151,6 +148,9 @@ case "$1" in
         ;;
     send-support-mail)
         send-support-mail
+        ;;
+    clear-assets)
+        clear-assets $2
         ;;
     *)
         help task
