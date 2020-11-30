@@ -34,28 +34,35 @@ function install-src() {
     activate-venv
     pip install setuptools psycopg2-binary watchdog phonenumbers
     pip install -r requirements.txt
-    cd ..
+}
+
+function start-shell() {
+        if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        cd odoo
+        locale
+        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons' --no-http
+    fi
 }
 
 function init-db() {
     cd odoo
     locale
     activate-venv && ./odoo-bin --init base -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
-    cd ..
 }
 
 function start-src() {
     cd odoo
     locale
     activate-venv && ./odoo-bin --config=../config/odoo-src.conf --db_host=localhost -r odoo -w odoo --dev=all
-    cd ..
 }
 
 function update-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin -u $1 -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
-    cd ..
+    activate-venv && ./odoo-bin  -d $1 -u $2 --db_host=localhost -r odoo -w odoo --stop-after-init --no-http
 }
 
 function scaffold-src() {
@@ -65,7 +72,6 @@ function scaffold-src() {
     else
         cd odoo
         python3 odoo-bin scaffold $1 ../addons
-        cd ..
     fi
 }
 
@@ -91,6 +97,13 @@ function clear-assets() {
         echo "Delete these assets:"
         psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
         psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    fi
+}
+
+function upload-module() {
+
+    if [ "$1" = "certificate_planer" ]; then
+        rsync  -av -e ssh --exclude='.git' addons/certificate_planer hermes.mint-system.com:/usr/share/odoo05/addons/
     fi
 }
 
@@ -128,8 +141,14 @@ case "$1" in
     start-src)
         start-src
         ;;
+    start-shell)
+        start-shell $2
+        ;;
     update-module)
-        update-module $2
+        update-module $2 $3
+        ;;
+    upload-module)
+        upload-module $2
         ;;
     scaffold-src)
         scaffold-src $2
