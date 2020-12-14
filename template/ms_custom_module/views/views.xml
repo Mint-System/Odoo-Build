@@ -1,0 +1,43 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="{{ name }}.document_list">
+      <field name="name">Document List</field>
+      <field name="model">{{ name }}.document</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="name"/>
+          <field name="value"/>
+        </tree>
+      </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="{{ name }}.document_action">
+      <field name="name">Document Action</field>
+      <field name="res_model">{{ name }}.document</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record model="ir.actions.server" id="{{ name }}.document_server_action">
+      <field name="name">Document Server Action</field>
+      <field name="model_id" ref="model_{{ name }}_document"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+    <menuitem name="{{ name }}" id="{{ name }}.menu_root"/>
+
+    <menuitem name="Documents" id="{{ name }}.documents_menu" parent="{{ name }}.menu_root"/>
+    <menuitem name="Configurations" id="{{ name }}.configuration_menu" parent="{{ name }}.menu_root"/>
+
+    <menuitem name="Documents" id="{{ name }}.document_menu" parent="{{ name }}.documents_menu" action="{{ name }}.action"/>
+    <menuitem name="Server to list" id="{{ name }}.server_action_menu" parent="{{ name }}.configuration_menu" action="{{ name }}.server_action"/>
+
+  </data>
+</odoo>
