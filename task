@@ -32,7 +32,7 @@ function locale() {
 function install-src() {
     cd odoo
     activate-venv
-    pip install setuptools psycopg2-binary watchdog phonenumbers
+    pip install setuptools psycopg2-binary watchdog phonenumbers py3o.template py3o.formats
     pip install -r requirements.txt
 }
 
@@ -43,26 +43,26 @@ function start-shell() {
     else
         cd odoo
         locale
-        ./odoo-bin shell -d $1 --db_host=localhost -r odoo -w odoo --addons-path='../addons' --no-http
+        ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
     fi
 }
 
 function init-db() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --init base -d odoo --db_host=localhost -r odoo -w odoo --stop-after-init
+    activate-venv && ./odoo-bin --init base -d odoo --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function start-src() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --config=../config/odoo-src.conf --db_host=localhost -r odoo -w odoo --dev=all
+    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=all
 }
 
 function update-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin  -d $1 -u $2 --db_host=localhost -r odoo -w odoo --stop-after-init --no-http
+    activate-venv && ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function scaffold-src() {
@@ -71,7 +71,7 @@ function scaffold-src() {
         echo "\$1 is empty"
     else
         cd odoo
-        python3 odoo-bin scaffold $1 ../addons
+        python3 odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
     fi
 }
 
@@ -104,6 +104,20 @@ function upload-module() {
 
     if [ "$1" = "certificate_planer" ]; then
         rsync  -av -e ssh --exclude='.git' addons/certificate_planer hermes.mint-system.com:/usr/share/odoo05/addons/
+    fi
+}
+
+function convert-database() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        unzip "tmp/$1.zip" -d "./tmp/$1"
+        sed -i '' 's/AS integer//g' "./tmp/$1/dump.sql"
+        grep -i 'as integer' "./tmp/$1/dump.sql"
+        cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
+        rm -r "tmp/$1"
+        echo "Converted database file $1 to ${1}2"
     fi
 }
 
@@ -170,6 +184,9 @@ case "$1" in
         ;;
     clear-assets)
         clear-assets $2
+        ;;
+    convert-database)
+        convert-database $2
         ;;
     *)
         help task
