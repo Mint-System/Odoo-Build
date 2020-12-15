@@ -11,8 +11,8 @@
     """,
 
     'author': "Mint System GmbH",
-    'website': "https://www.mint-sytem.ch",
-    'category': 'Uncategorized',
+    'website': "https://www.mint-system.ch",
+    'category': 'Uncategorized', # See odoo/addons/base/data/ir_module_category_data.xml
     'version': '13.0.0.0.0',
 
     'depends': ['base'],

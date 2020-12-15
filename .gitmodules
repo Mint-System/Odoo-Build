@@ -58,3 +58,6 @@
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = https://github.com/OCA/hr-holidays.git
+[submodule "addons/website_sale_default_country"]
+	path = addons/website_sale_default_country
+	url = https://github.com/Mint-System/Odoo-App-Website-Sale-Default-Country.git
