@@ -121,12 +121,24 @@ function convert-database() {
     fi
 }
 
+function checkout() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        cd enterprise
+        git checkout .
+        cd ..
+        git checkout $1 && git submodule update --init
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
         ;;
     checkout)
-        git checkout $2 && git submodule update --init
+        checkout $2
         ;;
     start)
         docker-compose up -d

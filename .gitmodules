@@ -64,3 +64,6 @@
 [submodule "addons/website_date_of_birth"]
 	path = addons/website_date_of_birth
 	url = https://github.com/Mint-System/Odoo-App-Website-Date-of-Birth.git
+[submodule "addons/gio_py3o_addon"]
+	path = addons/gio_py3o_addon
+	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-report.git
