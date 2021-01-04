@@ -52,18 +52,21 @@
 [submodule "addons/certificate_planer"]
 	path = addons/certificate_planer
 	url = https://github.com/Mint-System/Certificate-Planer.git
-[submodule "oca/hr-attendance"]
-	path = oca/hr-attendance
-	url = https://github.com/OCA/hr-attendance.git
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = https://github.com/OCA/hr-holidays.git
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = https://github.com/OCA/hr-attendance.git
+[submodule "addons/gio_payroll_custom"]
+	path = addons/gio_payroll_custom
+	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-share.git
+[submodule "addons/gio_py3o_addon"]
+	path = addons/gio_py3o_addon
+	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-report.git
 [submodule "addons/website_sale_default_country"]
 	path = addons/website_sale_default_country
 	url = https://github.com/Mint-System/Odoo-App-Website-Sale-Default-Country.git
 [submodule "addons/website_date_of_birth"]
 	path = addons/website_date_of_birth
 	url = https://github.com/Mint-System/Odoo-App-Website-Date-of-Birth.git
-[submodule "addons/gio_py3o_addon"]
-	path = addons/gio_py3o_addon
-	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-report.git
