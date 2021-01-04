@@ -65,6 +65,12 @@ function update-module() {
     activate-venv && ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
+function install-module() {
+    cd odoo
+    locale
+    activate-venv && ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+}
+
 function scaffold-src() {
     if test -z "$1" 
     then
@@ -199,6 +205,9 @@ case "$1" in
         ;;
     convert-database)
         convert-database $2
+        ;;
+    install-module)
+        install-module $2 $3
         ;;
     *)
         help task
