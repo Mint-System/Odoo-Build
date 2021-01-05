@@ -71,7 +71,7 @@ function install-module() {
     activate-venv && ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
-function scaffold-src() {
+function create-module() {
     if test -z "$1" 
     then
         echo "\$1 is empty"
@@ -182,8 +182,8 @@ case "$1" in
     upload-module)
         upload-module $2
         ;;
-    scaffold-src)
-        scaffold-src $2
+    create-module)
+        create-module $2
         ;;
     drop-db)
         drop-db $2
