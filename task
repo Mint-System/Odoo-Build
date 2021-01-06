@@ -12,7 +12,7 @@ echo
 
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
-    find ./enterprise -type f -name '__manifest__.py' -exec sed -i '' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
+    find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
 function venv-init() {
@@ -32,7 +32,7 @@ function locale() {
 function install-src() {
     cd odoo
     activate-venv
-    pip install setuptools psycopg2-binary watchdog phonenumbers py3o.template py3o.formats
+    pip install setuptools wheel watchdog phonenumbers
     pip install -r requirements.txt
 }
 

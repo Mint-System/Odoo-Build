@@ -26,9 +26,9 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 The Odoo development environment has the following requirements:
 
 * [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
-* [Docker Compose](https://docs.docker.com/compose/)
-* Python 3.7.X
-* [wkhtmltopdf](https://wkhtmltopdf.org/)
+* [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
+* Install python 3.7.x with [pyenv](https://github.com/pyenv/pyenv)
+* [wkhtmltopdf](https://wkhtmltopdf.org/): `sudo apt install wkhtmltopdf`
 * bash/zsh alias: `task='task'`
 
 ## Usage
@@ -106,20 +106,6 @@ Pull the `odoo` submodule and install the python dependencies.
 ```bash
 git submodule update odoo
 task install-src
-```
-
-**Py3o Report Engine**
-
-If you are using the Py3o report engine additional packages are required:
-
-```bash
-cd odoo
-pip install py3o.template py3o.formats
-cd ..
-# MacOS
-brew cask install libreoffice
-# Ubuntu
-apt-get --no-install-recommends install libreoffice
 ```
 
 **Initialize and start Odoo from source**
