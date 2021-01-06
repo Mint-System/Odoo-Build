@@ -218,7 +218,8 @@ Execute the script `task remove-managed-mdoules` to delete the managed modules f
 **Export pgAdmin connections**
 
 ```bash
-docker exec pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com; cat /var/tmp/servers.json
+docker exec pgadmin python setup.py --dump-servers /var/tmp/servers.json --user admin@example.com
+docker exec pgadmin cat /var/tmp/servers.json
 ```
 
 ### Mail
