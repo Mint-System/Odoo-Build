@@ -1,18 +1,18 @@
 [submodule "addons/qm_data_system"]
 	path = addons/qm_data_system
-	url = https://github.com/Mint-System/Odoo-App-QM-Data-System.git
+	url = git@github.com:Mint-System/Odoo-App-QM-Data-System.git
 [submodule "addons/show_db_name"]
 	path = addons/show_db_name
-	url = https://github.com/Mint-System/Odoo-App-Show-DB-Name.git
+	url = git@github.com:Mint-System/Odoo-App-Show-DB-Name.git
 [submodule "addons/auth_oauth_keycloak"]
 	path = addons/auth_oauth_keycloak
-	url = https://github.com/Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
+	url = git@github.com:Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
 [submodule "addons/theme_mint_system"]
 	path = addons/theme_mint_system
-	url = https://github.com/Mint-System/Odoo-Theme-Mint-System.git
+	url = git@github.com:Mint-System/Odoo-Theme-Mint-System.git
 [submodule "addons/stock_report"]
 	path = addons/stock_report
-	url = https://github.com/Mint-System/Odoo-App-Stock-Report.git
+	url = git@github.com:Mint-System/Odoo-App-Stock-Report.git
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
@@ -21,7 +21,7 @@
 	url = git@github.com:odoo/odoo.git
 [submodule "addons/sale_order_description"]
 	path = addons/sale_order_description
-	url = https://github.com/Mint-System/Odoo-App-Sale-Order-Description.git
+	url = git@github.com:Mint-System/Odoo-App-Sale-Order-Description.git
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
@@ -45,31 +45,31 @@
 	url = git@github.com:OCA/web.git
 [submodule "oca/reporting-engine"]
 	path = oca/reporting-engine
-	url = https://github.com/OCA/reporting-engine
+	url = git@github.com:OCA/reporting-engine.git
 [submodule "oca/server-auth"]
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
 [submodule "addons/certificate_planer"]
 	path = addons/certificate_planer
-	url = https://github.com/Mint-System/Certificate-Planer.git
+	url = git@github.com:Mint-System/Certificate-Planer.git
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
-	url = https://github.com/OCA/hr-holidays.git
+	url = git@github.com:OCA/hr-holidays.git
 [submodule "oca/hr-attendance"]
 	path = oca/hr-attendance
-	url = https://github.com/OCA/hr-attendance.git
+	url = git@github.com:OCA/hr-attendance.git
 [submodule "addons/gio_payroll_custom"]
 	path = addons/gio_payroll_custom
-	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-share.git
+	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-share.git
 [submodule "addons/gio_py3o_addon"]
 	path = addons/gio_py3o_addon
-	url = https://gitlab.com/mint-system/odoo-app-hr-payroll-report.git
+	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-report.git
 [submodule "addons/website_sale_default_country"]
 	path = addons/website_sale_default_country
-	url = https://github.com/Mint-System/Odoo-App-Website-Sale-Default-Country.git
+	url = git@github.com:Mint-System/Odoo-App-Website-Sale-Default-Country.git
 [submodule "addons/website_date_of_birth"]
 	path = addons/website_date_of_birth
-	url = https://github.com/Mint-System/Odoo-App-Website-Date-of-Birth.git
+	url = git@github.com:Mint-System/Odoo-App-Website-Date-of-Birth.git
 [submodule "addons/account_invoice_description"]
 	path = addons/account_invoice_description
 	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Description.git
