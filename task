@@ -56,7 +56,7 @@ function init-db() {
 function start-src() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=all
+    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
 }
 
 function update-module() {

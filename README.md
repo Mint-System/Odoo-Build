@@ -29,6 +29,7 @@ The Odoo development environment has the following requirements:
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.7.x with [pyenv](https://github.com/pyenv/pyenv)
 * [wkhtmltopdf](https://wkhtmltopdf.org/): `sudo apt install wkhtmltopdf`
+* psql: `sudo apt install postgresql`
 * bash/zsh alias: `task='task'`
 
 ## Usage

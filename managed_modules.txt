@@ -11,3 +11,5 @@ oca/hr-attendance/hr_attendance_report_theoretical_time
 oca/hr-holidays/hr_holidays_public
 oca/web/web_company_color
 addons/gio_payroll_custom
+theme/theme_common
+theme/theme_treehouse

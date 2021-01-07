@@ -1,7 +1,7 @@
 #!/bin/zsh
 
 GIT_TAG=1
-ODOO_VERSION=13.0
+ODOO_VERSION=14.0
 MODULES=($(awk -F= '{print $1}' managed_modules.txt))
 
 for MODULE in "${MODULES[@]}"
@@ -32,7 +32,7 @@ do
 
         # configure and zip module
         echo "Remove auto install option"
-        sed -i '' -e "s/'auto_install': True,/'auto_install': False,/" $MANAGED_MODULE_PATH/__manifest__.py
+        sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MANAGED_MODULE_PATH/__manifest__.py
         echo "zip module $MODULE"
         zip -q -r  $MANAGED_MODULE_PATH.zip $MANAGED_MODULE_PATH
     fi
