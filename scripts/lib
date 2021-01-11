@@ -1,0 +1,35 @@
+#!/bin/bash
+
+GIT_TAG=1
+ODOO_VERSION=14.0
+
+function get-module-version() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        # get version of module
+        VERSION=$(grep 'version' "$1/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
+        VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
+
+        # set default version
+        [ -z "$VERSION" ] && VERSION=0.0
+
+        # check if oca version or enterprise version
+        if echo "$VERSION" | grep -e "^[0-9]\."
+        then
+            VERSION="$ODOO_VERSION.$VERSION.$GIT_TAG"
+        fi
+
+        echo $VERSION
+    fi
+}
+
+function activate-venv() {
+    source ../venv/bin/activate
+}
+
+function locale() {
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+}

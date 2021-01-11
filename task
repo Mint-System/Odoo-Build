@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 
 function help() {
 echo
@@ -10,6 +10,9 @@ column -t -s"|" ./task.md | tail -n +3
 echo
 }
 
+# load lib functions
+. ./scripts/lib
+
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
     find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
@@ -20,15 +23,6 @@ function venv-init() {
     source venv/bin/activate
 }
 
-function activate-venv() {
-    source ../venv/bin/activate
-}
-
-function locale() {
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
-}
-
 function install-src() {
     cd odoo
     activate-venv
@@ -37,7 +31,7 @@ function install-src() {
 }
 
 function start-shell() {
-        if test -z "$1" 
+    if test -z "$1" 
     then
         echo "\$1 is empty"
     else
@@ -139,6 +133,18 @@ function checkout() {
     fi
 }
 
+function release-module() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        VERSION=$(get-module-version $1)
+        echo "Create release $VERSION ..."
+        cd $1
+        gh release create "v$VERSION" -t "Release $VERSION"
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -208,6 +214,9 @@ case "$1" in
         ;;
     install-module)
         install-module $2 $3
+        ;;
+    release-module)
+        release-module $2
         ;;
     *)
         help task
