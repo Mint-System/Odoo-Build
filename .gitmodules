@@ -76,3 +76,6 @@
 [submodule "addons/eksb_layout"]
 	path = addons/eksb_layout
 	url = git@github.com:Mint-System/Odoo-App-EKSB-Layout.git
+[submodule "addons/website_product_description"]
+	path = addons/website_product_description
+	url = git@github.com:Mint-System/Odoo-Apps-Website-Product-Description.git
