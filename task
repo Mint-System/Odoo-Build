@@ -37,6 +37,7 @@ function start-shell() {
     else
         cd odoo
         locale
+        activate-venv
         ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
     fi
 }
@@ -44,25 +45,29 @@ function start-shell() {
 function init-db() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --init base -d odoo --config '../config/odoo-src.conf' --stop-after-init --no-http
+    activate-venv
+    ./odoo-bin --init base -d odoo --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function start-src() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
+    activate-venv
+    ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
 }
 
 function update-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+    activate-venv
+    ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function install-module() {
     cd odoo
     locale
-    activate-venv && ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+    activate-venv
+    ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function create-module() {
@@ -71,7 +76,9 @@ function create-module() {
         echo "\$1 is empty"
     else
         cd odoo
-        python3 odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
+        locale
+        activate-venv
+        ./odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
     fi
 }
 
