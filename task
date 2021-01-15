@@ -152,6 +152,28 @@ function release-module() {
     fi
 }
 
+function zip-module() {
+    if test -z "$1" 
+    then
+        echo "\$1 is empty"
+    else
+        # Get version and module name
+        VERSION=$(get-module-version $1)
+        MODULE=$(basename "$1")
+
+        # copy module to tmp folder
+        echo "Copy module $MODULE $VERSION to tmp folder"
+        MODULE_PATH="tmp/$MODULE-$VERSION"
+        cp -r "$1" "$MODULE_PATH"
+
+        # configure and zip module
+        echo "Remove auto install option"
+        sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MODULE_PATH/__manifest__.py
+        echo "Zip module $MODULE"
+        zip -q -r $MODULE_PATH.zip $MODULE_PATH
+    fi
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -201,14 +223,8 @@ case "$1" in
     drop-db)
         drop-db $2
         ;;
-    compile-managed-modules)
-        ./scripts/compile-managed-modules
-        ;;
-    copy-managed-modules)
+    zip-modules)
         ./scripts/copy-managed-modules
-        ;;
-    remove-managed-modules)
-        ./scripts/remove-managed-modules
         ;;
     send-support-mail)
         send-support-mail
