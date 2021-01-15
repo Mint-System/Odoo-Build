@@ -79,3 +79,6 @@
 [submodule "addons/website_product_description"]
 	path = addons/website_product_description
 	url = git@github.com:Mint-System/Odoo-Apps-Website-Product-Description.git
+[submodule "addons/account_invoice_detail"]
+	path = addons/account_invoice_detail
+	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Detail.git

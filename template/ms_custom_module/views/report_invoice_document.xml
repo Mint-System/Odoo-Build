@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<odoo>
+    <record id="{{ name }}.report_invoice_document" model="ir.ui.view">
+        <field name="active" eval="True"/>
+        <field name="arch" type="xml">
+            <data>
+                <xpath expr="/t/t/div/h2" position="after">
+                    <t t-if="o.description">
+                        <div class="row">
+                            <div class="col">
+                                <br/>
+                                <span t-field="o.description"/>
+                                <br/>
+                                <br/>
+                            </div>
+                        </div>
+                    </t>
+                </xpath>
+                <xpath expr="/t/t/div/h2" position="attributes">
+                    <attribute name="style" separator=";" add="margin-top:15px"/>
+                </xpath>
+            </data>
+        </field>
+        <field name="inherit_id" ref="account.report_invoice_document"/>
+        <field name="mode">extension</field>
+        <field name="model" eval="False"/>
+        <field name="priority">99</field>
+    </record>
+</odoo>
