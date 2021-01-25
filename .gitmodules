@@ -82,3 +82,6 @@
 [submodule "addons/account_invoice_detail"]
 	path = addons/account_invoice_detail
 	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Detail.git
+[submodule "oca/server-backend"]
+	path = oca/server-backend
+	url = git@github.com:OCA/server-backend.git

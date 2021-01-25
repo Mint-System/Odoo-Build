@@ -223,9 +223,6 @@ case "$1" in
     drop-db)
         drop-db $2
         ;;
-    zip-modules)
-        ./scripts/copy-managed-modules
-        ;;
     send-support-mail)
         send-support-mail
         ;;
@@ -240,6 +237,9 @@ case "$1" in
         ;;
     release-module)
         release-module $2
+        ;;
+    zip-module)
+        zip-module $2
         ;;
     *)
         help task
