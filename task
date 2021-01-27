@@ -241,6 +241,9 @@ case "$1" in
     zip-module)
         zip-module $2
         ;;
+    clear-filestore)
+        rm -rf ~/.local/share/Odoo/filestore/
+        ;;
     *)
         help task
         exit 1
