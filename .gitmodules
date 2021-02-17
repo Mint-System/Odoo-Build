@@ -79,3 +79,9 @@
 [submodule "oca/server-backend"]
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend.git
+[submodule "addons/mrp_documents_share"]
+	path = addons/mrp_documents_share
+	url = git@github.com:Mint-System/Odoo-App-MRP-Documents-Share.git
+[submodule "addons/dev_blanket_sale_order"]
+	path = addons/dev_blanket_sale_order
+	url = git@gitlab.com:mint-system/odoo-app-blanket-sale-order.git
