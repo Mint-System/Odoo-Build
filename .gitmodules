@@ -85,3 +85,6 @@
 [submodule "addons/dev_blanket_sale_order"]
 	path = addons/dev_blanket_sale_order
 	url = git@gitlab.com:mint-system/odoo-app-blanket-sale-order.git
+[submodule "addons/demand_planner"]
+	path = addons/demand_planner
+	url = git@github.com:Mint-System/Demand-Planner.git
