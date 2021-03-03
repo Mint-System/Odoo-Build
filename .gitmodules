@@ -88,3 +88,6 @@
 [submodule "addons/demand_planner"]
 	path = addons/demand_planner
 	url = git@github.com:Mint-System/Demand-Planner.git
+[submodule "addons/eq_cancel_mrp_orders"]
+	path = addons/eq_cancel_mrp_orders
+	url = git@gitlab.com:mint-system/odoo-app-cancel-manufacturing-order.git
