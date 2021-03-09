@@ -31,15 +31,12 @@ function install-src() {
 }
 
 function start-shell() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        cd odoo
-        locale
-        activate-venv
-        ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    cd odoo
+    locale
+    activate-venv
+    ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
 }
 
 function init-db() {
@@ -57,6 +54,9 @@ function start-src() {
 }
 
 function update-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
     cd odoo
     locale
     activate-venv
@@ -71,25 +71,19 @@ function install-module() {
 }
 
 function create-module() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        cd odoo
-        locale
-        activate-venv
-        ./odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    cd odoo
+    locale
+    activate-venv
+    ./odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
 }
 
 function drop-db() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        psql postgres://odoo:odoo@localhost/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$1';"
-        psql postgres://odoo:odoo@localhost/postgres -c "DROP DATABASE $1;"
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$1';"
+    psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE $1;"
 }
 
 function send-support-mail() {
@@ -97,14 +91,11 @@ function send-support-mail() {
 }
 
 function clear-assets() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        echo "Delete these assets:"
-        psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-        psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    echo "Delete these assets:"
+    psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
 }
 
 function upload-module() {
@@ -115,63 +106,52 @@ function upload-module() {
 }
 
 function convert-database() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        unzip "tmp/$1.zip" -d "./tmp/$1"
-        sed -i '' 's/AS integer//g' "./tmp/$1/dump.sql"
-        grep -i 'as integer' "./tmp/$1/dump.sql"
-        cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
-        rm -r "tmp/$1"
-        echo "Converted database file $1 to ${1}2"
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    unzip "tmp/$1.zip" -d "./tmp/$1"
+    sed -i '' 's/AS integer//g' "./tmp/$1/dump.sql"
+    grep -i 'as integer' "./tmp/$1/dump.sql"
+    cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
+    rm -r "tmp/$1"
+    echo "Converted database file $1 to ${1}2"
 }
 
 function checkout() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        cd enterprise
-        git checkout .
-        cd ..
-        git checkout $1 && git submodule update --init
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    cd enterprise
+    git checkout .
+    cd ..
+    git checkout $1 && git submodule update --init
+    git submodule foreach git checkout $1
 }
 
 function release-module() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        VERSION=$(get-module-version $1)
-        echo "Create release $VERSION ..."
-        cd $1
-        gh release create "v$VERSION" -t "Release $VERSION"
-    fi
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    VERSION=$(get-module-version $1)
+    echo "Create release $VERSION ..."
+    cd $1
+    gh release create "v$VERSION" -t "Release $VERSION"
 }
 
 function zip-module() {
-    if test -z "$1" 
-    then
-        echo "\$1 is empty"
-    else
-        # Get version and module name
-        VERSION=$(get-module-version $1)
-        MODULE=$(basename "$1")
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-        # copy module to tmp folder
-        echo "Copy module $MODULE $VERSION to tmp folder"
-        MODULE_PATH="tmp/$MODULE-$VERSION"
-        cp -r "$1" "$MODULE_PATH"
+    # Get version and module name
+    VERSION=$(get-module-version $1)
+    MODULE=$(basename "$1")
 
-        # configure and zip module
-        echo "Remove auto install option"
-        sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MODULE_PATH/__manifest__.py
-        echo "Zip module $MODULE"
-        zip -q -r $MODULE_PATH.zip $MODULE_PATH
-    fi
+    # copy module to tmp folder
+    echo "Copy module $MODULE $VERSION to tmp folder"
+    MODULE_PATH="tmp/$MODULE-$VERSION"
+    cp -r "$1" "$MODULE_PATH"
+
+    # configure and zip module
+    echo "Remove auto install option"
+    sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MODULE_PATH/__manifest__.py
+    echo "Zip module $MODULE"
+    zip -q -r $MODULE_PATH.zip $MODULE_PATH
 }
 
 case "$1" in
