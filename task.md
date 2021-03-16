@@ -14,6 +14,7 @@ start-shell|[db]|Start Odoo shell from source folder.
 create-module|[name]|Create new Odoo module from template.
 install-module|[db] [name]|Install target Odoo module.
 update-module|[db] [name]|Update target Odoo module.
+remove-module|[db] [name]|Remove target Odoo module.
 zip-module|[path]|Create zip file for module.
 release-module|[path]|Create GitHub release for module.
 drop-db|[db]|Drop target Odoo database.

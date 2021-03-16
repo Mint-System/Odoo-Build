@@ -64,11 +64,26 @@ function update-module() {
 }
 
 function install-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
     cd odoo
     locale
     activate-venv
     ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
 }
+
+function remove-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    cd odoo
+    locale
+    activate-venv
+    echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" | 
+    python3 odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
+}
+
 
 function create-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
@@ -224,6 +239,9 @@ case "$1" in
         ;;
     install-module)
         install-module $2 $3
+        ;;
+    remove-module)
+        remove-module $2 $3
         ;;
     release-module)
         release-module $2
