@@ -154,6 +154,11 @@ function zip-module() {
     zip -q -r $MODULE_PATH.zip $MODULE_PATH
 }
 
+function clear-filestore() {
+    echo "Remove directory ~/.local/share/Odoo/filestore/$1"
+    rm -rf ~/.local/share/Odoo/filestore/$1
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -175,6 +180,11 @@ case "$1" in
         ;;
     start-db)
         docker-compose up -d db pgadmin
+        echo "Open http://localhost:8000 url in your browser."
+        ;;
+    start-mail)
+        docker-compose up -d mail
+        echo "Open http://localhost url in your browser."
         ;;
     venv-init)
         venv-init
@@ -222,9 +232,10 @@ case "$1" in
         zip-module $2
         ;;
     clear-filestore)
-        rm -rf ~/.local/share/Odoo/filestore/
+        cleare-filestore $2
         ;;
     *)
         help task
         exit 1
+        ;;
 esac

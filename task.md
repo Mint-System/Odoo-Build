@@ -18,5 +18,5 @@ zip-module|[path]|Create zip file for module.
 release-module|[path]|Create GitHub release for module.
 drop-db|[db]|Drop target Odoo database.
 clear-assets|[db]|Clear Odoo assets.
-clear-filestore| |Clear local filestore folder.
+clear-filestore|[db]|Clear local filestore folder. Pass not param to clear all filestores.
 convert-database|[db]|Convert database backup file from postgres 9.5 to latest.
