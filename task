@@ -50,6 +50,7 @@ function start-src() {
     cd odoo
     locale
     activate-venv
+    echo "Open http://localhost:8069 url in your browser."
     ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
 }
 

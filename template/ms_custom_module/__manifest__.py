@@ -20,6 +20,7 @@
     'data': [
         # 'security/ir.model.access.csv',
         # 'views/report_invoice_document.xml',
+        # 'data/ir_sequence_data.xml',
         'views/views.xml',
     ],
 
