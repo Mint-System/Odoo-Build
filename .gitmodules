@@ -94,3 +94,6 @@
 [submodule "addons/product_name_sequence"]
 	path = addons/product_name_sequence
 	url = git@github.com:Mint-System/Odoo-App-Product-Name-Sequence.git
+[submodule "oca/stock-logistics-workflow"]
+	path = oca/stock-logistics-workflow
+	url = git@github.com:OCA/stock-logistics-workflow.git
