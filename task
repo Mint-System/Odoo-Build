@@ -10,7 +10,7 @@ column -t -s"|" ./task.md | tail -n +3
 echo
 }
 
-# load lib functions
+# load lib functions and env vars
 . ./scripts/lib
 
 function disable-auto-install() {
@@ -24,7 +24,6 @@ function venv-init() {
 }
 
 function install-src() {
-    cd odoo
     activate-venv
     pip install setuptools wheel watchdog phonenumbers
     pip install -r requirements.txt
@@ -33,66 +32,59 @@ function install-src() {
 function start-shell() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-    cd odoo
     locale
     activate-venv
-    ./odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
+    odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
 }
 
 function init-db() {
-    cd odoo
     locale
     activate-venv
-    ./odoo-bin --init base -d odoo --config '../config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin --init base -d odoo --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function start-src() {
-    cd odoo
     locale
     activate-venv
     echo "Open http://localhost:8069 url in your browser."
-    ./odoo-bin --config '../config/odoo-src.conf' --dev=reload
+    odoo-bin --config 'config/odoo-src.conf' --dev=reload
 }
 
 function update-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
-    cd odoo
     locale
     activate-venv
-    ./odoo-bin  -d $1 -u $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin  -d $1 -u $2 --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
-    cd odoo
     locale
     activate-venv
-    ./odoo-bin  -d $1 -i $2 --config '../config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin  -d $1 -i $2 --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function remove-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
-    cd odoo
     locale
     activate-venv
     echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" | 
-    python3 odoo-bin shell -d $1 --config '../config/odoo-src.conf' --no-http
+    odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
 }
 
 
 function create-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-    cd odoo
     locale
     activate-venv
-    ./odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
+    odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
 }
 
 function drop-db() {
@@ -252,6 +244,9 @@ case "$1" in
         ;;
     clear-filestore)
         cleare-filestore $2
+        ;;
+    activate-venv)
+        activate-venv
         ;;
     *)
         help task

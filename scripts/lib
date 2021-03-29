@@ -1,5 +1,6 @@
 #!/bin/bash
 
+PATH="$PATH:./odoo"
 GIT_TAG=1
 ODOO_VERSION=14.0
 
@@ -26,7 +27,8 @@ function get-module-version() {
 }
 
 function activate-venv() {
-    source ../venv/bin/activate
+    source venv/bin/activate
+    
 }
 
 function locale() {
