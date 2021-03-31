@@ -28,7 +28,6 @@ function get-module-version() {
 
 function activate-venv() {
     source venv/bin/activate
-    
 }
 
 function locale() {
