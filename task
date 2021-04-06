@@ -176,6 +176,7 @@ case "$1" in
         ;;
     start)
         docker-compose up -d
+        echo "Open http://localhost:8069 url in your browser."
         ;;
     stop)
         docker-compose stop
