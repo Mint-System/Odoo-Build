@@ -244,7 +244,7 @@ case "$1" in
         zip-module $2
         ;;
     clear-filestore)
-        cleare-filestore $2
+        clear-filestore $2
         ;;
     activate-venv)
         activate-venv
