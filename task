@@ -84,7 +84,7 @@ function create-module() {
 
     locale
     activate-venv
-    odoo-bin scaffold $1 ../addons -t ../template/ms_custom_module
+    odoo-bin scaffold $1 addons -t template/ms_custom_module
 }
 
 function drop-db() {
