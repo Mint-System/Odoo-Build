@@ -97,3 +97,6 @@
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
+[submodule "oca/server-ux"]
+	path = oca/server-ux
+	url = git@github.com:OCA/server-ux.git

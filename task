@@ -130,7 +130,8 @@ function checkout() {
     cd enterprise
     git checkout .
     cd ..
-    git checkout $1 && git submodule update --init
+    git checkout $1
+    git submodule update --init
     git submodule foreach git checkout $1
 }
 
