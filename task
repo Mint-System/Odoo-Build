@@ -25,7 +25,8 @@ function venv-init() {
 
 function install-src() {
     activate-venv
-    pip install setuptools wheel watchdog phonenumbers
+    cd odoo
+    pip install setuptools wheel watchdog phonenumbers odoo_rpc_client
     pip install -r requirements.txt
 }
 
@@ -168,6 +169,25 @@ function clear-filestore() {
     rm -rf ~/.local/share/Odoo/filestore/$1
 }
 
+function init-odoo-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    echo "Init env file: .env.$1"
+    echo "ODOO_DATABASE=" > .env.$1
+    echo "ODOO_USERNAME=" > .env.$1
+    echo "ODOO_PASSWORD=" >> .env.$1
+    cat .env.$1
+}
+
+function disable-mailserver() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    activate-venv
+    load-odoo-env $1
+    # scripts/api.py 'res.config.settings' 0 'external_email_server_default' False
+    scripts/api.py 'res.partner' 66 'name' 'new name'
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -249,6 +269,12 @@ case "$1" in
         ;;
     activate-venv)
         activate-venv
+        ;;
+    init-odoo-env)
+        init-odoo-env $2
+        ;;
+    disable-mailserver)
+        disable-mailserver $2 $3
         ;;
     *)
         help task
