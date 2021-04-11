@@ -47,7 +47,9 @@ value = ast.literal_eval(args.value)
 # Search records
 ids = models.execute_kw(db, uid, password,
     args.model, 'search',
-    [[domain if domain else []]])
+    [[domain]] if domain else [[]])
+
+print(ids)
 
 # Write records
 models.execute_kw(db, uid, password,

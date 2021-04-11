@@ -192,6 +192,7 @@ function update-odoo-view() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    # Generate view name from filename
     FILE=$(basename $2)
     NAME="mint_system.$FILE"
 
