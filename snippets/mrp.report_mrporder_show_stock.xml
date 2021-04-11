@@ -14,7 +14,7 @@
     </xpath>
     <xpath expr="/t/t/t/t/div/div[4]/div[1]/span" position="after">
         <span t-if="o.lot_producing_id">
-            Los: <span t-field="o.lot_producing_id.name"/>
+            <br/>Los: <span t-field="o.lot_producing_id.name"/>
         </span>
     </xpath>
 </data>

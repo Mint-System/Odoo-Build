@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-from odoo_rpc_client import Client
+import xmlrpc.client
 import argparse, sys, os, ast
 from urllib.parse import urlparse
 
@@ -30,32 +30,28 @@ db = os.environ.get('ODOO_DATABASE') or 'odoo'
 username = os.getenv('ODOO_USERNAME') or 'admin'
 password = os.environ.get('ODOO_PASSWORD') or 'admin'
 
-# Parse url
-url = urlparse(url)
+# Connect
+common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+uid = common.authenticate(db, username, password, {})
+models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
-print(
-    url.hostname,
-    url.port or 443,
-    db,
-    username,
-    password,
-    'xml-rpcs' if url.scheme == 'https' else 'xml-rpc'
-)
-# Setup client
-client = Client(
-    host=url.hostname,
-    port=url.port,
-    dbname=db,
-    user=username,
-    pwd=password,
-)
+# Check permissions
+models.execute_kw(db, uid, password,
+    args.model, 'check_access_rights',
+    ['read'], {'raise_exception': False})
 
 # Parse domain and value
 domain = ast.literal_eval(args.domain) if args.domain else False
 value = ast.literal_eval(args.value)
 
-# Execute query
-Model = client[args.model]
-records = Model.search([domain]) if domain else Model.search([])
-Model.write(records, { args.field: value })
+# Search records
+ids = models.execute_kw(db, uid, password,
+    args.model, 'search',
+    [[domain if domain else []]])
+
+# Write records
+models.execute_kw(db, uid, password,
+    args.model, 'write',
+    [ids, { args.field: value }])
+
 print("Success")

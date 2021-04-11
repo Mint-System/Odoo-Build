@@ -26,7 +26,7 @@ function venv-init() {
 function install-src() {
     activate-venv
     cd odoo
-    pip install setuptools wheel watchdog phonenumbers odoo_rpc_client
+    pip install setuptools wheel watchdog phonenumbers
     pip install -r requirements.txt
 }
 
@@ -197,7 +197,7 @@ function update-odoo-view() {
 
     activate-venv
     load-odoo-env $1
-    scripts/odooctl --model 'ir.ui.view' --domain "('name', '=', '$NAME')" --field 'arch_base' --value "'''$(cat $2)'''"
+    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
 case "$1" in
