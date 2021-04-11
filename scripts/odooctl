@@ -49,8 +49,6 @@ ids = models.execute_kw(db, uid, password,
     args.model, 'search',
     [[domain]] if domain else [[]])
 
-print(ids)
-
 # Write records
 models.execute_kw(db, uid, password,
     args.model, 'write',
