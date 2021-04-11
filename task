@@ -184,8 +184,20 @@ function disable-mailserver() {
 
     activate-venv
     load-odoo-env $1
-    # scripts/api.py 'res.config.settings' 0 'external_email_server_default' False
-    scripts/api.py 'res.partner' 66 'name' 'new name'
+    scripts/odooctl --model 'ir.mail_server' --field 'active' --value False
+    scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
+}
+
+function update-odoo-view() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    FILE=$(basename $2)
+    NAME="mint_system.$FILE"
+
+    activate-venv
+    load-odoo-env $1
+    scripts/odooctl --model 'ir.ui.view' --domain "('name', '=', '$NAME')" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
 case "$1" in
@@ -275,6 +287,9 @@ case "$1" in
         ;;
     disable-mailserver)
         disable-mailserver $2 $3
+        ;;
+    update-odoo-view)
+        update-odoo-view $2 $3
         ;;
     *)
         help task

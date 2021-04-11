@@ -1,0 +1,61 @@
+#!/usr/bin/env python3
+
+from odoo_rpc_client import Client
+import argparse, sys, os, ast
+from urllib.parse import urlparse
+
+example_text = """
+example: 
+    odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
+"""
+
+parser=argparse.ArgumentParser(
+    prog='odooctl',
+    description='Update Odoo records using the XML-RPC API.',
+    epilog=example_text,
+)
+
+# Define arguments
+parser.add_argument('--model', help='Model')
+parser.add_argument('--domain', help='Domain')
+parser.add_argument('--field', help='Field')
+parser.add_argument('--value', help='Value')
+
+# Parse arguments
+args=parser.parse_args()
+
+# Get environemtn variables
+url = os.environ.get('ODOO_URL') or 'http://localhost:8069'
+db = os.environ.get('ODOO_DATABASE') or 'odoo'
+username = os.getenv('ODOO_USERNAME') or 'admin'
+password = os.environ.get('ODOO_PASSWORD') or 'admin'
+
+# Parse url
+url = urlparse(url)
+
+print(
+    url.hostname,
+    url.port or 443,
+    db,
+    username,
+    password,
+    'xml-rpcs' if url.scheme == 'https' else 'xml-rpc'
+)
+# Setup client
+client = Client(
+    host=url.hostname,
+    port=url.port,
+    dbname=db,
+    user=username,
+    pwd=password,
+)
+
+# Parse domain and value
+domain = ast.literal_eval(args.domain) if args.domain else False
+value = ast.literal_eval(args.value)
+
+# Execute query
+Model = client[args.model]
+records = Model.search([domain]) if domain else Model.search([])
+Model.write(records, { args.field: value })
+print("Success")
