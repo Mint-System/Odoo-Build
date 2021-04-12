@@ -15,7 +15,6 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 
 The Odoo development environment has the following requirements:
 
-* [Odoo Scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.7.x with [pyenv](https://github.com/pyenv/pyenv)
 * [wkhtmltopdf](https://wkhtmltopdf.org/): `sudo apt install wkhtmltopdf`
@@ -38,6 +37,12 @@ Checkout branch.
 ```bash
 task checkout 13.0
 task checkout 14.0
+```
+
+Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
+
+```bash
+task install-odoo-scripts
 ```
 
 Disable auto install for Odoo apps.
@@ -87,7 +92,7 @@ Run Odoo from source.
 Create and activate the virtual env.
 
 ```bash
-task venv-init
+task init-venv
 ```
 
 **Install Odoo source requirements**

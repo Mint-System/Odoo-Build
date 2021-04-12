@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<!-- hr_timesheet.hr_timesheet_line_tree -->
+<data>
+  <xpath expr="//field[@name='unit_amount']" position="after">
+    <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
+    <field name="timesheet_invoice_id" string="Rechnung"/>
+  </xpath>
+</data>

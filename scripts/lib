@@ -2,7 +2,7 @@
 
 PATH="$PATH:./odoo"
 GIT_TAG=1
-ODOO_VERSION=14.0
+GIT_BRANCH=$(git branch --show-current)
 
 function get-module-version() {
     if test -z "$1" 
@@ -19,7 +19,7 @@ function get-module-version() {
         # check if oca version or enterprise version
         if echo "$VERSION" | grep -e "^[0-9]\."
         then
-            VERSION="$ODOO_VERSION.$VERSION.$GIT_TAG"
+            VERSION="$GIT_BRANCH.$VERSION.$GIT_TAG"
         fi
 
         echo $VERSION
@@ -27,7 +27,7 @@ function get-module-version() {
 }
 
 function activate-venv() {
-    source venv/bin/activate
+    source "venv$GIT_BRANCH/bin/activate"
 }
 
 function locale() {

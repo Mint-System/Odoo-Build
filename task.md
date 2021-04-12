@@ -6,7 +6,7 @@
 | logs                 |              | Tail Odoo Docker container logs.                                         |
 | start-db             |              | Start database container only.                                           |
 | disable-auto-install |              | Disable auto install for enterprise modules.                             |
-| venv-init            |              | Initialize python virtual env.                                           |
+| init-venv            |              | Initialize python virtual env.                                           |
 | active-venv          |              | Activate python virtual env.                                             |
 | install-src          |              | Install Odoo requirements in source folder.                              |
 | init-db              |              | Initialize the Odoo database.                                            |
