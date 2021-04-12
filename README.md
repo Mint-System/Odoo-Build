@@ -36,6 +36,7 @@ Checkout branch.
 
 ```bash
 task checkout 13.0
+# or
 task checkout 14.0
 ```
 
