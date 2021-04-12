@@ -173,8 +173,9 @@ function init-odoo-env() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     echo "Init env file: .env.$1"
-    echo "ODOO_DATABASE=" > .env.$1
-    echo "ODOO_USERNAME=" > .env.$1
+    echo "#ODOO_URL=" > .env.$1
+    echo "ODOO_DATABASE=" >> .env.$1
+    echo "ODOO_USERNAME=" >> .env.$1
     echo "ODOO_PASSWORD=" >> .env.$1
     cat .env.$1
 }
