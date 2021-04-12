@@ -24,5 +24,5 @@
 | convert-database     | [db]         | Convert database backup file from postgres 9.5 to latest.                |
 | init-odoo-env        | [env]        | Create env file for environement.                                        |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                                 |
-| update-odoo-view     | [env] [path] | Write view xml definition.                                               |
+| update-odoo-view     | [env] [path] | Update view xml definition.                                              |
 |                      |              | `task update-odoo-view mydb snippets/mrp.report_mrporder_show_stock.xml` |
