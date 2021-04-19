@@ -110,7 +110,7 @@ task install-src
 Run database container only
 
 ```bash
-task start-db
+task start db
 ```
 
 Initialize database
@@ -183,6 +183,12 @@ docker restart odoo
 ### Mail
 
 **View emails**
+
+Start mail service.
+
+```bash
+task start mail
+```
 
 Open the mail client [http://localhost](http://localhost).
 

@@ -34,6 +34,37 @@ function install-src() {
     pip install -r requirements.txt
 }
 
+function start() {
+    if test -z "$1"; then
+        echo "Open http://localhost:8069 url in your browser."
+        docker-compose up -d
+    fi
+
+    if [ "$1" = "db" ]; then
+        docker-compose up -d db pgadmin
+        echo "Open http://localhost:8000 url in your browser."
+    fi
+    
+    if [ "$1" = "mail" ]; then
+        docker-compose up -d mail
+        echo "Open http://localhost url in your browser."
+    fi
+}
+
+function restart() {
+    if test -z "$1"; then
+        docker-compose restart -d
+    fi
+
+    if [ "$1" = "db" ]; then
+        docker-compose restart -d db pgadmin
+    fi
+    
+    if [ "$1" = "mail" ]; then
+        docker-compose restart -d mail
+    fi
+}
+
 function start-shell() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -214,8 +245,10 @@ case "$1" in
         checkout $2
         ;;
     start)
-        docker-compose up -d
-        echo "Open http://localhost:8069 url in your browser."
+        start $2
+        ;;
+    restart)
+        restart $2
         ;;
     stop)
         docker-compose stop
@@ -225,14 +258,6 @@ case "$1" in
         ;;
     logs)
         docker logs odoo -f
-        ;;
-    start-db)
-        docker-compose up -d db pgadmin
-        echo "Open http://localhost:8000 url in your browser."
-        ;;
-    start-mail)
-        docker-compose up -d mail
-        echo "Open http://localhost url in your browser."
         ;;
     init-venv)
         init-venv
