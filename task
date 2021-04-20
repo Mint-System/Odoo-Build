@@ -49,6 +49,13 @@ function start() {
         docker-compose up -d mail
         echo "Open http://localhost url in your browser."
     fi
+
+    if [ "$1" = "src" ]; then
+        locale
+        activate-venv
+        echo "Open http://localhost:8069 url in your browser."
+        odoo-bin --config 'config/odoo-src.conf' --dev=reload
+    fi
 }
 
 function restart() {
@@ -77,13 +84,6 @@ function init-db() {
     locale
     activate-venv
     odoo-bin --init base -d odoo --config 'config/odoo-src.conf' --stop-after-init --no-http
-}
-
-function start-src() {
-    locale
-    activate-venv
-    echo "Open http://localhost:8069 url in your browser."
-    odoo-bin --config 'config/odoo-src.conf' --dev=reload
 }
 
 function update-module() {
@@ -270,9 +270,6 @@ case "$1" in
         ;;
     init-db)
         init-db
-        ;;
-    start-src)
-        start-src
         ;;
     start-shell)
         start-shell $2

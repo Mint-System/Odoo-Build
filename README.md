@@ -122,7 +122,7 @@ task init-db
 Start Odoo from source
 
 ```bash
-task start-src
+task start src
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.

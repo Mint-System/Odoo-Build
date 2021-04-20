@@ -1,0 +1,20 @@
+<data>
+
+    <!-- New title -->
+    <xpath expr="/t/t/t/div/div[2]" position="after">
+        <h3>Arbeitsrapport
+            <t t-if="len(docs.mapped('project_id')) == 1">
+                für den Kunden "<t t-esc="docs.mapped('project_id')[0].partner_id.name"/>"
+            </t>
+        </h3>
+        <p>Ausgeführt von <span t-field="user.name"/>
+        </p>
+    </xpath>
+
+    <!-- Remove responsible -->
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[2]" position="replace"/>
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
+    <xpath expr="//table[1]/tbody[1]/tr[2]/td[2]" position="replace"/>
+    <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
+
+</data>

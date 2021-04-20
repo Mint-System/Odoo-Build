@@ -1,6 +1,6 @@
 | command              | option       | description                                                              |
 | -------------------- | ------------ | ------------------------------------------------------------------------ |
-| start                | [name]       | Start docker container. Options: db, mail                                |
+| start                | [name]       | Start docker container. Options: db, mail, src                           |
 | restart              | [name]       | Restart docker container. Options: db, mail                              |
 | stop                 |              | Stop docker container.                                                   |
 | kill                 |              | Remove docker container and volumes.                                     |
@@ -10,7 +10,6 @@
 | active-venv          |              | Activate python virtual env.                                             |
 | install-src          |              | Install Odoo requirements in source folder.                              |
 | init-db              |              | Initialize the Odoo database.                                            |
-| start-src            |              | Start Odoo from source folder.                                           |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                     |
 | create-module        | [name]       | Create new Odoo module from template.                                    |
 | install-module       | [db] [name]  | Install target Odoo module.                                              |
