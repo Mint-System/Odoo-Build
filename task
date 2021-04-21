@@ -60,15 +60,15 @@ function start() {
 
 function restart() {
     if test -z "$1"; then
-        docker-compose restart -d
+        docker-compose restart 
     fi
 
     if [ "$1" = "db" ]; then
-        docker-compose restart -d db pgadmin
+        docker-compose restart db pgadmin
     fi
     
     if [ "$1" = "mail" ]; then
-        docker-compose restart -d mail
+        docker-compose restart mail
     fi
 }
 
@@ -114,7 +114,6 @@ function remove-module() {
     odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
 }
 
-
 function create-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -140,13 +139,6 @@ function clear-assets() {
     echo "Delete these assets:"
     psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
     psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-}
-
-function upload-module() {
-
-    if [ "$1" = "certificate_planer" ]; then
-        rsync  -av -e ssh --exclude='.git' addons/certificate_planer hermes.mint-system.com:/usr/share/odoo05/addons/
-    fi
 }
 
 function convert-database() {
@@ -276,9 +268,6 @@ case "$1" in
         ;;
     update-module)
         update-module $2 $3
-        ;;
-    upload-module)
-        upload-module $2
         ;;
     create-module)
         create-module $2
