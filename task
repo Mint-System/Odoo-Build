@@ -182,15 +182,17 @@ function zip-module() {
     MODULE=$(basename "$1")
 
     # copy module to tmp folder
-    echo "Copy module $MODULE $VERSION to tmp folder"
-    MODULE_PATH="tmp/$MODULE-$VERSION"
+    echo "Copy module $MODULE version $VERSION to tmp folder"
+    MODULE_NAME="$MODULE-$VERSION"
+    MODULE_PATH="tmp/$MODULE_NAME"
     cp -r "$1" "$MODULE_PATH"
 
     # configure and zip module
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" $MODULE_PATH/__manifest__.py
     echo "Zip module $MODULE"
-    zip -q -r $MODULE_PATH.zip $MODULE_PATH
+    cd tmp
+    zip -q -r $MODULE_NAME.zip $MODULE_NAME
 }
 
 function clear-filestore() {
