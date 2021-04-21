@@ -81,9 +81,11 @@ function start-shell() {
 }
 
 function init-db() {
+    DATABASE=${1:="odoo"}
+
     locale
     activate-venv
-    odoo-bin --init base -d odoo --config 'config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin --init base -d $DATABASE --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
 
 function update-module() {
@@ -261,7 +263,7 @@ case "$1" in
         install-src
         ;;
     init-db)
-        init-db
+        init-db $2
         ;;
     start-shell)
         start-shell $2

@@ -8,7 +8,7 @@
 | disable-auto-install |              | Disable auto install for enterprise modules.                              |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                                  |
 | drop-db              | [db]         | Drop target Odoo database.                                                |
-| init-db              |              | Initialize the Odoo database.                                             |
+| init-db              | [db]         | Initialize the Odoo database. Optionally pass db name.                    |
 | init-odoo-env        | [env]        | Create env file for environement.                                         |
 | init-venv            |              | Initialize python virtual env.                                            |
 | install-module       | [db] [name]  | Install target Odoo module.                                               |
