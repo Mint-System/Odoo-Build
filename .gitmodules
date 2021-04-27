@@ -103,3 +103,6 @@
 [submodule "addons/oms_layout"]
 	path = addons/oms_layout
 	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
+[submodule "addons/home_background_image"]
+	path = addons/home_background_image
+	url = git@github.com:janikvonrotz/Odoo-App-Home-Background-Image.git

@@ -81,7 +81,8 @@ function start-shell() {
 }
 
 function init-db() {
-    DATABASE=${1:="odoo"}
+    DATABSE=$1
+    DATABASE=${DATABSE:="odoo"}
 
     locale
     activate-venv
