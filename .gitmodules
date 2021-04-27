@@ -100,3 +100,6 @@
 [submodule "oca/server-ux"]
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
+[submodule "addons/oms_layout"]
+	path = addons/oms_layout
+	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
