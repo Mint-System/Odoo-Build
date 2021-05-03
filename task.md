@@ -22,6 +22,7 @@
 | start                | [name]       | Start docker container. Options: none, db, mail, src                      |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                      |
 | stop                 |              | Stop docker containers.                                                   |
+| update-app-list      | [db]         | Update app list.                                                          |
 | update-module        | [db] [name]  | Update target Odoo module.                                                |
 | update-odoo-view     | [env] [path] | Update view xml definition.                                               |
 |                      |              | `task update-odoo-view myenv snippets/mrp.report_mrporder.show_stock.xml` |

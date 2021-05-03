@@ -7,6 +7,7 @@ from urllib.parse import urlparse
 example_text = """
 example: 
     odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
+    odooctl --model 'ir.module.module' --method update_list
 """
 
 parser=argparse.ArgumentParser(
@@ -19,6 +20,7 @@ parser=argparse.ArgumentParser(
 parser.add_argument('--model', help='Model')
 parser.add_argument('--domain', help='Domain')
 parser.add_argument('--field', help='Field')
+parser.add_argument('--method', help='Field')
 parser.add_argument('--value', help='Value')
 
 # Parse arguments
@@ -40,18 +42,26 @@ models.execute_kw(db, uid, password,
     args.model, 'check_access_rights',
     ['read'], {'raise_exception': False})
 
-# Parse domain and value
-domain = ast.literal_eval(args.domain) if args.domain else False
-value = ast.literal_eval(args.value)
+if args.method:
+    # Execute method
+    models.execute_kw(db, uid, password,
+        args.model, args.method)
 
-# Search records
-ids = models.execute_kw(db, uid, password,
-    args.model, 'search',
-    [[domain]] if domain else [[]])
+    print("Success")
 
-# Write records
-models.execute_kw(db, uid, password,
-    args.model, 'write',
-    [ids, { args.field: value }])
+if args.field:
+    # Parse domain and value
+    domain = ast.literal_eval(args.domain) if args.domain else False
+    value = ast.literal_eval(args.value)
 
-print("Success")
+    # Search records
+    ids = models.execute_kw(db, uid, password,
+        args.model, 'search',
+        [[domain]] if domain else [[]])
+
+    # Write records
+    models.execute_kw(db, uid, password,
+        args.model, 'write',
+        [ids, { args.field: value }])
+
+    print("Success")

@@ -158,12 +158,20 @@ function convert-database() {
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
+    # Reset enterprise
     cd enterprise
     git checkout .
     cd ..
+
+    # Checkout branch
     git checkout $1
+
+    # Reset submodules
     git submodule update --init
     git submodule foreach git checkout $1
+
+    # Sync files from last branch
+    git checkout $GIT_BRANCH README.md task task.md scripts snippets
 }
 
 function release-module() {
@@ -233,6 +241,15 @@ function update-odoo-view() {
     load-odoo-env $1
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
+
+function update-app-list() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    locale
+    activate-venv
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
+}
+
 
 case "$1" in
     disable-auto-install)
@@ -315,6 +332,9 @@ case "$1" in
         ;;
     update-odoo-view)
         update-odoo-view $2 $3
+        ;;
+    update-app-list)
+        update-app-list $2
         ;;
     *)
         help task
