@@ -35,6 +35,6 @@ function locale() {
     export LANG=en_US.UTF-8
 }
 
-function load-odoo-env() {
+function load-env() {
     export $(cat .env.$1 | sed 's/#.*//g' | xargs)
 }

@@ -109,3 +109,6 @@
 [submodule "oca/openupgrade"]
 	path = oca/openupgrade
 	url = https://github.com/OCA/openupgrade
+[submodule "oca/partner-contact"]
+	path = oca/partner-contact
+	url = git@github.com:OCA/partner-contact.git

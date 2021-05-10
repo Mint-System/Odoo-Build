@@ -9,7 +9,8 @@
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                                  |
 | drop-db              | [db]         | Drop target Odoo database.                                                |
 | init-db              | [db]         | Initialize the Odoo database. Optionally pass db name.                    |
-| init-odoo-env        | [env]        | Create env file for environement.                                         |
+| init-next-env        | [env]        | Create env file for Nextcloud instance.                                   |
+| init-odoo-env        | [env]        | Create env file for Odoo Instance.                                        |
 | init-venv            |              | Initialize python virtual env.                                            |
 | install-module       | [db] [name]  | Install target Odoo module.                                               |
 | install-odoo-scripts |              | Install Odoo scripts.                                                     |
@@ -26,5 +27,5 @@
 | update-module        | [db] [name]  | Update target Odoo module.                                                |
 | update-odoo-view     | [env] [path] | Update view xml definition.                                               |
 |                      |              | `task update-odoo-view myenv snippets/mrp.report_mrporder.show_stock.xml` |
+| upload-module        | [env] [path] | Zip and upload Odoo module.                                               |
 | zip-module           | [path]       | Create zip file for module.                                               |
-|                      |              |                                                                           |

@@ -25,6 +25,8 @@
         'views/views.xml',
     ],
 
+    'qweb': ['static/src/xml/board.xml'],
+
     'demo': [
         'demo/demo.xml',
     ],
