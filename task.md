@@ -4,7 +4,7 @@
 | clear-assets         | [db]         | Clear Odoo assets.                                                        |
 | clear-filestore      | [db]         | Clear local filestore folder. Pass not param to clear all filestores.     |
 | convert-database     | [db]         | Convert database backup file from postgres 9.5 to latest.                 |
-| create-module        | [name]       | Create new Odoo module from template.                                     |
+| create-module        | [path]       | Create new Odoo module from template.                                     |
 | disable-auto-install |              | Disable auto install for enterprise modules.                              |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                                  |
 | drop-db              | [db]         | Drop target Odoo database.                                                |

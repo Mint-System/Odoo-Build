@@ -121,9 +121,13 @@ function remove-module() {
 function create-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
+    MODULE_NAME=$(basename "$1")
+    PARENT_DIR=$(dirname "$1")
+
     locale
     activate-venv
-    odoo-bin scaffold $1 addons -t template/ms_custom_module
+    echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
+    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/ms_custom_module
 }
 
 function drop-db() {
