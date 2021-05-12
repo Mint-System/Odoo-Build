@@ -1,114 +1,152 @@
 [submodule "addons/show_db_name"]
 	path = addons/show_db_name
 	url = git@github.com:Mint-System/Odoo-App-Show-DB-Name.git
+	branch = 14.0
 [submodule "addons/auth_oauth_keycloak"]
 	path = addons/auth_oauth_keycloak
 	url = git@github.com:Mint-System/Odoo-App-Auth-OAuth-Keycloak.git
+	branch = 14.0
 [submodule "addons/theme_mint_system"]
 	path = addons/theme_mint_system
 	url = git@github.com:Mint-System/Odoo-Theme-Mint-System.git
+	branch = 14.0
 [submodule "addons/stock_report"]
 	path = addons/stock_report
 	url = git@github.com:Mint-System/Odoo-App-Stock-Report.git
+	branch = 14.0
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
+	branch = 14.0
 [submodule "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
+	branch = 14.0
 [submodule "addons/sale_order_description"]
 	path = addons/sale_order_description
 	url = git@github.com:Mint-System/Odoo-App-Sale-Order-Description.git
+	branch = 14.0
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
+	branch = 14.0
 [submodule "oca/l10n-switzerland"]
 	path = oca/l10n-switzerland
 	url = git@github.com:OCA/l10n-switzerland.git
+	branch = 14.0
 [submodule "oca/knowledge"]
 	path = oca/knowledge
 	url = git@github.com:OCA/knowledge.git
+	branch = 14.0
 [submodule "oca/crm"]
 	path = oca/crm
 	url = git@github.com:OCA/crm.git
+	branch = 14.0
 [submodule "oca/timesheet"]
 	path = oca/timesheet
 	url = git@github.com:OCA/timesheet.git
+	branch = 14.0
 [submodule "oca/web"]
 	path = oca/web
 	url = git@github.com:OCA/web.git
+	branch = 14.0
 [submodule "oca/server-auth"]
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
+	branch = 14.0
 [submodule "addons/certificate_planer"]
 	path = addons/certificate_planer
 	url = git@github.com:Mint-System/Certificate-Planer.git
+	branch = 14.0
 [submodule "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
+	branch = 14.0
 [submodule "oca/hr-attendance"]
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
+	branch = 14.0
 [submodule "addons/gio_payroll_custom"]
 	path = addons/gio_payroll_custom
 	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-share.git
+	branch = 14.0
 [submodule "addons/gio_py3o_addon"]
 	path = addons/gio_py3o_addon
 	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-report.git
+	branch = 14.0
 [submodule "addons/website_sale_default_country"]
 	path = addons/website_sale_default_country
 	url = git@github.com:Mint-System/Odoo-App-Website-Sale-Default-Country.git
+	branch = 14.0
 [submodule "addons/website_date_of_birth"]
 	path = addons/website_date_of_birth
 	url = git@github.com:Mint-System/Odoo-App-Website-Date-of-Birth.git
+	branch = 14.0
 [submodule "addons/account_invoice_description"]
 	path = addons/account_invoice_description
 	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Description.git
+	branch = 14.0
 [submodule "theme"]
 	path = theme
 	url = git@github.com:Mint-System/Odoo-Theme.git
+	branch = 14.0
 [submodule "addons/eksb_layout"]
 	path = addons/eksb_layout
 	url = git@github.com:Mint-System/Odoo-App-EKSB-Layout.git
+	branch = 14.0
 [submodule "addons/website_product_description"]
 	path = addons/website_product_description
 	url = git@github.com:Mint-System/Odoo-Apps-Website-Product-Description.git
+	branch = 14.0
 [submodule "addons/account_invoice_detail"]
 	path = addons/account_invoice_detail
 	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Detail.git
+	branch = 14.0
 [submodule "oca/server-backend"]
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend.git
+	branch = 14.0
 [submodule "addons/mrp_documents_share"]
 	path = addons/mrp_documents_share
 	url = git@github.com:Mint-System/Odoo-App-MRP-Documents-Share.git
+	branch = 14.0
 [submodule "addons/dev_blanket_sale_order"]
 	path = addons/dev_blanket_sale_order
 	url = git@gitlab.com:mint-system/odoo-app-blanket-sale-order.git
+	branch = 14.0
 [submodule "addons/demand_planner"]
 	path = addons/demand_planner
 	url = git@github.com:Mint-System/Demand-Planner.git
+	branch = 14.0
 [submodule "addons/eq_cancel_mrp_orders"]
 	path = addons/eq_cancel_mrp_orders
 	url = git@gitlab.com:mint-system/odoo-app-cancel-manufacturing-order.git
+	branch = 14.0
 [submodule "addons/product_name_sequence"]
 	path = addons/product_name_sequence
 	url = git@github.com:Mint-System/Odoo-App-Product-Name-Sequence.git
+	branch = 14.0
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
+	branch = 14.0
 [submodule "oca/server-ux"]
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
+	branch = 14.0
 [submodule "addons/oms_layout"]
 	path = addons/oms_layout
 	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
+	branch = 14.0
 [submodule "addons/home_background_image"]
 	path = addons/home_background_image
 	url = git@github.com:janikvonrotz/Odoo-App-Home-Background-Image.git
+	branch = 14.0
 [submodule "oca/openupgrade"]
 	path = oca/openupgrade
 	url = https://github.com/OCA/openupgrade
+	branch = 14.0
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
+	branch = 14.0
