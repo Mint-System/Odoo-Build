@@ -88,14 +88,6 @@ docker exec -it odoo bin/bash -c "odoo -s -d odoo --db_host \$HOST -r \$USER -w 
 
 Run Odoo from source.
 
-**Create and activate virtual env**
-
-Create and activate the virtual env.
-
-```bash
-task init-venv
-```
-
 **Install Odoo source requirements**
 
 Pull the `odoo` submodule and install the python dependencies.

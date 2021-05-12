@@ -19,16 +19,12 @@ function disable-auto-install() {
     find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
-function init-venv() {
-    python3 -m venv "venv$GIT_BRANCH"
-    source "venv$GIT_BRANCH/bin/activate"
-}
-
 function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh 
 }
 
 function install-src() {
+    init-venv
     activate-venv
     cd odoo
     pip install setuptools wheel watchdog phonenumbers
@@ -353,9 +349,6 @@ case "$1" in
         ;;
     clear-filestore)
         clear-filestore $2
-        ;;
-    activate-venv)
-        activate-venv
         ;;
     init-odoo-env)
         init-odoo-env $2

@@ -1,6 +1,5 @@
 | command              | option       | description                                                               |
 | -------------------- | ------------ | ------------------------------------------------------------------------- |
-| activate-venv        |              | Activate python virtual env.                                              |
 | clear-assets         | [db]         | Clear Odoo assets.                                                        |
 | clear-filestore      | [db]         | Clear local filestore folder. Pass not param to clear all filestores.     |
 | convert-database     | [db]         | Convert database backup file from postgres 9.5 to latest.                 |

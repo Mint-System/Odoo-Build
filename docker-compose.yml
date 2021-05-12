@@ -2,7 +2,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: odoo:8363e01420b1
+    image: odoo:14.0
     depends_on:
       - db
     environment:

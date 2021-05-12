@@ -150,3 +150,7 @@
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 	branch = 14.0
+[submodule "addons/company"]
+	path = addons/company
+	url = git@github.com:Mint-System/Odoo-Apps-Company.git
+	branch = 14.0
