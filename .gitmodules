@@ -86,9 +86,9 @@
 	path = addons/account_invoice_description
 	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Description.git
 	branch = 14.0
-[submodule "theme"]
-	path = theme
-	url = git@github.com:Mint-System/Odoo-Theme.git
+[submodule "themes"]
+	path = themes
+	url = git@github.com:Mint-System/Odoo-Themes.git
 	branch = 14.0
 [submodule "addons/eksb_layout"]
 	path = addons/eksb_layout
