@@ -15,6 +15,7 @@
 | install-odoo-scripts |              | Install Odoo scripts.                                                     |
 | install-src          |              | Install Odoo requirements in source folder.                               |
 | kill                 |              | Remove docker containers and volumes.                                     |
+| lint-module          | [path]       | Run pylint odoo for module.                                               |
 | logs                 |              | Tail Odoo Docker container logs.                                          |
 | release-module       | [path]       | Create GitHub release for module.                                         |
 | remove-module        | [db] [name]  | Remove target Odoo module.                                                |

@@ -26,9 +26,9 @@ function install-odoo-scripts() {
 function install-src() {
     init-venv
     activate-venv
-    cd odoo
+    pip install --upgrade --pre pylint-odoo
     pip install setuptools wheel watchdog phonenumbers
-    pip install -r requirements.txt
+    pip install -r odoo/requirements.txt
 }
 
 function start() {
@@ -84,6 +84,13 @@ function init-db() {
     locale
     activate-venv
     odoo-bin --init base -d $DATABASE --config 'config/odoo-src.conf' --stop-after-init --no-http
+}
+
+function lint-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    activate-venv
+    pylint --load-plugins=pylint_odoo -d all -e odoolint $1
 }
 
 function update-module() {
@@ -343,6 +350,9 @@ case "$1" in
         ;;
     release-module)
         release-module $2
+        ;;
+    lint-module)
+        lint-module $2
         ;;
     zip-module)
         zip-module $2
