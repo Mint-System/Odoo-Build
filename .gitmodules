@@ -150,3 +150,6 @@
 	path = addons/company
 	url = git@github.com:Mint-System/Odoo-Apps-Company.git
 	branch = 14.0
+[submodule "oca/website"]
+	path = oca/website
+	url = https://github.com/OCA/website.git
