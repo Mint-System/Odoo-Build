@@ -1,20 +1,16 @@
-# -*- coding: utf-8 -*-
 {
     'name': "{{ name|replace('_',' ')|capitalize }}",
 
     'summary': """
         Module summary.
     """,
-
-    'description': """
-        Module desciption.
-    """,
-
-    'author': "Mint System GmbH",
-    'website': "https://www.mint-system.ch",
+    
+    'author': 'Mint System GmbH, Odoo Community Association (OCA)',
+    'website': 'https://www.mint-system.ch',
     'category': 'Uncategorized', # See odoo/addons/base/data/ir_module_category_data.xml
     'version': '14.0.0.0.0',
-
+    'license': 'AGPL-3',
+    
     'depends': ['base'],
 
     'data': [

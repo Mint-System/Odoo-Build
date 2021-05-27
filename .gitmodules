@@ -153,3 +153,6 @@
 [submodule "oca/website"]
 	path = oca/website
 	url = https://github.com/OCA/website.git
+[submodule "addons/product_attribute"]
+	path = addons/product_attribute
+	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git

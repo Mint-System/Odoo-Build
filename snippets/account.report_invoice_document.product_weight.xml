@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document">
+
+  <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
+    <br/>
+		<span t-field="line.product_id.weight"/> kg
+  </xpath>
+
+</data>

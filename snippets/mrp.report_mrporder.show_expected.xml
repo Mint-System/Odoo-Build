@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
-<!-- mrp.report_mrporder -->
-<data>
+<data inherit_id="mrp.report_mrporder">
+
 	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
 		<t t-if="raw_line.forecast_expected_date">
 			<br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
 		</t>
 	</xpath>
+
 </data>

@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!-- Show billable field for timesheet entries -->
+<data inherit_id="portal_my_timesheets">
+
+  <xpath expr="//thead/tr/th[4]" position="after">
+    <th>Invoice Type</th>
+  </xpath>
+
+  <xpath expr="//tbody/t/tr/td[3]" position="after">
+    <td>
+      <span t-field="timesheet.timesheet_invoice_type"/>
+    </td>
+  </xpath>
+
+</data>

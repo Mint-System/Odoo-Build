@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document">
+
+  <xpath expr="//table[1]/thead[1]/tr[1]/th[6]" position="replace"/>
+  <xpath expr="//table[1]/tbody[1]/t[3]/tr[1]/t[1]/td[6]" position="replace"/>
+
+</data>

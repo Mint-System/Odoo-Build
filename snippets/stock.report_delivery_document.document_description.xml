@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!-- Append delivery document description -->
+<data inherit_id="sstock.report_delivery_document">
+
+  <xpath expr="/t/t/t/div/table[1]" position="after">
+    <p>Retouren:<br/>
+		KEG:             ___________  Anzahl<br/>
+		Harassen:  ___________  Anzahl<br/>
+    <br/>
+		Waren erhalten:  Datum:  ___________  Unterschrift:  ______________________
+    </p>
+  </xpath>
+
+</data>

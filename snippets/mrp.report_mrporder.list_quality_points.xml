@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<!-- List quality points in mrp order -->
+<data inherit_id="mrp.report_mrporder">
+
+	<xpath expr="/t/t/t/t/div/div[5]/table/tr[2]/td[1]/span" position="after">
+		<ul>
+		  <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point"><span t-field="quality_point.title"/></li>
+	  </ul>
+  </xpath>
+
+</data>

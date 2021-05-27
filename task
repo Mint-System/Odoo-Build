@@ -245,7 +245,7 @@ function update-odoo-view() {
 
     # Generate view name from filename
     FILE=$(basename $2)
-    NAME="mint_system.$FILE"
+    NAME="mint_system.${FILE%.xml}"
 
     activate-venv
     load-env $1

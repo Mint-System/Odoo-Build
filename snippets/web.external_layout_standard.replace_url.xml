@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Replace website url in document footer -->
+<data inherit_id="web.external_layout_standard">
+
+  <xpath expr="//li[@t-if='company.website']" position="replace">
+  	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
+  </xpath>
+
+</data>
