@@ -156,3 +156,6 @@
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+[submodule "themes"]
+	path = themes
+	url = git@github.com:odoo/design-themes.git

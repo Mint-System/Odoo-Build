@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<data>
-    <xpath expr="//div[@id='informations']" position="after">
-        <p t-field="sale_order.x_studio_description" />
-    </xpath>
-</data>
