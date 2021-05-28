@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document">
+
+  <!-- <t t-foreach="line.product_id.seller_ids" t-as="seller">
+      <span t-field="seller.name"/>
+  </t> -->
+
+  <xpath expr="//tbody/t[2]/tr/t[1]/td[1]/span" position="after">
+    <t t-set="seller" t-value="line.product_id.seller_ids.browse(o.partner_id.id)"/>
+    Product Code: <span t-field="seller.product_code"/>
+    Product Name: <span t-field="seller.product_name"/>
+  </xpath>
+
+</data>
