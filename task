@@ -287,9 +287,21 @@ function upload-module() {
     echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
 }
 
+
+function save-config() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    locale
+    activate-venv
+    odoo-bin -s -d $1 --config 'config/odoo-src.conf' --stop-after-init --no-http
+}
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
+        ;;
+    save-config)
+        save-config $2
         ;;
     checkout)
         checkout $2

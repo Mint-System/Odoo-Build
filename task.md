@@ -21,6 +21,7 @@
 | remove-module        | [db] [name]  | Remove target Odoo module.                                                |
 | restart              | [name]       | Restart docker container. Options: none, db, mail                         |
 | start                | [name]       | Start docker container. Options: none, db, mail, src                      |
+| save-config          | [name]       | Save Odoo database config                                                 |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                      |
 | stop                 |              | Stop docker containers.                                                   |
 | update-app-list      | [db]         | Update app list.                                                          |
