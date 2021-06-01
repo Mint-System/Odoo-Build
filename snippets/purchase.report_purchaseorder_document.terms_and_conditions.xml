@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document">
+
+  <xpath expr="/t/t/div/div[5]" position="after">
+    <div class="row">
+      <div class="col">
+        <b>Terms and Conditions:</b>
+        <ul>
+          <li>An order confirmation is required within 5 working days</li>
+          <li>The deliver date is the day of arrival at Pavic doo</li>
+          <li>Partial deliveries only after prior release</li>
+          <li>If the confirmed delivery date is not respected, Pavic doo is applying a penalty of 2% of the order value, until max. 10%</li>
+        </ul>
+      </div>
+    </div>
+  </xpath>
+
+</data>
