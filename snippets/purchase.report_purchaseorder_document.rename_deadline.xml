@@ -2,7 +2,7 @@
 <data inherit_id="purchase.report_purchaseorder_document">
 
   <xpath expr="/t/t/div/div[2]/div[3]/strong" position="replace">
-    <strong>Order Deadline:</strong>
+    <strong>Deadline:</strong>
   </xpath>
   
   <!-- <xpath expr="/t/t/div/div[2]/div[4]" position="after">

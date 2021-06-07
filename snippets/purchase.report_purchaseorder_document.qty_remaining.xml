@@ -11,4 +11,8 @@
     <t t-if="product"> / <span t-esc="product.product_qty - product.qty_ordered"/> <span t-field="line.product_uom.name"/></t>
   </xpath>
   
+  <xpath expr="//table/thead/tr/th[4]/strong" position="replace">
+    <strong>Qty / Rem. Agreement Qty<br/></strong>
+  </xpath>
+
 </data>
