@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+  <record id="mint_system.calendar.view_calendar_event_calendar_timeline" model="ir.ui.view">
+    <field name="name">calendar.event.calendar.timeline</field>
+    <field name="model">calendar.event</field>
+    <field name="type">timeline</field>
+    <field name="arch" type="xml">
+      <timeline date_start="start" date_stop="stop" default_group_by="partner_id" event_open_popup="true" />
+    </field>
+  </record>
+</odoo>
