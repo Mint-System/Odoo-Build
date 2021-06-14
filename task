@@ -179,7 +179,7 @@ function checkout() {
     git submodule foreach git checkout $1
 
     # Sync files from last branch
-    git checkout $GIT_BRANCH README.md task task.md scripts snippets template data .vuepress package.json package-lock.json
+    git checkout $GIT_BRANCH README.md task task.md scripts snippets template data .vuepress package.json package-lock.json .gitignore .vercelignore config
 }
 
 function release-module() {
