@@ -1,0 +1,29 @@
+{
+  "name": "Odoo-Development",
+  "version": "1.0.0",
+  "description": "The Mint System Odoo development environment.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev",
+    "build": "vuepress build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mint-System/Odoo-Development.git"
+  },
+  "keywords": [
+    "odoo",
+    "development",
+    "environment",
+    "build"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mint-System/Odoo-Development/issues"
+  },
+  "homepage": "https://github.com/Mint-System/Odoo-Development#readme",
+  "devDependencies": {
+    "vuepress": "^1.8.2"
+  }
+}

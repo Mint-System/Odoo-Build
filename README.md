@@ -23,7 +23,7 @@ The Odoo development environment has the following requirements:
 
 ## Usage
 
-The usage section is set of recipes. Pick the one required according to your scenario.
+The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about this projects commands.
 
 Clone this repository.
 
