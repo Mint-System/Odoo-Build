@@ -8,3 +8,4 @@ managed-modules
 venv*
 node_modules
 public
+.vercel
