@@ -1,5 +1,6 @@
 #!/bin/bash
 
+# have odoo-bin in path
 PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git branch --show-current)

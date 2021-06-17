@@ -6,8 +6,8 @@
 | create-module        | [path]       | Create new Odoo module from template.                                     |
 | disable-auto-install |              | Disable auto install for enterprise modules.                              |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                                  |
-| drop-db              | [db]         | Drop target Odoo database.                                                |
-| init-db              | [db]         | Initialize the Odoo database. Optionally pass db name.                    |
+| drop-db              | [db]         | Drop target Odoo database. Default is odoo                                |
+| init-db              | [db]         | Initialize the Odoo database. Default is odoo                             |
 | init-next-env        | [env]        | Create env file for Nextcloud instance.                                   |
 | init-odoo-env        | [env]        | Create env file for Odoo Instance.                                        |
 | init-venv            |              | Initialize python virtual env.                                            |
@@ -17,6 +17,7 @@
 | kill                 |              | Remove docker containers and volumes.                                     |
 | lint-module          | [path]       | Run pylint odoo for module.                                               |
 | logs                 |              | Tail Odoo Docker container logs.                                          |
+| odoo-clock           | [db]         | Count custom line of codes.                                               |
 | release-module       | [path]       | Create GitHub release for module.                                         |
 | remove-module        | [db] [name]  | Remove target Odoo module.                                                |
 | restart              | [name]       | Restart docker container. Options: none, db, mail                         |
