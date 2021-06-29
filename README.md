@@ -62,6 +62,8 @@ Run docker compose.
 
 ```bash
 task start
+# or
+npm run task-start
 ```
 
 Initialize database.
@@ -103,6 +105,8 @@ Run database container only
 
 ```bash
 task start db
+# or
+npm run task-start-db
 ```
 
 Initialize database
@@ -115,6 +119,8 @@ Start Odoo from source
 
 ```bash
 task start src
+# or
+npm run task-start-src
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.

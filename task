@@ -176,16 +176,18 @@ function convert-database() {
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
+    # Checkout branch
+    git checkout $1
+
+    # Init submodules
+    git submodule update --init
+
     # Reset enterprise
     cd enterprise
     git checkout .
     cd ..
 
-    # Checkout branch
-    git checkout $1
-
-    # Reset submodules
-    git submodule update --init
+    # Reset all submodules
     git submodule foreach git checkout $1
 
     # Sync files from last branch
