@@ -118,10 +118,6 @@
 	path = addons/eq_cancel_mrp_orders
 	url = git@gitlab.com:mint-system/odoo-app-cancel-manufacturing-order.git
 	branch = 14.0
-[submodule "addons/product_name_sequence"]
-	path = addons/product_name_sequence
-	url = git@github.com:Mint-System/Odoo-App-Product-Name-Sequence.git
-	branch = 14.0
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
@@ -153,24 +149,31 @@
 [submodule "oca/website"]
 	path = oca/website
 	url = https://github.com/OCA/website.git
+	branch = 14.0
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+	branch = 14.0
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
+	branch = 14.0
 [submodule "addons/gio_generic_excel_addon"]
 	path = addons/gio_generic_excel_addon
 	url = git@gitlab.com:mint-system/odoo-app-generic-excel-addon.git
+	branch = 14.0
 [submodule "oca/reporting-engine"]
 	path = oca/reporting-engine
 	url = git@github.com:OCA/reporting-engine.git
+	branch = 14.0
 [submodule "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 [submodule "addons/delegations"]
 	path = addons/delegations
 	url = git@gitlab.com:mint-system/odoo-apps-delegations.git
+	branch = 14.0
 [submodule "addons/hr"]
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
+	branch = 14.0
