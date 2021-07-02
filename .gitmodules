@@ -134,10 +134,6 @@
 	path = addons/home_background_image
 	url = git@github.com:janikvonrotz/Odoo-App-Home-Background-Image.git
 	branch = 14.0
-[submodule "oca/openupgrade"]
-	path = oca/openupgrade
-	url = https://github.com/OCA/openupgrade
-	branch = 14.0
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
@@ -184,4 +180,8 @@
 [submodule "addons/board_users"]
 	path = addons/board_users
 	url = git@github.com:Mint-System/Odoo-App-Board-Users.git
+	branch = 14.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
 	branch = 14.0
