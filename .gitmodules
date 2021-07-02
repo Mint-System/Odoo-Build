@@ -181,3 +181,7 @@
 	path = addons/impersonate
 	url = git@gitlab.com:mint-system/odoo-app-impersonate.git
 	branch = 14.0
+[submodule "addons/board_users"]
+	path = addons/board_users
+	url = git@github.com:Mint-System/Odoo-App-Board-Users.git
+	branch = 14.0
