@@ -177,3 +177,7 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 14.0
+[submodule "addons/impersonate"]
+	path = addons/impersonate
+	url = git@gitlab.com:mint-system/odoo-app-impersonate.git
+	branch = 14.0

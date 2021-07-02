@@ -21,3 +21,4 @@ addons/hr
 addons/delegations
 oca/reporting-engine
 oca/server-tools
+addons/impersonate
