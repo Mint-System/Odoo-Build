@@ -193,3 +193,11 @@
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 14.0
+[submodule "oca/dms"]
+	path = oca/dms
+	url = git@github.com:OCA/dms.git
+	branch = 14.0
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
+	branch = 14.0

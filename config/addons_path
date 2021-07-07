@@ -24,3 +24,5 @@ addons/impersonate
 oca/product-attribute
 oca/sale-workflow
 addons/purchase_workflow
+oca/dms
+oca/social
