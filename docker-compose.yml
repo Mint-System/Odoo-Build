@@ -17,7 +17,7 @@ services:
       - ./addons:/mnt/addons
       - ./oca:/mnt/oca
       - ./enterprise:/mnt/enterprise
-      - ./theme:/mnt/theme
+      - ./themes:/mnt/themes
   pgadmin:
     container_name: pgadmin
     image: dpage/pgadmin4

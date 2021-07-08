@@ -17,7 +17,7 @@
 | kill                 |              | Remove docker containers and volumes.                                     |
 | lint-module          | [path]       | Run pylint odoo for module.                                               |
 | logs                 |              | Tail Odoo Docker container logs.                                          |
-| odoo-clock           | [db]         | Count custom line of codes.                                               |
+| odoo-cloc            | [db]         | Count custom line of codes.                                               |
 | release-module       | [path]       | Create GitHub release for module.                                         |
 | remove-module        | [db] [name]  | Remove target Odoo module.                                                |
 | restart              | [name]       | Restart docker container. Options: none, db, mail                         |
@@ -25,6 +25,7 @@
 | save-config          | [name]       | Save Odoo database config                                                 |
 | start-shell          | [db]         | Start Odoo shell from source folder.                                      |
 | stop                 |              | Stop docker containers.                                                   |
+| update-config        |              | Update odoo config.                                                       |
 | update-app-list      | [db]         | Update app list.                                                          |
 | update-module        | [db] [name]  | Update target Odoo module.                                                |
 | update-odoo-view     | [env] [path] | Update view xml definition.                                               |

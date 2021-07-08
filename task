@@ -51,7 +51,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        odoo-bin --config 'config/odoo-src.conf' --dev=reload
+        odoo-bin --config 'config/odoo-src.conf' --dev=all
     fi
 }
 
@@ -166,7 +166,7 @@ function convert-database() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     unzip "tmp/$1.zip" -d "./tmp/$1"
-    sed -i '' 's/AS integer//g' "./tmp/$1/dump.sql"
+    sed -i'' 's/AS integer//g' "./tmp/$1/dump.sql"
     grep -i 'as integer' "./tmp/$1/dump.sql"
     cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
     rm -r "tmp/$1"
@@ -176,16 +176,18 @@ function convert-database() {
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
+    # Checkout branch
+    git checkout $1
+
+    # Init submodules
+    git submodule update --init
+
     # Reset enterprise
     cd enterprise
     git checkout .
     cd ..
 
-    # Checkout branch
-    git checkout $1
-
-    # Reset submodules
-    git submodule update --init
+    # Reset all submodules
     git submodule foreach git checkout $1
 
     # Sync files from last branch
@@ -297,7 +299,6 @@ function upload-module() {
     echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
 }
 
-
 function save-config() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -305,6 +306,17 @@ function save-config() {
     activate-venv
     odoo-bin -s -d $1 --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
+
+function update-config() {
+
+    ADDONS="$(tr '\n' ',' < ./config/addons_path)"
+    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-src.conf"
+
+    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
+    sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
+
+    echo "Config updated."
+} 
 
 case "$1" in
     disable-auto-install)
@@ -391,7 +403,10 @@ case "$1" in
     disable-mailserver)
         disable-mailserver $2 $3
         ;;
-    update-odoo-view)
+    update-config)
+        update-config
+        ;;
+    upd-odoo-view)
         update-odoo-view $2 $3
         ;;
     update-app-list)

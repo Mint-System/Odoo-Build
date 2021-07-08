@@ -6,9 +6,13 @@
       <span>Pos</span>
     </th>
   </xpath>
-  <xpath expr="/t/t/div/table/tbody/t[3]/tr/t[1]/td[1]" position="before">
+  <xpath expr="//t[@t-foreach='lines']" position="before">
+    <t t-set="index" t-value="1"/>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[4]/tr/t[1]/td[1]" position="before">
     <td>
-      <span t-esc="line.sequence - 9"/>
+      <!-- <span t-esc="line.sequence - 9"/> -->
+      <span t-esc="index"/><t t-set="index" t-value="index+1"/>
     </td>
   </xpath>
 

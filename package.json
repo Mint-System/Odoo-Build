@@ -4,6 +4,13 @@
   "description": "The Mint System Odoo development environment.",
   "main": "index.js",
   "scripts": {
+    "task-start": "./task start",
+    "task-start-db": "./task start db",
+    "task-start-src": "./task start src",
+    "task-restart": "./task start",
+    "task-restart-db": "./task restart db",
+    "task-stop": "./task stop",
+    "task-kill": "./task kill",
     "dev": "vuepress dev",
     "build": "vuepress build"
   },
