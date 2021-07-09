@@ -26,3 +26,4 @@ oca/sale-workflow
 addons/purchase_workflow
 oca/dms
 oca/social
+oca/bank-statement-import

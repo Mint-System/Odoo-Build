@@ -201,3 +201,7 @@
 	path = oca/social
 	url = git@github.com:OCA/social.git
 	branch = 14.0
+[submodule "oca/bank-statement-import"]
+	path = oca/bank-statement-import
+	url = git@github.com:OCA/bank-statement-import.git
+	branch = 14.0
