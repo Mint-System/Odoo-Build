@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data sequence="100" inherit_id="account.view_move_form">
+
+    <xpath expr="//field[@name='payment_reference']" position="replace">
+    </xpath>
+
+</data>
