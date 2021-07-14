@@ -1,4 +1,4 @@
-<img src="./odoo_development.jpg" width="200px">
+![logo](./odoo_development.jpg)
 
 Odoo Development
 ================
