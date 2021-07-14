@@ -1,7 +1,9 @@
+<img src="odoo_development.jpg" width="200px">
+
 Odoo Development
 ================
 
-The Mint System Odoo development environment.
+This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
 This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
 
@@ -18,7 +20,6 @@ The Odoo development environment has the following requirements:
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
 * [wkhtmltopdf](https://wkhtmltopdf.org/): `sudo apt install wkhtmltopdf`
-* psql: `sudo apt install postgresql`
 * bash/zsh alias: `task='./task'`
 
 ## Usage

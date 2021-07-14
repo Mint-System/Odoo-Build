@@ -77,9 +77,17 @@ function start-shell() {
     odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
 }
 
+function start-psql() {
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
+
+    docker exec -it db psql postgres://odoo:odoo@localhost:5432/$DATABASE
+}
+
+
 function init-db() {
-    DATABSE=$1
-    DATABASE=${DATABSE:="odoo"}
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
 
     locale
     activate-venv
@@ -87,8 +95,8 @@ function init-db() {
 }
 
 function odoo-cloc() {
-    DATABSE=$1
-    DATABASE=${DATABSE:="odoo"}
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
 
     locale
     activate-venv
@@ -143,11 +151,11 @@ function create-module() {
 }
 
 function drop-db() {
-    DATABSE=$1
-    DATABASE=${DATABSE:="odoo"}
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
 
-    psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
-    psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE $DATABASE;"
+    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
+    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE $DATABASE;"
 }
 
 function send-support-mail() {
@@ -155,11 +163,12 @@ function send-support-mail() {
 }
 
 function clear-assets() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
 
     echo "Delete these assets:"
-    psql postgres://odoo:odoo@localhost/$1 -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-    psql postgres://odoo:odoo@localhost/$1 -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
 }
 
 function convert-database() {
@@ -196,7 +205,7 @@ function checkout() {
 
     # Sync files from last branch
     echo "Sync common files"
-    git checkout $GIT_BRANCH README.md task task.md scripts snippets template data .vuepress package.json package-lock.json .gitignore .vercelignore config
+    git checkout $GIT_BRANCH README.md task task.md scripts snippets template data .vuepress package.json package-lock.json .gitignore .vercelignore config odoo_development.jpg
 }
 
 function release-module() {
@@ -362,6 +371,9 @@ case "$1" in
         ;;
     start-shell)
         start-shell $2
+        ;;
+    start-psql)
+        start-psql $2
         ;;
     update-module)
         update-module $2 $3
