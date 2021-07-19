@@ -1,5 +1,4 @@
 #!/bin/bash
-set -e
 
 function help() {
 echo
@@ -26,9 +25,13 @@ function install-odoo-scripts() {
 function install-src() {
     init-venv
     activate-venv
+    echo "Install pylint odoo"
     pip install --upgrade --pre pylint-odoo
-    pip install setuptools wheel watchdog phonenumbers
+    echo "Install odoo dependencies"
+    pip install setuptools wheel watchdog phonenumbers 
     pip install -r odoo/requirements.txt
+    echo "Install oca dev tools"
+    pip install pre-commit pyyaml
 }
 
 function start() {
@@ -108,6 +111,9 @@ function lint-module() {
 
     activate-venv
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
+    cd $1
+    pre-commit run -a
+
 }
 
 function update-module() {

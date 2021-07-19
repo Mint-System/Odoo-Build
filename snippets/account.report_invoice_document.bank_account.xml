@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document">
+
+  <xpath expr="/t/t/div/p[2]" position="after">
+    <t t-if="o.currency_id.name=='CHF'">
+        <t t-set="account" t-value="o.company_id.bank_ids.browse(13)"/>
+    </t>
+    <t t-if="o.currency_id.name=='EUR'">
+        <t t-set="account" t-value="o.company_id.bank_ids.browse(14)"/>
+    </t>
+    <t t-if="o.currency_id.name=='USD'">
+        <t t-set="account" t-value="o.company_id.bank_ids.browse(15)"/>
+    </t>
+    <div class="row">
+      <div class="col">
+        <span>IBAN: </span>
+        <span t-field="account.acc_number"/>
+        <br/>
+        <span>Bank/BIC: </span>
+        <span t-field="account.bank_id.display_name"/>
+        <br/>
+        <br/>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
