@@ -1,4 +1,4 @@
-![logo](https://github.com/Mint-System/Odoo-Development/blob/14.0/odoo_development.jpg)
+![logo](https://github.com/Mint-System/Odoo-Development/blob/14.0/logo.jpg)
 
 Odoo Development
 ================
