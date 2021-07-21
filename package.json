@@ -12,7 +12,7 @@
     "task-stop": "./task stop",
     "task-kill": "./task kill",
     "dev": "vuepress dev",
-    "build": "vuepress build"
+    "build": "vuepress build ."
   },
   "repository": {
     "type": "git",
