@@ -23,6 +23,8 @@ function install-odoo-scripts() {
 }
 
 function install-src() {
+    echo "Install wkhtmltopdf"
+    sudo apt install wkhtmltopdf
     init-venv
     activate-venv
     echo "Install pylint odoo"
