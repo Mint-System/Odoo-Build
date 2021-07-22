@@ -22,10 +22,6 @@
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 14.0
-[submodule "addons/sale_order_description"]
-	path = addons/sale_order_description
-	url = git@github.com:Mint-System/Odoo-App-Sale-Order-Description.git
-	branch = 14.0
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
