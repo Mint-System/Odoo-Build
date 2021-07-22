@@ -177,6 +177,8 @@ function clear-assets() {
     echo "Delete these assets:"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+
+    echo "Restart your docker service".
 }
 
 function convert-database() {
