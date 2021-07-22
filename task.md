@@ -20,6 +20,7 @@
 | odoo-cloc            | [db]         | Count custom line of codes.                                       |
 | release-module       | [path]       | Create GitHub release for a module.                               |
 | remove-module        | [db] [name]  | Remove target Odoo module.                                        |
+| remove-submodule     | [path]       | Remove git submodule.                                             |
 | restart              | [name]       | Restart docker container. Options: none, db, mail                 |
 | start                | [name]       | Start docker container. Options: none, db, mail, src              |
 | save-config          | [name]       | Save Odoo database config                                         |

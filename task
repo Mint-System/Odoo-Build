@@ -329,6 +329,27 @@ function save-config() {
     odoo-bin -s -d $1 --config 'config/odoo-src.conf' --stop-after-init --no-http
 }
 
+function remove-submodule() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    echo "Move submodule to tmp folder"
+    mkdir -p tmp/$1
+    mv $1 tmp/$1
+
+    echo "Deinit submodule"
+    git submodule deinit -f $1
+
+    echo "Remove submodule from .git folder"
+    rm -rf .git/modules/$1
+
+    echo "Remove submodule from work tree"
+    git rm -f $1
+
+    echo "Remove $1 submodule from .gitmodules files manually."
+
+}
+
+
 function update-config() {
 
     ADDONS="$(tr '\n' ',' < ./config/addons_path)"
@@ -410,6 +431,9 @@ case "$1" in
     remove-module)
         remove-module $2 $3
         ;;
+    remove-submodule)
+        remove-submodule $2
+        ;;
     release-module)
         release-module $2
         ;;
@@ -431,7 +455,7 @@ case "$1" in
     update-config)
         update-config
         ;;
-    upd-odoo-view)
+    update-odoo-view)
         update-odoo-view $2 $3
         ;;
     update-app-list)
