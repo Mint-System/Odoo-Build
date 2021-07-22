@@ -70,17 +70,9 @@
 	path = addons/gio_py3o_addon
 	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-report.git
 	branch = 14.0
-[submodule "addons/account_invoice_description"]
-	path = addons/account_invoice_description
-	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Description.git
-	branch = 14.0
 [submodule "addons/eksb_layout"]
 	path = addons/eksb_layout
 	url = git@github.com:Mint-System/Odoo-App-EKSB-Layout.git
-	branch = 14.0
-[submodule "addons/account_invoice_detail"]
-	path = addons/account_invoice_detail
-	url = git@github.com:Mint-System/Odoo-App-Account-Invoice-Detail.git
 	branch = 14.0
 [submodule "oca/server-backend"]
 	path = oca/server-backend
@@ -188,4 +180,12 @@
 [submodule "oca/bank-statement-import"]
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
+	branch = 14.0
+[submodule "addons/website"]
+	path = addons/website
+	url = git@github.com:Mint-System/Odoo-Apps-Website.git
+	branch = 14.0
+[submodule "addons/account_invoicing"]
+	path = addons/account_invoicing
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
 	branch = 14.0
