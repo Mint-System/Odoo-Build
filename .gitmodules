@@ -189,3 +189,7 @@
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
 	branch = 14.0
+[submodule "addons/sale_workflow"]
+	path = addons/sale_workflow
+	url = git@github.com:mint-system/odoo-apps-sale-workflow.git
+	branch = 14.0
