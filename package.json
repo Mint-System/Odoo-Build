@@ -11,6 +11,8 @@
     "task-restart-db": "./task restart db",
     "task-stop": "./task stop",
     "task-kill": "./task kill",
+    "task-checkout-13": "./task checkout 13.0",
+    "task-checkout-14": "./task checkout 14.0",
     "dev": "vuepress dev",
     "build": "vuepress build ."
   },
