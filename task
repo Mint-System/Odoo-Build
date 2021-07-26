@@ -22,7 +22,7 @@ function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh 
 }
 
-function install-src() {
+function install-native() {
     echo "Install wkhtmltopdf"
     sudo apt install wkhtmltopdf
     init-venv
@@ -34,6 +34,8 @@ function install-src() {
     pip install -r odoo/requirements.txt
     echo "Install oca dev tools"
     pip install pre-commit pyyaml
+    echo "Install graphql dependencies"
+    pip install graphene graphql-server-core
 }
 
 function start() {
@@ -52,11 +54,11 @@ function start() {
         echo "Open http://localhost url in your browser."
     fi
 
-    if [ "$1" = "src" ]; then
+    if [ "$1" = "native" ]; then
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        odoo-bin --config 'config/odoo-src.conf' --dev=all
+        odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
 }
 
@@ -79,7 +81,7 @@ function start-shell() {
 
     locale
     activate-venv
-    odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
+    odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
 function start-psql() {
@@ -96,7 +98,8 @@ function init-db() {
 
     locale
     activate-venv
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-src.conf' --stop-after-init --no-http
+    # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo
+    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function odoo-cloc() {
@@ -105,7 +108,7 @@ function odoo-cloc() {
 
     locale
     activate-venv
-    odoo-bin cloc -d $DATABASE --config 'config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin cloc -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -124,7 +127,7 @@ function update-module() {
 
     locale
     activate-venv
-    odoo-bin  -d $1 -u $2 --config 'config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin  -d $1 -u $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function install-module() {
@@ -133,7 +136,7 @@ function install-module() {
 
     locale
     activate-venv
-    odoo-bin  -d $1 -i $2 --config 'config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin  -d $1 -i $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function remove-module() {
@@ -143,7 +146,7 @@ function remove-module() {
     locale
     activate-venv
     echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" | 
-    odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
+    odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
 function create-module() {
@@ -214,8 +217,8 @@ function checkout() {
     git submodule foreach git checkout $1
 
     # Sync files from last branch
-    echo "Sync common files"
-    git checkout $GIT_BRANCH README.md task task.md scripts snippets template data .vuepress package.json package-lock.json .gitignore .vercelignore config logo.jpg
+    echo "Sync checkout files"
+    git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function release-module() {
@@ -293,7 +296,7 @@ function update-app-list() {
 
     locale
     activate-venv
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-src.conf' --no-http
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
 function init-next-env() {
@@ -328,7 +331,7 @@ function save-config() {
 
     locale
     activate-venv
-    odoo-bin -s -d $1 --config 'config/odoo-src.conf' --stop-after-init --no-http
+    odoo-bin -s -d $1 --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function remove-submodule() {
@@ -355,7 +358,7 @@ function remove-submodule() {
 function update-config() {
 
     ADDONS="$(tr '\n' ',' < ./config/addons_path)"
-    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-src.conf"
+    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
 
     ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
@@ -394,8 +397,8 @@ case "$1" in
     install-odoo-scripts)
         install-odoo-scripts
         ;;
-    install-src)
-        install-src
+    install-native)
+        install-native
         ;;
     init-db)
         init-db $2

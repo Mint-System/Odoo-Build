@@ -13,7 +13,7 @@
 | init-venv            |              | Initialize python virtual env.                                    |
 | install-module       | [db] [name]  | Install target Odoo module.                                       |
 | install-odoo-scripts |              | Install Odoo scripts.                                             |
-| install-src          |              | Install Odoo requirements in source folder.                       |
+| install-native       |              | Install Odoo requirements in source folder.                       |
 | kill                 |              | Remove docker containers and volumes.                             |
 | lint-module          | [path]       | Run pylint odoo for module.                                       |
 | logs                 |              | Tail Odoo Docker container logs.                                  |
@@ -22,7 +22,7 @@
 | remove-module        | [db] [name]  | Remove target Odoo module.                                        |
 | remove-submodule     | [path]       | Remove git submodule.                                             |
 | restart              | [name]       | Restart docker container. Options: none, db, mail                 |
-| start                | [name]       | Start docker container. Options: none, db, mail, src              |
+| start                | [name]       | Start docker container. Options: none, db, mail, native           |
 | save-config          | [name]       | Save Odoo database config                                         |
 | start-psql           | [db]         | Start PSQL shell in Docker container.                             |
 | start-shell          | [db]         | Start Odoo shell from source folder.                              |

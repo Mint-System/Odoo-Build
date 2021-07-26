@@ -86,17 +86,17 @@ docker-odoo-install -m show_db_name
 docker exec -it odoo bin/bash -c "odoo -s -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD"
 ```
 
-### Source
+### Native
 
 Run Odoo from source.
 
-**Install Odoo source requirements**
+**Install Odoo native requirements**
 
 Pull the `odoo` submodule and install the python dependencies.
 
 ```bash
 git submodule update odoo
-task install-src
+task install-native
 ```
 
 **Initialize and start Odoo from source**
@@ -118,9 +118,9 @@ task init-db
 Start Odoo from source
 
 ```bash
-task start src
+task start native
 # or
-npm run task-start-src
+npm run task-start-native
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.

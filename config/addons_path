@@ -30,3 +30,4 @@ oca/bank-statement-import
 addons/website
 addons/account_invoicing
 addons/sale_workflow
+oca/rest-framework
