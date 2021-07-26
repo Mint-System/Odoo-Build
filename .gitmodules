@@ -193,3 +193,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:mint-system/odoo-apps-sale-workflow.git
 	branch = 14.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 14.0
