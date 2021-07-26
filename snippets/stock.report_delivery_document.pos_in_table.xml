@@ -7,6 +7,16 @@
     </th>
   </xpath>
 
+  <xpath expr="//table[2]/thead/tr/th[1]" position="before">
+    <th>
+      <span>Pos</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//t[@t-foreach='packages']" position="before">
+    <t t-set="index" t-value="1"/>
+  </xpath>
+
   <xpath expr="//tr[@t-foreach='lines']" position="before">
     <t t-set="index" t-value="1"/>
   </xpath>

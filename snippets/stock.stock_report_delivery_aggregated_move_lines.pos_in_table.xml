@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" sequence="50">
+
+  <xpath expr="/t/tr/td[1]" position="before">
+    <td>
+      <span t-esc="index"/><t t-set="index" t-value="index+1"/>
+    </td>
+  </xpath>
+
+</data>
