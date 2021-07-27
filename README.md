@@ -162,20 +162,7 @@ task stop
 **Remove database**
 
 ```bash
-task drop-db odoo
-```
-
-**Install Odoo REST API dependencies**
-
-```bash
-pip install -r addons/rest_api/requirements.txt
-```
-
-Or with Docker:
-
-```bash
-docker exec odoo pip3 install -r /mnt/extra-addons/rest_api/requirements.txt
-docker restart odoo
+task drop-db
 ```
 
 ### Mail
@@ -190,9 +177,17 @@ task start mail
 
 Open the mail client [http://localhost](http://localhost).
 
+**Confiugre mail server**
+
+Install the odoo mail server data package.
+
+```
+task install-module mail_data
+```
+
 **Send email**
 
-Use curl to send an email to `support@localhost`:
+Use curl to send an email:
 
 ```bash
 task send-support-mail

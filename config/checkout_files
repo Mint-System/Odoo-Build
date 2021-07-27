@@ -4,7 +4,6 @@ task.md
 scripts
 snippets
 template
-data
 .vuepress
 package.json
 package-lock.json

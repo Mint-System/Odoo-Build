@@ -31,3 +31,4 @@ addons/website
 addons/account_invoicing
 addons/sale_workflow
 oca/rest-framework
+addons/demodata

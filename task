@@ -172,7 +172,19 @@ function drop-db() {
 }
 
 function send-support-mail() {
-    curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file ./data/email.txt
+    echo "Send mail to support@localhost using curl."
+
+cat >tmp/email.txt <<EOL
+From: Lara User <user@yourcompany.example.com>
+To: Odoo Support <support@localhost>
+Subject: Support Request
+
+Dear Odoo Support,
+
+I request your help
+EOL
+    
+    curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file tmp/email.txt
 }
 
 function clear-assets() {
