@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder">
+
+  <xpath expr="//table/tr[1]/th[2]" position="after">
+    <th>
+      <strong>Start Date</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table/tr[2]/td[2]" position="after">
+    <td>
+      <span t-field="line2.date_planned_start"/>
+    </td>
+  </xpath>
+
+  <xpath expr="//table[1]/tr[2]/td[3]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+  <xpath expr="//table/tr[1]/th[3]" position="after">
+    <th>
+      <strong>End Date</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table/tr[2]/td[3]" position="after">
+    <td>
+      <span t-field="line2.date_planned_finished"/>
+    </td>
+  </xpath>
+
+  <xpath expr="///table[1]/tr[2]/td[4]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+</data>

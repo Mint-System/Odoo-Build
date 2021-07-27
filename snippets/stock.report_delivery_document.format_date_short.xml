@@ -1,5 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document">
+
   <xpath expr="//p[@t-field='o.date_done']" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
@@ -7,4 +8,9 @@
   <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
+
+  <!-- <xpath expr="//div[1]/div[1]/div[2]/t[2]/p[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath> -->
+
 </data>

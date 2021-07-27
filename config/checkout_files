@@ -11,3 +11,4 @@ package-lock.json
 .vercelignore
 config
 logo.jpg
+docker-compose.yml

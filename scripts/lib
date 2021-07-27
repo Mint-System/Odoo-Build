@@ -4,6 +4,7 @@
 PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
+export ODOO_REVISION=GIT_BRANCH
 
 function get-module-version() {
     if test -z "$1" 

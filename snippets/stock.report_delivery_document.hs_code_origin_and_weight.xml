@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document">
+
+<xpath expr="//table[1]/tbody/tr/td[2]/span" position="after">
+    <br/>
+      HS Code: <span t-field="o.product_id.hs_code"/>
+    <br/>
+     Country of Origin: <span t-field="o.product_id.x_country_of_origin.code"/>
+     <br/>
+     Weight: <span t-field="move.product_id.weight"/>
+     <span t-field="move.product_id.weight_uom_id.display_name"/>
+</xpath>
+  
+</data>
