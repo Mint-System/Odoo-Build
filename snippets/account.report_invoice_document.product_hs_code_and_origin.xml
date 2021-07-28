@@ -4,7 +4,7 @@
 
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
     <br/>
-    Origin: <span t-field="line.product_id.x_country_of_origin"/>
+    Country of Origin: <span t-field="line.product_id.x_country_of_origin"/>
     <t t-if="line.product_id.hs_code">
       <br/>
       HS Code: <span t-field="line.product_id.hs_code"/>

@@ -3,7 +3,8 @@
 
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
     <br/>
-		Weight: <span t-field="line.product_id.weight"/> kg
+		Weight: <span t-field="line.product_id.weight"/>
+		<span t-field="line.product_id.weight_uom_id.display_name"/> 
   </xpath>
 
 </data>
