@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="delivery.report_delivery_document2" sequence="50">
+
+  <xpath expr="//t[@t-set='has_hs_code']" position="replace">
+  </xpath>
+
+</data>

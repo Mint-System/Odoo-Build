@@ -10,4 +10,5 @@
       Weight: <span t-field="o.product_id.weight"/>
       <span t-field="o.product_id.weight_uom_id.display_name"/>     
   </xpath>
+  
 </data>
