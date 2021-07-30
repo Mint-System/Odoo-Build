@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" sequence="50">
+
+  <xpath expr="//table[1]/thead/tr/th[1]" position="before">
+    <th>
+      <span>Pos</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
+    <td>
+      <br/>
+      Test: 
+    </td>
+  </xpath>
+
+</data>
