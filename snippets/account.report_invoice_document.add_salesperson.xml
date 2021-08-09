@@ -2,12 +2,20 @@
 <data inherit_id="account.report_invoice_document">
 
   <xpath expr="/t/t/div/div[1]/div[1]" position="after">
-    <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+    <div class="col-4 bm-2" t-if="o.invoice_user_id" name="invoice_user_id">
       <strong>Contact:</strong>
       <p class="m-0" t-field="o.invoice_user_id.email"/>
       <p class="m-0" t-field="o.invoice_user_id.phone"/>
     </div>
   </xpath>
+
+  <!-- <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+    <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+      <strong>Contact:</strong>
+      <p class="m-0" t-field="o.invoice_user_id.email"/>
+      <p class="m-0" t-field="o.invoice_user_id.phone"/>
+    </div>
+  </xpath> -->
 
   <!-- <xpath expr="/t/t/div/div[1]/div[1]" position="after">
     <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
