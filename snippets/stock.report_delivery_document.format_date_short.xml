@@ -9,8 +9,12 @@
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
 
-  <!-- <xpath expr="//div[1]/div[1]/div[2]/t[2]/p[1]" position="attributes">
+  <xpath expr="//div[1]/div[1]/div[2]/t[1]/p[1]" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
-  </xpath> -->
+  </xpath>
+
+  <xpath expr="//div[1]/div[1]/div[2]/t[2]/p[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
 
 </data>

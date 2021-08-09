@@ -6,7 +6,8 @@
 | create-module        | [path]       | Create new Odoo module from template.                             |
 | disable-auto-install |              | Disable auto install for enterprise modules.                      |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                          |
-| drop-db              | [db]         | Drop target Odoo database. Default is odoo                        |
+| drop-db              | [db]         | Drop target Odoo database. Default is odoo.                       |
+| git-list-submouldes  |              | List path and url of submodules.                                  |
 | init-db              | [db]         | Initialize the Odoo database. Default is odoo                     |
 | init-next-env        | [env]        | Create env file for Nextcloud instance.                           |
 | init-odoo-env        | [env]        | Create env file for Odoo Instance.                                |

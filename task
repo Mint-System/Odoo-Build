@@ -423,7 +423,12 @@ function update-config() {
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
     echo "Config updated."
-} 
+}
+
+function git-list-submodules() {
+
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+}
 
 case "$1" in
     disable-auto-install)
@@ -518,6 +523,9 @@ case "$1" in
         ;;
     update-config)
         update-config
+        ;;
+    git-list-submodules)
+        git-list-submodules
         ;;
     update-odoo-view)
         update-odoo-view $2 $3
