@@ -91,17 +91,17 @@ function start() {
         docker-compose up -d
     fi
 
-    if [ "$1" = "db" ]; then
+    if [[ "$1" =~ "db" ]]; then
         docker-compose up -d db pgadmin
         echo "Open http://localhost:8000 url in your browser."
     fi
     
-    if [ "$1" = "mail" ]; then
+    if [[ "$1" =~ "mail" ]]; then
         docker-compose up -d mail
         echo "Open http://localhost url in your browser."
     fi
 
-    if [ "$1" = "native" ]; then
+    if [[ "$1" =~ "native" ]]; then
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
