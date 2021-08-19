@@ -14,7 +14,13 @@ echo
 PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
+export POSTGRES_USER=odoo
+export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
+
+if [ -a ".env" ]; then
+    export $(cat .env | sed 's/#.*//g' | xargs)
+fi
 
 function get-module-version() {
     if test -z "$1" 
@@ -240,7 +246,7 @@ function clear-assets() {
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
 
-    echo "Restart your docker service".
+    echo "Restart your docker service."
 }
 
 function convert-database() {
@@ -430,6 +436,19 @@ function git-list-submodules() {
     git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
+function patch-database() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$1 is empty"; exit; fi
+
+    # Generate view name from filename
+    FILENAME=$(basename $2)
+
+    echo "Apply patch $FILENAME to Database $1."
+    cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1 
+    echo "Patching database succeeded"
+}
+
+
 case "$1" in
     disable-auto-install)
         disable-auto-install
@@ -538,6 +557,9 @@ case "$1" in
         ;;
     upload-module)
         upload-module $2 $3
+        ;;
+    patch-database)
+        patch-database $2 $3
         ;;
     *)
         help task

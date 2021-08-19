@@ -19,6 +19,7 @@
 | lint-module          | [path]       | Run pylint odoo for module.                                       |
 | logs                 |              | Tail Odoo Docker container logs.                                  |
 | odoo-cloc            | [db]         | Count custom line of codes.                                       |
+| patch-database       | [db] [path]  | Apply sql file to database                                        |
 | release-module       | [path]       | Create GitHub release for a module.                               |
 | remove-module        | [db] [name]  | Remove target Odoo module.                                        |
 | remove-submodule     | [path]       | Remove git submodule.                                             |
