@@ -19,11 +19,11 @@ The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
-* bash/zsh alias: `task='./task'`
+* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task)
 
 ## Usage
 
-The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about this projects commands.
+The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about the projects commands.
 
 Clone this repository.
 

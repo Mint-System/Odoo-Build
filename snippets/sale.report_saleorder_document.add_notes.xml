@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" sequence="50">
+
+  <xpath expr="/t/t/div/div[2]" position="after">
+    <t t-if="doc.note_header">
+      <div class="row">
+        <div class="col">
+          <span t-field="doc.note_header"/>
+          <br/>
+        </div>
+      </div>
+    </t>
+  </xpath>
+
+  <xpath expr="/t/t/div/p[2]" position="before">
+    <t t-if="doc.note_footer">
+      <div class="row">
+        <div class="col">
+          <span t-field="doc.note_footer"/>
+          <br/>
+        </div>
+      </div>
+    </t>
+  </xpath>
+
+</data>

@@ -10,3 +10,4 @@ node_modules
 public
 .vercel
 oca/openupgrade
+.vscode
