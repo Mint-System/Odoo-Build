@@ -47,7 +47,6 @@ function get-module-version() {
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
         python3 -m venv "venv$GIT_BRANCH"
-        source "venv$GIT_BRANCH/bin/activate"
     fi
 }
 
