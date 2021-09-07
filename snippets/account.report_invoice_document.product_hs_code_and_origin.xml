@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Show custom field country of origin and hs code -->
-<data inherit_id="account.report_invoice_document">
+<data inherit_id="account.report_invoice_document" sequence="50">
 
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
     <t t-if="line.product_id.x_country_of_origin">

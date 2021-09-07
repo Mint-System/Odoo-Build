@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <record model="ir.ui.view" id="{{ name }}.document_list">
+  <record id="show_position" model="ir.ui.view">
+    <field name="name">sale.view_order_form.show_position</field>
+    <field name="model">sale.order</field>
+    <field name="inherit_id" ref="sale.view_order_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='order_line']/tree[1]/field[@name='sequence']" position="after">
+        <field name="position"/>
+      </xpath>
+    </field>
+  </record>
+
+  <record id=".document_list" model="ir.ui.view">
     <field name="name">Document List</field>
     <field name="model">{{ name }}.document</field>
     <field name="arch" type="xml">
