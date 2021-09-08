@@ -2,14 +2,28 @@
 <data inherit_id="stock.report_picking" sequence="50">
 
   <xpath expr="//table[1]/thead/tr/th[1]" position="before">
-    <th>
-      <strong>Pos</strong>
-    </th>
+    <t t-if="o.sale_id">
+      <th>
+        <strong>Pos</strong>
+      </th>
+    </t>
+    <t t-if="o.purchase_id">
+      <th>
+        <strong>Pos</strong>
+      </th>
+    </t>
   </xpath>
   <xpath expr="//table[1]/tbody/t/t/tr/td[1]" position="before">
-    <td>
-      <span t-esc="o.sale_id.get_position(ml.product_id)"/>
-    </td>
+    <t t-if="o.sale_id">
+      <td>
+        <span t-esc="o.sale_id.get_position(ml.product_id)"/>
+      </td>
+    </t>
+    <t t-if="o.purchase_id">
+      <td>
+        <span t-esc="o.purchase_id.get_position(ml.product_id)"/>
+      </td>
+    </t>
   </xpath>
   
 </data>
