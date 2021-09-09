@@ -468,19 +468,33 @@ function patch-database() {
 
 function update-docs() {
     echo "Update snippets.md file."
-    echo "| Module | Report | Edit | Path |" > snippets.md
-    echo "| --- | --- | --- | --- |" >> snippets.md
+    echo "# Snippets" > snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
-
     FILES="snippets/*.xml"
-    for FILE in $FILES; do
-        FILENAME=$(basename $FILE)
-        MODULE=$(echo $FILENAME | cut -d. -f1)
-        REPORT=$(echo $FILENAME | cut -d. -f2)
-        EDIT=$(echo $FILENAME | cut -d. -f3)
 
-        echo "| $MODULE | $REPORT | $EDIT | [$FILE]($PATH_URL/$FILE) |" >> snippets.md
+    # Group by modules
+    MODULES=$(ls $FILES | xargs -n 1 basename | cut -d. -f1 | uniq)
+    for MODULE in $MODULES; do
+        echo "## $MODULE" >> snippets.md
+
+        for FILE in $FILES; do
+
+            FILENAME=$(basename $FILE)
+            SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
+            REPORT=$(echo $FILENAME | cut -d. -f2)
+            EDIT=$(echo $FILENAME | cut -d. -f3)
+
+            # Group by modules
+            if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
+                echo "Edit: $EDIT  " >> snippets.md
+                echo "Report: $REPORT  " >> snippets.md
+                echo "ID: \`mint_system.$SNIPPET_MODULE.$REPORT.$EDIT\`  " >> snippets.md
+                echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
+                echo "" >> snippets.md
+            fi
+        done
+
     done
 }
 
