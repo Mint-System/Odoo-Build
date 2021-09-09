@@ -476,10 +476,12 @@ function update-docs() {
     # Group by modules
     MODULES=$(ls $FILES | xargs -n 1 basename | cut -d. -f1 | uniq)
     for MODULE in $MODULES; do
-        echo "## $MODULE" | sed 's/_/ /g' >> snippets.md
+        TITLE="${MODULE^}" # Uppercase first letter
+        TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
+        TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+        echo "## $TITLE" >> snippets.md
 
         for FILE in $FILES; do
-
             FILENAME=$(basename $FILE)
             SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
             REPORT=$(echo $FILENAME | cut -d. -f2)
@@ -494,7 +496,6 @@ function update-docs() {
                 echo "" >> snippets.md
             fi
         done
-
     done
 }
 

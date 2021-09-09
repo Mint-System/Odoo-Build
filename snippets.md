@@ -1,5 +1,5 @@
 # Snippets
-## account
+## Account
 Edit: **add_header_padding**  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.add_header_padding`  
@@ -75,7 +75,7 @@ Report: view_move_form
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_payment_reference.xml)
 
-## calendar
+## Calendar
 Edit: **show_location**  
 Report: view_calendar_event_calendar  
 ID: `mint_system.calendar.view_calendar_event_calendar.show_location`  
@@ -86,25 +86,25 @@ Report: view_calendar_event_calendar_timeline
 ID: `mint_system.calendar.view_calendar_event_calendar_timeline.xml`  
 Link: [snippets/calendar.view_calendar_event_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.xml)
 
-## delivery
+## Delivery
 Edit: **remove_hs_code**  
 Report: report_delivery_document2  
 ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`  
 Link: [snippets/delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/delivery.report_delivery_document2.remove_hs_code.xml)
 
-## hr holidays calendar
+## Hr Holidays Calendar
 Edit: **xml**  
 Report: hr_leave_report_calendar_timeline  
 ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml`  
 Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
 
-## hr holidays delegations
+## Hr Holidays Delegations
 Edit: **delegate_groups**  
 Report: hr_leave_view_form_inherit  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
 Link: [snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
 
-## hr holidays
+## Hr Holidays
 Edit: **report_note_group**  
 Report: hr_leave_view_form_manager_approve  
 ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group`  
@@ -125,19 +125,19 @@ Report: hr_leave_view_tree
 ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`  
 Link: [snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml)
 
-## hr
+## Hr
 Edit: **show_birthday_public**  
 Report: hr_employee_public_view_tree  
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  
 Link: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml)
 
-## hr payroll
+## Hr Payroll
 Edit: **slip_show_optional**  
 Report: view_hr_payslip_line_tree  
 ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`  
 Link: [snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml)
 
-## hr timesheet
+## Hr Timesheet
 Edit: **invoice_details**  
 Report: hr_timesheet_line_tree  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
@@ -148,7 +148,7 @@ Report: report_timesheet
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
 Link: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
 
-## mail
+## Mail
 Edit: **remove_logo**  
 Report: mail_notification_borders  
 ID: `mint_system.mail.mail_notification_borders.remove_logo`  
@@ -184,7 +184,7 @@ Report: mail_notification_paynow
 ID: `mint_system.mail.mail_notification_paynow.replace_footer`  
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
-## mint system
+## Mint System
 Edit: **view_calendar_event_calendar_timeline**  
 Report: calendar  
 ID: `mint_system.mint_system.calendar.view_calendar_event_calendar_timeline`  
@@ -205,7 +205,7 @@ Report: res_groups
 ID: `mint_system.mint_system.res_groups.holidays_self_responsible`  
 Link: [snippets/mint_system.res_groups.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mint_system.res_groups.holidays_self_responsible.xml)
 
-## mrp
+## Mrp
 Edit: **add_padding**  
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.add_padding`  
@@ -246,13 +246,13 @@ Report: report_mrporder
 ID: `mint_system.mrp.report_mrporder.show_stock`  
 Link: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
 
-## portal my timesheets
+## Portal My Timesheets
 Edit: **xml**  
 Report: show_billable  
 ID: `mint_system.portal_my_timesheets.show_billable.xml`  
 Link: [snippets/portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/portal_my_timesheets.show_billable.xml)
 
-## project
+## Project
 Edit: **parent_domain**  
 Report: view_task_form2  
 ID: `mint_system.project.view_task_form2.parent_domain`  
@@ -263,7 +263,7 @@ Report: view_task_form2
 ID: `mint_system.project.view_task_form2.show_key`  
 Link: [snippets/project.view_task_form2.show_key.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_key.xml)
 
-## purchase
+## Purchase
 Edit: **date_planned_readonly**  
 Report: purchase_order_form  
 ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`  
@@ -384,7 +384,7 @@ Report: report_purchasequotation_document
 ID: `mint_system.purchase.report_purchasequotation_document.terms_and_conditions`  
 Link: [snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml)
 
-## purchase requisition
+## Purchase Requisition
 Edit: **add_infoblock**  
 Report: report_purchaserequisitions  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infoblock`  
@@ -400,13 +400,13 @@ Report: report_purchaserequisitions
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.pos_in_table`  
 Link: [snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml)
 
-## sale partner incoterm
+## Sale Partner Incoterm
 Edit: **show_field**  
 Report: view_partner_property_form  
 ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`  
 Link: [snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml)
 
-## sale
+## Sale
 Edit: **add_delivery_date**  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -482,7 +482,7 @@ Report: view_order_form
 ID: `mint_system.sale.view_order_form.show_sequence`  
 Link: [snippets/sale.view_order_form.show_sequence.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_sequence.xml)
 
-## stock
+## Stock
 Edit: **add_incoterms**  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
@@ -583,7 +583,7 @@ Report: view_picking_form
 ID: `mint_system.stock.view_picking_form.show_date`  
 Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_date.xml)
 
-## web
+## Web
 Edit: **remove**  
 Report: brand_promotion_message  
 ID: `mint_system.web.brand_promotion_message.remove`  
@@ -609,7 +609,7 @@ Report: external_layout_standard
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
 
-## website sale
+## Website Sale
 Edit: **overwrite_required**  
 Report: adress  
 ID: `mint_system.website_sale.adress.overwrite_required`  
