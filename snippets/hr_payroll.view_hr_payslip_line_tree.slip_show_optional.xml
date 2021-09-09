@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="hr_payroll.view_hr_payslip_line_tree" sequence="50">
+<data inherit_id="hr_payroll.view_hr_payslip_line_tree" priority="50">
 
   <field name="total" position="after">
     <field name="slip_id" optional="show"/>
