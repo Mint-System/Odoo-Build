@@ -75,6 +75,8 @@ function install-odoo-scripts() {
 function install-native() {
     echo "Install wkhtmltopdf"
     sudo apt install wkhtmltopdf
+    echo "Install xmllint"
+    sudo apt install libxml2-utils
     init-venv
     activate-venv
     echo "Install pylint odoo"
@@ -356,6 +358,23 @@ function update-odoo-view() {
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
+function install-odoo-view() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename $2)
+    NAME="mint_system.${FILE%.xml}"
+    INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    INHERIT_NAME=$(echo $INHERIT_ID | cut -d. -f2 )
+
+    activate-venv
+    load-env $1
+    INHERIT_ID=$(scripts/odooctl --method 'search_one' --model 'ir.ui.view' --domain "['name', '=', '$INHERIT_NAME']")
+    scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 'name': '$NAME', 'priority': $PRIORITY, 'inherit_id': $INHERIT_ID, 'arch_base': '''$(cat $2)''' }"
+}
+
 function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -548,6 +567,9 @@ case "$1" in
     update-odoo-view)
         update-odoo-view $2 $3
         ;;
+    install-odoo-view)
+        install-odoo-view $2 $3
+        ;;
     update-app-list)
         update-app-list $2
         ;;
@@ -559,6 +581,9 @@ case "$1" in
         ;;
     patch-database)
         patch-database $2 $3
+        ;;
+    git-pull-submodules)
+        git submodule foreach git pull
         ;;
     *)
         help task

@@ -7,7 +7,8 @@
 | disable-auto-install |              | Disable auto install for enterprise modules.                      |
 | disable-mailserver   | [env]        | Disable mail server settings via xmlrpc.                          |
 | drop-db              | [db]         | Drop target Odoo database. Default is odoo.                       |
-| git-list-submouldes  |              | List path and url of submodules.                                  |
+| git-list-submodules  |              | List path and url of submodules.                                  |
+| git-pull-submodules  |              | Pull alls submodules.                                             |
 | init-db              | [db]         | Initialize the Odoo database. Default is odoo                     |
 | init-next-env        | [env]        | Create env file for Nextcloud instance.                           |
 | init-odoo-env        | [env]        | Create env file for Odoo Instance.                                |
@@ -33,5 +34,6 @@
 | update-app-list      | [db]         | Update app list.                                                  |
 | update-module        | [db] [name]  | Update target Odoo module.                                        |
 | update-odoo-view     | [env] [path] | Update view xml definition.                                       |
+| install-odoo-view    | [env] [path] | Install view xml definition.                                      |
 | upload-module        | [env] [path] | Zip and upload Odoo module.                                       |
 | zip-module           | [path]       | Create zip file for module.                                       |

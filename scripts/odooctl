@@ -42,12 +42,23 @@ models.execute_kw(db, uid, password,
     args.model, 'check_access_rights',
     ['read'], {'raise_exception': False})
 
-if args.method:
+if args.method == 'create':
     # Execute method
     models.execute_kw(db, uid, password,
-        args.model, args.method)
+        args.model, args.method, [eval(args.value)])
 
     print("Success")
+
+if args.method == 'search_one':
+    # Parse domain
+    domain = ast.literal_eval(args.domain) if args.domain else False
+
+    # Search records
+    ids = models.execute_kw(db, uid, password,
+        args.model, 'search',
+        [[domain]])
+
+    print(ids[0])
 
 if args.field:
     # Parse domain and value
