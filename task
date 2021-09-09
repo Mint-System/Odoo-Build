@@ -470,14 +470,17 @@ function update-docs() {
     echo "Update snippets.md file."
     echo "| Module | Report | Edit | Path |" > snippets.md
     echo "| --- | --- | --- | --- |" >> snippets.md
-    FILES="./snippets/*.xml"
+
+    PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
+
+    FILES="snippets/*.xml"
     for FILE in $FILES; do
         FILENAME=$(basename $FILE)
         MODULE=$(echo $FILENAME | cut -d. -f1)
         REPORT=$(echo $FILENAME | cut -d. -f2)
         EDIT=$(echo $FILENAME | cut -d. -f3)
 
-        echo "| $MODULE | $REPORT | $EDIT | [$FILE]($FILE) |" >> snippets.md
+        echo "| $MODULE | $REPORT | $EDIT | [$FILE]($PATH_URL/$FILE) |" >> snippets.md
     done
 }
 
