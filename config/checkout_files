@@ -12,3 +12,4 @@ package-lock.json
 config
 logo.jpg
 docker-compose.yml
+snippets.md
