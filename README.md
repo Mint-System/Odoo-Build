@@ -12,6 +12,7 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 * **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
 * **Develop Modules**: Scaffold a new module and develop new Odoo features locally.
+* **Customizing Snippets**: See [snippets]()./snippets.md) to find various Odoo view edits.
 
 ## Requirements
 
