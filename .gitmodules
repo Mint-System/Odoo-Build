@@ -209,3 +209,7 @@
 	path = addons/swiss_payroll
 	url = https://gitlab.giordano.ch/odoo/giordano-addons/swiss-payroll.git
 	branch = 14.0
+[submodule "oca/contract"]
+	path = oca/contract
+	url = git@github.com:OCA/contract.git
+	branch = 14.0
