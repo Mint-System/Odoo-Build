@@ -38,3 +38,4 @@
 | upload-module        | [env] [path] | Zip and upload Odoo module.                                       |
 | zip-module           | [path]       | Create zip file for module.                                       |
 | update-docs          |              | Update project docs.                                              |
+| source               |              | Source the Python virtual env.                                    |

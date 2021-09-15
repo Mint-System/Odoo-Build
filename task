@@ -52,6 +52,7 @@ function init-venv() {
 }
 
 function activate-venv() {
+    echo "Source virtualenv venv$GIT_BRANCH."
     source "venv$GIT_BRANCH/bin/activate"
 }
 
@@ -621,6 +622,9 @@ case "$1" in
         ;;
     update-docs)
         update-docs
+        ;;
+    source)
+        activate-venv
         ;;
     *)
         help task
