@@ -316,6 +316,8 @@ function zip-module() {
     # configure and zip module
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
+    echo "Remove pycache folders"
+    find $MODULE_PATH | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf 
     echo "Zip module $MODULE"
     cd tmp
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
