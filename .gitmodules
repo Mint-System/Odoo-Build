@@ -213,3 +213,7 @@
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 14.0
+[submodule "addons/printnode_base"]
+	path = addons/printnode_base
+	url = git@gitlab.com:mint-system/odoo-app-odoo-direct-print.git
+	branch = 14.0

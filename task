@@ -183,7 +183,7 @@ function update-module() {
 
     locale
     activate-venv
-    odoo-bin  -d $1 -u $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -d $1 -u $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function install-module() {
