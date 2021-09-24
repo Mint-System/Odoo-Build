@@ -620,7 +620,13 @@ case "$1" in
         patch-database $2 $3
         ;;
     git-pull-submodules)
-        git submodule foreach git pull
+        # Pull submodule if update config is not set
+        git submodule foreach '
+            update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
+            if [ -z $update ]; then
+                git pull
+            fi;
+        '
         ;;
     update-docs)
         update-docs
