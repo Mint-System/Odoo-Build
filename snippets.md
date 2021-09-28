@@ -70,12 +70,22 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.unit_precision`  
 Link: [snippets/account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.unit_precision.xml)
 
+Edit: **add_iban_and_bank**  
+Report: report_invoice_document_with_payments  
+ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank`  
+Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
+
 Edit: **hide_payment_reference**  
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_payment_reference.xml)
 
 ## Calendar
+Edit: **default_mode_week**  
+Report: view_calendar_event_calendar  
+ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`  
+Link: [snippets/calendar.view_calendar_event_calendar.default_mode_week.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar.default_mode_week.xml)
+
 Edit: **show_location**  
 Report: view_calendar_event_calendar  
 ID: `mint_system.calendar.view_calendar_event_calendar.show_location`  
@@ -91,6 +101,12 @@ Edit: **remove_hs_code**
 Report: report_delivery_document2  
 ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`  
 Link: [snippets/delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/delivery.report_delivery_document2.remove_hs_code.xml)
+
+## Fields
+Edit: **xml**  
+Report: x_studio_description  
+ID: `mint_system.fields.x_studio_description.xml`  
+Link: [snippets/fields.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/fields.x_studio_description.xml)
 
 ## Hr Holidays Calendar
 Edit: **xml**  
@@ -132,6 +148,11 @@ ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`
 Link: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml)
 
 ## Hr Payroll
+Edit: **switch_account**  
+Report: hr_salary_rule_form  
+ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`  
+Link: [snippets/hr_payroll.hr_salary_rule_form.switch_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_salary_rule_form.switch_account.xml)
+
 Edit: **slip_show_optional**  
 Report: view_hr_payslip_line_tree  
 ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`  
@@ -147,6 +168,11 @@ Edit: **user_report**
 Report: report_timesheet  
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
 Link: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
+
+Edit: **show_billable_type**  
+Report: timesheet_view_tree_user  
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`  
+Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
 ## Mail
 Edit: **remove_logo**  
@@ -257,6 +283,11 @@ Edit: **parent_domain**
 Report: view_task_form2  
 ID: `mint_system.project.view_task_form2.parent_domain`  
 Link: [snippets/project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.parent_domain.xml)
+
+Edit: **show_invoice_type**  
+Report: view_task_form2  
+ID: `mint_system.project.view_task_form2.show_invoice_type`  
+Link: [snippets/project.view_task_form2.show_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_invoice_type.xml)
 
 Edit: **show_key**  
 Report: view_task_form2  
@@ -447,6 +478,11 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.sequence_in_table`  
 Link: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.sequence_in_table.xml)
 
+Edit: **x_sudio_description**  
+Report: report_saleorder_documen  
+ID: `mint_system.sale.report_saleorder_documen.x_sudio_description`  
+Link: [snippets/sale.report_saleorder_documen.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_documen.x_sudio_description.xml)
+
 Edit: **append_signature**  
 Report: report_saleorder_pro_forma  
 ID: `mint_system.sale.report_saleorder_pro_forma.append_signature`  
@@ -481,6 +517,11 @@ Edit: **show_sequence**
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.show_sequence`  
 Link: [snippets/sale.view_order_form.show_sequence.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_sequence.xml)
+
+Edit: **x_sudio_description**  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.x_sudio_description`  
+Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## Stock
 Edit: **add_incoterms**  
@@ -582,6 +623,12 @@ Edit: **show_date**
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.show_date`  
 Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_date.xml)
+
+## Timesheet Grid
+Edit: **show_name**  
+Report: timesheet_view_form  
+ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`  
+Link: [snippets/timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/timesheet_grid.timesheet_view_form.show_name.xml)
 
 ## Web
 Edit: **remove**  
