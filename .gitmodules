@@ -102,10 +102,6 @@
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
 	branch = 14.0
-[submodule "addons/oms_layout"]
-	path = addons/oms_layout
-	url = git@github.com:Mint-System/Odoo-App-OMS-Layout.git
-	branch = 14.0
 [submodule "addons/home_background_image"]
 	path = addons/home_background_image
 	url = git@github.com:janikvonrotz/Odoo-App-Home-Background-Image.git
