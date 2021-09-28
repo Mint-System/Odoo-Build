@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Show billable field for timesheet entries -->
-<data inherit_id="portal_my_timesheets">
+<data inherit_id="hr_timesheet.portal_my_timesheets">
 
   <xpath expr="//thead/tr/th[4]" position="after">
     <th>Invoice Type</th>
