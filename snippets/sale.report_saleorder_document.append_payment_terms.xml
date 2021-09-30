@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document">
+
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document">
+
+<xpath expr="/t/t/div/div[6]" position="after">
+    <div class="row">
+      <div class="col">
+         <span>Zahlungsbedingungen:</span>
+         <span t-field="doc.payment_term_id.name"/>
+      </div>
+    </div>
+</xpath>
+
+</data>
