@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+  <record id="mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline" model="ir.ui.view">
+    <field name="name">hr.leave.report.calendar.timeline</field>
+    <field name="model">hr.leave.report.calendar</field>
+    <field name="type">timeline</field>
+    <field name="arch" type="xml">
+      <timeline date_start="start_datetime" date_stop="stop_datetime" default_group_by="employee_id" event_open_popup="true" />
+    </field>
+  </record>
+</odoo>
