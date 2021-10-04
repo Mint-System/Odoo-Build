@@ -214,3 +214,7 @@
 	path = addons/printnode_base
 	url = git@gitlab.com:mint-system/odoo-app-odoo-direct-print.git
 	branch = 14.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 14.0
