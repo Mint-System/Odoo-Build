@@ -14,7 +14,7 @@
     "task-checkout-13": "./task checkout 13.0",
     "task-checkout-14": "./task checkout 14.0",
     "dev": "vuepress dev",
-    "build": "./task update-docs; vuepress build ."
+    "build": "vuepress build ."
   },
   "repository": {
     "type": "git",
