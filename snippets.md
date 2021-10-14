@@ -279,6 +279,12 @@ Report: mail_notification_paynow
 ID: `mint_system.mail.mail_notification_paynow.replace_footer`  
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
+## Mint System
+Edit: **holidays_self_responsible**  
+Report: res_groups  
+ID: `mint_system.mint_system.res_groups.holidays_self_responsible`  
+Link: [snippets/mint_system.res_groups.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mint_system.res_groups.holidays_self_responsible.xml)
+
 ## Mrp
 Edit: **add_padding**  
 Report: report_mrporder  
@@ -480,10 +486,10 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.pos_in_table`
 Link: [snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml)
 
 ## Res Groups
-Edit: **holidays_self_responsible**  
-Report: hr_holidays  
-ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`  
-Link: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
+Edit: **group**  
+Report: holidays_self_responsible  
+ID: `mint_system.res_groups.holidays_self_responsible.group`  
+Link: [snippets/res_groups.holidays_self_responsible.group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.holidays_self_responsible.group.xml)
 
 ## Sale Partner Incoterm
 Edit: **show_field**  

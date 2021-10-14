@@ -294,8 +294,12 @@ function release-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     VERSION=$(get-module-version $1)
-    echo "Create release $VERSION ..."
     cd $1
+    
+    echo "Tag with v$VERSION ..."
+    git tag -a v$VERSION -m "v$VERSION"
+
+    echo "Create release $VERSION ..."
     gh release create "v$VERSION" -t "Release $VERSION"
 }
 
