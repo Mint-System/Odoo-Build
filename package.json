@@ -26,8 +26,8 @@
     "environment",
     "build"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Mint System",
+  "license": "GPL3",
   "bugs": {
     "url": "https://github.com/Mint-System/Odoo-Development/issues"
   },
