@@ -7,7 +7,6 @@ default.vim
 managed-modules
 venv*
 node_modules
-public
 .vercel
 oca/openupgrade
 .vscode
