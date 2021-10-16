@@ -1,4 +1,4 @@
-![logo](https://raw.githubusercontent.com/Mint-System/Odoo-Development/14.0/logo.jpg)
+![](./logo.jpg)
 
 Odoo Development
 ================
@@ -40,7 +40,6 @@ task checkout 13.0
 # or
 task checkout 14.0
 ```
-
 Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
 
 ```bash
