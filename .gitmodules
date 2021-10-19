@@ -206,3 +206,7 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 14.0
+[submodule "addons/web"]
+	path = addons/web
+	url = git@github.com:Mint-System/Odoo-Apps-Web.git
+	branch = 14.0
