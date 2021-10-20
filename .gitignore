@@ -10,3 +10,5 @@ node_modules
 .vercel
 oca/openupgrade
 .vscode
+upgrade.log
+upgrade-report.html
