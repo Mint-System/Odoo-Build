@@ -167,6 +167,16 @@ Report: hr_employee_public_view_tree
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  
 Link: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml)
 
+Edit: **add_mobile_phone**  
+Report: hr_kanban_view_employees  
+ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`  
+Link: [snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml)
+
+Edit: **add_mobile_phone**  
+Report: view_employee_tree  
+ID: `mint_system.hr.view_employee_tree.add_mobile_phone`  
+Link: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_employee_tree.add_mobile_phone.xml)
+
 ## Hr Payroll
 Edit: **switch_account**  
 Report: hr_salary_rule_form  
@@ -215,6 +225,22 @@ Edit: **show_billable_type**
 Report: timesheet_view_tree_user  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`  
 Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+
+## Hr
+Edit: **show_birthday_public**  
+Report: hr_employee_public_view_tree  
+ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  
+Link: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml)
+
+Edit: **add_mobile_phone**  
+Report: hr_kanban_view_employees  
+ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`  
+Link: [snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml)
+
+Edit: **add_mobile_phone**  
+Report: view_employee_tree  
+ID: `mint_system.hr.view_employee_tree.add_mobile_phone`  
+Link: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_employee_tree.add_mobile_phone.xml)
 
 ## Ir Model
 Edit: **x_studio_description**  
@@ -278,12 +304,6 @@ Edit: **replace_footer**
 Report: mail_notification_paynow  
 ID: `mint_system.mail.mail_notification_paynow.replace_footer`  
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
-
-## Mint System
-Edit: **holidays_self_responsible**  
-Report: res_groups  
-ID: `mint_system.mint_system.res_groups.holidays_self_responsible`  
-Link: [snippets/mint_system.res_groups.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mint_system.res_groups.holidays_self_responsible.xml)
 
 ## Mrp
 Edit: **add_padding**  
@@ -486,10 +506,10 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.pos_in_table`
 Link: [snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xml)
 
 ## Res Groups
-Edit: **group**  
-Report: holidays_self_responsible  
-ID: `mint_system.res_groups.holidays_self_responsible.group`  
-Link: [snippets/res_groups.holidays_self_responsible.group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.holidays_self_responsible.group.xml)
+Edit: **holidays_self_responsible**  
+Report: hr_holidays  
+ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`  
+Link: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
 
 ## Sale Partner Incoterm
 Edit: **show_field**  
