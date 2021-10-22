@@ -162,6 +162,21 @@ ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`
 Link: [snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml)
 
 ## Hr
+Edit: **add_mobile_phone**  
+Report: hr_employee_public_view_kanban  
+ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`  
+Link: [snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
+
+Edit: **show_leave**  
+Report: hr_employee_public_view_kanban  
+ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`  
+Link: [snippets/hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.show_leave.xml)
+
+Edit: **add_mobile_phone**  
+Report: hr_employee_public_view_tree  
+ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`  
+Link: [snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml)
+
 Edit: **show_birthday_public**  
 Report: hr_employee_public_view_tree  
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  
@@ -227,6 +242,21 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
 ## Hr
+Edit: **add_mobile_phone**  
+Report: hr_employee_public_view_kanban  
+ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`  
+Link: [snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
+
+Edit: **show_leave**  
+Report: hr_employee_public_view_kanban  
+ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`  
+Link: [snippets/hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.show_leave.xml)
+
+Edit: **add_mobile_phone**  
+Report: hr_employee_public_view_tree  
+ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`  
+Link: [snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml)
+
 Edit: **show_birthday_public**  
 Report: hr_employee_public_view_tree  
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  

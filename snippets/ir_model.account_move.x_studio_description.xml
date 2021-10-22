@@ -1,8 +1,16 @@
-<?xml version="1.0"?>
-<data inherit_id="hr.hr_kanban_view_employees">
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
 
-  <xpath expr="//ul/li[3]" position="after" priority="50">
-    <li t-if="record.mobile_phone.raw_value" class="o_force_ltr"><field name="mobile_phone"/></li>
-  </xpath>
+  <record id="x_studio_description" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Beschreibung Rechnung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_studio_description</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="ttype">text</field>
+    <field name="copied" eval="True"/>
+  </record>
 
-</data>
+</odoo> 
