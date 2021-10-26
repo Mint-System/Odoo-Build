@@ -32,7 +32,7 @@
 | stop                 |                  | Stop docker containers.                                           |
 | update-config        |                  | Update odoo config.                                               |
 | update-app-list      | [db]             | Update app list.                                                  |
-| update-module        | [db] [name]      | Update target Odoo module.                                        |
+| update-module        | [db] [name,path] | Update target Odoo module.                                        |
 | update-odoo-view     | [env] [path]     | Update view xml definition.                                       |
 | install-odoo-view    | [env] [path]     | Install view xml definition.                                      |
 | upload-module        | [env] [path]     | Zip and upload Odoo module.                                       |
