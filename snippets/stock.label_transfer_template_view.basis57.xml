@@ -1,4 +1,4 @@
-<t t-name="stock.label_transfer_template_view_basis57">
+<t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines" t-as="move">
@@ -21,16 +21,17 @@
                           font-size: 8mm;
                       }
                       div.label {
+                          line-height: 1.2;
                           text-align: center;
                       }
                       br {
                           font-size: 3mm;
                       }
-                      space-right {
-                        padding-right: 2mm
+                      .space-right {
+                        margin-right: 2mm
                       }
-                      address-space-right {
-                        padding-right: 5mm
+                      .address-space-right {
+                        padding-right: 3mm
                       }
                     </style>
                     <div class="page">
@@ -62,11 +63,11 @@
                             <br/>
                             <br/>
 
-                            <t t-if="move_line.product_id.barcode">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.product_id.barcode, 600, 100)" alt="Barcode"/>
+                            <t t-if="move_line.lot_id.name">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 100)" alt="Barcode"/>
                             </t>
                             <t t-else="">
-                                <span class="text-muted">No barcode available</span>
+                                <span class="use-font-opensans-medium default text-muted">No barcode available</span>
                             </t>
                             <br/>
                             <br/>
@@ -77,10 +78,8 @@
                             <span class="use-font-opensans-bold default" t-field="res_company.display_name"/>
                             <br/>
                             <br/>
-                            <span class="use-font-opensans-medium footer" t-field="res_company.street"/>
-                            <br/>
-                            <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip"/>
-                            <span class="use-font-opensans-medium footer" t-field="res_company.city"/>
+                            <span class="use-font-opensans-medium footer" t-field="res_company.street"/><span class="use-font-opensans-medium footer space-right">,</span>
+                            <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip"/><span class="use-font-opensans-medium footer" t-field="res_company.city"/>
                             <br/>
                             <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
                         </div>
