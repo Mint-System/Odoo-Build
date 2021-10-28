@@ -154,8 +154,8 @@ function init-db() {
 
     locale
     activate-venv
-    # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo
+    # odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function odoo-cloc() {
@@ -197,7 +197,18 @@ function install-module() {
 
     locale
     activate-venv
-    odoo-bin  -d $1 -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -d $1 -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+}
+
+function test-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $2)
+
+    locale
+    activate-venv
+    odoo-bin -d $1 -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --log-level=test --test-enable
 }
 
 function remove-module() {
@@ -559,6 +570,9 @@ case "$1" in
         ;;
     update-module)
         update-module $2 $3
+        ;;
+    test-module)
+        test-module $2 $3
         ;;
     create-module)
         create-module $2

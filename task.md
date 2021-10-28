@@ -30,6 +30,7 @@
 | start-psql           | [db]             | Start PSQL shell in Docker container.                             |
 | start-shell          | [db]             | Start Odoo shell from source folder.                              |
 | stop                 |                  | Stop docker containers.                                           |
+| test-module          | [db] [name,path] | Test target Odoo module.                                          |
 | update-config        |                  | Update odoo config.                                               |
 | update-app-list      | [db]             | Update app list.                                                  |
 | update-module        | [db] [name,path] | Update target Odoo module.                                        |
