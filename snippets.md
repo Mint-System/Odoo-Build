@@ -634,6 +634,11 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## Stock
+Edit: **basis57**  
+Report: label_transfer_template_view  
+ID: `mint_system.stock.label_transfer_template_view.basis57`  
+Link: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.basis57.xml)
+
 Edit: **add_incoterms**  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
