@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+
+     <xpath expr="//templates" position="before">
+        <field name="current_leave_id"/>
+        <field name="current_leave_state"/>
+        <field name="leave_date_from"/>
+        <field name="leave_date_to"/>
+    </xpath>
+    <xpath expr="//li[@id='last_login']" position="inside">
+        <span t-if="record.current_leave_id.raw_value" style="font-size: 100%" t-att-class="record.current_leave_state.raw_value=='validate'?'oe_kanban_button oe_kanban_color_3':'oe_kanban_button oe_kanban_color_2'" t-att-title="moment(record.leave_date_from.raw_value).format('ddd Do MMM') + ' - ' + moment(record.leave_date_to.raw_value).format('ddd Do MMM')">
+            <field name="current_leave_id"/>
+        </span>
+    </xpath>
+
+</data>

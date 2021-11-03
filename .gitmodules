@@ -62,14 +62,6 @@
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 14.0
-[submodule "addons/gio_payroll_custom"]
-	path = addons/gio_payroll_custom
-	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-share.git
-	branch = 14.0
-[submodule "addons/gio_py3o_addon"]
-	path = addons/gio_py3o_addon
-	url = git@gitlab.com:mint-system/odoo-app-hr-payroll-report.git
-	branch = 14.0
 [submodule "addons/eksb_layout"]
 	path = addons/eksb_layout
 	url = git@github.com:Mint-System/Odoo-App-EKSB-Layout.git
@@ -125,10 +117,6 @@
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
-	branch = 14.0
-[submodule "addons/gio_generic_excel_addon"]
-	path = addons/gio_generic_excel_addon
-	url = git@gitlab.com:mint-system/odoo-app-generic-excel-addon.git
 	branch = 14.0
 [submodule "oca/reporting-engine"]
 	path = oca/reporting-engine
@@ -213,4 +201,16 @@
 [submodule "addons/printnode_base"]
 	path = addons/printnode_base
 	url = git@gitlab.com:mint-system/odoo-app-odoo-direct-print.git
+	branch = 14.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 14.0
+[submodule "addons/web"]
+	path = addons/web
+	url = git@github.com:Mint-System/Odoo-Apps-Web.git
+	branch = 14.0
+[submodule "addons/stock_logistics_workflow"]
+	path = addons/stock_logistics_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 14.0

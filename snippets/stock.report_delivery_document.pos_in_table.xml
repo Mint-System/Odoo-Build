@@ -21,6 +21,10 @@
     <t t-set="index" t-value="1"/>
   </xpath>
 
+  <xpath expr="//t[@name='aggregated_move_lines']/t[1]" position="before">
+      <t t-set="index" t-value="1"/>
+  </xpath>
+
   <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
     <td>
       <span t-esc="index"/><t t-set="index" t-value="index+1"/>

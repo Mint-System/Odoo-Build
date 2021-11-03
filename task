@@ -154,8 +154,8 @@ function init-db() {
 
     locale
     activate-venv
-    # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo --no-http
+    # odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function odoo-cloc() {
@@ -181,18 +181,34 @@ function update-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    MODULE_NAME=$(basename $2)
+
     locale
     activate-venv
-    odoo-bin -d $1 -u $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
+    echo "Updating module $MODULE_NAME on $1 ..."
+    odoo-bin -d $1 -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    MODULE_NAME=$(basename $2)
+
     locale
     activate-venv
-    odoo-bin  -d $1 -i $2 --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -d $1 -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+}
+
+function test-module() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $2)
+
+    locale
+    activate-venv
+    odoo-bin -d $1 -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --log-level=test --test-enable
 }
 
 function remove-module() {
@@ -287,6 +303,7 @@ function checkout() {
     # Sync files from last branch
     echo "Sync checkout files"
     git checkout $GIT_BRANCH config/checkout_files
+    git rm -r snippets template scripts
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
@@ -294,8 +311,12 @@ function release-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     VERSION=$(get-module-version $1)
-    echo "Create release $VERSION ..."
     cd $1
+    
+    echo "Tag with v$VERSION ..."
+    git tag -a v$VERSION -m "v$VERSION"
+
+    echo "Create release $VERSION ..."
     gh release create "v$VERSION" -t "Release $VERSION"
 }
 
@@ -549,6 +570,9 @@ case "$1" in
         ;;
     update-module)
         update-module $2 $3
+        ;;
+    test-module)
+        test-module $2 $3
         ;;
     create-module)
         create-module $2

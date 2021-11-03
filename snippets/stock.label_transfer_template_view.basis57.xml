@@ -1,0 +1,103 @@
+<t t-name="stock.label_transfer_template_view.basis57">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="picking">
+            <t t-foreach="picking.move_lines" t-as="move">
+
+                <t t-foreach="move.move_line_ids" t-as="move_line">
+                    <style>
+                      .display {
+                          font-size: 15mm;
+                      }
+                      .title {
+                          font-size: 14mm;
+                      }
+                      .address {
+                          font-size: 10mm;
+                      }
+                      .default {
+                          font-size: 8mm;
+                      }
+                      .footer {
+                          font-size: 8mm;
+                      }
+                      div.label {
+                          line-height: 1.2;
+                          text-align: center;
+                      }
+                      br {
+                          font-size: 3mm;
+                      }
+                      .space-right {
+                        margin-right: 2mm
+                      }
+                      .address-space-right {
+                        padding-right: 3mm
+                      }
+                    </style>
+                    <div class="page">
+                        <div class="label">
+                          
+                            <t t-if="picking.partner_id.hide_address">
+                              <br/>
+                              <br/>
+                              <br/>
+                            </t>
+                            
+                            <span class="text-uppercase use-font-opensans-medium title">Gotthard Zander</span>
+                            <br/>
+                            <span class="text-uppercase use-font-opensans-bold display" t-esc="move.product_id.name"/>
+                            <br/>
+                            <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
+                            <br/>
+                            <span class="use-font-opensans-medium default">Gewicht: 2'500 g</span>
+                            <br/>
+                            <br/>
+
+                            <t t-if="not picking.partner_id.hide_address">
+                              <span class="use-font-opensans-bold address" t-field="picking.partner_id.name"/>
+                              <br/>
+                              <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip"/>
+                              <span class="use-font-opensans-bold address" t-field="picking.partner_id.city"/>
+                              <br/>
+                              <br/>
+                            </t>
+
+                            <span class="use-font-opensans-medium default">Verpackt am: </span>
+                            <span class="use-font-opensans-medium default" t-esc="datetime.datetime.now().strftime('%d.%m.%Y')"/>
+                            <br/>
+                            <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                            <span t-set="delta" t-value="datetime.timedelta(days=5)"/>
+                            <span t-set="consume_until" t-value="datetime.datetime.now() + delta"/>
+                            <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
+                            <br/>
+                            <br/>
+
+                            <t t-if="move_line.lot_id.name">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 100)" alt="Barcode"/>
+                            </t>
+                            <t t-else="">
+                                <span class="use-font-opensans-medium default text-muted">No barcode available</span>
+                            </t>
+                            <br/>
+                            <br/>
+                            
+                            <span class="text-uppercase use-font-opensans-bold default">Gotthard Zander</span>
+                            <br/>
+                            <span class="use-font-opensans-bold default"> by </span>
+                            <span class="use-font-opensans-bold default" t-field="res_company.display_name"/>
+                            <br/>
+                            <br/>
+                            <span class="use-font-opensans-medium footer" t-field="res_company.street"/><span class="use-font-opensans-medium footer space-right">,</span>
+                            <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip"/><span class="use-font-opensans-medium footer" t-field="res_company.city"/>
+                            <br/>
+                            <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
+                            
+                        </div>
+                        <p style="page-break-before:always;" />
+                    </div>
+                </t>
+
+            </t>
+        </t>
+    </t>
+</t>

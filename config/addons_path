@@ -37,3 +37,6 @@ addons/swiss_payroll
 oca/contract
 oca/timesheet
 addons/printnode_base
+addons/project
+addons/web
+addons/stock_logistics_workflow
