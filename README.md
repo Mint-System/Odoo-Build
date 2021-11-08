@@ -1,4 +1,4 @@
-![](./logo.jpg)
+![](./logo.png)
 
 Odoo Development
 ================
