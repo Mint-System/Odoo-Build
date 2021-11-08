@@ -80,6 +80,11 @@ Report: view_move_form
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.hide_payment_reference.xml)
 
+Edit: **payment_reference_readonly**  
+Report: view_move_form  
+ID: `mint_system.account.view_move_form.payment_reference_readonly`  
+Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
+
 ## Calendar
 Edit: **default_mode_week**  
 Report: view_calendar_event_calendar  
@@ -414,6 +419,11 @@ Report: report_purchaseorder_document
 ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`  
 Link: [snippets/purchase.report_purchaseorder_document.add_agreement.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.add_agreement.xml)
 
+Edit: **add_date_approve**  
+Report: report_purchaseorder_document  
+ID: `mint_system.purchase.report_purchaseorder_document.add_date_approve`  
+Link: [snippets/purchase.report_purchaseorder_document.add_date_approve.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.add_date_approve.xml)
+
 Edit: **add_email**  
 Report: report_purchaseorder_document  
 ID: `mint_system.purchase.report_purchaseorder_document.add_email`  
@@ -548,6 +558,46 @@ ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`
 Link: [snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml)
 
 ## Sale
+Edit: **add_payment_terms**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.add_payment_terms`  
+Link: [snippets/sale.report_blanketorder_document.add_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.add_payment_terms.xml)
+
+Edit: **change_column_order**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.change_column_order`  
+Link: [snippets/sale.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.change_column_order.xml)
+
+Edit: **change_font**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.change_font`  
+Link: [snippets/sale.report_blanketorder_document.change_font.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.change_font.xml)
+
+Edit: **replace_addressblock**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.replace_addressblock`  
+Link: [snippets/sale.report_blanketorder_document.replace_addressblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.replace_addressblock.xml)
+
+Edit: **replace_infoblock**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.replace_infoblock`  
+Link: [snippets/sale.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.replace_infoblock.xml)
+
+Edit: **replace_table_attribute**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.replace_table_attribute`  
+Link: [snippets/sale.report_blanketorder_document.replace_table_attribute.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.replace_table_attribute.xml)
+
+Edit: **replace_title**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.replace_title`  
+Link: [snippets/sale.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.replace_title.xml)
+
+Edit: **sequence_in_table**  
+Report: report_blanketorder_document  
+ID: `mint_system.sale.report_blanketorder_document.sequence_in_table`  
+Link: [snippets/sale.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.sequence_in_table.xml)
+
 Edit: **add_delivery_date**  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -557,6 +607,11 @@ Edit: **add_notes**
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_notes`  
 Link: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_notes.xml)
+
+Edit: **append_payment_terms**  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
+Link: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.append_payment_terms.xml)
 
 Edit: **format_as_date**  
 Report: report_saleorder_document  
@@ -738,6 +793,11 @@ Edit: **show_date**
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.show_date`  
 Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_date.xml)
+
+Edit: **show_details_visible**  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.show_details_visible`  
+Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
 
 ## Timesheet Grid
 Edit: **show_name**  
