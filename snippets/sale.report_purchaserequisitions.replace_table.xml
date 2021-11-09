@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_purchaserequisitions" priority="49">
+
+  <xpath expr="//div/t[1]" position="replace">
+                        <t t-if="o.line_ids">
+
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th><strong>Description</strong></th>
+                                    <th class="text-right"><strong>Qty</strong></th>
+                                    
+                                    <th class="text-right"><strong>Scheduled Date</strong></th>
+                                    <th class="text-right"><strong>Unit Price</strong></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="o.line_ids" t-as="line_ids">
+                                    <td>
+                                        [ <span t-field="line_ids.product_id.code"/> ]
+                                        <span t-field="line_ids.product_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line_ids.product_qty"/> <span t-field="line_ids.product_uom_id.category_id.name"/>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="line_ids.schedule_date"/>
+                                    </td>
+                                   
+                                    <td class="text-right">
+                                       <span t-field="line_ids.price_unit"/> <span t-field="o.currency_id"/>
+                                       
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </t>
+   </xpath>
+</data>
