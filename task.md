@@ -6,6 +6,7 @@
 | create-module        | [path]           | Create new Odoo module from template.                             |
 | disable-auto-install |                  | Disable auto install for enterprise modules.                      |
 | disable-mailserver   | [env]            | Disable mail server settings via xmlrpc.                          |
+| change-uuid          | [env]            | Change database uuid via xmlrpc.                                  |
 | drop-db              | [db]             | Drop target Odoo database. Default is odoo.                       |
 | git-list-submodules  |                  | List path and url of submodules.                                  |
 | git-pull-submodules  |                  | Pull alls submodules.                                             |

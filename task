@@ -371,6 +371,17 @@ function disable-mailserver() {
     scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
 }
 
+function change-uuid() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    activate-venv
+    load-env $1
+    UUID=$(uuidgen)
+    echo "Set uuid $UUID for $1."
+    scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
+}
+
+
 function update-odoo-view() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -618,7 +629,10 @@ case "$1" in
         init-odoo-env $2
         ;;
     disable-mailserver)
-        disable-mailserver $2 $3
+        disable-mailserver $2
+        ;;
+    change-uuid)
+        change-uuid $2
         ;;
     update-config)
         update-config
