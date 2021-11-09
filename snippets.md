@@ -85,6 +85,22 @@ Report: view_move_form
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
 
+## Base
+Edit: **optional_payment_terms**  
+Report: view_partner_tree  
+ID: `mint_system.base.view_partner_tree.optional_payment_terms`  
+Link: [snippets/base.view_partner_tree.optional_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_payment_terms.xml)
+
+Edit: **optional_zip**  
+Report: view_partner_tree  
+ID: `mint_system.base.view_partner_tree.optional_zip`  
+Link: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
+
+Edit: **search_zip**  
+Report: view_res_partner_filter  
+ID: `mint_system.base.view_res_partner_filter.search_zip`  
+Link: [snippets/base.view_res_partner_filter.search_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_res_partner_filter.search_zip.xml)
+
 ## Calendar
 Edit: **default_mode_week**  
 Report: view_calendar_event_calendar  
@@ -598,6 +614,36 @@ Report: report_blanketorder_document
 ID: `mint_system.sale.report_blanketorder_document.sequence_in_table`  
 Link: [snippets/sale.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.sequence_in_table.xml)
 
+Edit: **add_adressblock**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.add_adressblock`  
+Link: [snippets/sale.report_purchaserequisitions.add_adressblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.add_adressblock.xml)
+
+Edit: **add_description**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.add_description`  
+Link: [snippets/sale.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.add_description.xml)
+
+Edit: **remove_details**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.remove_details`  
+Link: [snippets/sale.report_purchaserequisitions.remove_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.remove_details.xml)
+
+Edit: **replace_infoblock**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.replace_infoblock`  
+Link: [snippets/sale.report_purchaserequisitions.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.replace_infoblock.xml)
+
+Edit: **replace_table**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.replace_table`  
+Link: [snippets/sale.report_purchaserequisitions.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.replace_table.xml)
+
+Edit: **sequence_in_table**  
+Report: report_purchaserequisitions  
+ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`  
+Link: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
+
 Edit: **add_delivery_date**  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -677,6 +723,11 @@ Edit: **header_delivery_date**
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.header_delivery_date`  
 Link: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.header_delivery_date.xml)
+
+Edit: **hide_validity_date**  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.hide_validity_date`  
+Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
 
 Edit: **show_sequence**  
 Report: view_order_form  
