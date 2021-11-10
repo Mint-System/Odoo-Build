@@ -304,7 +304,7 @@ function checkout() {
     # Sync files from last branch
     echo "Sync checkout files"
     git checkout $GIT_BRANCH config/checkout_files
-    git rm -r snippets template scripts
+    git rm -r $(tr '\n' ' ' < ./config/remove_files)
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
