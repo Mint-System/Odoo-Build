@@ -230,27 +230,15 @@ Report: hr_timesheet_line_tree
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
 Link: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
-Edit: **user_report**  
-Report: report_timesheet  
-ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
-Link: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
-
-Edit: **show_billable_type**  
-Report: timesheet_view_tree_user  
-ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`  
-Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
-
-## Hr Timesheets
 Edit: **show_billable**  
 Report: portal_my_timesheets  
-ID: `mint_system.hr_timesheets.portal_my_timesheets.show_billable`  
-Link: [snippets/hr_timesheets.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheets.portal_my_timesheets.show_billable.xml)
+ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`  
+Link: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
 
-## Hr Timesheet
-Edit: **invoice_details**  
-Report: hr_timesheet_line_tree  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
-Link: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
+Edit: **group_by_invoice_type**  
+Report: report_timesheet  
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`  
+Link: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
 Edit: **user_report**  
 Report: report_timesheet  
@@ -728,6 +716,11 @@ Edit: **hide_validity_date**
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.hide_validity_date`  
 Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
+
+Edit: **no_create_edit**  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.no_create_edit`  
+Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
 
 Edit: **show_sequence**  
 Report: view_order_form  
