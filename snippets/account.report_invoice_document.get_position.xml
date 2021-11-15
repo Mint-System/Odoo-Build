@@ -7,21 +7,22 @@
         <span>Pos</span>
       </th>
     </t>
-    <t t-if="o.is_sale_document">
+    <t t-if="o.invoice_line_ids.purchase_line_id">
       <th>
         <span>Pos</span>
       </th>
     </t>
   </xpath>
+  
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]" position="before">
     <t t-if="o.sale_order_id">
       <td>
-        <span t-esc="o.sale_order_id.get_position(line.product_id)"/>
+        <span t-esc="line.position"/>
       </td>
     </t>
     <t t-if="line.purchase_order_id">
       <td>
-        <span t-esc="line.purchase_order_id.get_position(line.product_id)"/>
+        <span t-esc="line.position"/>
       </td>
     </t>
   </xpath>

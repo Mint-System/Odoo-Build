@@ -382,7 +382,7 @@ function change-uuid() {
 }
 
 
-function update-odoo-view() {
+function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
@@ -395,7 +395,7 @@ function update-odoo-view() {
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
-function install-odoo-view() {
+function install-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
@@ -640,11 +640,11 @@ case "$1" in
     git-list-submodules)
         git-list-submodules
         ;;
-    update-odoo-view)
-        update-odoo-view $2 $3
+    update-snippet)
+        update-snippet $2 $3
         ;;
-    install-odoo-view)
-        install-odoo-view $2 $3
+    install-snippet)
+        install-snippet $2 $3
         ;;
     update-app-list)
         update-app-list $2

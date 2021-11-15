@@ -30,12 +30,12 @@
   <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
     <t t-if="o.sale_id">
       <td>
-        <span t-esc="o.sale_id.get_position(move.product_id)"/>
+        <span t-esc="move.position"/>
       </td>
     </t>
     <t t-if="o.purchase_id">
       <td>
-        <span t-esc="o.purchase_id.get_position(move.product_id)"/>
+        <span t-esc="move.position"/>
       </td>
     </t>
   </xpath>

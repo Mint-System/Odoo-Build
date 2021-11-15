@@ -35,8 +35,8 @@
 | update-config        |                  | Update odoo config.                                               |
 | update-app-list      | [db]             | Update app list.                                                  |
 | update-module        | [db] [name,path] | Update target Odoo module.                                        |
-| update-odoo-view     | [env] [path]     | Update view xml definition.                                       |
-| install-odoo-view    | [env] [path]     | Install view xml definition.                                      |
+| update-snippet       | [env] [path]     | Update snippet xml definition.                                    |
+| install-snippet      | [env] [path]     | Install snippet xml definition.                                   |
 | upload-module        | [env] [path]     | Zip and upload Odoo module.                                       |
 | zip-module           | [path]           | Create zip file for module.                                       |
 | update-docs          |                  | Update project docs.                                              |

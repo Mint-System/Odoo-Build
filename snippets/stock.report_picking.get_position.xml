@@ -16,12 +16,12 @@
   <xpath expr="//table[1]/tbody/t/t/tr/td[1]" position="before">
     <t t-if="o.sale_id">
       <td>
-        <span t-esc="o.sale_id.get_position(ml.product_id)"/>
+        <span t-esc="o.sale_id.get_position(ml.product_id, ml.product_uom_qty)"/>
       </td>
     </t>
     <t t-if="o.purchase_id">
       <td>
-        <span t-esc="o.purchase_id.get_position(ml.product_id)"/>
+        <span t-esc="o.purchase_id.get_position(ml.product_id, ml.product_uom_qty)"/>
       </td>
     </t>
   </xpath>
