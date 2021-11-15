@@ -4,12 +4,12 @@
   <xpath expr="/t/tr/td[1]" position="before">
     <t t-if="o.sale_id">
       <td>
-        <span t-esc="o.sale_id.get_position(aggregated_lines[line]['product'], aggregated_lines[line]['product_uom_qty'])"/>
+        <span t-esc="o.sale_id.get_position(aggregated_lines[line]['product'], aggregated_lines[line]['qty_done'])"/>
       </td>
     </t>
     <t t-if="o.purchase_id">
       <td>
-        <span t-esc="o.purchase_id.get_position(aggregated_lines[line]['product'], aggregated_lines[line]['product_uom_qty'])"/>
+        <span t-esc="o.purchase_id.get_position(aggregated_lines[line]['product'], aggregated_lines[line]['qty_done'])"/>
       </td>
     </t>
   </xpath>
