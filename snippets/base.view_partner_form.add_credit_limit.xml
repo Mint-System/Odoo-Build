@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form">
+
+  <xpath expr="//field[@name='property_account_payable_id']" position="after">
+    <field name="credit_limit"/>
+  </xpath>  
+
+  <xpath expr="//group[@name='misc']/field" position="replace">
+  </xpath>
+	
+</data>
