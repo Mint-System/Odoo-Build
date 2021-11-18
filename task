@@ -557,7 +557,7 @@ case "$1" in
         checkout $2
         ;;
     list)
-        docker-compose config --services
+        docker-compose config --services; echo "native"
         ;;
     ps)
         docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
