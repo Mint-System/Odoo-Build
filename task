@@ -133,11 +133,12 @@ function restart() {
 }
 
 function start-shell() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
+    
     locale
     activate-venv
-    odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
 }
 
 function start-psql() {
@@ -154,6 +155,7 @@ function init-db() {
 
     locale
     activate-venv
+    echo "Make sure only one odoo process is running when initalizing the database."
     # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo --no-http
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
