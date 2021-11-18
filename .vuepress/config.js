@@ -10,7 +10,8 @@ module.exports = {
         docsBranch: '14.0',
         editLinks: true,
         nav: [
-            { text: 'Home', link: '/' }
+            { text: 'Home', link: '/' },
+            { text: 'Snippets', link: '/snippets' }
         ],
     },
     dest: 'public',

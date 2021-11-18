@@ -20,17 +20,19 @@
 | kill                 |                  | Remove docker containers and volumes.                             |
 | lint-module          | [path]           | Run pylint odoo for module.                                       |
 | logs                 |                  | Tail Odoo Docker container logs.                                  |
+| list                 |                  | List docker services.                                             |
+| ps                   |                  | List docker processes.                                            |
 | odoo-cloc            | [db]             | Count custom line of codes.                                       |
 | patch-database       | [db] [path]      | Apply sql file to database                                        |
 | release-module       | [path]           | Create GitHub release for a module.                               |
 | remove-module        | [db] [name]      | Remove target Odoo module.                                        |
 | remove-submodule     | [path]           | Remove git submodule.                                             |
-| restart              | [name]           | Restart docker container. Options: none, db, mail                 |
-| start                | [name]           | Start docker container. Options: none, db, mail, native           |
+| restart              | [name]           | Restart docker container.                                         |
+| start                | [name]           | Start docker container.                                           |
 | save-config          | [name]           | Save Odoo database config                                         |
 | start-psql           | [db]             | Start PSQL shell in Docker container.                             |
 | start-shell          | [db]             | Start Odoo shell from source folder.                              |
-| stop                 |                  | Stop docker containers.                                           |
+| stop                 | [name]           | Stop docker containers.                                           |
 | test-module          | [db] [name,path] | Test target Odoo module.                                          |
 | update-config        |                  | Update odoo config.                                               |
 | update-app-list      | [db]             | Update app list.                                                  |

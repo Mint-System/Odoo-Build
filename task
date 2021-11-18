@@ -132,6 +132,14 @@ function restart() {
     fi
 }
 
+function stop() {
+    if test -z "$1"; then
+        docker-compose stop 
+    fi
+
+    docker-compose restart $1
+}
+
 function start-shell() {
     DATABASE=$1
     DATABASE=${DATABASE:="odoo"}
@@ -147,7 +155,6 @@ function start-psql() {
 
     docker exec -it db psql postgres://odoo:odoo@localhost:5432/$DATABASE
 }
-
 
 function init-db() {
     DATABASE=$1
@@ -549,6 +556,12 @@ case "$1" in
     checkout)
         checkout $2
         ;;
+    list)
+        docker-compose config --services
+        ;;
+    ps)
+        docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
+        ;;
     start)
         start $2
         ;;
@@ -556,7 +569,7 @@ case "$1" in
         restart $2
         ;;
     stop)
-        docker-compose stop
+        stop $2
         ;;
     kill)
         docker-compose down -v
