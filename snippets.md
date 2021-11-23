@@ -86,6 +86,21 @@ ID: `mint_system.account.view_move_form.payment_reference_readonly`
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
 
 ## Base
+Edit: **add_display_name**  
+Report: view_bank_form  
+ID: `mint_system.base.view_bank_form.add_display_name`  
+Link: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_bank_form.add_display_name.xml)
+
+Edit: **add_credit_limit**  
+Report: view_partner_form  
+ID: `mint_system.base.view_partner_form.add_credit_limit`  
+Link: [snippets/base.view_partner_form.add_credit_limit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.add_credit_limit.xml)
+
+Edit: **move_ref**  
+Report: view_partner_form  
+ID: `mint_system.base.view_partner_form.move_ref`  
+Link: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
+
 Edit: **optional_payment_terms**  
 Report: view_partner_tree  
 ID: `mint_system.base.view_partner_tree.optional_payment_terms`  
@@ -513,6 +528,11 @@ Report: report_purchasequotation_document
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`  
 Link: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
 
+Edit: **get_position**  
+Report: report_purchasequotation_document  
+ID: `mint_system.purchase.report_purchasequotation_document.get_position`  
+Link: [snippets/purchase.report_purchasequotation_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.get_position.xml)
+
 Edit: **header_margin**  
 Report: report_purchasequotation_document  
 ID: `mint_system.purchase.report_purchasequotation_document.header_margin`  
@@ -732,6 +752,17 @@ Report: view_order_form
 ID: `mint_system.sale.view_order_form.x_sudio_description`  
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
+## Stock Delivery Note
+Edit: **move_delivery_note**  
+Report: report_delivery_document  
+ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`  
+Link: [snippets/stock_delivery_note.report_delivery_document.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock_delivery_note.report_delivery_document.move_delivery_note.xml)
+
+Edit: **move_delivery_note**  
+Report: stock_picking_form_view  
+ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`  
+Link: [snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)
+
 ## Stock
 Edit: **basis57**  
 Report: label_transfer_template_view  
@@ -782,6 +813,11 @@ Edit: **sequence_in_table**
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.sequence_in_table`  
 Link: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sequence_in_table.xml)
+
+Edit: **sort_by_position**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.sort_by_position`  
+Link: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
 
 Edit: **get_position**  
 Report: report_picking  
