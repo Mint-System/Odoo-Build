@@ -7,7 +7,7 @@
         <t>
           <p t-field="res_company.incoterm_id.code"/>
         </t>
-    </div>   
+    </div>
   </xpath>
-  
+
 </data>

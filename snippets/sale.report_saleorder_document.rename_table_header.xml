@@ -4,7 +4,7 @@
   <xpath expr="//div/table/thead/tr/th[2]" position="replace">
     <th class="text-left">Comm. Date</th>
   </xpath>
-  
+
   <xpath expr="//div/table/thead/tr/th[6]" position="replace">
     <th name="th_priceunit" class="text-right">U. Price</th>
   </xpath>

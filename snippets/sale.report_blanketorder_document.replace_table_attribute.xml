@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-  
+
   <xpath expr="//div[@class='col-xs-4 pull-right']" position="attributes">
     <attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
   </xpath>

@@ -18,13 +18,14 @@ GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
+export ODOO_LANGUAGE=de_CH
 
 if [ -a ".env" ]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
 function get-module-version() {
-    if test -z "$1" 
+    if test -z "$1"
     then
         echo "\$1 is empty"
     else
@@ -71,7 +72,7 @@ function disable-auto-install() {
 }
 
 function install-odoo-scripts() {
-    curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh 
+    curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh
 }
 
 function install-native() {
@@ -84,7 +85,7 @@ function install-native() {
     echo "Install pylint odoo"
     pip install --upgrade --pre pylint-odoo
     echo "Install odoo dependencies"
-    pip install setuptools wheel watchdog phonenumbers 
+    pip install setuptools wheel watchdog phonenumbers
     pip install -r odoo/requirements.txt
     echo "Install oca dev tools"
     pip install pre-commit pyyaml
@@ -104,7 +105,7 @@ function start() {
         docker-compose up -d db pgadmin
         echo "Open http://localhost:8000 url in your browser."
     fi
-    
+
     if [[ "$1" =~ "mail" ]]; then
         docker-compose up -d mail
         echo "Open http://localhost url in your browser."
@@ -120,21 +121,17 @@ function start() {
 
 function restart() {
     if test -z "$1"; then
-        docker-compose restart 
+        docker-compose restart
     fi
 
-    if [ "$1" = "db" ]; then
-        docker-compose restart db pgadmin
-    fi
-    
-    if [ "$1" = "mail" ]; then
-        docker-compose restart mail
+    if [[ "db|mail|odoo" =~ "$1" ]]; then
+        docker-compose restart $1
     fi
 }
 
 function stop() {
     if test -z "$1"; then
-        docker-compose stop 
+        docker-compose stop
     fi
 
     docker-compose restart $1
@@ -143,7 +140,7 @@ function stop() {
 function start-shell() {
     DATABASE=$1
     DATABASE=${DATABASE:="odoo"}
-    
+
     locale
     activate-venv
     odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
@@ -164,7 +161,7 @@ function init-db() {
     activate-venv
     echo "Make sure only one odoo process is running when initalizing the database."
     # odoo-bin --init base -d $DATABASE --db_host=localhost --db_password=odoo --db_user=odoo --no-http
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
 
 function odoo-cloc() {
@@ -180,9 +177,11 @@ function lint-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     activate-venv
+    echo "Run pylint in $1"
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
     cd $1
-    pre-commit run -a
+    echo "Run pre-commit in $1"
+    pre-commit run --files ./*
 
 }
 
@@ -227,7 +226,7 @@ function remove-module() {
 
     locale
     activate-venv
-    echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" | 
+    echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" |
     odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
@@ -263,7 +262,7 @@ Dear Odoo Support,
 
 I request your help
 EOL
-    
+
     curl smtp://localhost --mail-from admin@yourcompany.example.com --mail-rcpt support@localhost --upload-file tmp/email.txt
 }
 
@@ -322,7 +321,7 @@ function release-module() {
 
     VERSION=$(get-module-version $1)
     cd $1
-    
+
     echo "Tag with v$VERSION ..."
     git tag -a v$VERSION -m "v$VERSION"
 
@@ -348,7 +347,7 @@ function zip-module() {
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
     echo "Remove pycache folders"
-    find $MODULE_PATH | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf 
+    find $MODULE_PATH | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
@@ -508,7 +507,7 @@ function patch-database() {
     FILENAME=$(basename $2)
 
     echo "Apply patch $FILENAME to Database $1."
-    cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1 
+    cat $2 | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$1
     echo "Patching database succeeded"
 }
 

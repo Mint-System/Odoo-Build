@@ -4,5 +4,5 @@
   <field name="date_order" position="after">
     <field name="commitment_date"/>
   </field>
-  
+
 </data>

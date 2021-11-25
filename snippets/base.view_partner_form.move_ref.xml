@@ -2,10 +2,10 @@
 <data inherit_id="base.view_partner_form">
 
   <xpath expr="//field[@name='ref']" position="replace">
-  </xpath>  
-  
+  </xpath>
+
   <xpath expr="//field[@name='vat']" position="after">
     <field name="ref"/>
-  </xpath>  
-	
+  </xpath>
+
 </data>

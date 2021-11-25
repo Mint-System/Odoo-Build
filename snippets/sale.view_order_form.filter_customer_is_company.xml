@@ -4,5 +4,5 @@
   <xpath expr="//group[1]/group[1]/field[1]" position="replace">
     <field name="partner_id" widget="res_partner_many2one" domain="[('is_company', '=', True)]" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True}" options="{&quot;always_reload&quot;: True}"/>
   </xpath>
-  
+
 </data>

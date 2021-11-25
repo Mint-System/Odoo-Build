@@ -4,5 +4,5 @@
   <xpath expr="//field[@name='date']" position="attributes">
     <attribute name="invisible">0</attribute>
   </xpath>
-  
+
 </data>

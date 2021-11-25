@@ -6,7 +6,7 @@
       <span>Pos</span>
     </th>
   </xpath>
-  
+
   <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
     <td>
       <span t-esc="move.sequence-9"/>

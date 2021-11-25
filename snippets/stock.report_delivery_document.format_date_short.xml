@@ -4,7 +4,7 @@
   <xpath expr="//p[@t-field='o.date_done']" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
-  
+
   <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>

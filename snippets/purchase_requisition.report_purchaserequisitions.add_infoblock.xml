@@ -10,7 +10,7 @@
   <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
     <td>
       <br/>
-      Test: 
+      Test:
     </td>
   </xpath>
 

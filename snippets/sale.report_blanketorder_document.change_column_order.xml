@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-  
+
 <xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
     <tr>
         <th>Product</th>
@@ -10,7 +10,7 @@
         <th class="text-right">Amount</th>
     </tr>
 </xpath>
-  
+
 <xpath expr="//tbody[@class='sale_tbody']/t" position="replace">
     <t t-foreach="doc.line_ids" t-as="l">
         <tr>
@@ -24,7 +24,7 @@
             <td class="text-center">
                 <span t-field="l.date_schedule"/>
             </td>
-                                
+
             <td class="text-right">
                 <span t-field="l.price_unit"/>
             </td>

@@ -4,7 +4,7 @@
   <xpath expr="//div/table[1]" position="attributes">
     <attribute name="style" separator=";" add="margin-top: 1rem"/>
   </xpath>
-  
+
   <xpath expr="//div/table[2]" position="attributes">
     <attribute name="style" separator=";" add="margin-top: 1rem"/>
   </xpath>
