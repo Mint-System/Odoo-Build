@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+<xpath expr="//field[@name='display_name']" position="after">
+  <field name="ref"/>
+</xpath>
+
+<xpath expr="//field[@name='city']" position="before">
+  <field name="zip"/>
+</xpath>
+
+<xpath expr="//field[@name='category_id']" position="after">
+  <field name="type"/>
+</xpath>
+
+</data>

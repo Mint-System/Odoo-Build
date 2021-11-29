@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document">
+
+  <xpath expr="/t/t/div/div[1]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 2rem"/>
+  </xpath>
+
+</data>

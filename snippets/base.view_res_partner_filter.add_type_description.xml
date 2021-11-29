@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_res_partner_filter" priority="50">
+
+<xpath expr="//field[@name='pricelist_id']" position="after">
+  <separator/>
+    <field string="Typenbezeichnung" name="type_description"/>
+    <field string="Typenbezeichnung 2" name="type_description2"/>
+</xpath>
+
+</data>
