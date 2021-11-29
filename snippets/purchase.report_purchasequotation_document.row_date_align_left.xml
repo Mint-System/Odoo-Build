@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
-  <xpath expr="/t/t/div/table/thead/tr/th[2]" position="attributes">
+  <xpath expr="//table/thead/tr/th[2]" position="attributes">
     <attribute name="class" separator=" " add="text-left" remove="text-center"/>
   </xpath>
-  <xpath expr="/t/t/div/table/tbody/t/tr/t[1]/td[2]" position="attributes">
+  <xpath expr="//table/tbody/t/tr/t[1]/td[2]" position="attributes">
     <attribute name="class" separator=" " add="text-left" remove="text-center"/>
   </xpath>
 
