@@ -4,9 +4,9 @@
   <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[3]/p[1]" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
-  
+
   <xpath expr="//table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[3]/span[1]" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
-  
+
 </data>

@@ -4,5 +4,5 @@
   <xpath expr="//field[@name='name']" position="after">
     <field name="display_name"/>
   </xpath>
-  
+
 </data>

@@ -4,5 +4,5 @@
   <xpath expr="//div[@name='date_planned_div']/field[@name='date_planned']" position="attributes">
     <attribute name="attrs">{'readonly': True}</attribute>
   </xpath>
-  
+
 </data>

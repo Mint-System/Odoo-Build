@@ -9,5 +9,5 @@
       <timeline date_start="start" date_stop="stop" default_group_by="partner_id" event_open_popup="true" />
     </field>
   </record>
-  
+
 </odoo>

@@ -4,5 +4,5 @@
   <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="after">
     <span t-field="o.user_id.email"/>
   </xpath>
-  
+
 </data>

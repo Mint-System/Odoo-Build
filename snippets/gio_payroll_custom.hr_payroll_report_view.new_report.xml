@@ -20,7 +20,7 @@
 
                         <div class="page">
                             <style>
-                                div.page { 
+                                div.page {
                                     font-size: 0.75rem;
                                 }
                             </style>
@@ -74,7 +74,7 @@
 
                             <table class="table td-no-top">
                                 <style>
-                                    .table.td-no-top td { 
+                                    .table.td-no-top td {
                                         border-top: none;
                                         padding: 0.25rem;
                                     }
@@ -158,7 +158,7 @@
 
                             <table class="table td-bottom-line">
                                 <style>
-                                    .table.td-bottom-line tr:nth-child(2n) td { 
+                                    .table.td-bottom-line tr:nth-child(2n) td {
                                         border-bottom: 2px solid #dee2e6;
                                     }
                                 </style>

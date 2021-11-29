@@ -6,5 +6,5 @@
     <p t-field="o.description"/>
   </div>
 </xpath>
-  
+
 </data>

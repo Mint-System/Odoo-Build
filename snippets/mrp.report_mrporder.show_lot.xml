@@ -6,8 +6,8 @@
 		<t t-if="raw_line.forecast_expected_date">
 			<br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
 		</t>
-		
-    	<!-- 
+
+    	<!--
 		<span>Qty: </span><span t-field="raw_line.product_uom_qty"/><br/>
     	<span>Forecast: </span><span t-field="raw_line.forecast_availability"/><br/>
     	<span>Available: </span><span t-field="raw_line.availability"/><br/>

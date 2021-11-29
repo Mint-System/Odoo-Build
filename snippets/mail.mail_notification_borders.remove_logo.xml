@@ -3,5 +3,5 @@
 
   <xpath expr="//table[@summary='o_mail_notification']//table/tr/td[2]/img" position="replace">
   </xpath>
-	
+
 </data>

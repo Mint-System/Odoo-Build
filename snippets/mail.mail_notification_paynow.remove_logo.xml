@@ -3,5 +3,5 @@
 
   <xpath expr="//tbody/tr/td/table/tr/td[2]/img" position="replace">
   </xpath>
-	
+
 </data>

@@ -4,7 +4,7 @@
   <xpath expr="/t/t/div/div[2]/div[3]/strong" position="replace">
     <strong>Deadline:</strong>
   </xpath>
-  
+
   <!-- <xpath expr="/t/t/div/div[2]/div[4]" position="after">
     <div t-if="o.date_order" class="col-3 bm-2">
       <strong>Order Deadline:</strong>
