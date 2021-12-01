@@ -22,6 +22,7 @@ oca/server-tools
 oca/product-attribute
 oca/sale-workflow
 addons/purchase_workflow
+oca/purchase-workflow
 oca/dms
 oca/social
 oca/bank-statement-import

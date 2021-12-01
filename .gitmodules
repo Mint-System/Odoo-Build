@@ -214,3 +214,7 @@
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 14.0
+[submodule "oca/purchase-workflow"]
+	path = oca/purchase-workflow
+	url = git@github.com:OCA/purchase-workflow.git
+	branch = 14.0
