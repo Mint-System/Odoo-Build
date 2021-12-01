@@ -36,13 +36,15 @@
                     </style>
                     <div class="page">
                         <div class="label">
-
+                          
                             <t t-if="picking.partner_id.hide_address">
                               <br/>
                               <br/>
                               <br/>
                             </t>
-
+                            
+                            <br/>
+                            <br/>
                             <span class="text-uppercase use-font-opensans-medium title">Gotthard Zander</span>
                             <br/>
                             <span class="text-uppercase use-font-opensans-bold display" t-esc="move.product_id.name"/>
@@ -70,17 +72,19 @@
                             <span t-set="consume_until" t-value="datetime.datetime.now() + delta"/>
                             <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
                             <br/>
+                            <span class="use-font-opensans-medium default">Aufbewahrung: kühl bei 2°C</span>
+                            <br/>
                             <br/>
 
                             <t t-if="move_line.lot_id.name">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 100)" alt="Barcode"/>
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 50)" alt="Barcode"/>
                             </t>
                             <t t-else="">
                                 <span class="use-font-opensans-medium default text-muted">No barcode available</span>
                             </t>
                             <br/>
                             <br/>
-
+                            
                             <span class="text-uppercase use-font-opensans-bold default">Gotthard Zander</span>
                             <br/>
                             <span class="use-font-opensans-bold default"> by </span>
@@ -91,7 +95,7 @@
                             <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip"/><span class="use-font-opensans-medium footer" t-field="res_company.city"/>
                             <br/>
                             <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
-
+                            
                         </div>
                         <p style="page-break-before:always;" />
                     </div>
