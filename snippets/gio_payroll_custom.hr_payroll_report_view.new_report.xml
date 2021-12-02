@@ -105,7 +105,7 @@
                                             </td>
                                             <td>
                                                 <t t-if="line.name=='Ferienentschädigung'">
-                                                    <span t-esc="doc.contract_id.gio_holiday_rate*100"/><span> %</span>
+                                                    <span t-esc="'%.2f' % (doc.contract_id.gio_holiday_rate*100)"/><span> %</span>
                                                 </t>
                                                 <t t-if="line.name=='Ausbildungszulage'">
                                                     <span t-esc="'%.2f' % doc.contract_id.gio_name.gio_training_allowances"/>
