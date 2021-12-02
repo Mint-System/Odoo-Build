@@ -412,11 +412,14 @@ function install-snippet() {
     NAME="mint_system.${FILE%.xml}"
     INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
     PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
-    INHERIT_NAME=$(echo $INHERIT_ID | cut -d. -f2 )
+    MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
+    XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
 
     activate-venv
     load-env $1
-    INHERIT_ID=$(scripts/odooctl --method 'search_one' --model 'ir.ui.view' --domain "['name', '=', '$INHERIT_NAME']")
+    echo "Search for view with name $MODULE_NAME.$XML_ID"
+    INHERIT_ID=$(scripts/odooctl --method 'get_id' --model 'ir.model.data' --value "['$MODULE_NAME','$XML_ID']")
+    echo "Found view id $INHERIT_ID"
     scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 'name': '$NAME', 'priority': $PRIORITY, 'inherit_id': $INHERIT_ID, 'arch_base': '''$(cat $2)''' }"
 }
 

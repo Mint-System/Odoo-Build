@@ -55,10 +55,18 @@ if args.method == 'search_one':
 
     # Search records
     ids = models.execute_kw(db, uid, password,
-        args.model, 'search',
-        [[domain]])
+        args.model, 'search', [[domain]])
 
     print(ids[0])
+
+if args.method == 'get_id':
+    # Parse value
+    value = ast.literal_eval(args.value)
+
+    # Search records
+    res = models.execute_kw(db, uid, password,'ir.model.data', 'get_object_reference', [value[0],value[1]])
+
+    print(res[1])
 
 if args.field:
     # Parse domain and value
