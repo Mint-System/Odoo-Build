@@ -218,3 +218,7 @@
 	path = oca/purchase-workflow
 	url = git@github.com:OCA/purchase-workflow.git
 	branch = 14.0
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 14.0
