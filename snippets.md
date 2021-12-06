@@ -162,11 +162,6 @@ Report: view_calendar_event_calendar_timeline
 ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`  
 Link: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
 
-**xml**  
-Report: view_calendar_event_calendar_timeline  
-ID: `mint_system.calendar.view_calendar_event_calendar_timeline.xml`  
-Link: [snippets/calendar.view_calendar_event_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.xml)
-
 ## Delivery
 **remove hs code**  
 Report: report_delivery_document2  
@@ -348,11 +343,6 @@ Report: hr_holidays_calendar
 ID: `mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline`  
 Link: [snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
 
-**hr leave view timeline**  
-Report: hr_holidays  
-ID: `mint_system.ir_ui_view.hr_holidays.hr_leave_view_timeline`  
-Link: [snippets/ir_ui_view.hr_holidays.hr_leave_view_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_ui_view.hr_holidays.hr_leave_view_timeline.xml)
-
 ## Mail
 **remove logo**  
 Report: mail_notification_borders  
@@ -429,12 +419,6 @@ Link: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-Sy
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.show_stock`  
 Link: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
-
-## Portal My Timesheets
-**xml**  
-Report: show_billable  
-ID: `mint_system.portal_my_timesheets.show_billable.xml`  
-Link: [snippets/portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/portal_my_timesheets.show_billable.xml)
 
 ## Product
 **add product info**  
