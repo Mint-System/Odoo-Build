@@ -8,12 +8,12 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 
 This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
 
-* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
-* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database in the local development environment. Investigate issues and deploy the database at wish.
-* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
+* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally
+* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database in the local development environment. Investigate issues and deploy the database at wish
+* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
-* **Develop Modules**: Scaffold a new module and develop new Odoo features locally.
-* **Customizing Snippets**: See [snippets](./snippets.md) to find various Odoo view edits.
+* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md)
+* **Customizing Snippets**: See [snippets](./snippets.md) to find various Odoo view edits
 
 ## Requirements
 
