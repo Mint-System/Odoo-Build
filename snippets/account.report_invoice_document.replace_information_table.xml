@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//*[@id='informations']" position="replace">
+
+    <table id='informations' class="table table-borderless table-sm">
+      <tr>
+        <td class="text-right"><strong>Rechnungsdatum:</strong></td>
+        <td><span t-field="o.invoice_date"/></td>
+
+        <td class="text-right"><strong>Zahlbar innert:</strong></td>
+        <td><span t-field="o.invoice_payment_term_id"/></td>
+
+        <td class="text-right"><strong>Kontakt Rechnung:</strong></td>
+        <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
+          <td><span t-esc="delivery_partner.name" /></td>
+        </t>
+      </tr>
+      <tr>
+        <td class="text-right"><strong>Kunden-Nr.:</strong></td>
+        <td><span t-field="o.partner_id.ref" /></td>
+
+        <td class="text-right"><strong>MWST:</strong></td>
+        <td><span t-field="res_company.vat" /></td>
+
+        <td class="text-right"><strong>Tel. Direkt:</strong></td>
+        <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
+          <td><span t-esc="delivery_partner.phone" /></td>
+        </t>
+      </tr>
+      <tr>
+        <td class="text-right"><strong>Kontakt Verkauf:</strong></td>
+        <td><span t-field="o.invoice_user_id" /></td>
+
+        <td></td>
+        <td></td>
+
+        <td class="text-right"><strong>E-Mail:</strong></td>
+        <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
+          <td><span t-esc="delivery_partner.email" /></td>
+        </t>
+      </tr>
+    </table>
+
+  </xpath>
+
+</data>

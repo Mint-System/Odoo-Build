@@ -3,7 +3,7 @@
 
   <xpath expr="//h2" position="replace">
     <h2>
-      <span t-esc="'Lieferschein: ' + o.name.replace('WH/OUT/', '')"/>
+      <span t-esc="'Lieferschein ' + o.name.replace('WH/OUT/', '')"/>
     </h2>
   </xpath>
 

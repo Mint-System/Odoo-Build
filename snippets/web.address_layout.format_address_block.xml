@@ -1,20 +1,22 @@
 <?xml version="1.0"?>
 <data inherit_id="web.address_layout" priority="50">
 
-  <xpath expr="//t[@t-if='information_block']/.." position="replace">
-    <div class="address row">
-      <t t-if="information_block">
-        <t t-set="colclass" t-value="'col-6'"/>
-        <div name="information_block" class="col-6">
-          <t t-raw="information_block"/>
-        </div>
-      </t>
-    </div>
-    <div class="row">
-      <div name="address" t-att-class="colclass">
-        <t t-raw="address"/>
+  <xpath expr="//t[@t-if='address']" position="replace">
+    <t t-if="address">
+      <div class="address row">
+        <t t-if="information_block">
+          <t t-set="colclass" t-value="'col-6'"/>
+          <div name="information_block" class="col-6">
+            <t t-raw="information_block"/>
+          </div>
+        </t>
       </div>
-    </div>
+      <div class="row">
+        <div name="address" t-att-class="'col-6'">
+          <t t-raw="address"/>
+        </div>
+      </div>
+    </t>
 
   </xpath>
 

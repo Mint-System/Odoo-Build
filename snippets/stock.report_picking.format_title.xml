@@ -2,7 +2,7 @@
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//h1[@t-field='o.name']" position="replace">
-    <h1 t-esc="'Rüstschein: ' + o.name.replace('WH/OUT/', '')"/>
+    <h1 t-esc="'Rüstschein ' + o.name.replace('WH/OUT/', '')"/>
   </xpath>
   
 </data>

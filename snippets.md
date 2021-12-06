@@ -40,6 +40,16 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.get_position`  
 Link: [snippets/account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.get_position.xml)
 
+**group by pickings**  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.group_by_pickings`  
+Link: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_pickings.xml)
+
+**margin before title**  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.margin_before_title`  
+Link: [snippets/account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_title.xml)
+
 **product hs code and origin**  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`  
@@ -64,6 +74,11 @@ Link: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
 Link: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
+
+**replace information table**  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.replace_information_table`  
+Link: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
 **sequence in table**  
 Report: report_invoice_document  
