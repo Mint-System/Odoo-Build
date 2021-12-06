@@ -537,7 +537,7 @@ function update-docs() {
 
             # Group by modules
             if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
-                echo "Edit: **$EDIT**  " >> snippets.md
+                echo "**$(echo $EDIT | sed 's/_/ /g')**  " >> snippets.md
                 echo "Report: $REPORT  " >> snippets.md
                 echo "ID: \`mint_system.$SNIPPET_MODULE.$REPORT.$EDIT\`  " >> snippets.md
                 echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
