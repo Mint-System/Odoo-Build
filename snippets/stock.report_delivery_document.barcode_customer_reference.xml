@@ -1,6 +1,8 @@
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document">
+<data inherit_id="stock.report_delivery_document" priority="50">
+
   <xpath expr="//t[@name='partner_header']" position="before">
     <span t-field="o.sale_id.client_order_ref" t-options='{"widget": "barcode", "width": 350, "height": 50}' />
   </xpath>
+
 </data>

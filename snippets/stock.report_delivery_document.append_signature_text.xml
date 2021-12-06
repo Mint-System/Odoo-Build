@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <div class="row" style="margin-top: 3rem;">
+      <div class="col-5">
+       <p>Gebinde geliefert: _____</p>
+       <p>Gebinde zurück: _____</p>
+       <br/>
+       <p>Unterschrift Transport: _______________</p>
+      </div>
+      <div class="col-2" />
+      <div class="col-5">
+       <p>Ware einwandfrei erhalten.</p>
+       <br/>
+       <p>Unterschrift Kunde: _______________</p>
+      </div>
+    </div>
+  </xpath>
+
+</data>

@@ -850,6 +850,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
 Link: [snippets/stock.report_delivery_document.add_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_incoterms.xml)
 
+**append signature text**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.append_signature_text`  
+Link: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.append_signature_text.xml)
+
 **barcode customer reference**  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
@@ -864,6 +869,11 @@ Link: [snippets/stock.report_delivery_document.document_description.xml](https:/
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.format_date_short`  
 Link: [snippets/stock.report_delivery_document.format_date_short.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_date_short.xml)
+
+**format title**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.format_title`  
+Link: [snippets/stock.report_delivery_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title.xml)
 
 **get position**  
 Report: report_delivery_document  
@@ -880,15 +890,35 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
 Link: [snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml)
 
+**margin before title**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.margin_before_title`  
+Link: [snippets/stock.report_delivery_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.margin_before_title.xml)
+
 **pos in table**  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
 Link: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.pos_in_table.xml)
 
+**replace information table**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_information_table`  
+Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
+
+**sale stock picking note**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`  
+Link: [snippets/stock.report_delivery_document.sale_stock_picking_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sale_stock_picking_note.xml)
+
 **sequence in table**  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.sequence_in_table`  
 Link: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sequence_in_table.xml)
+
+**set customer reference**  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.set_customer_reference`  
+Link: [snippets/stock.report_delivery_document.set_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_customer_reference.xml)
 
 **sort by position**  
 Report: report_delivery_document  
@@ -1032,6 +1062,11 @@ ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`
 Link: [snippets/timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/timesheet_grid.timesheet_view_form.show_name.xml)
 
 ## Web
+**format address block**  
+Report: address_layout  
+ID: `mint_system.web.address_layout.format_address_block`  
+Link: [snippets/web.address_layout.format_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.address_layout.format_address_block.xml)
+
 **remove**  
 Report: brand_promotion_message  
 ID: `mint_system.web.brand_promotion_message.remove`  
