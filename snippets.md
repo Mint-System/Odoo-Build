@@ -200,11 +200,6 @@ Report: hr_leave_report_calendar_timeline
 ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
 Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
 
-### xml  
-Report: hr_leave_report_calendar_timeline  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
-
 ## Hr Holidays Delegations
 ### delegate groups  
 Report: hr_leave_view_form_inherit  
@@ -221,11 +216,6 @@ Link: [snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group
 Report: hr_leave_view_timeline  
 ID: `mint_system.hr_holidays.hr_leave_view_timeline.view`  
 Link: [snippets/hr_holidays.hr_leave_view_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_timeline.view.xml)
-
-### xml  
-Report: hr_leave_view_timeline  
-ID: `mint_system.hr_holidays.hr_leave_view_timeline.xml`  
-Link: [snippets/hr_holidays.hr_leave_view_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_timeline.xml)
 
 ### add synced field  
 Report: hr_leave_view_tree  
