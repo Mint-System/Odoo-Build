@@ -134,7 +134,7 @@ function stop() {
         docker-compose stop
     fi
 
-    docker-compose restart $1
+    docker-compose stop $1
 }
 
 function start-shell() {
