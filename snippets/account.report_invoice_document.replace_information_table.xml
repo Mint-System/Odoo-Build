@@ -2,7 +2,12 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//*[@id='informations']" position="replace">
-
+    <style>
+      table#informations{
+        font-size: 0.8rem;
+        white-space: nowrap;
+      }
+    </style>
     <table id='informations' class="table table-borderless table-sm">
       <tr>
         <td class="text-right"><strong>Rechnungsdatum:</strong></td>

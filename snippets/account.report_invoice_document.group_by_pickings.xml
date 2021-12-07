@@ -1,22 +1,30 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document">
 
-  <xpath expr="//t[@t-foreach='lines']" position="replace">
+  <xpath expr="//h2" position="before">
     <t t-set="pickings" t-value="[]"/>
     <t t-foreach="o.invoice_line_ids" t-as="line">
-      <t t-set="pickings" t-value="pickings+[line.picking_ids]"/>
+      <t t-if="'picking_ids' in line.fields_get()" t-set="pickings" t-value="pickings+[line.picking_ids]"/>
     </t>
+    <t t-set="has_multiple_pickings" t-value="len(pickings) > 1"/>
+  </xpath>
+
+  <xpath expr="//h2/span[1]" position="replace">
+    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_pickings">Rechnung</span>
+    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_pickings">Sammelrechnung</span>
+  </xpath>
+
+  <xpath expr="//t[@t-foreach='lines']" position="replace">
     <t t-foreach="set(pickings)" t-as="picking">
-      <tr t-if="picking.name">
-        <td colspan="5">
+      <tr t-if="has_multiple_pickings and picking">
+        <td colspan="99" style="padding-top: 1rem;" >
           <strong t-esc="'Lieferung ' + picking.name.replace('WH/OUT/','')"/>
           <span> vom </span>
-          <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/>
-          <span>:</span>
+          <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/><span>:</span>
         </td>
       </tr>
       <t t-foreach="lines" t-as="line">
-        <t t-if="picking in line.picking_ids">
+        <t t-if="not has_multiple_pickings or (picking in line.picking_ids)">
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
 
