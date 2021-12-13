@@ -682,7 +682,7 @@ case "$1" in
             if [ -z $update ]; then
                 git pull
             fi;
-        '
+        ' | tee git-pull-submodules.log
         ;;
     update-docs)
         update-docs
