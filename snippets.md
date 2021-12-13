@@ -337,6 +337,11 @@ Report: sale_order
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
 
+### x count boxes  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_count_boxes`  
+Link: [snippets/ir_model.stock_move.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_count_boxes.xml)
+
 ## Ir Ui View
 ### view calendar event calendar timeline  
 Report: calendar  
@@ -850,6 +855,11 @@ Report: label_transfer_template_view
 ID: `mint_system.stock.label_transfer_template_view.basis57`  
 Link: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.basis57.xml)
 
+### basis57  
+Report: report_bordero  
+ID: `mint_system.stock.report_bordero.basis57`  
+Link: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
+
 ### add incoterms  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
@@ -1079,6 +1089,11 @@ Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-S
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
 Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
+
+### x count boxes  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.x_count_boxes`  
+Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
 ## Timesheet Grid
 ### show name  

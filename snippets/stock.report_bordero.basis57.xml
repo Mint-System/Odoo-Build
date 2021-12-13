@@ -1,0 +1,75 @@
+<t t-name="stock.report_bordero">
+    <t t-call="web.html_container">
+        <t t-call="web.external_layout">
+            <div class="page">
+
+                <h2>Bordero</h2>
+                <p>Druckdatum: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                </p>
+
+                <table class="table table-sm">
+                    <thead>
+                        <tr>
+                            <th>Kunde</th>
+                            <th>Strasse</th>
+                            <th>PLZ</th>
+                            <th>Ort</th>
+                            <th class="text-right">Gebinde</th>
+                            <th class="text-right">Total Gewicht</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <t t-set="total_weight" t-value="0"/>
+                        <tr t-foreach="set([picking.partner_id for picking in docs.move_ids_without_package])" t-as="partner_id">
+
+                            <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
+                            <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
+                            <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('quantity_done')) + count_boxes * 1.76"/>
+                            <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
+
+                            <td>
+                                <span t-field="partner_id.name"/>
+                            </td>
+                            <td>
+                                <span t-field="partner_id.street"/>
+                            </td>
+                            <td>
+                                <span t-field="partner_id.zip"/>
+                            </td>
+                            <td>
+                                <span t-field="partner_id.city"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="count_boxes"/>
+                            </td>
+                            <td class="text-right">
+                                <span t-esc="boxes_weight"/>
+                                <span> kg</span>
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+
+                <div class="clearfix">
+                    <div id="total" class="row">
+                        <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ml-auto">
+                            <table class="table table-sm" style="page-break-inside: avoid;">
+                                <tr class="border-black o_total">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="total_weight"/>
+                                        <span> kg</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </t>
+    </t>
+</t>
