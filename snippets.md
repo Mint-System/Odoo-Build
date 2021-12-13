@@ -865,6 +865,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
 Link: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
 
+### description sale  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.description_sale`  
+Link: [snippets/stock.report_delivery_document.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.description_sale.xml)
+
 ### document description  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.document_description`  
@@ -909,6 +914,11 @@ Link: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
+
+### sale order note  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.sale_order_note`  
+Link: [snippets/stock.report_delivery_document.sale_order_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sale_order_note.xml)
 
 ### sale stock picking note  
 Report: report_delivery_document  
@@ -1000,6 +1010,11 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.show_order_date`  
 Link: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_order_date.xml)
 
+### show packaging  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.show_packaging`  
+Link: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_packaging.xml)
+
 ### stock delivery note  
 Report: report_picking  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
@@ -1019,6 +1034,11 @@ Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin
 Report: stock_report_delivery_aggregated_move_lines  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
 Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
+
+### description sale  
+Report: stock_report_delivery_has_serial_move_line  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale`  
+Link: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
 ### pos in table  
 Report: stock_report_delivery_has_serial_move_line  

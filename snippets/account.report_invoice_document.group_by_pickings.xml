@@ -2,10 +2,8 @@
 <data inherit_id="account.report_invoice_document">
 
   <xpath expr="//h2" position="before">
-    <t t-set="pickings" t-value="[]"/>
-    <t t-foreach="o.invoice_line_ids" t-as="line">
-      <t t-if="'picking_ids' in line.fields_get()" t-set="pickings" t-value="pickings+[line.picking_ids]"/>
-    </t>
+    <t t-set="pickings" t-value="[line.picking_ids for line in o.invoice_line_ids]"/>
+    <t t-set="has_pickings" t-value="len(pickings) > 0"/>
     <t t-set="has_multiple_pickings" t-value="len(pickings) > 1"/>
   </xpath>
 
@@ -15,8 +13,9 @@
   </xpath>
 
   <xpath expr="//t[@t-foreach='lines']" position="replace">
+
     <t t-foreach="set(pickings)" t-as="picking">
-      <tr t-if="has_multiple_pickings and picking">
+      <tr t-if="has_pickings">
         <td colspan="99" style="padding-top: 1rem;" >
           <strong t-esc="'Lieferung ' + picking.name.replace('WH/OUT/','')"/>
           <span> vom </span>
@@ -24,7 +23,8 @@
         </td>
       </tr>
       <t t-foreach="lines" t-as="line">
-        <t t-if="not has_multiple_pickings or (picking in line.picking_ids)">
+        <t t-if="not has_pickings or (picking in line.picking_ids)">
+
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
 
@@ -73,6 +73,7 @@
               </td>
             </tr>
           </t>
+
         </t>
       </t>
     </t>

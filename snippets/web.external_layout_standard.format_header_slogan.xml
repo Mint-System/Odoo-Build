@@ -2,7 +2,13 @@
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <xpath expr="//div[@name='moto']" position="replace">
-    <h3 class="col-9 text-right" t-field="company.report_header" name="moto"/>
+    <style>
+      h4 {
+        /* align-self: center; */
+        padding-top: 2rem;
+      }
+    </style>
+    <h4 class="col-9 text-right" t-field="company.report_header" name="moto"/>
   </xpath>
 
 </data>

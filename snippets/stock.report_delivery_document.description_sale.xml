@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@t-field='move.product_id']" position="replace">
+    <t t-if="move.product_id.description_sale">
+      <span t-field="move.product_id.description_sale"/>
+    </t>
+    <t t-else="">
+      <span t-field="move.product_id"/>
+    </t>
+  </xpath>
+
+</data>
