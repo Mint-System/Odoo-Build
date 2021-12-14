@@ -3,7 +3,7 @@
 
   <record id="x_count_boxes" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Anzahlkisten</field>
+    <field name="field_description">Anzahl Kisten</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_boxes</field>

@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document">
+<data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//h2" position="before">
     <t t-set="pickings" t-value="[line.picking_ids for line in o.invoice_line_ids]"/>
@@ -78,6 +78,5 @@
       </t>
     </t>
   </xpath>
-
 
 </data>
