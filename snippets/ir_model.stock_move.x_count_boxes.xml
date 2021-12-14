@@ -17,6 +17,8 @@
 	if rec.product_packaging:
 		if rec.product_packaging.name == "Schale":
 			rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+		if rec.product_packaging.name == "Schale Klein":
+			rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
 		if rec.product_packaging.name == "Kiste":
 			rec['x_count_boxes'] = (rec.quantity_done + 9)/10</field>
   </record>
