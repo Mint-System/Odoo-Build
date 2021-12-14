@@ -3,7 +3,28 @@
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines" t-as="move">
 
-                <t t-foreach="move.move_line_ids" t-as="move_line">
+                <!-- Select loop based product packaing -->
+                <t t-if="move.product_packaging.name == 'Schale'">
+                    <t t-set="print_weight" t-value="False" />
+                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
+                    <t t-set="count_labels" t-value="move.quantity_done/2.5" />
+                </t>
+                <t t-if="move.product_packaging.name == 'Kiste'">
+                    <t t-set="print_weight" t-value="True" />
+                    <t t-set="count_boxes" t-value="1" />
+                    <t t-set="count_labels" t-value="0" />
+                </t>
+
+                <!-- <p t-esc="move.product_id.name"/>
+                <p t-esc="count_boxes"/>
+                <p t-esc="count_labels"/> -->
+
+                <t t-foreach="move.move_line_ids" t-as="move_line"> 
+                <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">
+                    <t t-if="page_index >= count_labels">
+                        <t t-set="print_weight" t-value="True" />
+                    </t>
+
                     <style>
                       .display {
                           font-size: 15mm;
@@ -51,7 +72,11 @@
                             <br/>
                             <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
                             <br/>
-                            <span class="use-font-opensans-medium default">Gewicht: 2'500 g</span>
+                            <span class="use-font-opensans-medium default">Gewicht: </span>
+                            <span class="use-font-opensans-medium default" t-if="not print_weight">2'500g</span>
+                            <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move_line.qty_done *1000" t-options='{"widget": "float", "precision": 0}'/>
+                             <span class="use-font-opensans-medium default" t-if="print_weight">g</span>
+                            
                             <br/>
                             <br/>
 
@@ -77,7 +102,7 @@
                             <br/>
 
                             <t t-if="move_line.lot_id.name">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 50)" alt="Barcode"/>
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.result_package_id.name, 600, 50)" alt="Barcode"/>
                             </t>
                             <t t-else="">
                                 <span class="use-font-opensans-medium default text-muted">No barcode available</span>
@@ -99,6 +124,8 @@
                         </div>
                         <p style="page-break-before:always;" />
                     </div>
+
+                </t>
                 </t>
 
             </t>
