@@ -98,11 +98,11 @@
                             </t>
 
                             <span class="use-font-opensans-medium default">Verpackt am: </span>
-                            <span class="use-font-opensans-medium default" t-esc="datetime.datetime.now().strftime('%d.%m.%Y')"/>
+                            <span class="use-font-opensans-medium default" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')"/>
                             <br/>
                             <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
                             <span t-set="delta" t-value="datetime.timedelta(days=5)"/>
-                            <span t-set="consume_until" t-value="datetime.datetime.now() + delta"/>
+                            <span t-set="consume_until" t-value="picking.scheduled_date + delta"/>
                             <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
                             <br/>
                             <span class="use-font-opensans-medium default">Aufbewahrung: kühl bei 2°C</span>
