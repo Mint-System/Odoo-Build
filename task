@@ -336,20 +336,22 @@ function zip-module() {
     VERSION=$(get-module-version $1)
     MODULE=$(basename "$1")
 
-    # copy module to tmp folder
+    # Copy module to tmp folder
     echo "Copy module $MODULE version $VERSION to tmp folder"
     MODULE_NAME="$MODULE-$VERSION"
     MODULE_PATH="tmp/$MODULE_NAME"
+    rm -rf "$MODULE_PATH"
     mkdir -p "$MODULE_PATH"
     cp -r "$1/." "$MODULE_PATH"
 
-    # configure and zip module
+    # Configure and zip module
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
-    echo "Remove pycache folders"
-    find $MODULE_PATH | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+    echo "Remove pycache and hidden folders"
+    find $MODULE_PATH | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp
+    rm $MODULE_NAME.zip
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
     cd ..
 }
@@ -464,7 +466,7 @@ function upload-module() {
 
     # Get path to zip file and upload url
     FILE_PATH="tmp/$MODULE_NAME.zip"
-    pwd
+    
     load-env $1
     NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
