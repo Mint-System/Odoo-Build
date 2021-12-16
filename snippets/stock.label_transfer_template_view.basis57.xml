@@ -21,6 +21,12 @@
                     <t t-set="count_boxes" t-value="1" />
                     <t t-set="count_labels" t-value="0" />
                 </t>
+                <t t-if="move.product_packaging.name == 'Vakuum'">
+                    <t t-set="print_weight" t-value="False" />
+                    <t t-set="fix_weight">1'000g</t>
+                    <t t-set="count_boxes" t-value="0" />
+                   <t t-set="count_labels" t-value="move.quantity_done" />
+                </t>
 
                 <!-- <p>Name: <span t-esc="move.product_id.name"/></p>
                 <p>Boxes: <span t-esc="count_boxes"/></p>

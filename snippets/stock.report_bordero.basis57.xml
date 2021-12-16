@@ -3,7 +3,7 @@
         <t t-call="web.external_layout">
             <div class="page">
 
-                <h2>Bordero</h2>
+                <h2>Bordereau</h2>
                 <p>Druckdatum: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
                 </p>
 

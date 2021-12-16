@@ -20,7 +20,9 @@
 		if rec.product_packaging.name == "Schale Klein":
 			rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
 		if rec.product_packaging.name == "Kiste":
-			rec['x_count_boxes'] = (rec.quantity_done + 9)/10</field>
+			rec['x_count_boxes'] = (rec.quantity_done + 9)/10
+    if rec.product_packaging.name == "Vakuum":
+			rec['x_count_boxes'] = 0</field>
   </record>
 
 </odoo>
