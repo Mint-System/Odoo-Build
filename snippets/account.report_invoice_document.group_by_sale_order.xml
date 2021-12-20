@@ -25,6 +25,8 @@
           <strong>
             <span>Verkaufsauftrag </span>
             <span t-esc="sale_order.name"/>
+            <span t-if="sale_order.client_order_ref">/</span>
+            <span t-if="sale_order.client_order_ref" t-esc="sale_order.client_order_ref"/>
             <span> vom </span>
             <span t-esc="sale_order.date_order" t-options="{'widget': 'date'}"/><span>:</span>
           </strong>
