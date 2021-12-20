@@ -2,32 +2,36 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//h2" position="before">
-    <t t-set="pickings" t-value="[line.picking_ids[0] for line in o.invoice_line_ids if line.picking_ids]"/>
-    <t t-set="has_pickings" t-value="len(pickings) > 0"/>
-    <t t-set="has_multiple_pickings" t-value="len(pickings) > 1"/>
+    <t t-set="sale_orders" t-value="[line.order_id for line in o.invoice_line_ids.sale_line_ids]"/>
+    <t t-set="has_sale_orders" t-value="len(sale_orders) > 0"/>
+    <t t-set="has_multiple_sale_orders" t-value="len(sale_orders) > 1"/>
   </xpath>
 
   <xpath expr="//h2/span[1]" position="replace">
-    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_pickings">Rechnung</span>
-    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_pickings">Sammelrechnung</span>
+    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_sale_orders">Rechnung</span>
+    <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_sale_orders">Sammelrechnung</span>
   </xpath>
 
   <xpath expr="//t[@t-foreach='lines']" position="replace">
-    <!-- <p t-esc="has_pickings"/>
-    <p t-esc="has_multiple_pickings"/> -->
-    <t t-if="not has_pickings">
-      <t t-set="pickings" t-value="[False]"/>
+    <!-- <p t-esc="has_sale_orders"/>
+    <p t-esc="has_multiple_sale_orders"/> -->
+
+    <t t-if="not has_sale_orders">
+      <t t-set="sale_orders" t-value="[False]"/>
     </t>
-    <t t-foreach="set(pickings)" t-as="picking">
-      <tr t-if="has_pickings">
-        <td colspan="99" style="padding-top: 1rem;" >
-          <strong t-esc="'Lieferung ' + picking.name.replace('WH/OUT/','')"/>
-          <span> vom </span>
-          <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/><span>:</span>
+    <t t-foreach="set(sale_orders)" t-as="sale_order">
+      <tr t-if="has_sale_orders" class="o_line_note">
+        <td colspan="99" style="padding-top: 1rem;">
+          <strong>
+            <span>Verkaufsauftrag </span>
+            <span t-esc="sale_order.name"/>
+            <span> vom </span>
+            <span t-esc="sale_order.date_order" t-options="{'widget': 'date'}"/><span>:</span>
+          </strong>
         </td>
       </tr>
       <t t-foreach="lines" t-as="line">
-        <t t-if="not has_pickings or (picking in line.picking_ids)">
+        <t t-if="not has_multiple_sale_orders or (sale_order in line.sale_line_ids.order_id)">
 
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
