@@ -337,6 +337,11 @@ Report: sale_order
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
 
+### x count boxes  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_count_boxes`  
+Link: [snippets/ir_model.stock_move.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_count_boxes.xml)
+
 ## Ir Ui View
 ### view calendar event calendar timeline  
 Report: calendar  
@@ -850,6 +855,11 @@ Report: label_transfer_template_view
 ID: `mint_system.stock.label_transfer_template_view.basis57`  
 Link: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.basis57.xml)
 
+### basis57  
+Report: report_bordero  
+ID: `mint_system.stock.report_bordero.basis57`  
+Link: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
+
 ### add incoterms  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
@@ -864,6 +874,11 @@ Link: [snippets/stock.report_delivery_document.append_signature_text.xml](https:
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
 Link: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
+
+### description sale  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.description_sale`  
+Link: [snippets/stock.report_delivery_document.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.description_sale.xml)
 
 ### document description  
 Report: report_delivery_document  
@@ -909,6 +924,11 @@ Link: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
+
+### sale order note  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.sale_order_note`  
+Link: [snippets/stock.report_delivery_document.sale_order_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sale_order_note.xml)
 
 ### sale stock picking note  
 Report: report_delivery_document  
@@ -1000,6 +1020,11 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.show_order_date`  
 Link: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_order_date.xml)
 
+### show packaging  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.show_packaging`  
+Link: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_packaging.xml)
+
 ### stock delivery note  
 Report: report_picking  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
@@ -1019,6 +1044,11 @@ Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin
 Report: stock_report_delivery_aggregated_move_lines  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
 Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
+
+### description sale  
+Report: stock_report_delivery_has_serial_move_line  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale`  
+Link: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
 ### pos in table  
 Report: stock_report_delivery_has_serial_move_line  
@@ -1059,6 +1089,11 @@ Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-S
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
 Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
+
+### x count boxes  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.x_count_boxes`  
+Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
 ## Timesheet Grid
 ### show name  

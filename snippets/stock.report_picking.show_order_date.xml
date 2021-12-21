@@ -3,7 +3,7 @@
 
   <xpath expr="//div[@name='div_origin']" position="after">
     <div t-if="o.sale_id" class="col-auto" name="div_date_order">
-      <strong>Auftragsdatum:</strong>
+      <strong>Bestelldatum:</strong>
       <p t-esc="o.sale_id.date_order" t-options="{'widget': 'date'}"/>
     </div>
   </xpath>

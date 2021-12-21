@@ -5,14 +5,14 @@
     <t t-if="address">
       <div class="address row">
         <t t-if="information_block">
-          <t t-set="colclass" t-value="'col-6'"/>
-          <div name="information_block" class="col-6">
+          <t t-set="colclass" t-value="'col-5 offset-1'"/>
+          <div name="information_block" class="col-5 offset-1">
             <t t-raw="information_block"/>
           </div>
         </t>
       </div>
       <div class="row">
-        <div name="address" t-att-class="'col-6'">
+        <div name="address" t-att-class="'col-5 offset-1'">
           <t t-raw="address"/>
         </div>
       </div>

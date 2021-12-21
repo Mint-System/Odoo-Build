@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Remove contact info in footer -->
-<data inherit_id="web.external_layout_standard">
+<data inherit_id="web.external_layout_standard" priority="50">
 
 	<xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>

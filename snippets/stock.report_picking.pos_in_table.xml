@@ -3,7 +3,7 @@
 
   <xpath expr="//table[1]/thead/tr/th[1]" position="before">
     <th>
-      <span>Pos</span>
+      <strong>Pos</strong>
     </th>
   </xpath>
 

@@ -336,20 +336,22 @@ function zip-module() {
     VERSION=$(get-module-version $1)
     MODULE=$(basename "$1")
 
-    # copy module to tmp folder
+    # Copy module to tmp folder
     echo "Copy module $MODULE version $VERSION to tmp folder"
     MODULE_NAME="$MODULE-$VERSION"
     MODULE_PATH="tmp/$MODULE_NAME"
+    rm -rf "$MODULE_PATH"
     mkdir -p "$MODULE_PATH"
     cp -r "$1/." "$MODULE_PATH"
 
-    # configure and zip module
+    # Configure and zip module
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
-    echo "Remove pycache folders"
-    find $MODULE_PATH | grep -E "(__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+    echo "Remove pycache and hidden folders"
+    find $MODULE_PATH | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp
+    rm $MODULE_NAME.zip
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
     cd ..
 }
@@ -400,6 +402,7 @@ function update-snippet() {
 
     activate-venv
     load-env $1
+    echo "Update view with name $NAME"
     scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
 }
 
@@ -411,16 +414,30 @@ function install-snippet() {
     FILE=$(basename $2)
     NAME="mint_system.${FILE%.xml}"
     INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    TYPE=$(echo 'cat //data/@type' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
+    MODEL=$(echo 'cat //data/@model' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
     PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
     MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
     XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+
+    # Set default values
+    : ${TYPE:='qweb'}
 
     activate-venv
     load-env $1
     echo "Search for view with name $MODULE_NAME.$XML_ID"
     INHERIT_ID=$(scripts/odooctl --method 'get_id' --model 'ir.model.data' --value "['$MODULE_NAME','$XML_ID']")
     echo "Found view id $INHERIT_ID"
-    scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 'name': '$NAME', 'priority': $PRIORITY, 'inherit_id': $INHERIT_ID, 'arch_base': '''$(cat $2)''' }"
+    echo "Apply view $NAME"
+    scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 
+        'name': '$NAME',
+        'type': '$TYPE',
+        'model': '$MODEL',
+        'mode': 'extension',
+        'priority': $PRIORITY, 
+        'inherit_id': $INHERIT_ID, 
+        'arch_base': '''$(cat $2)'''
+    }"
 }
 
 function update-app-list() {
@@ -449,7 +466,7 @@ function upload-module() {
 
     # Get path to zip file and upload url
     FILE_PATH="tmp/$MODULE_NAME.zip"
-    pwd
+    
     load-env $1
     NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
@@ -682,7 +699,7 @@ case "$1" in
             if [ -z $update ]; then
                 git pull
             fi;
-        '
+        ' | tee git-pull-submodules.log
         ;;
     update-docs)
         update-docs

@@ -2,44 +2,52 @@
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//div[@class='page']/div[1]" position="replace">
-
     <table class="table table-borderless table-sm">
       <tr>
-        <td class="text-right"><strong>Verkaufsauftrag:</strong></td>
-        <td><span t-field="o.sale_id.name"/></td>
+        <td>
+          <strong>Verkaufsauftrag: </strong>
+          <span t-field="o.sale_id.name"/>
+        </td>
 
-        <td class="text-right"><strong>Bestelldatum:</strong></td>
-        <td><span t-field="o.sale_id.date_order" t-options='{"widget": "date"}' /></td>
+        <td>
+          <strong>Bestelldatum: </strong>
+          <span t-field="o.sale_id.date_order" t-options='{"widget": "date"}' />
+        </td>
 
-        <td class="text-right"><strong>Kontakt Verkauf:</strong></td>
-        <td><span t-field="o.sale_id.user_id" /></td>
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+          <span t-field="o.sale_id.user_id" />
+        </td>
       </tr>
       <tr>
-        <td class="text-right"><strong>Kunden-Nr.:</strong></td>
-        <td><span t-field="o.partner_id.ref" /></td>
+        <td>
+          <strong>Kunden-Nr.: </strong>
+          <span t-field="o.partner_id.ref" />
+        </td>
 
-        <td class="text-right"><strong>Lieferdatum:</strong></td>
-        <td><span t-field="o.scheduled_date" t-options='{"widget": "date"}' /></td>
+        <td>
+          <strong>Lieferdatum: </strong>
+          <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
+        </td>
 
-        <td class="text-right"><strong>Tel. Direkt:</strong></td>
-         <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.phone)" t-as="delivery_partner">
-          <td><span t-esc="delivery_partner.phone" /></td>
-        </t>
+        <td>
+          <strong>Tel. Direkt: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
       </tr>
       <tr>
         <td></td>
         <td></td>
-
-        <td></td>
-        <td></td>
-
-        <td class="text-right"><strong>E-Mail:</strong></td>
-        <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.email)" t-as="delivery_partner">
-          <td><span t-esc="delivery_partner.email" /></td>
-        </t>
+        <td>
+          <strong>E-Mail: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.email)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.email" />
+          </t>
+        </td>
       </tr>
     </table>
-
   </xpath>
 
 </data>
