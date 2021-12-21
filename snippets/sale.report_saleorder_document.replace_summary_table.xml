@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="56">
+ 
+<xpath expr="//table[2]" position="after">
+
+<table class="table table-borderless table-sm" style="margin-top:20px; width:100%; color:black; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+  <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+    <tr style="line-height:1;">
+      <td style="width:14%; text-align:left"><Strong>Warenwert</Strong></td>
+      <td style="width:21%; text-align:left"><span t-field="doc.amount_untaxed"/></td>
+      <td style="width:12%; text-align:left"><span t-esc="amount_by_group[0]"/></td>
+      <td style="width:12%;  text-align:left"><span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/></td>
+      <td style="width:23%; text-align:right"><Strong>Rechnungsbetrag</Strong></td>
+      <td style="width:18%; text-align:right"><span t-field="doc.amount_total"/></td>
+  </tr>
+  </t>
+</table>
+
+</xpath>
+  
+<xpath expr="//div[2]" position="replace">
+</xpath>
+
+</data>
