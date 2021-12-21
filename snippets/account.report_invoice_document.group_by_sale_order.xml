@@ -2,7 +2,7 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//h2" position="before">
-    <t t-set="sale_orders" t-value="[line.order_id for line in o.invoice_line_ids.sale_line_ids]"/>
+    <t t-set="sale_orders" t-value="set([line.order_id for line in o.invoice_line_ids.sale_line_ids])"/>
     <t t-set="has_sale_orders" t-value="len(sale_orders) > 0"/>
     <t t-set="has_multiple_sale_orders" t-value="len(sale_orders) > 1"/>
   </xpath>
@@ -19,7 +19,7 @@
     <t t-if="not has_sale_orders">
       <t t-set="sale_orders" t-value="[False]"/>
     </t>
-    <t t-foreach="set(sale_orders)" t-as="sale_order">
+    <t t-foreach="sale_orders" t-as="sale_order">
       <tr t-if="has_sale_orders" class="o_line_note">
         <td colspan="99" style="padding-top: 1rem;">
           <strong>
