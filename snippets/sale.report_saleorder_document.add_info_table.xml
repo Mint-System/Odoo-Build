@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+ 
+ <xpath expr="//h2" position="after">
+ 
+ <table style="width:100%; margin-bottom:20px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
+
+  <tr style="line-height: 1.2">
+    <td style="width:14%;">Bestelldatum</td>
+    <td style="width:18%;"><span t-field='doc.date_order' t-options='{ "widget": "date" }'/></td>
+    <td style="width:28%;"></td>
+    <td style="width:17%;"></td>
+    <td style="width:23%;"></td>
+  </tr>
+ 
+  <tr style="line-height: 1.2">
+    <td>Kunden-Nr.</td>
+    <td><span t-field='doc.partner_id.ref'/></td>
+    <td></td>
+    <td>U/Referenz</td>
+    <td><span t-field='doc.user_id'/></td>
+  </tr>
+  
+  <tr style="line-height: 1.2">
+    <td>I/Referenz</td>
+    <td><span t-field='doc.client_order_ref'/></td>
+    <td></td>
+    <td>Versandart</td>
+    <td></td>
+  </tr>
+  
+  <tr style="line-height: 1.2">
+    <td>Betreff</td>
+    <td></td>
+    <td></td>
+    <td>Lieferkondition</td>
+    <td><span t-field='doc.incoterm.code'/></td>
+  </tr>
+
+</table>
+
+</xpath>
+
+</data>
