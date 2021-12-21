@@ -45,6 +45,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.group_by_pickings`  
 Link: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_pickings.xml)
 
+### group by sale order  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
+Link: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
+
 ### margin before title  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
@@ -104,6 +109,11 @@ Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://githu
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
+
+### show sale order lines  
+Report: view_move_form  
+ID: `mint_system.account.view_move_form.show_sale_order_lines`  
+Link: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
 
 ## Base
 ### add zip bic code city  
@@ -462,6 +472,11 @@ Report: view_task_form2
 ID: `mint_system.project.view_task_form2.parent_domain`  
 Link: [snippets/project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.parent_domain.xml)
 
+### show gantt dates  
+Report: view_task_form2  
+ID: `mint_system.project.view_task_form2.show_gantt_dates`  
+Link: [snippets/project.view_task_form2.show_gantt_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.show_gantt_dates.xml)
+
 ### show invoice type  
 Report: view_task_form2  
 ID: `mint_system.project.view_task_form2.show_invoice_type`  
@@ -738,10 +753,20 @@ Report: report_purchaserequisitions
 ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`  
 Link: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
 
+### add default code  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.add_default_code`  
+Link: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_default_code.xml)
+
 ### add delivery date  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
 Link: [snippets/sale.report_saleorder_document.add_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_delivery_date.xml)
+
+### add info table  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.add_info_table`  
+Link: [snippets/sale.report_saleorder_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_info_table.xml)
 
 ### add notes  
 Report: report_saleorder_document  
@@ -753,15 +778,35 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
 Link: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.append_payment_terms.xml)
 
+### format address blocks  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.format_address_blocks`  
+Link: [snippets/sale.report_saleorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_address_blocks.xml)
+
 ### format as date  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.format_as_date`  
 Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_as_date.xml)
 
+### format table  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.format_table`  
+Link: [snippets/sale.report_saleorder_document.format_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_table.xml)
+
+### format title  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.format_title`  
+Link: [snippets/sale.report_saleorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_title.xml)
+
 ### get position  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.get_position`  
 Link: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.get_position.xml)
+
+### product description  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.product_description`  
+Link: [snippets/sale.report_saleorder_document.product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.product_description.xml)
 
 ### remove taxes  
 Report: report_saleorder_document  
@@ -777,6 +822,11 @@ Link: [snippets/sale.report_saleorder_document.rename_order.xml](https://github.
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.rename_table_header`  
 Link: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.rename_table_header.xml)
+
+### replace summary table  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.replace_summary_table`  
+Link: [snippets/sale.report_saleorder_document.replace_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary_table.xml)
 
 ### sequence in table  
 Report: report_saleorder_document  
@@ -1147,10 +1197,25 @@ Report: external_layout_standard
 ID: `mint_system.web.external_layout_standard.remove_header_address`  
 Link: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_header_address.xml)
 
+### replace footer  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.replace_footer`  
+Link: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_footer.xml)
+
+### replace header  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.replace_header`  
+Link: [snippets/web.external_layout_standard.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_header.xml)
+
 ### replace url  
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### set font  
+Report: styles_company_report  
+ID: `mint_system.web.styles_company_report.set_font`  
+Link: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.styles_company_report.set_font.xml)
 
 ## Website Sale
 ### overwrite required  
@@ -1162,4 +1227,70 @@ Link: [snippets/website_sale.adress.overwrite_required.xml](https://github.com/M
 Report: products_categories  
 ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
 Link: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
+
+## Web
+### format address block  
+Report: address_layout  
+ID: `mint_system.web.address_layout.format_address_block`  
+Link: [snippets/web.address_layout.format_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.address_layout.format_address_block.xml)
+
+### remove  
+Report: brand_promotion_message  
+ID: `mint_system.web.brand_promotion_message.remove`  
+Link: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.brand_promotion_message.remove.xml)
+
+### footer company registry  
+Report: external_layout_boxed  
+ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
+Link: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_boxed.footer_company_registry.xml)
+
+### footer company registry  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.footer_company_registry`  
+Link: [snippets/web.external_layout_standard.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.footer_company_registry.xml)
+
+### format header slogan  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.format_header_slogan`  
+Link: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.format_header_slogan.xml)
+
+### increase logo size  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.increase_logo_size`  
+Link: [snippets/web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.increase_logo_size.xml)
+
+### remove company info footer  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.remove_company_info_footer`  
+Link: [snippets/web.external_layout_standard.remove_company_info_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_company_info_footer.xml)
+
+### remove contact  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.remove_contact`  
+Link: [snippets/web.external_layout_standard.remove_contact.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_contact.xml)
+
+### remove header address  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.remove_header_address`  
+Link: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.remove_header_address.xml)
+
+### replace footer  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.replace_footer`  
+Link: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_footer.xml)
+
+### replace header  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.replace_header`  
+Link: [snippets/web.external_layout_standard.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_header.xml)
+
+### replace url  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.replace_url`  
+Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### set font  
+Report: styles_company_report  
+ID: `mint_system.web.styles_company_report.set_font`  
+Link: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.styles_company_report.set_font.xml)
 
