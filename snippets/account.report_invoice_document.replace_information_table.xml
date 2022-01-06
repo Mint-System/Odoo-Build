@@ -12,17 +12,29 @@
           <strong>Rechnungsdatum: </strong>
           <span t-field="o.invoice_date"/>
         </td>
-
-        <td>
-          <strong>Zahlbar innert: </strong>
-          <span t-field="o.invoice_payment_term_id"/>
-        </td>
-
         <td>
           <strong>Kontakt Rechnung: </strong>
           <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
             <span t-esc="delivery_partner.name" />
           </t>
+        </td>
+        <td>
+          <strong>Zahlbar innert: </strong>
+          <span t-field="o.invoice_payment_term_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+          <span t-field="o.invoice_user_id" />
+        </td>
+        <td>
+          <strong>Tel. Direkt: </strong>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
+        <td>
         </td>
       </tr>
       <tr>
@@ -31,29 +43,14 @@
           <span t-field="o.partner_id.ref" />
         </td>
         <td>
-          <strong>MWST: </strong>
-          <span t-field="res_company.vat" />
-        </td>
-        <td>
-          <strong>Tel. Direkt: </strong>
-          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
-            <span t-esc="delivery_partner.phone" />
-          </t>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <strong>Kontakt Verkauf: </strong>
-          <span t-field="o.invoice_user_id" />
-        </td>
-
-        <td></td>
-
-        <td>
           <strong>E-Mail:</strong>
           <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
             <span t-esc="delivery_partner.email" />
           </t>
+        </td>
+        <td>
+          <!-- <strong>MWST: </strong>
+          <span t-field="res_company.vat" /> -->
         </td>
       </tr>
     </table>

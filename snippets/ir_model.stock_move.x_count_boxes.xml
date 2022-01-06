@@ -15,13 +15,13 @@
     <field name="depends">quantity_done</field>
     <field name="compute">for rec in self:
 	if rec.product_packaging:
-		if rec.product_packaging.name == "Schale":
+		if rec.product_packaging.name == "Schale Gross":
 			rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
 		if rec.product_packaging.name == "Schale Klein":
 			rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
 		if rec.product_packaging.name == "Kiste":
 			rec['x_count_boxes'] = (rec.quantity_done + 9)/10
-    if rec.product_packaging.name == "Vakuum":
+		if rec.product_packaging.name in ["Vakuum", "Karton"]:
 			rec['x_count_boxes'] = 0</field>
   </record>
 

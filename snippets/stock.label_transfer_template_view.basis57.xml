@@ -4,7 +4,7 @@
             <t t-foreach="picking.move_lines" t-as="move">
 
                 <!-- Select loop based product packaing -->
-                <t t-if="move.product_packaging.name == 'Schale'">
+                <t t-if="move.product_packaging.name == 'Schale Gross'">
                     <t t-set="print_weight" t-value="False" />
                     <t t-set="fix_weight">2'500g</t>
                     <t t-set="count_boxes" t-value="move.x_count_boxes" />
@@ -25,18 +25,25 @@
                     <t t-set="print_weight" t-value="False" />
                     <t t-set="fix_weight">1'000g</t>
                     <t t-set="count_boxes" t-value="0" />
-                   <t t-set="count_labels" t-value="move.quantity_done" />
+                    <t t-set="count_labels" t-value="move.quantity_done" />
+                </t>
+                <t t-if="move.product_packaging.name == 'Karton'">
+                    <t t-set="print_weight" t-value="False" />
+                    <t t-set="fix_weight">5'000g</t>
+                    <t t-set="count_boxes" t-value="1" />
+                    <t t-set="count_labels" t-value="0" />
                 </t>
 
-                <!-- <p>Name: <span t-esc="move.product_id.name"/></p>
-                <p>Boxes: <span t-esc="count_boxes"/></p>
+                <!-- <p>Name: <span t-esc="move.product_id.name"/></p> -->
+                <!-- <p>Boxes: <span t-esc="count_boxes"/></p>
                 <p>Labels: <span t-esc="count_labels"/></p>
                 <p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p> -->
 
                 <t t-foreach="move.move_line_ids" t-as="move_line"> 
                 <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">
                     <t t-if="page_index >= count_labels">
-                        <t t-set="print_weight" t-value="True" />
+                        <!-- <t t-set="print_weight" t-value="True" /> -->
+                        <t t-set="fix_weight"></t>
                     </t>
 
                     <style>
@@ -87,11 +94,13 @@
                             <br/>
                             <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
                             <br/>
-                            <span class="use-font-opensans-medium default">Gewicht: </span>
-                            <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
-                            <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move_line.qty_done *1000" t-options='{"widget": "float", "precision": 0}'/>
-                             <span class="use-font-opensans-medium default" t-if="print_weight">g</span>
-                            
+                            <t t-if="fix_weight or print_weight">
+                                <span class="use-font-opensans-medium default">Gewicht: </span>
+                                <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
+                                <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move_line.qty_done *1000" t-options='{"widget": "float", "precision": 0}'/>
+                                <span class="use-font-opensans-medium default" t-if="print_weight">g</span>
+                            </t>
+
                             <br/>
                             <br/>
 

@@ -50,6 +50,16 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
 Link: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
+### margin after title  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.margin_after_title`  
+Link: [snippets/account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_after_title.xml)
+
+### margin before invoice table  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`  
+Link: [snippets/account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_invoice_table.xml)
+
 ### margin before title  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
@@ -75,6 +85,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.remove_payment_ref`  
 Link: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
 
+### remove payment term  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.remove_payment_term`  
+Link: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_term.xml)
+
 ### remove taxes  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
@@ -89,6 +104,11 @@ Link: [snippets/account.report_invoice_document.replace_information_table.xml](h
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.sequence_in_table`  
 Link: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
+
+### switch address block  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.switch_address_block`  
+Link: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
 
 ### unit precision  
 Report: report_invoice_document  
@@ -116,6 +136,11 @@ ID: `mint_system.account.view_move_form.show_sale_order_lines`
 Link: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
 
 ## Base
+### remove domain widget  
+Report: ir_filters_view_form  
+ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`  
+Link: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.ir_filters_view_form.remove_domain_widget.xml)
+
 ### add zip bic code city  
 Report: res_bank_view_search  
 ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`  
@@ -877,6 +902,11 @@ Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
+
+### show carrier method  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.show_carrier_method`  
+Link: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
 
 ### show sequence  
 Report: view_order_form  

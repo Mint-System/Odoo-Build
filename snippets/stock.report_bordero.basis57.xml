@@ -19,12 +19,14 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <t t-set="total_boxes" t-value="0"/>
                         <t t-set="total_weight" t-value="0"/>
                         <tr t-foreach="set([picking.partner_id for picking in docs.move_ids_without_package])" t-as="partner_id">
 
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
                             <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('quantity_done')) + count_boxes * 1.76"/>
+                            <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
 
                             <td>
@@ -60,7 +62,11 @@
                                         <strong>Total</strong>
                                     </td>
                                     <td class="text-right">
-                                        <span t-esc="total_weight"/>
+                                        <span t-esc="total_boxes"/>
+                                        <span> Gebinde</span>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="round(total_weight,2)"/>
                                         <span> kg</span>
                                     </td>
                                 </tr>

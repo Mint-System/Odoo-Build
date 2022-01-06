@@ -2,13 +2,12 @@
 <!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document">
 
-  <xpath expr="//th[@name='th_taxes']" position="replace">
-  	<th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Steuern</span></th>
+  <xpath expr="//th[@name='th_taxes']" position="attributes">
+    <attribute name="t-attf-class" separator=" " remove="text-right" add="text-right" />
   </xpath>
-  <xpath expr="//t[@name='account_invoice_line_accountable']/td[5]" position="replace">
-  	<td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-  		<span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
-  	</td>
+
+  <xpath expr="//span[@id='line_tax_ids']/.." position="attributes">
+    <attribute name="t-attf-class" separator=" " remove="text-right" add="text-right" />
   </xpath>
 
 </data>
