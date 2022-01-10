@@ -257,7 +257,7 @@ cat >tmp/email.txt <<EOL
 From: Lara User <user@yourcompany.example.com>
 To: Odoo Support <support@localhost>
 Subject: Support Request
-
+echo "\$2 is
 Dear Odoo Support,
 
 I request your help
@@ -290,28 +290,27 @@ function convert-database() {
 
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    : ${GIT_BRANCH:="$2"}
 
-    echo "Checkout branch"
-    # Checkout branch
-    git checkout $1
+    echo "Switch branch"
+    git switch $1
 
     echo "Init submodules"
-    # Init submodules
+    # This will initalize and clone the submodules
     git submodule update --init
 
-    # Reset enterprise
     echo "Reset enterprise submodule"
     cd enterprise
     git reset --hard
     cd ..
 
-    # Checkout all submodules
     echo "Checkout branch on submodules"
+    # This will ensure that submodules are in correct version
     git submodule foreach git checkout $1
 
-    # Sync files from last branch
     echo "Sync checkout files"
-    git checkout $GIT_BRANCH config/checkout_files
+    # Sync folders and files from last branch 
+    git checkout $GIT_BRANCH config/checkout_files config/remove_files
     git rm -r $(tr '\n' ' ' < ./config/remove_files)
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
@@ -573,7 +572,7 @@ case "$1" in
         save-config $2
         ;;
     checkout)
-        checkout $2
+        checkout $2 $3
         ;;
     list)
         docker-compose config --services; echo "native"
