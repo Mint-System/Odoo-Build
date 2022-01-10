@@ -40,6 +40,8 @@ Checkout branch.
 task checkout 13.0
 # or
 task checkout 14.0
+# or
+task checkout 15.0
 ```
 Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
 
