@@ -222,3 +222,7 @@
 	path = oca/stock-logistics-warehouse
 	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 14.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = git@github.com:OCA/account-invoicing.git
+	branch = 14.0
