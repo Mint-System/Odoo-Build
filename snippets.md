@@ -377,6 +377,11 @@ Report: stock_move
 ID: `mint_system.ir_model.stock_move.x_count_boxes`  
 Link: [snippets/ir_model.stock_move.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_count_boxes.xml)
 
+### x count packaging  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_count_packaging`  
+Link: [snippets/ir_model.stock_move.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_count_packaging.xml)
+
 ### x packaging uom id  
 Report: stock_move  
 ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`  
@@ -1129,6 +1134,11 @@ Link: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint
 Report: report_picking  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
 Link: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.stock_delivery_note.xml)
+
+### x count packaging  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.x_count_packaging`  
+Link: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.x_count_packaging.xml)
 
 ### x packaging uom id  
 Report: report_picking  
