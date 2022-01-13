@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_count_packaging" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Anzahl Verpackungen</field>
+    <field name="model">stock.move</field>
+    <field name="model_id" ref="stock.model_stock_move"/>
+    <field name="name">x_count_packaging</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">int</field>
+    <field name="depends">product_uom_qty</field>
+    <field name="compute">for rec in self:
+	if rec.product_packaging:
+		if rec.product_packaging.name == "Kiste":
+			rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
+		if rec.product_packaging.name == "Schale Gross":
+			rec['x_count_packaging'] = (rec.product_uom_qty + 2.4)/2.5
+		if rec.product_packaging.name == "Schale Klein":
+			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
+		if rec.product_packaging.name == "Vakuum":
+			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
+		if rec.product_packaging.name == "Karton":
+			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
+  </record>
+
+</odoo>
