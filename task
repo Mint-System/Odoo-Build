@@ -19,6 +19,7 @@ export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
 export ODOO_LANGUAGE=de_CH
+export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-development"
 
 if [ -a ".env" ]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
@@ -63,7 +64,7 @@ function locale() {
 }
 
 function load-env() {
-    export $(cat .env.$1 | sed 's/#.*//g' | xargs)
+    export $(cat "$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1" | sed 's/#.*//g' | xargs)
 }
 
 function disable-auto-install() {
@@ -342,6 +343,7 @@ function zip-module() {
     rm -rf "$MODULE_PATH"
     mkdir -p "$MODULE_PATH"
     cp -r "$1/." "$MODULE_PATH"
+    chmod -R 755 "$MODULE_PATH"
 
     # Configure and zip module
     echo "Remove auto install option"
@@ -350,7 +352,7 @@ function zip-module() {
     find $MODULE_PATH | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp
-    rm $MODULE_NAME.zip
+    rm -f $MODULE_NAME.zip
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
     cd ..
 }
@@ -358,17 +360,6 @@ function zip-module() {
 function clear-filestore() {
     echo "Remove directory ~/.local/share/Odoo/filestore/$1"
     rm -rf ~/.local/share/Odoo/filestore/$1
-}
-
-function init-odoo-env() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-
-    echo "Init env file: .env.$1"
-    echo "#ODOO_URL=" > .env.$1
-    echo "ODOO_DATABASE=" >> .env.$1
-    echo "ODOO_USERNAME=" >> .env.$1
-    echo "ODOO_PASSWORD=" >> .env.$1
-    cat .env.$1
 }
 
 function disable-mailserver() {
@@ -447,14 +438,37 @@ function update-app-list() {
     echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
+function init-config-dir() {
+    echo "Ensure $ODOO_DEVELOPMENT_CONFIG_DIR exists"
+    mkdir -p "$ODOO_DEVELOPMENT_CONFIG_DIR"
+}
+
+
+function init-odoo-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    init-config-dir
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+
+    echo "Init env file: $ENV_FILEPATH"
+    echo "#ODOO_URL=" > $ENV_FILEPATH
+    echo "ODOO_DATABASE=" >> $ENV_FILEPATH
+    echo "ODOO_USERNAME=" >> $ENV_FILEPATH
+    echo "ODOO_PASSWORD=" >> $ENV_FILEPATH
+    cat $ENV_FILEPATH
+}
+
 function init-next-env() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-    echo "Init env file: .env.$1"
-    echo "NEXTCLOUD_URL=" > .env.$1
-    echo "NEXTCLOUD_USERNAME=" >> .env.$1
-    echo "NEXTCLOUD_PASSWORD=" >> .env.$1
-    cat .env.$1
+    init-config-dir
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+
+    echo "Init env file: $ENV_FILEPATH"
+    echo "NEXTCLOUD_URL=" > $ENV_FILEPATH
+    echo "NEXTCLOUD_USERNAME=" >> $ENV_FILEPATH
+    echo "NEXTCLOUD_PASSWORD=" >> $ENV_FILEPATH
+    cat $ENV_FILEPATH
 }
 
 function upload-module() {

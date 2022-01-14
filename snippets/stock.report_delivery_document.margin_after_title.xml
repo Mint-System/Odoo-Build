@@ -2,6 +2,7 @@
 <data inherit_id="stock.report_delivery_document" priority="60">
 
   <xpath expr="//h2" position="attributes">
-    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+    <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
   </xpath>
+
 </data>
