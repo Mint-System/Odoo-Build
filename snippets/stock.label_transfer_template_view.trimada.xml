@@ -1,0 +1,82 @@
+<t t-name="stock.label_transfer_template_view.trimada">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="picking">
+            <t t-foreach="picking.move_lines" t-as="move">
+
+                <style>
+                    .display {
+                        font-size: 10mm;
+                    }
+                    .title {
+                        font-size: 10mm; font-weight: bold;
+                    }
+                    .address {
+                        font-size: 10mm;
+                    }
+                    .default {
+                        font-size: 9mm;
+                    }
+                    .footer {
+                        font-size: 7mm;
+                    }
+                    div.label {
+                        line-height: 1.2;
+                        text-align: center;
+                        vertical-align:middle !important;
+                    }
+                    br {
+                        font-size: 3mm;
+                    }
+                    table, th, td {
+                        border: 0px solid black; padding:0px;
+                    }
+                </style>
+                <div>
+                    <div class="label">
+                        <table style="width:200mm; margin-left:5mm;">
+                          
+                            <tr class="title" style="border-bottom: 1px solid black; height:40mm;">
+                                 <td style="vertical-align:middle;" t-esc="move.product_id.default_code"></td>
+                                 <td t-if="move.product_id.barcode">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.barcode, 600, 150)" style="width:150mm;height:8rem" alt="Barcode"/>
+                            </td>
+                            </tr> 
+
+                            <tr class="display" style="height:35mm;">
+                                <td style="vertical-align:middle;" colspan="2" t-esc="move.product_id.name"></td>
+                            </tr>
+
+                             <tr class="display" style="border-bottom: 1px solid black; height:35mm">
+                                <td style="vertical-align:middle;" colspan="2" t-esc="move.product_id.type_description"></td>
+                            </tr>
+                          
+                            <tr style="height:10mm;">
+                              <td colspan="2"></td>
+                            </tr>
+                          
+                            <tr class="default" style="border-bottom: 1px solid black; height:45mm;">
+                                <td style="vertical-align:middle; text-align:left">
+                                    <span t-esc="move.date" t-options="{'widget': 'date'}"></span><br/>
+                                    <span t-esc="move.origin"></span><br/>
+                                    <span t-esc="picking.partner_id.name"></span><br/>
+                                </td>
+                            
+                                <td style="vertical-align:middle" t-if="move.product_id.feeder_id"> <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.feeder_id, 600, 150)" style="width:150mm;height:5rem" alt="Barcode"/>
+                                    <span t-esc="move.product_id.feeder_id"></span>
+                                </td>  
+                            </tr>
+                          
+                            <tr class="footer" style="height:15mm;">
+                                 <td colspan="2" style="vertical-align:middle;">
+                                    <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
+                                 </td>
+                            </tr>
+                          
+                        </table>                          
+                    <p style="page-break-before:always;" />   
+                    </div>                   
+                </div>
+            </t>
+        </t>
+    </t>
+</t>
