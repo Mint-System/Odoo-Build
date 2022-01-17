@@ -198,6 +198,19 @@ function update-module() {
     odoo-bin -d $1 -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
+function generate-module-translation() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $2)
+
+    locale
+    activate-venv
+    echo "Generate tranlsation file for $MODULE_NAME on $1 ..."
+    mkdir "$2/i18n/"
+    odoo-bin -d $1 --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$2/i18n/de.po"
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -701,6 +714,9 @@ case "$1" in
         ;;
     upload-module)
         upload-module $2 $3
+        ;;
+    generate-module-translation)
+        generate-module-translation $2 $3
         ;;
     patch-database)
         patch-database $2 $3
