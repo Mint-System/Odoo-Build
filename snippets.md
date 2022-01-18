@@ -578,6 +578,11 @@ Report: report_purchaseorder_document
 ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`  
 Link: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
 
+### format title  
+Report: report_purchaseorder_document  
+ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
+Link: [snippets/purchase.report_purchaseorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_title.xml)
+
 ### get position  
 Report: report_purchaseorder_document  
 ID: `mint_system.purchase.report_purchaseorder_document.get_position`  
@@ -653,6 +658,11 @@ Report: report_purchasequotation_document
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`  
 Link: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
 
+### format title  
+Report: report_purchasequotation_document  
+ID: `mint_system.purchase.report_purchasequotation_document.format_title`  
+Link: [snippets/purchase.report_purchasequotation_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_title.xml)
+
 ### get position  
 Report: report_purchasequotation_document  
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`  
@@ -709,6 +719,12 @@ Link: [snippets/purchase_requisition.report_purchaserequisitions.pos_in_table.xm
 Report: hr_holidays  
 ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`  
 Link: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
+
+## Sale Blanket Order
+### filter customer is company  
+Report: view_blanket_order_form  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.filter_customer_is_company`  
+Link: [snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml)
 
 ## Sale Order Picking Note
 ### move note fields  
@@ -848,6 +864,16 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.product_description`  
 Link: [snippets/sale.report_saleorder_document.product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.product_description.xml)
 
+### qty remaining  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.qty_remaining`  
+Link: [snippets/sale.report_saleorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.qty_remaining.xml)
+
+### remove informations  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.remove_informations`  
+Link: [snippets/sale.report_saleorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_informations.xml)
+
 ### remove taxes  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
@@ -949,6 +975,11 @@ Link: [snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.x
 Report: label_transfer_template_view  
 ID: `mint_system.stock.label_transfer_template_view.basis57`  
 Link: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.basis57.xml)
+
+### trimada  
+Report: label_transfer_template_view  
+ID: `mint_system.stock.label_transfer_template_view.trimada`  
+Link: [snippets/stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.trimada.xml)
 
 ### basis57  
 Report: report_bordero  
@@ -1209,6 +1240,11 @@ Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
 Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
+
+### add weight uom name  
+Report: vpicktree  
+ID: `mint_system.stock.vpicktree.add_weight_uom_name`  
+Link: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.add_weight_uom_name.xml)
 
 ## Timesheet Grid
 ### show name  
