@@ -367,6 +367,36 @@ Report: account_move
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 Link: [snippets/ir_model.account_move.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_studio_description.xml)
 
+### line  
+Report: purchase_order  
+ID: `mint_system.ir_model.purchase_order.line`  
+Link: [snippets/ir_model.purchase_order.line.x_date_approve.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.line.x_date_approve.xml)
+
+### line  
+Report: purchase_order  
+ID: `mint_system.ir_model.purchase_order.line`  
+Link: [snippets/ir_model.purchase_order.line.x_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.line.x_origin.xml)
+
+### line  
+Report: purchase_order  
+ID: `mint_system.ir_model.purchase_order.line`  
+Link: [snippets/ir_model.purchase_order.line.x_partner_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.line.x_partner_ref.xml)
+
+### line  
+Report: purchase_order  
+ID: `mint_system.ir_model.purchase_order.line`  
+Link: [snippets/ir_model.purchase_order.line.x_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.line.x_user_id.xml)
+
+### x client order ref  
+Report: sale_order_line  
+ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
+Link: [snippets/ir_model.sale_order_line.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_client_order_ref.xml)
+
+### x date order  
+Report: sale_order_line  
+ID: `mint_system.ir_model.sale_order_line.x_date_order`  
+Link: [snippets/ir_model.sale_order_line.x_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_date_order.xml)
+
 ### x studio description  
 Report: sale_order  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
@@ -548,6 +578,11 @@ Report: purchase_order_form
 ID: `mint_system.purchase.purchase_order_form.filter_customer_is_company`  
 Link: [snippets/purchase.purchase_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.filter_customer_is_company.xml)
 
+### reset view  
+Report: purchase_order_line_tree  
+ID: `mint_system.purchase.purchase_order_line_tree.reset_view`  
+Link: [snippets/purchase.purchase_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_line_tree.reset_view.xml)
+
 ### add agreement  
 Report: report_purchaseorder_document  
 ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`  
@@ -725,6 +760,12 @@ Link: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://gi
 Report: view_blanket_order_form  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.filter_customer_is_company`  
 Link: [snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml)
+
+## Sale Order Line Date
+### reset view  
+Report: view_order_line_tree  
+ID: `mint_system.sale_order_line_date.view_order_line_tree.reset_view`  
+Link: [snippets/sale_order_line_date.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_order_line_date.view_order_line_tree.reset_view.xml)
 
 ## Sale Order Picking Note
 ### move note fields  
