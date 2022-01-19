@@ -21,7 +21,7 @@ export ODOO_REVISION=$GIT_BRANCH
 export ODOO_LANGUAGE=de_CH
 export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-development"
 
-if [ -a ".env" ]; then
+if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
