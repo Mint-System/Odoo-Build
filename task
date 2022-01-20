@@ -211,6 +211,22 @@ function generate-module-translation() {
     odoo-bin -d $1 --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$2/i18n/de.po"
 }
 
+function restore-database() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Get database name
+
+    # Extract zip file.
+
+    # Drop database
+
+    # Import databse
+
+    # Copy filestore
+    
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -660,6 +676,9 @@ case "$1" in
         ;;
     odoo-cloc)
         odoo-cloc $2
+        ;;
+    restore-database)
+        restore-database $2 $3
         ;;
     convert-database)
         convert-database $2

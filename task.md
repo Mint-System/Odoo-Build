@@ -42,5 +42,6 @@
 | upload-module               | [env][path]      | Zip and upload Odoo module.                                       |
 | generate-module-translation | [env][path]      | Generate translation for Odoo module.                             |
 | zip-module                  | [path]           | Create zip file for module.                                       |
+| restore-database            | [path][name]     | Restore target database zip.                                      |
 | update-docs                 |                  | Update project docs.                                              |
 | source                      |                  | Source the Python virtual env.                                    |
