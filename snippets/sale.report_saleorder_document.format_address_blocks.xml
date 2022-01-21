@@ -1,20 +1,36 @@
 <?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-<xpath expr="//t[@t-set='information_block']/div" position="attributes">
-  <attribute name="style">font-size:10pt; line-height: 1.2; padding-top:6mm; padding-bottom:31mm</attribute>
-</xpath>
-
-<xpath expr="//t[@t-set='address']/strong[1]" position="attributes">
-  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-</xpath>
-
-<xpath expr="//t[@t-set='address']/strong[2]" position="attributes">
-  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-</xpath>
+<data inherit_id="sale.report_saleorder_document" priority="70">
 
 <xpath expr="//t[@t-set='address']/div" position="attributes">
+  <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/strong[1]" position="attributes">
   <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/strong[2]" position="attributes">
+  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/div" position="attributes">
+  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/t/strong" position="attributes">
+  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/t/div" position="attributes">
+  <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+</xpath>
+
+<xpath expr="//t[@t-set='information_block']/div" position="attributes">
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+  
+<xpath expr="//t[@t-set='information_block']/t/div" position="attributes">
+    <attribute name="t-options-fields">['address', 'name']</attribute>
 </xpath>
 
 </data>
