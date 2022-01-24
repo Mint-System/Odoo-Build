@@ -484,7 +484,6 @@ function init-odoo-env() {
     echo "ODOO_DATABASE=" >> $ENV_FILEPATH
     echo "ODOO_USERNAME=" >> $ENV_FILEPATH
     echo "ODOO_PASSWORD=" >> $ENV_FILEPATH
-    cat $ENV_FILEPATH
 }
 
 function init-next-env() {
@@ -497,7 +496,12 @@ function init-next-env() {
     echo "NEXTCLOUD_URL=" > $ENV_FILEPATH
     echo "NEXTCLOUD_USERNAME=" >> $ENV_FILEPATH
     echo "NEXTCLOUD_PASSWORD=" >> $ENV_FILEPATH
-    cat $ENV_FILEPATH
+}
+
+function edit-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    $EDITOR $ENV_FILEPATH
 }
 
 function upload-module() {
@@ -706,6 +710,9 @@ case "$1" in
         ;;
     init-odoo-env)
         init-odoo-env $2
+        ;;
+    edit-env)
+        edit-env $2
         ;;
     disable-mailserver)
         disable-mailserver $2
