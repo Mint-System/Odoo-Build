@@ -37,8 +37,8 @@
                           
                             <tr class="title" style="border-bottom: 1px solid black; height:40mm;">
                                  <td style="vertical-align:middle;" t-esc="move.product_id.default_code"></td>
-                                 <td t-if="move.product_id.barcode">
-                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.barcode, 600, 150)" style="width:150mm;height:8rem" alt="Barcode"/>
+                                 <td style="vertical-align:middle; float:right" t-if="move.product_id.barcode">
+                                   <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 600, 150)" style="width:100mm;height:8rem" alt="Barcode"/>
                             </td>
                             </tr> 
 
@@ -61,7 +61,7 @@
                                     <span t-esc="picking.partner_id.name"></span><br/>
                                 </td>
                             
-                                <td style="vertical-align:middle" t-if="move.product_id.feeder_id"> <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move.product_id.feeder_id, 600, 150)" style="width:150mm;height:5rem" alt="Barcode"/>
+                                <td style="vertical-align:middle; float:right" t-if="move.product_id.feeder_id"> <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.feeder_id, 600, 150)" style="width:80mm;height:5rem" alt="Barcode"/><br></br>
                                     <span t-esc="move.product_id.feeder_id"></span>
                                 </td>  
                             </tr>
