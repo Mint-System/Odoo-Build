@@ -3,7 +3,7 @@
 
   <record id="x_operation_qty" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Operation</field>
+    <field name="field_description">Inventory +/-</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_operation_qty</field>

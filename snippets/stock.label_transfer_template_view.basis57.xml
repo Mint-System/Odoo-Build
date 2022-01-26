@@ -2,7 +2,11 @@
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines" t-as="move">
-
+                
+                <!--Set default values-->
+                <t t-set="count_boxes" t-value="0" />
+                <t t-set="count_labels" t-value="0" />
+                
                 <!-- Select loop based product packaing -->
                 <t t-if="move.product_packaging.name == 'Schale Gross'">
                     <t t-set="print_weight" t-value="False" />

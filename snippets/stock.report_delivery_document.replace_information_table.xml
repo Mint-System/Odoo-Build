@@ -27,7 +27,7 @@
 
         <td>
           <strong>Lieferdatum: </strong>
-          <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
+          <span t-field="o.move_lines[0].date_deadline" t-options='{"widget": "date"}' />
         </td>
 
         <td>
