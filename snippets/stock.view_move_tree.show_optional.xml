@@ -2,7 +2,7 @@
 <data inherit_id="stock.view_move_tree" priority="50">
 
   <field name="product_uom_qty" position="attributes">
-    <attribute name="optional"/>hide</attribute>
+    <attribute name="optional">hide</attribute>
   </field>
 
 </data>
