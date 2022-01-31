@@ -226,3 +226,7 @@
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 14.0
+[submodule "addons/manufacture"]
+	path = addons/manufacture
+	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
+	branch = 14.0
