@@ -233,6 +233,12 @@ Report: report_delivery_document2
 ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`  
 Link: [snippets/delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/delivery.report_delivery_document2.remove_hs_code.xml)
 
+## Digest
+### report  
+Report: digest_main_mail  
+ID: `mint_system.digest.digest_main_mail.report`  
+Link: [snippets/digest.digest_main_mail.report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/digest.digest_main_mail.report.xml)
+
 ## Gio Payroll Custom
 ### new report  
 Report: hr_payroll_report_view  
@@ -510,6 +516,11 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
 ## Mrp
+### add date deadline  
+Report: mrp_production_form_view  
+ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
+Link: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
+
 ### add padding  
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.add_padding`  
@@ -1321,6 +1332,11 @@ Link: [snippets/stock.report_picking.remove_serial_number.xml](https://github.co
 Report: report_picking  
 ID: `mint_system.stock.report_picking.show_full_address`  
 Link: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
+
+### show move qty  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.show_move_qty`  
+Link: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_move_qty.xml)
 
 ### show order date  
 Report: report_picking  
