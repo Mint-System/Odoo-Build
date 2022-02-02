@@ -11,7 +11,7 @@
     <span t-set="index" t-value="1"/>
   </xpath>
 
-  <xpath expr="//table[1]/tbody/t/t/tr/td[1]" position="before">
+  <xpath expr="//table[1]/tbody/t//tr/td[1]" position="before">
     <td>
       <span t-esc="index"/>
       <t t-set="index" t-value="index+1"/>

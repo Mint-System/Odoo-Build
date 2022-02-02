@@ -7,7 +7,7 @@
   <xpath expr="//th[@name='th_to']" position="replace">
   </xpath>
 
-  <xpath expr="//tbody/t/t/tr/td[3]" position="replace">
+  <xpath expr="//tbody/t//tr/td[3]" position="replace">
   </xpath>
 
 </data>
