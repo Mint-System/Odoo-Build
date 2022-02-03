@@ -43,7 +43,7 @@
                 <p>Labels: <span t-esc="count_labels"/></p>
                 <p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p> -->
 
-                <t t-foreach="move.move_line_ids" t-as="move_line"> 
+                <t t-foreach="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" t-as="move_line"> 
                 <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">
                     <t t-if="page_index >= count_labels">
                         <!-- <t t-set="print_weight" t-value="True" /> -->
@@ -121,7 +121,7 @@
                             <span class="use-font-opensans-medium default" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')"/>
                             <br/>
                             <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
-                            <span t-set="delta" t-value="datetime.timedelta(days=5)"/>
+                            <span t-set="delta" t-value="datetime.timedelta(days=7)"/>
                             <span t-set="consume_until" t-value="picking.scheduled_date + delta"/>
                             <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
                             <br/>
