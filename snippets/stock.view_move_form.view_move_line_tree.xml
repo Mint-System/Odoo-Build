@@ -1,9 +1,0 @@
-<?xml version="1.0"?>
-<data inherit_id="stock.view_move_line_tree" prority="50">
-
-  <form position="attributes">
-    <attribute name="create">1</attribute>
-    <attribute name="edit">1</attribute>
-  </form>
-
-</data>
