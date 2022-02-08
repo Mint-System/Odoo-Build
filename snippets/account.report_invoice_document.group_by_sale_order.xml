@@ -2,9 +2,14 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//h2" position="before">
-    <t t-set="sale_orders" t-value="set([line.order_id for line in o.invoice_line_ids.sale_line_ids])"/>
+    <!-- Get all sale orders without duplicates -->
+    <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>
+    <!-- Store if has sale orders -->
     <t t-set="has_sale_orders" t-value="len(sale_orders) > 0"/>
+    <!-- Store if has multiple sale orders -->
     <t t-set="has_multiple_sale_orders" t-value="len(sale_orders) > 1"/>
+    <!-- Store if has lines without sale orders -->
+    <t t-set="has_lines_without_sale_orders" t-value="len(o.invoice_line_ids.filtered(lambda l: not l.sale_line_ids)) > 0"/>
   </xpath>
 
   <xpath expr="//h2/span[1]" position="replace">
@@ -13,14 +18,19 @@
   </xpath>
 
   <xpath expr="//t[@t-foreach='lines']" position="replace">
-    <!-- <p t-esc="has_sale_orders"/>
-    <p t-esc="has_multiple_sale_orders"/> -->
 
-    <t t-if="not has_sale_orders">
-      <t t-set="sale_orders" t-value="[False]"/>
+    <!-- Add empty sale order if there are lines without sale orders -->
+    <t t-if="not has_sale_orders or has_lines_without_sale_orders">
+      <t t-set="null" t-value="sale_orders.append(False)"/>
     </t>
+
+    <!-- <p t-esc="sale_orders"/> -->
+    <!-- <p t-esc="has_sale_orders"/> -->
+    <!-- <p t-esc="has_multiple_sale_orders"/> -->
+    <!-- <p t-esc="has_lines_without_sale_orders"/> -->
+    
     <t t-foreach="sale_orders" t-as="sale_order">
-      <tr t-if="has_sale_orders" class="o_line_note">
+      <tr t-if="has_sale_orders and sale_order" class="o_line_note">
         <td colspan="99" style="padding-top: 1rem;">
           <strong>
             <span>Verkaufsauftrag </span>
@@ -32,8 +42,17 @@
           </strong>
         </td>
       </tr>
+      <tr t-if="not sale_order" class="o_line_note">
+        <td colspan="99" style="padding-top: 1rem;">
+          <strong>
+            <span>Weitere Positionen: </span>
+          </strong>
+        </td>
+      </tr>
       <t t-foreach="lines" t-as="line">
-        <t t-if="not has_multiple_sale_orders or (sale_order in line.sale_line_ids.order_id)">
+
+        <!-- Show line if sale order is set and linked or not sale order is set and line is unlinked  -->
+        <t t-if="(sale_order and sale_order in line.sale_line_ids.order_id) or (not line.sale_line_ids and not sale_order)">
 
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>

@@ -120,6 +120,11 @@ Report: report_invoice_document_with_payments
 ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank`  
 Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
+### show partner shipping  
+Report: view_invoice_tree  
+ID: `mint_system.account.view_invoice_tree.show_partner_shipping`  
+Link: [snippets/account.view_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_partner_shipping.xml)
+
 ### hide payment reference  
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
@@ -467,6 +472,11 @@ Link: [snippets/ir_model.stock_move.x_packaging_uom_id.xml](https://github.com/M
 Report: stock_move  
 ID: `mint_system.ir_model.stock_move.x_picking_partner_id`  
 Link: [snippets/ir_model.stock_move.x_picking_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_picking_partner_id.xml)
+
+### x scrap id  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_scrap_id`  
+Link: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
 
 ## Ir Ui View
 ### view calendar event calendar timeline  
@@ -1333,6 +1343,11 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.show_full_address`  
 Link: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
 
+### show move not lines  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.show_move_not_lines`  
+Link: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_move_not_lines.xml)
+
 ### show move qty  
 Report: report_picking  
 ID: `mint_system.stock.report_picking.show_move_qty`  
@@ -1408,6 +1423,31 @@ Report: stock_report_delivery_package_section_line
 ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`  
 Link: [snippets/stock.stock_report_delivery_package_section_line.set_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_package_section_line.set_color.xml)
 
+### enable edit and create  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.enable_edit_and_create`  
+Link: [snippets/stock.view_move_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.enable_edit_and_create.xml)
+
+### show quantity done  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.show_quantity_done`  
+Link: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_quantity_done.xml)
+
+### enable edit and create  
+Report: view_move_line_form  
+ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`  
+Link: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
+
+### show move id  
+Report: view_move_line_form  
+ID: `mint_system.stock.view_move_line_form.show_move_id`  
+Link: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
+
+### enable create  
+Report: view_move_line_tree  
+ID: `mint_system.stock.view_move_line_tree.enable_create`  
+Link: [snippets/stock.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_tree.enable_create.xml)
+
 ### add partner  
 Report: view_move_tree  
 ID: `mint_system.stock.view_move_tree.add_partner`  
@@ -1417,6 +1457,11 @@ Link: [snippets/stock.view_move_tree.add_partner.xml](https://github.com/Mint-Sy
 Report: view_move_tree  
 ID: `mint_system.stock.view_move_tree.add_picking_partner`  
 Link: [snippets/stock.view_move_tree.add_picking_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.add_picking_partner.xml)
+
+### enable create  
+Report: view_move_tree  
+ID: `mint_system.stock.view_move_tree.enable_create`  
+Link: [snippets/stock.view_move_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.enable_create.xml)
 
 ### show optional  
 Report: view_move_tree  
