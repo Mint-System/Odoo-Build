@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//*[@id='informations']" position="replace">
+    <style>
+      table#informations {
+        white-space: nowrap;
+      }
+      table#informations td:nth-child(odd) {
+        text-align: right
+      }
+      table#informations td:nth-child(even) {
+        text-align: left
+      }
+    </style>
+    <table id='informations' class="table table-borderless table-sm">
+      <tr>
+        <td>
+          <strong>Rechnungsdatum: </strong>
+        </td>
+        <td>
+          <span t-field="o.invoice_date"/>
+        </td>
+        <td>
+          <strong>Kontakt Rechnung: </strong>
+        </td>
+        <td>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.name" />
+          </t>
+        </td>
+        <td>
+          <strong>Zahlbar innert: </strong>
+        </td>
+        <td>
+          <span t-field="o.invoice_payment_term_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kontakt Verkauf: </strong>
+        </td>
+        <td>
+          <span t-field="o.invoice_user_id" />
+        </td>
+        <td>
+          <strong>Tel. Direkt: </strong>
+        </td>
+        <td>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.phone" />
+          </t>
+        </td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <strong>Kunden-Nr.: </strong>
+        </td>
+        <td>
+          <span t-field="o.partner_id.ref" />
+        </td>
+        <td>
+          <strong>E-Mail:</strong>
+        </td>
+        <td>
+          <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
+            <span t-esc="delivery_partner.email" />
+          </t>
+        </td>
+        <td>
+          <!-- <strong>MWST: </strong> -->
+        </td>
+        <td>
+          <!-- <span t-field="res_company.vat" /> -->
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
