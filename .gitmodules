@@ -230,3 +230,7 @@
 	path = addons/manufacture
 	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
 	branch = 14.0
+[submodule "addons/social"]
+	path = addons/social
+	url = git@github.com:Mint-System/Odoo-Apps-Social.git
+	branch = 14.0
