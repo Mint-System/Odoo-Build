@@ -8,7 +8,7 @@
                         font-size: 10mm;
                     }
                     .title {
-                        font-size: 10mm; font-weight: bold;
+                        font-size: 16mm; font-weight: bold;
                     }
                     .address {
                         font-size: 10mm;

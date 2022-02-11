@@ -2,15 +2,15 @@
 <data inherit_id="web.external_layout_standard" priority="50">>
 
 <xpath expr="/t/div" position="replace">    
-  <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+  <div t-attf-class="header o_company_#{company.id}_layout">
                            
-<table style="width:100%; font-size: 9pt; color:rgb(102,102,102); font-family:arial">
+<table style="width:100%; font-size: 9pt; color:rgb(102,102,102); font-family:arial;">
   
   <tr height="27px;">
+    <td style="width:19%; border-left: 1px solid rgb(102,102,102);"></td>
     <td style="width:18%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:18%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:24%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:40%; vertical-align:bottom; " rowspan="5"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"  style="height:61px; float:right"/></td>
+    <td style="width:25%; border-left: 1px solid rgb(102,102,102);"></td>
+    <td style="width:38%; margin: 0; vertical-align:bottom; padding:0;" rowspan="4"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"  style="height:61px; float:right"/></td>
   </tr>
  
   <tr style="line-height: 1.2;">
