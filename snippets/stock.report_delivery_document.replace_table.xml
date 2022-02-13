@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+<xpath expr="//table[@name='stock_move_table']" position="replace">
+  
+ <table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px; " t-if="o.state!='done'" name="stock_move_table">
+    <thead>
+        <tr style="color:black; border-bottom: 1px solid rgb(220,220,220);">
+            <th style="padding-left: 9px; padding-bottom: 10px; width:10%;">Art. Nr.</th>
+            <th name="th_sm_product" style="width:35%;"><strong>Bezeichnung</strong></th>
+            <th style="width:25%;">Typenbezeichnung</th>
+            <th name="th_sm_quantity" style="width:20%; text-align:right; padding-right:20px;"><strong>Menge</strong></th>
+            <th style="width:15%; text-align: right; padding-right: 10px">Lieferdatum</th>
+        </tr>
+    </thead>
+    <tbody>
+        <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
+        <tr t-foreach="lines" t-as="move" style="border-bottom: 1px solid rgb(220,220,220);">
+            <td style="padding-left: 10px; padding-top:5px; vertical-align:top;">
+                <span t-field="move.product_id.default_code"/>
+            </td>
+            <td style="padding-top:5px; padding-right: 10px; vertical-align:top;">
+                <span t-field="move.product_id.name"/>
+                <p t-if="move.description_picking != move.product_id.name">
+                    <span t-field="move.description_picking"/>
+                </p>
+            </td>
+            <td style="padding-top:5px; vertical-align:top;">
+                <span t-field="move.product_id.type_description"/>
+            </td>
+            <td style="width:18%; text-align:right; padding-right:20px; padding-top:5px; vertical-align:top;">
+                <span t-field="move.product_uom_qty"/>
+                <span t-field="move.product_uom"/>
+            </td>
+            <td style="text-align: right; padding-right: 10px; padding-top:5px; vertical-align:top;">
+                <span t-field="move.date" t-options='{"widget": "date"}'/>
+            </td>
+        </tr>
+    </tbody>
+</table>
+</xpath>
+</data>
