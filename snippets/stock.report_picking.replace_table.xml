@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+<xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
+  
+<table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px" t-if="o.move_line_ids and o.move_ids_without_package">
+  <t t-set="has_barcode" t-value="any(move_line.product_id and move_line.product_id.sudo().barcode or move_line.package_id for move_line in o.move_line_ids)"/>
+  <t t-set="has_serial_number" t-value="any(move_line.lot_id or move_line.lot_name for move_line in o.move_line_ids)" groups="stock.group_production_lot"/>
+
+    <tr style="border-bottom: 1px solid rgb(220,220,220);">
+        <th name="th_product" style="padding-left: 9px; padding-bottom: 10px; width:12%;">
+            <strong>Art. Nr.</strong>
+        </th>
+        <th style="width:40%">
+            <strong>Bezeichnung / Typenbezeichnung</strong>
+        </th>
+        <th style="width:12%" name="th_from" t-if="o.picking_type_id.code != 'incoming'" align="left" groups="stock.group_stock_multi_locations">
+            <strong>Von</strong>
+        </th>
+        <th style="width:12%" name="th_to" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+            <strong>Nach</strong>
+        </th>
+        <th style="width:18%; text-align:right; padding-right:20px;">
+            <strong>Menge</strong>
+        </th>
+        <th style="width:3%; text-align:right; padding-right:20px;">
+            <strong>Lager</strong>
+        </th>
+        <th name="th_serial_number" class="text-center" t-if="has_serial_number">
+           <strong>Lot/Serial Number</strong>
+        </th>
+        <th style="width:3%" name="th_barcode" class="text-center" t-if="has_barcode">
+            <strong></strong>
+        </th>
+    </tr>
+                            
+      <t t-foreach="o.move_ids_without_package" t-as="move">
+          <!-- In case you come across duplicated lines, ask NIM or LAP -->
+          <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
+            
+              <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                  <td style="padding-left: 10px; padding-top:5px; vertical-align:top;">
+                      <span t-field="ml.product_id.default_code"/><br/>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top; padding-right: 10px">
+                      <span t-field="ml.product_id.name"/><br/>
+                      <span t-field="ml.product_id.type_description"/>
+                  </td>
+                  
+                  <td style="padding-top:5px; vertical-align:top;" t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">
+                      <span t-esc="ml.location_id.display_name"/>
+                          <t t-if="ml.package_id">
+                              <span t-field="ml.package_id"/>
+                          </t>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top;" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+                      <div>
+                          <span t-field="ml.location_dest_id"/>
+                          <t t-if="ml.result_package_id">
+                              <span t-field="ml.result_package_id"/>
+                          </t>
+                      </div>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top; text-align:right; padding-right:20px; font-weight: bold">
+                      <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                      <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                      <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+
+                  </td>
+                  
+                  <td style="padding-top:5px; vertical-align:top;" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+                      <div>
+                         
+                      </div>
+                  </td>
+                  
+                  <td class=" text-center h6" t-if="has_serial_number">
+                      <img t-if="has_serial_number and (ml.lot_id or ml.lot_name)" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', ml.lot_id.name or ml.lot_name, 400, 100)" style="width:100%;height:35px;" alt="Barcode"/>
+
+                  </td>
+                  <td style="padding-top: 5px; padding-bottom: 5px; vertical-align:middle;" class="text-center" t-if="has_barcode">
+                      <t t-if="product_barcode != move.product_id.barcode">
+                          <span t-if="move.product_id and move.product_id.barcode">
+                              <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                              <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 2900, 100, 0)" style="height:35px" alt="Barcode"/>
+                              <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+
+                          </span>
+                          <t t-set="product_barcode" t-value="move.product_id.barcode"/>
+                      </t>
+                  </td>
+              </tr>
+          </t>
+      </t>
+       
+  </table>
+                     
+  
+  </xpath>
+  </data>

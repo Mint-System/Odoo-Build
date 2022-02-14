@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+<xpath expr="//div[@t-if='o.workorder_ids']" position="replace">
+  	<table  style="margin-top:30px; width:100%;">
+    	<tr style="border-bottom: 1px solid rgb(220,220,220);">
+     	 	<td style="font-size:14pt; font-weight: bold; padding-left:10px">
+        	<span t-if="o.state == 'done'">Abgeschlossene Operationen</span>
+       		<span t-else="">Operationen</span>
+     		</td>
+   		</tr>
+    </table>
+
+  	<table style="width: 100%; margin-top: 10px; font-family: arial;">
+    	<tr style="border-bottom: 1px solid rgb(220,220,220); font-size: 10pt;">
+        	<th style="width: 40%; padding-left:10px; padding-bottom:5px"><strong>Vorgang</strong></th>
+        	<th style="width: 30%;"><strong>Arbeitsplatz</strong></th>
+        	<th style="width: 15%; padding-right:10px; text-align:right"><strong>Minuten</strong></th>
+        	<th style="width: 5%;"><strong>IST</strong></th>
+        	<th style="width: 10%;"><strong>Visum</strong></th>   
+   		</tr>
+    	<tr style="border-bottom: 1px solid rgb(220,220,220); font-size: 10pt;" t-foreach="o.workorder_ids" t-as="line2">
+        	<td style="padding-left:10px; padding-top:5px; padding-bottom:5px"><span t-field="line2.name"/></td>
+       		<td><span t-field="line2.workcenter_id.name"/></td>
+        	<td style="padding-right:10px; text-align:right">
+            <span t-field="line2.duration_expected"/>
+        	</td>
+        	<td></td>
+        	<td></td>
+    	</tr>
+  	</table>  
+  
+</xpath>
+</data>
