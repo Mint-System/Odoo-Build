@@ -6,10 +6,11 @@
         white-space: nowrap;
       }
       table#informations td:nth-child(odd) {
-        text-align: right
+        text-align: left;
       }
       table#informations td:nth-child(even) {
-        text-align: left
+        text-align: left;
+        padding-right: 3rem;
       }
     </style>
     <table id='informations' class="table table-borderless table-sm">
