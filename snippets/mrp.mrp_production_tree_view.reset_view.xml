@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="mrp.mrp_bom_tree_view" priority="50">
+<data inherit_id="mrp.mrp_production_tree_view" priority="50">
   
   <xpath expr="//tree" position="attributes">
         <attribute name="default_order">id desc</attribute>
@@ -11,8 +11,7 @@
 	
 	<field name="x_default_code" position="after">
 	  <field name="x_type_description"></field>
-	  <field name="x_name"></field>
-	 
+	  <field name="x_product_name"></field>
   </field>
 	
 </data>
