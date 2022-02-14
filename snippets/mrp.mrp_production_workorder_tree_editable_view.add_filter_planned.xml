@@ -1,7 +1,9 @@
 <?xml version="1.0"?>
-<data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
+<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
 
-<xpath expr="//field[@name='consumption']" position="before">
-   <field name="product_id"/>
+<xpath expr="//filter[@name='progress']" position="before">
+   <filter string="Geplant" name="planned" domain="[('date_planned_start', '!=', False)]"/>
+   <filter string="Nicht geplant" name="not_planned" domain="[('date_planned_start', '=', False)]"/>
 </xpath>
+
 </data>
