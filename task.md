@@ -46,3 +46,4 @@
 | restore-database            | [path][name]     | Restore target database zip.                                      |
 | update-docs                 |                  | Update project docs.                                              |
 | source                      |                  | Source the Python virtual env.                                    |
+| send-support-mail           |                  | Send mail to support@local.                                       |
