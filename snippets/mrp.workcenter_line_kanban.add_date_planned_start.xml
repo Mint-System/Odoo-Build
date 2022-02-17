@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.workcenter_line_kanban"  priority="50">
+
+	<xpath expr="//field[@name='bom_line_ids']" position="after">
+		<field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>           
+	</xpath>
+
+</data>
+
+<?xml version="1.0"?>
+<data inherit_id="mrp.workcenter_line_kanban"  priority="50">
+
+	<xpath expr="//t[@t-esc='record.production_id.value']/../../.." position="after">
+		<div>
+		   <field name="date_planned_start"/>test
+		</div>
+	</xpath>
+
+</data>
