@@ -95,6 +95,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
 Link: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
 
+### replace information table2  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.replace_information_table2`  
+Link: [snippets/account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table2.xml)
+
 ### replace information table  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.replace_information_table`  
@@ -526,15 +531,40 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
 ## Mrp
+### reset view  
+Report: mrp_bom_tree_view  
+ID: `mint_system.mrp.mrp_bom_tree_view.reset_view`  
+Link: [snippets/mrp.mrp_bom_tree_view.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_tree_view.reset_view.xml)
+
 ### add date deadline  
 Report: mrp_production_form_view  
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
 Link: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### reset view  
+Report: mrp_production_tree_view  
+ID: `mint_system.mrp.mrp_production_tree_view.reset_view`  
+Link: [snippets/mrp.mrp_production_tree_view.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.reset_view.xml)
+
+### add filter planned  
+Report: mrp_production_workorder_tree_editable_view  
+ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_filter_planned`  
+Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_filter_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_filter_planned.xml)
+
+### add product id  
+Report: mrp_production_workorder_tree_editable_view  
+ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`  
+Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml)
+
 ### add padding  
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.add_padding`  
 Link: [snippets/mrp.report_mrporder.add_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.add_padding.xml)
+
+### delete responsible  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.delete_responsible`  
+Link: [snippets/mrp.report_mrporder.delete_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.delete_responsible.xml)
 
 ### list quality points  
 Report: report_mrporder  
@@ -550,6 +580,41 @@ Link: [snippets/mrp.report_mrporder.quality_points.xml](https://github.com/Mint-
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.remove_barcode`  
 Link: [snippets/mrp.report_mrporder.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.remove_barcode.xml)
+
+### replace header  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_header`  
+Link: [snippets/mrp.report_mrporder.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_header.xml)
+
+### replace section operations  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_section_operations`  
+Link: [snippets/mrp.report_mrporder.replace_section_operations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_operations.xml)
+
+### replace section product description  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_section_product_description`  
+Link: [snippets/mrp.report_mrporder.replace_section_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_product_description.xml)
+
+### replace section to consumed products  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_section_to_consumed_products`  
+Link: [snippets/mrp.report_mrporder.replace_section_to_consumed_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_to_consumed_products.xml)
+
+### replace section to consume products  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_section_to_consume_products`  
+Link: [snippets/mrp.report_mrporder.replace_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_to_consume_products.xml)
+
+### replace section to produce  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_section_to_produce`  
+Link: [snippets/mrp.report_mrporder.replace_section_to_produce.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_to_produce.xml)
+
+### replace title section consumed products  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_title_section_consumed_products`  
+Link: [snippets/mrp.report_mrporder.replace_title_section_consumed_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title_section_consumed_products.xml)
 
 ### show expected  
 Report: report_mrporder  
@@ -570,6 +635,21 @@ Link: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-Sy
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.show_stock`  
 Link: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
+
+### add type description and operation ids  
+Report: view_mrp_bom_filter  
+ID: `mint_system.mrp.view_mrp_bom_filter.add_type_description_and_operation_ids`  
+Link: [snippets/mrp.view_mrp_bom_filter.add_type_description_and_operation_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_type_description_and_operation_ids.xml)
+
+### add not planned  
+Report: view_mrp_production_filter  
+ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`  
+Link: [snippets/mrp.view_mrp_production_filter.add_not_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_filter.add_not_planned.xml)
+
+### add product id  
+Report: view_mrp_production_workorder_form_view_filter  
+ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_id`  
+Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml)
 
 ## Printnode Base
 ### remove domain widget  
@@ -749,6 +829,11 @@ Link: [snippets/purchase.report_purchaseorder_document.rename_deadline.xml](http
 Report: report_purchaseorder_document  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`  
 Link: [snippets/purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_representative.xml)
+
+### round price  
+Report: report_purchaseorder_document  
+ID: `mint_system.purchase.report_purchaseorder_document.round_price`  
+Link: [snippets/purchase.report_purchaseorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.round_price.xml)
 
 ### row date align left  
 Report: report_purchaseorder_document  
@@ -1056,6 +1141,11 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.rename_order`  
 Link: [snippets/sale.report_saleorder_document.rename_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.rename_order.xml)
 
+### rename proforma title  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.rename_proforma_title`  
+Link: [snippets/sale.report_saleorder_document.rename_proforma_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.rename_proforma_title.xml)
+
 ### rename table header  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.rename_table_header`  
@@ -1218,6 +1308,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.header_margin`  
 Link: [snippets/stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.header_margin.xml)
 
+### hide name  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.hide_name`  
+Link: [snippets/stock.report_delivery_document.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.hide_name.xml)
+
 ### hs code origin and weight  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
@@ -1238,10 +1333,25 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
 Link: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.pos_in_table.xml)
 
+### replace header  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_header`  
+Link: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_header.xml)
+
 ### replace information table  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 Link: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table.xml)
+
+### replace order definition  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
+Link: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_order_definition.xml)
+
+### replace table  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_table`  
+Link: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_table.xml)
 
 ### sale order note  
 Report: report_delivery_document  
@@ -1303,6 +1413,11 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.get_position`  
 Link: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.get_position.xml)
 
+### hide name  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.hide_name`  
+Link: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_name.xml)
+
 ### margin barcode  
 Report: report_picking  
 ID: `mint_system.stock.report_picking.margin_barcode`  
@@ -1333,10 +1448,30 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.remove_from_and_to`  
 Link: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_from_and_to.xml)
 
+### remove reservation notice  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.remove_reservation_notice`  
+Link: [snippets/stock.report_picking.remove_reservation_notice.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_reservation_notice.xml)
+
 ### remove serial number  
 Report: report_picking  
 ID: `mint_system.stock.report_picking.remove_serial_number`  
 Link: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_serial_number.xml)
+
+### replace header  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.replace_header`  
+Link: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_header.xml)
+
+### replace order definition  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.replace_order_definition`  
+Link: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_order_definition.xml)
+
+### replace table  
+Report: report_picking  
+ID: `mint_system.stock.report_picking.replace_table`  
+Link: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_table.xml)
 
 ### show full address  
 Report: report_picking  
@@ -1498,6 +1633,11 @@ Report: view_picking_form
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
 Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
 
+### show scheduled date editable  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.show_scheduled_date_editable`  
+Link: [snippets/stock.view_picking_form.show_scheduled_date_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_scheduled_date_editable.xml)
+
 ### x count boxes  
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
@@ -1580,6 +1720,11 @@ Report: external_layout_standard
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
 
+### replace header  
+Report: internal_layout  
+ID: `mint_system.web.internal_layout.replace_header`  
+Link: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
+
 ### set font  
 Report: styles_company_report  
 ID: `mint_system.web.styles_company_report.set_font`  
@@ -1661,6 +1806,11 @@ Link: [snippets/web.external_layout_standard.replace_header.xml](https://github.
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### replace header  
+Report: internal_layout  
+ID: `mint_system.web.internal_layout.replace_header`  
+Link: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
 
 ### set font  
 Report: styles_company_report  
