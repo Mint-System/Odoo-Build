@@ -2,6 +2,9 @@
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
 
   <xpath expr="/t/tr/td[2]/span" position="after">
+
+<!-- aggregated_lines[line]['product']['default_code] -->
+
   <t t-if="o.product_id.hs_code">
     <br/>
     HS Code: <span t-field="o.product_id.hs_code"/>
