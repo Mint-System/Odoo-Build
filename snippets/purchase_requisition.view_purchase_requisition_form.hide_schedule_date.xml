@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
 
-  <xpath expr="////group/group//field[@name='schedule_date']" position="replace">
+  <xpath expr="//group/group//field[@name='schedule_date']" position="attributes">
     <attribute name="attrs">{'invisible': True}</attribute>
   </xpath>
 
