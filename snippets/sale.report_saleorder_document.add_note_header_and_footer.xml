@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="72">
+ 
+  <xpath expr="//table[1]" position="after">
+    <t t-if='doc.note_header'><span style="font-size:9pt;" t-field='doc.note_header'/></t>
+  </xpath>
+
+  <xpath expr="//table[2]" position="after">
+    <t t-if='doc.note_footer'><span style="font-size:9pt;" t-field='doc.note_footer'/></t>
+  </xpath>
+
+</data>
