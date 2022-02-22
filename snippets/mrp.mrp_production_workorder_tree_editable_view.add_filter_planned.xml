@@ -2,7 +2,7 @@
 <data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
 
 <xpath expr="//filter[@name='progress']" position="before">
-   <filter string="Geplant" name="planned" domain="[('date_planned_start', '!=', False)]"/>
+   <filter string="Geplant" name="planned" domain="[('date_planned_start', '!=', False)]" context="{'search_default_planned': 1}"/>
    <filter string="Nicht geplant" name="not_planned" domain="[('date_planned_start', '=', False)]"/>
 </xpath>
 
