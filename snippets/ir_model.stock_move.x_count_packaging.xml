@@ -25,6 +25,7 @@
 			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
 		if rec.product_packaging.name == "Karton":
 			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
+    </field>
   </record>
 
 </odoo>

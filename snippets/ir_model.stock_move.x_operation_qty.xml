@@ -18,6 +18,7 @@
     record['x_operation_qty'] = -1 * record.product_uom_qty
   else:
     record['x_operation_qty'] = record.product_uom_qty
+    </field>
   </record>
 
 </odoo>

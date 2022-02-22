@@ -459,6 +459,36 @@ function install-snippet() {
     }"
 }
 
+function lint-snippets() {
+    FILES="snippets/*.xml"
+
+    for FILE in $FILES; do
+
+        # Access various snippet parameters
+        FILENAME=$(basename $FILE)
+        SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
+        REPORT=$(echo $FILENAME | cut -d. -f2)
+        EDIT=$(echo $FILENAME | cut -d. -f3)
+        INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        TYPE=$(echo 'cat //data/@type' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODEL=$(echo 'cat //data/@model' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
+        XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+
+        # Check if inherit id matches the filename
+        if [ -n "$INHERIT_ID" ]; then
+            if [[ "$INHERIT_ID" != "$SNIPPET_MODULE.$REPORT" ]]; then
+                echo "Linting failed for $FILE"
+                echo " Inherit: $INHERIT_ID"
+                echo "Filename: $SNIPPET_MODULE.$REPORT"
+                exit 1
+            fi
+        fi
+    done
+    echo "No problems with snippets found."
+}
+
 function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -578,6 +608,9 @@ function patch-database() {
 }
 
 function update-docs() {
+
+    lint-snippets
+
     echo "Update snippets.md file."
     echo "# Snippets" > snippets.md
 
@@ -731,6 +764,9 @@ case "$1" in
         ;;
     install-snippet)
         install-snippet $2 $3
+        ;;
+    lint-snippets)
+        lint-snippets
         ;;
     update-app-list)
         update-app-list $2

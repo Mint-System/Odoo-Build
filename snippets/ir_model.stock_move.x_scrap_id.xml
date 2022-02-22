@@ -21,6 +21,7 @@
   else:
     
     record['x_scrap_id'] = 0
+    </field>
   </record>
 
 </odoo>

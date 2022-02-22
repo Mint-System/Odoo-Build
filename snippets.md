@@ -125,11 +125,6 @@ Report: report_invoice_document_with_payments
 ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank`  
 Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
-### show partner shipping  
-Report: view_invoice_tree  
-ID: `mint_system.account.view_invoice_tree.show_partner_shipping`  
-Link: [snippets/account.view_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_partner_shipping.xml)
-
 ### hide payment reference  
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
@@ -144,6 +139,11 @@ Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://g
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.show_sale_order_lines`  
 Link: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
+
+### show partner shipping  
+Report: view_out_invoice_tree  
+ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
+Link: [snippets/account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_out_invoice_tree.show_partner_shipping.xml)
 
 ## Base
 ### remove domain widget  
@@ -546,11 +546,6 @@ Report: mrp_production_tree_view
 ID: `mint_system.mrp.mrp_production_tree_view.reset_view`  
 Link: [snippets/mrp.mrp_production_tree_view.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.reset_view.xml)
 
-### add filter planned  
-Report: mrp_production_workorder_tree_editable_view  
-ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_filter_planned`  
-Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_filter_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_filter_planned.xml)
-
 ### add product id  
 Report: mrp_production_workorder_tree_editable_view  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`  
@@ -641,15 +636,20 @@ Report: view_mrp_bom_filter
 ID: `mint_system.mrp.view_mrp_bom_filter.add_type_description_and_operation_ids`  
 Link: [snippets/mrp.view_mrp_bom_filter.add_type_description_and_operation_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_type_description_and_operation_ids.xml)
 
-### add not planned  
-Report: view_mrp_production_filter  
-ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`  
-Link: [snippets/mrp.view_mrp_production_filter.add_not_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_filter.add_not_planned.xml)
+### add filter planned  
+Report: view_mrp_production_workorder_form_view_filter  
+ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_filter_planned`  
+Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_filter_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_filter_planned.xml)
 
 ### add product id  
 Report: view_mrp_production_workorder_form_view_filter  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_id`  
 Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml)
+
+### add date planned start  
+Report: workcenter_line_kanban  
+ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`  
+Link: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
 
 ## Printnode Base
 ### remove domain widget  
@@ -673,6 +673,11 @@ Report: product_template_form_view
 ID: `mint_system.product.product_template_form_view.replace_header`  
 Link: [snippets/product.product_template_form_view.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.replace_header.xml)
 
+### replace title  
+Report: product_template_form_view  
+ID: `mint_system.product.product_template_form_view.replace_title`  
+Link: [snippets/product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.replace_title.xml)
+
 ### add product info  
 Report: product_template_kanban_view  
 ID: `mint_system.product.product_template_kanban_view.add_product_info`  
@@ -693,15 +698,15 @@ Report: product_template_search_view
 ID: `mint_system.product.product_template_search_view.add_type_description`  
 Link: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.add_type_description.xml)
 
-### add defaultcode and typedescription  
+### add default code and type description  
 Report: product_template_tree_view  
-ID: `mint_system.product.product_template_tree_view.add_defaultcode_and_typedescription`  
-Link: [snippets/product.product_template_tree_view.add_defaultcode_and_typedescription.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_defaultcode_and_typedescription.xml)
+ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_description`  
+Link: [snippets/product.product_template_tree_view.add_default_code_and_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_default_code_and_type_description.xml)
 
-### remove defaultcode and responsible  
+### remove default code and responsible  
 Report: product_template_tree_view  
-ID: `mint_system.product.product_template_tree_view.remove_defaultcode_and_responsible`  
-Link: [snippets/product.product_template_tree_view.remove_defaultcode_and_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.remove_defaultcode_and_responsible.xml)
+ID: `mint_system.product.product_template_tree_view.remove_default_code_and_responsible`  
+Link: [snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml)
 
 ### set default order  
 Report: product_template_tree_view  
@@ -749,6 +754,11 @@ Link: [snippets/purchase.purchase_order_form.date_planned_readonly.xml](https://
 Report: purchase_order_form  
 ID: `mint_system.purchase.purchase_order_form.filter_customer_is_company`  
 Link: [snippets/purchase.purchase_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.filter_customer_is_company.xml)
+
+### format dates  
+Report: purchase_order_form  
+ID: `mint_system.purchase.purchase_order_form.format_dates`  
+Link: [snippets/purchase.purchase_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.format_dates.xml)
 
 ### reset view  
 Report: purchase_order_line_tree  
@@ -946,6 +956,16 @@ Report: view_purchase_requisition_form
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.filter_customer_is_company`  
 Link: [snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml)
 
+### hide schedule date  
+Report: view_purchase_requisition_form  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.hide_schedule_date`  
+Link: [snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml)
+
+### show schedule date in notebook  
+Report: view_purchase_requisition_form  
+ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook`  
+Link: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
+
 ## Res Groups
 ### holidays self responsible  
 Report: hr_holidays  
@@ -1071,6 +1091,11 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.add_info_table`  
 Link: [snippets/sale.report_saleorder_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_info_table.xml)
 
+### add note header and footer  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.add_note_header_and_footer`  
+Link: [snippets/sale.report_saleorder_document.add_note_header_and_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_note_header_and_footer.xml)
+
 ### add notes  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_notes`  
@@ -1162,9 +1187,9 @@ ID: `mint_system.sale.report_saleorder_document.sequence_in_table`
 Link: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.sequence_in_table.xml)
 
 ### x sudio description  
-Report: report_saleorder_documen  
-ID: `mint_system.sale.report_saleorder_documen.x_sudio_description`  
-Link: [snippets/sale.report_saleorder_documen.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_documen.x_sudio_description.xml)
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.x_sudio_description`  
+Link: [snippets/sale.report_saleorder_document.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.x_sudio_description.xml)
 
 ### append signature  
 Report: report_saleorder_pro_forma  
@@ -1190,6 +1215,11 @@ Link: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://g
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
 Link: [snippets/sale.view_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.filter_customer_is_company.xml)
+
+### format dates  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.format_dates`  
+Link: [snippets/sale.view_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.format_dates.xml)
 
 ### header delivery date  
 Report: view_order_form  
@@ -1732,9 +1762,9 @@ Link: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-
 
 ## Website Sale
 ### overwrite required  
-Report: adress  
-ID: `mint_system.website_sale.adress.overwrite_required`  
-Link: [snippets/website_sale.adress.overwrite_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_sale.adress.overwrite_required.xml)
+Report: address  
+ID: `mint_system.website_sale.address.overwrite_required`  
+Link: [snippets/website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_sale.address.overwrite_required.xml)
 
 ### bigger categories button  
 Report: products_categories  

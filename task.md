@@ -20,6 +20,7 @@
 | install-native              |                  | Install Odoo requirements in source folder.                       |
 | kill                        |                  | Remove docker containers and volumes.                             |
 | lint-module                 | [path]           | Run pylint odoo for module.                                       |
+| lint-snippets               |                  | Run checks for all snippets.                                      |
 | logs                        |                  | Tail Odoo Docker container logs.                                  |
 | list                        |                  | List docker services.                                             |
 | ps                          |                  | List docker processes.                                            |
