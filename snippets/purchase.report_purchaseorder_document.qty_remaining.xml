@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="//table/tbody/t[2]/tr/t[1]/td[4]/span[2]" position="after">
     <t t-set="product" t-value="o.requisition_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>

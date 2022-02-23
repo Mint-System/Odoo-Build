@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document">
+<data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="/t/t/div/div[1]/div[1]" position="after">
     <div class="col-3 bm-2" t-if="o.invoice_user_id" name="invoice_user_id">

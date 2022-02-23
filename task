@@ -485,6 +485,13 @@ function lint-snippets() {
                 exit 1
             fi
         fi
+
+        # Check if inherit id matches the filename
+        if [ -z "$PRIORITY" ] && [ -n "$INHERIT_ID" ]; then
+            echo "Linting failed for $FILE"
+            echo "Filename: $SNIPPET_MODULE.$REPORT"
+            exit 1
+        fi
     done
     echo "No problems with snippets found."
 }

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Set required field and change formatting -->
-<data inherit_id="website_sale.address">
+<data inherit_id="website_sale.address" priority="50">
 
   <xpath expr="//input[@name='field_required']" position="replace">
     <input type="hidden" name="field_required" t-att-value="'name,email'" />

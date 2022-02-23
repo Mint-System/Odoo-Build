@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="hr_holidays.hr_leave_view_tree">
+<data inherit_id="hr_holidays.hr_leave_view_tree" priority="50">
 
   <xpath expr="//field[@name='state']" position="after">
     <field name="x_synced" widget="toggle_button"/>
