@@ -2,16 +2,27 @@
 <data inherit_id="mrp.report_mrporder" priority="51">
 
 <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
+  
+  <style>
+    table#product_desription {
+      width: 100%;
+      margin-top: 10px;
+      font-size: 10pt;
+    }
+    table#product_desription th, td {
+      padding-left: 5px;
+    }
+  </style>
     
-    <table style="width: 100%; margin-top: 10px; font-family: arial;" >
-        <tr style="border-bottom: 1px solid rgb(220,220,220); font-size: 10pt">
-            <th style="width: 15%; padding-left:10px"><strong>Produkt</strong></th>
+    <table id='product_desription'>
+        <tr style="border-bottom: 1px solid rgb(220,220,220)">
+            <th style="width: 15%"><strong>Produkt</strong></th>
             <th style="width: 25%"><strong><span t-field="o.product_id.default_code"/></strong></th>
             <th style="width: 60%"><strong>Typenbezeichnung</strong>
             </th>         
         </tr>
-        <tr style="font-size: 10pt">
-            <td colspan="2" style="padding-left:10px"><span t-field="o.product_id.name"/></td>
+        <tr>
+            <td colspan="2"><span t-field="o.product_id.name"/></td>
             <td><span t-field="o.product_id.type_description"/></td>
         </tr>     
     </table>
