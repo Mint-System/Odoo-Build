@@ -9,7 +9,7 @@
 				<div class="col-4 text-center">
 				</div>
 				<div class="col-4 text-right">
-					<img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px;"/>
+					<img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px; margin-right: 40px;"/>
 				</div>
 			</div>
 		</div>

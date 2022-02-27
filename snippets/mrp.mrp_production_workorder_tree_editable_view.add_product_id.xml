@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
 
-<xpath expr="//field[@name='consumption']" position="before">
+<xpath expr="//field[@name='workcenter_id']" position="after">
    <field name="product_id"/>
 </xpath>
 </data>

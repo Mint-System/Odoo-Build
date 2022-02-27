@@ -6,7 +6,7 @@
     
     <table>
       <tr>
-        <td>
+        <td class="font-weight-bold">
            Start Datum: <field name="date_planned_start" type="date"/>
         </td>
       </tr>
