@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="/t/t/div/div[2]/div[2]" position="after">
     <div t-if="o.create_date" class="col-3 bm-2">

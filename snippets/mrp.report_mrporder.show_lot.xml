@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- If lot is not available show forecasted days. -->
-<data inherit_id="mrp.report_mrporder">
+<data inherit_id="mrp.report_mrporder" priority="50">
 
 	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
 		<t t-if="raw_line.forecast_expected_date">

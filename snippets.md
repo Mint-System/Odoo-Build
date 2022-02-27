@@ -606,6 +606,11 @@ Report: report_mrporder
 ID: `mint_system.mrp.report_mrporder.replace_section_to_produce`  
 Link: [snippets/mrp.report_mrporder.replace_section_to_produce.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_section_to_produce.xml)
 
+### replace titel  
+Report: report_mrporder  
+ID: `mint_system.mrp.report_mrporder.replace_titel`  
+Link: [snippets/mrp.report_mrporder.replace_titel.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_titel.xml)
+
 ### replace title section consumed products  
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.replace_title_section_consumed_products`  
@@ -1066,11 +1071,6 @@ Report: report_purchaserequisitions
 ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`  
 Link: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
 
-### add default code  
-Report: report_saleorder_document  
-ID: `mint_system.sale.report_saleorder_document.add_default_code`  
-Link: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_default_code.xml)
-
 ### add delivery date  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -1121,11 +1121,6 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.format_as_date`  
 Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_as_date.xml)
 
-### format table  
-Report: report_saleorder_document  
-ID: `mint_system.sale.report_saleorder_document.format_table`  
-Link: [snippets/sale.report_saleorder_document.format_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_table.xml)
-
 ### format title  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.format_title`  
@@ -1136,10 +1131,10 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.get_position`  
 Link: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.get_position.xml)
 
-### product description  
+### modify main table  
 Report: report_saleorder_document  
-ID: `mint_system.sale.report_saleorder_document.product_description`  
-Link: [snippets/sale.report_saleorder_document.product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.product_description.xml)
+ID: `mint_system.sale.report_saleorder_document.modify_main_table`  
+Link: [snippets/sale.report_saleorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.modify_main_table.xml)
 
 ### qty remaining  
 Report: report_saleorder_document  
@@ -1151,10 +1146,10 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.remove_informations`  
 Link: [snippets/sale.report_saleorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_informations.xml)
 
-### remove taxes  
+### remove summary table  
 Report: report_saleorder_document  
-ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
-Link: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_taxes.xml)
+ID: `mint_system.sale.report_saleorder_document.remove_summary_table`  
+Link: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_summary_table.xml)
 
 ### remove vat  
 Report: report_saleorder_document  
@@ -1175,11 +1170,6 @@ Link: [snippets/sale.report_saleorder_document.rename_proforma_title.xml](https:
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.rename_table_header`  
 Link: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.rename_table_header.xml)
-
-### replace summary table  
-Report: report_saleorder_document  
-ID: `mint_system.sale.report_saleorder_document.replace_summary_table`  
-Link: [snippets/sale.report_saleorder_document.replace_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary_table.xml)
 
 ### sequence in table  
 Report: report_saleorder_document  
