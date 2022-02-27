@@ -2,7 +2,7 @@
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">>
 
   <xpath expr="//div/h2[1]" position="attributes">
-    <attribute name="style">color: black; margin-top: 2rem</attribute>
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
   </xpath>
 
 </data>

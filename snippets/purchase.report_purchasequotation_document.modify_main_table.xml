@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-  
-<!-- replace product description -->
+
+  <!-- replace product description -->
   <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
     <t>
       <span style="font-weight:bold;" t-field="order_line.product_id.type_description"/>
@@ -26,59 +26,59 @@
     <tr style="border-bottom: 1px solid rgb(220,220,220)">
       <td colspan="8"></td>
     </tr>
-  </xpath> 
+  </xpath>
 
   <xpath expr="//table[2]" position="attributes">
     <attribute name="style">color: black; font-size:9pt</attribute>
     <attribute name="class">table table-borderless table-sm </attribute>
   </xpath>
-  
+
   <!-- header -->
   <xpath expr="//table[2]/thead" position="attributes">
     <attribute name="style">color: black; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
   </xpath>
-  
+
   <!-- Header: position -->
   <xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
     <attribute name="style">width: 20px</attribute>/>
   </xpath>
-  
+
   <!-- header: default code -->
   <xpath expr="//table/thead/tr/th[2]" position="attributes">
     <attribute name="style">width: 100px; text-align: right; padding-right: 10px</attribute>
   </xpath>
-  
-   <!-- header: description -->
+
+  <!-- header: description -->
   <xpath expr="//table/thead/tr/th[3]" position="attributes">
     <attribute name="style">width: 400px;</attribute>
   </xpath>
-  
+
   <!-- header: date_planned -->
   <xpath expr="//table/thead/tr/th[4]" position="attributes">
-     <attribute name="class" separator=" " add="text-left" remove="text-center"/>
+    <attribute name="class" separator=" " add="text-left" remove="text-center"/>
   </xpath>
 
   <!-- position -->
   <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="attributes">
     <attribute name="style">text-align: right;</attribute>/>
   </xpath>
-  
+
   <!-- default code -->
   <xpath expr="//table/tbody/t/tr/t[1]/td[2]" position="attributes">
     <attribute name="style">text-align: right; padding-right: 10px</attribute>
   </xpath>
-  
-   <!-- date_planned -->
-   <xpath expr="//table/tbody/t/tr/t[1]/td[4]" position="attributes">
-     <attribute name="class" separator=" " add="text-left" remove="text-center"/>
+
+  <!-- date_planned -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[4]" position="attributes">
+    <attribute name="class" separator=" " add="text-left" remove="text-center"/>
   </xpath>
-   <xpath expr="//table/tbody/t/tr/t[1]/td[4]/span[1]" position="attributes">
-     <attribute name="t-options-widget">"date"</attribute>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[4]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
   </xpath>
-  
+
   <!-- qty -->
-   <xpath expr="//table/tbody/t/tr/t[1]/td[5]/span" position="replace">
-     <span style="font-weight: bold" t-esc="'%g' % order_line.product_qty"/>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[5]/span" position="replace">
+    <span style="font-weight: bold" t-esc="'%g' % order_line.product_qty"/>
   </xpath>
 
 </data>
