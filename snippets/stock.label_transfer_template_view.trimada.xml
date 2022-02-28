@@ -22,7 +22,7 @@
                         line-height: 30mm;
                     }
                     .description {
-                        font-size: 11mm;
+                        font-size: 9mm;
                         margin: 0 3mm 0 3mm;
                         text-align: center;
                         border-bottom: solid 1px;

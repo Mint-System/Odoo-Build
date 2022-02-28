@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+  <xpath expr="//h2/../.." position="replace">
+
+    <style>
+	    .title {
+	      width: 99%;
+	      margin: 5px;
+	      border: solid 1px;
+	      font-size: 18pt;
+	      font-weight: bold;
+	      line-height: 70px;
+	    }
+       .col-7 {
+        padding: 0 0 0 10px;
+      }
+	    .col-5 {
+          padding: 0 5px 0 0;
+          text-align: right;
+          line-height: 65px;
+      }
+    </style>
+
+    <div class="row title">
+      <div class="col-7">
+            Fertigungsauftrag <span t-field="o.name"/>
+      </div>
+      <div class="col-5">
+        <span class="text-right">
+          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px;" alt="Barcode"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+
+</data>

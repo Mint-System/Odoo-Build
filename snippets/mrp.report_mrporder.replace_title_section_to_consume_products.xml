@@ -4,18 +4,18 @@
   <xpath expr="//h3[@t-if='o.move_raw_ids']" position="replace">
     <style>
       table#consumed_products {
-        width:100%;
-        margin-top:30px;
+        width:98%;
+        margin: 20px 0 10px 10px;
         font-size: 14pt;
         font-weight: bold;
         padding-left: 5px;
       }
     </style>
-  	<table id='consumed_products'>
-   		<tr style="border-bottom: 1px solid rgb(220,220,220);">
-     		<td>Benötigte Produkte
-      	</td>
-    	</tr>
-  	</table>  
+    <table id='consumed_products'>
+      <tr style="border-bottom: 1px solid rgb(220,220,220);">
+        <td>Benötigte Produkte
+        </td>
+      </tr>
+    </table>
   </xpath>
 </data>
