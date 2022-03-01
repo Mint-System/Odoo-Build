@@ -34,6 +34,7 @@
 | save-config                 | [name]           | Save Odoo database config                                         |
 | start-psql                  | [db]             | Start PSQL shell in Docker container.                             |
 | start-shell                 | [db]             | Start Odoo shell from source folder.                              |
+| set-admin                   | [db]             | Sets the password for the first user in database.                 |
 | stop                        | [name]           | Stop docker containers.                                           |
 | test-module                 | [db][name,path]  | Test target Odoo module.                                          |
 | update-config               |                  | Update odoo config.                                               |
