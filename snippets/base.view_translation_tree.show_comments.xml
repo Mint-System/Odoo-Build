@@ -5,4 +5,20 @@
     <field name="comments"/>
   </field>
 
+  <field name="name" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </field>
+
+  <field name="module" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </field>
+
+  <field name="type" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </field>
+
+  <field name="state" position="attributes">
+    <attribute name="optional">hide</attribute>
+  </field>
+
 </data>

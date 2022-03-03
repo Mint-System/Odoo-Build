@@ -21,7 +21,7 @@
     <t t-foreach="set(pickings)" t-as="picking">
       <tr t-if="has_pickings">
         <td colspan="99" style="padding-top: 1rem;" >
-          <strong t-esc="'Lieferung ' + picking.name.replace('WH/OUT/','')"/>
+          <strong><span>Lieferung </span><span t-esc="picking.name.replace('WH/OUT/','')" /></strong>
           <span> vom </span>
           <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/><span>:</span>
         </td>
