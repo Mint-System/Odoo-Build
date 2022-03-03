@@ -3,13 +3,21 @@
 
     <!-- New title -->
     <xpath expr="/t/t/t/div/div[2]" position="after">
+        <t t-set="min_date" t-value="min(docs.mapped('date'))"/>
+        <t t-set="max_date" t-value="max(docs.mapped('date'))"/>
         <h3>Arbeitsrapport
             <t t-if="len(docs.mapped('project_id')) == 1">
-                für den Kunden "<t t-esc="docs.mapped('project_id')[0].partner_id.name"/>"
+                für das Projekt "<t t-esc="docs.mapped('project_id')[0].name"/>"
             </t>
         </h3>
-        <p>Ausgeführt von <span t-field="user.name"/>
+        <p>
+        Von <t t-esc="min_date"/> bis <t t-esc="max_date"/>
         </p>
+        <p>
+        Kunde: <t t-esc="docs.mapped('project_id')[0].partner_id.name"/><br/>
+        Erstellt von: <span t-field="user.name"/>
+        </p>
+        <br/>
     </xpath>
 
     <!-- Remove responsible -->
