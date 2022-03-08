@@ -3,7 +3,7 @@
 
     <xpath expr="/t" position="replace">
       <t t-name="stock.stock_report_delivery_has_serial_move_line">
-        <t t-if="not move_line.product_id.x_hide_on_delivery">
+        <t t-if="not move_line.product_id.x_hide_on_delivery and move_line.qty_done > 0">
             <td>
                 <span t-field="move_line.product_id"/>
                 <!-- this is an annoying workaround for the multiple types of descriptions (often auto-filled) that we do not want to print -->
