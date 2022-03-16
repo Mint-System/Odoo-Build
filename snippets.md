@@ -125,6 +125,11 @@ Report: report_invoice_document_with_payments
 ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank`  
 Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
+### x account codes  
+Report: view_invoice_tree  
+ID: `mint_system.account.view_invoice_tree.x_account_codes`  
+Link: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
+
 ### hide payment reference  
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
@@ -227,6 +232,11 @@ ID: `mint_system.base.view_res_partner_filter.search_zip`
 Link: [snippets/base.view_res_partner_filter.search_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_res_partner_filter.search_zip.xml)
 
 ### show comments  
+Report: view_translation_lang_src_value_tree  
+ID: `mint_system.base.view_translation_lang_src_value_tree.show_comments`  
+Link: [snippets/base.view_translation_lang_src_value_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_translation_lang_src_value_tree.show_comments.xml)
+
+### show comments  
 Report: view_translation_tree  
 ID: `mint_system.base.view_translation_tree.show_comments`  
 Link: [snippets/base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_translation_tree.show_comments.xml)
@@ -246,6 +256,12 @@ Link: [snippets/calendar.view_calendar_event_calendar.show_location.xml](https:/
 Report: view_calendar_event_calendar_timeline  
 ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`  
 Link: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
+
+## Certificate Planer
+### hide view report button  
+Report: document_form  
+ID: `mint_system.certificate_planer.document_form.hide_view_report_button`  
+Link: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
 
 ## Delivery
 ### remove hs code  
@@ -302,6 +318,11 @@ Link: [snippets/hr_holidays.hr_leave_view_tree.add_synced_field.xml](https://git
 Report: hr_leave_view_tree  
 ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`  
 Link: [snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml)
+
+### show days  
+Report: hr_leave_view_tree  
+ID: `mint_system.hr_holidays.hr_leave_view_tree.show_days`  
+Link: [snippets/hr_holidays.hr_leave_view_tree.show_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_tree.show_days.xml)
 
 ## Hr
 ### add mobile phone  
@@ -462,6 +483,11 @@ Link: [snippets/ir_model.sale_order_line.x_state.xml](https://github.com/Mint-Sy
 Report: sale_order  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
+
+### x account codes  
+Report: stock_move  
+ID: `mint_system.ir_model.stock_move.x_account_codes`  
+Link: [snippets/ir_model.stock_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_account_codes.xml)
 
 ### x count boxes  
 Report: stock_move  
@@ -1321,6 +1347,11 @@ Report: view_order_tree
 ID: `mint_system.sale.view_order_tree.add_carrier`  
 Link: [snippets/sale.view_order_tree.add_carrier.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.add_carrier.xml)
 
+### show partner shipping  
+Report: view_order_tree  
+ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
+Link: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
 ## Stock Delivery Note
 ### move delivery note  
 Report: report_delivery_document  
@@ -1377,6 +1408,11 @@ Link: [snippets/stock.report_delivery_document.description_sale.xml](https://git
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.document_description`  
 Link: [snippets/stock.report_delivery_document.document_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.document_description.xml)
+
+### filter qty done  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.filter_qty_done`  
+Link: [snippets/stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.filter_qty_done.xml)
 
 ### format date short  
 Report: report_delivery_document  
@@ -1693,6 +1729,11 @@ Report: view_move_tree
 ID: `mint_system.stock.view_move_tree.enable_create`  
 Link: [snippets/stock.view_move_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.enable_create.xml)
 
+### show create details  
+Report: view_move_tree  
+ID: `mint_system.stock.view_move_tree.show_create_details`  
+Link: [snippets/stock.view_move_tree.show_create_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_create_details.xml)
+
 ### show optional  
 Report: view_move_tree  
 ID: `mint_system.stock.view_move_tree.show_optional`  
@@ -1742,6 +1783,11 @@ Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mi
 Report: vpicktree  
 ID: `mint_system.stock.vpicktree.add_weight_uom_name`  
 Link: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.add_weight_uom_name.xml)
+
+### default order name  
+Report: vpicktree  
+ID: `mint_system.stock.vpicktree.default_order_name`  
+Link: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.vpicktree.default_order_name.xml)
 
 ## Timesheet Grid
 ### show name  

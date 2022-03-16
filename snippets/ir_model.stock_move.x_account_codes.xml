@@ -15,6 +15,7 @@
     <field name="depends">line_ids</field>
     <field name="compute">for record in self:
   codes = record.line_ids.mapped('account_id.code')
+  codes.sort()
   record['x_account_codes'] = ",".join(codes)
     </field>
   </record>
