@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_account_codes" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Account Codes</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_account_codes</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="depends">line_ids</field>
+    <field name="compute">for record in self:
+  codes = record.line_ids.mapped('account_id.code')
+  record['x_account_codes'] = ",".join(codes)
+    </field>
+  </record>
+
+</odoo>
