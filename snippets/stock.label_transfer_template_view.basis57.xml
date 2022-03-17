@@ -2,7 +2,11 @@
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines" t-as="move">
-
+                
+                <!--Set default values-->
+                <t t-set="count_boxes" t-value="0" />
+                <t t-set="count_labels" t-value="0" />
+                
                 <!-- Select loop based product packaing -->
                 <t t-if="move.product_packaging.name == 'Schale Gross'">
                     <t t-set="print_weight" t-value="False" />
@@ -18,7 +22,7 @@
                 </t>
                 <t t-if="move.product_packaging.name == 'Kiste'">
                     <t t-set="print_weight" t-value="True" />
-                    <t t-set="count_boxes" t-value="1" />
+                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
                     <t t-set="count_labels" t-value="0" />
                 </t>
                 <t t-if="move.product_packaging.name == 'Vakuum'">
@@ -39,7 +43,7 @@
                 <p>Labels: <span t-esc="count_labels"/></p>
                 <p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p> -->
 
-                <t t-foreach="move.move_line_ids" t-as="move_line"> 
+                <t t-foreach="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" t-as="move_line"> 
                 <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">
                     <t t-if="page_index >= count_labels">
                         <!-- <t t-set="print_weight" t-value="True" /> -->
@@ -98,7 +102,7 @@
                                 <span class="use-font-opensans-medium default">Gewicht: </span>
                                 <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
                                 <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move_line.qty_done *1000" t-options='{"widget": "float", "precision": 0}'/>
-                                <span class="use-font-opensans-medium default" t-if="print_weight">g</span>
+                                <span class="use-font-opensans-medium default" t-if="print_weight">g zu <span t-esc="count_boxes"/> Kisten</span>
                             </t>
 
                             <br/>
@@ -117,7 +121,7 @@
                             <span class="use-font-opensans-medium default" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')"/>
                             <br/>
                             <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
-                            <span t-set="delta" t-value="datetime.timedelta(days=5)"/>
+                            <span t-set="delta" t-value="datetime.timedelta(days=7)"/>
                             <span t-set="consume_until" t-value="picking.scheduled_date + delta"/>
                             <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
                             <br/>

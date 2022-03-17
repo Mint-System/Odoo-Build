@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_tree_view" priority="51">
+
+<xpath expr="//field[@name='name']" position="before">
+  <field name="default_code"/>
+  <field name="type_description"/>
+</xpath>
+
+</data>

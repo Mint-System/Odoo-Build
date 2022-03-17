@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <!-- Change default font size -->
-<data inherit_id="account.report_invoice_document">
+<data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//div[hasclass('page')]" position="inside">
 		<style>

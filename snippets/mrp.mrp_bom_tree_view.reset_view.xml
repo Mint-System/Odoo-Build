@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_bom_tree_view" priority="50">
+  
+  <xpath expr="//tree" position="attributes">
+        <attribute name="default_order">id desc</attribute>
+  </xpath>
+
+	<field name="product_tmpl_id" position="replace">
+	   <field name="x_default_code" />
+  </field>
+	
+	<field name="x_default_code" position="after">
+	  <field name="x_type_description"></field>
+	  <field name="x_name"></field>
+	 
+  </field>
+	
+</data>

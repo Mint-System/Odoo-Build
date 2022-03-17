@@ -2,7 +2,7 @@
 <data inherit_id="purchase.purchase_order_form" priority="50">
 
   <xpath expr="//group[1]/group[1]/field[2]" position="replace">
-    <field name="partner_id" widget="res_partner_many2one" domain="[('is_company', '=', True)]" context="{'res_partner_search_mode': 'supplier', 'show_vat': True}" placeholder="Name, TIN, Email, or Reference"/>
+    <field name="partner_id" widget="res_partner_many2one" domain="[('is_company', '=', True)]" context="{'res_partner_search_mode': 'supplier', 'show_vat': True, 'default_is_company': 'True'}" placeholder="Name, TIN, Email, or Reference"/>
   </xpath>
 
 </data>

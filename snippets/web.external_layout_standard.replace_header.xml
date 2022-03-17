@@ -2,51 +2,33 @@
 <data inherit_id="web.external_layout_standard" priority="50">>
 
 <xpath expr="/t/div" position="replace">    
-  <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
-   
-
-<head>
-<style>
-table, td {
-  margin-left: 0px;
-  padding-left: 10px;
-  font-size: 8pt;
-  color:rgb(102,102,102);
-  font-family:Arial;
-}
-
-</style>
-</head>                           
+  <div t-attf-class="header o_company_#{company.id}_layout">
                            
- <table style="width:100%">
+<table style="width:100%; font-size: 9pt; color:rgb(102,102,102); font-family:arial;">
   
-  <tr height="40px;">
-    <td style="width:20%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:20%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:20%; border-left: 1px solid rgb(102,102,102);"></td>
-    <td style="width:40%" rowspan="5"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"  style="height:70px; vertical-align:bottom; float:right"/></td>
+  <tr height="27px;">
+    <td style="width:19%; border-left: 1px solid rgb(102,102,102);"></td>
+    <td style="width:18%; border-left: 1px solid rgb(102,102,102);"></td>
+    <td style="width:25%; border-left: 1px solid rgb(102,102,102);"></td>
+    <td style="width:38%; margin: 0; vertical-align:bottom; padding:0;" rowspan="4"><img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo"  style="height:61px; float:right"/></td>
   </tr>
  
-  <tr>
-    <td style="border-left: 1px solid rgb(102,102,102);"><span t-field="company.name"/></td>
+  <tr style="line-height: 1.2;">
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;"><span t-field="company.name"/></td>
     <td style="border-left: 1px solid rgb(102,102,102);"></td>
     <td style="border-left: 1px solid rgb(102,102,102);"></td>
   </tr>
-  <tr>
-    <td style="border-left: 1px solid rgb(102,102,102);"><span t-field="company.partner_id.street"/></td>
-    <td style="border-left: 1px solid rgb(102,102,102);">Tel. 056 618 77 00</td>
-    <td style="border-left: 1px solid rgb(102,102,102);">www.trimada.ch</td>
+  <tr style="line-height: 1.2;">
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;"><span t-field="company.partner_id.street"/></td>
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Tel. 056 618 77 00</td>
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">www.trimada.ch</td>
   </tr>
-  <tr>
-    <td style="border-left: 1px solid rgb(102,102,102);">CH-<span t-field="company.partner_id.zip"/> <span t-field="company.partner_id.city"/></td>
-    <td style="border-left: 1px solid rgb(102,102,102);">Fax 056 618 77 07</td>
-    <td style="border-left: 1px solid rgb(102,102,102);"><span t-field="company.partner_id.email"/></td>
+  <tr style="line-height: 1.2;">
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">CH-<span t-field="company.partner_id.zip"/> <span t-field="company.partner_id.city"/></td>
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Fax 056 618 77 07</td>
+    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;"><span t-field="company.partner_id.email"/></td>
   </tr>
-  <tr height="30px">
-    <td></td>
-    <td></td>
-    <td></td>
-  </tr>
+ 
 </table>
 
 

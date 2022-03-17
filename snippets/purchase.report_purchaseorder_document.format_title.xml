@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
+
+  <xpath expr="//h2[1]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+  <xpath expr="//h2[2]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+  <xpath expr="//h2[3]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+  <xpath expr="//h2[4]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+
+</data>

@@ -27,7 +27,7 @@
 
         <td>
           <strong>Lieferdatum: </strong>
-          <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
+          <span t-field="o.move_lines[0].date_deadline" t-options='{"widget": "date"}' />
         </td>
 
         <td>
@@ -39,7 +39,12 @@
       </tr>
       <tr>
         <td></td>
-        <td></td>
+        <td>
+          <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
+            <strong>Spediteur: </strong>
+            <span t-field="o.carrier_id"/>
+          </div>
+        </td>
         <td>
           <strong>E-Mail: </strong>
           <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.email)" t-as="delivery_partner">

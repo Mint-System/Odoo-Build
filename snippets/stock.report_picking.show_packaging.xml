@@ -7,7 +7,7 @@
     </th>
   </xpath>
 
-  <xpath expr="//table[1]/tbody/t/t/tr/td[1]" position="after">
+  <xpath expr="//table[1]/tbody/t//tr/td[1]" position="after">
     <td>
       <span t-if="move.product_packaging" t-esc="move.product_packaging.name"/>
     </td>

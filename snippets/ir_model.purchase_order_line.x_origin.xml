@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_origin" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Referenzbeleg</field>
+    <field name="model">purchase.order.line</field>
+    <field name="model_id" ref="purchase.model_purchase_order_line"/>
+    <field name="name">x_origin</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="related">order_id.origin</field>
+  </record>
+
+</odoo>

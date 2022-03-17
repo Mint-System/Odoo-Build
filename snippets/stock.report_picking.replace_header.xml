@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+<xpath expr="//div[@class='row justify-content-end mb16']" position="replace">
+
+	<table style="width:100%; border:solid 1px; font-family: arial; font-size: 18pt; font-weight: bold;">
+	<tr>
+		<td style="padding-left: 10px; vertical-align: middle">Rüstschein   <span t-field="o.name"/>
+		</td>
+			<td style="padding: 5px">
+			<span>
+			  <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+			</span>
+		</td>
+	</tr>
+	</table>	  
+
+</xpath>
+</data>

@@ -1,0 +1,97 @@
+<t t-name="stock.label_transfer_template_view.trimada">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="picking">
+            <t t-foreach="picking.move_lines" t-as="move">
+
+                <style>
+                    .label {
+                        font-family: arial;
+                    }
+                    .box {
+                        margin: 0 0 2mm 0;
+                    }
+                    .padding {
+                        padding-bottom: 3mm;
+                    }
+                    .title {
+                        font-size: 11mm;
+                        margin: 3mm 3mm 0 3mm;
+                        font-weight: bold;
+                        text-align: center;
+                        border-bottom: solid 1px;
+                        line-height: 30mm;
+                    }
+                    .description {
+                        font-size: 9mm;
+                        margin: 0 3mm 0 3mm;
+                        text-align: center;
+                        border-bottom: solid 1px;
+                        height: 46mm;
+                        line-height: 20mm;
+                    }
+                    .delivery {
+                        font-size: 7mm;
+                        margin: 3mm 3mm 0 3mm;
+                        text-align: left;
+                        border-bottom: solid 1px;
+                        line-height: 1;
+                        height: 36mm;
+                    }
+                    .comment {
+                        font-size: 5mm;
+                        text-align: center;
+                        height: 8mm;
+                        line-height: 10mm;
+                    }
+                    .col-6 {
+                        padding-right: 0;
+                        padding-left: 0;
+                    }
+                </style>
+                <div class="page">
+                    <div class="label">
+                        <div class="row title">
+                            <div class="col-6">
+                                <span t-esc="move.product_id.default_code"/>
+                            </div>
+                            <div t-if="move.product_id.barcode" class="col-6 box text-right">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <span t-esc="move.product_id.name"/>
+                            <br/>
+                            <span t-esc="move.product_id.type_description"/>
+                        </div>
+                        <div class="row delivery">
+                            <div class="col-6 box">
+                                <div class="padding">
+                                    <span t-esc="move.date" t-options="{'widget': 'date'}"/>
+                                </div>
+                                <div class="padding">
+                                    <span t-esc="move.origin"/>
+                                </div>
+                                <div>
+                                    <span t-esc="picking.partner_id.name"/>
+                                </div>
+                            </div>
+                            <div class="col-6 box">
+                                <div t-if="move.product_id.feeder_id" class="text-right">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.feeder_id, 250, 80)" alt="Barcode"/>
+                                    <br/>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-center" t-esc="move.product_id.feeder_id"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
+                        </div>
+                    </div>
+                </div>
+                <p style="page-break-before:always;" />
+            </t>
+        </t>
+    </t>
+</t>

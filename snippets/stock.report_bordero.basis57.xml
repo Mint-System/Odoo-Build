@@ -4,7 +4,7 @@
             <div class="page">
 
                 <h2>Bordereau</h2>
-                <p>Druckdatum: <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d %H:%M')"/>
+                <p>Lieferdatum: <span t-esc="context_timestamp(docs[0].scheduled_date).strftime('%Y-%m-%d')"/>
                 </p>
 
                 <table class="table table-sm">
@@ -74,6 +74,9 @@
                         </div>
                     </div>
                 </div>
+                
+                <br/>
+                <p>Bitte die Gebinde beim Kunden sofort zurücknehmen und beim Abholen in Erstfeld die Gebinde retournieren.<br/>Vielen Dank</p>
 
             </div>
         </t>

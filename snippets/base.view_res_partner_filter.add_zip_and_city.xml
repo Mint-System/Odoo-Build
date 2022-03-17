@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_res_partner_filter" priority="50">
+
+<xpath expr="//field[@name='user_id']" position="after">
+  <separator/>
+    <field string="PLZ" name="zip"/>
+    <field string="Stadt" name="city"/>
+</xpath>
+
+</data>

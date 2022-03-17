@@ -19,8 +19,9 @@ export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
 export ODOO_LANGUAGE=de_CH
+export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-development"
 
-if [ -a ".env" ]; then
+if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
@@ -63,7 +64,7 @@ function locale() {
 }
 
 function load-env() {
-    export $(cat .env.$1 | sed 's/#.*//g' | xargs)
+    export $(cat "$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1" | sed 's/#.*//g' | xargs)
 }
 
 function disable-auto-install() {
@@ -197,6 +198,35 @@ function update-module() {
     odoo-bin -d $1 -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
+function generate-module-translation() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $2)
+
+    locale
+    activate-venv
+    echo "Generate tranlsation file for $MODULE_NAME on $1 ..."
+    mkdir "$2/i18n/"
+    odoo-bin -d $1 --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$2/i18n/de.po"
+}
+
+function restore-database() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+
+    # Get database name
+
+    # Extract zip file.
+
+    # Drop database
+
+    # Import databse
+
+    # Copy filestore
+    
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -248,6 +278,14 @@ function drop-db() {
 
     docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
     docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE \"$DATABASE\";"
+}
+
+function set-admin() {
+    DATABASE=$1
+    DATABASE=${DATABASE:="odoo"}
+
+    docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
+    docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "SELECT login, password FROM res_users WHERE id=2;"
 }
 
 function send-support-mail() {
@@ -342,6 +380,7 @@ function zip-module() {
     rm -rf "$MODULE_PATH"
     mkdir -p "$MODULE_PATH"
     cp -r "$1/." "$MODULE_PATH"
+    chmod -R 755 "$MODULE_PATH"
 
     # Configure and zip module
     echo "Remove auto install option"
@@ -350,7 +389,7 @@ function zip-module() {
     find $MODULE_PATH | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp
-    rm $MODULE_NAME.zip
+    rm -f $MODULE_NAME.zip
     zip -q -r $MODULE_NAME.zip $MODULE_NAME
     cd ..
 }
@@ -358,17 +397,6 @@ function zip-module() {
 function clear-filestore() {
     echo "Remove directory ~/.local/share/Odoo/filestore/$1"
     rm -rf ~/.local/share/Odoo/filestore/$1
-}
-
-function init-odoo-env() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-
-    echo "Init env file: .env.$1"
-    echo "#ODOO_URL=" > .env.$1
-    echo "ODOO_DATABASE=" >> .env.$1
-    echo "ODOO_USERNAME=" >> .env.$1
-    echo "ODOO_PASSWORD=" >> .env.$1
-    cat .env.$1
 }
 
 function disable-mailserver() {
@@ -439,6 +467,43 @@ function install-snippet() {
     }"
 }
 
+function lint-snippets() {
+    FILES="snippets/*.xml"
+
+    for FILE in $FILES; do
+
+        # Access various snippet parameters
+        FILENAME=$(basename $FILE)
+        SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
+        REPORT=$(echo $FILENAME | cut -d. -f2)
+        EDIT=$(echo $FILENAME | cut -d. -f3)
+        INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        TYPE=$(echo 'cat //data/@type' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODEL=$(echo 'cat //data/@model' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
+        XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+
+        # Check if inherit id matches the filename
+        if [ -n "$INHERIT_ID" ]; then
+            if [[ "$INHERIT_ID" != "$SNIPPET_MODULE.$REPORT" ]]; then
+                echo "Linting failed for $FILE"
+                echo " Inherit: $INHERIT_ID"
+                echo "Filename: $SNIPPET_MODULE.$REPORT"
+                exit 1
+            fi
+        fi
+
+        # Check if inherit id matches the filename
+        if [ -z "$PRIORITY" ] && [ -n "$INHERIT_ID" ]; then
+            echo "Linting failed for $FILE"
+            echo "Filename: $SNIPPET_MODULE.$REPORT"
+            exit 1
+        fi
+    done
+    echo "No problems with snippets found."
+}
+
 function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
@@ -447,14 +512,40 @@ function update-app-list() {
     echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
+function init-config-dir() {
+    echo "Ensure $ODOO_DEVELOPMENT_CONFIG_DIR exists"
+    mkdir -p "$ODOO_DEVELOPMENT_CONFIG_DIR"
+}
+
+function init-odoo-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    init-config-dir
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+
+    echo "Init env file: $ENV_FILEPATH"
+    echo "#ODOO_URL=" > $ENV_FILEPATH
+    echo "ODOO_DATABASE=" >> $ENV_FILEPATH
+    echo "ODOO_USERNAME=" >> $ENV_FILEPATH
+    echo "ODOO_PASSWORD=" >> $ENV_FILEPATH
+}
+
 function init-next-env() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
-    echo "Init env file: .env.$1"
-    echo "NEXTCLOUD_URL=" > .env.$1
-    echo "NEXTCLOUD_USERNAME=" >> .env.$1
-    echo "NEXTCLOUD_PASSWORD=" >> .env.$1
-    cat .env.$1
+    init-config-dir
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+
+    echo "Init env file: $ENV_FILEPATH"
+    echo "NEXTCLOUD_URL=" > $ENV_FILEPATH
+    echo "NEXTCLOUD_USERNAME=" >> $ENV_FILEPATH
+    echo "NEXTCLOUD_PASSWORD=" >> $ENV_FILEPATH
+}
+
+function edit-env() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    $EDITOR $ENV_FILEPATH
 }
 
 function upload-module() {
@@ -499,7 +590,6 @@ function remove-submodule() {
     git rm -f $1
 
     echo "Remove $1 submodule from .gitmodules files manually."
-
 }
 
 function update-config() {
@@ -531,6 +621,9 @@ function patch-database() {
 }
 
 function update-docs() {
+
+    lint-snippets
+
     echo "Update snippets.md file."
     echo "# Snippets" > snippets.md
 
@@ -634,6 +727,9 @@ case "$1" in
     odoo-cloc)
         odoo-cloc $2
         ;;
+    restore-database)
+        restore-database $2 $3
+        ;;
     convert-database)
         convert-database $2
         ;;
@@ -661,11 +757,17 @@ case "$1" in
     init-odoo-env)
         init-odoo-env $2
         ;;
+    edit-env)
+        edit-env $2
+        ;;
     disable-mailserver)
         disable-mailserver $2
         ;;
     change-uuid)
         change-uuid $2
+        ;;
+    set-admin)
+        set-admin $2
         ;;
     update-config)
         update-config
@@ -679,6 +781,9 @@ case "$1" in
     install-snippet)
         install-snippet $2 $3
         ;;
+    lint-snippets)
+        lint-snippets
+        ;;
     update-app-list)
         update-app-list $2
         ;;
@@ -687,6 +792,9 @@ case "$1" in
         ;;
     upload-module)
         upload-module $2 $3
+        ;;
+    generate-module-translation)
+        generate-module-translation $2 $3
         ;;
     patch-database)
         patch-database $2 $3
