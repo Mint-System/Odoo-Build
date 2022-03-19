@@ -2,7 +2,7 @@
 <data inherit_id="sale.view_sales_order_filter" priority="50">
 
   <xpath expr="//filter[@name='order_month']" position="after">
-    <filter string="Status" name="status" domain="[]" context="{'group_by': 'status'}"/>
+    <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
   </xpath>
 
 </data>
