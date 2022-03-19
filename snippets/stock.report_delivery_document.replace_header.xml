@@ -1,19 +1,29 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
 	<xpath expr="//div[@t-if='o.origin']/.." position="before">
-	
-	  	<table style="width:100%; border:solid 1px; font-family: arial; font-size: 18pt; font-weight: bold;">
-	    <tr>
-	      	<td style="padding-left: 10px; vertical-align: middle">Lieferschein   <span t-field="o.name"/>
-	      	</td>
-	     	 <td style="padding: 5px">
-			  	<span>
-	           		<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
-	        	</span>
-	      	</td>
-	    </tr>
-	  	</table>	  
-
+		<style>
+		table#header {
+			width: 100%;
+			border: solid 1px;
+			font-size: 18pt;
+		}
+		table#header td {
+			padding: 5px;
+			padding-left: 10px;
+			vertical-align: middle;
+			font-weight: bold;
+		}
+		</style>
+		<table id='header'>
+		<tr>
+			<td>Lieferschein <span t-field="o.name"/>
+			</td>
+			<td>
+				<span>
+					<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
+				</span>
+			</td>
+		</tr>
+		</table>
 	</xpath>
 </data>
