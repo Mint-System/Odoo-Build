@@ -16,16 +16,11 @@
     <field name="compute">for rec in self:
 	if rec.product_packaging:
 		if rec.product_packaging.name == "Kiste":
-			rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
+		  rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
 		if rec.product_packaging.name == "Schale Gross":
 			rec['x_count_packaging'] = (rec.product_uom_qty + 2.4)/2.5
-		if rec.product_packaging.name == "Schale Klein":
-			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
-		if rec.product_packaging.name == "Vakuum":
-			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
-		if rec.product_packaging.name == "Karton":
-			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1
-    </field>
+		if rec.product_packaging.name in ["Vakuum", "Schale Klein", "Karton"]:
+			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1</field>
   </record>
 
 </odoo>
