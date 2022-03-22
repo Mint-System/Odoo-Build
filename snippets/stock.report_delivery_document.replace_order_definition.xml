@@ -1,17 +1,29 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-<xpath expr="//div[@t-if='o.origin']/.." position="replace">
-  <table style="font-family:arial;font-size: 11pt; width:100%; margin-top:10px">
-    <tr style="border-bottom: 1px solid rgb(220,220,220);">
-      <td style="width:44%; padding-left: 10px; padding-bottom: 5px"><strong>Fertigungsauftrag   <span t-field="o.origin"/></strong></td>
-      <td style="width:56%"><strong>Produkt   <span/></strong></td>
-     
-    </tr>
-    <tr style="border-bottom: 1px solid rgb(220,220,220);">
-      <td style="padding-left: 10px; padding-top: 5px; padding-bottom: 5px">Status: <span t-field="o.state"/></td>
-      <td>Datum: <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span></td>
-    </tr>
-  </table>
-</xpath>
+  <xpath expr="//div[@t-if='o.origin']/.." position="replace">    
+    <style>
+      table#titel {
+      width: 100%;
+      font-size: 11pt;
+      margin-top: 10px;
+      }
+      table#titel tr {
+      border-bottom: 1px solid rgb(220,220,220);
+      }
+      table#titel td {
+      padding-left: 10px;
+      padding-bottom: 5px;
+      }
+		</style>
+    <table id='titel'>
+      <tr>
+        <td style="width: 44%;"><strong>Fertigungsauftrag <span t-field="o.origin"/></strong></td>
+        <td style="width: 56%"><strong>Produkt </strong><span t-field="o.product_id"/></td>
+      </tr>
+      <tr>
+        <td>Status: <span t-field="o.state"/></td>
+        <td>Datum: <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span></td>
+      </tr>
+    </table>
+  </xpath>
 </data>
