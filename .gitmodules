@@ -198,3 +198,11 @@
 	path = addons/social
 	url = git@github.com:Mint-System/Odoo-Apps-Social.git
 	branch = 14.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
+	branch = 14.0
+[submodule "addons/odoo_apps_partner"]
+	path = addons/odoo_apps_partner
+	url = git@gitlab.com:mint-system/odoo-apps-partner.git
+	branch = 14.0
