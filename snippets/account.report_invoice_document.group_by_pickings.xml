@@ -2,32 +2,52 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//h2" position="before">
+    <!-- Get all pickings without duplicates -->
     <t t-set="pickings" t-value="[line.picking_ids[0] for line in o.invoice_line_ids if line.picking_ids]"/>
+    <!-- Store if has pickings -->
     <t t-set="has_pickings" t-value="len(pickings) > 0"/>
+    <!-- Store if has multiple pickings -->
     <t t-set="has_multiple_pickings" t-value="len(pickings) > 1"/>
+    <!-- Store if has lines without pickings -->
+    <t t-set="has_lines_without_pickings" t-value="len(o.invoice_line_ids.filtered(lambda l: not l.picking_ids)) > 0"/>
   </xpath>
-
+  
   <xpath expr="//h2/span[1]" position="replace">
     <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_pickings">Rechnung</span>
     <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_pickings">Sammelrechnung</span>
   </xpath>
 
   <xpath expr="//t[@t-foreach='lines']" position="replace">
-    <!-- <p t-esc="has_pickings"/>
-    <p t-esc="has_multiple_pickings"/> -->
-    <t t-if="not has_pickings">
-      <t t-set="pickings" t-value="[False]"/>
+
+    <!-- Add empty picking if there are lines without pickings -->
+    <t t-if="not has_pickings or has_lines_without_pickings">
+      <t t-set="null" t-value="pickings.append(False)"/>
     </t>
-    <t t-foreach="set(pickings)" t-as="picking">
-      <tr t-if="has_pickings">
+
+    <!-- <p t-esc="pickings"/> -->
+    <!-- <p t-esc="has_pickings"/> -->
+    <!-- <p t-esc="has_multiple_pickings"/> -->
+    <!-- <p t-esc="has_lines_without_pickings"/> -->
+
+    <t t-foreach="pickings" t-as="picking">
+      <tr t-if="has_pickings and picking" class="o_line_note">
         <td colspan="99" style="padding-top: 1rem;" >
           <strong><span>Lieferung </span><span t-esc="picking.name.replace('WH/OUT/','')" /></strong>
           <span> vom </span>
           <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/><span>:</span>
         </td>
       </tr>
+      <tr t-if="not picking" class="o_line_note">
+        <td colspan="99" style="padding-top: 1rem;">
+          <strong>
+            <span>Weitere Positionen: </span>
+          </strong>
+        </td>
+      </tr>
       <t t-foreach="lines" t-as="line">
-        <t t-if="not has_pickings or (picking in line.picking_ids)">
+
+        <!-- Show line if picking is set and linked or not picking is set and line is unlinked  -->
+        <t t-if="(picking and picking in line.picking_ids) or (not line.picking_ids and not picking)">
 
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
           <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>

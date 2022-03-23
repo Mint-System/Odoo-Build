@@ -594,10 +594,20 @@ function remove-submodule() {
 
 function update-config() {
 
+    # Read addons path list
     ADDONS="$(tr '\n' ',' < ./config/addons_path)"
-    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
 
+    # Check if dir exists
+    for ADDON in $ADDONS; do
+        if [ -d "$ADDON" ]; then
+            echo "Path does not exist: $ADDON"
+            exit 1
+        fi
+    done
+    # Update native config
+    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
     ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
+    # Update docker config
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
     echo "Config updated."

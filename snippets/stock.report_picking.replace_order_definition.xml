@@ -5,7 +5,7 @@
   <table style="font-family:arial;font-size: 11pt; width:100%;">
     <tr style="border-bottom: 1px solid rgb(220,220,220);">
       <td style="width:44%; padding-left: 10px; padding-bottom: 5px"><strong>Fertigungsauftrag   <span t-field="o.origin"/></strong></td>
-      <td style="width:56%"><strong>Produkt   <span/></strong></td>
+      <td style="width:56%"><strong>Produkt   <span/></strong><span  t-field="o.product_id"/></td>
      
     </tr>
     <tr style="border-bottom: 1px solid rgb(220,220,220);">

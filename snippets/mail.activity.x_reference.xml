@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_reference" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Reference</field>
+    <field name="model">stock.move</field>
+    <field name="model_id" ref="mail.model_mail_activity"/>
+    <field name="name">x_reference</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">res_model,res_id</field>
+    <field name="compute">for record in self:
+  record['x_reference'] = "%s,%s" % (record.res_model, record.res_id)</field>
+  </record>
+
+</odoo>
