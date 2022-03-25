@@ -4,7 +4,7 @@
   <record id="x_reference" model="ir.model.fields">
     <field name="domain">[]</field>
     <field name="field_description">Reference</field>
-    <field name="model">stock.move</field>
+    <field name="model">mail.activity</field>
     <field name="model_id" ref="mail.model_mail_activity"/>
     <field name="name">x_reference</field>
     <field name="state">manual</field>

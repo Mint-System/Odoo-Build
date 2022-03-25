@@ -140,6 +140,11 @@ Report: view_move_form
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
 
+### show posted before  
+Report: view_move_form  
+ID: `mint_system.account.view_move_form.show_posted_before`  
+Link: [snippets/account.view_move_form.show_posted_before.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_posted_before.xml)
+
 ### show sale order lines  
 Report: view_move_form  
 ID: `mint_system.account.view_move_form.show_sale_order_lines`  
@@ -262,6 +267,48 @@ Link: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https:/
 Report: document_form  
 ID: `mint_system.certificate_planer.document_form.hide_view_report_button`  
 Link: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
+
+## Crm
+### enable create  
+Report: crm_case_calendar_view_leads  
+ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`  
+Link: [snippets/crm.crm_case_calendar_view_leads.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_case_calendar_view_leads.enable_create.xml)
+
+### hide revenue  
+Report: crm_case_calendar_view_leads  
+ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`  
+Link: [snippets/crm.crm_case_calendar_view_leads.hide_revenue.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_case_calendar_view_leads.hide_revenue.xml)
+
+### use date deadline  
+Report: crm_case_calendar_view_leads  
+ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`  
+Link: [snippets/crm.crm_case_calendar_view_leads.use_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_case_calendar_view_leads.use_date_deadline.xml)
+
+### date deadline required  
+Report: crm_lead_view_form  
+ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`  
+Link: [snippets/crm.crm_lead_view_form.date_deadline_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.date_deadline_required.xml)
+
+### hide expected revenue  
+Report: crm_lead_view_form  
+ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`  
+Link: [snippets/crm.crm_lead_view_form.hide_expected_revenue.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.hide_expected_revenue.xml)
+
+### hide lost won buttons  
+Report: crm_lead_view_form  
+ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`  
+Link: [snippets/crm.crm_lead_view_form.hide_lost_won_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.hide_lost_won_buttons.xml)
+
+### x mobile  
+Report: crm_lead_view_form  
+ID: `mint_system.crm.crm_lead_view_form.x_mobile`  
+Link: [snippets/crm.crm_lead_view_form.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm.crm_lead_view_form.x_mobile.xml)
+
+## Crm Iap Lead Enrich
+### hide enrich revenue  
+Report: crm_lead_view_form  
+ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`  
+Link: [snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)
 
 ## Delivery
 ### remove hs code  
@@ -429,6 +476,11 @@ Report: account_move
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 Link: [snippets/ir_model.account_move.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_studio_description.xml)
 
+### x mobile  
+Report: crm_lead  
+ID: `mint_system.ir_model.crm_lead.x_mobile`  
+Link: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_mobile.xml)
+
 ### x hide on delivery  
 Report: product_template  
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
@@ -530,7 +582,23 @@ Report: hr_holidays_calendar
 ID: `mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline`  
 Link: [snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
 
+## Mail Activity Board
+### enable edit and create  
+Report: mail_activity_view_form_board  
+ID: `mint_system.mail_activity_board.mail_activity_view_form_board.enable_edit_and_create`  
+Link: [snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml)
+
 ## Mail
+### x reference  
+Report: activity  
+ID: `mint_system.mail.activity.x_reference`  
+Link: [snippets/mail.activity.x_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.activity.x_reference.xml)
+
+### x reference  
+Report: mail_activity_view_form_popup  
+ID: `mint_system.mail.mail_activity_view_form_popup.x_reference`  
+Link: [snippets/mail.mail_activity_view_form_popup.x_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_activity_view_form_popup.x_reference.xml)
+
 ### remove logo  
 Report: mail_notification_borders  
 ID: `mint_system.mail.mail_notification_borders.remove_logo`  
@@ -576,6 +644,11 @@ Link: [snippets/mrp.mrp_bom_form_view.add_note.xml](https://github.com/Mint-Syst
 Report: mrp_bom_tree_view  
 ID: `mint_system.mrp.mrp_bom_tree_view.reset_view`  
 Link: [snippets/mrp.mrp_bom_tree_view.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_tree_view.reset_view.xml)
+
+### add date deadline2  
+Report: mrp_production_form_view  
+ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`  
+Link: [snippets/mrp.mrp_production_form_view.add_date_deadline2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline2.xml)
 
 ### add date deadline  
 Report: mrp_production_form_view  
@@ -1084,6 +1157,12 @@ Report: view_blanket_order_form
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.filter_customer_is_company`  
 Link: [snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml)
 
+## Sale Management
+### hide optional products  
+Report: sale_order_form_quote  
+ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`  
+Link: [snippets/sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_management.sale_order_form_quote.hide_optional_products.xml)
+
 ## Sale Order Picking Note
 ### move note fields  
 Report: view_order_form_inherit_sale_stock  
@@ -1297,6 +1376,16 @@ Report: sale_order_portal_content
 ID: `mint_system.sale.sale_order_portal_content.remove_calculation`  
 Link: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_portal_content.remove_calculation.xml)
 
+### add filter cancel or sent  
+Report: sale_order_view_search_inherit_quotation  
+ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent`  
+Link: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent.xml)
+
+### replace filter sales  
+Report: sale_order_view_search_inherit_quotation  
+ID: `mint_system.sale.sale_order_view_search_inherit_quotation.replace_filter_sales`  
+Link: [snippets/sale.sale_order_view_search_inherit_quotation.replace_filter_sales.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.replace_filter_sales.xml)
+
 ### filter customer is company  
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
@@ -1351,6 +1440,26 @@ Link: [snippets/sale.view_order_tree.add_carrier.xml](https://github.com/Mint-Sy
 Report: view_order_tree  
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
 Link: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
+### add client order ref  
+Report: view_quotation_tree  
+ID: `mint_system.sale.view_quotation_tree.add_client_order_ref`  
+Link: [snippets/sale.view_quotation_tree.add_client_order_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_quotation_tree.add_client_order_ref.xml)
+
+### add comment  
+Report: view_quotation_tree  
+ID: `mint_system.sale.view_quotation_tree.add_comment`  
+Link: [snippets/sale.view_quotation_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_quotation_tree.add_comment.xml)
+
+### replace create date  
+Report: view_quotation_tree  
+ID: `mint_system.sale.view_quotation_tree.replace_create_date`  
+Link: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_quotation_tree.replace_create_date.xml)
+
+### add state  
+Report: view_sales_order_filter  
+ID: `mint_system.sale.view_sales_order_filter.add_state`  
+Link: [snippets/sale.view_sales_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_filter.add_state.xml)
 
 ## Stock Delivery Note
 ### move delivery note  
@@ -1738,6 +1847,11 @@ Link: [snippets/stock.view_move_tree.show_create_details.xml](https://github.com
 Report: view_move_tree  
 ID: `mint_system.stock.view_move_tree.show_optional`  
 Link: [snippets/stock.view_move_tree.show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_optional.xml)
+
+### sort date  
+Report: view_move_tree  
+ID: `mint_system.stock.view_move_tree.sort_date`  
+Link: [snippets/stock.view_move_tree.sort_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.sort_date.xml)
 
 ### x operation qty  
 Report: view_move_tree  

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="crm.crm_lead_view_form" priority="50">
+
+  <button name="action_set_won_rainbowman" position="replace">
+  </button>
+  <button name="action_set_lost" position="replace">
+  </button>
+  <button name="625" position="replace">
+  </button>
+
+</data>

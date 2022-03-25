@@ -1,7 +1,8 @@
 <?xml version="1.0"?>
-<data inherit_id="mrp.mrp_production_form_view">
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
 
- <field name="date_move" position="before">
+  <field name="date_move" position="before">
     <field name="date_deadline" attrs="{'readonly': 0}"/>
   </field>
+
 </data>

@@ -494,10 +494,10 @@ function lint-snippets() {
             fi
         fi
 
-        # Check if inherit id matches the filename
+        # Check if priority is set
         if [ -z "$PRIORITY" ] && [ -n "$INHERIT_ID" ]; then
             echo "Linting failed for $FILE"
-            echo "Filename: $SNIPPET_MODULE.$REPORT"
+            echo "No priority is set."
             exit 1
         fi
     done
