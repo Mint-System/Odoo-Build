@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_view_search_inherit_quotation" priority="50">
+
+  <xpath expr="//filter[@name='my_quotation']" position="after">
+    <filter string="Meine Angebote im Status Angebot oder Gesendet" name="state_draft_or_sent" domain="['&amp;',('user_id', '=', uid),('state','in',('draft', 'sent'))]"/>
+  </xpath>
+
+</data>
