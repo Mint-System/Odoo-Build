@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_date_stop" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Date Stop</field>
+    <field name="model">crm.lead</field>
+    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="name">x_date_stop</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field>
+    <field name="depends">x_date_start</field>
+    <field name="compute">for record in self:
+  record['x_date_stop'] = (record.x_date_start + datetime.timedelta(minutes=30))
+    </field>
+  </record>
+
+</odoo>
