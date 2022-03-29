@@ -2,7 +2,7 @@
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
-    <t t-set="lines" t-value="lines.filtered(lambda l: l.qty_done > 0)"/>
+    <t t-set="lines" t-value="lines.filtered(lambda l: l.quantity_done > 0)"/>
   </xpath>
 
   <xpath expr="//t[@name='no_package_move_lines']" position="before">
