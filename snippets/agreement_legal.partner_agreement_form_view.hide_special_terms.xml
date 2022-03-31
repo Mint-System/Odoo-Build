@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+
+    <page name="structure" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </page>
+
+    <page name="products" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </page>
+
+    <page name="child_agreements" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </page>
+
+    <page name="performance" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </page>
+
+</data>
