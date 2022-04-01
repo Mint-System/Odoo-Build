@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="/search" position="replace">
+    <search>
+      
+      <!-- Filter -->
+      <filter name="my_orders" string="Meine Aufträge" domain="[('user_id', '=', uid)]"/>
+      <filter string="In Arbeit" name="in_progress" domain="[('state', 'in', ('draft','sent', 'open', 'expired'))]"/>
+      <separator/>
+      <filter string="Entwurf" name="filter_state_draft" domain="[('state', '=', 'draft')]"/>
+      <filter string="Gesendet" name="filter_state_sent" domain="[('state', '=', 'sent')]"/>
+      <filter string="Offen" name="filter_state_open" domain="[('state', '=', 'open')]"/>
+      <filter string="Erledigt" name="filter_state_erledigt" domain="[('state', '=', 'done')]"/>
+      <filter string="Abgelaufen" name="filter_state_expired" domain="[('state', '=', 'expired')]"/>
+      <filter string="Abgebrochen" name="filter_state_cancel" domain="[('state', '=', 'cancel')]"/>
+      <separator/>
+      <filter string="Auftragsdatum" name="filter_date_confirmed" date="date_confirmed"/>
+      
+      <!-- Gruppierung -->
+      <filter string="Verkäufer" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+      <filter string="Kunde" name="partner_id" domain="[]" context="{'group_by': 'partner_id'}"/>
+      <filter string="Auftragsdatum" name="date_confirmed" domain="[]" context="{'group_by': 'date_confirmed'}"/>
+      <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+
+      <!-- Suche -->
+      <group>
+        <field name="name" string="Auftrag"/>
+        <field name="partner_id"/>
+        <field name="user_id"/>
+        <field name="team_id"/>
+        <field name="product_id"/>
+        <field name="analytic_account_id" string="Kostenstelle"/>
+      </group>
+      
+    </search>
+  </xpath>
+  
+</data>
