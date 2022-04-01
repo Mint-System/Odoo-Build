@@ -11,6 +11,7 @@
 | drop-db                     | [db]             | Drop target Odoo database. Default is odoo.                       |
 | git-list-submodules         |                  | List path and url of submodules.                                  |
 | git-pull-submodules         |                  | Pull alls submodules.                                             |
+| git-feature-branch          | [path]           | Create feature branch for Odoo module.                            |
 | init-db                     | [db]             | Initialize the Odoo database. Default is odoo                     |
 | init-next-env               | [env]            | Create env file for Nextcloud instance.                           |
 | init-odoo-env               | [env]            | Create env file for Odoo Instance.                                |

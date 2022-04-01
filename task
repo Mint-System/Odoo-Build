@@ -254,9 +254,12 @@ function remove-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    MODULE_NAME=$(basename $2)
+
     locale
     activate-venv
-    echo "self.env['ir.module.module'].search([('name', '=', '$2')]).button_immediate_uninstall()" |
+    echo "Remove module $MODULE_NAME"
+    echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
     odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
 
@@ -618,6 +621,18 @@ function git-list-submodules() {
     git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
+function git-feature-branch(){
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $1)
+    MODULE_PATH=$(dirname $1)
+
+    echo "Create feature branch for $MODULE_NAME in $MODULE_PATH ..."
+    cd ./$MODULE_PATH
+    pwd
+    git switch -c "feature-$MODULE_NAME"
+}
+
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$1 is empty"; exit; fi
@@ -784,6 +799,9 @@ case "$1" in
         ;;
     git-list-submodules)
         git-list-submodules
+        ;;
+    git-feature-branch)
+        git-feature-branch $2
         ;;
     update-snippet)
         update-snippet $2 $3
