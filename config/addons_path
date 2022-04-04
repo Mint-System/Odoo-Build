@@ -20,6 +20,7 @@ addons/website
 enterprise
 oca/account-invoicing
 oca/bank-statement-import
+oca/business-requirement
 oca/contract
 oca/dms
 oca/hr-attendance

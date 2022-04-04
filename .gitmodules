@@ -206,3 +206,7 @@
 	path = addons/odoo_apps_partner
 	url = git@gitlab.com:mint-system/odoo-apps-partner.git
 	branch = 14.0
+[submodule "oca/business-requirement"]
+	path = oca/business-requirement
+	url = git@github.com:OCA/business-requirement.git
+	branch = 14.0
