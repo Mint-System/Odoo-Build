@@ -5,7 +5,7 @@
     """,
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
-    "category": "Technical,Accounting,Invoicing,Sales,Human Resources,Manufacturing,Website,InventoryAdministration",  # See ir_module_category_data.xml
+    "category": "Technical,Accounting,Invoicing,Sales,Human Resources,Manufacturing,Website,InventoryAdministration",
     "version": "14.0.0.0.0",
     "license": "AGPL-3",
     "depends": ["base"],
