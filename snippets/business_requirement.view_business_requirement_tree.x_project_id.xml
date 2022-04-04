@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="business_requirement.view_business_requirement_tree" priority="50">
+  
+	<field name="category_ids" position="before">
+	   <field name="x_project_id" />
+  </field>
+
+</data>
