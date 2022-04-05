@@ -94,6 +94,8 @@ function install-native() {
     pip install graphene graphql-server-core
     echo "Install openupgrade functions"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
+    echo "Install addon dependencies"
+    pip install prometheus_client
 }
 
 function start() {

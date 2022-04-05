@@ -36,6 +36,7 @@ oca/rest-framework
 oca/sale-workflow
 oca/server-auth
 oca/server-backend
+oca/server-env
 oca/server-tools
 oca/server-ux
 oca/social
