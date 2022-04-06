@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_project_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Project</field>
+    <field name="model">business.requirement</field>
+    <field name="model_id" ref="business_requirement.model_business_requirement"/>
+    <field name="name">x_project_id</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">project.project</field>
+  </record>
+
+</odoo>

@@ -25,7 +25,7 @@
 
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
                             <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
-                            <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('quantity_done')) + count_boxes * 1.76"/>
+                            <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
                             <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
 
@@ -45,7 +45,7 @@
                                 <span t-esc="count_boxes"/>
                             </td>
                             <td class="text-right">
-                                <span t-esc="boxes_weight"/>
+                                <span t-esc="round(boxes_weight,2)"/>
                                 <span> kg</span>
                             </td>
                         </tr>
