@@ -22,3 +22,11 @@
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 15.0
+[submodule "oca/web"]
+	path = oca/web
+	url = https://github.com/OCA/web.git
+	branch = 14.0
+[submodule "oca/partner-contact"]
+	path = oca/partner-contact
+	url = git@github.com:OCA/partner-contact.git
+	branch = 15.0
