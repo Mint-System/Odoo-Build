@@ -94,13 +94,13 @@
   </xpath>
 
   <!-- price -->
-  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[6]/span" position="replace">
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[7]/span" position="replace">
     <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '%.2f' % line.price_unit"/>
   </xpath>
 
   <!-- remove taxes -->
-  <xpath expr="//thead/tr[1]/th[8]" position="replace"/>
-  <xpath expr="//tbody/t[2]/tr[1]/t[1]/td[8]" position="replace"/>
+  <xpath expr="//thead/tr[1]/th[9]" position="replace"/>
+  <xpath expr="//tbody/t[2]/tr[1]/t[1]/td[9]" position="replace"/>
 
   <!-- margin -->
   <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[8]/span" position="replace">
@@ -108,8 +108,8 @@
   </xpath>
 
   <!-- total price -->
-  <xpath expr="//table[@class='table table-borderless table-sm']/tbody[1]/t[2]/tr[1]/t[1]/td[8]/span" position="replace">
-    <span t-esc="'%g' % line.price_subtotal if str(line.price_subtotal)[::-1].find('.') >= 3 else '%.2f' % line.price_subtotal"/>
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody[1]/t[2]/tr[1]/t[1]/td[9]/span" position="replace">
+    <span t-esc="'{0:,.2f}'.format(int(line.price_subtotal)).replace(',','\'')"/>
   </xpath>
 
   <xpath expr="//table[@class='table table-borderless table-sm']" position="after">

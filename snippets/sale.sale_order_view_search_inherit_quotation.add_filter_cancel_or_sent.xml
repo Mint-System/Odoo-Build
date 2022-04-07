@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<data inherit_id="sale.sale_order_view_search_inherit_quotation" priority="50">
-
-  <xpath expr="//filter[@name='sales']" position="after">
-    <filter string="Abgebrochen oder Gesendet" name="state_cancel_or_sent" domain="[('state','in',('cancel', 'sent'))]"/>
-  </xpath>
-
-</data>
