@@ -16,7 +16,7 @@
     <!-- <field name="depends">x_project_id</field>
     <field name="compute">for record in self:
   record['x_task_id'] = self.env['project.task'].search([('x_business_requirement_id', '=', record.id)], limit=1) -->
-    </field>
+    <!-- </field> -->
   </record>
 
 </odoo>
