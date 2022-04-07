@@ -24,9 +24,22 @@
             font-size: 9mm;
             margin: 0 3mm 0 3mm;
             text-align: center;
+            height: 23mm;
+            line-height: 10mm;
+            display: table;
+            width: 98%;
+            line-height: 10mm;
+        }
+        .sub1 {
+            display: table-cell ;
+            vertical-align: middle;
+            text-align: center;
+        }
+        .sub2 {
+            display: table-cell ;
+            vertical-align: middle;
+            text-align: center;
             border-bottom: solid 1px;
-            height: 46mm;
-            line-height: 20mm;
         }
         .delivery {
             font-size: 7mm;
@@ -34,7 +47,7 @@
             text-align: left;
             border-bottom: solid 1px;
             line-height: 1;
-            height: 36mm;
+            height: 34mm;
         }
         .comment {
             font-size: 5mm;
@@ -58,27 +71,29 @@
               </div>
             </div>
             <div class="description">
-              <span t-esc="product.name"/>
-              <br/>
-              <span t-esc="product.type_description"/>
+                <span class="sub1" t-esc="product.name"/>
+            </div>
+             <div class="description">
+                <span class="sub2" t-esc="product.type_description"/>
             </div>
             <div class="row delivery">
               <div class="col-12 box text-center">
-                <div t-if="product.feeder_id">
-                  <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
-                  <br/>
-                </div>
-                <div class="text-center">
-                  <span class="text-center" t-esc="product.feeder_id"></span>
-                </div>
+                  <div t-if="product.feeder_id">
+                      <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
+                      <br/>
+                  </div>
+                  <div class="text-center">
+                      <span class="text-center" t-esc="product.feeder_id"></span>
+                  </div>
               </div>
             </div>
             <div class="comment">
               <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
             </div>
           </div>
-        </div>
+          </div>
+        </t>
       </t>
-    </t>
+    
   </t>
 </t>
