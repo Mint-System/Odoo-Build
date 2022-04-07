@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[2]/tbody/tr/td[2]" position="replace">
+    <td>
+      <strong><span t-field="move.product_id.type_description"/></strong><br></br>
+      <span t-field="move.product_id.name"/><br></br>
+      <t t-if="move.product_id.country_of_origin_id.code">Ursprungsland: <span t-field="move.product_id.country_of_origin_id.code"/></t>
+      <t t-if="move.product_id.hs_code"> / Zollposition: <span t-field="move.product_id.hs_code"/></t>
+      </td>
+  </xpath>
+  
+</data>
