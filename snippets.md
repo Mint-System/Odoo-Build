@@ -45,6 +45,16 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.font_size`  
 Link: [snippets/account.report_invoice_document.font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.font_size.xml)
 
+### format address blocks  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.format_address_blocks`  
+Link: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
+
+### format title  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.format_title`  
+Link: [snippets/account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_title.xml)
+
 ### get position  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.get_position`  
@@ -75,6 +85,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
 Link: [snippets/account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_title.xml)
 
+### modify main table  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.modify_main_table`  
+Link: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
+
 ### product hs code and origin  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`  
@@ -100,6 +115,11 @@ Report: report_invoice_document
 ID: `mint_system.account.report_invoice_document.remove_payment_term`  
 Link: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_term.xml)
 
+### remove summary table  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.remove_summary_table`  
+Link: [snippets/account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_summary_table.xml)
+
 ### remove taxes  
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
@@ -114,6 +134,11 @@ Link: [snippets/account.report_invoice_document.replace_information_table2.xml](
 Report: report_invoice_document  
 ID: `mint_system.account.report_invoice_document.replace_information_table`  
 Link: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
+
+### replace info table  
+Report: report_invoice_document  
+ID: `mint_system.account.report_invoice_document.replace_info_table`  
+Link: [snippets/account.report_invoice_document.replace_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_info_table.xml)
 
 ### round quantity  
 Report: report_invoice_document  
@@ -247,6 +272,11 @@ Report: view_partner_tree
 ID: `mint_system.base.view_partner_tree.optional_zip`  
 Link: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
 
+### show type  
+Report: view_partner_tree  
+ID: `mint_system.base.view_partner_tree.show_type`  
+Link: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.show_type.xml)
+
 ### add zip  
 Report: view_res_bank_tree  
 ID: `mint_system.base.view_res_bank_tree.add_zip`  
@@ -278,6 +308,26 @@ ID: `mint_system.base.view_translation_tree.show_comments`
 Link: [snippets/base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_translation_tree.show_comments.xml)
 
 ## Business Requirement
+### clickable state  
+Report: view_business_requirement_form  
+ID: `mint_system.business_requirement.view_business_requirement_form.clickable_state`  
+Link: [snippets/business_requirement.view_business_requirement_form.clickable_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.clickable_state.xml)
+
+### hide scenario  
+Report: view_business_requirement_form  
+ID: `mint_system.business_requirement.view_business_requirement_form.hide_scenario`  
+Link: [snippets/business_requirement.view_business_requirement_form.hide_scenario.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.hide_scenario.xml)
+
+### hide terms and conditions  
+Report: view_business_requirement_form  
+ID: `mint_system.business_requirement.view_business_requirement_form.hide_terms_and_conditions`  
+Link: [snippets/business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.hide_terms_and_conditions.xml)
+
+### hide test case  
+Report: view_business_requirement_form  
+ID: `mint_system.business_requirement.view_business_requirement_form.hide_test_case`  
+Link: [snippets/business_requirement.view_business_requirement_form.hide_test_case.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.hide_test_case.xml)
+
 ### x planned hours x estimated cost  
 Report: view_business_requirement_form  
 ID: `mint_system.business_requirement.view_business_requirement_form.x_planned_hours_x_estimated_cost`  
@@ -292,6 +342,11 @@ Link: [snippets/business_requirement.view_business_requirement_form.x_project_id
 Report: view_business_requirement_form  
 ID: `mint_system.business_requirement.view_business_requirement_form.x_task_id`  
 Link: [snippets/business_requirement.view_business_requirement_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.x_task_id.xml)
+
+### hide category ids  
+Report: view_business_requirement_tree  
+ID: `mint_system.business_requirement.view_business_requirement_tree.hide_category_ids`  
+Link: [snippets/business_requirement.view_business_requirement_tree.hide_category_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_tree.hide_category_ids.xml)
 
 ### x project id  
 Report: view_business_requirement_tree  
@@ -762,6 +817,11 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 Link: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
 ## Mrp
+### trimada  
+Report: label_production_view_pdf  
+ID: `mint_system.mrp.label_production_view_pdf.trimada`  
+Link: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
+
 ### add note  
 Report: mrp_bom_form_view  
 ID: `mint_system.mrp.mrp_bom_form_view.add_note`  
@@ -841,11 +901,6 @@ Link: [snippets/mrp.report_mrporder.remove_responsible.xml](https://github.com/M
 Report: report_mrporder  
 ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`  
 Link: [snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml)
-
-### replace title  
-Report: report_mrporder  
-ID: `mint_system.mrp.report_mrporder.replace_title`  
-Link: [snippets/mrp.report_mrporder.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title.xml)
 
 ### show expected  
 Report: report_mrporder  
@@ -1001,6 +1056,16 @@ ID: `mint_system.project.view_task_tree2.sale_line_optional`
 Link: [snippets/project.view_task_tree2.sale_line_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_tree2.sale_line_optional.xml)
 
 ## Purchase
+### remove buttons  
+Report: mail_notification_confirm  
+ID: `mint_system.purchase.mail_notification_confirm.remove_buttons`  
+Link: [snippets/purchase.mail_notification_confirm.remove_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.remove_buttons.xml)
+
+### add x comment  
+Report: purchase_order_form  
+ID: `mint_system.purchase.purchase_order_form.add_x_comment`  
+Link: [snippets/purchase.purchase_order_form.add_x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.add_x_comment.xml)
+
 ### date planned readonly  
 Report: purchase_order_form  
 ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`  
@@ -1020,6 +1085,11 @@ Link: [snippets/purchase.purchase_order_form.format_dates.xml](https://github.co
 Report: purchase_order_kpis_tree  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`  
 Link: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
+
+### add x comment  
+Report: purchase_order_kpis_tree  
+ID: `mint_system.purchase.purchase_order_kpis_tree.add_x_comment`  
+Link: [snippets/purchase.purchase_order_kpis_tree.add_x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_x_comment.xml)
 
 ### reset view  
 Report: purchase_order_line_tree  
@@ -1225,6 +1295,11 @@ Link: [snippets/purchase.report_purchasequotation_document.header_margin.xml](ht
 Report: report_purchasequotation_document  
 ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`  
 Link: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
+
+### remove date planned  
+Report: report_purchasequotation_document  
+ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`  
+Link: [snippets/purchase.report_purchasequotation_document.remove_date_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.remove_date_planned.xml)
 
 ### remove incoterms  
 Report: report_purchasequotation_document  
@@ -1303,6 +1378,16 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedu
 Link: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
 
 ## Purchase
+### remove buttons  
+Report: mail_notification_confirm  
+ID: `mint_system.purchase.mail_notification_confirm.remove_buttons`  
+Link: [snippets/purchase.mail_notification_confirm.remove_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.remove_buttons.xml)
+
+### add x comment  
+Report: purchase_order_form  
+ID: `mint_system.purchase.purchase_order_form.add_x_comment`  
+Link: [snippets/purchase.purchase_order_form.add_x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.add_x_comment.xml)
+
 ### date planned readonly  
 Report: purchase_order_form  
 ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`  
@@ -1322,6 +1407,11 @@ Link: [snippets/purchase.purchase_order_form.format_dates.xml](https://github.co
 Report: purchase_order_kpis_tree  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`  
 Link: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
+
+### add x comment  
+Report: purchase_order_kpis_tree  
+ID: `mint_system.purchase.purchase_order_kpis_tree.add_x_comment`  
+Link: [snippets/purchase.purchase_order_kpis_tree.add_x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_x_comment.xml)
 
 ### reset view  
 Report: purchase_order_line_tree  
@@ -1528,6 +1618,11 @@ Report: report_purchasequotation_document
 ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`  
 Link: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
 
+### remove date planned  
+Report: report_purchasequotation_document  
+ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`  
+Link: [snippets/purchase.report_purchasequotation_document.remove_date_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.remove_date_planned.xml)
+
 ### remove incoterms  
 Report: report_purchasequotation_document  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`  
@@ -1575,11 +1670,6 @@ ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`
 Link: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
 
 ## Sale Blanket Order
-### filter customer is company  
-Report: view_blanket_order_form  
-ID: `mint_system.sale_blanket_order.view_blanket_order_form.filter_customer_is_company`  
-Link: [snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.filter_customer_is_company.xml)
-
 ### replace filter  
 Report: view_blanket_order_search  
 ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`  
@@ -1595,6 +1685,18 @@ Link: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https
 Report: sale_order_form_quote  
 ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`  
 Link: [snippets/sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_management.sale_order_form_quote.hide_optional_products.xml)
+
+## Sale Order Contact Person
+### modify readonly partner contact id  
+Report: view_sale_order_form_contact_person  
+ID: `mint_system.sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id`  
+Link: [snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml)
+
+## Sale Order Line Date
+### hide in state draft  
+Report: report_saleorder_document  
+ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`  
+Link: [snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
 
 ## Sale Order Picking Note
 ### move note fields  
@@ -1729,6 +1831,11 @@ Report: report_saleorder_document
 ID: `mint_system.sale.report_saleorder_document.format_as_date`  
 Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_as_date.xml)
 
+### format note  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.format_note`  
+Link: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_note.xml)
+
 ### format title  
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.format_title`  
@@ -1738,6 +1845,11 @@ Link: [snippets/sale.report_saleorder_document.format_title.xml](https://github.
 Report: report_saleorder_document  
 ID: `mint_system.sale.report_saleorder_document.get_position`  
 Link: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.get_position.xml)
+
+### modify information block  
+Report: report_saleorder_document  
+ID: `mint_system.sale.report_saleorder_document.modify_information_block`  
+Link: [snippets/sale.report_saleorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.modify_information_block.xml)
 
 ### modify main table  
 Report: report_saleorder_document  
@@ -1809,11 +1921,6 @@ Report: sale_order_portal_content
 ID: `mint_system.sale.sale_order_portal_content.remove_calculation`  
 Link: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_portal_content.remove_calculation.xml)
 
-### add filter cancel or sent  
-Report: sale_order_view_search_inherit_quotation  
-ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent`  
-Link: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel_or_sent.xml)
-
 ### add filter cancel  
 Report: sale_order_view_search_inherit_quotation  
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_cancel`  
@@ -1829,11 +1936,6 @@ Report: sale_order_view_search_inherit_quotation
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent`  
 Link: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml)
 
-### replace filter sales  
-Report: sale_order_view_search_inherit_quotation  
-ID: `mint_system.sale.sale_order_view_search_inherit_quotation.replace_filter_sales`  
-Link: [snippets/sale.sale_order_view_search_inherit_quotation.replace_filter_sales.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.replace_filter_sales.xml)
-
 ### add invoice status invoiced  
 Report: sale_order_view_search_inherit_sale  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced`  
@@ -1848,6 +1950,11 @@ Link: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_no.x
 Report: sale_order_view_search_inherit_sale  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no`  
 Link: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml)
+
+### button recompute add shipping  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.button_recompute_add_shipping`  
+Link: [snippets/sale.view_order_form.button_recompute_add_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.button_recompute_add_shipping.xml)
 
 ### filter customer is company  
 Report: view_order_form  
@@ -1868,6 +1975,11 @@ Link: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.co
 Report: view_order_form  
 ID: `mint_system.sale.view_order_form.hide_validity_date`  
 Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
+
+### modify readonly date order  
+Report: view_order_form  
+ID: `mint_system.sale.view_order_form.modify_readonly_date_order`  
+Link: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.modify_readonly_date_order.xml)
 
 ### no create edit  
 Report: view_order_form  
@@ -2241,11 +2353,6 @@ Report: stock_report_delivery_aggregated_move_lines
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`  
 Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
 
-### hs code origin and weight  
-Report: stock_report_delivery_aggregated_move_lines  
-ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight`  
-Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml)
-
 ### pos in table  
 Report: stock_report_delivery_aggregated_move_lines  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
@@ -2376,6 +2483,11 @@ Report: view_picking_form
 ID: `mint_system.stock.view_picking_form.show_scheduled_date_editable`  
 Link: [snippets/stock.view_picking_form.show_scheduled_date_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_scheduled_date_editable.xml)
 
+### show weight  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.show_weight`  
+Link: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_weight.xml)
+
 ### x count boxes  
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
@@ -2428,6 +2540,11 @@ Report: external_layout_standard
 ID: `mint_system.web.external_layout_standard.format_header_slogan`  
 Link: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.format_header_slogan.xml)
 
+### header styles  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.header_styles`  
+Link: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.header_styles.xml)
+
 ### increase logo size  
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
@@ -2462,6 +2579,11 @@ Link: [snippets/web.external_layout_standard.replace_header.xml](https://github.
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### header styles  
+Report: internal_layout  
+ID: `mint_system.web.internal_layout.header_styles`  
+Link: [snippets/web.internal_layout.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.header_styles.xml)
 
 ### replace header  
 Report: internal_layout  
@@ -2515,6 +2637,11 @@ Report: external_layout_standard
 ID: `mint_system.web.external_layout_standard.format_header_slogan`  
 Link: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.format_header_slogan.xml)
 
+### header styles  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.header_styles`  
+Link: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.header_styles.xml)
+
 ### increase logo size  
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
@@ -2549,6 +2676,11 @@ Link: [snippets/web.external_layout_standard.replace_header.xml](https://github.
 Report: external_layout_standard  
 ID: `mint_system.web.external_layout_standard.replace_url`  
 Link: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
+
+### header styles  
+Report: internal_layout  
+ID: `mint_system.web.internal_layout.header_styles`  
+Link: [snippets/web.internal_layout.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.header_styles.xml)
 
 ### replace header  
 Report: internal_layout  
