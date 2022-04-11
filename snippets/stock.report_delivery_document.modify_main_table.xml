@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+  
+  <!-- format main_table -->
+  <xpath expr="//table[@name='stock_move_table']" position="attributes">
+    <attribute name="style">font-size:9pt</attribute>
+    <attribute name="class">table table-borderless table-sm </attribute>
+  </xpath>
+  
+   <xpath expr="//table[@name='stock_move_line_table']" position="attributes">
+    <attribute name="style">font-size:9pt</attribute>
+    <attribute name="class">table table-borderless table-sm </attribute>
+  </xpath>
+  
+   <xpath expr="//table[@name='stock_backorder_table']" position="attributes">
+    <attribute name="style">font-size:9pt</attribute>
+    <attribute name="class">table table-borderless table-sm </attribute>
+  </xpath> 
+  
+  <!-- header -->
+  <xpath expr="//table[@name='stock_move_table']/thead" position="attributes">
+    <attribute name="style">color: black; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
+  </xpath>
+  
+  <xpath expr="//table[@name='stock_move_line_table']/thead" position="attributes">
+    <attribute name="style">color: black; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
+  </xpath>
+  
+   <xpath expr="//table[@name='stock_backorder_table']/thead" position="attributes">
+    <attribute name="style">color: black; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
+  </xpath>
+  
+  <!-- pos -->
+  <xpath expr="//t[@t-if='o.sale_id']/td" position="attributes">
+    <attribute name="style">text-align: right; width: 5mm</attribute>
+  </xpath>
+  <xpath expr="//t[@t-if='o.purchase_id']/td" position="attributes">
+    <attribute name="style">text-align: right; width: 5mm</attribute>
+  </xpath>
+
+  <!-- quantity -->
+   <xpath expr="//table[@name='stock_move_table']/thead/tr/th[2]" position="attributes">
+      <attribute name="class">text-right</attribute>
+  </xpath>
+   
+  <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[2]" position="attributes">
+      <attribute name="class">text-right</attribute>
+  </xpath>
+  
+  
+  <xpath t-if="o.state!='done'" expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="replace">
+    <td style="text-align: right; padding-right: 10px">
+        <span t-field="move.product_id.default_code"/>
+    </td>
+  </xpath>
+  
+  <xpath t-if="o.state!='done'" expr="//table[@name='stock_move_table']/tbody/tr/td[2]" position="after">
+    <td style="text-align: right; ">
+        <span style="text-align: right; font-weight: bold" t-field="move.product_uom_qty"/>
+        <span t-field="move.product_uom"/>
+    </td>
+  </xpath>
+  
+  <xpath expr="//t[@t-if='o.backorder_ids and backorders']/p" position="replace">
+      <div style="border-bottom: 1px solid; margin-bottom: 10mm; font-size: 9pt; padding-bottom: 5px">
+         <span>All items couldn't be shipped, the following items will be shipped as soon as they become available.</span>
+      </div >
+   </xpath> 
+  
+  <!-- add default_code -->
+  <xpath t-if="o.state!='done'" expr="//table[@name='stock_move_table']/thead/tr[1]/th[1]" position="before">
+    <th style="text-align: right; width: 27mm; padding-right: 10px">
+      <span >Artikel Nr.</span>
+    </th>
+  </xpath>
+  
+  <xpath t-if="o.state=='done'" expr="//table[@name='stock_move_line_table']/thead/tr[1]/th[1]" position="before">
+    <th style="text-align: right; width: 27mm; padding-right: 10px">
+      <span >Artikel Nr.</span>
+    </th>
+  </xpath>
+  
+   <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[2]" position="attributes">
+      <attribute name="class">text-right</attribute>
+  </xpath>
+  
+   <xpath expr="//span[@t-field='bo_line.product_uom_qty']" position="attributes">
+      <attribute name="style">font-weight: bold</attribute>
+      <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+
+  <xpath expr="//tbody/t/tr/td[2]" position="attributes">
+      <attribute name="class">text-right</attribute>
+  </xpath>
+  
+  
+  
+</data>
