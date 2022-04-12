@@ -340,7 +340,7 @@ function checkout() {
     echo "Switch branch"
     git switch $1
 
-    # echo "Init submodules"
+    echo "Init submodules"
     git submodule update --init
 
     echo "Checkout branch on submodules"
@@ -845,6 +845,7 @@ case "$1" in
         ;;
     git-pull-submodules)
         git-pull-submodules
+        ;;
     update-docs)
         update-docs
         ;;
