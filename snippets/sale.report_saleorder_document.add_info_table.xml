@@ -18,7 +18,7 @@
     </style>
     <table id='info'>
       <tr>
-        <td width="17%">Bestelldatum</td>
+        <td width="17%">Datum Angebot</td>
         <td width="44%">
           <span t-field='doc.date_order' t-options='{ "widget": "date" }'/>
         </td>
@@ -52,7 +52,7 @@
         </td>
         <td>Lieferkondition</td>
         <td>
-          <span t-field='doc.incoterm.code'/>
+          <span t-field='doc.incoterm'/>
         </td>
       </tr>
     </table>

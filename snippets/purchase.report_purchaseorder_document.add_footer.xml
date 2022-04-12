@@ -13,43 +13,8 @@
     </style>
     <table id='footer'>
       <tr>
-        <td width="40%" t-if="o.payment_term_id.note">Zahlungsbedingungen 
-          <span t-field="o.payment_term_id.note"/>
-        </td>
         <td width="60%">
-          Lieferung gemäss unseren allgemeinen Lieferbedingungen
-        </td>
-      </tr>
-      <tr>
-        <td >MWST-Nr: 
-           <span t-field="o.company_id.vat"/>
-        </td>
-        <td>
-          <table width="100%">
-          <tr>
-            <td width="35%">
-               Bankverbindungen:
-            </td>
-              <td width="65%">
-              UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
-             </td>
-          </tr> 
-          <tr> 
-             <td>
-            </td>
-            <td>
-            (CHF) IBAN CH63 0027 3273 Q978 6962 0
-            </td>
-          </tr>
-       
-          <tr>
-            <td>
-            </td>
-            <td>
-            (EUR) IBAN CH59 0027 3273 HN10 3698 0
-            </td>
-          </tr>
-          </table> 
+          Lieferung gemäss unseren allgemeinen Einkaufsbedingungen
         </td>
       </tr>
     </table>

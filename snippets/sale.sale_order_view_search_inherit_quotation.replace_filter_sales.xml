@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<data inherit_id="sale.sale_order_view_search_inherit_quotation" priority="50">
-
-  <xpath expr="//filter[@name='sales']" position="replace">
-     <filter string="Sales Orders" name="state_sale_done_or_cancel" domain="[('state','in',('sale','done','cancel'))]"/>
-  </xpath>
-
-</data>

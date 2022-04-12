@@ -3,7 +3,9 @@
 
   <xpath expr="//h2" position="before">
     <!-- Get all pickings without duplicates -->
-    <t t-set="pickings" t-value="[line.picking_ids[0] for line in o.invoice_line_ids if line.picking_ids]"/>
+    <t t-set="pickings" t-value="set([line.picking_ids[0] for line in o.invoice_line_ids if line.picking_ids])"/>
+    <!-- Filter pickings that are canclled  -->
+    <t t-set="pickings" t-value="[picking for picking in pickings if picking.state != 'cancel']"/>
     <!-- Store if has pickings -->
     <t t-set="has_pickings" t-value="len(pickings) > 0"/>
     <!-- Store if has multiple pickings -->
@@ -24,7 +26,7 @@
       <t t-set="null" t-value="pickings.append(False)"/>
     </t>
 
-    <!-- <p t-esc="pickings"/> -->
+     <!--<p t-esc="pickings"/> -->
     <!-- <p t-esc="has_pickings"/> -->
     <!-- <p t-esc="has_multiple_pickings"/> -->
     <!-- <p t-esc="has_lines_without_pickings"/> -->
