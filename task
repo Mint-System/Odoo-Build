@@ -340,24 +340,33 @@ function checkout() {
     echo "Switch branch"
     git switch $1
 
-    echo "Init submodules"
-    # This will initalize and clone the submodules
+    # echo "Init submodules"
     git submodule update --init
 
-    echo "Reset enterprise submodule"
-    cd enterprise
-    git reset --hard
-    cd ..
-
     echo "Checkout branch on submodules"
-    # This will ensure that submodules are in correct version
-    git submodule foreach git checkout $1
+    # git submodule foreach git checkout $1
+    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    for SUBMODULE in $SUBMODULES; do
+        CWD=$(pwd)
+        cd $SUBMODULE
+        git checkout $1
+        cd $CWD
+    done
 
     echo "Sync checkout files"
-    # Sync folders and files from last branch 
     git checkout $GIT_BRANCH config/checkout_files config/remove_files
     git rm -r $(tr '\n' ' ' < ./config/remove_files)
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
+}
+
+function git-pull-submodules() {
+    # Pull submodule if update config is not set
+    git submodule foreach '
+        update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
+        if [ -z $update ]; then
+            git pull
+        fi;
+    ' | tee git-pull-submodules.log
 }
 
 function release-module() {
@@ -835,14 +844,7 @@ case "$1" in
         patch-database $2 $3
         ;;
     git-pull-submodules)
-        # Pull submodule if update config is not set
-        git submodule foreach '
-            update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
-            if [ -z $update ]; then
-                git pull
-            fi;
-        ' | tee git-pull-submodules.log
-        ;;
+        git-pull-submodules
     update-docs)
         update-docs
         ;;
