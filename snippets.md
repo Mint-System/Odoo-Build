@@ -205,6 +205,11 @@ Report: view_move_line_tax_audit_tree
 ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`  
 Link: [snippets/account.view_move_line_tax_audit_tree.sum_currency.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tax_audit_tree.sum_currency.xml)
 
+### amount currency optional  
+Report: view_move_line_tree_grouped_general  
+ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`  
+Link: [snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
+
 ### show partner shipping  
 Report: view_out_invoice_tree  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
@@ -545,10 +550,20 @@ ID: `mint_system.hr.view_employee_tree.add_mobile_phone`
 Link: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.view_employee_tree.add_mobile_phone.xml)
 
 ## Hr Payroll
+### view pivot  
+Report: hr_payslip_line  
+ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`  
+Link: [snippets/hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_payslip_line.view_pivot.xml)
+
 ### switch account  
 Report: hr_salary_rule_form  
 ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`  
 Link: [snippets/hr_payroll.hr_salary_rule_form.switch_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_salary_rule_form.switch_account.xml)
+
+### show gio amount  
+Report: view_hr_payslip_form  
+ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`  
+Link: [snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml)
 
 ### slip show optional  
 Report: view_hr_payslip_line_tree  
@@ -2093,6 +2108,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
 Link: [snippets/stock.report_delivery_document.add_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_incoterms.xml)
 
+### add infotable  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.add_infotable`  
+Link: [snippets/stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.add_infotable.xml)
+
 ### append signature text  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
@@ -2118,10 +2138,20 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`  
 Link: [snippets/stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.filter_qty_done.xml)
 
+### format address blocks  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.format_address_blocks`  
+Link: [snippets/stock.report_delivery_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_address_blocks.xml)
+
 ### format date short  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.format_date_short`  
 Link: [snippets/stock.report_delivery_document.format_date_short.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_date_short.xml)
+
+### format title2  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.format_title2`  
+Link: [snippets/stock.report_delivery_document.format_title2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title2.xml)
 
 ### format title  
 Report: report_delivery_document  
@@ -2158,10 +2188,20 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.margin_before_title`  
 Link: [snippets/stock.report_delivery_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.margin_before_title.xml)
 
+### modify main table  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.modify_main_table`  
+Link: [snippets/stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.modify_main_table.xml)
+
 ### pos in table  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
 Link: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.pos_in_table.xml)
+
+### remove informations  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.remove_informations`  
+Link: [snippets/stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.remove_informations.xml)
 
 ### replace header  
 Report: report_delivery_document  
@@ -2177,6 +2217,16 @@ Link: [snippets/stock.report_delivery_document.replace_information_table.xml](ht
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
 Link: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_order_definition.xml)
+
+### replace product description2  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_product_description2`  
+Link: [snippets/stock.report_delivery_document.replace_product_description2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description2.xml)
+
+### replace product description  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_product_description`  
+Link: [snippets/stock.report_delivery_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description.xml)
 
 ### replace table  
 Report: report_delivery_document  
@@ -2217,6 +2267,11 @@ Link: [snippets/stock.report_delivery_document.sort_by_position.xml](https://git
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.switch_address_block`  
 Link: [snippets/stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.switch_address_block.xml)
+
+### title supplement  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.title_supplement`  
+Link: [snippets/stock.report_delivery_document.title_supplement.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.title_supplement.xml)
 
 ### x hide on delivery  
 Report: report_delivery_document  
@@ -2348,6 +2403,16 @@ Report: report_picking
 ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
 Link: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
 
+### add default code  
+Report: stock_report_delivery_aggregated_move_lines  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code`  
+Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
+
+### format table  
+Report: stock_report_delivery_aggregated_move_lines  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table`  
+Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
+
 ### get position  
 Report: stock_report_delivery_aggregated_move_lines  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`  
@@ -2357,6 +2422,11 @@ Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.x
 Report: stock_report_delivery_aggregated_move_lines  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
 Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
+
+### replace description  
+Report: stock_report_delivery_aggregated_move_lines  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description`  
+Link: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
 
 ### description sale  
 Report: stock_report_delivery_has_serial_move_line  

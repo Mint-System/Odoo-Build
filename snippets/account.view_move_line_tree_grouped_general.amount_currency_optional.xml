@@ -3,6 +3,6 @@
 
   <field name="amount_currency" position="attributes">
     <attribute name="optional">hide</attribute>
-  </xpath>
+  </field>
 
 </data>
