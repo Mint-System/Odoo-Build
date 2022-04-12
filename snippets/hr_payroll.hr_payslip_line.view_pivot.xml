@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<odoo>
+
+    <record model="ir.ui.view" id="hr_payroll.hr_payslip_line.view_pivot">
+        <field name="name">hr_payroll.hr_payslip_line.view_pivot</field>
+        <field name="model">hr.payslip.line</field>
+        <field name="arch" type="xml">
+            <pivot string="Lohnabrechnungszeilen" default_order="sequence">
+                <field name="total"  type="measure" string="Total"/>
+            </pivot>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_order_line_date.report_saleorder_document" priority="50">
+
+  <xpath expr="//table/thead//tr[1]//th[2]" position="replace">
+    <th t-if="doc.state not in ['draft']" class="text-left">Commitment Date</th>
+    <th t-else="" class="text-left"></th>
+  </xpath>
+  <xpath expr="//table/tbody[hasclass('sale_tbody')]//tr[1]//td[2]" position="replace">
+    <td t-if="doc.state not in ['draft']">
+      <span t-field="line.commitment_date" t-options="{'widget': 'date'}"/>
+    </td>
+    <td t-else="">
+      <span/>
+    </td>
+  </xpath>
+</data>
