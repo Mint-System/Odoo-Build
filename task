@@ -617,9 +617,19 @@ function update-config() {
     echo "Config updated."
 }
 
-function git-list-submodules() {
+function git-list-submodule() {
 
     git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+}
+
+function git-pull-submodules() {
+    # Pull submodule if update config is not set
+    git submodule foreach '
+        update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
+        if [ -z $update ]; then
+            git pull
+        fi;
+    ' | tee git-pull-submodules.log
 }
 
 function git-feature-branch(){
@@ -829,13 +839,7 @@ case "$1" in
         patch-database $2 $3
         ;;
     git-pull-submodules)
-        # Pull submodule if update config is not set
-        git submodule foreach '
-            update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
-            if [ -z $update ]; then
-                git pull
-            fi;
-        ' | tee git-pull-submodules.log
+        git-pull-submodules
         ;;
     update-docs)
         update-docs
