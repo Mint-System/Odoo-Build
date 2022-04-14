@@ -54,10 +54,6 @@
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 14.0
-[submodule "addons/eksb_layout"]
-	path = addons/eksb_layout
-	url = git@github.com:Mint-System/Odoo-App-EKSB-Layout.git
-	branch = 14.0
 [submodule "oca/server-backend"]
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend.git
