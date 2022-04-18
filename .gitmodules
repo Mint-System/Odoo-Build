@@ -31,3 +31,7 @@
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 	branch = 15.0
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 15.0

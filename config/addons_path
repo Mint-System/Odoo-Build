@@ -2,7 +2,8 @@ addons
 addons/manufacture
 addons/swiss_payroll
 enterprise
-oca/parnter-contact
+oca/partner-contact
 oca/stock-logistics-workflow
+oca/hr-holidays
 oca/web
 themes
