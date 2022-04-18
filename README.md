@@ -13,7 +13,8 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 * **Community Edition**: Checkout the Odoo Community Edition and start editing the source code
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md)
-* **Customizing Snippets**: See [snippets](./snippets.md) to find various Odoo view edits
+* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database
+* **Odoo Scripts**: Develope scripts to patch Odoo modules 
 
 ## Requirements
 
@@ -43,6 +44,7 @@ task checkout 14.0
 # or
 task checkout 15.0
 ```
+
 Install [Odoo scripts](https://github.com/Mint-System/Ansible-Playbooks/tree/master/roles/odoo-scripts)
 
 ```bash
@@ -81,12 +83,6 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 ```bash
 docker-odoo-install -m show_db_name
-```
-
-**Save config with Docker**
-
-```bash
-docker exec -it odoo bin/bash -c "odoo -s -d odoo --db_host \$HOST -r \$USER -w \$PASSWORD"
 ```
 
 ### Native
@@ -133,12 +129,12 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 Scaffold a new module.
 
 ```bash
-task create-module project_report
+task create-module addons/project_report
 ```
 
 ### Common
 
-Instructions that are true for Docker and Source usage paths.
+Instructions that are true for Docker and native usage paths.
 
 **Enable developer mode**
 

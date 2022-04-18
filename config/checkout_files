@@ -9,7 +9,6 @@ package.json
 package-lock.json
 .gitignore
 .vercelignore
-config/addons_path
 config/checkout_files
 logo.png
 docker-compose.yml
