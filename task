@@ -194,7 +194,8 @@ function lint-module() {
     pre-commit run --files ./*
     echo "Update index.html"
     rst2html5 README.rst static/description/index.html
-
+    echo "Stage changes"
+    git add .
 }
 
 function update-module() {
