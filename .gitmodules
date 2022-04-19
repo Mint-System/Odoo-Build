@@ -2,10 +2,6 @@
 	path = addons/theme_mint_system
 	url = git@github.com:Mint-System/Odoo-Theme-Mint-System.git
 	branch = 14.0
-[submodule "addons/stock_report"]
-	path = addons/stock_report
-	url = git@github.com:Mint-System/Odoo-App-Stock-Report.git
-	branch = 14.0
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git

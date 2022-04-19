@@ -349,7 +349,7 @@ function checkout() {
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
         cd $SUBMODULE
-        git checkout $1
+        git switch $1
         cd $CWD
     done
 
@@ -361,12 +361,19 @@ function checkout() {
 
 function git-pull-submodules() {
     # Pull submodule if update config is not set
-    git submodule foreach '
-        update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
-        if [ -z $update ]; then
-            git pull
-        fi;
-    ' | tee git-pull-submodules.log
+    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    for SUBMODULE in $SUBMODULES; do
+        CWD=$(pwd)
+        cd $SUBMODULE
+        git pull
+        cd $CWD
+    done
+    # git submodule foreach '
+    #     update=$(git config -f $toplevel/.gitmodules submodule.$name.update)
+    #     if [ -z $update ]; then
+    #         git pull
+    #     fi;
+    # ' | tee git-pull-submodules.log
 }
 
 function release-module() {
