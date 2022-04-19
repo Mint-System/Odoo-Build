@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_tree_view" priority="50">
+
+<xpath expr="//field[@name='list_price']" position="before">
+  <field name="x_xml_id" optional="show"/>
+  <field name="__last_update" optional="show"/>
+  <field name="create_date" optional="show"/>  
+</xpath>
+
+</data>

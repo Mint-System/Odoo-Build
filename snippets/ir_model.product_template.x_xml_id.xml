@@ -11,10 +11,9 @@
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
     <field name="depends">name</field>
-    <field name="compute">
-    res = self.get_external_id()
-      for record in self:
-      record['x_xml_id'] = res.get(record.id)
+    <field name="compute">res = self.get_external_id()
+for record in self:
+  record['x_xml_id'] = res.get(record.id)
     </field>
   </record>
 
