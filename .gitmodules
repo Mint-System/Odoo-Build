@@ -35,3 +35,15 @@
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
 	branch = 15.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 15.0
+[submodule "oca/connector"]
+	path = oca/connector
+	url = git@github.com:OCA/connector.git
+	branch = 15.0
+[submodule "addons/vertical_forestry"]
+	path = addons/vertical_forestry
+	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git
+	branch = 15.0
