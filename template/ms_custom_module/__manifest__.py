@@ -14,7 +14,7 @@
         # 'views/report_invoice_document.xml',
         # 'data/ir_sequence.xml',
         # 'views/assets.xml',
-        "views/views.xml",
+        "views/views.xml"
     ],
     "qweb": ["static/src/xml/board.xml"],
     "demo": ["demo/demo.xml"],

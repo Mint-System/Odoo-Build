@@ -98,6 +98,12 @@ function install-native() {
     pip install prometheus_client
 }
 
+function open-url-with-delay(){
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    sleep 2
+    xdg-open $1
+}
+
 function start() {
     if test -z "$1"; then
         echo "Open http://localhost:8069 url in your browser."
@@ -118,6 +124,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
+        open-url-with-delay 'http://localhost:8069' & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
 }
@@ -187,7 +194,8 @@ function lint-module() {
     pre-commit run --files ./*
     echo "Update index.html"
     rst2html5 README.rst static/description/index.html
-
+    echo "Stage changes"
+    git add .
 }
 
 function update-module() {
@@ -363,9 +371,12 @@ function git-pull-submodules() {
     # Pull submodule if update config is not set
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
+        UPDATE=$(git config submodule.$SUBMODULE.update)
         CWD=$(pwd)
         cd $SUBMODULE
-        git pull
+        if [ -z $UPDATE ]; then
+            git pull
+        fi;
         cd $CWD
     done
     # git submodule foreach '

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.mail_notification_confirm" priority="50">
+
+    <xpath expr="//t[1]/a/.." position="replace">
+        <t t-if="record._name == 'purchase.order' and record.env.context.get('is_reminder')">
+            <a t-att-href="record.get_confirm_url(confirm_type='reminder')" style="margin-right: 10px; background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                    We have no update
+            </a>
+            <div>&amp;nbsp;</div>
+            <br></br>
+            <a t-att-href="record.get_update_url()" style="margin-left: 10px; background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                    We have to set a new delivery date
+            </a>
+            <div>&amp;nbsp;</div>
+            <div style="margin: 0px; padding: 0px; font-size:13px; text-align: left;">
+                    If you have any questions, please do not hesitate to contact us.
+                <div>&amp;nbsp;</div>
+                    Best regards,
+            </div>
+        </t>
+    </xpath>
+
+</data>
