@@ -210,6 +210,11 @@ Report: view_move_line_tree_grouped_general
 ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`  
 Link: [snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
 
+### x account codes  
+Report: view_move_tree  
+ID: `mint_system.account.view_move_tree.x_account_codes`  
+Link: [snippets/account.view_move_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_tree.x_account_codes.xml)
+
 ### show partner shipping  
 Report: view_out_invoice_tree  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
@@ -458,6 +463,11 @@ Report: report_delivery_document2
 ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`  
 Link: [snippets/delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/delivery.report_delivery_document2.remove_hs_code.xml)
 
+### modify readonly carrier id  
+Report: view_picking_withcarrier_out_form  
+ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`  
+Link: [snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)
+
 ## Digest
 ### report  
 Report: digest_mail_main  
@@ -633,6 +643,11 @@ Report: account_move_line
 ID: `mint_system.ir_model.account_move_line.x_sale_order_id`  
 Link: [snippets/ir_model.account_move_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move_line.x_sale_order_id.xml)
 
+### x account codes  
+Report: account_move  
+ID: `mint_system.ir_model.account_move.x_account_codes`  
+Link: [snippets/ir_model.account_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_account_codes.xml)
+
 ### x studio description  
 Report: account_move  
 ID: `mint_system.ir_model.account_move.x_studio_description`  
@@ -678,6 +693,11 @@ Report: product_template
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
 Link: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_delivery.xml)
 
+### x xml id  
+Report: product_template  
+ID: `mint_system.ir_model.product_template.x_xml_id`  
+Link: [snippets/ir_model.product_template.x_xml_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_xml_id.xml)
+
 ### x business requirement id  
 Report: project_task  
 ID: `mint_system.ir_model.project_task.x_business_requirement_id`  
@@ -708,6 +728,11 @@ Report: purchase_order_line
 ID: `mint_system.ir_model.purchase_order_line.x_user_id`  
 Link: [snippets/ir_model.purchase_order_line.x_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order_line.x_user_id.xml)
 
+### x comment  
+Report: purchase_order  
+ID: `mint_system.ir_model.purchase_order.x_comment`  
+Link: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
+
 ### x stock move ids  
 Report: res_partner  
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`  
@@ -732,11 +757,6 @@ Link: [snippets/ir_model.sale_order_line.x_state.xml](https://github.com/Mint-Sy
 Report: sale_order  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  
 Link: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
-
-### x account codes  
-Report: stock_move  
-ID: `mint_system.ir_model.stock_move.x_account_codes`  
-Link: [snippets/ir_model.stock_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_account_codes.xml)
 
 ### x count boxes  
 Report: stock_move  
@@ -778,6 +798,12 @@ Link: [snippets/ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml](h
 Report: hr_holidays_calendar  
 ID: `mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline`  
 Link: [snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
+
+## L10n Ch
+### remove title prefix  
+Report: l10n_ch_swissqr_template  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`  
+Link: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)
 
 ## Mail Activity Board
 ### enable edit and create  
@@ -962,6 +988,22 @@ Report: workcenter_line_kanban
 ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`  
 Link: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
 
+## Mrp Workorder
+### modify readonly  
+Report: mrp_workorder_view_form_tablet  
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly`  
+Link: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml)
+
+### remove button action continue  
+Report: mrp_workorder_view_form_tablet  
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue`  
+Link: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml)
+
+### remove button do finish  
+Report: mrp_workorder_view_form_tablet  
+ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish`  
+Link: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml)
+
 ## Printnode Base
 ### remove domain widget  
 Report: printnode_scenario_domain_editor  
@@ -1019,6 +1061,11 @@ Report: product_template_tree_view
 ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_description`  
 Link: [snippets/product.product_template_tree_view.add_default_code_and_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_default_code_and_type_description.xml)
 
+### add last update create date and x xml id  
+Report: product_template_tree_view  
+ID: `mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id`  
+Link: [snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)
+
 ### remove default code and responsible  
 Report: product_template_tree_view  
 ID: `mint_system.product.product_template_tree_view.remove_default_code_and_responsible`  
@@ -1071,10 +1118,10 @@ ID: `mint_system.project.view_task_tree2.sale_line_optional`
 Link: [snippets/project.view_task_tree2.sale_line_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_tree2.sale_line_optional.xml)
 
 ## Purchase
-### remove buttons  
+### modify buttons  
 Report: mail_notification_confirm  
-ID: `mint_system.purchase.mail_notification_confirm.remove_buttons`  
-Link: [snippets/purchase.mail_notification_confirm.remove_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.remove_buttons.xml)
+ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`  
+Link: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
 ### add x comment  
 Report: purchase_order_form  
@@ -1393,10 +1440,10 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedu
 Link: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
 
 ## Purchase
-### remove buttons  
+### modify buttons  
 Report: mail_notification_confirm  
-ID: `mint_system.purchase.mail_notification_confirm.remove_buttons`  
-Link: [snippets/purchase.mail_notification_confirm.remove_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.remove_buttons.xml)
+ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`  
+Link: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
 ### add x comment  
 Report: purchase_order_form  
@@ -2208,6 +2255,11 @@ Report: report_delivery_document
 ID: `mint_system.stock.report_delivery_document.replace_header`  
 Link: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_header.xml)
 
+### replace information table2  
+Report: report_delivery_document  
+ID: `mint_system.stock.report_delivery_document.replace_information_table2`  
+Link: [snippets/stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_information_table2.xml)
+
 ### replace information table  
 Report: report_delivery_document  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
@@ -2528,6 +2580,21 @@ Report: view_move_tree
 ID: `mint_system.stock.view_move_tree.x_picking_partner`  
 Link: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.x_picking_partner.xml)
 
+### modify readonly date done  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`  
+Link: [snippets/stock.view_picking_form.modify_readonly_date_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_date_done.xml)
+
+### modify readonly partner id  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.modify_readonly_partner_id`  
+Link: [snippets/stock.view_picking_form.modify_readonly_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_partner_id.xml)
+
+### modify readonly user id  
+Report: view_picking_form  
+ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`  
+Link: [snippets/stock.view_picking_form.modify_readonly_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.modify_readonly_user_id.xml)
+
 ### scheduled date readonly  
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`  
@@ -2547,11 +2614,6 @@ Link: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-S
 Report: view_picking_form  
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
 Link: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_details_visible.xml)
-
-### show scheduled date editable  
-Report: view_picking_form  
-ID: `mint_system.stock.view_picking_form.show_scheduled_date_editable`  
-Link: [snippets/stock.view_picking_form.show_scheduled_date_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_scheduled_date_editable.xml)
 
 ### show weight  
 Report: view_picking_form  
@@ -2599,6 +2661,11 @@ Link: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-
 Report: external_layout_boxed  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
 Link: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_boxed.footer_company_registry.xml)
+
+### eksb layout  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.eksb_layout`  
+Link: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.eksb_layout.xml)
 
 ### footer company registry  
 Report: external_layout_standard  
@@ -2665,6 +2732,12 @@ Report: styles_company_report
 ID: `mint_system.web.styles_company_report.set_font`  
 Link: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.styles_company_report.set_font.xml)
 
+## Website Discount Voucher
+### barcode editable  
+Report: view_web_gift_coupan_form_view  
+ID: `mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable`  
+Link: [snippets/website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml)
+
 ## Website Sale
 ### overwrite required  
 Report: address  
@@ -2696,6 +2769,11 @@ Link: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-
 Report: external_layout_boxed  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
 Link: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_boxed.footer_company_registry.xml)
+
+### eksb layout  
+Report: external_layout_standard  
+ID: `mint_system.web.external_layout_standard.eksb_layout`  
+Link: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.eksb_layout.xml)
 
 ### footer company registry  
 Report: external_layout_standard  
