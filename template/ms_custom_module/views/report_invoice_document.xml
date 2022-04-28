@@ -1,7 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <odoo>
 
-  <record id="{{ name }}.report_invoice_document" model="ir.ui.view">
+  <record id="report_invoice_document" model="ir.ui.view">
+    <field name="name" ref="{{ name }}.report_invoice_document"/>
+    <field name="inherit_id" ref="account.report_invoice_document"/>
+    <field name="priority">50</field>
     <field name="active" eval="True"/>
     <field name="arch" type="xml">
       <data>
@@ -22,10 +25,6 @@
         </xpath>
       </data>
     </field>
-    <field name="inherit_id" ref="account.report_invoice_document"/>
-    <field name="mode">extension</field>
-    <field name="model" eval="False"/>
-    <field name="priority">99</field>
   </record>
 
 </odoo>

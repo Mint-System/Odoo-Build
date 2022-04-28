@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="account.view_invoice_tree" priority="50">
+<data inherit_id="account.view_move_tree" priority="50">
 
     <field name="ref" position="after">
         <field name="x_account_codes" optional="hide"/>
