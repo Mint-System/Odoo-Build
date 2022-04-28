@@ -10,10 +10,10 @@
     "license": "AGPL-3",
     "depends": ["base"],
     "data": [
-        # 'security/ir.model.access.csv',
-        # 'views/report_invoice_document.xml',
-        # 'data/ir_sequence.xml',
-        # 'views/assets.xml',
+        'security/ir.model.access.csv',
+        'views/report_invoice_document.xml',
+        'data/ir_sequence.xml',
+        'views/assets.xml',
         "views/views.xml"
     ],
     "qweb": ["static/src/xml/board.xml"],
