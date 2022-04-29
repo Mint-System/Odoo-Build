@@ -176,7 +176,7 @@ task start mail
 
 Open the mail client [http://localhost](http://localhost).
 
-**Confiugre mail server**
+**Configure mail server**
 
 Install the odoo mail server data package.
 
