@@ -11,6 +11,7 @@ module.exports = {
         editLinks: true,
         nav: [
             { text: 'Home', link: '/' },
+            { text: 'Help', link: '/task' },
             { text: 'Snippets', link: '/snippets' }
         ],
     },
