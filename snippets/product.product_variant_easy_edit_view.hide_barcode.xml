@@ -1,36 +1,8 @@
 <?xml version="1.0"?>
-<data inherit_id="product.product_template_form_view" priority="50">
+<data inherit_id="product.product_variant_easy_edit_view" priority="50">
 
-<xpath expr="//div[@class='oe_title']" position="replace">
-  <div class='oe_title'>
-  <table style="width:100%">
-  <tr>
-    <td style="width:60%">
-      <h1><field name="name" placeholder="Product Name"/></h1>
-    </td>
-    <td style="width:40%; text-valign: bottom">
-      <label for="default_code"/><field name="default_code"/>   
-    </td>
-  </tr>
-  
-  <tr>
-    <td>
-      <h2><field name="type_description"/></h2>
-      <h3><field name="type_description2"/></h3>
-    </td>
-    <td>
-      <div>
-      <field name="sale_ok"/>
-      <label for="sale_ok"/>
-      </div>
-    <div>
-      <field name="purchase_ok"/>
-      <label for="purchase_ok"/>
-    </div>
-    </td>    
-  </tr>
-  
-  </table>
-  </div>
-  </xpath>              
+  <xpath expr="//field[@name='barcode']" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </xpath>
+
 </data>
