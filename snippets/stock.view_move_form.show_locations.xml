@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <xpath expr="//field[@name='move_ids_without_package']//field[@name='product_id']" position="after">
+    <field name="location_id"/>
+    <field name="location_dest_id"/>
+  </xpath>
+
+</data>
