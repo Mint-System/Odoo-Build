@@ -666,6 +666,18 @@ function git-feature-branch(){
     git switch -c "feature-$MODULE_NAME"
 }
 
+function git-mig-branch(){
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+
+    MODULE_NAME=$(basename $1)
+    MODULE_PATH=$(dirname $1)
+
+    echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
+    cd ./$MODULE_PATH
+    pwd
+    git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
+}
+
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$1 is empty"; exit; fi
@@ -838,6 +850,9 @@ case "$1" in
         ;;
     git-feature-branch)
         git-feature-branch $2
+        ;;
+    git-mig-branch)
+        git-mig-branch $2
         ;;
     update-snippet)
         update-snippet $2 $3
