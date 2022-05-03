@@ -206,3 +206,7 @@
 	path = oca/server-env
 	url = git@github.com:OCA/server-env.git
 	branch = 14.0
+[submodule "oca/connector"]
+	path = oca/connector
+	url = git@github.com:OCA/connector.git
+	branch = 14.0
