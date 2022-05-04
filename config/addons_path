@@ -21,8 +21,10 @@ enterprise
 oca/account-invoicing
 oca/bank-statement-import
 oca/business-requirement
+oca/community-data-files
 oca/contract
 oca/dms
+oca/edi
 oca/hr-attendance
 oca/hr-holidays
 oca/knowledge

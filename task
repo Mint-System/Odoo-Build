@@ -98,6 +98,8 @@ function install-native() {
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
     echo "Install addon dependencies"
     pip install prometheus_client
+    echo "Install edi dependencies"
+    pip install pyzbar numpy pdf2image opencv-python
 }
 
 function open-url-with-delay(){

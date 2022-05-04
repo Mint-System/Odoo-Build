@@ -210,3 +210,11 @@
 	path = oca/connector
 	url = git@github.com:OCA/connector.git
 	branch = 14.0
+[submodule "oca/edi"]
+	path = oca/edi
+	url = git@github.com:OCA/edi.git
+	branch = 14.0
+[submodule "oca/community-data-files"]
+	path = oca/community-data-files
+	url = git@github.com:OCA/community-data-files.git
+	branch = 14.0
