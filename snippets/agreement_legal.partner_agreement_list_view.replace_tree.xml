@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="agreement_legal.partner_agreement_list_view" priority="50">
+
+    <tree position="replace">
+        <tree string="Agreements" default_order="code desc, name">
+            <field name="code"/>
+            <field name="name"/>
+            <field name="partner_id"/>
+            <field name="signed_contract" widget="binary" filename="name"/>
+            <field name="start_date"/>
+            <field name="agreement_type_id"/>
+            <field name="agreement_subtype_id"/>
+            <field name="stage_id"/>
+            <field name="active" invisible="1"/>
+        </tree>
+    </tree>
+
+</data>

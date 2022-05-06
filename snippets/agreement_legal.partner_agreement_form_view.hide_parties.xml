@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+
+    <field name="use_parties_content" position="attributes" >
+        <attribute name="invisible">1</attribute>
+    </field>
+
+    <xpath expr="//group[@name='cust_parties']/p" position="replace" />
+
+    <xpath expr="//group[@name='partner_left']" position="replace" />
+
+    <xpath expr="//group[@name='contact_right']" position="replace" />
+
+</data>

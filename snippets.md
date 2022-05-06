@@ -170,6 +170,11 @@ Report: report_invoice_document_with_payments
 ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank`  
 Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
+### add discount date  
+Report: view_in_invoice_tree  
+ID: `mint_system.account.view_in_invoice_tree.add_discount_date`  
+Link: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
+
 ### x account codes  
 Report: view_invoice_tree  
 ID: `mint_system.account.view_invoice_tree.x_account_codes`  
@@ -220,11 +225,37 @@ Report: view_out_invoice_tree
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
 Link: [snippets/account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_out_invoice_tree.show_partner_shipping.xml)
 
+## Agreement
+### hide domain  
+Report: agreement_type_form_view  
+ID: `mint_system.agreement.agreement_type_form_view.hide_domain`  
+Link: [snippets/agreement.agreement_type_form_view.hide_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement.agreement_type_form_view.hide_domain.xml)
+
 ## Agreement Legal
+### description optional  
+Report: partner_agreement_form_view  
+ID: `mint_system.agreement_legal.partner_agreement_form_view.description_optional`  
+Link: [snippets/agreement_legal.partner_agreement_form_view.description_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.description_optional.xml)
+
+### hide description  
+Report: partner_agreement_form_view  
+ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_description`  
+Link: [snippets/agreement_legal.partner_agreement_form_view.hide_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.hide_description.xml)
+
+### hide parties  
+Report: partner_agreement_form_view  
+ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_parties`  
+Link: [snippets/agreement_legal.partner_agreement_form_view.hide_parties.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.hide_parties.xml)
+
 ### hide special terms  
 Report: partner_agreement_form_view  
 ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms`  
 Link: [snippets/agreement_legal.partner_agreement_form_view.hide_special_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.hide_special_terms.xml)
+
+### replace tree  
+Report: partner_agreement_list_view  
+ID: `mint_system.agreement_legal.partner_agreement_list_view.replace_tree`  
+Link: [snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml)
 
 ## Base
 ### remove domain widget  
@@ -484,6 +515,12 @@ Link: [snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_per
 Report: hr_payroll_report_view  
 ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`  
 Link: [snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml)
+
+## Hr Attendance
+### enable edit  
+Report: view_attendance_tree  
+ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`  
+Link: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
 
 ## Hr Holidays Calendar
 ### view color  
@@ -1031,6 +1068,11 @@ Report: product_template_kanban_view
 ID: `mint_system.product.product_template_kanban_view.add_product_info`  
 Link: [snippets/product.product_template_kanban_view.add_product_info.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_kanban_view.add_product_info.xml)
 
+### hide barcode  
+Report: product_template_only_form_view  
+ID: `mint_system.product.product_template_only_form_view.hide_barcode`  
+Link: [snippets/product.product_template_only_form_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_barcode.xml)
+
 ### hide default code  
 Report: product_template_only_form_view  
 ID: `mint_system.product.product_template_only_form_view.hide_default_code`  
@@ -1075,6 +1117,11 @@ Link: [snippets/product.product_template_tree_view.remove_default_code_and_respo
 Report: product_template_tree_view  
 ID: `mint_system.product.product_template_tree_view.set_default_order`  
 Link: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.set_default_order.xml)
+
+### hide barcode  
+Report: product_variant_easy_edit_view  
+ID: `mint_system.product.product_variant_easy_edit_view.hide_barcode`  
+Link: [snippets/product.product_variant_easy_edit_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_variant_easy_edit_view.hide_barcode.xml)
 
 ### trimada  
 Report: report_producttemplatelabel  
@@ -2515,10 +2562,25 @@ Report: view_move_form
 ID: `mint_system.stock.view_move_form.enable_edit_and_create`  
 Link: [snippets/stock.view_move_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.enable_edit_and_create.xml)
 
+### show immediate transfer  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.show_immediate_transfer`  
+Link: [snippets/stock.view_move_form.show_immediate_transfer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_immediate_transfer.xml)
+
+### show locations  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.show_locations`  
+Link: [snippets/stock.view_move_form.show_locations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_locations.xml)
+
 ### show move lines  
 Report: view_move_form  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
 Link: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_move_lines.xml)
+
+### show partner  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.show_partner`  
+Link: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
 
 ### show quantity done  
 Report: view_move_form  
