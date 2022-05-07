@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
+
+<xpath expr="//field[@name='date_planned_start']" position="before">
+   <field name="x_reservation_state"/>
+</xpath>
+</data>
