@@ -10,7 +10,7 @@
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
-    <field name="ttype">char</field>
+    <field name="ttype">selection</field>
     <field name="related">production_id.reservation_state</field>
   </record>
 
