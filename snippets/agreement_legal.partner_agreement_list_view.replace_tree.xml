@@ -2,11 +2,12 @@
 <data inherit_id="agreement_legal.partner_agreement_list_view" priority="50">
 
     <tree position="replace">
-        <tree string="Agreements" default_order="code desc, name">
+        <tree string="Agreements" default_order="code desc, name" multi_edit="1">
             <field name="code"/>
-            <field name="name"/>
+            <field name="name" optional="hide" />
             <field name="partner_id"/>
-            <field name="signed_contract" widget="binary" filename="name"/>
+            <field name="description"/>
+            <field name="signed_contract" widget="binary" filename="name" optional="show"/>
             <field name="start_date"/>
             <field name="agreement_type_id"/>
             <field name="agreement_subtype_id"/>
