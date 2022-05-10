@@ -25,7 +25,6 @@
       width: 100%;
       margin-top: 30px;
       font-size: 14pt;
-      font-weight: bold;
       padding-left:10px;
     }
     </style>
@@ -68,10 +67,18 @@
     </table>
 
     <table id='note'>
-      <tr style="border-bottom: 1px solid rgb(220,220,220);">
-        <td>Notiz
-        </td>
-      </tr>
+      <thead>
+        <tr style="border-bottom: 1px solid rgb(220,220,220);">
+          <th>Notiz</th>
+        </tr>
+      </thead>
+      <body>
+          <tr style="vertical-align: top; font-size: 10pt;">
+            <td>
+               <span t-field="o.x_note"/>
+            </td>
+          </tr>
+      </body>      
     </table>
 
   </xpath>

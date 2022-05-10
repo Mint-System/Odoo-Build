@@ -6,7 +6,7 @@
     <field name="field_description">Notiz</field>
     <field name="model">mrp.bom</field>
     <field name="model_id" ref="mrp.model_mrp_bom"/>
-    <field name="name">x_reservation_state</field>
+    <field name="name">x_note</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="False"/>
