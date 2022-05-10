@@ -47,3 +47,7 @@
 	path = addons/vertical_forestry
 	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git
 	branch = 15.0
+[submodule "oca/project"]
+	path = oca/project
+	url = git@github.com:OCA/project.git
+	branch = 15.0

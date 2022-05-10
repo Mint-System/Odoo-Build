@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_reservation_state" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Materialverfügbarkeit</field>
+    <field name="model">mrp.workorder</field>
+    <field name="model_id" ref="mrp.model_mrp_workorder"/>
+    <field name="name">x_reservation_state</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">production_id.reservation_state</field>
+  </record>
+
+</odoo>
