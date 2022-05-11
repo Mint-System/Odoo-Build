@@ -361,6 +361,7 @@ function checkout() {
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
         cd $SUBMODULE
+        git stash
         git switch $1
         cd $CWD
     done
