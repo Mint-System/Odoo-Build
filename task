@@ -523,6 +523,15 @@ function lint-snippets() {
         MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
         XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
 
+        # Check filename 
+        COUNT_DOTS=$(echo $FILENAME | grep -o "\." | wc -l)
+        if [ $COUNT_DOTS -ge 4 ]; then
+            echo "Linting failed for $FILE"
+            echo "Dots count: $COUNT_DOTS"
+            echo "  Filename: $SNIPPET_MODULE.$REPORT"
+            exit 1
+        fi
+
         # Check if inherit id matches the filename
         if [ -n "$INHERIT_ID" ]; then
             if [[ "$INHERIT_ID" != "$SNIPPET_MODULE.$REPORT" ]]; then

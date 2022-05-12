@@ -725,6 +725,21 @@ Report: crm_lead
 ID: `mint_system.ir_model.crm_lead.x_mobile`  
 Link: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_mobile.xml)
 
+### x note  
+Report: mrp_bom  
+ID: `mint_system.ir_model.mrp_bom.x_note`  
+Link: [snippets/ir_model.mrp_bom.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_bom.x_note.xml)
+
+### x note  
+Report: mrp_production  
+ID: `mint_system.ir_model.mrp_production.x_note`  
+Link: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_note.xml)
+
+### x reservation state  
+Report: mrp_workorder  
+ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
+Link: [snippets/ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_reservation_state.xml)
+
 ### x hide on delivery  
 Report: product_template  
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
@@ -739,6 +754,11 @@ Link: [snippets/ir_model.product_template.x_xml_id.xml](https://github.com/Mint-
 Report: project_task  
 ID: `mint_system.ir_model.project_task.x_business_requirement_id`  
 Link: [snippets/ir_model.project_task.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_business_requirement_id.xml)
+
+### x vehicle id  
+Report: project_task  
+ID: `mint_system.ir_model.project_task.x_vehicle_id`  
+Link: [snippets/ir_model.project_task.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_vehicle_id.xml)
 
 ### x date approve  
 Report: purchase_order_line  
@@ -900,10 +920,10 @@ Report: label_production_view_pdf
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
 Link: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
-### add note  
+### x note  
 Report: mrp_bom_form_view  
-ID: `mint_system.mrp.mrp_bom_form_view.add_note`  
-Link: [snippets/mrp.mrp_bom_form_view.add_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_form_view.add_note.xml)
+ID: `mint_system.mrp.mrp_bom_form_view.x_note`  
+Link: [snippets/mrp.mrp_bom_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_bom_form_view.x_note.xml)
 
 ### reset view  
 Report: mrp_bom_tree_view  
@@ -920,6 +940,16 @@ Report: mrp_production_form_view
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
 Link: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### replace workorder tree view  
+Report: mrp_production_form_view  
+ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
+Link: [snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml)
+
+### x note  
+Report: mrp_production_form_view  
+ID: `mint_system.mrp.mrp_production_form_view.x_note`  
+Link: [snippets/mrp.mrp_production_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.x_note.xml)
+
 ### reset view  
 Report: mrp_production_tree_view  
 ID: `mint_system.mrp.mrp_production_tree_view.reset_view`  
@@ -929,6 +959,21 @@ Link: [snippets/mrp.mrp_production_tree_view.reset_view.xml](https://github.com/
 Report: mrp_production_workorder_tree_editable_view  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`  
 Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_product_id.xml)
+
+### add production id  
+Report: mrp_production_workorder_tree_editable_view  
+ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_production_id`  
+Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.add_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.add_production_id.xml)
+
+### x reservation state  
+Report: mrp_production_workorder_tree_editable_view  
+ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.x_reservation_state`  
+Link: [snippets/mrp.mrp_production_workorder_tree_editable_view.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_editable_view.x_reservation_state.xml)
+
+### hide production id  
+Report: mrp_production_workorder_tree_view  
+ID: `mint_system.mrp.mrp_production_workorder_tree_view.hide_production_id`  
+Link: [snippets/mrp.mrp_production_workorder_tree_view.hide_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_workorder_tree_view.hide_production_id.xml)
 
 ### add padding  
 Report: report_mrporder  
@@ -1024,6 +1069,11 @@ Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_i
 Report: workcenter_line_kanban  
 ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`  
 Link: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
+
+### default order date planned start  
+Report: workcenter_line_kanban  
+ID: `mint_system.mrp.workcenter_line_kanban.default_order_date_planned_start`  
+Link: [snippets/mrp.workcenter_line_kanban.default_order_date_planned_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.workcenter_line_kanban.default_order_date_planned_start.xml)
 
 ## Mrp Workorder
 ### modify readonly  
@@ -1158,6 +1208,11 @@ Link: [snippets/project.view_task_form2.timesheet_sort_date_desc.xml](https://gi
 Report: view_task_form2  
 ID: `mint_system.project.view_task_form2.x_business_requirement_id`  
 Link: [snippets/project.view_task_form2.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_business_requirement_id.xml)
+
+### x vehicle id  
+Report: view_task_form2  
+ID: `mint_system.project.view_task_form2.x_vehicle_id`  
+Link: [snippets/project.view_task_form2.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_vehicle_id.xml)
 
 ### sale line optional  
 Report: view_task_tree2  
@@ -2542,6 +2597,11 @@ Report: stock_report_delivery_has_serial_move_line
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery`  
 Link: [snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml)
 
+### sequence in table  
+Report: stock_report_delivery_kit_sections  
+ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`  
+Link: [snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
+
 ### add package info  
 Report: stock_report_delivery_package_section_line  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info`  
@@ -2581,6 +2641,11 @@ Link: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/Min
 Report: view_move_form  
 ID: `mint_system.stock.view_move_form.show_partner`  
 Link: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
+
+### show production  
+Report: view_move_form  
+ID: `mint_system.stock.view_move_form.show_production`  
+Link: [snippets/stock.view_move_form.show_production.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_production.xml)
 
 ### show quantity done  
 Report: view_move_form  
