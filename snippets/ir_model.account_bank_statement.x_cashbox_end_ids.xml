@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_cashbox_end_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kassenprüfung Endpositionen</field>
+    <field name="model">account.bank.statement</field>
+    <field name="model_id" ref="account.model_account_bank_statement"/>
+    <field name="name">x_cashbox_end_ids</field>
+    <field name="state">manual</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="related">cashbox_end_id.cashbox_lines_ids</field>
+    <field name="relation">account.cashbox.line</field>
+    <field name="relation_fields">cashbox_id</field>
+  </record>
+  
+</odoo>
