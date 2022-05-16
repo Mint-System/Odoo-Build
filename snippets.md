@@ -556,9 +556,9 @@ Link: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com/M
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`  
 Link: [snippets/ir_model.account_bank_statement.x_cashbox_end_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_bank_statement.x_cashbox_end_ids.xml)
 
-### Account Bank Statement: X ​Cashbox Start Ids  
-ID: `mint_system.ir_model.account_bank_statement.x_​cashbox_start_ids`  
-Link: [snippets/ir_model.account_bank_statement.x_​cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_bank_statement.x_​cashbox_start_ids.xml)
+### Account Bank Statement: X Cashbox Start Ids  
+ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`  
+Link: [snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml)
 
 ### Account Move Line: X Sale Order Id  
 ID: `mint_system.ir_model.account_move_line.x_sale_order_id`  
