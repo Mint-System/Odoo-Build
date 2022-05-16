@@ -723,14 +723,19 @@ function update-docs() {
         for FILE in $FILES; do
             FILENAME=$(basename $FILE)
             SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
-            REPORT=$(echo $FILENAME | cut -d. -f2)
+            XML_ID=$(echo $FILENAME | cut -d. -f2)
             EDIT=$(echo $FILENAME | cut -d. -f3)
+
+            EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
+            EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+
+            XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
+            XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
             # Group by modules
             if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
-                echo "### $(echo $EDIT | sed 's/_/ /g')  " >> snippets.md
-                echo "Report: $REPORT  " >> snippets.md
-                echo "ID: \`mint_system.$SNIPPET_MODULE.$REPORT.$EDIT\`  " >> snippets.md
+                echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> snippets.md
+                echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> snippets.md
                 echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
                 echo "" >> snippets.md
             fi
