@@ -18,8 +18,8 @@
       <field name="name" string="Operation"/>
       <field name="workcenter_id"/>
       <field name="product_id" optional="hide"/>
-      <field name="​component_id" optional="hide"/>
-      <field name="lot_id" optional="hide"/>
+      <field name="component_id" optional="hide"/>
+      <field name="lot_id" optional="hide" domain="[('product_id','=', component_id),'|',('company_id','=',False),('company_id','=',company_id)]"/>
       <field name="date_planned_start" optional="show"/>
       <field name="date_planned_finished" optional="hide"/>
       <field name="date_start" optional="hide" readonly="1"/>
@@ -41,4 +41,3 @@
   </xpath>
 
 </data>
-

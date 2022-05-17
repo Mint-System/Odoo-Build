@@ -4,8 +4,8 @@
       <t t-foreach="production.move_finished_ids" t-as="move">
 
         <style>
-          .label {
-              font-family: arial;
+          . .label {
+            font-family: arial;
           }
           .box {
               margin: 0 0 2mm 0;
@@ -22,12 +22,25 @@
               line-height: 30mm;
           }
           .description {
-              font-size: 7mm;
+              font-size: 9mm;
               margin: 0 3mm 0 3mm;
               text-align: center;
+              height: 23mm;
+              line-height: 10mm;
+              display: table;
+              width: 98%;
+              line-height: 10mm;
+          }
+          .sub1 {
+              display: table-cell ;
+              vertical-align: middle;
+              text-align: center;
+          }
+          .sub2 {
+              display: table-cell ;
+              vertical-align: middle;
+              text-align: center;
               border-bottom: solid 1px;
-              height: 46mm;
-              line-height: 20mm;
           }
           .order {
               font-size: 7mm;
@@ -47,7 +60,7 @@
               line-height: 10mm;
           }
         </style>
-        
+
         <div class="page">
           <div class="label">
             <div class="row title">
@@ -59,9 +72,10 @@
               </div>
             </div>
             <div class="description">
-              <span t-esc="move.product_id.name"/>
-              <br/>
-              <span t-esc="move.product_id.type_description"/>
+              <span class="sub1" t-esc="move.product_id.name"/>
+            </div>
+            <div class="description">
+              <span class="sub2" t-esc="move.product_id.type_description"/>
             </div>
             <div class="row order">
               <div class="col-6 box">
