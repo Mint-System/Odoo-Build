@@ -51,3 +51,7 @@
 	path = oca/project
 	url = git@github.com:OCA/project.git
 	branch = 15.0
+[submodule "addons/hr"]
+	path = addons/hr
+	url = git@github.com:Mint-System/Odoo-Apps-HR.git
+	branch = 15.0
