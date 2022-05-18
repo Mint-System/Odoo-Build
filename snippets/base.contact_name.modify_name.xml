@@ -8,6 +8,8 @@
       <span t-field="object.title"/>
       <span t-esc="object.firstname"/>
       <span t-esc="object.lastname"/>
+      <br></br>
+      <span t-esc="object.department"/>
     </t>
     <t t-if="not object.parent_name">
       <span itemprop="name" t-esc="object.name"/>
