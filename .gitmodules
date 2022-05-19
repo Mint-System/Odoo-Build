@@ -55,3 +55,7 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 15.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+	branch = 15.0

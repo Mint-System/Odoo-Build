@@ -7,6 +7,7 @@ oca/connector
 oca/partner-contact
 oca/stock-logistics-workflow
 oca/hr-holidays
+oca/product-attribute
 oca/project
 oca/rest-framework
 oca/web
