@@ -372,6 +372,19 @@ function checkout() {
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
+function checkout-revision() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+ 
+    cd odoo
+    git checkout $1
+    cd ..
+    cd enterprise
+    git checkout $1
+    cd ..
+    cd themes
+    git checkout $1
+}
+
 function git-pull-submodules() {
     # Pull submodule if update config is not set
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
@@ -753,6 +766,9 @@ case "$1" in
         ;;
     checkout)
         checkout $2 $3
+        ;;
+    checkout-revision)
+        checkout-revision $2
         ;;
     list)
         docker-compose config --services; echo "native"

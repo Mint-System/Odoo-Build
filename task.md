@@ -1,6 +1,7 @@
 | command                     | option           | description                                                       |
 | --------------------------- | ---------------- | ----------------------------------------------------------------- |
 | checkout                    | [branch][branch] | Switch and merge from one branch to another.                      |
+| checkout-revision           | [revision]       | Switch to a different Odoo revision by tag name.                  |
 | clear-filestore             | [db]             | Clear local filestore folder. No param will clear all filestores. |
 | convert-database            | [db]             | Convert database backup file from postgres 9.5 to latest.         |
 | create-module               | [path]           | Create new Odoo module from template.                             |
