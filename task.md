@@ -45,6 +45,7 @@
 | update-app-list             | [db]             | Update app list.                                                  |
 | update-module               | [db][name,path]  | Update target Odoo module.                                        |
 | update-snippet              | [env][path]      | Update snippet xml definition.                                    |
+| update-readme               | [path]           | Update Readme file of Odoo module collection.                     |
 | install-snippet             | [env][path]      | Install snippet xml definition.                                   |
 | upload-module               | [env][path]      | Zip and upload Odoo module.                                       |
 | generate-module-translation | [env][path]      | Generate translation for Odoo module.                             |
