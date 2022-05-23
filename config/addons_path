@@ -1,6 +1,7 @@
 addons
 addons/hr
 addons/manufacture
+addons/purchase_workflow
 addons/swiss_payroll
 addons/stock_logistics_workflow
 enterprise
