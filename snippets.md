@@ -194,6 +194,10 @@ ID: `mint_system.agreement.agreement_type_form_view.hide_domain`
 Link: [snippets/agreement.agreement_type_form_view.hide_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement.agreement_type_form_view.hide_domain.xml)
 
 ## Agreement Legal
+### Partner Agreement Form View: Agreement Subtype Domain  
+ID: `mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain`  
+Link: [snippets/agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml)
+
 ### Partner Agreement Form View: Description Optional  
 ID: `mint_system.agreement_legal.partner_agreement_form_view.description_optional`  
 Link: [snippets/agreement_legal.partner_agreement_form_view.description_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_form_view.description_optional.xml)
@@ -215,6 +219,10 @@ ID: `mint_system.agreement_legal.partner_agreement_list_view.replace_tree`
 Link: [snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml)
 
 ## Base
+### Contact Name: Modify Name  
+ID: `mint_system.base.contact_name.modify_name`  
+Link: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.contact_name.modify_name.xml)
+
 ### Ir Filters View Form: Remove Domain Widget  
 ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`  
 Link: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.ir_filters_view_form.remove_domain_widget.xml)
@@ -315,6 +323,10 @@ Link: [snippets/business_requirement.view_business_requirement_form.x_project_id
 ### View Business Requirement Form: X Task Id  
 ID: `mint_system.business_requirement.view_business_requirement_form.x_task_id`  
 Link: [snippets/business_requirement.view_business_requirement_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_form.x_task_id.xml)
+
+### View Business Requirement Search: X Project Id  
+ID: `mint_system.business_requirement.view_business_requirement_search.x_project_id`  
+Link: [snippets/business_requirement.view_business_requirement_search.x_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_search.x_project_id.xml)
 
 ### View Business Requirement Tree: Hide Category Ids  
 ID: `mint_system.business_requirement.view_business_requirement_tree.hide_category_ids`  
@@ -604,6 +616,10 @@ Link: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/O
 ID: `mint_system.ir_model.mrp_bom.x_note`  
 Link: [snippets/ir_model.mrp_bom.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_bom.x_note.xml)
 
+### Mrp Production: X Date Deadline  
+ID: `mint_system.ir_model.mrp_production.x_date_deadline`  
+Link: [snippets/ir_model.mrp_production.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_date_deadline.xml)
+
 ### Mrp Production: X Note  
 ID: `mint_system.ir_model.mrp_production.x_note`  
 Link: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_note.xml)
@@ -773,17 +789,41 @@ Link: [snippets/mrp.mrp_production_form_view.add_date_deadline2.xml](https://git
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`  
 Link: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### Mrp Production Form View: Hide Date Deadline  
+ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`  
+Link: [snippets/mrp.mrp_production_form_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.hide_date_deadline.xml)
+
 ### Mrp Production Form View: Replace Workorder Tree View  
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
 Link: [snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.replace_workorder_tree_view.xml)
+
+### Mrp Production Form View: Show Backorder And Procurement Group  
+ID: `mint_system.mrp.mrp_production_form_view.show_backorder_and_procurement_group`  
+Link: [snippets/mrp.mrp_production_form_view.show_backorder_and_procurement_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_backorder_and_procurement_group.xml)
+
+### Mrp Production Form View: Show Date Planned Finished  
+ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`  
+Link: [snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml)
+
+### Mrp Production Form View: Show X Date Deadline  
+ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`  
+Link: [snippets/mrp.mrp_production_form_view.show_x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_x_date_deadline.xml)
 
 ### Mrp Production Form View: X Note  
 ID: `mint_system.mrp.mrp_production_form_view.x_note`  
 Link: [snippets/mrp.mrp_production_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.x_note.xml)
 
+### Mrp Production Tree View: Hide Date Deadline  
+ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`  
+Link: [snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml)
+
 ### Mrp Production Tree View: Reset View  
 ID: `mint_system.mrp.mrp_production_tree_view.reset_view`  
 Link: [snippets/mrp.mrp_production_tree_view.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.reset_view.xml)
+
+### Mrp Production Tree View: Show X Date Deadline  
+ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`  
+Link: [snippets/mrp.mrp_production_tree_view.show_x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_tree_view.show_x_date_deadline.xml)
 
 ### Mrp Production Workorder Tree Editable View: Add Product Id  
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`  

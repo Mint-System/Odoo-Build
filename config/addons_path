@@ -2,6 +2,7 @@ addons
 addons/hr
 addons/manufacture
 addons/swiss_payroll
+addons/stock_logistics_workflow
 enterprise
 oca/connector
 oca/partner-contact

@@ -11,7 +11,6 @@
     <field name="readonly" eval="False"/>
     <field name="copied" eval="False"/>
     <field name="ttype">datetime</field>    
-    </field>
   </record>
 
 </odoo>

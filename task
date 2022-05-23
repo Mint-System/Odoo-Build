@@ -25,6 +25,34 @@ if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
+function update-readme() {
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    FILE_NAME=$(basename "$1")
+    if [[ "$FILE_NAME" != "README.md" ]]; then echo "\$1 must point to README.md file."; exit; fi
+    MODULES_DIR=$(dirname "$1")
+    
+    MANIFEST_FILES="$MODULES_DIR/*/__manifest__.py"
+
+    # Find marker in readme and clear content after
+    echo "Clear modules table for $1."
+    MARKER="## Available modules"
+    sed -i "/$MARKER/Q" $1
+
+    echo "$MARKER" >> $1
+    echo "" >> $1
+    echo "| Module | Summary |" >> $1
+    echo "| --- | --- |" >> $1
+
+    # Clear table after a marker
+    for MANIFEST_FILE in $MANIFEST_FILES; do
+        MODULE_DIR=$(dirname "$MANIFEST_FILE")
+        MODULE_NAME=$(basename "$MODULE_DIR")
+        echo "Add summary of $MODULE_NAME to readme file."
+        SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
+        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> $1
+    done
+}
+
 function get-module-version() {
     if test -z "$1"
     then
@@ -850,6 +878,9 @@ case "$1" in
         ;;
     lint-module)
         lint-module $2
+        ;;
+    update-readme)
+        update-readme $2
         ;;
     zip-module)
         zip-module $2

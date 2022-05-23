@@ -59,3 +59,7 @@
 	path = oca/product-attribute
 	url = git@github.com:OCA/product-attribute.git
 	branch = 15.0
+[submodule "addons/stock_logistics_workflow"]
+	path = addons/stock_logistics_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
+	branch = 15.0
