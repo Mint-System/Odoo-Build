@@ -1,31 +1,8 @@
 <?xml version="1.0"?>
+<!-- Remove barcode from mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-  <!-- First row -->
-  <xpath expr="/t/t/t/t/div/div[2]" position="attributes">
-    <attribute name="style" add="padding-bottom: 2rem"/>
-  </xpath>
-
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[3]/div[2]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[3]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[3]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[5]/h3" position="attributes">
-    <attribute name="style">padding-top: 2rem</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/h3" position="attributes">
-    <attribute name="style">padding-top: 2rem</attribute>
-  </xpath>
+	<xpath expr="/t/t/t/t/div/table/thead/tr/th[3]" position="replace"/>
+	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[3]" position="replace"/>
 
 </data>

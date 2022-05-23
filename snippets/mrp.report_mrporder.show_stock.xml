@@ -1,8 +1,20 @@
 <?xml version="1.0"?>
-<!-- Remove barcode from mrp order -->
-<data inherit_id="mrp.report_mrporder" priority="50">
-
-	<xpath expr="/t/t/t/t/div/table/thead/tr/th[3]" position="replace"/>
-	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[3]" position="replace"/>
-
+<data>
+	<xpath expr="/t/t/t/t/div/table/thead/tr/th[2]" position="after">
+        <th>
+            <span>Lagerort (Los)</span>
+        </th>
+    </xpath>
+    <xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[2]" position="after">
+        <td>
+            <span t-foreach="raw_line.move_line_ids" t-as="move_line">
+                <span t-field="move_line.location_id.display_name"/> <t t-if="move_line.lot_id">(<span t-field="move_line.lot_id"/>)</t><br/>
+            </span>
+        </td>
+    </xpath>
+    <xpath expr="/t/t/t/t/div/div[4]/div[1]/span" position="after">
+        <span t-if="o.lot_producing_id">
+            <br/>Los: <span t-field="o.lot_producing_id.name"/>
+        </span>
+    </xpath>
 </data>
