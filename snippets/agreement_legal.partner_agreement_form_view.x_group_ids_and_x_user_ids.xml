@@ -2,7 +2,7 @@
 <data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
 
     <field name="agreement_subtype_id" position="after">
-        <field name="x_group_ids" widget="many2many_tags"/>
+        <field name="x_group_ids" widget="many2many_tags" domain="[('category_id.name','=','Agreement')]" />
         <field name="x_user_ids" widget="many2many_tags"/>
     </field>
 
