@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <!-- Remove barcode from mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-	<xpath expr="/t/t/t/t/div/table/thead/tr/th[3]" position="replace"/>
-	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[3]" position="replace"/>
-
+  <xpath expr="//table[1]/thead[1]/tr[1]/th[3]" position="replace"/>
+  <xpath expr="//table[1]/tbody[1]/t[1]/tr[1]/td[3]" position="replace"/>
 </data>

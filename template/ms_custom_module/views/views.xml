@@ -35,13 +35,13 @@
     </field>
   </record>
 
-  <record model="ir.actions.act_window" id="open_view_tree">
+  <record id="open_view_tree" model="ir.actions.act_window">
     <field name="name">{{ name }}.open_view_tree</field>
     <field name="res_model">{{ name }}</field>
     <field name="view_mode">tree,form</field>
   </record>
 
-  <record model="ir.actions.server" id="document_server_action">
+  <record id="document_server_action" model="ir.actions.server">
     <field name="name">{{ name }}.document_server_action</field>
     <field name="model_id" ref="model_{{ name }}_document"/>
     <field name="state">code</field>
@@ -56,10 +56,10 @@
 
   <menuitem name="{{ name }}" id="{{ name }}.menu_root"/>
 
-  <menuitem name="Documents" id="{{ name }}.documents_menu" parent="{{ name }}.menu_root"/>
-  <menuitem name="Configurations" id="{{ name }}.configuration_menu" parent="{{ name }}.menu_root"/>
+  <menuitem name="Documents" id="{{ name }}.menu_document" parent="{{ name }}.menu_root"/>
+  <menuitem name="Configurations" id="{{ name }}.menu_configuration" parent="{{ name }}.menu_root"/>
 
-  <menuitem name="Documents" id="{{ name }}.document_menu" parent="{{ name }}.documents_menu" action="{{ name }}.open_view_tree"/>
-  <menuitem name="Server to list" id="{{ name }}.server_action_menu" parent="{{ name }}.configuration_menu" action="{{ name }}.document_server_action"/>
+  <menuitem name="Documents" id="{{ name }}.menu_document" parent="{{ name }}.documents_menu" action="{{ name }}.open_view_tree"/>
+  <menuitem name="Server to list" id="{{ name }}.menu_server_action" parent="{{ name }}.menu_configuration" action="{{ name }}.document_server_action"/>
 
 </odoo>
