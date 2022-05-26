@@ -7,9 +7,7 @@
   </xpath>
 
   <xpath expr="/t/t/t[4]/t/strong" position="replace">
-    <strong>
-      <font style="font-size: 10pt;">Shipping address:</font>
-    </strong>
+    <div style="font-size:8pt">Shipping address:</div>
   </xpath>
 
   <xpath expr="/t/t/t[4]/t/div/span" position="replace">
