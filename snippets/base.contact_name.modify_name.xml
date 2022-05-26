@@ -3,17 +3,14 @@
 
   <xpath expr="//div" position="replace">
     <t t-if="object.parent_name">
-      <span itemprop="name" t-esc="object.parent_name"/>
-      <br></br>
+      <div t-esc="object.parent_name"/>
+      <div t-esc="object.parent_id.name2"/>
       <span t-field="object.title"/>
-      <span t-esc="object.firstname"/>
-      <span t-esc="object.lastname"/>
-      <br></br>
-      <span t-esc="object.department"/>
+      <span t-esc="object.name"/>
+      <div t-esc="object.department"/>
     </t>
     <t t-if="not object.parent_name">
-      <span itemprop="name" t-esc="object.name"/>
-      <br></br>
+      <div t-esc="object.name"/>
       <span t-esc="object.name2"/>
     </t>
     <t t-if="options.get('country_image') and 'country_id' in fields and object.country_id and object.country_id.image_url">
