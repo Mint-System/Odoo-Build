@@ -114,6 +114,9 @@
 
 
   <xpath expr="//table[@class='table table-borderless table-sm']" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
     <table class="table table-borderless table-sm" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
 
       <tr >
@@ -128,7 +131,7 @@
           <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
         </td>
         <td style="width:14%; text-align:right">
-          <Strong>Rechnungsbetrag</Strong>
+          <Strong>Bestellbetrag</Strong>
         </td>
         <td style="width:18%; text-align:right" class="text-right">
           <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
@@ -136,9 +139,6 @@
       </tr>
 
     </table>
-    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_footer"/>
-    </t>
   </xpath>
 
 </data>

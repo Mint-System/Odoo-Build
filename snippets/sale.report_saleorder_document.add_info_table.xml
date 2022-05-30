@@ -18,7 +18,7 @@
     </style>
     <table id='info'>
       <tr>
-        <td width="17%">Datum Angebot</td>
+        <td width="17%">Datum</td>
         <td width="44%">
           <span t-field='doc.date_order' t-options='{ "widget": "date" }'/>
         </td>
