@@ -747,21 +747,28 @@ function update-docs() {
 
     lint-snippets
 
-    echo "Update snippets.md file."
-    echo "# Snippets" > snippets.md
+    echo "Update snippets README file."
+    echo "# Snippets" > snippets/README.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
-    FILES="snippets/*.xml"
 
-    # Group by modules
-    MODULES=$(ls $FILES | xargs -n 1 basename | cut -d. -f1 | uniq)
+    # Get all modules
+    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | uniq)
+
+    # Run this script for each module
     for MODULE in $MODULES; do
         TITLE="${MODULE^}" # Uppercase first letter
         TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
         TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
-        echo "## $TITLE" >> snippets.md
 
+        # Create doc file for each module
+        DOCFILE="snippets/$MODULE.md"
+        echo "## $TITLE" > $DOCFILE
+
+        # Process each file
+        FILES="snippets/$MODULE*.xml"
         for FILE in $FILES; do
+            # Get snippet params
             FILENAME=$(basename $FILE)
             SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
             XML_ID=$(echo $FILENAME | cut -d. -f2)
@@ -769,17 +776,17 @@ function update-docs() {
 
             EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
             EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
-
             XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
             XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
             # Group by modules
-            if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
-                echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> snippets.md
-                echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> snippets.md
-                echo "Link: [$FILE]($PATH_URL/$FILE)" >> snippets.md
-                echo "" >> snippets.md
-            fi
+            DOCFILE="snippets/$MODULE.md"
+            # if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
+            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
+            echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
+            echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
+            echo "" >> $DOCFILE
+            # fi
         done
     done
 }
