@@ -10,11 +10,6 @@
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 15.0
-[submodule "addons/swiss_payroll"]
-	path = addons/swiss_payroll
-	url = https://gitlab.giordano.ch/odoo/giordano-addons/swiss-payroll.git
-	branch = 15.0
-	update = none
 [submodule "addons/manufacture"]
 	path = addons/manufacture
 	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
