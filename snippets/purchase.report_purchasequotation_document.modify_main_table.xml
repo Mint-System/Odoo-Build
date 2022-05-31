@@ -21,7 +21,7 @@
         <t t-if="order_line.product_id.hs_code"> / Zollposition: <span t-field="order_line.product_id.hs_code"/>
         </t>
       </td>
-      <td></td>
+
     </tr>
     <tr style="border-bottom: 1px solid rgb(220,220,220)">
       <td colspan="8"></td>
@@ -79,6 +79,35 @@
   <!-- qty -->
   <xpath expr="//table/tbody/t/tr/t[1]/td[5]/span" position="replace">
     <span style="font-weight: bold" t-esc="'%g' % order_line.product_qty"/>
+  </xpath>
+
+
+  <xpath expr="//table[2]" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+    <table class="table table-borderless table-sm" style="margin-top:20px; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+      
+      <tr >
+        <td style="width:15.5%; text-align:left">
+          <Strong>Warenwert</Strong>
+        </td>
+        <td style="width:23%; text-align:left">
+          <span t-field="o.currency_id"/>
+        </td>
+        <td style="width:12%; text-align:left">MwSt. 7,7%</td>
+        <td style="width:17%; text-align:left">
+          <span t-field="o.currency_id"/>
+        </td>
+        <td style="width:14%; text-align:right">
+          <Strong>Bestellbetrag</Strong>
+        </td>
+        <td style="width:18%; text-align:right" class="text-right">
+          <span t-field="o.currency_id"/>
+        </td>
+      </tr>
+
+    </table>    
   </xpath>
 
 </data>

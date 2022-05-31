@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']/div" position="replace">
+    <div style="font-size:10pt; line-height: 1.2; padding-bottom:33mm">
+      <t t-if="o.partner_order_id.parent_name">
+        <div t-field="o.partner_order_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="purchase_order_id"/>
+      </t>
+      <t t-if="not o.partner_order_id.parent_name">
+        <div t-field="o.partner_order_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="purchase_order_id"/>
+      </t>
+    </div>
+  </xpath>
+
+</data>

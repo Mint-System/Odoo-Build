@@ -45,7 +45,7 @@
             <tr>
                 <td>Betreff</td>
                 <td>
-                    <span t-field='o.x_comment'/>
+                    <span t-field='o.comment'/>
                 </td>
                 <td>Lieferkondition</td>
                 <td>
@@ -54,11 +54,9 @@
             </tr>
         </table>
 
-        <!--
-    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_header"/>
-    </t>
-    -->
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
 
     </xpath>
 

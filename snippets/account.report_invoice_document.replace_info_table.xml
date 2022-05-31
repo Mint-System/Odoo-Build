@@ -38,7 +38,7 @@
       <tr>
         <td>I/Referenz</td>
         <td>
-          
+          <span t-field='o.ref'/>
         </td>
         <td></td>
         <td>
