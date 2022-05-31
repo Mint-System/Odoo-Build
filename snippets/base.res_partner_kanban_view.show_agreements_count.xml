@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<data inherit_id="base.res_partner_kanban_view" priority="50">
+
+    <xpath expr="//kanban/field[@name='type']" position="after">
+        <field name="agreements_count"/>
+    </xpath>
+
+    <xpath expr="//div[hasclass('oe_kanban_details')]/ul" position="after">
+        <a class="o_project_kanban_box" name="action_open_agreement" type="object">
+            <div>
+                <span class="o_value">
+                    <t t-esc="record.agreements_count.value"/>
+                </span>
+                <span class="o_label">Agreements</span>
+            </div>
+        </a>
+    </xpath>
+
+</data>
