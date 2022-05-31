@@ -66,7 +66,7 @@ module.exports = {
         nav: [
             { text: 'Home', link: '/' },
             { text: 'Help', link: '/task' },
-            { text: 'Snippets', link: '/snippets/' },
+            { text: 'Snippets', link: '/snippets' },
             { text: 'Mint System', link: 'https://www.mint-system.ch' }
         ],
     },

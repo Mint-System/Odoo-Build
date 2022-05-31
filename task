@@ -748,7 +748,7 @@ function update-docs() {
     lint-snippets
 
     echo "Update snippets README file."
-    echo "# Snippets" > snippets/README.md
+    echo "# Snippets" > snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
@@ -764,7 +764,7 @@ function update-docs() {
         # Create doc file for each module
         DOCFILE="snippets/$MODULE.md"
         echo "# $TITLE" > $DOCFILE
-        echo "## [$TITLE]($MODULE.md)" >> snippets/README.md
+        echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
         # Process each file
         FILES="snippets/$MODULE*.xml"
@@ -782,12 +782,10 @@ function update-docs() {
 
             # Group by modules
             DOCFILE="snippets/$MODULE.md"
-            # if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
             echo "## $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
             echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
             echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
             echo "" >> $DOCFILE
-            # fi
         done
     done
 }

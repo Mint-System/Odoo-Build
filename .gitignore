@@ -12,3 +12,4 @@ oca/openupgrade
 .vscode
 *.log
 upgrade-report.html
+public
