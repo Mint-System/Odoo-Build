@@ -763,7 +763,8 @@ function update-docs() {
 
         # Create doc file for each module
         DOCFILE="snippets/$MODULE.md"
-        echo "## $TITLE" > $DOCFILE
+        echo "# $TITLE" > $DOCFILE
+        echo "## [$TITLE]($MODULE.md)" >> snippets/README.md
 
         # Process each file
         FILES="snippets/$MODULE*.xml"
@@ -782,7 +783,7 @@ function update-docs() {
             # Group by modules
             DOCFILE="snippets/$MODULE.md"
             # if [[ "$MODULE" = "$SNIPPET_MODULE" ]]; then
-            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
+            echo "## $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
             echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
             echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
             echo "" >> $DOCFILE
