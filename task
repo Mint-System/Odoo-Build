@@ -762,9 +762,10 @@ function update-docs() {
         TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
         # Create doc file for each module
-        DOCFILE="snippets/$MODULE.md"
-        echo "# $TITLE" > $DOCFILE
-        echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
+        # DOCFILE="snippets/$MODULE.md"
+        DOCFILE="snippets.md"
+        echo "## $TITLE" >> $DOCFILE
+        # echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
         # Process each file
         FILES="snippets/$MODULE*.xml"
@@ -781,8 +782,9 @@ function update-docs() {
             XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
             # Group by modules
-            DOCFILE="snippets/$MODULE.md"
-            echo "## $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
+            # DOCFILE="snippets/$MODULE.md"
+            DOCFILE="snippets.md"
+            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
             echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
             echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
             echo "" >> $DOCFILE
