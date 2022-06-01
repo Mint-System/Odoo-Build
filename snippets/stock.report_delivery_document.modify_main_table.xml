@@ -31,10 +31,7 @@
   </xpath>
   
   <!-- pos -->
-  <xpath expr="//t[@t-if='o.sale_id']/td" position="attributes">
-    <attribute name="style">text-align: right; width: 5mm</attribute>
-  </xpath>
-  <xpath expr="//t[@t-if='o.purchase_id']/td" position="attributes">
+  <xpath expr="//thead/tr/th[1]" position="attributes">
     <attribute name="style">text-align: right; width: 5mm</attribute>
   </xpath>
 
