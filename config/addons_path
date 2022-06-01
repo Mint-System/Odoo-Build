@@ -4,6 +4,7 @@ addons/manufacture
 addons/purchase_workflow
 addons/odoo_apps_partner
 addons/stock_logistics_workflow
+addons/vertical_forestry
 enterprise
 oca/connector
 oca/partner-contact
