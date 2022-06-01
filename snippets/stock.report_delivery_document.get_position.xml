@@ -2,12 +2,7 @@
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//table[1]/thead/tr/th[1]" position="before">
-    <t t-if="o.sale_id">
-      <th>
-        <strong>Pos</strong>
-      </th>
-    </t>
-    <t t-if="o.purchase_id">
+    <t t-if="o.sale_id or o.purchase_id">
       <th>
         <strong>Pos</strong>
       </th>
@@ -15,27 +10,33 @@
   </xpath>
 
   <xpath expr="//table[2]/thead/tr/th[1]" position="before">
-    <t t-if="o.sale_id">
-      <th>
-        <strong>Pos</strong>
-      </th>
-    </t>
-    <t t-if="o.purchase_id">
+    <t t-if="o.sale_id or o.purchase_id">
       <th>
         <strong>Pos</strong>
       </th>
     </t>
   </xpath>
 
+  <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
+    <t t-if="o.sale_id or o.purchase_id">
+      <th>
+        <strong>Pos</strong>
+      </th>
+    </t>
+  </xpath>
+  
   <xpath expr="//table[1]/tbody/tr/td[1]" position="before">
-    <t t-if="o.sale_id">
+    <t t-if="o.sale_id or o.purchase_id">
       <td>
         <span t-esc="move.position"/>
       </td>
     </t>
-    <t t-if="o.purchase_id">
+  </xpath>
+
+  <xpath expr="//table[@name='stock_backorder_table']/tbody//tr/td[1]" position="before">
+    <t t-if="o.sale_id or o.purchase_id">
       <td>
-        <span t-esc="move.position"/>
+        <span t-esc="bo_line.position"/>
       </td>
     </t>
   </xpath>
