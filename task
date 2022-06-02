@@ -219,6 +219,11 @@ function lint-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
 
     activate-venv
+    echo "Set file and folder permissions on $1"
+    find $1 -type d -exec chmod u=rwx,go=rx {} \;
+    find $1 -type f -exec chmod u=rw,go=r {} \;
+    echo "Copy default .gignore"
+    cp template/ms_custom_module/.gitignore "$1"/
     echo "Run pylint in $1"
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
     cd $1
@@ -460,7 +465,8 @@ function zip-module() {
     rm -rf "$MODULE_PATH"
     mkdir -p "$MODULE_PATH"
     cp -r "$1/." "$MODULE_PATH"
-    chmod -R 755 "$MODULE_PATH"
+    find "$MODULE_PATH" -type d -exec chmod u=rwx,go=rx {} \;
+    find "$MODULE_PATH" -type f -exec chmod u=rw,go=r {} \;
 
     # Configure and zip module
     echo "Remove auto install option"
