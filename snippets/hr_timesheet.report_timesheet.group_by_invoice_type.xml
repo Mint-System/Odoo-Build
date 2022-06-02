@@ -13,7 +13,10 @@
         <t t-foreach="set(timesheet_invoice_type)" t-as="type">
             <tr>
                 <td colspan="5">
+                    <br/>
                     <strong t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufgaben', 'billable_time': 'Stundenabrechnung'}[type]"/>
+                    <br/>
+                    <br/>
                 </td>
             </tr>
             <tr t-foreach="docs" t-as="l">
