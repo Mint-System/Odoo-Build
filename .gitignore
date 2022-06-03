@@ -13,3 +13,4 @@ oca/openupgrade
 *.log
 upgrade-report.html
 public
+*.pyc

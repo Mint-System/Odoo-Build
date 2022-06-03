@@ -35,9 +35,9 @@
         <td></td>
       </tr>
       <tr>
-        <td>I/Referenz</td>
+        <td>Referenz</td>
         <td>
-          <span t-field='o.partner_ref'/>
+          <span t-field='o.comment'/>
         </td>
         <td>U/Referenz</td>
         <td>
@@ -45,9 +45,9 @@
         </td>
       </tr>
       <tr>
-        <td>Betreff</td>
+        <td></td>
         <td>
-          <span t-field='o.comment'/>
+          <span t-field='o.partner_ref'/>
         </td>
         <td>Lieferkondition</td>
         <td>
