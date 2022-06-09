@@ -44,6 +44,10 @@
       <attribute name="class">text-right</attribute>
   </xpath>
   
+   <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[2]" position="attributes">
+      <attribute name="class">text-right</attribute>
+      <attribute name="style">width:20mm</attribute>
+  </xpath>
   
   <xpath t-if="o.state!='done'" expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="replace">
     <td style="text-align: right; padding-right: 10px">
@@ -59,7 +63,7 @@
   </xpath>
   
   <xpath expr="//t[@t-if='o.backorder_ids and backorders']/p" position="replace">
-      <div style="border-bottom: 1px solid; margin-bottom: 10mm; font-size: 9pt; padding-bottom: 5px">
+      <div style="margin-top: 20mm; margin-bottom: 5mm; font-size: 9pt; padding-top: 15px; padding-bottom: 5px">
          <span>All items couldn't be shipped, the following items will be shipped as soon as they become available.</span>
       </div >
    </xpath> 
@@ -67,18 +71,14 @@
   <!-- add default_code -->
   <xpath t-if="o.state!='done'" expr="//table[@name='stock_move_table']/thead/tr[1]/th[1]" position="before">
     <th style="text-align: right; width: 27mm; padding-right: 10px">
-      <span >Artikel Nr.</span>
+      <strong >Part No.</strong>
     </th>
   </xpath>
   
   <xpath t-if="o.state=='done'" expr="//table[@name='stock_move_line_table']/thead/tr[1]/th[1]" position="before">
     <th style="text-align: right; width: 27mm; padding-right: 10px">
-      <span >Artikel Nr.</span>
+      <strong >Part No.</strong>
     </th>
-  </xpath>
-  
-   <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[2]" position="attributes">
-      <attribute name="class">text-right</attribute>
   </xpath>
   
    <xpath expr="//span[@t-field='bo_line.product_uom_qty']" position="attributes">
@@ -90,6 +90,29 @@
       <attribute name="class">text-right</attribute>
   </xpath>
   
+    
+  <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
+   <th style="text-align: right; width: 27mm; padding-right: 10px">
+     <strong>Part No.</strong>
+     </th>
+  </xpath>
   
+   <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/thead/tr/th[2]" position="after">
+   <th style="text-align: right; width: 27mm; padding-right: 10px">
+     <strong>Open Quantity</strong>
+     </th>
+  </xpath>
+  
+  <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/tbody//td[2]" position="after">
+   <tr style="border-bottom: 1px solid rgb(220,220,220)">
+      <td colspan="8"></td>
+    </tr>
+  </xpath>
+  
+  <xpath expr="//table[3]" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+  </xpath>  
   
 </data>

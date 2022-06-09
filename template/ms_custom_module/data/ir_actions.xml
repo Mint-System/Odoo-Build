@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<odoo>
+    <record id="purchase_order_check_line_price" model="ir.actions.server">
+        <field name="name">Check prices</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_model_id" ref="purchase.model_purchase_order"/>
+        <field name="binding_view_types">list,form</field>
+        <field name="state">code</field>
+        <field name="code">records.check_prices()</field>
+    </record>
+</odoo>

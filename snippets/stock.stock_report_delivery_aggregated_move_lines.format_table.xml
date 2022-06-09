@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
-
+ 
   <xpath expr="//td[@name='move_line_aggregated_qty_done']" position="attributes">
     <attribute name="class">text-right</attribute>
   </xpath>
@@ -8,6 +8,10 @@
   <xpath expr="//td[@name='move_line_aggregated_qty_done']/span[1]" position="attributes">
     <attribute name="style">font-weight: bold</attribute>
     <attribute name="t-options">{'widget': 'integer'}</attribute>
+  </xpath>
+  
+  <xpath expr="//tr/td/p" position="attributes">
+    <attribute name="style">margin-bottom:0px</attribute>
   </xpath>
 
 </data>

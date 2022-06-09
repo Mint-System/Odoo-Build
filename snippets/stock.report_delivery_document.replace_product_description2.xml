@@ -3,20 +3,29 @@
   
   <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/tbody/t/tr/td[1]" position="replace">
    <td>
-        <span style="font-weight: bold" t-field="bo_line.product_id.type_description"/><br></br>
-        <span t-field="bo_line.product_id.name"/>
+        <span style="font-weight: bold" t-field="bo_line.product_id.type_description"/><br/>
+        <span t-field="bo_line.description_picking"/><br/>
+      
+        <t t-if="bo_line.product_id.country_of_origin_id.code and bo_line.product_id.hs_code">
+          Country of origin: <span t-esc="bo_line.product_id.country_of_origin_id.code"/>
+          / HS Code: <span t-esc="bo_line.product_id.hs_code"/><br/>
+        </t>
+
+        <t t-if="bo_line.product_id.hs_code and not bo_line.product_id.country_of_origin_id.code">
+          HS Code: <span t-esc="bo_line.product_id.hs_code"/>
+        </t>
+
+        <t t-if="bo_line.product_id.country_of_origin_id.code and not bo_line.product_id.hs_code">
+          Country of origin: <span t-esc="bo_line.product_id.country_of_origin_id.code"/>
+        </t>
         
     </td>
   </xpath>
   
    <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/tbody/t/tr/td[1]" position="before">
-   <td>
+   <td style="text-align: right; padding-right: 10px">
       <span t-field="bo_line.product_id.default_code"/>
     </td>
   </xpath>  
-  
-  <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-   <th style="width: 27mm">Artikel Nr.</th>
-  </xpath>
   
 </data>

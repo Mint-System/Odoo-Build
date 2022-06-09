@@ -18,45 +18,59 @@
       </style>
     <table id='info'>
       <tr>
-        <td width="17%">Rechnungsdatum</td>
+        <td></td>
+         <td></td>
+         <td>Order No.</td>
+         <td><span t-field='o.invoice_origin'/></td>
+      </tr>
+      <tr>
+        <td width="17%">Invoice date</td>
         <td width="44%">
           <span t-field='o.invoice_date' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
-      </tr>
-      <tr>
-        <td>Kunden-Nr.</td>
-        <td>
-          <span t-field='o.partner_id.ref'/>
-        </td>
-        <td>U/Referenz</td>
-        <td>
+        <td width="14%">Our Reference</td>
+        <td width="25%">
           <span t-field='o.user_id'/>
         </td>
       </tr>
       <tr>
-        <td>I/Referenz</td>
+        <td>Customer No.</td>
+        <td>
+          <span t-field='o.partner_id.ref'/>
+        </td>
+        <td>Delivery Method</td>
+        <td>
+          
+        </td>
+        
+      </tr>
+      <tr>
+        <td>Order</td>
         <td>
           <span t-field='o.ref'/>
         </td>
-        <td></td>
+        <td>Incoterm</td>
         <td>
-        
+          <span t-field='o.invoice_incoterm_id'/>
         </td>
       </tr>
       <tr>
-        <td>Betreff</td>
+        <td>Reference</td>
         <td>
          
         </td>
-        <td></td>
+        <td>Delivery Date</td>
         <td>
-        
+          <span t-field='o.sale_order_id.effective_date'/>
         </td>
       </tr>
 
     </table>
+    
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+    
   </xpath>
 
 </data>

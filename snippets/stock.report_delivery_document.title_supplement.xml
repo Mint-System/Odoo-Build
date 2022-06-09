@@ -3,7 +3,7 @@
 
   <xpath expr="//h2" position="replace">
     <h2>
-      Lieferschein <span t-field="o.name"/>
+      Delivery Slip <span t-field="o.name"/>
     </h2>
   </xpath>
 

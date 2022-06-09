@@ -936,6 +936,10 @@ Link: [snippets/ir_model.stock_move.x_picking_partner_id.xml](https://github.com
 ID: `mint_system.ir_model.stock_move.x_scrap_id`  
 Link: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
 
+### Stock Quant: X Last Delivery Partner Id  
+ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`  
+Link: [snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml)
+
 ## Ir Ui View
 ### Calendar: View Calendar Event Calendar Timeline  
 ID: `mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline`  
