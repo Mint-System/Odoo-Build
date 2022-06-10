@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	<xpath expr="//div[@id='informations']" position="attributes">
+		<attribute name="style">padding-top: 1rem</attribute>
+		<attribute name="style">padding-bottom: 1rem</attribute>
+	</xpath>
+
+</data>

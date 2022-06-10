@@ -4,7 +4,6 @@
 	<xpath expr="//field[@name='bom_line_ids']" position="after">
 		<filter string="Mit Vorgängen" name="operation" domain="[('operation_ids', '!=', False)]"/>
 		<filter string="Ohne Vorgänge" name="operation" domain="[('operation_ids', '=', False)]"/>
-		<field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>           
 	</xpath>
 
 </data>
