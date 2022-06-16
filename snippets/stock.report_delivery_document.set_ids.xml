@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">>
+
+	<xpath expr="//table[@name='stock_move_table']//th[1]" position="attributes">
+		<attribute name="id">product_id</attribute>
+	</xpath>
+
+</data>

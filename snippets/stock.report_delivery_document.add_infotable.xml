@@ -3,12 +3,16 @@
  
  <xpath expr="//h2" position="after">
    <style>
+      .info_table tbody tr td:first-of-type {
+      text-align: left;
+      width: 5mm;
+     }
       .note {
         font-size: 9pt;
       }
    </style>
  
- <table style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
+ <table class="info_table" style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
 
   <tr style="line-height: 1.2">
     <td style="width:25mm;">Date</td>

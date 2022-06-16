@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//div/div/table" position="replace">
+
+    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_footer"/>
+    </t>
+
+    <table class="table table-borderless table-sm summary">
+      <tr>
+        <td class="text-left">
+          <strong>Warenwert</strong>
+        </td>
+        <td class="text-left">
+          <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+        </td>
+        <td class="text-left">
+          <strong>Steuern</strong>
+        </td>
+        <td class="text-left">
+          <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+        </td>
+        <td class="text-left">
+          <strong>Rechnungsbetrag</strong>
+        </td>
+        <td class="text-left">
+          <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+        </td>
+      </tr>
+    </table>
+
+  </xpath>
+
+</data>

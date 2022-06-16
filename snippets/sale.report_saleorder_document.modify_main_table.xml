@@ -23,8 +23,8 @@
   <!-- add second row -->
   <xpath expr="//tbody//tr[1]" position="after">
     <tr>
-      <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"></td>
-      <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
+      <td></td>
+      <td></td>
       <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
         <span t-field="line.name"/>
         <br/>

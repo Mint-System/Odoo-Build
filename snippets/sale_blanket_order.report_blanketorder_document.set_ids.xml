@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+
+	<xpath expr="//table[1]//th[1]" position="attributes">
+		<attribute name="id">product_id</attribute>
+	</xpath>
+
+  <xpath expr="//table[1]//th[2]" position="attributes">
+		<attribute name="id">price_unit</attribute>
+	</xpath>
+
+	<xpath expr="//table[1]//th[3]" position="attributes">
+		<attribute name="id">date_schedule</attribute>
+	</xpath>
+
+	<xpath expr="//table[1]//th[4]" position="attributes">
+		<attribute name="id">original_uom_qty</attribute>
+	</xpath>
+
+	<xpath expr="//table[1]//th[5]" position="attributes">
+		<attribute name="id">price_subtotal</attribute>
+	</xpath>
+
+</data>
