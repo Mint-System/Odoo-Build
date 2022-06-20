@@ -72,10 +72,6 @@ Link: [snippets/account.report_invoice_document.margin_before_invoice_table.xml]
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
 Link: [snippets/account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.margin_before_title.xml)
 
-### Report Invoice Document: Modify Information Block  
-ID: `mint_system.account.report_invoice_document.modify_information_block`  
-Link: [snippets/account.report_invoice_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_information_block.xml)
-
 ### Report Invoice Document: Modify Main Table  
 ID: `mint_system.account.report_invoice_document.modify_main_table`  
 Link: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
@@ -123,6 +119,10 @@ Link: [snippets/account.report_invoice_document.replace_information_table.xml](h
 ### Report Invoice Document: Replace Info Table  
 ID: `mint_system.account.report_invoice_document.replace_info_table`  
 Link: [snippets/account.report_invoice_document.replace_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_info_table.xml)
+
+### Report Invoice Document: Reset Address  
+ID: `mint_system.account.report_invoice_document.reset_address`  
+Link: [snippets/account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.reset_address.xml)
 
 ### Report Invoice Document: Round Quantity  
 ID: `mint_system.account.report_invoice_document.round_quantity`  
@@ -179,6 +179,10 @@ Link: [snippets/account.view_move_form.show_posted_before.xml](https://github.co
 ### View Move Form: Show Sale Order Lines  
 ID: `mint_system.account.view_move_form.show_sale_order_lines`  
 Link: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
+
+### View Move Form: Show User Id  
+ID: `mint_system.account.view_move_form.show_user_id`  
+Link: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_user_id.xml)
 
 ### View Move Form: X Sale Order Id  
 ID: `mint_system.account.view_move_form.x_sale_order_id`  
@@ -508,29 +512,12 @@ Link: [snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml](https:
 ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`  
 Link: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
 
-## Hr Holidays Calendar
-### Hr Leave Report Calendar Timeline: View Color  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml)
-
-### Hr Leave Report Calendar Timeline: View  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
-
 ## Hr Holidays Delegations
 ### Hr Leave View Form Inherit: Delegate Groups  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
 Link: [snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
 
 ## Hr Holidays
-### Hr Leave Report Calendar Timeline: View Color  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml)
-
-### Hr Leave Report Calendar Timeline: View  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
-
 ### Hr Leave View Form Inherit: Delegate Groups  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
 Link: [snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
@@ -559,14 +546,6 @@ Link: [snippets/hr_holidays.hr_leave_view_tree.show_days.xml](https://github.com
 ### View Attendance Tree: Enable Edit  
 ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`  
 Link: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
-
-### Hr Leave Report Calendar Timeline: View Color  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml)
-
-### Hr Leave Report Calendar Timeline: View  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
 
 ### Hr Leave View Form Inherit: Delegate Groups  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
@@ -681,14 +660,6 @@ Link: [snippets/hr_payroll.view_hr_payslip_line_tree.slip_show_optional.xml](htt
 ### View Attendance Tree: Enable Edit  
 ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`  
 Link: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
-
-### Hr Leave Report Calendar Timeline: View Color  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml)
-
-### Hr Leave Report Calendar Timeline: View  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
 
 ### Hr Leave View Form Inherit: Delegate Groups  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
@@ -807,14 +778,6 @@ Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](ht
 ### View Attendance Tree: Enable Edit  
 ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`  
 Link: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
-
-### Hr Leave Report Calendar Timeline: View Color  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view_color.xml)
-
-### Hr Leave Report Calendar Timeline: View  
-ID: `mint_system.hr_holidays_calendar.hr_leave_report_calendar_timeline.view`  
-Link: [snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays_calendar.hr_leave_report_calendar_timeline.view.xml)
 
 ### Hr Leave View Form Inherit: Delegate Groups  
 ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups`  
@@ -1611,9 +1574,9 @@ Link: [snippets/purchase.report_purchasequotation_document.add_default_code.xml]
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
 Link: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_footer.xml)
 
-### Report Purchasequotation Document: Add Info Table  
-ID: `mint_system.purchase.report_purchasequotation_document.add_info_table`  
-Link: [snippets/purchase.report_purchasequotation_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_info_table.xml)
+### Report Purchasequotation Document: Add Infotable  
+ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`  
+Link: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 
 ### Report Purchasequotation Document: Append Payment Terms  
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`  
@@ -1917,9 +1880,9 @@ Link: [snippets/purchase.report_purchasequotation_document.add_default_code.xml]
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
 Link: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_footer.xml)
 
-### Report Purchasequotation Document: Add Info Table  
-ID: `mint_system.purchase.report_purchasequotation_document.add_info_table`  
-Link: [snippets/purchase.report_purchasequotation_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_info_table.xml)
+### Report Purchasequotation Document: Add Infotable  
+ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`  
+Link: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 
 ### Report Purchasequotation Document: Append Payment Terms  
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`  
@@ -2157,9 +2120,9 @@ Link: [snippets/sale.report_blanketorder_document.add_drawing.xml](https://githu
 ID: `mint_system.sale.report_blanketorder_document.add_footer`  
 Link: [snippets/sale.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.add_footer.xml)
 
-### Report Blanketorder Document: Add Info Table  
-ID: `mint_system.sale.report_blanketorder_document.add_info_table`  
-Link: [snippets/sale.report_blanketorder_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.add_info_table.xml)
+### Report Blanketorder Document: Add Infotable  
+ID: `mint_system.sale.report_blanketorder_document.add_infotable`  
+Link: [snippets/sale.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_blanketorder_document.add_infotable.xml)
 
 ### Report Blanketorder Document: Add Payment Terms  
 ID: `mint_system.sale.report_blanketorder_document.add_payment_terms`  
@@ -2257,9 +2220,9 @@ Link: [snippets/sale.report_saleorder_document.add_header_space.xml](https://git
 ID: `mint_system.sale.report_saleorder_document.add_informations_space`  
 Link: [snippets/sale.report_saleorder_document.add_informations_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_informations_space.xml)
 
-### Report Saleorder Document: Add Info Table  
-ID: `mint_system.sale.report_saleorder_document.add_info_table`  
-Link: [snippets/sale.report_saleorder_document.add_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_info_table.xml)
+### Report Saleorder Document: Add Infotable  
+ID: `mint_system.sale.report_saleorder_document.add_infotable`  
+Link: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_infotable.xml)
 
 ### Report Saleorder Document: Add Notes  
 ID: `mint_system.sale.report_saleorder_document.add_notes`  
@@ -2519,6 +2482,10 @@ Link: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](h
 ID: `mint_system.stock.report_delivery_document.description_sale`  
 Link: [snippets/stock.report_delivery_document.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.description_sale.xml)
 
+### Report Delivery Document: Disable Stock Move Line Table  
+ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
+Link: [snippets/stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.disable_stock_move_line_table.xml)
+
 ### Report Delivery Document: Document Description  
 ID: `mint_system.stock.report_delivery_document.document_description`  
 Link: [snippets/stock.report_delivery_document.document_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.document_description.xml)
@@ -2543,13 +2510,9 @@ Link: [snippets/stock.report_delivery_document.format_main_table.xml](https://gi
 ID: `mint_system.stock.report_delivery_document.format_pos`  
 Link: [snippets/stock.report_delivery_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_pos.xml)
 
-### Report Delivery Document: Format Table  
-ID: `mint_system.stock.report_delivery_document.format_table`  
-Link: [snippets/stock.report_delivery_document.format_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_table.xml)
-
-### Report Delivery Document: Format Title2  
-ID: `mint_system.stock.report_delivery_document.format_title2`  
-Link: [snippets/stock.report_delivery_document.format_title2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title2.xml)
+### Report Delivery Document: Format Title Trimada  
+ID: `mint_system.stock.report_delivery_document.format_title_trimada`  
+Link: [snippets/stock.report_delivery_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.format_title_trimada.xml)
 
 ### Report Delivery Document: Format Title  
 ID: `mint_system.stock.report_delivery_document.format_title`  
@@ -2611,9 +2574,9 @@ Link: [snippets/stock.report_delivery_document.replace_information_table.xml](ht
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
 Link: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_order_definition.xml)
 
-### Report Delivery Document: Replace Product Description2  
-ID: `mint_system.stock.report_delivery_document.replace_product_description2`  
-Link: [snippets/stock.report_delivery_document.replace_product_description2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description2.xml)
+### Report Delivery Document: Replace Product Description On Backorder  
+ID: `mint_system.stock.report_delivery_document.replace_product_description_on_backorder`  
+Link: [snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml)
 
 ### Report Delivery Document: Replace Product Description  
 ID: `mint_system.stock.report_delivery_document.replace_product_description`  
@@ -2639,6 +2602,10 @@ Link: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://gi
 ID: `mint_system.stock.report_delivery_document.set_customer_reference`  
 Link: [snippets/stock.report_delivery_document.set_customer_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_customer_reference.xml)
 
+### Report Delivery Document: Set Ids  
+ID: `mint_system.stock.report_delivery_document.set_ids`  
+Link: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_ids.xml)
+
 ### Report Delivery Document: Show Quantity Done  
 ID: `mint_system.stock.report_delivery_document.show_quantity_done`  
 Link: [snippets/stock.report_delivery_document.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.show_quantity_done.xml)
@@ -2646,6 +2613,10 @@ Link: [snippets/stock.report_delivery_document.show_quantity_done.xml](https://g
 ### Report Delivery Document: Sort By Position  
 ID: `mint_system.stock.report_delivery_document.sort_by_position`  
 Link: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
+
+### Report Delivery Document: Style Trimada  
+ID: `mint_system.stock.report_delivery_document.style_trimada`  
+Link: [snippets/stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.style_trimada.xml)
 
 ### Report Delivery Document: Switch Address Block  
 ID: `mint_system.stock.report_delivery_document.switch_address_block`  

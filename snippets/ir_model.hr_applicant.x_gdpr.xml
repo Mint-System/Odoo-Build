@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_gdpr" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Datenschutz</field>
+    <field name="model">hr.applicant</field>
+    <field name="model_id" ref="hr.model_hr_applicant"/>
+    <field name="name">x_date_order</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+    <field name="website_form_blacklisted" eval="False"/>
+    <field name="related">order_id.date_order</field>
+  </record>
+
+</odoo>
