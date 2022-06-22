@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
- 
- <xpath expr="//h2" position="after">
-   <style>
+
+  <xpath expr="//h2" position="after">
+    <style>
       .info_table tbody tr td:first-of-type {
       text-align: left;
       width: 5mm;
@@ -10,46 +10,57 @@
       .note {
         font-size: 9pt;
       }
-   </style>
- 
- <table class="info_table" style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
+    </style>
 
-  <tr style="line-height: 1.2">
-    <td style="width:25mm;">Date</td>
-    <td style="width:85mm;"><span t-field='o.date_done' t-options='{ "widget": "date" }'/></td>
-    <td style="width:25mm;">Order No.</td>
-    <td style="width:45mm;"><span t-field='o.origin'/></td>
-  </tr>
- 
-  <tr style="line-height: 1.2">
-    <td>Customer No.</td>
-    <td><span t-field='o.partner_id.ref'/></td>
-    <td>Our Reference</td>
-    <td><span t-field='o.user_id'/></td>
-  </tr>
-  
-  <tr style="line-height: 1.2">
-    <td>Order</td>
-    <td><span t-field="o.sale_id.client_order_ref"/></td>
- 
-    <td>Delivery Method</td>
-    <td><span t-field='o.carrier_id'/></td>
-  </tr>
-  
-  <tr style="line-height: 1.2">
-    <td>Reference</td>
-    <td><span t-field="o.sale_id.comment"/></td>
-    <td>Incoterm</td>
-    <td><span t-field="o.sale_id.incoterm"/></td>
-  </tr>
+    <table id="infotable" class="info_table" style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
 
-</table>
+      <tr style="line-height: 1.2">
+        <td style="width:25mm;">Date</td>
+        <td style="width:85mm;">
+          <span t-field='o.date_done' t-options='{ "widget": "date" }'/>
+        </td>
+        <td style="width:25mm;">Order No.</td>
+        <td style="width:45mm;">
+          <span t-field='o.origin'/>
+        </td>
+      </tr>
 
-    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_header"/>
-    </t>
-    
-    
-</xpath>
+      <tr style="line-height: 1.2">
+        <td>Customer No.</td>
+        <td>
+          <span t-field='o.sale_id.partner_id.ref'/>
+        </td>
+        <td>Our Reference</td>
+        <td>
+          <span t-field='o.user_id'/>
+        </td>
+      </tr>
+
+      <tr style="line-height: 1.2">
+        <td>Order</td>
+        <td>
+          <span t-field="o.sale_id.client_order_ref"/>
+        </td>
+
+        <td>Delivery Method</td>
+        <td>
+          <span t-field='o.carrier_id'/>
+        </td>
+      </tr>
+
+      <tr style="line-height: 1.2">
+        <td>Reference</td>
+        <td>
+          <span t-field="o.sale_id.comment"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.sale_id.incoterm"/>
+        </td>
+      </tr>
+
+    </table>
+
+  </xpath>
 
 </data>

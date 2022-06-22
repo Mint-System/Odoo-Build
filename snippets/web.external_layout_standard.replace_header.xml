@@ -2,7 +2,7 @@
 <data inherit_id="web.external_layout_standard" priority="50">
 
 <xpath expr="/t/div" position="replace">    
-  <div t-attf-class="header o_company_#{company.id}_layout">
+  <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
                            
 <table style="width:100%; font-size: 9pt; color:rgb(102,102,102); font-family:arial;">
   

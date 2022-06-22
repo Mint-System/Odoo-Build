@@ -8,26 +8,32 @@
                 <t t-set="count_labels" t-value="0" />
                 
                 <!-- Select loop based product packaing -->
-                <t t-if="move.product_packaging.name == 'Schale Gross'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">2'500g</t>
-                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
-                    <t t-set="count_labels" t-value="move.quantity_done/2.5" />
-                </t>
                 <t t-if="move.product_packaging.name == 'Schale Klein'">
                     <t t-set="print_weight" t-value="False" />
                     <t t-set="fix_weight">1'000g</t>
                     <t t-set="count_boxes" t-value="move.x_count_boxes" />
                     <t t-set="count_labels" t-value="move.quantity_done" />
                 </t>
+                <t t-if="move.product_packaging.name == 'Schale Gross'">
+                    <t t-set="print_weight" t-value="False" />
+                    <t t-set="fix_weight">2'500g</t>
+                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
+                    <t t-set="count_labels" t-value="move.quantity_done/2.5" />
+                </t>
                 <t t-if="move.product_packaging.name == 'Kiste'">
                     <t t-set="print_weight" t-value="True" />
                     <t t-set="count_boxes" t-value="move.x_count_boxes" />
                     <t t-set="count_labels" t-value="0" />
                 </t>
-                <t t-if="move.product_packaging.name == 'Vakuum'">
+                <t t-if="move.product_packaging.name == 'Vakuum Klein'">
                     <t t-set="print_weight" t-value="False" />
                     <t t-set="fix_weight">1'000g</t>
+                    <t t-set="count_boxes" t-value="0" />
+                    <t t-set="count_labels" t-value="move.quantity_done" />
+                </t>
+                <t t-if="move.product_packaging.name == 'Vakuum Gross'">
+                    <t t-set="print_weight" t-value="False" />
+                    <t t-set="fix_weight">2'500g</t>
                     <t t-set="count_boxes" t-value="0" />
                     <t t-set="count_labels" t-value="move.quantity_done" />
                 </t>
@@ -39,9 +45,9 @@
                 </t>
 
                 <!-- <p>Name: <span t-esc="move.product_id.name"/></p> -->
-                <!-- <p>Boxes: <span t-esc="count_boxes"/></p>
-                <p>Labels: <span t-esc="count_labels"/></p>
-                <p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p> -->
+                <!--<p>Boxes: <span t-esc="count_boxes"/></p>-->
+                <!--<p>Labels: <span t-esc="count_labels"/></p>-->
+                <!--<p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p>-->
 
                 <t t-foreach="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" t-as="move_line"> 
                 <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">

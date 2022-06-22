@@ -12,7 +12,6 @@
     <field name="copied" eval="True"/>
     <field name="ttype">boolean</field>
     <field name="website_form_blacklisted" eval="False"/>
-    <field name="related">order_id.date_order</field>
   </record>
 
 </odoo>

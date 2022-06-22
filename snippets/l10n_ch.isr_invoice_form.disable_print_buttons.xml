@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="l10n_ch.isr_invoice_form" priority="50">
+
+    <button name="print_ch_qr_bill" position="replace" />
+    <button name="isr_print" position="replace" />
+
+</data>

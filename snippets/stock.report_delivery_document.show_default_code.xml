@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
+    <th id="default_code">
+      <strong >Part No.</strong>
+    </th>
+  </xpath>
+  <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
+    <th id="default_code">
+      <strong >Part No.</strong>
+    </th>
+  </xpath>
+  <xpath expr="//table[@name='stock_move_table']/tbody//tr/td[1]" position="before">
+    <td id="default_code">
+      <span t-field="move.product_id.default_code"/>
+    </td>
+  </xpath>
+
+</data>

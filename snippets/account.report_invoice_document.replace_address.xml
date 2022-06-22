@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- Align invoice tax row right -->
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//div[@t-field='o.partner_id']" position="replace">
+    <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+  </xpath>
+
+</data>
