@@ -17,6 +17,7 @@
 | init-db                     | [db]             | Initialize the Odoo database. Default is odoo                     |
 | init-next-env               | [env]            | Create env file for Nextcloud instance.                           |
 | init-odoo-env               | [env]            | Create env file for Odoo Instance.                                |
+| test-jsonrpc                | [env]            | Test json rpc connection.                                         |
 | list-odoo-env               |                  | List odoo env files.                                              |
 | init-venv                   |                  | Initialize python virtual env.                                    |
 | install-module              | [db][name,path]  | Install target Odoo module.                                       |

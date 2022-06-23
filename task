@@ -504,6 +504,12 @@ function change-uuid() {
     scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
 }
 
+function test-jsonrpc() {
+    activate-venv
+    [ -n "$1" ] && load-env $1
+    scripts/jsonrpc
+}
+
 
 function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
@@ -669,11 +675,13 @@ function upload-module() {
             # Upload zip file
             curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
             echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
-            UPLOADS+="$MODULE $VERSION\n"
+            
+            UPLOADS+="- name: $MODULE\n"
+            UPLOADS+="  version: $VERSION\n"
         fi
     done
 
-    echo "Summary:"
+    echo "odoo_apps:"
     echo -e "$UPLOADS"
 }
 
@@ -951,6 +959,9 @@ case "$1" in
         ;;
     update-snippet)
         update-snippet $2 $3
+        ;;
+    test-jsonrpc)
+        test-jsonrpc $2
         ;;
     install-snippet)
         install-snippet $2 $3
