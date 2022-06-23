@@ -645,19 +645,36 @@ function edit-env() {
 
 function upload-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$1 is empty"; exit; fi
+    if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
-    zip-module $2
+    # Check if path is root folder
+    MODULES=$2
+    if [ -f "$2/README.md" ]; then
+        echo "Identified as root folder"
+        MODULES="$MODULES/*"
+    fi
 
-    # Get path to zip file and upload url
-    FILE_PATH="tmp/$MODULE_NAME.zip"
-    
-    load-env $1
-    NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+    for MODULE in $MODULES; do
 
-    # Upload zip file
-    curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
-    echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
+        if [ -f "$MODULE/__manifest__.py" ]; then
+
+            # Create module zip
+            zip-module $MODULE
+
+            # Get path to zip file and upload url
+            FILE_PATH="tmp/$MODULE_NAME.zip"
+            load-env $1
+            NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+
+            # Upload zip file
+            curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
+            echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
+            UPLOADS+="$MODULE $VERSION\n"
+        fi
+    done
+
+    echo "Summary:"
+    echo -e "$UPLOADS"
 }
 
 function save-config() {
