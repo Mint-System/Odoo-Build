@@ -43,7 +43,7 @@
                         border-bottom: solid 1px;
                     }
                     .delivery {
-                        font-size: 7mm;
+                        font-size: 6mm;
                         margin: 3mm 3mm 0 3mm;
                         text-align: left;
                         border-bottom: solid 1px;
@@ -86,7 +86,7 @@
                                     <span t-esc="move.origin"/>
                                 </div>
                                 <div>
-                                    <span t-esc="picking.partner_id.display_name"/>
+                                    <span t-esc="picking.partner_id.commercial_company_name"/>
                                 </div>
                             </div>
                             <div class="col-6 box">

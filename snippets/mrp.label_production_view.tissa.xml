@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<t t-name="mrp.label_production_view.tissa">
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="workorder">
+            <t t-foreach="workorder.move_finished_ids" t-as="move">
+
+                <style>
+                    .title {
+                        font-size: 14mm;
+                    }
+                </style>
+
+                <div class="page">
+                    <div class="label">
+
+                        <t t-if="move.product_id.label_layout.name == 'Etikette Ketten'">
+                            <span>Typ: Etikette Ketten</span>
+                            <span class="title" t-esc="move.product_id.display_name" />
+                        </t>
+
+
+                        <t t-if="move.product_id.label_layout.name == 'Stücketikette Standard'">
+                            <span>Typ: Stücketikette Standard</span>
+                            <span class="title" t-esc="move.product_id.display_name" />
+                        </t>
+                        
+                    </div>
+                    <p style="page-break-before:always;" />
+                </div>
+
+            </t>
+        </t>
+    </t>
+</t>

@@ -1,30 +1,26 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
 
-  <xpath expr="//div/div/table" position="replace">
+  <xpath expr="//div[2]" position="replace">
 
-    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="doc.note_footer"/>
-    </t>
-
-    <table class="table table-borderless table-sm summary">
+     <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>
-        <td class="text-left">
-          <strong>Warenwert</strong>
+        <td style="width:15.5%; text-align:left">
+          <strong>Subtotal</strong>
         </td>
-        <td class="text-left">
+        <td style="width:23%; text-align:left">
           <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
         </td>
-        <td class="text-left">
-          <strong>Steuern</strong>
+        <td style="width:12%; text-align:left">
+          <span>VAT 7.7%</span>
         </td>
-        <td class="text-left">
+        <td style="width:17%; text-align:left">
           <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
         </td>
-        <td class="text-left">
-          <strong>Rechnungsbetrag</strong>
+        <td style="width:14%; text-align:right">
+          <strong>Total</strong>
         </td>
-        <td class="text-left">
+        <td style="width:18%; text-align:right">
           <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
         </td>
       </tr>

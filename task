@@ -510,7 +510,6 @@ function test-jsonrpc() {
     scripts/jsonrpc
 }
 
-
 function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -784,41 +783,48 @@ function update-docs() {
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
     # Get all modules
-    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | uniq)
-
-    # Run this script for each module
+    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | sort | uniq)
     for MODULE in $MODULES; do
+
         TITLE="${MODULE^}" # Uppercase first letter
         TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
         TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
         # Create doc file for each module
-        # DOCFILE="snippets/$MODULE.md"
-        DOCFILE="snippets.md"
-        echo "## $TITLE" >> $DOCFILE
-        # echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
+        # DOCFILE="snippets.md"
+        # echo "## $TITLE" >> $DOCFILE
+        DOCFILE="snippets/$MODULE.md"
+        echo -e "---\nprev: ./snippets.md\n---\n# $TITLE" > $DOCFILE
+        echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
 
-        # Process each file
-        FILES="snippets/$MODULE*.xml"
-        for FILE in $FILES; do
-            # Get snippet params
-            FILENAME=$(basename $FILE)
-            SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
-            XML_ID=$(echo $FILENAME | cut -d. -f2)
-            EDIT=$(echo $FILENAME | cut -d. -f3)
-
-            EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
-            EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+        # Get all xml ids
+        XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
+        for XML_ID in $XML_IDS; do
+        
             XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
             XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
-            # Group by modules
-            # DOCFILE="snippets/$MODULE.md"
-            DOCFILE="snippets.md"
-            echo "### $XML_ID_TITLE: $EDIT_TITLE  " >> $DOCFILE
-            echo "ID: \`mint_system.$SNIPPET_MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
-            echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
-            echo "" >> $DOCFILE
+            # echo "### $XML_ID_TITLE  " >> $DOCFILE
+            echo "## $XML_ID_TITLE  " >> $DOCFILE
+
+            # Process each file
+            FILES="snippets/$MODULE.$XML_ID.*.xml"
+            for FILE in $FILES; do
+
+                # Get snippet params
+                FILENAME=$(basename $FILE)
+                EDIT=$(echo $FILENAME | cut -d. -f3)
+
+                EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
+                EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+
+                # Group by modules
+                # echo "#### $EDIT_TITLE  " >> $DOCFILE
+                echo "### $EDIT_TITLE  " >> $DOCFILE
+                echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
+                echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
+                echo "" >> $DOCFILE
+            done
         done
     done
 }

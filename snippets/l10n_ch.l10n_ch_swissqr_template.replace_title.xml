@@ -1,29 +1,27 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
 
-  <xpath expr="//h1" position="replace">
+<xpath expr="//h1" position="replace">
      <style>
-			.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-				margin-left: 25mm;
-			}
-			.name {
-				font-size: 13pt;
-			}
-			</style>
-     <div class="trimada">
-          <span t-field="o.partner_invoice_id.name"/><br/>
-          <span t-field="o.partner_invoice_id.street"> </span>
-          <span t-field="o.partner_invoice_id.street2"/><br/>
-          <span t-field="o.partner_invoice_id.country_id.code"/>
-          <span t-field="o.partner_invoice_id.zip"/>
-          <span t-field="o.partner_invoice_id.city"/><br/><br/><br/>
-          <br/>
-      </div>
-     <span class="trimada name">Rechnung <t t-esc="o.name"/></span><br/>
-     <span class="trimada">Rechnungsdatum: <t t-options="{&quot;widget&quot;: &quot;date&quot;}" t-esc="o.invoice_date"/></span><br/>
-     </xpath>
+          .trimada {
+               font-size: 9pt;
+               font-family: arial;
+               color: black;
+               margin-left: 25mm;
+               width: 200mm;
+          }
+          .name {
+               font-size: 13pt;
+          }
+     </style>
+     <div class="trimada" t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+     <br/>
+     <br/>
+     <br/>
+     <span class="trimada name">Rechnung <t t-esc="o.name"/></span>
+     <br/>
+     <span class="trimada">Rechnungsdatum: <t t-options="{&quot;widget&quot;: &quot;date&quot;}" t-esc="o.invoice_date"/></span>
+     <br/>
+</xpath>
 
 </data>

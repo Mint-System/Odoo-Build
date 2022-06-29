@@ -7,7 +7,7 @@
     </t>
   </xpath>
 
-  <xpath expr="//table[2]" position="after">
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="o.note_footer"/>
     </t>

@@ -68,12 +68,4 @@
 		<attribute name="class" separator=" " add="trimada table-borderless"/>
 	</table>
 
-	<span id="open_qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-
-	<span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-
 </data>

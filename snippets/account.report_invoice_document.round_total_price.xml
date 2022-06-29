@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
+    <span t-esc="'{0:,.2f}'.format(float(line.price_subtotal)).replace(',','\'')"/>
+  </xpath>
+
+</data>

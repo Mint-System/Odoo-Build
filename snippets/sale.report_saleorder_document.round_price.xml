@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+		 <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '%.2f' % line.price_unit"/>
+  </xpath>
+
+</data>

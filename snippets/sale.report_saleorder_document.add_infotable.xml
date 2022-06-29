@@ -7,6 +7,7 @@
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
+        font-family: arial;
       }
         table#info tr {
         line-height: 1.2;
@@ -56,10 +57,6 @@
         </td>
       </tr>
     </table>
-
-    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="doc.note_header"/>
-    </t>
 
   </xpath>
 

@@ -2,12 +2,12 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
   <xpath expr="//table/thead/tr/th[1]" position="before">
-    <th>
+    <th id="position">
       <span>Pos</span>
     </th>
   </xpath>
   <xpath expr="//table/tbody/t[2]/tr/t[1]/td[1]" position="before">
-    <td>
+    <td id="position">
       <span t-field="line.position"/>
     </td>
   </xpath>

@@ -1,24 +1,34 @@
 <?xml version="1.0"?>
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">>
 
-	<xpath expr="//table[1]//th[1]" position="attributes">
-		<attribute name="id">product_id</attribute>
+	<xpath expr="//table[2]//th[1]" position="attributes">
+		<attribute name="id">default_code</attribute>
 	</xpath>
 
-  <xpath expr="//table[1]//th[2]" position="attributes">
-		<attribute name="id">price_unit</attribute>
+  <xpath expr="//table[2]//th[2]" position="attributes">
+		<attribute name="id">description</attribute>
 	</xpath>
 
-	<xpath expr="//table[1]//th[3]" position="attributes">
+	<xpath expr="//table[2]//th[3]" position="attributes">
+		<attribute name="id">date_schedule</attribute>
+	</xpath>
+	<xpath expr="//table[2]//td[3]" position="attributes">
 		<attribute name="id">date_schedule</attribute>
 	</xpath>
 
-	<xpath expr="//table[1]//th[4]" position="attributes">
+	<xpath expr="//table[2]//th[4]" position="attributes">
 		<attribute name="id">original_uom_qty</attribute>
 	</xpath>
+	<xpath expr="//table[2]//td[4]/span" position="attributes">
+		<attribute name="id">qty</attribute>
+	</xpath>
 
-	<xpath expr="//table[1]//th[5]" position="attributes">
+	<xpath expr="//table[2]//th[5]" position="attributes">
 		<attribute name="id">price_subtotal</attribute>
+	</xpath>
+	
+	<xpath expr="//table[2]//th[6]" position="attributes">
+		<attribute name="id">price_total</attribute>
 	</xpath>
 
 </data>

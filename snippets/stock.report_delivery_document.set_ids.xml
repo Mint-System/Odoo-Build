@@ -1,13 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//table[@name='stock_move_table']//th[1]" position="attributes">
-		<attribute name="id">position</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_move_table']//td[1]" position="attributes">
-		<attribute name="id">position</attribute>
-	</xpath>
-
 	<xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
 		<attribute name="id">description</attribute>
 	</xpath>
@@ -20,13 +13,6 @@
 	</xpath>
 	<xpath expr="//table[@name='stock_move_table']//td[3]/span[1]" position="attributes">
 		<attribute name="id">qty</attribute>
-	</xpath>
-
-	<xpath expr="//table[@name='stock_backorder_table']//th[1]" position="attributes">
-		<attribute name="id">position</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_backorder_table']//td[1]" position="attributes">
-		<attribute name="id">position</attribute>
 	</xpath>
 
 	<xpath expr="//table[@name='stock_backorder_table']//th[2]" position="attributes">

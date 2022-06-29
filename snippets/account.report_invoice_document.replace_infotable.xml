@@ -1,27 +1,29 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-  
+
   <xpath expr="//div[@id='informations']" position="replace">
     <style>
     table#info {
-        width: 100%;
-        margin-bottom: 25px;
-        font-size: 9pt;
-      }
-        table#info tr {
-        line-height: 1.2;
-        text-align: left;
-      }
-        .note {
-        font-size: 9pt;
-      }
-      </style>
+      width: 100%;
+      margin-bottom: 25px;
+      font-size: 9pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
     <table id='info'>
       <tr>
         <td></td>
-         <td></td>
-         <td>Order No.</td>
-         <td><span t-field='o.invoice_origin'/></td>
+        <td></td>
+        <td>Order No.</td>
+        <td>
+          <span t-field='o.invoice_origin'/>
+        </td>
       </tr>
       <tr>
         <td width="17%">Invoice date</td>
@@ -40,9 +42,8 @@
         </td>
         <td>Delivery Method</td>
         <td>
-          
+          <span t-field='o.carrier_id'/>
         </td>
-        
       </tr>
       <tr>
         <td>Order</td>
@@ -57,20 +58,17 @@
       <tr>
         <td>Reference</td>
         <td>
-         
+           <span t-field='o.comment'/>
         </td>
         <td>Delivery Date</td>
         <td>
           <span t-field='o.sale_order_id.effective_date'/>
         </td>
       </tr>
-
     </table>
-    
+
     <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="o.note_header"/>
     </t>
-    
   </xpath>
-
 </data>

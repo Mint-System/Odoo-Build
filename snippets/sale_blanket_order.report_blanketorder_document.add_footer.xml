@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+<xpath expr="//table[@id='summary']" position="after">
+  <style>
+      table#footer {
+        width: 100%;
+        font-size: 8pt;
+      }
+      table#footer tr, td {
+        vertical-align: top;
+      }
+    </style>
+    <table id='footer'>
+      <tr>
+        <td width="40%" t-if="doc.payment_term_id.note">Payment terms 
+          <span t-field="doc.payment_term_id.note"/>
+        </td>
+        <td width="60%">
+          Delivery according to our general delivery conditions
+        </td>
+      </tr>
+      <tr>
+        <td >VAT no: 
+           <span t-field="doc.company_id.vat"/>
+        </td>
+        <td>
+          <table width="100%">
+          <tr>
+            <td width="35%">
+               Bank accounts:
+            </td>
+              <td width="65%">
+              UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
+             </td>
+          </tr> 
+          <tr> 
+             <td>
+            </td>
+            <td>
+            (CHF) IBAN CH63 0027 3273 Q978 6962 0
+            </td>
+          </tr>
+       
+          <tr>
+            <td>
+            </td>
+            <td>
+            (EUR) IBAN CH59 0027 3273 HN10 3698 0
+            </td>
+          </tr>
+          </table> 
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>
