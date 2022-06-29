@@ -510,6 +510,14 @@ function test-jsonrpc() {
     scripts/jsonrpc
 }
 
+function generate-admin-passwd() {
+    activate-venv
+    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    ODOO_PASSWORD="$1"
+    scripts/hash_password
+}
+
+
 function update-snippet() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
     if test -z "$2"; then echo "\$2 is empty"; exit; fi
@@ -899,6 +907,9 @@ case "$1" in
         ;;
     clear-assets)
         clear-assets $2
+        ;;
+    generate-admin-passwd)
+        generate-admin-passwd $2
         ;;
     odoo-cloc)
         odoo-cloc $2
