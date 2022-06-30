@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <?xml version="1.0"?>
+    <data inherit_id="sale.report_saleorder_document" priority="60">
+    
+        <span id="qty" position="replace">
+            <t t-if="confirmation">
+                <span t-field="line.product_uom_qty"/>
+            </t>
+            <t t-else="">
+                <span t-field="line.product_uom_qty"/>
+            </t>
+        </span>
+    
+    </data>
+
+</data>

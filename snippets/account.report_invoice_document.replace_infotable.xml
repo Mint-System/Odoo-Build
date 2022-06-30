@@ -62,7 +62,7 @@
         </td>
         <td>Delivery Date</td>
         <td>
-          <span t-field='o.sale_order_id.effective_date'/>
+          <span t-field='o.picking_ids.date_done' t-options='{ "widget": "date" }'/>
         </td>
       </tr>
     </table>
