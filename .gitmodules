@@ -62,3 +62,7 @@
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 15.0
+[submodule "oca/timesheet"]
+	path = oca/timesheet
+	url = git@github.com:OCA/timesheet.git
+	branch = 15.0
