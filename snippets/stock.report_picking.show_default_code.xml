@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@id='th_product']" position="before">
+    <th id="default_code">
+      <strong >Part No.</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='description_picking']" position="before">
+    <td id="default_code">
+      <span t-field="ml.product_id.default_code"/>
+    </td>
+  </xpath>
+
+</data>

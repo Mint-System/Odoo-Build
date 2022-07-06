@@ -1,3 +1,5 @@
+# Help
+
 | command                     | option           | description                                                       |
 | --------------------------- | ---------------- | ----------------------------------------------------------------- |
 | checkout                    | [branch][branch] | Switch and merge from one branch to another.                      |

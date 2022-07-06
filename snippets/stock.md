@@ -214,6 +214,10 @@ ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`
 Link: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.x_hide_on_delivery.xml)
 
 ## Report Picking  
+### Add Address Block  
+ID: `mint_system.stock.report_picking.add_address_block`  
+Link: [snippets/stock.report_picking.add_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_address_block.xml)
+
 ### Add Delivery Note  
 ID: `mint_system.stock.report_picking.add_delivery_note`  
 Link: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_delivery_note.xml)
@@ -226,6 +230,10 @@ Link: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Mint-
 ID: `mint_system.stock.report_picking.format_delivery_date`  
 Link: [snippets/stock.report_picking.format_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_delivery_date.xml)
 
+### Format Qty Available  
+ID: `mint_system.stock.report_picking.format_qty_available`  
+Link: [snippets/stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_qty_available.xml)
+
 ### Format Title  
 ID: `mint_system.stock.report_picking.format_title`  
 Link: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_title.xml)
@@ -233,6 +241,14 @@ Link: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-S
 ### Get Position  
 ID: `mint_system.stock.report_picking.get_position`  
 Link: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.get_position.xml)
+
+### Group By Date  
+ID: `mint_system.stock.report_picking.group_by_date`  
+Link: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.group_by_date.xml)
+
+### Header Box  
+ID: `mint_system.stock.report_picking.header_box`  
+Link: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.header_box.xml)
 
 ### Hide Address  
 ID: `mint_system.stock.report_picking.hide_address`  
@@ -262,6 +278,14 @@ Link: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint-S
 ID: `mint_system.stock.report_picking.pricelist_below_address`  
 Link: [snippets/stock.report_picking.pricelist_below_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.pricelist_below_address.xml)
 
+### Product Description  
+ID: `mint_system.stock.report_picking.product_description`  
+Link: [snippets/stock.report_picking.product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.product_description.xml)
+
+### Relocate Quantity  
+ID: `mint_system.stock.report_picking.relocate_quantity`  
+Link: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.relocate_quantity.xml)
+
 ### Remove From And To  
 ID: `mint_system.stock.report_picking.remove_from_and_to`  
 Link: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_from_and_to.xml)
@@ -286,6 +310,14 @@ Link: [snippets/stock.report_picking.replace_order_definition.xml](https://githu
 ID: `mint_system.stock.report_picking.replace_table`  
 Link: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_table.xml)
 
+### Set Ids  
+ID: `mint_system.stock.report_picking.set_ids`  
+Link: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.set_ids.xml)
+
+### Show Default Code  
+ID: `mint_system.stock.report_picking.show_default_code`  
+Link: [snippets/stock.report_picking.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_default_code.xml)
+
 ### Show Full Address  
 ID: `mint_system.stock.report_picking.show_full_address`  
 Link: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
@@ -306,9 +338,17 @@ Link: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Min
 ID: `mint_system.stock.report_picking.show_packaging`  
 Link: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_packaging.xml)
 
+### Show Qty Available  
+ID: `mint_system.stock.report_picking.show_qty_available`  
+Link: [snippets/stock.report_picking.show_qty_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_qty_available.xml)
+
 ### Stock Delivery Note  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
 Link: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.stock_delivery_note.xml)
+
+### Style Trimada  
+ID: `mint_system.stock.report_picking.style_trimada`  
+Link: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.style_trimada.xml)
 
 ### X Count Packaging  
 ID: `mint_system.stock.report_picking.x_count_packaging`  

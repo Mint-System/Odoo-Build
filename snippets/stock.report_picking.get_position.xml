@@ -1,16 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-  <xpath expr="//table[1]/thead/tr/th[1]" position="before">
+  <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id">
-      <th>
+      <th id="position">
         <strong>Pos</strong>
       </th>
     </t>
   </xpath>
-  <xpath expr="//t[@t-foreach='o.move_ids_without_package']/t/tr/td[1]" position="before">
+  <xpath expr="//td[@id='description_picking']" position="before">
     <t t-if="o.sale_id or o.purchase_id">
-      <td>
+      <td id="position">
         <span t-esc="move.position"/>
       </td>
     </t>

@@ -7,6 +7,11 @@ prev: ./snippets.md
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
 Link: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
+## Label Production View  
+### Tissa  
+ID: `mint_system.mrp.label_production_view.tissa`  
+Link: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)
+
 ## Mrp Bom Form View  
 ### X Note  
 ID: `mint_system.mrp.mrp_bom_form_view.x_note`  
@@ -137,6 +142,11 @@ Link: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-Sy
 ### Show Stock  
 ID: `mint_system.mrp.report_mrporder.show_stock`  
 Link: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
+
+## Stock Report Delivery Kit Sections  
+### Expand Section Heading  
+ID: `mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading`  
+Link: [snippets/mrp.stock_report_delivery_kit_sections.expand_section_heading.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.stock_report_delivery_kit_sections.expand_section_heading.xml)
 
 ## View Mrp Bom Filter  
 ### Add Operation Ids  

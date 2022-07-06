@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//td[@name='td_quantity']/span[1]" position="attributes">
+    <attribute t-if="is_confirmation" name="t-field">line.qty_to_deliver</attribute>
+  </xpath>
+
+</data>

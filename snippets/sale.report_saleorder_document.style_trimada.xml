@@ -3,6 +3,9 @@
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
+			.o_company_1_layout {
+				font-family: arial;
+			}
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -28,10 +31,6 @@
 			  width: 27mm;
 			  text-align: right;
 			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
 			table.trimada thead th#quantity {
 			  width: 25mm;
 			  text-align: right !important;
@@ -42,16 +41,13 @@
 			table.trimada tbody td#default_code {
 			  text-align: right;
 			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
-			}
-			table.trimada tbody td#quantity {
+			table.trimada tbody td#commitment_date {
 			  text-align: right;
-			}			
-			table.trimada tbody span#qty {
+			}
+			table.trimada tbody td span#product_uom_qty_is_confirmation {
 			  font-weight: bold;
 			}
-			table.trimada tbody span#open_qty {
+			table.trimada tbody td span#product_uom_qty_is_not_confirmation {
 			  font-weight: bold;
 			}
 			.subtitel {
@@ -68,6 +64,10 @@
 
 	<xpath expr="//table[2]" position="attributes">
 		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+	
+	<xpath expr="//th[@id='commitment_date']" position="attributes">
+		<attribute name="class">text-right</attribute>
 	</xpath>
 
 </data>

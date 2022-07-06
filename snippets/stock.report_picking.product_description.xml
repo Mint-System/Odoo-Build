@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+	<xpath expr="//td[@id='description_picking']" position="replace">
+		<td id="description_picking">
+			<span t-field="ml.product_id.name"/><br/>
+      <span t-field="ml.product_id.type_description"/>
+    </td>
+	</xpath>
+
+</data>

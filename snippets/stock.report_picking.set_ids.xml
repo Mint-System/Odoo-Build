@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+	<xpath expr="//th[@name='th_product']" position="attributes">
+		<attribute name="id">th_product</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
+		<attribute name="id">product_uom_qty</attribute>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_to']" position="attributes">
+		<attribute name="id">th_to</attribute>
+	</xpath>
+	
+</data>

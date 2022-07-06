@@ -15,6 +15,10 @@ Link: [snippets/account.report_invoice_document.add_header_space.xml](https://gi
 ID: `mint_system.account.report_invoice_document.add_iban`  
 Link: [snippets/account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_iban.xml)
 
+### Add Percentage Sign  
+ID: `mint_system.account.report_invoice_document.add_percentage_sign`  
+Link: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
 Link: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_salesperson.xml)
@@ -123,25 +127,57 @@ Link: [snippets/account.report_invoice_document.replace_information_table2.xml](
 ID: `mint_system.account.report_invoice_document.replace_information_table`  
 Link: [snippets/account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_information_table.xml)
 
-### Replace Info Table  
-ID: `mint_system.account.report_invoice_document.replace_info_table`  
-Link: [snippets/account.report_invoice_document.replace_info_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_info_table.xml)
+### Replace Infotable  
+ID: `mint_system.account.report_invoice_document.replace_infotable`  
+Link: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_infotable.xml)
+
+### Replace Product Description  
+ID: `mint_system.account.report_invoice_document.replace_product_description`  
+Link: [snippets/account.report_invoice_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_product_description.xml)
+
+### Replace Summary  
+ID: `mint_system.account.report_invoice_document.replace_summary`  
+Link: [snippets/account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.replace_summary.xml)
 
 ### Reset Address  
 ID: `mint_system.account.report_invoice_document.reset_address`  
 Link: [snippets/account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.reset_address.xml)
 
+### Round Price  
+ID: `mint_system.account.report_invoice_document.round_price`  
+Link: [snippets/account.report_invoice_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_price.xml)
+
 ### Round Quantity  
 ID: `mint_system.account.report_invoice_document.round_quantity`  
 Link: [snippets/account.report_invoice_document.round_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_quantity.xml)
+
+### Round Total Price  
+ID: `mint_system.account.report_invoice_document.round_total_price`  
+Link: [snippets/account.report_invoice_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.round_total_price.xml)
+
+### Second Row  
+ID: `mint_system.account.report_invoice_document.second_row`  
+Link: [snippets/account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.second_row.xml)
 
 ### Sequence In Table  
 ID: `mint_system.account.report_invoice_document.sequence_in_table`  
 Link: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
 
+### Set Ids  
+ID: `mint_system.account.report_invoice_document.set_ids`  
+Link: [snippets/account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_ids.xml)
+
+### Show Default Code  
+ID: `mint_system.account.report_invoice_document.show_default_code`  
+Link: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
+
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
 Link: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_product_name.xml)
+
+### Style Trimada  
+ID: `mint_system.account.report_invoice_document.style_trimada`  
+Link: [snippets/account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.style_trimada.xml)
 
 ### Switch Address Block  
 ID: `mint_system.account.report_invoice_document.switch_address_block`  

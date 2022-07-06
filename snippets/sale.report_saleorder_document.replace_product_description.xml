@@ -1,18 +1,18 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
+<data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//td[@name='td_name']" position="replace">
-  <t t-if="line.product_id.type_description">
-	<td>
-		<span style="font-weight: bold" t-field="line.product_id.type_description"/>
-	</td>
-  </t>
-  <t t-if="not line.product_id.type_description">
-	<td>
-    <span t-field="line.name"/>
-	</td>
-  </t>
+  <xpath expr="//td[@name='td_name']" position="replace">
+    <t t-if="line.product_id.type_description">
+      <td>
+        <span class="o_bold" t-field="line.product_id.type_description" />
+      </td>
+    </t>
+    <t t-if="not line.product_id.type_description">
+      <td>
+        <span t-field="line.name" />
+      </td>
+    </t>
 
-</xpath>
+  </xpath>
 
 </data>

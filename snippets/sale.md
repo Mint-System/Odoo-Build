@@ -92,6 +92,11 @@ Link: [snippets/sale.report_purchaserequisitions.replace_table.xml](https://gith
 ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`  
 Link: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
 
+## Report Saleconfirmation  
+### Base  
+ID: `mint_system.sale.report_saleconfirmation.base`  
+Link: [snippets/sale.report_saleconfirmation.base.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleconfirmation.base.xml)
+
 ## Report Saleorder Document  
 ### Add Delivery Date  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -104,6 +109,10 @@ Link: [snippets/sale.report_saleorder_document.add_drawing.xml](https://github.c
 ### Add Footer  
 ID: `mint_system.sale.report_saleorder_document.add_footer`  
 Link: [snippets/sale.report_saleorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_footer.xml)
+
+### Add Header And Footer Note  
+ID: `mint_system.sale.report_saleorder_document.add_header_and_footer_note`  
+Link: [snippets/sale.report_saleorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_header_and_footer_note.xml)
 
 ### Add Header Space  
 ID: `mint_system.sale.report_saleorder_document.add_header_space`  
@@ -121,9 +130,37 @@ Link: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github
 ID: `mint_system.sale.report_saleorder_document.add_notes`  
 Link: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_notes.xml)
 
+### Add Percentage Sign  
+ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`  
+Link: [snippets/sale.report_saleorder_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_percentage_sign.xml)
+
+### Address Block  
+ID: `mint_system.sale.report_saleorder_document.address_block`  
+Link: [snippets/sale.report_saleorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.address_block.xml)
+
 ### Append Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
 Link: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.append_payment_terms.xml)
+
+### Confirmation Filter Lines  
+ID: `mint_system.sale.report_saleorder_document.confirmation_filter_lines`  
+Link: [snippets/sale.report_saleorder_document.confirmation_filter_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_filter_lines.xml)
+
+### Confirmation Header Quantity  
+ID: `mint_system.sale.report_saleorder_document.confirmation_header_quantity`  
+Link: [snippets/sale.report_saleorder_document.confirmation_header_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_header_quantity.xml)
+
+### Confirmation Qty To Deliver  
+ID: `mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver`  
+Link: [snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml)
+
+### Confirmation Qty  
+ID: `mint_system.sale.report_saleorder_document.confirmation_qty`  
+Link: [snippets/sale.report_saleorder_document.confirmation_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_qty.xml)
+
+### Confirmation Title  
+ID: `mint_system.sale.report_saleorder_document.confirmation_title`  
+Link: [snippets/sale.report_saleorder_document.confirmation_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_title.xml)
 
 ### Expand Product Description  
 ID: `mint_system.sale.report_saleorder_document.expand_product_description`  
@@ -141,17 +178,17 @@ Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.format_note`  
 Link: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_note.xml)
 
-### Format Title  
-ID: `mint_system.sale.report_saleorder_document.format_title`  
-Link: [snippets/sale.report_saleorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_title.xml)
+### Format Qty  
+ID: `mint_system.sale.report_saleorder_document.format_qty`  
+Link: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
+
+### Format Title Trimada  
+ID: `mint_system.sale.report_saleorder_document.format_title_trimada`  
+Link: [snippets/sale.report_saleorder_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_title_trimada.xml)
 
 ### Get Position  
 ID: `mint_system.sale.report_saleorder_document.get_position`  
 Link: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.get_position.xml)
-
-### Modify Information Block  
-ID: `mint_system.sale.report_saleorder_document.modify_information_block`  
-Link: [snippets/sale.report_saleorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.modify_information_block.xml)
 
 ### Qty Remaining  
 ID: `mint_system.sale.report_saleorder_document.qty_remaining`  
@@ -161,9 +198,17 @@ Link: [snippets/sale.report_saleorder_document.qty_remaining.xml](https://github
 ID: `mint_system.sale.report_saleorder_document.remove_informations`  
 Link: [snippets/sale.report_saleorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_informations.xml)
 
+### Remove Payment Terms  
+ID: `mint_system.sale.report_saleorder_document.remove_payment_terms`  
+Link: [snippets/sale.report_saleorder_document.remove_payment_terms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_payment_terms.xml)
+
 ### Remove Summary Table  
 ID: `mint_system.sale.report_saleorder_document.remove_summary_table`  
 Link: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_summary_table.xml)
+
+### Remove Taxes  
+ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
+Link: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.remove_taxes.xml)
 
 ### Remove Vat  
 ID: `mint_system.sale.report_saleorder_document.remove_vat`  
@@ -185,6 +230,26 @@ Link: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://
 ID: `mint_system.sale.report_saleorder_document.replace_partner_id`  
 Link: [snippets/sale.report_saleorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_partner_id.xml)
 
+### Replace Product Description  
+ID: `mint_system.sale.report_saleorder_document.replace_product_description`  
+Link: [snippets/sale.report_saleorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_product_description.xml)
+
+### Replace Summary  
+ID: `mint_system.sale.report_saleorder_document.replace_summary`  
+Link: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary.xml)
+
+### Round Price  
+ID: `mint_system.sale.report_saleorder_document.round_price`  
+Link: [snippets/sale.report_saleorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price.xml)
+
+### Round Total Price  
+ID: `mint_system.sale.report_saleorder_document.round_total_price`  
+Link: [snippets/sale.report_saleorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_total_price.xml)
+
+### Second Row  
+ID: `mint_system.sale.report_saleorder_document.second_row`  
+Link: [snippets/sale.report_saleorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.second_row.xml)
+
 ### Sequence In Table  
 ID: `mint_system.sale.report_saleorder_document.sequence_in_table`  
 Link: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.sequence_in_table.xml)
@@ -192,6 +257,14 @@ Link: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://gi
 ### Set Ids  
 ID: `mint_system.sale.report_saleorder_document.set_ids`  
 Link: [snippets/sale.report_saleorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_ids.xml)
+
+### Show Default Code  
+ID: `mint_system.sale.report_saleorder_document.show_default_code`  
+Link: [snippets/sale.report_saleorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_default_code.xml)
+
+### Style Trimada  
+ID: `mint_system.sale.report_saleorder_document.style_trimada`  
+Link: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_trimada.xml)
 
 ### X Sudio Description  
 ID: `mint_system.sale.report_saleorder_document.x_sudio_description`  

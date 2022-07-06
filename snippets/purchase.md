@@ -242,6 +242,10 @@ Link: [snippets/purchase.report_purchasequotation_document.row_date_align_left.x
 ID: `mint_system.purchase.report_purchasequotation_document.sequence_in_table`  
 Link: [snippets/purchase.report_purchasequotation_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.sequence_in_table.xml)
 
+### Style Trimada  
+ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  
+Link: [snippets/purchase.report_purchasequotation_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.style_trimada.xml)
+
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchasequotation_document.terms_and_conditions`  
 Link: [snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml)

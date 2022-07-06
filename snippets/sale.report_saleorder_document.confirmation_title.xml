@@ -3,7 +3,7 @@
 
     <xpath expr="//h2/t[1]" position="replace">
         <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-            <span t-if="confirmation">Confirmation # </span>
+            <span t-if="is_confirmation">Confirmation # </span>
             <span t-if="doc.state not in ['draft','sent'] and not is_confirmation">Order # </span>
             <span t-if="doc.state in ['draft','sent'] and not is_confirmation">Quotation # </span>
         </t>
