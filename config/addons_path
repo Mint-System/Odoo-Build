@@ -13,6 +13,8 @@ oca/hr-holidays
 oca/product-attribute
 oca/project
 oca/rest-framework
+oca/sale-workflow
+oca/server-tools
 oca/timesheet
 oca/web
 themes
