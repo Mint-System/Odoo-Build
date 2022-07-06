@@ -3,7 +3,7 @@
 
   <xpath expr="//div[hasclass('page')]" position="before">
     <!-- Get all lines without duplicates -->
-    <t t-set="dates" t-value="list(set(o.move_ids_without_package.mapped('date')))" />
+    <t t-set="dates" t-value="list(set([date.date() for date in o.move_ids_without_package.mapped('date')]))" />
     <!-- Store if has dates -->
     <t t-set="has_dates" t-value="len(dates) > 0" />
     <!-- Store if has multiple dates -->
