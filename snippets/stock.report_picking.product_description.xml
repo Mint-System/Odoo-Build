@@ -2,10 +2,20 @@
 <data inherit_id="stock.report_picking" priority="50">
 
 	<xpath expr="//td[@id='description_picking']" position="replace">
+
 		<td id="description_picking">
-			<span t-field="ml.product_id.name"/><br/>
-      <span t-field="ml.product_id.type_description"/>
-    </td>
+			<strong>
+				<span t-esc="move.product_id.type_description"/>
+			</strong>
+			<br/>
+			<span t-esc="move.description_picking"/>
+			<br/>
+			<t t-if="not move.description_picking">
+				<span t-esc="move.product_id.name"/>
+				<br/>
+			</t>
+			<span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
+		</td>
 	</xpath>
 
 </data>

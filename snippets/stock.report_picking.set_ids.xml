@@ -8,9 +8,13 @@
 	<xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
 		<attribute name="id">product_uom_qty</attribute>
 	</xpath>
-	
+
 	<xpath expr="//th[@name='th_to']" position="attributes">
 		<attribute name="id">th_to</attribute>
 	</xpath>
-	
+
+	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
+		<attribute name="id">barcode</attribute>
+	</xpath>
+
 </data>

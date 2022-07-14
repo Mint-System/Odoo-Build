@@ -64,6 +64,11 @@ Link: [snippets/ir_model.crm_lead.x_date_stop.xml](https://github.com/Mint-Syste
 ID: `mint_system.ir_model.crm_lead.x_mobile`  
 Link: [snippets/ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.crm_lead.x_mobile.xml)
 
+## Helpdesk Ticket  
+### X Date Deadline  
+ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`  
+Link: [snippets/ir_model.helpdesk_ticket.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.helpdesk_ticket.x_date_deadline.xml)
+
 ## Hr Applicant  
 ### X Gdpr  
 ID: `mint_system.ir_model.hr_applicant.x_gdpr`  
@@ -91,6 +96,11 @@ Link: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-Syst
 ### X Reservation State  
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
 Link: [snippets/ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_reservation_state.xml)
+
+## Product Set Line  
+### X Categ Id  
+ID: `mint_system.ir_model.product_set_line.x_categ_id`  
+Link: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_set_line.x_categ_id.xml)
 
 ## Product Template  
 ### X Hide On Delivery  
@@ -161,6 +171,10 @@ Link: [snippets/ir_model.sale_order_line.x_industry_id.xml](https://github.com/M
 ### X State  
 ID: `mint_system.ir_model.sale_order_line.x_state`  
 Link: [snippets/ir_model.sale_order_line.x_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_state.xml)
+
+### X Weight Delivered  
+ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`  
+Link: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
 ### X Studio Description  

@@ -23,7 +23,7 @@
         <td t-if="o.invoice_payment_term_id" name="payment_term">
           Zahlungsbedingungen: <span t-field="o.invoice_payment_term_id.note"/>
         </td>
-        <td width="60%">
+        <td width="50%">
           Lieferung gemäss unseren allgemeinen Lieferbedingungen
         </td>
       </tr>

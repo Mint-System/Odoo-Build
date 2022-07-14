@@ -4,9 +4,10 @@
   <xpath expr="//table/thead//tr[1]//th[2]" position="replace">
     <th t-if="doc.state not in ['draft']" id="commitment_date" class="text-left">Commitment Date</th>
   </xpath>
+  
   <xpath expr="//table/tbody[hasclass('sale_tbody')]//tr[1]//td[2]" position="replace">
-    <td t-if="doc.state not in ['draft']">
-      <span t-field="line.commitment_date" id="commitment_date" t-options="{'widget': 'date'}"/>
+    <td t-if="doc.state not in ['draft']" id="commitment_date">
+      <span t-field="line.commitment_date" t-options="{'widget': 'date'}"/>
     </td>
   </xpath>
   

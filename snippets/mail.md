@@ -13,6 +13,10 @@ ID: `mint_system.mail.mail_activity_view_form_popup.x_reference`
 Link: [snippets/mail.mail_activity_view_form_popup.x_reference.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_activity_view_form_popup.x_reference.xml)
 
 ## Mail Notification Borders  
+### Reduce To Content  
+ID: `mint_system.mail.mail_notification_borders.reduce_to_content`  
+Link: [snippets/mail.mail_notification_borders.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_borders.reduce_to_content.xml)
+
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_borders.remove_logo`  
 Link: [snippets/mail.mail_notification_borders.remove_logo.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_borders.remove_logo.xml)
@@ -23,6 +27,10 @@ ID: `mint_system.mail.mail_notification_email.remove_logo`
 Link: [snippets/mail.mail_notification_email.remove_logo.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_email.remove_logo.xml)
 
 ## Mail Notification Light  
+### Reduce To Content  
+ID: `mint_system.mail.mail_notification_light.reduce_to_content`  
+Link: [snippets/mail.mail_notification_light.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.reduce_to_content.xml)
+
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_light.remove_logo`  
 Link: [snippets/mail.mail_notification_light.remove_logo.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.remove_logo.xml)
@@ -32,6 +40,10 @@ ID: `mint_system.mail.mail_notification_light.replace_footer`
 Link: [snippets/mail.mail_notification_light.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.replace_footer.xml)
 
 ## Mail Notification Paynow  
+### Reduce To Content  
+ID: `mint_system.mail.mail_notification_paynow.reduce_to_content`  
+Link: [snippets/mail.mail_notification_paynow.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.reduce_to_content.xml)
+
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_paynow.remove_logo`  
 Link: [snippets/mail.mail_notification_paynow.remove_logo.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.remove_logo.xml)

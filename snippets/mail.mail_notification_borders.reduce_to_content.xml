@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_borders" priority="50">
+
+    <xpath expr="//tbody" position="replace">
+        <tbody>
+
+            <!-- CONTENT -->
+            <tr>
+                <td align="center" style="min-width: 590px;">
+                    <table width="590" border="0" cellpadding="0" bgcolor="#ffffff" style="min-width: 590px; background-color: rgb(255, 255, 255); padding: 20px; border-collapse:separate;">
+                        <tbody>
+                            <td valign="top" style="font-family:Arial,Helvetica,sans-serif; color: #555; font-size: 14px;">
+                                <t t-raw="message.body"/>
+                            </td>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td align="center" style="padding: 8px; font-size:11px;">
+                    <a></a>
+                </td>
+            </tr>
+        </tbody>
+    </xpath>
+
+</data>

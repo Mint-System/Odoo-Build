@@ -234,6 +234,10 @@ Link: [snippets/stock.report_picking.format_delivery_date.xml](https://github.co
 ID: `mint_system.stock.report_picking.format_qty_available`  
 Link: [snippets/stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_qty_available.xml)
 
+### Format Qty  
+ID: `mint_system.stock.report_picking.format_qty`  
+Link: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_qty.xml)
+
 ### Format Title  
 ID: `mint_system.stock.report_picking.format_title`  
 Link: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.format_title.xml)
@@ -297,6 +301,10 @@ Link: [snippets/stock.report_picking.remove_reservation_notice.xml](https://gith
 ### Remove Serial Number  
 ID: `mint_system.stock.report_picking.remove_serial_number`  
 Link: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.remove_serial_number.xml)
+
+### Replace Barcode  
+ID: `mint_system.stock.report_picking.replace_barcode`  
+Link: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_barcode.xml)
 
 ### Replace Header  
 ID: `mint_system.stock.report_picking.replace_header`  

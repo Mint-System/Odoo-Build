@@ -207,6 +207,10 @@ ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
 Link: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
 
 ## View Invoice Tree  
+### Show Date  
+ID: `mint_system.account.view_invoice_tree.show_date`  
+Link: [snippets/account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_date.xml)
+
 ### X Account Codes  
 ID: `mint_system.account.view_invoice_tree.x_account_codes`  
 Link: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.x_account_codes.xml)
@@ -219,6 +223,10 @@ Link: [snippets/account.view_move_form.hide_payment_reference.xml](https://githu
 ### Payment Reference Readonly  
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.payment_reference_readonly.xml)
+
+### Remove Isr Button  
+ID: `mint_system.account.view_move_form.remove_isr_button`  
+Link: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.remove_isr_button.xml)
 
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  

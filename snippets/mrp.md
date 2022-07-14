@@ -163,6 +163,10 @@ ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`
 Link: [snippets/mrp.view_mrp_production_filter.add_not_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_filter.add_not_planned.xml)
 
 ## View Mrp Production Workorder Form View Filter  
+### Add Date Planned Start Set  
+ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set`  
+Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set.xml)
+
 ### Add Planned  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_planned`  
 Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_planned.xml)
@@ -170,6 +174,11 @@ Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_planned.x
 ### Add Product Id  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_id`  
 Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml)
+
+## View Mrp Production Work Order Search  
+### Add Date Planned Start Set  
+ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_start_set`  
+Link: [snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml)
 
 ## Workcenter Line Kanban  
 ### Add Date Planned Start  

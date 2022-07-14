@@ -3,12 +3,15 @@
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
+		  p {
+		    font-size: 9pt;
+				font-family: arial;
+		  }
 			table.trimada {
 			  width: 100%;
 				font-size: 9pt;
 				font-family: arial;
 				margin-top: 20px;
-				padding: 10px;
 			}
 			table.trimada thead tr {
 				border-top: solid 1px;
@@ -19,11 +22,16 @@
 			}
 			table.trimada thead th#default_code {
 			  width: 27mm;
+			  padding-left: 10px;
 			  text-align: left;
 			}
 			table.trimada thead th#quantity {
 			  width: 25mm;
 			  text-align: right !important;
+			}
+			table.trimada thead th#product_uom_qty {
+			  width: 25mm;
+			  text-align: right;
 			}
 			table.trimada tbody td#position {
 			  text-align: right;
@@ -33,19 +41,35 @@
 				border-bottom: 1px solid rgb(220,220,220)
 			}
 			table.trimada tbody td#default_code {
+			  padding-left: 10px;
 			  text-align: left;
 			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
+			table.trimada tbody td span#description_pickingout {
+			  font-style: italic;
 			}
-			table.trimada tbody td#quantity {
+			table.trimada tbody td#product_uom_qty {
 			  text-align: right;
 			}			
-			table.trimada tbody span#qty {
+			table.trimada tbody td span#product_uom_qty {
 			  font-weight: bold;
 			}
-			table.trimada tbody span#open_qty {
+			table.trimada tbody td span#product_uom_qty_done {
 			  font-weight: bold;
+			}
+			table.trimada tbody td span#qty_available {
+			  font-size: 7pt;
+			}
+			table.trimada tbody td span#qty_available_uom_id {
+			  font-size: 7pt;
+			}
+			table.trimada #barcode {
+			  text-align: right;
+			}
+		  div.address_block {
+			  font-size: 10pt;
+				font-family: arial;
+				margin-top: 20px;
+				margin-left: 10px;
 			}
 			.subtitel {
 				font-size: 11pt;
@@ -60,7 +84,7 @@
 	</xpath>
 
 .	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
-		<attribute name="class">trimada</attribute>
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
 	</xpath>
 
 </data>

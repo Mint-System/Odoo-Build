@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+  
+  <xpath expr="//span[@id='product_uom_qty_done']" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+
+</data>
