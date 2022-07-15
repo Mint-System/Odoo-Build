@@ -16,3 +16,8 @@ Link: [snippets/mail_activity_board.mail_activity_view_form_board.show_done_butt
 ID: `mint_system.mail_activity_board.mail_activity_view_search.my_activities_filter`  
 Link: [snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml)
 
+## Open Boards Activities  
+### My Activities Filter  
+ID: `mint_system.mail_activity_board.open_boards_activities.my_activities_filter`  
+Link: [snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml)
+

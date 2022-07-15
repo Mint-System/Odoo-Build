@@ -319,6 +319,10 @@ Link: [snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.
 ID: `mint_system.sale.view_order_form.button_recompute_add_shipping`  
 Link: [snippets/sale.view_order_form.button_recompute_add_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.button_recompute_add_shipping.xml)
 
+### Domain Partner Type  
+ID: `mint_system.sale.view_order_form.domain_partner_type`  
+Link: [snippets/sale.view_order_form.domain_partner_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.domain_partner_type.xml)
+
 ### Filter Customer Is Company  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
 Link: [snippets/sale.view_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.filter_customer_is_company.xml)
