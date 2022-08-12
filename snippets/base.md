@@ -36,6 +36,10 @@ ID: `mint_system.base.view_bank_form.add_display_name`
 Link: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_bank_form.add_display_name.xml)
 
 ## View Partner Form  
+### Add Commercial Partner Id  
+ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  
+Link: [snippets/base.view_partner_form.add_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.add_commercial_partner_id.xml)
+
 ### Add Credit Limit  
 ID: `mint_system.base.view_partner_form.add_credit_limit`  
 Link: [snippets/base.view_partner_form.add_credit_limit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.add_credit_limit.xml)
@@ -51,6 +55,10 @@ Link: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 Link: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
+
+### Show Industry  
+ID: `mint_system.base.view_partner_form.show_industry`  
+Link: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_industry.xml)
 
 ## View Partner Tree  
 ### Add Ref Zip Type  
@@ -68,6 +76,10 @@ Link: [snippets/base.view_partner_tree.optional_payment_terms.xml](https://githu
 ### Optional Zip  
 ID: `mint_system.base.view_partner_tree.optional_zip`  
 Link: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
+
+### Show Industry  
+ID: `mint_system.base.view_partner_tree.show_industry`  
+Link: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.show_industry.xml)
 
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  

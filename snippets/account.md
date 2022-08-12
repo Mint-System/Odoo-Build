@@ -3,6 +3,10 @@ prev: ./snippets.md
 ---
 # Account
 ## Report Invoice Document  
+### Add Header And Footer Note  
+ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
+Link: [snippets/account.report_invoice_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_and_footer_note.xml)
+
 ### Add Header Padding  
 ID: `mint_system.account.report_invoice_document.add_header_padding`  
 Link: [snippets/account.report_invoice_document.add_header_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_header_padding.xml)
@@ -207,6 +211,10 @@ ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
 Link: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
 
 ## View Invoice Tree  
+### Add Currency Id  
+ID: `mint_system.account.view_invoice_tree.add_currency_id`  
+Link: [snippets/account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.add_currency_id.xml)
+
 ### Show Date  
 ID: `mint_system.account.view_invoice_tree.show_date`  
 Link: [snippets/account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_invoice_tree.show_date.xml)
@@ -227,6 +235,10 @@ Link: [snippets/account.view_move_form.payment_reference_readonly.xml](https://g
 ### Remove Isr Button  
 ID: `mint_system.account.view_move_form.remove_isr_button`  
 Link: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.remove_isr_button.xml)
+
+### Show Commercial Partner Id  
+ID: `mint_system.account.view_move_form.show_commercial_partner_id`  
+Link: [snippets/account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_commercial_partner_id.xml)
 
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  
@@ -263,4 +275,9 @@ Link: [snippets/account.view_move_tree.x_account_codes.xml](https://github.com/M
 ### Show Partner Shipping  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
 Link: [snippets/account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_out_invoice_tree.show_partner_shipping.xml)
+
+## View Partner Property Form  
+### Show Commercial Partner Id  
+ID: `mint_system.account.view_partner_property_form.show_commercial_partner_id`  
+Link: [snippets/account.view_partner_property_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_partner_property_form.show_commercial_partner_id.xml)
 

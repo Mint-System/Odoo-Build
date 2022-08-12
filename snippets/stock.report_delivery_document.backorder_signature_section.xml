@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
-<!-- Append delivery document description -->
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="/t/t/t/div/table[1]" position="after">
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <p>Retouren:<br/>
 		KEG:             ___________  Anzahl<br/>
 		Harassen:  ___________  Anzahl<br/>

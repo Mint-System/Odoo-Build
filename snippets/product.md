@@ -2,10 +2,20 @@
 prev: ./snippets.md
 ---
 # Product
+## Product Normal Only Form View  
+### Add X Product Label  
+ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
+Link: [snippets/product.product_normal_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_only_form_view.add_x_product_label.xml)
+
 ## Product Packaging Form View  
 ### X Packaging Uom Id  
 ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`  
 Link: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
+
+## Product Pricelist View  
+### Show Product  
+ID: `mint_system.product.product_pricelist_view.show_product`  
+Link: [snippets/product.product_pricelist_view.show_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_pricelist_view.show_product.xml)
 
 ## Product Template Form View  
 ### Add Type Description  
@@ -22,6 +32,10 @@ ID: `mint_system.product.product_template_kanban_view.add_product_info`
 Link: [snippets/product.product_template_kanban_view.add_product_info.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_kanban_view.add_product_info.xml)
 
 ## Product Template Only Form View  
+### Add X Product Label  
+ID: `mint_system.product.product_template_only_form_view.add_x_product_label`  
+Link: [snippets/product.product_template_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.add_x_product_label.xml)
+
 ### Hide Barcode  
 ID: `mint_system.product.product_template_only_form_view.hide_barcode`  
 Link: [snippets/product.product_template_only_form_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_barcode.xml)

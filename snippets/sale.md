@@ -351,6 +351,10 @@ Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
 Link: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
 
+### Show Project  
+ID: `mint_system.sale.view_order_form.show_project`  
+Link: [snippets/sale.view_order_form.show_project.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_project.xml)
+
 ### Show Sequence  
 ID: `mint_system.sale.view_order_form.show_sequence`  
 Link: [snippets/sale.view_order_form.show_sequence.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_sequence.xml)
@@ -360,6 +364,10 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## View Order Line Tree  
+### Qty With Sum  
+ID: `mint_system.sale.view_order_line_tree.qty_with_sum`  
+Link: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.qty_with_sum.xml)
+
 ### Reset View  
 ID: `mint_system.sale.view_order_line_tree.reset_view`  
 Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.reset_view.xml)
@@ -388,6 +396,10 @@ Link: [snippets/sale.view_order_tree.add_comment.xml](https://github.com/Mint-Sy
 ### Show Partner Shipping  
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
 Link: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
+### X Product Uom Qty  
+ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  
+Link: [snippets/sale.view_order_tree.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.x_product_uom_qty.xml)
 
 ## View Quotation Tree  
 ### Add Client Order Ref  

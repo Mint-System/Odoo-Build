@@ -2,7 +2,7 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
   <xpath expr="//td[@name='td_quantity']" position="replace">
-    <t t-set="product" t-value="doc.blanket_order_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id).remaining_uom_qty" />
+    <t t-set="product" t-value="sum(doc.blanket_order_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id).mapped('remaining_uom_qty'))" />
 
     <td name="td_quantity" class="text-right">
       <span t-field="line.product_uom_qty" />

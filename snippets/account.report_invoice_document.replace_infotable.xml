@@ -60,15 +60,15 @@
         <td>
            <span t-field='o.comment'/>
         </td>
+        
         <td>Delivery Date</td>
         <td>
-          <span t-field='o.picking_ids.date_done' t-options='{ "widget": "date" }'/>
+          <span t-field='o.x_date_done' t-options='{ "widget": "date" }'/>
         </td>
+    
       </tr>
     </table>
-
-    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_header"/>
-    </t>
   </xpath>
 </data>
+
+

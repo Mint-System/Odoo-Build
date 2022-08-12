@@ -2,14 +2,21 @@
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines" t-as="move">
-
                 <style>
                     .label {
                         font-family: arial;
-                        
                     }
                     .box {
                         margin: 0 0 2mm 0;
+                    }
+                    .box1 {
+                        margin: 9mm 0 2mm 0;
+                    }
+                    .box2 {
+                        margin: 7mm 0 2mm 0;
+                    }
+                    .box3 {
+                        margin: 2mm 0 2mm 0;
                     }
                     .padding {
                         padding-bottom: 3mm;
@@ -20,27 +27,22 @@
                         font-weight: bold;
                         text-align: center;
                         border-bottom: solid 1px;
-                        line-height: 30mm;
+                    }
+                    .frame {
+                        border-bottom: solid 1px;
+                        margin: 0 3mm 0 3mm;
                     }
                     .description {
-                        font-size: 9mm;
-                        margin: 0 3mm 0 3mm;
-                        text-align: center;
+                        font-size: 7mm;
                         height: 23mm;
-                        display: table;
                         width: 98%;
-                        line-height: 10mm;
-                    }
-                    .sub1 {
-                        display: table-cell ;
-                        vertical-align: middle;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
                         text-align: center;
-                    }
-                    .sub2 {
-                        display: table-cell ;
-                        vertical-align: middle;
-                        text-align: center;
-                        border-bottom: solid 1px;
+                        padding: 10px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
                     }
                     .delivery {
                         font-size: 6mm;
@@ -64,18 +66,20 @@
                 <div class="page">
                     <div class="label">
                         <div class="row title">
-                            <div class="col-6">
+                            <div class="col-6 box1">
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
-                            <div t-if="move.product_id.barcode" class="col-6 box text-right">
+                            <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
                                 <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
                             </div>
                         </div>
-                        <div class="description">
-                            <span class="sub1" t-esc="move.product_id.name"/>
-                        </div>
-                         <div class="description">
-                            <span class="sub2" t-esc="move.product_id.type_description"/>
+                        <div class="frame">
+                            <div class="description">
+                                <span t-esc="move.product_id.name"/>
+                            </div>
+                            <div class="description">
+                                <span t-esc="move.product_id.type_description"/>
+                            </div>
                         </div>
                         <div class="row delivery">
                             <div class="col-6 box">
@@ -89,7 +93,7 @@
                                     <span t-esc="picking.partner_id.commercial_company_name"/>
                                 </div>
                             </div>
-                            <div class="col-6 box">
+                            <div class="col-6 box3">
                                 <div t-if="move.product_id.feeder_id" class="text-right">
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.feeder_id, 250, 80)" alt="Barcode"/>
                                     <br/>

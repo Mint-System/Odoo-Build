@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_picking_list" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Picking List</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_picking_list</field>
+    <field name="state">manual</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="depends">picking_ids</field>
+    <field name="compute">for record in self:
+  picking_ids = record.picking_ids.mapped('name')
+  record['x_picking_list'] = ", ".join(picking_ids)
+    </field>
+  </record>
+
+</odoo>

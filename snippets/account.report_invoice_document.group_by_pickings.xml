@@ -32,7 +32,8 @@
     <t t-foreach="pickings" t-as="picking">
       <tr t-if="has_pickings and picking" class="o_line_note">
         <td colspan="99" style="padding-top: 1rem;" >
-          <strong><span>Lieferung </span><span t-esc="picking.name.replace('WH/OUT/','')" /></strong>
+          <strong><span>Lieferung </span><span t-esc="picking.name.replace('WH/OUT/','')"/></strong>
+          <!--<strong><span>Lieferung </span><span t-esc="picking.name.replace('WH/OUT/','')"/><span> / Bestellung </span><span t-esc="picking.group_id.name"/></strong>-->
           <span> vom </span>
           <span t-esc="picking.scheduled_date" t-options="{'widget': 'date'}"/><span>:</span>
         </td>
@@ -100,6 +101,11 @@
 
         </t>
       </t>
+      <tr t-if="picking and picking.sale_id.note" class="o_line_note">
+        <td colspan="99" style="padding-bottom: 1rem;" >
+          <span t-esc="picking.sale_id.note"/>
+        </td>
+      </tr>
     </t>
   </xpath>
 

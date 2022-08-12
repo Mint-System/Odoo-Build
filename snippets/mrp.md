@@ -8,6 +8,10 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
 Link: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
 ## Label Production View  
+### Tissa Etikette Ketten  
+ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`  
+Link: [snippets/mrp.label_production_view.tissa_etikette_ketten.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa_etikette_ketten.xml)
+
 ### Tissa  
 ID: `mint_system.mrp.label_production_view.tissa`  
 Link: [snippets/mrp.label_production_view.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view.tissa.xml)

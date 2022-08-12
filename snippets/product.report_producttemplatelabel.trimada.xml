@@ -6,11 +6,14 @@
         .label {
             font-family: arial;
         }
-        .box {
-            margin: 0 0 2mm 0;
+        .box1 {
+            margin: 9mm 0 2mm 0;
         }
-        .padding {
-            padding-bottom: 3mm;
+        .box2 {
+            margin: 7mm 0 2mm 0;
+        }
+        .box3 {
+            margin: 2mm 0 2mm 0;
         }
         .title {
             font-size: 11mm;
@@ -18,28 +21,22 @@
             font-weight: bold;
             text-align: center;
             border-bottom: solid 1px;
-            line-height: 30mm;
+        }
+        .frame {
+            border-bottom: solid 1px;
+            margin: 0 3mm 0 3mm;
         }
         .description {
-            font-size: 9mm;
-            margin: 0 3mm 0 3mm;
-            text-align: center;
+            font-size: 7mm;
             height: 23mm;
-            line-height: 10mm;
-            display: table;
             width: 98%;
-            line-height: 10mm;
-        }
-        .sub1 {
-            display: table-cell ;
-            vertical-align: middle;
+            overflow: hidden;
+            text-overflow: ellipsis;
             text-align: center;
-        }
-        .sub2 {
-            display: table-cell ;
-            vertical-align: middle;
-            text-align: center;
-            border-bottom: solid 1px;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         .delivery {
             font-size: 7mm;
@@ -60,24 +57,27 @@
             padding-left: 0;
         }
         </style>
+        
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6">
+              <div class="col-6 box1">
                 <span t-esc="product.default_code"/>
               </div>
-              <div t-if="product.barcode" class="col-6 box text-right">
+              <div t-if="product.barcode" class="col-6 box2 text-right">
                 <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.barcode, 250, 85)" alt="Barcode"/>
               </div>
             </div>
+            <div class="frame">
             <div class="description">
                 <span class="sub1" t-esc="product.name"/>
             </div>
              <div class="description">
-                <span class="sub2" t-esc="product.type_description"/>
+                <span class="sub1" t-esc="product.type_description"/>
+            </div>
             </div>
             <div class="row delivery">
-              <div class="col-12 box text-center">
+              <div class="col-12 box3 text-center">
                   <div t-if="product.feeder_id">
                       <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
                       <br/>
@@ -91,6 +91,8 @@
               <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
             </div>
           </div>
+          <p style="page-break-before:always;" />
+          
           </div>
         </t>
       </t>

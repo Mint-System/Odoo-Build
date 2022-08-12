@@ -1,4 +1,5 @@
 # Snippets
+In Odoo everything is described as an XML document.     Snippets are modifications (edits) for these XML documents.     With a snippet you can e.g. hide a field on the contact form.     A snippet name is unique and follows the `$AUTHOR.$MODULE.$XML_ID.$DESCRIPTION` scheme.
 ## [Account](snippets/account.md)
 ## [Agreement](snippets/agreement.md)
 ## [Agreement Legal](snippets/agreement_legal.md)

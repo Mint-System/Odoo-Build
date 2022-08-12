@@ -8,7 +8,8 @@
       </th>
     </t>
   </xpath>
-  <xpath expr="//td[@id='description_picking']" position="before">
+  <!-- <xpath expr="//td[@id='description_picking']" position="before"> -->
+  <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before">
     <t t-if="o.sale_id or o.purchase_id">
       <td id="position">
         <span t-esc="move.position"/>

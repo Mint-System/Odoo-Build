@@ -117,7 +117,7 @@ function install-native() {
     pip install setuptools wheel watchdog phonenumbers
     pip install -r odoo/requirements.txt
     echo "Install oca dev tools"
-    pip install pre-commit pyyaml rst2html5
+    pip install pre-commit pyyaml rst2html5 odoorpc
     echo "Install graphql dependencies"
     pip install graphene graphql-server-core
     echo "Install rest dependencies"
@@ -787,6 +787,10 @@ function update-docs() {
 
     echo "Update snippets README file."
     echo "# Snippets" > snippets.md
+    echo "In Odoo everything is described as an XML document. \
+    Snippets are modifications (edits) for these XML documents. \
+    With a snippet you can e.g. hide a field on the contact form. \
+    A snippet name is unique and follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` scheme." >> snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 

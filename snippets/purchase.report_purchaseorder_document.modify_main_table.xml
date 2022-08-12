@@ -126,10 +126,18 @@
         <td style="width:23%; text-align:left">
           <span t-field="o.amount_untaxed"/>
         </td>
-        <td style="width:12%; text-align:left">MwSt. 7,7%</td>
-        <td style="width:17%; text-align:left">
-          <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-        </td>
+
+        <t t-if="o.amount_tax > 0">
+          <td style="width:12%; text-align:left">MWST</td>
+          <td style="width:17%; text-align:left">
+            <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </td>
+        </t>
+        <t t-elif="o.amount_tax == 0">
+          <td></td>
+          <td></td>
+        </t>
+
         <td style="width:14%; text-align:right">
           <Strong>Bestellbetrag</Strong>
         </td>
