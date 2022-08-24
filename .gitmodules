@@ -78,3 +78,7 @@
 	path = addons/vertical_aero
 	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git
 	branch = 15.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
+	branch = 15.0

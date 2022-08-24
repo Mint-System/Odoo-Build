@@ -3,6 +3,7 @@ addons/hr
 addons/manufacture
 addons/purchase_workflow
 addons/odoo_apps_partner
+addons/server_tools
 addons/stock_logistics_workflow
 addons/vertical_forestry
 addons/vertical_aero
