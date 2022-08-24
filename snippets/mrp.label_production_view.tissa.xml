@@ -1,56 +1,40 @@
-<t t-name="studio_main_report">
-    <t t-foreach="docs" t-as="doc">
-        <t t-call="web.basic_layout">
+<t t-name="mrp.label_production_view.tissa">
+
+    <t t-call="web.basic_layout">
+
+        <!-- <span t-esc="docs"/>-->
+        <!--<span t-esc="docs.move_finished_ids"/>-->
+        <!--<span t-esc="docs.move_finished_ids.lot_ids"/>-->
+        <!--<span t-esc="docs.finished_lot_id"/>-->
+
+        <t t-set="lot_ids" t-value="docs.move_finished_ids.lot_ids or docs.finished_lot_id"/>
+        <t t-foreach="lot_ids" t-as="lot_id">
+
+            <t t-set="doc" t-value="lot_id" />
+            <t t-set="docs" t-value="lot_id" />
+
             <t t-if="doc.product_id.x_product_label.name == 'Stücketikette Spheretex'">
-                <t t-call="studio_customization.studio_report_docume_84b2d998-cc56-45cc-8ec2-9b375a1bbcd0_document"/>
+                <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448"/>
             </t>
-            
+
             <t t-if="doc.product_id.x_product_label.name == 'Stücketikette Standard'">
-                <t t-call="studio_customization.studio_report_docume_5322cd1b-2c35-419d-8e1f-1e7afb5936e3_document"/>
+                <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_copy_1"/>
             </t>
-            
+
             <t t-if="doc.product_id.x_product_label.name == 'Stücketikette neutral'">
-                <t t-call="studio_customization.studio_report_docume_2b92a163-f467-4a96-92ea-963ba7b0c2d2_document"/>
+                <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
             </t>
-            
+
             <t t-if="doc.product_id.x_product_label.name == 'Stücketikette Sika'">
-                <t t-call="studio_customization.studio_report_docume_4fd86ea4-bacb-4603-96e7-7cfa5773b052_document"/>
+                <t t-call="studio_customization.studio_report_docume_d6a31795-5d6c-4527-9c76-48ad7356e0ae"/>
             </t>
-            
-            <t t-if="doc.product_id.x_product_label.name == 'Etikette Ketten'">
-                <t t-call="studio_customization.studio_report_docume_69399d9a-c835-4e10-a933-6a4cd82a854d_document"/>
+
+            <t t-if="lot_id.product_id.x_product_label.name == 'Etikette Ketten'">
+                <t t-call="studio_customization.studio_report_docume_e9a56ff9-0143-4e41-ad9d-9817a1f10c4b" />
             </t>
-            
+
             <p style="page-break-after: always;"/>
         </t>
- 
+
     </t>
 </t>
-
-<!--
-<t t-name="mrp.label_production_view.tissa">
-    <t t-call="web.basic_layout">
-        <t t-foreach="docs" t-as="workorder">
-            <t t-foreach="workorder.move_finished_ids" t-as="doc">
-
-                <style>
-                    .title {
-                        font-size: 14mm;
-                    }
-                </style>
-
-                <div class="page">
-                    <div class="label">
-                     
-                        <span t-esc="doc.product_id.x_product_label.name"/>
-                        <span t-esc="doc.product_id.name"/>
-                     
-                    </div>
-                    <p style="page-break-before:always;" />
-                </div>
-
-            </t>
-        </t>
-    </t>
-</t>
--->

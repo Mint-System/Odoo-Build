@@ -359,6 +359,10 @@ Link: [snippets/sale.view_order_form.show_project.xml](https://github.com/Mint-S
 ID: `mint_system.sale.view_order_form.show_sequence`  
 Link: [snippets/sale.view_order_form.show_sequence.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_sequence.xml)
 
+### X Drawing File  
+ID: `mint_system.sale.view_order_form.x_drawing_file`  
+Link: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_drawing_file.xml)
+
 ### X Sudio Description  
 ID: `mint_system.sale.view_order_form.x_sudio_description`  
 Link: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_sudio_description.xml)

@@ -551,6 +551,16 @@ Link: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
 Link: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+## View Stock Quant Tree Editable  
+### Show Reserved Quantity  
+ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
+Link: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
+
+## View Stock Quant Tree  
+### Show Reserved Quantity  
+ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`  
+Link: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml)
+
 ## Vpicktree  
 ### Add Weight Uom Name  
 ID: `mint_system.stock.vpicktree.add_weight_uom_name`  

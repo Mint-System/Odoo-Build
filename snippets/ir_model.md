@@ -164,6 +164,10 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 Link: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
 ## Sale Order Line  
+### X Cateq Id  
+ID: `mint_system.ir_model.sale_order_line.x_cateq_id`  
+Link: [snippets/ir_model.sale_order_line.x_cateq_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_cateq_id.xml)
+
 ### X Client Order Ref  
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
 Link: [snippets/ir_model.sale_order_line.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_client_order_ref.xml)
@@ -175,6 +179,10 @@ Link: [snippets/ir_model.sale_order_line.x_commitment_date.xml](https://github.c
 ### X Date Order  
 ID: `mint_system.ir_model.sale_order_line.x_date_order`  
 Link: [snippets/ir_model.sale_order_line.x_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_date_order.xml)
+
+### X Drawing File  
+ID: `mint_system.ir_model.sale_order_line.x_drawing_file`  
+Link: [snippets/ir_model.sale_order_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_drawing_file.xml)
 
 ### X Industry Id  
 ID: `mint_system.ir_model.sale_order_line.x_industry_id`  

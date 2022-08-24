@@ -197,6 +197,10 @@ ID: `mint_system.account.report_invoice_document_with_payments.add_iban_and_bank
 Link: [snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document_with_payments.add_iban_and_bank.xml)
 
 ## View Bank Statement Form  
+### Edit Balance  
+ID: `mint_system.account.view_bank_statement_form.edit_balance`  
+Link: [snippets/account.view_bank_statement_form.edit_balance.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.edit_balance.xml)
+
 ### Show Cashbox  
 ID: `mint_system.account.view_bank_statement_form.show_cashbox`  
 Link: [snippets/account.view_bank_statement_form.show_cashbox.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_bank_statement_form.show_cashbox.xml)

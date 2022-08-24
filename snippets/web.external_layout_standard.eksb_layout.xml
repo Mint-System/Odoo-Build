@@ -15,12 +15,16 @@
                 font-size: 0.9rem;
                 margin-right: 15px;
             }
+            div.company {
+              word-wrap: normal;
+              text-transform: uppercase;
+            }
           </style>
           <div class="row" style="height: 50px">
           </div>
           <div id="header-info" class="row">
-            <div class="col-3" style="text-transform: uppercase;">
-              <span class="o_bold" t-field="company.name"/>
+            <div class="col-3 company">
+              <span class="o_bold">Kleinbrauerei<br/>Stiär Biär AG</span>
             </div>
             <div class="col-1"/>
             <div class="col-4">

@@ -113,3 +113,8 @@ Link: [snippets/base.view_translation_lang_src_value_tree.show_comments.xml](htt
 ID: `mint_system.base.view_translation_tree.show_comments`  
 Link: [snippets/base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_translation_tree.show_comments.xml)
 
+## View Users Form  
+### Email  
+ID: `mint_system.base.view_users_form.email`  
+Link: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.email.xml)
+

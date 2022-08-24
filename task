@@ -106,9 +106,9 @@ function install-odoo-scripts() {
 
 function install-native() {
     echo "Install wkhtmltopdf"
-    sudo apt install wkhtmltopdf
+    apt install wkhtmltopdf
     echo "Install xmllint"
-    sudo apt install libxml2-utils
+    apt install libxml2-utils
     init-venv
     activate-venv
     echo "Install pylint odoo"
