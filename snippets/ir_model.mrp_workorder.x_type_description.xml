@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_type_description" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Typenbezeichnung</field>
+    <field name="model">mrp.workorder</field>
+    <field name="model_id" ref="mrp.model_mrp_workorder"/>
+    <field name="name">x_type_description</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="related">product_id.type_description</field>
+  </record>
+
+</odoo>

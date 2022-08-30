@@ -1,5 +1,5 @@
 {
-    "name": "{{ name|replace('_',' ')|capitalize }}",
+    "name": "{{ (name|replace('_',' ')).title() }}",
     "summary": """
         Module summary.
     """,

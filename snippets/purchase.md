@@ -36,6 +36,18 @@ Link: [snippets/purchase.purchase_order_form.modify_visibility_button_confirm_re
 ID: `mint_system.purchase.purchase_order_form.relocate_product_qty_and_uom`  
 Link: [snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml)
 
+### Show Move Dest  
+ID: `mint_system.purchase.purchase_order_form.show_move_dest`  
+Link: [snippets/purchase.purchase_order_form.show_move_dest.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.show_move_dest.xml)
+
+### Show Procurement Group  
+ID: `mint_system.purchase.purchase_order_form.show_procurement_group`  
+Link: [snippets/purchase.purchase_order_form.show_procurement_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.show_procurement_group.xml)
+
+### X Drawing File  
+ID: `mint_system.purchase.purchase_order_form.x_drawing_file`  
+Link: [snippets/purchase.purchase_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.x_drawing_file.xml)
+
 ## Purchase Order Kpis Tree  
 ### Add Comment  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`  
@@ -100,6 +112,10 @@ Link: [snippets/purchase.report_purchaseorder_document.format_address_blocks.xml
 ### Format As Date  
 ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`  
 Link: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
+
+### Format Qty  
+ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
+Link: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty.xml)
 
 ### Format Title  
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
@@ -205,6 +221,10 @@ Link: [snippets/purchase.report_purchasequotation_document.format_as_date.xml](h
 ### Format Date  
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`  
 Link: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
+
+### Format Qty  
+ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
+Link: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
 
 ### Get Position  
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`  

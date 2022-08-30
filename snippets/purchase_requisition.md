@@ -2,6 +2,11 @@
 prev: ./snippets.md
 ---
 # Purchase Requisition
+## Product Supplierinfo Tree View Inherit  
+### Purchase Requisition Id Readonly False  
+ID: `mint_system.purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false`  
+Link: [snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml)
+
 ## Report Purchaserequisitions  
 ### Add Drawing  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_drawing`  

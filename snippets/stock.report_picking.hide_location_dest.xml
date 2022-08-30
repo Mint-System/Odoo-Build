@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <!-- Hide destination location column for outgoing deliveries of operation type Pick Components -->
+  <xpath expr="//th[@name='th_to']" position="replace">
+    <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <strong>To</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='location_dest_id']" position="replace">
+  attribute name="t-if"
+    <td t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <div>
+        <span t-field="ml.location_dest_id"/>
+        <t t-if="ml.result_package_id">
+          <span t-field="ml.result_package_id"/>
+        </t>
+      </div>
+    </td>
+  </xpath>
+
+</data>

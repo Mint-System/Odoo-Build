@@ -262,6 +262,10 @@ Link: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-Sys
 ID: `mint_system.stock.report_picking.hide_address`  
 Link: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_address.xml)
 
+### Hide Location Dest  
+ID: `mint_system.stock.report_picking.hide_location_dest`  
+Link: [snippets/stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_location_dest.xml)
+
 ### Hide Name  
 ID: `mint_system.stock.report_picking.hide_name`  
 Link: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.hide_name.xml)
@@ -273,6 +277,10 @@ Link: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mint
 ### Margin Before Table  
 ID: `mint_system.stock.report_picking.margin_before_table`  
 Link: [snippets/stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.margin_before_table.xml)
+
+### Modify No Reserved Product  
+ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
+Link: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
 
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  

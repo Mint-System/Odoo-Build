@@ -184,6 +184,14 @@ Link: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_i
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_start_set`  
 Link: [snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_date_planned_start_set.xml)
 
+### Add Material Is Available  
+ID: `mint_system.mrp.view_mrp_production_work_order_search.add_material_is_available`  
+Link: [snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_material_is_available.xml)
+
+### Add Product Id  
+ID: `mint_system.mrp.view_mrp_production_work_order_search.add_product_id`  
+Link: [snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_production_work_order_search.add_product_id.xml)
+
 ## Workcenter Line Kanban  
 ### Add Date Planned Start  
 ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`  

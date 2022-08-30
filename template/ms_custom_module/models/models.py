@@ -5,7 +5,7 @@ _logger = logging.getLogger(__name__)
 
 class Document(models.Model):
     _name = '{{ name }}.document'
-    _description = '{{ name|replace('_',' ')|capitalize }} Document'
+    _description = '{{ (name|replace('_',' ')).title() }} Document'
 
     # fields
     name = fields.Char()

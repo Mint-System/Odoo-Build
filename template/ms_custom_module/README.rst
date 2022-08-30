@@ -3,7 +3,7 @@
     :alt: License: GPL-3
 
 {{ '=' * name|length }}
-{{ name|replace('_',' ')|capitalize }}
+{{ (name|replace('_',' ')).title() }}
 {{ '=' * name|length }}
 
 Module summary.

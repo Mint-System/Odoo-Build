@@ -79,6 +79,11 @@ Link: [snippets/sale_blanket_order.report_blanketorder_document.style_trimada.xm
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`  
 Link: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
+## View Blanket Order Form  
+### Modify Attributes Date Order  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_order`  
+Link: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_order.xml)
+
 ## View Blanket Order Search  
 ### Replace Filter  
 ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`  

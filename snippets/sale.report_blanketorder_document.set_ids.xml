@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_blanketorder_document" priority="50">
+  
+	<xpath expr="//div[1]/div[4]" position="attributes">
+		<attribute name="id">table_total</attribute>
+	</xpath>	
+
+</data>

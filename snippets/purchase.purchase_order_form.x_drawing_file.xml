@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree[1]/field[@name='name']" position="after">
+    <field name="x_drawing_file"/>
+  </xpath>
+
+  <xpath expr="//field[@name='order_line']/form[1]//field[@name='name']" position="after">
+    <br/>
+    <label for="x_drawing_file" string="Zeichnung"/>
+    <field name="x_drawing_file"/>
+  </xpath>
+
+</data>
