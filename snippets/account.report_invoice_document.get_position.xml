@@ -14,7 +14,22 @@
     </t>
   </xpath>
   
+  <!--
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]" position="before">
+    <t t-if="o.sale_order_id">
+      <td id="position">
+        <span t-esc="line.position"/>
+      </td>
+    </t>
+    <t t-if="line.purchase_order_id">
+      <td id="position">
+        <span t-esc="line.position"/>
+      </td>
+    </t>
+  </xpath>
+  -->
+
+    <xpath expr="//span[@t-field='line.name']/.." position="before">
     <t t-if="o.sale_order_id">
       <td id="position">
         <span t-esc="line.position"/>

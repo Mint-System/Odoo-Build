@@ -6,7 +6,16 @@
       <span>Pos</span>
     </th>
   </xpath>
+
+  <!--
   <xpath expr="//table/tbody/t[2]/tr/t[1]/td[1]" position="before">
+    <td id="position">
+      <span t-field="line.position"/>
+    </td>
+  </xpath>
+  -->
+
+  <xpath expr="//span[@t-field='line.name']/.." position="before">
     <td id="position">
       <span t-field="line.position"/>
     </td>
