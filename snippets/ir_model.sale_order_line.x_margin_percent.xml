@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_margin_percent" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Marge (%)</field>
+    <field name="help">Marge Aufschlagsrechnung</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_margin_percent</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field>
+    <field name="depends">margin_percent</field>
+    <field name="compute">for line in self:
+  line['x_margin_percent'] = (line.price_unit-line.purchase_price)/line.purchase_price</field>
+  </record>
+
+</odoo>

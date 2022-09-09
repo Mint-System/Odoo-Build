@@ -2,6 +2,11 @@
 prev: ./snippets.md
 ---
 # Helpdesk
+## Helpdesk Tickets View Search  
+### Advanced Search  
+ID: `mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search`  
+Link: [snippets/helpdesk.helpdesk_tickets_view_search.advanced_search.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/helpdesk.helpdesk_tickets_view_search.advanced_search.xml)
+
 ## Helpdesk Tickets View Tree  
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline`  

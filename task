@@ -237,14 +237,21 @@ function lint-module() {
 
 function update-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    # if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    DATABASE=$1
     MODULE_NAME=$(basename $2)
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+         MODULE_NAME=$(basename $1)
+    fi
 
     locale
     activate-venv
-    echo "Updating module $MODULE_NAME on $1 ..."
-    odoo-bin -d $1 -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+    echo "Updating module $MODULE_NAME on $DATABASE ..."
+    odoo-bin -d $DATABASE -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function generate-module-translation() {
@@ -797,7 +804,7 @@ function update-docs() {
     echo "In Odoo everything is described as an XML document. \
     Snippets are modifications (edits) for these XML documents. \
     With a snippet you can e.g. hide a field on the contact form. \
-    A snippet name is unique and follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` scheme." >> snippets.md
+    A snippet name is unique and follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 

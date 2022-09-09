@@ -41,6 +41,10 @@ Link: [snippets/business_requirement.view_business_requirement_search.x_project_
 ID: `mint_system.business_requirement.view_business_requirement_tree.hide_category_ids`  
 Link: [snippets/business_requirement.view_business_requirement_tree.hide_category_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_tree.hide_category_ids.xml)
 
+### X Planned Hours  
+ID: `mint_system.business_requirement.view_business_requirement_tree.x_planned_hours`  
+Link: [snippets/business_requirement.view_business_requirement_tree.x_planned_hours.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_tree.x_planned_hours.xml)
+
 ### X Project Id  
 ID: `mint_system.business_requirement.view_business_requirement_tree.x_project_id`  
 Link: [snippets/business_requirement.view_business_requirement_tree.x_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/business_requirement.view_business_requirement_tree.x_project_id.xml)

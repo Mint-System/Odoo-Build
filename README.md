@@ -30,14 +30,14 @@ The usage section is a set of workflows. Pick the one required by your scenario.
 
 Clone this repository.
 
-```bash
+```console
 git clone git@github.com:Mint-System/Odoo-Development.git
 cd Odoo-Development
 ```
 
 Checkout branch.
 
-```bash
+```console
 task checkout 13.0
 # or
 task checkout 14.0
@@ -47,13 +47,13 @@ task checkout 15.0
 
 Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
 
-```bash
+```console
 task install-odoo-scripts
 ```
 
 Disable auto install for Odoo apps.
 
-```bash
+```console
 task disable-auto-install
 ```
 
@@ -65,7 +65,7 @@ Run Odoo with Docker container.
 
 Run docker compose.
 
-```bash
+```console
 task start
 # or
 npm run task-start
@@ -73,7 +73,7 @@ npm run task-start
 
 Initialize database.
 
-```bash
+```console
 docker-odoo-install
 ```
 
@@ -81,7 +81,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 **Install custom module**
 
-```bash
+```console
 docker-odoo-install -m show_db_name
 ```
 
@@ -93,7 +93,7 @@ Run Odoo from source.
 
 Pull the `odoo` submodule and install the python dependencies.
 
-```bash
+```console
 git submodule update odoo
 task install-native
 ```
@@ -102,7 +102,7 @@ task install-native
 
 Run database container only
 
-```bash
+```console
 task start db
 # or
 npm run task-start-db
@@ -110,13 +110,13 @@ npm run task-start-db
 
 Initialize database
 
-```bash
+```console
 task init-db
 ```
 
 Start Odoo from source
 
-```bash
+```console
 task start native
 # or
 npm run task-start-native
@@ -128,7 +128,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 
 Scaffold a new module.
 
-```bash
+```console
 task create-module addons/project_report
 ```
 
@@ -148,19 +148,19 @@ Open database manager [http://localhost:8000/](http://localhost:8000/) and login
 
 Kill docker containers and volumes.
 
-```bash
+```console
 task kill
 ```
 
 **Stop all Docker containers**
 
-```bash
+```console
 task stop
 ```
 
 **Remove database**
 
-```bash
+```console
 task drop-db
 ```
 
@@ -170,7 +170,7 @@ task drop-db
 
 Start mail service.
 
-```bash
+```console
 task start mail
 ```
 
@@ -180,7 +180,7 @@ Open the mail client [http://localhost](http://localhost).
 
 Install the odoo mail server data package.
 
-```
+```console
 task install-module mail_data
 ```
 
@@ -188,6 +188,26 @@ task install-module mail_data
 
 Use curl to send an email:
 
-```bash
+```console
 task send-support-mail
+```
+
+## Trooubleshooting
+
+### inotify instance limit reached 
+
+**Problem**
+
+While starting the native server this error is thrown:
+
+```console
+OSError: [Errno 24] inotify instance limit reached
+```
+
+**Solution**
+
+Increase ifnotify watch limit.
+
+```console
+sudo sysctl fs.inotify.max_user_watches=52428800
 ```

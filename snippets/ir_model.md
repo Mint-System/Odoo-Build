@@ -204,6 +204,10 @@ Link: [snippets/ir_model.sale_order_line.x_industry_id.xml](https://github.com/M
 ID: `mint_system.ir_model.sale_order_line.x_state`  
 Link: [snippets/ir_model.sale_order_line.x_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_state.xml)
 
+### X Taxed Amount Invoiced  
+ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`  
+Link: [snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml)
+
 ### X Weight Delivered  
 ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`  
 Link: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)

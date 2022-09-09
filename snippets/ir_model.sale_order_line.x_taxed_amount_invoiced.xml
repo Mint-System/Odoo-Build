@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_taxed_amount_invoiced" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Rechnungsbetrag inkl. MWST</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_taxed_amount_invoiced</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="False" />
+    <field name="copied" eval="False" />
+    <field name="ttype">float</field>
+    <field name="depends">untaxed_amount_invoiced,price_tax</field>
+    <field name="compute">for rec in self:
+      rec['x_taxed_amount_invoiced'] = rec.untaxed_amount_invoiced + rec.price_tax</field>
+  </record>
+
+</odoo>

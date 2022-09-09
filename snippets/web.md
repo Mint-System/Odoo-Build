@@ -11,6 +11,11 @@ Link: [snippets/web.address_layout.format_address_block.xml](https://github.com/
 ID: `mint_system.web.address_layout.repositioning_address_blocks`  
 Link: [snippets/web.address_layout.repositioning_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.address_layout.repositioning_address_blocks.xml)
 
+## Assets Common  
+### Pivot Measure White Space  
+ID: `mint_system.web.assets_common.pivot_measure_white_space`  
+Link: [snippets/web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.pivot_measure_white_space.xml)
+
 ## Brand Promotion Message  
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  

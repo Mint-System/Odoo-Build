@@ -2,7 +2,7 @@
 <data inherit_id="sale.view_order_line_tree" priority="50">
 
     <field name="qty_to_invoice" position="after">
-        <field name="x_weight_delivered" sum="Geliefertes Gewicht"/>
+        <field name="x_weight_delivered" sum="Geliefertes Gewicht" optional="show"/>
     </field>
 
 </data>

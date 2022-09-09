@@ -60,6 +60,10 @@ Link: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-Sys
 ID: `mint_system.base.view_partner_form.show_industry`  
 Link: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_industry.xml)
 
+### Show User Id  
+ID: `mint_system.base.view_partner_form.show_user_id`  
+Link: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_user_id.xml)
+
 ## View Partner Tree  
 ### Add Ref Zip Type  
 ID: `mint_system.base.view_partner_tree.add_ref_zip_type`  
@@ -117,4 +121,8 @@ Link: [snippets/base.view_translation_tree.show_comments.xml](https://github.com
 ### Email  
 ID: `mint_system.base.view_users_form.email`  
 Link: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.email.xml)
+
+### Write Partner Id  
+ID: `mint_system.base.view_users_form.write_partner_id`  
+Link: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_users_form.write_partner_id.xml)
 
