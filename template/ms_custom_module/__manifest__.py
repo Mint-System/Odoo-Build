@@ -24,10 +24,10 @@
     "images": ["images/screen.png"],
     "assets": {
         "web.assets_backend": [
-            "stock_critical_forecast/static/src/js/action_refresh.js",
+            "{{ name }}/static/src/js/action_refresh.js",
         ],
         "web.assets_qweb": [
-            "stock_critical_forecast/static/src/xml/listview_refresh.xml",
+            "{{ name }}/static/src/xml/listview_refresh.xml",
         ],
     },
 }

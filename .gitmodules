@@ -82,3 +82,7 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 15.0
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = git@github.com:OCA/hr-attendance.git
+	branch = 15.0

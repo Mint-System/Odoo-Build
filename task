@@ -297,7 +297,6 @@ function restore-database() {
 
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    # if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
     DATABASE=$1
     MODULE_NAME=$(basename $2)
@@ -327,15 +326,21 @@ function test-module() {
 
 function remove-module() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    DATABASE=$1
     MODULE_NAME=$(basename $2)
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        MODULE_NAME=$(basename $1)
+    fi
 
     locale
     activate-venv
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
 }
 
 function create-module() {
