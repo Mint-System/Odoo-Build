@@ -92,7 +92,10 @@ function locale() {
 }
 
 function load-env() {
-    export $(cat "$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1" | sed 's/#.*//g' | xargs)
+    ENV_FILE="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    echo "Load env file $ENV_FILE"
+
+    export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
 }
 
 function disable-auto-install() {
@@ -256,15 +259,24 @@ function update-module() {
 
 function generate-module-translation() {
     if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    # if test -z "$2"; then echo "\$2 is empty"; exit; fi
 
+    DATABASE=$1
+    MODULE_PATH=$2
     MODULE_NAME=$(basename $2)
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        MODULE_PATH=$1
+        MODULE_NAME=$(basename $1)
+    fi
 
     locale
     activate-venv
-    echo "Generate tranlsation file for $MODULE_NAME on $1 ..."
-    mkdir "$2/i18n/"
-    odoo-bin -d $1 --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$2/i18n/de.po"
+    echo "Generate tranlsation file for $MODULE_NAME on $DATABASE ..."
+    mkdir -p "$MODULE_PATH/i18n/"
+    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$MODULE_PATH/i18n/de.po"
 }
 
 function restore-database() {
@@ -293,7 +305,7 @@ function install-module() {
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-         MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename $1)
     fi
 
     locale

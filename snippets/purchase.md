@@ -113,6 +113,10 @@ Link: [snippets/purchase.report_purchaseorder_document.format_address_blocks.xml
 ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`  
 Link: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`  
+Link: [snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml)
+
 ### Format Qty  
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
 Link: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.format_qty.xml)
@@ -181,6 +185,10 @@ Link: [snippets/purchase.report_purchaseorder_document.row_date_align_left.xml](
 ID: `mint_system.purchase.report_purchaseorder_document.sequence_in_table`  
 Link: [snippets/purchase.report_purchaseorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.sequence_in_table.xml)
 
+### Set Ids  
+ID: `mint_system.purchase.report_purchaseorder_document.set_ids`  
+Link: [snippets/purchase.report_purchaseorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.set_ids.xml)
+
 ### Show Seller Product  
 ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`  
 Link: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
@@ -222,6 +230,10 @@ Link: [snippets/purchase.report_purchasequotation_document.format_as_date.xml](h
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`  
 Link: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_decimal`  
+Link: [snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml)
+
 ### Format Qty  
 ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
 Link: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
@@ -261,6 +273,10 @@ Link: [snippets/purchase.report_purchasequotation_document.row_date_align_left.x
 ### Sequence In Table  
 ID: `mint_system.purchase.report_purchasequotation_document.sequence_in_table`  
 Link: [snippets/purchase.report_purchasequotation_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.sequence_in_table.xml)
+
+### Set Ids  
+ID: `mint_system.purchase.report_purchasequotation_document.set_ids`  
+Link: [snippets/purchase.report_purchasequotation_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.set_ids.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  

@@ -55,6 +55,10 @@ Link: [snippets/account.report_invoice_document.format_address_blocks.xml](https
 ID: `mint_system.account.report_invoice_document.format_pos`  
 Link: [snippets/account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_pos.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`  
+Link: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
+
 ### Format Title  
 ID: `mint_system.account.report_invoice_document.format_title`  
 Link: [snippets/account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_title.xml)
@@ -252,6 +256,10 @@ Link: [snippets/account.report_invoice_document.format_address_blocks.xml](https
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
 Link: [snippets/account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_pos.xml)
+
+### Format Qty With Decimal  
+ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`  
+Link: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
 
 ### Format Title  
 ID: `mint_system.account.report_invoice_document.format_title`  

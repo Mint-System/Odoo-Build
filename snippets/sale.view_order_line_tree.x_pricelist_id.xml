@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+    <field name="order_partner_id" position="after">
+        <field name="x_pricelist_id" optional="show"/>
+    </field>
+
+</data>

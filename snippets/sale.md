@@ -182,6 +182,10 @@ Link: [snippets/sale.report_saleorder_document.format_as_date.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.format_note`  
 Link: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_note.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`  
+Link: [snippets/sale.report_saleorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty_with_decimal.xml)
+
 ### Format Qty  
 ID: `mint_system.sale.report_saleorder_document.format_qty`  
 Link: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
@@ -343,6 +347,10 @@ Link: [snippets/sale.view_order_form.format_dates.xml](https://github.com/Mint-S
 ID: `mint_system.sale.view_order_form.header_delivery_date`  
 Link: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.header_delivery_date.xml)
 
+### Hide Margin  
+ID: `mint_system.sale.view_order_form.hide_margin`  
+Link: [snippets/sale.view_order_form.hide_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_margin.xml)
+
 ### Hide Validity Date  
 ID: `mint_system.sale.view_order_form.hide_validity_date`  
 Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
@@ -354,6 +362,10 @@ Link: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://git
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
+
+### Replace Margin Percent With X Margin Percent  
+ID: `mint_system.sale.view_order_form.replace_margin_percent_with_x_margin_percent`  
+Link: [snippets/sale.view_order_form.replace_margin_percent_with_x_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.replace_margin_percent_with_x_margin_percent.xml)
 
 ### Show Carrier Method  
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
@@ -400,9 +412,21 @@ Link: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Min
 ID: `mint_system.sale.view_order_line_tree.show_price_tax`  
 Link: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_tax.xml)
 
+### Show Price Unit  
+ID: `mint_system.sale.view_order_line_tree.show_price_unit`  
+Link: [snippets/sale.view_order_line_tree.show_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_unit.xml)
+
 ### Show Untaxed Amount Invoiced  
 ID: `mint_system.sale.view_order_line_tree.show_untaxed_amount_invoiced`  
 Link: [snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml)
+
+### X Categ Id  
+ID: `mint_system.sale.view_order_line_tree.x_categ_id`  
+Link: [snippets/sale.view_order_line_tree.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_categ_id.xml)
+
+### X Pricelist Id  
+ID: `mint_system.sale.view_order_line_tree.x_pricelist_id`  
+Link: [snippets/sale.view_order_line_tree.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_pricelist_id.xml)
 
 ### X Taxed Amount Invoiced  
 ID: `mint_system.sale.view_order_line_tree.x_taxed_amount_invoiced`  

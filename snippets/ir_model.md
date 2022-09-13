@@ -176,6 +176,10 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 Link: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
 ## Sale Order Line  
+### X Categ Id  
+ID: `mint_system.ir_model.sale_order_line.x_categ_id`  
+Link: [snippets/ir_model.sale_order_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_categ_id.xml)
+
 ### X Cateq Id  
 ID: `mint_system.ir_model.sale_order_line.x_cateq_id`  
 Link: [snippets/ir_model.sale_order_line.x_cateq_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_cateq_id.xml)
@@ -199,6 +203,14 @@ Link: [snippets/ir_model.sale_order_line.x_drawing_file.xml](https://github.com/
 ### X Industry Id  
 ID: `mint_system.ir_model.sale_order_line.x_industry_id`  
 Link: [snippets/ir_model.sale_order_line.x_industry_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_industry_id.xml)
+
+### X Margin Percent  
+ID: `mint_system.ir_model.sale_order_line.x_margin_percent`  
+Link: [snippets/ir_model.sale_order_line.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_margin_percent.xml)
+
+### X Pricelist Id  
+ID: `mint_system.ir_model.sale_order_line.x_pricelist_id`  
+Link: [snippets/ir_model.sale_order_line.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_pricelist_id.xml)
 
 ### X State  
 ID: `mint_system.ir_model.sale_order_line.x_state`  

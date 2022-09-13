@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//span[@t-field='line.product_qty']" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+
+  <xpath expr="//span[@t-field='line.product_uom.name']" position="attributes">
+		<attribute name="id">product_uom</attribute>
+	</xpath>
+
+</data>

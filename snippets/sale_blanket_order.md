@@ -19,6 +19,10 @@ Link: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xm
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`  
 Link: [snippets/sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.address_block.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal`  
+Link: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
+
 ### Format Qty  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
 Link: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
