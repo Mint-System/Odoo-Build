@@ -155,6 +155,11 @@ function start() {
         echo "Open http://localhost url in your browser."
     fi
 
+    if [[ "$1" =~ "odoo" ]]; then
+        docker-compose up -d odoo
+        echo "Open http://localhost:8069 url in your browser."
+    fi
+
     if [[ "$1" =~ "native" ]]; then
         locale
         activate-venv

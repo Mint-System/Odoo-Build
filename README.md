@@ -51,12 +51,6 @@ Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
 task install-odoo-scripts
 ```
 
-Disable auto install for Odoo apps.
-
-```console
-task disable-auto-install
-```
-
 ### Docker
 
 Run Odoo with Docker container.

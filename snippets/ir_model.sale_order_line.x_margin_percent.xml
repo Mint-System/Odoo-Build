@@ -14,7 +14,11 @@
     <field name="ttype">float</field>
     <field name="depends">margin_percent</field>
     <field name="compute">for line in self:
-  line['x_margin_percent'] = (line.price_unit-line.purchase_price)/line.purchase_price</field>
+  if line.product_id.type == 'product' and line.purchase_price != 0:
+    line['x_margin_percent'] = (line.price_unit-line.purchase_price)/(line.purchase_price)
+  else:
+    line['x_margin_percent'] = 0
+    line['margin'] = 0</field>
   </record>
 
 </odoo>

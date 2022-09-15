@@ -24,11 +24,13 @@
         if rec.product_packaging.name == "Vakuum Klein":
           rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
         if rec.product_packaging.name == "Kiste":
+          if rec.product_id.id == 68:
+            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
           if rec.product_id.id == 51:
             rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
           else:
             rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-        if rec.product_packaging.name in ["Karton"]:
+        if rec.product_packaging.name == "Karton":
           rec['x_count_boxes'] = 0</field>
   </record>
 

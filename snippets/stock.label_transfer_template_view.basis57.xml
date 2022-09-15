@@ -43,6 +43,11 @@
                     <t t-set="count_boxes" t-value="1" />
                     <t t-set="count_labels" t-value="0" />
                 </t>
+                <t t-if="not move.product_packaging.name">
+                    <t t-set="print_weight" t-value="True" />
+                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
+                    <t t-set="count_labels" t-value="0" />
+                </t>
 
                 <!-- <p>Name: <span t-esc="move.product_id.name"/></p> -->
                 <!--<p>Boxes: <span t-esc="count_boxes"/></p>-->
@@ -128,7 +133,7 @@
                             <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')"/>
                             <br/>
                             <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
-                            <t t-set="delta" t-value="datetime.timedelta(days=7)"/>
+                            <t t-set="delta" t-value="datetime.timedelta(days=move_line.product_id.x_expiration_days)"/>
                             <t t-set="consume_until" t-value="today + delta"/>
                             <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
                             <br/>
