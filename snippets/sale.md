@@ -347,10 +347,6 @@ Link: [snippets/sale.view_order_form.format_dates.xml](https://github.com/Mint-S
 ID: `mint_system.sale.view_order_form.header_delivery_date`  
 Link: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.header_delivery_date.xml)
 
-### Hide Margin  
-ID: `mint_system.sale.view_order_form.hide_margin`  
-Link: [snippets/sale.view_order_form.hide_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_margin.xml)
-
 ### Hide Validity Date  
 ID: `mint_system.sale.view_order_form.hide_validity_date`  
 Link: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
@@ -363,9 +359,9 @@ Link: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://git
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 Link: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
 
-### Replace Margin Percent With X Margin Percent  
-ID: `mint_system.sale.view_order_form.replace_margin_percent_with_x_margin_percent`  
-Link: [snippets/sale.view_order_form.replace_margin_percent_with_x_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.replace_margin_percent_with_x_margin_percent.xml)
+### Remove Margin Percent  
+ID: `mint_system.sale.view_order_form.remove_margin_percent`  
+Link: [snippets/sale.view_order_form.remove_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.remove_margin_percent.xml)
 
 ### Show Carrier Method  
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
@@ -390,6 +386,10 @@ Link: [snippets/sale.view_order_form.show_stock_purchase_line_ids.xml](https://g
 ### X Drawing File  
 ID: `mint_system.sale.view_order_form.x_drawing_file`  
 Link: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_drawing_file.xml)
+
+### X Margin Percent  
+ID: `mint_system.sale.view_order_form.x_margin_percent`  
+Link: [snippets/sale.view_order_form.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.x_margin_percent.xml)
 
 ### X Sudio Description  
 ID: `mint_system.sale.view_order_form.x_sudio_description`  

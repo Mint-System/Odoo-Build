@@ -51,34 +51,6 @@ Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
 task install-odoo-scripts
 ```
 
-### Docker
-
-Run Odoo with Docker container.
-
-**Start and initialize Odoo with Docker**
-
-Run docker compose.
-
-```console
-task start
-# or
-npm run task-start
-```
-
-Initialize database.
-
-```console
-docker-odoo-install
-```
-
-Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
-
-**Install custom module**
-
-```console
-docker-odoo-install -m show_db_name
-```
-
 ### Native
 
 Run Odoo from source.
@@ -124,6 +96,34 @@ Scaffold a new module.
 
 ```console
 task create-module addons/project_report
+```
+
+### Docker
+
+Run Odoo with Docker container.
+
+**Start and initialize Odoo with Docker**
+
+Run docker compose.
+
+```console
+task start
+# or
+npm run task-start
+```
+
+Initialize database.
+
+```console
+docker-odoo-install
+```
+
+Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
+
+**Install custom module**
+
+```console
+docker-odoo-install -m show_db_name
 ```
 
 ### Common
@@ -186,7 +186,7 @@ Use curl to send an email:
 task send-support-mail
 ```
 
-## Trooubleshooting
+## Troubleshooting
 
 ### inotify instance limit reached 
 

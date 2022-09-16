@@ -107,28 +107,38 @@ function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh
 }
 
-function install-native() {
-    echo "Install wkhtmltopdf"
-    apt install wkhtmltopdf
-    echo "Install xmllint"
-    apt install libxml2-utils
+function install-native() {    
     init-venv
     activate-venv
+    
+    echo "Install wkhtmltopdf"
+    sudo apt install wkhtmltopdf
+
+    echo "Install xmllint"
+    sudo apt install libxml2-utils
+
     echo "Install pylint odoo"
     pip install --upgrade --pre pylint-odoo
+
     echo "Install odoo dependencies"
     pip install setuptools wheel watchdog phonenumbers
     pip install -r odoo/requirements.txt
+
     echo "Install oca dev tools"
     pip install pre-commit pyyaml rst2html5 odoorpc
+
     echo "Install graphql dependencies"
     pip install graphene graphql-server-core
+
     echo "Install rest dependencies"
     pip install cerberus pyquerystring parse-accept-language apispec>=4.0.0 marshmallow marshmallow-objects>=2.0.0 jsondiff
+
     echo "Install openupgrade functions"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
+
     echo "Install addon dependencies"
-    pip install prometheus_client
+    pip install prometheus_client pika
+    
     echo "Install edi dependencies"
     pip install pyzbar numpy pdf2image opencv-python
 }

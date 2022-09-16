@@ -17,21 +17,26 @@
       if rec.product_packaging:
         if rec.product_packaging.name == "Schale Gross":
           rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        if rec.product_packaging.name == "Schale Klein":
+        elif rec.product_packaging.name == "Schale Klein":
           rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
-        if rec.product_packaging.name == "Vakuum Gross":
+        elif rec.product_packaging.name == "Vakuum Gross":
           rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        if rec.product_packaging.name == "Vakuum Klein":
-          rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        if rec.product_packaging.name == "Kiste":
+        elif rec.product_packaging.name == "Vakuum Klein":
           if rec.product_id.id == 68:
             rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-          if rec.product_id.id == 51:
+          else:
+            rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
+        elif rec.product_packaging.name == "Kiste":
+          if rec.product_id.id == 68:
+            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+          elif rec.product_id.id == 51:
             rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
           else:
             rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-        if rec.product_packaging.name == "Karton":
-          rec['x_count_boxes'] = 0</field>
+        elif rec.product_packaging.name == "Karton":
+          rec['x_count_boxes'] = 0
+      else:
+        rec['x_count_boxes'] = 0</field>
   </record>
 
 </odoo>

@@ -119,6 +119,10 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 Link: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_set_line.x_categ_id.xml)
 
 ## Product Template  
+### X Expiration Days  
+ID: `mint_system.ir_model.product_template.x_expiration_days`  
+Link: [snippets/ir_model.product_template.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_expiration_days.xml)
+
 ### X Hide On Delivery  
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`  
 Link: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_hide_on_delivery.xml)
@@ -126,6 +130,10 @@ Link: [snippets/ir_model.product_template.x_hide_on_delivery.xml](https://github
 ### X Product Label  
 ID: `mint_system.ir_model.product_template.x_product_label`  
 Link: [snippets/ir_model.product_template.x_product_label.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_product_label.xml)
+
+### X Storage Temperature  
+ID: `mint_system.ir_model.product_template.x_storage_temperature`  
+Link: [snippets/ir_model.product_template.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_storage_temperature.xml)
 
 ### X Xml Id  
 ID: `mint_system.ir_model.product_template.x_xml_id`  

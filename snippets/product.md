@@ -52,9 +52,17 @@ Link: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](h
 ID: `mint_system.product.product_template_only_form_view.show_handle`  
 Link: [snippets/product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_handle.xml)
 
+### X Expiration Days  
+ID: `mint_system.product.product_template_only_form_view.x_expiration_days`  
+Link: [snippets/product.product_template_only_form_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_expiration_days.xml)
+
 ### X Hide On Delivery  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`  
 Link: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
+
+### X Storage Temperature  
+ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
+Link: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
 
 ## Product Template Search View  
 ### Add Type Description  
@@ -77,6 +85,14 @@ Link: [snippets/product.product_template_tree_view.remove_default_code_and_respo
 ### Set Default Order  
 ID: `mint_system.product.product_template_tree_view.set_default_order`  
 Link: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.set_default_order.xml)
+
+### X Expiration Days  
+ID: `mint_system.product.product_template_tree_view.x_expiration_days`  
+Link: [snippets/product.product_template_tree_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.x_expiration_days.xml)
+
+### X Storage Temperature  
+ID: `mint_system.product.product_template_tree_view.x_storage_temperature`  
+Link: [snippets/product.product_template_tree_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_tree_view.x_storage_temperature.xml)
 
 ## Product Variant Easy Edit View  
 ### Hide Barcode  
