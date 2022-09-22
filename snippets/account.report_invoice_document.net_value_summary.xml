@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//div[@id='total']//table/tr[1]" position="before">
+
+    <t t-set="net_value_of_goods" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type == 'product').mapped('price_subtotal'))" />
+    <t t-set="additional_expenses" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type != 'product').mapped('price_subtotal'))" />
+
+    <tr>
+      <!-- de_CH: Nettowarenwert -->
+      <td>Net Value of Goods</td>
+      <td class="text-right">
+        <span t-esc="net_value_of_goods" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}" />
+      </td>
+    </tr>
+    <tr>
+      <!-- de_CH: Zusatzaufwendungen -->
+      <td>Additional Expenses</td>
+      <td class="text-right">
+        <span t-esc="additional_expenses" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}" />
+      </td>
+    </tr>
+  </xpath>
+
+</data>

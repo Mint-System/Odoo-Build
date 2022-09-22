@@ -91,6 +91,10 @@ Link: [snippets/account.report_invoice_document.margin_before_title.xml](https:/
 ID: `mint_system.account.report_invoice_document.modify_main_table`  
 Link: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
 
+### Net Value Summary  
+ID: `mint_system.account.report_invoice_document.net_value_summary`  
+Link: [snippets/account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.net_value_summary.xml)
+
 ### Product Hs Code And Origin  
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`  
 Link: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_hs_code_and_origin.xml)
@@ -292,6 +296,10 @@ Link: [snippets/account.report_invoice_document.margin_before_title.xml](https:/
 ### Modify Main Table  
 ID: `mint_system.account.report_invoice_document.modify_main_table`  
 Link: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
+
+### Net Value Summary  
+ID: `mint_system.account.report_invoice_document.net_value_summary`  
+Link: [snippets/account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.net_value_summary.xml)
 
 ### Product Hs Code And Origin  
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`  

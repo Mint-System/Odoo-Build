@@ -1,68 +1,81 @@
 <t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
-            <t t-foreach="picking.move_lines" t-as="move">
-                
+            <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0)" t-as="move">
+
                 <!--Set default values-->
                 <t t-set="count_boxes" t-value="0" />
                 <t t-set="count_labels" t-value="0" />
                 <t t-set="temperature" t-value="2" />
-                <t t-set="today" t-value="context_timestamp(datetime.datetime.now())"/>
-                
-                <!-- Select loop based product packaing -->
-                <t t-if="move.product_packaging.name == 'Schale Klein'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">1'000g</t>
-                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
-                    <t t-set="count_labels" t-value="move.quantity_done" />
-                </t>
-                <t t-if="move.product_packaging.name == 'Schale Gross'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">2'500g</t>
-                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
-                    <t t-set="count_labels" t-value="move.quantity_done/2.5" />
-                </t>
-                <t t-if="move.product_packaging.name == 'Kiste'">
-                    <t t-set="print_weight" t-value="True" />
-                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
-                    <t t-set="count_labels" t-value="0" />
-                </t>
-                <t t-if="move.product_packaging.name == 'Vakuum Klein'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">1'000g</t>
-                    <t t-set="count_boxes" t-value="move.x_count_boxes" />
-                    <t t-set="count_labels" t-value="move.quantity_done" />
-                </t>
-                <t t-if="move.product_packaging.name == 'Vakuum Gross'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">2'500g</t>
-                    <t t-set="count_boxes" t-value="0" />
-                    <t t-set="count_labels" t-value="move.quantity_done" />
-                </t>
-                <t t-if="move.product_packaging.name == 'Karton'">
-                    <t t-set="print_weight" t-value="False" />
-                    <t t-set="fix_weight">5'000g</t>
-                    <t t-set="count_boxes" t-value="1" />
-                    <t t-set="count_labels" t-value="0" />
-                </t>
-                <t t-if="move.product_id.id == 68">
-                    <t t-set="today" t-value="context_timestamp(picking.scheduled_date)"/>
-                    <t t-set="print_weight" t-value="False" />
-                </t>
+                <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
+                <t t-set="print_weight" t-value="False" />
+                <t t-set="packaging" t-value="move.product_packaging" />
 
-                <!-- <p>Name: <span t-esc="move.product_id.name"/></p> -->
-                <!--<p>Boxes: <span t-esc="count_boxes"/></p>-->
-                <!--<p>Labels: <span t-esc="count_labels"/></p>-->
-                <!--<p>Moves Lines: <span t-esc="len(move.move_line_ids)"/></p>-->
+                <!--Print report for each move line-->
+                <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
+                <t t-foreach="move_lines" t-as="move_line">
 
-                <t t-foreach="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" t-as="move_line"> 
-                <t t-foreach="range(0, int(count_labels + count_boxes))" t-as="page">
-                    <t t-if="page_index >= count_labels">
-                        <!-- <t t-set="print_weight" t-value="True" /> -->
-                        <t t-set="fix_weight"></t>
+                    <!--Select loop based product packaing -->
+                    <t t-if="move.product_packaging.name == 'Schale Klein'">
+                        <t t-set="fix_weight">1'000g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Schale Gross'">
+                        <t t-set="fix_weight">2'500g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Kiste'">
+                        <t t-set="print_weight" t-value="True" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Vakuum Klein'">
+                        <t t-set="fix_weight">1'000g</t>
+
+                        <t t-set="count_labels" t-value="move_line.qty_done" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Vakuum Gross'">
+                        <t t-set="fix_weight">2'500g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Karton'">
+                        <t t-set="fix_weight">5'000g</t>
+                        <t t-set="count_boxes" t-value="1" />
                     </t>
 
-                    <style>
+                    <!--Compute box count-->
+                    <t t-if="count_boxes == 0">
+                        <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
+
+                    </t>
+                    <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
+
+                    <!--<span>count_boxes:</span><span t-esc="count_boxes" />-->
+                    <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
+                    <!--<span>quantity_done:</span><span t-esc="move.quantity_done" />-->
+                    <!--<span>x_count_boxes:</span><span t-esc="move.x_count_boxes" />-->
+                    <!--<span>count_labels:</span><span t-esc="count_labels" />-->
+                    <!--<span>count_pages:</span><span t-esc="count_pages" />-->
+                    <!--<br/>-->
+
+                    <!--Print report for each label and box count-->
+                    <t t-foreach="range(0, count_pages)" t-as="page">
+
+                        <!--First print normal labels and then box labels-->
+                        <t t-if="page_index >= (count_pages-count_boxes)">
+                            <t t-set="fix_weight"></t>
+                        </t>
+
+                        <!--Caclulate default expiration date-->
+                        <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.x_expiration_days)" />
+                        <t t-set="consume_until" t-value="today + delta" />
+
+                        <!--Caclulate expiration date from settings-->
+                        <t t-if="move.product_id.use_expiration_date">
+                            <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.expiration_time)" />
+                            <t t-set="consume_until" t-value="context_timestamp(move_line.lot_id.removal_date)" />
+                            <t t-set="today" t-value="consume_until - delta" />
+                        </t>
+
+                        <style>
                       .display {
                           font-size: 15mm;
                       }
@@ -92,78 +105,86 @@
                         padding-right: 3mm
                       }
                     </style>
-                    <div class="page">
-                        <div class="label">
-                          
-                            <t t-if="picking.partner_id.hide_address">
-                              <br/>
-                              <br/>
-                              <br/>
-                            </t>
-                            
-                            <br/>
-                            <br/>
-                            <br/>
-                            <span class="text-uppercase use-font-opensans-medium title">Gotthard Zander</span>
-                            <br/>
-                            <span class="text-uppercase use-font-opensans-bold display" t-esc="move.product_id.name"/>
-                            <br/>
-                            <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
-                            <br/>
-                            <t t-if="fix_weight or print_weight">
-                                <span class="use-font-opensans-medium default">Gewicht: </span>
-                                <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
-                                <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move_line.qty_done *1000" t-options='{"widget": "float", "precision": 0}'/>
-                                <span class="use-font-opensans-medium default" t-if="print_weight">g zu <span t-esc="count_boxes"/> Kisten</span>
-                            </t>
+                        <div class="page">
+                            <div class="label">
 
-                            <br/>
-                            <br/>
+                                <t t-if="picking.partner_id.hide_address">
+                                    <br />
+                                    <br />
+                                    <br />
+                                </t>
 
-                            <t t-if="not picking.partner_id.hide_address">
-                              <span class="use-font-opensans-bold address" t-field="picking.partner_id.name"/>
-                              <br/>
-                              <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip"/>
-                              <span class="use-font-opensans-bold address" t-field="picking.partner_id.city"/>
-                              <br/>
-                              <br/>
-                            </t>
+                                <br />
+                                <br />
+                                <br />
+                                <span class="text-uppercase use-font-opensans-medium title">Gotthard Zander</span>
+                                <br />
+                                <span class="text-uppercase use-font-opensans-bold display" t-esc="move.product_id.name" />
+                                <br />
+                                <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
+                                <br />
+                                <t t-if="fix_weight or print_weight">
+                                    <span class="use-font-opensans-medium default">Gewicht: </span>
+                                    <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
+                                    <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move.quantity_done *1000" t-options='{"widget": "float", "precision": 0}' />
+                                    <span class="use-font-opensans-medium default" t-if="print_weight">
+                                        g zu
+                                        <span t-esc="move.x_count_boxes" />
+                                        Kisten
+                                    </span>
+                                </t>
 
-                            <span class="use-font-opensans-medium default">Verpackt am: </span>
-                            <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')"/>
-                            <br/>
-                            <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
-                            <t t-set="delta" t-value="datetime.timedelta(days=move_line.product_id.x_expiration_days)"/>
-                            <t t-set="consume_until" t-value="today + delta"/>
-                            <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')"/>
-                            <br/>
-                            <span class="use-font-opensans-medium default">Aufbewahrung: bei <span t-esc="move_line.product_id.x_storage_temperature"/>°C</span>
-                            <br/>
-                            <br/>
+                                <br />
+                                <br />
 
-                            <t t-if="move_line.lot_id.name">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.result_package_id.name, 600, 50)" alt="Barcode"/>
-                            </t>
-                            <t t-else="">
-                                <span class="use-font-opensans-medium default text-muted">No barcode available</span>
-                            </t>
-                            <br/>
-                            <br/>
-                            
-                            <span class="text-uppercase use-font-opensans-bold default">Gotthard Zander</span>
-                            <span class="use-font-opensans-bold default"> by Basis57</span>
-                            <br/>
-                            <br/>
-                            <span class="use-font-opensans-medium footer" t-field="res_company.street"/><span class="use-font-opensans-medium footer space-right">,</span>
-                            <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip"/><span class="use-font-opensans-medium footer" t-field="res_company.city"/>
-                            <br/>
-                            <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
-                            
+                                <t t-if="not picking.partner_id.hide_address">
+                                    <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
+                                    <br />
+                                    <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
+                                    <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
+                                    <br />
+                                    <br />
+                                </t>
+
+                                <span class="use-font-opensans-medium default">Verpackt am: </span>
+                                <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
+                                <br />
+                                <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
+                                <br />
+                                <span class="use-font-opensans-medium default">
+                                    Aufbewahrung: bei
+                                    <span t-esc="move.product_id.x_storage_temperature" />
+                                    °C
+                                </span>
+                                <br />
+                                <br />
+
+                                <t t-if="move_line.lot_id.name">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 50)" alt="Barcode" />
+                                </t>
+                                <t t-else="">
+                                    <span class="use-font-opensans-medium default text-muted">No barcode available</span>
+                                </t>
+                                <br />
+                                <br />
+
+                                <span class="text-uppercase use-font-opensans-bold default">Gotthard Zander</span>
+                                <span class="use-font-opensans-bold default"> by Basis57</span>
+                                <br />
+                                <br />
+                                <span class="use-font-opensans-medium footer" t-field="res_company.street" />
+                                <span class="use-font-opensans-medium footer space-right">,</span>
+                                <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip" />
+                                <span class="use-font-opensans-medium footer" t-field="res_company.city" />
+                                <br />
+                                <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
+
+                            </div>
+                            <p style="page-break-before:always;" />
                         </div>
-                        <p style="page-break-before:always;" />
-                    </div>
 
-                </t>
+                    </t>
                 </t>
 
             </t>
