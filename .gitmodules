@@ -4,7 +4,7 @@
 	branch = 15.0
 [submodule "odoo"]
 	path = odoo
-	url = https://github.com/odoo/odoo.git
+	url = git@github.com:odoo/odoo/.git
 	branch = 15.0
 [submodule "themes"]
 	path = themes
@@ -21,7 +21,7 @@
 [submodule "oca/web"]
 	path = oca/web
 	url = https://github.com/OCA/web.git
-	branch = 14.0
+	branch = 15.0
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
