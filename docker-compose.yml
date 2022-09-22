@@ -20,7 +20,7 @@ services:
       - ./themes:/mnt/themes
   pgadmin:
     container_name: pgadmin
-    image: dpage/pgadmin4
+    image: dpage/pgadmin4:6
     depends_on:
       - db
     ports:
@@ -33,23 +33,15 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:12
+    image: postgres:14
     ports:
       - "127.0.0.1:5432:5432"
     environment:
-      POSTGRES_DB: odoo
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - odoo-db-data:/var/lib/postgresql/data/pgdata
-  mail:
-    container_name: mail
-    image: marcosdiez/maildev
-    ports:
-      - "127.0.0.1:80:80"
-      - "127.0.0.1:25:25"
-      - "127.0.0.1:110:110"
 volumes:
   odoo-odoo-data:
   odoo-db-data:

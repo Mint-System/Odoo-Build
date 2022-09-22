@@ -160,11 +160,6 @@ function start() {
         echo "Open http://localhost:8000 url in your browser."
     fi
 
-    if [[ "$1" =~ "mail" ]]; then
-        docker-compose up -d mail
-        echo "Open http://localhost url in your browser."
-    fi
-
     if [[ "$1" =~ "odoo" ]]; then
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
@@ -387,9 +382,10 @@ function set-admin() {
 }
 
 function send-support-mail() {
-    echo "Send mail to support@localhost using curl."
+    echo "Send mail for support@localhost using curl."
 
-cat >tmp/email.txt <<EOL
+    mkdir -p tmp
+    cat >tmp/email.txt <<EOL
 From: Lara User <user@yourcompany.example.com>
 To: Odoo Support <support@localhost>
 Subject: Support Request
@@ -435,7 +431,6 @@ function checkout() {
     git submodule update --init
 
     echo "Checkout branch on submodules"
-    # git submodule foreach git checkout $1
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
@@ -447,7 +442,7 @@ function checkout() {
 
     echo "Sync checkout files"
     git checkout $GIT_BRANCH config/checkout_files config/remove_files
-    git rm -r $(tr '\n' ' ' < ./config/remove_files)
+    git rm -r $(tr '\n' ' ' < ./config/remove_files) >/dev/null 2>&1
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 

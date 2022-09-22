@@ -43,6 +43,8 @@ task checkout 13.0
 task checkout 14.0
 # or
 task checkout 15.0
+# or
+task checkout 16.0
 ```
 
 Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
@@ -156,34 +158,6 @@ task stop
 
 ```bash
 task drop-db
-```
-
-### Mail
-
-**View emails**
-
-Start mail service.
-
-```bash
-task start mail
-```
-
-Open the mail client [http://localhost](http://localhost).
-
-**Configure mail server**
-
-Install the odoo mail server data package.
-
-```bash
-task install-module mail_data
-```
-
-**Send email**
-
-Use curl to send an email:
-
-```bash
-task send-support-mail
 ```
 
 ## Troubleshooting

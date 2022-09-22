@@ -1,88 +1,12 @@
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
-	branch = 15.0
-[submodule "odoo"]
-	path = odoo
-	url = git@github.com:odoo/odoo/.git
-	branch = 15.0
+	branch = 16.0
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
-	branch = 15.0
-[submodule "addons/manufacture"]
-	path = addons/manufacture
-	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
-	branch = 15.0
-[submodule "oca/stock-logistics-workflow"]
-	path = oca/stock-logistics-workflow
-	url = git@github.com:OCA/stock-logistics-workflow.git
-	branch = 15.0
-[submodule "oca/web"]
-	path = oca/web
-	url = https://github.com/OCA/web.git
-	branch = 15.0
-[submodule "oca/partner-contact"]
-	path = oca/partner-contact
-	url = git@github.com:OCA/partner-contact.git
-	branch = 15.0
-[submodule "oca/hr-holidays"]
-	path = oca/hr-holidays
-	url = git@github.com:OCA/hr-holidays.git
-	branch = 15.0
-[submodule "oca/rest-framework"]
-	path = oca/rest-framework
-	url = git@github.com:OCA/rest-framework.git
-	branch = 15.0
-[submodule "oca/connector"]
-	path = oca/connector
-	url = git@github.com:OCA/connector.git
-	branch = 15.0
-[submodule "addons/vertical_forestry"]
-	path = addons/vertical_forestry
-	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git
-	branch = 15.0
-[submodule "oca/project"]
-	path = oca/project
-	url = git@github.com:OCA/project.git
-	branch = 15.0
-[submodule "addons/hr"]
-	path = addons/hr
-	url = git@github.com:Mint-System/Odoo-Apps-HR.git
-	branch = 15.0
-[submodule "oca/product-attribute"]
-	path = oca/product-attribute
-	url = git@github.com:OCA/product-attribute.git
-	branch = 15.0
-[submodule "addons/stock_logistics_workflow"]
-	path = addons/stock_logistics_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
-	branch = 15.0
-[submodule "addons/purchase_workflow"]
-	path = addons/purchase_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
-	branch = 15.0
-[submodule "oca/timesheet"]
-	path = oca/timesheet
-	url = git@github.com:OCA/timesheet.git
-	branch = 15.0
-[submodule "oca/sale-workflow"]
-	path = oca/sale-workflow
-	url = git@github.com:OCA/sale-workflow.git
-	branch = 15.0
-[submodule "oca/server-tools"]
-	path = oca/server-tools
-	url = git@github.com:OCA/server-tools.git
-	branch = 15.0
-[submodule "addons/vertical_aero"]
-	path = addons/vertical_aero
-	url = git@github.com:Mint-System/Odoo-Apps-Vertical-Forestry.git
-	branch = 15.0
-[submodule "addons/server_tools"]
-	path = addons/server_tools
-	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
-	branch = 15.0
-[submodule "oca/hr-attendance"]
-	path = oca/hr-attendance
-	url = git@github.com:OCA/hr-attendance.git
-	branch = 15.0
+	branch = 16.0
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+	branch = 16.0
