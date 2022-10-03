@@ -10,7 +10,7 @@
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
-    <field name="ttype">date</field>
+    <field name="ttype">datetime</field>
     <field name="related">order_id.date_order</field>
   </record>
 

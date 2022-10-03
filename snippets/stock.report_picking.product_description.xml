@@ -8,8 +8,10 @@
 				<span t-esc="move.product_id.type_description"/>
 			</strong>
 			<br/>
-			<span t-esc="move.description_picking"/>
-			<br/>
+			<t t-if="move.description_picking">
+			  <span t-esc="move.description_picking"/>
+      	<br/>
+			</t>
 			<t t-if="not move.description_picking">
 				<span t-esc="move.product_id.name"/>
 				<br/>

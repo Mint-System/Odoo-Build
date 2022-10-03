@@ -26,7 +26,7 @@ if [[ -a ".env" ]]; then
 fi
 
 function update-readme() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
     FILE_NAME=$(basename "$1")
     if [[ "$FILE_NAME" != "README.md" ]]; then echo "\$1 must point to README.md file."; exit; fi
     MODULES_DIR=$(dirname "$1")
@@ -56,7 +56,7 @@ function update-readme() {
 function get-module-version() {
     if test -z "$1"
     then
-        echo "\$1 is empty"
+        echo "\$1 is empty."
     else
         # get version of module
         VERSION=$(grep 'version' "$1/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
@@ -77,13 +77,15 @@ function get-module-version() {
 
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
-        python3 -m venv "venv$GIT_BRANCH"
+        echo "Init venv$GIT_BRANCH with $(python --version)."
+        python -m venv "venv$GIT_BRANCH"
     fi
 }
 
 function activate-venv() {
     echo "Source virtualenv venv$GIT_BRANCH."
     source "venv$GIT_BRANCH/bin/activate"
+    echo "$(python --version) is active."
 }
 
 function locale() {
@@ -144,7 +146,7 @@ function install-native() {
 }
 
 function open-url-with-delay(){
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
     sleep 2
     xdg-open $1
 }
@@ -169,7 +171,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay 'http://localhost:8069' & 
+        open-url-with-delay "http://localhost:8069?db=$GIT_BRANCH" & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all
     fi
 }
@@ -229,7 +231,7 @@ function odoo-cloc() {
 }
 
 function lint-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
     echo "Set file and folder permissions on $1"
@@ -249,8 +251,8 @@ function lint-module() {
 }
 
 function update-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    # if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    # if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_NAME=$(basename $2)
@@ -268,8 +270,8 @@ function update-module() {
 }
 
 function generate-module-translation() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    # if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    # if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_PATH=$2
@@ -290,8 +292,8 @@ function generate-module-translation() {
 }
 
 function restore-database() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Get database name
 
@@ -306,7 +308,7 @@ function restore-database() {
 }
 
 function install-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_NAME=$(basename $2)
@@ -324,8 +326,8 @@ function install-module() {
 }
 
 function test-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     MODULE_NAME=$(basename $2)
 
@@ -335,7 +337,7 @@ function test-module() {
 }
 
 function remove-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_NAME=$(basename $2)
@@ -354,7 +356,7 @@ function remove-module() {
 }
 
 function create-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename "$1")
     PARENT_DIR=$(dirname "$1")
@@ -410,7 +412,7 @@ function clear-assets() {
 }
 
 function convert-database() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     unzip "tmp/$1.zip" -d "./tmp/$1"
     sed -i'' 's/AS integer//g' "./tmp/$1/dump.sql"
@@ -420,17 +422,18 @@ function convert-database() {
     echo "Converted database file $1 to ${1}2"
 }
 
-function checkout() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    : ${GIT_BRANCH:="$2"}
+function git-update-submodules() {
+    echo "Update submodules."
+    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    for SUBMODULE in $SUBMODULES; do
+        git submodule update --init $SUBMODULE
+    done
+}
 
-    echo "Switch branch"
-    git switch $1
+function switch-branch() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    echo "Init submodules"
-    git submodule update --init
-
-    echo "Checkout branch on submodules"
+    echo "Switch branch on submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
@@ -439,15 +442,29 @@ function checkout() {
         git switch $1
         cd $CWD
     done
+}
 
-    echo "Sync checkout files"
-    git checkout $GIT_BRANCH config/checkout_files config/remove_files
-    git rm -r $(tr '\n' ' ' < ./config/remove_files) >/dev/null 2>&1
+function checkout() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    : ${GIT_BRANCH:="$2"}
+
+    echo "Switch branch."
+    git switch $1
+
+    git-update-submodules
+
+    switch-branch $1
+
+    echo "Checkout config files."
+    git checkout $GIT_BRANCH config/checkout_files config/reset_files
+    echo "Remove reset files."
+    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
+    echo "Sync checkout files."
     git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function checkout-revision() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
  
     cd odoo
     git checkout $1
@@ -480,7 +497,7 @@ function git-pull-submodules() {
 }
 
 function release-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     VERSION=$(get-module-version $1)
     cd $1
@@ -493,7 +510,7 @@ function release-module() {
 }
 
 function zip-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     # Get version and module name
     VERSION=$(get-module-version $1)
@@ -527,7 +544,7 @@ function clear-filestore() {
 }
 
 function disable-mailserver() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
     load-env $1
@@ -536,7 +553,7 @@ function disable-mailserver() {
 }
 
 function change-uuid() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
     load-env $1
@@ -553,15 +570,14 @@ function test-jsonrpc() {
 
 function generate-admin-passwd() {
     activate-venv
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ODOO_PASSWORD="$1"
     scripts/hash_password
 }
 
-
 function update-snippet() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Generate view name from filename
     FILE=$(basename $2)
@@ -574,8 +590,8 @@ function update-snippet() {
 }
 
 function install-snippet() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Generate view name from filename
     FILE=$(basename $2)
@@ -654,7 +670,7 @@ function lint-snippets() {
 }
 
 function update-app-list() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     locale
     activate-venv
@@ -667,7 +683,7 @@ function init-config-dir() {
 }
 
 function init-odoo-env() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     init-config-dir
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
@@ -680,7 +696,7 @@ function init-odoo-env() {
 }
 
 function init-next-env() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     init-config-dir
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
@@ -692,14 +708,14 @@ function init-next-env() {
 }
 
 function edit-env() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
     $EDITOR $ENV_FILEPATH
 }
 
 function upload-module() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$2 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Check if path is root folder
     MODULES=$2
@@ -734,7 +750,7 @@ function upload-module() {
 }
 
 function save-config() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     locale
     activate-venv
@@ -742,7 +758,7 @@ function save-config() {
 }
 
 function remove-submodule() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Move submodule to tmp folder"
     mkdir -p tmp/$1
@@ -763,7 +779,7 @@ function remove-submodule() {
 function update-config() {
 
     # Read addons path list
-    ADDONS="$(tr '\n' ',' < ./config/addons_path)"
+    ADDONS="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
 
     # Check if dir exists
     for ADDON in $ADDONS; do
@@ -787,7 +803,7 @@ function git-list-submodules() {
 }
 
 function git-feature-branch(){
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename $1)
     MODULE_PATH=$(dirname $1)
@@ -799,7 +815,7 @@ function git-feature-branch(){
 }
 
 function git-mig-branch(){
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename $1)
     MODULE_PATH=$(dirname $1)
@@ -811,8 +827,8 @@ function git-mig-branch(){
 }
 
 function patch-database() {
-    if test -z "$1"; then echo "\$1 is empty"; exit; fi
-    if test -z "$2"; then echo "\$1 is empty"; exit; fi
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$1 is empty."; exit; fi
 
     # Generate view name from filename
     FILENAME=$(basename $2)
@@ -831,7 +847,7 @@ function update-docs() {
     echo "In Odoo everything is described as an XML document. \
     Snippets are modifications (edits) for these XML documents. \
     With a snippet you can e.g. hide a field on the contact form. \
-    A snippet name is unique and follows the \`\$AUTHOR.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
+    A snippet name is unique and follows the \`\$COMPANY.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
 
     PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
 
@@ -872,8 +888,10 @@ function update-docs() {
                 # Group by modules
                 echo "### $EDIT_TITLE  " >> $DOCFILE
                 echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
-                echo "Link: [$FILE]($PATH_URL/$FILE)" >> $DOCFILE
-                echo "" >> $DOCFILE
+                echo -e '```xml' >> $DOCFILE
+                cat "$FILE" >> $DOCFILE
+                echo -e '\n```' >> $DOCFILE
+                echo -e "Source: [$FILE]($PATH_URL/$FILE)\n" >> $DOCFILE
             done
         done
     done
@@ -972,6 +990,9 @@ case "$1" in
     remove-submodule)
         remove-submodule $2
         ;;
+    git-update-submodules)
+        git-update-submodules
+        ;;
     release-module)
         release-module $2
         ;;
@@ -1004,6 +1025,9 @@ case "$1" in
         ;;
     set-admin)
         set-admin $2
+        ;;
+    switch-branch)
+        switch-branch $2
         ;;
     update-config)
         update-config

@@ -5,5 +5,15 @@ prev: ./snippets.md
 ## View Sale Order Form Contact Person  
 ### Modify Readonly Partner Contact Id  
 ID: `mint_system.sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id`  
-Link: [snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml)
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_order_contact_person.view_sale_order_form_contact_person" priority="50">
+
+    <xpath expr="//field[@name='partner_contact_id']" position="attributes">
+        <attribute name="attrs">{'readonly': [('state','not in',('draft','sent','sale'))]}</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml)
 

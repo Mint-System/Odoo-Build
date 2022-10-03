@@ -18,6 +18,7 @@
 | git-list-submodules         |                  | List path and url of submodules.                                                          |
 | git-mig-branch              | [path]           | Create migration branch for Odoo module.                                                  |
 | git-pull-submodules         |                  | Pull alls submodules.                                                                     |
+| git-update-submodules       |                  | Update submodules from .gitmodules file.                                                  |
 | init-db                     | [db]             | Initialize the Odoo database. Default is branch name.                                     |
 | init-next-env               | [env]            | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env               | [env]            | Create env file for Odoo Instance.                                                        |
@@ -41,13 +42,14 @@
 | restart                     | [name]           | Restart docker container.                                                                 |
 | restore-database            | [path][name]     | Restore target database zip.                                                              |
 | save-config                 | [name]           | Save Odoo database config                                                                 |
+| send-support-mail           |                  | Sends an mail for support@local to smtp://localhost                                       |
 | set-admin                   | [db]             | Sets the password for the first user in database.   Default is branch name.               |
 | source                      |                  | Source the Python virtual env.                                                            |
-| send-support-mail           |                  | Sends an mail for support@local to smtp://localhost                                       |
 | start                       | [name]           | Start docker container.                                                                   |
 | start-psql                  | [db]             | Start PSQL shell in Docker container.  Default is branch name.                            |
 | start-shell                 | [db]             | Start Odoo shell from source folder.    Default is branch name.                           |
 | stop                        | [name]           | Stop docker containers.                                                                   |
+| switch-branch               | [branch]         | Switch submodules to target branch.                                                       |
 | test-jsonrpc                | [env]            | Test json rpc connection.                                                                 |
 | test-module                 | [db][name,path]  | Test target Odoo module.                                                                  |
 | update-app-list             | [db]             | Update app list.                                                                          |

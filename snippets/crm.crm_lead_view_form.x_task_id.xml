@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="crm.crm_lead_view_form" priority="50">
+
+  <xpath expr="//field[@name='phone']/.." position="after">
+    <label for="x_task_id" class="oe_inline"/>
+    <div class="o_row">
+      <field name="x_task_id" id="x_task_id"/>
+    </div>
+  </xpath>
+
+</data>

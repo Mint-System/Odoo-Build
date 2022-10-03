@@ -5,24 +5,155 @@ prev: ./snippets.md
 ## Hr Timesheet Line Tree  
 ### Invoice Details  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
-Link: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='unit_amount']" position="after">
+    <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
+    <field name="timesheet_invoice_id" string="Rechnung"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
 ## Portal My Timesheets  
 ### Show Billable  
 ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`  
-Link: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
+```xml
+<?xml version="1.0"?>
+<!-- Show billable field for timesheet entries -->
+<data inherit_id="hr_timesheet.portal_my_timesheets" priority="50">
+
+  <xpath expr="//thead/tr/th[4]" position="after">
+    <th>Invoice Type</th>
+  </xpath>
+
+  <xpath expr="//tbody/t/tr/td[3]" position="after">
+    <td>
+      <span t-field="timesheet.timesheet_invoice_type"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
 
 ## Report Timesheet  
 ### Group By Invoice Type  
 ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`  
-Link: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+
+    <xpath expr="//table/tbody/tr[1]" position="replace">
+
+        <!-- Get all invoice types -->
+        <t t-set="timesheet_invoice_type" t-value="[]"/>
+        <t t-foreach="docs" t-as="l">
+            <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[l.timesheet_invoice_type]"/>
+        </t>
+
+        <!-- Foreach timesheet type list entries -->
+        <t t-foreach="set(timesheet_invoice_type)" t-as="type">
+            <tr>
+                <td colspan="5">
+                    <br/>
+                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufwände', 'billable_time': 'Abrechenbare Aufwände'}[type]"/>:</p>
+                </td>
+            </tr>
+            <tr t-foreach="docs" t-as="l">
+                <t t-if="type==l.timesheet_invoice_type">
+
+                    <td>
+                        <span t-field="l.date"/>
+                    </td>
+                    <td>
+                        <span t-field="l.name" t-options="{'widget': 'text'}"/>
+                    </td>
+                    <td t-if="show_project">
+                        <span t-field="l.project_id.name"/>
+                    </td>
+                    <td t-if="show_task">
+                        <t t-if="l.task_id">
+                            <span t-field="l.task_id.name"/>
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="l.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                    </td>
+
+                </t>
+            </tr>
+            
+            <tr>
+              <td/>
+              <td t-if="show_project"/>
+              <td t-if="show_task"/>
+              <td class="text-right"><strong>Zwischensumme</strong></td>
+              <td class="text-right"><strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
+            </tr>
+        </t>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
 ### User Report  
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
-Link: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+
+    <!-- New title -->
+    <xpath expr="/t/t/t/div/div[2]" position="after">
+        <t t-set="min_date" t-value="min(docs.mapped('date'))"/>
+        <t t-set="max_date" t-value="max(docs.mapped('date'))"/>
+        <h3>Arbeitsrapport
+            <t t-if="len(docs.mapped('project_id')) == 1">
+                für das Projekt "<t t-esc="docs.mapped('project_id')[0].name"/>"
+            </t>
+        </h3>
+        <p>
+        Von <t t-esc="min_date"/> bis <t t-esc="max_date"/>
+        </p>
+        <p>
+        Kunde: <t t-esc="docs.mapped('project_id')[0].partner_id.name"/><br/>
+        Erstellt von: <span t-field="user.name"/>
+        </p>
+        <br/>
+    </xpath>
+
+    <!-- Remove responsible -->
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[2]" position="replace"/>
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
+    <xpath expr="//table[1]/tbody[1]/tr[2]/td[2]" position="replace"/>
+    <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
 
 ## Timesheet View Tree User  
 ### Show Billable Type  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`  
-Link: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+
+  <xpath expr="//field[@name='unit_amount']" position="after">
+    <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
+    <field name="timesheet_invoice_id" string="Rechnung"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 

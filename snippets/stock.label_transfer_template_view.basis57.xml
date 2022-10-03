@@ -104,6 +104,11 @@
                       .address-space-right {
                         padding-right: 3mm
                       }
+                      svg {
+                        position: absolute;
+                        left: 10px;
+                        margin-top: 10px
+                      }
                     </style>
                         <div class="page">
                             <div class="label">
@@ -179,7 +184,11 @@
                                 <span class="use-font-opensans-medium footer" t-field="res_company.city" />
                                 <br />
                                 <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
-
+                                <svg viewBox="0 0 110 70" width="110" height="70">
+                                  <ellipse style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 2px;" cx="55.406" cy="34.556" rx="50" ry="30" data-bx-origin="-1.166667 -2"></ellipse>
+                                  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; white-space: pre;" data-bx-origin="-1.600941 -3.727571" transform="matrix(1, 0, 0, 1, -47.686543, -68.858284)"><tspan x="102.8" y="96.183">CH</tspan><tspan x="102.8" dy="1em">​</tspan><tspan>71758556</tspan></text>
+                                </svg>
+                                
                             </div>
                             <p style="page-break-before:always;" />
                         </div>
