@@ -11,9 +11,6 @@
        			margin-top:10mm;
        			margin-bottom:3mm;
 			}
-			div#address_right {
-				font-size: 9pt;
-      }
 	
 		</style>
 	</xpath>

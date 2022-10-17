@@ -19,11 +19,20 @@
 
   <xpath expr="//t[@t-set='address']/div" position="replace">
     <div class="address margin">
-      <t t-if="doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="doc.partner_contact_id">
+        <div t-esc="doc.partner_contact_id.parent_id.name"/>
+        <div t-esc="doc.partner_contact_id.parent_id.name2"/>
+        <span t-esc="doc.partner_contact_id.title.name"/> <span t-esc="doc.partner_contact_id.name"/>
+        <div t-esc="doc.partner_contact_id.street"/>
+        <div t-esc="doc.partner_contact_id.street2"/>
+        <span t-esc="doc.partner_contact_id.zip"/>
+        <span t-esc="doc.partner_contact_id.city"/>
+        <t t-if="doc.partner_contact_id.country_id.code != 'CH'">
+          <div t-esc="doc.partner_contact_id.country_id.name"/>
+        </t>
       </t>
-      <t t-if="not doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-else="">
+        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
       </t>
     </div>
   </xpath>

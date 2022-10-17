@@ -56,6 +56,12 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
         <t t-foreach="docs" t-as="l">
             <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[l.timesheet_invoice_type]"/>
         </t>
+        
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
 
         <!-- Foreach timesheet type list entries -->
         <t t-foreach="set(timesheet_invoice_type)" t-as="type">
@@ -68,8 +74,8 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
             <tr t-foreach="docs" t-as="l">
                 <t t-if="type==l.timesheet_invoice_type">
 
-                    <td>
-                        <span t-field="l.date"/>
+                    <td id="date">
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
                     </td>
                     <td>
                         <span t-field="l.name" t-options="{'widget': 'text'}"/>
@@ -134,7 +140,16 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
     <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
     <xpath expr="//table[1]/tbody[1]/tr[2]/td[2]" position="replace"/>
     <xpath expr="/t[1]/t[1]/t[1]/div[1]/div[2]/div[1]" position="replace"/>
-
+    
+    <!--Combine Responsible and Date-->
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[1]" position="replace">
+      <th><span>Datum</span><br/><span>Author</span></th>
+    </xpath>
+    <xpath expr="//table[1]/tbody[1]/tr[1]/td[1]" position="replace">
+      <td><span t-field="l.date"/><br/><span t-field="l.employee_id.name"/></td>
+    </xpath>
+    
+    
 </data>
 
 ```

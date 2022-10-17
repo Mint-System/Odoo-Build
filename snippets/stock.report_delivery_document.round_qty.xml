@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@id='qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty" t-esc="'%g' % move.product_uom_qty if int(move.product_uom_qty) == move.product_uom_qty else '%.2f' % move.product_uom_qty" />
+  </xpath>
+  
+  <xpath expr="//span[@id='open_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty if int(bo_line.product_uom_qty) == bo_line.product_uom_qty else '%.2f' % bo_line.product_uom_qty" />
+  </xpath>
+
+</data>

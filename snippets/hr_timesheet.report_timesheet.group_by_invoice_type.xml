@@ -8,6 +8,12 @@
         <t t-foreach="docs" t-as="l">
             <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[l.timesheet_invoice_type]"/>
         </t>
+        
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
 
         <!-- Foreach timesheet type list entries -->
         <t t-foreach="set(timesheet_invoice_type)" t-as="type">
@@ -20,8 +26,8 @@
             <tr t-foreach="docs" t-as="l">
                 <t t-if="type==l.timesheet_invoice_type">
 
-                    <td>
-                        <span t-field="l.date"/>
+                    <td id="date">
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
                     </td>
                     <td>
                         <span t-field="l.name" t-options="{'widget': 'text'}"/>

@@ -1117,11 +1117,20 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
 
   <xpath expr="//t[@t-set='address']/div" position="replace">
     <div class="address margin">
-      <t t-if="doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-if="doc.partner_contact_id">
+        <div t-esc="doc.partner_contact_id.parent_id.name"/>
+        <div t-esc="doc.partner_contact_id.parent_id.name2"/>
+        <span t-esc="doc.partner_contact_id.title.name"/> <span t-esc="doc.partner_contact_id.name"/>
+        <div t-esc="doc.partner_contact_id.street"/>
+        <div t-esc="doc.partner_contact_id.street2"/>
+        <span t-esc="doc.partner_contact_id.zip"/>
+        <span t-esc="doc.partner_contact_id.city"/>
+        <t t-if="doc.partner_contact_id.country_id.code != 'CH'">
+          <div t-esc="doc.partner_contact_id.country_id.name"/>
+        </t>
       </t>
-      <t t-if="not doc.partner_contact_id.parent_name">
-        <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+      <t t-else="">
+        <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
       </t>
     </div>
   </xpath>
@@ -1711,6 +1720,23 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
 ```
 Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_summary.xml)
 
+### Round Price2  
+ID: `mint_system.sale.report_saleorder_document.round_price2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span t-esc="'%g' % line.price_unit if int(line.price_unit) == line.price_unit else '%.2f' % line.price_unit" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.round_price2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.round_price2.xml)
+
 ### Round Price  
 ID: `mint_system.sale.report_saleorder_document.round_price`  
 ```xml
@@ -2210,6 +2236,25 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.filter_commitment_date
 </data>
 ```
 Source: [snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml)
+
+## Variants  
+### Remove Variant Extra Price  
+ID: `mint_system.sale.variants.remove_variant_extra_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.variants" priority="50">
+
+    <xpath expr="//span[hasclass('variant_price_extra')]" position="before">
+        <style>
+            li.variant_attribute .badge {
+                display: none;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.variants.remove_variant_extra_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.variants.remove_variant_extra_price.xml)
 
 ## View Order Form  
 ### Add Blanket Order Id  

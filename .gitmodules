@@ -10,3 +10,7 @@
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 16.0
+[submodule "oca/partner-contact"]
+	path = oca/partner-contact
+	url = git@github.com:OCA/partner-contact.git
+	branch = 16.0

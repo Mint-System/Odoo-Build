@@ -9,7 +9,7 @@
 
   <template id="assets_backend" name="Assets Backend" inherit_id="web.assets_backend">
     <xpath expr="." position="inside">
-      <link rel="stylesheet" href="/certificate_planer/static/src/css/style.css"/>
+      <link rel="stylesheet" href="/{ name }}/static/src/css/style.css"/>
     </xpath>
   </template>
 

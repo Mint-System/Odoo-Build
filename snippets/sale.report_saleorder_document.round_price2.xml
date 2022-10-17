@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span t-esc="'%g' % line.price_unit if int(line.price_unit) == line.price_unit else '%.2f' % line.price_unit" />
+  </xpath>
+
+</data>

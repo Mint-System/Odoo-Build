@@ -5,4 +5,8 @@
 		<attribute name="id">product_qty</attribute>
 	</xpath>
 
+	<xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
+		<attribute name="id">informations</attribute>
+	</xpath>
+
 </data>

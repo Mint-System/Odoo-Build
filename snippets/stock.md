@@ -8,6 +8,54 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
 ```xml
 <t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
+        <style>
+            .external-ref {
+                font-size: 14mm;
+            }
+            .box.external-ref {
+                font-size: 20mm;
+            }
+            .title {
+                font-size: 12mm;
+            }
+            .address {
+                font-size: 10mm;
+            }
+            .box.address {
+                font-size: 14mm;
+            }
+            .barcode {
+                font-size: 6mm;
+            }
+            .default {
+                font-size: 7mm;
+            }
+            .footer {
+                font-size: 7mm;
+            }
+            div.label {
+                line-height: 1.2;
+                text-align: center;
+            }
+            br {
+                font-size: 2mm;
+            }
+            .space-right {
+                margin-right: 2mm
+            }
+            .space-left {
+                margin-left: 2mm
+            }
+            .address-space-right {
+                padding-right: 3mm
+            }
+            svg {
+                position: absolute;
+                left: 10px;
+                margin-top: 10px
+            }
+        </style>
+
         <t t-foreach="docs" t-as="picking">
             <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0)" t-as="move">
 
@@ -18,6 +66,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                 <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
                 <t t-set="print_weight" t-value="False" />
                 <t t-set="packaging" t-value="move.product_packaging" />
+                <t t-set="external_ref" t-value="picking.partner_id.x_external_ref" />
+                <t t-set="print_header" t-value="True" />
+                <t t-set="print_delivery_date_only" t-value="False" />
 
                 <!--Print report for each move line-->
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
@@ -52,7 +103,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     <!--Compute box count-->
                     <t t-if="count_boxes == 0">
                         <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
-
                     </t>
                     <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
 
@@ -70,6 +120,10 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                         <!--First print normal labels and then box labels-->
                         <t t-if="page_index >= (count_pages-count_boxes)">
                             <t t-set="fix_weight"></t>
+                            <t t-if="external_ref">
+                                <t t-set="print_header" t-value="False" />
+                                <t t-set="print_delivery_date_only" t-value="True" />
+                            </t>
                         </t>
 
                         <!--Caclulate default expiration date-->
@@ -83,98 +137,104 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                             <t t-set="today" t-value="consume_until - delta" />
                         </t>
 
-                        <style>
-                      .display {
-                          font-size: 15mm;
-                      }
-                      .title {
-                          font-size: 14mm;
-                      }
-                      .address {
-                          font-size: 10mm;
-                      }
-                      .default {
-                          font-size: 8mm;
-                      }
-                      .footer {
-                          font-size: 8mm;
-                      }
-                      div.label {
-                          line-height: 1.2;
-                          text-align: center;
-                      }
-                      br {
-                          font-size: 3mm;
-                      }
-                      .space-right {
-                        margin-right: 2mm
-                      }
-                      .address-space-right {
-                        padding-right: 3mm
-                      }
-                      svg {
-                        position: absolute;
-                        left: 10px;
-                        margin-top: 10px
-                      }
-                    </style>
                         <div class="page">
                             <div class="label">
 
-                                <t t-if="picking.partner_id.hide_address">
-                                    <br />
+                                <t t-if="picking.partner_id.hide_address or not print_header">
                                     <br />
                                     <br />
                                 </t>
+                                <br />
+                                <br />
 
-                                <br />
-                                <br />
-                                <br />
-                                <span class="text-uppercase use-font-opensans-medium title">Gotthard Zander</span>
-                                <br />
-                                <span class="text-uppercase use-font-opensans-bold display" t-esc="move.product_id.name" />
-                                <br />
-                                <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
-                                <br />
-                                <t t-if="fix_weight or print_weight">
-                                    <span class="use-font-opensans-medium default">Gewicht: </span>
-                                    <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
-                                    <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move.quantity_done *1000" t-options='{"widget": "float", "precision": 0}' />
-                                    <span class="use-font-opensans-medium default" t-if="print_weight">
-                                        g zu
-                                        <span t-esc="move.x_count_boxes" />
-                                        Kisten
-                                    </span>
+                                <t t-if="print_header">
+                                    <t t-if="picking.partner_id.x_packaging_ref">
+                                        <span class="text-uppercase use-font-opensans-medium title space-right" t-esc="picking.partner_id.x_packaging_ref" />
+                                    </t>
+                                    <span class="text-uppercase use-font-opensans-medium title">Gotthard-Zander</span>
+                                    <br />
+                                    <span class="text-uppercase use-font-opensans-bold title" t-esc="move.product_id.name" />
+                                    <t t-if="move.product_id.x_calibre">
+                                        <span class="use-font-opensans-medium default space-left" t-esc="move.product_id.x_calibre" />
+                                    </t>
+                                    <br />
+                                    <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
+                                    <br />
+                                    <t t-if="fix_weight or print_weight">
+                                        <span class="use-font-opensans-medium default">Gewicht: </span>
+                                        <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
+                                        <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move.quantity_done *1000" t-options='{"widget": "float", "precision": 0}' />
+                                        <span class="use-font-opensans-medium default" t-if="print_weight">
+                                            g zu
+                                            <span t-esc="move.x_count_boxes" />
+                                            Kisten
+                                        </span>
+                                    </t>
                                 </t>
 
                                 <br />
                                 <br />
 
                                 <t t-if="not picking.partner_id.hide_address">
-                                    <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
+                                    <div id="address">
+                                        <t t-if="external_ref and print_header">
+                                            <span class="use-font-opensans-bold external-ref" t-esc="external_ref" />
+                                            <br />
+                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
+                                            <br />
+                                            <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
+                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
+                                            <br />
+                                            <br />
+                                        </t>
+                                        <t t-if="external_ref and not print_header">
+                                            <span class="use-font-opensans-bold box external-ref" t-esc="external_ref" />
+                                            <br />
+                                            <span class="use-font-opensans-bold box address" t-field="picking.partner_id.name" />
+                                            <br />
+                                            <span class="use-font-opensans-bold box address address-space-right" t-field="picking.partner_id.zip" />
+                                            <span class="use-font-opensans-bold box address" t-field="picking.partner_id.city" />
+                                            <br />
+                                            <br />
+                                        </t>
+                                        <t t-if="not external_ref and print_header">
+                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.name" />
+                                            <br />
+                                            <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
+                                            <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
+                                            <br />
+                                            <br />
+                                        </t>
+                                    </div>
+                                </t>
+
+                                <t t-if="not print_delivery_date_only">
+                                    <span class="use-font-opensans-medium default">Verpackt am: </span>
+                                    <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
                                     <br />
-                                    <span class="use-font-opensans-bold address address-space-right" t-field="picking.partner_id.zip" />
-                                    <span class="use-font-opensans-bold address" t-field="picking.partner_id.city" />
+                                    <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                    <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
                                     <br />
+                                    <span class="use-font-opensans-medium default">
+                                        Aufbewahrung: bei
+                                        <span t-esc="move.product_id.x_storage_temperature" />
+                                        °C
+                                    </span>
+                                </t>
+                                <t t-if="print_delivery_date_only">
+                                    <span class="use-font-opensans-medium address">Lieferdatum: </span>
+                                    <span class="use-font-opensans-medium address" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')" />
                                     <br />
                                 </t>
 
-                                <span class="use-font-opensans-medium default">Verpackt am: </span>
-                                <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
-                                <br />
-                                <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
-                                <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
-                                <br />
-                                <span class="use-font-opensans-medium default">
-                                    Aufbewahrung: bei
-                                    <span t-esc="move.product_id.x_storage_temperature" />
-                                    °C
-                                </span>
                                 <br />
                                 <br />
 
                                 <t t-if="move_line.lot_id.name">
-                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', move_line.lot_id.name, 600, 50)" alt="Barcode" />
+                                    <t t-set="barcode" t-value="move.product_packaging.barcode" />
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode" />
+                                    <br />
+                                    <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])" />
                                 </t>
                                 <t t-else="">
                                     <span class="use-font-opensans-medium default text-muted">No barcode available</span>
@@ -182,7 +242,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 <br />
                                 <br />
 
-                                <span class="text-uppercase use-font-opensans-bold default">Gotthard Zander</span>
+                                <span class="text-uppercase use-font-opensans-bold default">Gotthard-Zander</span>
                                 <span class="use-font-opensans-bold default"> by Basis57</span>
                                 <br />
                                 <br />
@@ -192,11 +252,11 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 <span class="use-font-opensans-medium footer" t-field="res_company.city" />
                                 <br />
                                 <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
-                                <svg viewBox="0 0 110 70" width="110" height="70">
-                                  <ellipse style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 2px;" cx="55.406" cy="34.556" rx="50" ry="30" data-bx-origin="-1.166667 -2"></ellipse>
-                                  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 16px; font-weight: 700; text-anchor: middle; white-space: pre;" data-bx-origin="-1.600941 -3.727571" transform="matrix(1, 0, 0, 1, -47.686543, -68.858284)"><tspan x="102.8" y="96.183">CH</tspan><tspan x="102.8" dy="1em">​</tspan><tspan>71758556</tspan></text>
+                                <svg viewBox="0 0 150 100" width="150" height="100">
+                                  <ellipse style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 4px;" cx="75" cy="49.556" rx="70" ry="45" data-bx-origin="-1.166667 -2"></ellipse>
+                                  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; white-space: pre;" data-bx-origin="-1.600941 -3.727571" transform="matrix(1.475051, 0, 0, 1.713593, -78.134323, -123.083534)"><tspan x="102.8" y="96.183">CH</tspan><tspan x="102.8" dy="1em">​</tspan><tspan>71758556</tspan></text>
                                 </svg>
-                                
+
                             </div>
                             <p style="page-break-before:always;" />
                         </div>
@@ -1519,6 +1579,54 @@ ID: `mint_system.stock.report_delivery_document.replace_table`
 ```
 Source: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.replace_table.xml)
 
+### Round Qty2  
+ID: `mint_system.stock.report_delivery_document.round_qty2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@id='qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty" t-esc="'%g' % move.product_uom_qty" />
+  </xpath>
+  
+  <xpath expr="//span[@id='open_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.round_qty2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.round_qty2.xml)
+
+### Round Qty  
+ID: `mint_system.stock.report_delivery_document.round_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//span[@id='qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty" t-esc="'%g' % move.product_uom_qty if int(move.product_uom_qty) == move.product_uom_qty else '%.2f' % move.product_uom_qty" />
+  </xpath>
+  
+  <xpath expr="//span[@id='open_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty if int(bo_line.product_uom_qty) == bo_line.product_uom_qty else '%.2f' % bo_line.product_uom_qty" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.round_qty.xml)
+
 ### Sale Order Note  
 ID: `mint_system.stock.report_delivery_document.sale_order_note`  
 ```xml
@@ -2659,6 +2767,54 @@ ID: `mint_system.stock.report_picking.replace_table`
   </data>
 ```
 Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.replace_table.xml)
+
+### Round Qty2  
+ID: `mint_system.stock.report_picking.round_qty2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.round_qty2.xml)
+
+### Round Qty  
+ID: `mint_system.stock.report_picking.round_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty if int(ml.product_uom_qty) == ml.product_uom_qty else '%.2f' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available if int(ml.product_id.qty_available) == ml.product_id.qty_available else '%.2f' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.round_qty.xml)
 
 ### Set Ids  
 ID: `mint_system.stock.report_picking.set_ids`  

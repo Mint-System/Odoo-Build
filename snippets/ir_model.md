@@ -696,6 +696,30 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 ```
 Source: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
 
+## Product Packaging  
+### X Description  
+ID: `mint_system.ir_model.product_packaging.x_description`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_description" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Beschreibung</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_description</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_packaging.x_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_packaging.x_description.xml)
+
 ## Product Set Line  
 ### X Categ Id  
 ID: `mint_system.ir_model.product_set_line.x_categ_id`  
@@ -723,6 +747,29 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 Source: [snippets/ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_set_line.x_categ_id.xml)
 
 ## Product Template  
+### X Calibre  
+ID: `mint_system.ir_model.product_template.x_calibre`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_calibre" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kaliber</field>
+    <field name="model">product.template</field>
+    <field name="model_id" ref="product.model_product_template"/>
+    <field name="name">x_calibre</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_calibre.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_template.x_calibre.xml)
+
 ### X Expiration Days  
 ID: `mint_system.ir_model.product_template.x_expiration_days`  
 ```xml
@@ -1070,6 +1117,52 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 Source: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
 
 ## Res Partner  
+### X External Ref  
+ID: `mint_system.ir_model.res_partner.x_external_ref`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_external_ref" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Externe Referenz</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_external_ref</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_external_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_external_ref.xml)
+
+### X Packaging Ref  
+ID: `mint_system.ir_model.res_partner.x_packaging_ref`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_packaging_ref" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Verpackungsreferenz</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_packaging_ref</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.res_partner.x_packaging_ref.xml)
+
 ### X Stock Move Ids  
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`  
 ```xml
@@ -1441,30 +1534,52 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">quantity_done</field>
-    <field name="compute">for rec in self:
-      if rec.product_packaging:
-        if rec.product_packaging.name == "Schale Gross":
-          rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        elif rec.product_packaging.name == "Schale Klein":
-          rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
-        elif rec.product_packaging.name == "Vakuum Gross":
-          rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        elif rec.product_packaging.name == "Vakuum Klein":
-          if rec.product_id.id == 68:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-          else:
-            rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        elif rec.product_packaging.name == "Kiste":
-          if rec.product_id.id == 68:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-          elif rec.product_id.id == 51:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
-          else:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-        elif rec.product_packaging.name == "Karton":
-          rec['x_count_boxes'] = 0
-      else:
-        rec['x_count_boxes'] = 0</field>
+    <field name="compute"># Count the number of packaging boxes
+        for rec in self:
+            rec['x_count_boxes'] = 0
+            if rec.product_packaging:
+                
+                # Get picking delivery product name
+                delivery_name = rec.picking_id.carrier_id.product_id.name
+            
+                # qty = rec.product_packaging.qty
+                # qty_up = (qty - 0.1)
+                    
+                # Change
+                if delivery_name == 'Gebinde':
+                    factor = 6
+                elif delivery_name == 'Gebinde Migros':
+                    factor = 4
+                    
+                if rec.product_packaging.name == "Schale Gross":
+                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+                    
+                elif rec.product_packaging.name == "Schale Klein":
+                    rec['x_count_boxes'] = (rec.quantity_done/factor + 0.9)/1
+                    
+                elif rec.product_packaging.name == "Vakuum Gross":
+                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+                    
+                elif rec.product_packaging.name == "Vakuum Klein":
+                    if rec.product_id.id == 68:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    else:
+                        rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
+                        
+                elif rec.product_packaging.name == "Kiste":
+                    # Filet mit Haut Tiefgekühlt
+                    if rec.product_id.id == 68:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    # Kopf und Backen
+                    elif rec.product_id.id == 51:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
+                    # Filet mit Haut
+                    elif rec.product_id.id == 33:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    # Zander ganz / rund
+                    else:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
+              </field>
   </record>
 
 </odoo>
@@ -1490,14 +1605,15 @@ ID: `mint_system.ir_model.stock_move.x_count_packaging`
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">product_uom_qty</field>
-    <field name="compute">for rec in self:
-	if rec.product_packaging:
-		if rec.product_packaging.name == "Kiste":
-		  rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
-		if rec.product_packaging.name == "Schale Gross":
-			rec['x_count_packaging'] = (rec.product_uom_qty + 2.4)/2.5
-		if rec.product_packaging.name in ["Vakuum", "Schale Klein", "Karton"]:
-			rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1</field>
+    <field name="compute"># Counts the number of packages for dispaying in on the picking report
+      for rec in self:
+        if rec.product_packaging:
+          if rec.product_packaging.name == "Kiste":
+            rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
+          if rec.product_packaging.name == "Schale Gross":
+            rec['x_count_packaging'] = (rec.product_uom_qty + 2.4)/2.5
+          if rec.product_packaging.name in ["Vakuum", "Schale Klein", "Karton"]:
+            rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1</field>
   </record>
 
 </odoo>

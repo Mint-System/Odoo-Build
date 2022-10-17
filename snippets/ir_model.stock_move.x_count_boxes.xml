@@ -13,30 +13,52 @@
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">quantity_done</field>
-    <field name="compute">for rec in self:
-      if rec.product_packaging:
-        if rec.product_packaging.name == "Schale Gross":
-          rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        elif rec.product_packaging.name == "Schale Klein":
-          rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
-        elif rec.product_packaging.name == "Vakuum Gross":
-          rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-        elif rec.product_packaging.name == "Vakuum Klein":
-          if rec.product_id.id == 68:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-          else:
-            rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        elif rec.product_packaging.name == "Kiste":
-          if rec.product_id.id == 68:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-          elif rec.product_id.id == 51:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
-          else:
-            rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-        elif rec.product_packaging.name == "Karton":
-          rec['x_count_boxes'] = 0
-      else:
-        rec['x_count_boxes'] = 0</field>
+    <field name="compute"># Count the number of packaging boxes
+        for rec in self:
+            rec['x_count_boxes'] = 0
+            if rec.product_packaging:
+                
+                # Get picking delivery product name
+                delivery_name = rec.picking_id.carrier_id.product_id.name
+            
+                # qty = rec.product_packaging.qty
+                # qty_up = (qty - 0.1)
+                    
+                # Change
+                if delivery_name == 'Gebinde':
+                    factor = 6
+                elif delivery_name == 'Gebinde Migros':
+                    factor = 4
+                    
+                if rec.product_packaging.name == "Schale Gross":
+                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+                    
+                elif rec.product_packaging.name == "Schale Klein":
+                    rec['x_count_boxes'] = (rec.quantity_done/factor + 0.9)/1
+                    
+                elif rec.product_packaging.name == "Vakuum Gross":
+                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+                    
+                elif rec.product_packaging.name == "Vakuum Klein":
+                    if rec.product_id.id == 68:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    else:
+                        rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
+                        
+                elif rec.product_packaging.name == "Kiste":
+                    # Filet mit Haut Tiefgekühlt
+                    if rec.product_id.id == 68:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    # Kopf und Backen
+                    elif rec.product_id.id == 51:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
+                    # Filet mit Haut
+                    elif rec.product_id.id == 33:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+                    # Zander ganz / rund
+                    else:
+                        rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
+              </field>
   </record>
 
 </odoo>

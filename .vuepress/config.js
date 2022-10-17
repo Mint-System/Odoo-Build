@@ -1,6 +1,7 @@
 const { defaultTheme } = require('vuepress')
 const { searchPlugin } = require('@vuepress/plugin-search')
 const sidebarSidebar = require('./sidebar_snippet')
+const { plausiblePlugin } = require('./plausible')
 
 module.exports = {
     lang: 'en-US',
@@ -41,6 +42,11 @@ module.exports = {
         }
     }),
     plugins: [
-        searchPlugin(),
+        searchPlugin({
+            maxSuggestions: 10
+        }),
+        plausiblePlugin({
+            'domain': 'odoo.build'
+        }),
     ],
 }

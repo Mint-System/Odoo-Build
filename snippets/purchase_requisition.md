@@ -24,17 +24,13 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_bl
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-  <xpath expr="//div/div[1]" position="after">
-    <div class="row address" style="font-size:16px; margin-bottom: 2rem">
+  <xpath expr="//t/div/div[1]" position="after">
+    <div class="row address">
       <div class="col-5"/>
-      <div class="col-5 offset-2">
+      <div class="col-5 offset-2" id="address_right">
         <div t-field="o.vendor_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
       </div>
     </div>
-  </xpath>
-
-  <xpath expr="//div[1]/div[2]/div[2]/div[1]" position="attributes">
-    <attribute name="t-options-fields">['name', 'address']</attribute>
   </xpath>
 
 </data>
@@ -93,6 +89,75 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_incoterm_i
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml)
+
+### Add Infotable  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//h2" position="after">
+    <style>
+      table#info {
+        width: 100%;
+        margin-bottom: 25px;
+        font-size: 9pt;
+        font-family: arial;
+      }
+      table#info tr {
+        line-height: 1.2;
+        text-align: left;
+      }
+      .note {
+        font-size: 9pt;
+      }
+    </style>
+    <table id='info'>
+      <tr>
+        <td width="17%">Date</td>
+        <td width="44%">
+          <span t-field='doc.date_confirmed' t-options='{ "widget": "date" }'/>
+        </td>
+        <td width="14%"></td>
+        <td width="25%"></td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field='doc.partner_id.ref'/>
+        </td>
+        <td>Our Reference</td>
+        <td>
+          <span t-field='doc.user_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Order</td>
+        <td>
+          <span t-field='doc.client_order_ref'/>
+        </td>
+        <td>Delivery Method</td>
+        <td>
+          <span t-field='doc.carrier_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='doc.comment'/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field='doc.incoterm'/>
+        </td>
+      </tr>
+    </table>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 
 ### Add Product Uom Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uom_id`  
@@ -197,6 +262,18 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_type_id`
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml)
 
+### Remove Informations  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.remove_informations`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+ <xpath expr="//div[@id='informations']" position="replace"/>
+    
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml)
+
 ### Replace Name With Partner Ref  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref`  
 ```xml
@@ -290,6 +367,10 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 		<attribute name="id">product_qty</attribute>
 	</xpath>
 
+	<xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
+		<attribute name="id">informations</attribute>
+	</xpath>
+
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml)
@@ -303,31 +384,47 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
 			.o_company_1_layout {
-				font-family: Roboto;
+				font-family: Arial;
 				color: #000000;
 			}
-			.o_report_layout_boxed {
-        		color: #495057;
+			h2 {
+       			margin-top:10mm;
+       			margin-bottom:3mm;
 			}
-			.o_report_layout_boxed h2 {
-       			color: #000000;
-			}
-			.o_report_layout_boxed strong {
-       			color: #000000;
-			}
-			.col-3 {
-			  	margin-bottom: 1rem !important;
-			}
-			.div#description {
-				font-size: 16px;
-				margin-top: 4rem;
-			}
+			div#address_right {
+				font-size: 9pt;
+      }
+	
 		</style>
 	</xpath>
 
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml)
+
+### Style Trimada  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			.o_company_1_layout {
+				font-family: Arial;
+				color: #000000;
+			}
+			h2 {
+       			margin-top:10mm;
+       			margin-bottom:3mm;
+			}
+	
+		</style>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml)
 
 ## View Purchase Requisition Form  
 ### Filter Customer Is Company  
