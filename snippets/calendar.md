@@ -54,3 +54,19 @@ ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`
 ```
 Source: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
 
+## View Calendar Event Form  
+### Show Res Model And Id  
+ID: `mint_system.calendar.view_calendar_event_form.show_res_model_and_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="calendar.view_calendar_event_form" priority="50">
+
+  <xpath expr="//page[@name='page_misc']//field[@name='user_id']" position="after">
+    <field name="res_id"/>
+    <field name="res_model"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml)
+

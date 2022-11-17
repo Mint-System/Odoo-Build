@@ -3,6 +3,21 @@ prev: ./snippets.md
 ---
 # Hr Holidays
 ## Hr Leave View Form Manager Approve  
+### Add Meeting Id  
+ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_holidays.hr_leave_view_form_manager_approve" priority="50">
+
+  <field name="employee_id" position="after">
+    <field name="meeting_id"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.xml)
+
 ### Report Note Group  
 ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group`  
 ```xml

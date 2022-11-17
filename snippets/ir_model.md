@@ -173,6 +173,35 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
 ```
 Source: [snippets/ir_model.account_move.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_picking_list.xml)
 
+### X Recurring Inverval  
+ID: `mint_system.ir_model.account_move.x_recurring_inverval`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_recurring_inverval" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Abrechnungsintervall</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_recurring_inverval</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="selection_id">[
+      {'value':'daily','name':'Daily'},
+      {'value':'monthly','name':'Monthly'},
+      {'value':'quarterly','name':'Quarterly'},
+      {'value':'yearly','name':'Yearly'}
+    ]</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_recurring_inverval.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 ```xml
@@ -523,6 +552,34 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 
 ```
 Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
+
+## Hr Payslip Line  
+### X Code Name  
+ID: `mint_system.ir_model.hr_payslip_line.x_code_name`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_code_name" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Code mit Name</field>
+    <field name="model">hr.payslip.line</field>
+    <field name="model_id" ref="hr_payroll.model_hr_payslip_line"/>
+    <field name="name">x_code_name</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">name,code</field>
+    <field name="compute">for rec in self:
+      rec['x_code_name'] = rec.code + ' ' + rec.name</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.hr_payslip_line.x_code_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_payslip_line.x_code_name.xml)
 
 ## Mrp Bom  
 ### X Note  
@@ -907,12 +964,12 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
     <field name="model_id" ref="project.model_project_task"/>
     <field name="name">x_business_requirement_id</field>
     <field name="state">manual</field>
-    <field name="store" eval="False"/>
+    <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
     <field name="ttype">many2one</field>
     <field name="relation">business.requirement</field>
-    <field name="depends">project_id</field>
+    <field name="depends">project_id,name</field>
     <field name="compute">for record in self:
   record['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', record.id)], limit=1)
     </field>
@@ -1545,17 +1602,18 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                 # qty = rec.product_packaging.qty
                 # qty_up = (qty - 0.1)
                     
-                # Change
+                # Set factor
+                factor_xs = 6
                 if delivery_name == 'Gebinde':
-                    factor = 6
+                    factor_xs = 6
                 elif delivery_name == 'Gebinde Migros':
-                    factor = 4
+                    factor_xs = 6
                     
                 if rec.product_packaging.name == "Schale Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
                     
                 elif rec.product_packaging.name == "Schale Klein":
-                    rec['x_count_boxes'] = (rec.quantity_done/factor + 0.9)/1
+                    rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
                     
                 elif rec.product_packaging.name == "Vakuum Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
@@ -1734,6 +1792,86 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_scrap_id.xml)
+
+## Stock Production Lot  
+### X Production Ids  
+ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_production_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Fertigungsaufträge</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_production_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">One2many</field>
+    <field name="relation">mrp.production</field>
+    <field name="relation_field">lot_producing_id</field>    
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_production_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_ids.xml)
+
+### X Production Id  
+ID: `mint_system.ir_model.stock_production_lot.x_production_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_production_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Fertigungsauftrag</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_production_id</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">x_production_ids</field>
+    <field name="compute">for rec in self:
+      if rec.x_production_ids:
+        rec['x_production_id'] = rec.x_production_ids[0].name.split('-')[0]
+      else:
+        rec['x_production_id'] = ''
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_production_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_production_id.xml)
+
+### X Weight Uom  
+ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_weight_uom" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nettogewicht [kg]</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_weight_uom</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">float</field> 
+    <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
+    <field name="compute">for record in self:
+  record['x_weight_uom'] = record.product_qty * record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_weight_uom.xml)
 
 ## Stock Quant  
 ### X Last Delivery Partner Id  

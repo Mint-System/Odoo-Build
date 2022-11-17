@@ -15,6 +15,7 @@
             }
             .box.address {
                 font-size: 14mm;
+                font-weight: bolder;
             }
             .barcode {
                 font-size: 6mm;

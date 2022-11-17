@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_recurring_inverval" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Abrechnungsintervall</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_recurring_inverval</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="selection_id">[
+      {'value':'daily','name':'Daily'},
+      {'value':'monthly','name':'Monthly'},
+      {'value':'quarterly','name':'Quarterly'},
+      {'value':'yearly','name':'Yearly'}
+    ]</field>
+  </record>
+
+</odoo>

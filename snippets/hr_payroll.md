@@ -24,6 +24,23 @@ ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`
 ```
 Source: [snippets/hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_payslip_line.view_pivot.xml)
 
+## Hr Payslip Line View Search Register  
+### Filter Date From  
+ID: `mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_payroll.hr_payslip_line_view_search_register" priority="50">
+
+  <xpath expr="//filter[@name='last_quarter']" position="after">
+    <separator/>
+    <filter string="Datum" name="date_filter" date="date_from" default_period="last_year"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.hr_payslip_line_view_search_register.filter_date_from.xml)
+
 ## Hr Salary Rule Form  
 ### Switch Account  
 ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`  

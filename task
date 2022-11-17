@@ -51,6 +51,9 @@ function update-readme() {
         SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
         echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> $1
     done
+
+    # Stage readme file
+    git add REAMDE.md
 }
 
 function get-module-version() {

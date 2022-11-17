@@ -8,12 +8,12 @@
     <field name="model_id" ref="project.model_project_task"/>
     <field name="name">x_business_requirement_id</field>
     <field name="state">manual</field>
-    <field name="store" eval="False"/>
+    <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
     <field name="ttype">many2one</field>
     <field name="relation">business.requirement</field>
-    <field name="depends">project_id</field>
+    <field name="depends">project_id,name</field>
     <field name="compute">for record in self:
   record['x_business_requirement_id'] = self.env['business.requirement'].search([('x_task_id', '=', record.id)], limit=1)
     </field>

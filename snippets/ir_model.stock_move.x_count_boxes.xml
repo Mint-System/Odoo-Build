@@ -24,17 +24,18 @@
                 # qty = rec.product_packaging.qty
                 # qty_up = (qty - 0.1)
                     
-                # Change
+                # Set factor
+                factor_xs = 6
                 if delivery_name == 'Gebinde':
-                    factor = 6
+                    factor_xs = 6
                 elif delivery_name == 'Gebinde Migros':
-                    factor = 4
+                    factor_xs = 6
                     
                 if rec.product_packaging.name == "Schale Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
                     
                 elif rec.product_packaging.name == "Schale Klein":
-                    rec['x_count_boxes'] = (rec.quantity_done/factor + 0.9)/1
+                    rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
                     
                 elif rec.product_packaging.name == "Vakuum Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5

@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_code_name" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Code mit Name</field>
+    <field name="model">hr.payslip.line</field>
+    <field name="model_id" ref="hr_payroll.model_hr_payslip_line"/>
+    <field name="name">x_code_name</field>
+    <field name="state">manual</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="depends">name,code</field>
+    <field name="compute">for rec in self:
+      rec['x_code_name'] = rec.code + ' ' + rec.name</field>
+  </record>
+
+</odoo>

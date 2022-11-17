@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//tr[@id='first']" position="attributes">
+    <attribute name="t-att-class">"first"</attribute>
+  </xpath>
+
+  <xpath expr="//tr[@id='first']" position="after">
+    <t t-if="o.product_id.type_description">
+    <tr class="second">
+      <td></td>
+      <td colspan="5">
+        <span t-field="o.product_id.name"/><br/>
+        <t t-if="o.product_id.country_of_origin_id.code">
+          Ursprungsland:
+          <span t-field="o.product_id.country_of_origin_id.code" />
+        </t>
+        <t t-if="o.product_id.hs_code">
+          / Zollposition:
+          <span t-field="o.product_id.hs_code" />
+        </t>
+      </td>
+    </tr>
+    </t>
+    <t t-if="not o.product_id.type_description">
+    <tr class="second">
+      <td></td>
+      <td colspan="5">
+        <t t-if="o.product_id.country_of_origin_id.code">
+          Ursprungsland:
+          <span t-field="o.product_id.country_of_origin_id.code" />
+        </t>
+        <t t-if="o.product_id.hs_code">
+          / Zollposition:
+          <span t-field="o.product_id.hs_code" />
+        </t>
+      </td>
+    </tr>
+    </t>
+  </xpath>
+
+</data>

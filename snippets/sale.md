@@ -1528,8 +1528,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_vat`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace">
-</xpath>
+<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 
 </data>
 ```
@@ -2301,6 +2300,22 @@ ID: `mint_system.sale.view_order_form.domain_partner_type`
 ```
 Source: [snippets/sale.view_order_form.domain_partner_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.domain_partner_type.xml)
 
+### Edit Name  
+ID: `mint_system.sale.view_order_form.edit_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='name']" position="attributes">
+    <attribute name="readonly">0</attribute>
+    <attribute name="attrs">{'readonly': [('project_id', '=', False)]}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.edit_name.xml)
+
 ### Filter Customer Is Company  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
 ```xml
@@ -2426,6 +2441,20 @@ ID: `mint_system.sale.view_order_form.show_carrier_method`
 
 ```
 Source: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_carrier_method.xml)
+
+### Show Order Line Project Id  
+ID: `mint_system.sale.view_order_form.show_order_line_project_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+    <field name="project_id" optional="hide" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
 
 ### Show Project  
 ID: `mint_system.sale.view_order_form.show_project`  
@@ -2821,6 +2850,21 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+
+### Show State  
+ID: `mint_system.sale.view_order_tree.show_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <field name="invoice_status" position="after">
+    <field name="state" decoration-success="state == 'sale' or state == 'done'" decoration-info="state == 'draft' or state == 'sent'" widget="badge" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_tree.show_state.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  

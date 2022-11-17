@@ -8,5 +8,53 @@
 	<xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
 		<attribute name="id">informations</attribute>
 	</xpath>
+	
+	<xpath expr="//t[1]/table" position="attributes">
+		<attribute name="id">main_table</attribute>
+	</xpath>
+	
+	<xpath expr="//t[2]" position="attributes">
+		<attribute name="id">details</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/h3" position="attributes">
+		<attribute name="id">title_product</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[1]" position="attributes">
+		<attribute name="id">name</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr" position="attributes">
+		<attribute name="id">first</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[1]" position="attributes">
+		<attribute name="id">name</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[2]" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[2]" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+		
+	<xpath expr="//t[1]/table/thead/tr/th[3]" position="attributes">
+		<attribute name="id">product_uom</attribute>
+	</xpath>
+
+	<xpath expr="//t[1]/table/tbody/tr/t/td" position="attributes">
+		<attribute name="id">product_uom</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/thead/tr/th[4]" position="attributes">
+		<attribute name="id">schedule_date</attribute>
+	</xpath>
+	
+	<xpath expr="//t[1]/table/tbody/tr/td[3]" position="attributes">
+		<attribute name="id">schedule_date</attribute>
+	</xpath>
 
 </data>

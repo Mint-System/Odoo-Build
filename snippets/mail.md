@@ -332,3 +332,39 @@ ID: `mint_system.mail.mail_notification_paynow.white_background`
 ```
 Source: [snippets/mail.mail_notification_paynow.white_background.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.white_background.xml)
 
+## Message Activity Assigned  
+### Redirect Access Link  
+ID: `mint_system.mail.message_activity_assigned.redirect_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace">
+    <p style="margin: 16px 0px 16px 0px;">
+      <span t-esc="activity._name" />
+      <span t-esc="activity.id" />
+      <a t-att-href="access_link" t-att-data-oe-model="activity._name" t-att-data-oe-id="activity.id" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+        View Activity
+      </a>
+      <a href="#" t-att-data-oe-model="activity._name" t-att-data-oe-id="activity.id">
+        View Activity
+      </a>
+    </p>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.redirect_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.redirect_access_link.xml)
+
+### Remove Access Link  
+ID: `mint_system.mail.message_activity_assigned.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace" />
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.remove_access_link.xml)
+

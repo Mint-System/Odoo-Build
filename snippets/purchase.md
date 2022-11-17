@@ -1229,6 +1229,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
+        font-family: arial;
       }
         table#info tr {
         line-height: 1.2;
@@ -1240,49 +1241,46 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
         </style>
         <table id='info'>
             <tr>
-                <td width="17%">Anfragedatum</td>
+                <td width="17%">Date</td>
                 <td width="44%">
-                    <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
+                    <span t-field='o.ordering_date' t-options='{ "widget": "date" }'/>
                 </td>
                 <td width="14%"></td>
                 <td width="25%"></td>
             </tr>
             <tr>
-                <td>Kunden-Nr.</td>
+                <td>Customer No.</td>
                 <td>
-                    <span t-field='o.partner_id.ref'/>
+                    <span t-field='o.vendor_id.ref'/>
                 </td>
-
+                <td></td>
+                <td></td>
             </tr>
             <tr>
                 <td></td>
                 <td>
                     <span t-field='o.partner_ref'/>
                 </td>
-                <td>U/Referenz</td>
+                <td>Our Reference</td>
                 <td>
                     <span t-field='o.user_id'/>
                 </td>
             </tr>
             <tr>
-                <td>Referenz</td>
+                <td>Reference</td>
                 <td>
                     <span t-field='o.comment'/>
                 </td>
-                <td>Lieferkondition</td>
+                <td>Incoterm</td>
                 <td>
-                    <span t-field='o.incoterm_id.code'/>
+                    <span t-field='o.incoterm_id'/>
                 </td>
             </tr>
         </table>
 
-        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_header"/>
-        </t>
-
     </xpath>
 
-</data>  
+</data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 

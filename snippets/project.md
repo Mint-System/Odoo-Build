@@ -2,6 +2,38 @@
 prev: ./snippets.md
 ---
 # Project
+## View Project  
+### Disable Create  
+ID: `mint_system.project.view_project.disable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+
+    <xpath expr="//tree" position="attributes">
+         <attribute name="create">0</attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_project.disable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.disable_create.xml)
+
+## View Project Kanban  
+### Disable Create  
+ID: `mint_system.project.view_project_kanban.disable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project_kanban" priority="50">
+
+    <xpath expr="//kanban" position="attributes">
+         <attribute name="create">0</attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_project_kanban.disable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project_kanban.disable_create.xml)
+
 ## View Task Form2  
 ### Parent Domain  
 ID: `mint_system.project.view_task_form2.parent_domain`  

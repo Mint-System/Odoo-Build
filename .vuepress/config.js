@@ -35,7 +35,7 @@ module.exports = {
             '/snippets': [
                 {
                     text: 'Snippets',
-                    collapsible: true,
+                    collapsable: false,
                     children: sidebarSidebar,
                 },
             ]

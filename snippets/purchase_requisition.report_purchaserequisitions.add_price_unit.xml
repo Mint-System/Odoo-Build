@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[@id='product_qty']" position="after">
+    <th id="price_unit" class="text-right">
+      <strong>Unit Price</strong>
+    </th>
+  </xpath>
+  
+  <xpath expr="//td[@id='product_qty']" position="after">
+    <td id="price_unit" class="text-right">
+       <span t-field="line_ids.price_unit"/>
+    </td>
+  </xpath>
+  
+</data>

@@ -3,6 +3,227 @@ prev: ./snippets.md
 ---
 # Mrp
 ## Label Production View Pdf  
+### Basis57  
+ID: `mint_system.mrp.label_production_view_pdf.basis57`  
+```xml
+<t t-name="mrp.label_production_view_pdf.basis57">
+    <t t-call="web.basic_layout">
+        <style>
+            .external-ref {
+                font-size: 14mm;
+            }
+            .box.external-ref {
+                font-size: 20mm;
+            }
+            .title {
+                font-size: 12mm;
+            }
+            .address {
+                font-size: 10mm;
+            }
+            .box.address {
+                font-size: 14mm;
+            }
+            .barcode {
+                font-size: 6mm;
+            }
+            .default {
+                font-size: 7mm;
+            }
+            .footer {
+                font-size: 7mm;
+            }
+            div.label {
+                line-height: 1.2;
+                text-align: center;
+            }
+            br {
+                font-size: 2mm;
+            }
+            .space-right {
+                margin-right: 2mm
+            }
+            .space-left {
+                margin-left: 2mm
+            }
+            .address-space-right {
+                padding-right: 3mm
+            }
+            svg {
+                position: absolute;
+                left: 10px;
+                margin-top: 10px
+            }
+        </style>
+
+        <t t-foreach="docs" t-as="production">
+            <t t-foreach="production.move_finished_ids.filtered(lambda m: m.quantity_done > 0)" t-as="move">
+
+                <!--Set default values-->
+                <t t-set="count_boxes" t-value="0" />
+                <t t-set="count_labels" t-value="0" />
+                <t t-set="temperature" t-value="2" />
+                <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
+                <t t-set="print_weight" t-value="False" />
+                <t t-set="packaging" t-value="move.product_id.packaging_ids[0]" />
+                <t t-set="print_header" t-value="True" />
+                <t t-set="print_delivery_date_only" t-value="False" />
+
+                <!--Print report for each move line-->
+                <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
+                <t t-foreach="move_lines" t-as="move_line">
+
+                    <!--Select loop based product packaing -->
+                    <t t-if="move.product_packaging.name == 'Schale Klein'">
+                        <t t-set="fix_weight">1'000g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Schale Gross'">
+                        <t t-set="fix_weight">2'500g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Kiste'">
+                        <t t-set="print_weight" t-value="True" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Vakuum Klein'">
+                        <t t-set="fix_weight">1'000g</t>
+
+                        <t t-set="count_labels" t-value="move_line.qty_done" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Vakuum Gross'">
+                        <t t-set="fix_weight">2'500g</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
+                    <t t-if="move.product_packaging.name == 'Karton'">
+                        <t t-set="fix_weight">5'000g</t>
+                        <t t-set="count_boxes" t-value="1" />
+                    </t>
+
+                    <!--Compute box count-->
+                    <t t-if="count_boxes == 0">
+                        <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
+                    </t>
+                    <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
+
+                    <!--Print report for each label and box count-->
+                    <t t-foreach="range(0, count_pages)" t-as="page">
+
+                        <!--First print normal labels and then box labels-->
+                        <t t-if="page_index >= (count_pages-count_boxes)">
+                            <t t-set="fix_weight"></t>
+                            <t t-if="external_ref">
+                                <t t-set="print_header" t-value="False" />
+                                <t t-set="print_delivery_date_only" t-value="True" />
+                            </t>
+                        </t>
+
+                        <!--Caclulate default expiration date-->
+                        <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.x_expiration_days)" />
+                        <t t-set="consume_until" t-value="today + delta" />
+
+                        <!--Caclulate expiration date from settings-->
+                        <t t-if="move.product_id.use_expiration_date">
+                            <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.expiration_time)" />
+                            <t t-set="consume_until" t-value="context_timestamp(move_line.lot_id.removal_date)" />
+                            <t t-set="today" t-value="consume_until - delta" />
+                        </t>
+
+                        <div class="page">
+                            <div class="label">
+
+                                <br />
+                                <br />
+                                <br />
+                                <br />
+
+                                <t t-if="print_header">
+                                    <span class="text-uppercase use-font-opensans-medium title">Gotthard-Zander</span>
+                                    <br />
+                                    <span class="text-uppercase use-font-opensans-bold title" t-esc="move.product_id.name" />
+                                    <t t-if="move.product_id.x_calibre">
+                                        <span class="use-font-opensans-medium default space-left" t-esc="move.product_id.x_calibre" />
+                                    </t>
+                                    <br />
+                                    <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
+                                    <br />
+                                    <t t-if="fix_weight or print_weight">
+                                        <span class="use-font-opensans-medium default">Gewicht: </span>
+                                        <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
+                                        <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move.quantity_done *1000" t-options='{"widget": "float", "precision": 0}' />
+                                        <span class="use-font-opensans-medium default" t-if="print_weight">
+                                            g zu
+                                            <span t-esc="move.x_count_boxes" />
+                                            Kisten
+                                        </span>
+                                    </t>
+                                </t>
+
+                                <br />
+                                <br />
+
+                                <t t-if="not print_delivery_date_only">
+                                    <span class="use-font-opensans-medium default">Verpackt am: </span>
+                                    <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
+                                    <br />
+                                    <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                    <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
+                                    <br />
+                                    <span class="use-font-opensans-medium default">
+                                        Aufbewahrung: bei
+                                        <span t-esc="move.product_id.x_storage_temperature" />
+                                        °C
+                                    </span>
+                                </t>
+                                <t t-if="print_delivery_date_only">
+                                    <span class="use-font-opensans-medium address">Lieferdatum: </span>
+                                    <span class="use-font-opensans-medium address" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')" />
+                                    <br />
+                                </t>
+
+                                <br />
+                                <br />
+
+                                <t t-if="move_line.lot_id.name">
+                                    <t t-set="barcode" t-value="move.product_packaging.barcode" />
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode" />
+                                    <br />
+                                    <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])" />
+                                </t>
+                                <t t-else="">
+                                    <span class="use-font-opensans-medium default text-muted">No barcode available</span>
+                                </t>
+                                <br />
+                                <br />
+
+                                <span class="text-uppercase use-font-opensans-bold default">Gotthard-Zander</span>
+                                <span class="use-font-opensans-bold default"> by Basis57</span>
+                                <br />
+                                <br />
+                                <span class="use-font-opensans-medium footer" t-field="res_company.street" />
+                                <span class="use-font-opensans-medium footer space-right">,</span>
+                                <span class="use-font-opensans-medium footer space-right" t-field="res_company.zip" />
+                                <span class="use-font-opensans-medium footer" t-field="res_company.city" />
+                                <br />
+                                <span class="use-font-opensans-medium footer">www.gotthard-zander.ch</span>
+                                <svg viewBox="0 0 150 100" width="150" height="100">
+                                  <ellipse style="stroke: rgb(0, 0, 0); fill: none; stroke-width: 4px;" cx="75" cy="49.556" rx="70" ry="45" data-bx-origin="-1.166667 -2"></ellipse>
+                                  <text style="fill: rgb(51, 51, 51); font-family: Arial, sans-serif; font-size: 14px; font-weight: 700; text-anchor: middle; white-space: pre;" data-bx-origin="-1.600941 -3.727571" transform="matrix(1.475051, 0, 0, 1.713593, -78.134323, -123.083534)"><tspan x="102.8" y="96.183">CH</tspan><tspan x="102.8" dy="1em">​</tspan><tspan>71758556</tspan></text>
+                                </svg>
+
+                            </div>
+                            <p style="page-break-before:always;" />
+                        </div>
+
+                    </t>
+                </t>
+
+            </t>
+        </t>
+    </t>
+</t>
+```
+Source: [snippets/mrp.label_production_view_pdf.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.label_production_view_pdf.basis57.xml)
+
 ### Trimada  
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
 ```xml
@@ -317,6 +538,21 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### Finished Move Line Ids  
+ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="finished_move_line_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml)
+
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`  
 ```xml
@@ -331,6 +567,21 @@ ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`
 
 ```
 Source: [snippets/mrp.mrp_production_form_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.hide_date_deadline.xml)
+
+### Move Finished Ids  
+ID: `mint_system.mrp.mrp_production_form_view.move_finished_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="move_finished_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.move_finished_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.move_finished_ids.xml)
 
 ### Replace Workorder Tree View  
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
@@ -411,6 +662,21 @@ ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`
 
 ```
 Source: [snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_date_planned_finished.xml)
+
+### Show Move Dest Ids  
+ID: `mint_system.mrp.mrp_production_form_view.show_move_dest_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <field name="bom_id" position="before">
+    <field name="move_dest_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.show_move_dest_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.mrp_production_form_view.show_move_dest_ids.xml)
 
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`  
