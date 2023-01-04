@@ -81,6 +81,46 @@ ID: `mint_system.web.assets_common.pivot_measure_white_space`
 ```
 Source: [snippets/web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.pivot_measure_white_space.xml)
 
+### Set Chatter Width  
+ID: `mint_system.web.assets_common.set_chatter_width`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+    <xpath expr="." position="inside">
+        <style>
+          @media (min-width: 1534px) {
+            .o_FormRenderer_chatterContainer {
+              max-width: 600px !important;
+            }
+          }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/web.assets_common.set_chatter_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_chatter_width.xml)
+
+### Set Form Width  
+ID: `mint_system.web.assets_common.set_form_width`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+  <xpath expr="." position="inside">
+    <style>
+          @media (min-width: 992px) {
+          .o_form_view .o_form_sheet_bg > .o_form_sheet {
+               max-width: 1450px !important;
+            }
+          }
+    </style>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.assets_common.set_form_width.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.assets_common.set_form_width.xml)
+
 ## Brand Promotion Message  
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  
@@ -263,6 +303,7 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 <!-- Remove contact info in footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
 	<xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
   <xpath expr="//li[@t-if='company.email']" position="replace">
@@ -355,6 +396,7 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
 
+  <!-- Works until Odoo 14.0 -->
   <xpath expr="//li[@t-if='company.website']" position="replace">
   	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
   </xpath>

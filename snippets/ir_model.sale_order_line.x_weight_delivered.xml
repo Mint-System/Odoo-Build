@@ -11,7 +11,7 @@
     <field name="readonly" eval="True" />
     <field name="copied" eval="False" />
     <field name="ttype">float</field>
-    <field name="depends">qty_delivered</field>
+    <field name="depends">qty_delivered,product_id.weight</field>
     <field name="compute">for rec in self:
       rec['x_weight_delivered'] = rec.product_id.weight * rec.qty_delivered</field>
   </record>

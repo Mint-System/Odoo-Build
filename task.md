@@ -27,20 +27,19 @@
 | install-native              |                  | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts        |                  | Install Odoo scripts.                                                                     |
 | install-snippet             | [env][path]      | Install snippet xml definition.                                                           |
-| kill                        |                  | Remove docker containers and volumes.                                                     |
+| kill                        | [name]           | Remove docker containers and volumes.                                                     |
 | lint-module                 | [path]           | Run pylint odoo for module.                                                               |
 | lint-snippets               |                  | Run checks for all snippets.                                                              |
 | list                        |                  | List docker services.                                                                     |
 | list-odoo-env               |                  | List odoo env files.                                                                      |
 | logs                        |                  | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc                   | [db]             | Count custom line of codes. Default is branch name.                                       |
-| patch-database              | [db][path]       | Apply sql file to database                                                                |
+| patch-database              | [db][path]       | Apply sql file to database. Default database is branch name.                              |
 | ps                          |                  | List docker processes.                                                                    |
 | release-module              | [path]           | Create GitHub release for a module.                                                       |
 | remove-module               | [db][name]       | Remove target Odoo module.                                                                |
 | remove-submodule            | [path]           | Remove git submodule.                                                                     |
 | restart                     | [name]           | Restart docker container.                                                                 |
-| restore-database            | [path][name]     | Restore target database zip.                                                              |
 | save-config                 | [name]           | Save Odoo database config                                                                 |
 | send-support-mail           |                  | Sends an mail for support@local to smtp://localhost                                       |
 | set-admin                   | [db]             | Sets the password for the first user in database.   Default is branch name.               |

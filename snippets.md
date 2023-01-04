@@ -1,7 +1,10 @@
 # Snippets
 In Odoo everything is described as an XML document.     Snippets are modifications (edits) for these XML documents.     With a snippet you can e.g. hide a field on the contact form.     A snippet name is unique and follows the `$COMPANY.$MODULE.$XML_ID.$DESCRIPTION` schema.
 ## [Account](snippets/account.md)
+## [Account Asset](snippets/account_asset.md)
 ## [Account Budget](snippets/account_budget.md)
+## [Account Followup](snippets/account_followup.md)
+## [Account Sale Timesheet Report](snippets/account_sale_timesheet_report.md)
 ## [Agreement](snippets/agreement.md)
 ## [Agreement Legal](snippets/agreement_legal.md)
 ## [Base](snippets/base.md)
@@ -37,6 +40,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Project](snippets/project.md)
 ## [Purchase](snippets/purchase.md)
 ## [Purchase Requisition](snippets/purchase_requisition.md)
+## [Purchase Requisition Send](snippets/purchase_requisition_send.md)
 ## [Res Groups](snippets/res_groups.md)
 ## [Sale](snippets/sale.md)
 ## [Sale Blanket Order](snippets/sale_blanket_order.md)
@@ -49,6 +53,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Sale Product Set](snippets/sale_product_set.md)
 ## [Sale Subscription](snippets/sale_subscription.md)
 ## [Stock](snippets/stock.md)
+## [Stock Account](snippets/stock_account.md)
 ## [Stock Delivery Note](snippets/stock_delivery_note.md)
 ## [Timesheet Grid](snippets/timesheet_grid.md)
 ## [Web](snippets/web.md)

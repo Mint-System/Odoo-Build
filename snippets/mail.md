@@ -138,6 +138,19 @@ ID: `mint_system.mail.mail_notification_light.align_left`
 ```
 Source: [snippets/mail.mail_notification_light.align_left.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.align_left.xml)
 
+### Debrand  
+ID: `mint_system.mail.mail_notification_light.debrand`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="50">
+
+  <xpath expr="//t[1]/table[1]/tr[2]" position="replace" />
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_light.debrand.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.debrand.xml)
+
 ### Reduce To Content  
 ID: `mint_system.mail.mail_notification_light.reduce_to_content`  
 ```xml
@@ -206,6 +219,20 @@ ID: `mint_system.mail.mail_notification_light.replace_footer`
 
 ```
 Source: [snippets/mail.mail_notification_light.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.replace_footer.xml)
+
+### Set Model Name  
+ID: `mint_system.mail.mail_notification_light.set_model_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="60">
+
+  <xpath expr="//span[1]" position="replace">
+    <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/mail.mail_notification_light.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_light.set_model_name.xml)
 
 ### White Background  
 ID: `mint_system.mail.mail_notification_light.white_background`  
@@ -320,6 +347,20 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 ```
 Source: [snippets/mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.replace_footer.xml)
 
+### Set Model Name  
+ID: `mint_system.mail.mail_notification_paynow.set_model_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_paynow" priority="60">
+
+  <xpath expr="//td[1]/span[1]" position="replace">
+    <span style="font-size: 10px;"><t t-esc="model_description or 'document'"/></span><br/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/mail.mail_notification_paynow.set_model_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.set_model_name.xml)
+
 ### White Background  
 ID: `mint_system.mail.mail_notification_paynow.white_background`  
 ```xml
@@ -367,4 +408,23 @@ ID: `mint_system.mail.message_activity_assigned.remove_access_link`
 </data>
 ```
 Source: [snippets/mail.message_activity_assigned.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.remove_access_link.xml)
+
+### Set Access Link My Activities  
+ID: `mint_system.mail.message_activity_assigned.set_access_link_my_activities`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.message_activity_assigned" priority="50">
+
+  <xpath expr="//p[1]" position="replace">
+    <p style="margin: 16px 0px 16px 0px;">
+      <a href="/web?debug=1#action=365&amp;model=mail.activity&amp;view_type=kanban&amp;cids=1&amp;menu_id=1" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+        My Activities
+        <!-- Meine Aktivitäten -->
+      </a>
+    </p>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mail.message_activity_assigned.set_access_link_my_activities.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.set_access_link_my_activities.xml)
 

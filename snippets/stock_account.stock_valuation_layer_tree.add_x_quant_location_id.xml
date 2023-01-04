@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="stock_account.stock_valuation_layer_tree" priority="50">
+
+    <xpath expr="//field[@name='product_id']" position="after">
+        <field name="x_quant_location_id"/>
+    </xpath>
+
+</data>

@@ -304,6 +304,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                         font-weight: bold;
                         text-align: center;
                         border-bottom: solid 1px;
+                        line-height: 1;
                     }
                     .frame {
                         border-bottom: solid 1px;
@@ -343,7 +344,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                 <div class="page">
                     <div class="label">
                         <div class="row title">
-                            <div class="col-6 box1">
+                            <div class="col-6 box2">
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
                             <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
@@ -393,6 +394,46 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
 ```
 Source: [snippets/stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.label_transfer_template_view.trimada.xml)
 
+## Product Template Search Form View Stock  
+### Hide Location Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_location_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='location_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_location_id.xml)
+
+### Hide Pricelist Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='pricelist_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml)
+
+### Hide Warehouse Id  
+ID: `mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.product_template_search_form_view_stock" priority="50">
+  
+  <xpath expr="//field[@name='warehouse_id']" position="replace">   
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml)
+
 ## Report Bordero  
 ### Basis57  
 ID: `mint_system.stock.report_bordero.basis57`  
@@ -425,6 +466,7 @@ ID: `mint_system.stock.report_bordero.basis57`
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
                             <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
+                            <t t-set="cold_storage" t-value="partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20)"/>
                             <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
 
@@ -442,6 +484,9 @@ ID: `mint_system.stock.report_bordero.basis57`
                             </td>
                             <td class="text-right">
                                 <span t-esc="count_boxes"/>
+                                <t t-if="cold_storage">
+                                  <span> (TK)</span>
+                                </t>
                             </td>
                             <td class="text-right">
                                 <span t-esc="round(boxes_weight,2)"/>
@@ -475,7 +520,11 @@ ID: `mint_system.stock.report_bordero.basis57`
                 </div>
                 
                 <br/>
-                <p>Bitte die Gebinde beim Kunden sofort zurücknehmen und beim Abholen in Erstfeld die Gebinde retournieren.<br/>Vielen Dank</p>
+                
+                <t t-set="footer" t-value="docs.env['ir.translation'].search([('src', '=', 'stock.report_bordero.basis57.footer')], limit=1)"/>
+                <t t-if="footer">
+                  <p><t t-raw="footer.value"/></p>
+                </t>
 
             </div>
         </t>
@@ -483,6 +532,202 @@ ID: `mint_system.stock.report_bordero.basis57`
 </t>
 ```
 Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
+
+## Report Certificatecofc  
+### Tissa  
+ID: `mint_system.stock.report_certificatecofc.tissa`  
+```xml
+<?xml version="1.0"?>
+<t t-name="stock.report_certificatecofc.tissa">
+  <t t-call="web.html_container">
+    <t t-call="web.external_layout">
+      <t t-foreach="docs" t-as="o">
+
+        <style>
+                 table {
+                    width: 100%;
+                    margin-bottom: 25px;
+                    font-size: 11pt;
+                    font-family: arial;
+                  }
+                  table th {
+                    padding: 0 5px 0 5px;
+                  }
+                  table td {
+                    padding: 0 5px 0 5px;
+                  }
+                  table#title {
+                     background-color: rgb(216,216,216);
+                  }
+                  table#subtitel {
+                     margin-bottom: 5px;
+                  }                  
+                  table#info {
+                     border: solid 1px;
+                  }
+                  table#workorder {
+                     border: solid 1px;
+                  }
+                  table#components {
+                     border: solid 1px;
+                  }
+                  h2 {
+                    font-size: 16pt;
+                    font-weight: bold;
+                    margin-top: 10mm;
+                    margin-bottom: 10mm;
+                    text-align: center;
+                  }
+        </style>
+
+        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+
+        <div class="page">
+
+          <h2>
+            <span>Werkszeugnis nach EN 10 204-3.1 für Glasgewebe</span>
+          </h2>
+
+          <table id='title'>
+            <tr>
+              <td width="50%">Hersteller:</td>
+              <td>
+                <span t-field="o.company_id.name"/>
+,                <span t-field="o.company_id.country_id.code"/>
+-                <span t-field="o.company_id.zip"/>
+                <span t-field="o.company_id.city"/>
+              </td>
+            </tr>
+          </table>
+
+          <table id='info'>
+            <tr>
+              <td width="50%">Hersteller Bezeichnung:</td>
+              <td width="50%">
+                <span t-field="o.product_id.categ_id"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Artikelnr.</td>
+              <td width="50%">
+                <span t-field="o.product_id.name"/>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <span t-field="o.product_id.x_studio_kundenartikelnr"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Liefermenge:</td>
+              <td></td>
+            </tr>
+          </table>
+
+          <table id='workorder'>
+            <tr>
+              <th width="15%">Auftragsnr.</th>
+
+              <th width="25%">Liefermenge</th>
+              <th width="25%">Chargennummer</th>
+
+              <th width="20%">Ausgangsmaterial</th>
+              <th width="15%">Los</th>
+              <th>Auftrag</th>
+
+            </tr>
+
+            <tr>
+              <t t-set="lines" t-value="o.move_line_ids"/>
+              <tr t-foreach="lines" t-as="move_line">
+                <td width="15%">
+                  <span t-field="move_line.lot_id.x_production_id_long"/>
+                </td>
+
+                <td width="25%">
+                  <span t-field="move_line.qty_done"/>
+                </td>
+                <td width="25%">
+                  <span t-field="move_line.lot_id"/>
+                </td>
+
+                <td width="20%">
+                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.product_id"/>
+                </td>
+                <td width="15%">
+                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
+                </td>
+                <td>
+                  <span t-field="move_line.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                  <br/>
+                </td>
+              </tr>
+            </tr>
+          </table>
+
+          <table id='subtitel'>
+            <tr>
+              <td colspan="8" width="100%">
+                          Ausgangsmaterial <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.product_id"/>
+, 
+                          Los <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
+, 
+                          Auftrag <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+          </td>
+        </tr>
+      </table>
+
+      <table id='components'>
+        <tr>
+          <th width="30%">Komponente</th>
+          <th width="10%">WHG</th>
+          <th width="10%">Titer</th>
+          <th width="10%">Rohmaterialtyp</th>
+          <th width="10%">Filament</th>
+          <th width="10%">Drehung</th>
+          <th width="10%">Schlichte</th>
+          <th width="10%"></th>
+        </tr>
+        <tr>
+
+          <t t-set="prod_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.move_raw_ids"/>
+
+          <tr t-foreach="prod_lines" t-as="prod_move_line">
+            <td>
+              <span t-field="prod_move_line.product_id"/>
+            </td>
+            <td>
+            </td>
+            <td>
+              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_tex_3"/>
+            </td>
+            <td>
+              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+            </td>
+            <td>
+              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_filament"/>
+            </td>
+            <td>
+              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_drehung"/>
+            </td>
+            <td>
+            </td>
+            <td>
+            </td>
+          </tr>
+        </tr>
+
+      </table>
+
+    </div>
+  </t>
+</t>
+</t>
+</t>  
+```
+Source: [snippets/stock.report_certificatecofc.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_certificatecofc.tissa.xml)
 
 ## Report Delivery Document  
 ### Add Date  
@@ -1990,6 +2235,22 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Mrp Production X Note  
+ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//table[@id='main_table']" position="after">
+    <t t-if="o.group_id.mrp_production_ids.x_note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <p class="mrp_note" t-field="o.group_id.mrp_production_ids.x_note"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.add_mrp_production_x_note.xml)
+
 ### Barcode Label  
 ID: `mint_system.stock.report_picking.barcode_label`  
 ```xml
@@ -2313,7 +2574,7 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
-    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability)</attribute>
+    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
   </xpath>
   
 </data>
@@ -2424,12 +2685,22 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 		</th>
 	</xpath>
 
-	<xpath expr="//td[@id='product_uom_qty']" position="replace"/>
-
-	<xpath expr="//td[@id='location_dest_id']" position="after">
+  <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
+  
+  <xpath expr="//td[@id='location_dest_id']" position="after">
 		<td id="product_uom_qty">
-			<span id="product_uom_qty" t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
-			<span id="product_uom_qty_done" t-if="o.state == 'done'" t-field="ml.qty_done"/>
+		  
+			<t t-if="o.state != 'done'">
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+			
+			<t t-if="o.state == 'done'">
+			  <span id="qty_done">
+			    (<span t-esc="'%g' % ml.qty_done"/>)
+			  </span>
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+	
 			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 			<br/>
 			<span id="qty_available" t-field="ml.product_id.qty_available"/>
@@ -2842,6 +3113,10 @@ ID: `mint_system.stock.report_picking.set_ids`
 	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
 		<attribute name="id">barcode</attribute>
 	</xpath>
+	
+	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+	  <attribute name="id">main_table</attribute>
+	</xpath>
 
 </data>
 ```
@@ -3066,7 +3341,7 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			  text-align: right !important;
 			}
 			table.trimada thead th#product_uom_qty {
-			  width: 25mm;
+			  width: 35mm;
 			  text-align: right;
 			}
 			table.trimada tbody td#position {
@@ -3098,6 +3373,10 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			table.trimada tbody td span#qty_available_uom_id {
 			  font-size: 7pt;
 			}
+			table.trimada tbody td span#qty_done {
+			  font-weight: normal;
+			  font-size: 9pt;
+			}
 			table.trimada #barcode {
 			  text-align: right;
 			}
@@ -3115,6 +3394,11 @@ ID: `mint_system.stock.report_picking.style_trimada`
 			.note {
 				font-size: 9pt;
 				font-family: arial;
+			}
+			.mrp_note {
+				font-size: 9pt;
+				font-family: arial;
+				padding-bottom: 3mm;
 			}
 		</style>
 	</xpath>
@@ -3363,6 +3647,24 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sa
 
 ```
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
+
+### Get Position  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+
+    <xpath expr="//td[1]" position="before">
+         <t t-if="o.sale_id or o.purchase_id">
+            <td id="position">
+                <span t-esc="move_line.x_position.position"/>
+            </td>
+         </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`  
@@ -3637,6 +3939,21 @@ ID: `mint_system.stock.view_move_form.show_partner`
 ```
 Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_partner.xml)
 
+### Show Picking Code  
+ID: `mint_system.stock.view_move_form.show_picking_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="picking_code"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_picking_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_picking_code.xml)
+
 ### Show Picking Id  
 ID: `mint_system.stock.view_move_form.show_picking_id`  
 ```xml
@@ -3682,6 +3999,21 @@ ID: `mint_system.stock.view_move_form.show_quantity_done`
 ```
 Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_quantity_done.xml)
 
+### Show Stock Valuation Layer Ids  
+ID: `mint_system.stock.view_move_form.show_stock_valuation_layer_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="move_dest_ids" position="after">
+    <field name="stock_valuation_layer_ids"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml)
+
 ## View Move Line Form  
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`  
@@ -3698,6 +4030,21 @@ ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`
 
 ```
 Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
+
+### Show Move Id  
+ID: `mint_system.stock.view_move_line_form.show_move_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_line_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="move_id"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
 
 ### Show Picking Id  
 ID: `mint_system.stock.view_move_line_form.show_picking_id`  
@@ -3999,6 +4346,22 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+## View Picking Internal Search  
+### Filter Groupby Expected Date  
+ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_internal_search" priority="50">
+
+  <filter name="expected_date" position="after">
+    <filter string="Scheduled Date by Day" name="expected_date_day" domain="[]" context="{'group_by': 'scheduled_date:day'}"/>
+  </filter>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
+
 ## View Production Lot Form  
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  
@@ -4043,6 +4406,22 @@ ID: `mint_system.stock.view_production_lot_tree.show_qty`
 
 ```
 Source: [snippets/stock.view_production_lot_tree.show_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_tree.show_qty.xml)
+
+## View Stock Move Line Operation Tree  
+### Edit Reserved Qty  
+ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_move_line_operation_tree" priority="50">
+
+  <field name="product_uom_qty" position="attributes">
+    <attribute name="readonly">0</attribute>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
 
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  

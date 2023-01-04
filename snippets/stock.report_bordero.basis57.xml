@@ -26,6 +26,7 @@
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
                             <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
+                            <t t-set="cold_storage" t-value="partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20)"/>
                             <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
 
@@ -43,6 +44,9 @@
                             </td>
                             <td class="text-right">
                                 <span t-esc="count_boxes"/>
+                                <t t-if="cold_storage">
+                                  <span> (TK)</span>
+                                </t>
                             </td>
                             <td class="text-right">
                                 <span t-esc="round(boxes_weight,2)"/>
@@ -76,7 +80,11 @@
                 </div>
                 
                 <br/>
-                <p>Bitte die Gebinde beim Kunden sofort zurücknehmen und beim Abholen in Erstfeld die Gebinde retournieren.<br/>Vielen Dank</p>
+                
+                <t t-set="footer" t-value="docs.env['ir.translation'].search([('src', '=', 'stock.report_bordero.basis57.footer')], limit=1)"/>
+                <t t-if="footer">
+                  <p><t t-raw="footer.value"/></p>
+                </t>
 
             </div>
         </t>

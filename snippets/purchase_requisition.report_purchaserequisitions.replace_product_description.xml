@@ -3,11 +3,11 @@
 
   <xpath expr="//td[@id='name']" position="replace">
     <td id="name" >
-      <t t-if="o.product_id.type_description">
-        <span style="font-weight: bold" t-field="o.product_id.type_description"/>
+      <t t-if="line_ids.product_id.type_description">
+        <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
       </t>
-      <t t-if="not o.product_id.type_description">
-        <span t-field="o.product_id.name"/>
+      <t t-if="not line_ids.product_id.type_description">
+        <span t-field="line_ids.product_description_variants"/>
       </t>
     </td>
   </xpath>

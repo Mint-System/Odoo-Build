@@ -9,12 +9,22 @@
 		</th>
 	</xpath>
 
-	<xpath expr="//td[@id='product_uom_qty']" position="replace"/>
-
-	<xpath expr="//td[@id='location_dest_id']" position="after">
+  <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
+  
+  <xpath expr="//td[@id='location_dest_id']" position="after">
 		<td id="product_uom_qty">
-			<span id="product_uom_qty" t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
-			<span id="product_uom_qty_done" t-if="o.state == 'done'" t-field="ml.qty_done"/>
+		  
+			<t t-if="o.state != 'done'">
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+			
+			<t t-if="o.state == 'done'">
+			  <span id="qty_done">
+			    (<span t-esc="'%g' % ml.qty_done"/>)
+			  </span>
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+	
 			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 			<br/>
 			<span id="qty_available" t-field="ml.product_id.qty_available"/>

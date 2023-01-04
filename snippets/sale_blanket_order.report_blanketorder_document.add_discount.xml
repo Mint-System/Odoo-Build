@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+
+  <xpath expr="//th[@id='price_subtotal']" position="after">
+
+    <!-- Is there a discount on at least one line? -->
+    <t t-set="display_discount" t-value="any(l.discount for l in doc.line_ids)"/>
+
+    <th name="th_discount" t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span>Disc.%</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='price_subtotal']" position="after">
+    <td t-if="display_discount" class="text-right" groups="product.group_discount_per_so_line">
+      <span t-field="l.discount"/>%
+    </td>
+  </xpath>
+
+</data>

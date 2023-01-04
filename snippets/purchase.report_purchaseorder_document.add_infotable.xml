@@ -7,57 +7,65 @@
       width: 100%;
       margin-bottom: 25px;
       font-size: 9pt;
+      font-family: arial;
     }
-      table#info tr {
+     table#info tr {
       line-height: 1.2;
       text-align: left;
     }
-       .note {
-        font-size: 9pt;
+    .note {
+      font-size: 9pt;
     }
     </style>
     <table id='info'>
       <tr>
-        <td width="17%">Bestelldatum</td>
-        <td width="44%">
+        <td width="17%">Oder Date</td>
+        <td width="40%">
           <t t-if="o.date_approve">
             <span id='date_approve' t-field='o.date_approve' t-options='{ "widget": "date" }'/>
           </t>
           <t t-else="">
-			       <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
-		      </t>
+            <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
+          </t>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
-      </tr>
-
-      <tr>
-        <td>Kunden-Nr.</td>
-        <td>
-          <span t-field='o.partner_id.ref'/>
-        </td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <span t-field='o.partner_ref'/>
-        </td>
-        <td>U/Referenz</td>
-        <td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
           <span t-field='o.user_id'/>
         </td>
       </tr>
       <tr>
-        <td>Referenz</td>
+        <td>Customer No.</td>
         <td>
-          <span t-field='o.comment'/>
+          <span t-field='o.partner_id.ref'/>
         </td>
-        <td>Lieferkondition</td>
+        <td>Incoterm</td>
         <td>
           <span t-field='o.incoterm_id'/>
         </td>
+      </tr>
+      <tr>
+        <td></td>
+
+        <td>
+          <span t-field='o.partner_ref'/>
+        </td>
+
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field='o.requisition_id'/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field='o.requisition_id.partner_ref'/>
+            </t>
+          </td>
+        </t>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='o.comment'/>
+        </td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 

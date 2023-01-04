@@ -30,6 +30,22 @@ ID: `mint_system.base.contact_name.modify_name`
 ```
 Source: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.contact_name.modify_name.xml)
 
+## Ir Cron View Tree  
+### Show Ir Actions Server Id  
+ID: `mint_system.base.ir_cron_view_tree.show_ir_actions_server_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.ir_cron_view_tree" priority="50">
+
+  <field name="model_id" position="after">
+    <field name="ir_actions_server_id" optional="hide"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml)
+
 ## Ir Filters View Form  
 ### Remove Domain Widget  
 ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`  

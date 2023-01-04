@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="web.assets_common" priority="50">
+
+  <xpath expr="." position="inside">
+    <style>
+          @media (min-width: 992px) {
+          .o_form_view .o_form_sheet_bg > .o_form_sheet {
+               max-width: 1450px !important;
+            }
+          }
+    </style>
+  </xpath>
+
+</data>

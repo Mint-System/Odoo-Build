@@ -23,23 +23,15 @@
         <td width="44%">
           <span t-field='doc.date_confirmed' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="14%">Our Reference</td>
+        <td width="25%">
+          <span t-field='doc.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='doc.partner_id.ref'/>
-        </td>
-        <td>Our Reference</td>
-        <td>
-          <span t-field='doc.user_id'/>
-        </td>
-      </tr>
-      <tr>
-        <td>Order</td>
-        <td>
-          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Delivery Method</td>
         <td>
@@ -47,13 +39,23 @@
         </td>
       </tr>
       <tr>
-        <td>Reference</td>
+        <td>Order</td>
         <td>
-          <span t-field='doc.comment'/>
+          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='doc.comment'/>
+        </td>
+        <td>Validity Date</td>
+        <td>
+          <span t-field='doc.validity_date'/>
         </td>
       </tr>
     </table>

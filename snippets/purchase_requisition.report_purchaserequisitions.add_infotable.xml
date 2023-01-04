@@ -20,30 +20,32 @@
     <table id='info'>
       <tr>
         <td width="17%">Date</td>
-        <td width="44%">
+        <td width="40%">
           <span t-field='o.ordering_date' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='o.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='o.vendor_id.ref'/>
         </td>
-        <td>Our Reference</td>
+        <td>Incoterm</td>
         <td>
-          <span t-field='o.user_id'/>
+          <span t-field='o.incoterm_id'/>
         </td>
       </tr>
       <tr>
-        <td>Order</td>
+        <td></td>
         <td>
           <span t-field='o.partner_ref'/>
         </td>
-        <td>Delivery Method</td>
+        <td>Agreement Deadline</td>
         <td>
-         
+          <span t-field='o.date_end' t-options='{ "widget": "date" }'/>
         </td>
       </tr>
       <tr>
@@ -51,10 +53,8 @@
         <td>
           <span t-field='o.comment'/>
         </td>
-        <td>Incoterm</td>
-        <td>
-          <span t-field='o.incoterm_id'/>
-        </td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 

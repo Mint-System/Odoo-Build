@@ -11,10 +11,10 @@
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
-        "views/report_invoice_document.xml",
+        "report/invoice_document.xml",
         "data/ir_sequence.xml",
         "views/assets.xml",
-        "views/views.xml"
+        "views/sale_order.xml"
     ],
     "qweb": ["static/src/xml/board.xml"],
     "demo": ["demo/demo.xml"],

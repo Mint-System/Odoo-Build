@@ -2,6 +2,48 @@
 prev: ./snippets.md
 ---
 # Product
+## Product Normal Form View  
+### Add Feeder Id  
+ID: `mint_system.product.product_normal_form_view.add_feeder_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+     <field name="feeder_id"/>
+    </xpath>
+</data>
+```
+Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.add_feeder_id.xml)
+
+### Hide Default Code  
+ID: `mint_system.product.product_normal_form_view.hide_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.hide_default_code.xml)
+
+### Relocate Barcode  
+ID: `mint_system.product.product_normal_form_view.relocate_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//page[@name='general_information']//field[@name='barcode']" position="replace"/>
+
+    <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
+        <field name="barcode"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.relocate_barcode.xml)
+
 ## Product Normal Only Form View  
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
@@ -318,6 +360,20 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
 ```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
 
+### X Hide On Sale Order  
+ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="description_sale" position="after">
+        <field name="x_hide_on_sale_order" widget="boolean_toggle" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
+
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
 ```xml
@@ -347,6 +403,20 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
 </data>
 ```
 Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.add_type_description.xml)
+
+### Modify Name  
+ID: `mint_system.product.product_template_search_view.modify_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_search_view" priority="50">
+
+  <xpath expr="//field[@name='name']" position="replace">
+    <field name="name" string="Product" filter_domain="['|', '|', '|', '|','|',('default_code', 'ilike', self), ('product_variant_ids.default_code', 'ilike', self),('name', 'ilike', self), ('barcode', 'ilike', self), ('type_description', 'ilike', self), ('type_description2', 'ilike', self)]"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_search_view.modify_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_search_view.modify_name.xml)
 
 ## Product Template Tree View  
 ### Add Default Code And Type Description  
@@ -482,6 +552,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
             font-weight: bold;
             text-align: center;
             border-bottom: solid 1px;
+            line-height: 1;
         }
         .frame {
             border-bottom: solid 1px;
@@ -522,7 +593,7 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6 box1">
+              <div class="col-6 box2">
                 <span t-esc="product.default_code"/>
               </div>
               <div t-if="product.barcode" class="col-6 box2 text-right">

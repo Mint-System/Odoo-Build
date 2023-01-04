@@ -248,7 +248,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               font-weight: bold;
               text-align: center;
               border-bottom: solid 1px;
-              line-height: 30mm;
+              line-height: 1;
           }
           .description {
               font-size: 9mm;
@@ -293,7 +293,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6">
+              <div class="col-6 box">
                 <span t-esc="move.product_id.default_code"/>
               </div>
               <div t-if="move.product_id.barcode" class="col-6 box text-right">

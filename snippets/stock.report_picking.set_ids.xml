@@ -16,5 +16,9 @@
 	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
 		<attribute name="id">barcode</attribute>
 	</xpath>
+	
+	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+	  <attribute name="id">main_table</attribute>
+	</xpath>
 
 </data>

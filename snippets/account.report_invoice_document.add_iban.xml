@@ -1,28 +1,25 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <!-- Odoo 14.0 -->
-  <xpath expr="/t/t/div/p[2]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>IBAN: </span>
-          <span t-field="o.partner_bank_id.acc_number"/>
-      </div>
-      </div>
-  </xpath>
-  <xpath expr="/t/t/div/div[3]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>Bank/BIC: </span>
-          <span t-field="o.partner_bank_id.bank_id.display_name"/>
-          <br/>
-          <br/>
-      </div>
-      </div>
-  </xpath>
+    <!-- Odoo 14.0 -->
+    <xpath expr="/t/t/div/p[2]" position="before">
+        <t t-if="not o.partner_bank_id._eligible_for_qr_code('ch_qr', o.partner_id, o.currency_id)">
+            <p>
+                <span>IBAN: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.acc_number" />
+                </b>
+                <br />
+                <span>Bank/BIC: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.bank_id.display_name" />
+                </b>
+            </p>
+        </t>
+    </xpath>
 
-  <!-- Odoo 13.0 -->
-  <!-- <xpath expr="/t/t/div/p[2]" position="after">
+    <!-- Odoo 13.0 -->
+    <!-- <xpath expr="/t/t/div/p[2]" position="after">
       <div class="row">
       <div class="col">
           <span>IBAN: </span>

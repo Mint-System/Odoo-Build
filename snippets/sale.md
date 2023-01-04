@@ -1001,26 +1001,18 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
     <table id='info'>
       <tr>
         <td width="17%">Date</td>
-        <td width="44%">
+        <td width="40%">
           <span t-field='doc.date_order' t-options='{ "widget": "date" }'/>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='doc.user_id'/>
+        </td>
       </tr>
       <tr>
         <td>Customer No.</td>
         <td>
           <span t-field='doc.partner_id.ref'/>
-        </td>
-        <td>Our Reference</td>
-        <td>
-          <span t-field='doc.user_id'/>
-        </td>
-      </tr>
-      <tr>
-        <td>Order</td>
-        <td>
-          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Delivery Method</td>
         <td>
@@ -1028,14 +1020,32 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
         </td>
       </tr>
       <tr>
-        <td>Reference</td>
+        <td>Order</td>
         <td>
-          <span t-field='doc.comment'/>
+          <span t-field='doc.client_order_ref'/>
         </td>
         <td>Incoterm</td>
         <td>
           <span t-field='doc.incoterm'/>
         </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='doc.comment'/>
+        </td>
+        <t t-if="doc.blanket_order_id">
+          <td>Blanket Order</td>
+          <td>
+            <span t-field='doc.blanket_order_id'/>
+            <t t-if="doc.blanket_order_id.client_order_ref"> /              <span t-field='doc.blanket_order_id.client_order_ref'/>
+            </t>
+          </td>
+        </t>
+        <t t-else="">
+          <td></td>
+          <td></td>
+        </t>
       </tr>
     </table>
 
@@ -1894,6 +1904,25 @@ ID: `mint_system.sale.report_saleorder_document.show_default_code`
 ```
 Source: [snippets/sale.report_saleorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_default_code.xml)
 
+### Show Partner Contact Id  
+ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@t-field='doc.partner_id']" position="replace">
+    <t t-if="doc.partner_contact_id">
+      <div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+    <t t-if="not doc.partner_contact_id">
+      <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
+
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  
 ```xml
@@ -1974,6 +2003,20 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_trimada.xml)
+
+### X Hide On Sale Order  
+ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	  <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
+		<attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>
+	  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml)
 
 ### X Sudio Description  
 ID: `mint_system.sale.report_saleorder_document.x_sudio_description`  

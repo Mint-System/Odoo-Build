@@ -61,28 +61,25 @@ ID: `mint_system.account.report_invoice_document.add_iban`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <!-- Odoo 14.0 -->
-  <xpath expr="/t/t/div/p[2]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>IBAN: </span>
-          <span t-field="o.partner_bank_id.acc_number"/>
-      </div>
-      </div>
-  </xpath>
-  <xpath expr="/t/t/div/div[3]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>Bank/BIC: </span>
-          <span t-field="o.partner_bank_id.bank_id.display_name"/>
-          <br/>
-          <br/>
-      </div>
-      </div>
-  </xpath>
+    <!-- Odoo 14.0 -->
+    <xpath expr="/t/t/div/p[2]" position="before">
+        <t t-if="not o.partner_bank_id._eligible_for_qr_code('ch_qr', o.partner_id, o.currency_id)">
+            <p>
+                <span>IBAN: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.acc_number" />
+                </b>
+                <br />
+                <span>Bank/BIC: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.bank_id.display_name" />
+                </b>
+            </p>
+        </t>
+    </xpath>
 
-  <!-- Odoo 13.0 -->
-  <!-- <xpath expr="/t/t/div/p[2]" position="after">
+    <!-- Odoo 13.0 -->
+    <!-- <xpath expr="/t/t/div/p[2]" position="after">
       <div class="row">
       <div class="col">
           <span>IBAN: </span>
@@ -102,7 +99,6 @@ ID: `mint_system.account.report_invoice_document.add_iban`
   </xpath> -->
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_iban.xml)
 
@@ -119,6 +115,38 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
+### Add Sale Person  
+ID: `mint_system.account.report_invoice_document.add_sale_person`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <!-- Remove reference -->
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+    </xpath>
+
+    <!-- Add sales person -->
+    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+        <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+            <strong>Salesperson:</strong>
+            <p class="m-0" t-field="o.invoice_user_id.name" />
+        </div>
+    </xpath>
+
+    <!-- Add referencce to new line -->
+    <xpath expr="//div[@id='informations']" position="after">
+        <div id="informations2" class="row mt32 mb32" t-if="o.ref">
+            <div class="col-auto mw-100 mb-2" name="reference">
+                <strong>Reference:</strong>
+                <p class="m-0" t-field="o.ref" />
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_person.xml)
 
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
@@ -207,6 +235,36 @@ ID: `mint_system.account.report_invoice_document.bank_account`
 
 ```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
+
+### Custom Address  
+ID: `mint_system.account.report_invoice_document.custom_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']/address" position="replace">
+    <address>
+      <t t-if="o.partner_id.invoice_name">
+        <div><span t-esc="o.partner_id.invoice_name" /></div>
+      </t>
+      <t t-if="o.partner_id.address_addition">
+        <div><span t-esc="o.partner_id.address_addition" /></div>
+      </t>
+      <t t-if="o.partner_id.street">
+        <div><span t-esc="o.partner_id.street" /></div>
+      </t>
+      <t t-if="o.partner_id.city and o.partner_id.city">
+        <div><span t-esc="o.partner_id.zip" /> <span t-esc="o.partner_id.city" /></div>
+      </t>
+      <t t-if="o.partner_id.country_id">
+        <div><span t-esc="o.partner_id.country_id.name" /></div>
+      </t>
+    </address>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
@@ -1872,28 +1930,25 @@ ID: `mint_system.account.report_invoice_document.add_iban`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <!-- Odoo 14.0 -->
-  <xpath expr="/t/t/div/p[2]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>IBAN: </span>
-          <span t-field="o.partner_bank_id.acc_number"/>
-      </div>
-      </div>
-  </xpath>
-  <xpath expr="/t/t/div/div[3]" position="after">
-      <div class="row">
-      <div class="col">
-          <span>Bank/BIC: </span>
-          <span t-field="o.partner_bank_id.bank_id.display_name"/>
-          <br/>
-          <br/>
-      </div>
-      </div>
-  </xpath>
+    <!-- Odoo 14.0 -->
+    <xpath expr="/t/t/div/p[2]" position="before">
+        <t t-if="not o.partner_bank_id._eligible_for_qr_code('ch_qr', o.partner_id, o.currency_id)">
+            <p>
+                <span>IBAN: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.acc_number" />
+                </b>
+                <br />
+                <span>Bank/BIC: </span>
+                <b>
+                    <span t-field="o.partner_bank_id.bank_id.display_name" />
+                </b>
+            </p>
+        </t>
+    </xpath>
 
-  <!-- Odoo 13.0 -->
-  <!-- <xpath expr="/t/t/div/p[2]" position="after">
+    <!-- Odoo 13.0 -->
+    <!-- <xpath expr="/t/t/div/p[2]" position="after">
       <div class="row">
       <div class="col">
           <span>IBAN: </span>
@@ -1913,7 +1968,6 @@ ID: `mint_system.account.report_invoice_document.add_iban`
   </xpath> -->
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_iban.xml)
 
@@ -1930,6 +1984,38 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
+### Add Sale Person  
+ID: `mint_system.account.report_invoice_document.add_sale_person`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <!-- Remove reference -->
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+    </xpath>
+
+    <!-- Add sales person -->
+    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+        <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
+            <strong>Salesperson:</strong>
+            <p class="m-0" t-field="o.invoice_user_id.name" />
+        </div>
+    </xpath>
+
+    <!-- Add referencce to new line -->
+    <xpath expr="//div[@id='informations']" position="after">
+        <div id="informations2" class="row mt32 mb32" t-if="o.ref">
+            <div class="col-auto mw-100 mb-2" name="reference">
+                <strong>Reference:</strong>
+                <p class="m-0" t-field="o.ref" />
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_person.xml)
 
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
@@ -2018,6 +2104,36 @@ ID: `mint_system.account.report_invoice_document.bank_account`
 
 ```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
+
+### Custom Address  
+ID: `mint_system.account.report_invoice_document.custom_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']/address" position="replace">
+    <address>
+      <t t-if="o.partner_id.invoice_name">
+        <div><span t-esc="o.partner_id.invoice_name" /></div>
+      </t>
+      <t t-if="o.partner_id.address_addition">
+        <div><span t-esc="o.partner_id.address_addition" /></div>
+      </t>
+      <t t-if="o.partner_id.street">
+        <div><span t-esc="o.partner_id.street" /></div>
+      </t>
+      <t t-if="o.partner_id.city and o.partner_id.city">
+        <div><span t-esc="o.partner_id.zip" /> <span t-esc="o.partner_id.city" /></div>
+      </t>
+      <t t-if="o.partner_id.country_id">
+        <div><span t-esc="o.partner_id.country_id.name" /></div>
+      </t>
+    </address>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
@@ -3840,6 +3956,20 @@ ID: `mint_system.account.view_move_form.domain_partner_bank_ids`
 ```
 Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.domain_partner_bank_ids.xml)
 
+### Edit Invoice Date  
+ID: `mint_system.account.view_move_form.edit_invoice_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="invoice_date" position="attributes">
+        <attribute name="attrs">{}</attribute>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.edit_invoice_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.edit_invoice_date.xml)
+
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
@@ -4003,6 +4133,24 @@ ID: `mint_system.account.view_move_form.show_user_id`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.show_user_id.xml)
+
+### X Duplicate Found  
+ID: `mint_system.account.view_move_form.x_duplicate_found`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <header position="after">
+        <field name="x_duplicate_found" invisible="1"/>
+        <div groups="account.group_account_invoice" class="alert alert-warning" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('x_duplicate_found', '=', False)]}">
+            Es existiert eine bestehende Rechnung mit dem gleichen Partner und Total. Stellen sicher, dass diese Rechnung kein Duplikat ist. 
+            <!-- A duplicate invoice with the same partner and total exists. Make sure this invoice is not a duplicate before posting. -->
+        </div>
+    </header>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_duplicate_found.xml)
 
 ### X Recurring Inverval  
 ID: `mint_system.account.view_move_form.x_recurring_inverval`  

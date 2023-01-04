@@ -18,6 +18,24 @@ ID: `mint_system.l10n_ch.isr_invoice_form.disable_print_buttons`
 Source: [snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml)
 
 ## L10n Ch Swissqr Template  
+### Add Title Padding  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+
+     <xpath expr="//div[@class='swissqr_page_title']" position="before">
+          <style>
+          .swissqr_page_title {
+            padding-top: 200px;
+          }
+          </style>
+     </xpath>
+
+</data>
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)
+
 ### Modify Header Style  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`  
 ```xml

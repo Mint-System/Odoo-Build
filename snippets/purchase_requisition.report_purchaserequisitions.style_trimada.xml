@@ -49,6 +49,9 @@
 			span#qty {
 			  font-weight: bold;
 			}
+			table#summary td {
+			  padding: 0.3rem;
+			}
 	
 		</style>
 	</xpath>

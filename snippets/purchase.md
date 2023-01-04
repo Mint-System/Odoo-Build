@@ -33,6 +33,21 @@ ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`
 Source: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
 ## Purchase Order Form  
+### Add Qty To Invoice  
+ID: `mint_system.purchase.purchase_order_form.add_qty_to_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//page[@name='products']//tree/field[@name='date_planned']" position="after">
+    <field name="qty_to_invoice" optional="hide"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase.purchase_order_form.add_qty_to_invoice.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.purchase_order_form.add_qty_to_invoice.xml)
+
 ### Add X Comment  
 ID: `mint_system.purchase.purchase_order_form.add_x_comment`  
 ```xml
@@ -459,57 +474,65 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
       width: 100%;
       margin-bottom: 25px;
       font-size: 9pt;
+      font-family: arial;
     }
-      table#info tr {
+     table#info tr {
       line-height: 1.2;
       text-align: left;
     }
-       .note {
-        font-size: 9pt;
+    .note {
+      font-size: 9pt;
     }
     </style>
     <table id='info'>
       <tr>
-        <td width="17%">Bestelldatum</td>
-        <td width="44%">
+        <td width="17%">Oder Date</td>
+        <td width="40%">
           <t t-if="o.date_approve">
             <span id='date_approve' t-field='o.date_approve' t-options='{ "widget": "date" }'/>
           </t>
           <t t-else="">
-			       <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
-		      </t>
+            <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
+          </t>
         </td>
-        <td width="14%"></td>
-        <td width="25%"></td>
-      </tr>
-
-      <tr>
-        <td>Kunden-Nr.</td>
-        <td>
-          <span t-field='o.partner_id.ref'/>
-        </td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td></td>
-        <td>
-          <span t-field='o.partner_ref'/>
-        </td>
-        <td>U/Referenz</td>
-        <td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
           <span t-field='o.user_id'/>
         </td>
       </tr>
       <tr>
-        <td>Referenz</td>
+        <td>Customer No.</td>
         <td>
-          <span t-field='o.comment'/>
+          <span t-field='o.partner_id.ref'/>
         </td>
-        <td>Lieferkondition</td>
+        <td>Incoterm</td>
         <td>
           <span t-field='o.incoterm_id'/>
         </td>
+      </tr>
+      <tr>
+        <td></td>
+
+        <td>
+          <span t-field='o.partner_ref'/>
+        </td>
+
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field='o.requisition_id'/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field='o.requisition_id.partner_ref'/>
+            </t>
+          </td>
+        </t>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='o.comment'/>
+        </td>
+        <td></td>
+        <td></td>
       </tr>
     </table>
 
@@ -1223,8 +1246,8 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
-    <xpath expr="//h2" position="after">
-        <style>
+  <xpath expr="//h2" position="after">
+    <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
@@ -1238,49 +1261,61 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
         .note {
         font-size: 9pt;
       }
-        </style>
-        <table id='info'>
-            <tr>
-                <td width="17%">Date</td>
-                <td width="44%">
-                    <span t-field='o.ordering_date' t-options='{ "widget": "date" }'/>
-                </td>
-                <td width="14%"></td>
-                <td width="25%"></td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field='o.vendor_id.ref'/>
-                </td>
-                <td></td>
-                <td></td>
-            </tr>
-            <tr>
-                <td></td>
-                <td>
-                    <span t-field='o.partner_ref'/>
-                </td>
-                <td>Our Reference</td>
-                <td>
-                    <span t-field='o.user_id'/>
-                </td>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field='o.comment'/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field='o.incoterm_id'/>
-                </td>
-            </tr>
-        </table>
+    </style>
+    <table id='info'>
+      <tr>
+        <td width="17%">Order Deadline</td>
+        <td width="40%">
+          <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
+        </td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='o.user_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field='o.partner_id.ref'/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field='o.incoterm_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+        <td>
+          <span t-field='o.partner_ref'/>
+        </td>
 
-    </xpath>
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field='o.requisition_id'/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field='o.requisition_id.partner_ref'/>
+            </t>
+          </td>
+        </t>
 
-</data>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='o.comment'/>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+
+  </xpath>
+
+</data>  
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 

@@ -43,6 +43,10 @@
 		<attribute name="id">price_subtotal</attribute>
 	</xpath>
 	
+	xpath expr="//table[2]//td[5]" position="attributes">
+		<attribute name="id">price_subtotal</attribute>
+	</xpath>
+	
 	<xpath expr="//table[2]//th[6]" position="attributes">
 		<attribute name="id">price_total</attribute>
 	</xpath>
