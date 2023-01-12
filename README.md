@@ -238,3 +238,21 @@ Increase ifnotify watch limit.
 ```bash
 sudo sysctl fs.inotify.max_user_watches=52428800
 ```
+
+### ImportError libldap
+
+**Problem**
+
+Instance with `auth_ldap` does not start.
+
+```
+ImportError: libldap_r-2.4.so.2: cannot open shared object file: No such file or directory
+```
+
+**Solution**
+
+Reinstall with pip flags.
+
+```
+pip install python-ldap --force-reinstall --no-binary python-ldap
+```

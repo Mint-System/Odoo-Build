@@ -3,7 +3,7 @@
 
   <record id="x_account_codes" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Account Codes</field>
+    <field name="field_description">Kontos</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_account_codes</field>

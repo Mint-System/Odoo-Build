@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		    div#informations {			
+				font-size: 16px;
+				margin-bottom: 0rem;
+			}			
+		</style>
+	</xpath>
+	
+</data>
