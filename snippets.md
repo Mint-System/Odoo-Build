@@ -34,6 +34,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Mail](snippets/mail.md)
 ## [Mail Activity Board](snippets/mail_activity_board.md)
 ## [Mrp](snippets/mrp.md)
+## [Mrp Account](snippets/mrp_account.md)
 ## [Mrp Workorder](snippets/mrp_workorder.md)
 ## [Printnode Base](snippets/printnode_base.md)
 ## [Product](snippets/product.md)

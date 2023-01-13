@@ -3,8 +3,8 @@ prev: ./snippets.md
 ---
 # Purchase Requisition Send
 ## View Purchase Requisition Form  
-### Relocate Button Action Order Send  
-ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_button_action_order_send`  
+### Relocate Send Button  
+ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition_send.view_purchase_requisition_form" priority="50">
@@ -17,5 +17,5 @@ ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.reloca
 
 </data>
 ```
-Source: [snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_button_action_order_send.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_button_action_order_send.xml)
+Source: [snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
 

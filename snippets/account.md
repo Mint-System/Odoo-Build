@@ -3724,6 +3724,21 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
 ```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
 
+## View Account Move Filter  
+### X Account Codes  
+ID: `mint_system.account.view_account_move_filter.x_account_codes`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_move_filter" priority="50">
+
+    <field name="date" position="after">
+        <field name="x_account_codes"/>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_account_move_filter.x_account_codes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_account_move_filter.x_account_codes.xml)
+
 ## View Account Payment Register Form  
 ### Show Partner Id  
 ID: `mint_system.account.view_account_payment_register_form.show_partner_id`  

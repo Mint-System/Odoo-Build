@@ -231,13 +231,18 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
   <t t-call="web.basic_layout">
     <t t-foreach="docs" t-as="production">
       <t t-foreach="production.move_finished_ids" t-as="move">
-
         <style>
-          . .label {
+          .label {
             font-family: arial;
           }
           .box {
               margin: 0 0 2mm 0;
+          }
+          .box2 {
+            margin: 7mm 0 2mm 0;
+          }
+          .box3 {
+            margin: 2mm 0 2mm 0;
           }
           .padding {
               padding-bottom: 3mm;
@@ -273,7 +278,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
           }
           .order {
               font-size: 7mm;
-              margin: 10mm 3mm 0 3mm;
+              margin: 3mm 3mm 0 3mm;
               text-align: left;
               border-bottom: solid 1px;
               line-height: 1;
@@ -288,15 +293,19 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               height: 8mm;
               line-height: 10mm;
           }
+          .col-6 {
+            padding-right: 0;
+            padding-left: 0;
+          }
         </style>
 
         <div class="page">
           <div class="label">
             <div class="row title">
-              <div class="col-6 box">
+              <div class="col-6 box2">
                 <span t-esc="move.product_id.default_code"/>
               </div>
-              <div t-if="move.product_id.barcode" class="col-6 box text-right">
+              <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
                 <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
               </div>
             </div>
@@ -307,7 +316,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               <span class="sub2" t-esc="move.product_id.type_description"/>
             </div>
             <div class="row order">
-              <div class="col-6 box">
+              <div class="col-6 box3">
                 <div class="padding info">
                   <span t-esc="production.date_planned_finished" t-options="{'widget': 'date'}"/>
                 </div>

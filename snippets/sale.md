@@ -1088,6 +1088,25 @@ ID: `mint_system.sale.report_saleorder_document.add_notes`
 ```
 Source: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_notes.xml)
 
+### Add Partner Contact Id  
+ID: `mint_system.sale.report_saleorder_document.add_partner_contact_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']//p[@t-field='doc.client_order_ref']/.." position="after">
+
+    <div t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id" class="col-auto col-3 mw-100 mb-2">
+      <strong>Contact</strong>
+      <p t-field="doc.partner_contact_id.name"/>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_partner_contact_id.xml)
+
 ### Add Percentage Sign  
 ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`  
 ```xml
@@ -1857,6 +1876,14 @@ ID: `mint_system.sale.report_saleorder_document.set_ids`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//div[@id='informations']//p[@t-field='doc.incoterm.code']/.." position="attributes">
+		<attribute name="id">incoterm</attribute>
+	</xpath>
+	
+	<xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
+		<attribute name="id">date_order</attribute>
+	</xpath>
 
 	<xpath expr="//th[@name='th_description']" position="attributes">
 		<attribute name="id">description</attribute>
@@ -1922,6 +1949,24 @@ ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
+
+### Style Gelso  
+ID: `mint_system.sale.report_saleorder_document.style_gelso`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<xpath expr="//div[@id='incoterm']" position="attributes">
+		<attribute name="class" separator=" " add="col-auto col-3 mw-100 mb-2"/>
+	</xpath>
+	
+	<xpath expr="//p[@id='date_order']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_gelso.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  

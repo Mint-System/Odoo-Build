@@ -165,6 +165,22 @@ ID: `mint_system.base.view_bank_form.add_display_name`
 ```
 Source: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_bank_form.add_display_name.xml)
 
+## View Company Form  
+### Show Account Onboarding Panel  
+ID: `mint_system.base.view_company_form.show_account_onboarding_panel`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+
+	<field name="website" position="after">
+		<field name="account_dashboard_onboarding_state" />
+	</field>
+
+</data>
+
+```
+Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_account_onboarding_panel.xml)
+
 ## View Partner Form  
 ### Add Commercial Partner Id  
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  

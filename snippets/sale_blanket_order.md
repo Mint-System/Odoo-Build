@@ -394,6 +394,55 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml)
 
+### Replace Infoblock  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <div class="row" id="informations">
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.client_order_ref">
+                <strong>Your Reference</strong>
+                <p t-field="doc.client_order_ref"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id">
+                <strong>Contact</strong>
+                <p t-field="doc.partner_contact_id.name"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Order Date</strong>
+                <p t-field="doc.create_date" t-options='{"widget": "date"}'/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2">
+                <strong>Validity Date</strong>
+                <p t-field="doc.validity_date"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.incoterm">
+                <strong>Incoterm</strong>
+                <p t-field="doc.incoterm"/>
+            </div>
+
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.user_id.name">
+                <strong>Salesperson</strong>
+                <p t-field="doc.user_id"/>
+            </div>
+
+        </div>
+
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id`  
 ```xml
@@ -655,6 +704,25 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_descriptio
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.show_description.xml)
+
+### Style Gelso  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_gelso`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		    div#informations {			
+				font-size: 16px;
+				margin-bottom: 0rem;
+			}			
+		</style>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`  

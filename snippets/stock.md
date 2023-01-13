@@ -284,7 +284,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                         font-family: arial;
                     }
                     .box {
-                        margin: 0 0 2mm 0;
+                        margin: 0mm 0 2mm 0;
                     }
                     .box1 {
                         margin: 9mm 0 2mm 0;
@@ -366,9 +366,6 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                                 </div>
                                 <div class="padding">
                                     <span t-esc="move.origin"/>
-                                </div>
-                                <div>
-                                    <span t-esc="picking.partner_id.commercial_company_name"/>
                                 </div>
                             </div>
                             <div class="col-6 box3">
@@ -568,7 +565,10 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
                   table#workorder {
                      border: solid 1px;
                   }
-                  table#components {
+                  table#quality {
+                     border: solid 1px;
+                  }
+                  table#tracing {
                      border: solid 1px;
                   }
                   h2 {
@@ -666,66 +666,135 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
             </tr>
           </table>
 
+
           <table id='subtitel'>
             <tr>
               <td colspan="8" width="100%">
-                          Ausgangsmaterial <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.product_id"/>
-, 
-                          Los <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
-, 
-                          Auftrag <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+              Ausgangsmaterial <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.product_id"/>, 
+              Los <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id"/>
+              Auftrag <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
           </td>
         </tr>
       </table>
 
-      <table id='components'>
+      <table id='tracing'>
         <tr>
-          <th width="30%">Komponente</th>
-          <th width="10%">WHG</th>
-          <th width="10%">Titer</th>
-          <th width="10%">Rohmaterialtyp</th>
-          <th width="10%">Filament</th>
-          <th width="10%">Drehung</th>
-          <th width="10%">Schlichte</th>
-          <th width="10%"></th>
-        </tr>
-        <tr>
-
-          <t t-set="prod_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.move_raw_ids"/>
-
-          <tr t-foreach="prod_lines" t-as="prod_move_line">
-            <td>
-              <span t-field="prod_move_line.product_id"/>
-            </td>
-            <td>
-            </td>
-            <td>
-              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
-              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_tex_3"/>
-            </td>
-            <td>
-              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
-            </td>
-            <td>
-              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_filament"/>
-            </td>
-            <td>
-              <span t-field="prod_move_line.product_id.product_tmpl_id.x_studio_drehung"/>
-            </td>
-            <td>
-            </td>
-            <td>
-            </td>
-          </tr>
+          <th colspan="4"></th>
+          <th colspan="5">Produktspez.Rohmaterial</th>
+          <th colspan="5">Produktspez.Kette</th>
         </tr>
 
+        <tr>
+          <th width="30%">Artikel</th>
+          <th width="10%">Los</th>
+          <th width="10%"># BOM</th>
+
+          <th width="5%">Tex</th>
+          <th width="5%">Rohmat</th>
+          <th width="5%">Filament</th>
+          <th width="5%">Drehung</th>
+          <th width="5%"></th>
+
+          <th width="5%">Tex</th>
+          <th width="5%">Breite</th>
+          <th width="5%">Faden</th>
+          <th width="5%">Nummer</th>
+          <th width="5%"></th>
+
+        </tr>
+
+        <!--<p t-esc="o.move_line_ids.lot_id.x_production_ids.traceability_line_ids.mapped('reference')"/>-->
+        <!--<t t-set="traceability_line_ids" t-value="list(set(o.move_line_ids.lot_id.x_production_ids.traceability_line_ids))"/>-->
+        <!--<t t-set="traceability_line_ids" t-value="o.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: l.product_id.barcode == '1112000000009')"/>-->
+        <!--<t t-set="traceability_line_ids" t-value="o.move_line_ids.lot_id.x_production_ids[0].traceability_line_ids"/>-->
+
+        <t t-set="traceability_line_ids" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].traceability_line_ids"/>
+        <tr t-foreach="traceability_line_ids" t-as="traceability_line">
+          <td>
+            <span t-field="traceability_line.product_id"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.lot_id"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.bom_count"/>
+          </td>
+
+          <!--Produktspez.Rohmaterial -->
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_filament"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_drehung"/>
+          </td>
+          <td></td>
+
+          <!--Produktspez.Kette -->
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_tex_3"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_faden_total"/>
+          </td>
+          <td>
+            <span t-field="traceability_line.product_id.product_tmpl_id.x_studio_laufende_nummer_1"/>
+          </td>
+          <td></td>
+        </tr>
+
+      </table>
+
+      <p t-esc="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].traceability_line_ids.lot_id"/>
+
+      <table id="quality">
+        <t t-set="qualitycheck_line_ids" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].traceability_line_ids.lot_id"/>
+        <tr t-foreach="qualitycheck_line_ids" t-as="qualitycheck_line">
+          <td>
+            <span t-field="qualitycheck_line.name"/>
+          </td>
+          <td>
+            <span t-field="qualitycheck_line.id"/>
+          </td>
+          <td></td>
+          <td>
+            <t t-set="quality_line_ids" t-value="qualitycheck_line.x_check_ids"/>
+            <tr t-foreach="quality_line_ids" t-as="quality_line">
+              <td></td>
+              <td></td>
+              <td>
+                <span t-field="quality_line.name"/>
+              </td>
+              <td>
+                <span t-field="quality_line.x_studio_breite_von_mm"/>
+              </td>
+              <td>
+                <span t-field="quality_line.x_studio_breite_bis_mm"/>
+              </td>
+              <td>
+                <span t-field="quality_line.x_studio_breite_ist_mm"/>
+              </td>
+              <td>
+                <span t-field="quality_line.production_id"/>
+              </td>
+            </tr>
+          </td>
+        </tr>
       </table>
 
     </div>
   </t>
 </t>
 </t>
-</t>  
+</t>
 ```
 Source: [snippets/stock.report_certificatecofc.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_certificatecofc.tissa.xml)
 
@@ -3657,7 +3726,7 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`
     <xpath expr="//td[1]" position="before">
          <t t-if="o.sale_id or o.purchase_id">
             <td id="position">
-                <span t-esc="move_line.x_position.position"/>
+                <span t-esc="move_line.move_id.position"/>
             </td>
          </t>
     </xpath>
@@ -4330,6 +4399,21 @@ ID: `mint_system.stock.view_picking_form.show_weight`
 
 ```
 Source: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.show_weight.xml)
+
+### X Autocomplete  
+ID: `mint_system.stock.view_picking_form.x_autocomplete`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="date_deadline" position="before">
+    <field name="x_autocomplete" attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('state', '=', 'done')]}"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_form.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_form.x_autocomplete.xml)
 
 ### X Count Boxes  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
