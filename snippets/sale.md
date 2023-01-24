@@ -2410,7 +2410,7 @@ ID: `mint_system.sale.view_order_form.filter_customer_is_company`
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
 
-  <xpath expr="//group[1]/group[1]/field[1]" position="replace">
+  <xpath expr="//group[@name='partner_details']//field[@name='partner_id']" position="replace">
     <field name="partner_id" widget="res_partner_many2one" domain="[('is_company', '=', True)]" context="{'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'default_is_company': 'True'}" options="{&quot;always_reload&quot;: True}"/>
   </xpath>
 
@@ -2789,6 +2789,21 @@ ID: `mint_system.sale.view_order_line_tree.show_price_tax`
 
 ```
 Source: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_tax.xml)
+
+### Show Price Total  
+ID: `mint_system.sale.view_order_line_tree.show_price_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+    <field name="price_subtotal" position="after">
+        <field name="price_total"  sum="Total" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.show_price_total.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.show_price_total.xml)
 
 ### Show Price Unit  
 ID: `mint_system.sale.view_order_line_tree.show_price_unit`  

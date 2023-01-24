@@ -590,6 +590,30 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 ```
 Source: [snippets/ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_contract.x_struct_id.xml)
 
+## Hr Expense  
+### X Partner Id  
+ID: `mint_system.ir_model.hr_expense.x_partner_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_partner_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kunde</field>
+    <field name="model">hr.expense</field>
+    <field name="model_id" ref="hr.model_hr_expense"/>
+    <field name="name">x_partner_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">res.partner</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.hr_expense.x_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.hr_expense.x_partner_id.xml)
+
 ## Hr Leave  
 ### X Number Of Hours  
 ID: `mint_system.ir_model.hr_leave.x_number_of_hours`  
@@ -1626,7 +1650,7 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
     <field name="ttype">float</field>
     <field name="depends">untaxed_amount_invoiced,price_tax</field>
     <field name="compute">for rec in self:
-      rec['x_taxed_amount_invoiced'] = rec.price_unit * rec.qty_delivered + rec.price_tax</field>
+      rec['x_taxed_amount_invoiced'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * rec.qty_delivered + rec.price_tax</field>
   </record>
 
 </odoo>
@@ -1711,6 +1735,33 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
 ```
 Source: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order.x_studio_description.xml)
 
+## Stock Location  
+### X Should Be Valued  
+ID: `mint_system.ir_model.stock_location.x_should_be_valued`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_should_be_valued" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Should be valued</field>
+    <field name="model">stock.location</field>
+    <field name="model_id" ref="stock.model_stock_location"/>
+    <field name="name">x_should_be_valued</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field> 
+    <field name="depends">usage</field>
+    <field name="compute">for rec in self:
+      rec['x_should_be_valued'] = rec._should_be_valued()
+    </field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_location.x_should_be_valued.xml)
+
 ## Stock Move  
 ### X Count Boxes  
 ID: `mint_system.ir_model.stock_move.x_count_boxes`  
@@ -1762,7 +1813,9 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                         rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
                     else:
                         rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-                        
+                elif rec.product_packaging.name == "Karton":
+                    rec['x_count_boxes'] = (rec.quantity_done)/5
+                    
                 elif rec.product_packaging.name == "Kiste":
                     # Filet mit Haut Tiefgekühlt
                     if rec.product_id.id == 68:

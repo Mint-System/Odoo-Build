@@ -298,19 +298,23 @@ function generate-module-translation() {
     DATABASE=$1
     MODULE_PATH=$2
     MODULE_NAME=$(basename $2)
+    LANGUAGE=$3    
 
-    # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
         MODULE_PATH=$1
         MODULE_NAME=$(basename $1)
     fi
 
+    if test -z "$3"; then
+        LANGUAGE="$ODOO_LANGUAGE"
+    fi
+
     locale
     activate-venv
-    echo "Generate tranlsation file for $MODULE_NAME on $DATABASE ..."
+    echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $ODOO_LANGUAGE --i18n-export "$MODULE_PATH/i18n/de.po"
+    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $LANGUAGE --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function install-module() {
@@ -778,7 +782,7 @@ function update-config() {
     done
     # Update native config
     sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
-    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g')"
+    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
     # Update docker config
     sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
 
@@ -1056,7 +1060,7 @@ case "$1" in
         upload-module $2 $3
         ;;
     generate-module-translation)
-        generate-module-translation $2 $3
+        generate-module-translation $2 $3 $4
         ;;
     patch-database)
         patch-database $2 $3

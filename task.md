@@ -13,7 +13,7 @@
 | drop-db                     | [db]             | Drop target Odoo database. Default is branch name.                                        |
 | edit-env                    | [env]            | Open env file in default editor.                                                          |
 | generate-admin-passwd       | [pass]           | Generate hash for Odoo master password.                                                   |
-| generate-module-translation | [env][path]      | Generate translation for Odoo module.                                                     |
+| generate-module-translation | [env][path][lang]      | Generate translation for Odoo module.                                                     |
 | git-feature-branch          | [path]           | Create feature branch for Odoo module.                                                    |
 | git-list-submodules         |                  | List path and url of submodules.                                                          |
 | git-mig-branch              | [path]           | Create migration branch for Odoo module.                                                  |

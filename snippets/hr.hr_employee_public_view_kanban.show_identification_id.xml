@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+
+  <xpath expr="//templates" position="before">
+    <field name="identification_id"/>
+</xpath>
+
+  <xpath expr="//field[@name='name']" position="before">
+    <div  t-if="record.identification_id.raw_value" class="float-right">
+      <span style="padding-right: 5px; padding-left: 5px"><field name="identification_id"/></span>
+    </div>
+  </xpath>
+
+</data>

@@ -24,11 +24,13 @@
                         <tr t-foreach="set([picking.partner_id for picking in docs.move_ids_without_package])" t-as="partner_id">
 
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
-                            <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
+                            <t t-set="count_boxes" t-value="sum(partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &gt; -20).mapped('x_count_boxes'))"/>
+                            <t t-set="count_cold_storage_boxes" t-value="sum(partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20).mapped('x_count_boxes'))"/>
+                            
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
-                            <t t-set="cold_storage" t-value="partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20)"/>
-                            <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
+                            <t t-set="total_boxes" t-value="total_boxes + count_boxes + count_cold_storage_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
+                            
 
                             <td>
                                 <span t-field="partner_id.name"/>
@@ -43,9 +45,11 @@
                                 <span t-field="partner_id.city"/>
                             </td>
                             <td class="text-right">
-                                <span t-esc="count_boxes"/>
-                                <t t-if="cold_storage">
-                                  <span> (TK)</span>
+                                <t t-if="count_boxes > 0">
+                                  <span><span t-esc="count_boxes"/> Frisch</span>
+                                </t>
+                                <t t-if="count_cold_storage_boxes > 0">
+                                  <span><span t-esc="count_cold_storage_boxes"/> TK</span>
                                 </t>
                             </td>
                             <td class="text-right">

@@ -169,6 +169,47 @@ ID: `mint_system.product.product_template_form_view.add_type_description`
 ```
 Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.add_type_description.xml)
 
+### Remove List Price  
+ID: `mint_system.product.product_template_form_view.remove_list_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_standard_price']//div[@name='pricing']" position="replace" />
+    <xpath expr="//group[@name='group_standard_price']//label[@for='list_price']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_list_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_list_price.xml)
+
+### Remove Standard Price  
+ID: `mint_system.product.product_template_form_view.remove_standard_price`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_standard_price']//div[@name='standard_price_uom']" position="replace" />
+    <xpath expr="//group[@name='group_standard_price']//label[@for='standard_price']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_standard_price.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_standard_price.xml)
+
+### Remove Uom Po Id  
+ID: `mint_system.product.product_template_form_view.remove_uom_po_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+    <xpath expr="//group[@name='group_general']/field[@name='uom_po_id']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_form_view.remove_uom_po_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_form_view.remove_uom_po_id.xml)
+
 ### Replace Title  
 ID: `mint_system.product.product_template_form_view.replace_title`  
 ```xml
@@ -272,11 +313,25 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
 
-<xpath expr="///group[@name='group_general']/field[@name='default_code']" position="replace"/>
+    <xpath expr="//group[@name='group_general']/field[@name='default_code']" position="replace" />
 
 </data>
+
 ```
 Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.hide_default_code.xml)
+
+### Remove Barcode  
+ID: `mint_system.product.product_template_only_form_view.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <xpath expr="//field[@name='barcode']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_template_only_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.remove_barcode.xml)
 
 ### Replace Feeder Id  
 ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`  
@@ -294,6 +349,23 @@ ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`
 </data>
 ```
 Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
+
+### Show Can Be Expensed  
+ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+  <xpath expr="//field[@name='sale_ok']/.." position="after">
+    <span class="d-inline-block">
+      <field name="can_be_expensed" />
+      <label for="can_be_expensed" />
+    </span>
+  </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.show_can_be_expensed.xml)
 
 ### Show Handle  
 ID: `mint_system.product.product_template_only_form_view.show_handle`  

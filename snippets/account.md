@@ -1810,6 +1810,24 @@ ID: `mint_system.account.report_invoice_document.switch_address_block`
 ```
 Source: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
 
+### Tissa Rechnungstext  
+ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//p[@name='payment_term']" position="after">
+     
+     <t t-foreach="o.partner_id.x_studio_field_5jUpb" t-as="text">
+       <span t-raw="text.x_studio_rechnungstext" />
+     </t>
+     
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.tissa_rechnungstext.xml)
+
 ### Unit Precision  
 ID: `mint_system.account.report_invoice_document.unit_precision`  
 ```xml
@@ -3678,6 +3696,24 @@ ID: `mint_system.account.report_invoice_document.switch_address_block`
 
 ```
 Source: [snippets/account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.switch_address_block.xml)
+
+### Tissa Rechnungstext  
+ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+  <xpath expr="//p[@name='payment_term']" position="after">
+     
+     <t t-foreach="o.partner_id.x_studio_field_5jUpb" t-as="text">
+       <span t-raw="text.x_studio_rechnungstext" />
+     </t>
+     
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.tissa_rechnungstext.xml)
 
 ### Unit Precision  
 ID: `mint_system.account.report_invoice_document.unit_precision`  

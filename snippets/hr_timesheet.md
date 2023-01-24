@@ -18,6 +18,21 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
 
+### Filter Partner Is Company  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='partner_id']" position="attributes">
+    <attribute name="domain">[('is_company', '=', True)]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)
+
 ### Invoice Details  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
 ```xml

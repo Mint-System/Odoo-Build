@@ -2,6 +2,84 @@
 prev: ./snippets.md
 ---
 # Project
+## Edit Project  
+### Show Date Start  
+ID: `mint_system.project.edit_project.show_date_start`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <field name="description" position="before">
+        <group>
+            <field name="date_start" />
+        </group>
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.edit_project.show_date_start.xml)
+
+### Show Date  
+ID: `mint_system.project.edit_project.show_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <field name="description" position="before">
+      <group>
+        <field name="date" />
+      </group>
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.edit_project.show_date.xml)
+
+### Show Gantt Dates  
+ID: `mint_system.project.edit_project.show_gantt_dates`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <field name="description" position="before">
+        <label for="date_start" string="Planned Date"/>
+        <div class="w-100">
+            <div class="o_row">
+                <field name="date_start" widget="daterange" options='{"related_end_date": "date"}'/>
+                <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
+                <i class="fa fa-long-arrow-right mx-2 oe_read_only" aria-label="Arrow icon" title="Arrow" attrs="{'invisible': [('date', '=', False), ('date_start', '=', False)]}"/>
+                <field name="date" widget="daterange" options='{"related_start_date": "date_start"}'/>
+            </div>
+        </div>
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.show_gantt_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.edit_project.show_gantt_dates.xml)
+
+## View Project Calendar  
+### View  
+ID: `mint_system.project.view_project_calendar.view`  
+```xml
+<?xml version="1.0"?>
+<record id="project.view_project_calendar.view" model="ir.ui.view">
+    <field name="name">mint_system.project.view_project_calendar.view</field>
+    <field name="model">project.project</field>
+    <field name="type">calendar</field>
+    <field name="arch" type="xml">
+        <calendar date_start="date_start" string="Tasks" mode="month" color="color" event_limit="5"
+            hide_time="true" quick_add="False" js_class="project_calendar">
+            <field name="user_id" avatar_field="image_128" filters="1" />
+            <field name="date" />
+        </calendar>
+    </field>
+  </record>
+```
+Source: [snippets/project.view_project_calendar.view.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project_calendar.view.xml)
+
 ## View Project  
 ### Disable Create  
 ID: `mint_system.project.view_project.disable_create`  
@@ -18,6 +96,21 @@ ID: `mint_system.project.view_project.disable_create`
 ```
 Source: [snippets/project.view_project.disable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.disable_create.xml)
 
+### Show Date Start  
+ID: `mint_system.project.view_project.show_date_start`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+
+    <field name="user_id" position="before">
+        <field name="date_start" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.show_date_start.xml)
+
 ## View Project Kanban  
 ### Disable Create  
 ID: `mint_system.project.view_project_kanban.disable_create`  
@@ -33,6 +126,37 @@ ID: `mint_system.project.view_project_kanban.disable_create`
 
 ```
 Source: [snippets/project.view_project_kanban.disable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project_kanban.disable_create.xml)
+
+## View Project  
+### Disable Create  
+ID: `mint_system.project.view_project.disable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+
+    <xpath expr="//tree" position="attributes">
+         <attribute name="create">0</attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_project.disable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.disable_create.xml)
+
+### Show Date Start  
+ID: `mint_system.project.view_project.show_date_start`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+
+    <field name="user_id" position="before">
+        <field name="date_start" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.show_date_start.xml)
 
 ## View Task Form2  
 ### Parent Domain  

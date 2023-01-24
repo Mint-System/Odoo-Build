@@ -18,6 +18,27 @@ ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`
 ```
 Source: [snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
 
+### Show Identification Id  
+ID: `mint_system.hr.hr_employee_public_view_kanban.show_identification_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+
+  <xpath expr="//templates" position="before">
+    <field name="identification_id"/>
+</xpath>
+
+  <xpath expr="//field[@name='name']" position="before">
+    <div  t-if="record.identification_id.raw_value" class="float-right">
+      <span style="padding-right: 5px; padding-left: 5px"><field name="identification_id"/></span>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr.hr_employee_public_view_kanban.show_identification_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.hr_employee_public_view_kanban.show_identification_id.xml)
+
 ### Show Leave  
 ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`  
 ```xml
@@ -103,6 +124,23 @@ ID: `mint_system.hr.plan_wizard.plan_permission`
 
 ```
 Source: [snippets/hr.plan_wizard.plan_permission.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.plan_wizard.plan_permission.xml)
+
+## Res Users View Form Profile  
+### Show Identification Id  
+ID: `mint_system.hr.res_users_view_form_profile.show_identification_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.res_users_view_form_profile" priority="50">
+
+  <xpath expr="//field[@name='job_title']/.." position="before">
+    <h2 class="col-12">
+      <field name="identification_id" attrs="{'readonly': True}" />
+    </h2>
+  </xpath>
+
+</data>
+```
+Source: [snippets/hr.res_users_view_form_profile.show_identification_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr.res_users_view_form_profile.show_identification_id.xml)
 
 ## View Employee Form  
 ### Plan Permission  

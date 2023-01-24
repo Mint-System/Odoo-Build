@@ -461,11 +461,13 @@ ID: `mint_system.stock.report_bordero.basis57`
                         <tr t-foreach="set([picking.partner_id for picking in docs.move_ids_without_package])" t-as="partner_id">
 
                             <t t-set="partner_moves" t-value="docs.move_ids_without_package.filtered(lambda x: x.partner_id == partner_id)"/>
-                            <t t-set="count_boxes" t-value="sum(partner_moves.mapped('x_count_boxes'))"/>
+                            <t t-set="count_boxes" t-value="sum(partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &gt; -20).mapped('x_count_boxes'))"/>
+                            <t t-set="count_cold_storage_boxes" t-value="sum(partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20).mapped('x_count_boxes'))"/>
+                            
                             <t t-set="boxes_weight" t-value="sum(partner_moves.mapped('weight'))"/>
-                            <t t-set="cold_storage" t-value="partner_moves.filtered(lambda m: m.product_id.x_storage_temperature &lt; -20)"/>
-                            <t t-set="total_boxes" t-value="total_boxes + count_boxes"/>
+                            <t t-set="total_boxes" t-value="total_boxes + count_boxes + count_cold_storage_boxes"/>
                             <t t-set="total_weight" t-value="total_weight + boxes_weight"/>
+                            
 
                             <td>
                                 <span t-field="partner_id.name"/>
@@ -480,9 +482,11 @@ ID: `mint_system.stock.report_bordero.basis57`
                                 <span t-field="partner_id.city"/>
                             </td>
                             <td class="text-right">
-                                <span t-esc="count_boxes"/>
-                                <t t-if="cold_storage">
-                                  <span> (TK)</span>
+                                <t t-if="count_boxes > 0">
+                                  <span><span t-esc="count_boxes"/> Frisch</span>
+                                </t>
+                                <t t-if="count_cold_storage_boxes > 0">
+                                  <span><span t-esc="count_cold_storage_boxes"/> TK</span>
                                 </t>
                             </td>
                             <td class="text-right">
@@ -1489,6 +1493,56 @@ ID: `mint_system.stock.report_delivery_document.modify_main_table`
 
 ```
 Source: [snippets/stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.modify_main_table.xml)
+
+### Move Lines  
+ID: `mint_system.stock.report_delivery_document.move_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">
+
+    <table class="table table-sm">
+
+      <thead>
+        <tr>
+          <th>
+            <strong>Pos</strong>
+          </th>
+          <th>
+            <strong>Product</strong>
+          </th>
+          <th>
+            <strong></strong>
+          </th>
+          <th>
+            <strong>Quantity</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="moves" t-value="o.move_lines"/>
+        <tr t-foreach="moves" t-as="move">
+          <td>
+            <span t-esc="move.position"/>
+          </td>
+          <td>
+            <span t-esc="move.product_id.name"/>
+          </td>
+          <td></td>
+          <td>
+            <span t-esc="move.quantity_done"/>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.move_lines.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.move_lines.xml)
 
 ### Pos In Table  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  

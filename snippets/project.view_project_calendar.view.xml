@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<record id="project.view_project_calendar.view" model="ir.ui.view">
+    <field name="name">mint_system.project.view_project_calendar.view</field>
+    <field name="model">project.project</field>
+    <field name="type">calendar</field>
+    <field name="arch" type="xml">
+        <calendar date_start="date_start" string="Tasks" mode="month" color="color" event_limit="5"
+            hide_time="true" quick_add="False" js_class="project_calendar">
+            <field name="user_id" avatar_field="image_128" filters="1" />
+            <field name="date" />
+        </calendar>
+    </field>
+  </record>

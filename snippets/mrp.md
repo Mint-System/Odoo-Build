@@ -1404,6 +1404,21 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 ```
 Source: [snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_bom_filter.add_x_type_description.xml)
 
+## View Mrp Document Form  
+### Show Public  
+ID: `mint_system.mrp.view_mrp_document_form.show_public`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.view_mrp_document_form" priority="50" >
+
+    <field name="url" position="after">
+        <field name="public" />
+    </field>
+
+</data>
+```
+Source: [snippets/mrp.view_mrp_document_form.show_public.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.view_mrp_document_form.show_public.xml)
+
 ## View Mrp Production Filter  
 ### Add Not Planned  
 ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`  

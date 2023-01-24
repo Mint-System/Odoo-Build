@@ -33,7 +33,7 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:12
+    image: postgres:12-alpine
     ports:
       - "127.0.0.1:5432:5432"
     environment:
