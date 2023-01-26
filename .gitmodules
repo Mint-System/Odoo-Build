@@ -22,3 +22,35 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 16.0
+[submodule "oca/project"]
+	path = oca/project
+	url = git@github.com:OCA/project.git
+	branch = 16.0
+[submodule "oca/web"]
+	path = oca/web
+	url = git@github.com:OCA/web.git
+	branch = 16.0
+[submodule "oca/timesheet"]
+	path = oca/timesheet
+	url = git@github.com:OCA/timesheet.git
+	branch = 16.0
+[submodule "oca/crm"]
+	path = oca/crm
+	url = git@github.com:OCA/crm.git
+	branch = 16.0
+[submodule "oca/knowledge"]
+	path = oca/knowledge
+	url = git@github.com:OCA/knowledge.git
+	branch = 16.0
+[submodule "oca/server-auth"]
+	path = oca/server-auth
+	url = git@github.com:OCA/server-auth.git
+	branch = 16.0
+[submodule "oca/server-backend"]
+	path = oca/server-backend
+	url = git@github.com:OCA/server-backend.git
+	branch = 16.0
+[submodule "oca/server-ux"]
+	path = oca/server-ux
+	url = git@github.com:OCA/server-ux.git
+	branch = 16.0
