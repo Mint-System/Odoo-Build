@@ -58,3 +58,103 @@
 	path = oca/brand
 	url = git@github.com:OCA/brand.git
 	branch = 16.0
+[submodule "oca/hr"]
+	path = oca/hr
+	url = git@github.com:OCA/hr.git
+	branch = 16.0
+[submodule "oca/website"]
+	path = oca/website
+	url = https://github.com/OCA/website.git
+	branch = 16.0
+[submodule "oca/reporting-engine"]
+	path = oca/reporting-engine
+	url = git@github.com:OCA/reporting-engine.git
+	branch = 16.0
+[submodule "oca/server-tools"]
+	path = oca/server-tools
+	url = git@github.com:OCA/server-tools.git
+	branch = 16.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+	branch = 16.0
+[submodule "oca/sale-workflow"]
+	path = oca/sale-workflow
+	url = git@github.com:OCA/sale-workflow.git
+	branch = 16.0
+[submodule "oca/dms"]
+	path = oca/dms
+	url = git@github.com:OCA/dms.git
+	branch = 16.0
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
+	branch = 16.0
+[submodule "oca/bank-statement-import"]
+	path = oca/bank-statement-import
+	url = git@github.com:OCA/bank-statement-import.git
+	branch = 16.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 16.0
+[submodule "oca/contract"]
+	path = oca/contract
+	url = git@github.com:OCA/contract.git
+	branch = 16.0
+[submodule "oca/purchase-workflow"]
+	path = oca/purchase-workflow
+	url = git@github.com:OCA/purchase-workflow.git
+	branch = 16.0
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 16.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = git@github.com:OCA/account-invoicing.git
+	branch = 16.0
+[submodule "oca/server-env"]
+	path = oca/server-env
+	url = git@github.com:OCA/server-env.git
+	branch = 16.0
+[submodule "oca/business-requirement"]
+	path = oca/business-requirement
+	url = git@github.com:OCA/business-requirement.git
+	branch = 16.0
+[submodule "oca/connector"]
+	path = oca/connector
+	url = git@github.com:OCA/connector.git
+	branch = 16.0
+[submodule "oca/edi"]
+	path = oca/edi
+	url = git@github.com:OCA/edi.git
+	branch = 16.0
+[submodule "oca/community-data-files"]
+	path = oca/community-data-files
+	url = git@github.com:OCA/community-data-files.git
+	branch = 16.0
+[submodule "oca/account-financial-reporting"]
+	path = oca/account-financial-reporting
+	url = git@github.com:OCA/account-financial-reporting.git
+	branch = 16.0
+[submodule "oca/iot"]
+	path = oca/iot
+	url = git@github.com:OCA/iot.git
+	branch = 16.0
+[submodule "oca/manufacture"]
+	path = oca/manufacture
+	url = git@github.com:OCA/manufacture.git
+	branch = 16.0
+[submodule "oca/account-closing"]
+	path = oca/account-closing
+	url = git@github.com:OCA/account-closing.git
+	branch = 16.0
+[submodule "oca/account-financial-tools"]
+	path = oca/account-financial-tools
+	url = git@github.com:OCA/account-financial-tools.git
+	branch = 16.0
+[submodule "oca/bank-payment"]
+	path = oca/bank-payment
+	url = git@github.com:OCA/bank-payment.git
+	branch = 16.0
