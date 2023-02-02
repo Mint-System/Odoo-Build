@@ -874,7 +874,7 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 
   <record id="x_categ_id" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Kategorei</field>
+    <field name="field_description">Produktkategorie</field>
     <field name="model">product.set.line</field>
     <field name="model_id" ref="product.model_product_set_line"/>
     <field name="name">x_categ_id</field>

@@ -112,6 +112,20 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_
     </t>
   </xpath>
 
+   <!--
+   <xpath expr="//div[@id='informations']" position="after">
+    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_header"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//div[@id='summary']" position="after">
+    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_footer"/>
+    </t>
+  </xpath>
+  -->
+
 </data>
 
 ```
@@ -597,6 +611,25 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.second_row.xml)
 
+### Set Ids Tissa  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+	<xpath expr="//div[@class='page']/div[2]" position="attributes">
+		<attribute name="id">address</attribute>
+		<attribute name="class" separator=" " add="trimada"/>
+	</xpath>
+
+	<xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="attributes">
+		<attribute name="id">summary</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
+
 ### Set Ids  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`  
 ```xml
@@ -723,6 +756,32 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_gelso`
 </data>
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml)
+
+### Style Tissa  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			.trimada {
+				margin-bottom: 20px;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//div[@id='address']/div" position="attributes">
+		<attribute name="class">col-4</attribute>
+	</xpath>
+
+	<xpath expr="//div[@id='summary']/div" position="attributes">
+		<attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`  

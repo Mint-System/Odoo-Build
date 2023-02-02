@@ -966,9 +966,13 @@ ID: `mint_system.sale.report_saleorder_document.add_informations_space`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<xpath expr="//div[@id='informations']" position="attributes">
-		<attribute name="style">padding-top: 1rem</attribute>
-		<attribute name="style">padding-bottom: 1rem</attribute>
+	<xpath expr="//div[@id='informations']" position="before">
+		<style>
+			div#informations {
+				padding-top: 1rem;
+				padding-bottom: 1rem
+			}
+		</style>
 	</xpath>
 
 </data>
@@ -1505,8 +1509,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_informations`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//div[@id='informations']" position="replace">
-  </xpath>
+  <xpath expr="//div[@id='informations']" position="replace" />
 
 </data>
 ```
@@ -2049,6 +2052,25 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_trimada.xml)
 
+### Table Font Size  
+ID: `mint_system.sale.report_saleorder_document.table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//table[hasclass('o_main_table')]" position="before">
+    <style>
+      table.o_main_table {
+        font-size: 0.8rem;
+      }
+    </style>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.table_font_size.xml)
+
 ### X Hide On Sale Order  
 ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`  
 ```xml
@@ -2223,6 +2245,21 @@ ID: `mint_system.sale.sale_order_portal_content.remove_calculation`
 
 ```
 Source: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_portal_content.remove_calculation.xml)
+
+### X Hide On Sale Order  
+ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+
+  <xpath expr="//t[@t-foreach='sale_order.order_line']" position="attributes">
+    <attribute name="t-foreach">sale_order.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml)
 
 ## Sale Order View Search Inherit Quotation  
 ### Add Filter Cancel  
@@ -2629,7 +2666,7 @@ ID: `mint_system.sale.view_order_form.x_margin_percent`
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
 
-    <xpath expr="//field[@name='margin']" position="after">
+    <xpath expr="//field[@name='product_id']" position="after">
         <field name="x_margin_percent" attrs="{'invisible': [('price_subtotal', '=', 0)]}" optional="hide" widget="percentage"/>
     </xpath>
 

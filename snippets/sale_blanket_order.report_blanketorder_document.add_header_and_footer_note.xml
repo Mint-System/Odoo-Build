@@ -13,4 +13,18 @@
     </t>
   </xpath>
 
+   <!--
+   <xpath expr="//div[@id='informations']" position="after">
+    <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_header"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//div[@id='summary']" position="after">
+    <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="doc.note_footer"/>
+    </t>
+  </xpath>
+  -->
+
 </data>

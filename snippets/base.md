@@ -181,6 +181,21 @@ ID: `mint_system.base.view_company_form.show_account_onboarding_panel`
 ```
 Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_account_onboarding_panel.xml)
 
+### Show Analytic Plan Id  
+ID: `mint_system.base.view_company_form.show_analytic_plan_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+
+	<field name="website" position="after">
+		<field name="analytic_plan_id" />
+	</field>
+
+</data>
+
+```
+Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
+
 ## View Partner Form  
 ### Add Commercial Partner Id  
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  

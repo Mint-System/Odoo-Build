@@ -159,6 +159,40 @@ ID: `mint_system.project.view_project.show_date_start`
 Source: [snippets/project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_project.show_date_start.xml)
 
 ## View Task Form2  
+### Domain Active Sale Line  
+ID: `mint_system.project.view_task_form2.domain_active_sale_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='sale_line_id']" position="attributes">
+        <attribute name="domain">[('order_id.active', '=', True),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale', 'done']), ('order_id', '=?', project_sale_order_id)]</attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.domain_active_sale_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.domain_active_sale_line.xml)
+
+### Domain Gantt Dates  
+ID: `mint_system.project.view_task_form2.domain_gantt_dates`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <label for="planned_date_begin" position="attributes">
+        <attribute name="attrs"></attribute>
+    </label>
+
+    <xpath expr="//label[@for='planned_date_begin']/../div[1]" position="attributes">
+        <attribute name="attrs"></attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/project.view_task_form2.domain_gantt_dates.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.domain_gantt_dates.xml)
+
 ### Parent Domain  
 ID: `mint_system.project.view_task_form2.parent_domain`  
 ```xml

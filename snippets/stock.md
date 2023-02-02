@@ -1502,15 +1502,21 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
 
   <xpath expr="//table[@name='stock_move_line_table']" position="before">
 
-    <table class="table table-sm">
+    <style>
+      table.tissa {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      }
+    </style>
 
+    <table class="tissa table table-sm">
       <thead>
         <tr>
           <th>
             <strong>Pos</strong>
           </th>
           <th>
-            <strong>Product</strong>
+            <strong>Product (Sales Description)</strong>
           </th>
           <th>
             <strong></strong>
@@ -1527,7 +1533,7 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
             <span t-esc="move.position"/>
           </td>
           <td>
-            <span t-esc="move.product_id.name"/>
+            <span t-esc="move.product_id.description_sale"/>
           </td>
           <td></td>
           <td>
@@ -1535,7 +1541,6 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
           </td>
         </tr>
       </tbody>
-
     </table>
 
   </xpath>

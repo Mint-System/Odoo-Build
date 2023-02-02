@@ -13,11 +13,11 @@
                 <div class="page">
                     <style>
                         div.page {
-                        font-size: 0.75rem;
+                            font-size: 0.75rem;
                         }
                         h4 {
-                        padding-top: 3rem;
-                        padding-bottom: 1rem;
+                            padding-top: 3rem;
+                            padding-bottom: 1rem;
                         }
                     </style>
 
@@ -31,35 +31,35 @@
                             <span
                                 t-esc="context_timestamp(datetime.datetime.now()).strftime('%d.%m.%Y')" />
                         </div>
-                        <div class="col-3">
-                            <span>Periode</span>
-                        </div>
-                        <div class="col-4">
-                            <span t-field="o.date_from" /> - <span t-field="o.date_to" />
-                        </div>
                     </div>
                     <div class="row">
                         <div class="col-2">
+                            <span>Periode</span>
+                        </div>
+                        <div class="col-3">
+                            <span t-field="o.date_from" /> - <span t-field="o.date_to" />
+                        </div>
+                        <!-- <div class="col-2">
                             <span>Personalnr.</span>
                         </div>
                         <div class="col-3">
                             <span t-esc="o.employee_id.registration_number" />
-                        </div>
-                        <div class="col-3">
+                        </div> -->
+                        <!-- <div class="col-3">
                             <span>Geleistete Stunden</span>
                         </div>
                         <div class="col-4">
                             <span t-esc="o.gio_worked_hours" />
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="row">
+                    <!-- <div class="row">
                         <div class="col-2">
                             <span>Sozialvers. Nr.</span>
                         </div>
                         <div class="col-3">
                             <span t-esc="o.employee_id.identification_id" />
                         </div>
-                    </div>
+                    </div> -->
 
                     <table class="table td-no-top">
                         <style>
@@ -101,6 +101,9 @@
                                     </td>
                                     <!-- Ansatz -->
                                     <td>
+                                        <t t-if="line.code in ['1000']">
+                                            <span t-field="o.contract_id.gio_wage_hourly" />
+                                        </t>
                                         <t t-if="line.code in ['5001']">
                                             <span
                                                 t-esc="'%.2f' % (o.contract_id.gio_holiday_rate*100)" />
