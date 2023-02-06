@@ -102,7 +102,7 @@
                                     <!-- Ansatz -->
                                     <td>
                                         <t t-if="line.code in ['1000']">
-                                            <span t-field="o.contract_id.gio_wage_hourly" />
+                                            <span t-if="o.contract_id.gio_wage_hourly > 0.0" t-field="o.contract_id.gio_wage_hourly" />
                                         </t>
                                         <t t-if="line.code in ['5001']">
                                             <span

@@ -137,6 +137,45 @@ ID: `mint_system.web.brand_promotion_message.remove`
 ```
 Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.brand_promotion_message.remove.xml)
 
+## External Layout Bold  
+### Remove Background Image  
+ID: `mint_system.web.external_layout_bold.remove_background_image`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+
+  <xpath expr="/t/div[2]" position="replace">
+    <div t-attf-class="article o_report_layout_bold o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '' }});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
+        <t t-call="web.address_layout"/>
+        <t t-out="0"/>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_bold.remove_background_image.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_bold.remove_background_image.xml)
+
+### Set Header Footer Font Size  
+ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+
+  <xpath expr="/t/div[1]" position="before">
+    <style>
+      div.footer,
+      div.header {
+        font-size: 0.9rem;
+      }
+    </style>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_bold.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_bold.set_header_footer_font_size.xml)
+
 ## External Layout Boxed  
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
@@ -281,6 +320,26 @@ ID: `mint_system.web.external_layout_standard.increase_logo_size`
 
 ```
 Source: [snippets/web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.increase_logo_size.xml)
+
+### Move Company Details  
+ID: `mint_system.web.external_layout_standard.move_company_details`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[@class='row'][2]" position="replace" />
+
+  <xpath expr="//div[@name='moto']" position="replace">
+    <div class="col-6 text-right" style="margin-top:22px;" t-field="company.report_header"
+      name="moto" />
+    <div class="col-3" name="company_address">
+      <span t-if="company.company_details" t-field="company.company_details" />
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.move_company_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.move_company_details.xml)
 
 ### Remove Company Info Footer  
 ID: `mint_system.web.external_layout_standard.remove_company_info_footer`  
@@ -448,6 +507,22 @@ ID: `mint_system.web.internal_layout.replace_header`
 </data>
 ```
 Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.replace_header.xml)
+
+## Login Layout  
+### Disable Footer  
+ID: `mint_system.web.login_layout.disable_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.login_layout" priority="50">
+
+  <xpath expr="//t/div" position="before">
+    <t t-set="disable_footer" t-value="True"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.login_layout.disable_footer.xml)
 
 ## Styles Company Report  
 ### Set Font  

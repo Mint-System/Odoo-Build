@@ -83,8 +83,23 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
 
-### Taks Id Required  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.taks_id_required`  
+### So Line Domain  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='so_line']" position="attributes">
+    <attribute name="domain">[('order_id', '=', x_sale_order_id)]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
+
+### Task Id Required  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
@@ -96,7 +111,22 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.taks_id_required`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.taks_id_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.taks_id_required.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
+
+### X Sale Order Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='so_line']" position="after">
+    <field name="x_sale_order_id" optional="hide" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
 
 ## Portal My Timesheets  
 ### Show Billable  

@@ -236,7 +236,15 @@ OSError: [Errno 24] inotify instance limit reached
 Increase ifnotify watch limit.
 
 ```bash
-sudo sysctl fs.inotify.max_user_watches=52428800
+sudo vi /etc/sysctl.conf
+```
+
+```conf
+fs.inotify.max_user_watches=524288
+```
+
+```bash
+sudo sysctl -p
 ```
 
 ### ImportError libldap

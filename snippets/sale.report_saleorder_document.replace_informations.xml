@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <div id="informations" position="replace">
+        <div id="informations">
+
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <strong class="mr-2">Datum:</strong>
+                        <span t-field="doc.date_order" t-options='{"widget": "date"}' />
+                    </td>
+                    <td>
+                        <strong class="mr-2">Verkäufer:</strong>
+                        <span t-field="doc.user_id" />
+                    </td>
+                    <td>
+                        <strong class="mr-2">Ihre Referenz:</strong>
+                        <span t-field="doc.client_order_ref" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong class="mr-2">Gültigkeit:</strong>
+                        <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
+                    </td>
+                    <td>
+                        <strong t-if="doc.project_id">Projekt:</strong>
+                        <span t-field="doc.project_id" />
+                    </td>
+                    <td>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span t-field="doc.payment_term_id" />
+                    </td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+
+</data>

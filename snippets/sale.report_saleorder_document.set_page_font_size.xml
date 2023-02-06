@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-  <xpath expr="//table[hasclass('o_main_table')]" position="before">
+  <xpath expr="//div[hasclass('page')]" position="before">
     <style>
-      table.o_main_table {
-        font-size: 0.8rem;
+      div.page {
+        font-size: 0.9rem;
       }
     </style>
   </xpath>

@@ -2,6 +2,33 @@
 prev: ./snippets.md
 ---
 # Ir Model
+## Account Analytic Line  
+### X Sale Order Id  
+ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_sale_order_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Verkaufsauftrag</field>
+    <field name="model">account.move.line</field>
+    <field name="model_id" ref="account.model_account_analytic_line"/>
+    <field name="name">x_sale_order_id</field>
+    <field name="state">manual</field>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">sale.order</field>
+    <field name="related">task_id.sale_order_id</field>
+  </record>
+  
+</odoo>
+
+```
+Source: [snippets/ir_model.account_analytic_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_analytic_line.x_sale_order_id.xml)
+
 ## Account Bank Statement  
 ### X Cashbox End Ids  
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`  
