@@ -90,7 +90,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
 
   <xpath expr="//field[@name='so_line']" position="attributes">
-    <attribute name="domain">[('order_id', '=', x_sale_order_id)]</attribute>
+    <attribute name="domain">[('order_id', '=', x_sale_order_id), ('is_service', '=', True), ('is_expense', '=', False)]</attribute>
   </xpath>
 
 </data>

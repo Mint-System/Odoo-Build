@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="base.view_users_form" priority="50">
+
+  <xpath expr="//field[@name='in_group_88']" position="attributes">
+    <attribute name="help">Mächtige Server-Aktionen (zum Beispiel "Lagerbuchung abbrechen")</attribute>
+  </xpath>
+</data>

@@ -165,7 +165,7 @@ ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`
                                     <!-- Ansatz -->
                                     <td>
                                         <t t-if="line.code in ['1000']">
-                                            <span t-field="o.contract_id.gio_wage_hourly" />
+                                            <span t-if="o.contract_id.gio_wage_hourly > 0.0" t-field="o.contract_id.gio_wage_hourly" />
                                         </t>
                                         <t t-if="line.code in ['5001']">
                                             <span
@@ -513,6 +513,21 @@ ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`
 
 ```
 Source: [snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml)
+
+### Show Queued For Pdf  
+ID: `mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
+
+  <field name="negative_net_to_report_message" position="after">
+    <field name="queued_for_pdf" />
+  </field>
+
+</data>
+
+```
+Source: [snippets/hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml)
 
 ## View Hr Payslip Line Tree  
 ### Slip Show Optional  

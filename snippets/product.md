@@ -44,6 +44,19 @@ ID: `mint_system.product.product_normal_form_view.relocate_barcode`
 ```
 Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.relocate_barcode.xml)
 
+### Remove Barcode  
+ID: `mint_system.product.product_normal_form_view.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <xpath expr="//field[@name='barcode']" position="replace" />
+
+</data>
+
+```
+Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.remove_barcode.xml)
+
 ## Product Normal Only Form View  
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  

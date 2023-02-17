@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="contract.contract_contract_form_view" priority="50">
+
+    <button name="recurring_create_invoice" position="attributes" >
+        <attribute name="groups"></attribute>
+    </button>
+
+</data>

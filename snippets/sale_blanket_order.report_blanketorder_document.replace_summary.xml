@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
 
-  <xpath expr="//div[2]" position="replace">
+  <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
 
      <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>

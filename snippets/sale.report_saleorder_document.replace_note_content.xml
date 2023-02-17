@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+	<td name="td_note_line" position="replace">
+		<t t-if="'page-break' in line.name">
+		  <t t-raw="'asdf'" />
+		</t>
+		<t t-else="">
+			<td name="td_note_line" colspan="99">
+				<span t-field="line.name"/>
+			</td>
+		</t>
+	</td>	
+
+</data>
