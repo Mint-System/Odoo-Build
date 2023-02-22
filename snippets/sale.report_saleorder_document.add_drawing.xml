@@ -1,23 +1,25 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="71">
-  
-  <xpath expr="//tbody//tr[1]" position="after">
-    
-    <tr style="padding:0">
-            <t>
-              <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
-              <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
-              <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
-               <span t-field="line.name"/>
-                <br/>
-                Ursprungsland: <span t-field="line.product_id.country_of_origin_id.code"/> / Zollposition: <span t-field="line.product_id.hs_code"/>
-              </td>
-              <td></td>
-            </t>
-          </tr>
-          <tr>
-            <td></td>
-          </tr>
 
-   </xpath>
+  <xpath expr="//tbody//tr[1]" position="after">
+
+    <tr style="padding:0">
+      <t>
+        <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
+        <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
+        <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+          <span t-field="line.name" />
+                <br /> Ursprungsland: <span
+            t-field="line.product_id.country_of_origin_id.code" /> / Zollposition: <span
+            t-field="line.product_id.hs_code" />
+        </td>
+        <td></td>
+      </t>
+    </tr>
+    
+    <tr>
+      <td></td>
+    </tr>
+
+  </xpath>
 </data>

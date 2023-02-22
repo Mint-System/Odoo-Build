@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Hr Recruitment
 ## Hr Applicant View Form  

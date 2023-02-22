@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Subscription
 ## Sale Subscription Template View Form  

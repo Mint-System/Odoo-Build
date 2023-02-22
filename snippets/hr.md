@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Hr
 ## Hr Employee Public View Kanban  

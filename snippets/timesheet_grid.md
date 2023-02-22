@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Timesheet Grid
 ## Timesheet View Form  

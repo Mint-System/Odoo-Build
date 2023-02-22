@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Hr Timesheet
 ## Hr Timesheet Line Tree  

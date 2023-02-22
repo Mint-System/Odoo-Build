@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Agreement Legal
 ## Partner Agreement Form View  

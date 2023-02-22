@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Account Sale Timesheet Report
 ## Report Invoice Document  

@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # L10n Ch
 ## Isr Invoice Form  

@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Stock Delivery Note
 ## Report Delivery Document  

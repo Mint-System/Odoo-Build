@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Margin
 ## Sale Margin Sale Order  

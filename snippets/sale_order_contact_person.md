@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Order Contact Person
 ## View Sale Order Form Contact Person  

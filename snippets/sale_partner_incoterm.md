@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Partner Incoterm
 ## View Partner Property Form  

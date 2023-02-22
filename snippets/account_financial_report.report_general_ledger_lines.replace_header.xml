@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+
+	<xpath expr="//div[@class='act_as_row labels']" position="replace">
+
+		<div class="act_as_row labels">
+
+			<!--## col1 date-->
+			<div class="act_as_cell first_column" style="width: 7.78%; text-align: left">
+            Date
+			</div>
+
+			<!--## col2 move-->
+			<div class="act_as_cell" style="width: 28%; text-align: left">Entry</div>
+
+			<!--## col3 account code-->
+			<div class="act_as_cell" style="width: 20%; text-align: left">
+				<t>Account</t>
+			</div>
+
+			<!--## col4 debit-->
+			<div class="act_as_cell amount" style="width: 8.89%;">Debit</div>
+
+			<!--## col5 credit-->
+			<div class="act_as_cell amount" style="width: 8.89%;">Credit</div>
+
+			<!--## col6 balance cumulated-->
+			<div class="act_as_cell amount" style="width: 8.89%;">
+            Cumul. Bal.
+			</div>
+
+			<t t-if="foreign_currency">
+				<!--## col7 amount_currency-->
+				<div class="act_as_cell amount" style="width: 8.89%;">Amount cur.</div>
+				<!--## col8 amount_currency cumulated-->
+				<div class="act_as_cell amount" style="width: 8.89%;">Cumul cur.</div>
+			</t>
+
+		</div>
+
+	</xpath>
+
+</data>

@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Gio Payroll Custom
 ## Gio View Hr Contract Form  

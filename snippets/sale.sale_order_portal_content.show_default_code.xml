@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+
+  <xpath expr="//table[@id='sales_order_table']//tr/th[1]" position="before">
+  	<th class="text-left">Referenz</th>
+  </xpath>
+
+  <xpath expr="//td[@id='product_name']" position="before">
+    <style>
+      td#default_code {
+        white-space: nowrap;
+      }
+    </style>
+  	<td id="default_code"><span t-field="line.product_id.default_code"/></td>
+  </xpath>
+ 
+</data>

@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<data inherit_id="account_financial_report.report_general_ledger_base.hide_filter_display" priority="50">
+<data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
 
-	<xpath expr="//t[@t-set='title']" position="replace">
-	   <t t-set="title">
-	   		Kontoauszug           
-        </t>
+	<xpath expr="//h4/.." position="replace">
+		<div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}' />
+			bis <span t-esc="date_to" t-options='{"widget": "date"}' />
+		</div>
 	</xpath>
-	
+
 </data>

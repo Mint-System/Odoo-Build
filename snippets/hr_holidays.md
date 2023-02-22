@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Hr Holidays
 ## Hr Leave View Form Manager Approve  

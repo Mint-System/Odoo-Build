@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Blanket Order
 ## Report Blanketorder Document  
@@ -222,13 +222,31 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
 
-  <xpath expr="/t/t/div/div[2]" position="replace">
-    <t t-set="address">
-            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+    <xpath expr="/t/t/div/div[2]" position="replace">
+        <t t-set="address">
+            <t t-if="doc.partner_contact_id">
+                <div t-esc="doc.partner_contact_id.parent_id.name"/>
+                <div t-esc="doc.partner_contact_id.parent_id.name2"/>
+                <span t-esc="doc.partner_contact_id.title.name"/>
+                <span t-esc="doc.partner_contact_id.name"/>
+                <div t-esc="doc.partner_contact_id.street"/>
+                <div t-esc="doc.partner_contact_id.street2"/>
+                <span t-esc="doc.partner_contact_id.zip"/>
+                <span t-esc="doc.partner_contact_id.city"/>
+                <t t-if="doc.partner_contact_id.country_id.code != 'CH'">
+                    <div t-esc="doc.partner_contact_id.country_id.name"/>
+                </t>
+            </t>
+            <t t-else="">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>
+:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
         </t>
         <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
-            <t t-set="information_block"> 
+            <t t-set="information_block">
                 <!--
                 <strong t-if="doc.partner_shipping_id == doc.partner_invoice_id">Invoicing and Shipping Address:</strong>
                 <strong t-if="doc.partner_shipping_id != doc.partner_invoice_id">Invoicing Address:</strong>
@@ -240,7 +258,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
                 </t>
             </t>
         </t>
-  </xpath>
+    </xpath>
 
 </data>
 ```
@@ -503,7 +521,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
 
-  <xpath expr="//div[2]" position="replace">
+  <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
 
      <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
       <tr>

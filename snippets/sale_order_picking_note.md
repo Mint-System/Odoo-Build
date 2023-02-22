@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Sale Order Picking Note
 ## View Order Form Inherit Sale Stock  

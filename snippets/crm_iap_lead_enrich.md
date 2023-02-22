@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Crm Iap Lead Enrich
 ## Crm Lead View Form  

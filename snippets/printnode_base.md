@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Printnode Base
 ## Printnode Scenario Domain Editor  

@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Purchase Requisition
 ## Product Supplierinfo Tree View Inherit  

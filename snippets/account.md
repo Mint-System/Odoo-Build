@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Account
 ## Report Invoice Document  
@@ -880,7 +880,7 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
 <!-- Show custom field country of origin and hs code -->
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
+  <xpath expr="//span[@t-field='line.name']" position="after">
     <t t-if="line.product_id.country_of_origin_id.code">
       <br/>
       Country of Origin: <span t-field="line.product_id.country_of_origin_id.code"/>
@@ -892,7 +892,6 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_hs_code_and_origin.xml)
 
@@ -2767,7 +2766,7 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
 <!-- Show custom field country of origin and hs code -->
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
+  <xpath expr="//span[@t-field='line.name']" position="after">
     <t t-if="line.product_id.country_of_origin_id.code">
       <br/>
       Country of Origin: <span t-field="line.product_id.country_of_origin_id.code"/>
@@ -2779,7 +2778,6 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.product_hs_code_and_origin.xml)
 

@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Mrp Account
 ## Mrp Production Form View Inherited  

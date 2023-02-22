@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Hr Holidays Delegations
 ## Hr Leave View Form Inherit  

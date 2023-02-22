@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+
+    <xpath expr="//t/div[@class='act_as_row lines']" position="replace">
+
+        <div class="act_as_row lines">
+
+            <!--## col1 date-->
+            <div class="act_as_cell left">
+                <t t-if="line['id']">
+                    <!--## We don't use t-field because it throws an error on click -->
+                    <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form">
+                        <t t-esc="line['date']" t-options="{'widget': 'date'}"/>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span>
+                        <!--## We don't use t-field because it throws an error on click -->
+                        <t t-esc="line['date']" t-options="{'widget': 'date'}"/>
+                    </span>
+                </t>
+            </div>
+
+            <!--## col2 move-->
+            <div class="act_as_cell left">
+                <t t-if="line['entry_id']">
+
+                    <span t-att-res-id="line['journal_id']" res-model="account.journal" view-type="form">
+                        <t t-raw="o._get_atr_from_dict(line['journal_id'], journals_data, 'code')"/>
+                    </span>
+                    <br></br>
+                    <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
+                        <t t-raw="line['name']"/>
+                    </span>
+                </t>
+            </div>
+
+            <!--## col3 entry_id and contra_account -->
+            <div class="act_as_cell left">
+                <span>
+                    <t>
+                        <t t-if="line['entry_id']">
+                            <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
+                                <t t-raw="line['entry']"/>
+                            </span>
+                        </t>
+                    </t>
+                    <br></br>
+                    <t>[Gegenkonto]</t>
+                    <br></br>
+                </span>
+            </div>
+
+            <!--## col4 debit-->
+            <div class="act_as_cell amount">
+                <t t-if="line['id']">
+                    <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form">
+                        <t t-raw="line['debit']" t-options="{'widget': 'float', 'precision': 2}"/>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span>
+                        <t t-raw="line['debit']" t-options="{'widget': 'float', 'precision': 2}"/>
+                    </span>
+                </t>
+            </div>
+
+            <!--## col5 credit-->
+            <div class="act_as_cell amount">
+                <t t-if="line['id']">
+                    <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form">
+                        <t t-raw="line['credit']" t-options="{'widget': 'float', 'precision': 2}"/>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span>
+                        <t t-raw="line['credit']" t-options="{'widget': 'float', 'precision': 2}"/>
+                    </span>
+                </t>
+            </div>
+
+            <!--## col6 balance cumulated-->
+            <div class="act_as_cell amount">
+                <t t-if="line['id']">
+                    <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form">
+                        <t t-raw="line['balance']" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                    </span>
+                </t>
+                <t t-else="">
+                    <span>
+                        <t t-raw="line['balance']" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
+                    </span>
+                </t>
+            </div>
+
+            <t t-if="foreign_currency">
+                <t t-if="line['currency_id']">
+                    <t t-set="line_currency" t-value="currency_model.browse(line['currency_id'][0])"/>
+                    <t t-set="total_bal_curr" t-value="total_bal_curr + line['bal_curr']" t-if="line_currency!=company_currency"/>
+                    <!--## col7 amount_currency-->
+                    <div class="act_as_cell amount" style="width: 3.63%;">
+                        <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form" t-raw="line['bal_curr']" t-options="{'widget': 'monetary', 'display_currency': line_currency}" t-if="line_currency!=company_currency"/>
+                    </div>
+                    <!--## col8 amount_currency cumulated-->
+                    <div class="act_as_cell amount" style="width: 3.63%;">
+                        <span t-att-res-id="line['id']" res-model="account.move.line" view-type="form" t-raw="total_bal_curr" t-options="{'widget': 'monetary', 'display_currency': line_currency}" t-if="line_currency!=company_currency"/>
+                    </div>
+                </t>
+                <t t-if="not line['currency_id']">
+                    <!--## col7 amount_currency-->
+                    <div class="act_as_cell amount" style="width: 3.63%;"/>
+                    <!--## col8 amount_currency cumulated-->
+                    <div class="act_as_cell amount" style="width: 3.63%;"/>
+                </t>
+            </t>
+        </div>
+
+    </xpath>
+
+</data>

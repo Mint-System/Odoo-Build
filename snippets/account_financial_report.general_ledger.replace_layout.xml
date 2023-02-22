@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="account_financial_report.general_ledger" priority="50">
+
+	<xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">		
+		<attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>		
+	</xpath>
+
+</data>

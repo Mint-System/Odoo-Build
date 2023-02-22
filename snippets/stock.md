@@ -1,5 +1,5 @@
 ---
-prev: ./snippets.md
+prev: ./snippets
 ---
 # Stock
 ## Label Transfer Template View  
@@ -4013,7 +4013,15 @@ ID: `mint_system.stock.view_move_form.show_move_lines`
 
     <group name="origin_grp" position="before">
         <group name="move_lines">
-            <field name="move_line_ids"/>
+            <field name="move_line_ids">
+                <tree>
+                    <field name="date" />
+                    <field name="reference" />
+                    <field name="lot_id" />
+                    <field name="qty_done" />
+                    <field name="state" />
+                </tree>
+            </field>
         </group>
     </group>
 
@@ -4174,20 +4182,20 @@ ID: `mint_system.stock.view_move_line_form.show_move_id`
 ```
 Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_move_id.xml)
 
-### Show Picking Id  
-ID: `mint_system.stock.view_move_line_form.show_picking_id`  
+### Show Product Qty  
+ID: `mint_system.stock.view_move_line_form.show_product_qty`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
 
-  <field name="origin" position="after">
-    <field name="picking_id"/>
+  <field name="lot_id" position="before">
+    <field name="product_qty"/>
   </field>
 
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_form.show_picking_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_picking_id.xml)
+Source: [snippets/stock.view_move_line_form.show_product_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_line_form.show_product_qty.xml)
 
 ## View Move Line Tree  
 ### Enable Create  
