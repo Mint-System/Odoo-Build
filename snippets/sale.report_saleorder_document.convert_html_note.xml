@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+	<xpath expr="//td[@name='td_note_line']/.." position="replace">
+		<t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
+			<td name="td_note_line" colspan="99">
+				<span t-field="line.name"/>
+			</td>
+		</t>
+	</xpath>	
+
+	<xpath expr="//td[@name='td_section_subtotal']/../.." position="after">
+		<t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+			<td name="td_html_line" colspan="99">
+				<t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')"/>
+			</td>
+		</t>
+	</xpath>	
+
+</data>

@@ -598,7 +598,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
 
         <div class="act_as_row lines">
 
-            <!--## col1 date-->
+            <!--## col1 -->
             <div class="act_as_cell left">
                 <t t-if="line['id']">
                     <!--## We don't use t-field because it throws an error on click -->
@@ -614,32 +614,33 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                 </t>
             </div>
 
-            <!--## col2 move-->
-            <div class="act_as_cell left">
-                <t t-if="line['entry_id']">
-
-                    <span t-att-res-id="line['journal_id']" res-model="account.journal" view-type="form">
-                        <t t-raw="o._get_atr_from_dict(line['journal_id'], journals_data, 'code')"/>
-                    </span>
-                    <br></br>
-                    <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
-                        <t t-raw="line['name']"/>
-                    </span>
-                </t>
-            </div>
-
-            <!--## col3 entry_id and contra_account -->
+            <!--## col2 -->
             <div class="act_as_cell left">
                 <span>
                     <t>
                         <t t-if="line['entry_id']">
                             <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
-                                <t t-raw="line['entry']"/>
+                                <t t-esc="(line['entry'][:17] + '...') if len(line['entry']) &gt; 17 else line['entry']"/>
                             </span>
                         </t>
                     </t>
-                    <br></br>
-                    <t>[Gegenkonto]</t>
+
+                    <t>
+                        <t t-if="line['entry_id']">
+                            <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
+                                <t t-esc="(line['entry'][:17] + '...') if len(line['entry']) &gt; 17 else line['entry']"/>
+                            </span>
+                        </t>
+                    </t>
+                    
+
+                    <span t-att-res-id="line['contra_accounts']" res-model="account.move.line" view-type="form">
+                        <t t-raw="line['contra_accounts']"/>
+                    </span>
+                    <span t-att-res-id="line['partner_name']" res-model="account.move.line" view-type="form">
+                        <t t-raw="line['partner_name']"/>
+                    </span>
+
                     <br></br>
                 </span>
             </div>

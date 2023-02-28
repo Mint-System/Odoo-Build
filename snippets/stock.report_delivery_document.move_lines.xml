@@ -1,16 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_line_table']" position="before">
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">   
 
-    <style>
-      table.tissa {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      }
-    </style>
-
-    <table class="tissa table table-sm">
+    <table class="tissa table table-sm" name="move_table">
       <thead>
         <tr>
           <th>
@@ -22,7 +15,7 @@
           <th>
             <strong></strong>
           </th>
-          <th>
+          <th class="cell_right">
             <strong>Quantity</strong>
           </th>
         </tr>
@@ -37,8 +30,9 @@
             <span t-esc="move.product_id.description_sale"/>
           </td>
           <td></td>
-          <td>
+          <td class="cell_right">
             <span t-esc="move.quantity_done"/>
+            <span t-field="move.product_uom"/>
           </td>
         </tr>
       </tbody>

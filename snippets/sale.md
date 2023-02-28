@@ -1349,6 +1349,32 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_title`
 ```
 Source: [snippets/sale.report_saleorder_document.confirmation_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.confirmation_title.xml)
 
+### Convert Html Note  
+ID: `mint_system.sale.report_saleorder_document.convert_html_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+	<xpath expr="//td[@name='td_note_line']/.." position="replace">
+		<t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
+			<td name="td_note_line" colspan="99">
+				<span t-field="line.name"/>
+			</td>
+		</t>
+	</xpath>	
+
+	<xpath expr="//td[@name='td_section_subtotal']/../.." position="after">
+		<t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+			<td name="td_html_line" colspan="99">
+				<t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')"/>
+			</td>
+		</t>
+	</xpath>	
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.convert_html_note.xml)
+
 ### Expand Product Description  
 ID: `mint_system.sale.report_saleorder_document.expand_product_description`  
 ```xml
@@ -1660,6 +1686,21 @@ ID: `mint_system.sale.report_saleorder_document.rename_table_header`
 ```
 Source: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.rename_table_header.xml)
 
+### Repeat Table Header  
+ID: `mint_system.sale.report_saleorder_document.repeat_table_header`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//thead[@style='display: table-row-group']" position="attributes">
+    <attribute name="style"></attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.repeat_table_header.xml)
+
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  
 ```xml
@@ -1725,27 +1766,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_informations.xml)
-
-### Replace Note Content  
-ID: `mint_system.sale.report_saleorder_document.replace_note_content`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-  
-	<td name="td_note_line" position="replace">
-		<t t-if="'page-break' in line.name">
-		  <t t-raw="'asdf'" />
-		</t>
-		<t t-else="">
-			<td name="td_note_line" colspan="99">
-				<span t-field="line.name"/>
-			</td>
-		</t>
-	</td>	
-
-</data>
-```
-Source: [snippets/sale.report_saleorder_document.replace_note_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.replace_note_content.xml)
 
 ### Replace Partner Id  
 ID: `mint_system.sale.report_saleorder_document.replace_partner_id`  
@@ -2843,6 +2863,20 @@ ID: `mint_system.sale.view_order_form.modify_readonly_date_order`
 </data>
 ```
 Source: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.modify_readonly_date_order.xml)
+
+### Move Comment  
+ID: `mint_system.sale.view_order_form.move_comment`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='payment_term_id']" position="after">
+    <field name="comment" position="move"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.move_comment.xml)
 
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  

@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+	  
+		<style>
+      table.tissa {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      }
+      .cell_right {
+      text-align: right;
+      padding-right: 10px !important;
+      }
+    </style>
+    
+	</xpath>
+
+	<xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+			 <attribute name="class">cell_right</attribute>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
+</data>

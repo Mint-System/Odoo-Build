@@ -1500,16 +1500,9 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_line_table']" position="before">
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">   
 
-    <style>
-      table.tissa {
-      margin-top: 30px;
-      margin-bottom: 30px;
-      }
-    </style>
-
-    <table class="tissa table table-sm">
+    <table class="tissa table table-sm" name="move_table">
       <thead>
         <tr>
           <th>
@@ -1521,7 +1514,7 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
           <th>
             <strong></strong>
           </th>
-          <th>
+          <th class="cell_right">
             <strong>Quantity</strong>
           </th>
         </tr>
@@ -1536,8 +1529,9 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
             <span t-esc="move.product_id.description_sale"/>
           </td>
           <td></td>
-          <td>
+          <td class="cell_right">
             <span t-esc="move.quantity_done"/>
+            <span t-field="move.product_uom"/>
           </td>
         </tr>
       </tbody>
@@ -2187,6 +2181,44 @@ ID: `mint_system.stock.report_delivery_document.sort_by_position`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
+
+### Style Tissa  
+ID: `mint_system.stock.report_delivery_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+	  
+		<style>
+      table.tissa {
+      margin-top: 30px;
+      margin-bottom: 30px;
+      }
+      .cell_right {
+      text-align: right;
+      padding-right: 10px !important;
+      }
+    </style>
+    
+	</xpath>
+
+	<xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+			 <attribute name="class">cell_right</attribute>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.stock.report_delivery_document.style_trimada`  
@@ -3754,6 +3786,21 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name`
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml)
 
 ## Stock Report Delivery Has Serial Move Line  
+### Barcode  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+
+    <xpath expr="//span[@t-field='move_line.lot_id.name']" position="after">
+        <t t-set="barcode" t-value="move_line.lot_id.name" />
+        <img style="padding-left: 20px" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('EAN13', barcode, 200, 25)" alt="Barcode" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.barcode.xml)
+
 ### Description Sale  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale`  
 ```xml
@@ -3810,6 +3857,31 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`
 
 ```
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
+
+### Style Tissa  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
+  
+<xpath expr="//td[1]" position="before">
+
+	<style>
+      .cell_right {
+      text-align: right;
+      padding-right: 10px !important;
+      }
+    </style>
+    
+  </xpath>
+
+	<xpath expr="//td[@name='move_line_lot_qty_done']" position="attributes">
+			 <attribute name="class">cell_right</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.xml)
 
 ### X Hide On Delivery  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery`  

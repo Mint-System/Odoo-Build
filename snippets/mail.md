@@ -434,3 +434,23 @@ ID: `mint_system.mail.message_activity_assigned.set_access_link_my_activities`
 ```
 Source: [snippets/mail.message_activity_assigned.set_access_link_my_activities.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.message_activity_assigned.set_access_link_my_activities.xml)
 
+## View Mail Tree  
+### Editable  
+ID: `mint_system.mail.view_mail_tree.editable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.view_mail_tree" priority="50">
+
+    <tree position="attributes">
+      <attribute name="editable" />
+    </tree>
+
+    <field name="subject" position="after">
+      <field name="email_from" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/mail.view_mail_tree.editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.view_mail_tree.editable.xml)
+

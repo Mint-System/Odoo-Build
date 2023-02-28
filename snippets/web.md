@@ -313,7 +313,8 @@ ID: `mint_system.web.external_layout_standard.increase_logo_size`
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <xpath expr="//img[@t-if='company.logo']" position="attributes">
-    <attribute name="style">max-height: 90px;</attribute>
+    <!-- <attribute name="style">max-height: 90px;</attribute> -->
+    <attribute name="style">max-width: 250px; margin-top: 10px</attribute>
   </xpath>
 
 </data>
