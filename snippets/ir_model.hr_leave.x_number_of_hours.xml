@@ -13,7 +13,7 @@
     <field name="ttype">float</field>
     <field name="depends">number_of_hours_display</field>
     <field name="compute">for leave in self:
-      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>ld>
+      leave['x_number_of_hours'] = round(leave.number_of_hours_display, 2)</field>
   </record>
 
 </odoo>
