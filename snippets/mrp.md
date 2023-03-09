@@ -553,9 +553,9 @@ ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
-  <field name="bom_id" position="before">
-    <field name="finished_move_line_ids"/>
-  </field>
+  <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
+    <field name="finished_move_line_ids" widget="many2many_tags"/>
+  </xpath>
 
 </data>
 
@@ -583,9 +583,9 @@ ID: `mint_system.mrp.mrp_production_form_view.move_finished_ids`
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
 
-  <field name="bom_id" position="before">
-    <field name="move_finished_ids"/>
-  </field>
+  <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
+    <field name="move_finished_ids" widget="many2many_tags"/>
+  </xpath>
 
 </data>
 
@@ -1244,6 +1244,33 @@ ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`
 ```
 Source: [snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.replace_title_section_to_consume_products.xml)
 
+### Show Dest Location  
+ID: `mint_system.mrp.report_mrporder.show_dest_location`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+    <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
+        <t t-if="o.finished_move_line_ids">
+            <div class="col-3">
+                <strong>Destination:</strong>
+                <br />
+                <span t-field="o.finished_move_line_ids.location_dest_id.name" />
+            </div>
+        </t>
+        <t t-elif="o.move_finished_ids">
+            <div class="col-3">
+                <strong>Destination:</strong>
+                <br />
+                <span t-field="o.move_finished_ids.location_dest_id.name" />
+            </div>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_dest_location.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_dest_location.xml)
+
 ### Show Expected  
 ID: `mint_system.mrp.report_mrporder.show_expected`  
 ```xml
@@ -1330,6 +1357,27 @@ ID: `mint_system.mrp.report_mrporder.show_planned`
 
 ```
 Source: [snippets/mrp.report_mrporder.show_planned.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_planned.xml)
+
+### Show Put Away Rule Out Location  
+ID: `mint_system.mrp.report_mrporder.show_put_away_rule_out_location`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+    <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
+        <t t-set="putaway_rule_id" t-value="o.location_dest_id.putaway_rule_ids.filtered(lambda p: p.product_id == o.product_id)[:1]" />
+        <t t-if="putaway_rule_id">
+            <div class="col-3">
+                <strong>Einlagerungsort:</strong>
+                <br />
+                <span t-field="putaway_rule_id.location_out_id.name" />
+            </div>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_put_away_rule_out_location.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mrp.report_mrporder.show_put_away_rule_out_location.xml)
 
 ### Show Stock  
 ID: `mint_system.mrp.report_mrporder.show_stock`  

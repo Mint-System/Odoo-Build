@@ -9,7 +9,6 @@
             }
         </style>
         <div id="informations">
-
             <table class="table table-borderless table-sm">
                 <tr>
                     <td>
@@ -17,7 +16,6 @@
                             <strong class="mr-2">Datum:</strong>
                             <span t-field="doc.date_order" t-options='{"widget": "date"}' />
                         </p>
-
                         <p>
                             <strong class="mr-2">Gültigkeit:</strong>
                             <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
@@ -29,7 +27,6 @@
                             <span t-field="doc.user_id" />
 
                         </p>
-
                         <p>
                             <strong t-if="doc.project_id">Projekt:</strong>
                             <span t-field="doc.project_id" />
@@ -40,12 +37,6 @@
                             <strong class="mr-2">Ihre Referenz:</strong>
                             <span t-field="doc.client_order_ref" />
                         </p>
-                        <p t-if="doc.x_client_project_ref">
-                            <strong>Ihr Projekt:</strong>
-                            <span t-field="doc.x_client_project_ref" />
-                        </p>
-
-
                         <p>
                             <strong class="mr-2">Zahlungsbedingungen:</strong>
                             <span t-field="doc.payment_term_id" />
@@ -53,7 +44,6 @@
                     </td>
                 </tr>
             </table>
-
         </div>
     </div>
 

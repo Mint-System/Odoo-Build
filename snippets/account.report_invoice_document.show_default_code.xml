@@ -3,7 +3,7 @@
 
   <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
-      <strong >Part No.</strong>
+      <strong >Referenz</strong>
     </th>
   </xpath>
 

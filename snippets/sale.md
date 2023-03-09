@@ -801,16 +801,15 @@ ID: `mint_system.sale.report_saleorder_document.add_address_space`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<t t-set="address" position="before">
-		<style>
-			div.address {
-				padding-top: 3rem
-			}
-		</style>
-	</t>
+    <t t-set="address" position="before">
+        <style>
+            div.address {
+                padding-top: 3rem
+            }
+        </style>
+    </t>
 
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_address_space.xml)
 
@@ -1715,7 +1714,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
             }
         </style>
         <div id="informations">
-
             <table class="table table-borderless table-sm">
                 <tr>
                     <td>
@@ -1723,7 +1721,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                             <strong class="mr-2">Datum:</strong>
                             <span t-field="doc.date_order" t-options='{"widget": "date"}' />
                         </p>
-
                         <p>
                             <strong class="mr-2">Gültigkeit:</strong>
                             <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
@@ -1735,7 +1732,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                             <span t-field="doc.user_id" />
 
                         </p>
-
                         <p>
                             <strong t-if="doc.project_id">Projekt:</strong>
                             <span t-field="doc.project_id" />
@@ -1746,12 +1742,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                             <strong class="mr-2">Ihre Referenz:</strong>
                             <span t-field="doc.client_order_ref" />
                         </p>
-                        <p t-if="doc.x_client_project_ref">
-                            <strong>Ihr Projekt:</strong>
-                            <span t-field="doc.x_client_project_ref" />
-                        </p>
-
-
                         <p>
                             <strong class="mr-2">Zahlungsbedingungen:</strong>
                             <span t-field="doc.payment_term_id" />
@@ -1759,7 +1749,6 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                     </td>
                 </tr>
             </table>
-
         </div>
     </div>
 
@@ -2056,6 +2045,25 @@ ID: `mint_system.sale.report_saleorder_document.set_address_name`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.set_address_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_address_name.xml)
+
+### Set Header Font Size  
+ID: `mint_system.sale.report_saleorder_document.set_header_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[hasclass('page')]" position="inside">
+    <style>
+        h2 {
+            font-size: 1.5rem;
+        }
+    </style>
+</xpath>
+
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.set_header_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_header_font_size.xml)
 
 ### Set Ids  
 ID: `mint_system.sale.report_saleorder_document.set_ids`  
@@ -3524,6 +3532,21 @@ ID: `mint_system.sale.view_sales_order_filter.add_state`
 
 ```
 Source: [snippets/sale.view_sales_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_filter.add_state.xml)
+
+### Domain Name Analytic Account  
+ID: `mint_system.sale.view_sales_order_filter.domain_name_analytic_account`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_sales_order_filter" priority="50">
+
+  <field name="name" position="replace">
+    <field name="name" string="Order" filter_domain="['|', '|', '|', ('name', 'ilike', self), ('client_order_ref', 'ilike', self), ('partner_id', 'child_of', self), ('analytic_account_id', 'ilike', self)]"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml)
 
 ### Modify Order Line  
 ID: `mint_system.sale.view_sales_order_filter.modify_order_line`  

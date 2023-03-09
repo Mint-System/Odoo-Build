@@ -4207,6 +4207,21 @@ ID: `mint_system.stock.view_move_form.show_quantity_done`
 ```
 Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_quantity_done.xml)
 
+### Show Reservation Date  
+ID: `mint_system.stock.view_move_form.show_reservation_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_form" priority="50">
+
+  <field name="date_deadline" position="after">
+    <field name="reservation_date"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_form.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_form.show_reservation_date.xml)
+
 ### Show Stock Valuation Layer Ids  
 ID: `mint_system.stock.view_move_form.show_stock_valuation_layer_ids`  
 ```xml
@@ -4346,6 +4361,21 @@ ID: `mint_system.stock.view_move_tree.show_create_details`
 ```
 Source: [snippets/stock.view_move_tree.show_create_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_create_details.xml)
 
+### Show Date  
+ID: `mint_system.stock.view_move_tree.show_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_tree" priority="50">
+
+  <field name="location_dest_id" position="after">
+    <field name="date" optional="hide" />
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_tree.show_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_date.xml)
+
 ### Show Optional  
 ID: `mint_system.stock.view_move_tree.show_optional`  
 ```xml
@@ -4360,6 +4390,21 @@ ID: `mint_system.stock.view_move_tree.show_optional`
 
 ```
 Source: [snippets/stock.view_move_tree.show_optional.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_optional.xml)
+
+### Show Reservation Date  
+ID: `mint_system.stock.view_move_tree.show_reservation_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_move_tree" priority="50">
+
+  <field name="location_dest_id" position="after">
+    <field name="reservation_date" optional="hide" />
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_move_tree.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_move_tree.show_reservation_date.xml)
 
 ### Sort Date  
 ID: `mint_system.stock.view_move_tree.sort_date`  

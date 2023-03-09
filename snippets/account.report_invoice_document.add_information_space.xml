@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="before">
+        <style>
+            div#informations {
+                padding-top: 1rem;
+                padding-bottom: 1rem
+            }
+        </style>
+    </xpath>
+
+</data>
