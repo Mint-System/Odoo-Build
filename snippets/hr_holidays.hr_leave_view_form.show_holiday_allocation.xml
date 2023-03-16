@@ -3,7 +3,7 @@
 
   <label for="request_date_from" position="before">
     <field name="x_requires_allocation" invisible="1"/>
-    <field name="holiday_allocation_id" domain="[('employee_id', 'in', employee_ids), ('holiday_status_id', '=', holiday_allocation_id)]" attrs="{'invisible': [('x_requires_allocation', '=', 'no')] }" options="{'no_create': True, 'no_open': True}"/>
+    <field name="holiday_allocation_id" domain="[('employee_id', 'in', employee_ids), ('holiday_status_id', '=', holiday_status_id), ('date_from', '&lt;=', request_date_from)]" required="1" attrs="{'invisible': ['|', ('x_requires_allocation', '=', 'no'), ('request_date_from', '=', False)], 'readonly': [('state', 'not in', ('draft', 'confirm'))] }" options="{'no_create': True, 'no_open': True}"/>
   </label>
 
 </data>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="comment" position="before">
+        <style>
+            div[name="comment"] {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+    </div>
+
+</data>

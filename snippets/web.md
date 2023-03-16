@@ -466,6 +466,40 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 ```
 Source: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.replace_url.xml)
 
+### Set Header Footer Font Size  
+ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <!-- <xpath expr="/t/div[1]" position="before">
+    <style>
+      div.footer,
+      div.header {
+      font-size: 0.8rem;
+      }
+    </style>
+  </xpath> -->
+
+  <xpath expr="//div[@t-field='company.report_footer']" position="replace">
+    <div style="font-size: 0.8rem;" class="mt-1" t-field="company.report_footer" />
+  </xpath>
+
+  <xpath expr="//div[@t-field='company.report_footer']/../../div" position="replace">
+    <div t-if="report_type == 'pdf'" style="font-size: 0.8rem;" class="text-muted">
+      Page: <span class="page"/> / <span class="topage"/>
+    </div>
+  </xpath>
+
+  <xpath expr="//span[@t-field='company.company_details']" position="replace">
+    <span t-if="company.company_details" style="font-size: 0.8rem;"
+      t-field="company.company_details" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
+
 ## Internal Layout  
 ### Header Styles  
 ID: `mint_system.web.internal_layout.header_styles`  

@@ -473,6 +473,20 @@ ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`
 ```
 Source: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
 
+### X Warranty  
+ID: `mint_system.product.product_template_only_form_view.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <field name="product_tag_ids" position="after">
+        <field name="x_warranty"/>
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_template_only_form_view.x_warranty.xml)
+
 ## Product Template Search View  
 ### Add Type Description  
 ID: `mint_system.product.product_template_search_view.add_type_description`  

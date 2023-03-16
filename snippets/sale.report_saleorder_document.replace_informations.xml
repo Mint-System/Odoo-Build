@@ -16,7 +16,7 @@
                             <strong class="mr-2">Datum:</strong>
                             <span t-field="doc.date_order" t-options='{"widget": "date"}' />
                         </p>
-                        <p>
+                         <p t-if="doc.validity_date and doc.state in ['draft','sent']">
                             <strong class="mr-2">Gültigkeit:</strong>
                             <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
                         </p>
@@ -28,12 +28,12 @@
 
                         </p>
                         <p>
-                            <strong t-if="doc.project_id">Projekt:</strong>
+                            <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
                             <span t-field="doc.project_id" />
                         </p>
                     </td>
                     <td>
-                        <p>
+                        <p t-if="doc.client_order_ref">
                             <strong class="mr-2">Ihre Referenz:</strong>
                             <span t-field="doc.client_order_ref" />
                         </p>

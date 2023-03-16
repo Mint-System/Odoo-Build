@@ -813,6 +813,21 @@ ID: `mint_system.sale.report_saleorder_document.add_address_space`
 ```
 Source: [snippets/sale.report_saleorder_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_address_space.xml)
 
+### Add Blanket Order Line  
+ID: `mint_system.sale.report_saleorder_document.add_blanket_order_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+<xpath expr="//td[@name='td_product_uom_qty']" position="inside">
+  <t t-if="doc.x_incoterm_blanket_order"> 
+    <p t-field="doc.x_incoterm_blanket_order.code"/>   
+  </t>
+</xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_blanket_order_line.xml)
+
 ### Add Default Code  
 ID: `mint_system.sale.report_saleorder_document.add_default_code`  
 ```xml
@@ -871,29 +886,17 @@ Source: [snippets/sale.report_saleorder_document.add_delivery_date.xml](https://
 ID: `mint_system.sale.report_saleorder_document.add_drawing`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="71">
-
-  <xpath expr="//tbody//tr[1]" position="after">
-
-    <tr style="padding:0">
-      <t>
-        <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
-        <td style="padding:0; padding-left:3px; line-height: 1.2"></td>
-        <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
-          <span t-field="line.name" />
-                <br /> Ursprungsland: <span
-            t-field="line.product_id.country_of_origin_id.code" /> / Zollposition: <span
-            t-field="line.product_id.hs_code" />
-        </td>
-        <td></td>
-      </t>
-    </tr>
-    
-    <tr>
-      <td></td>
-    </tr>
-
-  </xpath>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+<xpath expr="//td[@name='td_name']" position="inside">
+  <t t-if="line.product_id.drawing_file">
+    <br/>
+    <span>Drawing: </span>
+      <a t-attf-href="{{line.product_id.drawing_file.url}}">
+    <span t-field="line.product_id.drawing_file.display_name"/>
+   </a>
+  </t>
+</xpath>
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_drawing.xml)
@@ -1101,6 +1104,30 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_infotable.xml)
+
+### Add Note Space  
+ID: `mint_system.sale.report_saleorder_document.add_note_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <p t-field="doc.note" position="replace">
+        <style>
+            div#note {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+		<div id="note">
+			<p  t-field="doc.note"/>
+		</div>
+    </p>
+
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_note_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_note_space.xml)
 
 ### Add Notes  
 ID: `mint_system.sale.report_saleorder_document.add_notes`  
@@ -1721,7 +1748,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                             <strong class="mr-2">Datum:</strong>
                             <span t-field="doc.date_order" t-options='{"widget": "date"}' />
                         </p>
-                        <p>
+                         <p t-if="doc.validity_date and doc.state in ['draft','sent']">
                             <strong class="mr-2">Gültigkeit:</strong>
                             <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
                         </p>
@@ -1733,12 +1760,12 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
 
                         </p>
                         <p>
-                            <strong t-if="doc.project_id">Projekt:</strong>
+                            <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
                             <span t-field="doc.project_id" />
                         </p>
                     </td>
                     <td>
-                        <p>
+                        <p t-if="doc.client_order_ref">
                             <strong class="mr-2">Ihre Referenz:</strong>
                             <span t-field="doc.client_order_ref" />
                         </p>
@@ -2046,25 +2073,6 @@ ID: `mint_system.sale.report_saleorder_document.set_address_name`
 ```
 Source: [snippets/sale.report_saleorder_document.set_address_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_address_name.xml)
 
-### Set Header Font Size  
-ID: `mint_system.sale.report_saleorder_document.set_header_font_size`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//div[hasclass('page')]" position="inside">
-    <style>
-        h2 {
-            font-size: 1.5rem;
-        }
-    </style>
-</xpath>
-
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.set_header_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_header_font_size.xml)
-
 ### Set Ids  
 ID: `mint_system.sale.report_saleorder_document.set_ids`  
 ```xml
@@ -2141,6 +2149,25 @@ ID: `mint_system.sale.report_saleorder_document.set_table_font_size`
 
 ```
 Source: [snippets/sale.report_saleorder_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_table_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.sale.report_saleorder_document.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[hasclass('page')]" position="inside">
+    <style>
+        h2 {
+            font-size: 1.5rem;
+        }
+    </style>
+</xpath>
+
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.set_title_font_size.xml)
 
 ### Show Default Code  
 ID: `mint_system.sale.report_saleorder_document.show_default_code`  

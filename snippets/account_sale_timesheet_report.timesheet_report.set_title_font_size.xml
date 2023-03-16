@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
+<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
 
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
-            body {
-                font-size: 0.9rem;
+            h2 {
+                font-size: 1.5rem;
             }
         </style>
     </xpath>

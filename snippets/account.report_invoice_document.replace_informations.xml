@@ -34,7 +34,7 @@
 
         <tr>
           <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2">Fälligkeitsdatum:</strong>
+            <strong class="mr-2 ml-1">Fälligkeitsdatum:</strong>
             <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
           </td><td t-else=""></td>
           <td>
@@ -42,7 +42,7 @@
             <span t-field="o.invoice_user_id.name" />
           </td>
           <td rowspan="2">
-            <div><strong class="mr-2">Ihre Referenz:</strong></div>
+            <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
         </tr>

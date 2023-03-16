@@ -33,6 +33,57 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pageb
 ```
 Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
 
+## Timesheet Report  
+### Add Title Space  
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+
+    <h2 position="attributes">
+        <attribute name="style">padding-bottom: 25px</attribute>
+    </h2>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml)
+
+### Set Page Font Size  
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)
+
 ## Timesheet Table  
 ### Add Start And End Hour  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour`  
@@ -57,6 +108,24 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end
 ```
 Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
 
+### Set Table Font Size  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+    <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+        <style>
+            table.table-timesheet-entries {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
+
 ### Show From Until Times  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`  
 ```xml
@@ -64,7 +133,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_t
 <data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
 
   <xpath expr="//th[@id='date']" position="after">
-    <th id="from_until" style="white-space: nowrap;">Von - Bis</th>
+    <th id="from_until" style="white-space: nowrap;">Zeit</th>
   </xpath>
 
   <xpath expr="//td[@id='line_date']" position="after">

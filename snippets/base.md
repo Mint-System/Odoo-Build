@@ -322,6 +322,35 @@ ID: `mint_system.base.view_partner_form.show_user_id`
 ```
 Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.show_user_id.xml)
 
+### X Birthdate  
+ID: `mint_system.base.view_partner_form.x_birthdate`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_birthdate" attrs="{'invisible': [('is_company','=',True)]}"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.x_birthdate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_birthdate.xml)
+
+### X Created On  
+ID: `mint_system.base.view_partner_form.x_created_on`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_created_on"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_form.x_created_on.xml)
+
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  
 ```xml

@@ -37,6 +37,22 @@ ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_grou
 Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_group.xml)
 
 ## Hr Leave View Form  
+### Show Holiday Allocation  
+ID: `mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_holidays.hr_leave_view_form" priority="50">
+
+  <label for="request_date_from" position="before">
+    <field name="x_requires_allocation" invisible="1"/>
+    <field name="holiday_allocation_id" domain="[('employee_id', 'in', employee_ids), ('holiday_status_id', '=', holiday_status_id), ('date_from', '&lt;=', request_date_from)]" required="1" attrs="{'invisible': ['|', ('x_requires_allocation', '=', 'no'), ('request_date_from', '=', False)], 'readonly': [('state', 'not in', ('draft', 'confirm'))] }" options="{'no_create': True, 'no_open': True}"/>
+  </label>
+
+</data>
+
+```
+Source: [snippets/hr_holidays.hr_leave_view_form.show_holiday_allocation.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_view_form.show_holiday_allocation.xml)
+
 ### Show Number Of Hours Always  
 ID: `mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always`  
 ```xml

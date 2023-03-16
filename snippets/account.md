@@ -22,6 +22,26 @@ ID: `mint_system.account.report_invoice_document.add_address_space`
 ```
 Source: [snippets/account.report_invoice_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_address_space.xml)
 
+### Add Comment Space  
+ID: `mint_system.account.report_invoice_document.add_comment_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="comment" position="before">
+        <style>
+            div[name="comment"] {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_comment_space.xml)
+
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
 ```xml
@@ -359,6 +379,26 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
+
+### Format Line Total  
+ID: `mint_system.account.report_invoice_document.format_line_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
+        <span class="text-nowrap" t-esc="'%.2f'%line.price_subtotal"
+            groups="account.group_show_line_subtotals_tax_excluded" />
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.price_total']" position="replace">
+        <span class="text-nowrap" t-esc="'%.2f'%line.price_total"
+            groups="account.group_show_line_subtotals_tax_included" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_line_total.xml)
 
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
@@ -931,19 +971,18 @@ ID: `mint_system.account.report_invoice_document.remove_incoterms`
 ```
 Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
 
-### Remove Payment Ref  
-ID: `mint_system.account.report_invoice_document.remove_payment_ref`  
+### Remove Payment Communication  
+ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace">
-  </xpath>
+	<xpath expr="//p[@name='payment_communication']" position="replace" />
 
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
+Source: [snippets/account.report_invoice_document.remove_payment_communication.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_communication.xml)
 
 ### Remove Payment Term  
 ID: `mint_system.account.report_invoice_document.remove_payment_term`  
@@ -1127,7 +1166,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
 
         <tr>
           <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2">Fälligkeitsdatum:</strong>
+            <strong class="mr-2 ml-1">Fälligkeitsdatum:</strong>
             <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
           </td><td t-else=""></td>
           <td>
@@ -1135,7 +1174,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <span t-field="o.invoice_user_id.name" />
           </td>
           <td rowspan="2">
-            <div><strong class="mr-2">Ihre Referenz:</strong></div>
+            <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
         </tr>
@@ -1690,24 +1729,6 @@ ID: `mint_system.account.report_invoice_document.sequence_in_table`
 ```
 Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
 
-### Set Header Font Size  
-ID: `mint_system.account.report_invoice_document.set_header_font_size`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-
-    <xpath expr="//div[hasclass('page')]" position="inside">
-        <style>
-            h2 {
-                font-size: 1.5rem;
-            }
-        </style>
-    </xpath>
-
-</data>
-```
-Source: [snippets/account.report_invoice_document.set_header_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_header_font_size.xml)
-
 ### Set Ids  
 ID: `mint_system.account.report_invoice_document.set_ids`  
 ```xml
@@ -1740,21 +1761,56 @@ Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.co
 ID: `mint_system.account.report_invoice_document.set_page_font_size`  
 ```xml
 <?xml version="1.0"?>
-<!-- Change default font size -->
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//div[hasclass('page')]" position="inside">
-		<style>
-			body {
-				font-size: 0.9rem;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_page_font_size.xml)
+
+### Set Table Font Size  
+ID: `mint_system.account.report_invoice_document.set_table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//table[hasclass('o_main_table')]" position="before">
+        <style>
+            table.o_main_table th,
+            table.o_main_table td {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_table_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.account.report_invoice_document.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
 ### Show Default Code  
 ID: `mint_system.account.report_invoice_document.show_default_code`  
@@ -1762,6 +1818,15 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
+  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+    <style>
+      th#default_code,
+      td#default_code {
+        white-space: nowrap;
+      }
+    </style>
+  </xpath>
+  
   <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
       <strong >Referenz</strong>
@@ -2036,6 +2101,26 @@ ID: `mint_system.account.report_invoice_document.add_address_space`
 ```
 Source: [snippets/account.report_invoice_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_address_space.xml)
 
+### Add Comment Space  
+ID: `mint_system.account.report_invoice_document.add_comment_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="comment" position="before">
+        <style>
+            div[name="comment"] {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_comment_space.xml)
+
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
 ```xml
@@ -2373,6 +2458,26 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
+
+### Format Line Total  
+ID: `mint_system.account.report_invoice_document.format_line_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
+        <span class="text-nowrap" t-esc="'%.2f'%line.price_subtotal"
+            groups="account.group_show_line_subtotals_tax_excluded" />
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.price_total']" position="replace">
+        <span class="text-nowrap" t-esc="'%.2f'%line.price_total"
+            groups="account.group_show_line_subtotals_tax_included" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.format_line_total.xml)
 
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
@@ -2945,19 +3050,18 @@ ID: `mint_system.account.report_invoice_document.remove_incoterms`
 ```
 Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
 
-### Remove Payment Ref  
-ID: `mint_system.account.report_invoice_document.remove_payment_ref`  
+### Remove Payment Communication  
+ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace">
-  </xpath>
+	<xpath expr="//p[@name='payment_communication']" position="replace" />
 
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.remove_payment_ref.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_ref.xml)
+Source: [snippets/account.report_invoice_document.remove_payment_communication.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.remove_payment_communication.xml)
 
 ### Remove Payment Term  
 ID: `mint_system.account.report_invoice_document.remove_payment_term`  
@@ -3141,7 +3245,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
 
         <tr>
           <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2">Fälligkeitsdatum:</strong>
+            <strong class="mr-2 ml-1">Fälligkeitsdatum:</strong>
             <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
           </td><td t-else=""></td>
           <td>
@@ -3149,7 +3253,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
             <span t-field="o.invoice_user_id.name" />
           </td>
           <td rowspan="2">
-            <div><strong class="mr-2">Ihre Referenz:</strong></div>
+            <div><strong class="mr-2 ml-1">Ihre Referenz:</strong></div>
             <div t-field="o.ref" />
           </td>
         </tr>
@@ -3704,24 +3808,6 @@ ID: `mint_system.account.report_invoice_document.sequence_in_table`
 ```
 Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.sequence_in_table.xml)
 
-### Set Header Font Size  
-ID: `mint_system.account.report_invoice_document.set_header_font_size`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-
-    <xpath expr="//div[hasclass('page')]" position="inside">
-        <style>
-            h2 {
-                font-size: 1.5rem;
-            }
-        </style>
-    </xpath>
-
-</data>
-```
-Source: [snippets/account.report_invoice_document.set_header_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_header_font_size.xml)
-
 ### Set Ids  
 ID: `mint_system.account.report_invoice_document.set_ids`  
 ```xml
@@ -3754,21 +3840,56 @@ Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.co
 ID: `mint_system.account.report_invoice_document.set_page_font_size`  
 ```xml
 <?xml version="1.0"?>
-<!-- Change default font size -->
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//div[hasclass('page')]" position="inside">
-		<style>
-			body {
-				font-size: 0.9rem;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_page_font_size.xml)
+
+### Set Table Font Size  
+ID: `mint_system.account.report_invoice_document.set_table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//table[hasclass('o_main_table')]" position="before">
+        <style>
+            table.o_main_table th,
+            table.o_main_table td {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_table_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.account.report_invoice_document.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
 ### Show Default Code  
 ID: `mint_system.account.report_invoice_document.show_default_code`  
@@ -3776,6 +3897,15 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
+  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+    <style>
+      th#default_code,
+      td#default_code {
+        white-space: nowrap;
+      }
+    </style>
+  </xpath>
+  
   <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
       <strong >Referenz</strong>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <p t-field="doc.note" position="replace">
+        <style>
+            div#note {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+		<div id="note">
+			<p  t-field="doc.note"/>
+		</div>
+    </p>
+
+</data>
