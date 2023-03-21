@@ -3,7 +3,7 @@
 
   <xpath expr="//div[hasclass('page')]" position="before">
     <style>
-      div.page {
+      body {
         font-size: 0.9rem;
       }
     </style>

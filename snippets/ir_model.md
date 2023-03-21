@@ -2178,6 +2178,27 @@ ID: `mint_system.ir_model.stock_picking.x_autocomplete`
 Source: [snippets/ir_model.stock_picking.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_picking.x_autocomplete.xml)
 
 ## Stock Production Lot  
+### X Autoremove  
+ID: `mint_system.ir_model.stock_production_lot.x_autoremove`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_autoremove" model="ir.model.fields">
+    <field name="field_description">Automatisch Entfernen</field>
+    <field name="model">stock.production.lot</field>
+    <field name="model_id" ref="stock.model_stock_production_lot"/>
+    <field name="name">x_autoremove</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field> 
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_production_lot.x_autoremove.xml)
+
 ### X Production Ids  
 ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
 ```xml

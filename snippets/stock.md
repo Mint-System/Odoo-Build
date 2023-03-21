@@ -4631,6 +4631,20 @@ ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date
 Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
 
 ## View Production Lot Form  
+### X Autoremove  
+ID: `mint_system.stock.view_production_lot_form.x_autoremove`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+
+  <field name="removal_date" position="after">
+    <field name="x_autoremove" />
+  </field>
+
+</data>
+```
+Source: [snippets/stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_production_lot_form.x_autoremove.xml)
+
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  
 ```xml

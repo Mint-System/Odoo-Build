@@ -3,4 +3,8 @@
 
   <xpath expr="//t[2]" position="replace" />
 
+  <xpath expr="//span[@itemprop='name']" position="attributes">
+    <attribute name="t-esc">object.name</attribute>
+  </xpath>
+  
 </data>

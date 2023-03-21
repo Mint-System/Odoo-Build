@@ -22,7 +22,7 @@
       </thead>
       <tbody>
         <t t-set="moves" t-value="o.move_lines"/>
-        <tr t-foreach="moves" t-as="move">
+        <tr t-if="move.quantity_done > 0" t-foreach="moves" t-as="move">
           <td>
             <span t-esc="move.position"/>
           </td>

@@ -1255,6 +1255,22 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
 ```
 Source: [snippets/sale.report_saleorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.address_block.xml)
 
+### Add Section Subtotal Space  
+ID: `mint_system.sale.report_saleorder_document.add_section_subtotal_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//td[@name='td_section_subtotal']/.." position="after">
+        <tr>
+            <td name="td_section_subtotal_space" colspan="99" height="25px" />
+        </tr>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_section_subtotal_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_section_subtotal_space.xml)
+
 ### Add Shipping Address Space  
 ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`  
 ```xml
@@ -1482,6 +1498,26 @@ ID: `mint_system.sale.report_saleorder_document.format_as_date`
 ```
 Source: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_as_date.xml)
 
+### Format Line Total  
+ID: `mint_system.sale.report_saleorder_document.format_line_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
+        <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')"
+            groups="account.group_show_line_subtotals_tax_excluded" />
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.price_total']" position="replace">
+        <span class="text-nowrap" t-esc="'{:,.2f}'.format(line.price_total).replace(',','\'')"
+            groups="account.group_show_line_subtotals_tax_included" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_line_total.xml)
+
 ### Format Note  
 ID: `mint_system.sale.report_saleorder_document.format_note`  
 ```xml
@@ -1532,6 +1568,37 @@ ID: `mint_system.sale.report_saleorder_document.format_qty`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_qty.xml)
+
+### Format Table Border  
+ID: `mint_system.sale.report_saleorder_document.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//table" position="before">
+    <style>
+      .border-solid-black th,
+      .border-solid-black td {
+      border-top: 1px solid black !important;
+      border-bottom: none !important;
+      }
+      thead th {
+      color: #5c516e;
+      }
+    </style>
+  </xpath>
+
+  <xpath expr="//thead[1]/tr[1]" position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+  <xpath expr="//td[@name='td_section_subtotal']/.." position="attributes">
+    <attribute name="class" separator=" " add="border-solid-black" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.format_table_border.xml)
 
 ### Format Title Trimada  
 ID: `mint_system.sale.report_saleorder_document.format_title_trimada`  
@@ -1734,8 +1801,62 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <div id="informations" position="replace">
-
         <style>
+            div#informations th {
+                text-align: right;
+                padding-right: 0.1rem;
+            }
+            div#informations td {
+                text-align: left;
+                padding-left: 0.1rem;
+            }
+        </style>
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <th>
+                        <strong class="mr-2">Datum:</strong>
+                    </th>
+                    <td>
+                        <span t-field="doc.date_order" t-options='{"widget": "date"}' />
+                    </td>
+                    <th>
+                        <strong class="mr-2">Verkäufer:</strong>
+                    </th>
+                    <td>
+                        <span t-field="doc.user_id" />
+                    </td>
+                    <th>
+                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
+                    </th>
+                    <td>
+                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref" />
+                    </td>
+                </tr>
+                <tr>
+                    <th>
+                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">Gültigkeit:</strong>
+                    </th>
+                    <td>
+                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options='{"widget": "date"}' />
+                    </td>
+                    <th>
+                        <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
+                    </th>
+                    <td>
+                        <span t-field="doc.project_id" />
+                    </td>
+                    <th>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                    </th>
+                    <td>
+                        <span t-field="doc.payment_term_id" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <!-- <style>
             div#informations p {
                 margin-bottom: 0.5rem;
             }
@@ -1776,7 +1897,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations`
                     </td>
                 </tr>
             </table>
-        </div>
+        </div> -->
     </div>
 
 </data>
@@ -2119,7 +2240,7 @@ ID: `mint_system.sale.report_saleorder_document.set_page_font_size`
 
   <xpath expr="//div[hasclass('page')]" position="before">
     <style>
-      div.page {
+      body {
         font-size: 0.9rem;
       }
     </style>
@@ -2209,6 +2330,25 @@ ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
+
+### Show Partner Sale Id  
+ID: `mint_system.sale.report_saleorder_document.show_partner_sale_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@t-field='doc.partner_id']" position="replace">
+    <t t-if="doc.partner_sale_id">
+      <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+    <t t-if="not doc.partner_sale_id">
+      <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" />
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.show_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.show_partner_sale_id.xml)
 
 ### Show Qty Remaining  
 ID: `mint_system.sale.report_saleorder_document.show_qty_remaining`  

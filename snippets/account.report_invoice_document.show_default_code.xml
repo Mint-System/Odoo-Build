@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']" position="before">
     <style>
       th#default_code,
       td#default_code {
@@ -10,13 +10,13 @@
     </style>
   </xpath>
   
-  <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
     <th id="default_code">
-      <strong >Referenz</strong>
+      <span>Referenz</span>
     </th>
   </xpath>
 
-  <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t[1]/td[1]" position="before">
+  <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']" position="before">
     <td id="default_code">
       <span t-field="line.product_id.default_code"/>
     </td>

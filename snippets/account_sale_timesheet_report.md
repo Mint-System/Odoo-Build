@@ -108,6 +108,36 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end
 ```
 Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
 
+### Format Table Border  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+    <style>
+      .border-solid-black td {
+      border-top: 1px solid black !important;
+      border-bottom: 1px solid black !important;
+      }
+      thead th {
+      color: #5c516e;
+      }
+    </style>
+  </xpath>
+
+  <xpath expr="//thead[1]/tr[1]" position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+    <attribute name="class" separator=" " add="border-solid-black" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
+
 ### Set Table Font Size  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`  
 ```xml
