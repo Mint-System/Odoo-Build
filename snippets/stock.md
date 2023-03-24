@@ -89,7 +89,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Klein'">
                         <t t-set="fix_weight">1'000g</t>
-
                         <t t-set="count_labels" t-value="move_line.qty_done" />
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Gross'">
@@ -98,7 +97,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     </t>
                     <t t-if="move.product_packaging.name == 'Karton'">
                         <t t-set="fix_weight">5'000g</t>
-                        <t t-set="count_boxes" t-value="1" />
+                        <!--<t t-set="count_boxes" t-value="1" />-->
                     </t>
 
                     <!--Compute box count-->
@@ -1521,7 +1520,7 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
       </thead>
       <tbody>
         <t t-set="moves" t-value="o.move_lines"/>
-        <tr t-foreach="moves" t-as="move">
+        <tr t-if="move.quantity_done > 0" t-foreach="moves" t-as="move">
           <td>
             <span t-esc="move.position"/>
           </td>

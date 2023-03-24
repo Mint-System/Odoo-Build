@@ -38,6 +38,10 @@ ID: `mint_system.base.contact_name.remove_parent_name`
 
   <xpath expr="//t[2]" position="replace" />
 
+  <xpath expr="//span[@itemprop='name']" position="attributes">
+    <attribute name="t-esc">object.name</attribute>
+  </xpath>
+  
 </data>
 ```
 Source: [snippets/base.contact_name.remove_parent_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.contact_name.remove_parent_name.xml)
@@ -451,6 +455,21 @@ ID: `mint_system.base.view_partner_tree.optional_zip`
 
 ```
 Source: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
+
+### Property Payment Term Id  
+ID: `mint_system.base.view_partner_tree.property_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="category_id" position="after">
+    <field name="property_payment_term_id" optional="hide"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_partner_tree.property_payment_term_id.xml)
 
 ### Show Industry  
 ID: `mint_system.base.view_partner_tree.show_industry`  

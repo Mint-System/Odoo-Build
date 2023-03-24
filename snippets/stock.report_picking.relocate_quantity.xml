@@ -28,7 +28,7 @@
 			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 			<br/>
 			<span id="qty_available" t-field="ml.product_id.qty_available"/>
-			<span id="qty_available_uom_id" t-field="ml.product_uom_id"/>
+			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
 		</td>
 	</xpath>
 

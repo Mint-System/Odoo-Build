@@ -23,6 +23,10 @@
             .default {
                 font-size: 7mm;
             }
+            .bolder {
+                font-size: 7mm;
+                font-weight: bolder;
+            }
             .footer {
                 font-size: 7mm;
             }
@@ -61,7 +65,13 @@
                 <t t-set="packaging" t-value="move.product_packaging" />
                 <t t-set="external_ref" t-value="picking.partner_id.x_external_ref" />
                 <t t-set="print_header" t-value="True" />
+                <t t-set="print_delivery_date" t-value="False" />
                 <t t-set="print_delivery_date_only" t-value="False" />
+                
+                <!--Print delivery date if shipping method is Bordereau-->
+                <t t-if="picking.carrier_id.name == 'Bordereau'">
+                    <t t-set="print_delivery_date" t-value="True" />
+                </t>
 
                 <!--Print report for each move line-->
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
@@ -81,7 +91,6 @@
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Klein'">
                         <t t-set="fix_weight">1'000g</t>
-
                         <t t-set="count_labels" t-value="move_line.qty_done" />
                     </t>
                     <t t-if="move.product_packaging.name == 'Vakuum Gross'">
@@ -90,7 +99,6 @@
                     </t>
                     <t t-if="move.product_packaging.name == 'Karton'">
                         <t t-set="fix_weight">5'000g</t>
-                        <t t-set="count_boxes" t-value="1" />
                     </t>
 
                     <!--Compute box count-->
@@ -164,8 +172,12 @@
                                         </span>
                                     </t>
                                 </t>
-
                                 <br />
+                                <t t-if="print_delivery_date and not print_delivery_date_only">
+                                  <span class="use-font-opensans-medium bolder">Lieferdatum: </span>
+                                  <span class="use-font-opensans-medium bolder" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')" />
+                                  <br />
+                                </t>
                                 <br />
 
                                 <t t-if="not picking.partner_id.hide_address">
