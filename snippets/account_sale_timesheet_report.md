@@ -166,6 +166,17 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_t
     <th id="from_until" style="white-space: nowrap;">Zeit</th>
   </xpath>
 
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
+
+## Timesheet Table Lines  
+### Show From Until Times  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
+
   <xpath expr="//td[@id='line_date']" position="after">
     <td id="line_from_until" style="white-space: nowrap;">
       <span t-field="line.from_time"
@@ -173,6 +184,92 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_t
         t-field="line.until_time"
         t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}" />
     </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
+
+## Timesheet Table  
+### Add Start And End Hour  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+  <xpath expr="//th[@id='date']" position="replace">
+    <th id="date" class="align-middle"><span>Datum und Uhrzeit</span></th>
+  </xpath>
+
+  <xpath expr="//td[@id='line_date']" position="replace">
+    <td id="line_date">
+      <span t-field="line.date"/><br/>
+      <span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+      <span> - </span> 
+      <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+   </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
+
+### Format Table Border  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+    <style>
+      .border-solid-black td {
+      border-top: 1px solid black !important;
+      border-bottom: 1px solid black !important;
+      }
+      thead th {
+      color: #5c516e;
+      }
+    </style>
+  </xpath>
+
+  <xpath expr="//thead[1]/tr[1]" position="attributes">
+    <attribute name="class" separator=" " add="border-black" />
+  </xpath>
+
+  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+    <attribute name="class" separator=" " add="border-solid-black" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
+
+### Set Table Font Size  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+    <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
+        <style>
+            table.table-timesheet-entries {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
+
+### Show From Until Times  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+  <xpath expr="//th[@id='date']" position="after">
+    <th id="from_until" style="white-space: nowrap;">Zeit</th>
   </xpath>
 
 </data>

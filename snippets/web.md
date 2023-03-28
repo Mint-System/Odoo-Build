@@ -306,6 +306,18 @@ ID: `mint_system.web.external_layout_standard.header_styles`
 ```
 Source: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.header_styles.xml)
 
+### Hide Header  
+ID: `mint_system.web.external_layout_standard.hide_header`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="/t/div" position="replace" />
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.hide_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.hide_header.xml)
+
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
 ```xml
@@ -396,11 +408,22 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
 
   <xpath expr="/t/div[3]" position="replace">
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-     <div align="right" style="color:black; font-size:9pt">
-         Page: <span class="page"/> / <span class="topage"/>
-     </div>
-     </div>
-  </xpath>
+      <div align="right" style="color:black; font-size:9pt">
+         Page: <span class="page"/>
+ /        <span class="topage"/>
+      </div>
+    </div>
+
+    <!--
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+      <div align="right">
+         Seite: <span class="page"/>
+ /      <span class="topage"/>
+      </div>
+    </div>
+    -->
+    
+</xpath>
 
 </data>
 ```

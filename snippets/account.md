@@ -327,6 +327,9 @@ ID: `mint_system.account.report_invoice_document.custom_address`
       <t t-if="o.partner_id.street">
         <div><span t-esc="o.partner_id.street" /></div>
       </t>
+      <t t-if="o.partner_id.street2">
+        <div><span t-esc="o.partner_id.street2" /></div>
+      </t>
       <t t-if="o.partner_id.city and o.partner_id.city">
         <div><span t-esc="o.partner_id.zip" /> <span t-esc="o.partner_id.city" /></div>
       </t>
@@ -337,6 +340,7 @@ ID: `mint_system.account.report_invoice_document.custom_address`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 
@@ -2447,6 +2451,9 @@ ID: `mint_system.account.report_invoice_document.custom_address`
       <t t-if="o.partner_id.street">
         <div><span t-esc="o.partner_id.street" /></div>
       </t>
+      <t t-if="o.partner_id.street2">
+        <div><span t-esc="o.partner_id.street2" /></div>
+      </t>
       <t t-if="o.partner_id.city and o.partner_id.city">
         <div><span t-esc="o.partner_id.zip" /> <span t-esc="o.partner_id.city" /></div>
       </t>
@@ -2457,6 +2464,7 @@ ID: `mint_system.account.report_invoice_document.custom_address`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 

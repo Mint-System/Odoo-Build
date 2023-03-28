@@ -1,0 +1,9 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//p[@name='order_note']" position="before">
+    <p>
+      Gültigkeit der Offerte: <span t-field="doc.validity_date"/>
+    </p>
+  </xpath>
+
+</data>

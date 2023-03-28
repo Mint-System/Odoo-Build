@@ -99,6 +99,40 @@
                 </tr>
             </table>
         </div> -->
+
+        <!-- <div id="informations">
+            <table width="100%">
+            <tr>
+                <td width="17%">Kunden-Nr.</td>
+                <td width="41%">
+                <span t-field="doc.partner_id.ref"/>
+                </td>
+                <td width="17%">Datum</td>
+                <td width="25%">
+                <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Ihre Referenz</td>
+                <td>
+                <span t-field="doc.client_order_ref"/>
+                </td>
+                <td>Kontaktperson</td>
+                <td>
+                <span t-field="doc.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td/>
+                <td/>
+                <td>Mwst-Nr:</td>
+                <td>
+                <span t-field="res_company.vat"/> MWST
+                </td>
+            </tr>
+            </table>
+            </div>
+        </div> -->
     </div>
 
 </data>

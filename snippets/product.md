@@ -10,8 +10,9 @@ ID: `mint_system.product.product_normal_form_view.add_feeder_id`
 <data inherit_id="product.product_normal_form_view" priority="50">
 
     <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
-     <field name="feeder_id"/>
+        <field name="feeder_id" />
     </xpath>
+
 </data>
 ```
 Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.add_feeder_id.xml)
@@ -56,6 +57,20 @@ ID: `mint_system.product.product_normal_form_view.remove_barcode`
 
 ```
 Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.remove_barcode.xml)
+
+### X Hide On Sale Order  
+ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <field name="description_sale" position="after">
+        <field name="x_hide_on_sale_order" />
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
 
 ## Product Normal Only Form View  
 ### Add X Product Label  
@@ -452,7 +467,7 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`
 <data inherit_id="product.product_template_only_form_view" priority="50">
 
     <field name="description_sale" position="after">
-        <field name="x_hide_on_sale_order" widget="boolean_toggle" />
+        <field name="x_hide_on_sale_order" />
     </field>
 
 </data>

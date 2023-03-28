@@ -13,6 +13,13 @@
       </td>
     </t>
 
+    <!--
+      <td name="td_name">
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>  
+      </td>
+    -->
+
   </xpath>
 
 </data>

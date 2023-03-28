@@ -31,6 +31,10 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
             .default {
                 font-size: 7mm;
             }
+            .bolder {
+                font-size: 7mm;
+                font-weight: bolder;
+            }
             .footer {
                 font-size: 7mm;
             }
@@ -69,7 +73,13 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                 <t t-set="packaging" t-value="move.product_packaging" />
                 <t t-set="external_ref" t-value="picking.partner_id.x_external_ref" />
                 <t t-set="print_header" t-value="True" />
+                <t t-set="print_delivery_date" t-value="False" />
                 <t t-set="print_delivery_date_only" t-value="False" />
+                
+                <!--Print delivery date if shipping method is Bordereau-->
+                <t t-if="picking.carrier_id.name == 'Bordereau'">
+                    <t t-set="print_delivery_date" t-value="True" />
+                </t>
 
                 <!--Print report for each move line-->
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
@@ -97,7 +107,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     </t>
                     <t t-if="move.product_packaging.name == 'Karton'">
                         <t t-set="fix_weight">5'000g</t>
-                        <!--<t t-set="count_boxes" t-value="1" />-->
                     </t>
 
                     <!--Compute box count-->
@@ -171,8 +180,12 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                         </span>
                                     </t>
                                 </t>
-
                                 <br />
+                                <t t-if="print_delivery_date and not print_delivery_date_only">
+                                  <span class="use-font-opensans-medium bolder">Lieferdatum: </span>
+                                  <span class="use-font-opensans-medium bolder" t-esc="picking.scheduled_date.strftime('%d.%m.%Y')" />
+                                  <br />
+                                </t>
                                 <br />
 
                                 <t t-if="not picking.partner_id.hide_address">
@@ -2863,7 +2876,7 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 			<br/>
 			<span id="qty_available" t-field="ml.product_id.qty_available"/>
-			<span id="qty_available_uom_id" t-field="ml.product_uom_id"/>
+			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
 		</td>
 	</xpath>
 
