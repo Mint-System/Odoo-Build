@@ -449,11 +449,11 @@ function checkout() {
     switch-branch $1
 
     echo "Checkout config files."
-    git checkout $GIT_BRANCH config/checkout_files config/reset_files
+    git checkout $GIT_BRANCH -- config/checkout_files config/reset_files
     echo "Remove reset files."
     git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
     echo "Sync checkout files."
-    git checkout $GIT_BRANCH $(tr '\n' ' ' < ./config/checkout_files)
+    git checkout $GIT_BRANCH -- $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function checkout-revision() {
