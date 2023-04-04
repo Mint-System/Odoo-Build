@@ -15,7 +15,7 @@ ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_analytic_line"/>
     <field name="name">x_sale_order_id</field>
-    <field name="state">manual</field>
+    
     <field name="readonly" eval="True"/>
     <field name="store" eval="False"/>
     <field name="copied" eval="False"/>
@@ -42,8 +42,7 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
     <field name="name">x_cashbox_end_ids</field>
-    <field name="state">manual</field>
-    <field name="store" eval="False"/>
+        <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
     <field name="ttype">many2one</field>
@@ -69,7 +68,6 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
     <field name="name">x_cashbox_start_ids</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -97,7 +95,6 @@ ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_move_line"/>
     <field name="name">x_sale_order_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -127,7 +124,6 @@ ID: `mint_system.ir_model.account_move.x_account_codes`
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_account_codes</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -218,7 +214,6 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_picking_list</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -278,7 +273,6 @@ ID: `mint_system.ir_model.account_move.x_studio_description`
     <field name="model">account.move</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_studio_description</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="ttype">text</field>
     <field name="copied" eval="True"/>
@@ -351,7 +345,6 @@ ID: `mint_system.ir_model.business_requirement.x_estimated_cost`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_estimated_cost</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -375,7 +368,6 @@ ID: `mint_system.ir_model.business_requirement.x_planned_hours`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_planned_hours</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -399,7 +391,6 @@ ID: `mint_system.ir_model.business_requirement.x_project_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_project_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -424,7 +415,6 @@ ID: `mint_system.ir_model.business_requirement.x_task_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_task_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -529,7 +519,6 @@ ID: `mint_system.ir_model.crm_lead.x_task_id`
     <field name="model">business.requirement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
     <field name="name">x_task_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -604,7 +593,6 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
     <field name="model">hr.applicant</field>
     <field name="model_id" ref="hr.model_hr_contract"/>
     <field name="name">x_struct_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -705,7 +693,6 @@ ID: `mint_system.ir_model.hr_payslip_line.x_code_name`
     <field name="model">hr.payslip.line</field>
     <field name="model_id" ref="hr_payroll.model_hr_payslip_line"/>
     <field name="name">x_code_name</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1148,7 +1135,6 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>
     <field name="name">x_business_requirement_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1173,10 +1159,9 @@ ID: `mint_system.ir_model.project_task.x_lead_id`
   <record id="x_lead_id" model="ir.model.fields">
     <field name="domain">[]</field>
     <field name="field_description">Lead</field>
-    <field name="model">crm.lead</field>
-    <field name="model_id" ref="crm.model_crm_lead"/>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="product.model_project_task"/>
     <field name="name">x_lead_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1191,6 +1176,28 @@ ID: `mint_system.ir_model.project_task.x_lead_id`
 ```
 Source: [snippets/ir_model.project_task.x_lead_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_lead_id.xml)
 
+### X Not Billable  
+ID: `mint_system.ir_model.project_task.x_not_billable`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_not_billable" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nicht Verrechenbar</field>
+    <field name="model">project.task</field>
+    <field name="model_id" ref="product.model_project_task"/>
+    <field name="name">x_not_billable</field>
+    <field name="readonly" eval="False"/>
+    <field name="store" eval="True"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.project_task.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.project_task.x_not_billable.xml)
+
 ### X Vehicle Id  
 ID: `mint_system.ir_model.project_task.x_vehicle_id`  
 ```xml
@@ -1203,7 +1210,6 @@ ID: `mint_system.ir_model.project_task.x_vehicle_id`
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
     <field name="name">x_vehicle_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -1816,7 +1822,6 @@ ID: `mint_system.ir_model.sale_order.x_client_project_ref`
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_client_project_ref</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -1865,7 +1870,6 @@ ID: `mint_system.ir_model.sale_order.x_product_uom_qty`
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_product_uom_qty</field>
-    <field name="state">manual</field>
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -1893,7 +1897,6 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_studio_description</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="ttype">text</field>
     <field name="copied" eval="True"/>
@@ -1944,7 +1947,6 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_boxes</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -2018,7 +2020,6 @@ ID: `mint_system.ir_model.stock_move.x_count_packaging`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_packaging</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -2052,7 +2053,6 @@ ID: `mint_system.ir_model.stock_move.x_operation_qty`
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_operation_qty</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
@@ -2083,7 +2083,6 @@ ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
     <field name="name">x_packaging_uom_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>
@@ -2133,7 +2132,6 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
     <field name="name">x_scrap_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="True"/>
@@ -2316,7 +2314,6 @@ ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`
     <field name="model">stock.valuation.layer</field>
     <field name="model_id" ref="stock.model_stock_valuation_layer" />
     <field name="name">x_quant_location_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True" />
     <field name="readonly" eval="True" />
     <field name="copied" eval="False" />

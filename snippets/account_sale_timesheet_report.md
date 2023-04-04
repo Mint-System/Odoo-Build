@@ -190,6 +190,21 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_u
 ```
 Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
 
+### Sort Lines By Time  
+ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
+
+    <xpath expr="//tr[1]" position="before">
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.from_time)" />
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.date)" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)
+
 ## Timesheet Table  
 ### Add Start And End Hour  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour`  

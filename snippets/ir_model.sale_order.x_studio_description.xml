@@ -7,7 +7,6 @@
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
     <field name="name">x_studio_description</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="ttype">text</field>
     <field name="copied" eval="True"/>

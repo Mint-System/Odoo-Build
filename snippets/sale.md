@@ -2706,6 +2706,20 @@ ID: `mint_system.sale.report_saleorder_pro_forma.append_signature`
 Source: [snippets/sale.report_saleorder_pro_forma.append_signature.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_pro_forma.append_signature.xml)
 
 ## Sale Order Line View Form Readonly  
+### Edit Price Unit  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_price_unit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50" >
+
+    <field name="price_unit" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </field>
+
+</data>
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml)
+
 ### Show Invoice Lines  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`  
 ```xml

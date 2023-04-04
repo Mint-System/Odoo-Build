@@ -7,7 +7,6 @@
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
     <field name="name">x_estimated_cost</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
     <field name="copied" eval="True"/>

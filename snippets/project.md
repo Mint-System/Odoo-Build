@@ -382,6 +382,20 @@ ID: `mint_system.project.view_task_form2.x_lead_id`
 ```
 Source: [snippets/project.view_task_form2.x_lead_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_lead_id.xml)
 
+### X Not Billable  
+ID: `mint_system.project.view_task_form2.x_not_billable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <field name="partner_id" position="after">
+        <field name="x_not_billable" />
+    </field>
+
+</data>
+```
+Source: [snippets/project.view_task_form2.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_not_billable.xml)
+
 ### X Vehicle Id  
 ID: `mint_system.project.view_task_form2.x_vehicle_id`  
 ```xml

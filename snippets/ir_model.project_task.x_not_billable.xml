@@ -1,17 +1,16 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
-  <record id="x_vehicle_id" model="ir.model.fields">
+  <record id="x_not_billable" model="ir.model.fields">
     <field name="domain">[]</field>
-    <field name="field_description">Fahrzeug</field>
+    <field name="field_description">Nicht Verrechenbar</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
-    <field name="name">x_vehicle_id</field>
-    <field name="store" eval="True"/>
+    <field name="name">x_not_billable</field>
     <field name="readonly" eval="False"/>
+    <field name="store" eval="True"/>
     <field name="copied" eval="True"/>
-    <field name="ttype">many2one</field>
-    <field name="relation">fleet.vehicle</field>
+    <field name="ttype">boolean</field>
   </record>
 
 </odoo>

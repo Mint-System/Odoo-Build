@@ -2,6 +2,45 @@
 prev: ./snippets
 ---
 # Hr Holidays
+## Hr Leave Allocation View Form  
+### Show Hours And Days Display  
+ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_holidays.hr_leave_allocation_view_form" priority="50">
+
+  <field name="number_of_days_display" position="attributes">
+    <attribute name="attrs">{'readonly': ['|', '|', ('type_request_unit', '=', 'hour'), ('state', 'not in', ('draft', 'confirm')), ('allocation_type', '=', 'accrual')]}</attribute>
+  </field>
+
+  <field name="number_of_hours_display" position="before">
+    <span> / </span>
+  </field>
+
+  <field name="number_of_hours_display" position="attributes">
+    <attribute name="attrs">{'readonly': ['|', '|', ('type_request_unit', '!=', 'hour'), ('state', 'not in', ('draft', 'confirm')), ('allocation_type', '=', 'accrual')]}</attribute>
+  </field>
+
+</data>
+
+```
+Source: [snippets/hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display.xml)
+
+### Show Parent Id  
+ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_holidays.hr_leave_allocation_view_form" priority="50">
+
+  <field name="allocation_type" position="after">
+    <field name="parent_id" />
+  </field>
+
+</data>
+
+```
+Source: [snippets/hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml)
+
 ## Hr Leave View Form Manager Approve  
 ### Add Meeting Id  
 ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id`  

@@ -2,6 +2,22 @@
 prev: ./snippets
 ---
 # Hr Timesheet
+## Hr Timesheet Line Search  
+### Filter Order Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_order_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+
+  <xpath expr="//field[@name='order_id']" position="attributes">
+    <attribute name="domain">[]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_order_id.xml)
+
 ## Hr Timesheet Line Tree  
 ### Always Show So Line  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`  
@@ -64,6 +80,21 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
+### Options Enable Open  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='task_id']" position="attributes">
+    <attribute name="options">{'no_create_edit': True}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
+
 ### Show Partner Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`  
 ```xml
@@ -112,6 +143,29 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`
 
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
+
+### X Not Billable  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='task_id']" position="attributes">
+    <attribute name="domain">[
+      '&amp;',
+      '|',
+        ('x_not_billable', '=', True),
+        '&amp;',
+          ('x_not_billable', '=', False),
+          ('sale_line_id', '!=', False),
+      ('project_id', '=', project_id)
+    ]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)
 
 ### X Sale Order Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`  

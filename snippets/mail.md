@@ -15,7 +15,6 @@ ID: `mint_system.mail.activity.x_reference`
     <field name="model">mail.activity</field>
     <field name="model_id" ref="mail.model_mail_activity"/>
     <field name="name">x_reference</field>
-    <field name="state">manual</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>

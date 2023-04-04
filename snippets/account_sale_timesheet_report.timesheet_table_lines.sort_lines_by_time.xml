@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
+
+    <xpath expr="//tr[1]" position="before">
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.from_time)" />
+        <t t-set="lines" t-value="lines.sorted(lambda l: l.date)" />
+    </xpath>
+
+</data>

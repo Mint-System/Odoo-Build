@@ -7,7 +7,6 @@
     <field name="model">stock.valuation.layer</field>
     <field name="model_id" ref="stock.model_stock_valuation_layer" />
     <field name="name">x_quant_location_id</field>
-    <field name="state">manual</field>
     <field name="store" eval="True" />
     <field name="readonly" eval="True" />
     <field name="copied" eval="False" />
