@@ -1,0 +1,10 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+      <td id="product">
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>  
+      </td>
+  </xpath>
+
+</data>

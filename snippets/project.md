@@ -3,6 +3,21 @@ prev: ./snippets
 ---
 # Project
 ## Edit Project  
+### Domain Action View So  
+ID: `mint_system.project.edit_project.domain_action_view_so`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <button name="action_view_so" position="attributes">
+      <attribute name="attrs">{}</attribute>
+    </button>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.domain_action_view_so.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.edit_project.domain_action_view_so.xml)
+
 ### Show Date Start  
 ID: `mint_system.project.edit_project.show_date_start`  
 ```xml

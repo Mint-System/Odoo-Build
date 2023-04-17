@@ -1,0 +1,15 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//th[@name='th_amount']" position="after">
+    <th name="th_amount">
+      <span/>
+    </th>
+  </xpath>
+
+  <xpath expr="//td/span[@t-field='line.price_subtotal']/.." position="after">
+    <td id="taxes_amount">
+        <span t-out="line.taxes_id.amount"/>
+    </td>
+  </xpath>
+
+</data>

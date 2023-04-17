@@ -16,12 +16,12 @@
         "views/assets.xml",
         "views/sale_order.xml"
     ],
-    "qweb": ["static/src/xml/board.xml"],
-    "demo": ["demo/demo.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
     "images": ["images/screen.png"],
+    "qweb": ["static/src/xml/board.xml"],
+    "demo": ["demo/demo.xml"],
     "assets": {
         "web.assets_backend": [
             "{{ name }}/static/src/js/action_refresh.js",

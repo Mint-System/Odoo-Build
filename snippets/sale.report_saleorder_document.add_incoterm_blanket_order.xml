@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	<xpath expr="//div[@id='incoterm']" position="replace">
+		<div id='incoterm' class="col-3" t-if="doc.incoterm" groups="sale_stock.group_display_incoterm">
+			<strong>Incoterm:</strong>
+			<t t-if="doc.x_incoterm_blanket_order">
+				<p t-field="doc.x_incoterm_blanket_order.code"/>
+			</t>
+			<t t-else="">
+				<p t-field="doc.incoterm.code"/>
+			</t>
+		</div>
+	</xpath>
+
+</data>

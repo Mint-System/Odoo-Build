@@ -1228,7 +1228,8 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
           <td t-if="order_id" colspan="2">
             <strong class="mr-2">&#160;Unsere Referenz:</strong>
-            <span t-field="order_id.name" />
+            <span t-if="order_id.project_id.code" t-esc="'[' + order_id.project_id.code + '] ' + order_id.name" />
+            <span t-else="" t-field="order_id.name" />
           </td>
         </tr>
       </table>
@@ -3352,7 +3353,8 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
           <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
           <td t-if="order_id" colspan="2">
             <strong class="mr-2">&#160;Unsere Referenz:</strong>
-            <span t-field="order_id.name" />
+            <span t-if="order_id.project_id.code" t-esc="'[' + order_id.project_id.code + '] ' + order_id.name" />
+            <span t-else="" t-field="order_id.name" />
           </td>
         </tr>
       </table>

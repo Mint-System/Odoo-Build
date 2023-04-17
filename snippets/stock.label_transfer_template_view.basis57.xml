@@ -97,6 +97,10 @@
                         <t t-set="fix_weight">2'500g</t>
                         <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
                     </t>
+                     <t t-if="move.product_packaging.name == 'Aktionären Gutschein'">
+                        <t t-set="fix_weight">500 - 600 g Vakuum</t>
+                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    </t>
                     <t t-if="move.product_packaging.name == 'Karton'">
                         <t t-set="fix_weight">5'000g</t>
                     </t>

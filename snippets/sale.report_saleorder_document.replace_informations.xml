@@ -1,138 +1,38 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <div id="informations" position="replace">
-        <style>
-            div#informations th {
-                text-align: right;
-                padding-right: 0.1rem;
-            }
-            div#informations td {
-                text-align: left;
-                padding-left: 0.1rem;
-            }
-        </style>
         <div id="informations">
-            <table class="table table-borderless table-sm">
+            <table width="100%">
                 <tr>
-                    <th>
-                        <strong class="mr-2">Datum:</strong>
-                    </th>
-                    <td>
-                        <span t-field="doc.date_order" t-options='{"widget": "date"}' />
+                    <td width="17%">Kunden-Nr.</td>
+                    <td width="41%">
+                        <span t-field="doc.partner_id.ref"/>
                     </td>
-                    <th>
-                        <strong class="mr-2">Verkäufer:</strong>
-                    </th>
-                    <td>
-                        <span t-field="doc.user_id" />
-                    </td>
-                    <th>
-                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
-                    </th>
-                    <td>
-                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref" />
+                    <td width="17%">Datum</td>
+                    <td width="25%">
+                        <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">Gültigkeit:</strong>
-                    </th>
+                    <td>Ihre Referenz</td>
                     <td>
-                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options='{"widget": "date"}' />
+                        <span t-field="doc.client_order_ref"/>
                     </td>
-                    <th>
-                        <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
-                    </th>
+                    <td>Kontaktperson</td>
                     <td>
-                        <span t-field="doc.project_id" />
+                        <span t-field="doc.user_id"/>
                     </td>
-                    <th>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
-                    </th>
+                </tr>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td>Mwst-Nr:</td>
                     <td>
-                        <span t-field="doc.payment_term_id" />
+                        <span t-field="res_company.vat"/>MWST
                     </td>
                 </tr>
             </table>
         </div>
-
-        <!-- <style>
-            div#informations p {
-                margin-bottom: 0.5rem;
-            }
-        </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <p>
-                            <strong class="mr-2">Datum:</strong>
-                            <span t-field="doc.date_order" t-options='{"widget": "date"}' />
-                        </p>
-                         <p t-if="doc.validity_date and doc.state in ['draft','sent']">
-                            <strong class="mr-2">Gültigkeit:</strong>
-                            <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <strong class="mr-2">Verkäufer:</strong>
-                            <span t-field="doc.user_id" />
-
-                        </p>
-                        <p>
-                            <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
-                            <span t-field="doc.project_id" />
-                        </p>
-                    </td>
-                    <td>
-                        <p t-if="doc.client_order_ref">
-                            <strong class="mr-2">Ihre Referenz:</strong>
-                            <span t-field="doc.client_order_ref" />
-                        </p>
-                        <p>
-                            <strong class="mr-2">Zahlungsbedingungen:</strong>
-                            <span t-field="doc.payment_term_id" />
-                        </p>
-                    </td>
-                </tr>
-            </table>
-        </div> -->
-
-        <!-- <div id="informations">
-            <table width="100%">
-            <tr>
-                <td width="17%">Kunden-Nr.</td>
-                <td width="41%">
-                <span t-field="doc.partner_id.ref"/>
-                </td>
-                <td width="17%">Datum</td>
-                <td width="25%">
-                <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Ihre Referenz</td>
-                <td>
-                <span t-field="doc.client_order_ref"/>
-                </td>
-                <td>Kontaktperson</td>
-                <td>
-                <span t-field="doc.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td/>
-                <td>Mwst-Nr:</td>
-                <td>
-                <span t-field="res_company.vat"/> MWST
-                </td>
-            </tr>
-            </table>
-            </div>
-        </div> -->
     </div>
 
 </data>
