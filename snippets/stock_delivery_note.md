@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Stock Delivery Note
 ## Report Delivery Document  
 ### Move Delivery Note  

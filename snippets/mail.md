@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Mail
 ## Activity  
 ### X Reference  
@@ -298,6 +295,19 @@ ID: `mint_system.mail.mail_notification_paynow.reduce_to_content`
 
 ```
 Source: [snippets/mail.mail_notification_paynow.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.reduce_to_content.xml)
+
+### Remove Access Link  
+ID: `mint_system.mail.mail_notification_paynow.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_paynow" priority="60">
+
+  <t t-if="record._name == 'sale.order'" position="remove"/>
+
+</data>
+
+```
+Source: [snippets/mail.mail_notification_paynow.remove_access_link.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/mail.mail_notification_paynow.remove_access_link.xml)
 
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_paynow.remove_logo`  

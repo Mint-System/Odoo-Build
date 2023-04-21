@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Partner Incoterm
 ## View Partner Property Form  
 ### Show Field  

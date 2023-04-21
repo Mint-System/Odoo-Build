@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Hr Holidays Delegations
 ## Hr Leave View Form Inherit  
 ### Delegate Groups  

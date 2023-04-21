@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # L10n Ch Qr Isr Invoice Import
 ## Account Invoice Import Form  
 ### Show Partner Id  

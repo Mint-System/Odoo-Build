@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Purchase
 ## Mail Notification Confirm  
 ### Modify Buttons  
@@ -546,6 +543,27 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.add_infotable.xml)
 
+### Add Taxes  
+ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//th[@name='th_amount']" position="after">
+    <th name="th_amount">
+      <span/>
+    </th>
+  </xpath>
+
+  <xpath expr="//td/span[@t-field='line.price_subtotal']/.." position="after">
+    <td id="taxes_amount">
+        <span t-out="line.taxes_id.amount"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.add_taxes.xml)
+
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`  
 ```xml
@@ -1003,6 +1021,129 @@ ID: `mint_system.purchase.report_purchaseorder_document.rename_deadline`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.rename_deadline.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.rename_deadline.xml)
 
+### Replace Informations  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 25px;
+      font-size: 9pt;
+      font-family: arial;
+    }
+     table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id='info'>
+      <tr>
+        <td width="17%">Oder Date</td>
+        <td width="40%">
+          <t t-if="o.date_approve">
+            <span id='date_approve' t-field='o.date_approve' t-options='{ "widget": "date" }'/>
+          </t>
+          <t t-else="">
+            <span t-field='o.date_order' t-options='{ "widget": "date" }'/>
+          </t>
+        </td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field='o.user_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field='o.partner_id.ref'/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field='o.incoterm_id'/>
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+
+        <td>
+          <span t-field='o.partner_ref'/>
+        </td>
+
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field='o.requisition_id'/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field='o.requisition_id.partner_ref'/>
+            </t>
+          </td>
+        </t>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field='o.comment'/>
+        </td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+
+  </xpath>
+
+  <!--
+  <xpath expr="//div[@id='informations']" position="replace">
+    
+    <div id="informations">
+    <table width="100%">
+      <tr>
+        <td width="17%">Kunden-Nr.</td>
+        <td width="41%">
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td width="17%">Datum</td>
+        <td width="25%">
+          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Ihre Referenz</td>
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
+        <td>Kontaktperson</td>
+        <td>
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+        <td/>
+        <td>Mwst-Nr:</td>
+        <td>
+          <span t-field="res_company.vat"/> MWST
+        </td>
+      </tr>
+    </table>
+    </div>
+ 
+ </xpath>
+ -->
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_informations.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_partner_id`  
 ```xml
@@ -1024,6 +1165,22 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_partner_id`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_partner_id.xml)
+
+### Replace Product Description  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_product_description`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+      <td id="product">
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>  
+      </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_product_description.xml)
 
 ### Replace Representative  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`  
@@ -1141,6 +1298,57 @@ ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
 
+### Style Moser  
+ID: `mint_system.purchase.report_purchaseorder_document.style_moser`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: arial;
+     	}
+		.o_company_1_layout.o_report_layout_standard h2 {
+        	color: black;
+       		font-size: 1.4rem;
+			    font-weight: bold;
+     	}
+     	.o_company_1_layout.o_report_layout_standard #total strong {
+        	color: black;
+     	}
+     	div#informations {
+     	 	margin-top: 30px;
+     	 	margin-bottom: 60px;
+     	}
+     	h2.mt-4 {
+     	 	margin-top: 70px !important;
+     	}
+     	td#taxes_amount {
+     	 	text-align: right;
+     	}
+		</style>
+	</xpath>
+
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="style" separator=" " add="text-align: left"/>
+	</xpath>
+
+	<xpath expr="//span[@t-field='line.date_planned']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+	<xpath expr="/t[1]/t[1]/t[4]/t[1]/div[1]/div[1]" position="attributes">
+		<attribute name="t-options-fields">['address']</attribute>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+		<attribute name="t-options-fields">['address', 'name']</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.style_moser.xml)
+
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`  
 ```xml
@@ -1179,6 +1387,22 @@ ID: `mint_system.purchase.report_purchaseorder_document.title_margin`
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.title_margin.xml)
+
+### X Warranty  
+ID: `mint_system.purchase.report_purchaseorder_document.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="inside">
+    <br/>
+    <span t-field="line.product_id.x_warranty"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase.report_purchaseorder_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchaseorder_document.x_warranty.xml)
 
 ## Report Purchasequotation Document  
 ### Add Default Code  
@@ -1314,6 +1538,43 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
     </t>
 
   </xpath>
+
+  <!--
+    <xpath expr="//h2" position="after">
+    <div id="informations">
+    <table width="100%">
+      <tr>
+        <td width="17%">Kunden-Nr.</td>
+        <td width="41%">
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td width="17%">Datum</td>
+        <td width="25%">
+          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Ihre Referenz</td>
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
+        <td>Kontaktperson</td>
+        <td>
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+        <td/>
+        <td>Mwst-Nr:</td>
+        <td>
+          <span t-field="res_company.vat"/> MWST
+        </td>
+      </tr>
+    </table>
+    </div> 
+ </xpath>
+  -->
 
 </data>  
 ```
@@ -1609,8 +1870,13 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
+  <xpath expr="//p[@t-field='o.incoterm_id.code']/.." position="replace"/>
+
+  <!--
   <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/strong[1]" position="replace"/>
   <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="replace"/>
+  -->
+
 </data>
 
 ```
@@ -1628,6 +1894,20 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_vat`
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.remove_vat.xml)
+
+### Repeat Table Header  
+ID: `mint_system.purchase.report_purchasequotation_document.repeat_table_header`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//thead[@style='display: table-row-group']" position="attributes">
+    <attribute name="style"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.repeat_table_header.xml)
 
 ### Replace Partner Id  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`  
@@ -1649,6 +1929,23 @@ ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.replace_partner_id.xml)
+
+### Replace Product Description  
+ID: `mint_system.purchase.report_purchasequotation_document.replace_product_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+      <td id="product">
+        <span class="o_bold" t-field="order_line.product_id.name"/><br/>
+        <span t-field="order_line.name"/>  
+      </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.replace_product_description.xml)
 
 ### Row Date Align Left  
 ID: `mint_system.purchase.report_purchasequotation_document.row_date_align_left`  
@@ -1707,6 +2004,55 @@ ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.set_ids.xml)
+
+### Style Moser  
+ID: `mint_system.purchase.report_purchasequotation_document.style_moser`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: arial;
+     	}
+		.o_company_1_layout.o_report_layout_standard h2 {
+        	color: black;
+       		font-size: 1.4rem;
+			    font-weight: bold;
+     	}
+     	.o_company_1_layout.o_report_layout_standard #total strong {
+        	color: black;
+     	}
+     	div#informations {
+     	 	margin-top: 30px;
+     	 	margin-bottom: 60px;
+     	}
+     	h2.mt-4 {
+     	 	margin-top: 70px !important;
+     	}
+		</style>
+	</xpath>
+
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="style" separator=" " add="text-align: left"/>
+	</xpath>
+
+	<xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+	<xpath expr="//div[1]/div[1]" position="attributes">
+		<attribute name="t-options-fields">['address']</attribute>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+		<attribute name="t-options-fields">['address', 'name']</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.style_moser.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.style_moser.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  
@@ -1829,6 +2175,21 @@ ID: `mint_system.purchase.report_purchasequotation_document.title_margin`
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.title_margin.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.title_margin.xml)
+
+### X Warranty  
+ID: `mint_system.purchase.report_purchasequotation_document.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="inside">
+    <br/>
+    <span t-field="order_line.product_id.x_warranty"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase.report_purchasequotation_document.x_warranty.xml)
 
 ## View Purchase Order Filter  
 ### Add State  

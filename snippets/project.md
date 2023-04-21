@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Project
 ## Edit Project  
 ### Domain Action View So  

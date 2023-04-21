@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Business Requirement
 ## View Business Requirement Form  
 ### Clickable State  

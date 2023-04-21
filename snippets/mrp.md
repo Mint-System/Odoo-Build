@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Mrp
 ## Label Production View Pdf  
 ### Basis57  

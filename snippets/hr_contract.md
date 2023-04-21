@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Hr Contract
 ## Hr Contract View Form  
 ### X Struct Id  

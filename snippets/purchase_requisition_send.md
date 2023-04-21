@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Purchase Requisition Send
 ## View Purchase Requisition Form  
 ### Relocate Send Button  

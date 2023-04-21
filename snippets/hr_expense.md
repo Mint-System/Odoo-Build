@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Hr Expense
 ## Hr Expense View Form  
 ### X Partner Id  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Contract
 ## Contract Contract Form View  
 ### Edit Last Date Invoiced  

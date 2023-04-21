@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Mrp Account
 ## Mrp Production Form View Inherited  
 ### Modify Groups  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Stock Account
 ## Stock Valuation Layer Tree  
 ### Add Stock Move Id  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Order Contact Person
 ## View Sale Order Form Contact Person  
 ### Modify Readonly Partner Contact Id  

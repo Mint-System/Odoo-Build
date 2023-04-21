@@ -858,7 +858,7 @@ function update-docs() {
 
         # Create doc file for each module
         DOCFILE="snippets/$MODULE.md"
-        echo -e "---\nprev: ./snippets\n---\n# $TITLE" > $DOCFILE
+        echo -e "# $TITLE" > $DOCFILE
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
         SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',"
         

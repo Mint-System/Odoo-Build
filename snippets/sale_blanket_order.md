@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Blanket Order
 ## Report Blanketorder Document  
 ### Add Discount  

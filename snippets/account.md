@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account
 ## Report Invoice Document  
 ### Add Address Space  
@@ -4678,6 +4675,24 @@ ID: `mint_system.account.view_move_form.x_duplicate_found`
 </data>
 ```
 Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_duplicate_found.xml)
+
+### X Invoice Warn Msg  
+ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <header position="after">
+        <field name="x_invoice_warn_msg" invisible="1"/>
+        <div groups="account.group_account_invoice" class="alert alert-warning" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('x_invoice_warn_msg', '=', False)]}">
+            <label for="x_invoice_warn_msg" string="Warnung für Kontakt:"/>
+            <field name="x_invoice_warn_msg"/>
+        </div>
+    </header>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.view_move_form.x_invoice_warn_msg.xml)
 
 ### X Recurring Inverval  
 ID: `mint_system.account.view_move_form.x_recurring_inverval`  

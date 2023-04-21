@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Base
 ## Contact Name  
 ### Modify Name  

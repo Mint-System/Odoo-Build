@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Financial Report
 ## General Ledger  
 ### Replace Layout  

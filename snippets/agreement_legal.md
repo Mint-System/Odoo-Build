@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Agreement Legal
 ## Partner Agreement Form View  
 ### Agreement Subtype Domain  

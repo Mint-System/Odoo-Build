@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Agreement
 ## Agreement Type Form View  
 ### Hide Domain  

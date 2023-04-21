@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Journal Items Report
 ## Account Move Line Template  
 ### Call Layout  

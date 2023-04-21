@@ -1,7 +1,20 @@
----
-prev: ./snippets
----
 # Product
+## Product Category Form View  
+### X Relevant For Certificate  
+ID: `mint_system.product.product_category_form_view.x_relevant_for_certificate`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_category_form_view" priority="50">
+
+    <field name="parent_id" position="after">
+        <field name="x_relevant_for_certificate"/>
+    </field>
+
+</data>
+
+```
+Source: [snippets/product.product_category_form_view.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_category_form_view.x_relevant_for_certificate.xml)
+
 ## Product Normal Form View  
 ### Add Feeder Id  
 ID: `mint_system.product.product_normal_form_view.add_feeder_id`  
@@ -71,6 +84,20 @@ ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`
 </data>
 ```
 Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
+
+### X Warranty  
+ID: `mint_system.product.product_normal_form_view.x_warranty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_normal_form_view" priority="50">
+
+    <field name="product_tag_ids" position="after">
+        <field name="x_warranty"/>
+    </field>
+    
+</data>
+```
+Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_normal_form_view.x_warranty.xml)
 
 ## Product Normal Only Form View  
 ### Add X Product Label  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Subscription
 ## Sale Subscription Template View Form  
 ### Journal Id Domain  

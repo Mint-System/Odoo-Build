@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Order Picking Note
 ## View Order Form Inherit Sale Stock  
 ### Move Note Fields  

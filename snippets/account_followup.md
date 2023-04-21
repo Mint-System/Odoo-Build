@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Followup
 ## Template Followup Report  
 ### Padding Before Table  

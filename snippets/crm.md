@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Crm
 ## Crm Case Calendar View Leads  
 ### Enable Create  

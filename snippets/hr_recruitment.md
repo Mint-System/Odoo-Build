@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Hr Recruitment
 ## Hr Applicant View Form  
 ### X Gdpr  

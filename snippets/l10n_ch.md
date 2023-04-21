@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # L10n Ch
 ## Isr Invoice Form  
 ### Disable Print Buttons  

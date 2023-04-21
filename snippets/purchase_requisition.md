@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Purchase Requisition
 ## Product Supplierinfo Tree View Inherit  
 ### Purchase Requisition Id Readonly False  

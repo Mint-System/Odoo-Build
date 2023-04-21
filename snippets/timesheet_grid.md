@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Timesheet Grid
 ## Timesheet View Form  
 ### Show Name  

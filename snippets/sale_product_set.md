@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale Product Set
 ## View Product Set Form  
 ### X Categ Id  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Delivery
 ## Report Delivery Document2  
 ### Remove Hs Code  

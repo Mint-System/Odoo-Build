@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Mrp Workorder
 ## Mrp Workorder View Form Tablet  
 ### Modify Readonly  

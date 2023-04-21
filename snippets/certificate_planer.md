@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Certificate Planer
 ## Document Form  
 ### Hide View Report Button  

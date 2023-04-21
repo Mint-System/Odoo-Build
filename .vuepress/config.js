@@ -7,6 +7,9 @@ module.exports = {
     lang: 'en-US',
     title: 'Odoo Development',
     description: 'The Mint System Odoo development environment.',
+    head: [
+        ['link', { rel: 'icon', href: '/icon.png' }]
+    ],
     pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!addons', '!odoo', '!enterprise', '!tmp', '!oca'],
     theme: defaultTheme({
         logo: '/icon.png',

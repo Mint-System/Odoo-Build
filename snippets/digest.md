@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Digest
 ## Digest Mail Main  
 ### Report  

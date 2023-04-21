@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Sale
 ## Report Blanketorder Document  
 ### Add Drawing  
@@ -1006,6 +1003,28 @@ ID: `mint_system.sale.report_saleorder_document.add_header_space`
 ```
 Source: [snippets/sale.report_saleorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_header_space.xml)
 
+### Add Incoterm Blanket Order  
+ID: `mint_system.sale.report_saleorder_document.add_incoterm_blanket_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+	<xpath expr="//div[@id='incoterm']" position="replace">
+		<div id='incoterm' class="col-3" t-if="doc.incoterm" groups="sale_stock.group_display_incoterm">
+			<strong>Incoterm:</strong>
+			<t t-if="doc.x_incoterm_blanket_order">
+				<p t-field="doc.x_incoterm_blanket_order.code"/>
+			</t>
+			<t t-else="">
+				<p t-field="doc.incoterm.code"/>
+			</t>
+		</div>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml)
+
 ### Add Informations Space  
 ID: `mint_system.sale.report_saleorder_document.add_informations_space`  
 ```xml
@@ -1286,15 +1305,38 @@ ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`
 ```
 Source: [snippets/sale.report_saleorder_document.add_shipping_address_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_shipping_address_space.xml)
 
+### Add Taxes  
+ID: `mint_system.sale.report_saleorder_document.add_taxes`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_subtotal']" position="after">
+    <th id="tax_amount">
+      <span/>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_subtotal']" position="after">
+    <td id="tax_amount">
+      <span t-out="line.tax_id.amount"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.add_taxes.xml)
+
 ### Add Validity Date  
 ID: `mint_system.sale.report_saleorder_document.add_validity_date`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
   <xpath expr="//p[@name='order_note']" position="before">
-    <p>
-      Gültigkeit der Offerte: <span t-field="doc.validity_date"/>
-    </p>
+    <t t-if="doc.state != 'sale'">
+      <p>
+    Gültigkeit der Offerte: <span t-field="doc.validity_date"/>
+      </p>
+    </t>
   </xpath>
 
 </data>
@@ -1812,141 +1854,41 @@ Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https:
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <div id="informations" position="replace">
-        <style>
-            div#informations th {
-                text-align: right;
-                padding-right: 0.1rem;
-            }
-            div#informations td {
-                text-align: left;
-                padding-left: 0.1rem;
-            }
-        </style>
         <div id="informations">
-            <table class="table table-borderless table-sm">
+            <table width="100%">
                 <tr>
-                    <th>
-                        <strong class="mr-2">Datum:</strong>
-                    </th>
-                    <td>
-                        <span t-field="doc.date_order" t-options='{"widget": "date"}' />
+                    <td width="17%">Kunden-Nr.</td>
+                    <td width="41%">
+                        <span t-field="doc.partner_id.ref"/>
                     </td>
-                    <th>
-                        <strong class="mr-2">Verkäufer:</strong>
-                    </th>
-                    <td>
-                        <span t-field="doc.user_id" />
-                    </td>
-                    <th>
-                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
-                    </th>
-                    <td>
-                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref" />
+                    <td width="17%">Datum</td>
+                    <td width="25%">
+                        <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
                     </td>
                 </tr>
                 <tr>
-                    <th>
-                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">Gültigkeit:</strong>
-                    </th>
+                    <td>Ihre Referenz</td>
                     <td>
-                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options='{"widget": "date"}' />
+                        <span t-field="doc.client_order_ref"/>
                     </td>
-                    <th>
-                        <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
-                    </th>
+                    <td>Kontaktperson</td>
                     <td>
-                        <span t-field="doc.project_id" />
+                        <span t-field="doc.user_id"/>
                     </td>
-                    <th>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
-                    </th>
+                </tr>
+                <tr>
+                    <td/>
+                    <td/>
+                    <td>Mwst-Nr:</td>
                     <td>
-                        <span t-field="doc.payment_term_id" />
+                        <span t-field="res_company.vat"/>MWST
                     </td>
                 </tr>
             </table>
         </div>
-
-        <!-- <style>
-            div#informations p {
-                margin-bottom: 0.5rem;
-            }
-        </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <p>
-                            <strong class="mr-2">Datum:</strong>
-                            <span t-field="doc.date_order" t-options='{"widget": "date"}' />
-                        </p>
-                         <p t-if="doc.validity_date and doc.state in ['draft','sent']">
-                            <strong class="mr-2">Gültigkeit:</strong>
-                            <span t-field="doc.validity_date" t-options='{"widget": "date"}' />
-                        </p>
-                    </td>
-                    <td>
-                        <p>
-                            <strong class="mr-2">Verkäufer:</strong>
-                            <span t-field="doc.user_id" />
-
-                        </p>
-                        <p>
-                            <strong class="mr-2" t-if="doc.project_id">Projekt:</strong>
-                            <span t-field="doc.project_id" />
-                        </p>
-                    </td>
-                    <td>
-                        <p t-if="doc.client_order_ref">
-                            <strong class="mr-2">Ihre Referenz:</strong>
-                            <span t-field="doc.client_order_ref" />
-                        </p>
-                        <p>
-                            <strong class="mr-2">Zahlungsbedingungen:</strong>
-                            <span t-field="doc.payment_term_id" />
-                        </p>
-                    </td>
-                </tr>
-            </table>
-        </div> -->
-
-        <!-- <div id="informations">
-            <table width="100%">
-            <tr>
-                <td width="17%">Kunden-Nr.</td>
-                <td width="41%">
-                <span t-field="doc.partner_id.ref"/>
-                </td>
-                <td width="17%">Datum</td>
-                <td width="25%">
-                <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Ihre Referenz</td>
-                <td>
-                <span t-field="doc.client_order_ref"/>
-                </td>
-                <td>Kontaktperson</td>
-                <td>
-                <span t-field="doc.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td/>
-                <td>Mwst-Nr:</td>
-                <td>
-                <span t-field="res_company.vat"/> MWST
-                </td>
-            </tr>
-            </table>
-            </div>
-        </div> -->
     </div>
 
 </data>
@@ -2473,21 +2415,24 @@ ID: `mint_system.sale.report_saleorder_document.style_moser`
 		.o_company_1_layout.o_report_layout_standard h2 {
         	color: black;
        		font-size: 1.4rem;
-			font-weight: bold;
+			    font-weight: bold;
      	}
      	.o_company_1_layout.o_report_layout_standard #total strong {
         	color: black;
      	}
      	div#informations {
      	 	margin-top: 30px;
-     	 	margin-bottom: 50px;
-     	}     	
+     	 	margin-bottom: 60px;
+     	}
      	h2.mt-4 {
      	 	margin-top: 70px !important;
      	}
+     	td#tax_amount {
+     	 	text-align: right;
+     	}
 		</style>
 	</xpath>
-
+	
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.report_saleorder_document.style_moser.xml)

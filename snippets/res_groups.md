@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Res Groups
 ## Hr Holidays  
 ### Holidays Self Responsible  

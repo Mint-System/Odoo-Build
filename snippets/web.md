@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Web
 ## Address Layout  
 ### Format Address Block  

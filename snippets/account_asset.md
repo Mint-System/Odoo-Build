@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Asset
 ## View Account Asset Form  
 ### Account Ids Optional  

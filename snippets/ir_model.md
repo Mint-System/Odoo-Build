@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Ir Model
 ## Account Analytic Line  
 ### X Sale Order Id  
@@ -201,6 +198,30 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
 
 ```
 Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_duplicate_found.xml)
+
+### X Invoice Warn Msg  
+ID: `mint_system.ir_model.account_move.x_invoice_warn_msg`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_invoice_warn_msg" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nachricht zu Rechnung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_duplicate_found</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="relation">partner_id.invoice_warn_msg</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_move.x_invoice_warn_msg.xml)
 
 ### X Picking List  
 ID: `mint_system.ir_model.account_move.x_picking_list`  
@@ -878,6 +899,30 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 
 ```
 Source: [snippets/ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_workorder.x_type_description.xml)
+
+## Product Category  
+### X Relevant For Certificate  
+ID: `mint_system.ir_model.product_category.x_relevant_for_certificate`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_relevant_for_certificate" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Für Werkszeugnis relevant</field>
+    <field name="model">product.category</field>
+    <field name="model_id" ref="product.product_category"/>
+    <field name="name">x_relevant_for_certificate</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.product_category.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.product_category.x_relevant_for_certificate.xml)
 
 ## Product Packaging  
 ### X Description  
@@ -1978,7 +2023,8 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                     
                 elif rec.product_packaging.name == "Vakuum Gross":
                     rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                    
+                elif rec.product_packaging.name == "Aktionären Gutschein":
+                    rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
                 elif rec.product_packaging.name == "Vakuum Klein":
                     if rec.product_id.id == 68:
                         rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
@@ -2000,7 +2046,7 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
                     # Zander ganz / rund
                     else:
                         rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
-              </field>
+    </field>
   </record>
 
 </odoo>

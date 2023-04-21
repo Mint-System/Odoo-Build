@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Survey
 ## Survey Question Form  
 ### Add Button Start Survey  

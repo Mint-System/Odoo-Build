@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Budget
 ## View Crossovered Budget Line Tree  
 ### Show Budget  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Account Sale Timesheet Report
 ## Report Invoice Document  
 ### Add Linebreak  

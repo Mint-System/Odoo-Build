@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Hr Payroll
 ## Hr Payslip Line  
 ### View Pivot  

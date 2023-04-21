@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Printnode Base
 ## Printnode Scenario Domain Editor  
 ### Remove Domain Widget  

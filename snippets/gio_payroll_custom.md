@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Gio Payroll Custom
 ## Gio View Hr Contract Form  
 ### Holiday Wage As Percentage  

@@ -1,6 +1,3 @@
----
-prev: ./snippets
----
 # Calendar
 ## View Calendar Event Calendar  
 ### Default Mode Week  
