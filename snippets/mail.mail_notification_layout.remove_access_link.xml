@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_layout" priority="60">
+
+  <xpath expr="//body[1]/t[1]" position="after">
+    <t t-set="has_button_access" t-value="False"/>
+  </xpath>
+
+</data>
