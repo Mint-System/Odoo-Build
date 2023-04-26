@@ -547,9 +547,9 @@ ID: `mint_system.stock.report_bordero.basis57`
 ```
 Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_bordero.basis57.xml)
 
-## Report Certificatecofc  
+## Report Certificatecofc Simplified  
 ### Tissa  
-ID: `mint_system.stock.report_certificatecofc.tissa`  
+ID: `mint_system.stock.report_certificatecofc_simplified.tissa`  
 ```xml
 <?xml version="1.0"?>
 <t t-name="stock.report_certificatecofc.tissa">
@@ -592,6 +592,10 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
             margin-bottom: 10mm;
             text-align: center;
           }
+          div#subtitle {
+              font-size: 11pt;
+              font-family: arial;
+          }
         </style>
 
         <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
@@ -630,8 +634,8 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
             <tr>
               <td>Liefermenge:</td>
               <td>
-                <span t-field="o.move_lines.quantity_done"/>
-                <span t-field="o.move_lines.product_uom"/>
+                <span t-field="o.move_lines[0].quantity_done"/>
+                <span t-field="o.move_lines[0].product_uom"/>
               </td>
             </tr>
             <tr>
@@ -646,7 +650,9 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
                 <span t-field="o.name"/>
  / 
                 <span t-field="o.origin"/>
- /                <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
+                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                </t>
               </td>
             </tr>
             <tr>
@@ -692,8 +698,8 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
 
           <table id='workorder'>
             <tr>
-              <th width="75%">Liefermenge</th>
-              <th width="25%">Chargennummer</th>
+              <th width="50%">Liefermenge</th>
+              <th width="50%">Chargennummer</th>
             </tr>
             <tr>
               <t t-set="lines" t-value="o.move_line_ids"/>
@@ -711,103 +717,48 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
           <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
           <table id='tracing'>
             <tr>
-              <th></th>
-              <th colspan="5">Produktspez.Rohmaterial</th>
-              <th colspan="4">Produktspez.Kette</th>
-            </tr>
-            <tr>
-              <th width="25%">Ressource</th>
-              <th width="5%">Tex</th>
+              <th width="45%">Ressource</th>
+              <th width="10%">Tex</th>
               <th width="10%">Rohmat.</th>
-              <th width="5%">Filament</th>
-              <th width="5%">Drehung</th>
-              <th width="5%">Schlichte</th>
-              <th width="5%">Tex</th>
-              <th width="5%">Breite</th>
-              <th width="5%">Faden</th>
-              <th width="10%">Los</th>
+              <th width="10%">Filament</th>
+              <th width="10%">Drehung</th>
+              <th width="15%">Schlichte</th>
             </tr>
 
-            <tr t-foreach="products" t-as="product_line">
+            <t t-foreach="products" t-as="product_line">
 
-              <!--
-           <td>
-                <span t-field="product_line.name"/>
-                (<span t-field="product_line.id"/>)
-              </td>
-              
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_tex_2"/>
-              </td>
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_rohmaterialtyp"/>
-              </td>
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_filament"/>
-              </td>
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_drehung"/>
-              </td>
-              <td></td>
+              <t t-if="product_line.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
+                <tr>
+                  <td>
+                    <span t-field="product_line.name"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_tex_2"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_rohmaterialtyp"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_filament"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_drehung"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.product_template_attribute_value_ids.name"/>
+                  </td>
 
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_tex_3"/>
-              </td>
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_field_XalgN"/>
-              </td>
-              <td>
-                <span t-field="product_line.product_tmpl_id.x_studio_faden_total"/>
-              </td>
-          -->
+                </tr>
+              </t>
 
-              <t t-set="lots_seen" t-value="[]" />
-              <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
-
-              <tr t-foreach="move_lines" t-as="move_line">
-
-                <t t-if="move_line.lot_id not in lots_seen">
-                  <t t-esc="lots_seen.append(move_line.lot_id)"/>
-
-                  <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
-
-                    <td>
-                      <span t-field="move_line.product_id"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
-                    </td>
-                    <td></td>
-
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_3"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_field_XalgN"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_faden_total"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.lot_id"/>
-                    </td>
-                  </t>
-                </t>
-              </tr>
+            </t>
+            <tr>
+              <td colspan="6"></td>
             </tr>
           </table>
 
           <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
-          <div id="subtitel">
+          <div id="subtitle">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
           </div>
           <table id="quality">
@@ -816,15 +767,18 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
               <th width="25%">Sollwert</th>
               <th width="25%">Istwert</th>
             </tr>
-            <tr>
-              <td>Fadendichte per cm Kette 1:</td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
-              </td>
-              <td>
-                <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
-              </td>
-            </tr>
+
+            <t t-if="qualitycheck_line.x_studio_kette_1_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 1:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                </td>
+              </tr>
+            </t>
 
             <t t-if="qualitycheck_line.x_studio_kette_2_fdcm > 0">
               <tr>
@@ -838,14 +792,50 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
               </tr>
             </t>
 
+            <t t-if="qualitycheck_line.x_studio_kette_3_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 3:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_kette_4_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 4:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
             <t t-if="qualitycheck_line.x_studio_schuss_1_fdcm > 0">
               <tr>
-                <td>Fadendichte per cm Schuss 1::</td>
+                <td>Fadendichte per cm Schuss 1:</td>
                 <td>
                   <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
                 </td>
                 <td>
                   <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_schuss_2_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Schuss 2:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
                 </td>
               </tr>
             </t>
@@ -891,34 +881,362 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
             </tr>
           </table>
         </div>
+      </t>
+    </t>
+  </t>
+</t>
+```
+Source: [snippets/stock.report_certificatecofc_simplified.tissa.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_certificatecofc_simplified.tissa.xml)
 
-        <!--
-    <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
-    
-    <table id="traceability">
-      <tr t-foreach="products" t-as="product_line">
-         <td style="font-weight: bold">
-           <span t-field="product_line.name"/>
-           (<span t-field="product_line.id"/>)
-         </td>
-         
-        <t t-set="batches" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids" />
-        <tr t-foreach="batches" t-as="batch_line">
- 
-          <t t-if="product_line.id == batch_line.product_id.id">
-          <td>
-           <span t-field="batch_line.product_id"/>
-           (<span t-field="batch_line.product_id.id"/>)
-           <span t-field="batch_line.lot_id"/>
-          </td>
-  
-         </t>
-        </tr>
+## Report Certificatecofc  
+### Tissa  
+ID: `mint_system.stock.report_certificatecofc.tissa`  
+```xml
+<?xml version="1.0"?>
+<t t-name="stock.report_certificatecofc.tissa">
+  <t t-call="web.html_container">
+    <t t-call="web.external_layout">
+      <t t-foreach="docs" t-as="o">
 
-    </tr>
-    </table>
-    -->
+        <style>
+          table {
+            width: 100%;
+            margin-bottom: 25px;
+            font-size: 11pt;
+            font-family: arial;
+          }
+          table th {
+            padding: 0 5px 0 5px;
+          }
+          table td {
+            padding: 0 5px 0 5px;
+          }
+          table#title {
+              background-color: rgb(216,216,216);
+          }
+          .table_info {
+              border: solid 1px;
+          }
+          table#workorder {
+              border: solid 1px;
+          }
+          table#quality {
+              border: solid 1px;
+          }
+          table#tracing {
+              border: solid 1px;
+          }
+          h2 {
+            font-size: 16pt;
+            font-weight: bold;
+            margin-top: 10mm;
+            margin-bottom: 10mm;
+            text-align: center;
+          }
+          div#subtitle {
+              font-size: 11pt;
+              font-family: arial;
+          }
+        </style>
 
+        <t t-set="o" t-value="o.with_context(lang=o.partner_id.lang)"/>
+
+        <div class="page">
+
+          <h2>
+            <span>Werkszeugnis nach EN 10 204-3.1 für Glasgewebe</span>
+          </h2>
+
+          <table id='title'>
+            <tr>
+              <td width="50%">Hersteller:</td>
+              <td>
+                <span t-field="o.company_id.name"/>
+,                <span t-field="o.company_id.country_id.code"/>
+-                <span t-field="o.company_id.zip"/>
+                <span t-field="o.company_id.city"/>
+              </td>
+            </tr>
+          </table>
+
+          <table class="table_info">
+            <tr>
+              <td width="50%">Hersteller Bezeichnung:</td>
+              <td width="50%">
+                <span t-field="o.product_id.categ_id"/>
+              </td>
+            </tr>
+            <tr style="border-bottom: solid 1px">
+              <td>Artikelnr.</td>
+              <td width="50%">
+                <span t-field="o.product_id.name"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Liefermenge:</td>
+              <td>
+                <span t-field="o.move_lines[0].quantity_done"/>
+                <span t-field="o.move_lines[0].product_uom"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Lieferdatum:</td>
+              <td>
+                <span t-field="o.date_done" t-options='{"widget": "date"}'/>
+              </td>
+            </tr>
+            <tr style="border-bottom: solid 1px">
+              <td>Lieferschein-/Auftragsnummer:</td>
+              <td>
+                <span t-field="o.name"/>
+ / 
+                <span t-field="o.origin"/>
+                <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
+                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                </t>
+              </td>
+            </tr>
+            <tr>
+              <td>Kunde / Fax:</td>
+              <td>
+                <span t-field="o.partner_id"/>
+              </td>
+            </tr>
+            <tr style="border-bottom: solid 1px">
+              <td></td>
+              <td>
+                <span t-field="o.partner_id.mobile"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Bestellnummer:</td>
+              <td>
+                <span t-field="o.x_studio_kundenreferenz"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Kunden Artikelbezeichnung:</td>
+              <td>
+                <span t-field="o.product_id.x_studio_kundenartikelnr"/>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                <span t-field="o.product_id.description_sale"/>
+              </td>
+            </tr>
+
+            <table class="table_info">
+              <tr>
+                <td width="50%">Gewebebindung:</td>
+                <td width="50%">
+                  <span t-field="o.product_id.x_studio_bindung_1"/>
+                </td>
+              </tr>
+            </table>
+          </table>
+
+          <table id='workorder'>
+            <tr>
+              <th width="50%">Liefermenge</th>
+              <th width="50%">Chargennummer</th>
+            </tr>
+            <tr>
+              <t t-set="lines" t-value="o.move_line_ids"/>
+              <tr t-foreach="lines" t-as="move_line">
+                <td width="25%">
+                  <span t-field="move_line.qty_done"/>
+                </td>
+                <td width="75%">
+                  <span t-field="move_line.lot_id"/>
+                </td>
+              </tr>
+            </tr>
+          </table>
+
+          <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
+          <table id='tracing'>
+            <tr>
+              <th width="25%">Ressource</th>
+              <th width="10%">Tex</th>
+              <th width="10%">Rohmat.</th>
+              <th width="10%">Filament</th>
+              <th width="10%">Drehung</th>
+              <th width="15%">Schlichte</th>
+              <th width="20%">Los</th>
+            </tr>
+
+
+
+            <t t-foreach="products" t-as="product_line">
+
+              <t t-set="lots_seen" t-value="[]" />
+              <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
+
+              <tr t-foreach="move_lines" t-as="move_line">
+
+                <t t-if="move_line.lot_id not in lots_seen">
+                  <t t-esc="lots_seen.append(move_line.lot_id)"/>
+
+                  <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
+
+                    <td>
+                      <span t-field="move_line.product_id"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
+                    </td>
+                    <td>
+                      <span t-field="move_line.product_id.product_template_attribute_value_ids.name"/>
+
+                    </td>
+                    <td>
+                      <span t-field="move_line.lot_id"/>
+                    </td>
+                  </t>
+                </t>
+              </tr>
+
+            </t>
+            <tr>
+              <td colspan="7"></td>
+            </tr>
+          </table>
+
+          <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
+          <div id="subtitle">
+      Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
+          </div>
+          <table id="quality">
+            <tr>
+              <th width="50%"></th>
+              <th width="25%">Sollwert</th>
+              <th width="25%">Istwert</th>
+            </tr>
+
+            <t t-if="qualitycheck_line.x_studio_kette_1_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 1:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_1_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_kette_2_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 2:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_2_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_kette_3_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 3:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_3_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_kette_4_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Kette 4:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_kette_4_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_schuss_1_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Schuss 1:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_1_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <t t-if="qualitycheck_line.x_studio_schuss_2_fdcm > 0">
+              <tr>
+                <td>Fadendichte per cm Schuss 2:</td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
+                </td>
+                <td>
+                  <span t-field="qualitycheck_line.x_studio_schuss_2_fdcm"/>
+                </td>
+              </tr>
+            </t>
+
+            <tr>
+              <td>Gewebebreite in mm:</td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_breite_von_mm"/>
+                <span> - </span>
+                <span t-field="qualitycheck_line.x_studio_breite_bis_mm"/>
+              </td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_breite_ist_mm"/>
+              </td>
+            </tr>
+            <tr>
+              <td>Flächengewicht gr per m2:</td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_gewicht_von_gm2"/>
+                <span> - </span>
+                <span t-field="qualitycheck_line.x_studio_gewicht_bis_gm2"/>
+              </td>
+              <td>
+                <span t-field="qualitycheck_line.x_studio_gewicht_ist_gm2"/>
+              </td>
+            </tr>
+          </table>
+
+          <table>
+            <tr>
+              <td>
+            Unterschrift
+                <br></br>
+                <br></br>
+              </td>
+            </tr>
+            <tr>
+              <td>
+            Der Hersteller bescheinigt, dass das Glasgewebe den obigen Angaben entspricht.<br></br>
+            Mit freundlichen Grüssen
+            Tissa Glasweberei AG
+              </td>
+            </tr>
+          </table>
+        </div>
       </t>
     </t>
   </t>

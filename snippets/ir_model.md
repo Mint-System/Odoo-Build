@@ -829,6 +829,31 @@ ID: `mint_system.ir_model.mrp_production.x_note`
 ```
 Source: [snippets/ir_model.mrp_production.x_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_note.xml)
 
+### X Quality Check Ids  
+ID: `mint_system.ir_model.mrp_production.x_quality_check_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_quality_check_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Qualitätsprüfungen</field>
+    <field name="model">mrp.production</field>
+    <field name="model_id" ref="mrp.model_mrp_production"/>
+    <field name="name">x_quality_check_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">One2many</field> 
+    <field name="relation">quality.check</field>
+    <field name="relation_field">production_id</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.mrp_production.x_quality_check_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.mrp_production.x_quality_check_ids.xml)
+
 ## Mrp Workorder  
 ### X Reservation State  
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
@@ -1434,6 +1459,36 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 
 ```
 Source: [snippets/ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.purchase_order.x_comment.xml)
+
+## Quality Check  
+### X Active  
+ID: `mint_system.ir_model.quality_check.x_active`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_active" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Aktiv</field>
+    <field name="model">quality.check</field>
+    <field name="model_id" ref="quality.model_quality_check"/>
+    <field name="name">x_active</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+    <field name="depends">test_type_id</field>
+    <field name="compute">for rec in self:
+  if rec.test_type_id.technical_name == 'register_consumed_materials':
+    rec['x_active'] = False
+  else:
+    rec['x_active'] = True</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.quality_check.x_active.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.quality_check.x_active.xml)
 
 ## Res Partner  
 ### X Birthdate  

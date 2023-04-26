@@ -164,58 +164,43 @@
           <t t-set="products" t-value="list(set([line.product_id for line in o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids]))" />
           <table id='tracing'>
             <tr>
-              <th width="25%">Ressource</th>
+              <th width="45%">Ressource</th>
               <th width="10%">Tex</th>
               <th width="10%">Rohmat.</th>
               <th width="10%">Filament</th>
               <th width="10%">Drehung</th>
               <th width="15%">Schlichte</th>
-              <th width="20%">Los</th>
             </tr>
-
-
 
             <t t-foreach="products" t-as="product_line">
 
-              <t t-set="lots_seen" t-value="[]" />
-              <t t-set="move_lines" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.traceability_line_ids.filtered(lambda l: product_line.id == l.product_id.id)"/>
+              <t t-if="product_line.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
+                <tr>
+                  <td>
+                    <span t-field="product_line.name"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_tex_2"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_rohmaterialtyp"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_filament"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.x_studio_drehung"/>
+                  </td>
+                  <td>
+                    <span t-field="product_line.product_template_attribute_value_ids.name"/>
+                  </td>
 
-              <tr t-foreach="move_lines" t-as="move_line">
-
-                <t t-if="move_line.lot_id not in lots_seen">
-                  <t t-esc="lots_seen.append(move_line.lot_id)"/>
-
-                  <t t-if="move_line.product_id.product_tmpl_id.categ_id.x_relevant_for_certificate == true">
-
-                    <td>
-                      <span t-field="move_line.product_id"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_tex_2"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_rohmaterialtyp"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_filament"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_tmpl_id.x_studio_drehung"/>
-                    </td>
-                    <td>
-                      <span t-field="move_line.product_id.product_template_attribute_value_ids.name"/>
-
-                    </td>
-                    <td>
-                      <span t-field="move_line.lot_id"/>
-                    </td>
-                  </t>
-                </t>
-              </tr>
+                </tr>
+              </t>
 
             </t>
             <tr>
-              <td colspan="7"></td>
+              <td colspan="6"></td>
             </tr>
           </table>
 

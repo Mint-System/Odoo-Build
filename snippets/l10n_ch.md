@@ -94,3 +94,17 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml)
 
+### Set Additional Information  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+
+  <t t-set="additional_info" position="replace">
+    <t t-set="additional_info" t-value="o.name"/>
+  </t>
+
+</data>
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)
+
