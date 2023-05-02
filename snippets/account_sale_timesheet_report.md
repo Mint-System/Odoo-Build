@@ -30,6 +30,21 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pageb
 ```
 Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
 
+## Report Invoice With Timesheets  
+### Print With Payments  
+ID: `mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.report_invoice_with_timesheets" priority="50">
+
+    <xpath expr="/t[1]/t[1]/t[1]/t[1]" position="after">
+        <t t-set="print_with_payments" t-value="True"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
+
 ## Timesheet Report  
 ### Add Title Space  
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`  

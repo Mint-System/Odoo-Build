@@ -2844,8 +2844,11 @@ ID: `mint_system.stock.report_picking.add_mrp_production_x_note`
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//table[@id='main_table']" position="after">
-    <t t-if="o.group_id.mrp_production_ids.x_note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <p class="mrp_note" t-field="o.group_id.mrp_production_ids.x_note"/>
+    <t t-set="production" t-value="o.group_id.mrp_production_ids"/>
+    <t t-foreach="production" t-as="production_line">
+      <t t-if="production_line.x_note != '&lt;br&gt;'">
+        <p class="oe_no_empty" t-field="production_line.x_note"/>
+      </t>
     </t>
   </xpath>
 

@@ -4217,6 +4217,21 @@ ID: `mint_system.account.report_invoice_document.x_picking_list`
 ```
 Source: [snippets/account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.x_picking_list.xml)
 
+## Report Invoice  
+### Print With Payments  
+ID: `mint_system.account.report_invoice.print_with_payments`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice" priority="50">
+
+    <xpath expr="/t[1]/t[1]/t[1]/t[1]" position="after">
+        <t t-set="print_with_payments" t-value="True"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice.print_with_payments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice.print_with_payments.xml)
+
 ## Res Config Settings View Form  
 ### Domain Expense Currency Exchange Account Id  
 ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id`  

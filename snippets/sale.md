@@ -1453,22 +1453,22 @@ ID: `mint_system.sale.report_saleorder_document.convert_html_note`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-  
-	<xpath expr="//td[@name='td_note_line']/.." position="replace">
-		<t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
-			<td name="td_note_line" colspan="99">
-				<span t-field="line.name"/>
-			</td>
-		</t>
-	</xpath>	
 
-	<xpath expr="//td[@name='td_section_subtotal']/../.." position="after">
-		<t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
-			<td name="td_html_line" colspan="99">
-				<t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')"/>
-			</td>
-		</t>
-	</xpath>	
+    <xpath expr="//td[@name='td_note_line']/.." position="replace">
+        <t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
+            <td name="td_note_line" colspan="99">
+                <span t-field="line.name" />
+            </td>
+        </t>
+    </xpath>
+
+    <xpath expr="//td[@name='td_section_subtotal']/../.." position="after">
+        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+            <td name="td_html_line" colspan="99">
+                <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')" />
+            </td>
+        </t>
+    </xpath>
 
 </data>
 ```
@@ -2694,6 +2694,30 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml)
 
 ## Sale Order Portal Content  
+### Convert Html Note  
+ID: `mint_system.sale.sale_order_portal_content.convert_html_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+
+    <t t-if="line.display_type == 'line_note'" position="replace">
+        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+            <td colspan="99">
+                <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')" />
+            </td>
+        </t>
+        <t t-elif="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' not in line.name">
+            <td colspan="99">
+                <span t-field="line.name"/>
+            </td>
+        </t>
+    </t>
+
+</data>
+
+```
+Source: [snippets/sale.sale_order_portal_content.convert_html_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.sale_order_portal_content.convert_html_note.xml)
+
 ### Description  
 ID: `mint_system.sale.sale_order_portal_content.description`  
 ```xml

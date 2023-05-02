@@ -98,7 +98,7 @@
  / 
                 <span t-field="o.origin"/>
                 <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
-                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                     /                  <span t-field="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id"/>
                 </t>
               </td>
             </tr>
@@ -204,7 +204,7 @@
             </tr>
           </table>
 
-          <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
+          <t t-set="qualitycheck_line" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids.move_line_ids[0].lot_id.x_production_ids[0].x_quality_check_ids[0]"/>
           <div id="subtitle">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
           </div>

@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+        <div class="col-auto col-3 mw-100 mb-2">
+            <strong>Your contact</strong>
+            <p class="m-0" t-field="o.sale_order_id.partner_contact_id.name"/>
+        </div>
+    </xpath>
+
+</data>
