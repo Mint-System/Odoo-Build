@@ -157,7 +157,13 @@ function open-url-with-delay(){
     xdg-open $1
 }
 
-function start() {
+function start() {    
+    DATABASE=$2
+    # Use default database if second param is not given
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+    fi
+
     if test -z "$1"; then
         echo "Open http://localhost:8069 url in your browser."
         docker-compose up -d
@@ -182,7 +188,7 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?db=$GIT_BRANCH" & 
+        open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
         odoo-bin --config 'config/odoo-native.conf' --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
@@ -716,7 +722,7 @@ function upload-module() {
 
     # Check if path is root folder
     MODULES=$2
-    if [ -f "$2/README.md" ]; then
+    if [ ! -f "$2/__manifest__.py" ]; then
         echo "Identified as root folder"
         MODULES="$MODULES/*"
     fi
@@ -921,7 +927,7 @@ case "$1" in
         docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
         ;;
     start)
-        start $2
+        start $2 $3
         ;;
     restart)
         restart $2
