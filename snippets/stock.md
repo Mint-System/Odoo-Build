@@ -651,7 +651,7 @@ ID: `mint_system.stock.report_certificatecofc_simplified.tissa`
  / 
                 <span t-field="o.origin"/>
                 <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
-                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                     /                  <span t-field="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id"/>
                 </t>
               </td>
             </tr>
@@ -757,7 +757,7 @@ ID: `mint_system.stock.report_certificatecofc_simplified.tissa`
             </tr>
           </table>
 
-          <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
+          <t t-set="qualitycheck_line" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids.move_line_ids[0].lot_id.x_production_ids[0].x_quality_check_ids[0]"/>
           <div id="subtitle">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
           </div>
@@ -992,7 +992,7 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
  / 
                 <span t-field="o.origin"/>
                 <t t-if="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id">
-                     /                  <span t-field="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_id"/>
+                     /                  <span t-field="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_id"/>
                 </t>
               </td>
             </tr>
@@ -1113,7 +1113,7 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
             </tr>
           </table>
 
-          <t t-set="qualitycheck_line" t-value="o.move_line_ids.lot_id.x_production_ids.move_raw_ids.move_line_ids.lot_id.x_production_ids.x_quality_check_ids"/>
+          <t t-set="qualitycheck_line" t-value="o.move_line_ids[0].lot_id.x_production_ids[0].move_raw_ids[0].move_line_ids[0].lot_id.x_production_ids[0].x_quality_check_ids[0]"/>
           <div id="subtitle">
       Qualitätsprüfung <span t-field="qualitycheck_line.name"/>
           </div>
@@ -5149,6 +5149,23 @@ ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`
 
 ```
 Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
+
+## View Stock Quant Package Form  
+### Add Estimated Pack Weight Kg  
+ID: `mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_quant_package_form" priority="50">
+
+  <xpath expr="//span[@class='text-muted'][1]" position="replace">
+    <span class="text-muted">(computed: <field name="estimated_pack_weight_kg" nolabel="1"/>
+    </span>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml)
 
 ## View Stock Quant Tree Editable  
 ### Show Reserved Quantity  

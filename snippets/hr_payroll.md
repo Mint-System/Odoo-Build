@@ -69,6 +69,8 @@ ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`
                     <address t-field="o.employee_id.address_home_id"
                         t-options='{"widget": "contact", "fields": ["address", "name", "phone"], "no_marker": True, "phone_icons": True}' />
                 </t>
+                
+                <t t-set="input_lines" t-value="o.input_line_ids.filtered('name')" />
 
                 <div class="page">
                     <style>
@@ -145,7 +147,12 @@ ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`
                             </tr>
                         </thead>
 
+
+                        <!--<span t-esc="input_lines[0].input_type_id.code" />-->
+                        
                         <t t-foreach="o.line_ids" t-as="line">
+                            <t t-set="inputs" t-value="input_lines.filtered(lambda i: i.input_type_id.code == line.code)" />
+                            
                             <t t-if="line.salary_rule_id.appears_on_payslip and line.amount != 0.00">
                                 <tr>
                                     <!-- Lohnart -->
@@ -157,6 +164,9 @@ ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`
                                         <t
                                             t-if="not line.code in ['5000'] and not line.code in ['NET']">
                                             <span t-field="line.name" />
+                                        </t>
+                                        <t t-if="inputs">
+                                            <br/><i t-esc="inputs.name" />
                                         </t>
                                     </td>
                                     <!-- Ansatz -->

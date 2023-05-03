@@ -187,6 +187,23 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
+### Add Sale Order Contact Name  
+ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+        <div class="col-auto col-3 mw-100 mb-2">
+            <strong>Your contact</strong>
+            <p class="m-0" t-field="o.sale_order_id.partner_contact_id.name"/>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_order_contact_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_order_contact_name.xml)
+
 ### Add Sale Person  
 ID: `mint_system.account.report_invoice_document.add_sale_person`  
 ```xml
@@ -2311,6 +2328,23 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
+### Add Sale Order Contact Name  
+ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+        <div class="col-auto col-3 mw-100 mb-2">
+            <strong>Your contact</strong>
+            <p class="m-0" t-field="o.sale_order_id.partner_contact_id.name"/>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_sale_order_contact_name.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.add_sale_order_contact_name.xml)
 
 ### Add Sale Person  
 ID: `mint_system.account.report_invoice_document.add_sale_person`  

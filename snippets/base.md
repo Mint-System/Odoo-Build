@@ -209,6 +209,22 @@ ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 ```
 Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
 
+## View Model Fields Form  
+### Show State  
+ID: `mint_system.base.view_model_fields_form.show_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_model_fields_form" priority="50">
+
+  <field name="ttype" position="after">
+    <field name="state"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_model_fields_form.show_state.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/base.view_model_fields_form.show_state.xml)
+
 ## View Partner Form  
 ### Add Commercial Partner Id  
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  

@@ -1876,13 +1876,65 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
     <field name="ttype">float</field>
     <field name="depends">untaxed_amount_invoiced,price_tax</field>
     <field name="compute">for rec in self:
-      rec['x_taxed_amount_invoiced'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * rec.qty_delivered + rec.price_tax</field>
+  rec['x_taxed_amount_invoiced'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty) + rec.price_tax</field>
   </record>
 
 </odoo>
 
 ```
 Source: [snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_taxed_amount_invoiced.xml)
+
+### X Taxed Amount  
+ID: `mint_system.ir_model.sale_order_line.x_taxed_amount`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_taxed_amount" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Total inkl. MWST</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_taxed_amount</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">float</field>
+    <field name="depends">price_unit,discount,qty_delivered,product_uom_qty,price_tax</field>
+    <field name="compute">for rec in self:
+  rec['x_taxed_amount'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty) + rec.price_tax</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_taxed_amount.xml)
+
+### X Untaxed Amount  
+ID: `mint_system.ir_model.sale_order_line.x_untaxed_amount`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_untaxed_amount" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Total exkl. MWST</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_untaxed_amount</field>
+    <field name="store" eval="True" />
+    <field name="readonly" eval="True" />
+    <field name="copied" eval="False" />
+    <field name="ttype">float</field>
+    <field name="depends">price_unit,discount,qty_delivered,product_uom_qty</field>
+    <field name="compute">for rec in self:
+  rec['x_untaxed_amount'] = rec.price_unit * (1 - (rec.discount or 0.0) / 100.0) * (rec.qty_delivered or rec.product_uom_qty)</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_untaxed_amount.xml)
 
 ### X Weight Delivered  
 ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`  

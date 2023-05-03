@@ -3621,6 +3621,36 @@ ID: `mint_system.sale.view_order_line_tree.x_taxed_amount_invoiced`
 ```
 Source: [snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml)
 
+### X Taxed Amount  
+ID: `mint_system.sale.view_order_line_tree.x_taxed_amount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+
+    <field name="price_total" position="after">
+        <field name="x_taxed_amount"  sum="Total inkl. MWST" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_taxed_amount.xml)
+
+### X Untaxed Amount  
+ID: `mint_system.sale.view_order_line_tree.x_untaxed_amount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="51">
+
+    <field name="price_total" position="after">
+        <field name="x_untaxed_amount"  sum="Total exkl. MWST" optional="show" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_line_tree.x_untaxed_amount.xml)
+
 ### X Weight Delivered  
 ID: `mint_system.sale.view_order_line_tree.x_weight_delivered`  
 ```xml
