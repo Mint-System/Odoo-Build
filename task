@@ -164,7 +164,12 @@ function start() {
     fi
 
     if [[ "$1" =~ "db" ]]; then
-        docker-compose up -d db admin
+        docker-compose up -d db
+        echo "Open http://localhost:8000 url in your browser."
+    fi
+
+    if [[ "$1" =~ "admin" ]]; then
+        docker-compose up -d admin
         echo "Open http://localhost:8000 url in your browser."
     fi
 
