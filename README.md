@@ -55,7 +55,7 @@ task install-odoo-scripts
 
 ### Native
 
-Run Odoo from source.
+Run Odoo from source. Currently supported OS: Ubuntu, Debian
 
 **Install Odoo native requirements**
 

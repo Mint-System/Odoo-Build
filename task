@@ -15,6 +15,7 @@ echo
 PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
@@ -113,17 +114,23 @@ function install-native() {
     init-venv
     activate-venv
     
-    # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-    echo "Install wkhtmltopdf"
-    sudo apt remove wkhtmltopdf
-    cd ~
-    wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
-    tar xvf wkhtmltox*.tar.xz
-    sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
-    sudo apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig
+    if [[ "Ubuntu|Debian" =~ "$OS_RELEASE" ]]; then
 
-    echo "Install xmllint"
-    sudo apt install libxml2-utils
+        # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
+        echo "Install wkhtmltopdf"
+        sudo apt remove wkhtmltopdf
+        cd ~
+        wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+        tar xvf wkhtmltox*.tar.xz
+        sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
+        sudo apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig
+
+        echo "Install xmllint"
+        sudo apt install libxml2-utils
+
+    else
+        echo "The operating system $OS_RELEASE is not supported."
+    fi
 
     echo "Install pylint odoo"
     pip install --upgrade --pre pylint-odoo
