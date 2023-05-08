@@ -16,6 +16,7 @@ PATH="$PATH:./odoo"
 GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
