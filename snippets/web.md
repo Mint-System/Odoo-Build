@@ -619,6 +619,25 @@ ID: `mint_system.web.internal_layout.trimada`
 ```
 Source: [snippets/web.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.internal_layout.trimada.xml)
 
+## Layout  
+### Color Navbar  
+ID: `mint_system.web.layout.color_navbar`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.layout" priority="50">
+
+<!-- The id's of the companies have to be adjusted -->
+
+  <xpath expr="//body" position="inside">
+      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
+        <style>.o_main_navbar {background-color: #57596F!important;border-bottom: 0px;}</style></t> 
+      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '4'">
+        <style>.o_main_navbar {background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>
+  </xpath>
+</data>
+```
+Source: [snippets/web.layout.color_navbar.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.layout.color_navbar.xml)
+
 ## Login Layout  
 ### Disable Footer  
 ID: `mint_system.web.login_layout.disable_footer`  
