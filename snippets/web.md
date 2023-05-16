@@ -626,7 +626,7 @@ ID: `mint_system.web.layout.color_navbar`
 <?xml version="1.0"?>
 <data inherit_id="web.layout" priority="50">
 
-<!-- The id's of the companies have to be adjusted -->
+  <!-- The id's of the companies have to be adjusted -->
 
   <xpath expr="//body" position="inside">
       <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
@@ -634,6 +634,7 @@ ID: `mint_system.web.layout.color_navbar`
       <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '4'">
         <style>.o_main_navbar {background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>
   </xpath>
+
 </data>
 ```
 Source: [snippets/web.layout.color_navbar.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.layout.color_navbar.xml)
