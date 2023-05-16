@@ -190,3 +190,7 @@
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 16.0
+[submodule "addons/website"]
+	path = addons/website
+	url = git@github.com:Mint-System/Odoo-Apps-Website.git
+	branch = 16.0
