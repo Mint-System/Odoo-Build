@@ -1635,30 +1635,6 @@ ID: `mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id`
 Source: [snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_blanket_order_line.x_product_uom_category_id.xml)
 
 ## Sale Order Line  
-### X Categ Id  
-ID: `mint_system.ir_model.sale_order_line.x_categ_id`  
-```xml
-<?xml version='1.0' encoding='UTF-8' ?>
-<odoo>
-
-  <record id="x_categ_id" model="ir.model.fields">
-    <field name="domain">[]</field>
-    <field name="field_description">Produktkategorie</field>
-    <field name="model">sale.order.line</field>
-    <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_categ_id</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">many2one</field>
-    <field name="related">product_id.categ_id</field>
-  </record>
-
-</odoo>
-
-```
-Source: [snippets/ir_model.sale_order_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_categ_id.xml)
-
 ### X Client Order Ref  
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`  
 ```xml
@@ -1833,6 +1809,54 @@ ID: `mint_system.ir_model.sale_order_line.x_pricelist_id`
 
 ```
 Source: [snippets/ir_model.sale_order_line.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_pricelist_id.xml)
+
+### X Service Policy  
+ID: `mint_system.ir_model.sale_order_line.x_service_policy`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_service_policy" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Faktierungsregel</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_service_policy</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">product_id.service_policy</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_service_policy.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_service_policy.xml)
+
+### X Service Tracking  
+ID: `mint_system.ir_model.sale_order_line.x_service_tracking`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_service_tracking" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Dienstverfolgung</field>
+    <field name="model">sale.order.line</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_service_tracking</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="related">product_id.service_tracking</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order_line.x_service_tracking.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.sale_order_line.x_service_tracking.xml)
 
 ### X State  
 ID: `mint_system.ir_model.sale_order_line.x_state`  
@@ -2105,54 +2129,50 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
     <field name="ttype">int</field>
     <field name="depends">quantity_done</field>
     <field name="compute"># Count the number of packaging boxes
-        for rec in self:
-            rec['x_count_boxes'] = 0
-            if rec.product_packaging:
-                
-                # Get picking delivery product name
-                delivery_name = rec.picking_id.carrier_id.product_id.name
+for rec in self:
+    rec['x_count_boxes'] = 0
+    if rec.product_packaging:
+        
+        # Get picking delivery product name
+        delivery_name = rec.picking_id.carrier_id.product_id.name
+    
+        # qty = rec.product_packaging.qty
+        # qty_up = (qty - 0.1)
             
-                # qty = rec.product_packaging.qty
-                # qty_up = (qty - 0.1)
-                    
-                # Set factor
-                factor_xs = 6
-                if delivery_name == 'Gebinde':
-                    factor_xs = 6
-                elif delivery_name == 'Gebinde Migros':
-                    factor_xs = 6
-                    
-                if rec.product_packaging.name == "Schale Gross":
-                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                    
-                elif rec.product_packaging.name == "Schale Klein":
-                    rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
-                    
-                elif rec.product_packaging.name == "Vakuum Gross":
-                    rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-                elif rec.product_packaging.name == "Aktionären Gutschein":
-                    rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
-                elif rec.product_packaging.name == "Vakuum Klein":
-                    if rec.product_id.id == 68:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    else:
-                        rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-                elif rec.product_packaging.name == "Karton":
-                    rec['x_count_boxes'] = (rec.quantity_done)/5
-                    
-                elif rec.product_packaging.name == "Kiste":
-                    # Filet mit Haut Tiefgekühlt
-                    if rec.product_id.id == 68:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    # Kopf und Backen
-                    elif rec.product_id.id == 51:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
-                    # Filet mit Haut
-                    elif rec.product_id.id == 33:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-                    # Zander ganz / rund
-                    else:
-                        rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
+        # Set factor
+        factor_xs = 6
+        if delivery_name == 'Gebinde':
+            factor_xs = 6
+        elif delivery_name == 'Gebinde Migros':
+            factor_xs = 6
+            
+        if rec.product_packaging.name == "Schale Gross":
+            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+            
+        elif rec.product_packaging.name == "Schale Klein":
+            rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
+            
+        elif rec.product_packaging.name == "Vakuum Gross":
+            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+        elif rec.product_packaging.name == "Aktionären Gutschein":
+            rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
+        elif rec.product_packaging.name == "Vakuum Klein":
+            if rec.product_id.id == 68: # Filet mit Haut TK
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            else:
+                rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
+        elif rec.product_packaging.name == "Karton":
+            rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
+            
+        elif rec.product_packaging.name == "Kiste":
+            if rec.product_id.id == 68: # Filet mit Haut TK
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            elif rec.product_id.id == 51: # Kopf / Backen
+                rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
+            elif rec.product_id.id == 33: # Filet mit Haut
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            else:
+                rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
     </field>
   </record>
 
