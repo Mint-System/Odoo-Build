@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_product']/../th[4]" position="after">
+    <th name="th_lot">
+      <strong>Los</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='move.product_uom_qty']/.." position="after">
+    <td>
+      <span t-if="move.lot_ids" t-esc="', '.join(move.lot_ids.mapped('display_name'))"/>
+    </td>
+  </xpath>
+
+</data>
