@@ -66,48 +66,42 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                 <t t-set="count_labels" t-value="0" />
                 <t t-set="temperature" t-value="2" />
                 <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
-                <t t-set="print_weight" t-value="False" />
                 <t t-set="packaging" t-value="move.product_packaging" />
                 <t t-set="external_ref" t-value="picking.partner_id.x_external_ref" />
                 <t t-set="print_header" t-value="True" />
                 <t t-set="print_delivery_date" t-value="False" />
                 <t t-set="print_delivery_date_only" t-value="False" />
-                
+                <t t-set="barcode" t-value="packaging.barcode" />
+                <t t-set="qty_description" t-value="packaging.x_qty_description" />
+                                
                 <!--Print delivery date if shipping method is Bordereau-->
                 <t t-if="picking.carrier_id.name == 'Bordereau'">
                     <t t-set="print_delivery_date" t-value="True" />
                 </t>
+
+                <!--Calculate default expiration date-->
+                <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.x_expiration_days)" />
+                <t t-set="consume_until" t-value="today + delta" />
 
                 <!--Print report for each move line-->
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
                 <t t-foreach="move_lines" t-as="move_line">
 
                     <!--Select loop based product packaing -->
-                    <t t-if="move.product_packaging.name == 'Schale Klein'">
-                        <t t-set="fix_weight">1'000g</t>
+                    <t t-if="packaging.name == 'Schale Klein'">
                         <t t-set="count_labels" t-value="move_line.qty_done" />
                     </t>
-                    <t t-if="move.product_packaging.name == 'Schale Gross'">
-                        <t t-set="fix_weight">2'500g</t>
+                    <t t-if="packaging.name == 'Schale Gross'">
                         <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
                     </t>
-                    <t t-if="move.product_packaging.name == 'Kiste'">
+                    <t t-if="packaging.name == 'Kiste'">
                         <t t-set="print_weight" t-value="True" />
                     </t>
-                    <t t-if="move.product_packaging.name == 'Vakuum Klein'">
-                        <t t-set="fix_weight">1'000g</t>
+                    <t t-if="packaging.name == 'Vakuum Klein'">
                         <t t-set="count_labels" t-value="move_line.qty_done" />
                     </t>
-                    <t t-if="move.product_packaging.name == 'Vakuum Gross'">
-                        <t t-set="fix_weight">2'500g</t>
+                     <t t-if="packaging.name == 'Aktionären Gutschein'">
                         <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
-                    </t>
-                     <t t-if="move.product_packaging.name == 'Aktionären Gutschein'">
-                        <t t-set="fix_weight">500 - 600 g Vakuum</t>
-                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
-                    </t>
-                    <t t-if="move.product_packaging.name == 'Karton'">
-                        <t t-set="fix_weight">5'000g</t>
                     </t>
 
                     <!--Compute box count-->
@@ -127,24 +121,24 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     <!--Print report for each label and box count-->
                     <t t-foreach="range(0, count_pages)" t-as="page">
 
-                        <!--First print normal labels and then box labels-->
-                        <t t-if="page_index >= (count_pages-count_boxes)">
-                            <t t-set="fix_weight"></t>
-                            <t t-if="external_ref">
-                                <t t-set="print_header" t-value="False" />
-                                <t t-set="print_delivery_date_only" t-value="True" />
-                            </t>
-                        </t>
-
-                        <!--Caclulate default expiration date-->
-                        <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.x_expiration_days)" />
-                        <t t-set="consume_until" t-value="today + delta" />
-
                         <!--Caclulate expiration date from settings-->
                         <t t-if="move.product_id.use_expiration_date">
                             <t t-set="delta" t-value="datetime.timedelta(days=move.product_id.expiration_time)" />
                             <t t-set="consume_until" t-value="context_timestamp(move_line.lot_id.removal_date)" />
                             <t t-set="today" t-value="consume_until - delta" />
+                        </t>
+                
+                        <!--First print normal labels and then box labels-->
+                        <t t-if="page_index >= (count_pages-count_boxes)">
+                            <t t-set="qty_description"></t>
+                            <t t-if="external_ref">
+                                <t t-set="print_header" t-value="False" />
+                                <t t-set="print_delivery_date_only" t-value="True" />
+                            </t>
+                            <t t-if="packaging.parent_packaging">
+                                <t t-set="barcode" t-value="packaging.parent_packaging.barcode" />
+                                <t t-set="qty_description" t-value="packaging.parent_packaging.x_qty_description" />
+                            </t>
                         </t>
 
                         <div class="page">
@@ -170,9 +164,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                     <br />
                                     <span class="use-font-opensans-medium default">(Sander lucioperca) in Aquakultur gewonnen</span>
                                     <br />
-                                    <t t-if="fix_weight or print_weight">
+                                    <t t-if="qty_description or print_weight">
                                         <span class="use-font-opensans-medium default">Gewicht: </span>
-                                        <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="fix_weight" />
+                                        <span class="use-font-opensans-medium default" t-if="not print_weight" t-esc="qty_description" />
                                         <span class="use-font-opensans-medium default" t-if="print_weight" t-esc="move.quantity_done *1000" t-options='{"widget": "float", "precision": 0}' />
                                         <span class="use-font-opensans-medium default" t-if="print_weight">
                                             g zu
@@ -245,7 +239,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 <br />
 
                                 <t t-if="move_line.lot_id.name">
-                                    <t t-set="barcode" t-value="move.product_packaging.barcode" />
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode" />
                                     <br />
                                     <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])" />
@@ -3780,6 +3773,29 @@ ID: `mint_system.stock.report_picking.show_full_address`
 
 ```
 Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
+
+### Show Lot  
+ID: `mint_system.stock.report_picking.show_lot`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_product']/../th[4]" position="after">
+    <th name="th_lot">
+      <strong>Los</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='move.product_uom_qty']/.." position="after">
+    <td>
+      <span t-if="move.lot_ids" t-esc="', '.join(move.lot_ids.mapped('display_name'))"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_lot.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_picking.show_lot.xml)
 
 ### Show Move Not Lines  
 ID: `mint_system.stock.report_picking.show_move_not_lines`  

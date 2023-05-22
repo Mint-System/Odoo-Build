@@ -1,0 +1,7 @@
+<data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
+
+  <xpath expr="//field[@name='active']" position="after">
+    <field name="x_systemname" filter_domain="[('x_systemname', 'ilike', self)]"/>
+  </xpath>
+  
+</data>

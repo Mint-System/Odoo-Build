@@ -1,0 +1,7 @@
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="x_systemname"/>
+    </xpath>
+
+</data>

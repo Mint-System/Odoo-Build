@@ -144,6 +144,20 @@ ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`
 ```
 Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
 
+### X Qty Description  
+ID: `mint_system.product.product_packaging_form_view.x_qty_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+    <field name="barcode" position="before">
+        <field name="x_qty_description"/>
+    </field>
+
+</data>
+```
+Source: [snippets/product.product_packaging_form_view.x_qty_description.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_qty_description.xml)
+
 ## Product Packaging Tree View  
 ### Show Barcode  
 ID: `mint_system.product.product_packaging_tree_view.show_barcode`  

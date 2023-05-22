@@ -423,6 +423,32 @@ ID: `mint_system.project.view_task_form2.x_not_billable`
 ```
 Source: [snippets/project.view_task_form2.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_not_billable.xml)
 
+### X Systemname  
+ID: `mint_system.project.view_task_form2.x_systemname`  
+```xml
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="x_systemname"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/project.view_task_form2.x_systemname.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_systemname.xml)
+
+### X User Text  
+ID: `mint_system.project.view_task_form2.x_user_text`  
+```xml
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='tag_ids']" position="after">
+        <field name="x_user_text"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/project.view_task_form2.x_user_text.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/project.view_task_form2.x_user_text.xml)
+
 ### X Vehicle Id  
 ID: `mint_system.project.view_task_form2.x_vehicle_id`  
 ```xml

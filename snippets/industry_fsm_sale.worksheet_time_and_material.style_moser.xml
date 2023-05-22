@@ -1,0 +1,15 @@
+<data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
+
+    <xpath expr="//div[1]" position="before">
+        <style>
+		  	.text-start {
+        	padding: 0.25rem 0rem !important;
+      		}
+        </style>
+    </xpath>
+
+    <xpath expr="//div[@id='total']/div" position="attributes">
+        <attribute name="t-attf-class">#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto</attribute>
+    </xpath>
+
+</data>

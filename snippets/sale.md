@@ -3348,6 +3348,20 @@ ID: `mint_system.sale.view_order_form.show_order_line_project_id`
 ```
 Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
 
+### Show Product Template Id  
+ID: `mint_system.sale.view_order_form.show_product_template_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <field name="order_id" position="before">
+    <field name="product_template_id"/>
+  </field>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_product_template_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale.view_order_form.show_product_template_id.xml)
+
 ### Show Project  
 ID: `mint_system.sale.view_order_form.show_project`  
 ```xml

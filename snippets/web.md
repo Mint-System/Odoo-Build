@@ -520,6 +520,46 @@ ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`
 ```
 Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
 
+## External Layout  
+### Worksheet  
+ID: `mint_system.web.external_layout.worksheet`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout" priority="50">
+
+    <t t-name="web.external_layout.worksheet">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+
+        <div t-attf-class="article">
+            <t t-out="0"/>
+        </div>
+
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div align="right">
+         Page: <span class="page"/>
+ /            <span class="topage"/>
+        </div>
+    </div>
+
+</t>
+
+</data>
+```
+Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/web.external_layout.worksheet.xml)
+
 ## Internal Layout  
 ### Header Styles  
 ID: `mint_system.web.internal_layout.header_styles`  

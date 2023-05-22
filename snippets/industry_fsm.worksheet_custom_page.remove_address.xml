@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
+
+    <xpath expr="//div/div[1]" position="replace"/>
+   
+</data>
