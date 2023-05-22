@@ -3,12 +3,12 @@
 
   <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
-      <strong >Part No.</strong>
+      <strong >Nr.</strong>
     </th>
   </xpath>
   <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
-      <strong >Part No.</strong>
+      <strong >Nr.</strong>
     </th>
   </xpath>
   <xpath expr="//table[@name='stock_move_table']/tbody//tr/td[1]" position="before">

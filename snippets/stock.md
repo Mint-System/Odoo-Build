@@ -1467,7 +1467,7 @@ Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml]
 ID: `mint_system.stock.report_delivery_document.description_sale`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data inherit_id="stock.report_delivery_document" priority="55">
 
   <xpath expr="//span[@t-field='move.product_id']" position="replace">
     <t t-if="move.product_id.description_sale">
@@ -2455,7 +2455,7 @@ Source: [snippets/stock.report_delivery_document.sale_order_note.xml](https://gi
 ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="51">
+<data inherit_id="stock.report_delivery_document" priority="55">
 
   <xpath expr="//p[@t-if='o.customer_note']" position="replace">
   </xpath>
@@ -2562,6 +2562,23 @@ ID: `mint_system.stock.report_delivery_document.set_ids`
 ```
 Source: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.set_ids.xml)
 
+### Show Customer Info Product Code  
+ID: `mint_system.stock.report_delivery_document.show_customer_info_product_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+<span t-field="move.product_id" position="before">
+    <t t-set="customer_info" t-value="move.product_id._select_customerinfo(partner=o.partner_id)" />
+    <t t-if="customer_info">
+      <span t-esc="'[%s] ' % customer_info[0].product_code" />
+    </t>
+  </span>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.report_delivery_document.show_customer_info_product_code.xml)
+
 ### Show Default Code  
 ID: `mint_system.stock.report_delivery_document.show_default_code`  
 ```xml
@@ -2570,12 +2587,12 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 
   <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
-      <strong >Part No.</strong>
+      <strong >Nr.</strong>
     </th>
   </xpath>
   <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
     <th id="default_code">
-      <strong >Part No.</strong>
+      <strong >Nr.</strong>
     </th>
   </xpath>
   <xpath expr="//table[@name='stock_move_table']/tbody//tr/td[1]" position="before">
@@ -4303,26 +4320,44 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`
 ```
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
 
+### Show Customer Info Product Code  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
+
+  <xpath expr="//td[1]//span[1]" position="before">
+    <t t-set="customer_info" t-value="move_line.product_id._select_customerinfo(partner=o.partner_id)" />
+    <t t-if="customer_info">
+      <span t-esc="'[%s] ' % customer_info[0].product_code" />
+    </t>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml)
+
 ### Style Tissa  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
-  
-<xpath expr="//td[1]" position="before">
 
-	<style>
+  <xpath expr="//td[1]" position="before">
+
+    <style>
       .cell_right {
-      text-align: right;
-      padding-right: 10px !important;
+        text-align: right;
+        padding-right: 10px !important;
       }
     </style>
-    
+
   </xpath>
 
-	<xpath expr="//td[@name='move_line_lot_qty_done']" position="attributes">
-			 <attribute name="class">cell_right</attribute>
-	</xpath>
+  <xpath expr="//td[@name='move_line_lot_qty_done']" position="attributes">
+    <attribute name="class">cell_right</attribute>
+  </xpath>
 
 </data>
 ```
@@ -4332,7 +4367,7 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.x
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="55">
 
     <xpath expr="/t" position="replace">
       <t t-name="stock.stock_report_delivery_has_serial_move_line">

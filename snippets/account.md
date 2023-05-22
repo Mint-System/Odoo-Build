@@ -1872,6 +1872,23 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
 
+### Show Customer Info Product Code  
+ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <span t-field="line.name" position="before">
+    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
+    <t t-if="customer_info">
+      <span t-esc="'[%s] ' % customer_info[0].product_code" />
+    </t>
+  </span>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_customer_info_product_code.xml)
+
 ### Show Default Code  
 ID: `mint_system.account.report_invoice_document.show_default_code`  
 ```xml
@@ -4013,6 +4030,23 @@ ID: `mint_system.account.report_invoice_document.set_title_font_size`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.set_title_font_size.xml)
+
+### Show Customer Info Product Code  
+ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <span t-field="line.name" position="before">
+    <t t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)" />
+    <t t-if="customer_info">
+      <span t-esc="'[%s] ' % customer_info[0].product_code" />
+    </t>
+  </span>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account.report_invoice_document.show_customer_info_product_code.xml)
 
 ### Show Default Code  
 ID: `mint_system.account.report_invoice_document.show_default_code`  
