@@ -43,10 +43,12 @@ for rec in self:
         elif rec.product_packaging.name == "Vakuum Klein":
             if rec.product_id.id == 68: # Filet mit Haut TK
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            elif rec.product_id.id == 74: # Filet mit Haut V-Schnitt Tiefgekühlt
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
             else:
                 rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        elif rec.product_packaging.name == "Karton":
-            rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
+        # elif rec.product_packaging.name == "Karton":
+        #     rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
             
         elif rec.product_packaging.name == "Kiste":
             if rec.product_id.id == 68: # Filet mit Haut TK
