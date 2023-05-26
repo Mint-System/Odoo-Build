@@ -82,7 +82,7 @@
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
                 <t t-foreach="move_lines" t-as="move_line">
                   
-                    <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
+                    <t t-set="count_labels" t-value="move_line.qty_done/(packaging.qty or 1.0)" />
                 
                     <t t-if="packaging.name == 'Kiste'">
                         <t t-set="print_weight" t-value="True" />
