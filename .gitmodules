@@ -198,3 +198,7 @@
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
 	branch = 16.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:mint-system/odoo-apps-partner-contact.git
+	branch = 16.0
