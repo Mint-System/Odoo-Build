@@ -2228,10 +2228,12 @@ for rec in self:
         elif rec.product_packaging.name == "Vakuum Klein":
             if rec.product_id.id == 68: # Filet mit Haut TK
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
+            elif rec.product_id.id == 74: # Filet mit Haut V-Schnitt Tiefgekühlt
+                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
             else:
                 rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        elif rec.product_packaging.name == "Karton":
-            rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
+        # elif rec.product_packaging.name == "Karton":
+        #     rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
             
         elif rec.product_packaging.name == "Kiste":
             if rec.product_id.id == 68: # Filet mit Haut TK
@@ -2319,7 +2321,7 @@ ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
-  <record id="packaging_uom_id" model="ir.model.fields">
+  <record id="x_packaging_uom_id" model="ir.model.fields">
     <field name="domain">[]</field>
     <field name="field_description">Mengeneinheit</field>
     <field name="model">product.packaging</field>
@@ -2361,6 +2363,52 @@ ID: `mint_system.ir_model.stock_move.x_picking_partner_id`
 
 ```
 Source: [snippets/ir_model.stock_move.x_picking_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_picking_partner_id.xml)
+
+### X Print Parent Only  
+ID: `mint_system.ir_model.stock_move.x_print_parent_only`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_print_parent_only" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nur übergeordnete Verpackung drucken</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_print_parent_only</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_move.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_print_parent_only.xml)
+
+### X Print Without Parent  
+ID: `mint_system.ir_model.stock_move.x_print_without_parent`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_print_without_parent" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Ohne übergeordnete Verpackung drucken</field>
+    <field name="model">product.packaging</field>
+    <field name="model_id" ref="product.model_product_packaging"/>
+    <field name="name">x_print_without_parent</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_move.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.stock_move.x_print_without_parent.xml)
 
 ### X Scrap Id  
 ID: `mint_system.ir_model.stock_move.x_scrap_id`  

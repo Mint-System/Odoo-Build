@@ -144,6 +144,36 @@ ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`
 ```
 Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
 
+### X Print Parent Only  
+ID: `mint_system.product.product_packaging_form_view.x_print_parent_only`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+  <field name="barcode" position="before">
+    <field name="x_print_parent_only"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/product.product_packaging_form_view.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_print_parent_only.xml)
+
+### X Print Without Parent  
+ID: `mint_system.product.product_packaging_form_view.x_print_without_parent`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_packaging_form_view" priority="50">
+
+  <field name="barcode" position="before">
+    <field name="x_print_without_parent"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/product.product_packaging_form_view.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/product.product_packaging_form_view.x_print_without_parent.xml)
+
 ### X Qty Description  
 ID: `mint_system.product.product_packaging_form_view.x_qty_description`  
 ```xml

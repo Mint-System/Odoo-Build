@@ -59,7 +59,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
         </style>
 
         <t t-foreach="docs" t-as="picking">
-            <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0)" t-as="move">
+            <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0 and m.product_packaging)" t-as="move">
 
                 <!--Set default values-->
                 <t t-set="count_boxes" t-value="0" />
@@ -86,29 +86,19 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                 <!--Print report for each move line-->
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
                 <t t-foreach="move_lines" t-as="move_line">
-
-                    <!--Select loop based product packaing -->
-                    <t t-if="packaging.name == 'Schale Klein'">
-                        <t t-set="count_labels" t-value="move_line.qty_done" />
-                    </t>
-                    <t t-if="packaging.name == 'Schale Gross'">
-                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
-                    </t>
+                  
+                    <t t-set="count_labels" t-value="move_line.qty_done/(packaging.qty or 1.0)" />
+                
                     <t t-if="packaging.name == 'Kiste'">
                         <t t-set="print_weight" t-value="True" />
                     </t>
-                    <t t-if="packaging.name == 'Vakuum Klein'">
-                        <t t-set="count_labels" t-value="move_line.qty_done" />
-                    </t>
-                     <t t-if="packaging.name == 'Aktionären Gutschein'">
-                        <t t-set="count_labels" t-value="move_line.qty_done/packaging.qty" />
-                    </t>
-
+                    
                     <!--Compute box count-->
                     <t t-if="count_boxes == 0">
                         <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
                     </t>
                     <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
+                    <t t-if="packaging.x_print_box_only" t-set="count_pages" t-value="int(count_boxes)" />
 
                     <!--<span>count_boxes:</span><span t-esc="count_boxes" />-->
                     <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
@@ -129,7 +119,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                         </t>
                 
                         <!--First print normal labels and then box labels-->
-                        <t t-if="page_index >= (count_pages-count_boxes)">
+                        <t t-if="page_index >= (count_pages - count_boxes)">
                             <t t-set="qty_description"></t>
                             <t t-if="external_ref">
                                 <t t-set="print_header" t-value="False" />
