@@ -2,7 +2,7 @@
 <data inherit_id="stock.view_picking_form" priority="50">
 
   <field name="product_uom" position="after">
-    <field name="x_count_boxes" optional="hide"/>
+    <field name="x_count_boxes" optional="show"/>
   </field>
 
 </data>

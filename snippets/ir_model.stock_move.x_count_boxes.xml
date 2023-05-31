@@ -20,26 +20,20 @@ for rec in self:
         # Get picking delivery product name
         delivery_name = rec.picking_id.carrier_id.product_id.name
     
-        # qty = rec.product_packaging.qty
-        # qty_up = (qty - 0.1)
-            
-        # Set factor
-        factor_xs = 6
-        if delivery_name == 'Gebinde':
-            factor_xs = 6
-        elif delivery_name == 'Gebinde Migros':
-            factor_xs = 6
-            
+        # Calculate the number of boxes depending on the selected packaging
+    
         if rec.product_packaging.name == "Schale Gross":
             rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
             
         elif rec.product_packaging.name == "Schale Klein":
-            rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
+            rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
             
         elif rec.product_packaging.name == "Vakuum Gross":
             rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+            
         elif rec.product_packaging.name == "Aktionären Gutschein":
             rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
+            
         elif rec.product_packaging.name == "Vakuum Klein":
             if rec.product_id.id == 68: # Filet mit Haut TK
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
@@ -47,8 +41,12 @@ for rec in self:
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
             else:
                 rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        # elif rec.product_packaging.name == "Karton":
-        #     rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
+                
+        elif rec.product_packaging.name == "Karton":
+            rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.qty
+            
+            if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
+              rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.parent_packaging.qty
             
         elif rec.product_packaging.name == "Kiste":
             if rec.product_id.id == 68: # Filet mit Haut TK
