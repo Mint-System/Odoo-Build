@@ -914,7 +914,7 @@ function update-docs() {
             done
         done
     done
-    echo "module.exports = [$SIDEBAR_ENTRIES]" > .vuepress/sidebar_snippet.js
+    echo "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
 

@@ -274,6 +274,73 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
 ```
 Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
+### Group By X Timesheet Invoice Type  
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+
+    <xpath expr="//table/tbody/tr[1]" position="replace">
+
+        <!-- Get all invoice types -->
+        <t t-set="x_timesheet_invoice_type" t-value="[]"/>
+        <t t-foreach="docs" t-as="doc">
+            <t t-set="x_timesheet_invoice_type" t-value="x_timesheet_invoice_type+[doc.x_timesheet_invoice_type]"/>
+        </t>
+        
+        <style>
+          td#date {
+            white-space: nowrap;
+          }
+        </style>
+
+        <!-- Foreach timesheet type list entries -->
+        <t t-foreach="set(x_timesheet_invoice_type)" t-as="type">
+            <tr>
+                <td colspan="5">
+                    <br/>
+                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufwände', 'billable_time': 'Abrechenbare Aufwände'}[type]"/>:</p>
+                </td>
+            </tr>
+            <tr t-foreach="docs" t-as="l">
+                <t t-if="type==l.x_timesheet_invoice_type">
+
+                    <td id="date">
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
+                    </td>
+                    <td>
+                        <span t-field="l.name" t-options="{'widget': 'text'}"/>
+                    </td>
+                    <td t-if="show_project">
+                        <span t-field="l.project_id.name"/>
+                    </td>
+                    <td t-if="show_task">
+                        <t t-if="l.task_id">
+                            <span t-field="l.task_id.name"/>
+                        </t>
+                    </td>
+                    <td class="text-right">
+                        <span t-field="l.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+                    </td>
+
+                </t>
+            </tr>
+            
+            <tr>
+              <td/>
+              <td t-if="show_project"/>
+              <td t-if="show_task"/>
+              <td class="text-right"><strong>Zwischensumme</strong></td>
+              <td class="text-right"><strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
+            </tr>
+        </t>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)
+
 ### User Report  
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
 ```xml
@@ -340,4 +407,19 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 
 ```
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+
+### X Timesheet Invoice Type  
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+
+  <xpath expr="//field[@name='timesheet_invoice_type']" position="replace">
+    <field name="x_timesheet_invoice_type" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)
 

@@ -8,7 +8,7 @@
     <h3>Arbeitsrapport <t t-if="len(docs.mapped('project_id')) == 1"> für das Projekt "<t
           t-esc="docs.mapped('project_id')[0].name" />" </t>
     </h3>
-    <p>Zeitraum" <t t-esc="min_date" t-options="{'widget': 'date'}" /> bis <t t-esc="max_date"
+    <p>Zeitraum: <t t-esc="min_date" t-options="{'widget': 'date'}" /> bis <t t-esc="max_date"
         t-options="{'widget': 'date'}" />
     </p>
     <p>Kunde: <t t-esc="docs.mapped('project_id')[0].partner_id.name" /><br /> Erstellt von: <span

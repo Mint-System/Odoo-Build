@@ -1,9 +1,11 @@
-const { defaultTheme } = require('vuepress')
-const { searchPlugin } = require('@vuepress/plugin-search')
-const sidebarSidebar = require('./sidebar_snippet')
-const { plausiblePlugin } = require('./plausible')
+import { defaultTheme } from 'vuepress'
+import { searchPlugin } from '@vuepress/plugin-search'
+import { plausiblePlugin } from './plausible'
+import { defineUserConfig } from 'vuepress'
+import sidebar from './sidebar'
 
-module.exports = {
+
+export default defineUserConfig({
     lang: 'en-US',
     title: 'Odoo Development',
     description: 'The Mint System Odoo development environment.',
@@ -39,7 +41,7 @@ module.exports = {
                 {
                     text: 'Snippets',
                     collapsable: false,
-                    children: sidebarSidebar,
+                    children: sidebar,
                 },
             ]
         }
@@ -52,4 +54,4 @@ module.exports = {
             'domain': 'odoo.build'
         }),
     ],
-}
+})

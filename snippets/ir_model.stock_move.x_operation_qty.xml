@@ -13,7 +13,7 @@
     <field name="ttype">float</field>
     <field name="depends">product_uom_qty</field>
     <field name="compute">for record in self:
-  if (record.location_id.id == self.env.ref('stock.stock_location_stock').id):
+  if (record.location_id.usage == 'internal'):
     record['x_operation_qty'] = -1 * record.product_uom_qty
   else:
     record['x_operation_qty'] = record.product_uom_qty

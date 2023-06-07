@@ -97,8 +97,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     <t t-if="count_boxes == 0">
                         <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
                     </t>
+                    <t t-if="packaging.x_print_without_parent" t-set="count_boxes" t-value="0" />
                     <t t-set="count_pages" t-value="int(count_labels + count_boxes)" />
-                    <t t-if="packaging.x_print_box_only" t-set="count_pages" t-value="int(count_boxes)" />
+                    <t t-if="packaging.x_print_parent_only" t-set="count_pages" t-value="int(count_boxes)" />
 
                     <!--<span>count_boxes:</span><span t-esc="count_boxes" />-->
                     <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
@@ -126,7 +127,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 <t t-set="print_delivery_date_only" t-value="True" />
                             </t>
                             <t t-if="packaging.parent_packaging">
-                                <t t-set="barcode" t-value="packaging.parent_packaging.barcode" />
+                                <t t-if="packaging.parent_packaging.barcode" t-set="barcode" t-value="packaging.parent_packaging.barcode" />
                                 <t t-set="qty_description" t-value="packaging.parent_packaging.x_qty_description" />
                             </t>
                         </t>
@@ -5092,7 +5093,7 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 <data inherit_id="stock.view_picking_form" priority="50">
 
   <field name="product_uom" position="after">
-    <field name="x_count_boxes" optional="hide"/>
+    <field name="x_count_boxes" optional="show"/>
   </field>
 
 </data>

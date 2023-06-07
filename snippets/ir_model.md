@@ -26,6 +26,33 @@ ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`
 ```
 Source: [snippets/ir_model.account_analytic_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_analytic_line.x_sale_order_id.xml)
 
+### X Timesheet Invoice Type  
+ID: `mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_timesheet_invoice_type" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Abrechenbarer Typ</field>
+    <field name="model">account.move.line</field>
+    <field name="model_id" ref="account.model_account_analytic_line"/>
+    <field name="name">x_timesheet_invoice_type</field>
+    <field name="readonly" eval="True"/>
+    <field name="store" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="depends">so_line</field>
+    <field name="selection">[('non_billable','Nicht abrechenbare Aufwände'),('billable_time','Abrechenbare Aufwände')]</field>
+    <field name="compute">for rec in self:
+  rec['x_timesheet_invoice_type'] = 'billable_time' if rec.so_line.price_unit > 0 else 'non_billable'</field>
+  </record>
+  
+</odoo>
+
+```
+Source: [snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml)
+
 ## Account Bank Statement  
 ### X Cashbox End Ids  
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`  
@@ -2205,26 +2232,20 @@ for rec in self:
         # Get picking delivery product name
         delivery_name = rec.picking_id.carrier_id.product_id.name
     
-        # qty = rec.product_packaging.qty
-        # qty_up = (qty - 0.1)
-            
-        # Set factor
-        factor_xs = 6
-        if delivery_name == 'Gebinde':
-            factor_xs = 6
-        elif delivery_name == 'Gebinde Migros':
-            factor_xs = 6
-            
+        # Calculate the number of boxes depending on the selected packaging
+    
         if rec.product_packaging.name == "Schale Gross":
             rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
             
         elif rec.product_packaging.name == "Schale Klein":
-            rec['x_count_boxes'] = (rec.quantity_done/factor_xs + 0.9)/1
+            rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
             
         elif rec.product_packaging.name == "Vakuum Gross":
             rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
+            
         elif rec.product_packaging.name == "Aktionären Gutschein":
             rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
+            
         elif rec.product_packaging.name == "Vakuum Klein":
             if rec.product_id.id == 68: # Filet mit Haut TK
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
@@ -2232,8 +2253,12 @@ for rec in self:
                 rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
             else:
                 rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-        # elif rec.product_packaging.name == "Karton":
-        #     rec['x_count_boxes'] = (rec.quantity_done)/rec.product_packaging.qty
+                
+        elif rec.product_packaging.name == "Karton":
+            rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.qty
+            
+            if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
+              rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.parent_packaging.qty
             
         elif rec.product_packaging.name == "Kiste":
             if rec.product_id.id == 68: # Filet mit Haut TK
@@ -2303,7 +2328,7 @@ ID: `mint_system.ir_model.stock_move.x_operation_qty`
     <field name="ttype">float</field>
     <field name="depends">product_uom_qty</field>
     <field name="compute">for record in self:
-  if (record.location_id.id == self.env.ref('stock.stock_location_stock').id):
+  if (record.location_id.usage == 'internal'):
     record['x_operation_qty'] = -1 * record.product_uom_qty
   else:
     record['x_operation_qty'] = record.product_uom_qty
