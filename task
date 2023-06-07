@@ -61,7 +61,7 @@ function get-module-version() {
         echo "\$1 is empty."
     else
         # Get version of module
-        VERSION=$(grep 'version' "$1/__manifest__.py" | sed "s;';\";g"  | sed "s/,//g" )
+        VERSION=$(grep -m 1 version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" )
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
         # Set default version
