@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_subscription.payment_checkout_inherit" priority="50">
+
+  <label t-if="is_subscription" position="replace" />
+
+</data>
