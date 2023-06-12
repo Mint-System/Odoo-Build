@@ -1256,7 +1256,7 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
     <field name="model_id" ref="project.model_project_task"/>
     <field name="name">x_business_requirement_id</field>
     <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
+    <field name="readonly" eval="False"/>
     <field name="copied" eval="False"/>
     <field name="ttype">many2one</field>
     <field name="relation">business.requirement</field>

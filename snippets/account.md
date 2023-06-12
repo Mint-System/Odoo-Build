@@ -552,6 +552,8 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
   <xpath expr="//h2" position="before">
     <!-- Get all pickings without duplicates -->
     <t t-set="pickings" t-value="list(set(o.invoice_line_ids.picking_ids.filtered(lambda p: p.state != 'cancel')))"/>
+    <!--<t t-set="pickings" t-value="list(set(o.invoice_line_ids.picking_ids))"/>-->
+    <t t-set="pickings" t-value="sorted(pickings, key=lambda p: p.scheduled_date)"/>
     <!-- Store if has pickings -->
     <t t-set="has_pickings" t-value="len(pickings) > 0"/>
     <!-- Store if has multiple pickings -->
@@ -572,7 +574,7 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
       <t t-set="null" t-value="pickings.append(False)"/>
     </t>
 
-    <!--<p t-esc="pickings"/> -->
+     <!--<p t-esc="pickings"/>-->
     <!-- <p t-esc="has_pickings"/> -->
     <!-- <p t-esc="has_multiple_pickings"/> -->
     <!-- <p t-esc="has_lines_without_pickings"/> -->
@@ -2711,6 +2713,8 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
   <xpath expr="//h2" position="before">
     <!-- Get all pickings without duplicates -->
     <t t-set="pickings" t-value="list(set(o.invoice_line_ids.picking_ids.filtered(lambda p: p.state != 'cancel')))"/>
+    <!--<t t-set="pickings" t-value="list(set(o.invoice_line_ids.picking_ids))"/>-->
+    <t t-set="pickings" t-value="sorted(pickings, key=lambda p: p.scheduled_date)"/>
     <!-- Store if has pickings -->
     <t t-set="has_pickings" t-value="len(pickings) > 0"/>
     <!-- Store if has multiple pickings -->
@@ -2731,7 +2735,7 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
       <t t-set="null" t-value="pickings.append(False)"/>
     </t>
 
-    <!--<p t-esc="pickings"/> -->
+     <!--<p t-esc="pickings"/>-->
     <!-- <p t-esc="has_pickings"/> -->
     <!-- <p t-esc="has_multiple_pickings"/> -->
     <!-- <p t-esc="has_lines_without_pickings"/> -->

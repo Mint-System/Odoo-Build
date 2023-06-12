@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_hr_expense_sheet_ids" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Auslagen Abrechnungen</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_hr_expense_sheet_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">one2many</field>
+    <field name="relation">hr.expense.sheet</field>
+    <field name="relation_field">account_move_id</field>
+  </record>
+
+</odoo>
