@@ -205,9 +205,10 @@ function start() {
     fi
 
     if [[ "$1" =~ "mail" ]]; then
+        echo "Open http://localhost:8025 url in your browser."
         docker-compose up -d mail
-        echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
-        echo "Run \`docker exec -it mail setup email add test@example.com\`"
+        # echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
+        # echo "Run \`docker exec -it mail setup email add test@example.com\`"
     fi
 }
 

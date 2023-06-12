@@ -43,15 +43,12 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
   mail:
-    image: docker.io/mailserver/docker-mailserver:latest
+    image: mailhog/mailhog
     container_name: mail
     hostname: mail
-    domainname: localhost
     ports:
-      - "25:25"
-      - "143:143"
-      - "587:587"
-      - "993:993"
+      - "1025:1025"
+      - "8025:8025"
 volumes:
   odoo-data:
   db-data:
