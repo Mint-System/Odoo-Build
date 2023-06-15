@@ -12,7 +12,7 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_lineb
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)
+Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_linebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_linebreak.xml)
 
 ### Add Pagebreak  
 ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak`  
@@ -28,7 +28,7 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pageb
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
+Source: [snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_document.add_pagebreak.xml)
 
 ## Report Invoice With Timesheets  
 ### Print With Payments  
@@ -43,7 +43,7 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.pr
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
+Source: [snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
 
 ## Timesheet Report  
 ### Add Title Space  
@@ -58,7 +58,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.add_title_space.xml)
 
 ### Set Page Font Size  
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size`  
@@ -76,7 +76,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_si
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_page_font_size.xml)
 
 ### Set Title Font Size  
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size`  
@@ -94,7 +94,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_s
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_report.set_title_font_size.xml)
 
 ## Timesheet Table  
 ### Add Start And End Hour  
@@ -118,7 +118,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
 
 ### Format Table Border  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`  
@@ -148,7 +148,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_bord
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
 
 ### Set Table Font Size  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`  
@@ -166,7 +166,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_si
     
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
 
 ### Show From Until Times  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`  
@@ -180,7 +180,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_t
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
 
 ## Timesheet Table Lines  
 ### Show From Until Times  
@@ -200,7 +200,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_u
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.show_from_until_times.xml)
 
 ### Sort Lines By Time  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time`  
@@ -215,7 +215,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time.xml)
 
 ## Timesheet Table  
 ### Add Start And End Hour  
@@ -239,7 +239,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.add_start_and_end_hour.xml)
 
 ### Format Table Border  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`  
@@ -269,7 +269,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_bord
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.format_table_border.xml)
 
 ### Set Table Font Size  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`  
@@ -287,7 +287,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_si
     
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.set_table_font_size.xml)
 
 ### Show From Until Times  
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`  
@@ -301,5 +301,5 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_t
 
 </data>
 ```
-Source: [snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
+Source: [snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.timesheet_table.show_from_until_times.xml)
 

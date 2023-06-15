@@ -13,7 +13,7 @@ ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`
 </data>
 
 ```
-Source: [snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml)
+Source: [snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml)
 
 ### X Partner Id  
 ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`  
@@ -32,5 +32,5 @@ ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`
 </data>
 
 ```
-Source: [snippets/hr_expense.hr_expense_view_form.x_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_expense.hr_expense_view_form.x_partner_id.xml)
+Source: [snippets/hr_expense.hr_expense_view_form.x_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_expense.hr_expense_view_form.x_partner_id.xml)
 

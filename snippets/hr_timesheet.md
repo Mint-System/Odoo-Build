@@ -17,7 +17,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)
 
 ## Hr Timesheet Line Tree  
 ### Always Show So Line  
@@ -33,7 +33,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml)
 
 ### Disable Editable  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`  
@@ -48,7 +48,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
 
 ### Filter Partner Is Company  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`  
@@ -63,7 +63,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)
 
 ### Invoice Details  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
@@ -79,7 +79,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
 ### Options Enable Open  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`  
@@ -94,7 +94,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
 
 ### Show Partner Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`  
@@ -113,7 +113,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
 
 ### So Line Domain  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`  
@@ -128,7 +128,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
 
 ### Task Id Required  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`  
@@ -143,7 +143,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
 
 ### X Not Billable  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`  
@@ -166,7 +166,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)
 
 ### X Sale Order Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`  
@@ -181,7 +181,7 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
 
 ## Portal My Timesheets  
 ### Show Billable  
@@ -204,7 +204,7 @@ ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
+Source: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
 
 ## Report Timesheet  
 ### Group By Invoice Type  
@@ -272,7 +272,7 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
+Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
 ### Group By X Timesheet Invoice Type  
 ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`  
@@ -339,7 +339,7 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type
 </data>
 
 ```
-Source: [snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)
+Source: [snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)
 
 ### User Report  
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
@@ -389,7 +389,7 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
 
 </data>
 ```
-Source: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
+Source: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.report_timesheet.user_report.xml)
 
 ## Timesheet View Tree User  
 ### Show Billable Type  
@@ -406,7 +406,7 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
 ### X Timesheet Invoice Type  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`  
@@ -421,5 +421,5 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)
 

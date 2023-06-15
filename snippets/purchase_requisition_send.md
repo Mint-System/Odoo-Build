@@ -14,5 +14,5 @@ ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.reloca
 
 </data>
 ```
-Source: [snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
+Source: [snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition_send.view_purchase_requisition_form.relocate_send_button.xml)
 

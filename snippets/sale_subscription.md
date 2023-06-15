@@ -10,7 +10,7 @@ ID: `mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscripti
 
 </data>
 ```
-Source: [snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
+Source: [snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
 
 ## Sale Subscription Template View Form  
 ### Journal Id Domain  
@@ -26,5 +26,5 @@ ID: `mint_system.sale_subscription.sale_subscription_template_view_form.journal_
 </data>
 
 ```
-Source: [snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
+Source: [snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
 

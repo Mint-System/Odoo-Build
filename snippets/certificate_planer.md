@@ -13,5 +13,5 @@ ID: `mint_system.certificate_planer.document_form.hide_view_report_button`
 </data>
 
 ```
-Source: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
+Source: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
 

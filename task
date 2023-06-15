@@ -21,7 +21,7 @@ export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
 export ODOO_LANGUAGE=de_CH
-export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-development"
+export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 
 if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
@@ -880,7 +880,7 @@ function update-docs() {
     With a snippet you can e.g. hide a field on the contact form. \
     A snippet name is unique and follows the \`\$COMPANY.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
 
-    PATH_URL="https://github.com/Mint-System/Odoo-Development/tree/14.0"
+    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/14.0"
 
     # Get all modules
     MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | sort | uniq)

@@ -13,7 +13,7 @@ ID: `mint_system.survey.survey_question_form.add_button_start_survey`
 </data>
 
 ```
-Source: [snippets/survey.survey_question_form.add_button_start_survey.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/survey.survey_question_form.add_button_start_survey.xml)
+Source: [snippets/survey.survey_question_form.add_button_start_survey.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_question_form.add_button_start_survey.xml)
 
 ### Enable Create  
 ID: `mint_system.survey.survey_question_form.enable_create`  
@@ -28,7 +28,7 @@ ID: `mint_system.survey.survey_question_form.enable_create`
 </data>
 
 ```
-Source: [snippets/survey.survey_question_form.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/survey.survey_question_form.enable_create.xml)
+Source: [snippets/survey.survey_question_form.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_question_form.enable_create.xml)
 
 ## Survey Question Tree  
 ### Enable Create  
@@ -44,5 +44,5 @@ ID: `mint_system.survey.survey_question_tree.enable_create`
 </data>
 
 ```
-Source: [snippets/survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/survey.survey_question_tree.enable_create.xml)
+Source: [snippets/survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_question_tree.enable_create.xml)
 

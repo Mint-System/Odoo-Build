@@ -1,7 +1,7 @@
-![](https://github.com/Mint-System/Odoo-Development/raw/14.0/logo.png)
+![](https://github.com/Mint-System/Odoo-Build/raw/14.0/logo.png)
 <!-- ![](./logo.png) -->
 
-Odoo Development
+Odoo Build
 ================
 
 This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
@@ -31,8 +31,8 @@ The usage section is a set of workflows. Pick the one required by your scenario.
 Clone this repository.
 
 ```bash
-git clone git@github.com:Mint-System/Odoo-Development.git
-cd Odoo-Development
+git clone git@github.com:Mint-System/Odoo-Build.git
+cd Odoo-Build
 ```
 
 Checkout branch.

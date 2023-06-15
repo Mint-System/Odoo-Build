@@ -12,7 +12,7 @@ ID: `mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id`
 
 </data>
 ```
-Source: [snippets/stock_account.stock_valuation_layer_tree.add_stock_move_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock_account.stock_valuation_layer_tree.add_stock_move_id.xml)
+Source: [snippets/stock_account.stock_valuation_layer_tree.add_stock_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock_account.stock_valuation_layer_tree.add_stock_move_id.xml)
 
 ### Add X Quant Location Id  
 ID: `mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id`  
@@ -26,7 +26,7 @@ ID: `mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_i
 
 </data>
 ```
-Source: [snippets/stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml)
+Source: [snippets/stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock_account.stock_valuation_layer_tree.add_x_quant_location_id.xml)
 
 ## View Inventory Valuation Search  
 ### Group By X Quant Location Id  
@@ -41,5 +41,5 @@ ID: `mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_
 
 </data>
 ```
-Source: [snippets/stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Development/tree/14.0/snippets/stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml)
+Source: [snippets/stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock_account.view_inventory_valuation_search.group_by_x_quant_location_id.xml)
 
