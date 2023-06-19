@@ -12,3 +12,4 @@ config/checkout_files
 logo.png
 docker-compose.yml
 snippets.md
+build

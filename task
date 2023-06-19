@@ -112,7 +112,7 @@ function disable-auto-install() {
 }
 
 function install-odoo-scripts() {
-    curl -L https://raw.githubusercontent.com/mint-system/ansible-playbooks/master/roles/odoo-scripts/files/install | sh
+    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install | sh
 }
 
 function install-native() {    
