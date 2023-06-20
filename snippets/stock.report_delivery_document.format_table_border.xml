@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//table[@name='stock_move_table']" position="before">
+        <style>
+            thead tr.border-solid-black {
+                border-top: 1px solid black !important;
+                color: #5c516e;
+            }
+            thead th {
+                 border-top: none !important;
+            }
+            tbody tr.border-solid-black {
+                border-bottom: 1px solid black !important;
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']/thead/tr" position="attributes">
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+    <xpath expr="(//table[@name='stock_move_table']//tr)[last()]" position="attributes">
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+</data> 

@@ -931,6 +931,9 @@ function update-docs() {
 
 
 case "$1" in
+    activate-venv)
+        activate-venv
+        ;;
     disable-auto-install)
         disable-auto-install
         ;;

@@ -1229,6 +1229,24 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
 Source: [snippets/stock.report_certificatecofc.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_certificatecofc.tissa.xml)
 
 ## Report Delivery Document  
+### Add Address Space  
+ID: `mint_system.stock.report_delivery_document.add_address_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <t t-set="address" position="before">
+        <style>
+            div.address {
+                padding-top: 3rem
+            }
+        </style>
+    </t>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_address_space.xml)
+
 ### Add Date  
 ID: `mint_system.stock.report_delivery_document.add_date`  
 ```xml
@@ -1272,6 +1290,20 @@ ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_header_and_footer_note.xml)
+
+### Add Header Space  
+ID: `mint_system.stock.report_delivery_document.add_header_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">padding-top: 5rem</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_header_space.xml)
 
 ### Add Incoterms  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
@@ -1384,6 +1416,25 @@ ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml)
+
+### Add Table Margin  
+ID: `mint_system.stock.report_delivery_document.add_table_margin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//div/table[1]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+  </xpath>
+
+  <xpath expr="//div/table[2]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.add_table_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_table_margin.xml)
 
 ### Append Signature Text  
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
@@ -1609,6 +1660,39 @@ ID: `mint_system.stock.report_delivery_document.format_qty`
 ```
 Source: [snippets/stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.format_qty.xml)
 
+### Format Table Border  
+ID: `mint_system.stock.report_delivery_document.format_table_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//table[@name='stock_move_table']" position="before">
+        <style>
+            thead tr.border-solid-black {
+                border-top: 1px solid black !important;
+                color: #5c516e;
+            }
+            thead th {
+                 border-top: none !important;
+            }
+            tbody tr.border-solid-black {
+                border-bottom: 1px solid black !important;
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']/thead/tr" position="attributes">
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+    <xpath expr="(//table[@name='stock_move_table']//tr)[last()]" position="attributes">
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+</data> 
+```
+Source: [snippets/stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.format_table_border.xml)
+
 ### Format Title Trimada  
 ID: `mint_system.stock.report_delivery_document.format_title_trimada`  
 ```xml
@@ -1691,25 +1775,6 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 
 ```
 Source: [snippets/stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.get_position.xml)
-
-### Header Margin  
-ID: `mint_system.stock.report_delivery_document.header_margin`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//div/table[1]" position="attributes">
-    <attribute name="style" separator=";" add="margin-top: 1rem"/>
-  </xpath>
-
-  <xpath expr="//div/table[2]" position="attributes">
-    <attribute name="style" separator=";" add="margin-top: 1rem"/>
-  </xpath>
-
-</data>
-
-```
-Source: [snippets/stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.header_margin.xml)
 
 ### Hide Backorder Quantity  
 ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`  
@@ -2057,6 +2122,55 @@ ID: `mint_system.stock.report_delivery_document.replace_header`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_header.xml)
+
+### Replace Informations  
+ID: `mint_system.stock.report_delivery_document.replace_informations`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+        <style>
+            div#informations p {
+                margin-bottom: 0rem;
+            }
+            div#informations div {
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <strong>Shipping Date:</strong>
+                        <t t-if="o.state == 'done'">
+                            <p t-field="o.date_done" />
+                        </t>
+                        <t t-if="o.state != 'done'">
+                            <p t-field="o.scheduled_date" />
+                        </t>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <strong>Customer Reference:</strong>
+                        <p t-field="o.sudo().sale_id.client_order_ref" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>&#160;Unsere Referenz:</strong>
+                        <p t-field="o.origin" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_informations.xml)
 
 ### Replace Information Table2  
 ID: `mint_system.stock.report_delivery_document.replace_information_table2`  
@@ -2546,6 +2660,83 @@ ID: `mint_system.stock.report_delivery_document.set_ids`
 ```
 Source: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.set_ids.xml)
 
+### Set Name  
+ID: `mint_system.stock.report_delivery_document.set_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+    <xpath expr="//table[@name='stock_move_table']//td[1]" position="attributes">
+        <attribute name="name">td_sm_product</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
+        <attribute name="name">td_sm_ordered</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']//td[3]" position="attributes">
+        <attribute name="name">td_sm_quantity</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.set_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.set_name.xml)
+
+### Set Page Font Size  
+ID: `mint_system.stock.report_delivery_document.set_page_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.set_page_font_size.xml)
+
+### Set Table Font Size  
+ID: `mint_system.stock.report_delivery_document.set_table_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+    <xpath expr="//table[@name='stock_move_table']" position="before">
+        <style>
+            table th,
+            table td {
+                font-size: 0.8rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.set_table_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.stock.report_delivery_document.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.set_title_font_size.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.stock.report_delivery_document.show_customer_info_product_code`  
 ```xml
@@ -2588,6 +2779,30 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.show_default_code.xml)
+
+### Show Lot Ids  
+ID: `mint_system.stock.report_delivery_document.show_lot_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_table']//th[1]" position="after">
+    <th name="th_lot_ids">
+      <strong>Seriennummer</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='stock_move_table']//td[1]" position="after">
+    <td name="td_lots">
+      <ul>
+      <t t-foreach="move.lot_ids" t-as="lot" ><li t-esc="lot.name" /></t>
+      </ul>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.show_lot_ids.xml)
 
 ### Show Quantity Done  
 ID: `mint_system.stock.report_delivery_document.show_quantity_done`  

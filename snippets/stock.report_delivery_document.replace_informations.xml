@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+        <style>
+            div#informations p {
+                margin-bottom: 0rem;
+            }
+            div#informations div {
+                display: inline-block;
+                vertical-align: top;
+            }
+        </style>
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <strong>Shipping Date:</strong>
+                        <t t-if="o.state == 'done'">
+                            <p t-field="o.date_done" />
+                        </t>
+                        <t t-if="o.state != 'done'">
+                            <p t-field="o.scheduled_date" />
+                        </t>
+                    </td>
+                    <td>
+                    </td>
+                    <td>
+                        <strong>Customer Reference:</strong>
+                        <p t-field="o.sudo().sale_id.client_order_ref" />
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong>&#160;Unsere Referenz:</strong>
+                        <p t-field="o.origin" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </xpath>
+
+</data>

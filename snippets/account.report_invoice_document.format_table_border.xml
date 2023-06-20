@@ -1,23 +1,20 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
-    <style>
-      .border-solid-black td {
-      border-top: 1px solid black !important;
-      }
-      thead th {
-      color: #5c516e;
-      }
-    </style>
-  </xpath>
-
-  <xpath expr="//thead[1]/tr[1]" position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-</data>
+ 
+    <xpath expr="//table[@name='invoice_line_table']" position="before">
+      <style>
+        .border-solid-black td {
+          border-top: 1px solid black !important;
+          border-bottom: none !important;
+        }
+        thead th {
+          color: #5c516e;
+        }
+      </style>
+    </xpath>
+  
+    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
+      <attribute name="class" separator=" " add="border-solid-black"/>
+    </xpath>
+  
+  </data>

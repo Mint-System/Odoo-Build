@@ -473,27 +473,24 @@ ID: `mint_system.account.report_invoice_document.format_table_border`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
-    <style>
-      .border-solid-black td {
-      border-top: 1px solid black !important;
-      }
-      thead th {
-      color: #5c516e;
-      }
-    </style>
-  </xpath>
-
-  <xpath expr="//thead[1]/tr[1]" position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-</data>
+ 
+    <xpath expr="//table[@name='invoice_line_table']" position="before">
+      <style>
+        .border-solid-black td {
+          border-top: 1px solid black !important;
+          border-bottom: none !important;
+        }
+        thead th {
+          color: #5c516e;
+        }
+      </style>
+    </xpath>
+  
+    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
+      <attribute name="class" separator=" " add="border-solid-black"/>
+    </xpath>
+  
+  </data>
 ```
 Source: [snippets/account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_table_border.xml)
 
@@ -1921,6 +1918,27 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
+
+### Show Lot Ids  
+ID: `mint_system.account.report_invoice_document.show_lot_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']/span[1]" position="after">
+    <t t-set="lot_ids" t-value="o.picking_ids.move_line_ids.lot_id.filtered(lambda l: l.product_id == line.product_id)" />
+    <t t-if="lot_ids">
+      <br />
+      <span>Seriennummern:</span>
+      <ul t-foreach="lot_ids" t-as="lot">
+        <li t-esc="lot.name" />
+      </ul>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_lot_ids.xml)
 
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
@@ -2634,27 +2652,24 @@ ID: `mint_system.account.report_invoice_document.format_table_border`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
-    <style>
-      .border-solid-black td {
-      border-top: 1px solid black !important;
-      }
-      thead th {
-      color: #5c516e;
-      }
-    </style>
-  </xpath>
-
-  <xpath expr="//thead[1]/tr[1]" position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-  <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-</data>
+ 
+    <xpath expr="//table[@name='invoice_line_table']" position="before">
+      <style>
+        .border-solid-black td {
+          border-top: 1px solid black !important;
+          border-bottom: none !important;
+        }
+        thead th {
+          color: #5c516e;
+        }
+      </style>
+    </xpath>
+  
+    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
+      <attribute name="class" separator=" " add="border-solid-black"/>
+    </xpath>
+  
+  </data>
 ```
 Source: [snippets/account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_table_border.xml)
 
@@ -4083,6 +4098,27 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 ```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
 
+### Show Lot Ids  
+ID: `mint_system.account.report_invoice_document.show_lot_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']/span[1]" position="after">
+    <t t-set="lot_ids" t-value="o.picking_ids.move_line_ids.lot_id.filtered(lambda l: l.product_id == line.product_id)" />
+    <t t-if="lot_ids">
+      <br />
+      <span>Seriennummern:</span>
+      <ul t-foreach="lot_ids" t-as="lot">
+        <li t-esc="lot.name" />
+      </ul>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_lot_ids.xml)
+
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
 ```xml
@@ -4730,6 +4766,20 @@ ID: `mint_system.account.view_move_form.show_sale_order_lines`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_sale_order_lines.xml)
+
+### Show Stock Move Line Ids  
+ID: `mint_system.account.view_move_form.show_stock_move_line_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']" position="before">
+        <field name="move_line_ids" widget="many2many_tags" optional="hide"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_stock_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_stock_move_line_ids.xml)
 
 ### Show User Id  
 ID: `mint_system.account.view_move_form.show_user_id`  
