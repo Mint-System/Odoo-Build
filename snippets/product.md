@@ -531,6 +531,24 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
 ```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
 
+### X Hide On Invoice  
+ID: `mint_system.product.product_template_only_form_view.x_hide_on_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <group name="properties" position="before">
+        <group>
+            <group>
+                <field name="x_hide_on_invoice" widget="boolean_toggle" />
+            </group>
+        </group>
+    </group>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/product.product_template_only_form_view.x_hide_on_invoice.xml)
+
 ### X Hide On Sale Order  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
 ```xml
@@ -538,7 +556,7 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`
 <data inherit_id="product.product_template_only_form_view" priority="50">
 
     <field name="description_sale" position="after">
-        <field name="x_hide_on_sale_order" />
+        <field name="x_hide_on_sale_order" widget="boolean_toggle" />
     </field>
 
 </data>

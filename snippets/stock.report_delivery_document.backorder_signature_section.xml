@@ -3,9 +3,9 @@
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <p>Retouren:<br/><br/>
-		KEG:             ___________  Anzahl<br/><br/>
-		Harassen:  ___________  Anzahl<br/><br/>
-		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
+		KEG:             ___________  Anzahl<br/><br/>
+		Harassen:  ___________  Anzahl<br/><br/>
+		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
     </p>
   </xpath>
 

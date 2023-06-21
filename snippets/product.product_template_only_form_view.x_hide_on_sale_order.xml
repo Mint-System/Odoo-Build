@@ -2,7 +2,7 @@
 <data inherit_id="product.product_template_only_form_view" priority="50">
 
     <field name="description_sale" position="after">
-        <field name="x_hide_on_sale_order" />
+        <field name="x_hide_on_sale_order" widget="boolean_toggle" />
     </field>
 
 </data>

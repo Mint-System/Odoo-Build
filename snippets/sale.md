@@ -3272,6 +3272,21 @@ ID: `mint_system.sale.view_order_form.no_create_edit`
 ```
 Source: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.no_create_edit.xml)
 
+### Product Id No Create  
+ID: `mint_system.sale.view_order_form.product_id_no_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="attributes">
+      <attribute name="options">{'no_open': True, 'no_create': True}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.product_id_no_create.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.product_id_no_create.xml)
+
 ### Project Domain  
 ID: `mint_system.sale.view_order_form.project_domain`  
 ```xml

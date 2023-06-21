@@ -2132,6 +2132,20 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
 ```
 Source: [snippets/account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.unit_precision.xml)
 
+### X Hide On Invoice  
+ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//t[@t-set='lines']" position="after">
+        <t t-set="lines" t-value="lines.filtered(lambda l: not l.product_id.x_hide_on_invoice)" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.x_hide_on_invoice.xml)
+
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
 ```xml
@@ -4310,6 +4324,20 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
 
 ```
 Source: [snippets/account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.unit_precision.xml)
+
+### X Hide On Invoice  
+ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//t[@t-set='lines']" position="after">
+        <t t-set="lines" t-value="lines.filtered(lambda l: not l.product_id.x_hide_on_invoice)" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.x_hide_on_invoice.xml)
 
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
