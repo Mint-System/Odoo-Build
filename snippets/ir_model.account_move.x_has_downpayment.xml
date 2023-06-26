@@ -9,14 +9,13 @@
     <field name="store" eval="False"/>
     <field name="readonly" eval="True"/>
     <field name="copied" eval="False"/>
-    <field name="ttype">text</field>
+    <field name="ttype">boolean</field>
+    <field name="depends">invoice_line_ids.sale_line_ids</field>
     <field name="compute">for rec in self:
-      so_lines_with_downpayment = rec.invoice_line_ids.sale_line_ids.filterd(lambda l: l.is_downpayment)
-      if so_lines_with_downpayment:
-        rec['x_has_downpayment'] = true
-      else:
-        rec['x_has_downpayment'] = false
-    </field>
+  if any(line.is_downpayment for line in rec.invoice_line_ids.sale_line_ids.order_id.order_line):
+    rec['x_has_downpayment'] = True
+  else:
+    rec['x_has_downpayment'] = False</field>
   </record>
 
 </odoo>

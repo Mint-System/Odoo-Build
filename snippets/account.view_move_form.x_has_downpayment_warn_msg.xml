@@ -4,7 +4,7 @@
     <header position="after">
         <field name="x_has_downpayment" invisible="1"/>
         <div groups="account.group_account_invoice" class="alert alert-warning" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('x_has_downpayment', '=', False)]}">
-            Für den Verkaufsauftrag dieser Rechnung wurden Anzahlungen gemacht.
+            Der Verkaufsauftrag dieser Rechnung enthält Auftragszeilen mit einer Anzahlung.
         </div>
     </header>
 

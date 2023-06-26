@@ -1,4 +1,29 @@
 # Account
+## Portal Invoice Page  
+### Convert Html Note  
+ID: `mint_system.account.portal_invoice_page.convert_html_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.portal_invoice_page" priority="50">
+
+    <t t-if="line.display_type == 'line_note'" position="replace">
+        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+            <td colspan="99">
+                <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')" />
+            </td>
+        </t>
+        <t t-elif="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' not in line.name">
+            <td colspan="99">
+                <span t-field="line.name"/>
+            </td>
+        </t>
+    </t>
+
+</data>
+
+```
+Source: [snippets/account.portal_invoice_page.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.portal_invoice_page.convert_html_note.xml)
+
 ## Report Invoice Document  
 ### Add Address Space  
 ID: `mint_system.account.report_invoice_document.add_address_space`  
@@ -323,6 +348,28 @@ ID: `mint_system.account.report_invoice_document.bank_account`
 
 ```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
+
+### Convert Html Note  
+ID: `mint_system.account.report_invoice_document.convert_html_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <t t-if="line.display_type == 'line_note'" position="replace">
+        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+            <td colspan="99">
+                <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')" />
+            </td>
+        </t>
+        <t t-elif="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' not in line.name">
+            <td colspan="99">
+                <span t-field="line.name"/>
+            </td>
+        </t>
+    </t>
+</data>
+```
+Source: [snippets/account.report_invoice_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.convert_html_note.xml)
 
 ### Custom Address  
 ID: `mint_system.account.report_invoice_document.custom_address`  
@@ -2516,6 +2563,28 @@ ID: `mint_system.account.report_invoice_document.bank_account`
 
 ```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.bank_account.xml)
+
+### Convert Html Note  
+ID: `mint_system.account.report_invoice_document.convert_html_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <t t-if="line.display_type == 'line_note'" position="replace">
+        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
+            <td colspan="99">
+                <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')" />
+            </td>
+        </t>
+        <t t-elif="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' not in line.name">
+            <td colspan="99">
+                <span t-field="line.name"/>
+            </td>
+        </t>
+    </t>
+</data>
+```
+Source: [snippets/account.report_invoice_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.convert_html_note.xml)
 
 ### Custom Address  
 ID: `mint_system.account.report_invoice_document.custom_address`  
@@ -4840,6 +4909,23 @@ ID: `mint_system.account.view_move_form.x_duplicate_found`
 </data>
 ```
 Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.x_duplicate_found.xml)
+
+### X Has Downpayment Warn Msg  
+ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <header position="after">
+        <field name="x_has_downpayment" invisible="1"/>
+        <div groups="account.group_account_invoice" class="alert alert-warning" role="alert" style="margin-bottom:0px;" attrs="{'invisible': [('x_has_downpayment', '=', False)]}">
+            Der Verkaufsauftrag dieser Rechnung enthält Auftragszeilen mit einer Anzahlung.
+        </div>
+    </header>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_has_downpayment_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.x_has_downpayment_warn_msg.xml)
 
 ### X Invoice Warn Msg  
 ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  

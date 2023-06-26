@@ -1320,7 +1320,7 @@ ID: `mint_system.sale.report_saleorder_document.add_signature_note`
             }
         </style>
         <div id="signature">
-            <p> Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
+            <p>Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
             <br />
             <br />
             Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>

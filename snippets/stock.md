@@ -1649,16 +1649,15 @@ ID: `mint_system.stock.report_delivery_document.format_qty`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<span id="open_qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span t-field="move.product_uom_qty" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
 
-	<span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span t-field="move.quantity_done" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
 
 </data>
-
 ```
 Source: [snippets/stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.format_qty.xml)
 

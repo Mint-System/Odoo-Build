@@ -218,6 +218,34 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
 ```
 Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.account_move.x_duplicate_found.xml)
 
+### X Has Downpayment  
+ID: `mint_system.ir_model.account_move.x_has_downpayment`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_has_downpayment" model="ir.model.fields">
+    <field name="field_description">Hat Anzahlung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_has_downpayment</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">boolean</field>
+    <field name="depends">invoice_line_ids.sale_line_ids</field>
+    <field name="compute">for rec in self:
+  if any(line.is_downpayment for line in rec.invoice_line_ids.sale_line_ids.order_id.order_line):
+    rec['x_has_downpayment'] = True
+  else:
+    rec['x_has_downpayment'] = False</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_has_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.account_move.x_has_downpayment.xml)
+
 ### X Hr Expense Sheet Ids  
 ID: `mint_system.ir_model.account_move.x_hr_expense_sheet_ids`  
 ```xml
