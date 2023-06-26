@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_has_downpayment" model="ir.model.fields">
+    <field name="field_description">Hat Anzahlung</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_has_downpayment</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field>
+    <field name="compute">for rec in self:
+      so_lines_with_downpayment = rec.invoice_line_ids.sale_line_ids.filterd(lambda l: l.is_downpayment)
+      if so_lines_with_downpayment:
+        rec['x_has_downpayment'] = true
+      else:
+        rec['x_has_downpayment'] = false
+    </field>
+  </record>
+
+</odoo>

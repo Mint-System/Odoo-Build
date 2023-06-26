@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_birthdate" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Geburtstag</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partnee"/>

@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_autocomplete" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Automatisch Erledigen</field>
     <field name="model">stock.picking</field>
     <field name="model_id" ref="stock.model_stock_picking"/>

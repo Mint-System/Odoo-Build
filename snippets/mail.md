@@ -7,7 +7,6 @@ ID: `mint_system.mail.activity.x_reference`
 <odoo>
 
   <record id="x_reference" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Reference</field>
     <field name="model">mail.activity</field>
     <field name="model_id" ref="mail.model_mail_activity"/>

@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_studio_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Beschreibung Verkausauftrag</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>

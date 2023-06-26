@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_systemname" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Benutzer</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>

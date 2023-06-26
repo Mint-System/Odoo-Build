@@ -7,7 +7,6 @@ ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`
 <odoo>
 
   <record id="x_sale_order_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Verkaufsauftrag</field>
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_analytic_line"/>
@@ -33,7 +32,6 @@ ID: `mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type`
 <odoo>
 
   <record id="x_timesheet_invoice_type" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Abrechenbarer Typ</field>
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_analytic_line"/>
@@ -61,7 +59,6 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`
 <odoo>
 
   <record id="x_cashbox_end_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kassenprüfung Endpositionen</field>
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
@@ -87,7 +84,6 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
 <odoo>
 
   <record id="x_cashbox_start_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kassenprüfung Startpositionen</field>
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>
@@ -114,7 +110,6 @@ ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
 <odoo>
 
   <record id="x_sale_order_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Verkaufsauftrag</field>
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_move_line"/>
@@ -143,7 +138,6 @@ ID: `mint_system.ir_model.account_move.x_account_codes`
 <odoo>
 
   <record id="x_account_codes" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kontos</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -172,7 +166,6 @@ ID: `mint_system.ir_model.account_move.x_date_done`
 <odoo>
 
   <record id="x_date_done" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">date_done</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -196,7 +189,6 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
 <odoo>
 
   <record id="x_duplicate_found" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Duplikat Gefunden</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -233,7 +225,6 @@ ID: `mint_system.ir_model.account_move.x_hr_expense_sheet_ids`
 <odoo>
 
   <record id="x_hr_expense_sheet_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Auslagen Abrechnungen</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -281,7 +272,6 @@ ID: `mint_system.ir_model.account_move.x_picking_list`
 <odoo>
 
   <record id="x_picking_list" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Picking List</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -311,7 +301,6 @@ ID: `mint_system.ir_model.account_move.x_recurring_inverval`
 <odoo>
 
   <record id="x_recurring_inverval" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Abrechnungsintervall</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="account.model_account_move"/>
@@ -340,7 +329,6 @@ ID: `mint_system.ir_model.account_move.x_studio_description`
 <odoo>
 
   <record id="x_studio_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Beschreibung Rechnung</field>
     <field name="model">account.move</field>
     <field name="model_id" ref="sale.model_sale_order"/>
@@ -363,7 +351,6 @@ ID: `mint_system.ir_model.agreement_agreement.x_group_ids`
 <odoo>
 
   <record id="x_group_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Gruppen</field>
     <field name="model">agreement.agreement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -387,7 +374,6 @@ ID: `mint_system.ir_model.agreement_agreement.x_user_ids`
 <odoo>
 
   <record id="x_user_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Benutzer</field>
     <field name="model">agreement.agreement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -412,7 +398,6 @@ ID: `mint_system.ir_model.business_requirement.x_estimated_cost`
 <odoo>
 
   <record id="x_estimated_cost" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Estimated Cost</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
@@ -435,7 +420,6 @@ ID: `mint_system.ir_model.business_requirement.x_planned_hours`
 <odoo>
 
   <record id="x_planned_hours" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Planned Hours</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
@@ -458,7 +442,6 @@ ID: `mint_system.ir_model.business_requirement.x_project_id`
 <odoo>
 
   <record id="x_project_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Project</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
@@ -482,7 +465,6 @@ ID: `mint_system.ir_model.business_requirement.x_task_id`
 <odoo>
 
   <record id="x_task_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Task</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>
@@ -511,7 +493,6 @@ ID: `mint_system.ir_model.crm_lead.x_date_start`
 <odoo>
 
   <record id="x_date_start" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Date Start</field>
     <field name="model">crm.lead</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -534,7 +515,6 @@ ID: `mint_system.ir_model.crm_lead.x_date_stop`
 <odoo>
 
   <record id="x_date_stop" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Date Stop</field>
     <field name="model">crm.lead</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -561,7 +541,6 @@ ID: `mint_system.ir_model.crm_lead.x_mobile`
 <odoo>
 
   <record id="x_mobile" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Mobile</field>
     <field name="model">crm.lead</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -586,7 +565,6 @@ ID: `mint_system.ir_model.crm_lead.x_task_id`
 <odoo>
 
   <record id="x_task_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Aufgabe</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>
@@ -611,7 +589,6 @@ ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`
 <odoo>
 
   <record id="x_date_deadline" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Frist</field>
     <field name="model">helpdesk.ticket</field>
     <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
@@ -635,7 +612,6 @@ ID: `mint_system.ir_model.hr_applicant.x_gdpr`
 <odoo>
 
   <record id="x_gdpr" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Datenschutz</field>
     <field name="model">hr.applicant</field>
     <field name="model_id" ref="hr.model_hr_applicant"/>
@@ -660,7 +636,6 @@ ID: `mint_system.ir_model.hr_contract.x_struct_id`
 <odoo>
 
   <record id="x_struct_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lohnstruktur</field>
     <field name="model">hr.applicant</field>
     <field name="model_id" ref="hr.model_hr_contract"/>
@@ -685,7 +660,6 @@ ID: `mint_system.ir_model.hr_expense.x_partner_id`
 <odoo>
 
   <record id="x_partner_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kunde</field>
     <field name="model">hr.expense</field>
     <field name="model_id" ref="hr.model_hr_expense"/>
@@ -709,7 +683,6 @@ ID: `mint_system.ir_model.hr_leave.x_number_of_hours`
 <odoo>
 
   <record id="x_number_of_hours" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Dauer (Stunden)</field>
     <field name="model">hr.leave</field>
     <field name="model_id" ref="hr.model_hr_leave"/>
@@ -735,7 +708,6 @@ ID: `mint_system.ir_model.hr_leave.x_requires_allocation`
 <odoo>
 
   <record id="x_requires_allocation" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Erfordert Zuweisung</field>
     <field name="model">hr.leave</field>
     <field name="model_id" ref="hr.model_hr_leave"/>
@@ -760,7 +732,6 @@ ID: `mint_system.ir_model.hr_payslip_line.x_code_name`
 <odoo>
 
   <record id="x_code_name" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Code mit Name</field>
     <field name="model">hr.payslip.line</field>
     <field name="model_id" ref="hr_payroll.model_hr_payslip_line"/>
@@ -787,7 +758,6 @@ ID: `mint_system.ir_model.mrp_bom.x_note`
 <odoo>
 
   <record id="x_note" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Notiz</field>
     <field name="model">mrp.bom</field>
     <field name="model_id" ref="mrp.model_mrp_bom"/>
@@ -810,7 +780,6 @@ ID: `mint_system.ir_model.mrp_bom.x_type_description`
 <odoo>
 
   <record id="x_type_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Typenbezeichnung</field>
     <field name="model">mrp.bom</field>
     <field name="model_id" ref="mrp.model_mrp_bom"/>
@@ -836,7 +805,6 @@ ID: `mint_system.ir_model.mrp_production.x_date_deadline`
 <odoo>
 
   <record id="x_date_deadline" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Frist</field>
     <field name="model">mrp.production</field>
     <field name="model_id" ref="mrp.model_mrp_production"/>
@@ -859,7 +827,6 @@ ID: `mint_system.ir_model.mrp_production.x_note`
 <odoo>
 
   <record id="x_note" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Notiz</field>
     <field name="model">mrp.production</field>
     <field name="model_id" ref="mrp.model_mrp_production"/>
@@ -887,7 +854,6 @@ ID: `mint_system.ir_model.mrp_production.x_quality_check_ids`
 <odoo>
 
   <record id="x_quality_check_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Qualitätsprüfungen</field>
     <field name="model">mrp.production</field>
     <field name="model_id" ref="mrp.model_mrp_production"/>
@@ -913,7 +879,6 @@ ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`
 <odoo>
 
   <record id="x_reservation_state" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Materialverfügbarkeit</field>
     <field name="model">mrp.workorder</field>
     <field name="model_id" ref="mrp.model_mrp_workorder"/>
@@ -937,7 +902,6 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description2`
 <odoo>
 
   <record id="x_type_description2" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Typenbezeichnung 2</field>
     <field name="model">mrp.workorder</field>
     <field name="model_id" ref="mrp.model_mrp_workorder"/>
@@ -960,7 +924,6 @@ ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 <odoo>
 
   <record id="x_type_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Typenbezeichnung</field>
     <field name="model">mrp.workorder</field>
     <field name="model_id" ref="mrp.model_mrp_workorder"/>
@@ -984,7 +947,6 @@ ID: `mint_system.ir_model.product_category.x_relevant_for_certificate`
 <odoo>
 
   <record id="x_relevant_for_certificate" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Für Werkszeugnis relevant</field>
     <field name="model">product.category</field>
     <field name="model_id" ref="product.product_category"/>
@@ -1008,7 +970,6 @@ ID: `mint_system.ir_model.product_packaging.x_description`
 <odoo>
 
   <record id="x_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Beschreibung</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -1031,7 +992,6 @@ ID: `mint_system.ir_model.product_packaging.x_qty_description`
 <odoo>
 
   <record id="x_qty_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Label Gewicht</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -1055,7 +1015,6 @@ ID: `mint_system.ir_model.product_set_line.x_categ_id`
 <odoo>
 
   <record id="x_categ_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Produktkategorie</field>
     <field name="model">product.set.line</field>
     <field name="model_id" ref="product.model_product_set_line"/>
@@ -1081,7 +1040,6 @@ ID: `mint_system.ir_model.product_template.x_calibre`
 <odoo>
 
   <record id="x_calibre" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kaliber</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1104,7 +1062,6 @@ ID: `mint_system.ir_model.product_template.x_expiration_days`
 <odoo>
 
   <record id="x_expiration_days" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Haltbarkeit in Tagen</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1127,7 +1084,6 @@ ID: `mint_system.ir_model.product_template.x_hide_on_delivery`
 <odoo>
 
   <record id="x_hide_on_delivery" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Auf Lieferschein ausblenden</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1150,7 +1106,6 @@ ID: `mint_system.ir_model.product_template.x_hide_on_invoice`
 <odoo>
 
   <record id="x_hide_on_invoice" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Auf Rechnung ausblenden</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1173,7 +1128,6 @@ ID: `mint_system.ir_model.product_template.x_hide_on_sale_order`
 <odoo>
 
   <record id="x_hide_on_sale_order" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Auf Verkaufsangebot ausblenden</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1208,7 +1162,6 @@ ID: `mint_system.ir_model.product_template.x_product_label`
     <field name="relation">ir.actions.report</field>
     <field name="group_expand" eval="False"/> 
     <field name="on_delete">Set NULL</field>
-    <field name="domain">[]</field>
   </record>
 
 </odoo>
@@ -1223,7 +1176,6 @@ ID: `mint_system.ir_model.product_template.x_storage_temperature`
 <odoo>
 
   <record id="x_storage_temperature" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Aufbewahrung bei</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1246,7 +1198,6 @@ ID: `mint_system.ir_model.product_template.x_warranty`
 <odoo>
 
   <record id="x_warranty" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Garantie</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1269,7 +1220,6 @@ ID: `mint_system.ir_model.product_template.x_xml_id`
 <odoo>
 
   <record id="x_xml_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">External ID</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>
@@ -1297,7 +1247,6 @@ ID: `mint_system.ir_model.project_task.x_business_requirement_id`
 <odoo>
 
   <record id="x_business_requirement_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Business Requirement</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>
@@ -1324,7 +1273,6 @@ ID: `mint_system.ir_model.project_task.x_lead_id`
 <odoo>
 
   <record id="x_lead_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lead</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
@@ -1350,7 +1298,6 @@ ID: `mint_system.ir_model.project_task.x_not_billable`
 <odoo>
 
   <record id="x_not_billable" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Nicht Verrechenbar</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
@@ -1372,7 +1319,6 @@ ID: `mint_system.ir_model.project_task.x_systemname`
 <odoo>
 
   <record id="x_systemname" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Benutzer</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>
@@ -1395,7 +1341,6 @@ ID: `mint_system.ir_model.project_task.x_user_text`
 <odoo>
 
   <record id="x_user_text" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Benutzer</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="project.model_project_task"/>
@@ -1418,7 +1363,6 @@ ID: `mint_system.ir_model.project_task.x_vehicle_id`
 <odoo>
 
   <record id="x_vehicle_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Fahrzeug</field>
     <field name="model">project.task</field>
     <field name="model_id" ref="product.model_project_task"/>
@@ -1442,7 +1386,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_date_approve`
 <odoo>
 
   <record id="x_date_approve" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Bestätigung am</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1466,7 +1409,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_drawing_file`
 <odoo>
 
   <record id="x_drawing_file" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Zeichnung</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1489,7 +1431,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_origin`
 <odoo>
 
   <record id="x_origin" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Referenzbeleg</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1513,7 +1454,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_partner_ref`
 <odoo>
 
   <record id="x_partner_ref" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lieferantenreferenz</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1537,7 +1477,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_state`
 <odoo>
 
   <record id="x_state" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Status Bestellposition</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1561,7 +1500,6 @@ ID: `mint_system.ir_model.purchase_order_line.x_user_id`
 <odoo>
 
   <record id="x_user_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Einkaufsbeauftragter</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>
@@ -1587,7 +1525,6 @@ ID: `mint_system.ir_model.purchase_order.x_comment`
 <odoo>
 
   <record id="x_comment" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kommentar</field>
     <field name="model">purchase.order</field>
     <field name="model_id" ref="purchase.model_purchase_order"/>
@@ -1611,7 +1548,6 @@ ID: `mint_system.ir_model.quality_check.x_active`
 <odoo>
 
   <record id="x_active" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Aktiv</field>
     <field name="model">quality.check</field>
     <field name="model_id" ref="quality.model_quality_check"/>
@@ -1641,7 +1577,6 @@ ID: `mint_system.ir_model.res_partner.x_birthdate`
 <odoo>
 
   <record id="x_birthdate" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Geburtstag</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partnee"/>
@@ -1664,7 +1599,6 @@ ID: `mint_system.ir_model.res_partner.x_created_on`
 <odoo>
 
   <record id="x_created_on" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Erstellt am</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partnee"/>
@@ -1687,7 +1621,6 @@ ID: `mint_system.ir_model.res_partner.x_external_ref`
 <odoo>
 
   <record id="x_external_ref" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Externe Referenz</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partner"/>
@@ -1710,7 +1643,6 @@ ID: `mint_system.ir_model.res_partner.x_packaging_ref`
 <odoo>
 
   <record id="x_packaging_ref" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Verpackungsreferenz</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partner"/>
@@ -1733,7 +1665,6 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 <odoo>
 
   <record id="x_stock_move_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lagerbuchungen</field>
     <field name="model">res.partner</field>
     <field name="model_id" ref="base.model_res_partner"/>
@@ -1759,7 +1690,6 @@ ID: `mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id`
 <odoo>
 
   <record id="x_product_uom_category_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kategorie</field>
     <field name="model">sale.blanket.order.line</field>
     <field name="model_id" ref="sale.model_sale_blanket_order_line"/>
@@ -1785,7 +1715,6 @@ ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`
 <odoo>
 
   <record id="x_client_order_ref" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kundenreferenz</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1809,7 +1738,6 @@ ID: `mint_system.ir_model.sale_order_line.x_commitment_date`
 <odoo>
 
   <record id="x_commitment_date" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lieferdatum</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1833,7 +1761,6 @@ ID: `mint_system.ir_model.sale_order_line.x_date_order`
 <odoo>
 
   <record id="x_date_order" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Auftragsdatum</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1857,7 +1784,6 @@ ID: `mint_system.ir_model.sale_order_line.x_drawing_file`
 <odoo>
 
   <record id="x_drawing_file" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Zeichnung</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1881,7 +1807,6 @@ ID: `mint_system.ir_model.sale_order_line.x_industry_id`
 <odoo>
 
   <record id="x_industry_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Branche</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1905,7 +1830,6 @@ ID: `mint_system.ir_model.sale_order_line.x_margin_percent`
 <odoo>
 
   <record id="x_margin_percent" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Marge (%)</field>
     <field name="help">Marge Aufschlagsrechnung</field>
     <field name="model">sale.order.line</field>
@@ -1936,7 +1860,6 @@ ID: `mint_system.ir_model.sale_order_line.x_pricelist_id`
 <odoo>
 
   <record id="x_pricelist_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Preisliste</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1960,7 +1883,6 @@ ID: `mint_system.ir_model.sale_order_line.x_service_policy`
 <odoo>
 
   <record id="x_service_policy" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Faktierungsregel</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -1984,7 +1906,6 @@ ID: `mint_system.ir_model.sale_order_line.x_service_tracking`
 <odoo>
 
   <record id="x_service_tracking" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Dienstverfolgung</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -2008,7 +1929,6 @@ ID: `mint_system.ir_model.sale_order_line.x_state`
 <odoo>
 
   <record id="x_state" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Status Auftragsposition</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -2032,7 +1952,6 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
 <odoo>
 
   <record id="x_taxed_amount_invoiced" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Rechnungsbetrag inkl. MWST</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -2058,7 +1977,6 @@ ID: `mint_system.ir_model.sale_order_line.x_taxed_amount`
 <odoo>
 
   <record id="x_taxed_amount" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Total inkl. MWST</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -2084,7 +2002,6 @@ ID: `mint_system.ir_model.sale_order_line.x_untaxed_amount`
 <odoo>
 
   <record id="x_untaxed_amount" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Total exkl. MWST</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>
@@ -2110,7 +2027,6 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 <odoo>
 
   <record id="x_weight_delivered" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Geliefertes Gewicht</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line" />
@@ -2136,7 +2052,6 @@ ID: `mint_system.ir_model.sale_order.x_client_project_ref`
 <odoo>
 
   <record id="x_client_project_ref" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Projektnummer Kunde</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
@@ -2159,7 +2074,6 @@ ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`
 <odoo>
 
   <record id="x_incoterm_blanket_order" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Incoterm Rahmenauftrag</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
@@ -2184,7 +2098,6 @@ ID: `mint_system.ir_model.sale_order.x_product_uom_qty`
 <odoo>
 
   <record id="x_product_uom_qty" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Gesamtmenge</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
@@ -2211,7 +2124,6 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
 <odoo>
 
   <record id="x_studio_description" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Beschreibung Verkausauftrag</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>
@@ -2234,7 +2146,6 @@ ID: `mint_system.ir_model.stock_location.x_should_be_valued`
 <odoo>
 
   <record id="x_should_be_valued" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Should be valued</field>
     <field name="model">stock.location</field>
     <field name="model_id" ref="stock.model_stock_location"/>
@@ -2261,7 +2172,6 @@ ID: `mint_system.ir_model.stock_move.x_count_boxes`
 <odoo>
 
   <record id="x_count_boxes" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Anzahl Kisten</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
@@ -2331,7 +2241,6 @@ ID: `mint_system.ir_model.stock_move.x_count_packaging`
 <odoo>
 
   <record id="x_count_packaging" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Anzahl Verpackungen</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
@@ -2364,7 +2273,6 @@ ID: `mint_system.ir_model.stock_move.x_operation_qty`
 <odoo>
 
   <record id="x_operation_qty" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Inventory +/-</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
@@ -2394,7 +2302,6 @@ ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`
 <odoo>
 
   <record id="x_packaging_uom_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Mengeneinheit</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -2418,7 +2325,6 @@ ID: `mint_system.ir_model.stock_move.x_picking_partner_id`
 <odoo>
 
   <record id="x_picking_partner_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lieferadresse</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
@@ -2443,7 +2349,6 @@ ID: `mint_system.ir_model.stock_move.x_print_parent_only`
 <odoo>
 
   <record id="x_print_parent_only" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Nur übergeordnete Verpackung drucken</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -2466,7 +2371,6 @@ ID: `mint_system.ir_model.stock_move.x_print_without_parent`
 <odoo>
 
   <record id="x_print_without_parent" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Ohne übergeordnete Verpackung drucken</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -2489,7 +2393,6 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 <odoo>
 
   <record id="x_scrap_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Buchung Lagerschwund</field>
     <field name="model">product.packaging</field>
     <field name="model_id" ref="product.model_product_packaging"/>
@@ -2522,7 +2425,6 @@ ID: `mint_system.ir_model.stock_picking.x_autocomplete`
 <odoo>
 
   <record id="x_autocomplete" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Automatisch Erledigen</field>
     <field name="model">stock.picking</field>
     <field name="model_id" ref="stock.model_stock_picking"/>
@@ -2566,7 +2468,6 @@ ID: `mint_system.ir_model.stock_production_lot.x_production_ids`
 <odoo>
 
   <record id="x_production_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Fertigungsaufträge</field>
     <field name="model">stock.production.lot</field>
     <field name="model_id" ref="stock.model_stock_production_lot"/>
@@ -2590,7 +2491,6 @@ ID: `mint_system.ir_model.stock_production_lot.x_production_id`
 <odoo>
 
   <record id="x_production_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Fertigungsauftrag</field>
     <field name="model">stock.production.lot</field>
     <field name="model_id" ref="stock.model_stock_production_lot"/>
@@ -2619,7 +2519,6 @@ ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
 <odoo>
 
   <record id="x_weight_uom" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Nettogewicht [kg]</field>
     <field name="model">stock.production.lot</field>
     <field name="model_id" ref="stock.model_stock_production_lot"/>
@@ -2646,7 +2545,6 @@ ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`
 <odoo>
 
   <record id="x_last_delivery_partner_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lieferadresse</field>
     <field name="model">stock.quant</field>
     <field name="model_id" ref="stock.model_stock_quant"/>
@@ -2671,7 +2569,6 @@ ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`
 <odoo>
 
   <record id="x_quant_location_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lagerort Bestand</field>
     <field name="model">stock.valuation.layer</field>
     <field name="model_id" ref="stock.model_stock_valuation_layer" />

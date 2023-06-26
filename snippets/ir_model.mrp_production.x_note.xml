@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_note" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Notiz</field>
     <field name="model">mrp.production</field>
     <field name="model_id" ref="mrp.model_mrp_production"/>

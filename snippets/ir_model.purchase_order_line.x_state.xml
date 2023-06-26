@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_state" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Status Bestellposition</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>

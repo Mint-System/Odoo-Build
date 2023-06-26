@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_date_approve" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Bestätigung am</field>
     <field name="model">purchase.order.line</field>
     <field name="model_id" ref="purchase.model_purchase_order_line"/>

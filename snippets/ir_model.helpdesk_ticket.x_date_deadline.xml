@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_date_deadline" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Frist</field>
     <field name="model">helpdesk.ticket</field>
     <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>

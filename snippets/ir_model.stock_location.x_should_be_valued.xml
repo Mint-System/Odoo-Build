@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_should_be_valued" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Should be valued</field>
     <field name="model">stock.location</field>
     <field name="model_id" ref="stock.model_stock_location"/>
