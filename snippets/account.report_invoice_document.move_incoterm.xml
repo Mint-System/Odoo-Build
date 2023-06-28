@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  <xpath expr="//p[2]" position="after">
+    <p t-if="o.invoice_incoterm_id" name="incoterm">
+      <strong>Incoterm: </strong>
+      <span t-field="o.invoice_incoterm_id.code"/>
+ -      <span t-field="o.invoice_incoterm_id.name"/>
+    </p>
+  </xpath>
+</data>
