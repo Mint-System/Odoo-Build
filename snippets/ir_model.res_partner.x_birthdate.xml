@@ -4,7 +4,7 @@
   <record id="x_birthdate" model="ir.model.fields">
     <field name="field_description">Geburtstag</field>
     <field name="model">res.partner</field>
-    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="model_id" ref="base.model_res_partner"/>
     <field name="name">x_birthdate</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>

@@ -192,6 +192,32 @@ ID: `mint_system.web.external_layout_boxed.footer_company_registry`
 ```
 Source: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_boxed.footer_company_registry.xml)
 
+### Hide Company Details  
+ID: `mint_system.web.external_layout_boxed.hide_company_details`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="50">
+
+  <xpath expr="//div[@name='company_address']/.." position="replace"/>
+  
+</data>
+```
+Source: [snippets/web.external_layout_boxed.hide_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_boxed.hide_company_details.xml)
+
+### Increase Logo Size  
+ID: `mint_system.web.external_layout_boxed.increase_logo_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="50">
+
+  <xpath expr="//img[@t-if='company.logo']" position="attributes">
+        <attribute name="style">width: 720px; margin-top: 10px</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_boxed.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_boxed.increase_logo_size.xml)
+
 ## External Layout Standard  
 ### Eksb Layout  
 ID: `mint_system.web.external_layout_standard.eksb_layout`  

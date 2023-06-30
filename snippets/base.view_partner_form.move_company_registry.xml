@@ -1,0 +1,7 @@
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <xpath expr="//page[@name='sales_purchases']//field[@name='company_registry']" position="move"/>
+  </xpath>
+
+</data>

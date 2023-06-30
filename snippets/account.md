@@ -990,6 +990,24 @@ ID: `mint_system.account.report_invoice_document.modify_main_table`
 ```
 Source: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
 
+### Move Incoterm  
+ID: `mint_system.account.report_invoice_document.move_incoterm`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  <xpath expr="//p[2]" position="after">
+    <p t-if="o.invoice_incoterm_id" name="incoterm">
+      <strong>Incoterm: </strong>
+      <span t-field="o.invoice_incoterm_id.code"/>
+ -      <span t-field="o.invoice_incoterm_id.name"/>
+    </p>
+  </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.move_incoterm.xml)
+
 ### Net Value Summary  
 ID: `mint_system.account.report_invoice_document.net_value_summary`  
 ```xml
@@ -3204,6 +3222,24 @@ ID: `mint_system.account.report_invoice_document.modify_main_table`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.modify_main_table.xml)
+
+### Move Incoterm  
+ID: `mint_system.account.report_invoice_document.move_incoterm`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  <xpath expr="//p[2]" position="after">
+    <p t-if="o.invoice_incoterm_id" name="incoterm">
+      <strong>Incoterm: </strong>
+      <span t-field="o.invoice_incoterm_id.code"/>
+ -      <span t-field="o.invoice_incoterm_id.name"/>
+    </p>
+  </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.move_incoterm.xml)
 
 ### Net Value Summary  
 ID: `mint_system.account.report_invoice_document.net_value_summary`  

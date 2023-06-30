@@ -294,7 +294,7 @@ function lint-module() {
     find $1 -type d -exec chmod u=rwx,go=rx {} \;
     find $1 -type f -exec chmod u=rw,go=r {} \;
     echo "Copy default .gignore"
-    cp template/ms_custom_module/.gitignore "$1"/
+    cp template/custom_module/.gitignore "$1"/
     echo "Run pylint in $1"
     pylint --load-plugins=pylint_odoo -d all -e odoolint $1
     cd $1
@@ -408,7 +408,7 @@ function create-module() {
     locale
     activate-venv
     echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
-    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/ms_custom_module
+    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/custom_module
 }
 
 function drop-db() {
@@ -431,11 +431,9 @@ function clear-assets() {
     DATABASE=$1
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    echo "Delete these assets:"
+    echo "Delete these assets for $DATABASE:"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
     docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-
-    echo "Restart your docker service."
 }
 
 function convert-database() {

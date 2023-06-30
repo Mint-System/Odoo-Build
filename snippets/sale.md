@@ -848,6 +848,26 @@ ID: `mint_system.sale.report_saleorder_document.add_default_code`
 ```
 Source: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_default_code.xml)
 
+### Add Delivery Dates  
+ID: `mint_system.sale.report_saleorder_document.add_delivery_dates`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_priceunit']" position="before">
+    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_priceunit']" position="before">
+    <td name="td_delivery_dates" class="text-right">
+       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+    </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_delivery_dates.xml)
+
 ### Add Delivery Date  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
 ```xml
@@ -1124,6 +1144,26 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
 ```
 Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_infotable.xml)
 
+### Add Intrastat Id  
+ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">HS Code</th>
+  </xpath>
+  
+  <xpath expr="//td[@name='td_quantity']" position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-field="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_intrastat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_intrastat_id.xml)
+
 ### Add Note Space  
 ID: `mint_system.sale.report_saleorder_document.add_note_space`  
 ```xml
@@ -1368,6 +1408,26 @@ ID: `mint_system.sale.report_saleorder_document.add_validity_date`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_validity_date.xml)
+
+### Add Weight  
+ID: `mint_system.sale.report_saleorder_document.add_weight`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_priceunit']" position="before">
+    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_priceunit']" position="before">
+    <td name="td_delivery_dates" class="text-right">
+       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+    </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_weight.xml)
 
 ### Append Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
@@ -1909,6 +1969,84 @@ ID: `mint_system.sale.report_saleorder_document.repeat_table_header`
 
 ```
 Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.repeat_table_header.xml)
+
+### Replace Address And Information Block  
+ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']" position="replace"/>
+
+  <xpath expr="//t[@t-set='information_block']/.." position="replace">
+
+    <div class="row text-900 o_bold">
+      <div class="col-7">Customer</div>
+      <div class="col-5">Invoice Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="doc.partner_id.commercial_company_name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="doc.partner_invoice_id.commercial_company_name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="doc.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="doc.partner_invoice_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 text-900 o_bold offset-7" style="margin-top:25px">Delivery Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="doc.partner_shipping_id.commercial_company_name"/>
+      </div>
+    </div>
+    
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="doc.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row o_bold text-900" style="margin-top:25px">
+      <div class="col-7">Your Contact</div>
+      <div class="col-5">Our Contact</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="doc.partner_id.name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="doc.user_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7" style="margin-bottom:25px">
+        <span t-field="doc.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="doc.user_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.replace_address_and_information_block.xml)
 
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  

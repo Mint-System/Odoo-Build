@@ -5,6 +5,7 @@
 | change-uuid                 | [env]             | Change database uuid via xmlrpc.                                                          |
 | checkout                    | [branch][branch]  | Switch and merge from one branch to another.                                              |
 | checkout-revision           | [revision]        | Switch to a different Odoo revision by tag name.                                          |
+| clear-assets                | [db]              | Clear all assets of Odoo database.                                                        |
 | clear-filestore             | [db]              | Clear local filestore folder. No param will clear all filestores. Default is branch name. |
 | convert-database            | [db]              | Convert database backup file from postgres 9.5 to latest.  Default is branch name.        |
 | create-module               | [path]            | Create new Odoo module from template.                                                     |
