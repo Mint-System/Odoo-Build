@@ -1,4 +1,5 @@
 {
+    "python.autoComplete.extraPaths": ["./odoo/odoo", "./odoo/addons"],
     "python.linting.enabled": true,
     "python.linting.pylintArgs": [
         "--load-plugins",

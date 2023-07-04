@@ -204,7 +204,7 @@
 	branch = 16.0
 [submodule "addons/vertical_saas"]
 	path = addons/vertical_saas
-	url = git@github.com:Mint-System/Odoo-Apps-SaaS.git
+	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
 	branch = 16.0
 [submodule "addons/social"]
 	path = addons/social
