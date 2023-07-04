@@ -1,11 +1,12 @@
 {
-    "spellright.language": [
-        "en"
+    "python.linting.enabled": true,
+    "python.linting.pylintArgs": [
+        "--load-plugins",
+        "pylint_odoo"
     ],
-    "spellright.documentTypes": [
-        "markdown",
-        "latex",
-        "plaintext"
-    ],
+    "python.formatting.provider": "black",
+    "files.exclude": {
+        "**/*.pyc": true
+    },
     "git.ignoreLimitWarning": true
 }
