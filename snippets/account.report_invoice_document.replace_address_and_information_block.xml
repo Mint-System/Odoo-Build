@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//t[@t-set='address']" position="replace"/>
 
@@ -37,14 +37,32 @@
         <span t-field="doc.partner_shipping_id.commercial_company_name"/>
       </div>
     </div>
-
+    
     <div class="row">
       <div class="col-5 offset-7">
         <span t-field="doc.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
       </div>
     </div>
 
-    <div class="row o_bold text-900" style="margin-top:25px">
+    <div class="row o_bold text-900" style<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//div[@t-field='o.partner_id']" position="replace">
+    <t t-if="o.partner_invoice_id.is_company == true">
+      <div t-esc="o.partner_invoice_id.name"/>
+      <div t-esc="o.partner_invoice_id.street"/>
+      <div t-esc="o.partner_invoice_id.street2"/>
+      <span t-esc="o.partner_invoice_id.zip"/>
+      <span t-esc="o.partner_invoice_id.city"/>
+      <t t-if="o.partner_invoice_id.country_id.code != 'CH'">
+        <div t-esc="oo.partner_invoice_id.country_id.name"/>
+      </t>
+    </t>
+    <t t-else="">
+      <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+    </t>
+  </xpath>
+
+</data>in-top:25px">
       <div class="col-7">Your Contact</div>
       <div class="col-5">Our Contact</div>
     </div>

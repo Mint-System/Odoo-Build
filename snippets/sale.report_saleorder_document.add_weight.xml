@@ -1,14 +1,30 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-  
-  <xpath expr="//th[@name='th_priceunit']" position="before">
-    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+
+  <xpath expr="//th[@name='th_quantity']" position="inside">
+    <br/>
+    <i>Weight</i>
   </xpath>
 
-  <xpath expr="//td[@name='td_priceunit']" position="before">
-    <td name="td_delivery_dates" class="text-right">
-       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-    </td>
+  <xpath expr="//th[@name='th_subtotal']" position="inside">
+    <br/>
+    <i>Weight</i>
   </xpath>
-  
+
+  <xpath expr="//td[@name='td_quantity']" position="inside">
+    <br/>
+    <i>
+      <span t-field="line.x_studio_weight"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+  <xpath expr="//td[@name='td_subtotal']" position="inside">
+    <br/>
+    <i>
+      <span t-field="line.x_studio_float_field_fBm1P"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
 </data>
