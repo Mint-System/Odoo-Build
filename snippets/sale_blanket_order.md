@@ -880,6 +880,20 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`
 Source: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
 ## View Blanket Order Form  
+### Fiscal Position Id  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+
+  <xpath expr="//field[@name='payment_term_id']" position="after">
+    <field name="fiscal_position_id" invisible="1"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
+
 ### Modify Attributes Date Confirmed  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed`  
 ```xml
@@ -911,6 +925,20 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_catego
 </data>
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
+
+### X State  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+
+  <xpath expr="//field[@name='user_id']" position="after">
+    <field name="state" readonly="0" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.view_blanket_order_form.x_state.xml)
 
 ## View Blanket Order Search  
 ### Replace Filter  

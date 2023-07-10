@@ -90,6 +90,19 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_d
 ```
 Source: [snippets/industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml)
 
+### Round Final Total  
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total`  
+```xml
+<data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
+
+    <xpath expr="//span[@t-esc='final_total']" position="replace">
+        <span t-esc="round(float(final_total) * 20) / 20" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.sale_order_id.pricelist_id.currency_id}"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/industry_fsm_sale.worksheet_time_and_material.round_final_total.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/industry_fsm_sale.worksheet_time_and_material.round_final_total.xml)
+
 ### Style Moser  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`  
 ```xml

@@ -405,6 +405,23 @@ ID: `mint_system.account.report_invoice_document.custom_address`
 ```
 Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 
+### Custom Pament Term  
+ID: `mint_system.account.report_invoice_document.custom_pament_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='payment_term']" position="replace">
+    <p t-if="o.invoice_payment_term_id" name="payment_term">
+      Payment terms: <strong t-field="o.invoice_payment_term_id.name"/>
+    </p>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.custom_pament_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.custom_pament_term.xml)
+
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
 ```xml
@@ -826,6 +843,30 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
 ```
 Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
+### Hide Incoterm  
+ID: `mint_system.account.report_invoice_document.hide_incoterm`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/account.report_invoice_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.hide_incoterm.xml)
+
+### Hide Payment Term  
+ID: `mint_system.account.report_invoice_document.hide_payment_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='payment_term']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/account.report_invoice_document.hide_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.hide_payment_term.xml)
+
 ### Margin After Title  
 ID: `mint_system.account.report_invoice_document.margin_after_title`  
 ```xml
@@ -998,10 +1039,9 @@ ID: `mint_system.account.report_invoice_document.move_incoterm`
 
   <xpath expr="//p[@name='incoterm']" position="replace"/>
   <xpath expr="//p[2]" position="after">
-    <p t-if="o.invoice_incoterm_id" name="incoterm">
-      <strong>Incoterm: </strong>
-      <span t-field="o.invoice_incoterm_id.code"/>
- -      <span t-field="o.invoice_incoterm_id.name"/>
+    <p t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
+      <strong t-field="o.invoice_incoterm_id.code"/>
+ -      <strong t-field="o.invoice_incoterm_id.name"/>
     </p>
   </xpath>
 </data>
@@ -2045,6 +2085,31 @@ ID: `mint_system.account.report_invoice_document.show_shipping_address`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_shipping_address.xml)
+
+### Style Carbo Link  
+ID: `mint_system.account.report_invoice_document.style_carbo_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+    .mb-4 {
+          margin-bottom: 0rem !important;
+          }
+    #total {
+          margin-bottom: 2rem;
+          }
+		</style>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
 
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  
@@ -2638,6 +2703,23 @@ ID: `mint_system.account.report_invoice_document.custom_address`
 ```
 Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.custom_address.xml)
 
+### Custom Pament Term  
+ID: `mint_system.account.report_invoice_document.custom_pament_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='payment_term']" position="replace">
+    <p t-if="o.invoice_payment_term_id" name="payment_term">
+      Payment terms: <strong t-field="o.invoice_payment_term_id.name"/>
+    </p>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.custom_pament_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.custom_pament_term.xml)
+
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
 ```xml
@@ -3059,6 +3141,30 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
 ```
 Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
+### Hide Incoterm  
+ID: `mint_system.account.report_invoice_document.hide_incoterm`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/account.report_invoice_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.hide_incoterm.xml)
+
+### Hide Payment Term  
+ID: `mint_system.account.report_invoice_document.hide_payment_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//p[@name='payment_term']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/account.report_invoice_document.hide_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.hide_payment_term.xml)
+
 ### Margin After Title  
 ID: `mint_system.account.report_invoice_document.margin_after_title`  
 ```xml
@@ -3231,10 +3337,9 @@ ID: `mint_system.account.report_invoice_document.move_incoterm`
 
   <xpath expr="//p[@name='incoterm']" position="replace"/>
   <xpath expr="//p[2]" position="after">
-    <p t-if="o.invoice_incoterm_id" name="incoterm">
-      <strong>Incoterm: </strong>
-      <span t-field="o.invoice_incoterm_id.code"/>
- -      <span t-field="o.invoice_incoterm_id.name"/>
+    <p t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
+      <strong t-field="o.invoice_incoterm_id.code"/>
+ -      <strong t-field="o.invoice_incoterm_id.name"/>
     </p>
   </xpath>
 </data>
@@ -4278,6 +4383,31 @@ ID: `mint_system.account.report_invoice_document.show_shipping_address`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_shipping_address.xml)
+
+### Style Carbo Link  
+ID: `mint_system.account.report_invoice_document.style_carbo_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+    .mb-4 {
+          margin-bottom: 0rem !important;
+          }
+    #total {
+          margin-bottom: 2rem;
+          }
+		</style>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
 
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  

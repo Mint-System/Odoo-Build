@@ -291,6 +291,19 @@ ID: `mint_system.base.view_partner_form.add_display_name`
 ```
 Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_display_name.xml)
 
+### Move Company Registry  
+ID: `mint_system.base.view_partner_form.move_company_registry`  
+```xml
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <xpath expr="//page[@name='sales_purchases']//field[@name='company_registry']" position="move"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_company_registry.xml)
+
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
@@ -367,6 +380,21 @@ ID: `mint_system.base.view_partner_form.x_created_on`
 
 ```
 Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_created_on.xml)
+
+### X Eori  
+ID: `mint_system.base.view_partner_form.x_eori`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_eori"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_eori.xml)
 
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  

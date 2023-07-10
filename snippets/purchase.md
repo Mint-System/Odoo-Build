@@ -902,6 +902,19 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.remove_taxes.xml)
 
+### Remove User Id  
+ID: `mint_system.purchase.report_purchaseorder_document.remove_user_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//p[@t-field='o.user_id']/.." position="replace">
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.remove_user_id.xml)
+
 ### Remove Vat  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_vat`  
 ```xml
@@ -936,6 +949,75 @@ ID: `mint_system.purchase.report_purchaseorder_document.rename_deadline`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.rename_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.rename_deadline.xml)
+
+### Replace Address And Information Block  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_address_and_information_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']" position="replace"/>
+
+  <xpath expr="//div[@class='page'][1]" position="before">
+
+    <div class="row text-900 o_bold">
+      <div class="col-7">Vendor</div>
+      <div class="col-5">Invoice Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id.commercial_company_name"/>
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-no_marker="True" t-options-fields="['address']"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.company_id.name"/>
+        <span t-field="o.picking_type_id.warehouse_id.partner_id" t-options-widget="&quot;contact&quot;" t-options-no_marker="True" t-options-fields="['address']"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 text-900 o_bold offset-7" style="margin-top:25px">Delivery Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <div>
+          <span t-field="o.picking_type_id.company_id.name"/>
+        </div>
+        <span t-field="o.picking_type_id.name"/>
+        <span t-field="o.picking_type_id.warehouse_id.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row o_bold text-900" style="margin-top:25px">
+      <div class="col-7">Your Contact</div>
+      <div class="col-5">Our Contact</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id.name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7" style="margin-bottom:25px">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml)
 
 ### Replace Informations  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`  
@@ -1213,6 +1295,28 @@ ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
+
+### Style Carbo Link  
+ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+		</style>
+	</xpath>
+
+	<xpath expr="//span[@t-field='line.date_planned']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.style_carbo_link.xml)
 
 ### Style Moser  
 ID: `mint_system.purchase.report_purchaseorder_document.style_moser`  

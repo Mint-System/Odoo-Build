@@ -2089,6 +2089,86 @@ ID: `mint_system.stock.report_delivery_document.remove_informations`
 ```
 Source: [snippets/stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.remove_informations.xml)
 
+### Replace Address And Information Block  
+ID: `mint_system.stock.report_delivery_document.replace_address_and_information_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']" position="replace"/>
+
+  <xpath expr="//t[@t-set='information_block']" position="replace">
+
+    <span>Carbo-Link AG | Undermülistrasse 25 | CH 8320 Fehraltorf</span>
+
+    <div class="row text-900 o_bold">
+      <div class="col-7">Delivery Address</div>
+      <div class="col-5">Customer</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.sale_id.partner_shipping_id.commercial_company_name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.sale_id.partner_shipping_id.commercial_company_name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.sale_id.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.sale_id.partner_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 text-900 o_bold offset-7" style="margin-top:25px">Invoice Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="o.sale_id.partner_shipping_id.commercial_company_name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="o.sale_id.partner_invoice_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row o_bold text-900" style="margin-top:25px">
+      <div class="col-7">Your Contact</div>
+      <div class="col-5">Our Contact</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.sale_id.partner_id.name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.sale_id.user_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7" style="margin-bottom:25px">
+        <span t-field="o.sale_id.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.sale_id.user_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_address_and_information_block.xml)
+
 ### Replace Description Sale  
 ID: `mint_system.stock.report_delivery_document.replace_description_sale`  
 ```xml
@@ -2890,6 +2970,33 @@ ID: `mint_system.stock.report_delivery_document.sort_by_position`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.sort_by_position.xml)
+
+### Style Carbo Link  
+ID: `mint_system.stock.report_delivery_document.style_carbo_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+		</style>
+	</xpath>
+	
+	<xpath expr="//p[@t-field='o.date_done']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+	
+	<xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.style_carbo_link.xml)
 
 ### Style Tissa  
 ID: `mint_system.stock.report_delivery_document.style_tissa`  

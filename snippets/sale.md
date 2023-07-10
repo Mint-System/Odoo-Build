@@ -848,26 +848,6 @@ ID: `mint_system.sale.report_saleorder_document.add_default_code`
 ```
 Source: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_default_code.xml)
 
-### Add Delivery Dates  
-ID: `mint_system.sale.report_saleorder_document.add_delivery_dates`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-  
-  <xpath expr="//th[@name='th_priceunit']" position="before">
-    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
-  </xpath>
-
-  <xpath expr="//td[@name='td_priceunit']" position="before">
-    <td name="td_delivery_dates" class="text-right">
-       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-    </td>
-  </xpath>
-  
-</data>
-```
-Source: [snippets/sale.report_saleorder_document.add_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_delivery_dates.xml)
-
 ### Add Delivery Date  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
 ```xml
@@ -1414,17 +1394,33 @@ ID: `mint_system.sale.report_saleorder_document.add_weight`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-  
-  <xpath expr="//th[@name='th_priceunit']" position="before">
-    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+
+  <xpath expr="//th[@name='th_quantity']" position="inside">
+    <br/>
+    <i>Weight</i>
   </xpath>
 
-  <xpath expr="//td[@name='td_priceunit']" position="before">
-    <td name="td_delivery_dates" class="text-right">
-       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-    </td>
+  <xpath expr="//th[@name='th_subtotal']" position="inside">
+    <br/>
+    <i>Weight</i>
   </xpath>
-  
+
+  <xpath expr="//td[@name='td_quantity']" position="inside">
+    <br/>
+    <i>
+      <span t-field="line.x_studio_weight"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+  <xpath expr="//td[@name='td_subtotal']" position="inside">
+    <br/>
+    <i>
+      <span t-field="line.x_studio_float_field_fBm1P"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_weight.xml)
@@ -2012,7 +2008,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_
         <span t-field="doc.partner_shipping_id.commercial_company_name"/>
       </div>
     </div>
-    
+
     <div class="row">
       <div class="col-5 offset-7">
         <span t-field="doc.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['address']" t-options-no_marker="True"/>
@@ -2608,6 +2604,28 @@ ID: `mint_system.sale.report_saleorder_document.show_qty_remaining`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.show_qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.show_qty_remaining.xml)
+
+### Style Carbo Link  
+ID: `mint_system.sale.report_saleorder_document.style_carbo_link`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+		</style>
+	</xpath>
+
+	<xpath expr="//div/div/div[2]/p" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_carbo_link.xml)
 
 ### Style Gelso  
 ID: `mint_system.sale.report_saleorder_document.style_gelso`  
@@ -4099,6 +4117,20 @@ ID: `mint_system.sale.view_quotation_tree.replace_create_date`
 </data>
 ```
 Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.replace_create_date.xml)
+
+### Show ​Payment Term Id  
+ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='state']" position="before">
+        <field name="payment_term_id" optional="show"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_quotation_tree.show_​payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.show_​payment_term_id.xml)
 
 ## View Sales Order Filter  
 ### Add Invoice Status  
