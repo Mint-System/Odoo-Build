@@ -1,0 +1,123 @@
+<t t-name="report_picking_document_tissa">
+
+  <style>
+    table#info {
+        width: 100%;
+        margin-top: 60px;
+    }
+    table#info tr {
+        font-size: 72px;
+        font-weight: normal;
+    }
+    tr#info_details {
+        font-size: 18px;
+    }
+    table#info_details {
+        width: 100%;
+        font-size: 30px;
+        border-bottom: solid 1px grey;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    table#info_details th {
+        font-weight: bold;
+    }
+    table#batch {
+        width: 100%;
+        font-size: 72px;
+        font-weight: bold;
+    }
+    table#batch_details {
+         width: 100%;
+         font-size: 40px;
+    }
+  </style>
+
+  <div class="page" style="font-family: Arial, Helvetica, sans-serif"/>
+
+  <tr t-foreach="doc.move_line_ids" t-as="table_line">
+
+    <div class="row">
+      <div class="col-2">
+        <img class="img-fluid" src="/web/image/9446-7fe212a9/230x115mm_1fbg_black_logo%20tissa%20textiles.jpg"/>
+      </div>
+      <div class="col-10" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">
+        <strong t-field="res_company.display_name"/>
+        <br/>
+        <span t-field="res_company.country_id.code"/>
+        <span> - </span>
+        <span t-field="res_company.zip"/>
+        <span></span>
+        <span t-field="res_company.city"/>
+      </div>
+    </div>
+
+    <table id="info">
+      <tr>
+        <td>
+          <span t-field="table_line.display_name"/>
+        </td>
+        <td style="text-align: right">
+          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.product_id.product_tmpl_id.barcode, 250, 85)" alt="Barcode"/>
+        </td>
+      </tr>
+
+      <table id="info_details">
+        <tr>
+          <th style="width:33%">Name</th>
+          <th style="width:33%">Lieferant</th>
+          <th style="width:33%">Beschreibung</th>
+        </tr>
+        <tr>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids"/>
+          </td>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids.product_attribute_value_id.x_studio_lieferant"/>
+          </td>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids.product_attribute_value_id.x_studio_beschreibung"/>
+          </td>
+        </tr>
+      </table>
+
+      <table id="batch">
+        <tr>
+          <td>
+            <strong t-field="table_line.lot_id.display_name"/>
+          </td>
+          <td style="text-align: right">
+            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.lot_id.display_name, 250, 85)" alt="Barcode"/>
+          </td>
+        </tr>
+      </table>
+
+    </table>
+
+    <table id="batch_details">
+      <tr>
+        <td>
+          <span t-field="table_line.qty_done"/>
+          <span></span>
+          <span t-field="table_line.product_uom_id.display_name"/>
+          <img style="padding-left:25px" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.qty_done, 250, 40)" alt="Barcode"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span t-field="table_line.lot_id.unit_on_lot"/>
+          <span> Spulen</span>
+        </td>
+      </tr>
+      <td>
+        <span>Einlagerungsdatum: </span>
+        <span t-field="table_line.create_date" t-options='{"widget": "date"}'/>
+      </td>
+
+    </table>
+
+    <p style="page-break-after: always;"/>
+
+  </tr>
+</t>
