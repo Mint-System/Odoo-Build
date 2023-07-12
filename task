@@ -294,7 +294,7 @@ function lint-module() {
     find $1 -type d -exec chmod u=rwx,go=rx {} \;
     find $1 -type f -exec chmod u=rw,go=r {} \;
 
-    echo "Copy default configurtion files"
+    echo "Copy default configuration files"
     cp template/{.flake8,.gitignore,.isort.cfg,.pre-commit-config.yaml,.pylintrc} $1/../
 
     # echo "Run pylint in $1"
