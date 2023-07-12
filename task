@@ -293,15 +293,21 @@ function lint-module() {
     echo "Set file and folder permissions on $1"
     find $1 -type d -exec chmod u=rwx,go=rx {} \;
     find $1 -type f -exec chmod u=rw,go=r {} \;
-    echo "Copy default .gignore"
-    cp template/custom_module/.gitignore "$1"/
-    echo "Run pylint in $1"
-    pylint --load-plugins=pylint_odoo -d all -e odoolint $1
-    cd $1
+
+    echo "Copy default configurtion files"
+    cp template/{.flake8,.gitignore,.isort.cfg,.pre-commit-config.yaml,.pylintrc} $1/../
+
+    # echo "Run pylint in $1"
+    # cd $1
+    # pylint --load-plugins=pylint_odoo -d all -e odoolint $1 --valid-odoo-versions=$GIT_BRANCH
+
     echo "Run pre-commit in $1"
+    cd $1
     pre-commit run --files ./*
+
     echo "Update index.html"
     rst2html5 README.rst static/description/index.html
+
     echo "Stage changes"
     git add .
 }
@@ -408,7 +414,7 @@ function create-module() {
     locale
     activate-venv
     echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
-    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/custom_module
+    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
 }
 
 function drop-db() {
