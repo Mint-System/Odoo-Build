@@ -1,4 +1,4 @@
-<t t-name="report_picking_document_tissa">
+<t t-name="report_picking_document.tissa">
 
   <style>
     table#info {

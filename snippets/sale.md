@@ -1127,19 +1127,28 @@ Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://gith
 ### Add Intrastat Id  
 ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-  
-  <xpath expr="//th[@name='th_quantity']" position="after">
-    <th name="th_hs_code" class="text-right">HS Code</th>
-  </xpath>
-  
-  <xpath expr="//td[@name='td_quantity']" position="after">
-    <td name="td_hs_code" class="text-right">
-       <span t-field="line.product_id.intrastat_id.code"/>
-    </td>
-  </xpath>
-  
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+			<style>
+		  .o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+    	h2 {
+       		font-size: 1.5rem;
+      		}
+		</style>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_delivery_date']" position="attributes">
+		<attribute name="class">text-right align-text-top</attribute>
+	</xpath>
+	
+	<xpath expr="//div/div/div[2]/p" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+	
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_intrastat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_intrastat_id.xml)
@@ -1234,6 +1243,25 @@ ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`
 
 ```
 Source: [snippets/sale.report_saleorder_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_percentage_sign.xml)
+
+### Add Product Uom  
+ID: `mint_system.sale.report_saleorder_document.add_product_uom`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//th[@name='th_quantity']" position="after">
+    <th name="th_product_uom" class="text-right">ME</th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_quantity']" position="after">
+    <td name="td_product_uom" class="text-right">
+      <span t-field="line.product_uom"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_product_uom.xml)
 
 ### Address Block  
 ID: `mint_system.sale.report_saleorder_document.address_block`  
@@ -2679,6 +2707,87 @@ ID: `mint_system.sale.report_saleorder_document.style_moser`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_moser.xml)
+
+### Style Tissa  
+ID: `mint_system.sale.report_saleorder_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			.o_company_1_layout {
+				font-family: arial;
+			}
+			table.trimada {
+				font-size: 9pt;
+				font-family: arial;
+				color: black;
+			}
+			table.trimada tr.first td {
+				padding-bottom: 0;
+			}
+			table.trimada tr.second td {
+				padding-top: 0;
+			}
+			table.trimada tr.second {
+				border-bottom: 1px solid rgb(220,220,220);
+			}
+			table.trimada thead tr {
+				border-top:solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  text-align: right;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody td#default_code {
+			  text-align: right;
+			}
+			table.trimada tbody #commitment_date {
+			  text-align: right;
+			}
+			table.trimada tbody td span#product_uom_qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#product_uom_qty_confirmed {
+			  font-weight: bold;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//table[2]" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+	
+	<xpath expr="//th[@id='commitment_date']" position="attributes">
+		<attribute name="class">text-right</attribute>
+	</xpath>
+
+</data>
+
+
+```
+Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  

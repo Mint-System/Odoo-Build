@@ -1436,6 +1436,29 @@ ID: `mint_system.stock.report_delivery_document.add_table_margin`
 ```
 Source: [snippets/stock.report_delivery_document.add_table_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_table_margin.xml)
 
+### Add Weight  
+ID: `mint_system.stock.report_delivery_document.add_weight`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//th[@name='th_sm_quantity']" position="before">
+    <th>
+      <span>Weight</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='move.quantity_done']/.." position="before">
+    <td>
+      <span t-field="move.product_id.weight"/>
+      <span t-field="move.product_id.weight_uom_name"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_weight.xml)
+
 ### Append Signature Text  
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
 ```xml
@@ -1821,6 +1844,17 @@ ID: `mint_system.stock.report_delivery_document.hide_name`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.hide_name.xml)
+
+### Hide Product Uom Qty  
+ID: `mint_system.stock.report_delivery_document.hide_product_uom_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+  <xpath expr="//span[@t-field='move.product_uom_qty']/..." position="replace">
+  </xpath>
+</data>
+```
+Source: [snippets/stock.report_delivery_document.hide_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.hide_product_uom_qty.xml)
 
 ### Hs Code Origin And Weight  
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
@@ -3174,6 +3208,1413 @@ ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`
 
 ```
 Source: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.x_hide_on_delivery.xml)
+
+## Report Picking  
+### Add Address Block  
+ID: `mint_system.stock.report_picking.add_address_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//table[1]" position="after">
+    <div class="table address_block">
+      <div class="row">
+        <div class="col">
+          <div t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </div>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.add_address_block.xml)
+
+### Add Delivery Note  
+ID: `mint_system.stock.report_picking.add_delivery_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+    <xpath expr="/t/t/t/t/div/table[1]" position="after">
+        <p t-field="o.delivery_note"/>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.add_delivery_note.xml)
+
+### Add Mrp Production X Note  
+ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//table[@id='main_table']" position="after">
+    <t t-set="production" t-value="o.group_id.mrp_production_ids"/>
+    <t t-foreach="production" t-as="production_line">
+      <t t-if="production_line.x_note != '&lt;br&gt;'">
+        <p class="oe_no_empty" t-field="production_line.x_note"/>
+      </t>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.add_mrp_production_x_note.xml)
+
+### Barcode Label  
+ID: `mint_system.stock.report_picking.barcode_label`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div/div/div/img" position="before">
+    <strong>Rüstschein Code:</strong>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.barcode_label.xml)
+
+### Format Delivery Date  
+ID: `mint_system.stock.report_picking.format_delivery_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.format_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.format_delivery_date.xml)
+
+### Format Qty Available  
+ID: `mint_system.stock.report_picking.format_qty_available`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+	<span id="qty_available" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</span>
+
+</data>
+```
+Source: [snippets/stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.format_qty_available.xml)
+
+### Format Qty  
+ID: `mint_system.stock.report_picking.format_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <t t-if="ml.product_uom_id.id == 1">
+      <span id="product_uom_qty" t-field="ml.product_uom_qty" t-options="{'widget': 'integer'}"/>
+    </t>
+    <t t-else="">
+      <span id="product_uom_qty" t-field="ml.product_uom_qty"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <t t-if="ml.product_uom_id.id == 1">
+      <span id="qty_available" t-field="ml.product_id.qty_available" t-options="{'widget': 'integer'}"/>
+    </t>
+    <t t-else="">
+      <span id="qty_available" t-field="ml.product_id.qty_available"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.format_qty.xml)
+
+### Format Title  
+ID: `mint_system.stock.report_picking.format_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//h1[@t-field='o.name']" position="replace">
+    <h1 t-esc="'Rüstschein ' + o.name.replace('WH/OUT/', '')"/>
+  </xpath>
+  
+</data>
+
+```
+Source: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.format_title.xml)
+
+### Get Position  
+ID: `mint_system.stock.report_picking.get_position`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <!-- <xpath expr="//th[@name='th_product']" position="before">
+    <t t-if="o.sale_id or o.purchase_id"> -->
+  <xpath expr="//th[@id='default_code']" position="before">
+      <th id="position">
+        <strong>Pos</strong>
+      </th>
+    <!-- </t> -->
+  </xpath>
+  
+ <xpath expr="//td[@id='default_code']" position="before">
+  <!-- <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before"> -->
+    <!-- <t t-if="o.sale_id or o.purchase_id"> -->
+      <td id="position">
+        <span t-esc="move.position"/>
+      </td>
+    <!-- </t> -->
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.get_position.xml)
+
+### Group By Date  
+ID: `mint_system.stock.report_picking.group_by_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <!-- Get all lines without duplicates -->
+    <t t-set="dates" t-value="list(set([date.date() for date in o.move_ids_without_package.mapped('date')]))" />
+    <!-- Store if has dates -->
+    <t t-set="has_dates" t-value="len(dates) > 0" />
+    <!-- Store if has multiple dates -->
+    <t t-set="has_multiple_dates" t-value="len(dates) > 1" />
+  </xpath>
+
+  <!-- Replace loop -->
+  <xpath expr="//t[@t-foreach='o.move_ids_without_package']" position="replace">
+
+    <!--<p t-esc="dates" />-->
+    <!--<p t-esc="has_dates" />-->
+    <!--<p t-esc="has_multiple_dates" />-->
+
+    <!-- Loop each group item -->
+    <t t-foreach="dates" t-as="date">
+
+      <!-- Insert group item -->
+      <tr t-if="has_dates and date" class="o_line_note">
+        <td colspan="99" style="padding-top: 1rem;">
+          <strong>
+            <span>Lieferdatum: </span>
+            <span t-esc="date" t-options="{'widget': 'date'}" />
+          </strong>
+        </td>
+      </tr>
+
+      <!-- Show only move that are assigned to the group item -->
+      <t t-set="move_ids" t-value="o.move_ids_without_package.filtered(lambda m: m.date.strftime('%Y-%m-%d') == date.strftime('%Y-%m-%d')).sorted(lambda m: m.date)" />
+      <t t-foreach="move_ids" t-as="move">
+        <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
+
+          <tr>
+            <td id="description_picking">
+              <span t-field="ml.product_id.display_name" />
+              <br />
+              <span t-field="ml.product_id.description_picking" />
+            </td>
+            <td id="product_uom_qty">
+              <span t-if="o.state != 'done'" t-field="ml.product_uom_qty" />
+              <span t-if="o.state == 'done'" t-field="ml.qty_done" />
+              <span t-field="ml.product_uom_id" groups="uom.group_uom" />
+
+            </td>
+            <td  id="location_id" t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">
+              <span t-esc="ml.location_id.display_name" />
+              <t t-if="ml.package_id">
+                <span t-field="ml.package_id" />
+              </t>
+            </td>
+            <td  id="location_dest_id" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+              <div>
+                <span t-field="ml.location_dest_id" />
+                <t t-if="ml.result_package_id">
+                  <span t-field="ml.result_package_id" />
+                </t>
+              </div>
+            </td>
+            <td id="has_serial_number" class=" text-center h6" t-if="has_serial_number">
+              <img t-if="has_serial_number and (ml.lot_id or ml.lot_name)" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', ml.lot_id.name or ml.lot_name, 400, 100)" style="width:100%;height:35px;" alt="Barcode" />
+
+            </td>
+            <td id="has_barcode" class="text-center" t-if="has_barcode">
+              <t t-if="product_barcode != move.product_id.barcode">
+                <span t-if="move.product_id and move.product_id.barcode">
+                  <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+                  <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+                  <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+
+                </span>
+                <t t-set="product_barcode" t-value="move.product_id.barcode" />
+              </t>
+            </td>
+          </tr>
+
+        </t>
+      </t>
+    </t>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.group_by_date.xml)
+
+### Header Box  
+ID: `mint_system.stock.report_picking.header_box`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//h1" position="replace">
+    <div class="header_box">
+      <div class="row align-items-center">
+        <div class="col">
+          <h1 class="trimada">Rüstschein <span t-field="o.name"/>
+          </h1>
+        </div>
+        <div class="col">
+          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+        </div>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.header_box.xml)
+
+### Hide Address  
+ID: `mint_system.stock.report_picking.hide_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+    <xpath expr="//div[@name='div_outgoing_address']/.." position="replace"/>
+
+</data>
+```
+Source: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.hide_address.xml)
+
+### Hide Location Dest  
+ID: `mint_system.stock.report_picking.hide_location_dest`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <!-- Hide destination location column for outgoing deliveries of operation type Pick Components -->
+  <xpath expr="//th[@name='th_to']" position="replace">
+    <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <strong>To</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='location_dest_id']" position="replace">
+  attribute name="t-if"
+    <td t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <div>
+        <span t-field="ml.location_dest_id"/>
+        <t t-if="ml.result_package_id">
+          <span t-field="ml.result_package_id"/>
+        </t>
+      </div>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.hide_location_dest.xml)
+
+### Hide Name  
+ID: `mint_system.stock.report_picking.hide_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+    <xpath expr="//h1[@t-field='o.name']" position="replace"/>
+    
+</data>
+```
+Source: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.hide_name.xml)
+
+### Margin Barcode  
+ID: `mint_system.stock.report_picking.margin_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div/div/div/img" position="attributes">
+    <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.margin_barcode.xml)
+
+### Margin Before Table  
+ID: `mint_system.stock.report_picking.margin_before_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+  <xpath expr="//table[1]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.margin_before_table.xml)
+
+### Modify No Reserved Product  
+ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
+    <attribute name="t-value">o.move_lines.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
+
+### Partner Ref  
+ID: `mint_system.stock.report_picking.partner_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[@name='div_incoming_address']/div[1]" position="before">
+    <div t-if="o.partner_id.ref">
+      <span><strong>Kundennummer: </strong></span>
+      <span t-field="o.partner_id.ref"/>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.partner_ref.xml)
+
+### Pos In Table  
+ID: `mint_system.stock.report_picking.pos_in_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+  <xpath expr="//table[1]/thead/tr/th[1]" position="before">
+    <th>
+      <strong>Pos</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//t[@t-foreach='o.move_ids_without_package']" position="before">
+    <span t-set="index" t-value="1"/>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/t//tr/td[1]" position="before">
+    <td>
+      <span t-esc="index"/>
+      <t t-set="index" t-value="index+1"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.pos_in_table.xml)
+
+### Pricelist Below Address  
+ID: `mint_system.stock.report_picking.pricelist_below_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[@name='partner_header']/p" position="after">
+    <span t-field="o.sale_id.pricelist_id.display_name"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.pricelist_below_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.pricelist_below_address.xml)
+
+### Product Description  
+ID: `mint_system.stock.report_picking.product_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+	<xpath expr="//td[@id='description_picking']" position="replace">
+
+		<td id="description_picking">
+			<strong>
+				<span t-esc="move.product_id.type_description"/>
+			</strong>
+			<br/>
+			<t t-if="move.description_picking">
+			  <span t-esc="move.description_picking"/>
+      	<br/>
+			</t>
+			<t t-if="not move.description_picking">
+				<span t-esc="move.product_id.name"/>
+				<br/>
+			</t>
+			<span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
+		</td>
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.product_description.xml)
+
+### Relocate Quantity  
+ID: `mint_system.stock.report_picking.relocate_quantity`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+	<xpath expr="//th[@id='product_uom_qty']" position="replace"/>
+
+	<xpath expr="//th[@id='th_to']" position="after">
+		<th id="product_uom_qty">
+			<strong>Quantity</strong>
+		</th>
+	</xpath>
+
+  <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
+  
+  <xpath expr="//td[@id='location_dest_id']" position="after">
+		<td id="product_uom_qty">
+		  
+			<t t-if="o.state != 'done'">
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+			
+			<t t-if="o.state == 'done'">
+			  <span id="qty_done">
+			    (<span t-esc="'%g' % ml.qty_done"/>)
+			  </span>
+			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+			</t>
+	
+			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+			<br/>
+			<span id="qty_available" t-field="ml.product_id.qty_available"/>
+			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
+		</td>
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.relocate_quantity.xml)
+
+### Remove From And To  
+ID: `mint_system.stock.report_picking.remove_from_and_to`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_from']" position="replace">
+  </xpath>
+  
+  <xpath expr="//th[@name='th_to']" position="replace">
+  </xpath>
+
+  <xpath expr="//tbody/t//tr/td[3]" position="replace">
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.remove_from_and_to.xml)
+
+### Remove Reservation Notice  
+ID: `mint_system.stock.report_picking.remove_reservation_notice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[hasclass('page')]/p[1]" position="replace"/>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.remove_reservation_notice.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.remove_reservation_notice.xml)
+
+### Remove Serial Number  
+ID: `mint_system.stock.report_picking.remove_serial_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@t-if='has_serial_number']" position="replace">
+  </xpath>
+
+  <xpath expr="//td[@t-if='has_serial_number']" position="replace">
+  </xpath>
+  
+</data>
+
+```
+Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.remove_serial_number.xml)
+
+### Remove To  
+ID: `mint_system.stock.report_picking.remove_to`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_to']" position="replace">
+    <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <strong>To</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='location_dest_id']" position="replace">
+    <td t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
+      <div>
+        <span t-field="ml.location_dest_id"/>
+        <t t-if="ml.result_package_id">
+          <span t-field="ml.result_package_id"/>
+        </t>
+      </div>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.remove_to.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.remove_to.xml)
+
+### Replace Barcode  
+ID: `mint_system.stock.report_picking.replace_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+	<xpath expr="//td[@id='barcode']" position="replace">
+
+		<td id="barcode" class="trimada" t-if="has_barcode">
+			<t t-if="product_barcode != move.product_id.barcode">
+				<span t-if="move.product_id and move.product_id.barcode">
+					<img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+					<img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+					<img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+
+				</span>
+				<t t-set="product_barcode" t-value="move.product_id.barcode"/>
+			</t>
+		</td>
+
+	</xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_barcode.xml)
+
+### Replace Header  
+ID: `mint_system.stock.report_picking.replace_header`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+	<xpath expr="//div[@name='right_box']/.." position="replace">
+
+		<style>
+			table.trimada_header {
+				width: 100%;
+				font-family: arial;
+				font-size: 18pt;
+				font-weight: bold;
+				border:solid 1px;
+			}
+			table.trimada_header td {
+				padding-left: 10px;
+				vertical-align: middle;
+				padding: 5px;
+			}
+		</style>
+
+		<table class="trimada_header">
+			<tr>
+				<td>Rüstschein <span t-field="o.name"/>
+				</td>
+				<td>
+					<span>
+						<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+					</span>
+				</td>
+			</tr>
+		</table>
+
+	</xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_header.xml)
+
+### Replace Order Definition  
+ID: `mint_system.stock.report_picking.replace_order_definition`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[@name='div_origin']/.." position="replace">
+
+    <style>
+			table.trimada_order {
+			  width: 100%;
+				font-size: 11pt;
+				font-family: arial;
+			}
+			table.trimada_order tr {
+			  border-bottom: 1px solid rgb(220,220,220);
+			}
+		 .first_col {
+			  width: 44%;
+			  padding-left: 10px;
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+			}
+			.second_col {
+			  width: 56%;
+			}
+			.last_row {
+			  border-bottom: 0px !important;
+			}
+    </style>
+
+    <table class="trimada_order">
+      <tr>
+        <t t-if="o.picking_type_id.id == 12">
+          <td class="first_col">
+            <strong>
+              Fertigungsauftrag
+              <span t-field="o.origin" />
+            </strong>
+          </td>
+          <td class="second_col">
+            <strong>
+              Produkt
+              <span />
+            </strong>
+            <span t-field="o.group_id.mrp_production_ids.product_id" />
+          </td>
+        </t>
+        <t t-if="o.picking_type_id.id != 12">
+          <td class="first_col">
+            <strong>
+              Bestellung
+              <span t-field="o.origin" />
+            </strong>
+          </td>
+          <td></td>
+        </t>
+      </tr>
+      <tr>
+        <td class="first_col">
+          Status:
+          <span t-field="o.state" />
+        </td>
+        <td class="second_col">
+          Datum:
+          <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span>
+        </td>
+      </tr>
+      <tr class="last_row">
+        <td class="first_col">
+          Typ:
+          <span t-field="o.picking_type_id.code" />
+        </td>
+        <t t-if="o.carrier_id">
+          <td>
+            Auslieferungsmethode:
+            <span t-field="o.carrier_id" />
+          </td>
+        </t>
+      </tr>
+    </table>
+
+  </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_order_definition.xml)
+
+### Replace Table  
+ID: `mint_system.stock.report_picking.replace_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+<xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
+  
+<table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px" t-if="o.move_line_ids and o.move_ids_without_package">
+  <t t-set="has_barcode" t-value="any(move_line.product_id and move_line.product_id.sudo().barcode or move_line.package_id for move_line in o.move_line_ids)"/>
+  <t t-set="has_serial_number" t-value="any(move_line.lot_id or move_line.lot_name for move_line in o.move_line_ids)" groups="stock.group_production_lot"/>
+
+    <tr style="border-bottom: 1px solid rgb(220,220,220);">
+        <th name="th_product" style="padding-left: 9px; padding-bottom: 10px; width:12%;">
+            <strong>Art. Nr.</strong>
+        </th>
+        <th style="width:40%">
+            <strong>Bezeichnung / Typenbezeichnung</strong>
+        </th>
+        <th style="width:12%" name="th_from" t-if="o.picking_type_id.code != 'incoming'" align="left" groups="stock.group_stock_multi_locations">
+            <strong>Von</strong>
+        </th>
+        <th style="width:12%" name="th_to" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+            <strong>Nach</strong>
+        </th>
+        <th style="width:18%; text-align:right; padding-right:20px;">
+            <strong>Menge</strong>
+        </th>
+        <th style="width:3%; text-align:right; padding-right:10px;">
+            <strong>Lager</strong>
+        </th>
+        <th name="th_serial_number" class="text-center" t-if="has_serial_number">
+           <strong>Lot/Serial Number</strong>
+        </th>
+        <th style="width:3%" name="th_barcode" class="text-center" t-if="has_barcode">
+            <strong></strong>
+        </th>
+    </tr>
+                            
+      <t t-foreach="o.move_ids_without_package" t-as="move">
+          <!-- In case you come across duplicated lines, ask NIM or LAP -->
+          <t t-foreach="move.move_line_ids.sorted(key=lambda ml: ml.location_id.id)" t-as="ml">
+            
+              <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                  <td style="padding-left: 10px; padding-top:5px; vertical-align:top;">
+                      <span t-field="ml.product_id.default_code"/><br/>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top; padding-right: 10px">
+                      <span t-field="ml.product_id.name"/><br/>
+                      <span t-field="ml.product_id.type_description"/>
+                  </td>
+                  
+                  <td style="padding-top:5px; vertical-align:top;" t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">
+                      <span t-esc="ml.location_id.display_name"/>
+                          <t t-if="ml.package_id">
+                              <span t-field="ml.package_id"/>
+                          </t>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top;" t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+                      <div>
+                          <span t-field="ml.location_dest_id"/>
+                          <t t-if="ml.result_package_id">
+                              <span t-field="ml.result_package_id"/>
+                          </t>
+                      </div>
+                  </td>
+                  <td style="padding-top:5px; vertical-align:top; text-align:right; padding-right:20px; font-weight: bold">
+                      <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+                      <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
+                      <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+
+                  </td>
+                  
+                  <td style="padding-top:5px; padding-right: 10px; vertical-align:top; text-align:right">
+                        <span t-field="ml.product_id.qty_available"/>
+                  </td>
+                  
+                  <td class=" text-center h6" t-if="has_serial_number">
+                      <img t-if="has_serial_number and (ml.lot_id or ml.lot_name)" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;humanreadable=1' % ('Code128', ml.lot_id.name or ml.lot_name, 400, 100)" style="width:100%;height:35px;" alt="Barcode"/>
+
+                  </td>
+                  <td style="padding-top: 5px; padding-bottom: 5px; vertical-align:middle;" class="text-center" t-if="has_barcode">
+                      <t t-if="product_barcode != move.product_id.barcode">
+                          <span t-if="move.product_id and move.product_id.barcode">
+                              <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                              <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                              <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+
+                          </span>
+                          <t t-set="product_barcode" t-value="move.product_id.barcode"/>
+                      </t>
+                  </td>
+              </tr>
+          </t>
+      </t>
+       
+  </table>                     
+  
+  </xpath>
+  </data>
+```
+Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_table.xml)
+
+### Round Qty2  
+ID: `mint_system.stock.report_picking.round_qty2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.5 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.round_qty2.xml)
+
+### Round Qty  
+ID: `mint_system.stock.report_picking.round_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty if int(ml.product_uom_qty) == ml.product_uom_qty else '%.2f' % ml.product_uom_qty" />
+  </xpath>
+
+  <xpath expr="//span[@id='qty_available']" position="replace">
+    <!-- 34.00 -> 34 -->
+    <!-- 34.50 -> 34.50 -->
+    <!-- 34.75 -> 34.75 -->
+    <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available if int(ml.product_id.qty_available) == ml.product_id.qty_available else '%.2f' % ml.product_id.qty_available" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.round_qty.xml)
+
+### Set Ids  
+ID: `mint_system.stock.report_picking.set_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+	<xpath expr="//th[@name='th_product']" position="attributes">
+		<attribute name="id">th_product</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
+		<attribute name="id">product_uom_qty</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_to']" position="attributes">
+		<attribute name="id">th_to</attribute>
+	</xpath>
+
+	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
+		<attribute name="id">barcode</attribute>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+	  <attribute name="id">main_table</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.set_ids.xml)
+
+### Show Default Code  
+ID: `mint_system.stock.report_picking.show_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@id='th_product']" position="before">
+    <th id="default_code">
+      <strong >Part No.</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@id='description_picking']" position="before">
+    <td id="default_code">
+      <span t-field="ml.product_id.default_code"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_default_code.xml)
+
+### Show Full Address  
+ID: `mint_system.stock.report_picking.show_full_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[@name='partner_header']/div" position="attributes">
+    <attribute name="t-options-fields">['name', 'phone', 'address']</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_full_address.xml)
+
+### Show Lot  
+ID: `mint_system.stock.report_picking.show_lot`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//th[@name='th_product']/../th[4]" position="after">
+    <th name="th_lot">
+      <strong>Los</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='move.product_uom_qty']/.." position="after">
+    <td>
+      <span t-if="move.lot_ids" t-esc="', '.join(move.lot_ids.mapped('display_name'))"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_lot.xml)
+
+### Show Move Not Lines  
+ID: `mint_system.stock.report_picking.show_move_not_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="40">
+
+    <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="attributes">
+        <attribute name="t-if">o.move_ids_without_package</attribute>
+    </xpath>
+
+    <xpath expr="//tbody/t/t" position="replace">
+        <tr>
+            <td>
+                <span t-field="move.product_id.display_name" />
+                <br />
+                <span t-field="move.product_id.description_picking" />
+            </td>
+            <td>
+                <span t-field="move.product_uom_qty" />
+                <span t-if="not move.product_packaging.x_packaging_uom_id" t-field="move.product_uom" groups="uom.group_uom" />
+                <span t-if="move.product_packaging.x_packaging_uom_id" t-field="move.product_packaging.x_packaging_uom_id" groups="uom.group_uom" />
+            </td>
+            <td t-if="o.picking_type_id.code != 'incoming'" groups="stock.group_stock_multi_locations">
+                <span t-esc="move.location_id.display_name" />
+            </td>
+            <td t-if="o.picking_type_id.code != 'outgoing'" groups="stock.group_stock_multi_locations">
+                <div>
+                    <span t-field="move.location_dest_id" />
+                </div>
+            </td>
+            <td class=" text-center h6" t-if="has_serial_number"></td>
+            <td class="text-center" t-if="has_barcode">
+                <t t-if="product_barcode != move.product_id.barcode">
+                    <span t-if="move.product_id and move.product_id.barcode">
+                        <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+                        <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+                        <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 400, 100, 0)" style="height:35px" alt="Barcode" />
+
+                    </span>
+                    <t t-set="product_barcode" t-value="move.product_id.barcode" />
+                </t>
+            </td>
+        </tr>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_move_not_lines.xml)
+
+### Show Move Qty  
+ID: `mint_system.stock.report_picking.show_move_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@t-field='ml.product_uom_qty']" position="replace">
+    <span t-if="o.state != 'done'" t-field="move.product_uom_qty"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_move_qty.xml)
+
+### Show Order Date  
+ID: `mint_system.stock.report_picking.show_order_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//div[@name='div_origin']" position="after">
+    <div t-if="o.sale_id" class="col-auto" name="div_date_order">
+      <strong>Bestelldatum:</strong>
+      <p t-esc="o.sale_id.date_order" t-options="{'widget': 'date'}"/>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_order_date.xml)
+
+### Show Packaging  
+ID: `mint_system.stock.report_picking.show_packaging`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+ <xpath expr="//table[1]/thead/tr/th[1]" position="after">
+    <th>
+      <strong>Verpackung</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/t//tr/td[1]" position="after">
+    <td>
+      <span t-if="move.product_packaging" t-esc="move.product_packaging.name"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_packaging.xml)
+
+### Show Qty Available  
+ID: `mint_system.stock.report_picking.show_qty_available`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+ 
+  <xpath expr="//table[4]/thead/tr/th[6]" position="after">
+    <th id="qty_available">
+      <strong >Lager</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[4]/tbody/t/t/tr/td[6]" position="after">
+    <td id="qty_available">
+      <span id="qty_available" t-field="ml.product_id.qty_available"/>
+      <span t-field="ml.product_uom_id"/>
+     </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.show_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.show_qty_available.xml)
+
+### Stock Delivery Note  
+ID: `mint_system.stock.report_picking.stock_delivery_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="/t/t/t/t/div/table[1]" position="after">
+    <div class="row">
+      <div class="col">
+        <p t-field="o.note"/>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
+
+```
+Source: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.stock_delivery_note.xml)
+
+### Style Trimada  
+ID: `mint_system.stock.report_picking.style_trimada`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		  p {
+		    font-size: 9pt;
+				font-family: arial;
+		  }
+			table.trimada {
+			  width: 100%;
+				font-size: 9pt;
+				font-family: arial;
+				margin-top: 20px;
+			}
+			table.trimada thead tr {
+				border-top: solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  padding-left: 10px;
+			  text-align: left;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			table.trimada thead th#product_uom_qty {
+			  width: 35mm;
+			  text-align: right;
+			}
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody tr {
+			  vertical-align: top;
+				border-bottom: 1px solid rgb(220,220,220)
+			}
+			table.trimada tbody td#default_code {
+			  padding-left: 10px;
+			  text-align: left;
+			}
+			table.trimada tbody td span#description_pickingout {
+			  font-style: italic;
+			}
+			table.trimada tbody td#product_uom_qty {
+			  text-align: right;
+			}			
+			table.trimada tbody td span#product_uom_qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#product_uom_qty_done {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#qty_available {
+			  font-size: 7pt;
+			}
+			table.trimada tbody td span#qty_available_uom_id {
+			  font-size: 7pt;
+			}
+			table.trimada tbody td span#qty_done {
+			  font-weight: normal;
+			  font-size: 9pt;
+			}
+			table.trimada #barcode {
+			  text-align: right;
+			}
+		  div.address_block {
+			  font-size: 10pt;
+				font-family: arial;
+				margin-top: 20px;
+				margin-left: 10px;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			.mrp_note {
+				font-size: 9pt;
+				font-family: arial;
+				padding-bottom: 3mm;
+			}
+		</style>
+	</xpath>
+
+.	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.style_trimada.xml)
+
+### X Count Packaging  
+ID: `mint_system.stock.report_picking.x_count_packaging`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+ <xpath expr="//table[1]/thead/tr/th[2]" position="after">
+    <th>
+      <strong>Anzahl Verp.</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[1]/tbody/t//tr/td[2]" position="after">
+    <td>
+      <span t-if="move.x_count_packaging" t-esc="move.x_count_packaging"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.x_count_packaging.xml)
+
+### X Packaging Uom Id  
+ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+  <xpath expr="//span[@t-field='ml.product_uom_id']" position="replace">
+      <span t-if="not move.product_packaging.x_packaging_uom_id" t-field="ml.product_uom_id" groups="uom.group_uom"/>
+      <span t-if="move.product_packaging.x_packaging_uom_id" t-field="move.product_packaging.x_packaging_uom_id" groups="uom.group_uom"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
+
+## Report Picking Document  
+### Tissa  
+ID: `mint_system.stock.report_picking_document.tissa`  
+```xml
+<t t-name="report_picking_document.tissa">
+
+  <style>
+    table#info {
+        width: 100%;
+        margin-top: 60px;
+    }
+    table#info tr {
+        font-size: 72px;
+        font-weight: normal;
+    }
+    tr#info_details {
+        font-size: 18px;
+    }
+    table#info_details {
+        width: 100%;
+        font-size: 30px;
+        border-bottom: solid 1px grey;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    table#info_details th {
+        font-weight: bold;
+    }
+    table#batch {
+        width: 100%;
+        font-size: 72px;
+        font-weight: bold;
+    }
+    table#batch_details {
+         width: 100%;
+         font-size: 40px;
+    }
+  </style>
+
+  <div class="page" style="font-family: Arial, Helvetica, sans-serif"/>
+
+  <tr t-foreach="doc.move_line_ids" t-as="table_line">
+
+    <div class="row">
+      <div class="col-2">
+        <img class="img-fluid" src="/web/image/9446-7fe212a9/230x115mm_1fbg_black_logo%20tissa%20textiles.jpg"/>
+      </div>
+      <div class="col-10" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">
+        <strong t-field="res_company.display_name"/>
+        <br/>
+        <span t-field="res_company.country_id.code"/>
+        <span> - </span>
+        <span t-field="res_company.zip"/>
+        <span></span>
+        <span t-field="res_company.city"/>
+      </div>
+    </div>
+
+    <table id="info">
+      <tr>
+        <td>
+          <span t-field="table_line.display_name"/>
+        </td>
+        <td style="text-align: right">
+          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.product_id.product_tmpl_id.barcode, 250, 85)" alt="Barcode"/>
+        </td>
+      </tr>
+
+      <table id="info_details">
+        <tr>
+          <th style="width:33%">Name</th>
+          <th style="width:33%">Lieferant</th>
+          <th style="width:33%">Beschreibung</th>
+        </tr>
+        <tr>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids"/>
+          </td>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids.product_attribute_value_id.x_studio_lieferant"/>
+          </td>
+          <td>
+            <span t-field="table_line.product_id.product_template_attribute_value_ids.product_attribute_value_id.x_studio_beschreibung"/>
+          </td>
+        </tr>
+      </table>
+
+      <table id="batch">
+        <tr>
+          <td>
+            <strong t-field="table_line.lot_id.display_name"/>
+          </td>
+          <td style="text-align: right">
+            <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.lot_id.display_name, 250, 85)" alt="Barcode"/>
+          </td>
+        </tr>
+      </table>
+
+    </table>
+
+    <table id="batch_details">
+      <tr>
+        <td>
+          <span t-field="table_line.qty_done"/>
+          <span></span>
+          <span t-field="table_line.product_uom_id.display_name"/>
+          <img style="padding-left:25px" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', table_line.qty_done, 250, 40)" alt="Barcode"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <span t-field="table_line.lot_id.unit_on_lot"/>
+          <span> Spulen</span>
+        </td>
+      </tr>
+      <td>
+        <span>Einlagerungsdatum: </span>
+        <span t-field="table_line.create_date" t-options='{"widget": "date"}'/>
+      </td>
+
+    </table>
+
+    <p style="page-break-after: always;"/>
+
+  </tr>
+</t>
+```
+Source: [snippets/stock.report_picking_document.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking_document.tissa.xml)
 
 ## Report Picking  
 ### Add Address Block  

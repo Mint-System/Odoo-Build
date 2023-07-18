@@ -397,6 +397,21 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
 
+### Remove Date Schedule  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//table/thead/tr/th[3]" position="replace"/>
+ 
+  <xpath expr="//span[@t-field='l.date_schedule']/.." position="replace"/>
+    
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)
+
 ### Remove Informations  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_informations`  
 ```xml
@@ -511,6 +526,21 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product
 </data>
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
+
+### Replace Product Id  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+
+ <xpath expr="//span[@t-field='l.product_id']" position="replace">    
+      <span t-field="l.name"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_product_id.xml)
 
 ### Replace Summary  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary`  

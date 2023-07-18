@@ -1307,7 +1307,14 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`
         	font-family: Dobra-Book;
         	font-size: 80%;
         	}
+    	h2 {
+       		font-size: 1.5rem;
+      		}
 		</style>
+	</xpath>
+
+	<xpath expr="//p[@t-field='o.date_order']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
 	</xpath>
 
 	<xpath expr="//span[@t-field='line.date_planned']" position="attributes">

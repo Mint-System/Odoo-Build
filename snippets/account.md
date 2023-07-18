@@ -2104,12 +2104,52 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
     #total {
           margin-bottom: 2rem;
           }
+    h2 {
+       		font-size: 1.5rem;
+      		}
 		</style>
 	</xpath>
 
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
+
+### Style Tissa  
+ID: `mint_system.account.report_invoice_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
+		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+	</xpath>
+
+	<xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
+		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+	</xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  
@@ -2246,6 +2286,115 @@ ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.tissa_rechnungstext.xml)
+
+### Tissa Replace Infotable  
+ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id='info'>
+
+      <tr>
+        <td>
+          Kundennummer:
+        </td>
+        <td>
+          <span t-field='o.partner_id.ref'/>
+        </td>
+        <td>
+          Datum:
+        </td>
+        <td>
+          <span t-field='o.invoice_date'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          USt-IdNr:
+        </td>
+        <td>
+          <span t-field='o.partner_id.vat'/>
+        </td>
+
+        <td>Unser Auftrag:</td>
+        <td>
+          <t t-if='o.sale_order_id.origin'>
+            <span t-field='o.sale_order_id.origin'/>
+ / 
+          </t>
+          <span t-field='o.invoice_origin'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="16%">EORI-Nummer:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Abruf:</td>
+        <td>
+          <span t-field='o.sale_order_id.comment'/>
+          <t t-if='o.sale_order_id.x_studio_kommission'>
+             /            <span t-field='o.sale_order_id.x_studio_kommission'/>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field='o.sale_order_id.blanket_order_id.client_order_ref'/>          
+        </td>
+        <td>Kundenbetreuer/in:</td>
+        <td>
+          <span t-field='o.partner_id.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>         
+          <span t-field='o.sale_order_id.blanket_order_id.date_confirmed'/>         
+        </td>
+        <td width="19%">Sachbearbeiter/in:</td>
+        <td width="21%">
+          <span t-field='o.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          MwSt-Nr:
+        </td>
+        <td>
+          CHE-103.327.797 MWST
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.tissa_replace_infotable.xml)
 
 ### Unit Precision  
 ID: `mint_system.account.report_invoice_document.unit_precision`  
@@ -4402,12 +4551,52 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
     #total {
           margin-bottom: 2rem;
           }
+    h2 {
+       		font-size: 1.5rem;
+      		}
 		</style>
 	</xpath>
 
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
+
+### Style Tissa  
+ID: `mint_system.account.report_invoice_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
+		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+	</xpath>
+
+	<xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
+		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+	</xpath>
+
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  
@@ -4544,6 +4733,115 @@ ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.tissa_rechnungstext.xml)
+
+### Tissa Replace Infotable  
+ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id='info'>
+
+      <tr>
+        <td>
+          Kundennummer:
+        </td>
+        <td>
+          <span t-field='o.partner_id.ref'/>
+        </td>
+        <td>
+          Datum:
+        </td>
+        <td>
+          <span t-field='o.invoice_date'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          USt-IdNr:
+        </td>
+        <td>
+          <span t-field='o.partner_id.vat'/>
+        </td>
+
+        <td>Unser Auftrag:</td>
+        <td>
+          <t t-if='o.sale_order_id.origin'>
+            <span t-field='o.sale_order_id.origin'/>
+ / 
+          </t>
+          <span t-field='o.invoice_origin'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="16%">EORI-Nummer:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Abruf:</td>
+        <td>
+          <span t-field='o.sale_order_id.comment'/>
+          <t t-if='o.sale_order_id.x_studio_kommission'>
+             /            <span t-field='o.sale_order_id.x_studio_kommission'/>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field='o.sale_order_id.blanket_order_id.client_order_ref'/>          
+        </td>
+        <td>Kundenbetreuer/in:</td>
+        <td>
+          <span t-field='o.partner_id.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td>         
+          <span t-field='o.sale_order_id.blanket_order_id.date_confirmed'/>         
+        </td>
+        <td width="19%">Sachbearbeiter/in:</td>
+        <td width="21%">
+          <span t-field='o.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td></td>
+        <td>
+          MwSt-Nr:
+        </td>
+        <td>
+          CHE-103.327.797 MWST
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.tissa_replace_infotable.xml)
 
 ### Unit Precision  
 ID: `mint_system.account.report_invoice_document.unit_precision`  
