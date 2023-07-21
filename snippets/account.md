@@ -1120,19 +1120,19 @@ ID: `mint_system.account.report_invoice_document.product_weight`
 ```
 Source: [snippets/account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.product_weight.xml)
 
-### Remove Incoterms  
-ID: `mint_system.account.report_invoice_document.remove_incoterms`  
+### Remove Incoterm  
+ID: `mint_system.account.report_invoice_document.remove_incoterm`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace">
+	<xpath expr="//p[@name='incoterm']" position="replace">
   </xpath>
 
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
+Source: [snippets/account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_incoterm.xml)
 
 ### Remove Payment Communication  
 ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
@@ -1186,6 +1186,67 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
+
+### Replace Address And Information Block  
+ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']" position="replace">
+
+    <div class="row text-900 o_bold">
+      <div class="col-7">Customer</div>
+      <div class="col-5">Invoice Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 text-900 o_bold offset-7" style="margin-top:25px">Delivery Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="o.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row o_bold text-900" style="margin-top:25px">
+      <div class="col-7">Your Contact</div>
+      <div class="col-5">Our Contact</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id.name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7" style="margin-bottom:25px">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.replace_address_and_information_block.xml)
 
 ### Replace Address  
 ID: `mint_system.account.report_invoice_document.replace_address`  
@@ -2024,6 +2085,28 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 ```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
 
+### Show Hs Code  
+ID: `mint_system.account.report_invoice_document.show_hs_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">
+      <span>H.S. Code</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-esc="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_hs_code.xml)
+
 ### Show Lot Ids  
 ID: `mint_system.account.report_invoice_document.show_lot_ids`  
 ```xml
@@ -2085,6 +2168,42 @@ ID: `mint_system.account.report_invoice_document.show_shipping_address`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_shipping_address.xml)
+
+### Show Weight  
+ID: `mint_system.account.report_invoice_document.show_weight`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="inside">
+    <br/>
+    <i>Weight</i>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_subtotal']" position="inside">
+    <br/>
+    <i>Total Weight</i>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="inside">
+    <br/>
+    <i>
+      <span t-field="line.product_id.weight"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+ <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.price_subtotal']/.." position="inside">
+    <br/>
+    <i>
+      <span t-esc="line.product_id.weight * line.quantity" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;decimal_precision&quot;: &quot;Stock Weight&quot;}"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_weight.xml)
 
 ### Style Carbo Link  
 ID: `mint_system.account.report_invoice_document.style_carbo_link`  
@@ -3567,19 +3686,19 @@ ID: `mint_system.account.report_invoice_document.product_weight`
 ```
 Source: [snippets/account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.product_weight.xml)
 
-### Remove Incoterms  
-ID: `mint_system.account.report_invoice_document.remove_incoterms`  
+### Remove Incoterm  
+ID: `mint_system.account.report_invoice_document.remove_incoterm`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace">
+	<xpath expr="//p[@name='incoterm']" position="replace">
   </xpath>
 
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_incoterms.xml)
+Source: [snippets/account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_incoterm.xml)
 
 ### Remove Payment Communication  
 ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
@@ -3633,6 +3752,67 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.remove_taxes.xml)
+
+### Replace Address And Information Block  
+ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <xpath expr="//t[@t-set='address']" position="replace">
+
+    <div class="row text-900 o_bold">
+      <div class="col-7">Customer</div>
+      <div class="col-5">Invoice Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 text-900 o_bold offset-7" style="margin-top:25px">Delivery Address</div>
+    </div>
+
+    <div class="row">
+      <div class="col-5 offset-7">
+        <span t-field="o.partner_shipping_id" t-options-widget="&quot;contact&quot;" t-options-fields="['name', 'address']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+    <div class="row o_bold text-900" style="margin-top:25px">
+      <div class="col-7">Your Contact</div>
+      <div class="col-5">Our Contact</div>
+    </div>
+
+    <div class="row">
+      <div class="col-7">
+        <span t-field="o.partner_id.name"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id.name"/>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-7" style="margin-bottom:25px">
+        <span t-field="o.partner_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+      <div class="col-5">
+        <span t-field="o.user_id" t-options-widget="&quot;contact&quot;" t-options-fields="['phone', 'email']" t-options-no_marker="True"/>
+      </div>
+    </div>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.replace_address_and_information_block.xml)
 
 ### Replace Address  
 ID: `mint_system.account.report_invoice_document.replace_address`  
@@ -4471,6 +4651,28 @@ ID: `mint_system.account.report_invoice_document.show_default_code`
 ```
 Source: [snippets/account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_default_code.xml)
 
+### Show Hs Code  
+ID: `mint_system.account.report_invoice_document.show_hs_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">
+      <span>H.S. Code</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-esc="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_hs_code.xml)
+
 ### Show Lot Ids  
 ID: `mint_system.account.report_invoice_document.show_lot_ids`  
 ```xml
@@ -4532,6 +4734,42 @@ ID: `mint_system.account.report_invoice_document.show_shipping_address`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_shipping_address.xml)
+
+### Show Weight  
+ID: `mint_system.account.report_invoice_document.show_weight`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="inside">
+    <br/>
+    <i>Weight</i>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_subtotal']" position="inside">
+    <br/>
+    <i>Total Weight</i>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="inside">
+    <br/>
+    <i>
+      <span t-field="line.product_id.weight"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+ <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.price_subtotal']/.." position="inside">
+    <br/>
+    <i>
+      <span t-esc="line.product_id.weight * line.quantity" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;decimal_precision&quot;: &quot;Stock Weight&quot;}"/>
+      <span t-field="line.product_id.weight_uom_name"/>
+    </i>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.show_weight.xml)
 
 ### Style Carbo Link  
 ID: `mint_system.account.report_invoice_document.style_carbo_link`  

@@ -81,3 +81,58 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 ```
 Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
 
+## Product  
+### Show Product Dimension  
+ID: `mint_system.website_sale.product.show_product_dimension`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="website_sale.product" priority="50">
+
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids">
+            <strong>Dimensions</strong>: <br />
+            <ul class="un-styled">
+                <t t-foreach="product_variant.dimension_ids" t-as="dimension">
+                    <li>
+                        <span t-field="dimension.name" />
+                        <t t-if="dimension.value">
+                            <span t-field="dimension.value" />
+                        </t>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.product.show_product_dimension.xml)
+
+### Show Product Material  
+ID: `mint_system.website_sale.product.show_product_material`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="website_sale.product" priority="50">
+
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids">
+            <strong>Materials</strong>: <br />
+            <ul class="un-styled">
+                <t t-foreach="product_variant.material_ids" t-as="material">
+                    <li>
+                        <span t-field="material.name" />
+                        <t t-if="material.percent">
+                            <span t-field="material.percent" />
+                        </t>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.product.show_product_material.xml)
+

@@ -710,3 +710,18 @@ ID: `mint_system.base.view_users_form.write_partner_id`
 ```
 Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.write_partner_id.xml)
 
+## View View Form  
+### Add Key  
+ID: `mint_system.base.view_view_form.add_key`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_view_form" priority="50">
+
+  <xpath expr="//group[1]/field[@name='name']" position="before">
+    <field name="key"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_view_form.add_key.xml)
+

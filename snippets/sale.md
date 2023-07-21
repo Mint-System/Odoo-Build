@@ -848,6 +848,26 @@ ID: `mint_system.sale.report_saleorder_document.add_default_code`
 ```
 Source: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_default_code.xml)
 
+### Add Delivery Dates  
+ID: `mint_system.sale.report_saleorder_document.add_delivery_dates`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_priceunit']" position="before">
+    <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_priceunit']" position="before">
+    <td name="td_delivery_dates" class="text-right">
+       <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+    </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_delivery_dates.xml)
+
 ### Add Delivery Date  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
 ```xml
@@ -1127,28 +1147,19 @@ Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://gith
 ### Add Intrastat Id  
 ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`  
 ```xml
-<data inherit_id="sale.report_saleorder_document" priority="60">
-
-	<xpath expr="//div[hasclass('page')]" position="before">
-			<style>
-		  .o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
-    	h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
-	
-	<xpath expr="//th[@name='th_delivery_date']" position="attributes">
-		<attribute name="class">text-right align-text-top</attribute>
-	</xpath>
-	
-	<xpath expr="//div/div/div[2]/p" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
-	
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+  <xpath expr="//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">HS Code</th>
+  </xpath>
+  
+  <xpath expr="//td[@name='td_quantity']" position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-field="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+  
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_intrastat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_intrastat_id.xml)
@@ -1918,6 +1929,18 @@ ID: `mint_system.sale.report_saleorder_document.remove_taxes`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.remove_taxes.xml)
+
+### Remove User Id  
+ID: `mint_system.sale.report_saleorder_document.remove_user_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//p[@t-field='doc.user_id']/.." position="replace"/>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.remove_user_id.xml)
 
 ### Remove Vat  
 ID: `mint_system.sale.report_saleorder_document.remove_vat`  
