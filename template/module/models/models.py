@@ -1,12 +1,11 @@
 import logging
-from odoo import _, api, fields, models
+from odoo import fields, models, api, _
 _logger = logging.getLogger(__name__)
 
 
-class Document(models.Model):
+class {{ (name|replace('_',' ')).title() }}(models.Model):
     _name = '{{ name }}.document'
     _description = '{{ (name|replace('_',' ')).title() }} Document'
 
-    # fields
     name = fields.Char()
     value = fields.Integer()
