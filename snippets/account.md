@@ -2265,6 +2265,14 @@ ID: `mint_system.account.report_invoice_document.style_tissa`
 		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
 	</xpath>
 
+	<xpath expr="//p[@name='payment_communication']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
+	</xpath>
+
+	<xpath expr="//p[@name='payment_term']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
+	</xpath>
+
 </data>
 
 ```
@@ -4829,6 +4837,14 @@ ID: `mint_system.account.report_invoice_document.style_tissa`
 
 	<xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
 		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+	</xpath>
+
+	<xpath expr="//p[@name='payment_communication']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
+	</xpath>
+
+	<xpath expr="//p[@name='payment_term']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
 	</xpath>
 
 </data>

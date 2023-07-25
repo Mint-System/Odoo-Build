@@ -12,7 +12,7 @@ services:
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
-      - odoo-data:/var/lib/odoo
+      - $HOME/.local/share/Odoo/filestore:/var/lib/odoo/filestore
       - ./config:/etc/odoo
       - ./addons:/mnt/addons
       - ./oca:/mnt/oca
@@ -74,7 +74,6 @@ services:
     volumes:
       - cd-data:/var/jenkins_home
 volumes:
-  odoo-data:
   db-data:
   admin-data:
   mail-data:

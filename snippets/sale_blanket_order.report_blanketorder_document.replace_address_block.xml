@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+
+    <xpath expr="//div[@t-field='doc.partner_id']/../.." position="replace">
+        <div class="row">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">VAT: <span t-field="doc.partner_id.vat"/>
+                </p>
+            </div>
+        </div>
+    </xpath>
+
+</data>

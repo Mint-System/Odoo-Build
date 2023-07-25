@@ -3788,6 +3788,20 @@ ID: `mint_system.sale.view_order_form.x_margin_percent`
 ```
 Source: [snippets/sale.view_order_form.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_margin_percent.xml)
 
+### X Order Number  
+ID: `mint_system.sale.view_order_form.x_order_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//page[@name='other_information']//field[@name='client_order_ref']" position="after">
+    <field name="x_order_number"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_order_number.xml)
+
 ### X Sudio Description  
 ID: `mint_system.sale.view_order_form.x_sudio_description`  
 ```xml

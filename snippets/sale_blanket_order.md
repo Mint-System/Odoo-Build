@@ -438,6 +438,27 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml)
 
+### Replace Address Block  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">>
+
+    <xpath expr="//div[@t-field='doc.partner_id']/../.." position="replace">
+        <div class="row">
+            <div class="col-7"></div>
+            <div class="col-5">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">VAT: <span t-field="doc.partner_id.vat"/>
+                </p>
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.replace_address_block.xml)
+
 ### Replace Infoblock  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock`  
 ```xml
@@ -810,14 +831,31 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
-			.trimada {
-				margin-bottom: 20px;
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
 			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+			.table th {
+			  padding: 0.2rem;
+			  padding-left: 0.5rem;
+			}
+			.note p {
+				font-family: arial;
+				margin-bottom: 0px;
+			}
+		  .note p:last-child {
+        margin-bottom: 30px;
+      }
 		</style>
-	</xpath>
-
-	<xpath expr="//div[@id='address']/div" position="attributes">
-		<attribute name="class">col-4</attribute>
 	</xpath>
 
 	<xpath expr="//div[@id='summary']/div" position="attributes">

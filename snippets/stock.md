@@ -3177,9 +3177,7 @@ ID: `mint_system.stock.report_delivery_document.title_supplement`
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//h2" position="replace">
-    <h2>
-      Delivery Slip <span t-field="o.name"/>
-    </h2>
+    <h2>Delivery Slip <span t-field="o.name"/></h2>
   </xpath>
 
 </data>

@@ -1686,6 +1686,28 @@ ID: `mint_system.ir_model.res_partner.x_external_ref`
 ```
 Source: [snippets/ir_model.res_partner.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_external_ref.xml)
 
+### X Global Location Number  
+ID: `mint_system.ir_model.res_partner.x_global_location_number`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_global_location_number" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">VSTGLN</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_global_location_number</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.res_partner.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_global_location_number.xml)
+
 ### X Packaging Ref  
 ID: `mint_system.ir_model.res_partner.x_packaging_ref`  
 ```xml
@@ -1731,6 +1753,28 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 
 ```
 Source: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
+
+### X Vst  
+ID: `mint_system.ir_model.res_partner.x_vst`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_vst" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">VST</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_vst</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.res_partner.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_vst.xml)
 
 ## Sale Blanket Order Line  
 ### X Product Uom Category Id  
@@ -2140,6 +2184,28 @@ ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`
 
 ```
 Source: [snippets/ir_model.sale_order.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_incoterm_blanket_order.xml)
+
+### X Order Number  
+ID: `mint_system.ir_model.sale_order.x_order_number`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_order_number" model="ir.model.fields">
+    <field name="field_description">Bestellnummer Kunde</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_order_number</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">Char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_order_number.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  

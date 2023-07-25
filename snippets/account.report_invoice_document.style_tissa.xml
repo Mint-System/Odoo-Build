@@ -27,4 +27,12 @@
 		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
 	</xpath>
 
+	<xpath expr="//p[@name='payment_communication']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
+	</xpath>
+
+	<xpath expr="//p[@name='payment_term']" position="attributes">
+		<attribute name="style">margin-bottom: 0px</attribute>
+	</xpath>
+
 </data>

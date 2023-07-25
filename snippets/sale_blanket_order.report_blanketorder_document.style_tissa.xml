@@ -3,14 +3,31 @@
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
-			.trimada {
-				margin-bottom: 20px;
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
 			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+			.table th {
+			  padding: 0.2rem;
+			  padding-left: 0.5rem;
+			}
+			.note p {
+				font-family: arial;
+				margin-bottom: 0px;
+			}
+		  .note p:last-child {
+        margin-bottom: 30px;
+      }
 		</style>
-	</xpath>
-
-	<xpath expr="//div[@id='address']/div" position="attributes">
-		<attribute name="class">col-4</attribute>
 	</xpath>
 
 	<xpath expr="//div[@id='summary']/div" position="attributes">
