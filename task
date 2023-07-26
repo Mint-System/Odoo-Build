@@ -169,6 +169,10 @@ function open-url-with-delay(){
     xdg-open $1
 }
 
+# function share-filestore(){
+#     sudo chmod o+rwx -R ~/.local/share/Odoo/filestore
+# }
+
 function start() {    
     DATABASE=$2
     # Use default database if second param is not given
@@ -203,6 +207,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
+        # share-filestore
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
@@ -273,6 +278,7 @@ function init-db() {
 
     locale
     activate-venv
+    # share-filestore
     echo "Make sure only one odoo process is running when initalizing the database."
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
