@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			h2 {
+			  font-size: 1.2rem;
+			  font-weight: bold;
+			  margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
+		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+	</xpath>
+
+</data>

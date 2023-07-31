@@ -1,0 +1,9 @@
+<xpath expr="//div//span[@t-field='doc.amount_total']/../../../../.." position="after">
+  <div class="row">
+    <div class="col">
+      <span t-if="doc.payment_term_id.note">
+          Zahlungsbedingungen: <strong t-field="doc.payment_term_id.name"/>
+      </span>
+    </div>
+  </div>
+</xpath>
