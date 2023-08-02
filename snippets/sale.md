@@ -4264,6 +4264,20 @@ ID: `mint_system.sale.view_quotation_tree.replace_create_date`
 ```
 Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.replace_create_date.xml)
 
+### Show ​Delivery Status  
+ID: `mint_system.sale.view_quotation_tree.show_​delivery_status`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="delivery_status" optional="show"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_quotation_tree.show_​delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.show_​delivery_status.xml)
+
 ### Show ​Payment Term Id  
 ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`  
 ```xml

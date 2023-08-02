@@ -480,6 +480,26 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.add_taxes.xml)
 
+### Append Incoterm  
+ID: `mint_system.purchase.report_purchaseorder_document.append_incoterm`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//div[@id='total']" position="after">
+    <div class="row">
+      <div class="col">
+        <span t-if="o.incoterm_id.display_name">
+           Lieferbedingungen: <strong t-field="o.incoterm_id.display_name"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.append_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.append_incoterm.xml)
+
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`  
 ```xml
@@ -564,6 +584,21 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
+
+### Format Date  
+ID: `mint_system.purchase.report_purchaseorder_document.format_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
+
+  <xpath expr="//tbody//td/span[@t-field='line.date_planned']" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase.report_purchaseorder_document.format_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.format_date.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`  
@@ -839,6 +874,21 @@ ID: `mint_system.purchase.report_purchaseorder_document.product_description_repl
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.product_description_replace.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.product_description_replace.xml)
+
+### Product Hide Bracket Description  
+ID: `mint_system.purchase.report_purchaseorder_document.product_hide_bracket_description`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+      <td id="product">
+        <span t-esc="line.name.split('(')[0].strip()"/>
+      </td>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml)
 
 ### Qty Remaining  
 ID: `mint_system.purchase.report_purchaseorder_document.qty_remaining`  
@@ -1195,13 +1245,36 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_representative.xml)
 
+### Replace Taxes Id  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_taxes_id`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//thead//th[@name='th_taxes']" position="replace"/>
+  <xpath expr="//thead//th[@name='th_amount']" position="before">
+    <th name="th_taxes" class="text-right">
+      <strong>Taxes</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//tbody//td[@name='td_taxes']" position="replace"/>
+  <xpath expr="//tbody//span[@t-field='line.price_subtotal']/.." position="before">
+    <td name="td_taxes" class="text-right">
+      <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.taxes_id))"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml)
+
 ### Round Price  
 ID: `mint_system.purchase.report_purchaseorder_document.round_price`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-  <xpath expr="//table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[6]/span[1]" position="replace">
+  <xpath expr="//tbody//span[@t-field='line.price_unit']" position="replace">
     <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '%.2f' % line.price_unit"/>
   </xpath>
 
@@ -1375,6 +1448,42 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_moser`
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.style_moser.xml)
+
+### Style Tissa  
+ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			h2 {
+			  font-size: 1.2rem;
+			  font-weight: bold;
+			  margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
+		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.style_tissa.xml)
 
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`  
@@ -1676,7 +1785,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_date`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
-  <xpath expr="//tbody[1]/t[1]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
+  <xpath expr="//tbody//td/span[@t-field='order_line.date_planned']" position="attributes">
     <attribute name="t-options-widget">"date"</attribute>
   </xpath>
 
@@ -1874,6 +1983,22 @@ ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`
 </data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
+
+### Product Hide Bracket Description  
+ID: `mint_system.purchase.report_purchasequotation_document.product_hide_bracket_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+    <td id="product">
+      <span t-esc="order_line.name.split('(')[0].strip()"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml)
 
 ### Remove Date Planned  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`  

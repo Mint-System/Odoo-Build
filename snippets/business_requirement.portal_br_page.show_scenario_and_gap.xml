@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<data inherit_id="business_requirement.portal_br_page" priority="50">
+
+    <div t-if="br.description" position="after">
+        <div class="row" t-if="br.scenario">
+            <div t-if="br.business_requirement"
+                t-attf-class="col-12 col-lg-7 mb-4 mb-md-0 col-lg-12">
+                <hr class="mb-1" />
+                <strong class="d-block mb-2">Scenario</strong>
+                <div class="py-1 px-2 bg-100 small" t-field="br.scenario" />
+            </div>
+        </div>
+        <div class="row" t-if="br.gap">
+            <div t-if="br.business_requirement"
+                t-attf-class="col-12 col-lg-7 mb-4 mb-md-0 col-lg-12">
+                <hr class="mb-1" />
+                <strong class="d-block mb-2">Gap</strong>
+                <div class="py-1 px-2 bg-100 small" t-field="br.gap" />
+            </div>
+        </div>
+    </div>
+</data>

@@ -155,6 +155,21 @@ ID: `mint_system.hr.view_employee_form.plan_permission`
 ```
 Source: [snippets/hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr.view_employee_form.plan_permission.xml)
 
+### User Id Domain  
+ID: `mint_system.hr.view_employee_form.user_id_domain`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.view_employee_form" priority="50">
+
+  <xpath expr="//field[@name='user_id']" position="attributes">
+    <attribute name="domain">[]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr.view_employee_form.user_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr.view_employee_form.user_id_domain.xml)
+
 ## View Employee Tree  
 ### Add Mobile Phone  
 ID: `mint_system.hr.view_employee_tree.add_mobile_phone`  

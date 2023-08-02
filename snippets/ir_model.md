@@ -2139,6 +2139,28 @@ ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
 Source: [snippets/ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order_line.x_weight_delivered.xml)
 
 ## Sale Order  
+### X As4import  
+ID: `mint_system.ir_model.sale_order.x_as4import`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_as4import" model="ir.model.fields">
+    <field name="field_description">AS4 Import</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_as4import</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_as4import.xml)
+
 ### X Client Project Ref  
 ID: `mint_system.ir_model.sale_order.x_client_project_ref`  
 ```xml

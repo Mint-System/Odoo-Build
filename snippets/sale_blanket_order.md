@@ -213,6 +213,26 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
+### Add Product Uom  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//table/thead//th[3]" position="after">
+    <th name="th_product_uom" class="text-right">ME</th>
+  </xpath>
+
+  <xpath expr="//table/tbody//span[@t-field='l.original_uom_qty']/.." position="after">
+    <td name="td_product_uom" class="text-right">
+      <span t-field="l.product_uom"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_product_uom.xml)
+
 ### Address Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`  
 ```xml
@@ -449,8 +469,6 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_address
             <div class="col-7"></div>
             <div class="col-5">
                 <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
-                <p t-if="doc.partner_id.vat">VAT: <span t-field="doc.partner_id.vat"/>
-                </p>
             </div>
         </div>
     </xpath>

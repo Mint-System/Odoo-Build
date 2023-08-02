@@ -423,6 +423,22 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 ```
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
+### Show ​Product Uom Id  
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_​product_uom_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+
+  <xpath expr="//field[@name='unit_amount']" position="after">
+    <field name="product_uom_category_id" invisible="1" />
+    <field name="product_uom_id" optional="show" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_​product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_​product_uom_id.xml)
+
 ### X Timesheet Invoice Type  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`  
 ```xml
