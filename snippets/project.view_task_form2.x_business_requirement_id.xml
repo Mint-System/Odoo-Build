@@ -2,7 +2,7 @@
 <data inherit_id="project.view_task_form2" priority="50">
 
 	<field name="partner_id" position="before">
-	   <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_x_project_id': project_id, 'default_x_task_id': id, 'default_partner_id': partner_id}"/>
+	   <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
   </field>
 
 </data>
