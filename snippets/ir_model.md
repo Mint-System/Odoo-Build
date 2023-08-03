@@ -1730,6 +1730,28 @@ ID: `mint_system.ir_model.res_partner.x_packaging_ref`
 ```
 Source: [snippets/ir_model.res_partner.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_packaging_ref.xml)
 
+### X Privacy Visibility  
+ID: `mint_system.ir_model.res_partner.x_privacy_visibility`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_privacy_visibility" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Sichtbarkeit</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_privacy_visibility</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">boolean</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.res_partner.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_privacy_visibility.xml)
+
 ### X Stock Move Ids  
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`  
 ```xml

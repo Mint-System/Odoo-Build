@@ -37,8 +37,7 @@
                         <strong>&#160;Unsere Referenz:</strong>
                         <span t-field="o.origin" />
                     </td>
-                    <td>
-
+                    <td t-if="o.sudo().sale_id.client_order_ref">
                         <strong>Ihre Referenz:</strong>
                         <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>

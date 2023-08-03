@@ -2299,8 +2299,7 @@ ID: `mint_system.stock.report_delivery_document.replace_informations`
                         <strong>&#160;Unsere Referenz:</strong>
                         <span t-field="o.origin" />
                     </td>
-                    <td>
-
+                    <td t-if="o.sudo().sale_id.client_order_ref">
                         <strong>Ihre Referenz:</strong>
                         <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
@@ -2920,8 +2919,17 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
+  <xpath expr="//table[@name='stock_move_table']" position="before">
+    <style>
+      th#default_code,
+      td#default_code {
+        white-space: nowrap;
+      }
+    </style>
+  </xpath>
+  
   <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="before">
-    <th name="th_default_code">
+    <th id="default_code" name="th_default_code">
       <strong>Referenz</strong>
     </th>
   </xpath>
@@ -2933,7 +2941,7 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
   </xpath> -->
 
   <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="before">
-    <td name="td_default_code">
+    <td id="default_code"  name="td_default_code">
       <span t-field="move.product_id.default_code"/>
     </td>
   </xpath>
@@ -2949,20 +2957,28 @@ ID: `mint_system.stock.report_delivery_document.show_lot_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-  <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
+  <!-- <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
     <th name="th_lot_ids">
       <strong>Seriennummer</strong>
     </th>
-  </xpath>
+  </xpath> -->
 
-  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.product_id']/.." position="after">
-    <td name="td_lots">
-      <ul class="list-unstyled">
+  <xpath expr="//table[@name='stock_move_table']//span[@t-field='move.description_picking']/.." position="after">
+    <t t-if="move.lot_ids">
+      <br />
+      <span>Seriennummern:</span>
+      <t t-esc="', '.join(move.lot_ids.mapped('name'))" />
+    </t>
+
+    <!-- <td name="td_lots"> -->
+      <!-- <t t-esc="', '.join(move.lot_ids.mapped('name'))" /> -->
+      <!-- <ul class="list-unstyled">
         <t t-foreach="move.lot_ids" t-as="lot">
           <li t-esc="lot.name" />
         </t>
-      </ul>
-    </td>
+      </ul> -->
+    <!-- </td> -->
+
   </xpath>
 
 </data>

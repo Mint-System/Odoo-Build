@@ -2133,9 +2133,12 @@ ID: `mint_system.account.report_invoice_document.show_lot_ids`
     <t t-if="lot_ids">
       <br />
       <span>Seriennummern:</span>
-      <ul t-foreach="lot_ids" t-as="lot">
-        <li t-esc="lot.name" />
-      </ul>
+      <t t-esc="', '.join(lot_ids.mapped('name'))" />
+      <!-- <ul class="list-unstyled">
+        <t t-foreach="lot_ids" t-as="lot">
+          <li t-esc="lot.name" />
+        </t>
+      </ul> -->
     </t>
   </xpath>
 
@@ -4722,9 +4725,12 @@ ID: `mint_system.account.report_invoice_document.show_lot_ids`
     <t t-if="lot_ids">
       <br />
       <span>Seriennummern:</span>
-      <ul t-foreach="lot_ids" t-as="lot">
-        <li t-esc="lot.name" />
-      </ul>
+      <t t-esc="', '.join(lot_ids.mapped('name'))" />
+      <!-- <ul class="list-unstyled">
+        <t t-foreach="lot_ids" t-as="lot">
+          <li t-esc="lot.name" />
+        </t>
+      </ul> -->
     </t>
   </xpath>
 

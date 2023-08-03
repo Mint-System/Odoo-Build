@@ -441,6 +441,21 @@ ID: `mint_system.base.view_partner_form.x_packaging_ref`
 ```
 Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_packaging_ref.xml)
 
+### X Privacy Visibility  
+ID: `mint_system.base.view_partner_form.x_privacy_visibility`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="x_privacy_visibility"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_privacy_visibility.xml)
+
 ### X Vst  
 ID: `mint_system.base.view_partner_form.x_vst`  
 ```xml
