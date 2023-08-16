@@ -218,3 +218,7 @@
 	path = oca/management-system
 	url = git@github.com:OCA/management-system.git
 	branch = 16.0
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 16.0
