@@ -322,6 +322,21 @@ ID: `mint_system.base.view_partner_form.move_ref`
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
 
+### Show Color  
+ID: `mint_system.base.view_partner_form.show_color`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="color"  widget="color_picker"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_color.xml)
+
 ### Show Industry  
 ID: `mint_system.base.view_partner_form.show_industry`  
 ```xml
@@ -336,6 +351,21 @@ ID: `mint_system.base.view_partner_form.show_industry`
 
 ```
 Source: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_industry.xml)
+
+### Show Type  
+ID: `mint_system.base.view_partner_form.show_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="type"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_type.xml)
 
 ### Show User Id  
 ID: `mint_system.base.view_partner_form.show_user_id`  
@@ -494,6 +524,15 @@ ID: `mint_system.base.view_partner_tree.add_ref_zip_type`
 ```
 Source: [snippets/base.view_partner_tree.add_ref_zip_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.add_ref_zip_type.xml)
 
+### Format Decoration  
+ID: `mint_system.base.view_partner_tree.format_decoration`  
+```xml
+<xpath expr="//field[@name='display_name']" position="attributes">
+  <attribute name="decoration-bf">is_company</attribute>
+</xpath>
+```
+Source: [snippets/base.view_partner_tree.format_decoration.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.format_decoration.xml)
+
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_tree.move_zip_and_city`  
 ```xml
@@ -601,6 +640,51 @@ ID: `mint_system.base.view_partner_tree.show_type`
 
 ```
 Source: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_type.xml)
+
+### X Bexioid  
+ID: `mint_system.base.view_partner_tree.x_bexioid`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="active" position="after">
+    <field name="x_bexioid" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_bexioid.xml)
+
+### X Global Location Number  
+ID: `mint_system.base.view_partner_tree.x_global_location_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="60">
+
+  <field name="active" position="after">
+    <field name="x_global_location_number" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_global_location_number.xml)
+
+### X Vst  
+ID: `mint_system.base.view_partner_tree.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="60">
+
+  <field name="active" position="after">
+    <field name="x_vst" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_vst.xml)
 
 ## View Res Bank Tree  
 ### Add Zip  

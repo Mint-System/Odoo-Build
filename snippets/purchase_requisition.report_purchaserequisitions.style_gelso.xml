@@ -16,14 +16,30 @@
 			.o_report_layout_boxed strong {
        			color: #000000;
 			}
-			.col-3 {
-			  	margin-bottom: 1rem !important;
+			div#info_table {
+			  	margin-bottom: 1rem;
 			}
 			div#address {
 				font-size: 16px;
 				margin-bottom: 2rem;
 			}
 		</style>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.partner_ref']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.ordering_date']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.incoterm_id']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.user_id']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
 	</xpath>
 
 </data>

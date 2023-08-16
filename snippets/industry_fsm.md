@@ -1,4 +1,19 @@
 # Industry Fsm
+## Project Task View List Fsm  
+### Show Id  
+ID: `mint_system.industry_fsm.project_task_view_list_fsm.show_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="industry_fsm.project_task_view_list_fsm" priority="50">
+
+    <xpath expr="//field[@name='progress']" position="after">
+        <field name="id" string="ID" optional="hide"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/industry_fsm.project_task_view_list_fsm.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/industry_fsm.project_task_view_list_fsm.show_id.xml)
+
 ## Worksheet Custom  
 ### Add Info  
 ID: `mint_system.industry_fsm.worksheet_custom.add_info`  

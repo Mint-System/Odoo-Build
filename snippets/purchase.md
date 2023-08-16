@@ -275,6 +275,20 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`
 ```
 Source: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
 
+### Format Date Order  
+ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+
+    <xpath expr="//field[@name='date_order']" position="attributes">
+        <attribute name="widget">date</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_kpis_tree.format_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.format_date_order.xml)
+
 ## Purchase Order Line Tree  
 ### Reset View  
 ID: `mint_system.purchase.purchase_order_line_tree.reset_view`  

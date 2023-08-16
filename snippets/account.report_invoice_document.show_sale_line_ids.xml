@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
+    <th name="th_hs_code" class="text-right">
+      <span>H.S. Code</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
+    <td name="td_hs_code" class="text-right">
+       <span t-esc="line.product_id.intrastat_id.code"/>
+    </td>
+  </xpath>
+
+</data>

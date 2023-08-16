@@ -52,6 +52,24 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_bl
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml)
 
+### Add Date End  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_date_end`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//div/span[@t-field='o.ordering_date']/.." position="after">
+    <div class="col-auto">
+      <strong>Agreement Deadline:</strong>
+      <br/>
+      <span t-field="o.date_end" t-options='{"widget": "date"}'/>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml)
+
 ### Add Description  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_description`  
 ```xml
@@ -232,6 +250,25 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 </data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
+
+### Add Payment Term  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_payment_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+    <xpath expr="//div[@id='description']" position="before">
+        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="col">
+                <span>Payment Terms: </span>
+                <span t-field="o.payment_term_id.name"/>
+            </div>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml)
 
 ### Add Price Subtotal  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_subtotal`  
@@ -876,14 +913,30 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`
 			.o_report_layout_boxed strong {
        			color: #000000;
 			}
-			.col-3 {
-			  	margin-bottom: 1rem !important;
+			div#info_table {
+			  	margin-bottom: 1rem;
 			}
 			div#address {
 				font-size: 16px;
 				margin-bottom: 2rem;
 			}
 		</style>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.partner_ref']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.ordering_date']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.incoterm_id']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
+	</xpath>
+
+	<xpath expr="//div/span[@t-field='o.user_id']/.." position="attributes">
+		<attribute name="class">col-auto</attribute>
 	</xpath>
 
 </data>

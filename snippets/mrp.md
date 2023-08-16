@@ -729,6 +729,21 @@ ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`
 ```
 Source: [snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml)
 
+### Show Format Date Planned Start  
+ID: `mint_system.mrp.mrp_production_tree_view.show_format_date_planned_start`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+ 
+ <xpath expr="//field[@name='date_planned_start']" position="attributes">
+    <attribute name="widget">date</attribute>
+</xpath>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_tree_view.show_format_date_planned_start.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.mrp_production_tree_view.show_format_date_planned_start.xml)
+
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`  
 ```xml
@@ -822,30 +837,11 @@ ID: `mint_system.mrp.report_mrporder.add_padding`
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-  <!-- First row -->
   <xpath expr="/t/t/t/t/div/div[2]" position="attributes">
     <attribute name="style" add="padding-bottom: 2rem"/>
   </xpath>
 
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[3]/div[2]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[3]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[3]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[5]/h3" position="attributes">
-    <attribute name="style">padding-top: 2rem</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/h3" position="attributes">
+  <xpath expr="//h3" position="attributes">
     <attribute name="style">padding-top: 2rem</attribute>
   </xpath>
 
@@ -1192,10 +1188,8 @@ Source: [snippets/mrp.report_mrporder.quality_points.xml](https://github.com/Min
 ID: `mint_system.mrp.report_mrporder.remove_barcode`  
 ```xml
 <?xml version="1.0"?>
-<!-- Remove barcode from mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
-  <xpath expr="//table[1]/thead[1]/tr[1]/th[3]" position="replace"/>
-  <xpath expr="//table[1]/tbody[1]/t[1]/tr[1]/td[3]" position="replace"/>
+  <xpath expr="//span/div[@t-field='o.name']" position="replace"/>
 </data>
 ```
 Source: [snippets/mrp.report_mrporder.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.remove_barcode.xml)
@@ -1283,6 +1277,20 @@ ID: `mint_system.mrp.report_mrporder.show_expected`
 
 ```
 Source: [snippets/mrp.report_mrporder.show_expected.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_expected.xml)
+
+### Show Lot Producing  
+ID: `mint_system.mrp.report_mrporder.show_lot_producing`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="60">
+    <xpath expr="//div/div[4]/div[1]/span" position="after">
+        <span t-if="o.lot_producing_id">
+            <br/>Los: <span t-field="o.lot_producing_id.name"/>
+        </span>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_lot_producing.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_lot_producing.xml)
 
 ### Show Lot  
 ID: `mint_system.mrp.report_mrporder.show_lot`  
@@ -1396,14 +1404,61 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
             </span>
         </td>
     </xpath>
-    <xpath expr="//div/div[4]/div[1]/span" position="after">
-        <span t-if="o.lot_producing_id">
-            <br/>Los: <span t-field="o.lot_producing_id.name"/>
-        </span>
-    </xpath>
 </data>
 ```
 Source: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
+
+## Report Mrp Production Components  
+### Remove Barcode  
+ID: `mint_system.mrp.report_mrp_production_components.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+  <xpath expr="//th[@t-if='has_product_barcode']" position="replace"/>
+  <xpath expr="//td[@t-if='has_product_barcode']" position="replace"/>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.remove_barcode.xml)
+
+### Show Expected  
+ID: `mint_system.mrp.report_mrp_production_components.show_expected`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+    <xpath expr="//span[@t-field='raw_line.product_id']" position="after">
+        <t t-if="raw_line.forecast_expected_date">
+            <br />
+            <span>Expected date: </span>
+            <span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}' />
+            <br />
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.show_expected.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.show_expected.xml)
+
+### Show Stock  
+ID: `mint_system.mrp.report_mrp_production_components.show_stock`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="60">
+    <xpath expr="//table//tr/th[2]" position="after">
+        <th>
+            <span>Lagerort (Los)</span>
+        </th>
+    </xpath>
+    <xpath expr="//table//tr/td[2]" position="after">
+        <td>
+            <span t-foreach="raw_line.move_line_ids" t-as="move_line">
+                <span t-field="move_line.location_id.display_name" />
+                <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id" />) </t>
+                <br />
+            </span>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.show_stock.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.show_stock.xml)
 
 ## Stock Report Delivery Kit Sections  
 ### Expand Section Heading  

@@ -513,6 +513,29 @@ ID: `mint_system.ir_model.business_requirement.x_task_id`
 ```
 Source: [snippets/ir_model.business_requirement.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.business_requirement.x_task_id.xml)
 
+## Calendar Event  
+### X Color  
+ID: `mint_system.ir_model.calendar_event.x_color`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_color" model="ir.model.fields">
+    <field name="field_description">Farbkennzeichnung</field>
+    <field name="model">calendar.event</field>
+    <field name="model_id" ref="calendar.model_calendar_event"/>
+    <field name="name">x_color</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">integer</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.calendar_event.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.calendar_event.x_color.xml)
+
 ## Crm Lead  
 ### X Date Start  
 ID: `mint_system.ir_model.crm_lead.x_date_start`  
@@ -2251,6 +2274,30 @@ ID: `mint_system.ir_model.sale_order.x_order_number`
 ```
 Source: [snippets/ir_model.sale_order.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_order_number.xml)
 
+### X Payment Term Blanket Order  
+ID: `mint_system.ir_model.sale_order.x_payment_term_blanket_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_payment_term_blanket_order" model="ir.model.fields">
+    <field name="field_description">Zahlungsbedingungen Rahmenauftrag</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_payment_term_blanket_order</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">account.payment.terms</field>
+    <field name="related">order_line.blanket_order_line.order_id.payment_term_id</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_payment_term_blanket_order.xml)
+
 ### X Product Uom Qty  
 ID: `mint_system.ir_model.sale_order.x_product_uom_qty`  
 ```xml
@@ -2698,6 +2745,29 @@ ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
 Source: [snippets/ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_production_lot.x_weight_uom.xml)
 
 ## Stock Quant  
+### X Expiration Date  
+ID: `mint_system.ir_model.stock_quant.x_expiration_date`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_expiration_date" model="ir.model.fields">
+    <field name="field_description">Ablaufdatum</field>
+    <field name="model">stock.quant</field>
+    <field name="model_id" ref="stock.model_stock_quant"/>
+    <field name="name">x_expiration_date</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field>
+    <field name="relation">stock.lot</field>
+    <field name="related">lot_id.x_expiration_date</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_quant.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_quant.x_expiration_date.xml)
+
 ### X Last Delivery Partner Id  
 ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`  
 ```xml
