@@ -1399,7 +1399,7 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
-                <span t-field="move_line.product_uom_qty"/>
+                <span t-field="move_line.reserved_uom_qty"/>
                 <br/>
             </span>
         </td>
@@ -1444,7 +1444,7 @@ ID: `mint_system.mrp.report_mrp_production_components.show_stock`
 <data inherit_id="mrp.report_mrp_production_components" priority="60">
     <xpath expr="//table//tr/th[2]" position="after">
         <th>
-            <span>Lagerort (Los)</span>
+            <span>Lagerort (Los) Menge</span>
         </th>
     </xpath>
     <xpath expr="//table//tr/td[2]" position="after">
@@ -1452,6 +1452,7 @@ ID: `mint_system.mrp.report_mrp_production_components.show_stock`
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name" />
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id" />) </t>
+                <span t-field="move_line.reserved_uom_qty"/>
                 <br />
             </span>
         </td>

@@ -1040,10 +1040,10 @@ ID: `mint_system.account.report_invoice_document.move_incoterm`
   <xpath expr="//p[@name='incoterm']" position="replace"/>
   <xpath expr="//p[2]" position="after">
     <p t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
-      <strong t-field="o.invoice_incoterm_id.code"/>
- -      <strong t-field="o.invoice_incoterm_id.name"/>
+      <strong t-field="o.invoice_incoterm_id.display_name"/>
     </p>
   </xpath>
+  
 </data>
 ```
 Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.move_incoterm.xml)
@@ -3693,10 +3693,10 @@ ID: `mint_system.account.report_invoice_document.move_incoterm`
   <xpath expr="//p[@name='incoterm']" position="replace"/>
   <xpath expr="//p[2]" position="after">
     <p t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
-      <strong t-field="o.invoice_incoterm_id.code"/>
- -      <strong t-field="o.invoice_incoterm_id.name"/>
+      <strong t-field="o.invoice_incoterm_id.display_name"/>
     </p>
   </xpath>
+  
 </data>
 ```
 Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.move_incoterm.xml)
