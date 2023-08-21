@@ -222,3 +222,7 @@
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
 	branch = 16.0
+[submodule "oca/sale-reporting"]
+	path = oca/sale-reporting
+	url = https://github.com/OCA/sale-reporting.git
+	branch = 16.0
