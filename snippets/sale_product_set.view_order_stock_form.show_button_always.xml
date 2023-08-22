@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_product_set.view_order_stock_form" priority="50">
+
+  <button name="639" position="attributes">
+    <attribute name="attrs"></attribute>
+  </button>
+
+</data>
