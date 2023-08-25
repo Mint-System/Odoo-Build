@@ -2,7 +2,7 @@
 <data inherit_id="sale.view_order_form" priority="50">
 
   <xpath expr="//group[@name='order_details']//field[@name='payment_term_id']" position="after">
-    <field name="x_order_number"/>
+    <field name="x_payment_state"/>
   </xpath>
 
 </data>

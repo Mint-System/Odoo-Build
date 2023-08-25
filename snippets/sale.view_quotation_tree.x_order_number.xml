@@ -1,0 +1,7 @@
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="x_order_number"/>
+    </xpath>
+
+</data>

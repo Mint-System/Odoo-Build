@@ -3148,6 +3148,20 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`
 ```
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml)
 
+### Show Subscription Id  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50" >
+
+    <field name="order_id" position="after">
+        <field name="subscription_id"/>
+    </field>
+
+</data>
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
+
 ## Sale Order Portal Content  
 ### Convert Html Note  
 ID: `mint_system.sale.sale_order_portal_content.convert_html_note`  
@@ -3731,6 +3745,20 @@ ID: `mint_system.sale.view_order_form.show_order_line_project_id`
 ```
 Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
 
+### Show Order Line Subscription Id  
+ID: `mint_system.sale.view_order_form.show_order_line_subscription_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+    <field name="subscription_id" optional="hide" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_order_line_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.show_order_line_subscription_id.xml)
+
 ### Show Product Template Id  
 ID: `mint_system.sale.view_order_form.show_product_template_id`  
 ```xml
@@ -3889,13 +3917,27 @@ ID: `mint_system.sale.view_order_form.x_order_number`
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
 
-  <xpath expr="//page[@name='other_information']//field[@name='client_order_ref']" position="after">
+  <xpath expr="//group[@name='order_details']//field[@name='payment_term_id']" position="after">
     <field name="x_order_number"/>
   </xpath>
 
 </data>
 ```
 Source: [snippets/sale.view_order_form.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_order_number.xml)
+
+### X Payment State  
+ID: `mint_system.sale.view_order_form.x_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//group[@name='order_details']//field[@name='payment_term_id']" position="after">
+    <field name="x_payment_state"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.x_payment_state.xml)
 
 ### X Payment Term Blanket Order  
 ID: `mint_system.sale.view_order_form.x_payment_term_blanket_order`  
@@ -4393,11 +4435,10 @@ Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://gith
 ### Show Delivery Status  
 ID: `mint_system.sale.view_quotation_tree.show_delivery_status`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.view_quotation_tree" priority="50">
 
     <xpath expr="//field[@name='state']" position="before">
-        <field name="delivery_status" optional="show"/>
+        <field name="delivery_status" decoration-danger="delivery_status == 'pending'" decoration-warning="delivery_status == 'partial'" decoration-success="delivery_status == 'full'" widget="badge" optional="show"/>
     </xpath>
 
 </data>
@@ -4417,6 +4458,32 @@ ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`
 </data>
 ```
 Source: [snippets/sale.view_quotation_tree.show_​payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.show_​payment_term_id.xml)
+
+### X Order Number  
+ID: `mint_system.sale.view_quotation_tree.x_order_number`  
+```xml
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="x_order_number"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_quotation_tree.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.x_order_number.xml)
+
+### X Payment State  
+ID: `mint_system.sale.view_quotation_tree.x_payment_state`  
+```xml
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='invoice_status']" position="after">
+        <field name="x_payment_state" optional="hide"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_quotation_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.x_payment_state.xml)
 
 ## View Sales Order Filter  
 ### Add Invoice Status  

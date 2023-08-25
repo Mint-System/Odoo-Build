@@ -5923,6 +5923,51 @@ ID: `mint_system.stock.report_picking.x_packaging_uom_id`
 ```
 Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.x_packaging_uom_id.xml)
 
+## Report Reception Report Label  
+### Aersolution  
+ID: `mint_system.stock.report_reception_report_label.aersolution`  
+```xml
+<t t-name="stock.report_reception_report_label.aersolution">
+    <t t-call="web.basic_layout">
+        <div class="page">
+
+            <t t-foreach="docs" t-as="picking">
+                <!--<t t-foreach="picking.move_ids.filtered(lambda m: m.quantity_done &gt; 0.0)" t-as="move">-->
+                <t t-foreach="picking.move_line_ids.filtered(lambda m: m.qty_done &gt; 0.0)" t-as="move_line">
+                    <t t-foreach="range(0, move_line.move_id.x_label_qty)" t-as="label_qty">
+
+                        <div class="row">
+                            <div class="col-6">
+                               <img t-if="picking.company_id.logo" t-att-src="image_data_uri(picking.company_id.logo)" style="max-width: 180px;" alt="Logo"/>
+                            </div>
+                            <div class="col-6">
+                                <strong><t t-esc="picking.company_id.partner_id.name"/><br/>
+                                <t t-esc="picking.company_id.partner_id.country_id.code"/>-<t t-esc="picking.company_id.partner_id.zip"/> <t t-esc="picking.company_id.partner_id.city"/></strong>
+                            </div>
+                        </div>
+                        
+                        <br/>
+                        
+                        <p t-field="move_line.product_id"/>
+
+                        <p><span style="margin-right: 8px;">LS/SN:</span><t t-esc="move_line.lot_id.name if move_line.lot_id else picking.name"/></p>
+
+                        <p t-if="move_line.lot_id.expiration_date"><span style="margin-right: 8px;">EXP:</span><span t-field="move_line.lot_id.expiration_date" t-options="{'widget': 'date'}"/></p>
+
+                        <t t-set="putaway_rule_id" t-value="move_line.product_id.putaway_rule_ids[:1]"/>
+                        <p><span style="margin-right: 8px;">LOC:</span><span t-esc="putaway_rule_id.location_out_id.display_name if putaway_rule_id else 'WH/Stock'"/></p>
+
+                        <p style="page-break-before:always;"/>
+                    </t>
+                </t>
+            </t>
+
+        </div>
+    </t>
+</t>
+```
+Source: [snippets/stock.report_reception_report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_reception_report_label.aersolution.xml)
+
 ## Search Product Lot Filter  
 ### Filter Active  
 ID: `mint_system.stock.search_product_lot_filter.filter_active`  
@@ -6960,6 +7005,21 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
+
+### X Label Qty  
+ID: `mint_system.stock.view_picking_form.x_label_qty`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="product_uom" position="after">
+    <field name="x_label_qty" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_form.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_label_qty.xml)
 
 ## View Picking Internal Search  
 ### Filter Groupby Expected Date  

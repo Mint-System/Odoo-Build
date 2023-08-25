@@ -5712,6 +5712,20 @@ ID: `mint_system.account.view_move_form.show_line_partner_id`
 ```
 Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_line_partner_id.xml)
 
+### Show Payment State  
+ID: `mint_system.account.view_move_form.show_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="payment_reference" position="after">
+        <field name="x_payment_state" />
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_payment_state.xml)
+
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  
 ```xml
