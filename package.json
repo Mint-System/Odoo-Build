@@ -27,7 +27,7 @@
     "build"
   ],
   "author": "Mint System",
-  "license": "GPL3",
+  "license": "GPL-3.0",
   "bugs": {
     "url": "https://github.com/Mint-System/Odoo-Build/issues"
   },

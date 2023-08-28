@@ -205,17 +205,6 @@ function start() {
         docker-compose up -d
     fi
 
-    if [[ "$1" =~ "dind" ]]; then
-        docker-compose up -d dind
-    fi
-
-    if [[ "$1" =~ "cd" ]]; then
-        docker-compose up -d cd
-        echo "Open http://localhost:8080 url in your browser."
-        INIT_PASSWORD=$(docker exec cd cat /var/jenkins_home/secrets/initialAdminPassword)
-        echo "The initial password is: $INIT_PASSWORD"
-    fi
-
     if [[ "$1" =~ "db" ]]; then
         docker-compose up -d db
         echo "Open http://localhost:8000 url in your browser."
