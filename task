@@ -27,6 +27,28 @@ if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
+function set-addons-path() {
+    # Read addons path list
+    ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
+
+    # Append env var
+    ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
+
+    # Check if dir exists
+    for ADDON in $ADDONS_PATH; do
+        if [ -d "$ADDON" ]; then
+            echo "Path does not exist: $ADDON"
+            exit 1
+        fi
+    done
+
+    # Convert to docker paths
+    DOCKER_ADDONS_PATH="$(echo "$ADDONS_PATH" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
+
+    # Replace odoo path
+    ADDONS_PATH="$(echo "$ADDONS_PATH" | sed 's|,odoo,|,odoo/addons,|g')"
+}
+
 function update-readme() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     FILE_NAME=$(basename "$1")
@@ -169,13 +191,11 @@ function open-url-with-delay(){
     xdg-open $1
 }
 
-# function share-filestore(){
-#     sudo chmod o+rwx -R ~/.local/share/Odoo/filestore
-# }
-
 function start() {    
-    DATABASE=$2
+    set-addons-path
+    
     # Use default database if second param is not given
+    DATABASE=$2
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
     fi
@@ -216,8 +236,9 @@ function start() {
         locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
+        echo $ADDONS_PATH
         open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
-        odoo-bin --config 'config/odoo-native.conf' --dev=all --log-handler odoo.tools.convert:DEBUG
+        odoo-bin --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -278,7 +299,7 @@ function init-db() {
 
     locale
     activate-venv
-    # share-filestore
+
     echo "Make sure only one odoo process is running when initalizing the database."
     odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
@@ -300,13 +321,6 @@ function lint-module() {
     find $1 -type d -exec chmod u=rwx,go=rx {} \;
     find $1 -type f -exec chmod u=rw,go=r {} \;
 
-    # echo "Copy default configuration files"
-    # cp template/{.flake8,.gitignore,.isort.cfg,.pre-commit-config.yaml,.pylintrc} $1/../
-
-    # echo "Run pylint in $1"
-    # cd $1
-    # pylint --load-plugins=pylint_odoo -d all -e odoolint $1 --valid-odoo-versions=$GIT_BRANCH
-
     echo "Run pre-commit in $1"
     cd $1
     pre-commit run --files ./*
@@ -320,7 +334,6 @@ function lint-module() {
 
 function update-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    # if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_NAME=$(basename $2)
@@ -339,7 +352,6 @@ function update-module() {
 
 function generate-module-translation() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    # if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     DATABASE=$1
     MODULE_PATH=$2
@@ -838,21 +850,13 @@ function remove-submodule() {
 
 function update-config() {
 
-    # Read addons path list
-    ADDONS="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
+    set-addons-path
 
-    # Check if dir exists
-    for ADDON in $ADDONS; do
-        if [ -d "$ADDON" ]; then
-            echo "Path does not exist: $ADDON"
-            exit 1
-        fi
-    done
     # Update native config
-    sed -i'' -e "s|addons_path.*|addons_path = odoo/addons,$ADDONS|g" "./config/odoo-native.conf"
-    ADDONS="$(echo "$ADDONS" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
+    sed -i'' -e "s|addons_path.*|addons_path = $ADDONS_PATH|g" "./config/odoo-native.conf"
+    
     # Update docker config
-    sed -i'' -e "s|addons_path.*|addons_path = /mnt/$ADDONS|g" "./config/odoo.conf"
+    sed -i'' -e "s|addons_path.*|addons_path = /mnt/$DOCKER_ADDONS_PATH|g" "./config/odoo.conf"
 
     echo "Config updated."
 }

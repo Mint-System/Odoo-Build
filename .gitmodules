@@ -82,10 +82,6 @@
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow.git
 	branch = 16.0
-[submodule "oca/dms"]
-	path = oca/dms
-	url = git@github.com:OCA/dms.git
-	branch = 16.0
 [submodule "oca/social"]
 	path = oca/social
 	url = git@github.com:OCA/social.git
@@ -226,11 +222,11 @@
 	path = oca/sale-reporting
 	url = https://github.com/OCA/sale-reporting.git
 	branch = 16.0
-[submodule "oca/survey"]
-	path = oca/survey
-	url = git@github.com:OCA/survey.git
-	branch = 16.0
 [submodule "oca/account-reconcile"]
 	path = oca/account-reconcile
 	url = git@github.com:OCA/account-reconcile.git
+	branch = 16.0
+[submodule "oca/survey"]
+	path = oca/survey
+	url = git@github.com:OCA/survey.git
 	branch = 16.0

@@ -100,6 +100,14 @@ Scaffold a new module.
 task create-module addons/project_report
 ```
 
+**Add custom module path**
+
+Update the `.env` file with the module path.
+
+```bash
+ODOO_ADDONS_PATH=,addons/survey
+```
+
 ### Docker
 
 Run Odoo with Docker container.
