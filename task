@@ -22,6 +22,8 @@ export POSTGRES_PASSWORD=odoo
 export ODOO_REVISION=$GIT_BRANCH
 export ODOO_LANGUAGE=de_CH
 export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 if [[ -a ".env" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
@@ -114,11 +116,6 @@ function activate-venv() {
     echo "Source virtualenv venv$GIT_BRANCH."
     source "venv$GIT_BRANCH/bin/activate"
     echo "$(python --version) is active."
-}
-
-function locale() {
-    export LC_ALL=en_US.UTF-8
-    export LANG=en_US.UTF-8
 }
 
 function load-env() {
@@ -222,7 +219,6 @@ function start() {
     fi
 
     if [[ "$1" =~ "native" ]]; then
-        locale
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         echo $ADDONS_PATH
@@ -270,7 +266,6 @@ function start-shell() {
     DATABASE=$1
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    locale
     activate-venv
     odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
 }
@@ -286,18 +281,16 @@ function init-db() {
     DATABASE=$1
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    locale
     activate-venv
-
+    set-addons-path
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http --load-language $ODOO_LANGUAGE
+    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language $ODOO_LANGUAGE
 }
 
 function odoo-cloc() {
     DATABASE=$1
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    locale
     activate-venv
     odoo-bin cloc -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
@@ -333,10 +326,10 @@ function update-module() {
          MODULE_NAME=$(basename $1)
     fi
 
-    locale
     activate-venv
+    set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -u $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -d $DATABASE -u $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function generate-module-translation() {
@@ -357,11 +350,11 @@ function generate-module-translation() {
         LANGUAGE="$ODOO_LANGUAGE"
     fi
 
-    locale
     activate-venv
+    set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --modules $MODULE_NAME -l $LANGUAGE --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules $MODULE_NAME -l $LANGUAGE --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function install-module() {
@@ -376,10 +369,10 @@ function install-module() {
         MODULE_NAME=$(basename $1)
     fi
 
-    locale
     activate-venv
+    set-addons-path
     echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function test-module() {
@@ -392,10 +385,10 @@ function test-module() {
         MODULE_NAME=$(basename $1)
     fi
 
-    locale
     activate-venv
+    set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --stop-after-init --log-level=test --test-enable
+    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --log-level=test --test-enable
 }
 
 function remove-module() {
@@ -410,11 +403,11 @@ function remove-module() {
         MODULE_NAME=$(basename $1)
     fi
 
-    locale
     activate-venv
+    set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -423,7 +416,6 @@ function create-module() {
     MODULE_NAME=$(basename "$1")
     PARENT_DIR=$(dirname "$1")
 
-    locale
     activate-venv
     echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
     odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
@@ -466,7 +458,6 @@ function reset-views() {
         KEY=$(basename $1)
     fi
 
-    locale
     activate-venv
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
@@ -733,7 +724,6 @@ function lint-snippets() {
 function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    locale
     activate-venv
     echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
 }
@@ -813,7 +803,6 @@ function upload-module() {
 function save-config() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    locale
     activate-venv
     odoo-bin -s -d $1 --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
