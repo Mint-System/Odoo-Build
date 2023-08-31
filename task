@@ -388,7 +388,7 @@ function test-module() {
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --log-level=test --test-enable
+    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /$MODULE_NAME
 }
 
 function remove-module() {
