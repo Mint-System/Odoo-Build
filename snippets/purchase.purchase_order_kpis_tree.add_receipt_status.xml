@@ -1,0 +1,7 @@
+<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+
+    <xpath expr="//field[@name='state']" position="after">
+        <field name="receipt_status" decoration-success="receipt_status=='full'" decoration-danger="receipt_status=='pending'" decoration-warning="receipt_status=='partial'"/>
+    </xpath>
+
+</data>

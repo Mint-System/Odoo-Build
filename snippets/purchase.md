@@ -260,6 +260,19 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`
 ```
 Source: [snippets/purchase.purchase_order_kpis_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_comment.xml)
 
+### Add Date Planned  
+ID: `mint_system.purchase.purchase_order_kpis_tree.add_date_planned`  
+```xml
+<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+
+    <xpath expr="//field[@name='date_order']" position="after">
+        <field string="Lieferdatum" widget="date" name="date_planned" decoration-danger="date_planned &lt; current_date"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml)
+
 ### Add Mail Reception Confirmed  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`  
 ```xml
@@ -275,6 +288,19 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`
 ```
 Source: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
 
+### Add Receipt Status  
+ID: `mint_system.purchase.purchase_order_kpis_tree.add_receipt_status`  
+```xml
+<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+
+    <xpath expr="//field[@name='state']" position="after">
+        <field name="receipt_status" decoration-success="receipt_status=='full'" decoration-danger="receipt_status=='pending'" decoration-warning="receipt_status=='partial'"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml)
+
 ### Format Date Order  
 ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`  
 ```xml
@@ -288,6 +314,20 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`
 </data>
 ```
 Source: [snippets/purchase.purchase_order_kpis_tree.format_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.format_date_order.xml)
+
+### X Payment State  
+ID: `mint_system.purchase.purchase_order_kpis_tree.x_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+
+  <xpath expr="//field[@name='invoice_status']" position="before">
+    <field name="x_payment_state" decoration-success="x_payment_state=='paid'" decoration-danger="x_payment_state=='not_paid'" decoration-warning="x_payment_state=='in_payment'" widget="badge"/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml)
 
 ## Purchase Order Line Tree  
 ### Reset View  

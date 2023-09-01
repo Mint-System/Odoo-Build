@@ -1,4 +1,4 @@
-<data inherit_id="web.login_layout" priority="50">
+<data inherit_id="web.login" priority="50">
 
   <xpath expr="//form/div[1]" position="attributes">
     <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>

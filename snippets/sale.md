@@ -1274,6 +1274,26 @@ ID: `mint_system.sale.report_saleorder_document.add_product_uom`
 ```
 Source: [snippets/sale.report_saleorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_product_uom.xml)
 
+### Add Proforma Note  
+ID: `mint_system.sale.report_saleorder_document.add_proforma_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//p[@name='order_note']" position="after">
+    <t t-if="is_pro_forma">
+      <span>
+        <p>Der Unterzeichner erklärt, dass die in diesem Dokument aufgeführten Waren und Ursprungserzeugnisse der Schweiz sind und den Ursprungsregeln im Präferenzverkehr mit der EU entsprechen.<br/><br/></p>
+        <p>Unterschrift: _______________________    Datum: _______________________<br/>                        Aersolution Interior AG<br/></p>
+      </span>
+    </t>
+  </xpath>
+  
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_proforma_note.xml)
+
 ### Address Block  
 ID: `mint_system.sale.report_saleorder_document.address_block`  
 ```xml
@@ -3593,6 +3613,23 @@ ID: `mint_system.sale.view_order_form.hide_validity_date`
 ```
 Source: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.hide_validity_date.xml)
 
+### Location In Name  
+ID: `mint_system.sale.view_order_form.location_in_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//group[@name='sale_header']/group/field[@name='partner_shipping_id']" position="attributes">
+    <attribute name="context">
+      {'res_partner_search_mode': 'customer', 'show_address': 1, 'show_vat': True, 'show_zip_and_city': True}
+    </attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.location_in_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.location_in_name.xml)
+
 ### Modify Readonly Date Order  
 ID: `mint_system.sale.view_order_form.modify_readonly_date_order`  
 ```xml
@@ -4373,6 +4410,20 @@ ID: `mint_system.sale.view_order_tree.show_state`
 
 ```
 Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.show_state.xml)
+
+### X Payment State  
+ID: `mint_system.sale.view_order_tree.x_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <xpath expr="//field[@name='invoice_status']" position="before">
+    <field name="x_payment_state" decoration-success="x_payment_state=='paid'" decoration-danger="x_payment_state=='not_paid'" decoration-warning="x_payment_state=='in_payment'" widget="badge"/>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.view_order_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.x_payment_state.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  
