@@ -226,7 +226,3 @@
 	path = oca/account-reconcile
 	url = git@github.com:OCA/account-reconcile.git
 	branch = 16.0
-[submodule "oca/survey"]
-	path = oca/survey
-	url = git@github.com:OCA/survey.git
-	branch = 16.0
