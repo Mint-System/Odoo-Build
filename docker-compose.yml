@@ -12,7 +12,6 @@ services:
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
-      # - $HOME/.local/share/Odoo/filestore:/var/lib/odoo/filestore
       - odoo-data:/var/lib/odoo
       - ./config:/etc/odoo
       - ./addons:/mnt/addons
