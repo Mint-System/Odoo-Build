@@ -1,5 +1,27 @@
 # Mrp
 ## Label Production View Pdf  
+### Aersolution  
+ID: `mint_system.mrp.label_production_view_pdf.aersolution`  
+```xml
+<t t-name="stock.report_reception_report_label.aersolution">
+    <t t-call="web.basic_layout">
+        <div class="page">
+
+            <t t-foreach="docs" t-as="production">
+                <t t-set="label_qty" t-value="int(production.product_qty)"/>
+                <t t-set="company_id" t-value="production.company_id"/>
+                <t t-set="lot_id" t-value="production.lot_producing_id"/>
+                <t t-set="product_id" t-value="production.product_id"/>
+
+                <t t-call="mint_system.stock.report_label.aersolution"/>
+            </t>
+
+        </div>
+    </t>
+</t>
+```
+Source: [snippets/mrp.label_production_view_pdf.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.label_production_view_pdf.aersolution.xml)
+
 ### Basis57  
 ID: `mint_system.mrp.label_production_view_pdf.basis57`  
 ```xml

@@ -3411,6 +3411,18 @@ ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_state_
 ```
 Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml)
 
+### Remove Filter My Quotation  
+ID: `mint_system.sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_view_search_inherit_quotation" priority="50">
+
+  <xpath expr="//filter[@name='my_quotation']" position="replace" />
+
+</data>
+```
+Source: [snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml)
+
 ## Sale Order View Search Inherit Sale  
 ### Add Invoice Status Invoiced  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced`  
@@ -3547,6 +3559,21 @@ ID: `mint_system.sale.view_order_form.edit_name`
 
 ```
 Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.edit_name.xml)
+
+### Edit Tax Id  
+ID: `mint_system.sale.view_order_form.edit_tax_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='tax_id']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.edit_tax_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.edit_tax_id.xml)
 
 ### Filter Customer Is Company  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  

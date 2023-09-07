@@ -322,6 +322,27 @@ ID: `mint_system.base.view_partner_form.move_ref`
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
 
+### Move Zip And City  
+ID: `mint_system.base.view_partner_form.move_zip_and_city`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='city']" position="replace" />
+  <xpath expr="//field[@name='state_id']" position="replace" />
+  <xpath expr="//field[@name='zip']" position="replace" />
+
+  <xpath expr="//field[@name='street2']" position="after">
+    <field name="zip" placeholder="PLZ" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+    <field name="city" placeholder="Stadt" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+    <field name="state_id" class="o_address_state" placeholder="Bundesland" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_zip_and_city.xml)
+
 ### Show Color  
 ID: `mint_system.base.view_partner_form.show_color`  
 ```xml
@@ -633,7 +654,7 @@ ID: `mint_system.base.view_partner_tree.show_type`
 <data inherit_id="base.view_partner_tree" priority="50">
 
   <field name="display_name" position="before">
-    <field name="type" optional="hide"/>
+    <field name="type" optional="show"/>
   </field>
 
 </data>

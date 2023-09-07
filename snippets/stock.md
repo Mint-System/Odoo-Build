@@ -3239,6 +3239,63 @@ ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`
 ```
 Source: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.x_hide_on_delivery.xml)
 
+## Report Label  
+### Aersolution  
+ID: `mint_system.stock.report_label.aersolution`  
+```xml
+<t t-name="stock.report_label.aersolution">
+    <t t-foreach="range(0, label_qty)" t-as="label_qty">
+
+        <div class="row">
+            <div class="col-6">
+               <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)" style="max-width: 180px;" alt="Logo"/>
+            </div>
+            <div class="col-6">
+                <strong><t t-esc="company_id.partner_id.name"/><br/>
+                <t t-esc="company_id.partner_id.country_id.code"/>-<t t-esc="company_id.partner_id.zip"/> <t t-esc="company_id.partner_id.city"/></strong>
+            </div>
+        </div>
+        
+        <br/>
+        
+        <p t-esc="product_id.display_name"/>
+
+        <p><span style="margin-right: 8px;">LS/SN:</span><t t-esc="lot_id.name if lot_id else picking.name"/></p>
+
+        <p t-if="lot_id.expiration_date"><span style="margin-right: 8px;">EXP:</span><span t-field="lot_id.expiration_date" t-options="{'widget': 'date'}"/></p>
+
+         <t t-set="putaway_rule_id" t-value="product_id.putaway_rule_ids[:1]"/>
+        <p><span style="margin-right: 8px;">LOC:</span><span t-esc="putaway_rule_id.location_out_id.display_name if putaway_rule_id else 'WH/Stock'"/></p>
+
+        <p style="page-break-before:always;"/>
+    </t>
+</t>
+```
+Source: [snippets/stock.report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_label.aersolution.xml)
+
+## Report Lot Label  
+### Aersolution  
+ID: `mint_system.stock.report_lot_label.aersolution`  
+```xml
+<t t-name="stock.report_lot_label.aersolution">
+    <t t-call="web.basic_layout">
+        <div class="page">
+
+            <t t-foreach="docs" t-as="lot">
+                <t t-set="label_qty" t-value="1"/>
+                <t t-set="company_id" t-value="lot.company_id"/>
+                <t t-set="lot_id" t-value="lot"/>
+                <t t-set="product_id" t-value="lot.product_id"/>
+
+                <t t-call="mint_system.stock.report_label.aersolution"/>
+            </t>
+
+        </div>
+    </t>
+</t>
+```
+Source: [snippets/stock.report_lot_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_lot_label.aersolution.xml)
+
 ## Report Picking  
 ### Add Address Block  
 ID: `mint_system.stock.report_picking.add_address_block`  
@@ -5932,33 +5989,14 @@ ID: `mint_system.stock.report_reception_report_label.aersolution`
         <div class="page">
 
             <t t-foreach="docs" t-as="picking">
-                <!--<t t-foreach="picking.move_ids.filtered(lambda m: m.quantity_done &gt; 0.0)" t-as="move">-->
                 <t t-foreach="picking.move_line_ids.filtered(lambda m: m.qty_done &gt; 0.0)" t-as="move_line">
-                    <t t-foreach="range(0, move_line.move_id.x_label_qty)" t-as="label_qty">
 
-                        <div class="row">
-                            <div class="col-6">
-                               <img t-if="picking.company_id.logo" t-att-src="image_data_uri(picking.company_id.logo)" style="max-width: 180px;" alt="Logo"/>
-                            </div>
-                            <div class="col-6">
-                                <strong><t t-esc="picking.company_id.partner_id.name"/><br/>
-                                <t t-esc="picking.company_id.partner_id.country_id.code"/>-<t t-esc="picking.company_id.partner_id.zip"/> <t t-esc="picking.company_id.partner_id.city"/></strong>
-                            </div>
-                        </div>
-                        
-                        <br/>
-                        
-                        <p t-field="move_line.product_id"/>
+                    <t t-set="label_qty" t-value="move_line.move_id.x_label_qty"/>
+                    <t t-set="company_id" t-value="picking.company_id"/>
+                    <t t-set="lot_id" t-value="move_line.lot_id"/>
+                    <t t-set="product_id" t-value="move_line.product_id"/>
 
-                        <p><span style="margin-right: 8px;">LS/SN:</span><t t-esc="move_line.lot_id.name if move_line.lot_id else picking.name"/></p>
-
-                        <p t-if="move_line.lot_id.expiration_date"><span style="margin-right: 8px;">EXP:</span><span t-field="move_line.lot_id.expiration_date" t-options="{'widget': 'date'}"/></p>
-
-                        <t t-set="putaway_rule_id" t-value="move_line.product_id.putaway_rule_ids[:1]"/>
-                        <p><span style="margin-right: 8px;">LOC:</span><span t-esc="putaway_rule_id.location_out_id.display_name if putaway_rule_id else 'WH/Stock'"/></p>
-
-                        <p style="page-break-before:always;"/>
-                    </t>
+                    <t t-call="mint_system.stock.report_label.aersolution"/>
                 </t>
             </t>
 
@@ -6391,6 +6429,35 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`
 ```
 Source: [snippets/stock.stock_report_delivery_package_section_line.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.stock_report_delivery_package_section_line.set_color.xml)
 
+## View Location Form  
+### Show Barcode  
+ID: `mint_system.stock.view_location_form.show_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_location_form" priority="50">
+
+  <xpath expr="//group[@name='additional_info']//field[@name='replenish_location']" position="after">
+    <field name="barcode"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_location_form.show_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_location_form.show_barcode.xml)
+
+### Show Id  
+ID: `mint_system.stock.view_location_form.show_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_location_form" priority="50">
+
+  <xpath expr="//group[@name='additional_info']//field[@name='replenish_location']" position="after">
+    <field name="id"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_location_form.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_location_form.show_id.xml)
+
 ## View Move Form  
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_form.enable_edit_and_create`  
@@ -6759,8 +6826,8 @@ ID: `mint_system.stock.view_move_tree.show_date`
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
 
-  <field name="location_dest_id" position="after">
-    <field name="date" optional="hide" />
+  <field name="date" position="attributes">
+    <attribute name="groups"></attribute>
   </field>
 
 </data>

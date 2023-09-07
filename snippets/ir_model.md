@@ -2252,6 +2252,30 @@ ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`
 ```
 Source: [snippets/ir_model.sale_order.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_incoterm_blanket_order.xml)
 
+### X Industry Id  
+ID: `mint_system.ir_model.sale_order.x_industry_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_industry_id" model="ir.model.fields">
+    <field name="field_description">Branche</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_industry_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="related">partner_id.industry_id.name</field>
+  </record>
+
+</odoo>
+
+
+```
+Source: [snippets/ir_model.sale_order.x_industry_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.sale_order.x_industry_id.xml)
+
 ### X Order Number  
 ID: `mint_system.ir_model.sale_order.x_order_number`  
 ```xml
