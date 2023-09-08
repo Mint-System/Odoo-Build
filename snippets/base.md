@@ -677,6 +677,21 @@ ID: `mint_system.base.view_partner_tree.x_bexioid`
 ```
 Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_bexioid.xml)
 
+### X First Sale Date  
+ID: `mint_system.base.view_partner_tree.x_first_sale_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="user_id" position="after">
+    <field name="x_first_sale_date" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_first_sale_date.xml)
+
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_tree.x_global_location_number`  
 ```xml

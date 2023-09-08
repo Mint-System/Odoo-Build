@@ -546,6 +546,21 @@ ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`
 ```
 Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
 
+### Show Sale Order In Footer  
+ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[3]/div[1]" position="before">
+    <span t-if="xmlid == 'sale.report_saleorder'" /> 
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.show_sale_order_in_footer.xml)
+
 ### Tissa Layout  
 ID: `mint_system.web.external_layout_standard.tissa_layout`  
 ```xml
