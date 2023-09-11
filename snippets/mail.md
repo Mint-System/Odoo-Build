@@ -317,7 +317,7 @@ ID: `mint_system.mail.mail_notification_paynow.remove_access_link`
 <?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_paynow" priority="60">
 
-  <t t-if="record._name == 'sale.order'" position="remove"/>
+  <t t-if="record._name == 'sale.order'" position="replace"/>
 
 </data>
 

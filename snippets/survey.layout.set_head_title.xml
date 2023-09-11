@@ -1,0 +1,10 @@
+<data inherit_id="survey.layout" priority="50">
+
+  <xpath expr="//head" position="before">
+    <t t-if="survey">
+      <t t-set="title" t-value="('Sozialinfo - ' + survey.title) if survey else 'Odoo'"/>
+      <t t-set="x_icon" t-value="'/web/image?model=res.company&amp;id=1&amp;field=favicon'"/>
+    </t>
+  </xpath>
+
+</data>

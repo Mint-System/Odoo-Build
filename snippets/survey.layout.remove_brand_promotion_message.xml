@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="survey.layout" priority="50">
+
+  <div t-call="web.brand_promotion_message" position="replace" />
+
+</data>
