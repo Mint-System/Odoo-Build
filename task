@@ -1,5 +1,5 @@
 #!/bin/bash
-cd "$(dirname "$0")"
+cd "$(dirname "$0")" || exit
 
 function help() {
 echo
@@ -13,25 +13,24 @@ echo
 
 # Set env vars
 PATH="$PATH:./odoo"
-GIT_TAG=0
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+OS_RELEASE=$(awk -F= '/^NAME/{print "$2"}' /etc/os-release)
 
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
-export ODOO_REVISION=$GIT_BRANCH
+export ODOO_REVISION="$GIT_BRANCH"
 export ODOO_LANGUAGE=de_CH
 export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 if [[ -a ".env" ]]; then
-    export $(cat .env | sed 's/#.*//g' | xargs)
+    source .env
 fi
 
 function set-addons-path() {
     # Read addons path list
-    ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
+    ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print "$2" }' | tr '\n' ',' |  sed 's/,*$//g')"
 
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
@@ -62,12 +61,12 @@ function update-readme() {
     # Find marker in readme and clear content after
     echo "Clear modules table for $1."
     MARKER="## Available modules"
-    sed -i "/$MARKER/Q" $1
+    sed -i "/$MARKER/Q" "$1"
 
-    echo "$MARKER" >> $1
-    echo "" >> $1
-    echo "| Module | Summary |" >> $1
-    echo "| --- | --- |" >> $1
+    echo "$MARKER" >> "$1"
+    echo "" >> "$1"
+    echo "| Module | Summary |" >> "$1"
+    echo "| --- | --- |" >> "$1"
 
     # Clear table after a marker
     for MANIFEST_FILE in $MANIFEST_FILES; do
@@ -75,7 +74,7 @@ function update-readme() {
         MODULE_NAME=$(basename "$MODULE_DIR")
         echo "Add summary of $MODULE_NAME to readme file."
         SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
-        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> $1
+        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "$1"
     done
 }
 
@@ -100,7 +99,7 @@ function get-module-version() {
             VERSION="$GIT_BRANCH.$VERSION"
         fi
 
-        echo $VERSION
+        echo "$VERSION"
     fi
 }
 
@@ -137,12 +136,12 @@ function install-native() {
     init-venv
     activate-venv
     
-    if [[ "Ubuntu|Debian" =~ "$OS_RELEASE" ]]; then
+    if [[ "Ubuntu|Debian" =~ $OS_RELEASE ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         echo "Install wkhtmltopdf"
         sudo apt remove wkhtmltopdf
-        cd ~
+        cd ~ || exit
         wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
         tar xvf wkhtmltox*.tar.xz
         sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
@@ -169,7 +168,7 @@ function install-native() {
     pip install graphene graphql-server-core
 
     echo "Install rest dependencies"
-    pip install cerberus pyquerystring parse-accept-language apispec>=4.0.0 marshmallow marshmallow-objects>=2.0.0 jsondiff
+    pip install cerberus pyquerystring parse-accept-language apispec\>=4.0.0 marshmallow marshmallow-objects\>=2.0.0 jsondiff
 
     echo "Install openupgrade functions"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
@@ -184,14 +183,14 @@ function install-native() {
 function open-url-with-delay(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     sleep 2
-    xdg-open $1
+    xdg-open "$1"
 }
 
 function start() {    
     set-addons-path
     
     # Use default database if second param is not given
-    DATABASE=$2
+    DATABASE="$2"
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
     fi
@@ -220,9 +219,9 @@ function start() {
     if [[ "$1" =~ "native" ]]; then
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        echo $ADDONS_PATH
+        echo "$ADDONS_PATH"
         open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
-        odoo-bin --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
+        odoo-bin --config "config/odoo-native.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -248,8 +247,8 @@ function restart() {
         docker-compose restart
     fi
 
-    if [[ "db|mail|odoo" =~ "$1" ]]; then
-        docker-compose restart $1
+    if [[ "db|mail|odoo" =~ $1 ]]; then
+        docker-compose restart "$1"
     fi
 }
 
@@ -258,40 +257,40 @@ function stop() {
         docker-compose stop
     fi
 
-    docker-compose stop $1
+    docker-compose stop "$1"
 }
 
 function start-shell() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --no-http
 }
 
 function start-psql() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    docker exec -it db psql postgres://odoo:odoo@localhost:5432/$DATABASE
+    docker exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
 }
 
 function init-db() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
     set-addons-path
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin --init base -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language $ODOO_LANGUAGE
+    odoo-bin --init base -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
 
 function odoo-cloc() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin cloc -d $DATABASE --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin cloc -d "$DATABASE" --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -299,11 +298,11 @@ function lint-module() {
 
     activate-venv
     echo "Set file and folder permissions on $1"
-    find $1 -type d -exec chmod u=rwx,go=rx {} \;
-    find $1 -type f -exec chmod u=rw,go=r {} \;
+    find "$1" -type d -exec chmod u=rwx,go=rx {} \;
+    find "$1" -type f -exec chmod u=rw,go=r {} \;
 
     echo "Run pre-commit in $1"
-    cd $1
+    cd "$1" || exit
     pre-commit run --files ./*
 
     echo "Update index.html"
@@ -316,33 +315,33 @@ function lint-module() {
 function update-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    MODULE_NAME=$(basename $2)
+    DATABASE="$1"
+    MODULE_NAME=$(basename "$2")
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-         MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -u $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function generate-module-translation() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    MODULE_PATH=$2
-    MODULE_NAME=$(basename $2)
-    LANGUAGE=$3    
+    DATABASE="$1"
+    MODULE_PATH="$2"
+    MODULE_NAME=$(basename "$2")
+    LANGUAGE="$3"    
 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        MODULE_PATH=$1
-        MODULE_NAME=$(basename $1)
+        MODULE_PATH="$1"
+        MODULE_NAME=$(basename "$1")
     fi
 
     if test -z "$3"; then
@@ -353,60 +352,60 @@ function generate-module-translation() {
     set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules $MODULE_NAME -l $LANGUAGE --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo-bin -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    MODULE_NAME=$(basename $2)
+    DATABASE="$1"
+    MODULE_NAME=$(basename "$2")
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function test-module() {
-    DATABASE=$1
-    MODULE_NAME=$(basename $2)
+    DATABASE="$1"
+    MODULE_NAME=$(basename "$2")
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d $DATABASE -i $MODULE_NAME --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /$MODULE_NAME
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    MODULE_NAME=$(basename $2)
+    DATABASE="$1"
+    MODULE_NAME=$(basename "$2")
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        MODULE_NAME=$(basename $1)
+        MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -421,46 +420,46 @@ function create-module() {
 }
 
 function drop-db() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
-    docker exec db psql postgres://odoo:odoo@localhost:5432/postgres -c "DROP DATABASE \"$DATABASE\";"
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
 }
 
 function set-admin() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
-    docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
-    docker exec db psql postgres://odoo:odoo@localhost:5432/$DATABASE -c "SELECT login, password FROM res_users WHERE id=2;"
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "SELECT login, password FROM res_users WHERE id=2;"
 }
 
 function clear-assets() {
-    DATABASE=$1
+    DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     echo "Delete these assets for $DATABASE:"
-    docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-    docker exec db psql postgres://odoo:odoo@localhost/$DATABASE -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    docker exec db psql "postgres://odoo:odoo@localhost/$DATABASE" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    docker exec db psql "postgres://odoo:odoo@localhost/$DATABASE" -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
 }
 
 function reset-views() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    KEY=$(basename $2)
+    DATABASE="$1"
+    KEY=$(basename "$2")
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        KEY=$(basename $1)
+        KEY=$(basename "$1")
     fi
 
     activate-venv
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo-bin shell -d $DATABASE --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --no-http
 }
 
 function convert-database() {
@@ -469,7 +468,7 @@ function convert-database() {
     unzip "tmp/$1.zip" -d "./tmp/$1"
     sed -i'' 's/AS integer//g' "./tmp/$1/dump.sql"
     grep -i 'as integer' "./tmp/$1/dump.sql"
-    cd "tmp/$1" ; zip -r "../${1}2.zip" . ; cd ../..
+    cd "tmp/$1" || exit ; zip -r "../${1}2.zip" . ; cd ../.. || exit
     rm -r "tmp/$1"
     echo "Converted database file $1 to ${1}2"
 }
@@ -478,7 +477,7 @@ function git-update-submodules() {
     echo "Update submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        git submodule update --init $SUBMODULE
+        git submodule update --init "$SUBMODULE"
     done
 }
 
@@ -489,10 +488,10 @@ function switch-branch() {
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
         CWD=$(pwd)
-        cd $SUBMODULE
+        cd "$SUBMODULE" || exit
         git stash
-        git switch $1
-        cd $CWD
+        git switch "$1"
+        cd "$CWD" || exit
     done
 }
 
@@ -501,60 +500,60 @@ function checkout() {
     : ${GIT_BRANCH:="$2"}
 
     echo "Switch branch."
-    git switch $1
+    git switch "$1"
 
     git-update-submodules
 
-    switch-branch $1
+    switch-branch "$1"
 
     echo "Checkout config files."
-    git checkout $GIT_BRANCH -- config/checkout_files config/reset_files
+    git checkout "$GIT_BRANCH" -- "config/checkout_files config/reset_files"
     echo "Remove reset files."
-    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
+    git rm -r "$(tr '\n' ' ' < ./config/reset_files)" >/dev/null 2>&1
     echo "Sync checkout files."
-    git checkout $GIT_BRANCH -- $(tr '\n' ' ' < ./config/checkout_files)
+    git checkout "$GIT_BRANCH" -- "$(tr '\n' ' ' < ./config/checkout_files)"
 }
 
 function checkout-revision() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
  
-    cd odoo
-    git checkout $1
-    cd ..
-    cd enterprise
-    git checkout $1
-    cd ..
-    cd themes
-    git checkout $1
+    cd odoo || exit
+    git checkout "$1"
+    cd .. || exit
+    cd enterprise || exit
+    git checkout "$1"
+    cd .. || exit
+    cd themes || exit
+    git checkout "$1"
 }
 
 function git-pull-submodules() {
     # Pull submodule if update config is not set
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        UPDATE=$(git config submodule.$SUBMODULE.update)
+        UPDATE=$(git config submodule."$SUBMODULE".update)
         CWD=$(pwd)
-        cd $SUBMODULE
-        if [ -z $UPDATE ]; then
+        cd "$SUBMODULE" || exit
+        if [ -z "$UPDATE" ]; then
             git pull
         fi;
-        cd $CWD
+        cd "$CWD" || exit
     done
 }
 
 function release-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    VERSION=$(get-module-version $1)
-    cd $1
+    VERSION=$(get-module-version "$1")
+    cd "$1" || exit
     LAST_TAG=$(git describe --tags)
-    RELEASE_NOTES=$(git log $LAST_TAG..HEAD --oneline)
+    RELEASE_NOTES=$(git log "$LAST_TAG"..HEAD --oneline)
 
     echo "Tag with v$VERSION ..."
-    git tag -a v$VERSION -m "v$VERSION"
+    git tag -a "v$VERSION" -m "v$VERSION"
 
     echo "Release notes:"
-    echo $RELEASE_NOTES
+    echo "$RELEASE_NOTES"
 
     # echo "Create release $VERSION ..."
     # gh release create "v$VERSION" -t "Release $VERSION"
@@ -564,7 +563,7 @@ function zip-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     # Get version and module name
-    VERSION=$(get-module-version $1)
+    VERSION=$(get-module-version "$1")
     MODULE=$(basename "$1")
 
     # Copy module to tmp folder
@@ -581,24 +580,24 @@ function zip-module() {
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
     echo "Remove pycache and hidden folders"
-    find $MODULE_PATH | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+    find "$MODULE_PATH" | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
-    cd tmp
-    rm -f $MODULE_NAME.zip
-    zip -q -r $MODULE_NAME.zip $MODULE_NAME
-    cd ..
+    cd tmp || exit
+    rm -f "$MODULE_NAME".zip
+    zip -q -r "$MODULE_NAME".zip "$MODULE_NAME"
+    cd .. || exit
 }
 
 function clear-filestore() {
     echo "Remove directory ~/.local/share/Odoo/filestore/$1"
-    rm -rf ~/.local/share/Odoo/filestore/$1
+    rm -rf ~/.local/share/Odoo/filestore/"$1"
 }
 
 function disable-mailserver() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    load-env $1
+    load-env "$1"
     scripts/odooctl --model 'ir.mail_server' --field 'active' --value False
     scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
 }
@@ -607,7 +606,7 @@ function change-uuid() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    load-env $1
+    load-env "$1"
     UUID=$(uuidgen)
     echo "Set uuid $UUID for $1."
     scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
@@ -615,7 +614,7 @@ function change-uuid() {
 
 function test-jsonrpc() {
     activate-venv
-    [ -n "$1" ] && load-env $1
+    [ -n "$1" ] && load-env "$1"
     scripts/jsonrpc
 }
 
@@ -631,13 +630,13 @@ function update-snippet() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Generate view name from filename
-    FILE=$(basename $2)
+    FILE=$(basename "$2")
     NAME="mint_system.${FILE%.xml}"
 
     activate-venv
-    load-env $1
+    load-env "$1"
     echo "Update view with name $NAME"
-    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat $2)'''"
+    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat "$2")'''"
 }
 
 function install-snippet() {
@@ -645,20 +644,20 @@ function install-snippet() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Generate view name from filename
-    FILE=$(basename $2)
+    FILE=$(basename "$2")
     NAME="mint_system.${FILE%.xml}"
-    INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
-    TYPE=$(echo 'cat //data/@type' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
-    MODEL=$(echo 'cat //data/@model' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
-    PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $2 | awk -F'[="]' '!/>/{print $(NF-1)}')
-    MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
-    XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+    INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    TYPE=$(echo 'cat //data/@type' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    MODEL=$(echo 'cat //data/@model' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    MODULE_NAME=$(echo "$INHERIT_ID" | cut -d. -f 1 )
+    XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
 
     # Set default values
     : ${TYPE:='qweb'}
 
     activate-venv
-    load-env $1
+    load-env "$1"
     echo "Search for view with name $MODULE_NAME.$XML_ID"
     INHERIT_ID=$(scripts/odooctl --method 'get_id' --model 'ir.model.data' --value "['$MODULE_NAME','$XML_ID']")
     echo "Found view id $INHERIT_ID"
@@ -670,7 +669,7 @@ function install-snippet() {
         'mode': 'extension',
         'priority': $PRIORITY, 
         'inherit_id': $INHERIT_ID, 
-        'arch_base': '''$(cat $2)'''
+        'arch_base': '''$(cat "$2")'''
     }"
 }
 
@@ -680,20 +679,20 @@ function lint-snippets() {
     for FILE in $FILES; do
 
         # Access various snippet parameters
-        FILENAME=$(basename $FILE)
-        SNIPPET_MODULE=$(echo $FILENAME | cut -d. -f1)
-        REPORT=$(echo $FILENAME | cut -d. -f2)
-        EDIT=$(echo $FILENAME | cut -d. -f3)
-        INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
-        TYPE=$(echo 'cat //data/@type' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
-        MODEL=$(echo 'cat //data/@model' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
-        PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell $FILE | awk -F'[="]' '!/>/{print $(NF-1)}')
-        MODULE_NAME=$(echo $INHERIT_ID | cut -d. -f 1 )
-        XML_ID=$(echo $INHERIT_ID | cut -d. -f 2 )
+        FILENAME=$(basename "$FILE")
+        SNIPPET_MODULE=$(echo "$FILENAME" | cut -d. -f1)
+        REPORT=$(echo "$FILENAME" | cut -d. -f2)
+        EDIT=$(echo "$FILENAME" | cut -d. -f3)
+        INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        TYPE=$(echo 'cat //data/@type' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODEL=$(echo 'cat //data/@model' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        MODULE_NAME=$(echo "$INHERIT_ID" | cut -d. -f 1 )
+        XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
 
         # Check filename 
-        COUNT_DOTS=$(echo $FILENAME | grep -o "\." | wc -l)
-        if [ $COUNT_DOTS -ge 4 ]; then
+        COUNT_DOTS=$(echo "$FILENAME" | grep -o "\." | wc -l)
+        if [ "$COUNT_DOTS" -ge 4 ]; then
             echo "Linting failed for $FILE"
             echo "Dots count: $COUNT_DOTS"
             echo "  Filename: $SNIPPET_MODULE.$REPORT"
@@ -724,7 +723,7 @@ function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d $1 --config 'config/odoo-native.conf' --no-http
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1" --config 'config/odoo-native.conf' --no-http
 }
 
 function init-config-dir() {
@@ -739,10 +738,10 @@ function init-odoo-env() {
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
 
     echo "Init env file: $ENV_FILEPATH"
-    echo "#ODOO_URL=" > $ENV_FILEPATH
-    echo "ODOO_DATABASE=" >> $ENV_FILEPATH
-    echo "ODOO_USERNAME=" >> $ENV_FILEPATH
-    echo "ODOO_PASSWORD=" >> $ENV_FILEPATH
+    echo "#ODOO_URL=" > "$ENV_FILEPATH"
+    echo "ODOO_DATABASE=" >> "$ENV_FILEPATH"
+    echo "ODOO_USERNAME=" >> "$ENV_FILEPATH"
+    echo "ODOO_PASSWORD=" >> "$ENV_FILEPATH"
 }
 
 function init-next-env() {
@@ -752,15 +751,15 @@ function init-next-env() {
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
 
     echo "Init env file: $ENV_FILEPATH"
-    echo "NEXTCLOUD_URL=" > $ENV_FILEPATH
-    echo "NEXTCLOUD_USERNAME=" >> $ENV_FILEPATH
-    echo "NEXTCLOUD_PASSWORD=" >> $ENV_FILEPATH
+    echo "NEXTCLOUD_URL=" > "$ENV_FILEPATH"
+    echo "NEXTCLOUD_USERNAME=" >> "$ENV_FILEPATH"
+    echo "NEXTCLOUD_PASSWORD=" >> "$ENV_FILEPATH"
 }
 
 function edit-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
-    $EDITOR $ENV_FILEPATH
+    "$EDITOR" "$ENV_FILEPATH"
 }
 
 function upload-module() {
@@ -768,7 +767,7 @@ function upload-module() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     # Check if path is root folder
-    MODULES=$2
+    MODULES="$2"
     if [ ! -f "$2/__manifest__.py" ]; then
         echo "Identified as root folder"
         MODULES="$MODULES/*"
@@ -779,11 +778,11 @@ function upload-module() {
         if [ -f "$MODULE/__manifest__.py" ]; then
 
             # Create module zip
-            zip-module $MODULE
+            zip-module "$MODULE"
 
             # Get path to zip file and upload url
             FILE_PATH="tmp/$MODULE_NAME.zip"
-            load-env $1
+            load-env "$1"
             NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
             # Upload zip file
@@ -803,24 +802,24 @@ function save-config() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    odoo-bin -s -d $1 --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -s -d "$1" --config 'config/odoo-native.conf' --stop-after-init --no-http
 }
 
 function remove-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Move submodule to tmp folder"
-    mkdir -p tmp/$1
-    mv $1 tmp/$1
+    mkdir -p tmp/"$1"
+    mv "$1" tmp/"$1"
 
     echo "Deinit submodule"
-    git submodule deinit -f $1
+    git submodule deinit -f "$1"
 
     echo "Remove submodule from .git folder"
-    rm -rf .git/modules/$1
+    rm -rf .git/modules/"$1"
 
     echo "Remove submodule from work tree"
-    git rm -f $1
+    git rm -f "$1"
 
     echo "Remove $1 submodule from .gitmodules files manually."
 }
@@ -846,11 +845,11 @@ function git-list-submodules() {
 function git-feature-branch(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    MODULE_NAME=$(basename $1)
-    MODULE_PATH=$(dirname $1)
+    MODULE_NAME=$(basename "$1")
+    MODULE_PATH=$(dirname "$1")
 
     echo "Create feature branch for $MODULE_NAME in $MODULE_PATH ..."
-    cd ./$MODULE_PATH
+    cd ./"$MODULE_PATH" || exit
     pwd
     git switch -c "feature-$MODULE_NAME"
 }
@@ -858,11 +857,11 @@ function git-feature-branch(){
 function git-mig-branch(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    MODULE_NAME=$(basename $1)
-    MODULE_PATH=$(dirname $1)
+    MODULE_NAME=$(basename "$1")
+    MODULE_PATH=$(dirname "$1")
 
     echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
-    cd ./$MODULE_PATH
+    cd ./"$MODULE_PATH" || exit
     pwd
     git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
 }
@@ -870,17 +869,17 @@ function git-mig-branch(){
 function patch-database() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE=$1
-    FILENAME=$2
+    DATABASE="$1"
+    FILENAME="$2"
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$GIT_BRANCH"
-        FILENAME=$1
+        FILENAME="$1"
     fi
 
     echo "Apply patch $FILENAME to Database $DATABASE."
-    cat $FILENAME | docker exec -i db psql postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$DATABASE
+    cat "$FILENAME" | docker exec -i db psql "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$DATABASE"
     echo "Patching database succeeded"
 }
 
@@ -902,12 +901,12 @@ function update-docs() {
     for MODULE in $MODULES; do
 
         TITLE="${MODULE^}" # Uppercase first letter
-        TITLE=$(echo $TITLE | sed 's/_/ /g') # Replace underline with space
-        TITLE=$(echo $TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+        TITLE=$(echo "$TITLE" | sed 's/_/ /g') # Replace underline with space
+        TITLE=$(echo "$TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
         # Create doc file for each module
         DOCFILE="snippets/$MODULE.md"
-        echo -e "# $TITLE" > $DOCFILE
+        echo -e "# $TITLE" > "$DOCFILE"
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
         SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',"
         
@@ -915,29 +914,29 @@ function update-docs() {
         XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
         for XML_ID in $XML_IDS; do
         
-            XML_ID_TITLE=$(echo $XML_ID | sed 's/_/ /g') # Replace underline with space
-            XML_ID_TITLE=$(echo $XML_ID_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+            XML_ID_TITLE=$(echo "$XML_ID" | sed 's/_/ /g') # Replace underline with space
+            XML_ID_TITLE=$(echo "$XML_ID_TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
-            echo "## $XML_ID_TITLE  " >> $DOCFILE
+            echo "## $XML_ID_TITLE  " >> "$DOCFILE"
 
             # Process each file
             FILES="snippets/$MODULE.$XML_ID.*.xml"
             for FILE in $FILES; do
 
                 # Get snippet params
-                FILENAME=$(basename $FILE)
-                EDIT=$(echo $FILENAME | cut -d. -f3)
+                FILENAME=$(basename "$FILE")
+                EDIT=$(echo "$FILENAME" | cut -d. -f3)
 
-                EDIT_TITLE=$(echo $EDIT | sed 's/_/ /g') # Replace underline with space
-                EDIT_TITLE=$(echo $EDIT_TITLE | sed -r 's/\<./\U&/g') # Uppercase first letter after space
+                EDIT_TITLE=$(echo "$EDIT" | sed 's/_/ /g') # Replace underline with space
+                EDIT_TITLE=$(echo "$EDIT_TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
                 # Group by modules
-                echo "### $EDIT_TITLE  " >> $DOCFILE
-                echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> $DOCFILE
-                echo -e '```xml' >> $DOCFILE
-                cat "$FILE" >> $DOCFILE
-                echo -e '\n```' >> $DOCFILE
-                echo -e "Source: [$FILE]($PATH_URL/$FILE)\n" >> $DOCFILE
+                echo "### $EDIT_TITLE  " >> "$DOCFILE"
+                echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> "$DOCFILE"
+                echo -e '```xml' >> "$DOCFILE"
+                cat "$FILE" >> "$DOCFILE"
+                echo -e '\n```' >> "$DOCFILE"
+                echo -e "Source: [$FILE]($PATH_URL/$FILE)\n" >> "$DOCFILE"
             done
         done
     done
@@ -953,13 +952,13 @@ case "$1" in
         disable-auto-install
         ;;
     save-config)
-        save-config $2
+        save-config "$2"
         ;;
     checkout)
-        checkout $2 $3
+        checkout "$2" "$3"
         ;;
     checkout-revision)
-        checkout-revision $2
+        checkout-revision "$2"
         ;;
     list)
         docker-compose config --services; echo "native"
@@ -968,16 +967,16 @@ case "$1" in
         docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
         ;;
     start)
-        start $2 $3
+        start "$2" "$3"
         ;;
     restart)
-        restart $2
+        restart "$2"
         ;;
     stop)
-        stop $2
+        stop "$2"
         ;;
     kill)
-        down $2
+        down "$2"
         ;;
     logs)
         docker logs odoo -f
@@ -992,91 +991,91 @@ case "$1" in
         install-native
         ;;
     init-db)
-        init-db $2
+        init-db "$2"
         ;;
     start-shell)
-        start-shell $2
+        start-shell "$2"
         ;;
     start-psql)
-        start-psql $2
+        start-psql "$2"
         ;;
     update-module)
-        update-module $2 $3
+        update-module "$2" "$3"
         ;;
     test-module)
-        test-module $2 $3
+        test-module "$2" "$3"
         ;;
     create-module)
-        create-module $2
+        create-module "$2"
         ;;
     drop-db)
-        drop-db $2
+        drop-db "$2"
         ;;
     send-support-mail)
         send-support-mail
         ;;
     clear-assets)
-        clear-assets $2
+        clear-assets "$2"
         ;;
     generate-admin-passwd)
-        generate-admin-passwd $2
+        generate-admin-passwd "$2"
         ;;
     odoo-cloc)
-        odoo-cloc $2
+        odoo-cloc "$2"
         ;;
     restore-database)
-        restore-database $2 $3
+        restore-database "$2" "$3"
         ;;
     convert-database)
-        convert-database $2
+        convert-database "$2"
         ;;
     install-module)
-        install-module $2 $3
+        install-module "$2" "$3"
         ;;
     remove-module)
-        remove-module $2 $3
+        remove-module "$2" "$3"
         ;;
     remove-submodule)
-        remove-submodule $2
+        remove-submodule "$2"
         ;;
     git-update-submodules)
         git-update-submodules
         ;;
     release-module)
-        release-module $2
+        release-module "$2"
         ;;
     lint-module)
-        lint-module $2
+        lint-module "$2"
         ;;
     update-readme)
-        update-readme $2
+        update-readme "$2"
         ;;
     zip-module)
-        zip-module $2
+        zip-module "$2"
         ;;
     clear-filestore)
-        clear-filestore $2
+        clear-filestore "$2"
         ;;
     init-odoo-env)
-        init-odoo-env $2
+        init-odoo-env "$2"
         ;;
     list-odoo-env)
         ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
         ;;
     edit-env)
-        edit-env $2
+        edit-env "$2"
         ;;
     disable-mailserver)
-        disable-mailserver $2
+        disable-mailserver "$2"
         ;;
     change-uuid)
-        change-uuid $2
+        change-uuid "$2"
         ;;
     set-admin)
-        set-admin $2
+        set-admin "$2"
         ;;
     switch-branch)
-        switch-branch $2
+        switch-branch "$2"
         ;;
     update-config)
         update-config
@@ -1085,40 +1084,40 @@ case "$1" in
         git-list-submodules
         ;;
     get-module-version)
-        get-module-version $2
+        get-module-version "$2"
         ;;
     git-feature-branch)
-        git-feature-branch $2
+        git-feature-branch "$2"
         ;;
     git-mig-branch)
-        git-mig-branch $2
+        git-mig-branch "$2"
         ;;
     update-snippet)
-        update-snippet $2 $3
+        update-snippet "$2" "$3"
         ;;
     test-jsonrpc)
-        test-jsonrpc $2
+        test-jsonrpc "$2"
         ;;
     install-snippet)
-        install-snippet $2 $3
+        install-snippet "$2" "$3"
         ;;
     lint-snippets)
         lint-snippets
         ;;
     update-app-list)
-        update-app-list $2
+        update-app-list "$2"
         ;;
     init-next-env)
-        init-next-env $2
+        init-next-env "$2"
         ;;
     upload-module)
-        upload-module $2 $3
+        upload-module "$2" "$3"
         ;;
     generate-module-translation)
-        generate-module-translation $2 $3 $4
+        generate-module-translation "$2" "$3" "$4"
         ;;
     patch-database)
-        patch-database $2 $3
+        patch-database "$2" "$3"
         ;;
     git-pull-submodules)
         git-pull-submodules
@@ -1130,7 +1129,7 @@ case "$1" in
         activate-venv
         ;;
     reset-views)
-        reset-views $2 $3
+        reset-views "$2" "$3"
         ;;
     *)
         help task
