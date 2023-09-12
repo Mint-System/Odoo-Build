@@ -25,12 +25,12 @@ export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
 if [[ -a ".env" ]]; then
-    source .env
+    export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
 function set-addons-path() {
     # Read addons path list
-    ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print "$2" }' | tr '\n' ',' |  sed 's/,*$//g')"
+    ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
 
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
@@ -44,10 +44,12 @@ function set-addons-path() {
     done
 
     # Convert to docker paths
-    DOCKER_ADDONS_PATH="$(echo "$ADDONS_PATH" | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
+    DOCKER_ADDONS_PATH="$(echo $ADDONS_PATH | sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
 
     # Replace odoo path
-    ADDONS_PATH="$(echo "$ADDONS_PATH" | sed 's|,odoo,|,odoo/addons,|g')"
+    ADDONS_PATH="$(echo $ADDONS_PATH | sed 's|,odoo,|,odoo/addons,|g')"
+
+    echo $ADDONS_PATH
 }
 
 function update-readme() {
