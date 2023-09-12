@@ -127,7 +127,7 @@ function load-env() {
 
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
-    find ./enterprise -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
+    find . -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
 function install-odoo-scripts() {
@@ -284,7 +284,7 @@ function init-db() {
     activate-venv
     set-addons-path
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin --init base -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo-bin -d "$DATABASE" -i base --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
 
 function odoo-cloc() {
