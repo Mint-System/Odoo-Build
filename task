@@ -48,8 +48,6 @@ function set-addons-path() {
 
     # Replace odoo path
     ADDONS_PATH="$(echo $ADDONS_PATH | sed 's|,odoo,|,odoo/addons,|g')"
-
-    echo $ADDONS_PATH
 }
 
 function update-readme() {
@@ -221,7 +219,6 @@ function start() {
     if [[ "$1" =~ "native" ]]; then
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        echo "$ADDONS_PATH"
         open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
         odoo-bin --config "config/odoo-native.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
