@@ -506,19 +506,19 @@ function switch-branch() {
 }
 
 function checkout-config-files() {
-    echo "Checkout config files from $GIT_BRANCH branch."
+    echo "Checkout config files."
     git checkout "$GIT_BRANCH" config/checkout_files config/reset_files
 
     echo "Remove reset files."
     git rm -r "$(tr '\n' ' ' < ./config/reset_files)" >/dev/null 2>&1
 
-    echo "Sync checkout files from $GIT_BRANCH branch."
+    echo "Sync checkout files."
     git checkout "$GIT_BRANCH" $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then
+    if [ -n "$2"]; then
         GIT_BRANCH="$2"
     fi
 
