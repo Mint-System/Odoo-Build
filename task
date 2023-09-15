@@ -35,6 +35,11 @@ function set-addons-path() {
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
 
+    EXCLUDES="addons/theme_mint_system addons/company addons/web"
+    for EXCLUDE in $EXCLUDES; do
+        ADDONS_PATH=$(echo "$ADDONS_PATH" | sed "s|${EXCLUDE},||g")
+    done
+
     # Check if dir exists
     for ADDON in $ADDONS_PATH; do
         if [ -d "$ADDON" ]; then
@@ -354,6 +359,12 @@ function generate-module-translation() {
     odoo-bin -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
+function list-addons() {
+    activate-venv
+    set-addons-path
+    echo "$ADDONS_PATH"
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -494,9 +505,22 @@ function switch-branch() {
     done
 }
 
+function checkout-config-files() {
+    echo "Checkout config files."
+    git checkout "$GIT_BRANCH" config/checkout_files config/reset_files
+
+    echo "Remove reset files."
+    git rm -r "$(tr '\n' ' ' < ./config/reset_files)" >/dev/null 2>&1
+
+    echo "Sync checkout files."
+    git checkout "$GIT_BRANCH" $(tr '\n' ' ' < ./config/checkout_files)
+}
+
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    : ${GIT_BRANCH:="$2"}
+    if test -z "$2"; then
+        GIT_BRANCH="$2"
+    fi
 
     echo "Switch branch."
     git switch "$1"
@@ -505,12 +529,7 @@ function checkout() {
 
     switch-branch "$1"
 
-    echo "Checkout config files."
-    git checkout "$GIT_BRANCH" -- "config/checkout_files config/reset_files"
-    echo "Remove reset files."
-    git rm -r "$(tr '\n' ' ' < ./config/reset_files)" >/dev/null 2>&1
-    echo "Sync checkout files."
-    git checkout "$GIT_BRANCH" -- "$(tr '\n' ' ' < ./config/checkout_files)"
+    checkout-config-files
 }
 
 function checkout-revision() {
@@ -1060,6 +1079,9 @@ case "$1" in
         ;;
     list-odoo-env)
         ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
+        ;;
+    list-addons)
+        list-addons
         ;;
     edit-env)
         edit-env "$2"

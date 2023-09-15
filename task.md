@@ -34,6 +34,7 @@
 | lint-snippets               |                   | Run checks for all snippets.                                                              |
 | list                        |                   | List docker services.                                                                     |
 | list-odoo-env               |                   | List odoo env files.                                                                      |
+| list-addons                 |                   | List odoo addons.                                                                         |
 | logs                        |                   | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc                   | [db]              | Count custom line of codes. Default is branch name.                                       |
 | patch-database              | [db][path]        | Apply sql file to database. Default database is branch name.                              |
