@@ -226,3 +226,7 @@
 	path = oca/account-reconcile
 	url = git@github.com:OCA/account-reconcile.git
 	branch = 16.0
+[submodule "addons/account_financial_reporting"]
+	path = addons/account_financial_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
+	branch = 16.0

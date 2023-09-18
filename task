@@ -491,12 +491,13 @@ function git-update-submodules() {
     done
 }
 
-function switch-branch() {
+function git-switch-branch() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Switch branch on submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
+        echo "Switch branch to $1 in $SUBMODULE."
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
         git stash
@@ -527,7 +528,7 @@ function checkout() {
 
     git-update-submodules
 
-    switch-branch "$1"
+    git-switch-branch "$1"
 
     checkout-config-files
 }
@@ -1095,8 +1096,8 @@ case "$1" in
     set-admin)
         set-admin "$2"
         ;;
-    switch-branch)
-        switch-branch "$2"
+    git-switch-branch)
+        git-switch-branch "$2"
         ;;
     update-config)
         update-config
