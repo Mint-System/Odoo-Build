@@ -281,6 +281,23 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.address_block.xml)
 
+### Add Vat  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_vat`  
+```xml
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//div[@name='comment']" position="before">
+
+    <p>MwSt.-Nr.: 
+      <span t-field="o.company_id.vat"/>
+    </p>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml)
+
 ### Extend Title  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`  
 ```xml

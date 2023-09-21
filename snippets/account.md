@@ -295,6 +295,34 @@ ID: `mint_system.account.report_invoice_document.add_salesperson`
 ```
 Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.add_salesperson.xml)
 
+### Add Taxes  
+ID: `mint_system.account.report_invoice_document.add_taxes`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+    .mb-4 {
+          margin-bottom: 0rem !important;
+          }
+    #total {
+          margin-bottom: 2rem;
+          }
+    h2 {
+       		font-size: 1.5rem;
+      		}
+		</style>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.add_taxes.xml)
+
 ### Align Taxes  
 ID: `mint_system.account.report_invoice_document.align_taxes`  
 ```xml
@@ -2311,6 +2339,48 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
+
+### Style Moser  
+ID: `mint_system.account.report_invoice_document.style_moser`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: arial;
+     	}
+		.o_company_1_layout.o_report_layout_standard h2 {
+        	color: black;
+       		font-size: 1.4rem;
+			    font-weight: bold;
+     	}
+     	.o_company_1_layout.o_report_layout_standard #total strong {
+        	color: black;
+     	}
+     	div#informations {
+     	 	margin-top: 30px;
+     	 	margin-bottom: 60px;
+     	}
+     	h2.mt-4 {
+     	 	margin-top: 70px !important;
+     	}
+     	th#tax_amount {
+     	 	text-align: right;
+     	}
+     	td#tax_amount {
+     	 	text-align: right;
+     	}
+		</style>
+	</xpath>
+	
+	<xpath expr="//table[@name='invoice_line_table']" position="attributes">
+		<attribute name="class">table table-sm o_main_table mt-4</attribute>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_moser.xml)
 
 ### Style Tissa  
 ID: `mint_system.account.report_invoice_document.style_tissa`  
@@ -2948,6 +3018,34 @@ ID: `mint_system.account.report_invoice_document.add_salesperson`
 ```
 Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.add_salesperson.xml)
 
+### Add Taxes  
+ID: `mint_system.account.report_invoice_document.add_taxes`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+    .mb-4 {
+          margin-bottom: 0rem !important;
+          }
+    #total {
+          margin-bottom: 2rem;
+          }
+    h2 {
+       		font-size: 1.5rem;
+      		}
+		</style>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.add_taxes.xml)
+
 ### Align Taxes  
 ID: `mint_system.account.report_invoice_document.align_taxes`  
 ```xml
@@ -4964,6 +5062,48 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_carbo_link.xml)
+
+### Style Moser  
+ID: `mint_system.account.report_invoice_document.style_moser`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: arial;
+     	}
+		.o_company_1_layout.o_report_layout_standard h2 {
+        	color: black;
+       		font-size: 1.4rem;
+			    font-weight: bold;
+     	}
+     	.o_company_1_layout.o_report_layout_standard #total strong {
+        	color: black;
+     	}
+     	div#informations {
+     	 	margin-top: 30px;
+     	 	margin-bottom: 60px;
+     	}
+     	h2.mt-4 {
+     	 	margin-top: 70px !important;
+     	}
+     	th#tax_amount {
+     	 	text-align: right;
+     	}
+     	td#tax_amount {
+     	 	text-align: right;
+     	}
+		</style>
+	</xpath>
+	
+	<xpath expr="//table[@name='invoice_line_table']" position="attributes">
+		<attribute name="class">table table-sm o_main_table mt-4</attribute>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_moser.xml)
 
 ### Style Tissa  
 ID: `mint_system.account.report_invoice_document.style_tissa`  

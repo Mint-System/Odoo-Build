@@ -244,6 +244,20 @@ ID: `mint_system.purchase.purchase_order_form.x_drawing_file`
 ```
 Source: [snippets/purchase.purchase_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_drawing_file.xml)
 
+### X Payment State  
+ID: `mint_system.purchase.purchase_order_form.x_payment_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//field[@name='picking_type_id']" position="after">
+    <field name="x_payment_state"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_payment_state.xml)
+
 ## Purchase Order Kpis Tree  
 ### Add Comment  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`  
@@ -422,6 +436,20 @@ ID: `mint_system.purchase.purchase_order_view_tree.add_mail_reception_confirmed`
 </data>
 ```
 Source: [snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml)
+
+### X Payment Tree  
+ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+
+    <xpath expr="//field[@name='invoice_status']" position="before">
+        <field name="x_payment_state" decoration-success="x_payment_state=='paid'" decoration-danger="x_payment_state=='not_paid'" decoration-warning="x_payment_state=='in_payment'" widget="badge"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_view_tree.x_payment_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_view_tree.x_payment_tree.xml)
 
 ## Report Purchaseorder Document  
 ### Add Agreement  
