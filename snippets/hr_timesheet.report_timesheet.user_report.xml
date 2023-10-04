@@ -6,9 +6,9 @@
     <t t-set="min_date" t-value="min(docs.mapped('date'))" />
     <t t-set="max_date" t-value="max(docs.mapped('date'))" />
     <t t-set="default_project" t-value="docs.filtered(lambda d: d.project_id.partner_id)[:1].project_id" />
-    <h3>Arbeitsrapport <t t-if="len(docs.mapped('project_id')) >= 2"> für das Projekt "<t
-          t-esc="default_project.name" />" </t>
-    </h3>
+    
+    <h3>Arbeitsrapport für das Projekt "<t t-esc="default_project.name" />"</h3>
+    
     <p>Zeitraum: <t t-esc="min_date" t-options="{'widget': 'date'}" /> bis <t t-esc="max_date"
         t-options="{'widget': 'date'}" />
     </p>
