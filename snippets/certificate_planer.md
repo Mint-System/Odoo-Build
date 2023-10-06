@@ -15,3 +15,22 @@ ID: `mint_system.certificate_planer.document_form.hide_view_report_button`
 ```
 Source: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/certificate_planer.document_form.hide_view_report_button.xml)
 
+## Mcr Report View  
+### Hide Mcr Planning Columns  
+ID: `mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="certificate_planer.mcr_report_view" priority="50">
+
+  <xpath expr="//table[@name='mcr_planning']//th[2]" position="replace" />
+  <xpath expr="//table[@name='mcr_planning']//th[3]" position="replace" />
+
+
+  <xpath expr="//table[@name='mcr_planning']//td[2]" position="replace" />
+  <xpath expr="//table[@name='mcr_planning']//td[3]" position="replace" />
+
+</data>
+
+```
+Source: [snippets/certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml)
+

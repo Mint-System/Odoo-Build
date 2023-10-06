@@ -825,6 +825,27 @@ ID: `mint_system.sale.report_saleorder_document.add_blanket_order_line`
 ```
 Source: [snippets/sale.report_saleorder_document.add_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_blanket_order_line.xml)
 
+### Add Commitment Date  
+ID: `mint_system.sale.report_saleorder_document.add_commitment_date`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//th[@name='th_description']" position="after">
+    <th id="commitment_date">
+      <span>Geplantes Datum ETD</span>
+    </th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_name']" position="after">
+    <td id="commitment_datet">
+      <span t-out="line.commitment_date"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_commitment_date.xml)
+
 ### Add Default Code  
 ID: `mint_system.sale.report_saleorder_document.add_default_code`  
 ```xml
@@ -3154,6 +3175,20 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`
 ```
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml)
 
+### Show Is Downpayment  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50" >
+
+    <field name="product_id" position="after">
+        <field name="is_downpayment"/>
+    </field>
+
+</data>
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)
+
 ### Show Project Id  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`  
 ```xml
@@ -3671,6 +3706,21 @@ ID: `mint_system.sale.view_order_form.modify_readonly_date_order`
 ```
 Source: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.modify_readonly_date_order.xml)
 
+### Move Client Order Ref  
+ID: `mint_system.sale.view_order_form.move_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='partner_shipping_id']" position="after">
+    <field string="Bestellnummer Kunde" name="client_order_ref"/>
+  </xpath>
+  
+  <xpath expr="//group[@name='sales_person']/field[@name='client_order_ref']" position="replace"/>
+</data>
+```
+Source: [snippets/sale.view_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_client_order_ref.xml)
+
 ### Move Comment  
 ID: `mint_system.sale.view_order_form.move_comment`  
 ```xml
@@ -3684,6 +3734,27 @@ ID: `mint_system.sale.view_order_form.move_comment`
 </data>
 ```
 Source: [snippets/sale.view_order_form.move_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_comment.xml)
+
+### Move Commitment Date  
+ID: `mint_system.sale.view_order_form.move_commitment_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='date_order']" position="after">
+    <label for="commitment_date" string="Delivery Date"/>
+    <div name="commitment_date_div" class="o_row">
+      <field name="commitment_date"/>
+      <span name="expected_date_span" class="text-muted">Expected: <field name="expected_date" class="oe_inline" widget="date"/>
+      </span>
+    </div>
+  </xpath>
+
+  <xpath expr="//group/group[@name='sale_shipping']" position="replace"/>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_commitment_date.xml)
 
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
@@ -3765,6 +3836,21 @@ ID: `mint_system.sale.view_order_form.set_groups_date_order`
 
 ```
 Source: [snippets/sale.view_order_form.set_groups_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.set_groups_date_order.xml)
+
+### Set Limit Order Line  
+ID: `mint_system.sale.view_order_form.set_limit_order_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree" position="attributes">
+      <attribute name="limit">100</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_form.set_limit_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.set_limit_order_line.xml)
 
 ### Show Carrier Method  
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
@@ -4408,6 +4494,21 @@ ID: `mint_system.sale.view_order_tree.format_delivery_status`
 ```
 Source: [snippets/sale.view_order_tree.format_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.format_delivery_status.xml)
 
+### Show Client Order Ref  
+ID: `mint_system.sale.view_order_tree.show_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <field name="partner_id" position="after">
+    <field name="client_order_ref"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.show_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.show_client_order_ref.xml)
+
 ### Show Partner Shipping  
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
 ```xml
@@ -4466,6 +4567,20 @@ ID: `mint_system.sale.view_order_tree.x_product_uom_qty`
 
 ```
 Source: [snippets/sale.view_order_tree.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.x_product_uom_qty.xml)
+
+### X Vst  
+ID: `mint_system.sale.view_order_tree.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <field name="partner_id" position="after">
+    <field name="x_vst"/>
+  </field>
+
+</data>
+```
+Source: [snippets/sale.view_order_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_tree.x_vst.xml)
 
 ## View Quotation Tree  
 ### Add Client Order Ref  
@@ -4564,6 +4679,21 @@ ID: `mint_system.sale.view_quotation_tree.x_payment_state`
 Source: [snippets/sale.view_quotation_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_quotation_tree.x_payment_state.xml)
 
 ## View Sales Order Filter  
+### Add Filter Collective Invoice  
+ID: `mint_system.sale.view_sales_order_filter.add_filter_collective_invoice`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_sales_order_filter" priority="50">
+
+  <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+    <filter string="Kunden mit Sammelrechnung" name="customer_collective_invoice" domain="[('partner_id.category_id.name', 'in', ['Sammelrechnung'])]"/>
+    <filter string="Kunden ohne Sammelrechnung" name="customer_collective_invoice" domain="[('partner_id.category_id.name', 'not in', ['Sammelrechnung'])]"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml)
+
 ### Add Invoice Status  
 ID: `mint_system.sale.view_sales_order_filter.add_invoice_status`  
 ```xml

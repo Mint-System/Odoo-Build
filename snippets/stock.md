@@ -7290,6 +7290,36 @@ ID: `mint_system.stock.vpicktree.default_order_name`
 ```
 Source: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.default_order_name.xml)
 
+### Format Date Deadline  
+ID: `mint_system.stock.vpicktree.format_date_deadline`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+
+  <xpath expr="//field[@name='date_deadline']" position="attributes">
+    <attribute name="widget">date</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.vpicktree.format_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.format_date_deadline.xml)
+
+### Format Scheduled Date  
+ID: `mint_system.stock.vpicktree.format_scheduled_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+
+  <xpath expr="//field[@name='scheduled_date']" position="attributes">
+    <attribute name="widget">date</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.vpicktree.format_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.format_scheduled_date.xml)
+
 ### Show Delivery Note  
 ID: `mint_system.stock.vpicktree.show_delivery_note`  
 ```xml

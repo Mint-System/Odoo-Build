@@ -1633,6 +1633,34 @@ ID: `mint_system.ir_model.purchase_order.x_payment_state`
 ```
 Source: [snippets/ir_model.purchase_order.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.purchase_order.x_payment_state.xml)
 
+### X Recurring Inverval  
+ID: `mint_system.ir_model.purchase_order.x_recurring_inverval`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_recurring_inverval" model="ir.model.fields">
+    <field name="field_description">Vertragsintervall</field>
+    <field name="model">purchase.order</field>
+    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="name">x_recurring_inverval</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">selection</field>
+    <field name="selection_id">[
+      {'value':'daily','name':'Daily'},
+      {'value':'monthly','name':'Monthly'},
+      {'value':'quarterly','name':'Quarterly'},
+      {'value':'yearly','name':'Yearly'}
+    ]</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.purchase_order.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.purchase_order.x_recurring_inverval.xml)
+
 ## Quality Check  
 ### X Active  
 ID: `mint_system.ir_model.quality_check.x_active`  

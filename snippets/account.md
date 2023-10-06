@@ -5644,6 +5644,20 @@ ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
 ```
 Source: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_in_invoice_tree.add_discount_date.xml)
 
+### Format Invoice Date Due  
+ID: `mint_system.account.view_in_invoice_tree.format_invoice_date_due`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_in_invoice_tree" priority="50">
+
+    <xpath expr="//field[@name='invoice_date_due']" position="attributes">
+        <attribute name="widget">date</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_in_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_in_invoice_tree.format_invoice_date_due.xml)
+
 ## View Invoice Tree  
 ### Add Currency Id  
 ID: `mint_system.account.view_invoice_tree.add_currency_id`  
@@ -5658,6 +5672,20 @@ ID: `mint_system.account.view_invoice_tree.add_currency_id`
 </data>
 ```
 Source: [snippets/account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_invoice_tree.add_currency_id.xml)
+
+### Format Ref  
+ID: `mint_system.account.view_invoice_tree.format_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_invoice_tree" priority="50">
+
+    <xpath expr="//field[@name='ref']" position="attributes">
+        <attribute name="string">Bestellnummer Kunde</attribute>        
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_invoice_tree.format_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_invoice_tree.format_ref.xml)
 
 ### Show Date  
 ID: `mint_system.account.view_invoice_tree.show_date`  
@@ -5730,6 +5758,20 @@ ID: `mint_system.account.view_move_form.edit_invoice_date`
 ```
 Source: [snippets/account.view_move_form.edit_invoice_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.edit_invoice_date.xml)
 
+### Format Partner Bank Id  
+ID: `mint_system.account.view_move_form.format_partner_bank_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+
+    <xpath expr="//group[@name='sale_info_group']/field[@name='partner_bank_id']" position="attributes">
+        <attribute name="readonly">1</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.format_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.format_partner_bank_id.xml)
+
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
@@ -5761,6 +5803,39 @@ ID: `mint_system.account.view_move_form.hide_send_button_on_refund`
 </data>
 ```
 Source: [snippets/account.view_move_form.hide_send_button_on_refund.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.hide_send_button_on_refund.xml)
+
+### Move Ref  
+ID: `mint_system.account.view_move_form.move_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+
+    <xpath expr="//field[@name='partner_shipping_id']" position="after">
+        <field string="Bestellnummer Kunde" name="ref"/>
+    </xpath>
+
+    <xpath expr="//group[@name='sale_info_group']/label[1]" position="replace"/>
+    <xpath expr="//group[@name='sale_info_group']/field[@name='ref']" position="replace"/>
+
+</data>
+```
+Source: [snippets/account.view_move_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.move_ref.xml)
+
+### Move To Check  
+ID: `mint_system.account.view_move_form.move_to_check`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//field[@name='to_check']" position="replace" />
+
+    <xpath expr="//field[@name='ref']" position="after">
+        <field name="to_check" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.move_to_check.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.move_to_check.xml)
 
 ### Payment Reference Readonly  
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
@@ -6079,6 +6154,20 @@ ID: `mint_system.account.view_move_tree.x_account_codes`
 Source: [snippets/account.view_move_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_tree.x_account_codes.xml)
 
 ## View Out Invoice Tree  
+### Format Invoice Date Due  
+ID: `mint_system.account.view_out_invoice_tree.format_invoice_date_due`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_out_invoice_tree" priority="50">
+
+  <xpath expr="//field[@name='invoice_date_due']" position="attributes">
+    <attribute name="widget">date</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.view_out_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_out_invoice_tree.format_invoice_date_due.xml)
+
 ### Show Partner Shipping  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
 ```xml

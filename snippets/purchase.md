@@ -258,6 +258,20 @@ ID: `mint_system.purchase.purchase_order_form.x_payment_state`
 ```
 Source: [snippets/purchase.purchase_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_payment_state.xml)
 
+### X Recurring Inverval  
+ID: `mint_system.purchase.purchase_order_form.x_recurring_inverval`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50" >
+
+    <field name="order_type" position="after">
+        <field name="x_recurring_inverval" />
+    </field>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_recurring_inverval.xml)
+
 ## Purchase Order Kpis Tree  
 ### Add Comment  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`  
@@ -436,6 +450,23 @@ ID: `mint_system.purchase.purchase_order_view_tree.add_mail_reception_confirmed`
 </data>
 ```
 Source: [snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml)
+
+### Format State  
+ID: `mint_system.purchase.purchase_order_view_tree.format_state`  
+```xml
+<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+
+    <xpath expr="//field[@name='state']" position="attributes">
+        <attribute name="invisible">0</attribute>
+        <attribute name="widget">badge</attribute>
+        <attribute name="decoration-success">state == 'purchase' or state == 'done'</attribute>
+        <attribute name="decoration-warning">state == 'to approve'</attribute>
+        <attribute name="decoration-info">state == 'draft' or state == 'sent'</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_view_tree.format_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_view_tree.format_state.xml)
 
 ### X Payment Tree  
 ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`  
@@ -1479,6 +1510,19 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.style_carbo_link.xml)
+
+### Style Gelso  
+ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="style" separator=" " add="width: 250px"/>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.report_purchaseorder_document.style_gelso.xml)
 
 ### Style Moser  
 ID: `mint_system.purchase.report_purchaseorder_document.style_moser`  
