@@ -305,15 +305,16 @@ function lint-module() {
     find "$1" -type d -exec chmod u=rwx,go=rx {} \;
     find "$1" -type f -exec chmod u=rw,go=r {} \;
 
-    echo "Run pre-commit in $1"
-    cd "$1" || exit
-    pre-commit run --files ./*
-
     echo "Update index.html"
+    cd "$1" || exit
     rst2html5 README.rst static/description/index.html
 
     echo "Stage changes"
     git add .
+
+    echo "Run pre-commit in $1"
+    cd .. || exit
+    pre-commit
 }
 
 function update-module() {
