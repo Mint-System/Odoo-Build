@@ -2,7 +2,7 @@
 <data inherit_id="base.view_partner_tree" priority="50">
 
   <field name="category_id" position="after">
-    <field name="property_payment_term_id" optional="hide"/>
+    <field name="property_payment_term_id" optional="show"/>
   </field>
 
 </data>
