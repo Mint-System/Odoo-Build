@@ -312,9 +312,9 @@ function lint-module() {
     echo "Stage changes"
     git add .
 
-    echo "Run pre-commit in $1"
     cd .. || exit
-    pre-commit
+    echo "Run pre-commit in $PWD"
+    pre-commit run --all-files
 }
 
 function update-module() {
