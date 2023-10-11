@@ -7058,6 +7058,20 @@ ID: `mint_system.stock.view_picking_form.x_autocomplete`
 ```
 Source: [snippets/stock.view_picking_form.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_autocomplete.xml)
 
+### X Client Order Ref  
+ID: `mint_system.stock.view_picking_form.x_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="x_client_order_ref"/>
+  </field>
+
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_client_order_ref.xml)
+
 ### X Count Boxes  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
 ```xml
@@ -7347,4 +7361,16 @@ ID: `mint_system.stock.vpicktree.weight_sum`
 
 ```
 Source: [snippets/stock.vpicktree.weight_sum.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.weight_sum.xml)
+
+### X Client Order Ref  
+ID: `mint_system.stock.vpicktree.x_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='origin']" position="after">
+    <field name="client_order_ref" optional="show"/>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.vpicktree.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.x_client_order_ref.xml)
 

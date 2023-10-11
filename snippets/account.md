@@ -492,6 +492,20 @@ ID: `mint_system.account.report_invoice_document.display_shipping_address`
 ```
 Source: [snippets/account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.display_shipping_address.xml)
 
+### Force Company Vat  
+ID: `mint_system.account.report_invoice_document.force_company_vat`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <t t-set="forced_vat" position="replace">
+    <t t-set="forced_vat" t-value="o.company_id.vat"/>
+  </t>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.force_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.force_company_vat.xml)
+
 ### Format Address Blocks  
 ID: `mint_system.account.report_invoice_document.format_address_blocks`  
 ```xml
@@ -1690,19 +1704,28 @@ ID: `mint_system.account.report_invoice_document.replace_product_description`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-<xpath expr="//td[@name='account_invoice_line_name']" position="replace">
-  <t t-if="line.product_id.type_description">
-	<td>
-		<span style="font-weight: bold" t-field="line.product_id.type_description"/>
-	</td>
-  </t>
-  <t t-if="not line.product_id.type_description">
-	<td>
-    <span t-field="line.external_name"/>
-	</td>
-  </t>
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+    <t t-if="line.product_id.type_description">
+      <td>
+        <span style="font-weight: bold" t-field="line.product_id.type_description"/>
+      </td>
+    </t>
+    <t t-if="not line.product_id.type_description">
+      <td>
+        <span t-field="line.external_name"/>
+      </td>
+    </t>
 
-</xpath>
+    <!---
+    <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+      <td name="td_name">
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>  
+      </td>
+    </xpath>
+    -->
+
+  </xpath>
 
 </data>
 ```
@@ -3215,6 +3238,20 @@ ID: `mint_system.account.report_invoice_document.display_shipping_address`
 ```
 Source: [snippets/account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.display_shipping_address.xml)
 
+### Force Company Vat  
+ID: `mint_system.account.report_invoice_document.force_company_vat`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <t t-set="forced_vat" position="replace">
+    <t t-set="forced_vat" t-value="o.company_id.vat"/>
+  </t>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.force_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.force_company_vat.xml)
+
 ### Format Address Blocks  
 ID: `mint_system.account.report_invoice_document.format_address_blocks`  
 ```xml
@@ -4413,19 +4450,28 @@ ID: `mint_system.account.report_invoice_document.replace_product_description`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-<xpath expr="//td[@name='account_invoice_line_name']" position="replace">
-  <t t-if="line.product_id.type_description">
-	<td>
-		<span style="font-weight: bold" t-field="line.product_id.type_description"/>
-	</td>
-  </t>
-  <t t-if="not line.product_id.type_description">
-	<td>
-    <span t-field="line.external_name"/>
-	</td>
-  </t>
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+    <t t-if="line.product_id.type_description">
+      <td>
+        <span style="font-weight: bold" t-field="line.product_id.type_description"/>
+      </td>
+    </t>
+    <t t-if="not line.product_id.type_description">
+      <td>
+        <span t-field="line.external_name"/>
+      </td>
+    </t>
 
-</xpath>
+    <!---
+    <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+      <td name="td_name">
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>  
+      </td>
+    </xpath>
+    -->
+
+  </xpath>
 
 </data>
 ```
@@ -5468,6 +5514,21 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
 
 ```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
+
+## View Account List  
+### Show Deprecated  
+ID: `mint_system.account.view_account_list.show_deprecated`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_list" priority="50">
+
+    <xpath expr="//field[@name='reconcile']" position="after">
+        <field name="deprecated"  widget="boolean_toggle" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_account_list.show_deprecated.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_account_list.show_deprecated.xml)
 
 ## View Account Move Filter  
 ### X Account Codes  

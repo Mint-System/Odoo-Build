@@ -3713,10 +3713,11 @@ ID: `mint_system.sale.view_order_form.move_client_order_ref`
 <data inherit_id="sale.view_order_form" priority="50">
 
   <xpath expr="//field[@name='partner_shipping_id']" position="after">
-    <field string="Bestellnummer Kunde" name="client_order_ref"/>
+    <field name="client_order_ref"/>
   </xpath>
   
   <xpath expr="//group[@name='sales_person']/field[@name='client_order_ref']" position="replace"/>
+  
 </data>
 ```
 Source: [snippets/sale.view_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_client_order_ref.xml)

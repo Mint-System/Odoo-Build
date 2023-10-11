@@ -108,3 +108,28 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information`
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)
 
+### Style Moser  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`  
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="60">
+
+	<xpath expr="//div[hasclass('swissqr_page_title')]" position="before">
+	  
+		<style>
+      .swissqr_receipt {
+      border-top-style: none !important;
+      }
+      .swissqr_body {
+      border-top-style: none !important;
+      border-left-style: none !important;
+      }
+    </style>
+  </xpath>
+    
+  <xpath expr="//img[@class='scissors vertical_scissors']" position="replace"/>
+  <xpath expr="//img[@class='scissors horizontal_scissors']" position="replace"/>
+
+</data>
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
+

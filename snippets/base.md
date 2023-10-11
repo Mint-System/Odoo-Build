@@ -304,6 +304,26 @@ ID: `mint_system.base.view_partner_form.move_company_registry`
 ```
 Source: [snippets/base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_company_registry.xml)
 
+### Move Property Product Pricelist  
+ID: `mint_system.base.view_partner_form.move_property_product_pricelist`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='property_product_pricelist']" position="replace" />
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="property_product_pricelist" groups="product.group_product_pricelist" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"/>
+    <div name="parent_pricelists" groups="product.group_product_pricelist" colspan="2" attrs="{'invisible': ['|',('is_company','=',True),('parent_id','=',False)]}">
+      <p>Preislisten werden auf dem Unternehmen verwaltet.</p>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_property_product_pricelist.xml)
+
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
@@ -631,6 +651,21 @@ ID: `mint_system.base.view_partner_tree.show_industry`
 
 ```
 Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_industry.xml)
+
+### Show Property Payment Term Id  
+ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="category_id" position="after">
+    <field name="property_payment_term_id" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_payment_term_id.xml)
 
 ### Show Property Product Pricelist  
 ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`  

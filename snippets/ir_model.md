@@ -2838,6 +2838,28 @@ ID: `mint_system.ir_model.stock_picking.x_autocomplete`
 ```
 Source: [snippets/ir_model.stock_picking.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_picking.x_autocomplete.xml)
 
+### X Client Order Ref  
+ID: `mint_system.ir_model.stock_picking.x_client_order_ref`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_client_order_ref" model="ir.model.fields">
+    <field name="field_description">Bestellnummer Kunde</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_client_order_ref</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field> 
+    <field name="related">sale_id.client_order_ref</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_picking.x_client_order_ref.xml)
+
 ## Stock Production Lot  
 ### X Autoremove  
 ID: `mint_system.ir_model.stock_production_lot.x_autoremove`  
