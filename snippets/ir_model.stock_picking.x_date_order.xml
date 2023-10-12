@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_date_order" model="ir.model.fields">
+    <field name="field_description">Bestelldatum</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_date_order</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field> 
+    <field name="related">sale_id.date_order</field>
+  </record>
+
+</odoo>

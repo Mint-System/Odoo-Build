@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">  
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <t t-if="o.note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note"/>
+    </t>
+  </xpath>
+
+</data>
