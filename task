@@ -24,7 +24,7 @@ export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
-if [[ -a ".env" ]]; then
+if [[ "$(cat .env | sed 's/#.*//g')" ]]; then
     export $(cat .env | sed 's/#.*//g' | xargs)
 fi
 
