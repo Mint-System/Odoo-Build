@@ -682,6 +682,21 @@ ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`
 ```
 Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
 
+### Show Street  
+ID: `mint_system.base.view_partner_tree.show_street`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="city" position="before">
+    <field name="street" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_street.xml)
+
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  
 ```xml

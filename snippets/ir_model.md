@@ -2860,6 +2860,50 @@ ID: `mint_system.ir_model.stock_picking.x_client_order_ref`
 ```
 Source: [snippets/ir_model.stock_picking.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_picking.x_client_order_ref.xml)
 
+### X Date Order  
+ID: `mint_system.ir_model.stock_picking.x_date_order`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_date_order" model="ir.model.fields">
+    <field name="field_description">Bestelldatum</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_date_order</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field> 
+    <field name="related">sale_id.date_order</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_picking.x_date_order.xml)
+
+### X Vst  
+ID: `mint_system.ir_model.stock_picking.x_vst`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_vst" model="ir.model.fields">
+    <field name="field_description">VST</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_vst</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field> 
+    <field name="related">sale_id.x_vst</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_picking.x_vst.xml)
+
 ## Stock Production Lot  
 ### X Autoremove  
 ID: `mint_system.ir_model.stock_production_lot.x_autoremove`  

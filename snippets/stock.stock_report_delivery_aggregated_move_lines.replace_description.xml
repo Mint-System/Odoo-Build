@@ -9,3 +9,18 @@
   </xpath>
 
 </data>
+
+<!--
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
+
+  <xpath expr="//td[1]/span" position="replace">
+    <span style="font-weight: bold" t-esc="aggregated_lines[line]['product']['name']"/>
+    <br/>
+      Product Code: <span t-esc="aggregated_lines[line]['product']['default_code']"/>
+  <br/>
+  <t t-if="aggregated_lines[line]['hs_code']">HS-Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
+  </t>
+</xpath>
+
+</data>
+-->

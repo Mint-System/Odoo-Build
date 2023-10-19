@@ -5988,6 +5988,20 @@ ID: `mint_system.account.view_move_form.show_line_partner_id`
 ```
 Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_line_partner_id.xml)
 
+### Show Payment Ids  
+ID: `mint_system.account.view_move_form.show_payment_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="journal_id" position="after">
+        <field name="payment_ids" />
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_payment_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.show_payment_ids.xml)
+
 ### Show Payment State  
 ID: `mint_system.account.view_move_form.show_payment_state`  
 ```xml

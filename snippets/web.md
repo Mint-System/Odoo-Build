@@ -433,11 +433,11 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
       <div align="right" style="color:black; font-size:9pt">
          Page: <span class="page"/>
- /        <span class="topage"/>
-      </div>
+ /      <span class="topage"/>
     </div>
+  </div>
 
-    <!--
+  <!--
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
       <div align="right">
          Seite: <span class="page"/>
@@ -445,10 +445,85 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
       </div>
     </div>
     -->
-    
+
 </xpath>
 
 </data>
+
+<!--
+<data inherit_id="web.external_layout_standard" priority="50">
+
+<xpath expr="/t/div[3]" position="replace">
+
+  <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+
+    <style>
+        
+       .footer_table {
+            width: 80%;
+            font-size: 9pt;
+            white-space: nowrap;
+            margin: 0 auto;
+            }
+        .footer_table span {
+            margin-right: 0px;
+            }
+       .footer_table th {
+            font-weight: bold;
+            }
+    </style>
+
+    <table class="footer_table" style="width: 85%;">
+      <tr>
+        <td>
+          <span style="font-weight: bold" t-field="company.partner_id"/>
+        </td>
+        <td>
+          <span t-field="company.street"/>,
+        </td>
+        <td>
+          <span t-field="company.zip"/>
+        </td>
+        <td>
+          <span t-field="company.city"/>
+        </td>
+        <th>Bank: </th>
+        <td>
+          <span t-field="company.partner_id.bank_ids.bank_name"/>
+        </td>
+        <th>Account Owner:</th>
+        <td>
+          <span t-field="company.partner_id.bank_ids.partner_id"/>
+        </td>
+      </tr>
+    </table>
+    <table class="footer_table" style="width: 90%;">
+      <tr>
+        <th>BIC:</th>
+        <td>
+          <span t-field="company.partner_id.bank_ids.bank_id.bic"/>
+        </td>
+        <th>IBAN:</th>
+        <td>
+              CH48 0900 0000 1537 2934 4
+        </td>
+        <th>VAT no.:</th>
+        <td>
+          <span t-field="company.company_registry"/>
+        </td>
+        <th>VAT identification number:</th>
+        <td>
+              DE355924262
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+</xpath>
+
+</data>
+-->
 ```
 Source: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.replace_footer.xml)
 
@@ -560,6 +635,20 @@ ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`
 
 ```
 Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.show_sale_order_in_footer.xml)
+
+### Style Header  
+ID: `mint_system.web.external_layout_standard.style_header`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[@class='col-12'][1]/div[1]" position="attributes">
+  	<attribute name="style">border-bottom: 0px ;</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.style_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/web.external_layout_standard.style_header.xml)
 
 ### Tissa Layout  
 ID: `mint_system.web.external_layout_standard.tissa_layout`  

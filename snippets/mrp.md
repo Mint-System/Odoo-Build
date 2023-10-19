@@ -184,7 +184,7 @@ ID: `mint_system.mrp.label_production_view_pdf.basis57`
                                     <span class="use-font-opensans-medium default">Verpackt am: </span>
                                     <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
                                     <br />
-                                    <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                    <span class="use-font-opensans-medium default">Mindestens haltbar bis: </span>
                                     <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
                                     <br />
                                     <span class="use-font-opensans-medium default">

@@ -62,8 +62,6 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
             <t t-foreach="picking.move_lines.filtered(lambda m: m.quantity_done > 0 and m.product_packaging)" t-as="move">
 
                 <!--Set default values-->
-                <t t-set="count_boxes" t-value="0" />
-                <t t-set="count_labels" t-value="0" />
                 <t t-set="temperature" t-value="2" />
                 <t t-set="today" t-value="context_timestamp(datetime.datetime.now())" />
                 <t t-set="packaging" t-value="move.product_packaging" />
@@ -87,6 +85,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                 <t t-set="move_lines" t-value="move.move_line_ids.filtered(lambda l: l.qty_done > 0)" />
                 <t t-foreach="move_lines" t-as="move_line">
                   
+                    <!--Set default values-->
+                    <t t-set="count_boxes" t-value="0" />
+                    <t t-set="count_labels" t-value="0" />
                     <t t-set="count_labels" t-value="move_line.qty_done/(packaging.qty or 1.0)" />
                 
                     <t t-if="packaging.name == 'Kiste'">
@@ -95,6 +96,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     
                     <!--Compute box count-->
                     <t t-if="count_boxes == 0">
+                        <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
+                        <!--<span>quantity_done:</span><span t-esc="move.quantity_done" />-->
+                        <!--<span>x_count_boxes:</span><span t-esc="move.x_count_boxes" />-->
                         <t t-set="count_boxes" t-value="int(((move_line.qty_done + 0.1) / move.quantity_done) * move.x_count_boxes)" />
                     </t>
                     <t t-if="packaging.x_print_without_parent" t-set="count_boxes" t-value="0" />
@@ -102,12 +106,8 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                     <t t-if="packaging.x_print_parent_only" t-set="count_pages" t-value="int(count_boxes)" />
 
                     <!--<span>count_boxes:</span><span t-esc="count_boxes" />-->
-                    <!--<span>qty_done:</span><span t-esc="move_line.qty_done" />-->
-                    <!--<span>quantity_done:</span><span t-esc="move.quantity_done" />-->
-                    <!--<span>x_count_boxes:</span><span t-esc="move.x_count_boxes" />-->
                     <!--<span>count_labels:</span><span t-esc="count_labels" />-->
                     <!--<span>count_pages:</span><span t-esc="count_pages" />-->
-                    <!--<br/>-->
 
                     <!--Print report for each label and box count-->
                     <t t-foreach="range(0, count_pages)" t-as="page">
@@ -191,8 +191,8 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                             <br />
                                             <span class="use-font-opensans-bold box address" t-field="picking.partner_id.name" />
                                             <br />
-                                            <span class="use-font-opensans-bold box address address-space-right" t-field="picking.partner_id.zip" />
-                                            <span class="use-font-opensans-bold box address" t-field="picking.partner_id.city" />
+                                            <!--<span class="use-font-opensans-bold box address address-space-right" t-field="picking.partner_id.zip" />-->
+                                            <!--<span class="use-font-opensans-bold box address" t-field="picking.partner_id.city" />-->
                                             <br />
                                             <br />
                                         </t>
@@ -211,7 +211,7 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                     <span class="use-font-opensans-medium default">Verpackt am: </span>
                                     <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
                                     <br />
-                                    <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                    <span class="use-font-opensans-medium default">Mindestens haltbar bis: </span>
                                     <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
                                     <br />
                                     <span class="use-font-opensans-medium default">
@@ -1397,6 +1397,22 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
 ```
 Source: [snippets/stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_infotable.xml)
 
+### Add Note  
+ID: `mint_system.stock.report_delivery_document.add_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">  
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <t t-if="o.note != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.add_note.xml)
+
 ### Add Open Quantity In Backorder  
 ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`  
 ```xml
@@ -1591,12 +1607,26 @@ ID: `mint_system.stock.report_delivery_document.format_address_blocks`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-<xpath expr="//t[@t-set='address']/div" position="attributes">
+  <xpath expr="//t[@t-set='address']/div" position="attributes">
     <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
     <attribute name="t-options-fields">['address', 'name']</attribute>
   </xpath>
 
 </data>
+
+<!--
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//div[@name='div_outgoing_address']" position="attributes">
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+  
+  <xpath expr="//div[@t-field='partner.commercial_partner_id']" position="attributes">
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+ 
+</data>
+-->
 
 ```
 Source: [snippets/stock.report_delivery_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.format_address_blocks.xml)
@@ -3063,6 +3093,33 @@ ID: `mint_system.stock.report_delivery_document.style_carbo_link`
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.style_carbo_link.xml)
+
+### Style Swissfragrance  
+ID: `mint_system.stock.report_delivery_document.style_swissfragrance`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+        	font-family: Dobra-Book;
+        	font-size: 80%;
+        	}
+		</style>
+	</xpath>
+	
+	<xpath expr="//p[@t-field='o.date_done']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+	
+	<xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+	
+</data>
+```
+Source: [snippets/stock.report_delivery_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.style_swissfragrance.xml)
 
 ### Style Tissa  
 ID: `mint_system.stock.report_delivery_document.style_tissa`  
@@ -7087,6 +7144,20 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+### X Date Order  
+ID: `mint_system.stock.view_picking_form.x_date_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="x_date_order"/>
+  </field>
+
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_date_order.xml)
+
 ### X Label Qty  
 ID: `mint_system.stock.view_picking_form.x_label_qty`  
 ```xml
@@ -7101,6 +7172,20 @@ ID: `mint_system.stock.view_picking_form.x_label_qty`
 
 ```
 Source: [snippets/stock.view_picking_form.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_label_qty.xml)
+
+### X Vst  
+ID: `mint_system.stock.view_picking_form.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <field name="origin" position="after">
+    <field name="x_vst"/>
+  </field>
+
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.view_picking_form.x_vst.xml)
 
 ## View Picking Internal Search  
 ### Filter Groupby Expected Date  
@@ -7373,4 +7458,16 @@ ID: `mint_system.stock.vpicktree.x_client_order_ref`
 </data>
 ```
 Source: [snippets/stock.vpicktree.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.x_client_order_ref.xml)
+
+### X Date Order  
+ID: `mint_system.stock.vpicktree.x_date_order`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='origin']" position="after">
+    <field name="x_date_order" optional="show"/>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.vpicktree.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.x_date_order.xml)
 
