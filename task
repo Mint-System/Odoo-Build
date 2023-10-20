@@ -31,7 +31,7 @@ fi
 function set-addons-path() {
     # Read addons path list
     ADDONS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
-z
+
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
 

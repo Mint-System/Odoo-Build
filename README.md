@@ -100,6 +100,14 @@ Scaffold a new module.
 task create-module addons/project_report
 ```
 
+**Load modules from thirdpary folder**
+
+To load modules from a thirdparty folder, set this env var in your `.env` file
+
+```
+ODOO_ADDONS=path/to/module/folder,
+```
+
 ### Docker
 
 Run Odoo with Docker container.
