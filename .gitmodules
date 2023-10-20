@@ -178,10 +178,6 @@
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 16.0
-[submodule "addons/swiss_payroll"]
-	path = addons/swiss_payroll
-	url = git@gitlab.com:mint-system/odoo-apps-swiss-payroll.git
-	branch = 16.0
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
