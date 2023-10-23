@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="website_sale.address" priority="50">
+
+    <input id="shipping_use_same" position="replace" />
+
+</data>
