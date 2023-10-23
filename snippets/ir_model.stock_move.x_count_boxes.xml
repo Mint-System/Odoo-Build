@@ -3,6 +3,7 @@
 
   <record id="x_count_boxes" model="ir.model.fields">
     <field name="field_description">Anzahl Kisten</field>
+    <field name="help">Count the number of packaging boxes.</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_boxes</field>
@@ -11,52 +12,16 @@
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">quantity_done</field>
-    <field name="compute"># Count the number of packaging boxes
-for rec in self:
-    rec['x_count_boxes'] = 0
-    if rec.product_packaging:
-        
-        # Get picking delivery product name
-        delivery_name = rec.picking_id.carrier_id.product_id.name
+    <field name="compute">for rec in self:
+        rec['x_count_boxes'] = 0
+        if rec.product_packaging and rec.product_packaging.qty:
+          
+          rec['x_count_boxes'] = rec.quantity_done // rec.product_packaging.qty
+          
+          if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
+            
+            rec['x_count_boxes'] = (rec.quantity_done + rec.product_packaging.qty)/rec.product_packaging.parent_packaging.qty
     
-        # Calculate the number of boxes depending on the selected packaging
-    
-        if rec.product_packaging.name == "Schale Gross":
-            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-            
-        elif rec.product_packaging.name == "Schale Klein":
-            rec['x_count_boxes'] = (rec.quantity_done/6 + 0.9)/1
-            
-        elif rec.product_packaging.name == "Vakuum Gross":
-            rec['x_count_boxes'] = (rec.quantity_done/4 + 2.4)/2.5
-            
-        elif rec.product_packaging.name == "Aktionären Gutschein":
-            rec['x_count_boxes'] = ((rec.quantity_done + 9)/20)
-            
-        elif rec.product_packaging.name == "Vakuum Klein":
-            if rec.product_id.id == 68: # Filet mit Haut TK
-                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-            elif rec.product_id.id == 74: # Filet mit Haut V-Schnitt Tiefgekühlt
-                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/20
-            else:
-                rec['x_count_boxes'] = (rec.quantity_done/8 + 0.9)/1
-                
-        elif rec.product_packaging.name == "Karton":
-            rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.qty
-            
-            if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
-              rec['x_count_boxes'] = rec.quantity_done/rec.product_packaging.parent_packaging.qty
-            
-        elif rec.product_packaging.name == "Kiste":
-            if rec.product_id.id == 68: # Filet mit Haut TK
-                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-            elif rec.product_id.id == 51: # Kopf / Backen
-                rec['x_count_boxes'] = (rec.product_uom_qty + 99)/100
-            elif rec.product_id.id == 33: # Filet mit Haut
-                rec['x_count_boxes'] = (rec.product_uom_qty + 9)/10
-            else:
-                rec['x_count_boxes'] = (rec.product_uom_qty + 14)/15
     </field>
-  </record>
 
 </odoo>
