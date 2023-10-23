@@ -126,7 +126,7 @@ ID: `mint_system.web.brand_promotion_message.remove`
 <data inherit_id="web.brand_promotion_message" priority="50">
 
   <xpath expr="//t[@name='Brand Promotion Message']" position="replace">
-  	<t name="Brand Promotion Message" t-name="web.brand_promotion_message"></t>
+      <t name="Brand Promotion Message" t-name="web.brand_promotion_message"></t>
   </xpath>
 
 </data>
@@ -319,9 +319,9 @@ ID: `mint_system.web.external_layout_standard.header_styles`
 
   <xpath expr="/t/div" position="before">
     <style>
-	    h2 {
-	      font-size: 18px;
-	    }	                          
+        h2 {
+          font-size: 18px;
+        }                              
     </style>
 
   </xpath>
@@ -399,7 +399,7 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <!-- Works until Odoo 14.0 -->
-	<xpath expr="//li[@t-if='company.phone']" position="replace">
+    <xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
   <xpath expr="//li[@t-if='company.email']" position="replace">
   </xpath>
@@ -579,7 +579,7 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 
   <!-- Works until Odoo 14.0 -->
   <xpath expr="//li[@t-if='company.website']" position="replace">
-  	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
+      <li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
   </xpath>
 
 </data>
@@ -642,7 +642,7 @@ ID: `mint_system.web.external_layout_standard.style_header`
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <xpath expr="//div[@class='col-12'][1]/div[1]" position="attributes">
-  	<attribute name="style">border-bottom: 0px ;</attribute>
+      <attribute name="style">border-bottom: 0px ;</attribute>
   </xpath>
 
 </data>
@@ -757,9 +757,9 @@ ID: `mint_system.web.internal_layout.header_styles`
 
   <xpath expr="/t/div" position="before">
     <style>
-	    h2 {
-	      font-size: 18px;
-	    }	                          
+        h2 {
+          font-size: 18px;
+        }                              
     </style>
 
   </xpath>
@@ -773,19 +773,19 @@ ID: `mint_system.web.internal_layout.replace_header`
 <?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="50">
 
-	<xpath expr="//div[@class='header']" position="replace">
-		<div class="header">
-			<div class="row">
-				<div class="col-4">
-				</div>
-				<div class="col-4 text-center">
-				</div>
-				<div class="col-4 text-right">
-					<img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px; margin-right: 40px;"/>
-				</div>
-			</div>
-		</div>
-	</xpath>
+    <xpath expr="//div[@class='header']" position="replace">
+        <div class="header">
+            <div class="row">
+                <div class="col-4">
+                </div>
+                <div class="col-4 text-center">
+                </div>
+                <div class="col-4 text-right">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px; margin-right: 40px;"/>
+                </div>
+            </div>
+        </div>
+    </xpath>
 
 </data>
 ```

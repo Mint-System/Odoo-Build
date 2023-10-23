@@ -4,39 +4,39 @@
   <xpath expr="//div[@name='so_total_summary']" position="replace">
 
     <style>
-			table.trimada_summary tr {
-				border-top: solid 1px !important;
-				border-bottom: solid 1px;
-			}
-			table.trimada_details tr {
-			  border-top: 0px !important;
-			  border-bottom: 0px;
-			  line-height: 0.7;
-			}
-			table.trimada_summary #amount_untaxed_label {
-				width: 15.5%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_untaxed {
-				width: 23%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_by_group_label {
-				width: 12%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_by_group {
-				width: 17%;
-				text-align: left;
-			}
-			table.trimada_summary #current_subtotal_label {
-				width: 14%;
-				text-align: right;
-			}
-			table.trimada_summary #current_subtotal {
-				width: 18%;
-				text-align: right;
-			}
+            table.trimada_summary tr {
+                border-top: solid 1px !important;
+                border-bottom: solid 1px;
+            }
+            table.trimada_details tr {
+              border-top: 0px !important;
+              border-bottom: 0px;
+              line-height: 0.7;
+            }
+            table.trimada_summary #amount_untaxed_label {
+                width: 15.5%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_untaxed {
+                width: 23%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_by_group_label {
+                width: 12%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_by_group {
+                width: 17%;
+                text-align: left;
+            }
+            table.trimada_summary #current_subtotal_label {
+                width: 14%;
+                text-align: right;
+            }
+            table.trimada_summary #current_subtotal {
+                width: 18%;
+                text-align: right;
+            }
     </style>
 
     <table class="table table-borderless table-sm trimada trimada_summary o_main_table">

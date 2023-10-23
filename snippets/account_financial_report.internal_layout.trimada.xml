@@ -1,167 +1,167 @@
 <?xml version="1.0"?>
 <t t-name="account_financial_report.internal_layout">
 
-	<t t-if="not o" t-set="o" t-value="doc"/>
+    <t t-if="not o" t-set="o" t-value="doc"/>
 
-	<t t-if="not company">
-		<!-- Multicompany -->
-		<t t-if="company_id">
-			<t t-set="company" t-value="company_id"/>
-		</t>
-		<t t-elif="o and 'company_id' in o and o.company_id.sudo()">
-			<t t-set="company" t-value="o.company_id.sudo()"/>
-		</t>
-		<t t-else="else">
-			<t t-set="company" t-value="res_company"/>
-		</t>
-	</t>
+    <t t-if="not company">
+        <!-- Multicompany -->
+        <t t-if="company_id">
+            <t t-set="company" t-value="company_id"/>
+        </t>
+        <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+            <t t-set="company" t-value="o.company_id.sudo()"/>
+        </t>
+        <t t-else="else">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+    </t>
 
-	<div class="header">
-		<div class="row" style="height: 20px;">
-			<div class="col-3">
-				<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
-			</div>
-			<div class="col-2 offset-2 text-center">
-				<span t-esc="company_name"/>
-			</div>
-			<div class="col-2 offset-3 text-right">
-				<ul class="list-inline">
-					<li class="list-inline-item">
-						<span class="page"/>
-					</li>
-					<li class="list-inline-item">/</li>
-					<li class="list-inline-item">
-						<span class="topage"/>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div class="header">
+        <div class="row" style="height: 20px;">
+            <div class="col-3">
+                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+            </div>
+            <div class="col-2 offset-2 text-center">
+                <span t-esc="company_name"/>
+            </div>
+            <div class="col-2 offset-3 text-right">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <span class="page"/>
+                    </li>
+                    <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                        <span class="topage"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<div class="article o_account_financial_reports_page">
+    <div class="article o_account_financial_reports_page">
 
-		<style>
-			.act_as_table {
-				display: table !important;
-				background-color: white;
-			}
-			.act_as_row {
-				display: table-row !important;
-				page-break-inside: avoid;
-			}
-			.act_as_cell {
-				display: table-cell !important;
-				page-break-inside: avoid;
-				
-				padding: 3px;
-				border-style: none none solid none !important;			
-			}
-			.act_as_thead {
-				display: table-header-group !important;
-			}
-			.act_as_tbody {
-				display: table-row-group !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table {
-				width: 100% !important;
-			}
-			.act_as_row.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table,
-			.list_table .act_as_row {
-				border-left: 0px;
-				border-right: 0px;
-				text-align: center;		
-				font-size: 12px;				
-				padding-right: 3px;
-				padding-left: 3px;
-				padding-top: 2px;
-				padding-bottom: 2px;
-				border-collapse: collapse;
-			}
-			.totals_table {
-				font-weight: bold;
-				text-align: center;
-			}
-			.list_table .act_as_row.labels,
-			.list_table .act_as_row.initial_balance,
-			.list_table .act_as_row.lines {
-				border-color: grey !important;
-				border-bottom: 1px solid lightGrey !important;
-			}
-			.data_table .act_as_cell {
-				border: 1px solid lightGrey;
-				text-align: center;
-			}
-			.data_table .act_as_cell,
-			.list_table .act_as_cell,
-			.totals_table .act_as_cell {
-				word-wrap: break-word;
-			}
-			.data_table .act_as_row.labels,
-			.totals_table .act_as_row.labels {
-				font-weight: bold;
-			}
-			.initial_balance .act_as_cell {
-				font-style: italic;
-			}
-			.account_title {			  			
-				font-size: 16px;				
-				font-weight: bold;
-			}
-			.account_title.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.act_as_cell.amount {
-				word-wrap: normal;
-				text-align: right;
-			}
-			.act_as_cell.left {
-				text-align: left;
-			}
-			.act_as_cell.right {
-				text-align: right;
-			}
-			/*.list_table .act_as_cell {*/
-			/*    border-right:1px solid lightGrey;  uncomment to active column lines */
-			/*}*/
-			.list_table .act_as_cell.first_column {
-				padding-left: 0px;
-				/*    border-left:1px solid lightGrey; uncomment to active column lines */
-			}
-			.overflow_ellipsis {
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-			}
-			.custom_footer {
-				font-size: 7px !important;
-			}
-			.page_break {
-				page-break-inside: avoid;
-			}
+        <style>
+            .act_as_table {
+                display: table !important;
+                background-color: white;
+            }
+            .act_as_row {
+                display: table-row !important;
+                page-break-inside: avoid;
+            }
+            .act_as_cell {
+                display: table-cell !important;
+                page-break-inside: avoid;
+                
+                padding: 3px;
+                border-style: none none solid none !important;            
+            }
+            .act_as_thead {
+                display: table-header-group !important;
+            }
+            .act_as_tbody {
+                display: table-row-group !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table {
+                width: 100% !important;
+            }
+            .act_as_row.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table,
+            .list_table .act_as_row {
+                border-left: 0px;
+                border-right: 0px;
+                text-align: center;        
+                font-size: 12px;                
+                padding-right: 3px;
+                padding-left: 3px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border-collapse: collapse;
+            }
+            .totals_table {
+                font-weight: bold;
+                text-align: center;
+            }
+            .list_table .act_as_row.labels,
+            .list_table .act_as_row.initial_balance,
+            .list_table .act_as_row.lines {
+                border-color: grey !important;
+                border-bottom: 1px solid lightGrey !important;
+            }
+            .data_table .act_as_cell {
+                border: 1px solid lightGrey;
+                text-align: center;
+            }
+            .data_table .act_as_cell,
+            .list_table .act_as_cell,
+            .totals_table .act_as_cell {
+                word-wrap: break-word;
+            }
+            .data_table .act_as_row.labels,
+            .totals_table .act_as_row.labels {
+                font-weight: bold;
+            }
+            .initial_balance .act_as_cell {
+                font-style: italic;
+            }
+            .account_title {                          
+                font-size: 16px;                
+                font-weight: bold;
+            }
+            .account_title.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .act_as_cell.amount {
+                word-wrap: normal;
+                text-align: right;
+            }
+            .act_as_cell.left {
+                text-align: left;
+            }
+            .act_as_cell.right {
+                text-align: right;
+            }
+            /*.list_table .act_as_cell {*/
+            /*    border-right:1px solid lightGrey;  uncomment to active column lines */
+            /*}*/
+            .list_table .act_as_cell.first_column {
+                padding-left: 0px;
+                /*    border-left:1px solid lightGrey; uncomment to active column lines */
+            }
+            .overflow_ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .custom_footer {
+                font-size: 7px !important;
+            }
+            .page_break {
+                page-break-inside: avoid;
+            }
 
-			.button_row {
-				padding-bottom: 10px;
-			}
+            .button_row {
+                padding-bottom: 10px;
+            }
 
-			.o_account_financial_reports_page {
-				padding-top: 10px;
-				width: 100%;
-				margin-right: 0px;
-				margin-left: 0px;
-				font-family: Helvetica, Arial;
-			}
-			.title {
-			  font-weight: bold;
-			}
-		</style>
+            .o_account_financial_reports_page {
+                padding-top: 10px;
+                width: 100%;
+                margin-right: 0px;
+                margin-left: 0px;
+                font-family: Helvetica, Arial;
+            }
+            .title {
+              font-weight: bold;
+            }
+        </style>
 
-		<t t-raw="0"/>
-	</div>
+        <t t-raw="0"/>
+    </div>
 </t>

@@ -1,35 +1,35 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//th[@id='product_uom_qty']" position="replace"/>
+    <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
 
-	<xpath expr="//th[@id='th_to']" position="after">
-		<th id="product_uom_qty">
-			<strong>Quantity</strong>
-		</th>
-	</xpath>
+    <xpath expr="//th[@id='th_to']" position="after">
+        <th id="product_uom_qty">
+            <strong>Quantity</strong>
+        </th>
+    </xpath>
 
   <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
   
   <xpath expr="//td[@id='location_dest_id']" position="after">
-		<td id="product_uom_qty">
-		  
-			<t t-if="o.state != 'done'">
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-			
-			<t t-if="o.state == 'done'">
-			  <span id="qty_done">
-			    (<span t-esc="'%g' % ml.qty_done"/>)
-			  </span>
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-	
-			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
-			<br/>
-			<span id="qty_available" t-field="ml.product_id.qty_available"/>
-			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
-		</td>
-	</xpath>
+        <td id="product_uom_qty">
+          
+            <t t-if="o.state != 'done'">
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+            
+            <t t-if="o.state == 'done'">
+              <span id="qty_done">
+                (<span t-esc="'%g' % ml.qty_done"/>)
+              </span>
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+    
+            <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+            <br/>
+            <span id="qty_available" t-field="ml.product_id.qty_available"/>
+            <span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
+        </td>
+    </xpath>
 
 </data>

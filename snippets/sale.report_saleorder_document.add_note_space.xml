@@ -9,9 +9,9 @@
                 padding-right: 75px;
             }
         </style>
-		<div id="note">
-			<p  t-field="doc.note"/>
-		</div>
+        <div id="note">
+            <p  t-field="doc.note"/>
+        </div>
     </p>
 
 </data>

@@ -1533,9 +1533,9 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 
   <xpath expr="//table[@name='stock_move_line_table']" position="after">
     <p>Retouren:<br/><br/>
-		KEG:             ___________  Anzahl<br/><br/>
-		Harassen:  ___________  Anzahl<br/><br/>
-		Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
+        KEG:             ___________  Anzahl<br/><br/>
+        Harassen:  ___________  Anzahl<br/><br/>
+        Waren erhalten:   Datum:  ______________________  Unterschrift:  _________________________________
     </p>
   </xpath>
 
@@ -1830,15 +1830,28 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 ```
 Source: [snippets/stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.get_position.xml)
 
+### Hide Address  
+ID: `mint_system.stock.report_delivery_document.hide_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//div[@name='customer_address']" position="replace"/>
+    <xpath expr="//div[@name='partner_header']" position="replace"/>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.hide_address.xml)
+
 ### Hide Backorder Quantity  
 ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
-	<xpath expr="//table[@name='stock_backorder_table']/thead//th[4]" position="replace">
-		<th></th>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/thead//th[4]" position="replace">
+        <th></th>
+    </xpath>
 
 </data>
 ```
@@ -2257,32 +2270,32 @@ ID: `mint_system.stock.report_delivery_document.replace_header`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-	<xpath expr="//div[@t-if='o.origin']/.." position="before">
-		<style>
-		table#header {
-			width: 100%;
-			border: solid 1px;
-			font-size: 18pt;
-		}
-		table#header td {
-			padding: 5px;
-			padding-left: 10px;
-			vertical-align: middle;
-			font-weight: bold;
-		}
-		</style>
-		<table id='header'>
-		<tr>
-			<td>Lieferschein <span t-field="o.name"/>
-			</td>
-			<td>
-				<span>
-					<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
-				</span>
-			</td>
-		</tr>
-		</table>
-	</xpath>
+    <xpath expr="//div[@t-if='o.origin']/.." position="before">
+        <style>
+        table#header {
+            width: 100%;
+            border: solid 1px;
+            font-size: 18pt;
+        }
+        table#header td {
+            padding: 5px;
+            padding-left: 10px;
+            vertical-align: middle;
+            font-weight: bold;
+        }
+        </style>
+        <table id='header'>
+        <tr>
+            <td>Lieferschein <span t-field="o.name"/>
+            </td>
+            <td>
+                <span>
+                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
+                </span>
+            </td>
+        </tr>
+        </table>
+    </xpath>
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.replace_header.xml)
@@ -2534,7 +2547,7 @@ ID: `mint_system.stock.report_delivery_document.replace_order_definition`
       padding-left: 10px;
       padding-bottom: 5px;
       }
-		</style>
+        </style>
     <table id='titel'>
       <tr>
         <td style="width: 44%;"><strong>Fertigungsauftrag <span t-field="o.origin"/></strong></td>
@@ -2614,9 +2627,9 @@ ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//span[@t-field='move.product_uom_qty']" position="replace">
-		<span t-field="move.quantity_done"/>
-	</xpath>
+    <xpath expr="//span[@t-field='move.product_uom_qty']" position="replace">
+        <span t-field="move.quantity_done"/>
+    </xpath>
 
 </data>
 
@@ -2821,45 +2834,45 @@ ID: `mint_system.stock.report_delivery_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_move_table']//th[3]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_move_table']//td[3]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_move_table']//td[3]/span[1]" position="attributes">
-		<attribute name="id">qty</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_move_table']//th[3]" position="attributes">
+        <attribute name="id">quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='stock_move_table']//td[3]" position="attributes">
+        <attribute name="id">quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='stock_move_table']//td[3]/span[1]" position="attributes">
+        <attribute name="id">qty</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']//th[2]" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//th[2]" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
-		<attribute name="id">open_quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_backorder_table']//td[3]" position="attributes">
-		<attribute name="id">open_quantity</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
+        <attribute name="id">open_quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//td[3]" position="attributes">
+        <attribute name="id">open_quantity</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
-		<attribute name="id">open_quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='stock_backorder_table']//td[3]/span[1]" position="attributes">
-		<attribute name="id">open_qty</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
+        <attribute name="id">open_quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//td[3]/span[1]" position="attributes">
+        <attribute name="id">open_qty</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']//th[4]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']//th[4]" position="attributes">
+        <attribute name="id">quantity</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='stock_backorder_table']/../p" position="attributes">
-		<attribute name="class">subtitel</attribute>
-	</xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/../p" position="attributes">
+        <attribute name="class">subtitel</attribute>
+    </xpath>
 
 </data>
 ```
@@ -3073,23 +3086,23 @@ ID: `mint_system.stock.report_delivery_document.style_carbo_link`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
-		</style>
-	</xpath>
-	
-	<xpath expr="//p[@t-field='o.date_done']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
-	
-	<xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
-	
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
+        </style>
+    </xpath>
+    
+    <xpath expr="//p[@t-field='o.date_done']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
+    
+    <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
+    
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.style_carbo_link.xml)
@@ -3097,26 +3110,26 @@ Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://g
 ### Style Swissfragrance  
 ID: `mint_system.stock.report_delivery_document.style_swissfragrance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
-		</style>
-	</xpath>
-	
-	<xpath expr="//p[@t-field='o.date_done']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
-	
-	<xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
-	
+    <style>
+      .cell_left {
+      text-align: left;
+      }
+    </style>
+
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        h2 {
+        margin-top: 50px;
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sml_product']" position="attributes">
+        <attribute name="class" separator=" " add="cell_left"/>
+    </xpath>
+
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_delivery_document.style_swissfragrance.xml)
@@ -3127,9 +3140,9 @@ ID: `mint_system.stock.report_delivery_document.style_tissa`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-	  
-		<style>
+    <xpath expr="//div[hasclass('page')]" position="before">
+      
+        <style>
       table.tissa {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -3140,20 +3153,20 @@ ID: `mint_system.stock.report_delivery_document.style_tissa`
       }
     </style>
     
-	</xpath>
+    </xpath>
 
-	<xpath expr="//th[@name='th_sml_quantity']" position="attributes">
-			 <attribute name="class">cell_right</attribute>
-	</xpath>
-	
-	<xpath expr="//th[@name='th_sm_quantity']" position="attributes">
-			 <attribute name="class" separator=" " add="cell_right"/>
-	</xpath>
-	
-	<xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
-			 <attribute name="class" separator=" " add="cell_right"/>
-	</xpath>
-	
+    <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+             <attribute name="class">cell_right</attribute>
+    </xpath>
+    
+    <xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+             <attribute name="class" separator=" " add="cell_right"/>
+    </xpath>
+    
+    <xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
+             <attribute name="class" separator=" " add="cell_right"/>
+    </xpath>
+    
 </data>
 
 ```
@@ -3165,72 +3178,72 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody tr {
-				border-bottom: 1px solid rgb(220,220,220)
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
-			}
-			table.trimada tbody td#quantity {
-			  text-align: right;
-			}			
-			table.trimada tbody span#qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody span#open_qty {
-			  font-weight: bold;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#open_quantity {
+              width: 30mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody tr {
+                border-bottom: 1px solid rgb(220,220,220)
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody td#open_quantity {
+              text-align: right !important;
+            }
+            table.trimada tbody td#quantity {
+              text-align: right;
+            }            
+            table.trimada tbody span#qty {
+              font-weight: bold;
+            }
+            table.trimada tbody span#open_qty {
+              font-weight: bold;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<table name="stock_move_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="stock_move_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
-	<table name="stock_backorder_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="stock_backorder_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
 </data>
 
@@ -3444,9 +3457,9 @@ ID: `mint_system.stock.report_picking.format_qty_available`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<span id="qty_available" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span id="qty_available" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
 
 </data>
 ```
@@ -3805,24 +3818,24 @@ ID: `mint_system.stock.report_picking.product_description`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//td[@id='description_picking']" position="replace">
+    <xpath expr="//td[@id='description_picking']" position="replace">
 
-		<td id="description_picking">
-			<strong>
-				<span t-esc="move.product_id.type_description"/>
-			</strong>
-			<br/>
-			<t t-if="move.description_picking">
-			  <span t-esc="move.description_picking"/>
-      	<br/>
-			</t>
-			<t t-if="not move.description_picking">
-				<span t-esc="move.product_id.name"/>
-				<br/>
-			</t>
-			<span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
-		</td>
-	</xpath>
+        <td id="description_picking">
+            <strong>
+                <span t-esc="move.product_id.type_description"/>
+            </strong>
+            <br/>
+            <t t-if="move.description_picking">
+              <span t-esc="move.description_picking"/>
+          <br/>
+            </t>
+            <t t-if="not move.description_picking">
+                <span t-esc="move.product_id.name"/>
+                <br/>
+            </t>
+            <span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
+        </td>
+    </xpath>
 
 </data>
 ```
@@ -3834,36 +3847,36 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//th[@id='product_uom_qty']" position="replace"/>
+    <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
 
-	<xpath expr="//th[@id='th_to']" position="after">
-		<th id="product_uom_qty">
-			<strong>Quantity</strong>
-		</th>
-	</xpath>
+    <xpath expr="//th[@id='th_to']" position="after">
+        <th id="product_uom_qty">
+            <strong>Quantity</strong>
+        </th>
+    </xpath>
 
   <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
   
   <xpath expr="//td[@id='location_dest_id']" position="after">
-		<td id="product_uom_qty">
-		  
-			<t t-if="o.state != 'done'">
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-			
-			<t t-if="o.state == 'done'">
-			  <span id="qty_done">
-			    (<span t-esc="'%g' % ml.qty_done"/>)
-			  </span>
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-	
-			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
-			<br/>
-			<span id="qty_available" t-field="ml.product_id.qty_available"/>
-			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
-		</td>
-	</xpath>
+        <td id="product_uom_qty">
+          
+            <t t-if="o.state != 'done'">
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+            
+            <t t-if="o.state == 'done'">
+              <span id="qty_done">
+                (<span t-esc="'%g' % ml.qty_done"/>)
+              </span>
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+    
+            <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+            <br/>
+            <span id="qty_available" t-field="ml.product_id.qty_available"/>
+            <span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
+        </td>
+    </xpath>
 
 </data>
 ```
@@ -3952,21 +3965,21 @@ ID: `mint_system.stock.report_picking.replace_barcode`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//td[@id='barcode']" position="replace">
+    <xpath expr="//td[@id='barcode']" position="replace">
 
-		<td id="barcode" class="trimada" t-if="has_barcode">
-			<t t-if="product_barcode != move.product_id.barcode">
-				<span t-if="move.product_id and move.product_id.barcode">
-					<img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
-					<img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
-					<img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+        <td id="barcode" class="trimada" t-if="has_barcode">
+            <t t-if="product_barcode != move.product_id.barcode">
+                <span t-if="move.product_id and move.product_id.barcode">
+                    <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                    <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                    <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
 
-				</span>
-				<t t-set="product_barcode" t-value="move.product_id.barcode"/>
-			</t>
-		</td>
+                </span>
+                <t t-set="product_barcode" t-value="move.product_id.barcode"/>
+            </t>
+        </td>
 
-	</xpath>
+    </xpath>
 </data>
 ```
 Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_barcode.xml)
@@ -3977,36 +3990,36 @@ ID: `mint_system.stock.report_picking.replace_header`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//div[@name='right_box']/.." position="replace">
+    <xpath expr="//div[@name='right_box']/.." position="replace">
 
-		<style>
-			table.trimada_header {
-				width: 100%;
-				font-family: arial;
-				font-size: 18pt;
-				font-weight: bold;
-				border:solid 1px;
-			}
-			table.trimada_header td {
-				padding-left: 10px;
-				vertical-align: middle;
-				padding: 5px;
-			}
-		</style>
+        <style>
+            table.trimada_header {
+                width: 100%;
+                font-family: arial;
+                font-size: 18pt;
+                font-weight: bold;
+                border:solid 1px;
+            }
+            table.trimada_header td {
+                padding-left: 10px;
+                vertical-align: middle;
+                padding: 5px;
+            }
+        </style>
 
-		<table class="trimada_header">
-			<tr>
-				<td>Rüstschein <span t-field="o.name"/>
-				</td>
-				<td>
-					<span>
-						<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
-					</span>
-				</td>
-			</tr>
-		</table>
+        <table class="trimada_header">
+            <tr>
+                <td>Rüstschein <span t-field="o.name"/>
+                </td>
+                <td>
+                    <span>
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+                    </span>
+                </td>
+            </tr>
+        </table>
 
-	</xpath>
+    </xpath>
 </data>
 ```
 Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_header.xml)
@@ -4020,26 +4033,26 @@ ID: `mint_system.stock.report_picking.replace_order_definition`
   <xpath expr="//div[@name='div_origin']/.." position="replace">
 
     <style>
-			table.trimada_order {
-			  width: 100%;
-				font-size: 11pt;
-				font-family: arial;
-			}
-			table.trimada_order tr {
-			  border-bottom: 1px solid rgb(220,220,220);
-			}
-		 .first_col {
-			  width: 44%;
-			  padding-left: 10px;
-			  padding-top: 5px;
-			  padding-bottom: 5px;
-			}
-			.second_col {
-			  width: 56%;
-			}
-			.last_row {
-			  border-bottom: 0px !important;
-			}
+            table.trimada_order {
+              width: 100%;
+                font-size: 11pt;
+                font-family: arial;
+            }
+            table.trimada_order tr {
+              border-bottom: 1px solid rgb(220,220,220);
+            }
+         .first_col {
+              width: 44%;
+              padding-left: 10px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            .second_col {
+              width: 56%;
+            }
+            .last_row {
+              border-bottom: 0px !important;
+            }
     </style>
 
     <table class="trimada_order">
@@ -4255,25 +4268,25 @@ ID: `mint_system.stock.report_picking.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<xpath expr="//th[@name='th_product']" position="attributes">
-		<attribute name="id">th_product</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_product']" position="attributes">
+        <attribute name="id">th_product</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_to']" position="attributes">
-		<attribute name="id">th_to</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_to']" position="attributes">
+        <attribute name="id">th_to</attribute>
+    </xpath>
 
-	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
-		<attribute name="id">barcode</attribute>
-	</xpath>
-	
-	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
-	  <attribute name="id">main_table</attribute>
-	</xpath>
+    <xpath expr="//td[@t-if='has_barcode']" position="attributes">
+        <attribute name="id">barcode</attribute>
+    </xpath>
+    
+    <xpath expr="//th[@name='th_product']/../../.." position="attributes">
+      <attribute name="id">main_table</attribute>
+    </xpath>
 
 </data>
 ```
@@ -4492,100 +4505,100 @@ ID: `mint_system.stock.report_picking.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		  p {
-		    font-size: 9pt;
-				font-family: arial;
-		  }
-			table.trimada {
-			  width: 100%;
-				font-size: 9pt;
-				font-family: arial;
-				margin-top: 20px;
-			}
-			table.trimada thead tr {
-				border-top: solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  padding-left: 10px;
-			  text-align: left;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada thead th#product_uom_qty {
-			  width: 35mm;
-			  text-align: right;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody tr {
-			  vertical-align: top;
-				border-bottom: 1px solid rgb(220,220,220)
-			}
-			table.trimada tbody td#default_code {
-			  padding-left: 10px;
-			  text-align: left;
-			}
-			table.trimada tbody td span#description_pickingout {
-			  font-style: italic;
-			}
-			table.trimada tbody td#product_uom_qty {
-			  text-align: right;
-			}			
-			table.trimada tbody td span#product_uom_qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#product_uom_qty_done {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#qty_available {
-			  font-size: 7pt;
-			}
-			table.trimada tbody td span#qty_available_uom_id {
-			  font-size: 7pt;
-			}
-			table.trimada tbody td span#qty_done {
-			  font-weight: normal;
-			  font-size: 9pt;
-			}
-			table.trimada #barcode {
-			  text-align: right;
-			}
-		  div.address_block {
-			  font-size: 10pt;
-				font-family: arial;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			.mrp_note {
-				font-size: 9pt;
-				font-family: arial;
-				padding-bottom: 3mm;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+          p {
+            font-size: 9pt;
+                font-family: arial;
+          }
+            table.trimada {
+              width: 100%;
+                font-size: 9pt;
+                font-family: arial;
+                margin-top: 20px;
+            }
+            table.trimada thead tr {
+                border-top: solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              padding-left: 10px;
+              text-align: left;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada thead th#product_uom_qty {
+              width: 35mm;
+              text-align: right;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody tr {
+              vertical-align: top;
+                border-bottom: 1px solid rgb(220,220,220)
+            }
+            table.trimada tbody td#default_code {
+              padding-left: 10px;
+              text-align: left;
+            }
+            table.trimada tbody td span#description_pickingout {
+              font-style: italic;
+            }
+            table.trimada tbody td#product_uom_qty {
+              text-align: right;
+            }            
+            table.trimada tbody td span#product_uom_qty {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#product_uom_qty_done {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#qty_available {
+              font-size: 7pt;
+            }
+            table.trimada tbody td span#qty_available_uom_id {
+              font-size: 7pt;
+            }
+            table.trimada tbody td span#qty_done {
+              font-weight: normal;
+              font-size: 9pt;
+            }
+            table.trimada #barcode {
+              text-align: right;
+            }
+          div.address_block {
+              font-size: 10pt;
+                font-family: arial;
+                margin-top: 20px;
+                margin-left: 10px;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            .mrp_note {
+                font-size: 9pt;
+                font-family: arial;
+                padding-bottom: 3mm;
+            }
+        </style>
+    </xpath>
 
-.	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+.    <xpath expr="//th[@name='th_product']/../../.." position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
 </data>
 ```
@@ -4851,9 +4864,9 @@ ID: `mint_system.stock.report_picking.format_qty_available`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<span id="qty_available" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span id="qty_available" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
 
 </data>
 ```
@@ -5212,24 +5225,24 @@ ID: `mint_system.stock.report_picking.product_description`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//td[@id='description_picking']" position="replace">
+    <xpath expr="//td[@id='description_picking']" position="replace">
 
-		<td id="description_picking">
-			<strong>
-				<span t-esc="move.product_id.type_description"/>
-			</strong>
-			<br/>
-			<t t-if="move.description_picking">
-			  <span t-esc="move.description_picking"/>
-      	<br/>
-			</t>
-			<t t-if="not move.description_picking">
-				<span t-esc="move.product_id.name"/>
-				<br/>
-			</t>
-			<span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
-		</td>
-	</xpath>
+        <td id="description_picking">
+            <strong>
+                <span t-esc="move.product_id.type_description"/>
+            </strong>
+            <br/>
+            <t t-if="move.description_picking">
+              <span t-esc="move.description_picking"/>
+          <br/>
+            </t>
+            <t t-if="not move.description_picking">
+                <span t-esc="move.product_id.name"/>
+                <br/>
+            </t>
+            <span id="description_pickingout" t-field="move.product_id.description_pickingout"/>
+        </td>
+    </xpath>
 
 </data>
 ```
@@ -5241,36 +5254,36 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//th[@id='product_uom_qty']" position="replace"/>
+    <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
 
-	<xpath expr="//th[@id='th_to']" position="after">
-		<th id="product_uom_qty">
-			<strong>Quantity</strong>
-		</th>
-	</xpath>
+    <xpath expr="//th[@id='th_to']" position="after">
+        <th id="product_uom_qty">
+            <strong>Quantity</strong>
+        </th>
+    </xpath>
 
   <xpath expr="//td[@id='product_uom_qty']" position="replace"/>
   
   <xpath expr="//td[@id='location_dest_id']" position="after">
-		<td id="product_uom_qty">
-		  
-			<t t-if="o.state != 'done'">
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-			
-			<t t-if="o.state == 'done'">
-			  <span id="qty_done">
-			    (<span t-esc="'%g' % ml.qty_done"/>)
-			  </span>
-			  <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
-			</t>
-	
-			<span t-field="ml.product_uom_id" groups="uom.group_uom"/>
-			<br/>
-			<span id="qty_available" t-field="ml.product_id.qty_available"/>
-			<span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
-		</td>
-	</xpath>
+        <td id="product_uom_qty">
+          
+            <t t-if="o.state != 'done'">
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+            
+            <t t-if="o.state == 'done'">
+              <span id="qty_done">
+                (<span t-esc="'%g' % ml.qty_done"/>)
+              </span>
+              <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
+            </t>
+    
+            <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
+            <br/>
+            <span id="qty_available" t-field="ml.product_id.qty_available"/>
+            <span id="qty_available_uom_id" t-field="ml.product_id.uom_id"/>
+        </td>
+    </xpath>
 
 </data>
 ```
@@ -5359,21 +5372,21 @@ ID: `mint_system.stock.report_picking.replace_barcode`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//td[@id='barcode']" position="replace">
+    <xpath expr="//td[@id='barcode']" position="replace">
 
-		<td id="barcode" class="trimada" t-if="has_barcode">
-			<t t-if="product_barcode != move.product_id.barcode">
-				<span t-if="move.product_id and move.product_id.barcode">
-					<img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
-					<img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
-					<img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+        <td id="barcode" class="trimada" t-if="has_barcode">
+            <t t-if="product_barcode != move.product_id.barcode">
+                <span t-if="move.product_id and move.product_id.barcode">
+                    <img t-if="len(move.product_id.barcode) == 13" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN13', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                    <img t-elif="len(move.product_id.barcode) == 8" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('EAN8', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
+                    <img t-else="" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=%s' % ('Code128', move.product_id.barcode, 290, 100, 0)" style="height:35px" alt="Barcode"/>
 
-				</span>
-				<t t-set="product_barcode" t-value="move.product_id.barcode"/>
-			</t>
-		</td>
+                </span>
+                <t t-set="product_barcode" t-value="move.product_id.barcode"/>
+            </t>
+        </td>
 
-	</xpath>
+    </xpath>
 </data>
 ```
 Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_barcode.xml)
@@ -5384,36 +5397,36 @@ ID: `mint_system.stock.report_picking.replace_header`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
-	<xpath expr="//div[@name='right_box']/.." position="replace">
+    <xpath expr="//div[@name='right_box']/.." position="replace">
 
-		<style>
-			table.trimada_header {
-				width: 100%;
-				font-family: arial;
-				font-size: 18pt;
-				font-weight: bold;
-				border:solid 1px;
-			}
-			table.trimada_header td {
-				padding-left: 10px;
-				vertical-align: middle;
-				padding: 5px;
-			}
-		</style>
+        <style>
+            table.trimada_header {
+                width: 100%;
+                font-family: arial;
+                font-size: 18pt;
+                font-weight: bold;
+                border:solid 1px;
+            }
+            table.trimada_header td {
+                padding-left: 10px;
+                vertical-align: middle;
+                padding: 5px;
+            }
+        </style>
 
-		<table class="trimada_header">
-			<tr>
-				<td>Rüstschein <span t-field="o.name"/>
-				</td>
-				<td>
-					<span>
-						<img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
-					</span>
-				</td>
-			</tr>
-		</table>
+        <table class="trimada_header">
+            <tr>
+                <td>Rüstschein <span t-field="o.name"/>
+                </td>
+                <td>
+                    <span>
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+                    </span>
+                </td>
+            </tr>
+        </table>
 
-	</xpath>
+    </xpath>
 </data>
 ```
 Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.report_picking.replace_header.xml)
@@ -5427,26 +5440,26 @@ ID: `mint_system.stock.report_picking.replace_order_definition`
   <xpath expr="//div[@name='div_origin']/.." position="replace">
 
     <style>
-			table.trimada_order {
-			  width: 100%;
-				font-size: 11pt;
-				font-family: arial;
-			}
-			table.trimada_order tr {
-			  border-bottom: 1px solid rgb(220,220,220);
-			}
-		 .first_col {
-			  width: 44%;
-			  padding-left: 10px;
-			  padding-top: 5px;
-			  padding-bottom: 5px;
-			}
-			.second_col {
-			  width: 56%;
-			}
-			.last_row {
-			  border-bottom: 0px !important;
-			}
+            table.trimada_order {
+              width: 100%;
+                font-size: 11pt;
+                font-family: arial;
+            }
+            table.trimada_order tr {
+              border-bottom: 1px solid rgb(220,220,220);
+            }
+         .first_col {
+              width: 44%;
+              padding-left: 10px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            .second_col {
+              width: 56%;
+            }
+            .last_row {
+              border-bottom: 0px !important;
+            }
     </style>
 
     <table class="trimada_order">
@@ -5662,25 +5675,25 @@ ID: `mint_system.stock.report_picking.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<xpath expr="//th[@name='th_product']" position="attributes">
-		<attribute name="id">th_product</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_product']" position="attributes">
+        <attribute name="id">th_product</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_product']/../th[2]" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_to']" position="attributes">
-		<attribute name="id">th_to</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_to']" position="attributes">
+        <attribute name="id">th_to</attribute>
+    </xpath>
 
-	<xpath expr="//td[@t-if='has_barcode']" position="attributes">
-		<attribute name="id">barcode</attribute>
-	</xpath>
-	
-	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
-	  <attribute name="id">main_table</attribute>
-	</xpath>
+    <xpath expr="//td[@t-if='has_barcode']" position="attributes">
+        <attribute name="id">barcode</attribute>
+    </xpath>
+    
+    <xpath expr="//th[@name='th_product']/../../.." position="attributes">
+      <attribute name="id">main_table</attribute>
+    </xpath>
 
 </data>
 ```
@@ -5899,100 +5912,100 @@ ID: `mint_system.stock.report_picking.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		  p {
-		    font-size: 9pt;
-				font-family: arial;
-		  }
-			table.trimada {
-			  width: 100%;
-				font-size: 9pt;
-				font-family: arial;
-				margin-top: 20px;
-			}
-			table.trimada thead tr {
-				border-top: solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  padding-left: 10px;
-			  text-align: left;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada thead th#product_uom_qty {
-			  width: 35mm;
-			  text-align: right;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody tr {
-			  vertical-align: top;
-				border-bottom: 1px solid rgb(220,220,220)
-			}
-			table.trimada tbody td#default_code {
-			  padding-left: 10px;
-			  text-align: left;
-			}
-			table.trimada tbody td span#description_pickingout {
-			  font-style: italic;
-			}
-			table.trimada tbody td#product_uom_qty {
-			  text-align: right;
-			}			
-			table.trimada tbody td span#product_uom_qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#product_uom_qty_done {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#qty_available {
-			  font-size: 7pt;
-			}
-			table.trimada tbody td span#qty_available_uom_id {
-			  font-size: 7pt;
-			}
-			table.trimada tbody td span#qty_done {
-			  font-weight: normal;
-			  font-size: 9pt;
-			}
-			table.trimada #barcode {
-			  text-align: right;
-			}
-		  div.address_block {
-			  font-size: 10pt;
-				font-family: arial;
-				margin-top: 20px;
-				margin-left: 10px;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			.mrp_note {
-				font-size: 9pt;
-				font-family: arial;
-				padding-bottom: 3mm;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+          p {
+            font-size: 9pt;
+                font-family: arial;
+          }
+            table.trimada {
+              width: 100%;
+                font-size: 9pt;
+                font-family: arial;
+                margin-top: 20px;
+            }
+            table.trimada thead tr {
+                border-top: solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              padding-left: 10px;
+              text-align: left;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada thead th#product_uom_qty {
+              width: 35mm;
+              text-align: right;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody tr {
+              vertical-align: top;
+                border-bottom: 1px solid rgb(220,220,220)
+            }
+            table.trimada tbody td#default_code {
+              padding-left: 10px;
+              text-align: left;
+            }
+            table.trimada tbody td span#description_pickingout {
+              font-style: italic;
+            }
+            table.trimada tbody td#product_uom_qty {
+              text-align: right;
+            }            
+            table.trimada tbody td span#product_uom_qty {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#product_uom_qty_done {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#qty_available {
+              font-size: 7pt;
+            }
+            table.trimada tbody td span#qty_available_uom_id {
+              font-size: 7pt;
+            }
+            table.trimada tbody td span#qty_done {
+              font-weight: normal;
+              font-size: 9pt;
+            }
+            table.trimada #barcode {
+              text-align: right;
+            }
+          div.address_block {
+              font-size: 10pt;
+                font-family: arial;
+                margin-top: 20px;
+                margin-left: 10px;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            .mrp_note {
+                font-size: 9pt;
+                font-family: arial;
+                padding-bottom: 3mm;
+            }
+        </style>
+    </xpath>
 
-.	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+.    <xpath expr="//th[@name='th_product']/../../.." position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
 </data>
 ```
@@ -6235,6 +6248,20 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_descr
 
 </data>
 
+<!--
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
+
+  <xpath expr="//td[1]/span" position="replace">
+    <span style="font-weight: bold" t-esc="aggregated_lines[line]['product']['name']"/>
+    <br/>
+      Product Code: <span t-esc="aggregated_lines[line]['product']['default_code']"/>
+  <br/>
+  <t t-if="aggregated_lines[line]['hs_code']">HS-Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
+  </t>
+</xpath>
+
+</data>
+-->
 ```
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
 
@@ -7418,6 +7445,20 @@ ID: `mint_system.stock.vpicktree.format_scheduled_date`
 
 ```
 Source: [snippets/stock.vpicktree.format_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.format_scheduled_date.xml)
+
+### Modify Invisible Scheduled Date  
+ID: `mint_system.stock.vpicktree.modify_invisible_scheduled_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+
+  <xpath expr="//field[@name='scheduled_date']" position="attributes">
+    <attribute name="attrs">{'invisible': [('state', 'in' , 'cancel')]}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.vpicktree.modify_invisible_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/stock.vpicktree.modify_invisible_scheduled_date.xml)
 
 ### Show Delivery Note  
 ID: `mint_system.stock.vpicktree.show_delivery_note`  

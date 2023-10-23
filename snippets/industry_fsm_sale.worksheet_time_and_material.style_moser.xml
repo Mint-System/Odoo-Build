@@ -2,9 +2,9 @@
 
     <xpath expr="//div[1]" position="before">
         <style>
-		  	.text-start {
-        	padding: 0.25rem 0rem !important;
-      		}
+              .text-start {
+            padding: 0.25rem 0rem !important;
+              }
         </style>
     </xpath>
 

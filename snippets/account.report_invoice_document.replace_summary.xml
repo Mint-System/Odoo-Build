@@ -4,50 +4,50 @@
   <xpath expr="//table[@name='invoice_line_table']" position="after">
 
     <style>
-			table.trimada_summary tr {
-				border-top: solid 1px !important;
-				border-bottom: solid 1px;
-				page-break-inside: avoid;
-			}
-			table.trimada_details tr {
-			  border-top: 0px !important;
-			  border-bottom: 0px;
-			  line-height: 0.7;
-			}
-			table.trimada_summary #amount_untaxed_label {
-				width: 11.5%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group0 {
-				width: 8%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group3 {
-				width: 21%;
-				text-align: right;
-				padding-right: 10%;
-			}
-			table.trimada_details td#amount_by_group4 {
-				width: 27%;
-				text-align: right;
-				padding-right: 15%;
-			}
-			table.trimada_summary td#amount_by_group_label {
-				width: 12%;
-				text-align: left;
-			}
-			table.trimada_summary td#amount_by_group {
-				width: 17%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_total_label {
-				width: 14%;
-				text-align: right;
-			}
-			table.trimada_summary #amount_total {
-				width: 18%;
-				text-align: right;
-			}
+            table.trimada_summary tr {
+                border-top: solid 1px !important;
+                border-bottom: solid 1px;
+                page-break-inside: avoid;
+            }
+            table.trimada_details tr {
+              border-top: 0px !important;
+              border-bottom: 0px;
+              line-height: 0.7;
+            }
+            table.trimada_summary #amount_untaxed_label {
+                width: 11.5%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group0 {
+                width: 8%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group3 {
+                width: 21%;
+                text-align: right;
+                padding-right: 10%;
+            }
+            table.trimada_details td#amount_by_group4 {
+                width: 27%;
+                text-align: right;
+                padding-right: 15%;
+            }
+            table.trimada_summary td#amount_by_group_label {
+                width: 12%;
+                text-align: left;
+            }
+            table.trimada_summary td#amount_by_group {
+                width: 17%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_total_label {
+                width: 14%;
+                text-align: right;
+            }
+            table.trimada_summary #amount_total {
+                width: 18%;
+                text-align: right;
+            }
     </style>
 
     <table class="table table-borderless table-sm trimada trimada_summary">
@@ -126,4 +126,3 @@
   </xpath>
 
 </data>
-

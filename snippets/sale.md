@@ -594,9 +594,9 @@ ID: `mint_system.sale.report_blanketorder_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
   
-	<xpath expr="//div[1]/div[4]" position="attributes">
-		<attribute name="id">table_total</attribute>
-	</xpath>	
+    <xpath expr="//div[1]/div[4]" position="attributes">
+        <attribute name="id">table_total</attribute>
+    </xpath>    
 
 </data>
 ```
@@ -1035,9 +1035,9 @@ ID: `mint_system.sale.report_saleorder_document.add_header_space`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<xpath expr="//h2" position="attributes">
-		 <attribute name="style">padding-top: 5rem</attribute>
-	</xpath>
+    <xpath expr="//h2" position="attributes">
+         <attribute name="style">padding-top: 5rem</attribute>
+    </xpath>
 
 </data>
 
@@ -1050,17 +1050,17 @@ ID: `mint_system.sale.report_saleorder_document.add_incoterm_blanket_order`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<xpath expr="//div[@id='incoterm']" position="replace">
-		<div id='incoterm' class="col-3" t-if="doc.incoterm" groups="sale_stock.group_display_incoterm">
-			<strong>Incoterm:</strong>
-			<t t-if="doc.x_incoterm_blanket_order">
-				<p t-field="doc.x_incoterm_blanket_order.code"/>
-			</t>
-			<t t-else="">
-				<p t-field="doc.incoterm.code"/>
-			</t>
-		</div>
-	</xpath>
+    <xpath expr="//div[@id='incoterm']" position="replace">
+        <div id='incoterm' class="col-3" t-if="doc.incoterm" groups="sale_stock.group_display_incoterm">
+            <strong>Incoterm:</strong>
+            <t t-if="doc.x_incoterm_blanket_order">
+                <p t-field="doc.x_incoterm_blanket_order.code"/>
+            </t>
+            <t t-else="">
+                <p t-field="doc.incoterm.code"/>
+            </t>
+        </div>
+    </xpath>
 
 </data>
 ```
@@ -1072,14 +1072,14 @@ ID: `mint_system.sale.report_saleorder_document.add_informations_space`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<xpath expr="//div[@id='informations']" position="before">
-		<style>
-			div#informations {
-				padding-top: 1rem;
-				padding-bottom: 1rem
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[@id='informations']" position="before">
+        <style>
+            div#informations {
+                padding-top: 1rem;
+                padding-bottom: 1rem
+            }
+        </style>
+    </xpath>
 
 </data>
 
@@ -1199,9 +1199,9 @@ ID: `mint_system.sale.report_saleorder_document.add_note_space`
                 padding-right: 75px;
             }
         </style>
-		<div id="note">
-			<p  t-field="doc.note"/>
-		</div>
+        <div id="note">
+            <p  t-field="doc.note"/>
+        </div>
     </p>
 
 </data>
@@ -1396,9 +1396,9 @@ ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="55">
 
-	<xpath expr="//t[@t-set='information_block']/t/strong" position="attributes">
-		<attribute name="class">mt-3 d-block</attribute>
-	</xpath>
+    <xpath expr="//t[@t-set='information_block']/t/strong" position="attributes">
+        <attribute name="class">mt-3 d-block</attribute>
+    </xpath>
 
 </data>
 
@@ -1773,14 +1773,14 @@ ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<xpath expr="//span[@id='product_uom_qty']" position="replace">
-		<t t-if="line.product_uom.id == 1">
-			<span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
-		</t>
-		<t t-else="">
-			<span id="product_uom_qty" t-field="line.product_uom_qty"/>
-		</t>
-	</xpath>
+    <xpath expr="//span[@id='product_uom_qty']" position="replace">
+        <t t-if="line.product_uom.id == 1">
+            <span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="product_uom_qty" t-field="line.product_uom_qty"/>
+        </t>
+    </xpath>
 
 </data>
 ```
@@ -1792,13 +1792,13 @@ ID: `mint_system.sale.report_saleorder_document.format_qty`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	<span t-field="line.product_uom_qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span t-field="line.product_uom_qty" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
 
-	<!-- <span t-field="line.product_uom_qty_confirmed" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span> -->
+    <!-- <span t-field="line.product_uom_qty_confirmed" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span> -->
 
 </data>
 ```
@@ -2257,39 +2257,39 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
   <xpath expr="//div[@name='so_total_summary']" position="replace">
 
     <style>
-			table.trimada_summary tr {
-				border-top: solid 1px !important;
-				border-bottom: solid 1px;
-			}
-			table.trimada_details tr {
-			  border-top: 0px !important;
-			  border-bottom: 0px;
-			  line-height: 0.7;
-			}
-			table.trimada_summary #amount_untaxed_label {
-				width: 15.5%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_untaxed {
-				width: 23%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_by_group_label {
-				width: 12%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_by_group {
-				width: 17%;
-				text-align: left;
-			}
-			table.trimada_summary #current_subtotal_label {
-				width: 14%;
-				text-align: right;
-			}
-			table.trimada_summary #current_subtotal {
-				width: 18%;
-				text-align: right;
-			}
+            table.trimada_summary tr {
+                border-top: solid 1px !important;
+                border-bottom: solid 1px;
+            }
+            table.trimada_details tr {
+              border-top: 0px !important;
+              border-bottom: 0px;
+              line-height: 0.7;
+            }
+            table.trimada_summary #amount_untaxed_label {
+                width: 15.5%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_untaxed {
+                width: 23%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_by_group_label {
+                width: 12%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_by_group {
+                width: 17%;
+                text-align: left;
+            }
+            table.trimada_summary #current_subtotal_label {
+                width: 14%;
+                text-align: right;
+            }
+            table.trimada_summary #current_subtotal {
+                width: 18%;
+                text-align: right;
+            }
     </style>
 
     <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
@@ -2515,32 +2515,32 @@ ID: `mint_system.sale.report_saleorder_document.set_ids`
 <data inherit_id="sale.report_saleorder_document" priority="50">
   
   <xpath expr="//div[@id='informations']//p[@t-field='doc.incoterm.code']/.." position="attributes">
-		<attribute name="id">incoterm</attribute>
-	</xpath>
-	
-	<xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
-		<attribute name="id">date_order</attribute>
-	</xpath>
+        <attribute name="id">incoterm</attribute>
+    </xpath>
+    
+    <xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
+        <attribute name="id">date_order</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_quantity']" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_quantity']" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
-	<xpath expr="//td[@name='td_quantity']/span[1]" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
-	
-	<xpath expr="//td[@name='td_quantity']/span[2]" position="attributes">
-		<attribute name="id">product_uom</attribute>
-	</xpath>
+    <xpath expr="//td[@name='td_quantity']/span[1]" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
+    
+    <xpath expr="//td[@name='td_quantity']/span[2]" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
 
-	<xpath expr="//td[@name='td_quantity']" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//td[@name='td_quantity']" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2720,18 +2720,18 @@ ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//div/div/div[2]/p" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//div/div/div[2]/p" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2743,13 +2743,13 @@ ID: `mint_system.sale.report_saleorder_document.style_gelso`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//div[@id='incoterm']" position="attributes">
-		<attribute name="class" separator=" " add="col-auto col-3 mw-100 mb-2"/>
-	</xpath>
-	
-	<xpath expr="//p[@id='date_order']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//div[@id='incoterm']" position="attributes">
+        <attribute name="class" separator=" " add="col-auto col-3 mw-100 mb-2"/>
+    </xpath>
+    
+    <xpath expr="//p[@id='date_order']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2760,32 +2760,32 @@ ID: `mint_system.sale.report_saleorder_document.style_moser`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-     	td#tax_amount {
-     	 	text-align: right;
-     	}
-		</style>
-	</xpath>
-	
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+         td#tax_amount {
+              text-align: right;
+         }
+        </style>
+    </xpath>
+    
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_moser.xml)
@@ -2796,77 +2796,76 @@ ID: `mint_system.sale.report_saleorder_document.style_tissa`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			.o_company_1_layout {
-				font-family: arial;
-			}
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody #commitment_date {
-			  text-align: right;
-			}
-			table.trimada tbody td span#product_uom_qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#product_uom_qty_confirmed {
-			  font-weight: bold;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            .o_company_1_layout {
+                font-family: arial;
+            }
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody #commitment_date {
+              text-align: right;
+            }
+            table.trimada tbody td span#product_uom_qty {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#product_uom_qty_confirmed {
+              font-weight: bold;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[2]" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
-	
-	<xpath expr="//th[@id='commitment_date']" position="attributes">
-		<attribute name="class">text-right</attribute>
-	</xpath>
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
+    
+    <xpath expr="//th[@id='commitment_date']" position="attributes">
+        <attribute name="class">text-right</attribute>
+    </xpath>
 
 </data>
-
 
 ```
 Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_tissa.xml)
@@ -2877,77 +2876,76 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			.o_company_1_layout {
-				font-family: arial;
-			}
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody #commitment_date {
-			  text-align: right;
-			}
-			table.trimada tbody td span#product_uom_qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody td span#product_uom_qty_confirmed {
-			  font-weight: bold;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            .o_company_1_layout {
+                font-family: arial;
+            }
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody #commitment_date {
+              text-align: right;
+            }
+            table.trimada tbody td span#product_uom_qty {
+              font-weight: bold;
+            }
+            table.trimada tbody td span#product_uom_qty_confirmed {
+              font-weight: bold;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[2]" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
-	
-	<xpath expr="//th[@id='commitment_date']" position="attributes">
-		<attribute name="class">text-right</attribute>
-	</xpath>
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
+    
+    <xpath expr="//th[@id='commitment_date']" position="attributes">
+        <attribute name="class">text-right</attribute>
+    </xpath>
 
 </data>
-
 
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_trimada.xml)
@@ -2958,13 +2956,13 @@ ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	  <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
-		  <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
-	  </xpath>
+      <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
+          <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
+      </xpath>
 
-	  <!--<xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">-->
-		 <!-- <attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>-->
-	  <!--</xpath>-->
+      <!--<xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">-->
+         <!-- <attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>-->
+      <!--</xpath>-->
 
 </data>
 ```
@@ -3263,9 +3261,9 @@ ID: `mint_system.sale.sale_order_portal_content.format_qty`
 <?xml version="1.0"?>
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
-	<span t-field="line.product_uom_qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
+    <span t-field="line.product_uom_qty" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
   
 </data>
 
@@ -3279,11 +3277,11 @@ ID: `mint_system.sale.sale_order_portal_content.get_position`
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//table[@id='sales_order_table']//tr/th[1]" position="before">
-  	<th class="text-left">Pos</th>
+      <th class="text-left">Pos</th>
   </xpath>
 
   <xpath expr="//td[@id='default_code']" position="before">
-  	<td id="position"><span t-field="line.position"/></td>
+      <td id="position"><span t-field="line.position"/></td>
   </xpath>
  
 </data>
@@ -3299,7 +3297,7 @@ ID: `mint_system.sale.sale_order_portal_content.product_name`
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//td[@id='product_name']" position="replace">
-  	<td id="product_name"><span t-field="line.product_id.name"/><br/><span class="font-italic" t-field="line.name"/></td>
+      <td id="product_name"><span t-field="line.product_id.name"/><br/><span class="font-italic" t-field="line.name"/></td>
   </xpath>
 
 </data>
@@ -3343,7 +3341,7 @@ ID: `mint_system.sale.sale_order_portal_content.remove_discount_percentage`
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//th[@t-if='display_discount']/span" position="replace">
-  	<span>Rabatt</span>
+      <span>Rabatt</span>
   </xpath>
  
 </data>
@@ -3371,7 +3369,7 @@ ID: `mint_system.sale.sale_order_portal_content.show_default_code`
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//table[@id='sales_order_table']//tr/th[1]" position="before">
-  	<th class="text-left">Referenz</th>
+      <th class="text-left">Referenz</th>
   </xpath>
 
   <xpath expr="//td[@id='product_name']" position="before">
@@ -3380,7 +3378,7 @@ ID: `mint_system.sale.sale_order_portal_content.show_default_code`
         white-space: nowrap;
       }
     </style>
-  	<td id="default_code"><span t-field="line.product_id.default_code"/></td>
+      <td id="default_code"><span t-field="line.product_id.default_code"/></td>
   </xpath>
  
 </data>

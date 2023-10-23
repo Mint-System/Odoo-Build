@@ -3,7 +3,7 @@
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//td[@id='product_name']" position="replace">
-  	<td id="product_name"><span t-field="line.product_id.name"/><br/><span class="font-italic" t-field="line.name"/></td>
+      <td id="product_name"><span t-field="line.product_id.name"/><br/><span class="font-italic" t-field="line.name"/></td>
   </xpath>
 
 </data>

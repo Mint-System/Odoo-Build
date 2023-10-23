@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace" />
+    <xpath expr="//p[@name='payment_communication']" position="replace" />
 
 </data>

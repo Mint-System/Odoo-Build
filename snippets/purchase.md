@@ -1448,13 +1448,13 @@ ID: `mint_system.purchase.report_purchaseorder_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-	<xpath expr="//span[@t-field='line.product_qty']" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
 
   <xpath expr="//span[@t-field='line.product_uom.name']" position="attributes">
-		<attribute name="id">product_uom</attribute>
-	</xpath>
+        <attribute name="id">product_uom</attribute>
+    </xpath>
 
 </data>
 
@@ -1487,25 +1487,25 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
-    	h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
+        h2 {
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
 
-	<xpath expr="//p[@t-field='o.date_order']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//p[@t-field='o.date_order']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
-	<xpath expr="//span[@t-field='line.date_planned']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='line.date_planned']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
 </data>
 ```
@@ -1516,9 +1516,9 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style" separator=" " add="width: 250px"/>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style" separator=" " add="width: 250px"/>
+    </xpath>
 
 </data>
 ```
@@ -1530,46 +1530,46 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_moser`
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
 <xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-     	td#taxes_amount {
-     	 	text-align: right;
-     	}
-		</style>
-	</xpath>
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+         td#taxes_amount {
+              text-align: right;
+         }
+        </style>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style" separator=" " add="text-align: left"/>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style" separator=" " add="text-align: left"/>
+    </xpath>
 
-	<xpath expr="//span[@t-field='line.date_planned']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='line.date_planned']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
-	<xpath expr="/t[1]/t[1]/t[4]/t[1]/div[1]/div[1]" position="attributes">
-		<attribute name="t-options-fields">['address']</attribute>
-	</xpath>
+    <xpath expr="/t[1]/t[1]/t[4]/t[1]/div[1]/div[1]" position="attributes">
+        <attribute name="t-options-fields">['address']</attribute>
+    </xpath>
 
-	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
-		<attribute name="t-options-fields">['address', 'name']</attribute>
-	</xpath>
+    <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+        <attribute name="t-options-fields">['address', 'name']</attribute>
+    </xpath>
 
 </data>
 ```
@@ -1581,31 +1581,31 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table#info {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			h2 {
-			  font-size: 1.2rem;
-			  font-weight: bold;
-			  margin: 50px 0 30px 0
-			}
-			body {
-				font-size: 11pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table#info {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            h2 {
+              font-size: 1.2rem;
+              font-weight: bold;
+              margin: 50px 0 30px 0
+            }
+            body {
+                font-size: 11pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
-		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
-	</xpath>
+    <xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
+        <attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+    </xpath>
 
-	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
-		<attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
-	</xpath>
+    <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+        <attribute name="t-options">{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2275,9 +2275,9 @@ ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
-	<xpath expr="//span[@t-field='line.product_qty']" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2289,44 +2289,44 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_moser`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+        </style>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style" separator=" " add="text-align: left"/>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style" separator=" " add="text-align: left"/>
+    </xpath>
 
-	<xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
-	<xpath expr="//div[1]/div[1]" position="attributes">
-		<attribute name="t-options-fields">['address']</attribute>
-	</xpath>
+    <xpath expr="//div[1]/div[1]" position="attributes">
+        <attribute name="t-options-fields">['address']</attribute>
+    </xpath>
 
-	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
-		<attribute name="t-options-fields">['address', 'name']</attribute>
-	</xpath>
+    <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+        <attribute name="t-options-fields">['address', 'name']</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2338,78 +2338,78 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
-			}
-			table.trimada tbody td#quantity {
-			  text-align: right;
-			}			
-			table.trimada tbody span#qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody span#open_qty {
-			  font-weight: bold;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#open_quantity {
+              width: 30mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody td#open_quantity {
+              text-align: right !important;
+            }
+            table.trimada tbody td#quantity {
+              text-align: right;
+            }            
+            table.trimada tbody span#qty {
+              font-weight: bold;
+            }
+            table.trimada tbody span#open_qty {
+              font-weight: bold;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[2]" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
-  	<xpath expr="//div[@name='information_block']" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+      <xpath expr="//div[@name='information_block']" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
 </data>
 ```

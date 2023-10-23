@@ -14,13 +14,13 @@
       }
     </style>
     <table id='to_produce'>
-     	<tr style="border-bottom: 1px solid rgb(220,220,220);">
-        	<th width="40%;"><strong>Menge</strong></th>
-        	<th width="30%;"><strong>Datum</strong></th>
-        	<th width="30%;"></th>
-     	</tr>
-    	<tr>
-        	<td>
+         <tr style="border-bottom: 1px solid rgb(220,220,220);">
+            <th width="40%;"><strong>Menge</strong></th>
+            <th width="30%;"><strong>Datum</strong></th>
+            <th width="30%;"></th>
+         </tr>
+        <tr>
+            <td>
           <strong><span t-field="o.product_qty"/>
           <span t-field="o.product_uom_id.name" groups="uom.group_uom"/></strong>
           </td>
@@ -28,6 +28,6 @@
         <td style="text-align: right"><strong>Termin: <span t-field="o.date_planned_finished" t-options='{"widget": "date"}'/></strong></td>
        </tr>
     </table>
-	
+    
   </xpath>  
 </data>

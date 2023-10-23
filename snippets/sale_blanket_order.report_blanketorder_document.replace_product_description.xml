@@ -3,7 +3,7 @@
 
 <xpath expr="//span[@t-field='l.product_id']" position="replace">
   <t t-if="l.product_id.type_description">
-		<span style="font-weight: bold" t-field="l.product_id.type_description"/>
+        <span style="font-weight: bold" t-field="l.product_id.type_description"/>
   </t>
   <t t-if="not l.product_id.type_description">
     <span t-field="l.name"/>

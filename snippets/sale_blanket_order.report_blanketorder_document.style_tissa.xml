@@ -1,37 +1,37 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table#info {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			h2 {
-			font-size: 1.2rem;
-			font-weight: bold;
-			margin: 50px 0 30px 0
-			}
-			body {
-				font-size: 11pt;
-				font-family: arial;
-			}
-			.table th {
-			  padding: 0.2rem;
-			  padding-left: 0.5rem;
-			}
-			.note p {
-				font-family: arial;
-				margin-bottom: 0px;
-			}
-		  .note p:last-child {
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table#info {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 50px 0 30px 0
+            }
+            body {
+                font-size: 11pt;
+                font-family: arial;
+            }
+            .table th {
+              padding: 0.2rem;
+              padding-left: 0.5rem;
+            }
+            .note p {
+                font-family: arial;
+                margin-bottom: 0px;
+            }
+          .note p:last-child {
         margin-bottom: 30px;
       }
-		</style>
-	</xpath>
+        </style>
+    </xpath>
 
-	<xpath expr="//div[@id='summary']/div" position="attributes">
-		<attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
-	</xpath>
+    <xpath expr="//div[@id='summary']/div" position="attributes">
+        <attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+    </xpath>
 
 </data>

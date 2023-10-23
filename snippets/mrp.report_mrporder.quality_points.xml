@@ -1,10 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-	<xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
-		<ul style="list-style-type:none;">
-		  <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">☐ <span t-field="quality_point.title"/></li>
-	  </ul>
+    <xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
+        <ul style="list-style-type:none;">
+          <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">☐ <span t-field="quality_point.title"/></li>
+      </ul>
     </xpath>
 
 </data>

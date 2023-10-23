@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-	  <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
-		  <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
-	  </xpath>
+      <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
+          <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
+      </xpath>
 
-	  <!--<xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">-->
-		 <!-- <attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>-->
-	  <!--</xpath>-->
+      <!--<xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">-->
+         <!-- <attribute name="t-foreach">doc.order_line.filtered(lambda l: not l.product_id.x_hide_on_sale_order)</attribute>-->
+      <!--</xpath>-->
 
 </data>

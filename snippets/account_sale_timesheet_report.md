@@ -45,6 +45,43 @@ ID: `mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.pr
 ```
 Source: [snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments.xml)
 
+## Report Sale  
+### Set Page Font Size  
+ID: `mint_system.account_sale_timesheet_report.report_sale.set_page_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.report_sale" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            body {
+                font-size: 0.9rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.report_sale.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_sale.set_page_font_size.xml)
+
+### Set Title Font Size  
+ID: `mint_system.account_sale_timesheet_report.report_sale.set_title_font_size`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_sale_timesheet_report.report_sale" priority="50">
+
+    <xpath expr="//div[hasclass('page')]" position="inside">
+        <style>
+            h2 {
+                font-size: 1.5rem;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account_sale_timesheet_report.report_sale.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_sale_timesheet_report.report_sale.set_title_font_size.xml)
+
 ## Timesheet Report  
 ### Add Title Space  
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`  

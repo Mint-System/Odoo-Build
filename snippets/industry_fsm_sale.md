@@ -110,9 +110,9 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`
 
     <xpath expr="//div[1]" position="before">
         <style>
-		  	.text-start {
-        	padding: 0.25rem 0rem !important;
-      		}
+              .text-start {
+            padding: 0.25rem 0rem !important;
+              }
         </style>
     </xpath>
 

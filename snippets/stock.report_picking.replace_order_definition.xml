@@ -4,26 +4,26 @@
   <xpath expr="//div[@name='div_origin']/.." position="replace">
 
     <style>
-			table.trimada_order {
-			  width: 100%;
-				font-size: 11pt;
-				font-family: arial;
-			}
-			table.trimada_order tr {
-			  border-bottom: 1px solid rgb(220,220,220);
-			}
-		 .first_col {
-			  width: 44%;
-			  padding-left: 10px;
-			  padding-top: 5px;
-			  padding-bottom: 5px;
-			}
-			.second_col {
-			  width: 56%;
-			}
-			.last_row {
-			  border-bottom: 0px !important;
-			}
+            table.trimada_order {
+              width: 100%;
+                font-size: 11pt;
+                font-family: arial;
+            }
+            table.trimada_order tr {
+              border-bottom: 1px solid rgb(220,220,220);
+            }
+         .first_col {
+              width: 44%;
+              padding-left: 10px;
+              padding-top: 5px;
+              padding-bottom: 5px;
+            }
+            .second_col {
+              width: 56%;
+            }
+            .last_row {
+              border-bottom: 0px !important;
+            }
     </style>
 
     <table class="trimada_order">

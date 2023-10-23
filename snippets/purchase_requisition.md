@@ -682,8 +682,8 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`
       <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
     </t>
     <t t-else="">
-			<h2>Purchase contract <span t-field="o.name"/></h2>
-		</t>
+            <h2>Purchase contract <span t-field="o.name"/></h2>
+        </t>
   </xpath>  
 
 </data>
@@ -697,9 +697,9 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.round_price`
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
 <xpath expr="//td[@id='price_unit']" position="replace">
-		 <td id="price_unit" class="text-right">
-		 <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') >= 3 else '%.2f' % line_ids.price_unit"/>
-		 </td>
+         <td id="price_unit" class="text-right">
+         <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') >= 3 else '%.2f' % line_ids.price_unit"/>
+         </td>
   </xpath>
 
 </data>
@@ -787,61 +787,61 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
 
-	<xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
-		<attribute name="id">informations</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table" position="attributes">
-		<attribute name="id">main_table</attribute>
-	</xpath>
-	
-	<xpath expr="//t[2]" position="attributes">
-		<attribute name="id">details</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/h3" position="attributes">
-		<attribute name="id">title_product</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/tbody/tr/td[1]" position="attributes">
-		<attribute name="id">name</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/tbody/tr" position="attributes">
-		<attribute name="id">first</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/thead/tr/th[1]" position="attributes">
-		<attribute name="id">name</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/thead/tr/th[2]" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/tbody/tr/td[2]" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
-		
-	<xpath expr="//t[1]/table/thead/tr/th[3]" position="attributes">
-		<attribute name="id">product_uom</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='o.ordering_date']/../.." position="attributes">
+        <attribute name="id">informations</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table" position="attributes">
+        <attribute name="id">main_table</attribute>
+    </xpath>
+    
+    <xpath expr="//t[2]" position="attributes">
+        <attribute name="id">details</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/h3" position="attributes">
+        <attribute name="id">title_product</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/tbody/tr/td[1]" position="attributes">
+        <attribute name="id">name</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/tbody/tr" position="attributes">
+        <attribute name="id">first</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/thead/tr/th[1]" position="attributes">
+        <attribute name="id">name</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/thead/tr/th[2]" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/tbody/tr/td[2]" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
+        
+    <xpath expr="//t[1]/table/thead/tr/th[3]" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
 
-	<xpath expr="//t[1]/table/tbody/tr/t/td" position="attributes">
-		<attribute name="id">product_uom</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/thead/tr/th[4]" position="attributes">
-		<attribute name="id">schedule_date</attribute>
-	</xpath>
-	
-	<xpath expr="//t[1]/table/tbody/tr/td[3]" position="attributes">
-		<attribute name="id">schedule_date</attribute>
-	</xpath>
+    <xpath expr="//t[1]/table/tbody/tr/t/td" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/thead/tr/th[4]" position="attributes">
+        <attribute name="id">schedule_date</attribute>
+    </xpath>
+    
+    <xpath expr="//t[1]/table/tbody/tr/td[3]" position="attributes">
+        <attribute name="id">schedule_date</attribute>
+    </xpath>
 
 </data>
 
@@ -849,21 +849,21 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
-	<xpath expr="//t[1]/h3" position="attributes">
-		<attribute name="id">title_product</attribute>
-	</xpath>
+    <xpath expr="//t[1]/h3" position="attributes">
+        <attribute name="id">title_product</attribute>
+    </xpath>
 
-	<xpath expr="//t[2]/h3" position="attributes">
-		<attribute name="id">title_details</attribute>
-	</xpath>
-	
-	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
-	
-	<xpath expr="//t[2]/table" position="attributes">
-		<attribute name="id">details</attribute>
-	</xpath>
+    <xpath expr="//t[2]/h3" position="attributes">
+        <attribute name="id">title_details</attribute>
+    </xpath>
+    
+    <xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
+    
+    <xpath expr="//t[2]/table" position="attributes">
+        <attribute name="id">details</attribute>
+    </xpath>
 
 </data>
 -->
@@ -898,46 +898,46 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			.o_company_1_layout {
-				font-family: Roboto;
-				color: #000000;
-			}
-			.o_report_layout_boxed {
-        		color: #495057;
-			}
-			.o_report_layout_boxed h2 {
-       			color: #000000;
-			}
-			.o_report_layout_boxed strong {
-       			color: #000000;
-			}
-			div#info_table {
-			  	margin-bottom: 1rem;
-			}
-			div#address {
-				font-size: 16px;
-				margin-bottom: 2rem;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            .o_company_1_layout {
+                font-family: Roboto;
+                color: #000000;
+            }
+            .o_report_layout_boxed {
+                color: #495057;
+            }
+            .o_report_layout_boxed h2 {
+                   color: #000000;
+            }
+            .o_report_layout_boxed strong {
+                   color: #000000;
+            }
+            div#info_table {
+                  margin-bottom: 1rem;
+            }
+            div#address {
+                font-size: 16px;
+                margin-bottom: 2rem;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//div/span[@t-field='o.partner_ref']/.." position="attributes">
-		<attribute name="class">col-auto</attribute>
-	</xpath>
+    <xpath expr="//div/span[@t-field='o.partner_ref']/.." position="attributes">
+        <attribute name="class">col-auto</attribute>
+    </xpath>
 
-	<xpath expr="//div/span[@t-field='o.ordering_date']/.." position="attributes">
-		<attribute name="class">col-auto</attribute>
-	</xpath>
+    <xpath expr="//div/span[@t-field='o.ordering_date']/.." position="attributes">
+        <attribute name="class">col-auto</attribute>
+    </xpath>
 
-	<xpath expr="//div/span[@t-field='o.incoterm_id']/.." position="attributes">
-		<attribute name="class">col-auto</attribute>
-	</xpath>
+    <xpath expr="//div/span[@t-field='o.incoterm_id']/.." position="attributes">
+        <attribute name="class">col-auto</attribute>
+    </xpath>
 
-	<xpath expr="//div/span[@t-field='o.user_id']/.." position="attributes">
-		<attribute name="class">col-auto</attribute>
-	</xpath>
+    <xpath expr="//div/span[@t-field='o.user_id']/.." position="attributes">
+        <attribute name="class">col-auto</attribute>
+    </xpath>
 
 </data>
 ```
@@ -949,64 +949,64 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			.o_company_1_layout {
-				font-family: Arial;
-				font-size: 9pt;
-			}
-			.address {
-       		padding-bottom:33mm;
-			}
-			h2 {
-       			margin-top:10mm;
-       			margin-bottom:3mm;
-       			font-size: 13pt;
-				font-weight: bold;
-			}
-			.first td {
-				padding-bottom: 0;
-			}
-			.second td {
-				padding-top: 0;
-			}
-			.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-				color: black;
-			}
-			table.trimada thead th#description {
-				width: 70mm;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: left;
-			}
-			span#qty {
-			  font-weight: bold;
-			}
-			table#summary td {
-			  padding: 0.3rem;
-			}
-	
-		</style>
-	</xpath>
-	
-	<xpath expr="//table[@id='main_table']" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            .o_company_1_layout {
+                font-family: Arial;
+                font-size: 9pt;
+            }
+            .address {
+               padding-bottom:33mm;
+            }
+            h2 {
+                   margin-top:10mm;
+                   margin-bottom:3mm;
+                   font-size: 13pt;
+                font-weight: bold;
+            }
+            .first td {
+                padding-bottom: 0;
+            }
+            .second td {
+                padding-top: 0;
+            }
+            .second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+                color: black;
+            }
+            table.trimada thead th#description {
+                width: 70mm;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: left;
+            }
+            span#qty {
+              font-weight: bold;
+            }
+            table#summary td {
+              padding: 0.3rem;
+            }
+    
+        </style>
+    </xpath>
+    
+    <xpath expr="//table[@id='main_table']" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
 </data>
 ```

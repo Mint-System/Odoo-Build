@@ -4,7 +4,7 @@
 
   <!-- Works until Odoo 14.0 -->
   <xpath expr="//li[@t-if='company.website']" position="replace">
-  	<li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
+      <li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
   </xpath>
 
 </data>

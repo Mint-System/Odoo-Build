@@ -106,21 +106,21 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`
 ```xml
 <data inherit_id="industry_fsm.worksheet_custom_page" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		  	h1 {
-        	font-size: 1.8rem;
-        	margin-top: 60px;
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+              h1 {
+            font-size: 1.8rem;
+            margin-top: 60px;
             }
-			h2 {
-        	font-size: 1.4rem;
-        	margin-top: 60px;
+            h2 {
+            font-size: 1.4rem;
+            margin-top: 60px;
             }   
-      		#title {
-         	font-size: 1.2rem;
-      		}
-		</style>
-	</xpath>
+              #title {
+             font-size: 1.2rem;
+              }
+        </style>
+    </xpath>
 
 </data>
 ```

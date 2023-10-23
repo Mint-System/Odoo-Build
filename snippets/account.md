@@ -110,7 +110,7 @@ ID: `mint_system.account.report_invoice_document.add_header_padding`
 
   <xpath expr="//h2" position="attributes">
     <attribute name="style">padding-top: 2rem</attribute>
-	</xpath>
+    </xpath>
 
 </data>
 
@@ -123,9 +123,9 @@ ID: `mint_system.account.report_invoice_document.add_header_space`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//h2" position="attributes">
-		 <attribute name="style">padding-top: 5rem</attribute>
-	</xpath>
+    <xpath expr="//h2" position="attributes">
+         <attribute name="style">padding-top: 5rem</attribute>
+    </xpath>
 
 </data>
 
@@ -301,12 +301,12 @@ ID: `mint_system.account.report_invoice_document.add_taxes`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
     .mb-4 {
           margin-bottom: 0rem !important;
           }
@@ -314,10 +314,10 @@ ID: `mint_system.account.report_invoice_document.add_taxes`
           margin-bottom: 2rem;
           }
     h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
 
 </data>
 ```
@@ -457,12 +457,12 @@ ID: `mint_system.account.report_invoice_document.custom_taxes`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//th[@name='th_taxes']" position="replace">
-  	<th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Steuern</span></th>
+      <th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Steuern</span></th>
   </xpath>
   <xpath expr="//t[@name='account_invoice_line_accountable']/td[5]" position="replace">
-  	<td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-  		<span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
-  	</td>
+      <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+          <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+      </td>
   </xpath>
 
 </data>
@@ -561,14 +561,14 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//span[@id='qty']" position="replace">
-		<t t-if="line.quantity.is_integer()">
-			<span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
-		</t>
-		<t t-else="">
-			<span id="qty" t-field="line.quantity"/>
-		</t>
-	</xpath>
+    <xpath expr="//span[@id='qty']" position="replace">
+        <t t-if="line.quantity.is_integer()">
+            <span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="qty" t-field="line.quantity"/>
+        </t>
+    </xpath>
 
 </data>
 ```
@@ -1152,8 +1152,8 @@ ID: `mint_system.account.report_invoice_document.product_weight`
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
   <t t-if="line.product_id.weight">
     <br/>
-		Weight: <span t-field="line.product_id.weight"/>
-		<span t-field="line.product_id.weight_uom_id.display_name"/>
+        Weight: <span t-field="line.product_id.weight"/>
+        <span t-field="line.product_id.weight_uom_id.display_name"/>
   </t>
   </xpath>
 
@@ -1168,7 +1168,7 @@ ID: `mint_system.account.report_invoice_document.remove_incoterm`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='incoterm']" position="replace">
+    <xpath expr="//p[@name='incoterm']" position="replace">
   </xpath>
 
 </data>
@@ -1182,7 +1182,7 @@ ID: `mint_system.account.report_invoice_document.remove_payment_communication`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace" />
+    <xpath expr="//p[@name='payment_communication']" position="replace" />
 
 </data>
 
@@ -1195,7 +1195,7 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<p name="payment_term" position="replace" />
+    <p name="payment_term" position="replace" />
 
 </data>
 
@@ -1740,50 +1740,50 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
   <xpath expr="//table[@name='invoice_line_table']" position="after">
 
     <style>
-			table.trimada_summary tr {
-				border-top: solid 1px !important;
-				border-bottom: solid 1px;
-				page-break-inside: avoid;
-			}
-			table.trimada_details tr {
-			  border-top: 0px !important;
-			  border-bottom: 0px;
-			  line-height: 0.7;
-			}
-			table.trimada_summary #amount_untaxed_label {
-				width: 11.5%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group0 {
-				width: 8%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group3 {
-				width: 21%;
-				text-align: right;
-				padding-right: 10%;
-			}
-			table.trimada_details td#amount_by_group4 {
-				width: 27%;
-				text-align: right;
-				padding-right: 15%;
-			}
-			table.trimada_summary td#amount_by_group_label {
-				width: 12%;
-				text-align: left;
-			}
-			table.trimada_summary td#amount_by_group {
-				width: 17%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_total_label {
-				width: 14%;
-				text-align: right;
-			}
-			table.trimada_summary #amount_total {
-				width: 18%;
-				text-align: right;
-			}
+            table.trimada_summary tr {
+                border-top: solid 1px !important;
+                border-bottom: solid 1px;
+                page-break-inside: avoid;
+            }
+            table.trimada_details tr {
+              border-top: 0px !important;
+              border-bottom: 0px;
+              line-height: 0.7;
+            }
+            table.trimada_summary #amount_untaxed_label {
+                width: 11.5%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group0 {
+                width: 8%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group3 {
+                width: 21%;
+                text-align: right;
+                padding-right: 10%;
+            }
+            table.trimada_details td#amount_by_group4 {
+                width: 27%;
+                text-align: right;
+                padding-right: 15%;
+            }
+            table.trimada_summary td#amount_by_group_label {
+                width: 12%;
+                text-align: left;
+            }
+            table.trimada_summary td#amount_by_group {
+                width: 17%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_total_label {
+                width: 14%;
+                text-align: right;
+            }
+            table.trimada_summary #amount_total {
+                width: 18%;
+                text-align: right;
+            }
     </style>
 
     <table class="table table-borderless table-sm trimada trimada_summary">
@@ -1863,7 +1863,6 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
 
 </data>
 
-
 ```
 Source: [snippets/account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.replace_summary.xml)
 
@@ -1907,7 +1906,7 @@ ID: `mint_system.account.report_invoice_document.round_price`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//span[@t-field='line.price_unit']" position="replace">
-		 <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
+         <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
   </xpath>
    
 </data>
@@ -2026,23 +2025,23 @@ ID: `mint_system.account.report_invoice_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
   
-	<xpath expr="//th[@name='th_quantity']" position="attributes">
-		<attribute name="id">th_quantity</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_quantity']" position="attributes">
+        <attribute name="id">th_quantity</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
-	<xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
-		<attribute name="id">qty</attribute>
-	</xpath>
-	
-	<xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
-		<attribute name="id">price</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
+        <attribute name="id">quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+        <attribute name="id">qty</attribute>
+    </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+        <attribute name="id">price</attribute>
+    </xpath>
 
 </data>
 ```
@@ -2341,12 +2340,12 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
     .mb-4 {
           margin-bottom: 0rem !important;
           }
@@ -2354,10 +2353,10 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
           margin-bottom: 2rem;
           }
     h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
 
 </data>
 ```
@@ -2368,39 +2367,39 @@ ID: `mint_system.account.report_invoice_document.style_moser`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-     	th#tax_amount {
-     	 	text-align: right;
-     	}
-     	td#tax_amount {
-     	 	text-align: right;
-     	}
-		</style>
-	</xpath>
-	
-	<xpath expr="//table[@name='invoice_line_table']" position="attributes">
-		<attribute name="class">table table-sm o_main_table mt-4</attribute>
-	</xpath>
-	
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+         th#tax_amount {
+              text-align: right;
+         }
+         td#tax_amount {
+              text-align: right;
+         }
+        </style>
+    </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4</attribute>
+    </xpath>
+    
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_moser.xml)
@@ -2411,39 +2410,39 @@ ID: `mint_system.account.report_invoice_document.style_tissa`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table#info {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			h2 {
-			font-size: 1.2rem;
-			font-weight: bold;
-			margin: 50px 0 30px 0
-			}
-			body {
-				font-size: 11pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table#info {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 50px 0 30px 0
+            }
+            body {
+                font-size: 11pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
-		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
-	</xpath>
+    <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
+        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
-		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
-	</xpath>
+    <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
+        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+    </xpath>
 
-	<xpath expr="//p[@name='payment_communication']" position="attributes">
-		<attribute name="style">margin-bottom: 0px</attribute>
-	</xpath>
+    <xpath expr="//p[@name='payment_communication']" position="attributes">
+        <attribute name="style">margin-bottom: 0px</attribute>
+    </xpath>
 
-	<xpath expr="//p[@name='payment_term']" position="attributes">
-		<attribute name="style">margin-bottom: 0px</attribute>
-	</xpath>
+    <xpath expr="//p[@name='payment_term']" position="attributes">
+        <attribute name="style">margin-bottom: 0px</attribute>
+    </xpath>
 
 </data>
 
@@ -2456,88 +2455,88 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
-			}
-			table.trimada tbody td#quantity {
-			  text-align: right;
-			}			
-			table.trimada tbody span#qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody span#open_qty {
-			  font-weight: bold;
-			}
-			.address {
-			  font-size: 10pt;
-			  line-height: 1.2;
-			  padding-bottom:33mm;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#open_quantity {
+              width: 30mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody td#open_quantity {
+              text-align: right !important;
+            }
+            table.trimada tbody td#quantity {
+              text-align: right;
+            }            
+            table.trimada tbody span#qty {
+              font-weight: bold;
+            }
+            table.trimada tbody span#open_qty {
+              font-weight: bold;
+            }
+            .address {
+              font-size: 10pt;
+              line-height: 1.2;
+              padding-bottom:33mm;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
   <span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-	
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
+    
 </data>
 
 ```
@@ -2702,7 +2701,7 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//tbody[1]/t[3]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
+        <attribute name="t-options-widget">"integer"</attribute>
   </xpath>
 
 </data>
@@ -2856,7 +2855,7 @@ ID: `mint_system.account.report_invoice_document.add_header_padding`
 
   <xpath expr="//h2" position="attributes">
     <attribute name="style">padding-top: 2rem</attribute>
-	</xpath>
+    </xpath>
 
 </data>
 
@@ -2869,9 +2868,9 @@ ID: `mint_system.account.report_invoice_document.add_header_space`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//h2" position="attributes">
-		 <attribute name="style">padding-top: 5rem</attribute>
-	</xpath>
+    <xpath expr="//h2" position="attributes">
+         <attribute name="style">padding-top: 5rem</attribute>
+    </xpath>
 
 </data>
 
@@ -3047,12 +3046,12 @@ ID: `mint_system.account.report_invoice_document.add_taxes`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
     .mb-4 {
           margin-bottom: 0rem !important;
           }
@@ -3060,10 +3059,10 @@ ID: `mint_system.account.report_invoice_document.add_taxes`
           margin-bottom: 2rem;
           }
     h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
 
 </data>
 ```
@@ -3203,12 +3202,12 @@ ID: `mint_system.account.report_invoice_document.custom_taxes`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//th[@name='th_taxes']" position="replace">
-  	<th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Steuern</span></th>
+      <th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Steuern</span></th>
   </xpath>
   <xpath expr="//t[@name='account_invoice_line_accountable']/td[5]" position="replace">
-  	<td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-  		<span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
-  	</td>
+      <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+          <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+      </td>
   </xpath>
 
 </data>
@@ -3307,14 +3306,14 @@ ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//span[@id='qty']" position="replace">
-		<t t-if="line.quantity.is_integer()">
-			<span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
-		</t>
-		<t t-else="">
-			<span id="qty" t-field="line.quantity"/>
-		</t>
-	</xpath>
+    <xpath expr="//span[@id='qty']" position="replace">
+        <t t-if="line.quantity.is_integer()">
+            <span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="qty" t-field="line.quantity"/>
+        </t>
+    </xpath>
 
 </data>
 ```
@@ -3898,8 +3897,8 @@ ID: `mint_system.account.report_invoice_document.product_weight`
   <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
   <t t-if="line.product_id.weight">
     <br/>
-		Weight: <span t-field="line.product_id.weight"/>
-		<span t-field="line.product_id.weight_uom_id.display_name"/>
+        Weight: <span t-field="line.product_id.weight"/>
+        <span t-field="line.product_id.weight_uom_id.display_name"/>
   </t>
   </xpath>
 
@@ -3914,7 +3913,7 @@ ID: `mint_system.account.report_invoice_document.remove_incoterm`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='incoterm']" position="replace">
+    <xpath expr="//p[@name='incoterm']" position="replace">
   </xpath>
 
 </data>
@@ -3928,7 +3927,7 @@ ID: `mint_system.account.report_invoice_document.remove_payment_communication`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//p[@name='payment_communication']" position="replace" />
+    <xpath expr="//p[@name='payment_communication']" position="replace" />
 
 </data>
 
@@ -3941,7 +3940,7 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<p name="payment_term" position="replace" />
+    <p name="payment_term" position="replace" />
 
 </data>
 
@@ -4486,50 +4485,50 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
   <xpath expr="//table[@name='invoice_line_table']" position="after">
 
     <style>
-			table.trimada_summary tr {
-				border-top: solid 1px !important;
-				border-bottom: solid 1px;
-				page-break-inside: avoid;
-			}
-			table.trimada_details tr {
-			  border-top: 0px !important;
-			  border-bottom: 0px;
-			  line-height: 0.7;
-			}
-			table.trimada_summary #amount_untaxed_label {
-				width: 11.5%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group0 {
-				width: 8%;
-				text-align: left;
-			}
-			table.trimada_details td#amount_by_group3 {
-				width: 21%;
-				text-align: right;
-				padding-right: 10%;
-			}
-			table.trimada_details td#amount_by_group4 {
-				width: 27%;
-				text-align: right;
-				padding-right: 15%;
-			}
-			table.trimada_summary td#amount_by_group_label {
-				width: 12%;
-				text-align: left;
-			}
-			table.trimada_summary td#amount_by_group {
-				width: 17%;
-				text-align: left;
-			}
-			table.trimada_summary #amount_total_label {
-				width: 14%;
-				text-align: right;
-			}
-			table.trimada_summary #amount_total {
-				width: 18%;
-				text-align: right;
-			}
+            table.trimada_summary tr {
+                border-top: solid 1px !important;
+                border-bottom: solid 1px;
+                page-break-inside: avoid;
+            }
+            table.trimada_details tr {
+              border-top: 0px !important;
+              border-bottom: 0px;
+              line-height: 0.7;
+            }
+            table.trimada_summary #amount_untaxed_label {
+                width: 11.5%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group0 {
+                width: 8%;
+                text-align: left;
+            }
+            table.trimada_details td#amount_by_group3 {
+                width: 21%;
+                text-align: right;
+                padding-right: 10%;
+            }
+            table.trimada_details td#amount_by_group4 {
+                width: 27%;
+                text-align: right;
+                padding-right: 15%;
+            }
+            table.trimada_summary td#amount_by_group_label {
+                width: 12%;
+                text-align: left;
+            }
+            table.trimada_summary td#amount_by_group {
+                width: 17%;
+                text-align: left;
+            }
+            table.trimada_summary #amount_total_label {
+                width: 14%;
+                text-align: right;
+            }
+            table.trimada_summary #amount_total {
+                width: 18%;
+                text-align: right;
+            }
     </style>
 
     <table class="table table-borderless table-sm trimada trimada_summary">
@@ -4609,7 +4608,6 @@ ID: `mint_system.account.report_invoice_document.replace_summary`
 
 </data>
 
-
 ```
 Source: [snippets/account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.replace_summary.xml)
 
@@ -4653,7 +4651,7 @@ ID: `mint_system.account.report_invoice_document.round_price`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//span[@t-field='line.price_unit']" position="replace">
-		 <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
+         <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') >= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
   </xpath>
    
 </data>
@@ -4772,23 +4770,23 @@ ID: `mint_system.account.report_invoice_document.set_ids`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
   
-	<xpath expr="//th[@name='th_quantity']" position="attributes">
-		<attribute name="id">th_quantity</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_quantity']" position="attributes">
+        <attribute name="id">th_quantity</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
-	<xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
-		<attribute name="id">quantity</attribute>
-	</xpath>
-	<xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
-		<attribute name="id">qty</attribute>
-	</xpath>
-	
-	<xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
-		<attribute name="id">price</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
+        <attribute name="id">quantity</attribute>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+        <attribute name="id">qty</attribute>
+    </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+        <attribute name="id">price</attribute>
+    </xpath>
 
 </data>
 ```
@@ -5087,12 +5085,12 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: Dobra-Book;
-        	font-size: 80%;
-        	}
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
     .mb-4 {
           margin-bottom: 0rem !important;
           }
@@ -5100,10 +5098,10 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
           margin-bottom: 2rem;
           }
     h2 {
-       		font-size: 1.5rem;
-      		}
-		</style>
-	</xpath>
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
 
 </data>
 ```
@@ -5114,39 +5112,39 @@ ID: `mint_system.account.report_invoice_document.style_moser`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-     	th#tax_amount {
-     	 	text-align: right;
-     	}
-     	td#tax_amount {
-     	 	text-align: right;
-     	}
-		</style>
-	</xpath>
-	
-	<xpath expr="//table[@name='invoice_line_table']" position="attributes">
-		<attribute name="class">table table-sm o_main_table mt-4</attribute>
-	</xpath>
-	
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+         th#tax_amount {
+              text-align: right;
+         }
+         td#tax_amount {
+              text-align: right;
+         }
+        </style>
+    </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4</attribute>
+    </xpath>
+    
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.style_moser.xml)
@@ -5157,39 +5155,39 @@ ID: `mint_system.account.report_invoice_document.style_tissa`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table#info {
-				font-size: 9pt;
-				font-family: arial;
-			}
-			h2 {
-			font-size: 1.2rem;
-			font-weight: bold;
-			margin: 50px 0 30px 0
-			}
-			body {
-				font-size: 11pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table#info {
+                font-size: 9pt;
+                font-family: arial;
+            }
+            h2 {
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 50px 0 30px 0
+            }
+            body {
+                font-size: 11pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
-		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
-	</xpath>
+    <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
+        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+    </xpath>
 
-	<xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
-		<attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
-	</xpath>
+    <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
+        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+    </xpath>
 
-	<xpath expr="//p[@name='payment_communication']" position="attributes">
-		<attribute name="style">margin-bottom: 0px</attribute>
-	</xpath>
+    <xpath expr="//p[@name='payment_communication']" position="attributes">
+        <attribute name="style">margin-bottom: 0px</attribute>
+    </xpath>
 
-	<xpath expr="//p[@name='payment_term']" position="attributes">
-		<attribute name="style">margin-bottom: 0px</attribute>
-	</xpath>
+    <xpath expr="//p[@name='payment_term']" position="attributes">
+        <attribute name="style">margin-bottom: 0px</attribute>
+    </xpath>
 
 </data>
 
@@ -5202,88 +5200,88 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			table.trimada {
-				font-size: 9pt;
-				font-family: arial;
-				color: black;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-			}
-			table.trimada thead th#position {
-				width: 5mm;
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: right;
-			}
-			table.trimada thead th#open_quantity {
-			  width: 30mm;
-			  text-align: right;
-			}
-			table.trimada thead th#quantity {
-			  width: 25mm;
-			  text-align: right !important;
-			}
-			table.trimada tbody td#position {
-			  text-align: right;
-			}
-			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody td#open_quantity {
-			  text-align: right !important;
-			}
-			table.trimada tbody td#quantity {
-			  text-align: right;
-			}			
-			table.trimada tbody span#qty {
-			  font-weight: bold;
-			}
-			table.trimada tbody span#open_qty {
-			  font-weight: bold;
-			}
-			.address {
-			  font-size: 10pt;
-			  line-height: 1.2;
-			  padding-bottom:33mm;
-			}
-			.subtitel {
-				font-size: 11pt;
-				font-family: arial;
-				margin-top: 10mm;
-			}
-			.note {
-				font-size: 9pt;
-				font-family: arial;
-			}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            table.trimada {
+                font-size: 9pt;
+                font-family: arial;
+                color: black;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+            }
+            table.trimada thead th#position {
+                width: 5mm;
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: right;
+            }
+            table.trimada thead th#open_quantity {
+              width: 30mm;
+              text-align: right;
+            }
+            table.trimada thead th#quantity {
+              width: 25mm;
+              text-align: right !important;
+            }
+            table.trimada tbody td#position {
+              text-align: right;
+            }
+            table.trimada tbody td#default_code {
+              text-align: right;
+            }
+            table.trimada tbody td#open_quantity {
+              text-align: right !important;
+            }
+            table.trimada tbody td#quantity {
+              text-align: right;
+            }            
+            table.trimada tbody span#qty {
+              font-weight: bold;
+            }
+            table.trimada tbody span#open_qty {
+              font-weight: bold;
+            }
+            .address {
+              font-size: 10pt;
+              line-height: 1.2;
+              padding-bottom:33mm;
+            }
+            .subtitel {
+                font-size: 11pt;
+                font-family: arial;
+                margin-top: 10mm;
+            }
+            .note {
+                font-size: 9pt;
+                font-family: arial;
+            }
+        </style>
+    </xpath>
 
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 
   <span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-	
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
+    
 </data>
 
 ```
@@ -5448,7 +5446,7 @@ ID: `mint_system.account.report_invoice_document.unit_precision`
 <data inherit_id="account.report_invoice_document" priority="50">
 
   <xpath expr="//tbody[1]/t[3]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
+        <attribute name="t-options-widget">"integer"</attribute>
   </xpath>
 
 </data>
@@ -5514,6 +5512,21 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
 
 ```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
+
+## View Account Journal Form  
+### Show Payment Method Code  
+ID: `mint_system.account.view_account_journal_form.show_payment_method_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_journal_form" priority="50">
+
+    <xpath expr="//field[@name='inbound_payment_method_line_ids']//field[@name='payment_method_id']" position="before">
+        <field name="code" />
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_account_journal_form.show_payment_method_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_account_journal_form.show_payment_method_code.xml)
 
 ## View Account List  
 ### Show Deprecated  

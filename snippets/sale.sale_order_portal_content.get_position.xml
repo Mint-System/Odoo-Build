@@ -2,11 +2,11 @@
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//table[@id='sales_order_table']//tr/th[1]" position="before">
-  	<th class="text-left">Pos</th>
+      <th class="text-left">Pos</th>
   </xpath>
 
   <xpath expr="//td[@id='default_code']" position="before">
-  	<td id="position"><span t-field="line.position"/></td>
+      <td id="position"><span t-field="line.position"/></td>
   </xpath>
  
 </data>

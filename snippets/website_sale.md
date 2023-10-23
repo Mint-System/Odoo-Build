@@ -69,12 +69,12 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 <!-- Add class to categories button -->
 <data inherit_id="website_sale.products_categories" priority="50">
 
-	<xpath expr="//button" position="replace">
-	  <button type="button" class="btn btn-secondary d-lg-none mb-2"
-		  data-target="#wsale_products_categories_collapse" data-toggle="collapse">
-		  Show categories
-	  </button>
-	</xpath>
+    <xpath expr="//button" position="replace">
+      <button type="button" class="btn btn-secondary d-lg-none mb-2"
+          data-target="#wsale_products_categories_collapse" data-toggle="collapse">
+          Show categories
+      </button>
+    </xpath>
 
 </data>
 

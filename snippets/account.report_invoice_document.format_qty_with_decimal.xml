@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
-	<xpath expr="//span[@id='qty']" position="replace">
-		<t t-if="line.quantity.is_integer()">
-			<span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
-		</t>
-		<t t-else="">
-			<span id="qty" t-field="line.quantity"/>
-		</t>
-	</xpath>
+    <xpath expr="//span[@id='qty']" position="replace">
+        <t t-if="line.quantity.is_integer()">
+            <span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="qty" t-field="line.quantity"/>
+        </t>
+    </xpath>
 
 </data>

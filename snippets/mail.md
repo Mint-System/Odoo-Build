@@ -244,11 +244,11 @@ ID: `mint_system.mail.mail_notification_light.replace_footer`
 <data inherit_id="mail.mail_notification_light" priority="50">
 
   <xpath expr="//tbody/tr[3]/td/div" position="replace">
-	  <div style="color: #999999">
-			<a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
-				example.ch
-			</a>
-		</div>
+      <div style="color: #999999">
+            <a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
+                example.ch
+            </a>
+        </div>
   </xpath>
 
 </data>
@@ -384,11 +384,11 @@ ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 <data inherit_id="mail.mail_notification_paynow" priority="50">
 
   <xpath expr="//tbody/tr[3]/td/div" position="replace">
-	  <div style="color: #999999">
-			<a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
-				example.ch
-			</a>
-		</div>
+      <div style="color: #999999">
+            <a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
+                example.ch
+            </a>
+        </div>
   </xpath>
 
 </data>

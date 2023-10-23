@@ -2,7 +2,7 @@
 <data inherit_id="sale.sale_order_portal_content" priority="50">
 
   <xpath expr="//th[@t-if='display_discount']/span" position="replace">
-  	<span>Rabatt</span>
+      <span>Rabatt</span>
   </xpath>
  
 </data>

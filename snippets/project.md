@@ -413,8 +413,8 @@ ID: `mint_system.project.view_task_form2.x_business_requirement_id`
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
-	<field name="partner_id" position="before">
-	   <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
+    <field name="partner_id" position="before">
+       <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
   </field>
 
 </data>
@@ -428,8 +428,8 @@ ID: `mint_system.project.view_task_form2.x_lead_id`
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
-	<field name="partner_id" position="before">
-	   <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}" />
+    <field name="partner_id" position="before">
+       <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}" />
   </field>
 
 </data>

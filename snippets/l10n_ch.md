@@ -113,9 +113,9 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`
 ```xml
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="60">
 
-	<xpath expr="//div[hasclass('swissqr_page_title')]" position="before">
-	  
-		<style>
+    <xpath expr="//div[hasclass('swissqr_page_title')]" position="before">
+      
+        <style>
       .swissqr_receipt {
       border-top-style: none !important;
       }

@@ -1,21 +1,21 @@
 <data inherit_id="stock.report_delivery_document" priority="60">
 
-	<style>
+    <style>
       .cell_left {
       text-align: left;
       }
-	</style>
+    </style>
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		h2 {
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        h2 {
         margin-top: 50px;
-        	}
-		</style>
-	</xpath>
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//th[@name='th_sml_product']" position="attributes">
-		<attribute name="class" separator=" " add="cell_left"/>
-	</xpath>
+    <xpath expr="//th[@name='th_sml_product']" position="attributes">
+        <attribute name="class" separator=" " add="cell_left"/>
+    </xpath>
 
 </data>

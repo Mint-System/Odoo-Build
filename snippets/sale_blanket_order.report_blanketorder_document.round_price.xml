@@ -2,7 +2,7 @@
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
 
   <xpath expr="//span[@t-field='l.price_unit']" position="replace">
-		 <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') >= 3 else '%.2f' % l.price_unit"/>
+         <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') >= 3 else '%.2f' % l.price_unit"/>
   </xpath>
 
 </data>
