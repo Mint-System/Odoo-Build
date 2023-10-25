@@ -508,14 +508,16 @@ function git-switch-branch() {
 }
 
 function checkout-config-files() {
-    echo "Checkout config files $GIT_BRANCH branch."
-    git checkout "$GIT_BRANCH" config/checkout_files config/reset_files
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    echo "Checkout config files $1 branch."
+    git checkout "$1" config/checkout_files config/reset_files
 
     echo "Remove reset files."
-    git rm -r "$(tr '\n' ' ' < ./config/reset_files)" >/dev/null 2>&1
+    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
 
-    echo "Sync checkout files from $GIT_BRANCH branch."
-    git checkout "$GIT_BRANCH" $(tr '\n' ' ' < ./config/checkout_files)
+    echo "Sync checkout files from $1 branch."
+    git checkout "$1" $(tr '\n' ' ' < ./config/checkout_files)
 }
 
 function checkout() {
@@ -531,7 +533,7 @@ function checkout() {
 
     git-switch-branch "$1"
 
-    checkout-config-files
+    checkout-config-files $GIT_BRANCH
 }
 
 function checkout-revision() {
@@ -976,6 +978,9 @@ case "$1" in
         ;;
     checkout)
         checkout "$2" "$3"
+        ;;
+    checkout-config-files)
+        checkout-config-files "$2"
         ;;
     checkout-revision)
         checkout-revision "$2"

@@ -15,18 +15,6 @@
     <attribute name="class" separator=" " add="o_italic"/>
   </xpath>
 
-  <xpath expr="/t/t/div/div[2]" position="after">
-    <t t-if="doc.x_studio_description">
-      <div class="row">
-        <div class="col">
-          <span t-field="doc.x_studio_description"/>
-          <br/>
-          <br/>
-        </div>
-      </div>
-    </t>
-  </xpath>
-
   <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
     <attribute name="class" separator=" " add="o_italic"/>
   </xpath>
