@@ -1,27 +1,28 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
 
-  <record id="x_count_boxes" model="ir.model.fields">
-    <field name="field_description">Anzahl Kisten</field>
-    <field name="help">Count the number of packaging boxes.</field>
-    <field name="model">stock.move</field>
-    <field name="model_id" ref="stock.model_stock_move"/>
-    <field name="name">x_count_boxes</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">int</field>
-    <field name="depends">quantity_done</field>
-    <field name="compute">for rec in self:
-        rec['x_count_boxes'] = 0
-        if rec.product_packaging and rec.product_packaging.qty:
-          
-          rec['x_count_boxes'] = rec.quantity_done // rec.product_packaging.qty
-          
-          if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
-            
-            rec['x_count_boxes'] = (rec.quantity_done + rec.product_packaging.qty)/rec.product_packaging.parent_packaging.qty
-    
-    </field>
+    <record id="x_count_boxes" model="ir.model.fields">
+        <field name="field_description">Anzahl Kisten</field>
+        <field name="help">Count the number of packaging boxes.</field>
+        <field name="model">stock.move</field>
+        <field name="model_id" ref="stock.model_stock_move"/>
+        <field name="name">x_count_boxes</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">int</field>
+        <field name="depends">quantity_done</field>
+        <field name="compute">for rec in self:
+            rec['x_count_boxes'] = 0
+            if rec.product_packaging and rec.product_packaging.qty:
+                
+                rec['x_count_boxes'] = rec.quantity_done // rec.product_packaging.qty
+                
+                if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
+                
+                rec['x_count_boxes'] = (rec.quantity_done + rec.product_packaging.qty)/rec.product_packaging.parent_packaging.qty
 
+        </field>
+    </record>
+    
 </odoo>
