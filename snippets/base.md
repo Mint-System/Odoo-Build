@@ -209,6 +209,22 @@ ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 ```
 Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
 
+## View Country Tree  
+### Set Limit  
+ID: `mint_system.base.view_country_tree.set_limit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_country_tree" priority="50">
+
+  <tree position="attributes">
+    <attribute name="limit">250</attribute>
+  </tree>
+
+</data>
+
+```
+Source: [snippets/base.view_country_tree.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_country_tree.set_limit.xml)
+
 ## View Model Fields Form  
 ### Show State  
 ID: `mint_system.base.view_model_fields_form.show_state`  

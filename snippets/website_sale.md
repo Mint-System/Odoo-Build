@@ -1,5 +1,17 @@
 # Website Sale
 ## Address  
+### Hide Shipping Use Same  
+ID: `mint_system.website_sale.address.hide_shipping_use_same`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="website_sale.address" priority="50">
+
+    <input id="shipping_use_same" position="replace" />
+
+</data>
+```
+Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.address.hide_shipping_use_same.xml)
+
 ### Overwrite Required  
 ID: `mint_system.website_sale.address.overwrite_required`  
 ```xml
