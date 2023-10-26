@@ -234,3 +234,7 @@
 	path = addons/account_invoicing
 	url = git@github.com:mint-system/odoo-apps-account-invoicing.git
 	branch = 16.0
+[submodule "oca/e-commerce"]
+	path = oca/e-commerce
+	url = git@github.com:OCA/e-commerce.git
+	branch = 16.0

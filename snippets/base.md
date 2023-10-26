@@ -307,6 +307,20 @@ ID: `mint_system.base.view_partner_form.add_display_name`
 ```
 Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_display_name.xml)
 
+### Attributes Child Ids  
+ID: `mint_system.base.view_partner_form.attributes_child_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='child_ids']" position="attributes">
+    <attribute name="mode">tree</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.attributes_child_ids.xml)
+
 ### Move Company Registry  
 ID: `mint_system.base.view_partner_form.move_company_registry`  
 ```xml

@@ -3,11 +3,12 @@
 ### Hide Shipping Use Same  
 ID: `mint_system.website_sale.address.hide_shipping_use_same`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
-
-    <input id="shipping_use_same" position="replace" />
-
+  
+    <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
+            <attribute name="style">display: none;</attribute>
+        </xpath>
+    
 </data>
 ```
 Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.address.hide_shipping_use_same.xml)
@@ -72,6 +73,19 @@ ID: `mint_system.website_sale.address.show_firstname_lastname`
 
 ```
 Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.address.show_firstname_lastname.xml)
+
+## Payment Confirmation Status  
+### Remove Communication  
+ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="website_sale.payment_confirmation_status" priority="50">
+
+  <xpath expr="//div[@t-if='order.reference']" position="replace" />
+
+</data>
+```
+Source: [snippets/website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.payment_confirmation_status.remove_communication.xml)
 
 ## Products Categories  
 ### Bigger Categories Button  

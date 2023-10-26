@@ -1012,13 +1012,13 @@ ID: `mint_system.sale.report_saleorder_document.add_header_and_footer_note`
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-  <xpath expr="//table[@id='info']" position="after">
+  <xpath expr="//div[@id='informations']" position="after">
     <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="doc.note_header"/>
     </t>
   </xpath>
 
-  <xpath expr="//table[2]" position="after">
+  <xpath expr="//div[@name='signature']" position="before">
     <t t-if="doc.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="doc.note_footer"/>
     </t>
@@ -2755,6 +2755,65 @@ ID: `mint_system.sale.report_saleorder_document.style_gelso`
 ```
 Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_gelso.xml)
 
+### Style Mint System  
+ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
+    <span t-field="line.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
+    <span t-field="option.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[6]" position="after">
+    <div class="row">
+      <div class="col h2">
+        <span>New Title</span>
+      </div>
+    </div>
+  </xpath>
+
+  <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
+    <attribute name="class">col h4</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[7]/div/span" position="replace">
+    <p style="page-break-before:always;"/>
+    <span>Geschäftsbedingungen</span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
+    <attribute name="style" separator=";" add="width:150px"/>
+  </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.style_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_mint_system.xml)
+
 ### Style Moser  
 ID: `mint_system.sale.report_saleorder_document.style_moser`  
 ```xml
@@ -2968,77 +3027,6 @@ ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`
 ```
 Source: [snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml)
 
-### X Sudio Description  
-ID: `mint_system.sale.report_saleorder_document.x_sudio_description`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
-    <span t-field="line.product_id.name"/>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
-    <span>
-      <br/>
-    </span>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
-    <attribute name="class" separator=" " add="o_italic"/>
-  </xpath>
-
-  <xpath expr="/t/t/div/div[2]" position="after">
-    <t t-if="doc.x_studio_description">
-      <div class="row">
-        <div class="col">
-          <span t-field="doc.x_studio_description"/>
-          <br/>
-          <br/>
-        </div>
-      </div>
-    </t>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
-    <attribute name="class" separator=" " add="o_italic"/>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
-    <span t-field="option.product_id.name"/>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
-    <span>
-      <br/>
-    </span>
-  </xpath>
-
-  <xpath expr="/t/t/div/div[6]" position="after">
-    <div class="row">
-      <div class="col h2">
-        <span>New Title</span>
-      </div>
-    </div>
-  </xpath>
-
-  <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
-    <attribute name="class">col h4</attribute>
-  </xpath>
-
-  <xpath expr="/t/t/div/div[7]/div/span" position="replace">
-    <p style="page-break-before:always;"/>
-    <span>Geschäftsbedingungen</span>
-  </xpath>
-
-  <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
-    <attribute name="style" separator=";" add="width:150px"/>
-  </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.x_sudio_description.xml)
-
 ### X Warranty  
 ID: `mint_system.sale.report_saleorder_document.x_warranty`  
 ```xml
@@ -3216,6 +3204,29 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
 
 ## Sale Order Portal Content  
+### Add Header And Footer Note  
+ID: `mint_system.sale.sale_order_portal_content.add_header_and_footer_note`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="after">
+    <t t-if="sale_order.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="sale_order.note_header"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//div[@name='signature']" position="before">
+    <t t-if="sale_order.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="sale_order.note_footer"/>
+    </t>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml)
+
 ### Convert Html Note  
 ID: `mint_system.sale.sale_order_portal_content.convert_html_note`  
 ```xml
@@ -3239,21 +3250,6 @@ ID: `mint_system.sale.sale_order_portal_content.convert_html_note`
 
 ```
 Source: [snippets/sale.sale_order_portal_content.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_portal_content.convert_html_note.xml)
-
-### Description  
-ID: `mint_system.sale.sale_order_portal_content.description`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.sale_order_portal_content" priority="50">
-
-  <xpath expr="//div[@id='informations']" position="after">
-    <p t-field="sale_order.x_studio_description" />
-  </xpath>
-
-</data>
-
-```
-Source: [snippets/sale.sale_order_portal_content.description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_portal_content.description.xml)
 
 ### Format Qty  
 ID: `mint_system.sale.sale_order_portal_content.format_qty`  
@@ -3385,6 +3381,21 @@ ID: `mint_system.sale.sale_order_portal_content.show_default_code`
 
 ```
 Source: [snippets/sale.sale_order_portal_content.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_portal_content.show_default_code.xml)
+
+### X Description  
+ID: `mint_system.sale.sale_order_portal_content.x_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="after">
+    <p t-field="sale_order.x_studio_description" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/sale.sale_order_portal_content.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.sale_order_portal_content.x_description.xml)
 
 ### X Hide On Sale Order  
 ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`  
