@@ -1,0 +1,7 @@
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='invoice_status']" position="after">
+        <field name="x_payment_state" optional="hide"/>
+    </xpath>
+
+</data>

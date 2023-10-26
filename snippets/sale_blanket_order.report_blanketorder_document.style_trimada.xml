@@ -2,59 +2,59 @@
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
 
   <xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-			.o_company_1_layout {
-				font-family: Arial;
-				font-size: 9pt;
-			}
-			.table th {
-				padding: 0.3rem;
-			}
-			.table td {
-				padding: 0.3rem;
-			}
-			h2 {
-				font-size: 13pt;
-				font-weight: bold;
-			}
-			table.trimada thead tr {
-				border-top:solid 1px;
-				border-bottom: solid 1px;
-				color: black;
-			}
-			table.trimada thead th#description {
-				width: 70mm;
-			}
-			table.trimada tr.first td {
-				padding-bottom: 0;
-			}
-			table.trimada tr.second td {
-				padding-top: 0;
-			}
-			table.trimada tr.second {
-				border-bottom: 1px solid rgb(220,220,220);
-			}
-			table.trimada thead th#default_code {
-			  width: 27mm;
-			  text-align: left;
-			}
-			table.trimada thead th#date_schedule {
-				text-align: right !important;
-			}
-			table.trimada tbody td#date_schedule {
-				text-align: right !important;
-			}
-			table.trimada thead th#price_subtotal {
-			  text-align: right !important;
-			}
-			table.trimada tbody td span#qty {
-			  font-weight: bold;
-			}
-		</style>
-	</xpath>
+        <style>
+            .o_company_1_layout {
+                font-family: Arial;
+                font-size: 9pt;
+            }
+            .table th {
+                padding: 0.3rem;
+            }
+            .table td {
+                padding: 0.3rem;
+            }
+            h2 {
+                font-size: 13pt;
+                font-weight: bold;
+            }
+            table.trimada thead tr {
+                border-top:solid 1px;
+                border-bottom: solid 1px;
+                color: black;
+            }
+            table.trimada thead th#description {
+                width: 70mm;
+            }
+            table.trimada tr.first td {
+                padding-bottom: 0;
+            }
+            table.trimada tr.second td {
+                padding-top: 0;
+            }
+            table.trimada tr.second {
+                border-bottom: 1px solid rgb(220,220,220);
+            }
+            table.trimada thead th#default_code {
+              width: 27mm;
+              text-align: left;
+            }
+            table.trimada thead th#date_schedule {
+                text-align: right !important;
+            }
+            table.trimada tbody td#date_schedule {
+                text-align: right !important;
+            }
+            table.trimada thead th#price_subtotal {
+              text-align: right !important;
+            }
+            table.trimada tbody td span#qty {
+              font-weight: bold;
+            }
+        </style>
+    </xpath>
 
-	<xpath expr="//table[2]" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</xpath>
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </xpath>
 
 </data>

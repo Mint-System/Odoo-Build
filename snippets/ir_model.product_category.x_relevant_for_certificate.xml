@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_relevant_for_certificate" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Für Werkszeugnis relevant</field>
     <field name="model">product.category</field>
     <field name="model_id" ref="product.product_category"/>

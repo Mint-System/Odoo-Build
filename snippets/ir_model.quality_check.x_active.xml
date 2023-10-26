@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_active" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Aktiv</field>
     <field name="model">quality.check</field>
     <field name="model_id" ref="quality.model_quality_check"/>

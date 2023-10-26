@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_gdpr" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Datenschutz</field>
     <field name="model">hr.applicant</field>
     <field name="model_id" ref="hr.model_hr_applicant"/>

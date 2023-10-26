@@ -1,0 +1,7 @@
+<data inherit_id="sale.view_quotation_tree" priority="50">
+
+    <xpath expr="//field[@name='state']" position="before">
+        <field name="delivery_status" decoration-danger="delivery_status == 'pending'" decoration-warning="delivery_status == 'partial'" decoration-success="delivery_status == 'full'" widget="badge" optional="show"/>
+    </xpath>
+
+</data>

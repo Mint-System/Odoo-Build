@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_estimated_cost" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Estimated Cost</field>
     <field name="model">business.requirement</field>
     <field name="model_id" ref="business_requirement.model_business_requirement"/>

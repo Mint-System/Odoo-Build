@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_user_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Benutzer</field>
     <field name="model">agreement.agreement</field>
     <field name="model_id" ref="crm.model_crm_lead"/>

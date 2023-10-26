@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_picking_partner_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lieferadresse</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>

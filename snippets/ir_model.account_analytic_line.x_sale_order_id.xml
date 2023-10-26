@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_sale_order_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Verkaufsauftrag</field>
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_analytic_line"/>

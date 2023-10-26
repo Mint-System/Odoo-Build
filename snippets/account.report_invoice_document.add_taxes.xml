@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: Dobra-Book;
+            font-size: 80%;
+            }
+    .mb-4 {
+          margin-bottom: 0rem !important;
+          }
+    #total {
+          margin-bottom: 2rem;
+          }
+    h2 {
+               font-size: 1.5rem;
+              }
+        </style>
+    </xpath>
+
+</data>

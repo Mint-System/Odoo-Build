@@ -185,9 +185,9 @@ ID: `mint_system.base.view_company_form.show_account_onboarding_panel`
 <?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
 
-	<field name="website" position="after">
-		<field name="account_dashboard_onboarding_state" />
-	</field>
+    <field name="website" position="after">
+        <field name="account_dashboard_onboarding_state" />
+    </field>
 
 </data>
 
@@ -200,14 +200,30 @@ ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 <?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
 
-	<field name="website" position="after">
-		<field name="analytic_plan_id" />
-	</field>
+    <field name="website" position="after">
+        <field name="analytic_plan_id" />
+    </field>
 
 </data>
 
 ```
 Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
+
+## View Country Tree  
+### Set Limit  
+ID: `mint_system.base.view_country_tree.set_limit`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_country_tree" priority="50">
+
+  <tree position="attributes">
+    <attribute name="limit">250</attribute>
+  </tree>
+
+</data>
+
+```
+Source: [snippets/base.view_country_tree.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_country_tree.set_limit.xml)
 
 ## View Model Fields Form  
 ### Show State  
@@ -291,6 +307,53 @@ ID: `mint_system.base.view_partner_form.add_display_name`
 ```
 Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_display_name.xml)
 
+### Attributes Child Ids  
+ID: `mint_system.base.view_partner_form.attributes_child_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='child_ids']" position="attributes">
+    <attribute name="mode">tree</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.attributes_child_ids.xml)
+
+### Move Company Registry  
+ID: `mint_system.base.view_partner_form.move_company_registry`  
+```xml
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <xpath expr="//page[@name='sales_purchases']//field[@name='company_registry']" position="move"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_company_registry.xml)
+
+### Move Property Product Pricelist  
+ID: `mint_system.base.view_partner_form.move_property_product_pricelist`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='property_product_pricelist']" position="replace" />
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="property_product_pricelist" groups="product.group_product_pricelist" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"/>
+    <div name="parent_pricelists" groups="product.group_product_pricelist" colspan="2" attrs="{'invisible': ['|',('is_company','=',True),('parent_id','=',False)]}">
+      <p>Preislisten werden auf dem Unternehmen verwaltet.</p>
+    </div>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_property_product_pricelist.xml)
+
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
@@ -309,6 +372,42 @@ ID: `mint_system.base.view_partner_form.move_ref`
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
 
+### Move Zip And City  
+ID: `mint_system.base.view_partner_form.move_zip_and_city`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='city']" position="replace" />
+  <xpath expr="//field[@name='state_id']" position="replace" />
+  <xpath expr="//field[@name='zip']" position="replace" />
+
+  <xpath expr="//field[@name='street2']" position="after">
+    <field name="zip" placeholder="PLZ" class="o_address_zip" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+    <field name="city" placeholder="Stadt" class="o_address_city" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}"/>
+    <field name="state_id" class="o_address_state" placeholder="Bundesland" options="{'no_open': True, 'no_quick_create': True}" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'country_id': country_id, 'default_country_id': country_id, 'zip': zip}"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_zip_and_city.xml)
+
+### Show Color  
+ID: `mint_system.base.view_partner_form.show_color`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="color"  widget="color_picker"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_color.xml)
+
 ### Show Industry  
 ID: `mint_system.base.view_partner_form.show_industry`  
 ```xml
@@ -323,6 +422,21 @@ ID: `mint_system.base.view_partner_form.show_industry`
 
 ```
 Source: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_industry.xml)
+
+### Show Type  
+ID: `mint_system.base.view_partner_form.show_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="type"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_type.xml)
 
 ### Show User Id  
 ID: `mint_system.base.view_partner_form.show_user_id`  
@@ -368,6 +482,21 @@ ID: `mint_system.base.view_partner_form.x_created_on`
 ```
 Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_created_on.xml)
 
+### X Eori  
+ID: `mint_system.base.view_partner_form.x_eori`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_eori"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_eori.xml)
+
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  
 ```xml
@@ -383,6 +512,21 @@ ID: `mint_system.base.view_partner_form.x_external_ref`
 ```
 Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_external_ref.xml)
 
+### X Global Location Number  
+ID: `mint_system.base.view_partner_form.x_global_location_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_global_location_number"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_global_location_number.xml)
+
 ### X Packaging Ref  
 ID: `mint_system.base.view_partner_form.x_packaging_ref`  
 ```xml
@@ -397,6 +541,36 @@ ID: `mint_system.base.view_partner_form.x_packaging_ref`
 
 ```
 Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_packaging_ref.xml)
+
+### X Privacy Visibility  
+ID: `mint_system.base.view_partner_form.x_privacy_visibility`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='category_id']" position="after">
+    <field name="x_privacy_visibility"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_privacy_visibility.xml)
+
+### X Vst  
+ID: `mint_system.base.view_partner_form.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_vst"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_vst.xml)
 
 ## View Partner Tree  
 ### Add Ref Zip Type  
@@ -420,6 +594,15 @@ ID: `mint_system.base.view_partner_tree.add_ref_zip_type`
 </data>
 ```
 Source: [snippets/base.view_partner_tree.add_ref_zip_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.add_ref_zip_type.xml)
+
+### Format Decoration  
+ID: `mint_system.base.view_partner_tree.format_decoration`  
+```xml
+<xpath expr="//field[@name='display_name']" position="attributes">
+  <attribute name="decoration-bf">is_company</attribute>
+</xpath>
+```
+Source: [snippets/base.view_partner_tree.format_decoration.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.format_decoration.xml)
 
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_tree.move_zip_and_city`  
@@ -484,6 +667,21 @@ ID: `mint_system.base.view_partner_tree.property_payment_term_id`
 ```
 Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.property_payment_term_id.xml)
 
+### Show Company Registry  
+ID: `mint_system.base.view_partner_tree.show_company_registry`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="vat" position="before">
+    <field name="company_registry" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_company_registry.xml)
+
 ### Show Industry  
 ID: `mint_system.base.view_partner_tree.show_industry`  
 ```xml
@@ -498,6 +696,21 @@ ID: `mint_system.base.view_partner_tree.show_industry`
 
 ```
 Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_industry.xml)
+
+### Show Property Payment Term Id  
+ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="category_id" position="after">
+    <field name="property_payment_term_id" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_payment_term_id.xml)
 
 ### Show Property Product Pricelist  
 ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`  
@@ -514,6 +727,21 @@ ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`
 ```
 Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
 
+### Show Street  
+ID: `mint_system.base.view_partner_tree.show_street`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="city" position="before">
+    <field name="street" optional="show"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_street.xml)
+
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  
 ```xml
@@ -521,7 +749,7 @@ ID: `mint_system.base.view_partner_tree.show_type`
 <data inherit_id="base.view_partner_tree" priority="50">
 
   <field name="display_name" position="before">
-    <field name="type" optional="hide"/>
+    <field name="type" optional="show"/>
   </field>
 
 </data>
@@ -529,12 +757,72 @@ ID: `mint_system.base.view_partner_tree.show_type`
 ```
 Source: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_type.xml)
 
+### X Bexioid  
+ID: `mint_system.base.view_partner_tree.x_bexioid`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="active" position="after">
+    <field name="x_bexioid" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_bexioid.xml)
+
+### X First Sale Date  
+ID: `mint_system.base.view_partner_tree.x_first_sale_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <field name="user_id" position="after">
+    <field name="x_first_sale_date" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_first_sale_date.xml)
+
+### X Global Location Number  
+ID: `mint_system.base.view_partner_tree.x_global_location_number`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="60">
+
+  <field name="active" position="after">
+    <field name="x_global_location_number" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_global_location_number.xml)
+
+### X Vst  
+ID: `mint_system.base.view_partner_tree.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="60">
+
+  <field name="active" position="after">
+    <field name="x_vst" optional="hide"/>
+  </field>
+  
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_vst.xml)
+
 ## View Res Bank Tree  
 ### Add Zip  
 ID: `mint_system.base.view_res_bank_tree.add_zip`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="base.view_res_bank_tree" priority="50">	
+<data inherit_id="base.view_res_bank_tree" priority="50">    
 
 <xpath expr="//field[@name='city']" position="before">
   <field name="zip"/>
@@ -681,4 +969,19 @@ ID: `mint_system.base.view_users_form.write_partner_id`
 </data>
 ```
 Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.write_partner_id.xml)
+
+## View View Form  
+### Add Key  
+ID: `mint_system.base.view_view_form.add_key`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_view_form" priority="50">
+
+  <xpath expr="//group[1]/field[@name='name']" position="before">
+    <field name="key"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_view_form.add_key.xml)
 

@@ -3,9 +3,9 @@
 
   <xpath expr="/t/div" position="before">
     <style>
-	    h2 {
-	      font-size: 18px;
-	    }	                          
+        h2 {
+          font-size: 18px;
+        }                              
     </style>
 
   </xpath>

@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_timesheet_invoice_type" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Abrechenbarer Typ</field>
     <field name="model">account.move.line</field>
     <field name="model_id" ref="account.model_account_analytic_line"/>

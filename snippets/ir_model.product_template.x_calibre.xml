@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_calibre" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kaliber</field>
     <field name="model">product.template</field>
     <field name="model_id" ref="product.model_product_template"/>

@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_cashbox_start_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Kassenprüfung Startpositionen</field>
     <field name="model">account.bank.statement</field>
     <field name="model_id" ref="account.model_account_bank_statement"/>

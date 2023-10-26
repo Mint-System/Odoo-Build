@@ -2,31 +2,31 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
   
   <xpath expr="//div[@id='informations']//p[@t-field='doc.incoterm.code']/.." position="attributes">
-		<attribute name="id">incoterm</attribute>
-	</xpath>
-	
-	<xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
-		<attribute name="id">date_order</attribute>
-	</xpath>
+        <attribute name="id">incoterm</attribute>
+    </xpath>
+    
+    <xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
+        <attribute name="id">date_order</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="id">description</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="id">description</attribute>
+    </xpath>
 
-	<xpath expr="//th[@name='th_quantity']" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//th[@name='th_quantity']" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
-	<xpath expr="//td[@name='td_quantity']/span[1]" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
-	
-	<xpath expr="//td[@name='td_quantity']/span[2]" position="attributes">
-		<attribute name="id">product_uom</attribute>
-	</xpath>
+    <xpath expr="//td[@name='td_quantity']/span[1]" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
+    
+    <xpath expr="//td[@name='td_quantity']/span[2]" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
 
-	<xpath expr="//td[@name='td_quantity']" position="attributes">
-		<attribute name="id">product_uom_qty</attribute>
-	</xpath>
+    <xpath expr="//td[@name='td_quantity']" position="attributes">
+        <attribute name="id">product_uom_qty</attribute>
+    </xpath>
 
 </data>

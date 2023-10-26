@@ -6,9 +6,9 @@ ID: `mint_system.account_financial_report.general_ledger.replace_layout`
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.general_ledger" priority="50">
 
-	<xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">		
-		<attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>		
-	</xpath>
+    <xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">        
+        <attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>        
+    </xpath>
 
 </data>
 ```
@@ -21,125 +21,125 @@ ID: `mint_system.account_financial_report.internal_layout.style_trimada`
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.internal_layout" priority="60">
 
-	<xpath expr="//link" position="replace">
+    <xpath expr="//link" position="replace">
 
-		<style>
-			.act_as_table {
-				display: table !important;
-				background-color: white;
-			}
-			.act_as_row {
-				display: table-row !important;
-				page-break-inside: avoid;
-			}
-			.act_as_cell {
-				display: table-cell !important;
-				page-break-inside: avoid;
-			}
-			.act_as_thead {
-				display: table-header-group !important;
-			}
-			.act_as_tbody {
-				display: table-row-group !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table {
-				width: 100% !important;
-			}
-			.act_as_row.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table,
-			.list_table .act_as_row {
-				border-left: 0px;
-				border-right: 0px;
-				text-align: center;
-				font-size: 10px;
-				padding-right: 3px;
-				padding-left: 3px;
-				padding-top: 2px;
-				padding-bottom: 2px;
-				border-collapse: collapse;
-			}
-			.totals_table {
-				font-weight: bold;
-				text-align: center;
-			}
-			.list_table .act_as_row.labels,
-			.list_table .act_as_row.initial_balance,
-			.list_table .act_as_row.lines {
-				border-color: grey !important;
-				border-bottom: 1px solid lightGrey !important;
-			}
-			.data_table .act_as_cell {
-				border: 1px solid lightGrey;
-				text-align: center;
-			}
-			.data_table .act_as_cell,
-			.list_table .act_as_cell,
-			.totals_table .act_as_cell {
-				word-wrap: break-word;
-			}
-			.data_table .act_as_row.labels,
-			.totals_table .act_as_row.labels {
-				font-weight: bold;
-			}
-			.initial_balance .act_as_cell {
-				font-style: italic;
-			}
-			.account_title {
-				font-size: 11px;
-				font-weight: bold;
-			}
-			.account_title.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.act_as_cell.amount {
-				word-wrap: normal;
-				text-align: right;
-			}
-			.act_as_cell.left {
-				text-align: left;
-			}
-			.act_as_cell.right {
-				text-align: right;
-			}
-			/*.list_table .act_as_cell {*/
-			/*    border-right:1px solid lightGrey;  uncomment to active column lines */
-			/*}*/
-			.list_table .act_as_cell.first_column {
-				padding-left: 0px;
-				/*    border-left:1px solid lightGrey; uncomment to active column lines */
-			}
-			.overflow_ellipsis {
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-			}
-			.custom_footer {
-				font-size: 7px !important;
-			}
-			.page_break {
-				page-break-inside: avoid;
-			}
+        <style>
+            .act_as_table {
+                display: table !important;
+                background-color: white;
+            }
+            .act_as_row {
+                display: table-row !important;
+                page-break-inside: avoid;
+            }
+            .act_as_cell {
+                display: table-cell !important;
+                page-break-inside: avoid;
+            }
+            .act_as_thead {
+                display: table-header-group !important;
+            }
+            .act_as_tbody {
+                display: table-row-group !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table {
+                width: 100% !important;
+            }
+            .act_as_row.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table,
+            .list_table .act_as_row {
+                border-left: 0px;
+                border-right: 0px;
+                text-align: center;
+                font-size: 10px;
+                padding-right: 3px;
+                padding-left: 3px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border-collapse: collapse;
+            }
+            .totals_table {
+                font-weight: bold;
+                text-align: center;
+            }
+            .list_table .act_as_row.labels,
+            .list_table .act_as_row.initial_balance,
+            .list_table .act_as_row.lines {
+                border-color: grey !important;
+                border-bottom: 1px solid lightGrey !important;
+            }
+            .data_table .act_as_cell {
+                border: 1px solid lightGrey;
+                text-align: center;
+            }
+            .data_table .act_as_cell,
+            .list_table .act_as_cell,
+            .totals_table .act_as_cell {
+                word-wrap: break-word;
+            }
+            .data_table .act_as_row.labels,
+            .totals_table .act_as_row.labels {
+                font-weight: bold;
+            }
+            .initial_balance .act_as_cell {
+                font-style: italic;
+            }
+            .account_title {
+                font-size: 11px;
+                font-weight: bold;
+            }
+            .account_title.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .act_as_cell.amount {
+                word-wrap: normal;
+                text-align: right;
+            }
+            .act_as_cell.left {
+                text-align: left;
+            }
+            .act_as_cell.right {
+                text-align: right;
+            }
+            /*.list_table .act_as_cell {*/
+            /*    border-right:1px solid lightGrey;  uncomment to active column lines */
+            /*}*/
+            .list_table .act_as_cell.first_column {
+                padding-left: 0px;
+                /*    border-left:1px solid lightGrey; uncomment to active column lines */
+            }
+            .overflow_ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .custom_footer {
+                font-size: 7px !important;
+            }
+            .page_break {
+                page-break-inside: avoid;
+            }
 
-			.button_row {
-				padding-bottom: 10px;
-			}
+            .button_row {
+                padding-bottom: 10px;
+            }
 
-			.o_account_financial_reports_page {
-				padding-top: 10px;
-				width: 90%;
-				margin-right: auto;
-				margin-left: auto;
-				font-family: Helvetica, Arial;
-			}
-		</style>
+            .o_account_financial_reports_page {
+                padding-top: 10px;
+                width: 90%;
+                margin-right: auto;
+                margin-left: auto;
+                font-family: Helvetica, Arial;
+            }
+        </style>
 
-	</xpath>
+    </xpath>
 </data>
 ```
 Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_financial_report.internal_layout.style_trimada.xml)
@@ -150,169 +150,169 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
 <?xml version="1.0"?>
 <t t-name="account_financial_report.internal_layout">
 
-	<t t-if="not o" t-set="o" t-value="doc"/>
+    <t t-if="not o" t-set="o" t-value="doc"/>
 
-	<t t-if="not company">
-		<!-- Multicompany -->
-		<t t-if="company_id">
-			<t t-set="company" t-value="company_id"/>
-		</t>
-		<t t-elif="o and 'company_id' in o and o.company_id.sudo()">
-			<t t-set="company" t-value="o.company_id.sudo()"/>
-		</t>
-		<t t-else="else">
-			<t t-set="company" t-value="res_company"/>
-		</t>
-	</t>
+    <t t-if="not company">
+        <!-- Multicompany -->
+        <t t-if="company_id">
+            <t t-set="company" t-value="company_id"/>
+        </t>
+        <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+            <t t-set="company" t-value="o.company_id.sudo()"/>
+        </t>
+        <t t-else="else">
+            <t t-set="company" t-value="res_company"/>
+        </t>
+    </t>
 
-	<div class="header">
-		<div class="row" style="height: 20px;">
-			<div class="col-3">
-				<span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
-			</div>
-			<div class="col-2 offset-2 text-center">
-				<span t-esc="company_name"/>
-			</div>
-			<div class="col-2 offset-3 text-right">
-				<ul class="list-inline">
-					<li class="list-inline-item">
-						<span class="page"/>
-					</li>
-					<li class="list-inline-item">/</li>
-					<li class="list-inline-item">
-						<span class="topage"/>
-					</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+    <div class="header">
+        <div class="row" style="height: 20px;">
+            <div class="col-3">
+                <span t-esc="context_timestamp(datetime.datetime.now()).strftime('%Y-%m-%d')"/>
+            </div>
+            <div class="col-2 offset-2 text-center">
+                <span t-esc="company_name"/>
+            </div>
+            <div class="col-2 offset-3 text-right">
+                <ul class="list-inline">
+                    <li class="list-inline-item">
+                        <span class="page"/>
+                    </li>
+                    <li class="list-inline-item">/</li>
+                    <li class="list-inline-item">
+                        <span class="topage"/>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-	<div class="article o_account_financial_reports_page">
+    <div class="article o_account_financial_reports_page">
 
-		<style>
-			.act_as_table {
-				display: table !important;
-				background-color: white;
-			}
-			.act_as_row {
-				display: table-row !important;
-				page-break-inside: avoid;
-			}
-			.act_as_cell {
-				display: table-cell !important;
-				page-break-inside: avoid;
-				
-				padding: 3px;
-				border-style: none none solid none !important;			
-			}
-			.act_as_thead {
-				display: table-header-group !important;
-			}
-			.act_as_tbody {
-				display: table-row-group !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table {
-				width: 100% !important;
-			}
-			.act_as_row.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.list_table,
-			.data_table,
-			.totals_table,
-			.list_table .act_as_row {
-				border-left: 0px;
-				border-right: 0px;
-				text-align: center;		
-				font-size: 12px;				
-				padding-right: 3px;
-				padding-left: 3px;
-				padding-top: 2px;
-				padding-bottom: 2px;
-				border-collapse: collapse;
-			}
-			.totals_table {
-				font-weight: bold;
-				text-align: center;
-			}
-			.list_table .act_as_row.labels,
-			.list_table .act_as_row.initial_balance,
-			.list_table .act_as_row.lines {
-				border-color: grey !important;
-				border-bottom: 1px solid lightGrey !important;
-			}
-			.data_table .act_as_cell {
-				border: 1px solid lightGrey;
-				text-align: center;
-			}
-			.data_table .act_as_cell,
-			.list_table .act_as_cell,
-			.totals_table .act_as_cell {
-				word-wrap: break-word;
-			}
-			.data_table .act_as_row.labels,
-			.totals_table .act_as_row.labels {
-				font-weight: bold;
-			}
-			.initial_balance .act_as_cell {
-				font-style: italic;
-			}
-			.account_title {			  			
-				font-size: 16px;				
-				font-weight: bold;
-			}
-			.account_title.labels {
-				background-color: #f0f0f0 !important;
-			}
-			.act_as_cell.amount {
-				word-wrap: normal;
-				text-align: right;
-			}
-			.act_as_cell.left {
-				text-align: left;
-			}
-			.act_as_cell.right {
-				text-align: right;
-			}
-			/*.list_table .act_as_cell {*/
-			/*    border-right:1px solid lightGrey;  uncomment to active column lines */
-			/*}*/
-			.list_table .act_as_cell.first_column {
-				padding-left: 0px;
-				/*    border-left:1px solid lightGrey; uncomment to active column lines */
-			}
-			.overflow_ellipsis {
-				text-overflow: ellipsis;
-				overflow: hidden;
-				white-space: nowrap;
-			}
-			.custom_footer {
-				font-size: 7px !important;
-			}
-			.page_break {
-				page-break-inside: avoid;
-			}
+        <style>
+            .act_as_table {
+                display: table !important;
+                background-color: white;
+            }
+            .act_as_row {
+                display: table-row !important;
+                page-break-inside: avoid;
+            }
+            .act_as_cell {
+                display: table-cell !important;
+                page-break-inside: avoid;
+                
+                padding: 3px;
+                border-style: none none solid none !important;            
+            }
+            .act_as_thead {
+                display: table-header-group !important;
+            }
+            .act_as_tbody {
+                display: table-row-group !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table {
+                width: 100% !important;
+            }
+            .act_as_row.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .list_table,
+            .data_table,
+            .totals_table,
+            .list_table .act_as_row {
+                border-left: 0px;
+                border-right: 0px;
+                text-align: center;        
+                font-size: 12px;                
+                padding-right: 3px;
+                padding-left: 3px;
+                padding-top: 2px;
+                padding-bottom: 2px;
+                border-collapse: collapse;
+            }
+            .totals_table {
+                font-weight: bold;
+                text-align: center;
+            }
+            .list_table .act_as_row.labels,
+            .list_table .act_as_row.initial_balance,
+            .list_table .act_as_row.lines {
+                border-color: grey !important;
+                border-bottom: 1px solid lightGrey !important;
+            }
+            .data_table .act_as_cell {
+                border: 1px solid lightGrey;
+                text-align: center;
+            }
+            .data_table .act_as_cell,
+            .list_table .act_as_cell,
+            .totals_table .act_as_cell {
+                word-wrap: break-word;
+            }
+            .data_table .act_as_row.labels,
+            .totals_table .act_as_row.labels {
+                font-weight: bold;
+            }
+            .initial_balance .act_as_cell {
+                font-style: italic;
+            }
+            .account_title {                          
+                font-size: 16px;                
+                font-weight: bold;
+            }
+            .account_title.labels {
+                background-color: #f0f0f0 !important;
+            }
+            .act_as_cell.amount {
+                word-wrap: normal;
+                text-align: right;
+            }
+            .act_as_cell.left {
+                text-align: left;
+            }
+            .act_as_cell.right {
+                text-align: right;
+            }
+            /*.list_table .act_as_cell {*/
+            /*    border-right:1px solid lightGrey;  uncomment to active column lines */
+            /*}*/
+            .list_table .act_as_cell.first_column {
+                padding-left: 0px;
+                /*    border-left:1px solid lightGrey; uncomment to active column lines */
+            }
+            .overflow_ellipsis {
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+            .custom_footer {
+                font-size: 7px !important;
+            }
+            .page_break {
+                page-break-inside: avoid;
+            }
 
-			.button_row {
-				padding-bottom: 10px;
-			}
+            .button_row {
+                padding-bottom: 10px;
+            }
 
-			.o_account_financial_reports_page {
-				padding-top: 10px;
-				width: 100%;
-				margin-right: 0px;
-				margin-left: 0px;
-				font-family: Helvetica, Arial;
-			}
-			.title {
-			  font-weight: bold;
-			}
-		</style>
+            .o_account_financial_reports_page {
+                padding-top: 10px;
+                width: 100%;
+                margin-right: 0px;
+                margin-left: 0px;
+                font-family: Helvetica, Arial;
+            }
+            .title {
+              font-weight: bold;
+            }
+        </style>
 
-		<t t-raw="0"/>
-	</div>
+        <t t-raw="0"/>
+    </div>
 </t>
 ```
 Source: [snippets/account_financial_report.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_financial_report.internal_layout.trimada.xml)
@@ -324,7 +324,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.hide_filter
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
 
-	<xpath expr="//t[@t-call='account_financial_report.report_general_ledger_filters']" position="replace"/>
+    <xpath expr="//t[@t-call='account_financial_report.report_general_ledger_filters']" position="replace"/>
 
 </data>
 ```
@@ -336,11 +336,11 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.replace_tit
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
 
-	<xpath expr="//h4/.." position="replace">
-		<div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}' />
-			bis <span t-esc="date_to" t-options='{"widget": "date"}' />
-		</div>
-	</xpath>
+    <xpath expr="//h4/.." position="replace">
+        <div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}' />
+            bis <span t-esc="date_to" t-options='{"widget": "date"}' />
+        </div>
+    </xpath>
 
 </data>
 ```
@@ -353,8 +353,8 @@ ID: `mint_system.account_financial_report.report_general_ledger_ending_cumul.hid
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_ending_cumul" priority="50">
 
-	<xpath expr="//div[@class='act_as_row labels']" position="replace"/>
-	
+    <xpath expr="//div[@class='act_as_row labels']" position="replace"/>
+    
 </data>
 ```
 Source: [snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml)
@@ -542,44 +542,44 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_he
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
 
-	<xpath expr="//div[@class='act_as_row labels']" position="replace">
+    <xpath expr="//div[@class='act_as_row labels']" position="replace">
 
-		<div class="act_as_row labels">
+        <div class="act_as_row labels">
 
-			<!--## col1 date-->
-			<div class="act_as_cell first_column" style="width: 7.78%; text-align: left">
+            <!--## col1 date-->
+            <div class="act_as_cell first_column" style="width: 7.78%; text-align: left">
             Date
-			</div>
+            </div>
 
-			<!--## col2 move-->
-			<div class="act_as_cell" style="width: 28%; text-align: left">Entry</div>
+            <!--## col2 move-->
+            <div class="act_as_cell" style="width: 28%; text-align: left">Entry</div>
 
-			<!--## col3 account code-->
-			<div class="act_as_cell" style="width: 20%; text-align: left">
-				<t>Account</t>
-			</div>
+            <!--## col3 account code-->
+            <div class="act_as_cell" style="width: 20%; text-align: left">
+                <t>Account</t>
+            </div>
 
-			<!--## col4 debit-->
-			<div class="act_as_cell amount" style="width: 8.89%;">Debit</div>
+            <!--## col4 debit-->
+            <div class="act_as_cell amount" style="width: 8.89%;">Debit</div>
 
-			<!--## col5 credit-->
-			<div class="act_as_cell amount" style="width: 8.89%;">Credit</div>
+            <!--## col5 credit-->
+            <div class="act_as_cell amount" style="width: 8.89%;">Credit</div>
 
-			<!--## col6 balance cumulated-->
-			<div class="act_as_cell amount" style="width: 8.89%;">
+            <!--## col6 balance cumulated-->
+            <div class="act_as_cell amount" style="width: 8.89%;">
             Cumul. Bal.
-			</div>
+            </div>
 
-			<t t-if="foreign_currency">
-				<!--## col7 amount_currency-->
-				<div class="act_as_cell amount" style="width: 8.89%;">Amount cur.</div>
-				<!--## col8 amount_currency cumulated-->
-				<div class="act_as_cell amount" style="width: 8.89%;">Cumul cur.</div>
-			</t>
+            <t t-if="foreign_currency">
+                <!--## col7 amount_currency-->
+                <div class="act_as_cell amount" style="width: 8.89%;">Amount cur.</div>
+                <!--## col8 amount_currency cumulated-->
+                <div class="act_as_cell amount" style="width: 8.89%;">Cumul cur.</div>
+            </t>
 
-		</div>
+        </div>
 
-	</xpath>
+    </xpath>
 
 </data>
 ```

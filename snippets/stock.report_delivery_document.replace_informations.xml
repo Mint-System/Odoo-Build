@@ -15,25 +15,31 @@
             <table class="table table-borderless table-sm">
                 <tr>
                     <td>
-                        <strong>Shipping Date:</strong>
+                        <strong>Versanddatum:</strong>
                         <t t-if="o.state == 'done'">
-                            <p t-field="o.date_done" />
+                            <span t-field="o.date_done" t-options='{"widget": "date"}' />
                         </t>
                         <t t-if="o.state != 'done'">
-                            <p t-field="o.scheduled_date" />
+                            <span t-field="o.scheduled_date" t-options='{"widget": "date"}' />
                         </t>
                     </td>
                     <td>
+                        <strong>Unser Kontakt:</strong>
+                        <span t-field="o.sudo().sale_id.user_id" />
                     </td>
                     <td>
-                        <strong>Customer Reference:</strong>
-                        <p t-field="o.sudo().sale_id.client_order_ref" />
+                        <strong>Ihr Kontakt:</strong>
+                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
                         <strong>&#160;Unsere Referenz:</strong>
-                        <p t-field="o.origin" />
+                        <span t-field="o.origin" />
+                    </td>
+                    <td t-if="o.sudo().sale_id.client_order_ref">
+                        <strong>Ihre Referenz:</strong>
+                        <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
                 </tr>
             </table>

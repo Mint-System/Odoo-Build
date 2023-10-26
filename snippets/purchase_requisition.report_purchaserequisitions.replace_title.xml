@@ -6,8 +6,8 @@
       <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
     </t>
     <t t-else="">
-			<h2>Purchase contract <span t-field="o.name"/></h2>
-		</t>
+            <h2>Purchase contract <span t-field="o.name"/></h2>
+        </t>
   </xpath>  
 
 </data>

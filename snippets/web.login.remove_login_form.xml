@@ -1,0 +1,33 @@
+<data inherit_id="web.login" priority="50">
+
+  <xpath expr="//form/div[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div[2]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div[3]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div/button[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//button[@type='submit']/../div[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+
+  <xpath expr="//form/div/t/button[1]" position="attributes">
+    <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
+  </xpath>
+  
+  <xpath expr="//form" position="before">
+    <style>
+      .d-block {display: none !important;}
+    </style>
+  </xpath>
+
+</data>

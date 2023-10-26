@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_service_tracking" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Dienstverfolgung</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>

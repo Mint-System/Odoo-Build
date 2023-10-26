@@ -19,6 +19,21 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)
 
+### Filter Validated  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+
+  <filter name="non_billable" position="after">
+    <filter string="Validiert" name="validated" />
+  </filter>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_validated.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_validated.xml)
+
 ## Hr Timesheet Line Tree  
 ### Always Show So Line  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`  
@@ -351,13 +366,14 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
   <xpath expr="/t/t/t/div/div[2]" position="after">
     <t t-set="min_date" t-value="min(docs.mapped('date'))" />
     <t t-set="max_date" t-value="max(docs.mapped('date'))" />
-    <h3>Arbeitsrapport <t t-if="len(docs.mapped('project_id')) == 1"> für das Projekt "<t
-          t-esc="docs.mapped('project_id')[0].name" />" </t>
-    </h3>
+    <t t-set="default_project" t-value="docs.filtered(lambda d: d.project_id.partner_id)[:1].project_id" />
+    
+    <h3>Arbeitsrapport für das Projekt "<t t-esc="default_project.name" />"</h3>
+    
     <p>Zeitraum: <t t-esc="min_date" t-options="{'widget': 'date'}" /> bis <t t-esc="max_date"
         t-options="{'widget': 'date'}" />
     </p>
-    <p>Kunde: <t t-esc="docs.mapped('project_id')[0].partner_id.name" /><br /> Erstellt von: <span
+    <p>Kunde: <t t-esc="default_project.partner_id.name" /><br /> Erstellt von: <span
         t-field="user.name" />
     </p>
     <br />
@@ -407,6 +423,22 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 
 ```
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
+
+### Show Product Uom Id  
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+
+  <xpath expr="//field[@name='unit_amount']" position="after">
+    <field name="product_uom_category_id" invisible="1" />
+    <field name="product_uom_id" optional="show" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)
 
 ### X Timesheet Invoice Type  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`  

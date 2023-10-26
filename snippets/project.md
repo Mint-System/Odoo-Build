@@ -15,6 +15,21 @@ ID: `mint_system.project.edit_project.domain_action_view_so`
 ```
 Source: [snippets/project.edit_project.domain_action_view_so.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.edit_project.domain_action_view_so.xml)
 
+### Show Collaborator Ids  
+ID: `mint_system.project.edit_project.show_collaborator_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.edit_project" priority="50">
+
+    <field name="privacy_visibility" position="after">
+        <field name="collaborator_ids" />
+    </field>
+
+</data>
+
+```
+Source: [snippets/project.edit_project.show_collaborator_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.edit_project.show_collaborator_ids.xml)
+
 ### Show Date Start  
 ID: `mint_system.project.edit_project.show_date_start`  
 ```xml
@@ -196,7 +211,7 @@ ID: `mint_system.project.view_task_form2.domain_sale_line_id_active`
 <data inherit_id="project.view_task_form2" priority="50">
 
     <xpath expr="//field[@name='sale_line_id']" position="attributes">
-        <attribute name="domain">[('order_id.active', '=', True),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale', 'done']), ('order_id', '=?', project_sale_order_id)]</attribute>
+        <attribute name="domain">[('x_service_policy', '=', 'delivered_timesheet'),('order_id.active', '=', True),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
     </xpath>
 
 </data>
@@ -364,6 +379,19 @@ ID: `mint_system.project.view_task_form2.show_key`
 ```
 Source: [snippets/project.view_task_form2.show_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.show_key.xml)
 
+### Show Partner Mobile  
+ID: `mint_system.project.view_task_form2.show_partner_mobile`  
+```xml
+<data inherit_id="project.view_task_form2" priority="50">
+
+    <xpath expr="//field[@name='partner_phone']" position="after">
+        <field name="partner_mobile" widget="phone"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/project.view_task_form2.show_partner_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.show_partner_mobile.xml)
+
 ### Timesheet Sort Date Desc  
 ID: `mint_system.project.view_task_form2.timesheet_sort_date_desc`  
 ```xml
@@ -385,8 +413,8 @@ ID: `mint_system.project.view_task_form2.x_business_requirement_id`
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
-	<field name="partner_id" position="before">
-	   <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
+    <field name="partner_id" position="before">
+       <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
   </field>
 
 </data>
@@ -400,8 +428,8 @@ ID: `mint_system.project.view_task_form2.x_lead_id`
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
 
-	<field name="partner_id" position="before">
-	   <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}" />
+    <field name="partner_id" position="before">
+       <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}" />
   </field>
 
 </data>
@@ -463,6 +491,26 @@ ID: `mint_system.project.view_task_form2.x_vehicle_id`
 
 ```
 Source: [snippets/project.view_task_form2.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_form2.x_vehicle_id.xml)
+
+## View Task Kanban  
+### Show Planned Date Begin  
+ID: `mint_system.project.view_task_kanban.show_planned_date_begin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_task_kanban" priority="50">
+
+    <div name="date_deadline" position="replace">
+
+        <div t-if="record.planned_date_begin.raw_value" name="planned_date_begin" attrs="{'invisible': [('is_closed', '=', True)]}">
+            <field name="planned_date_begin" widget="remaining_days"/>
+        </div>
+
+    </div>
+
+</data>
+
+```
+Source: [snippets/project.view_task_kanban.show_planned_date_begin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/project.view_task_kanban.show_planned_date_begin.xml)
 
 ## View Task Tree2  
 ### Sale Line Optional  

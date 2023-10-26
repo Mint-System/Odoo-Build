@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_production_ids" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Fertigungsaufträge</field>
     <field name="model">stock.production.lot</field>
     <field name="model_id" ref="stock.model_stock_production_lot"/>

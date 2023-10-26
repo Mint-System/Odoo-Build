@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="60">
-	<xpath expr="//table/thead/tr/th[2]" position="after">
+    <xpath expr="//table/thead/tr/th[2]" position="after">
         <th>
             <span>Lagerort (Los) Menge</span>
         </th>
@@ -10,14 +10,9 @@
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
-                <span t-field="move_line.product_uom_qty"/>
+                <span t-field="move_line.reserved_uom_qty"/>
                 <br/>
             </span>
         </td>
-    </xpath>
-    <xpath expr="//div/div[4]/div[1]/span" position="after">
-        <span t-if="o.lot_producing_id">
-            <br/>Los: <span t-field="o.lot_producing_id.name"/>
-        </span>
     </xpath>
 </data>

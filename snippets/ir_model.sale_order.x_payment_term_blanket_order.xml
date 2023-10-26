@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_payment_term_blanket_order" model="ir.model.fields">
+    <field name="field_description">Zahlungsbedingungen Rahmenauftrag</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_payment_term_blanket_order</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">account.payment.terms</field>
+    <field name="related">order_line.blanket_order_line.order_id.payment_term_id</field>
+  </record>
+
+</odoo>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<xpath expr="//field[@name='scenario']/.." position="replace" />
+    <xpath expr="//field[@name='scenario']/.." position="replace" />
 
 </data>

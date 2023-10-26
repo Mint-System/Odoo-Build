@@ -2,19 +2,21 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <p t-field="doc.note" position="after">
-        <style>
+        <t t-if="doc.state != 'sale'">
+            <style>
             div#signature {
                 padding-top: 50px;
                 padding-left: 75px;
                 padding-right: 75px;
             }
-        </style>
-        <div id="signature">
-            <p> Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
-            <br />
-            <br />
+            </style>
+            <div id="signature">
+                <p>Hiermit bestelle wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br />
+                <br />
+                <br />
             Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
-        </div>
+            </div>
+        </t>
     </p>
 
 </data>

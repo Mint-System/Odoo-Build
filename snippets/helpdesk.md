@@ -30,6 +30,21 @@ ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline`
 Source: [snippets/helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml)
 
 ## Helpdesk Ticket View Form  
+### Domain So Line  
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+
+  <field name="so_line"  position="attributes">
+    <attribute name="domain">[('is_service', '=', True), ('order_partner_id', 'child_of', parent.commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
+  </field>
+
+</data>
+
+```
+Source: [snippets/helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_ticket_view_form.domain_so_line.xml)
+
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`  
 ```xml

@@ -6,9 +6,9 @@ ID: `mint_system.business_requirement.view_business_requirement_form.clickable_s
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
 
-	<field name="state" position="attributes">
-		<attribute name="clickable">1</attribute>
-	</field>
+    <field name="state" position="attributes">
+        <attribute name="clickable">1</attribute>
+    </field>
 
 </data>
 ```
@@ -20,7 +20,7 @@ ID: `mint_system.business_requirement.view_business_requirement_form.hide_scenar
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<xpath expr="//field[@name='scenario']/.." position="replace" />
+    <xpath expr="//field[@name='scenario']/.." position="replace" />
 
 </data>
 ```
@@ -32,7 +32,7 @@ ID: `mint_system.business_requirement.view_business_requirement_form.hide_terms_
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<xpath expr="//field[@name='terms_and_conditions']/.." position="replace" />
+    <xpath expr="//field[@name='terms_and_conditions']/.." position="replace" />
 
 </data>
 ```
@@ -44,7 +44,7 @@ ID: `mint_system.business_requirement.view_business_requirement_form.hide_test_c
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<xpath expr="//field[@name='test_case']/.." position="replace" />
+    <xpath expr="//field[@name='test_case']/.." position="replace" />
 
 </data>
 ```
@@ -56,10 +56,10 @@ ID: `mint_system.business_requirement.view_business_requirement_form.x_planned_h
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
 
-	<field name="category_ids" position="after">
-		<field name="x_planned_hours" />
-		<field name="x_estimated_cost" widget="monetary" />
-	</field>
+    <field name="category_ids" position="after">
+        <field name="x_planned_hours" />
+        <field name="x_estimated_cost" widget="monetary" />
+    </field>
 
 </data>
 ```
@@ -71,8 +71,8 @@ ID: `mint_system.business_requirement.view_business_requirement_form.x_project_i
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<field name="origin" position="before">
-	   <field name="x_project_id" />
+    <field name="origin" position="before">
+       <field name="x_project_id" />
   </field>
 
 </data>
@@ -85,8 +85,8 @@ ID: `mint_system.business_requirement.view_business_requirement_form.x_task_id`
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_form" priority="50">
   
-	<field name="category_ids" position="before">
-	   <field name="x_task_id" domain="[('project_id', '=', x_project_id)]" context="{'default_project_id': x_project_id}"/>
+    <field name="category_ids" position="before">
+       <field name="x_task_id" domain="[('project_id', '=', x_project_id)]" context="{'default_project_id': x_project_id}"/>
   </field>
 
 </data>
@@ -100,8 +100,8 @@ ID: `mint_system.business_requirement.view_business_requirement_search.x_project
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_search" priority="50">
   
-	<field name="name" position="after">
-	   <field name="x_project_id" string="Project"/>
+    <field name="name" position="after">
+       <field name="x_project_id" string="Project"/>
   </field>
 
 </data>
@@ -115,7 +115,7 @@ ID: `mint_system.business_requirement.view_business_requirement_tree.hide_catego
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_tree" priority="50">
 
-	<field name="category_ids" position="replace" />
+    <field name="category_ids" position="replace" />
 
 </data>
 ```
@@ -127,8 +127,8 @@ ID: `mint_system.business_requirement.view_business_requirement_tree.x_planned_h
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_tree" priority="50">
   
-	<field name="state" position="after">
-	   <field name="x_planned_hours" optional="show" sum="Geplante Stunden"/>
+    <field name="state" position="after">
+       <field name="x_planned_hours" optional="show" sum="Geplante Stunden"/>
   </field>
 
 </data>
@@ -141,8 +141,8 @@ ID: `mint_system.business_requirement.view_business_requirement_tree.x_project_i
 <?xml version="1.0"?>
 <data inherit_id="business_requirement.view_business_requirement_tree" priority="50">
   
-	<field name="category_ids" position="before">
-	   <field name="x_project_id" />
+    <field name="category_ids" position="before">
+       <field name="x_project_id" />
   </field>
 
 </data>

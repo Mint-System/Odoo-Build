@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+
+    <td name="account_invoice_line_name">
+      <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">
+        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+      </t>
+      <t t-if="line.sale_line_ids.task_id.sale_line_id.order_id">
+        Dienstleistung gemäss Rapport # <span t-field="line.sale_line_ids.task_id.sale_line_id.order_id"/>
+      </t>
+    </td>
+  </xpath>
+
+</data>

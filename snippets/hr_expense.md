@@ -15,6 +15,25 @@ ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`
 ```
 Source: [snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml)
 
+### Show Payment Mode  
+ID: `mint_system.hr_expense.hr_expense_view_form.show_payment_mode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_expense.hr_expense_view_form" priority="50">
+
+  <xpath expr="//label[@for='payment_mode']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+  </xpath>
+
+  <xpath expr="//div[@id='payment_mode']" position="attributes">
+    <attribute name="attrs">{}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_expense.hr_expense_view_form.show_payment_mode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_expense.hr_expense_view_form.show_payment_mode.xml)
+
 ### X Partner Id  
 ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`  
 ```xml

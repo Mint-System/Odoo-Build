@@ -1,4 +1,34 @@
 # Survey
+## Layout  
+### Remove Brand Promotion Message  
+ID: `mint_system.survey.layout.remove_brand_promotion_message`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="survey.layout" priority="50">
+
+  <div t-call="web.brand_promotion_message" position="replace" />
+
+</data>
+
+```
+Source: [snippets/survey.layout.remove_brand_promotion_message.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.layout.remove_brand_promotion_message.xml)
+
+### Set Head Title  
+ID: `mint_system.survey.layout.set_head_title`  
+```xml
+<data inherit_id="survey.layout" priority="50">
+
+  <xpath expr="//head" position="before">
+    <t t-if="survey">
+      <t t-set="title" t-value="('Sozialinfo - ' + survey.title) if survey else 'Odoo'"/>
+      <t t-set="x_icon" t-value="'/web/image?model=res.company&amp;id=1&amp;field=favicon'"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/survey.layout.set_head_title.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.layout.set_head_title.xml)
+
 ## Survey Question Form  
 ### Add Button Start Survey  
 ID: `mint_system.survey.survey_question_form.add_button_start_survey`  

@@ -1,0 +1,9 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//td[@id='product']" position="replace">
+      <td id="product">
+        <span t-esc="line.name.split('(')[0].strip()"/>
+      </td>
+  </xpath>
+  
+</data>

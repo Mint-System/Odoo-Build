@@ -2,8 +2,8 @@
 <odoo>
 
   <record id="x_count_packaging" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Anzahl Verpackungen</field>
+    <field name="help">Counts the number of packages for dispaying in on the picking report.</field>
     <field name="model">stock.move</field>
     <field name="model_id" ref="stock.model_stock_move"/>
     <field name="name">x_count_packaging</field>
@@ -12,15 +12,9 @@
     <field name="copied" eval="False"/>
     <field name="ttype">int</field>
     <field name="depends">product_uom_qty</field>
-    <field name="compute"># Counts the number of packages for dispaying in on the picking report
-      for rec in self:
-        if rec.product_packaging:
-          if rec.product_packaging.name == "Kiste":
-            rec['x_count_packaging'] = (rec.product_uom_qty + 14)/15
-          if rec.product_packaging.name == "Schale Gross":
-            rec['x_count_packaging'] = (rec.product_uom_qty + 2.4)/2.5
-          if rec.product_packaging.name in ["Vakuum", "Schale Klein", "Karton"]:
-            rec['x_count_packaging'] = (rec.product_uom_qty + 0.9)/1</field>
+    <field name="compute">for rec in self:
+	if rec.product_packaging:
+	  rec['x_count_packaging'] = rec.product_uom_qty // rec.product_packaging.qty</field>
   </record>
 
 </odoo>

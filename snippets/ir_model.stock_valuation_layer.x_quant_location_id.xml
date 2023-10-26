@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_quant_location_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Lagerort Bestand</field>
     <field name="model">stock.valuation.layer</field>
     <field name="model_id" ref="stock.model_stock_valuation_layer" />

@@ -1,0 +1,11 @@
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//div[@name='comment']" position="before">
+
+    <p>MwSt.-Nr.: 
+      <span t-field="o.company_id.vat"/>
+    </p>
+
+  </xpath>
+
+</data>

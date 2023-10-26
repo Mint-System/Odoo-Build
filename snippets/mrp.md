@@ -1,5 +1,27 @@
 # Mrp
 ## Label Production View Pdf  
+### Aersolution  
+ID: `mint_system.mrp.label_production_view_pdf.aersolution`  
+```xml
+<t t-name="stock.report_reception_report_label.aersolution">
+    <t t-call="web.basic_layout">
+        <div class="page">
+
+            <t t-foreach="docs" t-as="production">
+                <t t-set="label_qty" t-value="int(production.product_qty)"/>
+                <t t-set="company_id" t-value="production.company_id"/>
+                <t t-set="lot_id" t-value="production.lot_producing_id"/>
+                <t t-set="product_id" t-value="production.product_id"/>
+
+                <t t-call="mint_system.stock.report_label.aersolution"/>
+            </t>
+
+        </div>
+    </t>
+</t>
+```
+Source: [snippets/mrp.label_production_view_pdf.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.label_production_view_pdf.aersolution.xml)
+
 ### Basis57  
 ID: `mint_system.mrp.label_production_view_pdf.basis57`  
 ```xml
@@ -162,7 +184,7 @@ ID: `mint_system.mrp.label_production_view_pdf.basis57`
                                     <span class="use-font-opensans-medium default">Verpackt am: </span>
                                     <span class="use-font-opensans-medium default" t-esc="today.strftime('%d.%m.%Y')" />
                                     <br />
-                                    <span class="use-font-opensans-medium default">Zu verbrauchen bis: </span>
+                                    <span class="use-font-opensans-medium default">Mindestens haltbar bis: </span>
                                     <span class="use-font-opensans-medium default" t-esc="consume_until.strftime('%d.%m.%Y')" />
                                     <br />
                                     <span class="use-font-opensans-medium default">
@@ -496,7 +518,7 @@ ID: `mint_system.mrp.mrp_bom_tree_view.sort_id`
   <xpath expr="//tree" position="attributes">
         <attribute name="default_order">id desc</attribute>
   </xpath>
-	
+    
 </data>
 ```
 Source: [snippets/mrp.mrp_bom_tree_view.sort_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.mrp_bom_tree_view.sort_id.xml)
@@ -644,10 +666,10 @@ ID: `mint_system.mrp.mrp_production_form_view.show_backorder_and_procurement_gro
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
   
-	<xpath expr="//page[@name='miscellaneous']//field[@name='picking_type_id']" position="after">
-    	<field name="procurement_group_id"/>
-    	<field name="backorder_sequence"/>
-  	</xpath>
+    <xpath expr="//page[@name='miscellaneous']//field[@name='picking_type_id']" position="after">
+        <field name="procurement_group_id"/>
+        <field name="backorder_sequence"/>
+      </xpath>
 
 </data>
 
@@ -705,9 +727,9 @@ ID: `mint_system.mrp.mrp_production_form_view.x_note`
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
   
-	<xpath expr="//page[@name='miscellaneous']//field[@name='origin']" position="after">
-    	<field name="x_note"/>
-  	</xpath>
+    <xpath expr="//page[@name='miscellaneous']//field[@name='origin']" position="after">
+        <field name="x_note"/>
+      </xpath>
 
 </data>
 
@@ -723,11 +745,26 @@ ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`
   
   <xpath expr="//field[@name='date_deadline']" position="replace">
   </xpath>
-	
+    
 </data>
 
 ```
 Source: [snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.mrp_production_tree_view.hide_date_deadline.xml)
+
+### Show Format Date Planned Start  
+ID: `mint_system.mrp.mrp_production_tree_view.show_format_date_planned_start`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+ 
+ <xpath expr="//field[@name='date_planned_start']" position="attributes">
+    <attribute name="widget">date</attribute>
+</xpath>
+
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_tree_view.show_format_date_planned_start.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.mrp_production_tree_view.show_format_date_planned_start.xml)
 
 ### Show X Date Deadline  
 ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`  
@@ -738,7 +775,7 @@ ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`
   <xpath expr="//field[@name='date_planned_start']" position="after">
      <field name="x_date_deadline"/>
   </xpath>
-	
+    
 </data>
 
 ```
@@ -753,7 +790,7 @@ ID: `mint_system.mrp.mrp_production_tree_view.sort_date_planned_start`
   <xpath expr="//tree" position="attributes">
         <attribute name="default_order">date_planned_start asc</attribute>
   </xpath>
-	
+    
 </data>
 
 ```
@@ -822,30 +859,11 @@ ID: `mint_system.mrp.report_mrporder.add_padding`
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-  <!-- First row -->
   <xpath expr="/t/t/t/t/div/div[2]" position="attributes">
     <attribute name="style" add="padding-bottom: 2rem"/>
   </xpath>
 
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[3]/div[2]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[3]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[1]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/div[4]/div[3]" position="attributes">
-    <attribute name="class">col-5</attribute>
-  </xpath>
-
-  <!-- Header level 3 -->
-  <xpath expr="/t/t/t/t/div/div[5]/h3" position="attributes">
-    <attribute name="style">padding-top: 2rem</attribute>
-  </xpath>
-  <xpath expr="/t/t/t/t/div/h3" position="attributes">
+  <xpath expr="//h3" position="attributes">
     <attribute name="style">padding-top: 2rem</attribute>
   </xpath>
 
@@ -861,10 +879,10 @@ ID: `mint_system.mrp.report_mrporder.list_quality_points`
 <!-- List quality points in mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-	<xpath expr="/t/t/t/t/div/div[5]/table/tr[2]/td[1]/span" position="after">
-		<ul>
-		  <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point"><span t-field="quality_point.title"/></li>
-	  </ul>
+    <xpath expr="/t/t/t/t/div/div[5]/table/tr[2]/td[1]/span" position="after">
+        <ul>
+          <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point"><span t-field="quality_point.title"/></li>
+      </ul>
   </xpath>
 
 </data>
@@ -891,13 +909,13 @@ ID: `mint_system.mrp.report_mrporder.modify_section_consumed_products`
       }
     </style>
     <table id='to_produce'>
-     	<tr style="border-bottom: 1px solid rgb(220,220,220);">
-        	<th width="40%;"><strong>Menge</strong></th>
-        	<th width="30%;"><strong>Datum</strong></th>
-        	<th width="30%;"></th>
-     	</tr>
-    	<tr>
-        	<td>
+         <tr style="border-bottom: 1px solid rgb(220,220,220);">
+            <th width="40%;"><strong>Menge</strong></th>
+            <th width="30%;"><strong>Datum</strong></th>
+            <th width="30%;"></th>
+         </tr>
+        <tr>
+            <td>
           <strong><span t-field="o.product_qty"/>
           <span t-field="o.product_uom_id.name" groups="uom.group_uom"/></strong>
           </td>
@@ -905,7 +923,7 @@ ID: `mint_system.mrp.report_mrporder.modify_section_consumed_products`
         <td style="text-align: right"><strong>Termin: <span t-field="o.date_planned_finished" t-options='{"widget": "date"}'/></strong></td>
        </tr>
     </table>
-	
+    
   </xpath>  
 </data>
 
@@ -1177,10 +1195,10 @@ ID: `mint_system.mrp.report_mrporder.quality_points`
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-	<xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
-		<ul style="list-style-type:none;">
-		  <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">☐ <span t-field="quality_point.title"/></li>
-	  </ul>
+    <xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
+        <ul style="list-style-type:none;">
+          <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">☐ <span t-field="quality_point.title"/></li>
+      </ul>
     </xpath>
 
 </data>
@@ -1192,10 +1210,8 @@ Source: [snippets/mrp.report_mrporder.quality_points.xml](https://github.com/Min
 ID: `mint_system.mrp.report_mrporder.remove_barcode`  
 ```xml
 <?xml version="1.0"?>
-<!-- Remove barcode from mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
-  <xpath expr="//table[1]/thead[1]/tr[1]/th[3]" position="replace"/>
-  <xpath expr="//table[1]/tbody[1]/t[1]/tr[1]/td[3]" position="replace"/>
+  <xpath expr="//span/div[@t-field='o.name']" position="replace"/>
 </data>
 ```
 Source: [snippets/mrp.report_mrporder.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.remove_barcode.xml)
@@ -1274,15 +1290,29 @@ ID: `mint_system.mrp.report_mrporder.show_expected`
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-	<xpath expr="//tr[1]/td[1]/span[1]" position="after">
-		<t t-if="raw_line.forecast_expected_date">
-			<br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
-		</t>
-	</xpath>
+    <xpath expr="//tr[1]/td[1]/span[1]" position="after">
+        <t t-if="raw_line.forecast_expected_date">
+            <br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
+        </t>
+    </xpath>
 </data>
 
 ```
 Source: [snippets/mrp.report_mrporder.show_expected.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_expected.xml)
+
+### Show Lot Producing  
+ID: `mint_system.mrp.report_mrporder.show_lot_producing`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="60">
+    <xpath expr="//div/div[4]/div[1]/span" position="after">
+        <span t-if="o.lot_producing_id">
+            <br/>Los: <span t-field="o.lot_producing_id.name"/>
+        </span>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrporder.show_lot_producing.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_lot_producing.xml)
 
 ### Show Lot  
 ID: `mint_system.mrp.report_mrporder.show_lot`  
@@ -1291,21 +1321,21 @@ ID: `mint_system.mrp.report_mrporder.show_lot`
 <!-- If lot is not available show forecasted days. -->
 <data inherit_id="mrp.report_mrporder" priority="50">
 
-	<xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
-		<t t-if="raw_line.forecast_expected_date">
-			<br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
-		</t>
+    <xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
+        <t t-if="raw_line.forecast_expected_date">
+            <br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
+        </t>
 
-    	<!--
-		<span>Qty: </span><span t-field="raw_line.product_uom_qty"/><br/>
-    	<span>Forecast: </span><span t-field="raw_line.forecast_availability"/><br/>
-    	<span>Available: </span><span t-field="raw_line.availability"/><br/>
-		-->
+        <!--
+        <span>Qty: </span><span t-field="raw_line.product_uom_qty"/><br/>
+        <span>Forecast: </span><span t-field="raw_line.forecast_availability"/><br/>
+        <span>Available: </span><span t-field="raw_line.availability"/><br/>
+        -->
 
-		<t t-if="len(raw_line.move_line_ids) > 0 and raw_line.move_line_ids[0].lot_id">
-			<br/><span>Lot(s): </span><span t-foreach="raw_line.move_line_ids" t-as="move_line"><span t-field="move_line.lot_id"/> </span>
-		</t>
-	</xpath>
+        <t t-if="len(raw_line.move_line_ids) > 0 and raw_line.move_line_ids[0].lot_id">
+            <br/><span>Lot(s): </span><span t-foreach="raw_line.move_line_ids" t-as="move_line"><span t-field="move_line.lot_id"/> </span>
+        </t>
+    </xpath>
 
 </data>
 
@@ -1381,7 +1411,7 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="60">
-	<xpath expr="//table/thead/tr/th[2]" position="after">
+    <xpath expr="//table/thead/tr/th[2]" position="after">
         <th>
             <span>Lagerort (Los) Menge</span>
         </th>
@@ -1391,19 +1421,67 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
-                <span t-field="move_line.product_uom_qty"/>
+                <span t-field="move_line.reserved_uom_qty"/>
                 <br/>
             </span>
         </td>
     </xpath>
-    <xpath expr="//div/div[4]/div[1]/span" position="after">
-        <span t-if="o.lot_producing_id">
-            <br/>Los: <span t-field="o.lot_producing_id.name"/>
-        </span>
-    </xpath>
 </data>
 ```
 Source: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrporder.show_stock.xml)
+
+## Report Mrp Production Components  
+### Remove Barcode  
+ID: `mint_system.mrp.report_mrp_production_components.remove_barcode`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+  <xpath expr="//th[@t-if='has_product_barcode']" position="replace"/>
+  <xpath expr="//td[@t-if='has_product_barcode']" position="replace"/>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.remove_barcode.xml)
+
+### Show Expected  
+ID: `mint_system.mrp.report_mrp_production_components.show_expected`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+    <xpath expr="//span[@t-field='raw_line.product_id']" position="after">
+        <t t-if="raw_line.forecast_expected_date">
+            <br />
+            <span>Expected date: </span>
+            <span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}' />
+            <br />
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.show_expected.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.show_expected.xml)
+
+### Show Stock  
+ID: `mint_system.mrp.report_mrp_production_components.show_stock`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="60">
+    <xpath expr="//table//tr/th[2]" position="after">
+        <th>
+            <span>Lagerort (Los) Menge</span>
+        </th>
+    </xpath>
+    <xpath expr="//table//tr/td[2]" position="after">
+        <td>
+            <span t-foreach="raw_line.move_line_ids" t-as="move_line">
+                <span t-field="move_line.location_id.display_name" />
+                <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id" />) </t>
+                <span t-field="move_line.reserved_uom_qty"/>
+                <br />
+            </span>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.show_stock.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp.report_mrp_production_components.show_stock.xml)
 
 ## Stock Report Delivery Kit Sections  
 ### Expand Section Heading  
@@ -1411,7 +1489,7 @@ ID: `mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.stock_report_delivery_kit_sections" priority="50">
-	
+    
     <xpath expr="//span[@t-esc='kit.display_name']" position="after">
         <br/>bestehend aus:       
     </xpath>
@@ -1426,10 +1504,10 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_operation_ids`
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter"  priority="50">
 
-	<xpath expr="//field[@name='bom_line_ids']" position="after">
-		<filter string="Mit Vorgängen" name="operation" domain="[('operation_ids', '!=', False)]"/>
-		<filter string="Ohne Vorgänge" name="operation" domain="[('operation_ids', '=', False)]"/>
-	</xpath>
+    <xpath expr="//field[@name='bom_line_ids']" position="after">
+        <filter string="Mit Vorgängen" name="operation" domain="[('operation_ids', '!=', False)]"/>
+        <filter string="Ohne Vorgänge" name="operation" domain="[('operation_ids', '=', False)]"/>
+    </xpath>
 
 </data>
 ```
@@ -1441,9 +1519,9 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter" priority="50">
 
-	<xpath expr="//field[@name='bom_line_ids']" position="after">
-		<field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>
-	</xpath>
+    <xpath expr="//field[@name='bom_line_ids']" position="after">
+        <field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>
+    </xpath>
 
 </data> 
 ```
@@ -1471,9 +1549,9 @@ ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_filter" priority="50">
 
-	<xpath expr="//filter[@name='filter_planned']" position="after">
-		<filter string="Nicht geplant" name="filter_not_planned" domain="[('is_planned', '!=', True)]" groups="mrp.group_mrp_routings"/>
-	</xpath>
+    <xpath expr="//filter[@name='filter_planned']" position="after">
+        <filter string="Nicht geplant" name="filter_not_planned" domain="[('is_planned', '!=', True)]" groups="mrp.group_mrp_routings"/>
+    </xpath>
 
 </data>
 ```

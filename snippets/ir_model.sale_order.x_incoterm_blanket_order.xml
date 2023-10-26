@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_incoterm_blanket_order" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Incoterm Rahmenauftrag</field>
     <field name="model">sale.order</field>
     <field name="model_id" ref="sale.model_sale_order"/>

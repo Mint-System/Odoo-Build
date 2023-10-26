@@ -1,0 +1,13 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//th[@name='th_quantity']" position="after">
+    <th name="th_product_uom" class="text-right">ME</th>
+  </xpath>
+
+  <xpath expr="//td[@name='td_quantity']" position="after">
+    <td name="td_product_uom" class="text-right">
+      <span t-field="line.product_uom"/>
+    </td>
+  </xpath>
+
+</data>

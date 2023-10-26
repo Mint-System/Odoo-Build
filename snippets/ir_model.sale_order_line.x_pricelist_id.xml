@@ -2,7 +2,6 @@
 <odoo>
 
   <record id="x_pricelist_id" model="ir.model.fields">
-    <field name="domain">[]</field>
     <field name="field_description">Preisliste</field>
     <field name="model">sale.order.line</field>
     <field name="model_id" ref="sale.model_sale_order_line"/>

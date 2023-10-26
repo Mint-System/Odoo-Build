@@ -1,4 +1,28 @@
 # Hr
+## Hr Employee Public View Form  
+### Add Action Time Off Dashboard  
+ID: `mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.hr_employee_public_view_form" priority="50">
+
+    <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
+        <button name="action_time_off_dashboard" type="object" class="oe_stat_button" icon="fa-calendar" context="{'search_default_employee_id': id}" groups="base.group_user" help="Remaining leaves">
+            <div class="o_field_widget o_stat_info">
+                <span class="o_stat_value">
+                    <field name="allocation_used_display"/>/<field name="allocation_display"/> Days
+                </span>
+                <span class="o_stat_text">
+                    Time Off
+                </span>
+            </div>
+        </button>
+    </xpath>
+
+</data>
+```
+Source: [snippets/hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml)
+
 ## Hr Employee Public View Kanban  
 ### Add Mobile Phone  
 ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`  
@@ -154,6 +178,21 @@ ID: `mint_system.hr.view_employee_form.plan_permission`
 
 ```
 Source: [snippets/hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr.view_employee_form.plan_permission.xml)
+
+### User Id Domain  
+ID: `mint_system.hr.view_employee_form.user_id_domain`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.view_employee_form" priority="50">
+
+  <xpath expr="//field[@name='user_id']" position="attributes">
+    <attribute name="domain">[]</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr.view_employee_form.user_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr.view_employee_form.user_id_domain.xml)
 
 ## View Employee Tree  
 ### Add Mobile Phone  

@@ -82,10 +82,6 @@
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow.git
 	branch = 16.0
-[submodule "oca/dms"]
-	path = oca/dms
-	url = git@github.com:OCA/dms.git
-	branch = 16.0
 [submodule "oca/social"]
 	path = oca/social
 	url = git@github.com:OCA/social.git
@@ -182,10 +178,6 @@
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 16.0
-[submodule "addons/swiss_payroll"]
-	path = addons/swiss_payroll
-	url = git@gitlab.com:mint-system/odoo-apps-swiss-payroll.git
-	branch = 16.0
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
@@ -204,5 +196,45 @@
 	branch = 16.0
 [submodule "addons/vertical_saas"]
 	path = addons/vertical_saas
-	url = git@github.com:Mint-System/Odoo-Apps-SaaS.git
+	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
+	branch = 16.0
+[submodule "addons/social"]
+	path = addons/social
+	url = git@github.com:Mint-System/Odoo-Apps-Social.git
+	branch = 16.0
+[submodule "addons/vertical_job_portal"]
+	path = addons/vertical_job_portal
+	url = git@github.com:sozialinfo/odoo-apps-vertical-job-portal.git
+	branch = 16.0
+[submodule "oca/management-system"]
+	path = oca/management-system
+	url = git@github.com:OCA/management-system.git
+	branch = 16.0
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 16.0
+[submodule "oca/sale-reporting"]
+	path = oca/sale-reporting
+	url = https://github.com/OCA/sale-reporting.git
+	branch = 16.0
+[submodule "oca/account-reconcile"]
+	path = oca/account-reconcile
+	url = git@github.com:OCA/account-reconcile.git
+	branch = 16.0
+[submodule "addons/account_financial_reporting"]
+	path = addons/account_financial_reporting
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
+	branch = 16.0
+[submodule "addons/purchase_workflow"]
+	path = addons/purchase_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
+	branch = 16.0
+[submodule "addons/account_invoicing"]
+	path = addons/account_invoicing
+	url = git@github.com:mint-system/odoo-apps-account-invoicing.git
+	branch = 16.0
+[submodule "oca/e-commerce"]
+	path = oca/e-commerce
+	url = git@github.com:OCA/e-commerce.git
 	branch = 16.0

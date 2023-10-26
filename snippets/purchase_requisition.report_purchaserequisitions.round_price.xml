@@ -2,9 +2,9 @@
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
 
 <xpath expr="//td[@id='price_unit']" position="replace">
-		 <td id="price_unit" class="text-right">
-		 <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') >= 3 else '%.2f' % line_ids.price_unit"/>
-		 </td>
+         <td id="price_unit" class="text-right">
+         <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') >= 3 else '%.2f' % line_ids.price_unit"/>
+         </td>
   </xpath>
 
 </data>

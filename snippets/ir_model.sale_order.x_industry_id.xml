@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_industry_id" model="ir.model.fields">
+    <field name="field_description">Branche</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order_line"/>
+    <field name="name">x_industry_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="related">partner_id.industry_id.name</field>
+  </record>
+
+</odoo>
+

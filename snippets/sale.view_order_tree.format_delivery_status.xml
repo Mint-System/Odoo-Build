@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+
+  <xpath expr="//field[@name='delivery_status']" position="attributes">
+    <attribute name="widget">badge</attribute>
+    <attribute name="decoration-success">delivery_status=='full'</attribute>
+    <attribute name="decoration-danger">delivery_status=='pending'</attribute>
+    <attribute name="decoration-warning">delivery_status=='partial'</attribute>
+  </xpath>
+
+</data>

@@ -1,0 +1,17 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//thead//th[@name='th_taxes']" position="replace"/>
+  <xpath expr="//thead//th[@name='th_amount']" position="before">
+    <th name="th_taxes" class="text-right">
+      <strong>Taxes</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//tbody//td[@name='td_taxes']" position="replace"/>
+  <xpath expr="//tbody//span[@t-field='line.price_subtotal']/.." position="before">
+    <td name="td_taxes" class="text-right">
+      <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.taxes_id))"/>
+    </td>
+  </xpath>
+
+</data>

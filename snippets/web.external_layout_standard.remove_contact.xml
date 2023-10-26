@@ -3,7 +3,7 @@
 <data inherit_id="web.external_layout_standard" priority="50">
 
   <!-- Works until Odoo 14.0 -->
-	<xpath expr="//li[@t-if='company.phone']" position="replace">
+    <xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
   <xpath expr="//li[@t-if='company.email']" position="replace">
   </xpath>

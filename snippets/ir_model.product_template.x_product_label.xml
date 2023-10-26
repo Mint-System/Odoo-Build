@@ -14,7 +14,6 @@
     <field name="relation">ir.actions.report</field>
     <field name="group_expand" eval="False"/> 
     <field name="on_delete">Set NULL</field>
-    <field name="domain">[]</field>
   </record>
 
 </odoo>

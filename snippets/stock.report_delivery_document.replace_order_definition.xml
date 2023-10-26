@@ -14,7 +14,7 @@
       padding-left: 10px;
       padding-bottom: 5px;
       }
-		</style>
+        </style>
     <table id='titel'>
       <tr>
         <td style="width: 44%;"><strong>Fertigungsauftrag <span t-field="o.origin"/></strong></td>

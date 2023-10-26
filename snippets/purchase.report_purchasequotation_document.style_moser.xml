@@ -1,43 +1,43 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="60">
 
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
-		.o_company_1_layout {
-        	font-family: arial;
-     	}
-		.o_company_1_layout.o_report_layout_standard h2 {
-        	color: black;
-       		font-size: 1.4rem;
-			    font-weight: bold;
-     	}
-     	.o_company_1_layout.o_report_layout_standard #total strong {
-        	color: black;
-     	}
-     	div#informations {
-     	 	margin-top: 30px;
-     	 	margin-bottom: 60px;
-     	}
-     	h2.mt-4 {
-     	 	margin-top: 70px !important;
-     	}
-		</style>
-	</xpath>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-family: arial;
+         }
+        .o_company_1_layout.o_report_layout_standard h2 {
+            color: black;
+               font-size: 1.4rem;
+                font-weight: bold;
+         }
+         .o_company_1_layout.o_report_layout_standard #total strong {
+            color: black;
+         }
+         div#informations {
+              margin-top: 30px;
+              margin-bottom: 60px;
+         }
+         h2.mt-4 {
+              margin-top: 70px !important;
+         }
+        </style>
+    </xpath>
 
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style" separator=" " add="text-align: left"/>
-	</xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style" separator=" " add="text-align: left"/>
+    </xpath>
 
-	<xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
-		<attribute name="t-options-widget">"date"</attribute>
-	</xpath>
+    <xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 
-	<xpath expr="//div[1]/div[1]" position="attributes">
-		<attribute name="t-options-fields">['address']</attribute>
-	</xpath>
+    <xpath expr="//div[1]/div[1]" position="attributes">
+        <attribute name="t-options-fields">['address']</attribute>
+    </xpath>
 
-	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
-		<attribute name="t-options-fields">['address', 'name']</attribute>
-	</xpath>
+    <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+        <attribute name="t-options-fields">['address', 'name']</attribute>
+    </xpath>
 
 </data>
