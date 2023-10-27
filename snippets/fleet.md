@@ -8,7 +8,7 @@ ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`
 
   <xpath expr="//group/group[5]" position="after">
     <group string="Reservation">
-      <field name="reserved_time">
+      <field name="reserved_ids">
         <tree>
           <field name="date_from" />
           <field name="date_to" />
