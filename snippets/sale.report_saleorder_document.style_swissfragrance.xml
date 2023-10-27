@@ -1,0 +1,21 @@
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<style>
+      .cell_left {
+      text-align: left;
+      }
+	</style>
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		h2 {
+        margin-top: 50px;
+        	}
+		</style>
+	</xpath>
+
+	<xpath expr="//th[@name='th_sml_product']" position="attributes">
+		<attribute name="class" separator=" " add="cell_left"/>
+	</xpath>
+
+</data>

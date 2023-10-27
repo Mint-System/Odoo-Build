@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_date_action_required" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Handlungsbedarf am</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_date_action_required</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">date</field>
+    <field name="depends">x_calibrated_until, x_lead_time_recovery_work</field>
+    <field name="compute">for record in self:
+    if record['x_calibrated_until']:
+        record['x_date_action_required'] = record['x_calibrated_until'] - datetime.timedelta(days=record.x_lead_time_recovery_work)
+    else:
+      record['x_date_action_required'] = False
+      </field>  
+  </record>
+
+</odoo>
