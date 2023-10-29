@@ -105,7 +105,7 @@ task create-module addons/project_report
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
 ```
-ODOO_ADDONS_PATH=,path/to/module/folder
+ODOO_ADDONS_PATH=,thirdparty/modules/
 ```
 
 ### Docker
