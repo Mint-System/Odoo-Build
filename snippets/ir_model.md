@@ -801,6 +801,185 @@ ID: `mint_system.ir_model.hr_payslip_line.x_code_name`
 ```
 Source: [snippets/ir_model.hr_payslip_line.x_code_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.hr_payslip_line.x_code_name.xml)
 
+## Maintenance Equipment  
+### X Calibrated Until  
+ID: `mint_system.ir_model.maintenance_equipment.x_calibrated_until`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_calibrated_until" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Kalibriert bis</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_calibrated_untilk</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">date</field>    
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.maintenance_equipment.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_calibrated_until.xml)
+
+### X Date Action Required  
+ID: `mint_system.ir_model.maintenance_equipment.x_date_action_required`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_date_action_required" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Handlungsbedarf am</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_date_action_required</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">date</field>
+    <field name="depends">x_calibrated_until, x_lead_time_recovery_work</field>
+    <field name="compute">for record in self:
+    if record['x_calibrated_until']:
+        record['x_date_action_required'] = record['x_calibrated_until'] - datetime.timedelta(days=record.x_lead_time_recovery_work)
+    else:
+      record['x_date_action_required'] = False
+      </field>  
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_date_action_required.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_date_action_required.xml)
+
+### X Lead Time Recovery Work  
+ID: `mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_lead_time_recovery_work" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Durchlaufzeit (Tage)</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_lead_time_recovery_work</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">integer</field>    
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.maintenance_equipment.x_lead_time_recovery_work.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_lead_time_recovery_work.xml)
+
+### X Maintenance Kind Id  
+ID: `mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_maintenance_kind_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nächster Wartungsauftrag Typ</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_maintenance_kind_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>   
+    <field name="relation">maintenance.kind</field>
+    <field name="related">x_next_maintenance_request.maintenance_kind_id</field>  
+  </record>  
+
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_maintenance_kind_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_maintenance_kind_id.xml)
+
+### X Next Maintenance Request  
+ID: `mint_system.ir_model.maintenance_equipment.x_next_maintenance_request`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_next_maintenance_request" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nächster Wartungsauftrag</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_next_maintenance_request</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">maintenance.request</field>
+    <field name="depends">name, maintenance_ids.schedule_date</field>
+    <field name="compute">for record in self:
+    next_maintenance = record.maintenance_ids.search([('stage_id.done', '=', False), ('equipment_id', '=', record.id), ('schedule_date', '=', True)], order='schedule_date', limit=1)
+    if next_maintenance:
+        record['x_next_maintenance_request'] = next_maintenance.id
+    else:
+        record['x_next_maintenance_request'] = 0</field>
+  </record>
+
+  
+
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_next_maintenance_request.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_next_maintenance_request.xml)
+
+### X Schedule Date  
+ID: `mint_system.ir_model.maintenance_equipment.x_schedule_date`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_schedule_date" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nächster Wartungsauftrag am</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_schedule_date</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">datetime</field>   
+    <field name="related">x_next_maintenance_request.schedule_date</field>    
+  </record>  
+
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_schedule_date.xml)
+
+### X Stage Id  
+ID: `mint_system.ir_model.maintenance_equipment.x_stage_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_stage_id" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Nächster Wartungsauftrag Stufe</field>
+    <field name="model">maintenance.equipment</field>
+    <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+    <field name="name">x_stage_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">maintenance.stage</field>
+    <field name="related">x_next_maintenance_request.stage_id</field>    
+  </record>  
+
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_stage_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.maintenance_equipment.x_stage_id.xml)
+
 ## Mrp Bom  
 ### X Note  
 ID: `mint_system.ir_model.mrp_bom.x_note`  

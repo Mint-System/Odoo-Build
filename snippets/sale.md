@@ -1242,6 +1242,57 @@ ID: `mint_system.sale.report_saleorder_document.add_notes`
 ```
 Source: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_notes.xml)
 
+### Add Note  
+ID: `mint_system.sale.report_saleorder_document.add_note`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@name='signature']" position="before">
+    <div style="margin-top: 50px">
+
+      <div>
+        <t t-if="doc.partner_id.country_id.code == 'CH'">
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="doc.partner_id.country_id.code == 'DE'">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="doc.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="doc.partner_id.country_id.country_group_ids[0].id == 1">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-else="">
+          <span style="font-weight: bold">Incoterms: Ex-works</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+      </div>
+
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.add_note.xml)
+
 ### Add Partner Contact Id  
 ID: `mint_system.sale.report_saleorder_document.add_partner_contact_id`  
 ```xml
@@ -2848,6 +2899,33 @@ ID: `mint_system.sale.report_saleorder_document.style_moser`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_moser.xml)
+
+### Style Swissfragrance  
+ID: `mint_system.sale.report_saleorder_document.style_swissfragrance`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+	<style>
+      .cell_left {
+      text-align: left;
+      }
+	</style>
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		h2 {
+        margin-top: 50px;
+        	}
+		</style>
+	</xpath>
+
+	<xpath expr="//th[@name='th_sml_product']" position="attributes">
+		<attribute name="class" separator=" " add="cell_left"/>
+	</xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.style_swissfragrance.xml)
 
 ### Style Tissa  
 ID: `mint_system.sale.report_saleorder_document.style_tissa`  
