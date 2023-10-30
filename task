@@ -930,7 +930,7 @@ function update-docs() {
         DOCFILE="snippets/$MODULE.md"
         echo -e "# $TITLE" > "$DOCFILE"
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
-        SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',"
+        SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',\n"
         
         # Get all xml ids
         XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
@@ -962,7 +962,7 @@ function update-docs() {
             done
         done
     done
-    echo "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
+    echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
 
