@@ -3844,6 +3844,22 @@ ID: `mint_system.sale.view_order_form.move_commitment_date`
 ```
 Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_commitment_date.xml)
 
+### Move Start Date  
+ID: `mint_system.sale.view_order_form.move_start_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='start_date']" position="replace" />
+
+  <xpath expr="//field[@name='date_order']" position="after">
+    <field name="start_date" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.view_order_form.move_start_date.xml)
+
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 ```xml
