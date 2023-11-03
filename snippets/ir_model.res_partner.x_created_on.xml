@@ -4,7 +4,7 @@
   <record id="x_created_on" model="ir.model.fields">
     <field name="field_description">Erstellt am</field>
     <field name="model">res.partner</field>
-    <field name="model_id" ref="base.model_res_partnee"/>
+    <field name="model_id" ref="base.model_res_partner"/>
     <field name="name">x_created_on</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>

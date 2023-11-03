@@ -76,3 +76,28 @@ ID: `mint_system.survey.survey_question_tree.enable_create`
 ```
 Source: [snippets/survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_question_tree.enable_create.xml)
 
+## Survey User Input View Tree  
+### X Department Id  
+ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="survey.survey_user_input_view_tree" priority="50">
+  <xpath expr="//field[@name='partner_id']" position="after">
+    <field name="x_department_id" optional="show"/>
+  </xpath>
+</data>
+```
+Source: [snippets/survey.survey_user_input_view_tree.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_user_input_view_tree.x_department_id.xml)
+
+### X Manager Id  
+ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="survey.survey_user_input_view_tree" priority="50">
+  <xpath expr="//field[@name='partner_id']" position="after">
+    <field name="x_manager_id" optional="show"/>
+  </xpath>
+</data>
+```
+Source: [snippets/survey.survey_user_input_view_tree.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/survey.survey_user_input_view_tree.x_manager_id.xml)
+

@@ -1937,6 +1937,29 @@ ID: `mint_system.ir_model.res_partner.x_created_on`
 ```
 Source: [snippets/ir_model.res_partner.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_created_on.xml)
 
+### X Department Id  
+ID: `mint_system.ir_model.res_partner.x_department_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_department_id" model="ir.model.fields">
+    <field name="field_description">Abteilung</field>
+    <field name="model">res.partner</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_department_id</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">hr.department</field>
+    <field name="relation">user_id.employee_id.department_id</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.res_partner.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.res_partner.x_department_id.xml)
+
 ### X Eori  
 ID: `mint_system.ir_model.res_partner.x_eori`  
 ```xml
@@ -3246,4 +3269,53 @@ ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.stock_valuation_layer.x_quant_location_id.xml)
+
+## Survey User Input  
+### X Department Id  
+ID: `mint_system.ir_model.survey_user_input.x_department_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_department_id" model="ir.model.fields">
+    <field name="field_description">Abteilung</field>
+    <field name="model">survey.user_input</field>
+    <field name="model_id" ref="survey.model_survey_user_input"/>
+    <field name="name">x_department_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">hr.department</field>
+    <field name="depends">partner_id</field>
+    <field name="relation">partner_id.x_department_id</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.survey_user_input.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.survey_user_input.x_department_id.xml)
+
+### X Manager Id  
+ID: `mint_system.ir_model.survey_user_input.x_manager_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_manager_id" model="ir.model.fields">
+    <field name="field_description">Manager</field>
+    <field name="model">survey.user_input</field>
+    <field name="model_id" ref="survey.model_survey_user_input"/>
+    <field name="name">x_manager_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">hr.employee</field>
+    <field name="depends">x_department_id</field>
+    <field name="relation">x_department_id.manager_id</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.survey_user_input.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.survey_user_input.x_manager_id.xml)
 
