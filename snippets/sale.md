@@ -1784,6 +1784,20 @@ ID: `mint_system.sale.report_saleorder_document.format_as_date`
 ```
 Source: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.format_as_date.xml)
 
+### Format Discount  
+ID: `mint_system.sale.report_saleorder_document.format_discount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <span t-field="line.discount" position="replace">
+    <span t-esc="'{0:.2f}'.format(line.discount)" />
+  </span>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale.report_saleorder_document.format_discount.xml)
+
 ### Format Line Total  
 ID: `mint_system.sale.report_saleorder_document.format_line_total`  
 ```xml
