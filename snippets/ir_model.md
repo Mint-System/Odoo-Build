@@ -655,6 +655,29 @@ ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`
 ```
 Source: [snippets/ir_model.helpdesk_ticket.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.helpdesk_ticket.x_date_deadline.xml)
 
+### X Link With Ids  
+ID: `mint_system.ir_model.helpdesk_ticket.x_link_with_ids`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_link_with_ids" model="ir.model.fields">
+    <field name="field_description">Verbunden mit</field>
+    <field name="model">helpdesk.ticket</field>
+    <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+    <field name="name">x_link_with_ids</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2many</field>    
+    <field name="relation">helpdesk.ticket</field>    
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.helpdesk_ticket.x_link_with_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/ir_model.helpdesk_ticket.x_link_with_ids.xml)
+
 ## Hr Applicant  
 ### X Gdpr  
 ID: `mint_system.ir_model.hr_applicant.x_gdpr`  
