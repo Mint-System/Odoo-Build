@@ -1,0 +1,34 @@
+<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+
+  <field name="description" position="replace">
+    <notebook>
+      <page string="Description">
+        <field name="description" class="oe-bordered-editor field_description"
+          placeholder="Description of the ticket..." />
+      </page>
+      <page string="Linked with">
+        <field name="x_link_with_ids">
+          <tree>
+            <field name="ticket_ref" />
+            <field name="name" />
+            <field name="user_id" />
+            <field name="partner_id" />
+          </tree>
+        </field>
+      </page>
+    </notebook>
+  </field>
+
+  <!-- <field name="description" position="before">
+    <label for="x_link_with_ids" />
+    <field name="x_link_with_ids">
+      <tree>
+        <field name="ticket_ref" />
+        <field name="name" />
+        <field name="user_id" />
+        <field name="partner_id" />
+      </tree>
+    </field>
+  </field> -->
+
+</data>
