@@ -1,0 +1,7 @@
+<data inherit_id="website_sale.products_item" priority="50">
+
+  <t t-if="'base_price' in template_price_vals" position="before">
+    <span>From</span>
+  </t>
+
+</data>
