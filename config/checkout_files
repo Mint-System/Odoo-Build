@@ -11,4 +11,4 @@ package-lock.json
 config/checkout_files
 logo.png
 docker-compose.yml
-snippets.md
+.dockerignore

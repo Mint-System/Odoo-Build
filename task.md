@@ -2,6 +2,7 @@
 
 | command                     | option            | description                                                                               |
 | --------------------------- | ----------------- | ----------------------------------------------------------------------------------------- |
+| build                       |                   | Build Odoo Docker image.                                                                  |
 | change-uuid                 | [env]             | Change database uuid via xmlrpc.                                                          |
 | checkout                    | [branch][branch]  | Switch and merge from one branch to another.                                              |
 | checkout-config-files       | [branch]          | Checkout config files from another branch.                                                |
