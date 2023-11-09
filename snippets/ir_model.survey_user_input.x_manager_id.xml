@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_manager_id" model="ir.model.fields">
+    <field name="field_description">Manager</field>
+    <field name="model">survey.user_input</field>
+    <field name="model_id" ref="survey.model_survey_user_input"/>
+    <field name="name">x_manager_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">many2one</field>
+    <field name="relation">hr.employee</field>
+    <field name="depends">x_department_id</field>
+    <field name="relation">x_department_id.manager_id</field>
+  </record>
+
+</odoo>

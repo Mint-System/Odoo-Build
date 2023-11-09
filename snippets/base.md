@@ -438,6 +438,21 @@ ID: `mint_system.base.view_partner_form.show_type`
 ```
 Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_type.xml)
 
+### Show User Ids  
+ID: `mint_system.base.view_partner_form.show_user_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//page[@name='internal_notes']" position="inside">
+    <field name="user_ids"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/base.view_partner_form.show_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_user_ids.xml)
+
 ### Show User Id  
 ID: `mint_system.base.view_partner_form.show_user_id`  
 ```xml

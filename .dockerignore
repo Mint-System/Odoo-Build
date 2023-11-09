@@ -1,0 +1,5 @@
+**
+!entrypoint.sh
+!wait-for-psql.py
+!odoo.conf
+!odoo

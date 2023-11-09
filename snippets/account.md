@@ -520,6 +520,20 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
 
+### Format Discount  
+ID: `mint_system.account.report_invoice_document.format_discount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <span t-field="line.discount" position="replace">
+      <span class="text-nowrap" t-esc="'{0:.2f}'.format(line.discount)" />
+    </span>
+  
+  </data>
+```
+Source: [snippets/account.report_invoice_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_discount.xml)
+
 ### Format Line Total  
 ID: `mint_system.account.report_invoice_document.format_line_total`  
 ```xml
@@ -3264,6 +3278,20 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_address_blocks.xml)
+
+### Format Discount  
+ID: `mint_system.account.report_invoice_document.format_discount`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <span t-field="line.discount" position="replace">
+      <span class="text-nowrap" t-esc="'{0:.2f}'.format(line.discount)" />
+    </span>
+  
+  </data>
+```
+Source: [snippets/account.report_invoice_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.report_invoice_document.format_discount.xml)
 
 ### Format Line Total  
 ID: `mint_system.account.report_invoice_document.format_line_total`  

@@ -11,22 +11,26 @@ column -t -s"|" ./task.md | tail -n +3
 echo
 }
 
+if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
+    export $(cat .env | sed 's/^#.*//g' | xargs)
+fi
+
 # Set env vars
 PATH="$PATH:./odoo"
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 OS_RELEASE=$(awk -F= '/^NAME/{print "$2"}' /etc/os-release)
+ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
+DOCKER_TAG="odoo:$ODOO_REVISION"
+ODOO_LANGUAGE=de_CH
+ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
+LC_ALL=en_US.UTF-8
+LANG=en_US.UTF-8
+TARGETARCH=amd64
 
+# Exports for Docker Compose
 export POSTGRES_USER=odoo
 export POSTGRES_PASSWORD=odoo
-export ODOO_REVISION="$GIT_BRANCH"
-export ODOO_LANGUAGE=de_CH
-export ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
-    export $(cat .env | sed 's/^#.*//g' | xargs)
-fi
+export DOCKER_TAG
 
 function set-addons-path() {
     # Read addons path list
@@ -131,6 +135,11 @@ function load-env() {
 function disable-auto-install() {
     echo "Disable auto install for all enterprise modules."
     find . -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
+}
+
+function build() {
+    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker build . --build-arg TARGETARCH="$TARGETARCH" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function install-odoo-scripts() {
@@ -533,7 +542,7 @@ function checkout() {
 
     git-switch-branch "$1"
 
-    checkout-config-files $GIT_BRANCH
+    checkout-config-files "$GIT_BRANCH"
 }
 
 function checkout-revision() {
@@ -1005,6 +1014,9 @@ case "$1" in
         ;;
     logs)
         docker logs odoo -f
+        ;;
+    build)
+        build
         ;;
     init-venv)
         init-venv

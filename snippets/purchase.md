@@ -244,6 +244,20 @@ ID: `mint_system.purchase.purchase_order_form.x_drawing_file`
 ```
 Source: [snippets/purchase.purchase_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_drawing_file.xml)
 
+### X Group Ids  
+ID: `mint_system.purchase.purchase_order_form.x_group_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <field name="user_id" position="after">
+    <field name="x_group_ids" widget="many2many_tags" domain="[('category_id.name','=','GL')]" />    
+  </field>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase.purchase_order_form.x_group_ids.xml)
+
 ### X Payment State  
 ID: `mint_system.purchase.purchase_order_form.x_payment_state`  
 ```xml

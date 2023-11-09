@@ -45,6 +45,19 @@ ID: `mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line`
 ```
 Source: [snippets/helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_ticket_view_form.domain_so_line.xml)
 
+### Remove Properties  
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+
+  <field name="properties"  position="replace" />
+
+</data>
+
+```
+Source: [snippets/helpdesk.helpdesk_ticket_view_form.remove_properties.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_ticket_view_form.remove_properties.xml)
+
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`  
 ```xml
@@ -59,6 +72,46 @@ ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`
 
 ```
 Source: [snippets/helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml)
+
+### X Link With Ids  
+ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids`  
+```xml
+<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+
+  <field name="description" position="replace">
+    <notebook>
+      <page string="Description">
+        <field name="description" class="oe-bordered-editor field_description"
+          placeholder="Description of the ticket..." />
+      </page>
+      <page string="Linked with">
+        <field name="x_link_with_ids">
+          <tree>
+            <field name="ticket_ref" />
+            <field name="name" />
+            <field name="user_id" />
+            <field name="partner_id" />
+          </tree>
+        </field>
+      </page>
+    </notebook>
+  </field>
+
+  <!-- <field name="description" position="before">
+    <label for="x_link_with_ids" />
+    <field name="x_link_with_ids">
+      <tree>
+        <field name="ticket_ref" />
+        <field name="name" />
+        <field name="user_id" />
+        <field name="partner_id" />
+      </tree>
+    </field>
+  </field> -->
+
+</data>
+```
+Source: [snippets/helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml)
 
 ## Helpdesk Ticket View Kanban  
 ### X Date Deadline  

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='start_date']" position="replace" />
+
+  <xpath expr="//field[@name='date_order']" position="after">
+    <field name="start_date" />
+  </xpath>
+
+</data>
