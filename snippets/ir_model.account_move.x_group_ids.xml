@@ -3,8 +3,8 @@
 
   <record id="x_group_ids" model="ir.model.fields">
     <field name="field_description">Gruppen</field>
-    <field name="model">purchase.order</field>
-    <field name="model_id" ref="purchase.model_purchase_order"/>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
     <field name="name">x_group_ids</field>
     <field name="store" eval="True"/>
     <field name="readonly" eval="False"/>
@@ -12,6 +12,10 @@
     <field name="tracking">1</field>
     <field name="ttype">many2many</field>
     <field name="relation">res.groups</field>
+    <field name="depends">line_ids</field>
+    <field name="compute">for record in self:
+  record['x_group_ids'] = record.line_ids.mapped('purchase_order_id.x_group_ids')
+    </field>
   </record>
 
 </odoo>
