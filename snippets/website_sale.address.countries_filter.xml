@@ -1,0 +1,7 @@
+<data inherit_id="website_sale.address" priority="50">
+  
+    <t t-foreach="countries" position="attributes">
+        <attribute name="t-foreach">countries.filtered(lambda c: c.code in ['CH', 'LI'])</attribute>
+    </t>
+    
+</data>
