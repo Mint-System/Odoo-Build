@@ -1,5 +1,18 @@
 # Website Sale
 ## Address  
+### Countries Filter  
+ID: `mint_system.website_sale.address.countries_filter`  
+```xml
+<data inherit_id="website_sale.address" priority="50">
+  
+    <t t-foreach="countries" position="attributes">
+        <attribute name="t-foreach">countries.filtered(lambda c: c.code in ['CH', 'LI'])</attribute>
+    </t>
+    
+</data>
+```
+Source: [snippets/website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.address.countries_filter.xml)
+
 ### Hide Shipping Use Same  
 ID: `mint_system.website_sale.address.hide_shipping_use_same`  
 ```xml
@@ -161,4 +174,18 @@ ID: `mint_system.website_sale.product.show_product_material`
 </data>
 ```
 Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.product.show_product_material.xml)
+
+## Products Item  
+### Prefix Price  
+ID: `mint_system.website_sale.products_item.prefix_price`  
+```xml
+<data inherit_id="website_sale.products_item" priority="50">
+
+  <t t-if="'base_price' in template_price_vals" position="before">
+    <span>From</span>
+  </t>
+
+</data>
+```
+Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/website_sale.products_item.prefix_price.xml)
 

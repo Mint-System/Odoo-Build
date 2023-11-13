@@ -1425,7 +1425,7 @@ ID: `mint_system.stock.report_delivery_document.add_note`
           <br/>
           <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
         </t>
-        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
+        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
           <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
           <br/>
           <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>

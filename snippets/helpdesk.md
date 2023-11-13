@@ -80,34 +80,21 @@ ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids`
 
   <field name="description" position="replace">
     <notebook>
-      <page string="Description">
-        <field name="description" class="oe-bordered-editor field_description"
-          placeholder="Description of the ticket..." />
+      <page string="Beschreibung">
+        <field name="description" class="oe-bordered-editor field_description" placeholder="Description of the ticket..."/>
       </page>
-      <page string="Linked with">
+      <page string="Verwandte Tickets">
         <field name="x_link_with_ids">
-          <tree>
-            <field name="ticket_ref" />
-            <field name="name" />
-            <field name="user_id" />
-            <field name="partner_id" />
+          <tree default_order="create_date desc">
+            <field name="name"/>
+            <field name="user_id"/>
+            <field name="partner_id"/>
+            <field name="create_date"/>
           </tree>
         </field>
       </page>
     </notebook>
   </field>
-
-  <!-- <field name="description" position="before">
-    <label for="x_link_with_ids" />
-    <field name="x_link_with_ids">
-      <tree>
-        <field name="ticket_ref" />
-        <field name="name" />
-        <field name="user_id" />
-        <field name="partner_id" />
-      </tree>
-    </field>
-  </field> -->
 
 </data>
 ```

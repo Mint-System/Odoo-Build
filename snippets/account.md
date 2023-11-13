@@ -2229,14 +2229,14 @@ Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://gith
 ### Show Order Id  
 ID: `mint_system.account.report_invoice_document.show_order_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
   <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
 
     <td name="account_invoice_line_name">
       <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">
-        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>
       </t>
       <t t-if="line.sale_line_ids.task_id.sale_line_id.order_id">
         Dienstleistung gemäss Rapport # <span t-field="line.sale_line_ids.task_id.sale_line_id.order_id"/>
@@ -4988,14 +4988,14 @@ Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://gith
 ### Show Order Id  
 ID: `mint_system.account.report_invoice_document.show_order_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
   <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
 
     <td name="account_invoice_line_name">
       <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">
-        <span t-field="line.name" t-options="{'widget': 'text'}"/>
+        <span class="o_bold" t-field="line.product_id.name"/><br/>
+        <span t-field="line.name"/>
       </t>
       <t t-if="line.sale_line_ids.task_id.sale_line_id.order_id">
         Dienstleistung gemäss Rapport # <span t-field="line.sale_line_ids.task_id.sale_line_id.order_id"/>
@@ -6130,6 +6130,20 @@ ID: `mint_system.account.view_move_form.x_duplicate_found`
 </data>
 ```
 Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.x_duplicate_found.xml)
+
+### X Group Ids  
+ID: `mint_system.account.view_move_form.x_group_ids`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+
+    <xpath expr="//page[@id='other_tab_entry']//field[@name='to_check']" position="after">
+        <field name="x_group_ids" widget="many2many_tags"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account.view_move_form.x_group_ids.xml)
 
 ### X Has Downpayment Warn Msg  
 ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`  

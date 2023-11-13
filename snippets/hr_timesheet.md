@@ -145,6 +145,21 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
 
+### So Line Readonly  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='so_line']" position="attributes">
+    <attribute name="readonly">True</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml)
+
 ### Task Id Required  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`  
 ```xml

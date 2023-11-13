@@ -251,7 +251,7 @@ ID: `mint_system.purchase.purchase_order_form.x_group_ids`
 <data inherit_id="purchase.purchase_order_form" priority="50">
 
   <field name="user_id" position="after">
-    <field name="x_group_ids" widget="many2many_tags" domain="[('category_id.name','=','GL')]" />    
+    <field name="x_group_ids" widget="many2many_tags"/>    
   </field>
 
 </data>
