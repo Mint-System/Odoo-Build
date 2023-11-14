@@ -58,7 +58,6 @@
 | test-jsonrpc                | [env]             | Test json rpc connection.                                                                 |
 | test-module                 | [db][name,path]   | Test target Odoo module.                                                                  |
 | update-app-list             | [db]              | Update app list.                                                                          |
-| update-config               |                   | Update Odoo native and docker config files.                                               |
 | update-docs                 |                   | Update project docs.                                                                      |
 | update-module               | [db][name,path]   | Update target Odoo module.                                                                |
 | update-readme               | [path]            | Update Readme file of Odoo module collection.                                             |

@@ -226,6 +226,7 @@ function start() {
 
     if [[ "$1" =~ "odoo" ]]; then
         # share-filestore
+        echo $DOCKER_ADDONS_PATH
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
@@ -234,7 +235,7 @@ function start() {
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
-        odoo-bin --config "config/odoo-native.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
+        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -278,7 +279,7 @@ function start-shell() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
 }
 
 function start-psql() {
@@ -295,7 +296,7 @@ function init-db() {
     activate-venv
     set-addons-path
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo-bin -d "$DATABASE" -i base --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
 
 function odoo-cloc() {
@@ -303,7 +304,7 @@ function odoo-cloc() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin cloc -d "$DATABASE" --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin cloc -d "$DATABASE" --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -341,7 +342,7 @@ function update-module() {
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function generate-module-translation() {
@@ -366,7 +367,7 @@ function generate-module-translation() {
     set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo-bin -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function list-addons() {
@@ -390,7 +391,7 @@ function install-module() {
     activate-venv
     set-addons-path
     echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function test-module() {
@@ -406,7 +407,7 @@ function test-module() {
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {
@@ -425,7 +426,7 @@ function remove-module() {
     set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --addons-path="$ADDONS_PATH" --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -479,7 +480,7 @@ function reset-views() {
     activate-venv
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo-native.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
 }
 
 function convert-database() {
@@ -754,7 +755,7 @@ function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1" --config 'config/odoo-native.conf' --no-http
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1" --config 'config/odoo.conf' --no-http
 }
 
 function init-config-dir() {
@@ -833,7 +834,7 @@ function save-config() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    odoo-bin -s -d "$1" --config 'config/odoo-native.conf' --stop-after-init --no-http
+    odoo-bin -s -d "$1" --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
 function remove-submodule() {
@@ -853,19 +854,6 @@ function remove-submodule() {
     git rm -f "$1"
 
     echo "Remove $1 submodule from .gitmodules files manually."
-}
-
-function update-config() {
-
-    set-addons-path
-
-    # Update native config
-    sed -i'' -e "s|addons_path.*|addons_path = $ADDONS_PATH|g" "./config/odoo-native.conf"
-    
-    # Update docker config
-    sed -i'' -e "s|addons_path.*|addons_path = /mnt/$DOCKER_ADDONS_PATH|g" "./config/odoo.conf"
-
-    echo "Config updated."
 }
 
 function git-list-submodules() {
@@ -925,7 +913,7 @@ function update-docs() {
     With a snippet you can e.g. hide a field on the contact form. \
     A snippet name is unique and follows the \`\$COMPANY.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
 
-    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/14.0"
+    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/16.0"
 
     # Get all modules
     MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | sort | uniq)
@@ -1116,9 +1104,6 @@ case "$1" in
         ;;
     git-switch-branch)
         git-switch-branch "$2"
-        ;;
-    update-config)
-        update-config
         ;;
     git-list-submodules)
         git-list-submodules

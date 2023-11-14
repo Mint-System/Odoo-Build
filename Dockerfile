@@ -69,7 +69,7 @@ RUN npm install -g rtlcss
 
 # Install Odoo
 ENV ODOO_VERSION 16.0
-COPY odoo /usr/lib/python3/dist-packages/odoo
+COPY ./odoo /usr/lib/python3/dist-packages/odoo
 RUN pip install -r /usr/lib/python3/dist-packages/odoo/requirements.txt
 RUN useradd -ms /bin/bash odoo
 
@@ -82,8 +82,8 @@ RUN useradd -ms /bin/bash odoo
 #     && rm -rf /var/lib/apt/lists/* odoo.deb
 
 # Copy entrypoint script and Odoo configuration file
-COPY ./entrypoint.sh /
-COPY ./odoo.conf /etc/odoo/
+COPY ./build/entrypoint.sh /
+COPY ./build/odoo.conf /etc/odoo/
 
 # Set permissions and Mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
 RUN chown odoo /etc/odoo/odoo.conf \
