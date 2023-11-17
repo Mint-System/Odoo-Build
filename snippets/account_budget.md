@@ -12,5 +12,5 @@ ID: `mint_system.account_budget.view_crossovered_budget_line_tree.show_budget`
 
 </data>
 ```
-Source: [snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml)
+Source: [snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_budget.view_crossovered_budget_line_tree.show_budget.xml)
 

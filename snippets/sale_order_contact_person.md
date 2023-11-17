@@ -12,5 +12,5 @@ ID: `mint_system.sale_order_contact_person.view_sale_order_form_contact_person.m
 
 </data>
 ```
-Source: [snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml)
+Source: [snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id.xml)
 

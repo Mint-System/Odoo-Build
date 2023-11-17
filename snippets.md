@@ -10,6 +10,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Agreement](snippets/agreement.md)
 ## [Agreement Legal](snippets/agreement_legal.md)
 ## [Base](snippets/base.md)
+## [Base Install Request](snippets/base_install_request.md)
 ## [Business Requirement](snippets/business_requirement.md)
 ## [Calendar](snippets/calendar.md)
 ## [Certificate Planer](snippets/certificate_planer.md)

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<data inherit_id="base.module_view_kanban" priority="50">
+
+  <button name="button_immediate_install" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </button>
+
+  <a name="button_immediate_upgrade" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </a>
+
+  <a name="button_uninstall_wizard" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </a>
+
+  <button name="action_open_install_request" position="attributes">
+    <attribute name="groups">!base.group_erp_manager</attribute>
+  </button>
+
+</data>

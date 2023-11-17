@@ -12,5 +12,5 @@ ID: `mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups`
   
 </data>
 ```
-Source: [snippets/mrp_account.mrp_production_form_view_inherited.modify_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/mrp_account.mrp_production_form_view_inherited.modify_groups.xml)
+Source: [snippets/mrp_account.mrp_production_form_view_inherited.modify_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp_account.mrp_production_form_view_inherited.modify_groups.xml)
 
