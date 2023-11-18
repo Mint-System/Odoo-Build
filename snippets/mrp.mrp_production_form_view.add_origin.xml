@@ -1,0 +1,7 @@
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <xpath expr="//group[@name='group_extra_info']//field[@name='date_planned_start']/.." position="after">
+    <field name="origin"/>
+  </xpath>
+
+</data>
