@@ -19,7 +19,7 @@ ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
 
 </data>
 ```
-Source: [snippets/portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/portal.portal_my_details_fields.show_firstname_lastname.xml)
+Source: [snippets/portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/portal.portal_my_details_fields.show_firstname_lastname.xml)
 
 ### Show Street2  
 ID: `mint_system.portal.portal_my_details_fields.show_street2`  
@@ -36,5 +36,5 @@ ID: `mint_system.portal.portal_my_details_fields.show_street2`
 
 </data>
 ```
-Source: [snippets/portal.portal_my_details_fields.show_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/portal.portal_my_details_fields.show_street2.xml)
+Source: [snippets/portal.portal_my_details_fields.show_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/portal.portal_my_details_fields.show_street2.xml)
 

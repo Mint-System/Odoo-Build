@@ -20,5 +20,5 @@ ID: `mint_system.account_asset.view_account_asset_form.account_ids_optional`
 
 </data>
 ```
-Source: [snippets/account_asset.view_account_asset_form.account_ids_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/account_asset.view_account_asset_form.account_ids_optional.xml)
+Source: [snippets/account_asset.view_account_asset_form.account_ids_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_asset.view_account_asset_form.account_ids_optional.xml)
 

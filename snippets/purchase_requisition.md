@@ -12,7 +12,7 @@ ID: `mint_system.purchase_requisition.product_supplierinfo_tree_view_inherit.pur
 
 </data>
 ```
-Source: [snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml)
+Source: [snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml)
 
 ## Report Purchaserequisitions  
 ### Add Address Block  
@@ -50,7 +50,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_bl
 </data>
 -->
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_address_block.xml)
 
 ### Add Date End  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_date_end`  
@@ -68,7 +68,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_date_end`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_date_end.xml)
 
 ### Add Description  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_description`  
@@ -84,7 +84,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_descriptio
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_description.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_description.xml)
 
 ### Add Drawing  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_drawing`  
@@ -102,7 +102,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_drawing`
 </data>
 
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_drawing.xml)
 
 ### Add Footer  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`  
@@ -140,7 +140,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml)
 
 ### Add Header And Footer Note  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_header_and_footer_note`  
@@ -162,7 +162,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_header_and
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_header_and_footer_note.xml)
 
 ### Add Incoterm Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_incoterm_id`  
@@ -180,7 +180,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_incoterm_i
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_incoterm_id.xml)
 
 ### Add Infotable  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`  
@@ -249,7 +249,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 
 ### Add Payment Term  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_payment_term`  
@@ -268,7 +268,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_payment_te
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_payment_term.xml)
 
 ### Add Price Subtotal  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_subtotal`  
@@ -290,7 +290,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_subt
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_subtotal.xml)
 
 ### Add Price Unit  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit`  
@@ -316,7 +316,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_price_unit
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_price_unit.xml)
 
 ### Add Product Description Variants  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_description_variants`  
@@ -333,7 +333,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_de
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_description_variants.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_description_variants.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_description_variants.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_description_variants.xml)
 
 ### Add Product Uom Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uom_id`  
@@ -347,7 +347,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_product_uo
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_product_uom_id.xml)
 
 ### Address Block  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`  
@@ -364,7 +364,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.address_block`
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.address_block.xml)
 
 ### Add Summary  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`  
@@ -415,7 +415,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_summary`
 
 </data> 
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_summary.xml)
 
 ### Add User Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`  
@@ -433,7 +433,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_user_id`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_user_id.xml)
 
 ### Format Product Qty  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product_qty`  
@@ -450,7 +450,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_product
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.format_product_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_with_decimal`  
@@ -469,7 +469,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.format_qty_wit
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.format_qty_with_decimal.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.format_qty_with_decimal.xml)
 
 ### Hide Details  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_details`  
@@ -481,7 +481,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_details`
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_details.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_details.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_details.xml)
 
 ### Hide Origin  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_origin`  
@@ -494,7 +494,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_origin`
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_origin.xml)
 
 ### Hide Product Uom  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_product_uom`  
@@ -507,7 +507,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_product_u
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_product_uom.xml)
 
 ### Hide Schedule Date  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_schedule_date`  
@@ -520,7 +520,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_schedule_
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_schedule_date.xml)
 
 ### Hide Title Details  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_details`  
@@ -532,7 +532,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_det
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_details.xml)
 
 ### Hide Title Product  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_product`  
@@ -544,7 +544,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_title_pro
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_title_product.xml)
 
 ### Hide Type Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_type_id`  
@@ -557,7 +557,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.hide_type_id`
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.hide_type_id.xml)
 
 ### Relocate Schedule Date  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.relocate_schedule_date`  
@@ -579,7 +579,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.relocate_sched
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.relocate_schedule_date.xml)
 
 ### Remove Informations  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.remove_informations`  
@@ -591,7 +591,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.remove_informa
     
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.remove_informations.xml)
 
 ### Replace Name With Partner Ref  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref`  
@@ -608,7 +608,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_name_w
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_name_with_partner_ref.xml)
 
 ### Replace Product Description  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_description`  
@@ -629,7 +629,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml)
 
 ### Replace Product Uom Id With Schedule Date  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date`  
@@ -649,7 +649,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date.xml)
 
 ### Replace Schedule Date With Price Unit  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit`  
@@ -669,7 +669,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_schedu
   
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml)
 
 ### Replace Title  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`  
@@ -688,7 +688,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_title.xml)
 
 ### Round Price  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.round_price`  
@@ -704,7 +704,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.round_price`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.round_price.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.round_price.xml)
 
 ### Second Row  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`  
@@ -753,7 +753,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.second_row`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.second_row.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.second_row.xml)
 
 ### Sequence In Table  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.sequence_in_table`  
@@ -779,7 +779,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.sequence_in_ta
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.sequence_in_table.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.sequence_in_table.xml)
 
 ### Set Ids  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`  
@@ -868,7 +868,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.set_ids`
 </data>
 -->
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.set_ids.xml)
 
 ### Show Default Code  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.show_default_code`  
@@ -890,7 +890,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.show_default_c
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.show_default_code.xml)
 
 ### Style Gelso  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`  
@@ -941,7 +941,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_gelso`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.style_gelso.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`  
@@ -1010,7 +1010,7 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.style_trimada`
 
 </data>
 ```
-Source: [snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml)
+Source: [snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.style_trimada.xml)
 
 ## View Purchase Requisition Filter  
 ### Replace Filter  
@@ -1054,7 +1054,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_filter.replace_f
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_filter.replace_filter.xml)
 
 ## View Purchase Requisition Form  
 ### Date End Attributes Readonly  
@@ -1069,7 +1069,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_at
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_readonly.xml)
 
 ### Date End Attributes Required  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_attributes_required`  
@@ -1083,7 +1083,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.date_end_at
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.date_end_attributes_required.xml)
 
 ### Filter Customer Is Company  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.filter_customer_is_company`  
@@ -1098,7 +1098,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.filter_cust
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.filter_customer_is_company.xml)
 
 ### Hide Schedule Date  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.hide_schedule_date`  
@@ -1112,7 +1112,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.hide_schedu
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.hide_schedule_date.xml)
 
 ### Modify Attributes Origin  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_origin`  
@@ -1126,7 +1126,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_origin.xml)
 
 ### Modify Attributes Type Id  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id`  
@@ -1140,7 +1140,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_attr
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_attributes_type_id.xml)
 
 ### Modify Readonly  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_readonly`  
@@ -1154,7 +1154,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_read
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_readonly.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_readonly.xml)
 
 ### Modify States  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_states`  
@@ -1168,7 +1168,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_stat
     
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_states.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_states.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_states.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_states.xml)
 
 ### Modify Status Workflow  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_status_workflow`  
@@ -1203,7 +1203,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.modify_stat
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.modify_status_workflow.xml)
 
 ### Ordering Date Attributes Required  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required`  
@@ -1217,7 +1217,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.ordering_da
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.ordering_date_attributes_required.xml)
 
 ### Relocate Price Unit  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_price_unit`  
@@ -1232,7 +1232,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_pr
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_price_unit.xml)
 
 ### Relocate Qty Ordered  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered`  
@@ -1247,7 +1247,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.relocate_qt
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.relocate_qty_ordered.xml)
 
 ### Replace Title  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.replace_title`  
@@ -1263,7 +1263,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.replace_tit
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.replace_title.xml)
 
 ### Show Schedule Date In Notebook  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook`  
@@ -1278,7 +1278,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_form.show_schedu
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_form.show_schedule_date_in_notebook.xml)
 
 ## View Purchase Requisition Tree  
 ### Add Comment  
@@ -1294,7 +1294,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_comment
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_comment.xml)
 
 ### Add Partner Ref  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_partner_ref`  
@@ -1309,7 +1309,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_partner
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_partner_ref.xml)
 
 ### Add Vendor Id  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_vendor_id`  
@@ -1323,7 +1323,7 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.add_vendor_
 
 </data>
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_tree.add_vendor_id.xml)
 
 ### Relocate User Id  
 ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.relocate_user_id`  
@@ -1341,5 +1341,5 @@ ID: `mint_system.purchase_requisition.view_purchase_requisition_tree.relocate_us
 </data>
 
 ```
-Source: [snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml)
+Source: [snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.view_purchase_requisition_tree.relocate_user_id.xml)
 

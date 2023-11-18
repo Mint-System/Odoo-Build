@@ -25,7 +25,7 @@ ID: `mint_system.base.contact_name.modify_name`
 
 </data>
 ```
-Source: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.contact_name.modify_name.xml)
+Source: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.contact_name.modify_name.xml)
 
 ### Remove Parent Name  
 ID: `mint_system.base.contact_name.remove_parent_name`  
@@ -41,7 +41,7 @@ ID: `mint_system.base.contact_name.remove_parent_name`
   
 </data>
 ```
-Source: [snippets/base.contact_name.remove_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.contact_name.remove_parent_name.xml)
+Source: [snippets/base.contact_name.remove_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.contact_name.remove_parent_name.xml)
 
 ## Ir Cron View Tree  
 ### Show Ir Actions Server Id  
@@ -57,7 +57,7 @@ ID: `mint_system.base.ir_cron_view_tree.show_ir_actions_server_id`
 </data>
 
 ```
-Source: [snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml)
+Source: [snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml)
 
 ## Ir Filters View Form  
 ### Remove Domain Widget  
@@ -72,7 +72,34 @@ ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`
 
 </data>
 ```
-Source: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.ir_filters_view_form.remove_domain_widget.xml)
+Source: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.ir_filters_view_form.remove_domain_widget.xml)
+
+## Module View Kanban  
+### Group Erp System  
+ID: `mint_system.base.module_view_kanban.group_erp_system`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.module_view_kanban" priority="50">
+
+  <button name="button_immediate_install" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </button>
+
+  <a name="button_immediate_upgrade" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </a>
+
+  <a name="button_uninstall_wizard" position="attributes">
+    <attribute name="groups">base.group_erp_manager</attribute>
+  </a>
+
+  <button name="action_open_install_request" position="attributes">
+    <attribute name="groups">!base.group_erp_manager</attribute>
+  </button>
+
+</data>
+```
+Source: [snippets/base.module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.module_view_kanban.group_erp_system.xml)
 
 ## Res Bank View Search  
 ### Add Zip Bic Code City  
@@ -91,7 +118,7 @@ ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`
 
 </data>
 ```
-Source: [snippets/base.res_bank_view_search.add_zip_bic_code_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.res_bank_view_search.add_zip_bic_code_city.xml)
+Source: [snippets/base.res_bank_view_search.add_zip_bic_code_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_bank_view_search.add_zip_bic_code_city.xml)
 
 ## Res Partner Kanban View  
 ### Show Agreements Count  
@@ -118,7 +145,7 @@ ID: `mint_system.base.res_partner_kanban_view.show_agreements_count`
 </data>
 
 ```
-Source: [snippets/base.res_partner_kanban_view.show_agreements_count.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.res_partner_kanban_view.show_agreements_count.xml)
+Source: [snippets/base.res_partner_kanban_view.show_agreements_count.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.show_agreements_count.xml)
 
 ### Show Phone  
 ID: `mint_system.base.res_partner_kanban_view.show_phone`  
@@ -132,7 +159,7 @@ ID: `mint_system.base.res_partner_kanban_view.show_phone`
 
 </data>
 ```
-Source: [snippets/base.res_partner_kanban_view.show_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.res_partner_kanban_view.show_phone.xml)
+Source: [snippets/base.res_partner_kanban_view.show_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.show_phone.xml)
 
 ### Show Website  
 ID: `mint_system.base.res_partner_kanban_view.show_website`  
@@ -146,7 +173,7 @@ ID: `mint_system.base.res_partner_kanban_view.show_website`
 
 </data>
 ```
-Source: [snippets/base.res_partner_kanban_view.show_website.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.res_partner_kanban_view.show_website.xml)
+Source: [snippets/base.res_partner_kanban_view.show_website.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.show_website.xml)
 
 ## User Groups View  
 ### Remove Fleet Groups  
@@ -160,7 +187,7 @@ ID: `mint_system.base.user_groups_view.remove_fleet_groups`
 
 </data>
 ```
-Source: [snippets/base.user_groups_view.remove_fleet_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.user_groups_view.remove_fleet_groups.xml)
+Source: [snippets/base.user_groups_view.remove_fleet_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.user_groups_view.remove_fleet_groups.xml)
 
 ## View Bank Form  
 ### Add Display Name  
@@ -176,7 +203,7 @@ ID: `mint_system.base.view_bank_form.add_display_name`
 </data>
 
 ```
-Source: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_bank_form.add_display_name.xml)
+Source: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_bank_form.add_display_name.xml)
 
 ## View Company Form  
 ### Show Account Onboarding Panel  
@@ -192,7 +219,7 @@ ID: `mint_system.base.view_company_form.show_account_onboarding_panel`
 </data>
 
 ```
-Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_company_form.show_account_onboarding_panel.xml)
+Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_company_form.show_account_onboarding_panel.xml)
 
 ### Show Analytic Plan Id  
 ID: `mint_system.base.view_company_form.show_analytic_plan_id`  
@@ -207,7 +234,7 @@ ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 </data>
 
 ```
-Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
+Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
 
 ## View Country Tree  
 ### Set Limit  
@@ -223,7 +250,7 @@ ID: `mint_system.base.view_country_tree.set_limit`
 </data>
 
 ```
-Source: [snippets/base.view_country_tree.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_country_tree.set_limit.xml)
+Source: [snippets/base.view_country_tree.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_country_tree.set_limit.xml)
 
 ## View Model Fields Form  
 ### Show State  
@@ -239,7 +266,7 @@ ID: `mint_system.base.view_model_fields_form.show_state`
 </data>
 
 ```
-Source: [snippets/base.view_model_fields_form.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_model_fields_form.show_state.xml)
+Source: [snippets/base.view_model_fields_form.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_model_fields_form.show_state.xml)
 
 ## View Partner Form  
 ### Add Commercial Partner Id  
@@ -256,7 +283,7 @@ ID: `mint_system.base.view_partner_form.add_commercial_partner_id`
 
 </data>
 ```
-Source: [snippets/base.view_partner_form.add_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_commercial_partner_id.xml)
+Source: [snippets/base.view_partner_form.add_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.add_commercial_partner_id.xml)
 
 ### Add Credit Limit  
 ID: `mint_system.base.view_partner_form.add_credit_limit`  
@@ -274,7 +301,7 @@ ID: `mint_system.base.view_partner_form.add_credit_limit`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.add_credit_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_credit_limit.xml)
+Source: [snippets/base.view_partner_form.add_credit_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.add_credit_limit.xml)
 
 ### Add Department And Lang On Page Contact Addresses  
 ID: `mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses`  
@@ -291,7 +318,7 @@ ID: `mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_
 
 </data>
 ```
-Source: [snippets/base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml)
+Source: [snippets/base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml)
 
 ### Add Display Name  
 ID: `mint_system.base.view_partner_form.add_display_name`  
@@ -305,7 +332,7 @@ ID: `mint_system.base.view_partner_form.add_display_name`
   
 </data>
 ```
-Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.add_display_name.xml)
+Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.add_display_name.xml)
 
 ### Attributes Child Ids  
 ID: `mint_system.base.view_partner_form.attributes_child_ids`  
@@ -319,7 +346,7 @@ ID: `mint_system.base.view_partner_form.attributes_child_ids`
 
 </data>
 ```
-Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.attributes_child_ids.xml)
+Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.attributes_child_ids.xml)
 
 ### Move Company Registry  
 ID: `mint_system.base.view_partner_form.move_company_registry`  
@@ -332,7 +359,7 @@ ID: `mint_system.base.view_partner_form.move_company_registry`
 
 </data>
 ```
-Source: [snippets/base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_company_registry.xml)
+Source: [snippets/base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_company_registry.xml)
 
 ### Move Property Product Pricelist  
 ID: `mint_system.base.view_partner_form.move_property_product_pricelist`  
@@ -352,7 +379,7 @@ ID: `mint_system.base.view_partner_form.move_property_product_pricelist`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_property_product_pricelist.xml)
+Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_property_product_pricelist.xml)
 
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
@@ -370,7 +397,7 @@ ID: `mint_system.base.view_partner_form.move_ref`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_ref.xml)
+Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_ref.xml)
 
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_form.move_zip_and_city`  
@@ -391,7 +418,7 @@ ID: `mint_system.base.view_partner_form.move_zip_and_city`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.move_zip_and_city.xml)
+Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_zip_and_city.xml)
 
 ### Show Color  
 ID: `mint_system.base.view_partner_form.show_color`  
@@ -406,7 +433,7 @@ ID: `mint_system.base.view_partner_form.show_color`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_color.xml)
+Source: [snippets/base.view_partner_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_color.xml)
 
 ### Show Industry  
 ID: `mint_system.base.view_partner_form.show_industry`  
@@ -421,7 +448,7 @@ ID: `mint_system.base.view_partner_form.show_industry`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_industry.xml)
+Source: [snippets/base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_industry.xml)
 
 ### Show Type  
 ID: `mint_system.base.view_partner_form.show_type`  
@@ -436,7 +463,7 @@ ID: `mint_system.base.view_partner_form.show_type`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_type.xml)
+Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_type.xml)
 
 ### Show User Ids  
 ID: `mint_system.base.view_partner_form.show_user_ids`  
@@ -451,7 +478,7 @@ ID: `mint_system.base.view_partner_form.show_user_ids`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.show_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_user_ids.xml)
+Source: [snippets/base.view_partner_form.show_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_user_ids.xml)
 
 ### Show User Id  
 ID: `mint_system.base.view_partner_form.show_user_id`  
@@ -466,7 +493,7 @@ ID: `mint_system.base.view_partner_form.show_user_id`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.show_user_id.xml)
+Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_user_id.xml)
 
 ### X Birthdate  
 ID: `mint_system.base.view_partner_form.x_birthdate`  
@@ -480,7 +507,7 @@ ID: `mint_system.base.view_partner_form.x_birthdate`
 
 </data>
 ```
-Source: [snippets/base.view_partner_form.x_birthdate.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_birthdate.xml)
+Source: [snippets/base.view_partner_form.x_birthdate.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_birthdate.xml)
 
 ### X Created On  
 ID: `mint_system.base.view_partner_form.x_created_on`  
@@ -495,7 +522,7 @@ ID: `mint_system.base.view_partner_form.x_created_on`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_created_on.xml)
+Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_created_on.xml)
 
 ### X Eori  
 ID: `mint_system.base.view_partner_form.x_eori`  
@@ -510,7 +537,7 @@ ID: `mint_system.base.view_partner_form.x_eori`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_eori.xml)
+Source: [snippets/base.view_partner_form.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_eori.xml)
 
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  
@@ -525,7 +552,7 @@ ID: `mint_system.base.view_partner_form.x_external_ref`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_external_ref.xml)
+Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_external_ref.xml)
 
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_form.x_global_location_number`  
@@ -540,7 +567,7 @@ ID: `mint_system.base.view_partner_form.x_global_location_number`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_global_location_number.xml)
+Source: [snippets/base.view_partner_form.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_global_location_number.xml)
 
 ### X Packaging Ref  
 ID: `mint_system.base.view_partner_form.x_packaging_ref`  
@@ -555,7 +582,7 @@ ID: `mint_system.base.view_partner_form.x_packaging_ref`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_packaging_ref.xml)
+Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_packaging_ref.xml)
 
 ### X Privacy Visibility  
 ID: `mint_system.base.view_partner_form.x_privacy_visibility`  
@@ -570,7 +597,7 @@ ID: `mint_system.base.view_partner_form.x_privacy_visibility`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_privacy_visibility.xml)
+Source: [snippets/base.view_partner_form.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_privacy_visibility.xml)
 
 ### X Vst  
 ID: `mint_system.base.view_partner_form.x_vst`  
@@ -585,7 +612,7 @@ ID: `mint_system.base.view_partner_form.x_vst`
 </data>
 
 ```
-Source: [snippets/base.view_partner_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_form.x_vst.xml)
+Source: [snippets/base.view_partner_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_vst.xml)
 
 ## View Partner Tree  
 ### Add Ref Zip Type  
@@ -608,7 +635,7 @@ ID: `mint_system.base.view_partner_tree.add_ref_zip_type`
 
 </data>
 ```
-Source: [snippets/base.view_partner_tree.add_ref_zip_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.add_ref_zip_type.xml)
+Source: [snippets/base.view_partner_tree.add_ref_zip_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.add_ref_zip_type.xml)
 
 ### Format Decoration  
 ID: `mint_system.base.view_partner_tree.format_decoration`  
@@ -617,7 +644,7 @@ ID: `mint_system.base.view_partner_tree.format_decoration`
   <attribute name="decoration-bf">is_company</attribute>
 </xpath>
 ```
-Source: [snippets/base.view_partner_tree.format_decoration.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.format_decoration.xml)
+Source: [snippets/base.view_partner_tree.format_decoration.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.format_decoration.xml)
 
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_tree.move_zip_and_city`  
@@ -635,7 +662,7 @@ ID: `mint_system.base.view_partner_tree.move_zip_and_city`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.move_zip_and_city.xml)
+Source: [snippets/base.view_partner_tree.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.move_zip_and_city.xml)
 
 ### Optional Payment Terms  
 ID: `mint_system.base.view_partner_tree.optional_payment_terms`  
@@ -650,7 +677,7 @@ ID: `mint_system.base.view_partner_tree.optional_payment_terms`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.optional_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.optional_payment_terms.xml)
+Source: [snippets/base.view_partner_tree.optional_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.optional_payment_terms.xml)
 
 ### Optional Zip  
 ID: `mint_system.base.view_partner_tree.optional_zip`  
@@ -665,7 +692,7 @@ ID: `mint_system.base.view_partner_tree.optional_zip`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.optional_zip.xml)
+Source: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.optional_zip.xml)
 
 ### Property Payment Term Id  
 ID: `mint_system.base.view_partner_tree.property_payment_term_id`  
@@ -680,7 +707,7 @@ ID: `mint_system.base.view_partner_tree.property_payment_term_id`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.property_payment_term_id.xml)
+Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.property_payment_term_id.xml)
 
 ### Show Company Registry  
 ID: `mint_system.base.view_partner_tree.show_company_registry`  
@@ -695,7 +722,7 @@ ID: `mint_system.base.view_partner_tree.show_company_registry`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_company_registry.xml)
+Source: [snippets/base.view_partner_tree.show_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_company_registry.xml)
 
 ### Show Industry  
 ID: `mint_system.base.view_partner_tree.show_industry`  
@@ -710,7 +737,7 @@ ID: `mint_system.base.view_partner_tree.show_industry`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_industry.xml)
+Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_industry.xml)
 
 ### Show Property Payment Term Id  
 ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`  
@@ -725,7 +752,7 @@ ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_payment_term_id.xml)
+Source: [snippets/base.view_partner_tree.show_property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_property_payment_term_id.xml)
 
 ### Show Property Product Pricelist  
 ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`  
@@ -740,7 +767,7 @@ ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
+Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
 
 ### Show Street  
 ID: `mint_system.base.view_partner_tree.show_street`  
@@ -755,7 +782,7 @@ ID: `mint_system.base.view_partner_tree.show_street`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_street.xml)
+Source: [snippets/base.view_partner_tree.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_street.xml)
 
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  
@@ -770,7 +797,7 @@ ID: `mint_system.base.view_partner_tree.show_type`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.show_type.xml)
+Source: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_type.xml)
 
 ### X Bexioid  
 ID: `mint_system.base.view_partner_tree.x_bexioid`  
@@ -785,7 +812,7 @@ ID: `mint_system.base.view_partner_tree.x_bexioid`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_bexioid.xml)
+Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_bexioid.xml)
 
 ### X First Sale Date  
 ID: `mint_system.base.view_partner_tree.x_first_sale_date`  
@@ -800,7 +827,7 @@ ID: `mint_system.base.view_partner_tree.x_first_sale_date`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_first_sale_date.xml)
+Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_first_sale_date.xml)
 
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_tree.x_global_location_number`  
@@ -815,7 +842,7 @@ ID: `mint_system.base.view_partner_tree.x_global_location_number`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_global_location_number.xml)
+Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_global_location_number.xml)
 
 ### X Vst  
 ID: `mint_system.base.view_partner_tree.x_vst`  
@@ -830,7 +857,7 @@ ID: `mint_system.base.view_partner_tree.x_vst`
 </data>
 
 ```
-Source: [snippets/base.view_partner_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_partner_tree.x_vst.xml)
+Source: [snippets/base.view_partner_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_vst.xml)
 
 ## View Res Bank Tree  
 ### Add Zip  
@@ -845,7 +872,7 @@ ID: `mint_system.base.view_res_bank_tree.add_zip`
 
 </data>
 ```
-Source: [snippets/base.view_res_bank_tree.add_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_res_bank_tree.add_zip.xml)
+Source: [snippets/base.view_res_bank_tree.add_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_bank_tree.add_zip.xml)
 
 ## View Res Partner Filter  
 ### Add Type Description  
@@ -862,7 +889,7 @@ ID: `mint_system.base.view_res_partner_filter.add_type_description`
 
 </data>
 ```
-Source: [snippets/base.view_res_partner_filter.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_res_partner_filter.add_type_description.xml)
+Source: [snippets/base.view_res_partner_filter.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.add_type_description.xml)
 
 ### Add Zip And City  
 ID: `mint_system.base.view_res_partner_filter.add_zip_and_city`  
@@ -878,7 +905,7 @@ ID: `mint_system.base.view_res_partner_filter.add_zip_and_city`
 
 </data>
 ```
-Source: [snippets/base.view_res_partner_filter.add_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_res_partner_filter.add_zip_and_city.xml)
+Source: [snippets/base.view_res_partner_filter.add_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.add_zip_and_city.xml)
 
 ### Search Zip  
 ID: `mint_system.base.view_res_partner_filter.search_zip`  
@@ -893,7 +920,7 @@ ID: `mint_system.base.view_res_partner_filter.search_zip`
 </data>
 
 ```
-Source: [snippets/base.view_res_partner_filter.search_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_res_partner_filter.search_zip.xml)
+Source: [snippets/base.view_res_partner_filter.search_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.search_zip.xml)
 
 ## View Translation Lang Src Value Tree  
 ### Show Comments  
@@ -909,7 +936,7 @@ ID: `mint_system.base.view_translation_lang_src_value_tree.show_comments`
 </data>
 
 ```
-Source: [snippets/base.view_translation_lang_src_value_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_translation_lang_src_value_tree.show_comments.xml)
+Source: [snippets/base.view_translation_lang_src_value_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_translation_lang_src_value_tree.show_comments.xml)
 
 ## View Translation Tree  
 ### Show Comments  
@@ -941,7 +968,7 @@ ID: `mint_system.base.view_translation_tree.show_comments`
 </data>
 
 ```
-Source: [snippets/base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_translation_tree.show_comments.xml)
+Source: [snippets/base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_translation_tree.show_comments.xml)
 
 ## View Users Form  
 ### Email  
@@ -956,7 +983,7 @@ ID: `mint_system.base.view_users_form.email`
 
 </data>
 ```
-Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.email.xml)
+Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_users_form.email.xml)
 
 ### Specific Ations  
 ID: `mint_system.base.view_users_form.specific_ations`  
@@ -969,7 +996,7 @@ ID: `mint_system.base.view_users_form.specific_ations`
   </xpath>
 </data>
 ```
-Source: [snippets/base.view_users_form.specific_ations.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.specific_ations.xml)
+Source: [snippets/base.view_users_form.specific_ations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_users_form.specific_ations.xml)
 
 ### Write Partner Id  
 ID: `mint_system.base.view_users_form.write_partner_id`  
@@ -983,7 +1010,7 @@ ID: `mint_system.base.view_users_form.write_partner_id`
 
 </data>
 ```
-Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_users_form.write_partner_id.xml)
+Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_users_form.write_partner_id.xml)
 
 ## View View Form  
 ### Add Key  
@@ -998,5 +1025,5 @@ ID: `mint_system.base.view_view_form.add_key`
 
 </data>
 ```
-Source: [snippets/base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/14.0/snippets/base.view_view_form.add_key.xml)
+Source: [snippets/base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_view_form.add_key.xml)
 

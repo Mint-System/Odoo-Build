@@ -12,3 +12,5 @@ config/checkout_files
 logo.png
 docker-compose.yml
 .dockerignore
+Dockerfile
+build
