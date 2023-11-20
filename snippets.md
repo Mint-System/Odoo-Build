@@ -70,5 +70,6 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Survey](snippets/survey.md)
 ## [Timesheet Grid](snippets/timesheet_grid.md)
 ## [Web](snippets/web.md)
+## [Website](snippets/website.md)
 ## [Website Discount Voucher](snippets/website_discount_voucher.md)
 ## [Website Sale](snippets/website_sale.md)

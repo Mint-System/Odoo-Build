@@ -87,6 +87,26 @@ ID: `mint_system.website_sale.address.show_firstname_lastname`
 ```
 Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.address.show_firstname_lastname.xml)
 
+## Confirmation  
+### Show Shipping Name  
+ID: `mint_system.website_sale.confirmation.show_shipping_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="website_sale.confirmation" priority="50">
+
+  <span t-esc="order.partner_invoice_id" position="before">
+    <span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
+  </span>
+  
+  <span t-esc="order.partner_shipping_id" position="before">
+    <span t-esc="order.partner_shipping_id.name" class="address-inline"/>,
+  </span>
+
+</data>
+
+```
+Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.confirmation.show_shipping_name.xml)
+
 ## Payment Confirmation Status  
 ### Remove Communication  
 ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`  
@@ -121,6 +141,20 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
 
 ## Product  
+### Show Default Code  
+ID: `mint_system.website_sale.product.show_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="website_sale.product" priority="50">
+
+    <p t-field="product.description_sale" position="after">
+        <p t-if="product_variant.default_code" ><strong>Artikelnummer:</strong> <span t-field="product_variant.default_code"/></p>
+    </p>
+
+</data>
+```
+Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_default_code.xml)
+
 ### Show Product Dimension  
 ID: `mint_system.website_sale.product.show_product_dimension`  
 ```xml

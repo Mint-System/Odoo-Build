@@ -7547,3 +7547,15 @@ ID: `mint_system.stock.vpicktree.x_date_order`
 ```
 Source: [snippets/stock.vpicktree.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.x_date_order.xml)
 
+### X Vst  
+ID: `mint_system.stock.vpicktree.x_vst`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='origin']" position="after">
+    <field name="x_vst"/>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.vpicktree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.x_vst.xml)
+

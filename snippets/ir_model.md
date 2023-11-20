@@ -1152,6 +1152,29 @@ ID: `mint_system.ir_model.mrp_production.x_quality_check_ids`
 Source: [snippets/ir_model.mrp_production.x_quality_check_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.mrp_production.x_quality_check_ids.xml)
 
 ## Mrp Workorder  
+### X Finished Lot Id  
+ID: `mint_system.ir_model.mrp_workorder.x_finished_lot_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_finished_lot_id" model="ir.model.fields">
+    <field name="field_description">Los/Serie</field>
+    <field name="model">mrp.workorder</field>
+    <field name="model_id" ref="mrp.model_mrp_workorder"/>
+    <field name="name">x_finished_lot_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+    <field name="related">finished_lot_id.name</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.mrp_workorder.x_finished_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.mrp_workorder.x_finished_lot_id.xml)
+
 ### X Reservation State  
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`  
 ```xml
