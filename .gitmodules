@@ -238,3 +238,7 @@
 	path = oca/e-commerce
 	url = git@github.com:OCA/e-commerce.git
 	branch = 16.0
+[submodule "oca/helpdesk"]
+	path = oca/helpdesk
+	url = git@github.com:OCA/helpdesk.git
+	branch = 16.0
