@@ -17,14 +17,13 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
-GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 OS_RELEASE=$(awk -F= '/^NAME/{print "$2"}' /etc/os-release)
+GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
-DOCKER_TAG="odoo:$ODOO_REVISION"
 ODOO_LANGUAGE=de_CH
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
-LC_ALL=en_US.UTF-8
-LANG=en_US.UTF-8
+DOCKER_TAG="odoo:$ODOO_REVISION"
+: ${DOCKER_REGISTRY:=""}
 TARGETARCH=amd64
 
 function set-addons-path() {
