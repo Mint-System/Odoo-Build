@@ -17,7 +17,7 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
-OS_RELEASE=$(awk -F= '/^NAME/{print "$2"}' /etc/os-release)
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=de_CH
@@ -51,7 +51,6 @@ function set-addons-path() {
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
-
 }
 
 function update-readme() {
@@ -294,6 +293,7 @@ function init-db() {
 
     activate-venv
     set-addons-path
+
     echo "Make sure only one odoo process is running when initalizing the database."
     odoo-bin -d "$DATABASE" -i base --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }

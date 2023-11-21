@@ -46,6 +46,8 @@ task checkout 14.0
 task checkout 15.0
 # or
 task checkout 16.0
+# or
+task checkout 17.0
 ```
 
 Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
