@@ -841,18 +841,16 @@ function remove-submodule() {
 
     echo "Deinit submodule"
     git submodule deinit -f "$1"
-
+    
     echo "Move submodule to tmp folder"
     mkdir -p tmp/"$1"
     mv "$1" tmp/"$1"
-    
-    echo "Remove submodule from .git folder"
-    rm -rf .git/modules/"$1"
 
     echo "Remove submodule from work tree"
     git rm -f "$1"
 
-    echo "Remove $1 submodule from .gitmodules files manually."
+    echo "Remove submodule from .git folder"
+    rm -rf .git/modules/"$1"
 }
 
 function git-list-submodules() {
