@@ -17,14 +17,13 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-OS_RELEASE=$(awk -F= '/^NAME/{print "$2"}' /etc/os-release)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
-DOCKER_TAG="odoo:$ODOO_REVISION"
 ODOO_LANGUAGE=de_CH
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
-LC_ALL=en_US.UTF-8
-LANG=en_US.UTF-8
+DOCKER_TAG="odoo:$ODOO_REVISION"
+: ${DOCKER_REGISTRY:=""}
 TARGETARCH=amd64
 
 function set-addons-path() {
@@ -52,7 +51,6 @@ function set-addons-path() {
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
     ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
-
 }
 
 function update-readme() {
@@ -295,6 +293,7 @@ function init-db() {
 
     activate-venv
     set-addons-path
+
     echo "Make sure only one odoo process is running when initalizing the database."
     odoo-bin -d "$DATABASE" -i base --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
@@ -840,20 +839,18 @@ function save-config() {
 function remove-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
+    echo "Deinit submodule"
+    git submodule deinit -f "$1"
+    
     echo "Move submodule to tmp folder"
     mkdir -p tmp/"$1"
     mv "$1" tmp/"$1"
 
-    echo "Deinit submodule"
-    git submodule deinit -f "$1"
-
-    echo "Remove submodule from .git folder"
-    rm -rf .git/modules/"$1"
-
     echo "Remove submodule from work tree"
     git rm -f "$1"
 
-    echo "Remove $1 submodule from .gitmodules files manually."
+    echo "Remove submodule from .git folder"
+    rm -rf .git/modules/"$1"
 }
 
 function git-list-submodules() {

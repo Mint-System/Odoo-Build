@@ -154,9 +154,9 @@
 	path = oca/bank-payment
 	url = git@github.com:OCA/bank-payment.git
 	branch = 16.0
-[submodule "addons/odoo_apps_partner"]
-	path = addons/odoo_apps_partner
-	url = git@gitlab.com:mint-system/odoo-apps-partner.git
+[submodule "addons/odoo_apps_thirdparty"]
+	path = addons/odoo_apps_thirdparty
+	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
 	branch = 16.0
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
@@ -237,4 +237,8 @@
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
 	url = git@github.com:OCA/e-commerce.git
+	branch = 16.0
+[submodule "oca/helpdesk"]
+	path = oca/helpdesk
+	url = git@github.com:OCA/helpdesk.git
 	branch = 16.0

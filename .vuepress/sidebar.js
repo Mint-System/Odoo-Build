@@ -68,6 +68,7 @@ export default ['/snippets/account.md',
 '/snippets/survey.md',
 '/snippets/timesheet_grid.md',
 '/snippets/web.md',
+'/snippets/website.md',
 '/snippets/website_discount_voucher.md',
 '/snippets/website_sale.md',
 ]

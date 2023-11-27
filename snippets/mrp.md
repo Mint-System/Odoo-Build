@@ -566,6 +566,32 @@ ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
 ```
 Source: [snippets/mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.mrp_production_form_view.add_date_deadline.xml)
 
+### Add Origin  
+ID: `mint_system.mrp.mrp_production_form_view.add_origin`  
+```xml
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <xpath expr="//group[@name='group_extra_info']//field[@name='date_planned_start']/.." position="after">
+    <field name="origin"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mrp.mrp_production_form_view.add_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.mrp_production_form_view.add_origin.xml)
+
+### Add Procurement Group Id  
+ID: `mint_system.mrp.mrp_production_form_view.add_procurement_group_id`  
+```xml
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+
+  <xpath expr="//group[@name='group_extra_info']//field[@name='date_planned_start']/.." position="after">
+    <field name="procurement_group_id"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/mrp.mrp_production_form_view.add_procurement_group_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.mrp_production_form_view.add_procurement_group_id.xml)
+
 ### Finished Move Line Ids  
 ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`  
 ```xml
@@ -1599,6 +1625,19 @@ ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_
 </data>
 ```
 Source: [snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.add_product_id.xml)
+
+### X Finished Lot Id  
+ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.x_finished_lot_id`  
+```xml
+<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
+
+<xpath expr="//field[@name='name']" position="before">
+   <field name="x_finished_lot_id"/>   
+</xpath>
+
+</data>
+```
+Source: [snippets/mrp.view_mrp_production_workorder_form_view_filter.x_finished_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.view_mrp_production_workorder_form_view_filter.x_finished_lot_id.xml)
 
 ## View Mrp Production Work Order Search  
 ### Add Date Planned Start Set  
