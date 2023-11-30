@@ -10,12 +10,11 @@
                 <div class="col-9 text-end" style="margin-top:22px;" t-field="company.report_header"
                     name="moto" />
             </div>
-            <div class="row zero_min_height">
+            <!-- <div class="row zero_min_height">
                 <div class="col-12">
                     <div style="border-bottom: 1px solid black;" />
                 </div>
-            </div>
-
+            </div> -->
         </div>
     </xpath>
     

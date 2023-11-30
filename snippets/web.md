@@ -409,6 +409,21 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 ```
 Source: [snippets/web.external_layout_standard.remove_contact.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.remove_contact.xml)
 
+### Remove Footer Line  
+ID: `mint_system.web.external_layout_standard.remove_footer_line`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <div style="border-top: 1px solid black;" position="attributes">
+    <attribute name="style"></attribute>
+  </div>
+
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.remove_footer_line.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.remove_footer_line.xml)
+
 ### Remove Header Address  
 ID: `mint_system.web.external_layout_standard.remove_header_address`  
 ```xml
@@ -526,6 +541,33 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
 -->
 ```
 Source: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.replace_footer.xml)
+
+### Replace Header With Image  
+ID: `mint_system.web.external_layout_standard.replace_header_with_image`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+
+    <xpath expr="/t/div" position="replace">
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <div class="row">
+                <div class="col-12">
+                    <img t-if="company.logo" t-att-src="'/web/image/1107'" style="width: 100%;"
+                        alt="Logo" />
+                </div>
+                <div class="col-9 text-end" style="margin-top:22px;" t-field="company.report_header"
+                    name="moto" />
+            </div>
+            <!-- <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;" />
+                </div>
+            </div> -->
+        </div>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/web.external_layout_standard.replace_header_with_image.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.replace_header_with_image.xml)
 
 ### Replace Header  
 ID: `mint_system.web.external_layout_standard.replace_header`  

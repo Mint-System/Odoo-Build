@@ -1243,6 +1243,20 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
 ```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_taxes.xml)
 
+### Remove Vat Id  
+ID: `mint_system.account.report_invoice_document.remove_vat_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <div id="partner_vat_address_same_as_shipping" position="replace"/>
+  <div id="partner_vat_address_not_same_as_shipping" position="replace"/>
+  
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_vat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_vat_id.xml)
+
 ### Replace Address And Information Block  
 ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`  
 ```xml
@@ -4002,6 +4016,20 @@ ID: `mint_system.account.report_invoice_document.remove_taxes`
 ```
 Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_taxes.xml)
 
+### Remove Vat Id  
+ID: `mint_system.account.report_invoice_document.remove_vat_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+  <div id="partner_vat_address_same_as_shipping" position="replace"/>
+  <div id="partner_vat_address_not_same_as_shipping" position="replace"/>
+  
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_vat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_vat_id.xml)
+
 ### Replace Address And Information Block  
 ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`  
 ```xml
@@ -5887,6 +5915,24 @@ ID: `mint_system.account.view_move_form.hide_payment_reference`
 
 ```
 Source: [snippets/account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.hide_payment_reference.xml)
+
+### Hide Post Before Check  
+ID: `mint_system.account.view_move_form.hide_post_before_check`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//button[@name='action_post'][1]" position="attributes">
+        <attribute name="attrs">{'invisible': ['|', '|', ('hide_post_button', '=', True), ('move_type', '!=', 'entry'), ('to_check', '!=', False)]}</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='action_post'][2]" position="attributes">
+        <attribute name="attrs">{'invisible': ['|', '|', '|', ('hide_post_button', '=', True), ('move_type', '=', 'entry'), ('display_inactive_currency_warning','=',True), ('to_check', '!=', False)]}</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.hide_post_before_check.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.hide_post_before_check.xml)
 
 ### Hide Send Button On Refund  
 ID: `mint_system.account.view_move_form.hide_send_button_on_refund`  
