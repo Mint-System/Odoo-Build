@@ -1,0 +1,7 @@
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+		<attribute name="class">table table-sm o_main_table</attribute>
+	</xpath>
+
+</data>

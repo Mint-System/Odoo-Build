@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+<xpath expr="//tbody" position="replace">
+
+  <tbody class="invoice_tbody">
+    <t t-set="current_subtotal" t-value="0"/>
+    <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+    <t t-set="consolidated_products" t-value="{}"/>
+    <t t-foreach="lines" t-as="line">
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+      <t t-set="product_name" t-value="line.product_id.display_name"/>
+      <t t-set="line_quantity" t-value="line.quantity"/>
+      <t t-set="line_price_unit" t-value="line.price_unit"/>
+      <t t-set="line_discount" t-value="line.discount"/>
+      <t t-set="line_subtotal" t-value="line.price_subtotal"/>
+      <t t-set="line_price_total" t-value="line.price_total"/>
+      <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
+      <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'discount': consolidated_product['discount'] + line_discount, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
+    </t>
+
+    <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+      <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
+        <t t-foreach="consolidated_products.items()" t-as="product_data">
+          <tr>
+            <td name="account_invoice_line_name">
+              <span t-esc="product_data[0]" t-options="{'widget': 'text'}"/>
+            </td>
+            <td class="text-end">
+              <span t-esc="product_data[1]['quantity']" t-options="{'widget': 'float', 'precision': 2}"/>
+              <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+            </td>
+            <td t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">              
+              <t t-set="unit_price" t-value="product_data[1]['subtotal'] / product_data[1]['quantity'] "/>
+              <span class="text-nowrap" t-esc="unit_price" t-options="{'widget': 'float', 'precision': 3}"/>
+            </td>
+            <td t-if="display_discount" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span class="text-nowrap" t-esc="product_data[1]['discount']"/>
+            </td>
+            <td t-attf-class="text-start {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+            </td>
+            <td class="text-end o_price_total">
+              <span class="text-nowrap" t-esc="product_data[1]['subtotal']" groups="account.group_show_line_subtotals_tax_excluded" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+              <span class="text-nowrap" t-esc="product_data[1]['price_total']" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+          </tr>
+        </t>
+      </t>
+    </tr>
+  </tbody>
+
+</xpath>
+
+</data>
