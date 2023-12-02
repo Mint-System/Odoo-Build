@@ -146,15 +146,15 @@ Source: [snippets/mail.mail_notification_email.remove_logo.xml](https://github.c
 ### Remove Access Link  
 ID: `mint_system.mail.mail_notification_layout.remove_access_link`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_layout" priority="60">
+ 
+  <xpath expr="//td[@t-if='has_button_access']" position="replace"/>
 
-  <xpath expr="//body[1]/t[1]" position="after">
+  <!-- <xpath expr="//body[1]/t[1]" position="after">
     <t t-set="has_button_access" t-value="False"/>
-  </xpath>
+  </xpath> -->
 
 </data>
-
 ```
 Source: [snippets/mail.mail_notification_layout.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_layout.remove_access_link.xml)
 

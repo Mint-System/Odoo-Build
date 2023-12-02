@@ -24,7 +24,7 @@
 | git-pull-submodules         |                   | Pull alls submodules.                                                                     |
 | git-update-submodules       |                   | Update submodules from .gitmodules file.                                                  |
 | init-db                     | [db]              | Initialize the Odoo database. Default is branch name.                                     |
-| init-next-env               | [env]             | Create env file for Nextcloud instance.                                                   |
+| init-nextcloud-env          | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env               | [env]             | Create env file for Odoo Instance.                                                        |
 | init-venv                   |                   | Initialize python virtual env.                                                            |
 | install-module              | [db][name,path]   | Install target Odoo module.  Default database is branch name.                             |

@@ -2297,6 +2297,20 @@ ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.set_ids.xml)
 
+### Sort By Name  
+ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+    <xpath expr="//table/tbody/t" position="attributes">
+        <attribute name="t-foreach">sorted_order_lines</attribute>
+        <attribute name="t-as">order_lines</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.sort_by_name.xml)
+
 ### Style Moser  
 ID: `mint_system.purchase.report_purchasequotation_document.style_moser`  
 ```xml

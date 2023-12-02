@@ -1,5 +1,20 @@
 # Hr Timesheet
 ## Hr Timesheet Line Search  
+### Filter Project Code  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+
+  <field name="project_id" position="replace">
+    <field name="project_id" filter_domain="['|', ('project_id', 'ilike', self), ('project_id.code', 'ilike', self)]"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_code.xml)
+
 ### Filter Project Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`  
 ```xml

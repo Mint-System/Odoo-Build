@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <div style="border-top: 1px solid black;" position="attributes">
+    <attribute name="style"></attribute>
+  </div>
+
+</data>

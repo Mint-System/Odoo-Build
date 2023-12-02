@@ -775,7 +775,7 @@ function init-odoo-env() {
     echo "ODOO_PASSWORD=" >> "$ENV_FILEPATH"
 }
 
-function init-next-env() {
+function init-nextcloud-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     init-config-dir
@@ -1129,8 +1129,8 @@ case "$1" in
     update-app-list)
         update-app-list "$2"
         ;;
-    init-next-env)
-        init-next-env "$2"
+    init-nextcloud-env)
+        init-nextcloud-env "$2"
         ;;
     upload-module)
         upload-module "$2" "$3"
