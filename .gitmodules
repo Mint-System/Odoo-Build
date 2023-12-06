@@ -202,10 +202,6 @@
 	path = addons/social
 	url = git@github.com:Mint-System/Odoo-Apps-Social.git
 	branch = 16.0
-[submodule "addons/vertical_job_portal"]
-	path = addons/vertical_job_portal
-	url = git@github.com:sozialinfo/odoo-apps-vertical-job-portal.git
-	branch = 16.0
 [submodule "oca/management-system"]
 	path = oca/management-system
 	url = git@github.com:OCA/management-system.git
