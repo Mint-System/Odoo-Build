@@ -1,7 +1,3 @@
-[submodule "enterprise"]
-	path = enterprise
-	url = git@github.com:odoo/enterprise.git
-	branch = 16.0
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
