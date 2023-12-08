@@ -249,6 +249,26 @@ Follow these steps to test a mail exchange:
 
 ## Troubleshooting
 
+### Remove tracked submodule folders
+
+**Problem**
+
+The checkout command fails tue to unregistered submdoules.
+
+**Solution**
+
+Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
+
+### Remove tracked submodule folders
+
+**Problem**
+
+The checkout command fails tue to unregistered submdoules.
+
+**Solution**
+
+Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
+
 ### inotify instance limit reached 
 
 **Problem**
