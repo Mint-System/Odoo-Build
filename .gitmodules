@@ -158,14 +158,6 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 16.0
-[submodule "addons/manufacture"]
-	path = addons/manufacture
-	url = git@github.com:Mint-System/Odoo-Apps-Manufacture.git
-	branch = 16.0
-[submodule "addons/stock_logistics_workflow"]
-	path = addons/stock_logistics_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
-	branch = 16.0
 [submodule "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
