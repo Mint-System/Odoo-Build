@@ -14,10 +14,6 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 16.0
-[submodule "addons/project"]
-	path = addons/project
-	url = git@github.com:Mint-System/Odoo-Apps-Project.git
-	branch = 16.0
 [submodule "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
@@ -150,10 +146,6 @@
 	path = oca/bank-payment
 	url = git@github.com:OCA/bank-payment.git
 	branch = 16.0
-[submodule "addons/odoo_apps_thirdparty"]
-	path = addons/odoo_apps_thirdparty
-	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
-	branch = 16.0
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
@@ -178,26 +170,6 @@
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 16.0
-[submodule "addons/website"]
-	path = addons/website
-	url = git@github.com:Mint-System/Odoo-Apps-Website.git
-	branch = 16.0
-[submodule "addons/product_attribute"]
-	path = addons/product_attribute
-	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
-	branch = 16.0
-[submodule "addons/partner_contact"]
-	path = addons/partner_contact
-	url = git@github.com:mint-system/odoo-apps-partner-contact.git
-	branch = 16.0
-[submodule "addons/vertical_saas"]
-	path = addons/vertical_saas
-	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
-	branch = 16.0
-[submodule "addons/social"]
-	path = addons/social
-	url = git@github.com:Mint-System/Odoo-Apps-Social.git
-	branch = 16.0
 [submodule "oca/management-system"]
 	path = oca/management-system
 	url = git@github.com:OCA/management-system.git
@@ -214,17 +186,9 @@
 	path = oca/account-reconcile
 	url = git@github.com:OCA/account-reconcile.git
 	branch = 16.0
-[submodule "addons/account_financial_reporting"]
-	path = addons/account_financial_reporting
-	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
-	branch = 16.0
 [submodule "addons/purchase_workflow"]
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
-	branch = 16.0
-[submodule "addons/account_invoicing"]
-	path = addons/account_invoicing
-	url = git@github.com:mint-system/odoo-apps-account-invoicing.git
 	branch = 16.0
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
