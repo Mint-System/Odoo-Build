@@ -507,7 +507,7 @@ function git-update-submodules() {
     echo "Update submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        git submodule update --init --depth 5 "$SUBMODULE"
+        git submodule update --depth 5 "$SUBMODULE"
     done
 }
 
