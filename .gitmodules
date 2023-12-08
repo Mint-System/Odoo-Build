@@ -202,3 +202,11 @@
 	path = enterprise
 	url = git@github.com:sozialinfo/enterprise.git
 	branch = 16.0
+[submodule "addons/vertical-job-portal"]
+	path = addons/vertical-job-portal
+	url = git@github.com:sozialinfo/odoo-apps-vertical-job-portal.git
+	branch = 16.0
+[submodule "addons/partner-contact"]
+	path = addons/partner-contact
+	url = git@github.com:sozialinfo/odoo-apps-partner-contact.git
+	branch = 16.0
