@@ -234,3 +234,7 @@
 	path = oca/helpdesk
 	url = git@github.com:OCA/helpdesk.git
 	branch = 16.0
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:sozialinfo/enterprise.git
+	branch = 16.0
