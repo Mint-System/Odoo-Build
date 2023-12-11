@@ -166,7 +166,7 @@ function install-native() {
     pip install --upgrade --pre pylint-odoo
 
     echo "Install odoo dependencies"
-    pip install setuptools wheel watchdog phonenumbers
+    pip install setuptools wheel watchdog phonenumbers astor
     pip install -r odoo/requirements.txt
 
     echo "Install oca dev tools"
