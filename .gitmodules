@@ -18,10 +18,6 @@
 	path = oca/web
 	url = git@github.com:OCA/web.git
 	branch = 16.0
-[submodule "oca/server-backend"]
-	path = oca/server-backend
-	url = git@github.com:OCA/server-backend.git
-	branch = 16.0
 [submodule "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
@@ -33,10 +29,6 @@
 [submodule "oca/purchase-workflow"]
 	path = oca/purchase-workflow
 	url = git@github.com:OCA/purchase-workflow.git
-	branch = 16.0
-[submodule "oca/account-invoicing"]
-	path = oca/account-invoicing
-	url = git@github.com:OCA/account-invoicing.git
 	branch = 16.0
 [submodule "oca/server-env"]
 	path = oca/server-env
@@ -69,4 +61,12 @@
 [submodule "oca/bank-payment"]
 	path = oca/bank-payment
 	url = git@github.com:OCA/bank-payment.git
+	branch = 16.0
+[submodule "oca/server-backend"]
+	path = oca/server-backend
+	url = git@github.com:OCA/server-backend.git
+	branch = 16.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = git@github.com:OCA/account-invoicing.git
 	branch = 16.0
