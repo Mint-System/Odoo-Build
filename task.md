@@ -57,6 +57,7 @@
 | git-switch-branch           | [branch]          | Switch submodules to target branch.                                                       |
 | test-jsonrpc                | [env]             | Test json rpc connection.                                                                 |
 | test-module                 | [db][name,path]   | Test target Odoo module.                                                                  |
+| test-coverage-module        | [db][name,path]   | Generate test coverage report for target Odoo module.                                     |
 | update-app-list             | [db]              | Update app list.                                                                          |
 | update-docs                 |                   | Update project docs.                                                                      |
 | update-module               | [db][name,path]   | Update target Odoo module.                                                                |
