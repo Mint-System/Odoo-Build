@@ -133,7 +133,7 @@ function disable-auto-install() {
 
 function build() {
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker build . --build-arg TARGETARCH="$TARGETARCH" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="odoo:$GIT_BRANCH" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function install-odoo-scripts() {
@@ -170,7 +170,7 @@ function install-native() {
     pip install -r odoo/requirements.txt
 
     echo "Install oca dev tools"
-    pip install pre-commit pyyaml rst2html5 odoorpc
+    pip install pre-commit pyyaml rst2html5 odoorpc coverage
 
     echo "Install graphql dependencies"
     pip install graphene graphql-server-core
@@ -407,6 +407,22 @@ function test-module() {
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
+}
+
+function test-coverage-module() {
+    DATABASE="$1"
+    MODULE_NAME=$(basename "$2")
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        MODULE_NAME=$(basename "$1")
+    fi
+
+    activate-venv
+    set-addons-path
+    echo "Testing module $MODULE_NAME on $DATABASE ..."
+    coverage run odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {
@@ -1026,6 +1042,9 @@ case "$1" in
         ;;
     test-module)
         test-module "$2" "$3"
+        ;;
+    test-coverage-module)
+        test-coverage-module "$2" "$3"
         ;;
     create-module)
         create-module "$2"

@@ -1,16 +1,16 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-  <template id="widget" inherit_id="web.assets_backend">
-    <xpath expr="//script[last()]" position="after">
-      <script type="text/javascript" src="/{{ name }}/static/js/widget.js" />
-    </xpath>
-  </template>
+    <template id="widget" inherit_id="web.assets_backend">
+        <xpath expr="//script[last()]" position="after">
+            <script type="text/javascript" src="/{{ name }}/static/js/widget.js" />
+        </xpath>
+    </template>
 
-  <template id="assets_backend" name="Assets Backend" inherit_id="web.assets_backend">
-    <xpath expr="." position="inside">
-      <link rel="stylesheet" href="/{ name }}/static/src/css/style.css"/>
-    </xpath>
-  </template>
+    <template id="assets_backend" name="Assets Backend" inherit_id="web.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" href="/{ name }}/static/src/css/style.css" />
+        </xpath>
+    </template>
 
 </odoo>
