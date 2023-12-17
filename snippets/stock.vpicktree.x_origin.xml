@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='x_origin']" position="replace">
+    <field name="x_origin"/>
+  </xpath>
+</data>
