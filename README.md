@@ -104,7 +104,7 @@ task create-module addons/project_report
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
 ```
-ODOO_ADDONS_PATH=,thirdparty/modules/,../other/modules
+ODOO_ADDONS_PATH=thirdparty/modules/,../other/modules
 ```
 
 The paths will be appended to the Odoo config.

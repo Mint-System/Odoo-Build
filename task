@@ -50,7 +50,7 @@ function set-addons-path() {
     # Convert to native paths
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
-    ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
+    ADDONS_PATH="${ADDONS_PATH},${ODOO_ADDONS_PATH}"
 }
 
 function update-readme() {
