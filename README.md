@@ -121,10 +121,12 @@ Run docker compose.
 task start
 ```
 
-Initialize database.
+Initialize database. The parameter `-d` specifies the name of the parameter and is mandatory.
+
+Use `docker-odoo-install help` to show all options.
 
 ```bash
-docker-odoo-install
+docker-odoo-install -d mydatabase
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
