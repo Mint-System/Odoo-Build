@@ -50,7 +50,7 @@ function set-addons-path() {
     # Convert to native paths
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
-    ADDONS_PATH="${ADDONS_PATH}${ODOO_ADDONS_PATH}"
+    ADDONS_PATH="${ADDONS_PATH},${ODOO_ADDONS_PATH}"
 }
 
 function update-readme() {
@@ -169,23 +169,17 @@ function install-native() {
     pip install setuptools wheel watchdog phonenumbers astor
     pip install -r odoo/requirements.txt
 
-    echo "Install oca dev tools"
-    pip install pre-commit pyyaml rst2html5 odoorpc
+    echo "Install OCA development tools"
+    pip install pre-commit pyyaml rst2html5 odoorpc coverage
 
-    echo "Install graphql dependencies"
-    pip install graphene graphql-server-core
-
-    echo "Install rest dependencies"
-    pip install cerberus pyquerystring parse-accept-language apispec\>=4.0.0 marshmallow marshmallow-objects\>=2.0.0 jsondiff
-
-    echo "Install openupgrade functions"
+    echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 
-    echo "Install addon dependencies"
-    pip install prometheus_client pika
-    
-    echo "Install edi dependencies"
-    pip install pyzbar numpy pdf2image opencv-python
+    echo "Install module dependencies: prometheus_exporter"
+    pip install prometheus_client
+
+    echo "Install module dependencies: base_view_inheritance_extension"
+    pip install astor
 }
 
 function open-url-with-delay(){
@@ -1025,6 +1019,9 @@ case "$1" in
         ;;
     test-module)
         test-module "$2" "$3"
+        ;;
+    test-coverage-module)
+        test-coverage-module "$2" "$3"
         ;;
     create-module)
         create-module "$2"

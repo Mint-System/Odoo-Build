@@ -1,0 +1,17 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <!-- <p name="order_note" position="before">
+        <p>
+            <strong>Remark:</strong>
+            <span t-field="doc.comment" name="order_note" />
+        </p>
+    </p> -->
+
+    <div id="informations" position="inside">
+        <div t-if="doc.comment" class="col-auto col-3 mw-100 mb-2">
+            <strong>Remark:</strong>
+            <p class="m-0" t-field="doc.comment"/>
+        </div>
+    </div>
+
+</data>
