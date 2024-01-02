@@ -50,7 +50,7 @@ task checkout 16.0
 task checkout 17.0
 ```
 
-Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
+Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/)
 
 ```bash
 task install-odoo-scripts
