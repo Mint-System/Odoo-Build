@@ -103,8 +103,8 @@ task create-module addons/project_report
 
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
-```
-ODOO_ADDONS_PATH=thirdparty/modules/,../other/modules
+```bash
+ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
 ```
 
 The paths will be appended to the Odoo config.
@@ -173,7 +173,7 @@ task drop-db
 
 To build the Docker image setup these `.env` vars:
 
-```
+```bash
 ODOO_REVISION=16.5
 DOCKER_REGISTRY=mint-system/
 ```
@@ -196,7 +196,7 @@ task publish
 
 Start mail server.
 
-```
+```bash
 task start mail
 ```
 
