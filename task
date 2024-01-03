@@ -23,7 +23,7 @@ ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=de_CH
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 DOCKER_TAG="odoo:$ODOO_REVISION"
-: ${DOCKER_REGISTRY:=""}
+${DOCKER_REGISTRY:=""}
 TARGETARCH=amd64
 
 function set-addons-path() {
@@ -50,7 +50,9 @@ function set-addons-path() {
     # Convert to native paths
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
-    ADDONS_PATH="${ADDONS_PATH},${ODOO_ADDONS_PATH}"
+    if [ -n "$ODOO_ADDONS_PATH" ]; then
+        ADDONS_PATH="${ADDONS_PATH},${ODOO_ADDONS_PATH}"
+    fi
 }
 
 function update-readme() {
