@@ -50,7 +50,7 @@ task checkout 16.0
 task checkout 17.0
 ```
 
-Install [Odoo scripts](https://ansible.build/roles/odoo-scripts/)
+Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/)
 
 ```bash
 task install-odoo-scripts
@@ -103,8 +103,8 @@ task create-module addons/project_report
 
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
-```
-ODOO_ADDONS_PATH=,thirdparty/modules/,../other/modules
+```bash
+ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
 ```
 
 The paths will be appended to the Odoo config.
@@ -121,10 +121,12 @@ Run docker compose.
 task start
 ```
 
-Initialize database.
+Initialize database. The parameter `-d` specifies the name of the parameter and is mandatory.
+
+Use `docker-odoo-install help` to show all options.
 
 ```bash
-docker-odoo-install
+docker-odoo-install -d mydatabase
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -171,7 +173,7 @@ task drop-db
 
 To build the Docker image setup these `.env` vars:
 
-```
+```bash
 ODOO_REVISION=16.5
 DOCKER_REGISTRY=mint-system/
 ```
@@ -194,7 +196,7 @@ task publish
 
 Start mail server.
 
-```
+```bash
 task start mail
 ```
 
@@ -248,6 +250,26 @@ Follow these steps to test a mail exchange:
 * Check if reply has been processed
 
 ## Troubleshooting
+
+### Remove tracked submodule folders
+
+**Problem**
+
+The checkout command fails tue to unregistered submdoules.
+
+**Solution**
+
+Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
+
+### Remove tracked submodule folders
+
+**Problem**
+
+The checkout command fails tue to unregistered submdoules.
+
+**Solution**
+
+Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
 
 ### inotify instance limit reached 
 

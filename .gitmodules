@@ -238,3 +238,7 @@
 	path = oca/helpdesk
 	url = git@github.com:OCA/helpdesk.git
 	branch = 16.0
+[submodule "addons/management"]
+	path = addons/management
+	url = git@github.com:Mint-System/Odoo-Apps-Management.git
+	branch = 16.0
