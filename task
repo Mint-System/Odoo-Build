@@ -244,6 +244,18 @@ function down() {
         docker-compose down -v
     fi
 
+    if [[ "$1" =~ "db" ]]; then
+        docker-compose rm -f -s -v db
+    fi
+
+    if [[ "$1" =~ "admin" ]]; then
+        docker-compose rm -f -s -v admin
+    fi
+    
+    if [[ "$1" =~ "odoo" ]]; then
+        docker-compose rm -f -s -v odoo
+    fi
+
     if [[ "$1" =~ "mail" ]]; then
         docker-compose rm -f -s -v mail
     fi

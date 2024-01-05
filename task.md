@@ -31,7 +31,7 @@
 | install-native              |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts        |                   | Install Odoo scripts.                                                                     |
 | install-snippet             | [env][path]       | Install snippet xml definition.                                                           |
-| kill                        | [name]            | Remove docker containers and volumes.                                                     |
+| kill                        | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
 | lint-module                 | [path]            | Run pylint odoo for module.                                                               |
 | lint-snippets               |                   | Run checks for all snippets.                                                              |
 | list                        |                   | List docker services.                                                                     |
