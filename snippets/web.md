@@ -438,6 +438,20 @@ ID: `mint_system.web.external_layout_standard.remove_header_address`
 ```
 Source: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.remove_header_address.xml)
 
+### Remove Header Space  
+ID: `mint_system.web.external_layout_standard.remove_header_space`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+
+  <xpath expr="//div[hasclass('pt-5')]" position="attributes">
+    <attribute name="class"></attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/web.external_layout_standard.remove_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.remove_header_space.xml)
+
 ### Replace Footer  
 ID: `mint_system.web.external_layout_standard.replace_footer`  
 ```xml

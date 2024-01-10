@@ -126,6 +126,21 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
 
+### Show Helpdesk Ticket Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+
+  <xpath expr="//field[@name='task_id']" position="after">
+    <field name="helpdesk_ticket_id" optional="hide" />
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml)
+
 ### Show Partner Id  
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`  
 ```xml

@@ -210,6 +210,19 @@ ID: `mint_system.website_sale.product.show_product_material`
 Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_material.xml)
 
 ## Products Item  
+### Hide Price  
+ID: `mint_system.website_sale.products_item.hide_price`  
+```xml
+<data inherit_id="website_sale.products_item" priority="50">
+
+  <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="attributes">
+    <attribute name="t-if">request.session.uid</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.hide_price.xml)
+
 ### Prefix Price  
 ID: `mint_system.website_sale.products_item.prefix_price`  
 ```xml

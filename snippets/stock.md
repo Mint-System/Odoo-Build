@@ -1406,7 +1406,10 @@ ID: `mint_system.stock.report_delivery_document.add_note`
     <div style="margin-top: 50px">
 
       <div>
-        <t t-if="o.partner_id.parent_id.country_id.code == 'CH'">
+        <t t-if="not is_html_empty(o.note)" name="note">
+          <span t-field="o.note"/>
+        </t>
+        <t t-elif="o.partner_id.parent_id.country_id.code == 'CH'">
           <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
           <br/>
           <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
@@ -1442,6 +1445,8 @@ ID: `mint_system.stock.report_delivery_document.add_note`
       </div>
 
     </div>
+    
+    <span t-escape="o.partner_id.parent_id"/>
   </xpath>
 
 </data>
@@ -7030,6 +7035,20 @@ ID: `mint_system.stock.view_move_tree.x_picking_partner`
 Source: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_move_tree.x_picking_partner.xml)
 
 ## View Picking Form  
+### Modify Invisible Button Validate  
+ID: `mint_system.stock.view_picking_form.modify_invisible_button_validate`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <xpath expr="//button[@name='button_validate']" position="attributes">
+    <attribute name="attrs">{'invisible': ['|', '|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False), ('started', '=', False)]}</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_picking_form.modify_invisible_button_validate.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.modify_invisible_button_validate.xml)
+
 ### Modify Readonly Date Done  
 ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`  
 ```xml
@@ -7071,6 +7090,20 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`
 </data>
 ```
 Source: [snippets/stock.view_picking_form.modify_readonly_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.modify_readonly_user_id.xml)
+
+### Move Detailed Operations Page  
+ID: `mint_system.stock.view_picking_form.move_detailed_operations_page`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <xpath expr="//page[@name='detailed_operations']" position="before">
+    <xpath expr="//page[@name='operations']" position="move"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.view_picking_form.move_detailed_operations_page.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.move_detailed_operations_page.xml)
 
 ### Scheduled Date Readonly  
 ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`  
@@ -7508,6 +7541,18 @@ ID: `mint_system.stock.vpicktree.show_delivery_note`
 ```
 Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.show_delivery_note.xml)
 
+### Started  
+ID: `mint_system.stock.vpicktree.started`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='origin']" position="after">
+    <field name="started"/>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.vpicktree.started.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.started.xml)
+
 ### Weight Sum  
 ID: `mint_system.stock.vpicktree.weight_sum`  
 ```xml
@@ -7546,6 +7591,18 @@ ID: `mint_system.stock.vpicktree.x_date_order`
 </data>
 ```
 Source: [snippets/stock.vpicktree.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.x_date_order.xml)
+
+### X Origin  
+ID: `mint_system.stock.vpicktree.x_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.vpicktree" priority="50">
+  <xpath expr="//field[@name='x_origin']" position="replace">
+    <field name="x_origin"/>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.vpicktree.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.vpicktree.x_origin.xml)
 
 ### X Vst  
 ID: `mint_system.stock.vpicktree.x_vst`  
