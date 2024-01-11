@@ -107,6 +107,21 @@ ID: `mint_system.website_sale.confirmation.show_shipping_name`
 ```
 Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.confirmation.show_shipping_name.xml)
 
+## Header Cart Link  
+### Hide Cart  
+ID: `mint_system.website_sale.header_cart_link.hide_cart`  
+```xml
+<data inherit_id="website_sale.header_cart_link" priority="50">
+
+  <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
+    <attribute name="t-if">request.session.uid</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.header_cart_link.hide_cart.xml)
+
 ## Payment Confirmation Status  
 ### Remove Communication  
 ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`  
@@ -120,27 +135,41 @@ ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`
 ```
 Source: [snippets/website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.payment_confirmation_status.remove_communication.xml)
 
-## Products Categories  
-### Bigger Categories Button  
-ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
+## Product  
+### Hide Cart  
+ID: `mint_system.website_sale.product.hide_cart`  
 ```xml
-<?xml version="1.0"?>
-<!-- Add class to categories button -->
-<data inherit_id="website_sale.products_categories" priority="50">
+<data inherit_id="website_sale.product" priority="50">
 
-    <xpath expr="//button" position="replace">
-      <button type="button" class="btn btn-secondary d-lg-none mb-2"
-          data-target="#wsale_products_categories_collapse" data-toggle="collapse">
-          Show categories
-      </button>
-    </xpath>
+  <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
+    <attribute name="t-if">request.session.uid</attribute>
+  </xpath>
+
+  <xpath expr="//div[@id='add_to_cart_wrap']" position="before">
+    <style t-if="not request.session.uid">
+        .css_quantity{display: none !important;}
+    </style>
+  </xpath>
 
 </data>
 
 ```
-Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
+Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_cart.xml)
 
-## Product  
+### Hide Price  
+ID: `mint_system.website_sale.product.hide_price`  
+```xml
+<data inherit_id="website_sale.product" priority="50">
+
+  <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
+    <attribute name="t-if">request.session.uid</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_price.xml)
+
 ### Show Default Code  
 ID: `mint_system.website_sale.product.show_default_code`  
 ```xml
@@ -209,19 +238,27 @@ ID: `mint_system.website_sale.product.show_product_material`
 ```
 Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_material.xml)
 
-### Hide Price  
-ID: `mint_system.website_sale.product.hide_price`  
+## Products Categories  
+### Bigger Categories Button  
+ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<?xml version="1.0"?>
+<!-- Add class to categories button -->
+<data inherit_id="website_sale.products_categories" priority="50">
 
-  <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
-    <attribute name="t-if">request.session.uid</attribute>
-  </xpath>
+    <xpath expr="//button" position="replace">
+      <button type="button" class="btn btn-secondary d-lg-none mb-2"
+          data-target="#wsale_products_categories_collapse" data-toggle="collapse">
+          Show categories
+      </button>
+    </xpath>
 
 </data>
-```
-Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_price.xml)
 
+```
+Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
+
+## Product  
 ### Hide Cart  
 ID: `mint_system.website_sale.product.hide_cart`  
 ```xml
@@ -238,24 +275,93 @@ ID: `mint_system.website_sale.product.hide_cart`
   </xpath>
 
 </data>
+
 ```
 Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_cart.xml)
 
-
-## Products Item  
-### Prefix Price  
-ID: `mint_system.website_sale.products_item.prefix_price`  
+### Hide Price  
+ID: `mint_system.website_sale.product.hide_price`  
 ```xml
-<data inherit_id="website_sale.products_item" priority="50">
+<data inherit_id="website_sale.product" priority="50">
 
-  <t t-if="'base_price' in template_price_vals" position="before">
-    <span>From</span>
-  </t>
+  <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
+    <attribute name="t-if">request.session.uid</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_price.xml)
+
+### Show Default Code  
+ID: `mint_system.website_sale.product.show_default_code`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="website_sale.product" priority="50">
+
+    <p t-field="product.description_sale" position="after">
+        <p t-if="product_variant.default_code" ><strong>Artikelnummer:</strong> <span t-field="product_variant.default_code"/></p>
+    </p>
 
 </data>
 ```
-Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.prefix_price.xml)
+Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_default_code.xml)
 
+### Show Product Dimension  
+ID: `mint_system.website_sale.product.show_product_dimension`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="website_sale.product" priority="50">
+
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids">
+            <strong>Dimensions</strong>: <br />
+            <ul class="un-styled">
+                <t t-foreach="product_variant.dimension_ids" t-as="dimension">
+                    <li>
+                        <span t-field="dimension.name" />
+                        <t t-if="dimension.value">
+                            <span t-field="dimension.value" />
+                        </t>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_dimension.xml)
+
+### Show Product Material  
+ID: `mint_system.website_sale.product.show_product_material`  
+```xml
+<?xml version="1.0"?>
+
+<data inherit_id="website_sale.product" priority="50">
+
+    <xpath expr="//div[@id='product_details']" position="inside">
+        <div t-if="product_variant.material_ids" name="material_ids">
+            <strong>Materials</strong>: <br />
+            <ul class="un-styled">
+                <t t-foreach="product_variant.material_ids" t-as="material">
+                    <li>
+                        <span t-field="material.name" />
+                        <t t-if="material.percent">
+                            <span t-field="material.percent" />
+                        </t>
+                    </li>
+                </t>
+            </ul>
+        </div>
+    </xpath>
+
+</data>
+```
+Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_material.xml)
+
+## Products Item  
 ### Hide Price  
 ID: `mint_system.website_sale.products_item.hide_price`  
 ```xml
@@ -269,17 +375,16 @@ ID: `mint_system.website_sale.products_item.hide_price`
 ```
 Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.hide_price.xml)
 
-## Header Cart Link  
-### Hide Cart  
-ID: `mint_system.website_sale.header_cart_link`  
+### Prefix Price  
+ID: `mint_system.website_sale.products_item.prefix_price`  
 ```xml
-<data inherit_id="website_sale.header_cart_link" priority="50">
+<data inherit_id="website_sale.products_item" priority="50">
 
-  <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
-    <attribute name="t-if">request.session.uid</attribute>
-  </xpath>
+  <t t-if="'base_price' in template_price_vals" position="before">
+    <span>From</span>
+  </t>
 
 </data>
 ```
-Source: [snippets/website_sale.header_cart_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.header_cart_link.xml)
+Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.prefix_price.xml)
 

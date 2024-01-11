@@ -7,6 +7,8 @@
             <t t-foreach="payments_vals" t-as="payment_vals">
                 <t t-set="move_id" t-value="o.browse(payment_vals['move_id'])" />
                 <t t-if="move_id.move_type == 'out_refund'">
+                    <!-- <span>Diese Rechnung wurde mit Ihrer Gutschrift -->
+                    <!-- beglichen. Der neue Saldo auf Ihrer Gutschrift beträgt </span> -->
                     <p><span>This invoice has been paid with a customer credit </span>(<span
                             t-field="move_id.name" />). <span>The residual amount of this credit is </span><span
                             t-field="move_id.amount_residual" />.</p>
