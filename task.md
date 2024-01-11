@@ -19,10 +19,11 @@
 | generate-module-translation | [env][path][lang] | Generate translation for Odoo module.                                                     |
 | git-feature-branch          | [path]            | Create feature branch for Odoo module.                                                    |
 | get-module-version          | [path]            | Get module version from manifest.                                                         |
-| git-list-submodules         |                   | List path and url of submodules.                                                          |
+| git-submodule-list          |                   | List path and url of submodules.                                                          |
 | git-mig-branch              | [path]            | Create migration branch for Odoo module.                                                  |
-| git-pull-submodules         |                   | Pull alls submodules.                                                                     |
-| git-update-submodules       |                   | Update submodules from .gitmodules file.                                                  |
+| git-submodule-pull          |                   | Pull alls submodules.                                                                     |
+| git-submodule-update        |                   | Update submodules from .gitmodules file.                                                  |
+| git-submodule-switch        | [branch]          | Switch branch for all submodules.                                                         |
 | init-db                     | [db]              | Initialize the Odoo database. Default is branch name.                                     |
 | init-nextcloud-env          | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env               | [env]             | Create env file for Odoo Instance.                                                        |

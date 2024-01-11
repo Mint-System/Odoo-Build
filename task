@@ -516,23 +516,24 @@ function convert-database() {
     echo "Converted database file $1 to ${1}2"
 }
 
-function git-update-submodules() {
-    echo "Update submodules."
+function git-submodule-update() {
+    echo "Update git submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
         # The init flag is required for the inital checkout
         # The --depth flag cannot be used when working on multiple branches
+        echo "Update git submodule: $SUBMODULE"
         git submodule update --init "$SUBMODULE"
     done
 }
 
-function git-switch-branch() {
+function git-submodule-switch() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    echo "Switch branch on submodules."
+    echo "Switch branch on git submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        echo "Switch branch to $1 in $SUBMODULE."
+        echo "Switch git submodule branch to $1: $SUBMODULE"
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
         git stash
@@ -563,9 +564,9 @@ function checkout() {
     echo "Switch branch."
     git switch "$1"
 
-    git-update-submodules
+    git-submodule-update
 
-    git-switch-branch "$1"
+    git-submodule-switch "$1"
 
     checkout-config-files "$GIT_BRANCH"
 }
@@ -583,10 +584,11 @@ function checkout-revision() {
     git checkout "$1"
 }
 
-function git-pull-submodules() {
-    # Pull submodule if update config is not set
+function git-submodule-pull() {
+    echo "Pull git submodules"
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
+        echo "Pull git submodule: $SUBMODULE"
         UPDATE=$(git config submodule."$SUBMODULE".update)
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
@@ -878,8 +880,7 @@ function remove-submodule() {
     rm -rf .git/modules/"$1"
 }
 
-function git-list-submodules() {
-
+function git-submodule-list() {
     git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
@@ -1088,8 +1089,8 @@ case "$1" in
     remove-submodule)
         remove-submodule "$2"
         ;;
-    git-update-submodules)
-        git-update-submodules
+    git-submodule-update)
+        git-submodule-update
         ;;
     release-module)
         release-module "$2"
@@ -1127,11 +1128,11 @@ case "$1" in
     set-admin)
         set-admin "$2"
         ;;
-    git-switch-branch)
-        git-switch-branch "$2"
+    git-submodule-switch)
+        git-submodule-switch "$2"
         ;;
-    git-list-submodules)
-        git-list-submodules
+    git-submodule-list)
+        git-submodule-list
         ;;
     get-module-version)
         get-module-version "$2"
@@ -1169,8 +1170,8 @@ case "$1" in
     patch-database)
         patch-database "$2" "$3"
         ;;
-    git-pull-submodules)
-        git-pull-submodules
+    git-submodule-pull)
+        git-submodule-pull
         ;;
     update-docs)
         update-docs
