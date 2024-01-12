@@ -863,7 +863,14 @@ function save-config() {
     odoo-bin -s -d "$1" --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
-function remove-submodule() {
+function git-submodule-add() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
+}
+
+function git-submodule-remove() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Deinit submodule"
@@ -1086,8 +1093,11 @@ case "$1" in
     remove-module)
         remove-module "$2" "$3"
         ;;
-    remove-submodule)
-        remove-submodule "$2"
+    git-submodule-remove)
+        git-submodule-remove "$2"
+        ;;
+    git-submodule-add)
+        git-submodule-add "$2" "$3"
         ;;
     git-submodule-update)
         git-submodule-update
@@ -1110,7 +1120,7 @@ case "$1" in
     init-odoo-env)
         init-odoo-env "$2"
         ;;
-    list-odoo-env)
+    list-env)
         ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
         ;;
     list-addons)
