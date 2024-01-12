@@ -888,7 +888,8 @@ function git-submodule-remove() {
 }
 
 function git-submodule-list() {
-    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
