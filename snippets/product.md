@@ -268,6 +268,32 @@ ID: `mint_system.product.product_template_form_view.add_type_description`
 ```
 Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.add_type_description.xml)
 
+### Last Incoming Date  
+ID: `mint_system.product.product_template_form_view.last_incoming_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+    <field name="last_incoming_date"/>
+  </xpath>
+</data>
+```
+Source: [snippets/product.product_template_form_view.last_incoming_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_incoming_date.xml)
+
+### Last Outgoing Date  
+ID: `mint_system.product.product_template_form_view.last_outgoing_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+    <field name="last_outgoing_date"/>
+  </xpath>
+</data>
+```
+Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_outgoing_date.xml)
+
 ### Remove List Price  
 ID: `mint_system.product.product_template_form_view.remove_list_price`  
 ```xml

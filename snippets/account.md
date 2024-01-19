@@ -64,6 +64,21 @@ ID: `mint_system.account.report_invoice_document.add_comment_space`
 ```
 Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_comment_space.xml)
 
+### Add Company Vat  
+ID: `mint_system.account.report_invoice_document.add_company_vat`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="after">
+        <!-- <strong>MWST-Nr.:</strong> -->
+        <p><strong>Tax ID:</strong> <span t-field="o.company_id.vat" /></p>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_company_vat.xml)
+
 ### Add Current Subtotal Space  
 ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`  
 ```xml
@@ -606,6 +621,27 @@ ID: `mint_system.account.report_invoice_document.format_line_total`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_line_total.xml)
+
+### Format Payment Term  
+ID: `mint_system.account.report_invoice_document.format_payment_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="replace">
+
+        <div name="payment_term">
+            <p>
+                <strong>Payment term:</strong>
+                <span t-field="o.invoice_payment_term_id.name" />
+            </p>
+        </div>
+
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_payment_term.xml)
 
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
@@ -1330,6 +1366,18 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_payment_term.xml)
+
+### Remove Reference  
+ID: `mint_system.account.report_invoice_document.remove_reference`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="reference" position="replace" />
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_reference.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.account.report_invoice_document.remove_summary_table`  
@@ -2991,6 +3039,21 @@ ID: `mint_system.account.report_invoice_document.add_comment_space`
 ```
 Source: [snippets/account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_comment_space.xml)
 
+### Add Company Vat  
+ID: `mint_system.account.report_invoice_document.add_company_vat`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="after">
+        <!-- <strong>MWST-Nr.:</strong> -->
+        <p><strong>Tax ID:</strong> <span t-field="o.company_id.vat" /></p>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_company_vat.xml)
+
 ### Add Current Subtotal Space  
 ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`  
 ```xml
@@ -3533,6 +3596,27 @@ ID: `mint_system.account.report_invoice_document.format_line_total`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_line_total.xml)
+
+### Format Payment Term  
+ID: `mint_system.account.report_invoice_document.format_payment_term`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="replace">
+
+        <div name="payment_term">
+            <p>
+                <strong>Payment term:</strong>
+                <span t-field="o.invoice_payment_term_id.name" />
+            </p>
+        </div>
+
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_payment_term.xml)
 
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
@@ -4257,6 +4341,18 @@ ID: `mint_system.account.report_invoice_document.remove_payment_term`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_payment_term.xml)
+
+### Remove Reference  
+ID: `mint_system.account.report_invoice_document.remove_reference`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="reference" position="replace" />
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_reference.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.account.report_invoice_document.remove_summary_table`  
@@ -6152,6 +6248,20 @@ ID: `mint_system.account.view_invoice_tree.x_account_codes`
 </data>
 ```
 Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_invoice_tree.x_account_codes.xml)
+
+### X Bexio Name  
+ID: `mint_system.account.view_invoice_tree.x_bexio_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_invoice_tree" priority="50">
+
+    <xpath expr="//group[@id='header_left_group']/label[1]" position="before">
+        <field name="x_bexio_name" readonly="1"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_invoice_tree.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_invoice_tree.x_bexio_name.xml)
 
 ### X Recurring Inverval  
 ID: `mint_system.account.view_invoice_tree.x_recurring_inverval`  
