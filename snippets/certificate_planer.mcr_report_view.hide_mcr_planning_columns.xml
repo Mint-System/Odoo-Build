@@ -1,11 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="certificate_planer.mcr_report_view" priority="50">
-
-  <xpath expr="//table[@name='mcr_planning']//th[2]" position="replace" />
-  <xpath expr="//table[@name='mcr_planning']//th[3]" position="replace" />
-
-
-  <xpath expr="//table[@name='mcr_planning']//td[2]" position="replace" />
-  <xpath expr="//table[@name='mcr_planning']//td[3]" position="replace" />
-
+    <xpath expr="//table[@name='mcr_planning']//th[2]" position="replace"/>
+    <xpath expr="//table[@name='mcr_planning']//th[3]" position="replace"/>
+    <xpath expr="//table[@name='mcr_planning']//td[2]" position="replace"/>
+    <xpath expr="//table[@name='mcr_planning']//td[3]" position="replace"/>
 </data>

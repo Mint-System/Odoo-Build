@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="60">
-
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
             .o_company_1_layout {
@@ -55,9 +54,7 @@
     
         </style>
     </xpath>
-    
     <xpath expr="//table[@id='main_table']" position="attributes">
         <attribute name="class" separator=" " add="trimada table-borderless"/>
     </xpath>
-
 </data>

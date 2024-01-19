@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="//tbody[1]/t[3]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
+    <xpath expr="//tbody[1]/t[3]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
-  </xpath>
-
+    </xpath>
 </data>

@@ -1,7 +1,6 @@
+<?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
-
-<xpath expr="//field[@name='name']" position="before">
-   <field name="x_finished_lot_id"/>   
-</xpath>
-
+    <xpath expr="//field[@name='name']" position="before">
+        <field name="x_finished_lot_id"/>
+    </xpath>
 </data>

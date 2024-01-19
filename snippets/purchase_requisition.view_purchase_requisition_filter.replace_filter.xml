@@ -1,37 +1,31 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_filter" priority="50">
-
-  <xpath expr="/search" position="replace">
-    <search>
-
-      <!-- Filter -->
-      <filter name="my_orders" string="Meine Aufträge" domain="[('user_id', '=', uid)]"/>
-      <filter string="Meine Aufträge in Arbeit" name="in_progress" domain="['&amp;',('user_id', '=', uid),('state', 'in', ('draft','sent', 'open', 'expired'))]"/>
-      <separator/>
-      <filter string="Entwurf" name="filter_state_draft" domain="[('state', '=', 'draft')]"/>
-      <filter string="Gesendet" name="filter_state_sent" domain="[('state', '=', 'sent')]"/>
-      <filter string="Offen" name="filter_state_open" domain="[('state', '=', 'open')]"/>
-      <filter string="Erledigt" name="filter_state_erledigt" domain="[('state', '=', 'done')]"/>
-      <filter string="Abgelaufen" name="filter_state_expired" domain="[('state', '=', 'expired')]"/>
-      <filter string="Abgebrochen" name="filter_state_cancel" domain="[('state', '=', 'cancel')]"/>
-      <separator/>
-      <filter string="Auftragsdatum" name="filter_ordering_date" date="ordering_date"/>
-
-      <!-- Gruppierung -->
-      <filter string="Einkaufsbeauftragter" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
-      <filter string="Lieferant" name="vendor_id" domain="[]" context="{'group_by': 'vendor_id'}"/>
-      <filter string="Datum" name="ordering_date" domain="[]" context="{'group_by': 'ordering_date'}"/>
-      <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
-
-      <!-- Suche -->
-      <group>
-        <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('partner_ref', 'ilike', self), ('vendor_id', 'child_of', self)]"/>
-        <field name="vendor_id"/>
-        <field name="user_id"/>
-        <field name="product_id" filter_domain="['|','|',('line_ids.product_id', 'ilike', self),('line_ids.product_id.type_description', 'ilike', self),('line_ids.product_id.type_description2', 'ilike', self)]"/>
-      </group>
-
-    </search>
-  </xpath>
-
+    <xpath expr="/search" position="replace">
+        <search>
+            <!-- Filter -->
+            <filter name="my_orders" string="Meine Auftr&#xE4;ge" domain="[('user_id', '=', uid)]"/>
+            <filter string="Meine Auftr&#xE4;ge in Arbeit" name="in_progress" domain="['&amp;',('user_id', '=', uid),('state', 'in', ('draft','sent', 'open', 'expired'))]"/>
+            <separator/>
+            <filter string="Entwurf" name="filter_state_draft" domain="[('state', '=', 'draft')]"/>
+            <filter string="Gesendet" name="filter_state_sent" domain="[('state', '=', 'sent')]"/>
+            <filter string="Offen" name="filter_state_open" domain="[('state', '=', 'open')]"/>
+            <filter string="Erledigt" name="filter_state_erledigt" domain="[('state', '=', 'done')]"/>
+            <filter string="Abgelaufen" name="filter_state_expired" domain="[('state', '=', 'expired')]"/>
+            <filter string="Abgebrochen" name="filter_state_cancel" domain="[('state', '=', 'cancel')]"/>
+            <separator/>
+            <filter string="Auftragsdatum" name="filter_ordering_date" date="ordering_date"/>
+            <!-- Gruppierung -->
+            <filter string="Einkaufsbeauftragter" name="user_id" domain="[]" context="{'group_by': 'user_id'}"/>
+            <filter string="Lieferant" name="vendor_id" domain="[]" context="{'group_by': 'vendor_id'}"/>
+            <filter string="Datum" name="ordering_date" domain="[]" context="{'group_by': 'ordering_date'}"/>
+            <filter string="Status" name="state" domain="[]" context="{'group_by': 'state'}"/>
+            <!-- Suche -->
+            <group>
+                <field name="name" string="Order" filter_domain="['|', '|', ('name', 'ilike', self), ('partner_ref', 'ilike', self), ('vendor_id', 'child_of', self)]"/>
+                <field name="vendor_id"/>
+                <field name="user_id"/>
+                <field name="product_id" filter_domain="['|','|',('line_ids.product_id', 'ilike', self),('line_ids.product_id.type_description', 'ilike', self),('line_ids.product_id.type_description2', 'ilike', self)]"/>
+            </group>
+        </search>
+    </xpath>
 </data>

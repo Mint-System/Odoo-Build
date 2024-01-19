@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <span t-field="line.product_uom" position="replace"/>
-
+    <span t-field="line.product_uom" position="replace"/>
 </data>

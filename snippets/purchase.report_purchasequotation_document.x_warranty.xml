@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-
-  <xpath expr="//td[@id='product']" position="inside">
-    <br/>
-    <span t-field="order_line.product_id.x_warranty"/>
-  </xpath>
-
+    <xpath expr="//td[@id='product']" position="inside">
+        <br/>
+        <span t-field="order_line.product_id.x_warranty"/>
+    </xpath>
 </data>

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
-
     <xpath expr="//field[@name='client_order_ref']" position="after">
-        <field name="x_client_project_ref" />
+        <field name="x_client_project_ref"/>
     </xpath>
-
 </data>

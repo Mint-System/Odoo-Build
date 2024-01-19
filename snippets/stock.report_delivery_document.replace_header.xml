@@ -14,16 +14,16 @@
             font-weight: bold;
         }
         </style>
-        <table id='header'>
-        <tr>
-            <td>Lieferschein <span t-field="o.name"/>
+        <table id="header">
+            <tr>
+                <td>Lieferschein <span t-field="o.name"/>
             </td>
-            <td>
-                <span>
-                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
-                </span>
-            </td>
-        </tr>
+                <td>
+                    <span>
+                        <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;"/>
+                    </span>
+                </td>
+            </tr>
         </table>
     </xpath>
 </data>

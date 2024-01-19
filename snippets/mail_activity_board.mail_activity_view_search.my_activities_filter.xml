@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="mail_activity_board.mail_activity_view_search" priority="50">
-
-  <filter name="activities_month" position="before">
-    <filter string="Mir zugewiesen" name="my_activities" domain="[('user_id', '=', uid)]" />
-  </filter>
-
+    <filter name="activities_month" position="before">
+        <filter string="Mir zugewiesen" name="my_activities" domain="[('user_id', '=', uid)]"/>
+    </filter>
 </data>

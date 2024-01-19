@@ -5,11 +5,8 @@ ID: `mint_system.digest.digest_mail_main.report`
 ```xml
 <?xml version="1.0"?>
 <t t-name="digest.digest_mail_main.report">
-
     <t t-set="body">
-
-        <t t-set="kpi_data" t-value="env['digest.digest'].browse(1).compute_kpis(env.user.company_id, env.user)" />
-
+        <t t-set="kpi_data" t-value="env['digest.digest'].browse(1).compute_kpis(env.user.company_id, env.user)"/>
         <div t-if="kpi_data" class="global_layout" style="padding-bottom: 0;">
             <div t-foreach="kpi_data" t-as="kpi_info" class="kpi_row_footer">
                 <div t-if="kpi_info.get('kpi_col1') or kpi_info.get('kpi_col2') or kpi_info.get('kpi_col3')">
@@ -44,11 +41,10 @@ ID: `mint_system.digest.digest_mail_main.report`
                 </div>
             </div>
         </div>
-
     </t>
-
-    <t t-call="digest.digest_mail_layout" />
+    <t t-call="digest.digest_mail_layout"/>
 </t>
+
 ```
 Source: [snippets/digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/digest.digest_mail_main.report.xml)
 

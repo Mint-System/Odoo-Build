@@ -1,30 +1,25 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//th[@name='th_quantity']" position="inside">
-    <br/>
-    <i>Weight</i>
-  </xpath>
-
-  <xpath expr="//th[@name='th_subtotal']" position="inside">
-    <br/>
-    <i>Weight</i>
-  </xpath>
-
-  <xpath expr="//td[@name='td_quantity']" position="inside">
-    <br/>
-    <i>
-      <span t-field="line.x_studio_weight"/>
-      <span t-field="line.product_id.weight_uom_name"/>
-    </i>
-  </xpath>
-
-  <xpath expr="//td[@name='td_subtotal']" position="inside">
-    <br/>
-    <i>
-      <span t-field="line.x_studio_float_field_fBm1P"/>
-      <span t-field="line.product_id.weight_uom_name"/>
-    </i>
-  </xpath>
-
+    <xpath expr="//th[@name='th_quantity']" position="inside">
+        <br/>
+        <i>Weight</i>
+    </xpath>
+    <xpath expr="//th[@name='th_subtotal']" position="inside">
+        <br/>
+        <i>Weight</i>
+    </xpath>
+    <xpath expr="//td[@name='td_quantity']" position="inside">
+        <br/>
+        <i>
+            <span t-field="line.x_studio_weight"/>
+            <span t-field="line.product_id.weight_uom_name"/>
+        </i>
+    </xpath>
+    <xpath expr="//td[@name='td_subtotal']" position="inside">
+        <br/>
+        <i>
+            <span t-field="line.x_studio_float_field_fBm1P"/>
+            <span t-field="line.product_id.weight_uom_name"/>
+        </i>
+    </xpath>
 </data>

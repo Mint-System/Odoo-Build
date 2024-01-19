@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account_followup.template_followup_report" priority="50">
-
-  <xpath expr="//table[hasclass('o_account_reports_table')]" position="attributes">
-    <attribute name="style">padding-top: 2rem</attribute>
-  </xpath>
-
+    <xpath expr="//table[hasclass('o_account_reports_table')]" position="attributes">
+        <attribute name="style">padding-top: 2rem</attribute>
+    </xpath>
 </data>

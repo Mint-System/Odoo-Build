@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
- 
-  <xpath expr="//table[4]/thead/tr/th[6]" position="after">
-    <th id="qty_available">
-      <strong >Lager</strong>
-    </th>
-  </xpath>
-
-  <xpath expr="//table[4]/tbody/t/t/tr/td[6]" position="after">
-    <td id="qty_available">
-      <span id="qty_available" t-field="ml.product_id.qty_available"/>
-      <span t-field="ml.product_uom_id"/>
-     </td>
-  </xpath>
-
+    <xpath expr="//table[4]/thead/tr/th[6]" position="after">
+        <th id="qty_available">
+            <strong>Lager</strong>
+        </th>
+    </xpath>
+    <xpath expr="//table[4]/tbody/t/t/tr/td[6]" position="after">
+        <td id="qty_available">
+            <span id="qty_available" t-field="ml.product_id.qty_available"/>
+            <span t-field="ml.product_uom_id"/>
+        </td>
+    </xpath>
 </data>

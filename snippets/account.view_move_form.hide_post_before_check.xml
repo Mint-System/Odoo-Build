@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
-<data inherit_id="account.view_move_form" priority="50" >
-
+<data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//button[@name='action_post'][1]" position="attributes">
         <attribute name="attrs">{'invisible': ['|', '|', ('hide_post_button', '=', True), ('move_type', '!=', 'entry'), ('to_check', '!=', False)]}</attribute>
     </xpath>
-
     <xpath expr="//button[@name='action_post'][2]" position="attributes">
         <attribute name="attrs">{'invisible': ['|', '|', '|', ('hide_post_button', '=', True), ('move_type', '=', 'entry'), ('display_inactive_currency_warning','=',True), ('to_check', '!=', False)]}</attribute>
     </xpath>
-
 </data>

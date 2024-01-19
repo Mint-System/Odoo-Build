@@ -1,13 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//div[@id='informations']//p[@t-field='doc.client_order_ref']/.." position="after">
-
-    <div t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id" class="col-auto col-3 mw-100 mb-2">
-      <strong>Contact</strong>
-      <p t-field="doc.partner_contact_id.name"/>
-    </div>
-
-  </xpath>
-
+    <xpath expr="//div[@id='informations']//p[@t-field='doc.client_order_ref']/.." position="after">
+        <div t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id" class="col-auto col-3 mw-100 mb-2">
+            <strong>Contact</strong>
+            <p t-field="doc.partner_contact_id.name"/>
+        </div>
+    </xpath>
 </data>

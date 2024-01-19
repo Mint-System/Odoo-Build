@@ -1,16 +1,6 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_origin" model="ir.model.fields">
-    <field name="field_description">Herkunft</field>
-    <field name="model">stock.picking</field>
-    <field name="model_id" ref="stock.model_stock_picking"/>
-    <field name="name">x_sale_id_partner_id</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">text</field> 
-    <field name="depends">origin,scheduled_date</field>
+    <record id="x_origin" model="ir.model.fields"><field name="field_description">Herkunft</field><field name="model">stock.picking</field><field name="model_id" ref="stock.model_stock_picking"/><field name="name">x_sale_id_partner_id</field><field name="store" eval="True"/><field name="readonly" eval="True"/><field name="copied" eval="False"/><field name="ttype">text</field><field name="depends">origin,scheduled_date</field>
     for record in self:
     if record.origin is not None and record.x_origin_and_partner_id is not None:
         x_origin_and_partner_id_str = str(record.x_origin_and_partner_id)
@@ -29,5 +19,4 @@
     else:
         record['x_origin'] = ''
   </record>
-
 </odoo>

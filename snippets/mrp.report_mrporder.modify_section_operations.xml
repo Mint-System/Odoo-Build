@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//div[@t-if='o.workorder_ids']" position="replace">
-    <style>
+    <xpath expr="//div[@t-if='o.workorder_ids']" position="replace">
+        <style>
        h3 {
        font-size: 14pt;
        font-weight: bold;
@@ -24,46 +23,44 @@
     }
     
     </style>
-    <h3>
-      <span t-if="o.state == 'done'">Operations Done</span>
-      <span t-else="">Operations Planned</span>
-    </h3>
-    <div t-if="o.workorder_ids" groups="mrp.group_mrp_routings">
-      <div>
-        <div class="row table th">
-          <div class="col-6">
-            <strong>Operation</strong>
-          </div>
-          <div class="col-2">
-            <strong>WorkCenter</strong>
-          </div>
-          <div class="col-2 text-right">
-            <strong>No. Of Minutes</strong>
-          </div>
-          <div class="col-1 text-center">
-            <strong>IST</strong>
-          </div>
-          <div class="col-1 text-center">
-            <strong>Vis</strong>
-          </div>
+        <h3>
+            <span t-if="o.state == 'done'">Operations Done</span>
+            <span t-else="">Operations Planned</span>
+        </h3>
+        <div t-if="o.workorder_ids" groups="mrp.group_mrp_routings">
+            <div>
+                <div class="row table th">
+                    <div class="col-6">
+                        <strong>Operation</strong>
+                    </div>
+                    <div class="col-2">
+                        <strong>WorkCenter</strong>
+                    </div>
+                    <div class="col-2 text-right">
+                        <strong>No. Of Minutes</strong>
+                    </div>
+                    <div class="col-1 text-center">
+                        <strong>IST</strong>
+                    </div>
+                    <div class="col-1 text-center">
+                        <strong>Vis</strong>
+                    </div>
+                </div>
+                <div class="row table tdline" t-foreach="o.workorder_ids" t-as="line2">
+                    <div class="col-6">
+                        <span t-field="line2.name"/>
+                    </div>
+                    <div class="col-2">
+                        <span t-field="line2.workcenter_id.name"/>
+                    </div>
+                    <div class="col-2 text-right">
+                        <span t-if="o.state != 'done'" t-field="line2.duration_expected"/>
+                        <span t-if="o.state == 'done'" t-field="line2.duration"/>
+                    </div>
+                    <div class="col-1"/>
+                    <div class="col-1"/>
+                </div>
+            </div>
         </div>
-        <div class="row table tdline" t-foreach="o.workorder_ids" t-as="line2">
-          <div class="col-6">
-            <span t-field="line2.name"/>
-          </div>
-          <div class="col-2">
-            <span t-field="line2.workcenter_id.name"/>
-          </div>
-          <div class="col-2 text-right">
-            <span t-if="o.state != 'done'" t-field="line2.duration_expected"/>
-            <span t-if="o.state == 'done'" t-field="line2.duration"/>
-          </div>
-          <div class="col-1"></div>
-          <div class="col-1"></div>
-        </div>
-      </div>
-    </div>
-
-  </xpath>
-
+    </xpath>
 </data>

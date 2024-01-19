@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
-
-  <xpath expr="//li[@t-if='company.vat']" position="after">
-    <t t-if="company._name != 'base.document.layout'">
-      <li t-if="company.company_registry" class="list-inline-item d-inline">CRN: <span t-field="company.company_registry"/>
+    <xpath expr="//li[@t-if='company.vat']" position="after">
+        <t t-if="company._name != 'base.document.layout'">
+            <li t-if="company.company_registry" class="list-inline-item d-inline">CRN: <span t-field="company.company_registry"/>
       </li>
-    </t>
-  </xpath>
-
+        </t>
+    </xpath>
 </data>

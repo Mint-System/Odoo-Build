@@ -1,16 +1,14 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_invoice_warn_msg" model="ir.model.fields">
-    <field name="field_description">Nachricht zu Rechnung</field>
-    <field name="model">account.move</field>
-    <field name="model_id" ref="account.model_account_move"/>
-    <field name="name">x_invoice_warn_msg</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">text</field>
-    <field name="relation">partner_id.invoice_warn_msg</field>
-  </record>
-
+    <record id="x_invoice_warn_msg" model="ir.model.fields">
+        <field name="field_description">Nachricht zu Rechnung</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_invoice_warn_msg</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">text</field>
+        <field name="relation">partner_id.invoice_warn_msg</field>
+    </record>
 </odoo>

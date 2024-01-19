@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_tree_view" priority="50">
-  
-  <xpath expr="//field[@name='date_planned_start']" position="after">
-     <field name="x_date_deadline"/>
-  </xpath>
-    
+    <xpath expr="//field[@name='date_planned_start']" position="after">
+        <field name="x_date_deadline"/>
+    </xpath>
 </data>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//h3[@t-if='o.move_raw_ids']" position="replace">
-    <style>
+    <xpath expr="//h3[@t-if='o.move_raw_ids']" position="replace">
+        <style>
       table#consumed_products {
         width:98%;
         margin: 20px 0 10px 10px;
@@ -11,11 +10,11 @@
         padding-left: 5px;
       }
     </style>
-    <table id='consumed_products'>
-      <tr style="border-bottom: 1px solid rgb(220,220,220);">
-        <td>Benötigte Produkte
+        <table id="consumed_products">
+            <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                <td>Ben&#xF6;tigte Produkte
         </td>
-      </tr>
-    </table>
-  </xpath>
+            </tr>
+        </table>
+    </xpath>
 </data>

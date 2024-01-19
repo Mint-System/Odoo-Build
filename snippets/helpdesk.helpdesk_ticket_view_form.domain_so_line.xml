@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
-
-  <field name="so_line"  position="attributes">
-    <attribute name="domain">[('is_service', '=', True), ('order_partner_id', 'child_of', parent.commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
-  </field>
-
+    <field name="so_line" position="attributes">
+        <attribute name="domain">[('is_service', '=', True), ('order_partner_id', 'child_of', parent.commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
+    </field>
 </data>

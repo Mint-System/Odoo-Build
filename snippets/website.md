@@ -5,11 +5,9 @@ ID: `mint_system.website.website_search_box_input.hide_search_form`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="website.website_search_box_input" priority="50">
-
-  <xpath expr="//form" position="attributes">
-    <attribute name="style">display: none;</attribute>
-  </xpath>
-
+    <xpath expr="//form" position="attributes">
+        <attribute name="style">display: none;</attribute>
+    </xpath>
 </data>
 
 ```

@@ -1,44 +1,38 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
-
-  <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
-      <th id="position">
-        <strong>Pos</strong>
-      </th>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
-      <th id="position">
-        <strong>Pos</strong>
-      </th>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
-      <th id="position">
-        <strong>Pos</strong>
-      </th>
-    </t>
-  </xpath>
-  
-  <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
-      <td id="position">
-        <span t-esc="move.position"/>
-      </td>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='stock_backorder_table']/tbody//tr/td[1]" position="before">
-    <t t-if="o.sale_id or o.purchase_id">
-      <td id="position">
-        <span t-esc="bo_line.position"/>
-      </td>
-    </t>
-  </xpath>
-
+    <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
+        <t t-if="o.sale_id or o.purchase_id">
+            <th id="position">
+                <strong>Pos</strong>
+            </th>
+        </t>
+    </xpath>
+    <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
+        <t t-if="o.sale_id or o.purchase_id">
+            <th id="position">
+                <strong>Pos</strong>
+            </th>
+        </t>
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
+        <t t-if="o.sale_id or o.purchase_id">
+            <th id="position">
+                <strong>Pos</strong>
+            </th>
+        </t>
+    </xpath>
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="before">
+        <t t-if="o.sale_id or o.purchase_id">
+            <td id="position">
+                <span t-esc="move.position"/>
+            </td>
+        </t>
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/tbody//tr/td[1]" position="before">
+        <t t-if="o.sale_id or o.purchase_id">
+            <td id="position">
+                <span t-esc="bo_line.position"/>
+            </td>
+        </t>
+    </xpath>
 </data>

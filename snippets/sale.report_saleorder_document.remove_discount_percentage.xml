@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//th[@name='th_discount']/span" position="replace">
-    <span>Rabatt</span>
-  </xpath>
-
+    <xpath expr="//th[@name='th_discount']/span" position="replace">
+        <span>Rabatt</span>
+    </xpath>
 </data>

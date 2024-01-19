@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.internal_layout" priority="60">
-
     <xpath expr="//link" position="replace">
-
         <style>
             .act_as_table {
                 display: table !important;
@@ -118,6 +116,5 @@
                 font-family: Helvetica, Arial;
             }
         </style>
-
     </xpath>
 </data>

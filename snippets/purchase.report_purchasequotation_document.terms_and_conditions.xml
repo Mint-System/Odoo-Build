@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-
-  <xpath expr="/t/t/div/div[3]" position="after">
-    <div class="row">
-      <div class="col">
-        <b>Terms and Conditions:</b>
-        <ul>
-          <li>An order confirmation is required within 5 working days</li>
-          <li>The delivery date is the day of arrival at <span t-field="res_company.name"/></li>
-          <li>Partial deliveries only after prior release</li>
-          <li>If the confirmed delivery date is not respected, <span t-field="res_company.name"/> is applying a penalty of 2% of the order value, until max. 10%</li>
-        </ul>
-      </div>
-    </div>
-  </xpath>
-
+    <xpath expr="/t/t/div/div[3]" position="after">
+        <div class="row">
+            <div class="col">
+                <b>Terms and Conditions:</b>
+                <ul>
+                    <li>An order confirmation is required within 5 working days</li>
+                    <li>The delivery date is the day of arrival at <span t-field="res_company.name"/></li>
+                    <li>Partial deliveries only after prior release</li>
+                    <li>If the confirmed delivery date is not respected, <span t-field="res_company.name"/> is applying a penalty of 2% of the order value, until max. 10%</li>
+                </ul>
+            </div>
+        </div>
+    </xpath>
 </data>

@@ -1,13 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-  <xpath expr="//span[@id='product_uom']" position="after">
-    <t t-set="product" t-value="o.requisition_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>
-    <t t-if="product"> / <span t-esc="product.product_qty - product.qty_ordered"/> <span t-field="line.product_uom.name"/></t>
-  </xpath>
-  
-  <xpath expr="//table/thead/tr/th[4]/strong" position="replace">
-    <strong>Qty / Rem. Agreement Qty<br/></strong>
-  </xpath>
-
+    <xpath expr="//span[@id='product_uom']" position="after">
+        <t t-set="product" t-value="o.requisition_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>
+        <t t-if="product"> / <span t-esc="product.product_qty - product.qty_ordered"/> <span t-field="line.product_uom.name"/></t>
+    </xpath>
+    <xpath expr="//table/thead/tr/th[4]/strong" position="replace">
+        <strong>Qty / Rem. Agreement Qty<br/></strong>
+    </xpath>
 </data>

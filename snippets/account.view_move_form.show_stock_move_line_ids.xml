@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
-<data inherit_id="account.view_move_form" priority="50" >
-
+<data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']" position="before">
         <field name="move_line_ids" widget="many2many_tags" optional="hide"/>
     </xpath>
-
 </data>

@@ -1,22 +1,20 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_production_id" model="ir.model.fields">
-    <field name="field_description">Fertigungsauftrag</field>
-    <field name="model">stock.production.lot</field>
-    <field name="model_id" ref="stock.model_stock_production_lot"/>
-    <field name="name">x_production_id</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">char</field>
-    <field name="depends">x_production_ids</field>
-    <field name="compute">for rec in self:
+    <record id="x_production_id" model="ir.model.fields">
+        <field name="field_description">Fertigungsauftrag</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_production_id</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+        <field name="depends">x_production_ids</field>
+        <field name="compute">for rec in self:
       if rec.x_production_ids:
         rec['x_production_id'] = rec.x_production_ids[0].name.split('-')[0]
       else:
         rec['x_production_id'] = ''
     </field>
-  </record>
-
+    </record>
 </odoo>

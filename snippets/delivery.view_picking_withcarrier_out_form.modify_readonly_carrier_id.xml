@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="delivery.view_picking_withcarrier_out_form" priority="50">
-
-  <xpath expr="//field[@name='carrier_id']" position="attributes">
-    <attribute name="attrs">{'readonly': ['|', ('is_locked', '=', True), ('state', 'in', [('done', 'cancel')])]}</attribute>
-  </xpath>
-
+    <xpath expr="//field[@name='carrier_id']" position="attributes">
+        <attribute name="attrs">{'readonly': ['|', ('is_locked', '=', True), ('state', 'in', [('done', 'cancel')])]}</attribute>
+    </xpath>
 </data>

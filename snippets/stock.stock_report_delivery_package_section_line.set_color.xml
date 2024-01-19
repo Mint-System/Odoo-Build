@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
-  <xpath expr="/t/tr/td" position="attributes">
-    <attribute name="class" separator=" " add="text-800"/>
-  </xpath>
+    <xpath expr="/t/tr/td" position="attributes">
+        <attribute name="class" separator=" " add="text-800"/>
+    </xpath>
 </data>

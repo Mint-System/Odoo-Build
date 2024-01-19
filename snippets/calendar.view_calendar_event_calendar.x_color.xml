@@ -1,8 +1,6 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <xpath expr="//calendar" position="attributes">
-    <attribute name="color">x_color</attribute>
-  </xpath>
-
+    <xpath expr="//calendar" position="attributes">
+        <attribute name="color">x_color</attribute>
+    </xpath>
 </odoo>

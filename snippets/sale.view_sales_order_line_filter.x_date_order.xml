@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_sales_order_line_filter" priority="50">
-
-  <filter name="to_invoice" position="after">
-    <separator/>
-    <filter string="Auftragsdatum" name="date_order" date="x_date_order" />
-  </filter>
-  
+    <filter name="to_invoice" position="after">
+        <separator/>
+        <filter string="Auftragsdatum" name="date_order" date="x_date_order"/>
+    </filter>
 </data>

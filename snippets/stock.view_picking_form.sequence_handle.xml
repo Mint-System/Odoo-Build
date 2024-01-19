@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
-
-  <xpath expr="//field[@name='display_assign_serial']" position="after">
-    <field name="sequence" widget="handle"/>
-  </xpath>
-
+    <xpath expr="//field[@name='display_assign_serial']" position="after">
+        <field name="sequence" widget="handle"/>
+    </xpath>
 </data>

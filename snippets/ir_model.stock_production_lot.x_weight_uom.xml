@@ -1,19 +1,17 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_weight_uom" model="ir.model.fields">
-    <field name="field_description">Nettogewicht [kg]</field>
-    <field name="model">stock.production.lot</field>
-    <field name="model_id" ref="stock.model_stock_production_lot"/>
-    <field name="name">x_weight_uom</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">float</field> 
-    <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
-    <field name="compute">for record in self:
+    <record id="x_weight_uom" model="ir.model.fields">
+        <field name="field_description">Nettogewicht [kg]</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_weight_uom</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">product_qty, product_id.weight, product_id.weight_uom_id</field>
+        <field name="compute">for record in self:
   record['x_weight_uom'] = record.product_qty * record.product_id.product_tmpl_id.weight_uom_id._compute_quantity(record.product_id.weight, self.env.ref('uom.product_uom_kgm'))
     </field>
-  </record>
-
+    </record>
 </odoo>

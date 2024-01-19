@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.purchase_order_form" priority="50">
-
-  <xpath expr="//field[@name='picking_type_id']" position="after">
-    <field name="x_payment_state"/>
-  </xpath>
-
+    <xpath expr="//field[@name='picking_type_id']" position="after">
+        <field name="x_payment_state"/>
+    </xpath>
 </data>

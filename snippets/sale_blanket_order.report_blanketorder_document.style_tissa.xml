@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
             table#info {
@@ -29,9 +28,7 @@
       }
         </style>
     </xpath>
-
     <xpath expr="//div[@id='summary']/div" position="attributes">
         <attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
     </xpath>
-
 </data>

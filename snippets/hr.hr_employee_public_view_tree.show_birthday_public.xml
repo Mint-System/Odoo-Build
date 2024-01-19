@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_tree" priority="50">
-
-  <xpath expr="//field[@name='parent_id']" position="after">
-    <field name="birthday_public"/>
-  </xpath>
-
+    <xpath expr="//field[@name='parent_id']" position="after">
+        <field name="birthday_public"/>
+    </xpath>
 </data>

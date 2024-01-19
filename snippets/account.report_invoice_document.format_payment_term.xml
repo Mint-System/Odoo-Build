@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <div name="payment_term" position="replace">
-
         <div name="payment_term">
             <p>
                 <!-- <strong>Zahlungsbedingungen:</strong> -->
                 <strong>Payment term:</strong>
-                <span t-field="o.invoice_payment_term_id.name" />
+                <span t-field="o.invoice_payment_term_id.name"/>
             </p>
         </div>
-
     </div>
-
 </data>

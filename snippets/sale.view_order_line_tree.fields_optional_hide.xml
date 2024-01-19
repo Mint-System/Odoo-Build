@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_line_tree" priority="50">
-
     <field name="order_id" position="attributes">
         <attribute name="optional">show</attribute>
     </field>
@@ -37,5 +36,4 @@
     <field name="route_id" position="attributes">
         <attribute name="optional">hide</attribute>
     </field>
-
 </data>

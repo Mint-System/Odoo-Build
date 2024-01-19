@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
-
 <data inherit_id="project.view_task_form2" priority="50">
-
-  <button name="action_timer_start" position="replace"/>
-  <button name="action_timer_stop" position="replace"/>
-  <button name="action_timer_pause" position="replace"/>
-  <button name="action_timer_resume" position="replace"/>
-
+    <button name="action_timer_start" position="replace"/>
+    <button name="action_timer_stop" position="replace"/>
+    <button name="action_timer_pause" position="replace"/>
+    <button name="action_timer_resume" position="replace"/>
 </data>

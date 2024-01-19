@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
     <p t-field="doc.note" position="replace">
         <style>
             div#note {
@@ -10,8 +9,7 @@
             }
         </style>
         <div id="note">
-            <p  t-field="doc.note"/>
+            <p t-field="doc.note"/>
         </div>
     </p>
-
 </data>

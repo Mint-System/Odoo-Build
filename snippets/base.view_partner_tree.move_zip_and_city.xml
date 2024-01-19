@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="60">
-
-  <field name="city" position="replace" />
-  <field name="zip" position="replace" />
-  <field name="display_name" position="after">
-    <field name="zip" />
-    <field name="city" />
-  </field>
-
+    <field name="city" position="replace"/>
+    <field name="zip" position="replace"/>
+    <field name="display_name" position="after">
+        <field name="zip"/>
+        <field name="city"/>
+    </field>
 </data>

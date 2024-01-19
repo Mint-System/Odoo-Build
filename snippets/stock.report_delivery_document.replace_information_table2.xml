@@ -1,38 +1,39 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//div[@class='page']/div[1]" position="replace">
-  <div>
-  <table style="border-style:none; width:100%">
-    <tr >
-      <td style="border-style:none">
-        <strong>Customer Reference</strong>
-        <p t-field="o.sudo().sale_id.client_order_ref"/>
-      </td>
-      <td style="border-style:none">
-        <strong>Shipping Date</strong>
-           <p t-field="o.scheduled_date" t-options='{"widget": "date"}'/>
-      </td>
-      <td style="border-style:none">
-         <strong>Incoterms</strong>
-         <p t-field="res_company.incoterm_id.code"/>
-      </td>
-      <td style="border-style:none">
-         <strong>Carrier</strong>
-         <p t-field="o.carrier_id"/>
-      </td>
-      <td style="border-style:none">
-         <span><strong>Total Weight</strong></span><br></br>
-         <span t-field="o.shipping_weight"/> <span t-field="o.weight_uom_name"/>
-         </td>
-      <td style="border-style:none">
-          <strong>Order</strong>
-          <p t-field="o.origin"/>
-      </td>
-    </tr>
-    
-  </table> 
-  </div>
-  
-  </xpath>
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+        <div>
+            <table style="border-style:none; width:100%">
+                <tr>
+                    <td style="border-style:none">
+                        <strong>Customer Reference</strong>
+                        <p t-field="o.sudo().sale_id.client_order_ref"/>
+                    </td>
+                    <td style="border-style:none">
+                        <strong>Shipping Date</strong>
+                        <p t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    </td>
+                    <td style="border-style:none">
+                        <strong>Incoterms</strong>
+                        <p t-field="res_company.incoterm_id.code"/>
+                    </td>
+                    <td style="border-style:none">
+                        <strong>Carrier</strong>
+                        <p t-field="o.carrier_id"/>
+                    </td>
+                    <td style="border-style:none">
+                        <span>
+                            <strong>Total Weight</strong>
+                        </span>
+                        <br/>
+                        <span t-field="o.shipping_weight"/>
+                        <span t-field="o.weight_uom_name"/>
+                    </td>
+                    <td style="border-style:none">
+                        <strong>Order</strong>
+                        <p t-field="o.origin"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </xpath>
 </data>

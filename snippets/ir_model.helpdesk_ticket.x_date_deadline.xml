@@ -1,15 +1,13 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_date_deadline" model="ir.model.fields">
-    <field name="field_description">Frist</field>
-    <field name="model">helpdesk.ticket</field>
-    <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
-    <field name="name">x_date_deadline</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="False"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">datetime</field>    
-  </record>
-
+    <record id="x_date_deadline" model="ir.model.fields">
+        <field name="field_description">Frist</field>
+        <field name="model">helpdesk.ticket</field>
+        <field name="model_id" ref="helpdesk.model_helpdesk_ticket"/>
+        <field name="name">x_date_deadline</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">datetime</field>
+    </record>
 </odoo>

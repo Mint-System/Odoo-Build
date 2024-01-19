@@ -1,9 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <div name="payment_term" position="after">
         <!-- <strong>MWST-Nr.:</strong> -->
-        <p><strong>Tax ID:</strong> <span t-field="o.company_id.vat" /></p>
+        <p>
+            <strong>Tax ID:</strong>
+            <span t-field="o.company_id.vat"/>
+        </p>
     </div>
-
 </data>

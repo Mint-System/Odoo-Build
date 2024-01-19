@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
-
-     <xpath expr="//div[@class='swissqr_page_title']" position="before">
-          <style>
+    <xpath expr="//div[@class='swissqr_page_title']" position="before">
+        <style>
           .swissqr_page_title {
             padding-top: 200px;
           }
           </style>
-     </xpath>
-
+    </xpath>
 </data>

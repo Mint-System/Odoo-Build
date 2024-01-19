@@ -1,14 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
-        <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')"
-            groups="account.group_show_line_subtotals_tax_excluded" />
+        <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')" groups="account.group_show_line_subtotals_tax_excluded"/>
     </xpath>
-
     <xpath expr="//span[@t-field='line.price_total']" position="replace">
-        <span class="text-nowrap" t-esc="'{:,.2f}'.format(line.price_total).replace(',','\'')"
-            groups="account.group_show_line_subtotals_tax_included" />
+        <span class="text-nowrap" t-esc="'{:,.2f}'.format(line.price_total).replace(',','\'')" groups="account.group_show_line_subtotals_tax_included"/>
     </xpath>
-
 </data>

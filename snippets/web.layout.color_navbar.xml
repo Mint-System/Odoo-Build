@@ -1,13 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="web.layout" priority="50">
-
-  <!-- The id's of the companies have to be adjusted -->
-
-  <xpath expr="//body" position="inside">
-      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
-        <style>.o_main_navbar {background-color: #57596F!important;border-bottom: 0px;}</style></t> 
-      <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '4'">
-        <style>.o_main_navbar {background-color: #6B3C3C!important;border-bottom: 0px;}</style></t>
-  </xpath>
-
+    <!-- The id's of the companies have to be adjusted -->
+    <xpath expr="//body" position="inside">
+        <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
+            <style>.o_main_navbar {background-color: #57596F!important;border-bottom: 0px;}</style>
+        </t>
+        <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '4'">
+            <style>.o_main_navbar {background-color: #6B3C3C!important;border-bottom: 0px;}</style>
+        </t>
+    </xpath>
 </data>

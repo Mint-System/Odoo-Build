@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
-
-  <xpath expr="//img[@t-if='company.logo']" position="attributes">
-    <!-- <attribute name="style">max-height: 90px;</attribute> -->
-    <attribute name="style">max-width: 250px; margin-top: 10px</attribute>
-  </xpath>
-
+    <xpath expr="//img[@t-if='company.logo']" position="attributes">
+        <!-- <attribute name="style">max-height: 90px;</attribute> -->
+        <attribute name="style">max-width: 250px; margin-top: 10px</attribute>
+    </xpath>
 </data>

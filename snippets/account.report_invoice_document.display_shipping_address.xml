@@ -1,15 +1,13 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="/t/t/t" position="after">
-    <t t-if="o.partner_shipping_id">
-      <t t-set="information_block">
-        <strong>Shipping address:</strong>
-        <div t-if="o.partner_shipping_id" style="margin-bottom: 1rem;">
-          <div t-field="o.partner_shipping_id" t-options="{'widget': 'contact', 'fields': ['address', 'name'], 'no_marker': True, 'phone_icons': True}" name="invoice_shipping_address"/>
-        </div>
-      </t>
-    </t>
-  </xpath>
-
+    <xpath expr="/t/t/t" position="after">
+        <t t-if="o.partner_shipping_id">
+            <t t-set="information_block">
+                <strong>Shipping address:</strong>
+                <div t-if="o.partner_shipping_id" style="margin-bottom: 1rem;">
+                    <div t-field="o.partner_shipping_id" t-options="{'widget': 'contact', 'fields': ['address', 'name'], 'no_marker': True, 'phone_icons': True}" name="invoice_shipping_address"/>
+                </div>
+            </t>
+        </t>
+    </xpath>
 </data>

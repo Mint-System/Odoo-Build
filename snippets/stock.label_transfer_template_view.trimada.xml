@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <t t-name="stock.label_transfer_template_view.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
@@ -97,16 +98,16 @@
                                     <br/>
                                 </div>
                                 <div class="text-center">
-                                    <span class="text-center" t-esc="move.product_id.feeder_id"></span>
+                                    <span class="text-center" t-esc="move.product_id.feeder_id"/>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
                         </div>
                     </div>
                 </div>
-                <p style="page-break-before:always;" />
+                <p style="page-break-before:always;"/>
             </t>
         </t>
     </t>

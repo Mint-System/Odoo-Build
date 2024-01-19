@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
-
-  <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]/h1[1]/field[@name='name']" position="attributes">
-    <attribute name="attrs">{}</attribute>
-    <attribute name="readonly"/>
-  </xpath>
-
-  <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
-    <group name="studio_group_epv6l">
-      <group name="studio_group_epv6l_left">
-        <field name="x_studio_description" string="Beschreibung"/>
-      </group>
-    </group>
-  </xpath>
-
+    <xpath expr="//form[1]/sheet[1]/div[not(@name)][1]/h1[1]/field[@name='name']" position="attributes">
+        <attribute name="attrs">{}</attribute>
+        <attribute name="readonly"/>
+    </xpath>
+    <xpath expr="//form[1]/sheet[1]/group[1]" position="after">
+        <group name="studio_group_epv6l">
+            <group name="studio_group_epv6l_left">
+                <field name="x_studio_description" string="Beschreibung"/>
+            </group>
+        </group>
+    </xpath>
 </data>

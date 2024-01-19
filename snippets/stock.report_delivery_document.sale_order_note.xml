@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//table[@name='stock_move_line_table']" position="after">
-    <p t-if="o.sale_id.note" style="margin-top: 3rem;" t-field="o.sale_id.note"/>
-  </xpath>
-
+    <xpath expr="//table[@name='stock_move_line_table']" position="after">
+        <p t-if="o.sale_id.note" style="margin-top: 3rem;" t-field="o.sale_id.note"/>
+    </xpath>
 </data>

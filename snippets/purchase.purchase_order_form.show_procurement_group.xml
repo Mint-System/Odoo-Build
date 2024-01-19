@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.purchase_order_form" priority="50">
-
-  <xpath expr="//field[@name='origin']" position="after">
-    <field name="group_id"/>
-  </xpath>
-
-  <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
-    <field name="group_id" optional="hide"/>
-  </xpath>
+    <xpath expr="//field[@name='origin']" position="after">
+        <field name="group_id"/>
+    </xpath>
+    <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
+        <field name="group_id" optional="hide"/>
+    </xpath>
 </data>

@@ -1,21 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-  <xpath expr="//t[@t-set='address']/div" position="attributes">
-    <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
-    <attribute name="t-options-fields">['address', 'name']</attribute>
+    <xpath expr="//t[@t-set='address']/div" position="attributes">
+        <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
+        <attribute name="t-options-fields">['address', 'name']</attribute>
+    </xpath>
+    <xpath expr="/t/t/t[4]/t/strong" position="replace">
+        <div style="font-size:8pt; font-weight:bold">Shipping address:</div>
+    </xpath>
+    <xpath expr="/t/t/t[4]/t/div/span" position="replace">
   </xpath>
-
-  <xpath expr="/t/t/t[4]/t/strong" position="replace">
-    <div style="font-size:8pt; font-weight:bold">Shipping address:</div>
-  </xpath>
-
-  <xpath expr="/t/t/t[4]/t/div/span" position="replace">
-  </xpath>
-
-  <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
-    <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-    <attribute name="t-options-fields">['address', 'name']</attribute>
-  </xpath>
-
+    <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
+        <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+        <attribute name="t-options-fields">['address', 'name']</attribute>
+    </xpath>
 </data>

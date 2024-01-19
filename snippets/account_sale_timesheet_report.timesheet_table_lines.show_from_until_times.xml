@@ -1,13 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
-
-  <xpath expr="//td[@id='line_date']" position="after">
-    <td id="line_from_until" style="white-space: nowrap;">
-      <span t-field="line.from_time"
-        t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}" /> - <span
-        t-field="line.until_time"
-        t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}" />
+    <xpath expr="//td[@id='line_date']" position="after">
+        <td id="line_from_until" style="white-space: nowrap;"><span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/> - <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
     </td>
-  </xpath>
-
+    </xpath>
 </data>

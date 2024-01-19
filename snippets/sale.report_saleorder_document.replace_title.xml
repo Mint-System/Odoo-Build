@@ -1,17 +1,15 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//h2" position="replace">
-    <h2 class="mt16">
-      <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-        <span t-if="doc.state not in ['draft','sent']">Order </span>
-        <span t-if="doc.state in ['draft','sent']">Quotation </span>
-      </t>
-      <t t-if="env.context.get('proforma', False) or is_pro_forma">
-        <span>Pro-Forma Invoice </span>
-      </t>
-      <span t-field="doc.name" />
-    </h2>
-  </xpath>
-
+    <xpath expr="//h2" position="replace">
+        <h2 class="mt16">
+            <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
+                <span t-if="doc.state not in ['draft','sent']">Order </span>
+                <span t-if="doc.state in ['draft','sent']">Quotation </span>
+            </t>
+            <t t-if="env.context.get('proforma', False) or is_pro_forma">
+                <span>Pro-Forma Invoice </span>
+            </t>
+            <span t-field="doc.name"/>
+        </h2>
+    </xpath>
 </data>

@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//table/thead/tr/th[1]" position="before">
-    <th id="header_default_code">
-      <span>Referenz</span>
-    </th>
-  </xpath>
-
-  <xpath expr="//t[1]/td[1]" position="before">
-    <td id="default_code">
-      <span t-field="line.product_id.default_code"/>
-    </td>
-  </xpath>
-
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th id="header_default_code">
+            <span>Referenz</span>
+        </th>
+    </xpath>
+    <xpath expr="//t[1]/td[1]" position="before">
+        <td id="default_code">
+            <span t-field="line.product_id.default_code"/>
+        </td>
+    </xpath>
 </data>
