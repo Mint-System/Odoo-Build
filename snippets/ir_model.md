@@ -159,6 +159,28 @@ ID: `mint_system.ir_model.account_move.x_account_codes`
 ```
 Source: [snippets/ir_model.account_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_account_codes.xml)
 
+### X Bexio Name  
+ID: `mint_system.ir_model.account_move.x_bexio_name`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_bexio_name" model="ir.model.fields">
+    <field name="field_description">Bexio Name</field>
+    <field name="model">account.move</field>
+    <field name="model_id" ref="account.model_account_move"/>
+    <field name="name">x_bexio_name</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field>
+  </record>
+
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_bexio_name.xml)
+
 ### X Date Done  
 ID: `mint_system.ir_model.account_move.x_date_done`  
 ```xml
@@ -2605,6 +2627,28 @@ ID: `mint_system.ir_model.sale_order.x_as4import`
 ```
 Source: [snippets/ir_model.sale_order.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_as4import.xml)
 
+### X Bexioid  
+ID: `mint_system.ir_model.sale_order.x_bexioid`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_bexioid" model="ir.model.fields">
+    <field name="domain">[]</field>
+    <field name="field_description">Bexio ID</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="base.model_res_partner"/>
+    <field name="name">x_bexioid</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">integer</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.sale_order.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_bexioid.xml)
+
 ### X Client Project Ref  
 ID: `mint_system.ir_model.sale_order.x_client_project_ref`  
 ```xml
@@ -3166,6 +3210,53 @@ ID: `mint_system.ir_model.stock_picking.x_date_order`
 </odoo>
 ```
 Source: [snippets/ir_model.stock_picking.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_date_order.xml)
+
+### X Origin And Partner Id  
+ID: `mint_system.ir_model.stock_picking.x_origin_and_partner_id`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_origin_and_partner_id" model="ir.model.fields">
+    <field name="field_description">Herkunft und Partner</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_sale_id_partner_id</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">char</field> 
+    <field name="related">sale_id.partner_id.name</field>   
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_origin_and_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_origin_and_partner_id.xml)
+
+### X Origin  
+ID: `mint_system.ir_model.stock_picking.x_origin`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_origin" model="ir.model.fields">
+    <field name="field_description">Herkunft</field>
+    <field name="model">stock.picking</field>
+    <field name="model_id" ref="stock.model_stock_picking"/>
+    <field name="name">x_sale_id_partner_id</field>
+    <field name="store" eval="False"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="False"/>
+    <field name="ttype">text</field> 
+    <field name="depfends">origin</field>
+    for record in self:
+    if record.origin and isinstance(record.origin, str) and record.x_origin_and_partner_id is not None:
+        record['x_origin'] = record.origin + ', ' + record.x_origin_and_partner_id
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.stock_picking.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_origin.xml)
 
 ### X Vst  
 ID: `mint_system.ir_model.stock_picking.x_vst`  

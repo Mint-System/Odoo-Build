@@ -175,6 +175,20 @@ ID: `mint_system.purchase.purchase_order_form.relocate_product_qty_and_uom`
 ```
 Source: [snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml)
 
+### Remove Optional Qty Received  
+ID: `mint_system.purchase.purchase_order_form.remove_optional_qty_received`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+    <xpath expr="//field[@name='qty_received']" position="attributes">
+        <attribute name="optional"></attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.remove_optional_qty_received.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.remove_optional_qty_received.xml)
+
 ### Show Dest Address Id  
 ID: `mint_system.purchase.purchase_order_form.show_dest_address_id`  
 ```xml

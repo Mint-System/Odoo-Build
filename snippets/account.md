@@ -198,6 +198,59 @@ ID: `mint_system.account.report_invoice_document.add_information_space`
 ```
 Source: [snippets/account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_information_space.xml)
 
+### Add Note  
+ID: `mint_system.account.report_invoice_document.add_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@name='comment']" position="replace">
+    <div style="margin-top: 50px">
+
+      <div>
+        <t t-if="not is_html_empty(o.narration)" name="narration">
+             <span t-field="o.narration"/>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'CH'">
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'DE'">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-else="">
+          <span style="font-weight: bold">Incoterms: Ex-works</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_note.xml)
+
 ### Add Percentage Sign  
 ID: `mint_system.account.report_invoice_document.add_percentage_sign`  
 ```xml
@@ -780,6 +833,68 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
 
 ```
 Source: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.group_by_pickings.xml)
+
+### Group By Product  
+ID: `mint_system.account.report_invoice_document.group_by_product`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+<xpath expr="//tbody" position="replace">
+
+  <tbody class="invoice_tbody">
+    <t t-set="current_subtotal" t-value="0"/>
+    <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+    <t t-set="consolidated_products" t-value="{}"/>
+    <t t-foreach="lines" t-as="line">
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+      <t t-set="product_name" t-value="line.product_id.display_name"/>
+      <t t-set="line_quantity" t-value="line.quantity"/>
+      <t t-set="line_price_unit" t-value="line.price_unit"/>
+      <t t-set="line_discount" t-value="line.discount"/>
+      <t t-set="line_subtotal" t-value="line.price_subtotal"/>
+      <t t-set="line_price_total" t-value="line.price_total"/>
+      <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
+      <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'discount': consolidated_product['discount'] + line_discount, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
+    </t>
+
+    <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+      <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
+        <t t-foreach="consolidated_products.items()" t-as="product_data">
+          <tr>
+            <td name="account_invoice_line_name">
+              <span t-esc="product_data[0]" t-options="{'widget': 'text'}"/>
+            </td>
+            <td class="text-end">
+              <span t-esc="product_data[1]['quantity']" t-options="{'widget': 'float', 'precision': 2}"/>
+              <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+            </td>
+            <td t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">              
+              <t t-set="unit_price" t-value="product_data[1]['subtotal'] / product_data[1]['quantity'] "/>
+              <span class="text-nowrap" t-esc="unit_price" t-options="{'widget': 'float', 'precision': 3}"/>
+            </td>
+            <td t-if="display_discount" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span class="text-nowrap" t-esc="product_data[1]['discount']"/>
+            </td>
+            <td t-attf-class="text-start {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+            </td>
+            <td class="text-end o_price_total">
+              <span class="text-nowrap" t-esc="product_data[1]['subtotal']" groups="account.group_show_line_subtotals_tax_excluded" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+              <span class="text-nowrap" t-esc="product_data[1]['price_total']" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+          </tr>
+        </t>
+      </t>
+    </tr>
+  </tbody>
+
+</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.group_by_product.xml)
 
 ### Group By Sale Order  
 ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
@@ -2146,6 +2261,32 @@ ID: `mint_system.account.report_invoice_document.show_categ_id`
 ```
 Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_categ_id.xml)
 
+### Show Credit Note  
+ID: `mint_system.account.report_invoice_document.show_credit_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <p name="payment_communication" position="before">
+        <t t-if="print_with_payments and (o.payment_state != 'invoicing_legacy')">
+            <t t-set="payments_vals"
+                t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []" />
+            <t t-foreach="payments_vals" t-as="payment_vals">
+                <t t-set="move_id" t-value="o.browse(payment_vals['move_id'])" />
+                <t t-if="move_id.move_type == 'out_refund'">
+                    <!-- <span>Diese Rechnung wurde mit Ihrer Gutschrift -->
+                    <!-- beglichen. Der neue Saldo auf Ihrer Gutschrift beträgt </span> -->
+                    <p><span>This invoice has been paid with a customer credit </span>(<span
+                            t-field="move_id.name" />). <span>The residual amount of this credit is </span><span
+                            t-field="move_id.amount_residual" />.</p>
+                </t>
+            </t>
+        </t>
+    </p>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_credit_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_credit_note.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
@@ -2431,6 +2572,19 @@ ID: `mint_system.account.report_invoice_document.style_moser`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_moser.xml)
+
+### Style Swissfragrance  
+ID: `mint_system.account.report_invoice_document.style_swissfragrance`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+		<attribute name="class">table table-sm o_main_table</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_swissfragrance.xml)
 
 ### Style Tissa  
 ID: `mint_system.account.report_invoice_document.style_tissa`  
@@ -2971,6 +3125,59 @@ ID: `mint_system.account.report_invoice_document.add_information_space`
 ```
 Source: [snippets/account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_information_space.xml)
 
+### Add Note  
+ID: `mint_system.account.report_invoice_document.add_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@name='comment']" position="replace">
+    <div style="margin-top: 50px">
+
+      <div>
+        <t t-if="not is_html_empty(o.narration)" name="narration">
+             <span t-field="o.narration"/>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'CH'">
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'DE'">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-else="">
+          <span style="font-weight: bold">Incoterms: Ex-works</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+      </div>
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_note.xml)
+
 ### Add Percentage Sign  
 ID: `mint_system.account.report_invoice_document.add_percentage_sign`  
 ```xml
@@ -3553,6 +3760,68 @@ ID: `mint_system.account.report_invoice_document.group_by_pickings`
 
 ```
 Source: [snippets/account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.group_by_pickings.xml)
+
+### Group By Product  
+ID: `mint_system.account.report_invoice_document.group_by_product`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+<xpath expr="//tbody" position="replace">
+
+  <tbody class="invoice_tbody">
+    <t t-set="current_subtotal" t-value="0"/>
+    <t t-set="lines" t-value="o.invoice_line_ids.sorted(key=lambda l: (-l.sequence, l.date, l.move_name, -l.id), reverse=True)"/>
+    <t t-set="consolidated_products" t-value="{}"/>
+    <t t-foreach="lines" t-as="line">
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+      <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+      <t t-set="product_name" t-value="line.product_id.display_name"/>
+      <t t-set="line_quantity" t-value="line.quantity"/>
+      <t t-set="line_price_unit" t-value="line.price_unit"/>
+      <t t-set="line_discount" t-value="line.discount"/>
+      <t t-set="line_subtotal" t-value="line.price_subtotal"/>
+      <t t-set="line_price_total" t-value="line.price_total"/>
+      <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
+      <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'discount': consolidated_product['discount'] + line_discount, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
+    </t>
+
+    <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+      <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
+        <t t-foreach="consolidated_products.items()" t-as="product_data">
+          <tr>
+            <td name="account_invoice_line_name">
+              <span t-esc="product_data[0]" t-options="{'widget': 'text'}"/>
+            </td>
+            <td class="text-end">
+              <span t-esc="product_data[1]['quantity']" t-options="{'widget': 'float', 'precision': 2}"/>
+              <span t-field="line.product_uom_id" groups="uom.group_uom"/>
+            </td>
+            <td t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">              
+              <t t-set="unit_price" t-value="product_data[1]['subtotal'] / product_data[1]['quantity'] "/>
+              <span class="text-nowrap" t-esc="unit_price" t-options="{'widget': 'float', 'precision': 3}"/>
+            </td>
+            <td t-if="display_discount" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span class="text-nowrap" t-esc="product_data[1]['discount']"/>
+            </td>
+            <td t-attf-class="text-start {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+              <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
+            </td>
+            <td class="text-end o_price_total">
+              <span class="text-nowrap" t-esc="product_data[1]['subtotal']" groups="account.group_show_line_subtotals_tax_excluded" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+              <span class="text-nowrap" t-esc="product_data[1]['price_total']" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+          </tr>
+        </t>
+      </t>
+    </tr>
+  </tbody>
+
+</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.group_by_product.xml)
 
 ### Group By Sale Order  
 ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
@@ -4919,6 +5188,32 @@ ID: `mint_system.account.report_invoice_document.show_categ_id`
 ```
 Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_categ_id.xml)
 
+### Show Credit Note  
+ID: `mint_system.account.report_invoice_document.show_credit_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <p name="payment_communication" position="before">
+        <t t-if="print_with_payments and (o.payment_state != 'invoicing_legacy')">
+            <t t-set="payments_vals"
+                t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []" />
+            <t t-foreach="payments_vals" t-as="payment_vals">
+                <t t-set="move_id" t-value="o.browse(payment_vals['move_id'])" />
+                <t t-if="move_id.move_type == 'out_refund'">
+                    <!-- <span>Diese Rechnung wurde mit Ihrer Gutschrift -->
+                    <!-- beglichen. Der neue Saldo auf Ihrer Gutschrift beträgt </span> -->
+                    <p><span>This invoice has been paid with a customer credit </span>(<span
+                            t-field="move_id.name" />). <span>The residual amount of this credit is </span><span
+                            t-field="move_id.amount_residual" />.</p>
+                </t>
+            </t>
+        </t>
+    </p>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_credit_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_credit_note.xml)
+
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
@@ -5204,6 +5499,19 @@ ID: `mint_system.account.report_invoice_document.style_moser`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_moser.xml)
+
+### Style Swissfragrance  
+ID: `mint_system.account.report_invoice_document.style_swissfragrance`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+  <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+		<attribute name="class">table table-sm o_main_table</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_swissfragrance.xml)
 
 ### Style Tissa  
 ID: `mint_system.account.report_invoice_document.style_tissa`  
@@ -6075,6 +6383,20 @@ ID: `mint_system.account.view_move_form.show_line_partner_id`
 ```
 Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_line_partner_id.xml)
 
+### Show Partner Id  
+ID: `mint_system.account.view_move_form.show_partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='partner_id']" position="replace">
+        <field name="partner_id" optional="hide"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_partner_id.xml)
+
 ### Show Payment Ids  
 ID: `mint_system.account.view_move_form.show_payment_ids`  
 ```xml
@@ -6145,6 +6467,21 @@ ID: `mint_system.account.view_move_form.show_stock_move_line_ids`
 ```
 Source: [snippets/account.view_move_form.show_stock_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_stock_move_line_ids.xml)
 
+### Show Tax Line Id  
+ID: `mint_system.account.view_move_form.show_tax_line_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50" >
+
+    <field name="tax_line_id" position="attributes">
+        <attribute name="invisible">0</attribute>
+        <attribute name="optional">hide</attribute>
+    </field>
+
+</data>
+```
+Source: [snippets/account.view_move_form.show_tax_line_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_tax_line_id.xml)
+
 ### Show User Id  
 ID: `mint_system.account.view_move_form.show_user_id`  
 ```xml
@@ -6158,6 +6495,20 @@ ID: `mint_system.account.view_move_form.show_user_id`
 </data>
 ```
 Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_user_id.xml)
+
+### X Bexio Name  
+ID: `mint_system.account.view_move_form.x_bexio_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+
+    <xpath expr="//group[@id='header_left_group']/label[1]" position="before">
+        <field name="x_bexio_name"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.view_move_form.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_bexio_name.xml)
 
 ### X Duplicate Found  
 ID: `mint_system.account.view_move_form.x_duplicate_found`  

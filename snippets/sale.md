@@ -2684,6 +2684,29 @@ ID: `mint_system.sale.report_saleorder_document.show_categ_id`
 ```
 Source: [snippets/sale.report_saleorder_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_categ_id.xml)
 
+### Show Comment  
+ID: `mint_system.sale.report_saleorder_document.show_comment`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <!-- <p name="order_note" position="before">
+        <p>
+            <strong>Remark:</strong>
+            <span t-field="doc.comment" name="order_note" />
+        </p>
+    </p> -->
+
+    <div id="informations" position="inside">
+        <div t-if="doc.comment" class="col-auto col-3 mw-100 mb-2">
+            <strong>Remark:</strong>
+            <p class="m-0" t-field="doc.comment"/>
+        </div>
+    </div>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.show_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_comment.xml)
+
 ### Show Default Code  
 ID: `mint_system.sale.report_saleorder_document.show_default_code`  
 ```xml
@@ -3650,6 +3673,20 @@ ID: `mint_system.sale.view_order_form.add_blanket_order_id`
 ```
 Source: [snippets/sale.view_order_form.add_blanket_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.add_blanket_order_id.xml)
 
+### Add Picking Policy  
+ID: `mint_system.sale.view_order_form.add_picking_policy`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//page[@name='other_information']//field[@name='user_id']" position="before">
+    <field name="picking_policy"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.add_picking_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.add_picking_policy.xml)
+
 ### Button Recompute Add Shipping  
 ID: `mint_system.sale.view_order_form.button_recompute_add_shipping`  
 ```xml
@@ -4012,6 +4049,20 @@ ID: `mint_system.sale.view_order_form.show_order_line_project_id`
 </data>
 ```
 Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
+
+### Show Order Line State  
+ID: `mint_system.sale.view_order_form.show_order_line_state`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+
+  <xpath expr="//field[@name='order_line']/tree/field[@name='product_id']" position="after">
+    <field name="state" optional="hide" />
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.show_order_line_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_order_line_state.xml)
 
 ### Show Order Line Subscription Id  
 ID: `mint_system.sale.view_order_form.show_order_line_subscription_id`  
