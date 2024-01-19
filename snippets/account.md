@@ -264,6 +264,26 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
+### Add Qr Iban  
+ID: `mint_system.account.report_invoice_document.add_qr_iban`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="after">
+        <p>
+            <!-- <strong>Bankkonto:</strong> -->
+            <strong>Bank account:</strong> 
+            <span t-field="o.partner_bank_id.bank_id.name" />
+            (<span t-field="o.partner_bank_id.bank_id.bic" />)
+            <span t-field="o.partner_bank_id.l10n_ch_qr_iban" />
+        </p>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_qr_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_qr_iban.xml)
+
 ### Add Sale Order Contact Name  
 ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`  
 ```xml
@@ -3028,6 +3048,26 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
+
+### Add Qr Iban  
+ID: `mint_system.account.report_invoice_document.add_qr_iban`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <div name="payment_term" position="after">
+        <p>
+            <!-- <strong>Bankkonto:</strong> -->
+            <strong>Bank account:</strong> 
+            <span t-field="o.partner_bank_id.bank_id.name" />
+            (<span t-field="o.partner_bank_id.bank_id.bic" />)
+            <span t-field="o.partner_bank_id.l10n_ch_qr_iban" />
+        </p>
+    </div>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_qr_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_qr_iban.xml)
 
 ### Add Sale Order Contact Name  
 ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`  
