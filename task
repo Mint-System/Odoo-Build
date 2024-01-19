@@ -178,7 +178,7 @@ function install-native() {
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 
     echo "Install module dependencies: prometheus_exporter"
-    pip install prometheus_client
+    pip install prometheus-client
 
     echo "Install module dependencies: base_view_inheritance_extension"
     pip install astor
@@ -206,6 +206,7 @@ function start() {
     fi
 
     if test -z "$1"; then
+        echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         docker-compose up -d
     fi
@@ -220,6 +221,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
+        echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
