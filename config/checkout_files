@@ -1,11 +1,12 @@
 .vuepress
+.env.template
+.dockerignore
+.gitignore
 build
 config
 scripts
 snippets
 template
-.dockerignore
-.gitignore
 docker-compose.yml
 Dockerfile
 package.json
