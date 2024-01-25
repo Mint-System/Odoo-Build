@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="website_sale.payment_confirmation_status" priority="50">
-
-  <xpath expr="//div[@t-if='order.reference']" position="replace" />
-
+    <xpath expr="//div[@t-if='order.reference']" position="replace"/>
 </data>

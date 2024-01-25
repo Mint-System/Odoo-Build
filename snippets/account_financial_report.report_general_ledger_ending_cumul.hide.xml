@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_ending_cumul" priority="50">
-
     <xpath expr="//div[@class='act_as_row labels']" position="replace"/>
-    
 </data>

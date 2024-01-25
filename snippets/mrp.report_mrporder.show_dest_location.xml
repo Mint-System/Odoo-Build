@@ -1,21 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
     <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
         <t t-if="o.finished_move_line_ids">
             <div class="col-3">
                 <strong>Destination:</strong>
-                <br />
-                <span t-field="o.finished_move_line_ids.location_dest_id.name" />
+                <br/>
+                <span t-field="o.finished_move_line_ids.location_dest_id.name"/>
             </div>
         </t>
         <t t-elif="o.move_finished_ids">
             <div class="col-3">
                 <strong>Destination:</strong>
-                <br />
-                <span t-field="o.move_finished_ids.location_dest_id.name" />
+                <br/>
+                <span t-field="o.move_finished_ids.location_dest_id.name"/>
             </div>
         </t>
     </xpath>
-
 </data>

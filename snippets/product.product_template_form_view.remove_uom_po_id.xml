@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-
-    <xpath expr="//group[@name='group_general']/field[@name='uom_po_id']" position="replace" />
-
+    <xpath expr="//group[@name='group_general']/field[@name='uom_po_id']" position="replace"/>
 </data>

@@ -1,14 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
-
-  <xpath expr="//div[@class='row'][2]" position="replace" />
-
-  <xpath expr="//div[@name='moto']" position="replace">
-    <div class="col-6 text-right" style="margin-top:22px;" t-field="company.report_header"
-      name="moto" />
-    <div class="col-3" name="company_address">
-      <span t-if="company.company_details" t-field="company.company_details" />
-    </div>
-  </xpath>
-
+    <xpath expr="//div[@class='row'][2]" position="replace"/>
+    <xpath expr="//div[@name='moto']" position="replace">
+        <div class="col-6 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
+        <div class="col-3" name="company_address">
+            <span t-if="company.company_details" t-field="company.company_details"/>
+        </div>
+    </xpath>
 </data>

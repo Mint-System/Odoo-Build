@@ -5,10 +5,9 @@ ID: `mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscripti
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_subscription.payment_checkout_inherit" priority="50">
-
-  <label t-if="is_subscription" position="replace" />
-
+    <label t-if="is_subscription" position="replace"/>
 </data>
+
 ```
 Source: [snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
 
@@ -18,11 +17,9 @@ ID: `mint_system.sale_subscription.sale_subscription_template_view_form.journal_
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_subscription.sale_subscription_template_view_form" priority="50">
-
-  <xpath expr="//field[@name='journal_id']" position="attributes">
-    <attribute name="attrs">{'domain': []}</attribute>
-  </xpath>
-
+    <xpath expr="//field[@name='journal_id']" position="attributes">
+        <attribute name="attrs">{'domain': []}</attribute>
+    </xpath>
 </data>
 
 ```

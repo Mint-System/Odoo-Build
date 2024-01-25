@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
-
-  <t t-set="additional_info" position="replace">
-    <t t-set="additional_info" t-value="o.name"/>
-  </t>
-
+    <t t-set="additional_info" position="replace">
+        <t t-set="additional_info" t-value="o.name"/>
+    </t>
 </data>

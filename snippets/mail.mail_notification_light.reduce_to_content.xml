@@ -1,29 +1,27 @@
 <?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_light" priority="50">
-
-  <xpath expr="//t/table" position="replace">
-    <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
-      <tr>
-        <td align="center">
-          <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
-            <tbody>
-              <!-- CONTENT -->
-              <tr>
-                <td style="min-width: 590px;">
-                  <t t-raw="message.body"/>
+    <xpath expr="//t/table" position="replace">
+        <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
+            <tr>
+                <td align="center">
+                    <table border="0" cellpadding="0" cellspacing="0" width="590" style="padding: 24px; background-color: white; color: #454748; border-collapse:separate;">
+                        <tbody>
+                            <!-- CONTENT -->
+                            <tr>
+                                <td style="min-width: 590px;">
+                                    <t t-raw="message.body"/>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
-              </tr>
-
-            </tbody>
-          </table>
-        </td>
-      </tr>
-      <!-- POWERED BY -->
-      <tr>
-        <td align="center" style="min-width: 590px;">
-          <a></a>
-        </td>
-      </tr>
-    </table>
-  </xpath>
+            </tr>
+            <!-- POWERED BY -->
+            <tr>
+                <td align="center" style="min-width: 590px;">
+                    <a/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

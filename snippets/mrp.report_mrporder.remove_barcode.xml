@@ -1,4 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-  <xpath expr="//span/div[@t-field='o.name']" position="replace"/>
+    <xpath expr="//span/div[@t-field='o.name']" position="replace"/>
 </data>

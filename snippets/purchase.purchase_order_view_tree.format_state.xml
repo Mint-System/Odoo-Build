@@ -1,5 +1,5 @@
+<?xml version="1.0"?>
 <data inherit_id="purchase.purchase_order_view_tree" priority="50">
-
     <xpath expr="//field[@name='state']" position="attributes">
         <attribute name="invisible">0</attribute>
         <attribute name="widget">badge</attribute>
@@ -7,5 +7,4 @@
         <attribute name="decoration-warning">state == 'to approve'</attribute>
         <attribute name="decoration-info">state == 'draft' or state == 'sent'</attribute>
     </xpath>
-
 </data>

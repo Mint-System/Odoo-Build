@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
-
-<xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
-
+    <xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 </data>

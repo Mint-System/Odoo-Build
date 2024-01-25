@@ -1,16 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
-    <t t-set="lines" t-value="lines.sorted(key=lambda l: (l.position))"/>
-  </xpath>
-
-  <xpath expr="//table[@name='stock_backorder_table']/tbody/t/t" position="after">
-    <t t-set="bo_lines" t-value="bo_lines.sorted(key=lambda l: (l.position))"/>
-  </xpath>
-
-  <xpath expr="//t[@name='no_package_move_lines']" position="before">
-    <t t-set="move_lines" t-value="move_lines.sorted(key=lambda l: (l.position))"/>
-  </xpath>
-
+    <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
+        <t t-set="lines" t-value="lines.sorted(key=lambda l: (l.position))"/>
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/tbody/t/t" position="after">
+        <t t-set="bo_lines" t-value="bo_lines.sorted(key=lambda l: (l.position))"/>
+    </xpath>
+    <xpath expr="//t[@name='no_package_move_lines']" position="before">
+        <t t-set="move_lines" t-value="move_lines.sorted(key=lambda l: (l.position))"/>
+    </xpath>
 </data>

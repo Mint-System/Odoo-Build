@@ -1,19 +1,22 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_origin" model="ir.model.fields">
-    <field name="field_description">Herkunft</field>
-    <field name="model">stock.picking</field>
-    <field name="model_id" ref="stock.model_stock_picking"/>
-    <field name="name">x_sale_id_partner_id</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">text</field> 
-    <field name="depfends">origin</field>
+    <record id="x_origin" model="ir.model.fields"><field name="field_description">Herkunft</field><field name="model">stock.picking</field><field name="model_id" ref="stock.model_stock_picking"/><field name="name">x_sale_id_partner_id</field><field name="store" eval="True"/><field name="readonly" eval="True"/><field name="copied" eval="False"/><field name="ttype">text</field><field name="depends">origin,scheduled_date</field>
     for record in self:
-    if record.origin and isinstance(record.origin, str) and record.x_origin_and_partner_id is not None:
-        record['x_origin'] = record.origin + ', ' + record.x_origin_and_partner_id
+    if record.origin is not None and record.x_origin_and_partner_id is not None:
+        x_origin_and_partner_id_str = str(record.x_origin_and_partner_id)
+        if x_origin_and_partner_id_str.lower() != 'false':
+            record['x_origin'] = str(record.origin) + ', ' + x_origin_and_partner_id_str
+        else:
+            record['x_origin'] = str(record.origin)
+    elif record.origin is not None:
+        record['x_origin'] = str(record.origin)
+    elif record.x_origin_and_partner_id is not None:
+        x_origin_and_partner_id_str = str(record.x_origin_and_partner_id)
+        if x_origin_and_partner_id_str.lower() != 'false':
+            record['x_origin'] = x_origin_and_partner_id_str
+        else:
+            record['x_origin'] = ''
+    else:
+        record['x_origin'] = ''
   </record>
-
 </odoo>

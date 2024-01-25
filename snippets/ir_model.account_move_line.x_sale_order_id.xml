@@ -1,20 +1,18 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_sale_order_id" model="ir.model.fields">
-    <field name="field_description">Verkaufsauftrag</field>
-    <field name="model">account.move.line</field>
-    <field name="model_id" ref="account.model_account_move_line"/>
-    <field name="name">x_sale_order_id</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">many2one</field>
-    <field name="relation">sale.order</field>
-    <field name="depends">sale_line_ids</field>
-    <field name="compute">for record in self:
+    <record id="x_sale_order_id" model="ir.model.fields">
+        <field name="field_description">Verkaufsauftrag</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_move_line"/>
+        <field name="name">x_sale_order_id</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">sale.order</field>
+        <field name="depends">sale_line_ids</field>
+        <field name="compute">for record in self:
   record['x_sale_order_id'] = record.sale_line_ids[0].order_id if record.sale_line_ids else 0
     </field>
-  </record>
-  
+    </record>
 </odoo>

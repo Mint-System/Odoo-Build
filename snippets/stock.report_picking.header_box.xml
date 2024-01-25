@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
-  <xpath expr="//h1" position="replace">
-    <div class="header_box">
-      <div class="row align-items-center">
-        <div class="col">
-          <h1 class="trimada">Rüstschein <span t-field="o.name"/>
+    <xpath expr="//h1" position="replace">
+        <div class="header_box">
+            <div class="row align-items-center">
+                <div class="col">
+                    <h1 class="trimada">R&#xFC;stschein <span t-field="o.name"/>
           </h1>
+                </div>
+                <div class="col">
+                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
+                </div>
+            </div>
         </div>
-        <div class="col">
-          <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', o.name, 600, 100)" style="width:210px;height:60px; float:right;" alt="Barcode"/>
-        </div>
-      </div>
-    </div>
-  </xpath>
-
+    </xpath>
 </data>

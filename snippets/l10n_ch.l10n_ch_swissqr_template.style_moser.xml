@@ -1,7 +1,6 @@
+<?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="60">
-
     <xpath expr="//div[hasclass('swissqr_page_title')]" position="before">
-      
         <style>
       .swissqr_receipt {
       border-top-style: none !important;
@@ -11,9 +10,7 @@
       border-left-style: none !important;
       }
     </style>
-  </xpath>
-    
-  <xpath expr="//img[@class='scissors vertical_scissors']" position="replace"/>
-  <xpath expr="//img[@class='scissors horizontal_scissors']" position="replace"/>
-
+    </xpath>
+    <xpath expr="//img[@class='scissors vertical_scissors']" position="replace"/>
+    <xpath expr="//img[@class='scissors horizontal_scissors']" position="replace"/>
 </data>

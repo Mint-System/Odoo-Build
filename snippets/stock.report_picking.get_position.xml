@@ -1,22 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
-  <!-- <xpath expr="//th[@name='th_product']" position="before">
+    <!-- <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id"> -->
-  <xpath expr="//th[@id='default_code']" position="before">
-      <th id="position">
-        <strong>Pos</strong>
-      </th>
-    <!-- </t> -->
-  </xpath>
-  
- <xpath expr="//td[@id='default_code']" position="before">
-  <!-- <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before"> -->
-    <!-- <t t-if="o.sale_id or o.purchase_id"> -->
-      <td id="position">
-        <span t-esc="move.position"/>
-      </td>
-    <!-- </t> -->
-  </xpath>
-
+    <xpath expr="//th[@id='default_code']" position="before">
+        <th id="position">
+            <strong>Pos</strong>
+        </th>
+        <!-- </t> -->
+    </xpath>
+    <xpath expr="//td[@id='default_code']" position="before">
+        <!-- <xpath expr="//span[@t-field='ml.product_id.description_picking']/.." position="before"> -->
+        <!-- <t t-if="o.sale_id or o.purchase_id"> -->
+        <td id="position">
+            <span t-esc="move.position"/>
+        </td>
+        <!-- </t> -->
+    </xpath>
 </data>

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-  <xpath expr="//div[@t-if='o.origin']/.." position="replace">    
-    <style>
+    <xpath expr="//div[@t-if='o.origin']/.." position="replace">
+        <style>
       table#titel {
       width: 100%;
       font-size: 11pt;
@@ -15,15 +15,20 @@
       padding-bottom: 5px;
       }
         </style>
-    <table id='titel'>
-      <tr>
-        <td style="width: 44%;"><strong>Fertigungsauftrag <span t-field="o.origin"/></strong></td>
-        <td style="width: 56%"><strong>Produkt </strong><span t-field="o.product_id"/></td>
-      </tr>
-      <tr>
-        <td>Status: <span t-field="o.state"/></td>
-        <td>Datum: <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span></td>
-      </tr>
-    </table>
-  </xpath>
+        <table id="titel">
+            <tr>
+                <td style="width: 44%;">
+                    <strong>Fertigungsauftrag <span t-field="o.origin"/></strong>
+                </td>
+                <td style="width: 56%">
+                    <strong>Produkt </strong>
+                    <span t-field="o.product_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Status: <span t-field="o.state"/></td>
+                <td>Datum: <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td>
+            </tr>
+        </table>
+    </xpath>
 </data>

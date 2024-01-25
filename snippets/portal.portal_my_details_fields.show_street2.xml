@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="portal.portal_my_details_fields" priority="50">
-
-  <xpath expr="//input[@name='street']/.." position="after">
-    <div t-attf-class="mb-3 #{error.get('street') and 'o_has_error' or ''} col-xl-6">
-      <label class="col-form-label" for="street2">Street2</label>
-      <input type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}" t-att-value="street2 or partner.street2"/>
-    </div>
-  </xpath>
-
+    <xpath expr="//input[@name='street']/.." position="after">
+        <div t-attf-class="mb-3 #{error.get('street') and 'o_has_error' or ''} col-xl-6">
+            <label class="col-form-label" for="street2">Street2</label>
+            <input type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}" t-att-value="street2 or partner.street2"/>
+        </div>
+    </xpath>
 </data>

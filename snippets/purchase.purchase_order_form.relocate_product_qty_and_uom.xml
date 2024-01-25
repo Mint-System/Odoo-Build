@@ -1,15 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.purchase_order_form" priority="50">
-
-  <xpath expr="//page[@name='products']//tree/field[@name='product_qty']" position="replace">
+    <xpath expr="//page[@name='products']//tree/field[@name='product_qty']" position="replace">
   </xpath>
-
-  <xpath expr="//page[@name='products']//tree/field[@name='product_uom']" position="replace">
+    <xpath expr="//page[@name='products']//tree/field[@name='product_uom']" position="replace">
   </xpath>
-
-  <xpath expr="//page[@name='products']//tree/field[@name='name']" position="after">
-    <field name="product_qty"/>
-    <field name="product_uom" string="UoM" groups="uom.group_uom" attrs="{'readonly': [('state', 'in', ('purchase', 'done', 'cancel'))],'required': [('display_type', '=', False)]}" force_save="1" optional="show"/>
-  </xpath>
-
+    <xpath expr="//page[@name='products']//tree/field[@name='name']" position="after">
+        <field name="product_qty"/>
+        <field name="product_uom" string="UoM" groups="uom.group_uom" attrs="{'readonly': [('state', 'in', ('purchase', 'done', 'cancel'))],'required': [('display_type', '=', False)]}" force_save="1" optional="show"/>
+    </xpath>
 </data>

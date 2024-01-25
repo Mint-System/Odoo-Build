@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//div[1]/div[2]/div[2]/p[1]" position="attributes">
-    <attribute name="t-options-widget">"date"</attribute>
-  </xpath>
-
+    <xpath expr="//div[1]/div[2]/div[2]/p[1]" position="attributes">
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
 </data>

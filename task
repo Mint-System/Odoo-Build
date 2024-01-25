@@ -178,7 +178,7 @@ function install-native() {
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 
     echo "Install module dependencies: prometheus_exporter"
-    pip install prometheus_client
+    pip install prometheus-client
 
     echo "Install module dependencies: base_view_inheritance_extension"
     pip install astor
@@ -206,6 +206,7 @@ function start() {
     fi
 
     if test -z "$1"; then
+        echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         docker-compose up -d
     fi
@@ -220,6 +221,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
+        echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
         docker-compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
@@ -242,6 +244,18 @@ function start() {
 function down() {
     if test -z "$1"; then
         docker-compose down -v
+    fi
+
+    if [[ "$1" =~ "db" ]]; then
+        docker-compose rm -f -s -v db
+    fi
+
+    if [[ "$1" =~ "admin" ]]; then
+        docker-compose rm -f -s -v admin
+    fi
+    
+    if [[ "$1" =~ "odoo" ]]; then
+        docker-compose rm -f -s -v odoo
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -488,21 +502,24 @@ function convert-database() {
     echo "Converted database file $1 to ${1}2"
 }
 
-function git-update-submodules() {
-    echo "Update submodules."
+function git-submodule-update() {
+    echo "Update git submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        git submodule update --depth 5 "$SUBMODULE"
+        # The init flag is required for the inital checkout
+        # The --depth flag cannot be used when working on multiple branches
+        echo "Update git submodule: $SUBMODULE"
+        git submodule update --init "$SUBMODULE"
     done
 }
 
-function git-switch-branch() {
+function git-submodule-switch() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    echo "Switch branch on submodules."
+    echo "Switch branch on git submodules."
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        echo "Switch branch to $1 in $SUBMODULE."
+        echo "Switch git submodule branch to $1: $SUBMODULE"
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
         git stash
@@ -533,9 +550,9 @@ function checkout() {
     echo "Switch branch."
     git switch "$1"
 
-    git-update-submodules
+    git-submodule-update
 
-    git-switch-branch "$1"
+    git-submodule-switch "$1"
 
     checkout-config-files "$GIT_BRANCH"
 }
@@ -553,10 +570,11 @@ function checkout-revision() {
     git checkout "$1"
 }
 
-function git-pull-submodules() {
-    # Pull submodule if update config is not set
+function git-submodule-pull() {
+    echo "Pull git submodules"
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
+        echo "Pull git submodule: $SUBMODULE"
         UPDATE=$(git config submodule."$SUBMODULE".update)
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
@@ -831,7 +849,14 @@ function save-config() {
     odoo-bin -s -d "$1" --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
-function remove-submodule() {
+function git-submodule-add() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
+}
+
+function git-submodule-remove() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Deinit submodule"
@@ -848,9 +873,9 @@ function remove-submodule() {
     rm -rf .git/modules/"$1"
 }
 
-function git-list-submodules() {
-
-    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+function git-submodule-list() {
+    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
@@ -1055,11 +1080,14 @@ case "$1" in
     remove-module)
         remove-module "$2" "$3"
         ;;
-    remove-submodule)
-        remove-submodule "$2"
+    git-submodule-remove)
+        git-submodule-remove "$2"
         ;;
-    git-update-submodules)
-        git-update-submodules
+    git-submodule-add)
+        git-submodule-add "$2" "$3"
+        ;;
+    git-submodule-update)
+        git-submodule-update
         ;;
     release-module)
         release-module "$2"
@@ -1079,7 +1107,7 @@ case "$1" in
     init-odoo-env)
         init-odoo-env "$2"
         ;;
-    list-odoo-env)
+    list-env)
         ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
         ;;
     list-addons)
@@ -1097,11 +1125,11 @@ case "$1" in
     set-admin)
         set-admin "$2"
         ;;
-    git-switch-branch)
-        git-switch-branch "$2"
+    git-submodule-switch)
+        git-submodule-switch "$2"
         ;;
-    git-list-submodules)
-        git-list-submodules
+    git-submodule-list)
+        git-submodule-list
         ;;
     get-module-version)
         get-module-version "$2"
@@ -1139,8 +1167,8 @@ case "$1" in
     patch-database)
         patch-database "$2" "$3"
         ;;
-    git-pull-submodules)
-        git-pull-submodules
+    git-submodule-pull)
+        git-submodule-pull
         ;;
     update-docs)
         update-docs

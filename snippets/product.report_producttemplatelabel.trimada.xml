@@ -1,8 +1,9 @@
+<?xml version="1.0"?>
 <t t-name="product.report_producttemplatelabel.trimada">
-  <t t-call="web.basic_layout">
-    <t t-foreach="docs" t-as="template">
-      <t t-foreach="template.product_variant_ids" t-as="product">
-        <style>
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="template">
+            <t t-foreach="template.product_variant_ids" t-as="product">
+                <style>
         .label {
             font-family: arial;
         }
@@ -58,45 +59,42 @@
             padding-left: 0;
         }
         </style>
-        
-        <div class="page">
-          <div class="label">
-            <div class="row title">
-              <div class="col-6 box2">
-                <span t-esc="product.default_code"/>
-              </div>
-              <div t-if="product.barcode" class="col-6 box2 text-right">
-                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.barcode, 250, 85)" alt="Barcode"/>
-              </div>
-            </div>
-            <div class="frame">
-            <div class="description">
-                <span class="sub1" t-esc="product.name"/>
-            </div>
-             <div class="description">
-                <span class="sub1" t-esc="product.type_description"/>
-            </div>
-            </div>
-            <div class="row delivery">
-              <div class="col-12 box3 text-center">
-                  <div t-if="product.feeder_id">
-                      <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
-                      <br/>
-                  </div>
-                  <div class="text-center">
-                      <span class="text-center" t-esc="product.feeder_id"></span>
-                  </div>
-              </div>
-            </div>
-            <div class="comment">
-              <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
-            </div>
-          </div>
-          <p style="page-break-before:always;" />
-          
-          </div>
+                <div class="page">
+                    <div class="label">
+                        <div class="row title">
+                            <div class="col-6 box2">
+                                <span t-esc="product.default_code"/>
+                            </div>
+                            <div t-if="product.barcode" class="col-6 box2 text-right">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.barcode, 250, 85)" alt="Barcode"/>
+                            </div>
+                        </div>
+                        <div class="frame">
+                            <div class="description">
+                                <span class="sub1" t-esc="product.name"/>
+                            </div>
+                            <div class="description">
+                                <span class="sub1" t-esc="product.type_description"/>
+                            </div>
+                        </div>
+                        <div class="row delivery">
+                            <div class="col-12 box3 text-center">
+                                <div t-if="product.feeder_id">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
+                                    <br/>
+                                </div>
+                                <div class="text-center">
+                                    <span class="text-center" t-esc="product.feeder_id"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                        </div>
+                    </div>
+                    <p style="page-break-before:always;"/>
+                </div>
+            </t>
         </t>
-      </t>
-    
-  </t>
+    </t>
 </t>

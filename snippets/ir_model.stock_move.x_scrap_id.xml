@@ -1,18 +1,17 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_scrap_id" model="ir.model.fields">
-    <field name="field_description">Buchung Lagerschwund</field>
-    <field name="model">product.packaging</field>
-    <field name="model_id" ref="product.model_product_packaging"/>
-    <field name="name">x_scrap_id</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="True"/>
-    <field name="ttype">many2one</field>
-    <field name="relation">stock.move</field>
-    <field name="depends">state</field>
-    <field name="compute">for record in self:
+    <record id="x_scrap_id" model="ir.model.fields">
+        <field name="field_description">Buchung Lagerschwund</field>
+        <field name="model">product.packaging</field>
+        <field name="model_id" ref="product.model_product_packaging"/>
+        <field name="name">x_scrap_id</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="True"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">stock.move</field>
+        <field name="depends">state</field>
+        <field name="compute">for record in self:
   if record.state == 'done':
     
     record['x_scrap_id'] = 1
@@ -20,6 +19,5 @@
     
     record['x_scrap_id'] = 0
     </field>
-  </record>
-
+    </record>
 </odoo>

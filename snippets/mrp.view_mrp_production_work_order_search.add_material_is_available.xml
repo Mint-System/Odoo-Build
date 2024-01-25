@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
-
-  <xpath expr="//filter[@name='date_start_filter']" position="after">
-    <separator/>
-    <filter string="Material is available" name="material_is_available" domain="[('x_reservation_state', '=', 'assigned')]"/>
-  </xpath>
-
+    <xpath expr="//filter[@name='date_start_filter']" position="after">
+        <separator/>
+        <filter string="Material is available" name="material_is_available" domain="[('x_reservation_state', '=', 'assigned')]"/>
+    </xpath>
 </data>

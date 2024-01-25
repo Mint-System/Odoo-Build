@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
-
-  <xpath expr="//field[@name='payment_term_id']" position="after">
-    <field name="comment" position="move"/>
-  </xpath>
-
+    <xpath expr="//field[@name='payment_term_id']" position="after">
+        <field name="comment" position="move"/>
+    </xpath>
 </data>

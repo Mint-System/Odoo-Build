@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-  
-  <table name="stock_move_table" position="attributes">
-    <attribute name="t-if"></attribute>
-  </table>
-
-  <table name="stock_move_line_table" position="attributes">
-    <attribute name="t-if">False</attribute>
-  </table>
-  
+    <table name="stock_move_table" position="attributes">
+        <attribute name="t-if"/>
+    </table>
+    <table name="stock_move_line_table" position="attributes">
+        <attribute name="t-if">False</attribute>
+    </table>
 </data>

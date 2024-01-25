@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//table[@id='infotable']" position="after">
-    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_header"/>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='stock_move_line_table']" position="after">
-    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-      <span class="note" t-field="o.note_footer"/>
-    </t>
-  </xpath>
-
+    <xpath expr="//table[@id='infotable']" position="after">
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
+    </xpath>
+    <xpath expr="//table[@name='stock_move_line_table']" position="after">
+        <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_footer"/>
+        </t>
+    </xpath>
 </data>

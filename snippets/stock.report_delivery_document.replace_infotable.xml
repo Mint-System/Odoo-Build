@@ -1,42 +1,38 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//div[@class='page']/div[1]" position="replace">
-
-    <style>
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+        <style>
       table#infotable td,
       table#infotable th {
         padding-top: 0;
         padding-bottom: 0;
       }
     </style>
-    <table id="infotable" class="table table-sm table-borderless">
-      <thead class="o_thead">
-        <tr>
-          <th id="origin">Auftrag:</th>
-          <th t-if="o.state == 'done'" id="date_done">Versanddatum:</th>
-          <th t-if="o.state != 'done'" id="scheduled_date">Versanddatum:</th>
-          <th id="client_order_ref">Kundenreferenz:</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id="origin">
-            <span t-field="o.origin" />
-          </td>
-          <td t-if="o.state == 'done'" id="date_done">
-            <span t-field="o.date_done" />
-          </td>
-          <td t-if="o.state != 'done'" id="scheduled_date">
-            <span t-field="o.scheduled_date" />
-          </td>
-          <td id="client_order_ref">
-            <span t-field="o.sudo().sale_id.client_order_ref" />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </xpath>
-
+        <table id="infotable" class="table table-sm table-borderless">
+            <thead class="o_thead">
+                <tr>
+                    <th id="origin">Auftrag:</th>
+                    <th t-if="o.state == 'done'" id="date_done">Versanddatum:</th>
+                    <th t-if="o.state != 'done'" id="scheduled_date">Versanddatum:</th>
+                    <th id="client_order_ref">Kundenreferenz:</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td id="origin">
+                        <span t-field="o.origin"/>
+                    </td>
+                    <td t-if="o.state == 'done'" id="date_done">
+                        <span t-field="o.date_done"/>
+                    </td>
+                    <td t-if="o.state != 'done'" id="scheduled_date">
+                        <span t-field="o.scheduled_date"/>
+                    </td>
+                    <td id="client_order_ref">
+                        <span t-field="o.sudo().sale_id.client_order_ref"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </xpath>
 </data>

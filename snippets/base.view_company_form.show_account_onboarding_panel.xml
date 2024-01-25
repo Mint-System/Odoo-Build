@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
-
     <field name="website" position="after">
-        <field name="account_dashboard_onboarding_state" />
+        <field name="account_dashboard_onboarding_state"/>
     </field>
-
 </data>

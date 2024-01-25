@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
-
-  <t t-set="forced_vat" position="replace">
-    <t t-set="forced_vat" t-value="o.company_id.vat"/>
-  </t>
-
+    <t t-set="forced_vat" position="replace">
+        <t t-set="forced_vat" t-value="o.company_id.vat"/>
+    </t>
 </data>

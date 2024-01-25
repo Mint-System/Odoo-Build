@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <t t-name="account_financial_report.internal_layout">
-
     <t t-if="not o" t-set="o" t-value="doc"/>
-
     <t t-if="not company">
         <!-- Multicompany -->
         <t t-if="company_id">
@@ -15,7 +13,6 @@
             <t t-set="company" t-value="res_company"/>
         </t>
     </t>
-
     <div class="header">
         <div class="row" style="height: 20px;">
             <div class="col-3">
@@ -37,9 +34,7 @@
             </div>
         </div>
     </div>
-
     <div class="article o_account_financial_reports_page">
-
         <style>
             .act_as_table {
                 display: table !important;
@@ -161,7 +156,6 @@
               font-weight: bold;
             }
         </style>
-
         <t t-raw="0"/>
     </div>
 </t>

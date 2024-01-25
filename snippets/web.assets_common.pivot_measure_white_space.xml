@@ -1,12 +1,10 @@
 <?xml version="1.0"?>
 <data inherit_id="web.assets_common" priority="50">
-
-    <xpath expr="." position="inside">        
+    <xpath expr="." position="inside">
         <style>
             .o_pivot table thead th:not(.o_pivot_header_cell_closed):not(.o_pivot_header_cell_opened):not(.o_pivot_header_cell) {
               white-space: pre-wrap;
             }
         </style>
     </xpath>
-
 </data>

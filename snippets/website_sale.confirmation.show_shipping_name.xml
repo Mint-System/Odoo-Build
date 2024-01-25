@@ -1,12 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="website_sale.confirmation" priority="50">
-
-  <span t-esc="order.partner_invoice_id" position="before">
-    <span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
+    <span t-esc="order.partner_invoice_id" position="before"><span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
   </span>
-  
-  <span t-esc="order.partner_shipping_id" position="before">
-    <span t-esc="order.partner_shipping_id.name" class="address-inline"/>,
+    <span t-esc="order.partner_shipping_id" position="before"><span t-esc="order.partner_shipping_id.name" class="address-inline"/>,
   </span>
-
 </data>

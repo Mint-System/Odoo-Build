@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
-
-  <xpath expr="//table[1]" position="attributes">
-    <attribute name="style" separator=";" add="margin-top: 1rem"/>
-  </xpath>
-
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="style" separator=";" add="margin-top: 1rem"/>
+    </xpath>
 </data>

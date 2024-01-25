@@ -1,18 +1,16 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
-
     <group name="origin_grp" position="before">
         <group name="move_lines">
             <field name="move_line_ids">
                 <tree>
-                    <field name="date" />
-                    <field name="reference" />
-                    <field name="lot_id" />
-                    <field name="qty_done" />
-                    <field name="state" />
+                    <field name="date"/>
+                    <field name="reference"/>
+                    <field name="lot_id"/>
+                    <field name="qty_done"/>
+                    <field name="state"/>
                 </tree>
             </field>
         </group>
     </group>
-
 </data>

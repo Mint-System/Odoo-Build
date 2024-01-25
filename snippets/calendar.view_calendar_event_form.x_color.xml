@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="calendar.view_calendar_event_form" priority="50">
-
-  <xpath expr="//field[@name='user_id']" position="after">
-    <field name="x_color" />
-  </xpath>
-
+    <xpath expr="//field[@name='user_id']" position="after">
+        <field name="x_color"/>
+    </xpath>
 </data>

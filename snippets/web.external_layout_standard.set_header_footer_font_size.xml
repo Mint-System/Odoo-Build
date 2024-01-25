@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
-
-  <!-- <xpath expr="/t/div[1]" position="before">
+    <!-- <xpath expr="/t/div[1]" position="before">
     <style>
       div.footer,
       div.header {
@@ -9,20 +8,15 @@
       }
     </style>
   </xpath> -->
-
-  <xpath expr="//div[@t-field='company.report_footer']" position="replace">
-    <div style="font-size: 0.8rem;" class="mt-1" t-field="company.report_footer" />
-  </xpath>
-
-  <xpath expr="//div[@t-field='company.report_footer']/../../div" position="replace">
-    <div t-if="report_type == 'pdf'" style="font-size: 0.8rem;" class="text-muted">
+    <xpath expr="//div[@t-field='company.report_footer']" position="replace">
+        <div style="font-size: 0.8rem;" class="mt-1" t-field="company.report_footer"/>
+    </xpath>
+    <xpath expr="//div[@t-field='company.report_footer']/../../div" position="replace">
+        <div t-if="report_type == 'pdf'" style="font-size: 0.8rem;" class="text-muted">
       Page: <span class="page"/> / <span class="topage"/>
     </div>
-  </xpath>
-
-  <xpath expr="//span[@t-field='company.company_details']" position="replace">
-    <span t-if="company.company_details" style="font-size: 0.8rem;"
-      t-field="company.company_details" />
-  </xpath>
-
+    </xpath>
+    <xpath expr="//span[@t-field='company.company_details']" position="replace">
+        <span t-if="company.company_details" style="font-size: 0.8rem;" t-field="company.company_details"/>
+    </xpath>
 </data>

@@ -1,44 +1,42 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-  
-  <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="attributes">
-    <attribute name="class" separator=" " add="first"/>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="after">
-    <t t-if="line.product_id.type_description">
-    <tr class="second">
-      <td></td>
-      <td></td>
-      <td colspan="5">
-        <span t-field="line.external_name"/><br/>
-        <t t-if="line.product_id.country_of_origin_id.code">
+    <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="attributes">
+        <attribute name="class" separator=" " add="first"/>
+    </xpath>
+    <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="after">
+        <t t-if="line.product_id.type_description">
+            <tr class="second">
+                <td/>
+                <td/>
+                <td colspan="5">
+                    <span t-field="line.external_name"/>
+                    <br/>
+                    <t t-if="line.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="line.product_id.country_of_origin_id.code" />
+          <span t-field="line.product_id.country_of_origin_id.code"/>
         </t>
-        <t t-if="line.product_id.hs_code">
+                    <t t-if="line.product_id.hs_code">
           / Zollposition:
-          <span t-field="line.product_id.hs_code" />
+          <span t-field="line.product_id.hs_code"/>
         </t>
-      </td>
-    </tr>
-    </t>
-    <t t-if="not line.product_id.type_description">
-    <tr class="second">
-      <td></td>
-      <td></td>
-      <td colspan="5">
-        <t t-if="line.product_id.country_of_origin_id.code">
+                </td>
+            </tr>
+        </t>
+        <t t-if="not line.product_id.type_description">
+            <tr class="second">
+                <td/>
+                <td/>
+                <td colspan="5">
+                    <t t-if="line.product_id.country_of_origin_id.code">
           Ursprungsland:
-          <span t-field="line.product_id.country_of_origin_id.code" />
+          <span t-field="line.product_id.country_of_origin_id.code"/>
         </t>
-        <t t-if="line.product_id.hs_code">
+                    <t t-if="line.product_id.hs_code">
           / Zollposition:
-          <span t-field="line.product_id.hs_code" />
+          <span t-field="line.product_id.hs_code"/>
         </t>
-      </td>
-    </tr>
-    </t>
-  </xpath>
-
+                </td>
+            </tr>
+        </t>
+    </xpath>
 </data>

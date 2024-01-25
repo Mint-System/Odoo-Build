@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//table" position="before">
-    <style>
+    <xpath expr="//table" position="before">
+        <style>
       .border-solid-black th,
       .border-solid-black td {
       border-top: 1px solid black !important;
@@ -12,14 +11,11 @@
       color: #5c516e;
       }
     </style>
-  </xpath>
-
-  <xpath expr="//thead[1]/tr[1]" position="attributes">
-    <attribute name="class" separator=" " add="border-black" />
-  </xpath>
-
-  <xpath expr="//td[@name='td_section_subtotal']/.." position="attributes">
-    <attribute name="class" separator=" " add="border-solid-black" />
-  </xpath>
-
+    </xpath>
+    <xpath expr="//thead[1]/tr[1]" position="attributes">
+        <attribute name="class" separator=" " add="border-black"/>
+    </xpath>
+    <xpath expr="//td[@name='td_section_subtotal']/.." position="attributes">
+        <attribute name="class" separator=" " add="border-solid-black"/>
+    </xpath>
 </data>

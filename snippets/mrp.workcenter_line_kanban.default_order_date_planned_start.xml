@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.workcenter_line_kanban" priority="50">
-
-  <xpath expr="//kanban" position="attributes">
-    <attribute name="default_order">date_planned_start</attribute>
-  </xpath>
-
+    <xpath expr="//kanban" position="attributes">
+        <attribute name="default_order">date_planned_start</attribute>
+    </xpath>
 </data>

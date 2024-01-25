@@ -17,12 +17,15 @@
 | edit-env                    | [env]             | Open env file in default editor.                                                          |
 | generate-admin-passwd       | [pass]            | Generate hash for Odoo master password.                                                   |
 | generate-module-translation | [env][path][lang] | Generate translation for Odoo module.                                                     |
-| git-feature-branch          | [path]            | Create feature branch for Odoo module.                                                    |
 | get-module-version          | [path]            | Get module version from manifest.                                                         |
-| git-list-submodules         |                   | List path and url of submodules.                                                          |
+| git-feature-branch          | [path]            | Create feature branch for Odoo module.                                                    |
 | git-mig-branch              | [path]            | Create migration branch for Odoo module.                                                  |
-| git-pull-submodules         |                   | Pull alls submodules.                                                                     |
-| git-update-submodules       |                   | Update submodules from .gitmodules file.                                                  |
+| git-submodule-add           | [url] [path]      | Add git submodule.                                                                        |
+| git-submodule-list          |                   | List path and url of submodules.                                                          |
+| git-submodule-pull          |                   | Pull alls submodules.                                                                     |
+| git-submodule-remove        | [path]            | Remove git submodule.                                                                     |
+| git-submodule-switch        | [branch]          | Switch branch for all submodules.                                                         |
+| git-submodule-update        |                   | Update submodules from .gitmodules file.                                                  |
 | init-db                     | [db]              | Initialize the Odoo database. Default is branch name.                                     |
 | init-nextcloud-env          | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env               | [env]             | Create env file for Odoo Instance.                                                        |
@@ -31,19 +34,18 @@
 | install-native              |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts        |                   | Install Odoo scripts.                                                                     |
 | install-snippet             | [env][path]       | Install snippet xml definition.                                                           |
-| kill                        | [name]            | Remove docker containers and volumes.                                                     |
+| kill                        | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
 | lint-module                 | [path]            | Run pylint odoo for module.                                                               |
 | lint-snippets               |                   | Run checks for all snippets.                                                              |
-| list                        |                   | List docker services.                                                                     |
-| list-odoo-env               |                   | List odoo env files.                                                                      |
+| list                        |                   | List Docker containers.                                                                   |
 | list-addons                 |                   | List odoo addons.                                                                         |
+| list-env                    |                   | List env files.                                                                           |
 | logs                        |                   | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc                   | [db]              | Count custom line of codes. Default is branch name.                                       |
 | patch-database              | [db][path]        | Apply sql file to database. Default database is branch name.                              |
 | ps                          |                   | List docker processes.                                                                    |
 | release-module              | [path]            | Create GitHub release for a module.                                                       |
 | remove-module               | [db][name]        | Remove target Odoo module.                                                                |
-| remove-submodule            | [path]            | Remove git submodule.                                                                     |
 | reset-views                 | [db][key]         | Execute hard reset on views matching keys.                                                |
 | restart                     | [name]            | Restart docker container.                                                                 |
 | save-config                 | [name]            | Save Odoo database config                                                                 |
@@ -54,10 +56,9 @@
 | start-psql                  | [db]              | Start PSQL shell in Docker container. Default is branch name.                             |
 | start-shell                 | [db]              | Start Odoo shell from source folder. Default is branch name.                              |
 | stop                        | [name]            | Stop docker containers.                                                                   |
-| git-switch-branch           | [branch]          | Switch submodules to target branch.                                                       |
+| test-coverage-module        | [db][name,path]   | Generate test coverage report for target Odoo module.                                     |
 | test-jsonrpc                | [env]             | Test json rpc connection.                                                                 |
 | test-module                 | [db][name,path]   | Test target Odoo module.                                                                  |
-| test-coverage-module        | [db][name,path]   | Generate test coverage report for target Odoo module.                                     |
 | update-app-list             | [db]              | Update app list.                                                                          |
 | update-docs                 |                   | Update project docs.                                                                      |
 | update-module               | [db][name,path]   | Update target Odoo module.                                                                |

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.purchase_order_form" priority="50">
-
-  <xpath expr="//field[@name='date_approve']" position="attributes">
-    <attribute name="readonly">0</attribute>
-  </xpath>
-
+    <xpath expr="//field[@name='date_approve']" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </xpath>
 </data>

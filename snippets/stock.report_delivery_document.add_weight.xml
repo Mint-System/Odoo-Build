@@ -1,17 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//th[@name='th_sm_quantity']" position="before">
-    <th>
-      <span>Weight</span>
-    </th>
-  </xpath>
-
-  <xpath expr="//span[@t-field='move.quantity_done']/.." position="before">
-    <td>
-      <span t-field="move.product_id.weight"/>
-      <span t-field="move.product_id.weight_uom_name"/>
-    </td>
-  </xpath>
-
+    <xpath expr="//th[@name='th_sm_quantity']" position="before">
+        <th>
+            <span>Weight</span>
+        </th>
+    </xpath>
+    <xpath expr="//span[@t-field='move.quantity_done']/.." position="before">
+        <td>
+            <span t-field="move.product_id.weight"/>
+            <span t-field="move.product_id.weight_uom_name"/>
+        </td>
+    </xpath>
 </data>

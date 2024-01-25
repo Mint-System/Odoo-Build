@@ -1,11 +1,10 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//p[@name='order_note']" position="before">
-    <t t-if="doc.state != 'sale'">
-      <p>
-    Gültigkeit der Offerte: <span t-field="doc.validity_date"/>
+    <xpath expr="//p[@name='order_note']" position="before">
+        <t t-if="doc.state != 'sale'">
+            <p>
+    G&#xFC;ltigkeit der Offerte: <span t-field="doc.validity_date"/>
       </p>
-    </t>
-  </xpath>
-
+        </t>
+    </xpath>
 </data>

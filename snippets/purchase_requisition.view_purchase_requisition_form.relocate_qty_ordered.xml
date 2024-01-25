@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
-
-  <xpath expr="//page[@name='products']//field[@name='qty_ordered']" position="replace"/>
-  <xpath expr="//page[@name='products']//field[@name='schedule_date']" position="after">
-    <field name="qty_ordered" optional="show"/>
-  </xpath>
-
+    <xpath expr="//page[@name='products']//field[@name='qty_ordered']" position="replace"/>
+    <xpath expr="//page[@name='products']//field[@name='schedule_date']" position="after">
+        <field name="qty_ordered" optional="show"/>
+    </xpath>
 </data>

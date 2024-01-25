@@ -1,21 +1,24 @@
 <?xml version="1.0"?>
 <!-- If lot is not available show forecasted days. -->
 <data inherit_id="mrp.report_mrporder" priority="50">
-
     <xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
         <t t-if="raw_line.forecast_expected_date">
-            <br/><span>Expected date: </span><span t-field="raw_line.forecast_expected_date" t-options='{"widget": "date"}'/><br/>
+            <br/>
+            <span>Expected date: </span>
+            <span t-field="raw_line.forecast_expected_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            <br/>
         </t>
-
         <!--
         <span>Qty: </span><span t-field="raw_line.product_uom_qty"/><br/>
         <span>Forecast: </span><span t-field="raw_line.forecast_availability"/><br/>
         <span>Available: </span><span t-field="raw_line.availability"/><br/>
         -->
-
-        <t t-if="len(raw_line.move_line_ids) > 0 and raw_line.move_line_ids[0].lot_id">
-            <br/><span>Lot(s): </span><span t-foreach="raw_line.move_line_ids" t-as="move_line"><span t-field="move_line.lot_id"/> </span>
+        <t t-if="len(raw_line.move_line_ids) &gt; 0 and raw_line.move_line_ids[0].lot_id">
+            <br/>
+            <span>Lot(s): </span>
+            <span t-foreach="raw_line.move_line_ids" t-as="move_line">
+                <span t-field="move_line.lot_id"/>
+            </span>
         </t>
     </xpath>
-
 </data>

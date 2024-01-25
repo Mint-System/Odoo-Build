@@ -5,9 +5,7 @@ ID: `mint_system.survey.layout.remove_brand_promotion_message`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.layout" priority="50">
-
-  <div t-call="web.brand_promotion_message" position="replace" />
-
+    <div t-call="web.brand_promotion_message" position="replace"/>
 </data>
 
 ```
@@ -16,16 +14,16 @@ Source: [snippets/survey.layout.remove_brand_promotion_message.xml](https://gith
 ### Set Head Title  
 ID: `mint_system.survey.layout.set_head_title`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="survey.layout" priority="50">
-
-  <xpath expr="//head" position="before">
-    <t t-if="survey">
-      <t t-set="title" t-value="('Sozialinfo - ' + survey.title) if survey else 'Odoo'"/>
-      <t t-set="x_icon" t-value="'/web/image?model=res.company&amp;id=1&amp;field=favicon'"/>
-    </t>
-  </xpath>
-
+    <xpath expr="//head" position="before">
+        <t t-if="survey">
+            <t t-set="title" t-value="('Sozialinfo - ' + survey.title) if survey else 'Odoo'"/>
+            <t t-set="x_icon" t-value="'/web/image?model=res.company&amp;id=1&amp;field=favicon'"/>
+        </t>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/survey.layout.set_head_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/survey.layout.set_head_title.xml)
 
@@ -35,11 +33,9 @@ ID: `mint_system.survey.survey_question_form.add_button_start_survey`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_question_form" priority="50">
-
-  <button name="action_start_session" position="after">
-    <button name="action_start_survey" string="Start Survey" type="object" attrs="{'invisible': [('state', '=', 'draft')]}" />
-  </button>
-
+    <button name="action_start_session" position="after">
+        <button name="action_start_survey" string="Start Survey" type="object" attrs="{'invisible': [('state', '=', 'draft')]}"/>
+    </button>
 </data>
 
 ```
@@ -50,11 +46,9 @@ ID: `mint_system.survey.survey_question_form.enable_create`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_question_form" priority="50">
-
-  <form position="attributes">
-    <attribute name="create">1</attribute>
-  </form>
-
+    <form position="attributes">
+        <attribute name="create">1</attribute>
+    </form>
 </data>
 
 ```
@@ -66,11 +60,9 @@ ID: `mint_system.survey.survey_question_tree.enable_create`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_question_tree" priority="50">
-
-  <tree position="attributes">
-    <attribute name="create">1</attribute>
-  </tree>
-
+    <tree position="attributes">
+        <attribute name="create">1</attribute>
+    </tree>
 </data>
 
 ```
@@ -82,10 +74,11 @@ ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_user_input_view_tree" priority="50">
-  <xpath expr="//field[@name='partner_id']" position="after">
-    <field name="x_department_id" optional="show"/>
-  </xpath>
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="x_department_id" optional="show"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/survey.survey_user_input_view_tree.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/survey.survey_user_input_view_tree.x_department_id.xml)
 
@@ -94,10 +87,11 @@ ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_user_input_view_tree" priority="50">
-  <xpath expr="//field[@name='partner_id']" position="after">
-    <field name="x_manager_id" optional="show"/>
-  </xpath>
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="x_manager_id" optional="show"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/survey.survey_user_input_view_tree.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/survey.survey_user_input_view_tree.x_manager_id.xml)
 

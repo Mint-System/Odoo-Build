@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//table[hasclass('o_main_table')]" position="before">
-    <style>
+    <xpath expr="//table[hasclass('o_main_table')]" position="before">
+        <style>
       table.o_main_table th,
       table.o_main_table td {
         font-size: 0.8rem;
       }
     </style>
-  </xpath>
-
+    </xpath>
 </data>

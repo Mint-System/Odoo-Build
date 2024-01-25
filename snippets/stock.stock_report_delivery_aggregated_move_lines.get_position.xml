@@ -1,17 +1,15 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
-
-  <xpath expr="/t/tr/td[1]" position="before">
-    <t t-if="o.purchase_id or o.sale_id">
-      <td>
-        <t t-if="aggregated_lines[line]['move_line']">
-          <span t-esc="aggregated_lines[line]['move_line'].move_id.position"/>
+    <xpath expr="/t/tr/td[1]" position="before">
+        <t t-if="o.purchase_id or o.sale_id">
+            <td>
+                <t t-if="aggregated_lines[line]['move_line']">
+                    <span t-esc="aggregated_lines[line]['move_line'].move_id.position"/>
+                </t>
+            </td>
         </t>
-      </td>
-    </t>
-  </xpath>
-
-  <!-- <xpath expr="/t/tr/td[1]" position="before">
+    </xpath>
+    <!-- <xpath expr="/t/tr/td[1]" position="before">
     <t t-if="o.sale_id">
       <td>
         <span t-esc="o.sale_id.get_position(aggregated_lines[line]['product'], aggregated_lines[line]['qty_done']) or o.sale_id.get_position(aggregated_lines[line]['product'])"/>
@@ -23,5 +21,4 @@
       </td>
     </t>
   </xpath> -->
-
 </data>

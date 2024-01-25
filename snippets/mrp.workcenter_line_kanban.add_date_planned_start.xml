@@ -1,22 +1,23 @@
 <?xml version="1.0"?>
-<data inherit_id="mrp.workcenter_line_kanban"  priority="50">
-
-<xpath expr="//h5" position="replace">
-  <h5 class="oe_kanban_bottom_left">
-    
-    <table>
-      <tr>
-        <td class="font-weight-bold">
+<data inherit_id="mrp.workcenter_line_kanban" priority="50">
+    <xpath expr="//h5" position="replace">
+        <h5 class="oe_kanban_bottom_left">
+            <table>
+                <tr>
+                    <td class="font-weight-bold">
            Start Datum: <field name="date_planned_start" type="date"/>
         </td>
-      </tr>
-      <tr>
-        <td>
-         <span><t t-esc="record.product_id.value"/>, </span> <span><t t-esc="record.qty_production.value"/> <t t-esc="record.product_uom_id.value"/></span>
-        </td>
-      </tr>
-    </table>
-
-  </h5>
-</xpath>
+                </tr>
+                <tr>
+                    <td>
+                        <span><t t-esc="record.product_id.value"/>, </span>
+                        <span>
+                            <t t-esc="record.qty_production.value"/>
+                            <t t-esc="record.product_uom_id.value"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </h5>
+    </xpath>
 </data>

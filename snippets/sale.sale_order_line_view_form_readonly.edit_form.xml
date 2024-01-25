@@ -1,42 +1,39 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.sale_order_line_view_form_readonly" priority="50">
-
     <form position="replace">
         <form string="Sales Order Item">
             <sheet>
                 <div class="oe_title">
                     <h1>
-                        <field name="display_name" />
+                        <field name="display_name"/>
                     </h1>
                 </div>
                 <group>
                     <group>
-                        <field name="order_id" />
-                        <field name="product_id" />
-                        <field name="name" />
-                        <field name="product_uom_qty" />
-                        <field name="qty_delivered" />
-                        <field name="qty_invoiced" />
-                        <field name="product_uom_category_id" />
-                        <field name="product_uom" />
-                        <field name="company_id" options="{'no_create': True}"
-                            groups="base.group_multi_company" />
-                        <field name="order_partner_id" invisible="1" />
-                        <field name="display_type" invisible="1" />
-                        <field name="product_updatable" invisible="1" />
+                        <field name="order_id"/>
+                        <field name="product_id"/>
+                        <field name="name"/>
+                        <field name="product_uom_qty"/>
+                        <field name="qty_delivered"/>
+                        <field name="qty_invoiced"/>
+                        <field name="product_uom_category_id"/>
+                        <field name="product_uom"/>
+                        <field name="company_id" options="{'no_create': True}" groups="base.group_multi_company"/>
+                        <field name="order_partner_id" invisible="1"/>
+                        <field name="display_type" invisible="1"/>
+                        <field name="product_updatable" invisible="1"/>
                     </group>
                     <group>
-                        <field name="price_unit" />
-                        <field name="discount" groups="product.group_discount_per_so_line" />
-                        <field name="price_subtotal" widget="monetary" />
-                        <field name="tax_id" widget="many2many_tags" />
-                        <field name="price_tax" widget="monetary" />
-                        <field name="price_total" widget="monetary" />
-                        <field name="currency_id" invisible="1" />
+                        <field name="price_unit"/>
+                        <field name="discount" groups="product.group_discount_per_so_line"/>
+                        <field name="price_subtotal" widget="monetary"/>
+                        <field name="tax_id" widget="many2many_tags"/>
+                        <field name="price_tax" widget="monetary"/>
+                        <field name="price_total" widget="monetary"/>
+                        <field name="currency_id" invisible="1"/>
                     </group>
                 </group>
             </sheet>
         </form>
     </form>
-
 </data>

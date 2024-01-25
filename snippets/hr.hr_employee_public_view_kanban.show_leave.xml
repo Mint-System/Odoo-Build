@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
-
-     <xpath expr="//templates" position="before">
+    <xpath expr="//templates" position="before">
         <field name="current_leave_id"/>
         <field name="current_leave_state"/>
         <field name="leave_date_from"/>
@@ -12,5 +11,4 @@
             <field name="current_leave_id"/>
         </span>
     </xpath>
-
 </data>

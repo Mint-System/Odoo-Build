@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="x_eori"/>
-  </xpath>
-
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="x_eori"/>
+    </xpath>
 </data>

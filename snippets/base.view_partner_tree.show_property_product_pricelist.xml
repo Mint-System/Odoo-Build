@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="60">
-
-  <field name="country_id" position="after">
-    <field name="property_product_pricelist" optional="hide"/>
-  </field>
-  
+    <field name="country_id" position="after">
+        <field name="property_product_pricelist" optional="hide"/>
+    </field>
 </data>

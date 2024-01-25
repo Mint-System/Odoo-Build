@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
-
     <xpath expr="//button[@name='action_cancel']" position="attributes">
         <attribute name="states">ongoing,open</attribute>
     </xpath>
-    
 </data>

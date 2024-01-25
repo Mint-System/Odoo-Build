@@ -1,31 +1,27 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
-
-  <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
-
-     <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
-      <tr>
-        <td style="width:15.5%; text-align:left">
-          <strong>Subtotal</strong>
-        </td>
-        <td style="width:23%; text-align:left">
-          <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
-        </td>
-        <td style="width:12%; text-align:left">
-          <span>VAT</span>
-        </td>
-        <td style="width:17%; text-align:left">
-          <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
-        </td>
-        <td style="width:14%; text-align:right">
-          <strong>Total</strong>
-        </td>
-        <td style="width:18%; text-align:right">
-          <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
-        </td>
-      </tr>
-    </table>
-
-  </xpath>
-
+    <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
+        <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+            <tr>
+                <td style="width:15.5%; text-align:left">
+                    <strong>Subtotal</strong>
+                </td>
+                <td style="width:23%; text-align:left">
+                    <span t-field="doc.amount_untaxed" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+                </td>
+                <td style="width:12%; text-align:left">
+                    <span>VAT</span>
+                </td>
+                <td style="width:17%; text-align:left">
+                    <span t-field="doc.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+                </td>
+                <td style="width:14%; text-align:right">
+                    <strong>Total</strong>
+                </td>
+                <td style="width:18%; text-align:right">
+                    <span t-field="doc.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.currency_id}"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

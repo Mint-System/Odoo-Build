@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
-
     <label for="planned_date_begin" position="attributes">
-        <attribute name="attrs"></attribute>
+        <attribute name="attrs"/>
     </label>
-
     <xpath expr="//label[@for='planned_date_begin']/../div[1]" position="attributes">
-        <attribute name="attrs"></attribute>
+        <attribute name="attrs"/>
     </xpath>
-
 </data>

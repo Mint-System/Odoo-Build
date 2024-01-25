@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <odoo>
-
-  <record model="ir.actions.act_window" id="open_boards_activities">
-    <field name="context">{'search_default_my_activities': 1}</field>
-  </record>
-
+    <record model="ir.actions.act_window" id="open_boards_activities">
+        <field name="context">{'search_default_my_activities': 1}</field>
+    </record>
 </odoo>

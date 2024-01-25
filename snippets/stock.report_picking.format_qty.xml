@@ -1,22 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
-  <xpath expr="//span[@id='product_uom_qty']" position="replace">
-    <t t-if="ml.product_uom_id.id == 1">
-      <span id="product_uom_qty" t-field="ml.product_uom_qty" t-options="{'widget': 'integer'}"/>
-    </t>
-    <t t-else="">
-      <span id="product_uom_qty" t-field="ml.product_uom_qty"/>
-    </t>
-  </xpath>
-
-  <xpath expr="//span[@id='qty_available']" position="replace">
-    <t t-if="ml.product_uom_id.id == 1">
-      <span id="qty_available" t-field="ml.product_id.qty_available" t-options="{'widget': 'integer'}"/>
-    </t>
-    <t t-else="">
-      <span id="qty_available" t-field="ml.product_id.qty_available"/>
-    </t>
-  </xpath>
-
+    <xpath expr="//span[@id='product_uom_qty']" position="replace">
+        <t t-if="ml.product_uom_id.id == 1">
+            <span id="product_uom_qty" t-field="ml.product_uom_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="product_uom_qty" t-field="ml.product_uom_qty"/>
+        </t>
+    </xpath>
+    <xpath expr="//span[@id='qty_available']" position="replace">
+        <t t-if="ml.product_uom_id.id == 1">
+            <span id="qty_available" t-field="ml.product_id.qty_available" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="qty_available" t-field="ml.product_id.qty_available"/>
+        </t>
+    </xpath>
 </data>

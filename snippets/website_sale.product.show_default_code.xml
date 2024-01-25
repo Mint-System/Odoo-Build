@@ -1,8 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
-
     <p t-field="product.description_sale" position="after">
-        <p t-if="product_variant.default_code" ><strong>Artikelnummer:</strong> <span t-field="product_variant.default_code"/></p>
+        <p t-if="product_variant.default_code">
+            <strong>Artikelnummer:</strong>
+            <span t-field="product_variant.default_code"/>
+        </p>
     </p>
-
 </data>

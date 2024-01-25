@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//div[@name='so_total_summary']" position="replace">
-
-    <style>
+    <xpath expr="//div[@name='so_total_summary']" position="replace">
+        <style>
             table.trimada_summary tr {
                 border-top: solid 1px !important;
                 border-bottom: solid 1px;
@@ -38,49 +36,45 @@
                 text-align: right;
             }
     </style>
-
-    <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
-      <tr>
-        <td id="amount_untaxed_label">
-          <strong>Warenwert</strong>
-        </td>
-        <td id="amount_untaxed">
-          <span t-field="doc.amount_untaxed"/>
-        </td>
-
-        <td>
-          <table class="trimada_details">
-            <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
-                <tr style="">
-                  <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
-                    <td name="td_amount_by_group_label_3">
-                      <span t-esc="amount_by_group[0]"/>
-                      </td>
-                    <td name="td_amount_by_group_3" class="text-right o_price_total">
-                      <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                    </td>
-                  </t>
-                  <t t-else="">
-                    <td name="td_amount_by_group_label">
-                      <span t-esc="amount_by_group[0]"/>
-                    </td>
-                    <td name="td_amount_by_group" class="text-right o_price_total">
-                      <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                    </td>
-                  </t>
-                </tr>
-            </t>
-          </table>
-        </td>
-
-        <td id="current_subtotal_label">
-          <strong>Rechnungsbetrag</strong>
-        </td>
-        <td id="current_subtotal">
-          <span t-field="doc.amount_total"/>
-        </td>
-      </tr>
-    </table>
-
-  </xpath>
+        <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
+            <tr>
+                <td id="amount_untaxed_label">
+                    <strong>Warenwert</strong>
+                </td>
+                <td id="amount_untaxed">
+                    <span t-field="doc.amount_untaxed"/>
+                </td>
+                <td>
+                    <table class="trimada_details">
+                        <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
+                            <tr style="">
+                                <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
+                                    <td name="td_amount_by_group_label_3">
+                                        <span t-esc="amount_by_group[0]"/>
+                                    </td>
+                                    <td name="td_amount_by_group_3" class="text-right o_price_total">
+                                        <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </t>
+                                <t t-else="">
+                                    <td name="td_amount_by_group_label">
+                                        <span t-esc="amount_by_group[0]"/>
+                                    </td>
+                                    <td name="td_amount_by_group" class="text-right o_price_total">
+                                        <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+                                    </td>
+                                </t>
+                            </tr>
+                        </t>
+                    </table>
+                </td>
+                <td id="current_subtotal_label">
+                    <strong>Rechnungsbetrag</strong>
+                </td>
+                <td id="current_subtotal">
+                    <span t-field="doc.amount_total"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

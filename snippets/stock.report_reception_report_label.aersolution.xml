@@ -1,19 +1,16 @@
+<?xml version="1.0"?>
 <t t-name="stock.report_reception_report_label.aersolution">
     <t t-call="web.basic_layout">
         <div class="page">
-
             <t t-foreach="docs" t-as="picking">
                 <t t-foreach="picking.move_line_ids.filtered(lambda m: m.qty_done &gt; 0.0)" t-as="move_line">
-
                     <t t-set="label_qty" t-value="move_line.move_id.x_label_qty"/>
                     <t t-set="company_id" t-value="picking.company_id"/>
                     <t t-set="lot_id" t-value="move_line.lot_id"/>
                     <t t-set="product_id" t-value="move_line.product_id"/>
-
                     <t t-call="mint_system.stock.report_label.aersolution"/>
                 </t>
             </t>
-
         </div>
     </t>
 </t>

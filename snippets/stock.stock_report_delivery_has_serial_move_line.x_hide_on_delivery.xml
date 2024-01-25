@@ -1,30 +1,30 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="55">
-
     <xpath expr="/t" position="replace">
-      <t t-name="stock.stock_report_delivery_has_serial_move_line">
-        <t t-if="not move_line.product_id.x_hide_on_delivery and move_line.qty_done > 0">
-            <td>
-                <span t-field="move_line.product_id"/>
-                <!-- this is an annoying workaround for the multiple types of descriptions (often auto-filled) that we do not want to print -->
-                <!-- this makes it so we can pre-filter the descriptions in inherited templates since we cannot extend the standard "if" condition -->
-                <!-- let's agree that pre-filtered descriptions will be set to "" -->
-                <t t-if="not description and description != ''">
-                    <t t-set="description" t-value="move_line.move_id.description_picking"/>
+        <t t-name="stock.stock_report_delivery_has_serial_move_line">
+            <t t-if="not move_line.product_id.x_hide_on_delivery and move_line.qty_done &gt; 0">
+                <td>
+                    <span t-field="move_line.product_id"/>
+                    <!-- this is an annoying workaround for the multiple types of descriptions (often auto-filled) that we do not want to print -->
+                    <!-- this makes it so we can pre-filter the descriptions in inherited templates since we cannot extend the standard "if" condition -->
+                    <!-- let's agree that pre-filtered descriptions will be set to "" -->
+                    <t t-if="not description and description != ''">
+                        <t t-set="description" t-value="move_line.move_id.description_picking"/>
+                    </t>
+                    <p t-if="description !='' and description != move_line.product_id.name">
+                        <span t-esc="description"/>
+                    </p>
+                </td>
+                <t t-if="has_serial_number" name="move_line_lot">
+                    <td>
+                        <span t-field="move_line.lot_id.name"/>
+                    </td>
                 </t>
-                <p t-if="description !='' and description != move_line.product_id.name">
-                    <span t-esc="description"/>
-                </p>
-            </td>
-            <t t-if="has_serial_number" name="move_line_lot">
-                <td><span t-field="move_line.lot_id.name"/></td>
+                <td class="text-center" name="move_line_lot_qty_done">
+                    <span t-field="move_line.qty_done"/>
+                    <span t-field="move_line.product_uom_id"/>
+                </td>
             </t>
-            <td class="text-center" name="move_line_lot_qty_done">
-                <span t-field="move_line.qty_done"/>
-                <span t-field="move_line.product_uom_id"/>
-            </td>
         </t>
-       </t>
     </xpath>
-
 </data>

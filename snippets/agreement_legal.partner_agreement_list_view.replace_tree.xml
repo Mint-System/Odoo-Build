@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="agreement_legal.partner_agreement_list_view" priority="50">
-
     <tree position="replace">
         <tree string="Agreements" default_order="code desc, name" multi_edit="1">
             <field name="code"/>
-            <field name="name" optional="hide" />
+            <field name="name" optional="hide"/>
             <field name="partner_id"/>
             <field name="description"/>
             <field name="signed_contract" widget="binary" filename="name" optional="show"/>
@@ -15,5 +14,4 @@
             <field name="active" invisible="1"/>
         </tree>
     </tree>
-
 </data>

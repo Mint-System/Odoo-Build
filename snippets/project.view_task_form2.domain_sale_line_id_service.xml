@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="project.view_task_form2" priority="50">
-
     <xpath expr="//field[@name='sale_line_id']" position="attributes">
         <attribute name="domain">[('x_service_policy', '=', 'delivered_timesheet'),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale', 'done']), ('order_id', '=?', project_sale_order_id)]</attribute>
     </xpath>
-
 </data>

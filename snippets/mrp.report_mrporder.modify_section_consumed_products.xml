@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//span[@t-field='o.product_id']/../.." position="after">
-    <style>
+    <xpath expr="//span[@t-field='o.product_id']/../.." position="after">
+        <style>
       table#to_produce {
         width: 100%;
         margin-top: 20px;
@@ -13,21 +12,28 @@
         padding-right: 5px;
       }
     </style>
-    <table id='to_produce'>
-         <tr style="border-bottom: 1px solid rgb(220,220,220);">
-            <th width="40%;"><strong>Menge</strong></th>
-            <th width="30%;"><strong>Datum</strong></th>
-            <th width="30%;"></th>
-         </tr>
-        <tr>
-            <td>
-          <strong><span t-field="o.product_qty"/>
-          <span t-field="o.product_uom_id.name" groups="uom.group_uom"/></strong>
-          </td>
-        <td>Start: <span t-field="o.date_planned_start" t-options='{"widget": "date"}'/></td>
-        <td style="text-align: right"><strong>Termin: <span t-field="o.date_planned_finished" t-options='{"widget": "date"}'/></strong></td>
-       </tr>
-    </table>
-    
-  </xpath>  
+        <table id="to_produce">
+            <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                <th width="40%;">
+                    <strong>Menge</strong>
+                </th>
+                <th width="30%;">
+                    <strong>Datum</strong>
+                </th>
+                <th width="30%;"/>
+            </tr>
+            <tr>
+                <td>
+                    <strong>
+                        <span t-field="o.product_qty"/>
+                        <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
+                    </strong>
+                </td>
+                <td>Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></td>
+                <td style="text-align: right">
+                    <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/></strong>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

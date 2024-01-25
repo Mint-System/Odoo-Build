@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_package_form" priority="50">
-
-  <xpath expr="//span[@class='text-muted'][1]" position="replace">
-    <span class="text-muted">(computed: <field name="estimated_pack_weight_kg" nolabel="1"/>
+    <xpath expr="//span[@class='text-muted'][1]" position="replace">
+        <span class="text-muted">(computed: <field name="estimated_pack_weight_kg" nolabel="1"/>
     </span>
-  </xpath>
-
+    </xpath>
 </data>
