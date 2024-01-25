@@ -66,3 +66,7 @@
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 16.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
+	branch = 16.0
