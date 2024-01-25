@@ -5,12 +5,11 @@ ID: `mint_system.account_financial_report.general_ledger.replace_layout`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.general_ledger" priority="50">
-
-    <xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">        
-        <attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>        
+    <xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">
+        <attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.general_ledger.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.general_ledger.replace_layout.xml)
 
@@ -20,9 +19,7 @@ ID: `mint_system.account_financial_report.internal_layout.style_trimada`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.internal_layout" priority="60">
-
     <xpath expr="//link" position="replace">
-
         <style>
             .act_as_table {
                 display: table !important;
@@ -138,9 +135,9 @@ ID: `mint_system.account_financial_report.internal_layout.style_trimada`
                 font-family: Helvetica, Arial;
             }
         </style>
-
     </xpath>
 </data>
+
 ```
 Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.internal_layout.style_trimada.xml)
 
@@ -149,9 +146,7 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
 ```xml
 <?xml version="1.0"?>
 <t t-name="account_financial_report.internal_layout">
-
     <t t-if="not o" t-set="o" t-value="doc"/>
-
     <t t-if="not company">
         <!-- Multicompany -->
         <t t-if="company_id">
@@ -164,7 +159,6 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
             <t t-set="company" t-value="res_company"/>
         </t>
     </t>
-
     <div class="header">
         <div class="row" style="height: 20px;">
             <div class="col-3">
@@ -186,9 +180,7 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
             </div>
         </div>
     </div>
-
     <div class="article o_account_financial_reports_page">
-
         <style>
             .act_as_table {
                 display: table !important;
@@ -310,10 +302,10 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
               font-weight: bold;
             }
         </style>
-
         <t t-raw="0"/>
     </div>
 </t>
+
 ```
 Source: [snippets/account_financial_report.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.internal_layout.trimada.xml)
 
@@ -323,10 +315,9 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.hide_filter
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
-
     <xpath expr="//t[@t-call='account_financial_report.report_general_ledger_filters']" position="replace"/>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_base.hide_filters.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_base.hide_filters.xml)
 
@@ -335,14 +326,13 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.replace_tit
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
-
     <xpath expr="//h4/.." position="replace">
-        <div class="title">Kontoauszug vom <span t-esc="date_from" t-options='{"widget": "date"}' />
-            bis <span t-esc="date_to" t-options='{"widget": "date"}' />
+        <div class="title">Kontoauszug vom <span t-esc="date_from" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            bis <span t-esc="date_to" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </div>
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_base.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_base.replace_title.xml)
 
@@ -352,10 +342,9 @@ ID: `mint_system.account_financial_report.report_general_ledger_ending_cumul.hid
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_ending_cumul" priority="50">
-
     <xpath expr="//div[@class='act_as_row labels']" position="replace"/>
-    
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml)
 
@@ -365,11 +354,8 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
-
     <xpath expr="//div/div[@class='act_as_row lines']" position="replace">
-
         <div class="act_as_row lines" style="font-style: italic">
-
             <!--## col1 -->
             <div class="act_as_cell"/>
             <!--## col2 -->
@@ -377,12 +363,10 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
             <!--## col3-->
             <div class="act_as_cell left">Anfangssaldo
             </div>
-
             <!--## matching_number-->
             <t t-set="misc_domain" t-value="[('account_id', '=', account['id']),('date', '&lt;', date_from)]"/>
             <t t-set="misc_grouped_domain" t-value="[('partner_id', '=', account_or_group_item_object['id'])]" t-if="'partners' in account"/>
             <t t-set="misc_grouped_domain" t-value="[]" t-else=""/>
-
             <!--## debit-->
             <div class="act_as_cell amount">
                 <t t-set="debit_domain" t-value="[('debit', '&lt;&gt;', 0)]"/>
@@ -397,7 +381,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
                     </span>
                 </t>
             </div>
-
             <!--## credit-->
             <div class="act_as_cell amount">
                 <t t-set="credit_domain" t-value="[('credit', '&lt;&gt;', 0)]"/>
@@ -412,7 +395,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
                     </span>
                 </t>
             </div>
-
             <!--## balance cumulated-->
             <div class="act_as_cell amount">
                 <t t-if="type == 'account_type'">
@@ -459,7 +441,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
                 </t>
             </t>
         </div>
-
         <!--## col1-->
         <div class="act_as_cell">
         </div>
@@ -468,23 +449,19 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
         </div>
         <!--## col2-->
         <div class="act_as_cell left" style="font-weight: bold">Endsaldo
-        </div>        
-
+        </div>
         <!--## debit-->
         <div class="act_as_cell trimada amount" style="width: 8.89%; font-weight: bold">
             <span t-esc="account_or_group_item_object['fin_bal']['debit']" t-options="{'widget': 'float', 'precision': 2}"/>
         </div>
-
         <!--## credit-->
         <div class="act_as_cell trimada amount" style="width: 8.89%; font-weight: bold">
             <span t-esc="account_or_group_item_object['fin_bal']['credit']" t-options="{'widget': 'float', 'precision': 2}"/>
         </div>
-
         <!--## balance cumulated-->
         <div class="act_as_cell trimada amount" style="width: 8.89%; font-weight: bold">
             <span t-esc="account_or_group_item_object['fin_bal']['balance']" t-options="{'widget': 'monetary', 'display_currency': company_currency}"/>
         </div>
-        
         <!--## currency_name + amount_currency-->
         <t t-set="misc_domain" t-value="[('account_id', '=', account['id']),('date', '&lt;', date_from)]"/>
         <t t-set="misc_grouped_domain" t-value="[('partner_id', '=', account_or_group_item_object['id'])]" t-if="'partners' in account"/>
@@ -529,10 +506,9 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
                 <div class="act_as_cell amount" style="width: 3.63%; font-weight: bold"/>
             </t>
         </t>
-
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml)
 
@@ -541,47 +517,36 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_he
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
-
     <xpath expr="//div[@class='act_as_row labels']" position="replace">
-
         <div class="act_as_row labels">
-
             <!--## col1 date-->
             <div class="act_as_cell first_column" style="width: 7.78%; text-align: left">
             Date
             </div>
-
             <!--## col2 move-->
             <div class="act_as_cell" style="width: 28%; text-align: left">Entry</div>
-
             <!--## col3 account code-->
             <div class="act_as_cell" style="width: 20%; text-align: left">
                 <t>Account</t>
             </div>
-
             <!--## col4 debit-->
             <div class="act_as_cell amount" style="width: 8.89%;">Debit</div>
-
             <!--## col5 credit-->
             <div class="act_as_cell amount" style="width: 8.89%;">Credit</div>
-
             <!--## col6 balance cumulated-->
             <div class="act_as_cell amount" style="width: 8.89%;">
             Cumul. Bal.
             </div>
-
             <t t-if="foreign_currency">
                 <!--## col7 amount_currency-->
                 <div class="act_as_cell amount" style="width: 8.89%;">Amount cur.</div>
                 <!--## col8 amount_currency cumulated-->
                 <div class="act_as_cell amount" style="width: 8.89%;">Cumul cur.</div>
             </t>
-
         </div>
-
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_lines.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.replace_header.xml)
 
@@ -590,11 +555,8 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
-
     <xpath expr="//t/div[@class='act_as_row lines']" position="replace">
-
         <div class="act_as_row lines">
-
             <!--## col1 -->
             <div class="act_as_cell left">
                 <t t-if="line['id']">
@@ -610,7 +572,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                     </span>
                 </t>
             </div>
-
             <!--## col2 -->
             <div class="act_as_cell left">
                 <span>
@@ -621,7 +582,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                             </span>
                         </t>
                     </t>
-
                     <t>
                         <t t-if="line['entry_id']">
                             <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
@@ -629,19 +589,15 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                             </span>
                         </t>
                     </t>
-                    
-
                     <span t-att-res-id="line['contra_accounts']" res-model="account.move.line" view-type="form">
                         <t t-raw="line['contra_accounts']"/>
                     </span>
                     <span t-att-res-id="line['partner_name']" res-model="account.move.line" view-type="form">
                         <t t-raw="line['partner_name']"/>
                     </span>
-
-                    <br></br>
+                    <br/>
                 </span>
             </div>
-
             <!--## col4 debit-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -655,7 +611,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                     </span>
                 </t>
             </div>
-
             <!--## col5 credit-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -669,7 +624,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                     </span>
                 </t>
             </div>
-
             <!--## col6 balance cumulated-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -683,7 +637,6 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                     </span>
                 </t>
             </div>
-
             <t t-if="foreign_currency">
                 <t t-if="line['currency_id']">
                     <t t-set="line_currency" t-value="currency_model.browse(line['currency_id'][0])"/>
@@ -705,10 +658,9 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
                 </t>
             </t>
         </div>
-
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml)
 

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
-
-  <filter name="non_billable" position="after">
-    <filter string="Validiert" name="validated" />
-  </filter>
-
+    <filter name="non_billable" position="after">
+        <filter string="Validiert" name="validated"/>
+    </filter>
 </data>

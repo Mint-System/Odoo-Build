@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
-
-  <xpath expr="//th[@id='date']" position="after">
-    <th id="from_until" style="white-space: nowrap;">Zeit</th>
-  </xpath>
-
+    <xpath expr="//th[@id='date']" position="after">
+        <th id="from_until" style="white-space: nowrap;">Zeit</th>
+    </xpath>
 </data>

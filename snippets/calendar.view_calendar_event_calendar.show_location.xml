@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="calendar.view_calendar_event_calendar" priority="50">
-
-  <xpath expr="//field[@name='attendee_status']" position="after">
-    <field name="location" />
-  </xpath>
-
+    <xpath expr="//field[@name='attendee_status']" position="after">
+        <field name="location"/>
+    </xpath>
 </data>

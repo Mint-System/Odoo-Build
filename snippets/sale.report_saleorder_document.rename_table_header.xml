@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//div/table/thead/tr/th[2]" position="replace">
-    <th class="text-left">Comm. Date</th>
-  </xpath>
-
-  <xpath expr="//div/table/thead/tr/th[6]" position="replace">
-    <th name="th_priceunit" class="text-right">U. Price</th>
-  </xpath>
-
+    <xpath expr="//div/table/thead/tr/th[2]" position="replace">
+        <th class="text-left">Comm. Date</th>
+    </xpath>
+    <xpath expr="//div/table/thead/tr/th[6]" position="replace">
+        <th name="th_priceunit" class="text-right">U. Price</th>
+    </xpath>
 </data>

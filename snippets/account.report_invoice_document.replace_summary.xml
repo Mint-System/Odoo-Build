@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
-  <xpath expr="//table[@name='invoice_line_table']" position="after">
-
-    <style>
+    <xpath expr="//table[@name='invoice_line_table']" position="after">
+        <style>
             table.trimada_summary tr {
                 border-top: solid 1px !important;
                 border-bottom: solid 1px;
@@ -49,80 +47,71 @@
                 text-align: right;
             }
     </style>
-
-    <table class="table table-borderless table-sm trimada trimada_summary">
-      <td id="amount_untaxed_label">
-        <Strong>Warenwert</Strong>
-      </td>
-
-      <td>
-        <table class="trimada_details">
-          <t t-foreach="o.amount_by_group" t-as="amount_by_group">
-            <tr style="">
-
-              <td id="amount_by_group4">
-                <span>
-                  <t t-esc="amount_by_group[4]"/>
-                </span>
-              </td>
-
-              <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
-                <td id="amount_by_group0">
-                  <span class="text-nowrap" t-esc="amount_by_group[0]"/>
-                </td>
-                <td id="amount_by_group3" class="text-right o_price_total">
-                  <span class="text-nowrap" t-esc="amount_by_group[3]"/>
-                </td>
-              </t>
-              <t t-else="">
-                <td id="amount_by_group0">
-                  <span t-esc="amount_by_group[0]"/>
-                </td>
-                <td id="amount_by_group3" class="text-right o_price_total">
-                  <span class="text-nowrap" t-esc="amount_by_group[3]"/>
-                </td>
-              </t>
-            </tr>
-          </t>
-
-          <t t-if="print_with_payments">
-            <t t-if="o.payment_state != 'invoicing_legacy'">
-              <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
-              <t t-foreach="payments_vals" t-as="payment_vals">
-                <tr>
-                  <td>
-                    <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        <table class="table table-borderless table-sm trimada trimada_summary">
+            <td id="amount_untaxed_label">
+                <Strong>Warenwert</Strong>
+            </td>
+            <td>
+                <table class="trimada_details">
+                    <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                        <tr style="">
+                            <td id="amount_by_group4">
+                                <span>
+                                    <t t-esc="amount_by_group[4]"/>
+                                </span>
+                            </td>
+                            <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
+                                <td id="amount_by_group0">
+                                    <span class="text-nowrap" t-esc="amount_by_group[0]"/>
+                                </td>
+                                <td id="amount_by_group3" class="text-right o_price_total">
+                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>
+                                </td>
+                            </t>
+                            <t t-else="">
+                                <td id="amount_by_group0">
+                                    <span t-esc="amount_by_group[0]"/>
+                                </td>
+                                <td id="amount_by_group3" class="text-right o_price_total">
+                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>
+                                </td>
+                            </t>
+                        </tr>
+                    </t>
+                    <t t-if="print_with_payments">
+                        <t t-if="o.payment_state != 'invoicing_legacy'">
+                            <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
+                            <t t-foreach="payments_vals" t-as="payment_vals">
+                                <tr>
+                                    <td>
+                                        <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                     </i>
-                  </td>
-                  <td class="text-right">
-                    <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                  </td>
-                </tr>
-              </t>
-              <t t-if="len(payments_vals) &gt; 0">
-                <tr class="border-black">
-                  <td>
-                    <strong>Amount Due</strong>
-                  </td>
-                  <td class="text-right">
-                    <span t-field="o.amount_residual"/>
-                  </td>
-                </tr>
-              </t>
-            </t>
-          </t>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-if="len(payments_vals) &gt; 0">
+                                <tr class="border-black">
+                                    <td>
+                                        <strong>Amount Due</strong>
+                                    </td>
+                                    <td class="text-right">
+                                        <span t-field="o.amount_residual"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </t>
+                </table>
+            </td>
+            <td id="amount_total_label">
+                <strong>Total</strong>
+            </td>
+            <td id="amount_total">
+                <span class="text-nowrap" t-field="o.amount_total"/>
+            </td>
         </table>
-      </td>
-
-      <td id="amount_total_label">
-        <strong>Total</strong>
-      </td>
-      <td id="amount_total">
-        <span class="text-nowrap" t-field="o.amount_total"/>
-      </td>
-
-    </table>
-
-  </xpath>
-
+    </xpath>
 </data>

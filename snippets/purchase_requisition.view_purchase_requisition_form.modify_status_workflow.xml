@@ -1,29 +1,22 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
-
     <xpath expr="//button[@name='493']" position="after">
         <button name="action_order_send" states="draft,sent,open" string="Send by Email" type="object" class="btn-primary"/>
         <button name="action_open" states="sent" string="Validate" type="object" class="btn-primary"/>
     </xpath>
-
     <xpath expr="//button[@name='action_cancel']" position="attributes">
         <attribute name="states">open</attribute>
     </xpath>
-
     <field name="state_blanket_order" position="attributes">
         <attribute name="statusbar_visible">draft,sent,open,cancel,done</attribute>
     </field>
-
     <xpath expr="//button[@name='493']" position="replace">
         <button name="493" type="action" string="New Quotation" class="btn-primary" attrs="{'invisible': [('state', 'in', ('draft','sent','done','cancel'))]}"/>
     </xpath>
-
     <xpath expr="//button[@name='action_draft']" position="attributes">
         <attribute name="states">done,cancel,done</attribute>
     </xpath>
-
     <xpath expr="//button[@name='action_in_progress']" position="replace">
         <button name="action_open" states="draft" string="Validate" type="object" class="btn-primary"/>
     </xpath>
-
 </data>

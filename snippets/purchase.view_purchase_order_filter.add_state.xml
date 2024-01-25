@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.view_purchase_order_filter" priority="50">
-
-  <xpath expr="//filter[@name='order_date']" position="after">
-     <filter string="Status" name="order_state" domain="[]" context="{'group_by': 'state'}"/>
-  </xpath> 
-
+    <xpath expr="//filter[@name='order_date']" position="after">
+        <filter string="Status" name="order_state" domain="[]" context="{'group_by': 'state'}"/>
+    </xpath>
 </data>

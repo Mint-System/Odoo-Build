@@ -1,13 +1,11 @@
+<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
-
-  <xpath expr="//th[@class='text-end'][4]" position="after">
-    <th id="final_tax" t-if="final_tax" class="text-end">Taxes</th>
-  </xpath>
-
-  <xpath expr="//td[@class='text-end o_price_total'][1]" position="after">
-    <td id="final_tax" t-if="final_tax" class="text-end">
-      <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
-    </td>
-  </xpath>
-
+    <xpath expr="//th[@class='text-end'][4]" position="after">
+        <th id="final_tax" t-if="final_tax" class="text-end">Taxes</th>
+    </xpath>
+    <xpath expr="//td[@class='text-end o_price_total'][1]" position="after">
+        <td id="final_tax" t-if="final_tax" class="text-end">
+            <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_id))"/>
+        </td>
+    </xpath>
 </data>

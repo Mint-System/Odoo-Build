@@ -1,17 +1,15 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_user_id" model="ir.model.fields">
-    <field name="field_description">Einkaufsbeauftragter</field>
-    <field name="model">purchase.order.line</field>
-    <field name="model_id" ref="purchase.model_purchase_order_line"/>
-    <field name="name">x_user_id</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">many2one</field>
-    <field name="relation">res.users</field>
-    <field name="related">order_id.user_id</field>
-  </record>
-
+    <record id="x_user_id" model="ir.model.fields">
+        <field name="field_description">Einkaufsbeauftragter</field>
+        <field name="model">purchase.order.line</field>
+        <field name="model_id" ref="purchase.model_purchase_order_line"/>
+        <field name="name">x_user_id</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">res.users</field>
+        <field name="related">order_id.user_id</field>
+    </record>
 </odoo>

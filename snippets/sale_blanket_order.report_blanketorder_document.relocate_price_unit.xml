@@ -1,18 +1,15 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
-  
-   <xpath expr="//table[2]/thead//th[3]" position="replace">
+    <xpath expr="//table[2]/thead//th[3]" position="replace">
    </xpath>
     <xpath expr="//table[2]/thead//th[4]" position="after">
-       <th class="text-center">Unit Price</th>
-   </xpath>
-   
-   <xpath expr="//table[2]/tbody//td[3]" position="replace">
+        <th class="text-center">Unit Price</th>
+    </xpath>
+    <xpath expr="//table[2]/tbody//td[3]" position="replace">
    </xpath>
     <xpath expr="//table[2]/tbody//td[4]" position="after">
         <td class="text-right">
-          <span t-field="l.price_unit"/>
+            <span t-field="l.price_unit"/>
         </td>
-   </xpath>
-   
+    </xpath>
 </data>

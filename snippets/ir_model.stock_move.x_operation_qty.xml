@@ -1,22 +1,20 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_operation_qty" model="ir.model.fields">
-    <field name="field_description">Inventory +/-</field>
-    <field name="model">stock.move</field>
-    <field name="model_id" ref="stock.model_stock_move"/>
-    <field name="name">x_operation_qty</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">float</field>
-    <field name="depends">product_uom_qty</field>
-    <field name="compute">for record in self:
+    <record id="x_operation_qty" model="ir.model.fields">
+        <field name="field_description">Inventory +/-</field>
+        <field name="model">stock.move</field>
+        <field name="model_id" ref="stock.model_stock_move"/>
+        <field name="name">x_operation_qty</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">product_uom_qty</field>
+        <field name="compute">for record in self:
   if (record.location_id.usage == 'internal'):
     record['x_operation_qty'] = -1 * record.product_uom_qty
   else:
     record['x_operation_qty'] = record.product_uom_qty
     </field>
-  </record>
-
+    </record>
 </odoo>

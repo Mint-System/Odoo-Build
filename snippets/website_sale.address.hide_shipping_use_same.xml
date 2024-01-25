@@ -1,7 +1,6 @@
+<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
-  
     <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
-            <attribute name="style">display: none;</attribute>
-        </xpath>
-    
+        <attribute name="style">display: none;</attribute>
+    </xpath>
 </data>

@@ -1,27 +1,25 @@
 <?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
-
-  <page name="statement_line_ids" position="after">
-    <page string="Kassenpositionen" name="cashbox_ids" attrs="{'invisible': [('journal_type','!=','cash')]}">
-      <group>
-        <field name="x_cashbox_start_ids">
-          <tree>
-            <field name="number"/>
-            <field name="coin_value"/>
-            <field name="subtotal"/>
-          </tree>
-        </field>
-      </group>
-      <group>
-        <field name="x_cashbox_end_ids">
-          <tree>
-            <field name="number"/>
-            <field name="coin_value"/>
-            <field name="subtotal"/>
-          </tree>
-        </field>
-      </group>
+    <page name="statement_line_ids" position="after">
+        <page string="Kassenpositionen" name="cashbox_ids" attrs="{'invisible': [('journal_type','!=','cash')]}">
+            <group>
+                <field name="x_cashbox_start_ids">
+                    <tree>
+                        <field name="number"/>
+                        <field name="coin_value"/>
+                        <field name="subtotal"/>
+                    </tree>
+                </field>
+            </group>
+            <group>
+                <field name="x_cashbox_end_ids">
+                    <tree>
+                        <field name="number"/>
+                        <field name="coin_value"/>
+                        <field name="subtotal"/>
+                    </tree>
+                </field>
+            </group>
+        </page>
     </page>
-  </page>
-
 </data>

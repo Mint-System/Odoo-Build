@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="mail.view_mail_tree" priority="50">
-
     <tree position="attributes">
-      <attribute name="editable" />
+        <attribute name="editable"/>
     </tree>
-
     <field name="subject" position="after">
-      <field name="email_from" />
+        <field name="email_from"/>
     </field>
-
 </data>

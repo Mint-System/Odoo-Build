@@ -1,22 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//table/thead/tr/th[1]" position="before">
-    <style>
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <style>
       .o_report_layout_bold table thead tr th:first-child {
         width: auto;
       }
     </style>
-    <th id="header_position">
-      <span>Pos</span>
-    </th>
-  </xpath>
-
-  <!-- <xpath expr="//span[@t-field='line.name']/.." position="before"> -->
-  <xpath expr="//t[1]/td[1]" position="before">
-    <td id="position">
-      <span t-field="line.position"/>
-    </td>
-  </xpath>
-
+        <th id="header_position">
+            <span>Pos</span>
+        </th>
+    </xpath>
+    <!-- <xpath expr="//span[@t-field='line.name']/.." position="before"> -->
+    <xpath expr="//t[1]/td[1]" position="before">
+        <td id="position">
+            <span t-field="line.position"/>
+        </td>
+    </xpath>
 </data>

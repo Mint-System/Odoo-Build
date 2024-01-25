@@ -1,27 +1,29 @@
+<?xml version="1.0"?>
 <t t-name="stock.report_label.aersolution">
     <t t-foreach="range(0, label_qty)" t-as="label_qty">
-
         <div class="row">
             <div class="col-6">
-               <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)" style="max-width: 180px;" alt="Logo"/>
+                <img t-if="company_id.logo" t-att-src="image_data_uri(company_id.logo)" style="max-width: 180px;" alt="Logo"/>
             </div>
             <div class="col-6">
-                <strong><t t-esc="company_id.partner_id.name"/><br/>
-                <t t-esc="company_id.partner_id.country_id.code"/>-<t t-esc="company_id.partner_id.zip"/> <t t-esc="company_id.partner_id.city"/></strong>
+                <strong><t t-esc="company_id.partner_id.name"/><br/><t t-esc="company_id.partner_id.country_id.code"/>-<t t-esc="company_id.partner_id.zip"/><t t-esc="company_id.partner_id.city"/></strong>
             </div>
         </div>
-        
         <br/>
-        
         <p t-esc="product_id.display_name"/>
-
-        <p><span style="margin-right: 8px;">LS/SN:</span><t t-esc="lot_id.name if lot_id else picking.name"/></p>
-
-        <p t-if="lot_id.expiration_date"><span style="margin-right: 8px;">EXP:</span><span t-field="lot_id.expiration_date" t-options="{'widget': 'date'}"/></p>
-
-         <t t-set="putaway_rule_id" t-value="product_id.putaway_rule_ids[:1]"/>
-        <p><span style="margin-right: 8px;">LOC:</span><span t-esc="putaway_rule_id.location_out_id.display_name if putaway_rule_id else 'WH/Stock'"/></p>
-
+        <p>
+            <span style="margin-right: 8px;">LS/SN:</span>
+            <t t-esc="lot_id.name if lot_id else picking.name"/>
+        </p>
+        <p t-if="lot_id.expiration_date">
+            <span style="margin-right: 8px;">EXP:</span>
+            <span t-field="lot_id.expiration_date" t-options="{'widget': 'date'}"/>
+        </p>
+        <t t-set="putaway_rule_id" t-value="product_id.putaway_rule_ids[:1]"/>
+        <p>
+            <span style="margin-right: 8px;">LOC:</span>
+            <span t-esc="putaway_rule_id.location_out_id.display_name if putaway_rule_id else 'WH/Stock'"/>
+        </p>
         <p style="page-break-before:always;"/>
     </t>
 </t>

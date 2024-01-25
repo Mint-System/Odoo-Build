@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
-  <xpath expr="//div[@name='div_origin']" position="after">
-    <div t-if="o.sale_id" class="col-auto" name="div_date_order">
-      <strong>Bestelldatum:</strong>
-      <p t-esc="o.sale_id.date_order" t-options="{'widget': 'date'}"/>
-    </div>
-  </xpath>
-
+    <xpath expr="//div[@name='div_origin']" position="after">
+        <div t-if="o.sale_id" class="col-auto" name="div_date_order">
+            <strong>Bestelldatum:</strong>
+            <p t-esc="o.sale_id.date_order" t-options="{'widget': 'date'}"/>
+        </div>
+    </xpath>
 </data>

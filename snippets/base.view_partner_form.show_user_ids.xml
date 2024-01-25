@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
-  <xpath expr="//page[@name='internal_notes']" position="inside">
-    <field name="user_ids"/>
-  </xpath>
-
+    <xpath expr="//page[@name='internal_notes']" position="inside">
+        <field name="user_ids"/>
+    </xpath>
 </data>

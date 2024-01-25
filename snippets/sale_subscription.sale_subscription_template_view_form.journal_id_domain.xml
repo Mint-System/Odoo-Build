@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale_subscription.sale_subscription_template_view_form" priority="50">
-
-  <xpath expr="//field[@name='journal_id']" position="attributes">
-    <attribute name="attrs">{'domain': []}</attribute>
-  </xpath>
-
+    <xpath expr="//field[@name='journal_id']" position="attributes">
+        <attribute name="attrs">{'domain': []}</attribute>
+    </xpath>
 </data>

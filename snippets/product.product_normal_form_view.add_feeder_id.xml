@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
-
     <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
-        <field name="feeder_id" />
+        <field name="feeder_id"/>
     </xpath>
-
 </data>

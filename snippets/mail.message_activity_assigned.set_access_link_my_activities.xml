@@ -1,19 +1,17 @@
 <?xml version="1.0"?>
 <data inherit_id="mail.message_activity_assigned" priority="50">
-
-  <xpath expr="//p[1]" position="replace">
-    <p style="margin: 16px 0px 16px 0px;">
-      <t t-if="activity.res_model == 'hr.employee'">
-        <a href="/web?debug=1#action=365&amp;model=mail.activity&amp;view_type=kanban&amp;cids=1&amp;menu_id=1" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+    <xpath expr="//p[1]" position="replace">
+        <p style="margin: 16px 0px 16px 0px;">
+            <t t-if="activity.res_model == 'hr.employee'">
+                <a href="/web?debug=1#action=365&amp;model=mail.activity&amp;view_type=kanban&amp;cids=1&amp;menu_id=1" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
           My Activities
         </a>
-      </t>
-      <t t-else="">
-        <a t-att-href="access_link" t-att-data-oe-model="activity.res_model" t-att-data-oe-id="activity.res_id" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
+            </t>
+            <t t-else="">
+                <a t-att-href="access_link" t-att-data-oe-model="activity.res_model" t-att-data-oe-id="activity.res_id" style="background-color:#875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px;">
           View <t t-esc="model_description or 'document'"/>
         </a>
-      </t>
-    </p>
-  </xpath>
-
+            </t>
+        </p>
+    </xpath>
 </data>

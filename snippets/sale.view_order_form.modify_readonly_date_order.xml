@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
-
-  <xpath expr="//field[@name='date_order'][2]" position="attributes">
-      <attribute name="attrs">{"invisible": [["state","in",["draft","sent"]]], "readonly": [["state","not in",["draft","sent","sale"]]], "required": [["state","in",["sale","done"]]]}</attribute>
-  </xpath>
-
+    <xpath expr="//field[@name='date_order'][2]" position="attributes">
+        <attribute name="attrs">{"invisible": [["state","in",["draft","sent"]]], "readonly": [["state","not in",["draft","sent","sale"]]], "required": [["state","in",["sale","done"]]]}</attribute>
+    </xpath>
 </data>

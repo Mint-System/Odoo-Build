@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
-
-  <xpath expr="//button[@name='action_continue'][3]" position="replace">    
+    <xpath expr="//button[@name='action_continue'][3]" position="replace">    
   </xpath>
-
-  <xpath expr="//button[@name='action_continue'][3]" position="replace">    
+    <xpath expr="//button[@name='action_continue'][3]" position="replace">    
   </xpath>
-  
 </data>

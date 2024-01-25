@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
-<data inherit_id="account.view_move_form" priority="50" >
-
-    <xpath expr="//field[@name='to_check']" position="replace" />
-
+<data inherit_id="account.view_move_form" priority="50">
+    <xpath expr="//field[@name='to_check']" position="replace"/>
     <xpath expr="//field[@name='ref']" position="after">
-        <field name="to_check" />
+        <field name="to_check"/>
     </xpath>
-
 </data>

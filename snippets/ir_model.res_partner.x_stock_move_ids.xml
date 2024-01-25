@@ -1,17 +1,15 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_stock_move_ids" model="ir.model.fields">
-    <field name="field_description">Lagerbuchungen</field>
-    <field name="model">res.partner</field>
-    <field name="model_id" ref="base.model_res_partner"/>
-    <field name="name">x_stock_move_ids</field>
-    <field name="store" eval="False"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">one2many</field>
-    <field name="relation">stock.move</field>
-    <field name="relation_field">x_picking_partner_id</field>
-  </record>
-
+    <record id="x_stock_move_ids" model="ir.model.fields">
+        <field name="field_description">Lagerbuchungen</field>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_stock_move_ids</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">one2many</field>
+        <field name="relation">stock.move</field>
+        <field name="relation_field">x_picking_partner_id</field>
+    </record>
 </odoo>

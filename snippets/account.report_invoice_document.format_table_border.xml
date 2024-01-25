@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
- 
     <xpath expr="//table[@name='invoice_line_table']" position="before">
-      <style>
+        <style>
         .border-solid-black td {
           border-top: 1px solid black !important;
           border-bottom: none !important;
@@ -12,9 +11,7 @@
         }
       </style>
     </xpath>
-  
     <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
-      <attribute name="class" separator=" " add="border-solid-black"/>
+        <attribute name="class" separator=" " add="border-solid-black"/>
     </xpath>
-  
-  </data>
+</data>

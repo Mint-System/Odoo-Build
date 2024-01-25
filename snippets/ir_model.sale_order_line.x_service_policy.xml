@@ -1,16 +1,14 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_service_policy" model="ir.model.fields">
-    <field name="field_description">Faktierungsregel</field>
-    <field name="model">sale.order.line</field>
-    <field name="model_id" ref="sale.model_sale_order_line"/>
-    <field name="name">x_service_policy</field>
-    <field name="store" eval="True"/>
-    <field name="readonly" eval="True"/>
-    <field name="copied" eval="False"/>
-    <field name="ttype">selection</field>
-    <field name="related">product_id.service_policy</field>
-  </record>
-
+    <record id="x_service_policy" model="ir.model.fields">
+        <field name="field_description">Faktierungsregel</field>
+        <field name="model">sale.order.line</field>
+        <field name="model_id" ref="sale.model_sale_order_line"/>
+        <field name="name">x_service_policy</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">selection</field>
+        <field name="related">product_id.service_policy</field>
+    </record>
 </odoo>

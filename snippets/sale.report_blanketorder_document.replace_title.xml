@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-
-<xpath expr="//h2" position="replace">
-    <h2>
-      <span>Blanket Order # </span>
-      <span t-field="doc.name"/>
-    </h2>
-</xpath>
-
+    <xpath expr="//h2" position="replace">
+        <h2>
+            <span>Blanket Order # </span>
+            <span t-field="doc.name"/>
+        </h2>
+    </xpath>
 </data>

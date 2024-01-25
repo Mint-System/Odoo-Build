@@ -1,19 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
-
-  <xpath expr="//td[1]" position="before">
-
-    <style>
+    <xpath expr="//td[1]" position="before">
+        <style>
       .cell_right {
         text-align: right;
         padding-right: 10px !important;
       }
     </style>
-
-  </xpath>
-
-  <xpath expr="//td[@name='move_line_lot_qty_done']" position="attributes">
-    <attribute name="class">cell_right</attribute>
-  </xpath>
-
+    </xpath>
+    <xpath expr="//td[@name='move_line_lot_qty_done']" position="attributes">
+        <attribute name="class">cell_right</attribute>
+    </xpath>
 </data>

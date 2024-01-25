@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.sale_order_view_search_inherit_sale" priority="50">
-
-  <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
-     <filter string="Abzurechnen oder Nichts abzurechnen" name="invoice_status_to_invoice_or_no" domain="[('invoice_status','in',('to invoice', 'no'))]"/>
-  </xpath>
-
+    <xpath expr="//filter[@name='my_sale_orders_filter']" position="after">
+        <filter string="Abzurechnen oder Nichts abzurechnen" name="invoice_status_to_invoice_or_no" domain="[('invoice_status','in',('to invoice', 'no'))]"/>
+    </xpath>
 </data>

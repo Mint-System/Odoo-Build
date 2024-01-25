@@ -1,16 +1,14 @@
+<?xml version="1.0"?>
 <t t-name="stock.report_lot_label.aersolution">
     <t t-call="web.basic_layout">
         <div class="page">
-
             <t t-foreach="docs" t-as="lot">
                 <t t-set="label_qty" t-value="1"/>
                 <t t-set="company_id" t-value="lot.company_id"/>
                 <t t-set="lot_id" t-value="lot"/>
                 <t t-set="product_id" t-value="lot.product_id"/>
-
                 <t t-call="mint_system.stock.report_label.aersolution"/>
             </t>
-
         </div>
     </t>
 </t>

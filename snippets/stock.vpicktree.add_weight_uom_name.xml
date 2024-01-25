@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
-
-  <xpath expr="//field[@name='weight']" position="replace">
-    <field name="weight"/>
-    <field name="weight_uom_name"/>
-  </xpath>
+    <xpath expr="//field[@name='weight']" position="replace">
+        <field name="weight"/>
+        <field name="weight_uom_name"/>
+    </xpath>
 </data>

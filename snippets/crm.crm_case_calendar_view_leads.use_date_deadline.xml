@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
-
-  <calendar position="attributes">
-    <attribute name="date_start">date_deadline</attribute>
-  </calendar>
-
+    <calendar position="attributes">
+        <attribute name="date_start">date_deadline</attribute>
+    </calendar>
 </data>

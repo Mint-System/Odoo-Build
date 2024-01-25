@@ -1,15 +1,13 @@
-<?xml version='1.0' encoding='UTF-8' ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-
-  <record id="x_not_billable" model="ir.model.fields">
-    <field name="field_description">Nicht Verrechenbar</field>
-    <field name="model">project.task</field>
-    <field name="model_id" ref="product.model_project_task"/>
-    <field name="name">x_not_billable</field>
-    <field name="readonly" eval="False"/>
-    <field name="store" eval="True"/>
-    <field name="copied" eval="True"/>
-    <field name="ttype">boolean</field>
-  </record>
-
+    <record id="x_not_billable" model="ir.model.fields">
+        <field name="field_description">Nicht Verrechenbar</field>
+        <field name="model">project.task</field>
+        <field name="model_id" ref="product.model_project_task"/>
+        <field name="name">x_not_billable</field>
+        <field name="readonly" eval="False"/>
+        <field name="store" eval="True"/>
+        <field name="copied" eval="True"/>
+        <field name="ttype">boolean</field>
+    </record>
 </odoo>

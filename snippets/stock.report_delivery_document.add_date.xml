@@ -1,16 +1,13 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-  
-  <xpath expr="//th[@name='th_sm_product']" position="after">
-    <th>
-      <strong>Lieferdatum</strong>
-    </th>
-  </xpath>
-  
-  <xpath expr="//span[@t-field='move.product_id']" position="after">
-    <td>
-    <span t-field="move.date" t-options='{"widget": "date"}'/>
-    </td>
-  </xpath>
-
+    <xpath expr="//th[@name='th_sm_product']" position="after">
+        <th>
+            <strong>Lieferdatum</strong>
+        </th>
+    </xpath>
+    <xpath expr="//span[@t-field='move.product_id']" position="after">
+        <td>
+            <span t-field="move.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </td>
+    </xpath>
 </data>

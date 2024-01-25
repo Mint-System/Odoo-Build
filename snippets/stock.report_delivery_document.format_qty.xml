@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
-
     <span t-field="move.product_uom_qty" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
     </span>
-
     <span t-field="move.quantity_done" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
     </span>
-
 </data>

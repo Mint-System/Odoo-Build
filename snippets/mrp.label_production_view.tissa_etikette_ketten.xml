@@ -1,73 +1,64 @@
 <?xml version="1.0"?>
 <t t-name="mrp.label_production_view.tissa_etikette_ketten">
- 
     <div class="row">
-      <div class="col-2">
-        <img class="img-fluid" src="/web/image/2721/230x115mm_1fbg_graustufen_logo%20tissa%20textiles.jpg?access_token=c7d446e2-b48d-438b-afab-eb491dd6fa7a"/>
-      </div>
-      <div class="col-10" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">
-        <strong t-field="res_company.display_name"/>
-        <br/>
-        <span t-field="res_company.country_id.code"/>
-        <span> - </span>
-        <span t-field="res_company.zip"/>
-        <span>  </span>
-        <span t-field="res_company.city"/>
-      </div>
+        <div class="col-2">
+            <img class="img-fluid" src="/web/image/2721/230x115mm_1fbg_graustufen_logo%20tissa%20textiles.jpg?access_token=c7d446e2-b48d-438b-afab-eb491dd6fa7a"/>
+        </div>
+        <div class="col-10" style="font-family: Arial, Helvetica, sans-serif; font-size: 18px">
+            <strong t-field="res_company.display_name"/>
+            <br/>
+            <span t-field="res_company.country_id.code"/>
+            <span> - </span>
+            <span t-field="res_company.zip"/>
+            <span>  </span>
+            <span t-field="res_company.city"/>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 84px; font-weight:bold">
-        <span t-field="doc.product_id.display_name"/>
-      </div>
+        <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 84px; font-weight:bold">
+            <span t-field="doc.product_id.display_name"/>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col">
-        <td>
-          <img t-if="doc.product_id.display_name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.product_id.display_name, 500, 50)"/>
-        </td>
-      </div>
+        <div class="col">
+            <td>
+                <img t-if="doc.product_id.display_name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.product_id.display_name, 500, 50)"/>
+            </td>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 96px; font-weight:bold">
-        <span t-field="doc.name"/>
-      </div>
+        <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 96px; font-weight:bold">
+            <span t-field="doc.name"/>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col">
-        <td>
-          <img t-if="doc.name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 500, 50)"/>
-        </td>
-      </div>
+        <div class="col">
+            <td>
+                <img t-if="doc.name" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('Code128', doc.name, 500, 50)"/>
+            </td>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col-6" style="font-family: Arial, Helvetica, sans-serif; font-size: 84px; font-weight:bold">
-        <span t-field="doc.product_qty"/>
-      </div>
-      <!--
+        <div class="col-6" style="font-family: Arial, Helvetica, sans-serif; font-size: 84px; font-weight:bold">
+            <span t-field="doc.product_qty"/>
+        </div>
+        <!--
       <div class="col-6" style="font-family: Arial, Helvetica, sans-serif; font-size: 84px; font-weight:bold">
         <span t-field="doc.product_uom_id.display_name"/>
       </div>
       -->
     </div>
-
     <div class="row">
-      <div class="col-3">
-        <span>Einlagerungsdatum: </span>
-      </div>
-      <div class="col-9">
-        <span t-field="doc.create_date"/>
-      </div>
+        <div class="col-3">
+            <span>Einlagerungsdatum: </span>
+        </div>
+        <div class="col-9">
+            <span t-field="doc.create_date"/>
+        </div>
     </div>
-
     <div class="row">
-      <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 48px; font-weight:bold">
-        <span>kommt an Maschine:</span>
-      </div>
+        <div class="col" style="font-family: Arial, Helvetica, sans-serif; font-size: 48px; font-weight:bold">
+            <span>kommt an Maschine:</span>
+        </div>
     </div>
-
 </t>

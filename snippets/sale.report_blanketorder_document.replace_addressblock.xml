@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-
-  <xpath expr="//t/t/div/div[2]" position="replace">
-    <t t-set="address">
+    <xpath expr="//t/t/div/div[2]" position="replace">
+        <t t-set="address">
             <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
             <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
-    </t>
-  </xpath>
-
+        </t>
+    </xpath>
 </data>

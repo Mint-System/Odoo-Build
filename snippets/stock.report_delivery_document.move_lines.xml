@@ -1,43 +1,39 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//table[@name='stock_move_line_table']" position="before">   
-
-    <table class="tissa table table-sm" name="move_table">
-      <thead>
-        <tr>
-          <th>
-            <strong>Pos</strong>
-          </th>
-          <th>
-            <strong>Product (Sales Description)</strong>
-          </th>
-          <th>
-            <strong></strong>
-          </th>
-          <th class="cell_right">
-            <strong>Quantity</strong>
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <t t-set="moves" t-value="o.move_lines"/>
-        <tr t-if="move.quantity_done > 0" t-foreach="moves" t-as="move">
-          <td>
-            <span t-esc="move.position"/>
-          </td>
-          <td>
-            <span t-esc="move.product_id.description_sale"/>
-          </td>
-          <td></td>
-          <td class="cell_right">
-            <span t-esc="move.quantity_done"/>
-            <span t-field="move.product_uom"/>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
-  </xpath>
-
+    <xpath expr="//table[@name='stock_move_line_table']" position="before">
+        <table class="tissa table table-sm" name="move_table">
+            <thead>
+                <tr>
+                    <th>
+                        <strong>Pos</strong>
+                    </th>
+                    <th>
+                        <strong>Product (Sales Description)</strong>
+                    </th>
+                    <th>
+                        <strong/>
+                    </th>
+                    <th class="cell_right">
+                        <strong>Quantity</strong>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <t t-set="moves" t-value="o.move_lines"/>
+                <tr t-if="move.quantity_done &gt; 0" t-foreach="moves" t-as="move">
+                    <td>
+                        <span t-esc="move.position"/>
+                    </td>
+                    <td>
+                        <span t-esc="move.product_id.description_sale"/>
+                    </td>
+                    <td/>
+                    <td class="cell_right">
+                        <span t-esc="move.quantity_done"/>
+                        <span t-field="move.product_uom"/>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </xpath>
 </data>

@@ -1,6 +1,4 @@
 <?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
-
-  <xpath expr="/t/div" position="replace" />
-
+    <xpath expr="/t/div" position="replace"/>
 </data>

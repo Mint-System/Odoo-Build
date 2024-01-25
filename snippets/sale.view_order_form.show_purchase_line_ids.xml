@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.view_order_form" priority="50">
-
-  <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
-    <field name="purchase_line_ids" optional="hide" widget="many2many_tags"/>
-  </xpath>
-
+    <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
+        <field name="purchase_line_ids" optional="hide" widget="many2many_tags"/>
+    </xpath>
 </data>

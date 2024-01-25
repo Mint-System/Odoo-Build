@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="web.brand_promotion_message" priority="50">
-
-  <xpath expr="//t[@name='Brand Promotion Message']" position="replace">
-      <t name="Brand Promotion Message" t-name="web.brand_promotion_message"></t>
-  </xpath>
-
+    <xpath expr="//t[@name='Brand Promotion Message']" position="replace">
+        <t name="Brand Promotion Message" t-name="web.brand_promotion_message"/>
+    </xpath>
 </data>

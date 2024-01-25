@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="survey.survey_question_form" priority="50">
-
-  <form position="attributes">
-    <attribute name="create">1</attribute>
-  </form>
-
+    <form position="attributes">
+        <attribute name="create">1</attribute>
+    </form>
 </data>

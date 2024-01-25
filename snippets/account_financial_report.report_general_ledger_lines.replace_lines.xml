@@ -1,10 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
-
     <xpath expr="//t/div[@class='act_as_row lines']" position="replace">
-
         <div class="act_as_row lines">
-
             <!--## col1 -->
             <div class="act_as_cell left">
                 <t t-if="line['id']">
@@ -20,7 +17,6 @@
                     </span>
                 </t>
             </div>
-
             <!--## col2 -->
             <div class="act_as_cell left">
                 <span>
@@ -31,7 +27,6 @@
                             </span>
                         </t>
                     </t>
-
                     <t>
                         <t t-if="line['entry_id']">
                             <span t-att-res-id="line['entry_id']" res-model="account.move" view-type="form">
@@ -39,19 +34,15 @@
                             </span>
                         </t>
                     </t>
-                    
-
                     <span t-att-res-id="line['contra_accounts']" res-model="account.move.line" view-type="form">
                         <t t-raw="line['contra_accounts']"/>
                     </span>
                     <span t-att-res-id="line['partner_name']" res-model="account.move.line" view-type="form">
                         <t t-raw="line['partner_name']"/>
                     </span>
-
-                    <br></br>
+                    <br/>
                 </span>
             </div>
-
             <!--## col4 debit-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -65,7 +56,6 @@
                     </span>
                 </t>
             </div>
-
             <!--## col5 credit-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -79,7 +69,6 @@
                     </span>
                 </t>
             </div>
-
             <!--## col6 balance cumulated-->
             <div class="act_as_cell amount">
                 <t t-if="line['id']">
@@ -93,7 +82,6 @@
                     </span>
                 </t>
             </div>
-
             <t t-if="foreign_currency">
                 <t t-if="line['currency_id']">
                     <t t-set="line_currency" t-value="currency_model.browse(line['currency_id'][0])"/>
@@ -115,7 +103,5 @@
                 </t>
             </t>
         </div>
-
     </xpath>
-
 </data>

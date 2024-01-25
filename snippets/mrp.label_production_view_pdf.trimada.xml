@@ -1,8 +1,9 @@
+<?xml version="1.0"?>
 <t t-name="mrp.label_production_view_pdf.trimada">
-  <t t-call="web.basic_layout">
-    <t t-foreach="docs" t-as="production">
-      <t t-foreach="production.move_finished_ids" t-as="move">
-        <style>
+    <t t-call="web.basic_layout">
+        <t t-foreach="docs" t-as="production">
+            <t t-foreach="production.move_finished_ids" t-as="move">
+                <style>
           .label {
             font-family: arial;
           }
@@ -69,47 +70,45 @@
             padding-left: 0;
           }
         </style>
-
-        <div class="page">
-          <div class="label">
-            <div class="row title">
-              <div class="col-6 box2">
-                <span t-esc="move.product_id.default_code"/>
-              </div>
-              <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
-                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
-              </div>
-            </div>
-            <div class="description">
-              <span class="sub1" t-esc="move.product_id.name"/>
-            </div>
-            <div class="description">
-              <span class="sub2" t-esc="move.product_id.type_description"/>
-            </div>
-            <div class="row order">
-              <div class="col-6 box3">
-                <div class="padding info">
-                  <span t-esc="production.date_planned_finished" t-options="{'widget': 'date'}"/>
+                <div class="page">
+                    <div class="label">
+                        <div class="row title">
+                            <div class="col-6 box2">
+                                <span t-esc="move.product_id.default_code"/>
+                            </div>
+                            <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
+                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
+                            </div>
+                        </div>
+                        <div class="description">
+                            <span class="sub1" t-esc="move.product_id.name"/>
+                        </div>
+                        <div class="description">
+                            <span class="sub2" t-esc="move.product_id.type_description"/>
+                        </div>
+                        <div class="row order">
+                            <div class="col-6 box3">
+                                <div class="padding info">
+                                    <span t-esc="production.date_planned_finished" t-options="{'widget': 'date'}"/>
+                                </div>
+                                <div class="padding">
+                                    <strong>
+                                        <span t-esc="production.name"/>
+                                    </strong>
+                                </div>
+                            </div>
+                            <div class="col-6 box">
+                                <div t-if="production.name" class="text-right">
+                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', production.name, 250, 80)" alt="Barcode"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="comment">
+                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="padding">
-                  <strong>
-                    <span t-esc="production.name"/>
-                  </strong>
-                </div>
-              </div>
-              <div class="col-6 box">
-                <div t-if="production.name" class="text-right">
-                  <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', production.name, 250, 80)" alt="Barcode"/>
-                </div>
-              </div>
-            </div>
-            <div class="comment">
-              <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
-            </div>
-          </div>
-        </div>
-      </t>
+            </t>
+        </t>
     </t>
-  </t>
 </t>
-

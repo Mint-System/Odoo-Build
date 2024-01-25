@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom" priority="50">
-
-  <xpath expr="//t[@t-call='web.external_layout']" position="replace">
-    <t t-call="web.external_layout_worksheet">
-      <t t-call="industry_fsm.worksheet_custom_page" t-lang="doc.partner_id.lang"/>
-    </t>
-  </xpath>
-
+    <xpath expr="//t[@t-call='web.external_layout']" position="replace">
+        <t t-call="web.external_layout_worksheet">
+            <t t-call="industry_fsm.worksheet_custom_page" t-lang="doc.partner_id.lang"/>
+        </t>
+    </xpath>
 </data>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="website_sale.header_cart_link" priority="50">
+    <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
+        <attribute name="t-if">request.session.uid</attribute>
+    </xpath>
+</data>

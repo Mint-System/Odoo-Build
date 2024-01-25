@@ -1,16 +1,14 @@
 <?xml version="1.0"?>
 <data inherit_id="project.edit_project" priority="50">
-
     <field name="description" position="before">
         <label for="date_start" string="Planned Date"/>
         <div class="w-100">
             <div class="o_row">
-                <field name="date_start" widget="daterange" options='{"related_end_date": "date"}'/>
+                <field name="date_start" widget="daterange" options="{&quot;related_end_date&quot;: &quot;date&quot;}"/>
                 <i class="fa fa-long-arrow-right mx-2 oe_edit_only" aria-label="Arrow icon" title="Arrow"/>
                 <i class="fa fa-long-arrow-right mx-2 oe_read_only" aria-label="Arrow icon" title="Arrow" attrs="{'invisible': [('date', '=', False), ('date_start', '=', False)]}"/>
-                <field name="date" widget="daterange" options='{"related_start_date": "date_start"}'/>
+                <field name="date" widget="daterange" options="{&quot;related_start_date&quot;: &quot;date_start&quot;}"/>
             </div>
         </div>
     </field>
-
 </data>

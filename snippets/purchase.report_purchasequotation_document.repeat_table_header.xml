@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-
-  <xpath expr="//thead[@style='display: table-row-group']" position="attributes">
-    <attribute name="style"/>
-  </xpath>
-
+    <xpath expr="//thead[@style='display: table-row-group']" position="attributes">
+        <attribute name="style"/>
+    </xpath>
 </data>

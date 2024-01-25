@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-  <div id="informations" position="replace">
-
-    <style>
+    <div id="informations" position="replace">
+        <style>
       div#informations p {
         margin-bottom: 0rem;
       }
@@ -11,53 +10,60 @@
         vertical-align: top;
       }
     </style>
-    <div id="informations">
-      <table class="table table-borderless table-sm">
-        <tr>
-          <td>
-            <t t-if="o.move_type == 'out_invoice'"><strong class="mr-2">Rechnungsdatum:</strong></t>
-            <t t-elif="o.move_type == 'out_refund'"><strong class="mr-2">Gutschriftdatum:</strong></t>
-            <t t-elif="o.move_type == 'out_receipt'"><strong class="mr-2">Quittungsdatum:</strong></t>
-            <t t-else=""><strong>Datum:</strong></t>
-            <span t-field="o.invoice_date" t-options='{"widget": "date"}' />
-          </td>
-          <td>
-            <strong class="mr-2">Zahlungsbedingungen:</strong>
-            <span t-field="o.invoice_payment_term_id" />
-          </td>
-          <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
-          <td  t-if="o.partner_sale_id">
-            <strong class="mr-2">&#160;&#160;&#160;&#160;&#160;Ihr Kontakt:</strong>
-            <span t-field="o.partner_sale_id.name" />
-          </td>
-        </tr>
-
-        <tr>
-          <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-            <strong class="mr-2">&#160;Fälligkeitsdatum:</strong>
-            <span t-field="o.invoice_date_due" t-options='{"widget": "date"}' />
-          </td><td t-else=""></td>
-          <td>
-            <strong class="mr-2">Unser Kontakt:</strong>
-            <span t-field="o.invoice_user_id.name" />
-          </td>
-          <td t-if="o.ref" rowspan="2">
-            <div><strong class="mr-2">Ihre Referenz:</strong></div>
-            <div t-field="o.ref" />
-          </td>
-        </tr>
-
-        <tr>
-          <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]" />
-          <td t-if="order_id" colspan="2">
-            <strong class="mr-2">&#160;Unsere Referenz:</strong>
-            <span t-if="order_id.project_id.code" t-esc="'[' + order_id.project_id.code + '] ' + order_id.name" />
-            <span t-else="" t-field="order_id.name" />
-          </td>
-        </tr>
-      </table>
-
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <t t-if="o.move_type == 'out_invoice'">
+                            <strong class="mr-2">Rechnungsdatum:</strong>
+                        </t>
+                        <t t-elif="o.move_type == 'out_refund'">
+                            <strong class="mr-2">Gutschriftdatum:</strong>
+                        </t>
+                        <t t-elif="o.move_type == 'out_receipt'">
+                            <strong class="mr-2">Quittungsdatum:</strong>
+                        </t>
+                        <t t-else="">
+                            <strong>Datum:</strong>
+                        </t>
+                        <span t-field="o.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    </td>
+                    <td>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span t-field="o.invoice_payment_term_id"/>
+                    </td>
+                    <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
+                    <td t-if="o.partner_sale_id">
+                        <strong class="mr-2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
+                        <span t-field="o.partner_sale_id.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
+                        <strong class="mr-2">&#xA0;F&#xE4;lligkeitsdatum:</strong>
+                        <span t-field="o.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    </td>
+                    <td t-else=""/>
+                    <td>
+                        <strong class="mr-2">Unser Kontakt:</strong>
+                        <span t-field="o.invoice_user_id.name"/>
+                    </td>
+                    <td t-if="o.ref" rowspan="2">
+                        <div>
+                            <strong class="mr-2">Ihre Referenz:</strong>
+                        </div>
+                        <div t-field="o.ref"/>
+                    </td>
+                </tr>
+                <tr>
+                    <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
+                    <td t-if="order_id" colspan="2">
+                        <strong class="mr-2">&#xA0;Unsere Referenz:</strong>
+                        <span t-if="order_id.project_id.code" t-esc="'[' + order_id.project_id.code + '] ' + order_id.name"/>
+                        <span t-else="" t-field="order_id.name"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
     </div>
-  </div>
-
 </data>

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
-
-  <xpath expr="//h1/field[@name='name']" position="attributes">
-      <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancel'))]}</attribute>
-  </xpath>
-
+    <xpath expr="//h1/field[@name='name']" position="attributes">
+        <attribute name="attrs">{'readonly': [('state', 'in', ('done','cancel'))]}</attribute>
+    </xpath>
 </data>

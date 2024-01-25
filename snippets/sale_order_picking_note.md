@@ -5,10 +5,8 @@ ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_order_picking_note.view_order_form_inherit_sale_stock" priority="50" type="form" model="sale.order">
-
-    <field name="picking_note" position="replace"></field>
-    <field name="picking_customer_note" position="replace"></field>
-
+    <field name="picking_note" position="replace"/>
+    <field name="picking_customer_note" position="replace"/>
     <field name="note" position="before">
         <group colspan="4">
             <field name="picking_note" nolabel="1" placeholder="Picking Internal Note"/>
@@ -17,7 +15,6 @@ ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move
             <field name="picking_customer_note" nolabel="1" placeholder="Picking Customer Comments"/>
         </group>
     </field>
-
 </data>
 
 ```

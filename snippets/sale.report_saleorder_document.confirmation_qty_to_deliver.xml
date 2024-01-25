@@ -1,28 +1,25 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
-  <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
-    <t t-if="is_confirmation">
-      <span id="product_uom_qty_confirmed" t-esc="line.qty_to_deliver"/>
-    </t>
-    <t t-else="">
-      <span id="product_uom_qty" t-esc="line.product_uom_qty"/>
-    </t>
-  </xpath>
-
-  <xpath expr="//td[@name='td_subtotal']" position="replace">
-    <t t-if="is_confirmation">
-      <td name="td_subtotal" class="text-right o_price_total">
-        <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_excluded"/>
-        <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_included"/>
-      </td>
-    </t>
-    <t t-else="">
-      <td name="td_subtotal" class="text-right o_price_total">
-        <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
-        <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
-      </td>
-    </t>
-  </xpath>
-
+    <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
+        <t t-if="is_confirmation">
+            <span id="product_uom_qty_confirmed" t-esc="line.qty_to_deliver"/>
+        </t>
+        <t t-else="">
+            <span id="product_uom_qty" t-esc="line.product_uom_qty"/>
+        </t>
+    </xpath>
+    <xpath expr="//td[@name='td_subtotal']" position="replace">
+        <t t-if="is_confirmation">
+            <td name="td_subtotal" class="text-right o_price_total">
+                <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_excluded"/>
+                <span t-esc="'%.2f' % (line.price_unit * line.qty_to_deliver * ((line.discount or 100.0) / 100.0))" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+        </t>
+        <t t-else="">
+            <td name="td_subtotal" class="text-right o_price_total">
+                <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
+                <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+            </td>
+        </t>
+    </xpath>
 </data>

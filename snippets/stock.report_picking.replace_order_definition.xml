@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
-  <xpath expr="//div[@name='div_origin']/.." position="replace">
-
-    <style>
+    <xpath expr="//div[@name='div_origin']/.." position="replace">
+        <style>
             table.trimada_order {
               width: 100%;
                 font-size: 11pt;
@@ -25,57 +23,55 @@
               border-bottom: 0px !important;
             }
     </style>
-
-    <table class="trimada_order">
-      <tr>
-        <t t-if="o.picking_type_id.id == 12">
-          <td class="first_col">
-            <strong>
+        <table class="trimada_order">
+            <tr>
+                <t t-if="o.picking_type_id.id == 12">
+                    <td class="first_col">
+                        <strong>
               Fertigungsauftrag
-              <span t-field="o.origin" />
+              <span t-field="o.origin"/>
             </strong>
-          </td>
-          <td class="second_col">
-            <strong>
+                    </td>
+                    <td class="second_col">
+                        <strong>
               Produkt
-              <span />
+              <span/>
             </strong>
-            <span t-field="o.group_id.mrp_production_ids.product_id" />
-          </td>
-        </t>
-        <t t-if="o.picking_type_id.id != 12">
-          <td class="first_col">
-            <strong>
+                        <span t-field="o.group_id.mrp_production_ids.product_id"/>
+                    </td>
+                </t>
+                <t t-if="o.picking_type_id.id != 12">
+                    <td class="first_col">
+                        <strong>
               Bestellung
-              <span t-field="o.origin" />
+              <span t-field="o.origin"/>
             </strong>
-          </td>
-          <td></td>
-        </t>
-      </tr>
-      <tr>
-        <td class="first_col">
+                    </td>
+                    <td/>
+                </t>
+            </tr>
+            <tr>
+                <td class="first_col">
           Status:
-          <span t-field="o.state" />
+          <span t-field="o.state"/>
         </td>
-        <td class="second_col">
+                <td class="second_col">
           Datum:
-          <span t-field="o.scheduled_date" t-options='{"widget": "date"}'></span>
+          <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </td>
-      </tr>
-      <tr class="last_row">
-        <td class="first_col">
+            </tr>
+            <tr class="last_row">
+                <td class="first_col">
           Typ:
-          <span t-field="o.picking_type_id.code" />
+          <span t-field="o.picking_type_id.code"/>
         </td>
-        <t t-if="o.carrier_id">
-          <td>
+                <t t-if="o.carrier_id">
+                    <td>
             Auslieferungsmethode:
-            <span t-field="o.carrier_id" />
+            <span t-field="o.carrier_id"/>
           </td>
-        </t>
-      </tr>
-    </table>
-
-  </xpath>
+                </t>
+            </tr>
+        </table>
+    </xpath>
 </data>

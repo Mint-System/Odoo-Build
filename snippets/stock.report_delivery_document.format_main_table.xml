@@ -1,11 +1,9 @@
 <?xml version="1.0"?>
 <!-- Change style of first column -->
 <data inherit_id="stock.report_delivery_document" priority="50">
-
     <xpath expr="//table" position="attributes">
-        <attribute name="class" add="mint-system" separator=" " />
+        <attribute name="class" add="mint-system" separator=" "/>
     </xpath>
-
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             table.mint-system tbody tr td:first-of-type {
@@ -14,5 +12,4 @@
             }
         </style>
     </xpath>
-
-</data> 
+</data>

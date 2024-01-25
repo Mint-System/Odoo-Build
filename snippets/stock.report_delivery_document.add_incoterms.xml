@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-
-  <xpath expr="//div[1]/div[1]/div[2]" position="after">
-    <div class="col-auto" name="div_incoterms">
-       <strong>Incoterms:</strong>
-        <t>
-          <p t-field="res_company.incoterm_id.code"/>
-        </t>
-    </div>
-  </xpath>
-
+    <xpath expr="//div[1]/div[1]/div[2]" position="after">
+        <div class="col-auto" name="div_incoterms">
+            <strong>Incoterms:</strong>
+            <t>
+                <p t-field="res_company.incoterm_id.code"/>
+            </t>
+        </div>
+    </xpath>
 </data>

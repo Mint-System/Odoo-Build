@@ -5,11 +5,9 @@ ID: `mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_w
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_attendance.view_attendance_overtime_tree" priority="50">
-
-  <field name="duration" position="attributes">
-    <attribute name="widget"></attribute>
-  </field>
-
+    <field name="duration" position="attributes">
+        <attribute name="widget"/>
+    </field>
 </data>
 
 ```
@@ -21,11 +19,9 @@ ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="hr_attendance.view_attendance_tree" priority="50">
-
-  <tree position="attributes">
-    <attribute name="edit">1</attribute>
-  </tree>
-
+    <tree position="attributes">
+        <attribute name="edit">1</attribute>
+    </tree>
 </data>
 
 ```

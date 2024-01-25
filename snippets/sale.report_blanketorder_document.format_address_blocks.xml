@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-
-  <xpath expr="//div[@class='col-xs-6']/.." position="replace">
-    <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
-    <t t-set="address">
-      <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}" style="font-size:10pt; line-height: 1.2; padding-bottom:33mm"/>
-      <p t-if="doc.partner_id.vat">
+    <xpath expr="//div[@class='col-xs-6']/.." position="replace">
+        <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
+        <t t-set="address">
+            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}" style="font-size:10pt; line-height: 1.2; padding-bottom:33mm"/>
+            <p t-if="doc.partner_id.vat">
       </p>
-    </t>
-  </xpath>
-
+        </t>
+    </xpath>
 </data>

@@ -1,26 +1,22 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <!-- Remove reference -->
     <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
     </xpath>
-
     <!-- Add sales person -->
     <xpath expr="/t/t/div/div[1]/div[1]" position="after">
         <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
             <strong>Salesperson:</strong>
-            <p class="m-0" t-field="o.invoice_user_id.name" />
+            <p class="m-0" t-field="o.invoice_user_id.name"/>
         </div>
     </xpath>
-
     <!-- Add referencce to new line -->
     <xpath expr="//div[@id='informations']" position="after">
         <div id="informations2" class="row mt32 mb32" t-if="o.ref">
             <div class="col-auto mw-100 mb-2" name="reference">
                 <strong>Reference:</strong>
-                <p class="m-0" t-field="o.ref" />
+                <p class="m-0" t-field="o.ref"/>
             </div>
         </div>
     </xpath>
-
 </data>

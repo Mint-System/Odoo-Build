@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-  <xpath expr="/t/t/div/div/div[3]" position="replace">
-    <div t-if="o.user_id" class="col-3 bm-2">
-                    <strong>Order Date:</strong>
-                     <p t-field="o.date_approve" class="m-0" t-options='{ "widget": "date" }'/>
-                </div>
-
-  </xpath>
-
+    <xpath expr="/t/t/div/div/div[3]" position="replace">
+        <div t-if="o.user_id" class="col-3 bm-2">
+            <strong>Order Date:</strong>
+            <p t-field="o.date_approve" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </div>
+    </xpath>
 </data>

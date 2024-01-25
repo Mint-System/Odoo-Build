@@ -1,13 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-  <xpath expr="//span[@id='product_qty']" position="replace">
-    <t t-if="line.product_uom.id == 1">
-      <span id="product_qty" t-field="line.product_qty" t-options="{'widget': 'integer'}"/>
-    </t>
-    <t t-else="">
-      <span id="product_qty" t-field="line.product_qty"/>
-    </t>
-  </xpath>
-
+    <xpath expr="//span[@id='product_qty']" position="replace">
+        <t t-if="line.product_uom.id == 1">
+            <span id="product_qty" t-field="line.product_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="product_qty" t-field="line.product_qty"/>
+        </t>
+    </xpath>
 </data>

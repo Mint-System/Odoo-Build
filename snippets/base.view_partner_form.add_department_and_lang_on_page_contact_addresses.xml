@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
-<data inherit_id="base.view_partner_form" priority="52">>
+<data inherit_id="base.view_partner_form" priority="52">&gt;
 
-<data>
-  <xpath expr="//page[@name='contact_addresses']/field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[1]/field[@name='comment']" position="before">
-    <field name="department"/>
-    <field name="lang"/>
-  </xpath>
-</data>
+<data><xpath expr="//page[@name='contact_addresses']/field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[1]/field[@name='comment']" position="before"><field name="department"/><field name="lang"/></xpath></data>
 
 </data>
