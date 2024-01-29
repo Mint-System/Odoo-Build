@@ -315,6 +315,20 @@ ID: `mint_system.base.view_partner_form.attributes_child_ids`
 ```
 Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.attributes_child_ids.xml)
 
+### Lang Required  
+ID: `mint_system.base.view_partner_form.lang_required`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//sheet/group/group/field[@name='lang']" position="attributes">
+    <attribute name="required">1</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.lang_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.lang_required.xml)
+
 ### Move Company Registry  
 ID: `mint_system.base.view_partner_form.move_company_registry`  
 ```xml

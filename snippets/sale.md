@@ -1787,6 +1787,225 @@ ID: `mint_system.sale.report_saleorder_document.get_position`
 ```
 Source: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.get_position.xml)
 
+### Group By Product  
+ID: `mint_system.sale.report_saleorder_document.group_by_product`  
+```xml
+<t t-name="sale.report_saleorder_pro_forma">
+    <t t-call="web.html_container">
+        <t t-set="is_pro_forma" t-value="True"/>
+        <t t-set="is_pro_forma_consolidated" t-value="True"/>
+        <t t-call="web.external_layout">
+
+            <style>
+           .info td {
+              padding-left: 5px;
+              padding-right: 5px;
+              border-bottom: 1px solid #D3D3D3;
+            }           
+            .border-solid-black td {
+              border: 1px solid black;
+            }
+            thead th {
+              font-weight: bold;
+              padding: 5px;
+            }
+            h2 {
+              padding-left: 5px;
+            }
+            h3 {
+              font-size: 22px;
+              padding-left: 5px;
+            }
+            </style>
+
+            <h2 class="mt-4">
+                <span>Pro-Forma Invoice</span>
+            </h2>
+
+            <h3>Orders:</h3>
+            <table class="info">
+                <thead>
+                    <tr>
+                        <th class="text-start">Ref</th>
+                        <th class="text-start">Company Name</th>
+                        <th class="text-start">Street</th>
+                        <th class="text-start">Zip</th>
+                        <th class="text-start">City</th>
+                        <th class="text-end">Currency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="doc">
+                        <tr>
+                            <td>
+                                <span t-field="doc.name"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.street"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.zip"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.city"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-esc="doc.currency_id.name"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+
+            <table class="table table-sm o_main_table mt-4">
+                <thead style="display: table-row-group">
+                    <tr>
+                        <th name="th_description" class="text-start">Description</th>
+                        <th name="th_quantity" class="text-end">Quantity</th>
+                        <th name="th_priceunit" class="text-end">Unit Price</th>
+                        <th name="th_taxes" class="text-end">Taxes</th>
+                        <th name="th_subtotal" class="text-end">Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody class="sale_tbody">
+                    <t t-set="lines" t-value="docs.order_line.sorted(key=lambda l: (l.name), reverse=True)"/>
+                    <t t-set="consolidated_products" t-value="{}"/>
+                    <t t-foreach="lines" t-as="line">
+                        <t t-set="product_name" t-value="line.name"/>
+                        <t t-set="line_name" t-value="line.product_id.name"/>
+                        <t t-set="line_default_code" t-value="line.product_id.default_code"/>
+                        <t t-set="line_hs_code" t-value="line.product_id.hs_code"/>
+                        <t t-set="line_quantity" t-value="line.product_uom_qty"/>
+                        <t t-set="line_price_unit" t-value="line.price_unit"/>
+                        <t t-set="line_tax_id" t-value="line.tax_id.description"/>
+                        <t t-set="line_subtotal" t-value="line.price_subtotal"/>
+                        <t t-set="line_price_total" t-value="line.price_total"/>
+                        <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
+                        <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'name': line_name, 'default_code': line_default_code, 'hs_code': line_hs_code, 'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'tax_id': line_tax_id, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
+                    </t>
+
+                    <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                        <t t-if="not line.display_type">
+                            <t t-foreach="consolidated_products.items()" t-as="product_data">
+                                <tr>
+                                    <td name="td_name">
+                                        <span style="font-weight: bold" t-esc="product_data[1]['name']"/>
+                                        <br/>
+                                        Product Code: <span t-esc="product_data[1]['default_code']"/>
+                                        <br/>
+                                        <t t-if="product_data[1]['hs_code']">HS-Code: <span t-esc="product_data[1]['hs_code']"/>
+                                        </t>
+                                    </td>
+                                    <td name="td_quantity" class="text-end">
+                                        <span t-esc="product_data[1]['quantity']"/>
+                                        <span t-field="line.product_uom"/>
+                                    </td>
+                                    <td name="td_priceunit" class="text-end">
+                                        <t t-set="unit_price" t-value="product_data[1]['subtotal'] / product_data[1]['quantity'] "/>
+                                        <span class="text-nowrap" t-esc="unit_price" t-options="{'widget': 'float', 'precision': 3}"/>
+                                    </td>
+                                    <td name="td_taxes" class="text-end">
+                                        <span t-esc="product_data[1]['tax_id']"/>
+                                    </td>
+
+                                    <td name="td_subtotal" class="text-end o_price_total">
+                                        <span t-esc="product_data[1]['subtotal']" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tr>
+                </tbody>
+                <t t-set="consolidated_price_total" t-value="0"/>
+                <t t-foreach="docs" t-as="doc">
+                    <t t-foreach="doc.order_line" t-as="line">
+                        <t t-set="consolidated_price_total" t-value="consolidated_price_total + line.price_total"/>
+                    </t>
+                </t>
+            </table>
+
+            <div class="clearfix" name="so_total_summary">
+                <div id="total" class="row" name="total">
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
+                        <table class="table table-sm">
+                            <!-- Tax totals -->
+                            <t t-set="tax_totals" t-value="doc.tax_totals"/>
+
+                            <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
+
+                                <tr class="border-black o_subtotal">
+                                    <td>
+                                        <strong t-esc="subtotal['name']"/>
+                                    </td>
+
+                                    <td class="text-end">
+                                        <span t-att-class="oe_subtotal_footer_separator" t-esc="consolidated_price_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+                                <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                                    <tr>
+                                        <t t-if="tax_totals['display_tax_base']">
+                                            <td>
+                                                <span t-esc="amount_by_group['tax_group_name']"/>
+                                                <span class="text-nowrap"> on
+                                                    <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-end o_price_total">
+                                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/>
+                                            </td>
+                                            <td class="text-end o_price_total">
+                                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </t>
+
+                            <t t-set="has_rounding" t-value="'formatted_amount_total_rounded' in tax_totals"/>
+                            <!--Total amount with all taxes-->
+                            <tr class="border-black o_total">
+                                <t t-if="has_rounding">
+                                    <td>Total</td>
+                                </t>
+                                <t t-else="">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                </t>
+                                <td class="text-end">
+                                    <t t-set="consolidated_price_total" t-value="consolidated_price_total + amount_by_group['tax_group_amount']"/>
+                                    <span t-esc="consolidated_price_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr t-if="has_rounding">
+                                <td>
+                                    <strong>Total Rounded</strong>
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="tax_totals['formatted_amount_total_rounded']"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+</t>
+```
+Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.group_by_product.xml)
+
 ### Remove Discount Percentage  
 ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`  
 ```xml
@@ -2906,6 +3125,84 @@ ID: `mint_system.sale.report_saleorder_pro_forma.append_signature`
 ```
 Source: [snippets/sale.report_saleorder_pro_forma.append_signature.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_pro_forma.append_signature.xml)
 
+### Consolidated  
+ID: `mint_system.sale.report_saleorder_pro_forma.consolidated`  
+```xml
+<t t-name="sale.report_saleorder_pro_forma">
+    <t t-call="web.html_container">
+        <t t-set="is_pro_forma" t-value="True"/>
+        <t t-set="is_pro_forma_consolidated" t-value="True"/>
+       <t t-call="web.external_layout">
+         
+          <t t-foreach="docs" t-as="doc">
+            <span t-field="doc.partner_id"/>, 
+            <span t-esc="doc.name"/>, 
+            <span t-esc="doc.client_order_ref"/>
+            <br/>
+          
+          </t>
+          
+          
+         <table class="table table-sm o_main_table mt-4"> 
+          <thead style="display: table-row-group">
+              <tr>
+                  <th name="th_description" class="text-start">Description</th>
+                  <th name="th_quantity">Quantity</th>
+                  <th name="th_priceunit" class="text-end">Unit Price</th>
+                  <th name="th_discount"/>
+                  <th name="th_taxes" class="text-end">Taxes</th>
+                  <th name="th_subtotal" class="text-end"/>
+              </tr>
+          </thead>
+          </table>
+         
+          
+       
+         <t t-foreach="docs" t-as="doc">
+           
+       
+        <table class="table table-sm o_main_table mt-4">
+          
+          <!--
+           <tbody class="sale_tbody">
+             <t t-set="lines" t-value="doc.order_line.sorted(key=lambda l: (-l.sequence, l.name, -l.id), reverse=True)"/>
+             
+               <t t-foreach="lines" t-as="line">
+                 <tr>
+                  <td name="td_name"><span t-field="line.name"/></td>
+                </tr>
+               </t>
+             
+            </tbody>
+            -->
+            
+            <tbody class="sale_tbody">
+            <t t-set="lines" t-value="doc.order_line"/>
+            <t t-foreach="lines" t-as="line">
+                <tr>
+                    <t t-if="not previous_name or line.name != previous_name">
+                        <td name="td_name">
+                            <span t-field="line.name"/>
+                        </td>
+                    </t>
+                    <t t-set="previous_name" t-value="line.name"/>
+                </tr>
+            </t>
+        </tbody>
+
+        
+         
+         </table>
+      
+        </t>
+          
+       </t>
+        
+    </t>
+</t>
+```
+Source: [snippets/sale.report_saleorder_pro_forma.consolidated.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_pro_forma.consolidated.xml)
+
 ## Sale Order Line View Form Readonly  
 ### Edit Form  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_form`  
@@ -3555,20 +3852,6 @@ ID: `mint_system.sale.view_order_form.move_commitment_date`
 ```
 Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_commitment_date.xml)
 
-### Move Start Date  
-ID: `mint_system.sale.view_order_form.move_start_date`  
-```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.view_order_form" priority="50">
-    <xpath expr="//field[@name='start_date']" position="replace"/>
-    <xpath expr="//field[@name='date_order']" position="after">
-        <field name="start_date"/>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.view_order_form.move_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_start_date.xml)
-
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 ```xml
@@ -3767,6 +4050,19 @@ ID: `mint_system.sale.view_order_form.show_purchase_line_ids`
 
 ```
 Source: [snippets/sale.view_order_form.show_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_purchase_line_ids.xml)
+
+### Show Start Date  
+ID: `mint_system.sale.view_order_form.show_start_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='date_order']" position="after">
+        <field name="start_date" attrs="{'invisible': [('recurrence_id', '=', False)]}" />
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_form.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_start_date.xml)
 
 ### Show Stock Purchase Line Ids  
 ID: `mint_system.sale.view_order_form.show_stock_purchase_line_ids`  
