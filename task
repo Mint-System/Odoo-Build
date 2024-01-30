@@ -229,7 +229,7 @@ function start() {
     if [[ "$1" =~ "native" ]]; then
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
+        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" & 
         odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 

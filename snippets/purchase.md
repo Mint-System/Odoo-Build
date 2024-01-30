@@ -1349,6 +1349,25 @@ ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
 
+### Sort By Name  
+ID: `mint_system.purchase.report_purchaseorder_document.sort_by_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
+
+  <xpath expr="//span[@t-field='line.product_uom.name']" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase.report_purchaseorder_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.sort_by_name.xml)
+
 ### Style Carbo Link  
 ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`  
 ```xml

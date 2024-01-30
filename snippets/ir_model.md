@@ -2429,19 +2429,20 @@ Source: [snippets/ir_model.sale_order.x_as4import.xml](https://github.com/Mint-S
 ### X Bexioid  
 ID: `mint_system.ir_model.sale_order.x_bexioid`  
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8' ?>
 <odoo>
-    <record id="x_bexioid" model="ir.model.fields">
-        <field name="domain">[]</field>
-        <field name="field_description">Bexio ID</field>
-        <field name="model">sale.order</field>
-        <field name="model_id" ref="base.model_res_partner"/>
-        <field name="name">x_bexioid</field>
-        <field name="store" eval="True"/>
-        <field name="readonly" eval="False"/>
-        <field name="copied" eval="True"/>
-        <field name="ttype">integer</field>
-    </record>
+
+  <record id="x_bexioid" model="ir.model.fields">
+    <field name="field_description">Bexio ID</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_bexioid</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="False"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">integer</field>
+  </record>
+
 </odoo>
 
 ```
@@ -2654,6 +2655,28 @@ ID: `mint_system.ir_model.sale_order.x_studio_description`
 
 ```
 Source: [snippets/ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_studio_description.xml)
+
+### X Vst  
+ID: `mint_system.ir_model.sale_order.x_vst`  
+```xml
+<?xml version='1.0' encoding='UTF-8' ?>
+<odoo>
+
+  <record id="x_vst" model="ir.model.fields">
+    <field name="field_description">VST</field>
+    <field name="model">sale.order</field>
+    <field name="model_id" ref="sale.model_sale_order"/>
+    <field name="name">x_vst</field>
+    <field name="store" eval="True"/>
+    <field name="readonly" eval="True"/>
+    <field name="copied" eval="True"/>
+    <field name="ttype">char</field>
+    <field name="related">partner_sale_id.x_vst</field>
+  </record>
+
+</odoo>
+```
+Source: [snippets/ir_model.sale_order.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_vst.xml)
 
 ## Stock Location  
 ### X Should Be Valued  
