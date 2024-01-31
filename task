@@ -135,7 +135,7 @@ function disable-auto-install() {
 
 function build() {
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="odoo:$GIT_BRANCH" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function install-odoo-scripts() {
