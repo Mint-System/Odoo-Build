@@ -1278,6 +1278,17 @@ ID: `mint_system.account.report_invoice_document.remove_incoterm`
 ```
 Source: [snippets/account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_incoterm.xml)
 
+### Remove Origin  
+ID: `mint_system.account.report_invoice_document.remove_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <div name="origin" position="replace"/>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_origin.xml)
+
 ### Remove Payment Communication  
 ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
 ```xml
@@ -1310,6 +1321,17 @@ ID: `mint_system.account.report_invoice_document.remove_reference`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_reference.xml)
+
+### Remove Shipping Address  
+ID: `mint_system.account.report_invoice_document.remove_shipping_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@t-field='o.partner_shipping_id']/.. " position="replace"/>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_shipping_address.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.account.report_invoice_document.remove_summary_table`  
@@ -4075,6 +4097,17 @@ ID: `mint_system.account.report_invoice_document.remove_incoterm`
 ```
 Source: [snippets/account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_incoterm.xml)
 
+### Remove Origin  
+ID: `mint_system.account.report_invoice_document.remove_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <div name="origin" position="replace"/>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_origin.xml)
+
 ### Remove Payment Communication  
 ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
 ```xml
@@ -4107,6 +4140,17 @@ ID: `mint_system.account.report_invoice_document.remove_reference`
 
 ```
 Source: [snippets/account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_reference.xml)
+
+### Remove Shipping Address  
+ID: `mint_system.account.report_invoice_document.remove_shipping_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@t-field='o.partner_shipping_id']/.. " position="replace"/>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.remove_shipping_address.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.account.report_invoice_document.remove_summary_table`  

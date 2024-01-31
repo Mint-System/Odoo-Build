@@ -364,13 +364,12 @@ ID: `mint_system.base.view_partner_form.move_ref`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-    <xpath expr="//field[@name='ref']" position="replace">
+  <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
-    <xpath expr="//field[@name='vat']" position="after">
-        <field name="ref"/>
-    </xpath>
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="ref"/>
+  </xpath>
 </data>
-
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_ref.xml)
 
