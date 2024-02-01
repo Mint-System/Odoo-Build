@@ -1,0 +1,11 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p name="payment_communication" position="before">
+        <t t-set="is_recurring" t-value="o.invoice_line_ids.product_id.filtered('membership_ok')"/>
+        <t t-set="membership_partner_id" t-value="o.partner_id.parent_id.address_get(['membership'])['membership'] or o.partner_id.address_get(['membership'])['membership']"/>
+        <t t-if="membership_partner_id != o.partner_id.id" t-set="membership_partner" t-value="env['res.partner'].browse(membership_partner_id)"/>
+        <t t-if="is_recurring and membership_partner">
+            <p>Als Kontaktperson für diese Mitgliedschaft sind bei uns folgende Angaben hinterlegt: <span t-esc="membership_partner.name"/> (<span t-esc="membership_partner.email"/>)</p>
+            <p>Diese Person bekommt auch die Einladung für die Mitgliederversammlung. Bitte melden Sie uns allfällige Mutationen umgehend.</p>
+        </t>
+    </p>
+</data>
