@@ -200,55 +200,80 @@ ID: `mint_system.account.report_invoice_document.add_information_space`
 ```
 Source: [snippets/account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_information_space.xml)
 
+### Add Membership Note  
+ID: `mint_system.account.report_invoice_document.add_membership_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p name="payment_communication" position="before">
+        <t t-set="is_recurring" t-value="o.invoice_line_ids.product_id.filtered('membership_ok')"/>
+        <t t-set="membership_partner_id" t-value="o.partner_id.parent_id.address_get(['membership'])['membership'] or o.partner_id.address_get(['membership'])['membership']"/>
+        <t t-if="membership_partner_id != o.partner_id.id" t-set="membership_partner" t-value="env['res.partner'].browse(membership_partner_id)"/>
+        <t t-if="is_recurring and membership_partner">
+            <p>Als Kontaktperson für diese Mitgliedschaft sind bei uns folgende Angaben hinterlegt: <span t-esc="membership_partner.name"/> (<span t-esc="membership_partner.email"/>)</p>
+            <p>Diese Person bekommt auch die Einladung für die Mitgliederversammlung. Bitte melden Sie uns allfällige Mutationen umgehend.</p>
+        </t>
+    </p>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_membership_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_membership_note.xml)
+
 ### Add Note  
 ID: `mint_system.account.report_invoice_document.add_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@name='comment']" position="replace">
-        <div style="margin-top: 50px">
-            <div>
-                <t t-if="not is_html_empty(o.narration)" name="narration">
-                    <span t-field="o.narration"/>
-                </t>
-                <t t-elif="o.partner_id.country_id.code == 'CH'">
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.country_id.code == 'DE'">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG &#xA7;6a.</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG &#xA7;6a.</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-else="">
-                    <span style="font-weight: bold">Incoterms: Ex-works</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-            </div>
-        </div>
-    </xpath>
-</data>
 
+    <xpath expr="//div[@name='comment']" position="replace">
+    <div style="margin-top: 50px">
+
+      <div>
+        <t t-if="not is_html_empty(o.narration)" name="narration">
+             <span t-field="o.narration"/>
+        </t>
+        <t t-elif="o.company_id.id == 2">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'CH'">
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'DE'">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-else="">
+          <span style="font-weight: bold">Incoterms: Ex-works</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+      </div>
+    </div>
+  </xpath>
+
+</data>
 ```
 Source: [snippets/account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_note.xml)
 
@@ -3019,55 +3044,80 @@ ID: `mint_system.account.report_invoice_document.add_information_space`
 ```
 Source: [snippets/account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_information_space.xml)
 
+### Add Membership Note  
+ID: `mint_system.account.report_invoice_document.add_membership_note`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p name="payment_communication" position="before">
+        <t t-set="is_recurring" t-value="o.invoice_line_ids.product_id.filtered('membership_ok')"/>
+        <t t-set="membership_partner_id" t-value="o.partner_id.parent_id.address_get(['membership'])['membership'] or o.partner_id.address_get(['membership'])['membership']"/>
+        <t t-if="membership_partner_id != o.partner_id.id" t-set="membership_partner" t-value="env['res.partner'].browse(membership_partner_id)"/>
+        <t t-if="is_recurring and membership_partner">
+            <p>Als Kontaktperson für diese Mitgliedschaft sind bei uns folgende Angaben hinterlegt: <span t-esc="membership_partner.name"/> (<span t-esc="membership_partner.email"/>)</p>
+            <p>Diese Person bekommt auch die Einladung für die Mitgliederversammlung. Bitte melden Sie uns allfällige Mutationen umgehend.</p>
+        </t>
+    </p>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_membership_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_membership_note.xml)
+
 ### Add Note  
 ID: `mint_system.account.report_invoice_document.add_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@name='comment']" position="replace">
-        <div style="margin-top: 50px">
-            <div>
-                <t t-if="not is_html_empty(o.narration)" name="narration">
-                    <span t-field="o.narration"/>
-                </t>
-                <t t-elif="o.partner_id.country_id.code == 'CH'">
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.country_id.code == 'DE'">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG &#xA7;6a.</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
-                    <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG &#xA7;6a.</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-                <t t-else="">
-                    <span style="font-weight: bold">Incoterms: Ex-works</span>
-                    <br/>
-                    <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
-                    <br/>
-                    <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
-                </t>
-            </div>
-        </div>
-    </xpath>
-</data>
 
+    <xpath expr="//div[@name='comment']" position="replace">
+    <div style="margin-top: 50px">
+
+      <div>
+        <t t-if="not is_html_empty(o.narration)" name="narration">
+             <span t-field="o.narration"/>
+        </t>
+        <t t-elif="o.company_id.id == 2">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'CH'">
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code == 'DE'">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.country_id.code in ['GR', 'AL', 'HR', 'MNE', 'MC']">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: Ex-works / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-elif="o.partner_id.parent_id.country_id.country_group_ids and o.partner_id.parent_id.country_id.country_group_ids[0].id == 1">
+          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+        <t t-else="">
+          <span style="font-weight: bold">Incoterms: Ex-works</span>
+          <br/>
+          <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
+          <br/>
+          <span style="font-style: italic">"The total quantity of delivered products is missing from delivery note"</span>
+        </t>
+      </div>
+    </div>
+  </xpath>
+
+</data>
 ```
 Source: [snippets/account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_note.xml)
 
