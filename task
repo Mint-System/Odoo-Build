@@ -353,7 +353,7 @@ function update-module() {
     odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-function generate-module-translation() {
+function translate-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1177,8 +1177,8 @@ case "$1" in
     upload-module)
         upload-module "$2" "$3"
         ;;
-    generate-module-translation)
-        generate-module-translation "$2" "$3" "$4"
+    translate-module)
+        translate-module "$2" "$3" "$4"
         ;;
     patch-database)
         patch-database "$2" "$3"
