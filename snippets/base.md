@@ -391,6 +391,19 @@ ID: `mint_system.base.view_partner_form.move_zip_and_city`
 ```
 Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_zip_and_city.xml)
 
+### Readonly Property Product Pricelist  
+ID: `mint_system.base.view_partner_form.readonly_property_product_pricelist`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+    <xpath expr="//field[@name='property_product_pricelist']" position="attributes">
+        <attribute name="readonly">1</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_form.readonly_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.readonly_property_product_pricelist.xml)
+
 ### Show Color  
 ID: `mint_system.base.view_partner_form.show_color`  
 ```xml

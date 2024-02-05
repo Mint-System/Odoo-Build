@@ -230,7 +230,7 @@ ID: `mint_system.account.report_invoice_document.add_note`
              <span t-field="o.narration"/>
         </t>
         <t t-elif="o.company_id.id == 2">
-          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <span style="font-weight: bold">Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
           <br/>
           <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
           <br/>
@@ -2365,6 +2365,19 @@ ID: `mint_system.account.report_invoice_document.show_order_id`
 
 ```
 Source: [snippets/account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_order_id.xml)
+
+### Show Parent Partner Reference  
+ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p t-field="o.partner_id.ref" position="attributes">
+        <attribute name="t-field">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    </p>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_parent_partner_reference.xml)
 
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
@@ -3074,7 +3087,7 @@ ID: `mint_system.account.report_invoice_document.add_note`
              <span t-field="o.narration"/>
         </t>
         <t t-elif="o.company_id.id == 2">
-          <span style="font-weight: bold">EORI: DE379461566911068 / Incoterms: DAP</span>
+          <span style="font-weight: bold">Incoterms: DDP / Tax free intracommunity delivery acc. to UstG §6a.</span>
           <br/>
           <span>The exporter of the products covered by this document declares that, except where otherwise clearly indicated, these products are of swiss preferential origin.</span>
           <br/>
@@ -5210,6 +5223,19 @@ ID: `mint_system.account.report_invoice_document.show_order_id`
 ```
 Source: [snippets/account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_order_id.xml)
 
+### Show Parent Partner Reference  
+ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p t-field="o.partner_id.ref" position="attributes">
+        <attribute name="t-field">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    </p>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_parent_partner_reference.xml)
+
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
 ```xml
@@ -5709,6 +5735,20 @@ ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_e
 ```
 Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
 
+## View Account Invoice Filter  
+### Is Move Sent  
+ID: `mint_system.account.view_account_invoice_filter.is_move_sent`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_invoice_filter" priority="50">
+    <filter name="to_check" position="after">
+        <filter name="is_sent" string="Sent" domain="[('is_move_sent', '=', False)]"/>
+    </filter>
+</data>
+
+```
+Source: [snippets/account.view_account_invoice_filter.is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_account_invoice_filter.is_move_sent.xml)
+
 ## View Account Journal Form  
 ### Show Payment Method Code  
 ID: `mint_system.account.view_account_journal_form.show_payment_method_code`  
@@ -5921,6 +5961,19 @@ ID: `mint_system.account.view_invoice_tree.add_currency_id`
 
 ```
 Source: [snippets/account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_invoice_tree.add_currency_id.xml)
+
+### Add Is Move Sent  
+ID: `mint_system.account.view_invoice_tree.add_is_move_sent`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_invoice_tree" priority="50">
+    <field name="state" position="after">
+        <field name="is_move_sent" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_invoice_tree.add_is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_invoice_tree.add_is_move_sent.xml)
 
 ### Format Ref  
 ID: `mint_system.account.view_invoice_tree.format_ref`  
