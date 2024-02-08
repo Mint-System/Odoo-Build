@@ -654,6 +654,19 @@ ID: `mint_system.product.product_template_tree_view.set_default_order`
 ```
 Source: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.set_default_order.xml)
 
+### Show Accounts  
+ID: `mint_system.product.product_template_tree_view.show_accounts`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_tree_view" priority="50">
+    <xpath expr="//field[@name='list_price']" position="before">
+        <field name="property_account_income_id" optional="hide"/>
+        <field name="property_account_expense_id" optional="hide"/>
+    </xpath>
+</data>
+```
+Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.show_accounts.xml)
+
 ### X Expiration Days  
 ID: `mint_system.product.product_template_tree_view.x_expiration_days`  
 ```xml

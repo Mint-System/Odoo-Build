@@ -242,3 +242,7 @@
 	path = addons/management
 	url = git@github.com:Mint-System/Odoo-Apps-Management.git
 	branch = 16.0
+[submodule "oca/queue"]
+	path = oca/queue
+	url = git@github.com:OCA/queue.git
+	branch = 16.0
