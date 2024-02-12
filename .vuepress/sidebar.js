@@ -1,4 +1,5 @@
 export default ['/snippets/account.md',
+'/snippets/account_accountant.md',
 '/snippets/account_asset.md',
 '/snippets/account_budget.md',
 '/snippets/account_financial_report.md',
