@@ -2369,13 +2369,14 @@ Source: [snippets/account.report_invoice_document.show_order_id.xml](https://git
 ### Show Parent Partner Reference  
 ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <p t-field="o.partner_id.ref" position="attributes">
-        <attribute name="t-field">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    <p t-field="o.partner_id.ref" position="replace">
+        <p class="m-0" t-esc="o.partner_id.ref or o.partner_id.parent_id.ref" />
     </p>
+    <div t-if="o.partner_id.ref" position="attributes">
+        <attribute name="t-if">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    </div>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_parent_partner_reference.xml)
 
@@ -5226,13 +5227,14 @@ Source: [snippets/account.report_invoice_document.show_order_id.xml](https://git
 ### Show Parent Partner Reference  
 ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <p t-field="o.partner_id.ref" position="attributes">
-        <attribute name="t-field">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    <p t-field="o.partner_id.ref" position="replace">
+        <p class="m-0" t-esc="o.partner_id.ref or o.partner_id.parent_id.ref" />
     </p>
+    <div t-if="o.partner_id.ref" position="attributes">
+        <attribute name="t-if">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    </div>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_parent_partner_reference.xml)
 
@@ -5742,7 +5744,8 @@ ID: `mint_system.account.view_account_invoice_filter.is_move_sent`
 <?xml version="1.0"?>
 <data inherit_id="account.view_account_invoice_filter" priority="50">
     <filter name="to_check" position="after">
-        <filter name="is_sent" string="Sent" domain="[('is_move_sent', '=', False)]"/>
+        <filter name="is_sent" string="Sent" domain="[('is_move_sent', '=', True)]"/>
+        <filter name="is_not_sent" string="Not Sent" domain="[('is_move_sent', '=', False)]"/>
     </filter>
 </data>
 

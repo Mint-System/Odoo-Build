@@ -1,5 +1,29 @@
 # Base
 ## Contact Name  
+### Format Parent Name  
+ID: `mint_system.base.contact_name.format_parent_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.contact_name" priority="50">
+    <xpath expr="//t[1]/span" position="replace">
+        <!--if object has no parent show name only-->
+        <t t-if="not object.parent_name">
+            <span itemprop="name" t-esc="object.name"/>
+        </t>
+        <!-- if object has parent with same name show name only -->
+        <t t-if="object.name == object.parent_name">
+            <span itemprop="name" t-esc="object.parent_name"/>
+        </t>
+        <!--if object has parent with different name show parent on second line -->
+        <t t-if="object.parent_name and object.name != object.parent_name ">
+            <span itemprop="name" t-esc="object.name"/><br/>
+            <span itemprop="name" t-esc="object.parent_name"/>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/base.contact_name.format_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.contact_name.format_parent_name.xml)
+
 ### Modify Name  
 ID: `mint_system.base.contact_name.modify_name`  
 ```xml
@@ -710,6 +734,19 @@ ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`
 
 ```
 Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_property_product_pricelist.xml)
+
+### Show Ref  
+ID: `mint_system.base.view_partner_tree.show_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+    <field name="display_name" position="before">
+        <field name="ref" optional="show" string="Ku-Nr." />
+    </field>
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_ref.xml)
 
 ### Show Street  
 ID: `mint_system.base.view_partner_tree.show_street`  
