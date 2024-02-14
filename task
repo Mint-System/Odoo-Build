@@ -17,7 +17,7 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
-OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=de_CH
@@ -146,7 +146,7 @@ function install-native() {
     init-venv
     activate-venv
     
-    if [[ "Ubuntu|Debian" =~ $OS_RELEASE ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         echo "Install wkhtmltopdf"
