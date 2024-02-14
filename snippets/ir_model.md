@@ -3031,6 +3031,27 @@ ID: `mint_system.ir_model.stock_move.x_scrap_id`
 Source: [snippets/ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_move.x_scrap_id.xml)
 
 ## Stock Picking  
+### X As4 Import  
+ID: `mint_system.ir_model.stock_picking.x_as4_import`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_as4_import" model="ir.model.fields">
+        <field name="field_description">AS4 Import</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_sale_id_as4_import</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">boolean</field>
+        <field name="related">sale_id.x_as4import</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_picking.x_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_as4_import.xml)
+
 ### X Autocomplete  
 ID: `mint_system.ir_model.stock_picking.x_autocomplete`  
 ```xml
@@ -3142,27 +3163,6 @@ ID: `mint_system.ir_model.stock_picking.x_origin`
 
 ```
 Source: [snippets/ir_model.stock_picking.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_origin.xml)
-
-### X Sale Id As4 Import  
-ID: `mint_system.ir_model.stock_picking.x_sale_id_as4_import`  
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <record id="x_sale_id_as4_import" model="ir.model.fields">
-        <field name="field_description">Sale Order AS4 Import</field>
-        <field name="model">stock.picking</field>
-        <field name="model_id" ref="stock.model_stock_picking"/>
-        <field name="name">x_sale_id_as4_import</field>
-        <field name="store" eval="True"/>
-        <field name="readonly" eval="True"/>
-        <field name="copied" eval="False"/>
-        <field name="ttype">boolean</field>
-        <field name="related">sale_id.x_as4import</field>
-    </record>
-</odoo>
-
-```
-Source: [snippets/ir_model.stock_picking.x_sale_id_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_sale_id_as4_import.xml)
 
 ### X Vst  
 ID: `mint_system.ir_model.stock_picking.x_vst`  
