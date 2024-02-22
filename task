@@ -548,13 +548,13 @@ function checkout-config-files() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Checkout config files $1 branch."
-    git checkout "$1" config/checkout_files config/reset_files
+    git checkout "$1" config/checkout-files config/reset-files
 
     echo "Remove reset files."
-    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
+    git rm -r $(tr '\n' ' ' < ./config/reset-files) >/dev/null 2>&1
 
     echo "Sync checkout files from $1 branch."
-    git checkout "$1" $(tr '\n' ' ' < ./config/checkout_files)
+    git checkout "$1" $(tr '\n' ' ' < ./config/checkout-files)
 }
 
 function checkout() {
@@ -569,8 +569,6 @@ function checkout() {
     git-submodule-update
 
     git-submodule-switch "$1"
-
-    checkout-config-files "$GIT_BRANCH"
 }
 
 function checkout-revision() {
