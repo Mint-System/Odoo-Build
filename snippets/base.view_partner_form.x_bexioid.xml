@@ -1,14 +1,11 @@
 <data inherit_id="base.view_partner_form" priority="50">
 
-  <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
-  </xpath>
-
   <xpath expr="//field[@name='vat']" position="after">
-    <field name="ref"/>
+    <field name="x_bexioid" readonly="1"/>
   </xpath>
 
   <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
-    <field name="ref"/>
+    <field name="x_bexioid"/>
   </xpath>
 
 </data>

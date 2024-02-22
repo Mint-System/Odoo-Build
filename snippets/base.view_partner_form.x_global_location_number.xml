@@ -3,4 +3,9 @@
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
+
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_global_location_number"/>
+    </xpath>
+
 </data>
