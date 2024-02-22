@@ -871,6 +871,20 @@ ID: `mint_system.base.view_res_partner_filter.add_zip_and_city`
 ```
 Source: [snippets/base.view_res_partner_filter.add_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.add_zip_and_city.xml)
 
+### Main Contacts  
+ID: `mint_system.base.view_res_partner_filter.main_contacts`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="base.view_res_partner_filter" priority="50">
+    <xpath expr="//filter[@name='type_company']" position="after">
+      <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
+    </xpath>
+</data>
+
+
+```
+Source: [snippets/base.view_res_partner_filter.main_contacts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.main_contacts.xml)
+
 ### Search Zip  
 ID: `mint_system.base.view_res_partner_filter.search_zip`  
 ```xml

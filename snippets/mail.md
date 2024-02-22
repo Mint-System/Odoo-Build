@@ -131,15 +131,23 @@ ID: `mint_system.mail.mail_notification_email.remove_logo`
 Source: [snippets/mail.mail_notification_email.remove_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_email.remove_logo.xml)
 
 ## Mail Notification Layout  
+### Debrand  
+ID: `mint_system.mail.mail_notification_layout.debrand`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_layout" priority="50">
+    <xpath expr="//div[1]/p[1]" position="replace"/>
+</data>
+
+```
+Source: [snippets/mail.mail_notification_layout.debrand.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_layout.debrand.xml)
+
 ### Remove Access Link  
 ID: `mint_system.mail.mail_notification_layout.remove_access_link`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_layout" priority="60">
     <xpath expr="//td[@t-if='has_button_access']" position="replace"/>
-    <!-- <xpath expr="//body[1]/t[1]" position="after">
-    <t t-set="has_button_access" t-value="False"/>
-  </xpath> -->
 </data>
 
 ```
@@ -164,7 +172,7 @@ ID: `mint_system.mail.mail_notification_light.debrand`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_light" priority="50">
-    <xpath expr="//t[1]/table[1]/tr[2]" position="replace"/>
+    <xpath expr="//body[1]/table[1]/tr[2]/td[1]" position="replace"/>
 </data>
 
 ```
@@ -203,6 +211,17 @@ ID: `mint_system.mail.mail_notification_light.reduce_to_content`
 
 ```
 Source: [snippets/mail.mail_notification_light.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_light.reduce_to_content.xml)
+
+### Remove Access Link  
+ID: `mint_system.mail.mail_notification_light.remove_access_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mail.mail_notification_light" priority="60">
+    <xpath expr="//t[@t-if='has_button_access']" position="replace"/>
+</data>
+
+```
+Source: [snippets/mail.mail_notification_light.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_light.remove_access_link.xml)
 
 ### Remove Logo  
 ID: `mint_system.mail.mail_notification_light.remove_logo`  

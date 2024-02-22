@@ -3,6 +3,7 @@ In Odoo everything is described as an XML document.     Snippets are modificatio
 ## [Account](snippets/account.md)
 ## [Account Accountant](snippets/account_accountant.md)
 ## [Account Asset](snippets/account_asset.md)
+## [Account Batch Payment](snippets/account_batch_payment.md)
 ## [Account Budget](snippets/account_budget.md)
 ## [Account Financial Report](snippets/account_financial_report.md)
 ## [Account Followup](snippets/account_followup.md)
