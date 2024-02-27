@@ -167,14 +167,13 @@ function install-native() {
     fi
 
     echo "Install pylint odoo"
-    pip install --upgrade --pre pylint-odoo
+    pip install pylint-odoo
 
     echo "Install odoo dependencies"
-    pip install setuptools wheel watchdog phonenumbers astor
     pip install -r odoo/requirements.txt
 
     echo "Install OCA development tools"
-    pip install pre-commit pyyaml rst2html5 odoorpc coverage
+    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage
 
     echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
