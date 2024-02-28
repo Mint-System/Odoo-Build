@@ -2922,6 +2922,20 @@ ID: `mint_system.account.view_account_invoice_filter.is_move_sent`
 ```
 Source: [snippets/account.view_account_invoice_filter.is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_account_invoice_filter.is_move_sent.xml)
 
+### Partner Id  
+ID: `mint_system.account.view_account_invoice_filter.partner_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_account_invoice_filter" priority="50">
+    <filter name="to_check" position="after">
+        <filter name="is_sent" string="Sent" domain="[('is_move_sent', '=', True)]"/>
+        <filter name="is_not_sent" string="Not Sent" domain="[('is_move_sent', '=', False)]"/>
+    </filter>
+</data>
+
+```
+Source: [snippets/account.view_account_invoice_filter.partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_account_invoice_filter.partner_id.xml)
+
 ## View Account Journal Form  
 ### Show Payment Method Code  
 ID: `mint_system.account.view_account_journal_form.show_payment_method_code`  
