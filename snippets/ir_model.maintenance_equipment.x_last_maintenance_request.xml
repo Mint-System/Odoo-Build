@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="x_next_maintenance_request" model="ir.model.fields">
+    <record id="x_last_maintenance_request" model="ir.model.fields">
         <field name="domain">[]</field>
-        <field name="field_description">Nächster Wartungsauftrag</field>
+        <field name="field_description">Letzter Wartungsauftrag</field>
         <field name="model">maintenance.equipment</field>
         <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
-        <field name="name">x_next_maintenance_request</field>
+        <field name="name">x_last_maintenance_request</field>
         <field name="store" eval="False"/>
         <field name="readonly" eval="True"/>
         <field name="copied" eval="False"/>
@@ -13,10 +13,10 @@
         <field name="relation">maintenance.request</field>
         <field name="depends">name, maintenance_ids.schedule_date</field>
         <field name="compute">for record in self:
-    next_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['1', '2']), ('equipment_id', '=', record.id)], order='schedule_date', limit=1)
-    if next_maintenance and next_maintenance.schedule_date:
-        record['x_next_maintenance_request'] = next_maintenance.id
+    last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='schedule_date desc', limit=1)
+    if last_maintenance and last_maintenance.schedule_date:
+        record['x_last_maintenance_request'] = last_maintenance.id
     else:
-        record['x_next_maintenance_request'] = None</field>
+        record['x_last_maintenance_request'] = None</field>
     </record>
 </odoo>

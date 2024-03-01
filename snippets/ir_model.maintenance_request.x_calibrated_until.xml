@@ -3,13 +3,12 @@
     <record id="x_calibrated_until" model="ir.model.fields">
         <field name="domain">[]</field>
         <field name="field_description">Kalibriert bis</field>
-        <field name="model">maintenance.equipment</field>
-        <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+        <field name="model">maintenance.request</field>
+        <field name="model_id" ref="maintenance.model_maintenance_request"/>
         <field name="name">x_calibrated_until</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="False"/>
         <field name="ttype">date</field>
-        <field name="related">x_last_maintenance_request.x_calibrated_until</field>
     </record>
 </odoo>
