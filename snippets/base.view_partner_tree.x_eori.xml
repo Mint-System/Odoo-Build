@@ -1,10 +1,10 @@
 <data inherit_id="base.view_partner_form" priority="50">
 
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="x_eori"/>
-  </xpath>
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="x_eori"/>
+    </xpath>
 
-      <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
         <field name="x_eori"/>
     </xpath>
 
