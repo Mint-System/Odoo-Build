@@ -386,13 +386,19 @@ Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](ht
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
+
   <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
+
   <xpath expr="//field[@name='vat']" position="after">
     <field name="ref"/>
   </xpath>
+
+  <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+    <field name="ref"/>
+  </xpath>
+
 </data>
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_ref.xml)
@@ -493,6 +499,23 @@ ID: `mint_system.base.view_partner_form.show_user_id`
 ```
 Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.show_user_id.xml)
 
+### X Bexioid  
+ID: `mint_system.base.view_partner_form.x_bexioid`  
+```xml
+<data inherit_id="base.view_partner_form" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_bexioid" readonly="1"/>
+  </xpath>
+
+  <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+    <field name="x_bexioid"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_form.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_bexioid.xml)
+
 ### X Birthdate  
 ID: `mint_system.base.view_partner_form.x_birthdate`  
 ```xml
@@ -553,6 +576,11 @@ ID: `mint_system.base.view_partner_form.x_global_location_number`
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
+
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_global_location_number"/>
+    </xpath>
+
 </data>
 
 ```
@@ -589,9 +617,15 @@ ID: `mint_system.base.view_partner_form.x_vst`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
+
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_vst"/>
     </xpath>
+
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_vst"/>
+    </xpath>
+
 </data>
 
 ```
@@ -787,6 +821,23 @@ ID: `mint_system.base.view_partner_tree.x_bexioid`
 ```
 Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_bexioid.xml)
 
+### X Eori  
+ID: `mint_system.base.view_partner_tree.x_eori`  
+```xml
+<data inherit_id="base.view_partner_tree" priority="50">
+
+  <xpath expr="//field[@name='vat']" position="after">
+    <field name="x_eori"/>
+  </xpath>
+
+      <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_eori"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/base.view_partner_tree.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_eori.xml)
+
 ### X First Sale Date  
 ID: `mint_system.base.view_partner_tree.x_first_sale_date`  
 ```xml
@@ -803,13 +854,17 @@ Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.c
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_tree.x_global_location_number`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="base.view_partner_tree" priority="60">
-    <field name="active" position="after">
-        <field name="x_global_location_number" optional="hide"/>
-    </field>
-</data>
+<data inherit_id="base.view_partner_tree" priority="50">
 
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="x_global_location_number"/>
+    </xpath>
+
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_global_location_number"/>
+    </xpath>
+
+</data>
 ```
 Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_global_location_number.xml)
 

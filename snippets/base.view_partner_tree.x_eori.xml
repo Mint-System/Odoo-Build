@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_form" priority="50">
+<data inherit_id="base.view_partner_tree" priority="50">
 
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_eori"/>

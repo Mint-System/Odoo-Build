@@ -166,23 +166,22 @@ function install-native() {
         echo "The operating system $OS_RELEASE is not supported."
     fi
 
-    echo "Install pylint odoo"
-    pip install --upgrade --pre pylint-odoo
+    echo "Install Odoo development tools"
+    pip install setuptools wheel watchdog
 
-    echo "Install odoo dependencies"
-    pip install setuptools wheel watchdog phonenumbers astor
+    echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
 
     echo "Install OCA development tools"
-    pip install pre-commit pyyaml rst2html5 odoorpc coverage
+    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
 
     echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 
-    echo "Install module dependencies: prometheus_exporter"
+    echo "Install prometheus_exporter dependency"
     pip install prometheus-client
 
-    echo "Install module dependencies: base_view_inheritance_extension"
+    echo "Install base_view_inheritance_extension dependency"
     pip install astor
 }
 
