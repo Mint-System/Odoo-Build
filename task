@@ -419,22 +419,6 @@ function test-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
-function test-coverage-module() {
-    DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
-
-    # Use default database if second param is not given 
-    if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
-        MODULE_NAME=$(basename "$1")
-    fi
-
-    activate-venv
-    set-addons-path
-    echo "Testing module $MODULE_NAME on $DATABASE ..."
-    coverage run odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
-}
-
 function remove-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
