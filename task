@@ -17,7 +17,7 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
-OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release)
+OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=de_CH
@@ -135,7 +135,7 @@ function disable-auto-install() {
 
 function build() {
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="odoo:$GIT_BRANCH" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function install-odoo-scripts() {
@@ -146,16 +146,18 @@ function install-native() {
     init-venv
     activate-venv
     
-    if [[ "Ubuntu|Debian" =~ $OS_RELEASE ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         echo "Install wkhtmltopdf"
         sudo apt remove wkhtmltopdf
-        cd ~ || exit
         wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
         tar xvf wkhtmltox*.tar.xz
         sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
-        sudo apt-get install -y openssl build-essential libssl-dev libxrender-dev git-core libx11-dev libxext-dev libfontconfig1-dev libfreetype6-dev fontconfig
+        rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.*
+
+        echo "Install python-ldap and psycopg2 build dependencies"
+        sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev
 
         echo "Install xmllint"
         sudo apt install libxml2-utils
@@ -164,23 +166,22 @@ function install-native() {
         echo "The operating system $OS_RELEASE is not supported."
     fi
 
-    echo "Install pylint odoo"
-    pip install --upgrade --pre pylint-odoo
+    echo "Install Odoo development tools"
+    pip install setuptools wheel inotify watchdog
 
-    echo "Install odoo dependencies"
-    pip install setuptools wheel watchdog phonenumbers astor
+    echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
 
     echo "Install OCA development tools"
-    pip install pre-commit pyyaml rst2html5 odoorpc coverage
+    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
 
     echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
 
-    echo "Install module dependencies: prometheus_exporter"
+    echo "Install prometheus_exporter dependency"
     pip install prometheus-client
 
-    echo "Install module dependencies: base_view_inheritance_extension"
+    echo "Install base_view_inheritance_extension dependency"
     pip install astor
 }
 
@@ -229,8 +230,8 @@ function start() {
     if [[ "$1" =~ "native" ]]; then
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?db=$DATABASE" & 
-        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
+        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
+        odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -353,7 +354,7 @@ function update-module() {
     odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-function generate-module-translation() {
+function translate-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -532,13 +533,13 @@ function checkout-config-files() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Checkout config files $1 branch."
-    git checkout "$1" config/checkout_files config/reset_files
+    git checkout "$1" config/checkout-files config/reset-files
 
     echo "Remove reset files."
-    git rm -r $(tr '\n' ' ' < ./config/reset_files) >/dev/null 2>&1
+    git rm -r $(tr '\n' ' ' < ./config/reset-files) >/dev/null 2>&1
 
     echo "Sync checkout files from $1 branch."
-    git checkout "$1" $(tr '\n' ' ' < ./config/checkout_files)
+    git checkout "$1" $(tr '\n' ' ' < ./config/checkout-files)
 }
 
 function checkout() {
@@ -553,8 +554,6 @@ function checkout() {
     git-submodule-update
 
     git-submodule-switch "$1"
-
-    checkout-config-files "$GIT_BRANCH"
 }
 
 function checkout-revision() {
@@ -843,10 +842,11 @@ function upload-module() {
 }
 
 function save-config() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    DATABASE="$1"
+    DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin -s -d "$1" --config 'config/odoo.conf' --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -s --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
 function git-submodule-add() {
@@ -1161,8 +1161,8 @@ case "$1" in
     upload-module)
         upload-module "$2" "$3"
         ;;
-    generate-module-translation)
-        generate-module-translation "$2" "$3" "$4"
+    translate-module)
+        translate-module "$2" "$3" "$4"
         ;;
     patch-database)
         patch-database "$2" "$3"

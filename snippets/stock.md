@@ -3727,6 +3727,101 @@ ID: `mint_system.stock.report_picking.replace_header`
 ```
 Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_header.xml)
 
+### Replace Infotable  
+ID: `mint_system.stock.report_picking.replace_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+
+    <style>
+      .gisada_header {
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+          }
+        
+        .gisada {
+            margin-top: 10px;
+            width: 100%;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+          }
+    </style>
+    
+    <table class="gisada_header">
+      <tr>
+        <td>
+            Order number: <span t-field="o.x_client_order_ref"/>,
+            Delivery date: <span t-field="o.date_deadline" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+            <t t-if="o.x_vst">
+            , VST: <span t-field="o.x_vst"/>
+            </t>
+        </td>
+      </tr>
+    </table>
+
+    <table class="gisada">
+      <tr>
+        <td width="22%">Order date:</td>
+        <td width="36%">
+           <span t-field="o.x_date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="17%">Contact person:</td>
+        <td width="41%">
+           <span t-field="o.sale_id.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Customer number:
+        </td>
+        <td>
+           <span t-field="o.partner_id.parent_id.ref"/>
+        </td>
+        <td>
+          Order number:
+        </td>
+         <td>
+          <span t-field="o.origin"/>
+        </td>
+      </tr>
+         
+      <tr>
+        <td>
+          VAT number customer:
+        </td>
+        <td>
+          <span t-field="o.partner_id.parent_id.vat"/>
+        </td>
+        <td>
+          MwSt. Nr.:
+        </td>
+        <td>
+          <span t-field="o.company_id.company_registry"/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>EORI:</td>
+        <td>
+          <span t-field="o.partner_id.parent_id.x_eori"/>
+        </td>
+        <td>EORI:</td>
+        <td>
+          <span t-field="o.company_id.partner_id.x_eori"/>
+        </td>
+      </tr>
+      
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_infotable.xml)
+
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
 ```xml
@@ -4992,6 +5087,101 @@ ID: `mint_system.stock.report_picking.replace_header`
 
 ```
 Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_header.xml)
+
+### Replace Infotable  
+ID: `mint_system.stock.report_picking.replace_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+
+    <xpath expr="//div[@class='page']/div[1]" position="replace">
+
+    <style>
+      .gisada_header {
+            width: 100%;
+            font-size: 20px;
+            font-weight: bold;
+            border-top: 1px solid black;
+            border-bottom: 1px solid black;
+          }
+        
+        .gisada {
+            margin-top: 10px;
+            width: 100%;
+            margin-bottom: 30px;
+            padding-bottom: 10px;
+          }
+    </style>
+    
+    <table class="gisada_header">
+      <tr>
+        <td>
+            Order number: <span t-field="o.x_client_order_ref"/>,
+            Delivery date: <span t-field="o.date_deadline" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+            <t t-if="o.x_vst">
+            , VST: <span t-field="o.x_vst"/>
+            </t>
+        </td>
+      </tr>
+    </table>
+
+    <table class="gisada">
+      <tr>
+        <td width="22%">Order date:</td>
+        <td width="36%">
+           <span t-field="o.x_date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="17%">Contact person:</td>
+        <td width="41%">
+           <span t-field="o.sale_id.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          Customer number:
+        </td>
+        <td>
+           <span t-field="o.partner_id.parent_id.ref"/>
+        </td>
+        <td>
+          Order number:
+        </td>
+         <td>
+          <span t-field="o.origin"/>
+        </td>
+      </tr>
+         
+      <tr>
+        <td>
+          VAT number customer:
+        </td>
+        <td>
+          <span t-field="o.partner_id.parent_id.vat"/>
+        </td>
+        <td>
+          MwSt. Nr.:
+        </td>
+        <td>
+          <span t-field="o.company_id.company_registry"/>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>EORI:</td>
+        <td>
+          <span t-field="o.partner_id.parent_id.x_eori"/>
+        </td>
+        <td>EORI:</td>
+        <td>
+          <span t-field="o.company_id.partner_id.x_eori"/>
+        </td>
+      </tr>
+      
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_infotable.xml)
 
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
@@ -6406,6 +6596,21 @@ ID: `mint_system.stock.view_move_tree.x_picking_partner`
 Source: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_move_tree.x_picking_partner.xml)
 
 ## View Picking Form  
+### Hide Fields  
+ID: `mint_system.stock.view_picking_form.hide_fields`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+
+  <xpath expr="//button[@name='button_validate']" position="attributes">
+    <attribute name="attrs">{'invisible': ['|', '|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False), ('started', '=', False)]}</attribute>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.view_picking_form.hide_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.hide_fields.xml)
+
 ### Modify Invisible Button Validate  
 ID: `mint_system.stock.view_picking_form.modify_invisible_button_validate`  
 ```xml
@@ -6549,6 +6754,18 @@ ID: `mint_system.stock.view_picking_form.show_weight`
 ```
 Source: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.show_weight.xml)
 
+### X As4 Import  
+ID: `mint_system.stock.view_picking_form.x_as4_import`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+    <xpath expr="//group[@name='other_infos']" position="inside">
+        <field name="x_as4_import"/>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.x_as4_import.xml)
+
 ### X Autocomplete  
 ID: `mint_system.stock.view_picking_form.x_autocomplete`  
 ```xml
@@ -6640,6 +6857,20 @@ ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date
 
 ```
 Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
+
+### Filter X Client Order Ref  
+ID: `mint_system.stock.view_picking_internal_search.filter_x_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_internal_search" priority="50">
+
+  <filter name="starred" position="after">
+    <field string="Bestellnummer Kunde" name="x_client_order_ref" filter_domain="[('x_client_order_ref', 'ilike', self)]"/>
+  </filter>
+
+</data>
+```
+Source: [snippets/stock.view_picking_internal_search.filter_x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_internal_search.filter_x_client_order_ref.xml)
 
 ## View Production Lot Form  
 ### X Autoremove  

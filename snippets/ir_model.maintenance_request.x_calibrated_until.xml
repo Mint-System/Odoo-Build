@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_calibrated_until" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">Kalibriert bis</field>
+        <field name="model">maintenance.request</field>
+        <field name="model_id" ref="maintenance.model_maintenance_request"/>
+        <field name="name">x_calibrated_until</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">date</field>
+    </record>
+</odoo>

@@ -251,24 +251,42 @@ ID: `mint_system.product.product_template_form_view.last_incoming_date`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-    <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
-        <field name="last_incoming_date"/>
-    </xpath>
-</data>
 
+  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+    <field name="last_incoming_date"/>
+  </xpath>
+  
+</data>
 ```
 Source: [snippets/product.product_template_form_view.last_incoming_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_incoming_date.xml)
+
+### Last Moves  
+ID: `mint_system.product.product_template_form_view.last_moves`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_form_view" priority="50">
+
+  <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
+    <group name="moves" string="Bewegungen" colspan="4">
+      <field name="last_outgoing_date"/>
+      <field name="last_incoming_date"/>
+    </group>
+  </xpath>
+</data>
+```
+Source: [snippets/product.product_template_form_view.last_moves.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_moves.xml)
 
 ### Last Outgoing Date  
 ID: `mint_system.product.product_template_form_view.last_outgoing_date`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-    <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
-        <field name="last_outgoing_date"/>
-    </xpath>
-</data>
 
+  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+    <field name="last_outgoing_date"/>
+  </xpath>
+  
+</data>
 ```
 Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_outgoing_date.xml)
 
@@ -651,6 +669,19 @@ ID: `mint_system.product.product_template_tree_view.set_default_order`
 
 ```
 Source: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.set_default_order.xml)
+
+### Show Accounts  
+ID: `mint_system.product.product_template_tree_view.show_accounts`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_tree_view" priority="50">
+    <xpath expr="//field[@name='list_price']" position="before">
+        <field name="property_account_income_id" optional="hide"/>
+        <field name="property_account_expense_id" optional="hide"/>
+    </xpath>
+</data>
+```
+Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.show_accounts.xml)
 
 ### X Expiration Days  
 ID: `mint_system.product.product_template_tree_view.x_expiration_days`  

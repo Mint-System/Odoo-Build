@@ -190,9 +190,7 @@ Publish the Odoo image.
 task publish
 ```
 
-## Mail
-
-### Setup mail server and client
+### Mail
 
 Start mail server.
 
@@ -200,66 +198,13 @@ Start mail server.
 task start mail
 ```
 
-Create a new account `odoo@example.com` and set `odoo` as password.\
-Create a new account `test@example.com` and set `test` as password.
+Register an outgoing mail server with these informations:
 
-Install a simple mail client such as [Claws Mail](https://www.claws-mail.org/) and connect with credentials:
-
+name: `Mailhog`
 host: `localhost`\
-port: `25`\
-username: `odoo@example.com`\
-password: `test`
-
-For incoming mails use these informations:
-
-server type: `IMAP`
-host: `localhost`\
-port: `143`\
-username: `odoo@example.com`\
-password: `test`
-
-Repeat the same for `test@example.com`.
-
-### Setup incoming and outgoing mail for Odoo
-
-Activate mail sever option with `example.com` domain.
-
-For outgoing mails use these informations:
-
-host: `localhost`\
-port: `25`\
-username: `odoo@example.com`\
-password: `odoo`
-
-For incoming mails use these informations:
-
-server type: `IMAP`
-host: `localhost`\
-port: `143`\
-username: `odoo@example.com`\
-password: `odoo`
-
-### Test mail exchange
-
-Follow these steps to test a mail exchange:
-
-* Send mail in Odoo to `test@example.com`
-* In mail client create reply to the mail and save as draft
-* Copy the mail to the inbox of `odoo@example.com`
-* Trigger fetchmail in Odoo
-* Check if reply has been processed
+port: `1'025`
 
 ## Troubleshooting
-
-### Remove tracked submodule folders
-
-**Problem**
-
-The checkout command fails tue to unregistered submdoules.
-
-**Solution**
-
-Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
 
 ### Remove tracked submodule folders
 

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_amount_residual_signed_credit" model="ir.model.fields">
+        <field name="field_description">Rechnungsbetrag unterzeichnet credit</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_amount_residual_signed_credit</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">amount_residual_signed</field>
+        <field name="compute">for rec in self:
+  if rec.move_type in ['in_invoice', 'in_refund']:
+    rec['x_amount_residual_signed_credit'] = rec.amount_residual_signed * -1
+  else:
+    rec['x_amount_residual_signed_credit'] = 0
+    </record>
+</odoo>
