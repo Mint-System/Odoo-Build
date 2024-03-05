@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_location" model="ir.model.fields">
+        <field name="field_description">Location</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_location</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/> <!-- Assuming locations may not always be relevant to copy -->
+        <field name="ttype">char</field>
+    </record>
+</odoo>

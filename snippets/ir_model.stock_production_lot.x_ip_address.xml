@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_ip_address" model="ir.model.fields">
+        <field name="field_description">IP Address</field>
+        <field name="model">business.requirement</field>
+        <field name="model_id" ref="business_requirement.model_business_requirement"/>
+        <field name="name">x_ip_address</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/> <!-- Assuming IP addresses should not be copied by default -->
+        <field name="ttype">char</field>
+    </record>
+</odoo>
