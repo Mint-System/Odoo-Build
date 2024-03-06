@@ -3213,12 +3213,12 @@ ID: `mint_system.ir_model.stock_production_lot.x_device_name`
 <odoo>
     <record id="x_device_name" model="ir.model.fields">
         <field name="field_description">Device Name</field>
-        <field name="model">stock.production.lot</field>
-        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
         <field name="name">x_device_name</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="True"/>
+        <field name="copied" eval="False"/>
         <field name="ttype">char</field>
     </record>
 </odoo>
@@ -3232,8 +3232,8 @@ ID: `mint_system.ir_model.stock_production_lot.x_ip_address`
 <odoo>
     <record id="x_ip_address" model="ir.model.fields">
         <field name="field_description">IP Address</field>
-        <field name="model">stock.production.lot</field>
-        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
         <field name="name">x_ip_address</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
@@ -3251,8 +3251,8 @@ ID: `mint_system.ir_model.stock_production_lot.x_location`
 <odoo>
     <record id="x_location" model="ir.model.fields">
         <field name="field_description">Location</field>
-        <field name="model">stock.production.lot</field>
-        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
         <field name="name">x_location</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
