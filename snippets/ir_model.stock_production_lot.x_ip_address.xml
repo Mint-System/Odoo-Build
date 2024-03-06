@@ -7,7 +7,7 @@
         <field name="name">x_ip_address</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/> <!-- Assuming IP addresses should not be copied by default -->
+        <field name="copied" eval="False"/>
         <field name="ttype">char</field>
     </record>
 </odoo>

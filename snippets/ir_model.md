@@ -3207,14 +3207,14 @@ ID: `mint_system.ir_model.stock_production_lot.x_autoremove`
 Source: [snippets/ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_autoremove.xml)
 
 ### X Device Name  
-ID: `mint_system.ir_model.business_requirement.x_device_name`  
+ID: `mint_system.ir_model.stock_production_lot.x_device_name`  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="x_device_name" model="ir.model.fields">
         <field name="field_description">Device Name</field>
-        <field name="model">business.requirement</field>
-        <field name="model_id" ref="business_requirement.model_business_requirement"/>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
         <field name="name">x_device_name</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
@@ -3223,45 +3223,45 @@ ID: `mint_system.ir_model.business_requirement.x_device_name`
     </record>
 </odoo>
 ```
-Source: [snippets/ir_model.business_requirement.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.business_requirement.x_device_name.xml)
+Source: [snippets/ir_model.stock_production_lot.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_device_name.xml)
 
 ### X IP Address  
-ID: `mint_system.ir_model.business_requirement.x_ip_address`  
+ID: `mint_system.ir_model.stock_production_lot.x_ip_address`  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="x_ip_address" model="ir.model.fields">
         <field name="field_description">IP Address</field>
-        <field name="model">business.requirement</field>
-        <field name="model_id" ref="business_requirement.model_business_requirement"/>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
         <field name="name">x_ip_address</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/> <!-- Assuming IP addresses should not be copied by default -->
+        <field name="copied" eval="False"/> 
         <field name="ttype">char</field>
     </record>
 </odoo>
 ```
-Source: [snippets/ir_model.business_requirement.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.business_requirement.x_ip_address.xml)
+Source: [snippets/ir_model.stock_production_lot.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_ip_address.xml)
 
 ### X Location  
-ID: `mint_system.ir_model.business_requirement.x_location`  
+ID: `mint_system.ir_model.stock_production_lot.x_location`  
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
     <record id="x_location" model="ir.model.fields">
         <field name="field_description">Location</field>
-        <field name="model">business.requirement</field>
-        <field name="model_id" ref="business_requirement.model_business_requirement"/>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
         <field name="name">x_location</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/> <!-- Assuming locations may not always be relevant to copy -->
+        <field name="copied" eval="False"/> 
         <field name="ttype">char</field>
     </record>
 </odoo>
 ```
-Source: [snippets/ir_model.business_requirement.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.business_requirement.x_location.xml)
+Source: [snippets/ir_model.stock_production_lot.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_location.xml)
 
 ### X Production Ids  
 ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  
