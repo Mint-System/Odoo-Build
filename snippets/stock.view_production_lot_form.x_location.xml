@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_location"/>
+    </field>
+</data>

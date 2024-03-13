@@ -6886,6 +6886,45 @@ ID: `mint_system.stock.view_production_lot_form.x_autoremove`
 ```
 Source: [snippets/stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_autoremove.xml)
 
+### X Device Name  
+ID: `mint_system.stock.view_production_lot_form.x_device_name`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_device_name"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_device_name.xml)
+
+### X Ip Address  
+ID: `mint_system.stock.view_production_lot_form.x_ip_address`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_ip_address"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_ip_address.xml)
+
+### X Location  
+ID: `mint_system.stock.view_production_lot_form.x_location`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_location"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_location.xml)
+
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  
 ```xml

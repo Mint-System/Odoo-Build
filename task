@@ -167,7 +167,7 @@ function install-native() {
     fi
 
     echo "Install Odoo development tools"
-    pip install setuptools wheel watchdog
+    pip install setuptools wheel inotify watchdog
 
     echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
@@ -230,8 +230,9 @@ function start() {
     if [[ "$1" =~ "native" ]]; then
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" & 
+        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
         odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
+        # The param `-d "$DATABASE"` has been removed to show all databases.
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -858,10 +859,11 @@ function upload-module() {
 }
 
 function save-config() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    DATABASE="$1"
+    DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin -s -d "$1" --config 'config/odoo.conf' --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -s --config 'config/odoo.conf' --stop-after-init --no-http
 }
 
 function git-submodule-add() {

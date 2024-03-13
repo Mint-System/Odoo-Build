@@ -4582,6 +4582,19 @@ ID: `mint_system.sale.view_order_tree.show_state`
 ```
 Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_state.xml)
 
+### X Country Id Name  
+ID: `mint_system.sale.view_order_tree.x_country_id_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="x_country_id_name"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_country_id_name.xml)
+
 ### X Payment State  
 ID: `mint_system.sale.view_order_tree.x_payment_state`  
 ```xml

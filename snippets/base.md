@@ -573,6 +573,7 @@ ID: `mint_system.base.view_partner_form.x_global_location_number`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
+
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
@@ -826,11 +827,11 @@ ID: `mint_system.base.view_partner_tree.x_eori`
 ```xml
 <data inherit_id="base.view_partner_tree" priority="50">
 
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="x_eori"/>
-  </xpath>
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="x_eori"/>
+    </xpath>
 
-      <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
         <field name="x_eori"/>
     </xpath>
 
