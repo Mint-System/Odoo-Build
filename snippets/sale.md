@@ -4569,6 +4569,18 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
 
+### Show Payment Term Id  
+ID: `mint_system.sale.view_order_tree.show_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <field name="state" position="after">
+        <field name="payment_term_id" optional="hide"/>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_tree.show_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_payment_term_id.xml)
+
 ### Show State  
 ID: `mint_system.sale.view_order_tree.show_state`  
 ```xml
