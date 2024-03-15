@@ -85,16 +85,14 @@ Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](http
 ### Replace Commercial Partner  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']" position="replace">
-        <span t-field="o.partner_id.name" />
+        <span t-esc="o.partner_id.name or o.partner_id.parent_id.name"/>
     </xpath>
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']" position="replace">
-        <span t-field="o.partner_id.name" />
+        <span t-esc="o.partner_id.name or o.partner_id.parent_id.name"/>
     </xpath>
 </data>
-
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)
 

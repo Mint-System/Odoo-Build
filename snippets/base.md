@@ -172,6 +172,22 @@ ID: `mint_system.base.res_partner_kanban_view.show_phone`
 ```
 Source: [snippets/base.res_partner_kanban_view.show_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.show_phone.xml)
 
+### Show Pricelist  
+ID: `mint_system.base.res_partner_kanban_view.show_pricelist`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="base.res_partner_kanban_view" priority="50">
+    <xpath expr="//field[@name='email']" position="after">
+        <field name="property_product_pricelist"/>
+    </xpath>
+    <xpath expr="//li[@t-if='record.email.raw_value']" position="after">
+      <li t-if="record.property_product_pricelist.raw_value"><field name="property_product_pricelist"/></li>
+    </xpath>
+</data>
+
+```
+Source: [snippets/base.res_partner_kanban_view.show_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.show_pricelist.xml)
+
 ### Show Website  
 ID: `mint_system.base.res_partner_kanban_view.show_website`  
 ```xml
@@ -743,6 +759,19 @@ ID: `mint_system.base.view_partner_tree.show_industry`
 
 ```
 Source: [snippets/base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_industry.xml)
+
+### Show Pricelist  
+ID: `mint_system.base.view_partner_tree.show_pricelist`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="base.view_partner_tree" priority="50">
+  <xpath expr="//field[@name='user_id']" position="after">
+    <field name="property_product_pricelist" optional="show"/>
+  </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_tree.show_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.show_pricelist.xml)
 
 ### Show Property Payment Term Id  
 ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`  

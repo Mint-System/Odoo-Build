@@ -514,6 +514,7 @@ ID: `mint_system.ir_model.account_move.x_total_debit`
     rec['x_amount_residual_signed_debit'] = rec.amount_residual_signed
   else:
     rec['x_amount_residual_signed_debit'] = 0
+        </field>
     </record>
 </odoo>
 

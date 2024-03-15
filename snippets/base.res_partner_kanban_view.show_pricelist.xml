@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<data inherit_id="base.res_partner_kanban" priority="50">
+<data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//field[@name='email']" position="after">
         <field name="property_product_pricelist"/>
     </xpath>

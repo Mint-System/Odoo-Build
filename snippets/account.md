@@ -555,8 +555,8 @@ ID: `mint_system.account.report_invoice_document.custom_address`
 ```
 Source: [snippets/account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.custom_address.xml)
 
-### Custom Pament Term  
-ID: `mint_system.account.report_invoice_document.custom_pament_term`  
+### Custom Payment Term  
+ID: `mint_system.account.report_invoice_document.custom_payment_term`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
@@ -568,7 +568,7 @@ ID: `mint_system.account.report_invoice_document.custom_pament_term`
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.custom_pament_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.custom_pament_term.xml)
+Source: [snippets/account.report_invoice_document.custom_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.custom_payment_term.xml)
 
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
@@ -751,6 +751,18 @@ ID: `mint_system.account.report_invoice_document.format_title`
 
 ```
 Source: [snippets/account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_title.xml)
+
+### Format Units  
+ID: `mint_system.account.report_invoice_document.format_units`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//t[@name='account_invoice_line_accountable']/td[2]" position="attributes">
+        <attribute name="class">text-nowrap</attribute>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_units.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_units.xml)
 
 ### Get Position  
 ID: `mint_system.account.report_invoice_document.get_position`  
@@ -3736,6 +3748,20 @@ ID: `mint_system.account.view_out_invoice_tree.show_discount`
 </data>
 ```
 Source: [snippets/account.view_out_invoice_tree.show_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_out_invoice_tree.show_discount.xml)
+
+### Show Invoice Payment Term Id  
+ID: `mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_out_invoice_tree" priority="50">
+
+  <xpath expr="//field[@name='state']" position="after">
+    <field name="invoice_payment_term_id" optional="hide"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/account.view_out_invoice_tree.show_invoice_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_out_invoice_tree.show_invoice_payment_term_id.xml)
 
 ### Show Partner Shipping  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
