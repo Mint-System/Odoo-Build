@@ -1189,6 +1189,24 @@ ID: `mint_system.stock.report_delivery_document.add_date`
 ```
 Source: [snippets/stock.report_delivery_document.add_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_date.xml)
 
+### Add Drawing File  
+ID: `mint_system.stock.report_delivery_document.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]/span" position="after">
+        <t t-if="move.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{move.product_id.drawing_file.url}}">
+                <span t-field="move.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_drawing_file.xml)
+
 ### Add Header And Footer Note  
 ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`  
 ```xml
@@ -3179,6 +3197,24 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Drawing File  
+ID: `mint_system.stock.report_picking.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//tbody[1]//td[1]/span" position="after">
+        <t t-if="ml.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{ml.product_id.drawing_file.url}}">
+                <span t-field="ml.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_drawing_file.xml)
+
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
@@ -4540,6 +4576,24 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Drawing File  
+ID: `mint_system.stock.report_picking.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//tbody[1]//td[1]/span" position="after">
+        <t t-if="ml.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{ml.product_id.drawing_file.url}}">
+                <span t-field="ml.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_drawing_file.xml)
+
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
@@ -5831,6 +5885,24 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_c
 
 ```
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
+
+### Add Drawing File  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+    <xpath expr="//tr/td[1]/span[1]" position="after">
+        <t t-if="o.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{o.product_id.drawing_file.url}}">
+                <span t-field="o.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml)
 
 ### Format Pos  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`  
