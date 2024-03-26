@@ -17,14 +17,25 @@ fi
 
 # Set env vars
 PATH="$PATH:./odoo"
-OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=de_CH
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 DOCKER_TAG="odoo:$ODOO_REVISION"
-${DOCKER_REGISTRY:=""}
-TARGETARCH=amd64
+if [ -z "${DOCKER_REGISTRY}" ]; then 
+    DOCKER_REGISTRY=""
+fi
+if [[ "$(uname)" == "Darwin" ]]; then
+    OS_RELEASE="Darwin"
+    TARGETARCH=linux/arm64/v8
+    PIP_INOTIFY=""
+    BROWSER_OPEN="open"
+else
+    OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
+    TARGETARCH=amd64
+    PIP_INOTIFY="inotify"
+    BROWSER_OPEN="xdg-open"
+fi
 
 function set-addons-path() {
 
@@ -161,13 +172,21 @@ function install-native() {
 
         echo "Install xmllint"
         sudo apt install libxml2-utils
-
-    else
+    elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
+        echo "Welcome daring Mac user. Let's try our best to get this working."
+        echo "Install wkhtmltopdf and some dev libraries"
+        echo "This will give a depreciation warning and you need to enter your sudo password."
+        brew install wkhtmltopdf libsasl2 openldap openssl libxml2
+        if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
+          echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
+        fi
+    else 
         echo "The operating system $OS_RELEASE is not supported."
+        exit 1
     fi
 
     echo "Install Odoo development tools"
-    pip install setuptools wheel inotify watchdog
+    pip install setuptools wheel ${PIP_INOTIFY} watchdog
 
     echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
@@ -188,7 +207,7 @@ function install-native() {
 function open-url-with-delay(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     sleep 2
-    xdg-open "$1"
+    $BROWSER_OPEN "$1"
 }
 
 function start() {    
@@ -231,8 +250,7 @@ function start() {
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
-        # The param `-d "$DATABASE"` has been removed to show all databases.
+        odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -418,22 +436,6 @@ function test-module() {
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
-}
-
-function test-coverage-module() {
-    DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
-
-    # Use default database if second param is not given 
-    if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
-        MODULE_NAME=$(basename "$1")
-    fi
-
-    activate-venv
-    set-addons-path
-    echo "Testing module $MODULE_NAME on $DATABASE ..."
-    coverage run odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {

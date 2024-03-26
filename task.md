@@ -56,7 +56,6 @@
 | start-psql            | [db]              | Start PSQL shell in Docker container. Default is branch name.                             |
 | start-shell           | [db]              | Start Odoo shell from source folder. Default is branch name.                              |
 | stop                  | [name]            | Stop docker containers.                                                                   |
-| test-coverage-module  | [db][name,path]   | Generate test coverage report for target Odoo module.                                     |
 | test-jsonrpc          | [env]             | Test json rpc connection.                                                                 |
 | test-module           | [db][name,path]   | Test target Odoo module.                                                                  |
 | update-app-list       | [db]              | Update app list.                                                                          |
