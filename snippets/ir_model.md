@@ -159,6 +159,29 @@ ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
 ```
 Source: [snippets/ir_model.account_move_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move_line.x_sale_order_id.xml)
 
+### X Tax Group Id  
+ID: `mint_system.ir_model.account_move_line.x_tax_group_id`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_sale_order_id" model="ir.model.fields">
+        <field name="x_tax_group_id">Steuergruppe</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_move_line"/>
+        <field name="name">x_tax_group_id</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="related">tax_line_id.tax_group_id</field>
+        <field name="depends">tax_line_id</field>
+        <field name="relation">account.tax.group</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move_line.x_tax_group_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move_line.x_tax_group_id.xml)
+
 ## Account Move  
 ### X Account Codes  
 ID: `mint_system.ir_model.account_move.x_account_codes`  
