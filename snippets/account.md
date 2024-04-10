@@ -636,6 +636,19 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_address_blocks.xml)
 
+### Format Description  
+ID: `mint_system.account.report_invoice_document.format_description`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//td[@name='account_invoice_line_name']/span" position="attributes">
+        <attribute name="style">white-space: pre-wrap;</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.format_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_description.xml)
+
 ### Format Discount  
 ID: `mint_system.account.report_invoice_document.format_discount`  
 ```xml
@@ -3561,6 +3574,19 @@ ID: `mint_system.account.view_move_form.x_bexio_name`
 
 ```
 Source: [snippets/account.view_move_form.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_bexio_name.xml)
+
+### X Drawing File  
+ID: `mint_system.account.view_move_form.x_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="product_id" position="after">
+        <field name="x_drawing_file" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_drawing_file.xml)
 
 ### X Duplicate Found  
 ID: `mint_system.account.view_move_form.x_duplicate_found`  

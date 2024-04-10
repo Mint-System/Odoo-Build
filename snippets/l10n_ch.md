@@ -31,6 +31,27 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding`
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)
 
+### Format Country Code  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code`  
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace">
+        <span if="o.company_id.country_id.code != 'CH'" t-field="o.company_id.country_id.code"/>
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span if="o.partner_id.country_id.code != 'CH'" t-field="o.partner_id.country_id.code"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.company_id.country_id.code']" position="replace">
+        <span if="o.company_id.country_id.code != 'CH'" t-field="o.company_id.country_id.code"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span if="o.partner_id.country_id.code != 'CH'" t-field="o.partner_id.country_id.code"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml)
+
 ### Format Street  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`  
 ```xml
