@@ -11,6 +11,7 @@
 | clear-filestore       | [db]              | Clear local filestore folder. No param will clear all filestores. Default is branch name. |
 | convert-database      | [db]              | Convert database backup file from postgres 9.5 to latest. Default is branch name.         |
 | create-module         | [path]            | Create new Odoo module from template.                                                     |
+| deploy                | [name]            | Deploy to Kubernets cluster. Options: db, admin, odoo, mail.                              |
 | disable-auto-install  |                   | Disable auto install for enterprise modules.                                              |
 | disable-mailserver    | [env]             | Disable mail server settings via xmlrpc.                                                  |
 | drop-db               | [db]              | Drop target Odoo database. Default is branch name.                                        |
