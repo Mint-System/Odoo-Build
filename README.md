@@ -1,5 +1,4 @@
 ![](https://github.com/Mint-System/Odoo-Build/raw/14.0/logo.png)
-<!-- ![](./logo.png) -->
 
 Odoo Build
 ==========
@@ -16,6 +15,7 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database
 * **Odoo Scripts**: Develope scripts to patch Odoo code
 * **Odoo Image**: Build and publish an Odoo Docker image
+* **Kuberenetes**: Deploy Odoo and Postgres to Kubernetes cluster
 
 ## Requirements
 
@@ -23,7 +23,9 @@ The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
-* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task)
+* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task).
+
+You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
 ## Usage
 
@@ -34,6 +36,12 @@ Clone this repository.
 ```bash
 git clone git@github.com:Mint-System/Odoo-Build.git
 cd Odoo-Build
+```
+
+When working with Nix, run the nix-shell.
+
+```
+nix-shell
 ```
 
 Checkout branch.
@@ -58,7 +66,7 @@ task install-odoo-scripts
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian
+Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
 
 **Install Odoo native requirements**
 
