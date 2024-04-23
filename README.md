@@ -40,7 +40,7 @@ cd Odoo-Build
 
 When working with Nix, run the nix-shell.
 
-```
+```bash
 nix-shell
 ```
 
