@@ -1,11 +1,11 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//tr/td[1]/span[1]" position="after">
-        <t t-if="o.product_id.drawing_file">
+        <t t-if="aggregated_lines[line]['product'].drawing_file">
             <br/>
             <span>Drawing: </span>
-            <a t-attf-href="{{o.product_id.drawing_file.url}}">
-                <span t-field="o.product_id.drawing_file.display_name"/>
+            <a t-attf-href="{{aggregated_lines[line]['product'].drawing_file.url}}">
+                <span t-esc="aggregated_lines[line]['product'].drawing_file.display_name"/>
             </a>
         </t>
     </xpath>
