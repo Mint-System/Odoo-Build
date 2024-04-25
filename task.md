@@ -27,6 +27,7 @@
 | git-submodule-remove  | [path]            | Remove git submodule.                                                                     |
 | git-submodule-switch  | [branch]          | Switch branch for all submodules.                                                         |
 | git-submodule-update  |                   | Update submodules from .gitmodules file.                                                  |
+| info                  |                   | Show values of project env vars.                                                          |
 | init-db               | [db]              | Initialize the Odoo database. Default is branch name.                                     |
 | init-nextcloud-env    | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env         | [env]             | Create env file for Odoo Instance.                                                        |
@@ -44,6 +45,7 @@
 | logs                  |                   | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc             | [db]              | Count custom line of codes. Default is branch name.                                       |
 | patch-database        | [db][path]        | Apply sql file to database. Default database is branch name.                              |
+| publish               |                   | Publish Odoo Docker image.                                                                |
 | ps                    |                   | List docker processes.                                                                    |
 | release-module        | [path]            | Create GitHub release for a module.                                                       |
 | remove-module         | [db][name]        | Remove target Odoo module.                                                                |

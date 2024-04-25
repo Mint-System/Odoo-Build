@@ -19,9 +19,12 @@ fi
 PATH="$PATH:./odoo"
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
-ODOO_LANGUAGE=de_CH
+ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
-DOCKER_TAG="odoo:$ODOO_REVISION"
+DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
+ODOO_PORT=${ODOO_PORT:="8069"}
+POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+
 if [ -z "${DOCKER_REGISTRY}" ]; then 
     DOCKER_REGISTRY=""
 fi
@@ -36,6 +39,20 @@ else
     PIP_INOTIFY="inotify"
     BROWSER_OPEN="xdg-open"
 fi
+
+function info() {
+    set-addons-path
+    echo "OS Release: $OS_RELEASE"
+    echo "Target Arch: $TARGETARCH"
+    echo "Git Branch: $GIT_BRANCH"
+    echo "Odoo Revision: $ODOO_REVISION"
+    echo "Odoo Port: $ODOO_PORT"
+    echo "Postgres Port: $POSTGRES_PORT"
+    echo "Odoo Language: $ODOO_LANGUAGE"
+    echo "Docker Registry: $DOCKER_REGISTRY"
+    echo "Docker Tag: $DOCKER_TAG"
+    echo "Addons Path: $ADDONS_PATH"
+}
 
 function set-addons-path() {
 
@@ -149,6 +166,12 @@ function build() {
     docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
+function publish() {
+    echo "Push Docker iamge ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker push "${DOCKER_REGISTRY}${DOCKER_TAG}"
+}
+
+
 function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install | bash
 }
@@ -214,8 +237,8 @@ function start() {
     set-addons-path
 
     # Exports for Docker Compose
-    export POSTGRES_USER=odoo
-    export POSTGRES_PASSWORD=odoo
+    export POSTGRES_PORT
+    export ODOO_PORT
     export DOCKER_TAG
     export DOCKER_ADDONS_PATH
     
@@ -270,6 +293,12 @@ function deploy() {
 }
 
 function down() {
+    # Exports for Docker Compose
+    export POSTGRES_PORT
+    export ODOO_PORT
+    export DOCKER_TAG
+    export DOCKER_ADDONS_PATH
+
     if test -z "$1"; then
         docker-compose down -v
     fi
@@ -1011,11 +1040,11 @@ case "$1" in
     activate-venv)
         activate-venv
         ;;
-    disable-auto-install)
-        disable-auto-install
+    build)
+        build
         ;;
-    save-config)
-        save-config "$2"
+    change-uuid)
+        change-uuid "$2"
         ;;
     checkout)
         checkout "$2" "$3"
@@ -1026,140 +1055,38 @@ case "$1" in
     checkout-revision)
         checkout-revision "$2"
         ;;
-    list)
-        docker-compose config --services; echo "native"
-        ;;
-    ps)
-        docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
-        ;;
-    start)
-        start "$2" "$3"
-        ;;
-    deploy)
-        deploy "$2"
-        ;;
-    restart)
-        restart "$2"
-        ;;
-    stop)
-        stop "$2"
-        ;;
-    kill)
-        down "$2"
-        ;;
-    logs)
-        docker logs odoo -f
-        ;;
-    build)
-        build
-        ;;
-    init-venv)
-        init-venv
-        ;;
-    install-odoo-scripts)
-        install-odoo-scripts
-        ;;
-    install-native)
-        install-native
-        ;;
-    init-db)
-        init-db "$2"
-        ;;
-    start-shell)
-        start-shell "$2"
-        ;;
-    start-psql)
-        start-psql "$2"
-        ;;
-    update-module)
-        update-module "$2" "$3"
-        ;;
-    test-module)
-        test-module "$2" "$3"
-        ;;
-    test-coverage-module)
-        test-coverage-module "$2" "$3"
-        ;;
-    create-module)
-        create-module "$2"
-        ;;
-    drop-db)
-        drop-db "$2"
-        ;;
-    send-support-mail)
-        send-support-mail
-        ;;
     clear-assets)
         clear-assets "$2"
-        ;;
-    generate-admin-passwd)
-        generate-admin-passwd "$2"
-        ;;
-    odoo-cloc)
-        odoo-cloc "$2"
-        ;;
-    restore-database)
-        restore-database "$2" "$3"
-        ;;
-    convert-database)
-        convert-database "$2"
-        ;;
-    install-module)
-        install-module "$2" "$3"
-        ;;
-    remove-module)
-        remove-module "$2" "$3"
-        ;;
-    git-submodule-remove)
-        git-submodule-remove "$2"
-        ;;
-    git-submodule-add)
-        git-submodule-add "$2" "$3"
-        ;;
-    git-submodule-update)
-        git-submodule-update
-        ;;
-    release-module)
-        release-module "$2"
-        ;;
-    lint-module)
-        lint-module "$2"
-        ;;
-    update-readme)
-        update-readme "$2"
-        ;;
-    zip-module)
-        zip-module "$2"
         ;;
     clear-filestore)
         clear-filestore "$2"
         ;;
-    init-odoo-env)
-        init-odoo-env "$2"
+    convert-database)
+        convert-database "$2"
         ;;
-    list-env)
-        ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
+    create-module)
+        create-module "$2"
         ;;
-    list-addons)
-        list-addons
+    deploy)
+        deploy "$2"
         ;;
-    edit-env)
-        edit-env "$2"
+    disable-auto-install)
+        disable-auto-install
         ;;
     disable-mailserver)
         disable-mailserver "$2"
         ;;
-    change-uuid)
-        change-uuid "$2"
+    down)
+        down "$2"
         ;;
-    set-admin)
-        set-admin "$2"
+    drop-db)
+        drop-db "$2"
         ;;
-    git-submodule-switch)
-        git-submodule-switch "$2"
+    edit-env)
+        edit-env "$2"
         ;;
-    git-submodule-list)
-        git-submodule-list
+    generate-admin-passwd)
+        generate-admin-passwd "$2"
         ;;
     get-module-version)
         get-module-version "$2"
@@ -1170,44 +1097,156 @@ case "$1" in
     git-mig-branch)
         git-mig-branch "$2"
         ;;
-    update-snippet)
-        update-snippet "$2" "$3"
+    git-submodule-add)
+        git-submodule-add "$2" "$3"
         ;;
-    test-jsonrpc)
-        test-jsonrpc "$2"
-        ;;
-    install-snippet)
-        install-snippet "$2" "$3"
-        ;;
-    lint-snippets)
-        lint-snippets
-        ;;
-    update-app-list)
-        update-app-list "$2"
-        ;;
-    init-nextcloud-env)
-        init-nextcloud-env "$2"
-        ;;
-    upload-module)
-        upload-module "$2" "$3"
-        ;;
-    translate-module)
-        translate-module "$2" "$3" "$4"
-        ;;
-    patch-database)
-        patch-database "$2" "$3"
+    git-submodule-list)
+        git-submodule-list
         ;;
     git-submodule-pull)
         git-submodule-pull
         ;;
-    update-docs)
-        update-docs
+    git-submodule-remove)
+        git-submodule-remove "$2"
+        ;;
+    git-submodule-switch)
+        git-submodule-switch "$2"
+        ;;
+    git-submodule-update)
+        git-submodule-update
+        ;;
+    help)
+        help task
+        exit 1
+        ;;
+    info)
+        info
+        ;;
+    init-db)
+        init-db "$2"
+        ;;
+    init-nextcloud-env)
+        init-nextcloud-env "$2"
+        ;;
+    init-odoo-env)
+        init-odoo-env "$2"
+        ;;
+    init-venv)
+        init-venv
+        ;;
+    install-module)
+        install-module "$2" "$3"
+        ;;
+    install-native)
+        install-native
+        ;;
+    install-odoo-scripts)
+        install-odoo-scripts
+        ;;
+    install-snippet)
+        install-snippet "$2" "$3"
+        ;;
+    install-snippets)
+        install-snippets
+        ;;
+    install)
+        install
+        ;;
+    lint-module)
+        lint-module "$2"
+        ;;
+    lint-snippets)
+        lint-snippets
+        ;;
+    list-addons)
+        list-addons
+        ;;
+    list-env)
+        ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
+        ;;
+    list)
+        docker-compose config --services; echo "native"
+        ;;
+    logs)
+        docker logs odoo -f
+        ;;
+    patch-database)
+        patch-database "$2" "$3"
+        ;;
+    publish)
+        publish
+        ;;
+    ps)
+        docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
+        ;;
+    release-module)
+        release-module "$2"
+        ;;
+    remove-module)
+        remove-module "$2" "$3"
+        ;;
+    reset-views)
+        reset-views "$2" "$3"
+        ;;
+    restart)
+        restart "$2"
+        ;;
+    restore-database)
+        restore-database "$2" "$3"
+        ;;
+    save-config)
+        save-config "$2"
+        ;;
+    send-support-mail)
+        send-support-mail
+        ;;
+    set-admin)
+        set-admin "$2"
         ;;
     source)
         activate-venv
         ;;
-    reset-views)
-        reset-views "$2" "$3"
+    start-psql)
+        start-psql "$2"
+        ;;
+    start-shell)
+        start-shell "$2"
+        ;;
+    start)
+        start "$2" "$3"
+        ;;
+    stop)
+        stop "$2"
+        ;;
+    test-coverage-module)
+        test-coverage-module "$2" "$3"
+        ;;
+    test-jsonrpc)
+        test-jsonrpc "$2"
+        ;;
+    test-module)
+        test-module "$2" "$3"
+        ;;
+    translate-module)
+        translate-module "$2" "$3" "$4"
+        ;;
+    update-app-list)
+        update-app-list "$2"
+        ;;
+    update-docs)
+        update-docs
+        ;;
+    update-module)
+        update-module "$2" "$3"
+        ;;
+    update-readme)
+        update-readme "$2"
+        ;;
+    update-snippet)
+        update-snippet "$2" "$3"
+        ;;
+    upload-module)
+        upload-module "$2" "$3"
         ;;
     *)
         help task

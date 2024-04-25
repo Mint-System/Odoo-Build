@@ -7,15 +7,15 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 
 This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
 
-* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally
-* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database to the local development environment. Investigate issues and deploy the database at wish
-* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code
+* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
+* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database to the local environment. Investigate issues and deploy the database at ease.
+* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
-* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md)
-* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database
-* **Odoo Scripts**: Develope scripts to patch Odoo code
-* **Odoo Image**: Build and publish an Odoo Docker image
-* **Kuberenetes**: Deploy Odoo and Postgres to Kubernetes cluster
+* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
+* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
+* **Odoo Scripts**: Develope scripts to patch Odoo code.
+* **Odoo Image**: Build and publish an custom Odoo Docker image.
+* **Kuberenetes**: Deploy Odoo and Postgres to Kubernetes cluster.
 
 ## Requirements
 
@@ -182,7 +182,7 @@ task drop-db
 To build the Docker image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.5
+ODOO_REVISION=16.0
 DOCKER_REGISTRY=mint-system/
 ```
 
@@ -194,7 +194,7 @@ task build
 
 Publish the Odoo image.
 
-```
+```bash
 task publish
 ```
 

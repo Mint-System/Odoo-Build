@@ -2,16 +2,17 @@
 
 set -e
 
+echo "  ___      _               ____        _ _     _ "
+echo " / _ \  __| | ___   ___   | __ ) _   _(_) | __| |"
+echo "| | | |/ _' |/ _ \ / _ \  |  _ \| | | | | |/ _' |"
+echo "| |_| | (_| | (_) | (_) | | |_) | |_| | | | (_| |"
+echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
+echo
+echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
+
 if [ -v PASSWORD_FILE ]; then
     PASSWORD="$(< $PASSWORD_FILE)"
 fi
-
-# set the postgres database host, port, user and password according to the environment
-# and pass them as arguments to the odoo process if not present in the config file
-: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
-: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
-: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 ME=$(basename "$0")
 
@@ -35,6 +36,19 @@ auto_envsubst() {
 }
 
 auto_envsubst
+
+echo "List python packages:"
+ 
+pip list
+
+echo "Running Odoo as user: $USER"
+
+# Set the postgres database host, port, user and password according to the environment
+# and pass them as arguments to the odoo process if not present in the config file
+: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
+: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
+: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
+: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 DB_ARGS=()
 function check_config() {
