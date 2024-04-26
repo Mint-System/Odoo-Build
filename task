@@ -24,6 +24,7 @@ ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
 
 if [ -z "${DOCKER_REGISTRY}" ]; then 
     DOCKER_REGISTRY=""
@@ -50,6 +51,7 @@ function info() {
     echo "Postgres Port: $POSTGRES_PORT"
     echo "Odoo Language: $ODOO_LANGUAGE"
     echo "Docker Registry: $DOCKER_REGISTRY"
+    echo "Docker Config: $DOCKER_CONFIG"
     echo "Docker Tag: $DOCKER_TAG"
     echo "Addons Path: $ADDONS_PATH"
 }
@@ -166,9 +168,19 @@ function build() {
     docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
+function docker-login() {
+    echo "Setup Docker Hub login credentials for $DOCKER_REGISTRY"
+    echo -n "Enter username: " 
+    read DOCKER_REGISTRY_USERNAME
+    echo -n "Enter password: " 
+    read -s DOCKER_REGISTRY_PASSWORD
+    docker --config "$HOME/.docker/$DOCKER_REGISTRY" login --username "$DOCKER_REGISTRY_USERNAME" --password "$DOCKER_REGISTRY_PASSWORD"
+}
+
 function publish() {
-    echo "Push Docker iamge ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker push "${DOCKER_REGISTRY}${DOCKER_TAG}"
+
+    echo "Push Docker image ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker --config "$HOME/.docker/$DOCKER_REGISTRY" push "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 
@@ -688,8 +700,8 @@ function zip-module() {
 }
 
 function clear-filestore() {
-    echo "Remove directory ~/.local/share/Odoo/filestore/$1"
-    rm -rf ~/.local/share/Odoo/filestore/"$1"
+    echo "Remove directory $HOME/.local/share/Odoo/filestore/$1"
+    rm -rf "$HOME/.local/share/Odoo/filestore/$1"
 }
 
 function disable-mailserver() {
@@ -1075,6 +1087,9 @@ case "$1" in
         ;;
     disable-mailserver)
         disable-mailserver "$2"
+        ;;
+    docker-login)
+        docker-login
         ;;
     down)
         down "$2"

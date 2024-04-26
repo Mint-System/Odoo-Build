@@ -14,6 +14,7 @@
 | deploy                | [name]            | Deploy to Kubernets cluster. Options: db, admin, odoo, mail.                              |
 | disable-auto-install  |                   | Disable auto install for enterprise modules.                                              |
 | disable-mailserver    | [env]             | Disable mail server settings via xmlrpc.                                                  |
+| docker-login          |                   | Setup Docker Hub login credentials.                                                       |
 | drop-db               | [db]              | Drop target Odoo database. Default is branch name.                                        |
 | edit-env              | [env]             | Open env file in default editor.                                                          |
 | generate-admin-passwd | [pass]            | Generate hash for Odoo master password.                                                   |
@@ -36,7 +37,7 @@
 | install-native        |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts  |                   | Install Odoo scripts.                                                                     |
 | install-snippet       | [env][path]       | Install snippet xml definition.                                                           |
-| kill                  | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
+| down                  | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
 | lint-module           | [path]            | Run pylint odoo for module.                                                               |
 | lint-snippets         |                   | Run checks for all snippets.                                                              |
 | list                  |                   | List Docker containers.                                                                   |
