@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_managed_service_field" model="ir.model.fields">
+        <field name="field_description">Managed Service</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_managed_service</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">selection</field>
+        <field name="selection">[
+            ('high', 'MS1 High'),
+            ('medium', 'MS1 Medium'),
+            ('low', 'MS1 Low'),
+            ('central', 'MS1 Central')
+        ]</field>
+    </record>
+</odoo>
