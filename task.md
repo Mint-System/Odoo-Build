@@ -14,6 +14,7 @@
 | deploy                | [name]            | Deploy to Kubernets cluster. Options: db, admin, odoo, mail.                              |
 | disable-auto-install  |                   | Disable auto install for enterprise modules.                                              |
 | disable-mailserver    | [env]             | Disable mail server settings via xmlrpc.                                                  |
+| docker-login          |                   | Setup Docker Hub login credentials.                                                       |
 | drop-db               | [db]              | Drop target Odoo database. Default is branch name.                                        |
 | edit-env              | [env]             | Open env file in default editor.                                                          |
 | generate-admin-passwd | [pass]            | Generate hash for Odoo master password.                                                   |
@@ -27,6 +28,7 @@
 | git-submodule-remove  | [path]            | Remove git submodule.                                                                     |
 | git-submodule-switch  | [branch]          | Switch branch for all submodules.                                                         |
 | git-submodule-update  |                   | Update submodules from .gitmodules file.                                                  |
+| info                  |                   | Show values of project env vars.                                                          |
 | init-db               | [db]              | Initialize the Odoo database. Default is branch name.                                     |
 | init-nextcloud-env    | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env         | [env]             | Create env file for Odoo Instance.                                                        |
@@ -35,7 +37,7 @@
 | install-native        |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts  |                   | Install Odoo scripts.                                                                     |
 | install-snippet       | [env][path]       | Install snippet xml definition.                                                           |
-| kill                  | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
+| down                  | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
 | lint-module           | [path]            | Run pylint odoo for module.                                                               |
 | lint-snippets         |                   | Run checks for all snippets.                                                              |
 | list                  |                   | List Docker containers.                                                                   |
@@ -44,6 +46,7 @@
 | logs                  |                   | Tail Odoo Docker container logs.                                                          |
 | odoo-cloc             | [db]              | Count custom line of codes. Default is branch name.                                       |
 | patch-database        | [db][path]        | Apply sql file to database. Default database is branch name.                              |
+| publish               |                   | Publish Odoo Docker image.                                                                |
 | ps                    |                   | List docker processes.                                                                    |
 | release-module        | [path]            | Create GitHub release for a module.                                                       |
 | remove-module         | [db][name]        | Remove target Odoo module.                                                                |

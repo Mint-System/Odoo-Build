@@ -141,7 +141,7 @@ ID: `mint_system.ir_model.account_move_line.x_drawing_file`
 <odoo>
     <record id="x_drawing_file" model="ir.model.fields">
         <field name="field_description">Zeichnung</field>
-        <field name="model">account.move</field>
+        <field name="model">account.move.line</field>
         <field name="model_id" ref="account.model_account_move_line"/>
         <field name="name">x_drawing_file</field>
         <field name="store" eval="False"/>
@@ -3371,6 +3371,25 @@ ID: `mint_system.ir_model.stock_production_lot.x_autoremove`
 ```
 Source: [snippets/ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_autoremove.xml)
 
+### X Default Code  
+ID: `mint_system.ir_model.stock_production_lot.x_default_code`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_default_code" model="ir.model.fields">
+        <field name="field_description">Internal Reference</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_default_code</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_default_code.xml)
+
 ### X Device Name  
 ID: `mint_system.ir_model.stock_production_lot.x_device_name`  
 ```xml
@@ -3390,6 +3409,63 @@ ID: `mint_system.ir_model.stock_production_lot.x_device_name`
 
 ```
 Source: [snippets/ir_model.stock_production_lot.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_device_name.xml)
+
+### X Forcepoint Pol  
+ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pol`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="x_forcepoint_pol" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoL</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pol</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_forcepoint_pol.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_forcepoint_pol.xml)
+
+### X Forcepoint Pos  
+ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pos`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_forcepoint_pos" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoS</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pos</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_forcepoint_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_forcepoint_pos.xml)
+
+### X Hostname  
+ID: `mint_system.ir_model.stock_production_lot.x_hostname`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_forcepoint_pos" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoS</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pos</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_hostname.xml)
 
 ### X Ip Address  
 ID: `mint_system.ir_model.stock_production_lot.x_ip_address`  
@@ -3431,6 +3507,31 @@ ID: `mint_system.ir_model.stock_production_lot.x_location`
 
 ```
 Source: [snippets/ir_model.stock_production_lot.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_location.xml)
+
+### X Managed Service  
+ID: `mint_system.ir_model.stock_production_lot.x_managed_service`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_managed_service_field" model="ir.model.fields">
+        <field name="field_description">Managed Service</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_managed_service</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">selection</field>
+        <field name="selection">[
+            ('high', 'MS1 High'),
+            ('medium', 'MS1 Medium'),
+            ('low', 'MS1 Low'),
+            ('central', 'MS1 Central')
+        ]</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_managed_service.xml)
 
 ### X Production Ids  
 ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  

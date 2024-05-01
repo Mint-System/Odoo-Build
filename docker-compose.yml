@@ -13,9 +13,10 @@ services:
       HOST: db
       USER: odoo
       PASSWORD: odoo
+      PORT: ${POSTGRES_PORT}
       ODOO_ADDONS_PATH: "${DOCKER_ADDONS_PATH}"
     ports:
-      - "127.0.0.1:8069:8069"
+      - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:
       - odoo-data:/var/lib/odoo
       - ./addons:/mnt/addons
@@ -39,7 +40,7 @@ services:
     container_name: db
     image: postgres:12-alpine
     ports:
-      - "127.0.0.1:5432:5432"
+      - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
