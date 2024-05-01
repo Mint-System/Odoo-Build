@@ -88,18 +88,21 @@ COPY ./build/odoo.conf.template /etc/odoo/
 COPY ./build/entrypoint.sh /
 
 # Create a user named odoo
-RUN adduser --disabled-password --gecos "" odoo
+
+ARG UID=101
+ARG GID=101
+RUN groupadd --gid $GID odoo
+RUN useradd --uid $UID --gid $GID -m odoo
 
 # Set the working directory
 WORKDIR /opt/odoo
 
 # Set permissions and mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN chown odoo /etc/odoo \
+RUN chown odoo:odoo /etc/odoo \
     && mkdir -p /mnt/extra-addons \
-    && chown -R odoo /mnt/extra-addons \
-    && mkdir -p /var/lib/odoo/sessions \
-    && chown -R odoo /var/lib/odoo \
-    && chmod +w /var/lib/odoo/sessions
+    && chown -R odoo:odoo /mnt/extra-addons \
+    && mkdir -p /var/lib/odoo \
+    && chown -R odoo:odoo /var/lib/odoo
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services
