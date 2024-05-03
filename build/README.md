@@ -34,7 +34,9 @@ services:
       - ./themes:/mnt/themes
 ```
 
-## Update
+## Develope
+
+### Install packages
 
 Extend the image with additional python packages or a custom `odoo.conf.template`:
 
