@@ -34,7 +34,7 @@ services:
       - ./themes:/mnt/themes
 ```
 
-## Develope
+## Develop
 
 ### Install packages
 
