@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<data inherit_id="base.res_partner_kanban" priority="50">
+    <xpath expr="//field[@name='active']" position="after">
+        <field name="web_name"/>
+    </xpath>
+    <xpath expr="//li[@t-elif='!record.parent_id.raw_value and record.function.raw_value']" position="after">
+        <li t-elif="record.web_name.raw_value != record.display_name.raw_value"><field name="web_name"/></li>
+    </xpath>
+</data>
