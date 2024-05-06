@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="customer.statements.search" priority="50">
+    <xpath expr="//field[@name='followup_line_id']" position="before">
+        <field name="name"/>
+    </xpath>
+</data>
