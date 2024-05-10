@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="before">
+    <div class="col-4">
+      <div>
+                        IBAN: <span t-field="company.partner_id.bank_ids.acc_number"/>
+      </div>
+      <div>
+                        BIC: <span t-field="company.partner_id.bank_ids.bank_id.bic"/>
+      </div>
+    </div>
+  </xpath>
+</data>
