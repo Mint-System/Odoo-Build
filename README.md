@@ -17,7 +17,7 @@ This projects provides a highly opinionated way to develop Odoo and Odoo modules
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
 * **Odoo Image**: Build and publish an custom Odoo Docker image.
-* **Kuberenetes**: Deploy Odoo and Postgres to Kubernetes cluster.
+* **Kubernetes**: Deploy Odoo and Postgres to Kubernetes cluster.
 
 ## Requirements
 

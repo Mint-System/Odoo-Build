@@ -22,6 +22,8 @@ RUN apt-get update \
         npm \
         python3-dev \
         libpq-dev \
+        libldap2-dev \
+        libsasl2-dev \
         gcc \
         python3-venv \
         python3-magic \
@@ -78,8 +80,7 @@ ENV PATH=/opt/odoo-venv/bin:$PATH
 
 # Install Odoo
 COPY ./odoo /opt/odoo
-RUN pip install --no-cache-dir /opt/odoo \
-    && pip install lxml==4.9.2 \
+RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt \
     && pip list
 ENV ADDONS_PATH=/opt/odoo/addons
 
