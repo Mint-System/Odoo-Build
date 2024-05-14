@@ -36,6 +36,7 @@
 | install-module        | [db][name,path]   | Install target Odoo module.  Default database is branch name.                             |
 | install-native        |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts  |                   | Install Odoo scripts.                                                                     |
+| install-requirements  | [db][path]        | Install python packages from requirements.txt.                                            |
 | install-snippet       | [env][path]       | Install snippet xml definition.                                                           |
 | down                  | [name]            | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.               |
 | lint-module           | [path]            | Run pylint odoo for module.                                                               |

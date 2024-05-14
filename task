@@ -471,6 +471,26 @@ function install-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
+function install-requirements() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    FILE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        FILE_PATH="$1"
+    fi
+
+    FILE_NAME=$(basename "$FILE_PATH")
+    if [[ "$FILE_NAME" != "requirements.txt" ]]; then echo "\$1 must point to requirements.txt file."; exit; fi
+
+    activate-venv
+    echo "Installing python packages from $FILE_PATH ..."
+    pip install -r "$FILE_PATH"
+}
+
 function test-module() {
     DATABASE="$1"
     MODULE_NAME=$(basename "$2")
@@ -487,7 +507,7 @@ function test-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
-function remove-module() {
+function remove-module-requirements() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1157,6 +1177,9 @@ case "$1" in
         ;;
     install-odoo-scripts)
         install-odoo-scripts
+        ;;
+    install-requirements)
+        install-requirements "$2" "$3"
         ;;
     install-snippet)
         install-snippet "$2" "$3"
