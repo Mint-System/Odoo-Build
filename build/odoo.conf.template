@@ -1,5 +1,5 @@
 [options]
-addons_path = $ADDONS_PATH,$ODOO_ADDONS_PATH
+addons_path = $ODOO_ADDONS_PATH,$ADDONS_PATH
 data_dir = /var/lib/odoo
 ; admin_passwd = admin
 ; csv_internal_sep = ,

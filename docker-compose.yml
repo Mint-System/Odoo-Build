@@ -14,7 +14,8 @@ services:
       USER: odoo
       PASSWORD: odoo
       PORT: ${POSTGRES_PORT}
-      ODOO_ADDONS_PATH: "${DOCKER_ADDONS_PATH}"
+      # ODOO_ADDONS_PATH: "${DOCKER_ADDONS_PATH}"
+      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:
