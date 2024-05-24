@@ -22,6 +22,7 @@ dist
 origin.dump
 filestore
 upgraded.dump
-thirdparty
+thirdparty/*
+!thirdparty/.gitkeep
 .idea/
 .obsidian
