@@ -3,13 +3,13 @@
 A better Odoo image.
 
 - Substitutes environment vars in `odoo.conf.template`
-- Detects and aggregates nested module paths 
+- Detects and aggregates nested module folders 
 - The Odoo source is set to the latest commit of date in tag
 - Ships with python 3.11
 
 ## Usage
 
-Use `ODOO_ADDONS_PATH` to list pasts with nested module folders.
+Use `ODOO_ADDONS_PATH` to pass paths with nested module folders.
 
 ```yml
 version: "3"
