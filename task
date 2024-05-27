@@ -33,12 +33,12 @@ if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
     TARGETARCH=linux/arm64/v8
     PIP_INOTIFY=""
-    BROWSER_OPEN="open"
+    OS_OPEN="open"
 else
     OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
     TARGETARCH=amd64
     PIP_INOTIFY="inotify"
-    BROWSER_OPEN="xdg-open"
+    OS_OPEN="xdg-open"
 fi
 
 function info() {
@@ -81,7 +81,7 @@ function set-addons-path() {
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
     # Append env var
     if [ -n "$ODOO_ADDONS_PATH" ]; then
-        ADDONS_PATH="${ADDONS_PATH},${ODOO_ADDONS_PATH}"
+        ADDONS_PATH="${ODOO_ADDONS_PATH},${ADDONS_PATH}"
     fi
 }
 
@@ -242,7 +242,7 @@ function install-native() {
 function open-url-with-delay(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     sleep 2
-    $BROWSER_OPEN "$1"
+    $OS_OPEN "$1"
 }
 
 function start() {    
@@ -486,9 +486,14 @@ function install-requirements() {
     FILE_NAME=$(basename "$FILE_PATH")
     if [[ "$FILE_NAME" != "requirements.txt" ]]; then echo "\$1 must point to requirements.txt file."; exit; fi
 
-    activate-venv
-    echo "Installing python packages from $FILE_PATH ..."
-    pip install -r "$FILE_PATH"
+    if [ "$( docker container inspect -f '{{.State.Running}}' odoo )" == "true" ]; then
+        echo "Installing python packages in Docker container ..."
+        docker exec -u root odoo python -m pip install -r "/mnt/$FILE_PATH"
+    else
+        activate-venv
+        echo "Installing python packages in virutal env ..."
+        pip install -r "$FILE_PATH"
+    fi
 }
 
 function test-module() {
@@ -1067,6 +1072,37 @@ function update-docs() {
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
+function visualize-dependencies() {
+
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    
+    MODULE_DIR="$1"
+    OUTPUT_FILE="tmp/module_dependencies.mmd"
+    mkdir -p tmp
+    echo "graph TD" > "$OUTPUT_FILE"
+
+    for MODULE_PATH in "$MODULE_DIR"/*; do
+        if [[ -d "$MODULE_PATH" ]]; then
+            MODULE_NAME=$(basename "$MODULE_PATH")
+            MANIFEST_FILE="$MODULE_PATH/__manifest__.py"
+            if [[ -f $MANIFEST_FILE ]]; then
+                DEPENDENCIES=$(grep -Po '(?<="depends": \[)[^\]]*' "$MANIFEST_FILE" | tr -d '"[] ')
+                if [[ -n "$DEPENDENCIES" ]]; then
+                    for DEPENDENCY in $(echo "$DEPENDENCIES" | tr ',' '\n'); do
+                        echo "  $MODULE_NAME --> $DEPENDENCY" >> "$OUTPUT_FILE"
+                    done
+                fi
+            fi
+        fi
+    done
+
+    echo "Mermaid output generated: $OUTPUT_FILE"
+    echo "Run mermaid-cli with npx and open png file ..."
+
+    npx @mermaid-js/mermaid-cli -i $OUTPUT_FILE -o tmp/module_dependencies.png --scale 10
+    $OS_OPEN tmp/module_dependencies.png
+}
+
 
 case "$1" in
     activate-venv)
@@ -1285,6 +1321,12 @@ case "$1" in
         ;;
     upload-module)
         upload-module "$2" "$3"
+        ;;
+    visualize-dependencies)
+        visualize-dependencies "$2"
+        ;;
+    zip-module)
+        zip-module "$2"
         ;;
     *)
         help task

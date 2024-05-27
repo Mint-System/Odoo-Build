@@ -22,6 +22,21 @@ entrypoint_log() {
     fi
 }
 
+set_odoo_addons_path() {
+    if [ -n "$ODOO_ADDONS_PATH" ]; then 
+
+        entrypoint_log "$ME: Update ODOO_ADDONS_PATH env var"
+
+        # Search for module manifest files and return list of module paths 
+        ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs dirname | sort -u | tr "\n" ",")
+
+        # Set parent folder of module paths as new addons path
+        ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+    fi
+}
+
+set_odoo_addons_path
+
 auto_envsubst() {
     local TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
     local OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
@@ -37,11 +52,11 @@ auto_envsubst() {
 
 auto_envsubst
 
-echo "List python packages:"
+entrypoint_log "$ME: List python packages:"
  
 pip list
 
-echo "Running Odoo as user: $USER"
+entrypoint_log "$ME: Running Odoo as user: $USER"
 
 # Set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
