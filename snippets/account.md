@@ -461,16 +461,22 @@ ID: `mint_system.account.report_invoice_document.bank_account`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
+
     <xpath expr="/t/t/div/p[2]" position="after">
-        <t t-if="o.currency_id.name=='CHF'">
-            <t t-set="account" t-value="o.company_id.bank_ids.browse(13)"/>
+
+        <t t-if="o.company_id.id==1">
+            <t t-if="o.currency_id.name=='CHF'">
+                <t t-set="account" t-value="o.company_id.bank_ids.browse(4)"/>
+            </t>
+            <t t-if="o.currency_id.name=='EUR'">
+                <t t-set="account" t-value="o.company_id.bank_ids.browse(5)"/>
+            </t>
         </t>
-        <t t-if="o.currency_id.name=='EUR'">
-            <t t-set="account" t-value="o.company_id.bank_ids.browse(14)"/>
+
+        <t t-if="o.company_id.id==3">
+            <t t-set="account" t-value="o.company_id.bank_ids.browse(21)"/>
         </t>
-        <t t-if="o.currency_id.name=='USD'">
-            <t t-set="account" t-value="o.company_id.bank_ids.browse(15)"/>
-        </t>
+
         <div class="row">
             <div class="col">
                 <span>IBAN: </span>
@@ -483,8 +489,8 @@ ID: `mint_system.account.report_invoice_document.bank_account`
             </div>
         </div>
     </xpath>
-</data>
 
+</data>
 ```
 Source: [snippets/account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.bank_account.xml)
 
