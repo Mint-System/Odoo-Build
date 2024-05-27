@@ -1,21 +1,23 @@
 ![](https://github.com/Mint-System/Odoo-Build/raw/14.0/logo.png)
-<!-- ![](./logo.png) -->
 
 Odoo Build
 ==========
+
+[![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/)
 
 This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
 This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
 
-* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally
-* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database to the local development environment. Investigate issues and deploy the database at wish
-* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code
+* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
+* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database to the local environment. Investigate issues and deploy the database at ease.
+* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
 * **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
-* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md)
-* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database
-* **Odoo Scripts**: Develope scripts to patch Odoo code
-* **Odoo Image**: Build and publish an Odoo Docker image
+* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
+* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
+* **Odoo Scripts**: Develope scripts to patch Odoo code.
+* **Odoo Image**: Build and publish an custom Odoo Docker image. See [README](./build/README.md) for details.
+* **Kubernetes**: Deploy Odoo and Postgres to Kubernetes cluster.
 
 ## Requirements
 
@@ -23,7 +25,9 @@ The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
-* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task)
+* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task).
+
+You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
 ## Usage
 
@@ -34,6 +38,12 @@ Clone this repository.
 ```bash
 git clone git@github.com:Mint-System/Odoo-Build.git
 cd Odoo-Build
+```
+
+When working with Nix, run the nix-shell.
+
+```bash
+nix-shell
 ```
 
 Checkout branch.
@@ -58,7 +68,7 @@ task install-odoo-scripts
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian
+Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
 
 **Install Odoo native requirements**
 
@@ -174,7 +184,7 @@ task drop-db
 To build the Docker image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.5
+ODOO_REVISION=16.0
 DOCKER_REGISTRY=mint-system/
 ```
 
@@ -186,7 +196,7 @@ task build
 
 Publish the Odoo image.
 
-```
+```bash
 task publish
 ```
 

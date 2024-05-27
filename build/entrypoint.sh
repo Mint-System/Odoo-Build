@@ -2,16 +2,17 @@
 
 set -e
 
+echo "  ___      _               ____        _ _     _ "
+echo " / _ \  __| | ___   ___   | __ ) _   _(_) | __| |"
+echo "| | | |/ _' |/ _ \ / _ \  |  _ \| | | | | |/ _' |"
+echo "| |_| | (_| | (_) | (_) | | |_) | |_| | | | (_| |"
+echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
+echo
+echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
+
 if [ -v PASSWORD_FILE ]; then
     PASSWORD="$(< $PASSWORD_FILE)"
 fi
-
-# set the postgres database host, port, user and password according to the environment
-# and pass them as arguments to the odoo process if not present in the config file
-: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
-: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
-: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 ME=$(basename "$0")
 
@@ -20,6 +21,21 @@ entrypoint_log() {
         echo "$@"
     fi
 }
+
+set_odoo_addons_path() {
+    if [ -n "$ODOO_ADDONS_PATH" ]; then 
+
+        entrypoint_log "$ME: Update ODOO_ADDONS_PATH env var"
+
+        # Search for module manifest files and return list of module paths 
+        ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs dirname | sort -u | tr "\n" ",")
+
+        # Set parent folder of module paths as new addons path
+        ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+    fi
+}
+
+set_odoo_addons_path
 
 auto_envsubst() {
     local TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
@@ -35,6 +51,19 @@ auto_envsubst() {
 }
 
 auto_envsubst
+
+entrypoint_log "$ME: List python packages:"
+ 
+pip list
+
+entrypoint_log "$ME: Running Odoo as user: $USER"
+
+# Set the postgres database host, port, user and password according to the environment
+# and pass them as arguments to the odoo process if not present in the config file
+: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
+: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
+: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
+: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 DB_ARGS=()
 function check_config() {

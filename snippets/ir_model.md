@@ -134,6 +134,26 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
 Source: [snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml)
 
 ## Account Move Line  
+### X Drawing File  
+ID: `mint_system.ir_model.account_move_line.x_drawing_file`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_drawing_file" model="ir.model.fields">
+        <field name="field_description">Zeichnung</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_move_line"/>
+        <field name="name">x_drawing_file</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="related">product_id.drawing_file</field>        
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move_line.x_drawing_file.xml)
+
 ### X Sale Order Id  
 ID: `mint_system.ir_model.account_move_line.x_sale_order_id`  
 ```xml
@@ -158,6 +178,29 @@ ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
 
 ```
 Source: [snippets/ir_model.account_move_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move_line.x_sale_order_id.xml)
+
+### X Tax Group Id  
+ID: `mint_system.ir_model.account_move_line.x_tax_group_id`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_sale_order_id" model="ir.model.fields">
+        <field name="x_tax_group_id">Steuergruppe</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_move_line"/>
+        <field name="name">x_tax_group_id</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="related">tax_line_id.tax_group_id</field>
+        <field name="depends">tax_line_id</field>
+        <field name="relation">account.tax.group</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move_line.x_tax_group_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move_line.x_tax_group_id.xml)
 
 ## Account Move  
 ### X Account Codes  
@@ -467,6 +510,59 @@ ID: `mint_system.ir_model.account_move.x_studio_description`
 
 ```
 Source: [snippets/ir_model.account_move.x_studio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_studio_description.xml)
+
+### X Total Credit  
+ID: `mint_system.ir_model.account_move.x_total_credit`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_amount_residual_signed_credit" model="ir.model.fields">
+        <field name="field_description">Rechnungsbetrag unterzeichnet credit</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_amount_residual_signed_credit</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">amount_residual_signed</field>
+        <field name="compute">for rec in self:
+  if rec.move_type in ['in_invoice', 'in_refund']:
+    rec['x_amount_residual_signed_credit'] = rec.amount_residual_signed * -1
+  else:
+    rec['x_amount_residual_signed_credit'] = 0
+        </field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_total_credit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_total_credit.xml)
+
+### X Total Debit  
+ID: `mint_system.ir_model.account_move.x_total_debit`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_amount_residual_signed_debit" model="ir.model.fields">
+        <field name="field_description">Rechnungsbetrag unterzeichnet debit</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_amount_residual_signed_debit</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">amount_residual_signed</field>
+        <field name="compute">for rec in self:
+  if rec.move_type in ['out_invoice', 'out_refund']:
+    rec['x_amount_residual_signed_debit'] = rec.amount_residual_signed
+  else:
+    rec['x_amount_residual_signed_debit'] = 0
+        </field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.account_move.x_total_debit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_total_debit.xml)
 
 ## Agreement Agreement  
 ### X Group Ids  
@@ -895,14 +991,14 @@ ID: `mint_system.ir_model.maintenance_equipment.x_calibrated_until`
         <field name="field_description">Kalibriert bis</field>
         <field name="model">maintenance.equipment</field>
         <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
-        <field name="name">x_calibrated_untilk</field>
+        <field name="name">x_calibrated_until</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="False"/>
         <field name="ttype">date</field>
+        <field name="related">x_last_maintenance_request.x_calibrated_until</field>
     </record>
 </odoo>
-
 ```
 Source: [snippets/ir_model.maintenance_equipment.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_equipment.x_calibrated_until.xml)
 
@@ -933,6 +1029,34 @@ ID: `mint_system.ir_model.maintenance_equipment.x_date_action_required`
 
 ```
 Source: [snippets/ir_model.maintenance_equipment.x_date_action_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_equipment.x_date_action_required.xml)
+
+### X Last Maintenance Request  
+ID: `mint_system.ir_model.maintenance_equipment.x_last_maintenance_request`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_last_maintenance_request" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">Letzter Wartungsauftrag</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+        <field name="name">x_last_maintenance_request</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">maintenance.request</field>
+        <field name="depends">name, maintenance_ids.schedule_date</field>
+        <field name="compute">for record in self:
+    last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='schedule_date desc', limit=1)
+    if last_maintenance and last_maintenance.schedule_date:
+        record['x_last_maintenance_request'] = last_maintenance.id
+    else:
+        record['x_last_maintenance_request'] = None</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_equipment.x_last_maintenance_request.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_equipment.x_last_maintenance_request.xml)
 
 ### X Lead Time Recovery Work  
 ID: `mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work`  
@@ -990,20 +1114,19 @@ ID: `mint_system.ir_model.maintenance_equipment.x_next_maintenance_request`
         <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
         <field name="name">x_next_maintenance_request</field>
         <field name="store" eval="False"/>
-        <field name="readonly" eval="False"/>
+        <field name="readonly" eval="True"/>
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
         <field name="relation">maintenance.request</field>
         <field name="depends">name, maintenance_ids.schedule_date</field>
         <field name="compute">for record in self:
-    next_maintenance = record.maintenance_ids.search([('stage_id.done', '=', False), ('equipment_id', '=', record.id), ('schedule_date', '=', True)], order='schedule_date', limit=1)
-    if next_maintenance:
+    next_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['1', '2']), ('equipment_id', '=', record.id)], order='schedule_date', limit=1)
+    if next_maintenance and next_maintenance.schedule_date:
         record['x_next_maintenance_request'] = next_maintenance.id
     else:
-        record['x_next_maintenance_request'] = 0</field>
+        record['x_next_maintenance_request'] = None</field>
     </record>
 </odoo>
-
 ```
 Source: [snippets/ir_model.maintenance_equipment.x_next_maintenance_request.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_equipment.x_next_maintenance_request.xml)
 
@@ -1051,6 +1174,27 @@ ID: `mint_system.ir_model.maintenance_equipment.x_stage_id`
 
 ```
 Source: [snippets/ir_model.maintenance_equipment.x_stage_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_equipment.x_stage_id.xml)
+
+## Maintenance Request  
+### X Calibrated Until  
+ID: `mint_system.ir_model.maintenance_request.x_calibrated_until`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_calibrated_until" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">Kalibriert bis</field>
+        <field name="model">maintenance.request</field>
+        <field name="model_id" ref="maintenance.model_maintenance_request"/>
+        <field name="name">x_calibrated_until</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">date</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.maintenance_request.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.maintenance_request.x_calibrated_until.xml)
 
 ## Mrp Bom  
 ### X Note  
@@ -2548,6 +2692,27 @@ ID: `mint_system.ir_model.sale_order.x_client_project_ref`
 ```
 Source: [snippets/ir_model.sale_order.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_client_project_ref.xml)
 
+### X Country Id Name  
+ID: `mint_system.ir_model.sale_order.x_country_id_name`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_country_id_name" model="ir.model.fields">
+        <field name="field_description">Kundenland</field>
+        <field name="model">sale.order</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_country_id_name</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+        <field name="related">partner_id.country_id.name</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.sale_order.x_country_id_name.xml)
+
 ### X Incoterm Blanket Order  
 ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`  
 ```xml
@@ -3205,6 +3370,168 @@ ID: `mint_system.ir_model.stock_production_lot.x_autoremove`
 
 ```
 Source: [snippets/ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_autoremove.xml)
+
+### X Default Code  
+ID: `mint_system.ir_model.stock_production_lot.x_default_code`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_default_code" model="ir.model.fields">
+        <field name="field_description">Internal Reference</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_default_code</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_default_code.xml)
+
+### X Device Name  
+ID: `mint_system.ir_model.stock_production_lot.x_device_name`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_device_name" model="ir.model.fields">
+        <field name="field_description">Device Name</field>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="name">x_device_name</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_device_name.xml)
+
+### X Forcepoint Pol  
+ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pol`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+  <record id="x_forcepoint_pol" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoL</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pol</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_forcepoint_pol.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_forcepoint_pol.xml)
+
+### X Forcepoint Pos  
+ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pos`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_forcepoint_pos" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoS</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pos</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_forcepoint_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_forcepoint_pos.xml)
+
+### X Hostname  
+ID: `mint_system.ir_model.stock_production_lot.x_hostname`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_forcepoint_pos" model="ir.model.fields">
+        <field name="field_description">Forcepoint PoS</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_forcepoint_pos</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_hostname.xml)
+
+### X Ip Address  
+ID: `mint_system.ir_model.stock_production_lot.x_ip_address`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_ip_address" model="ir.model.fields">
+        <field name="field_description">IP Address</field>
+        <field name="model">stock.lot</field>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="name">x_ip_address</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_ip_address.xml)
+
+### X Location  
+ID: `mint_system.ir_model.stock_production_lot.x_location`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_location" model="ir.model.fields">
+        <field name="field_description">Location</field>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="name">x_location</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_location.xml)
+
+### X Managed Service  
+ID: `mint_system.ir_model.stock_production_lot.x_managed_service`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="x_managed_service_field" model="ir.model.fields">
+        <field name="field_description">Managed Service</field>
+        <field name="model">stock.production.lot</field>
+        <field name="model_id" ref="stock.model_stock_production_lot"/>
+        <field name="name">x_managed_service</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="ttype">selection</field>
+        <field name="selection">[
+            ('high', 'MS1 High'),
+            ('medium', 'MS1 Medium'),
+            ('low', 'MS1 Low'),
+            ('central', 'MS1 Central')
+        ]</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_production_lot.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_production_lot.x_managed_service.xml)
 
 ### X Production Ids  
 ID: `mint_system.ir_model.stock_production_lot.x_production_ids`  

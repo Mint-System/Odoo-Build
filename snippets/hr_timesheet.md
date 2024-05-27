@@ -446,6 +446,19 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 ```
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
+### Show Helpdesk Ticket  
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+    <xpath expr="//field[@name='task_id']" position="after">
+        <field name="helpdesk_ticket_id" optional="show"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml)
+
 ### Show Product Uom Id  
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`  
 ```xml

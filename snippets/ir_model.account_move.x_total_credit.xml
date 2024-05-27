@@ -15,5 +15,6 @@
     rec['x_amount_residual_signed_credit'] = rec.amount_residual_signed * -1
   else:
     rec['x_amount_residual_signed_credit'] = 0
+        </field>
     </record>
 </odoo>

@@ -123,6 +123,26 @@ ID: `mint_system.web.brand_promotion_message.remove`
 Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.brand_promotion_message.remove.xml)
 
 ## External Layout Bold  
+### Add Bank  
+ID: `mint_system.web.external_layout_bold.add_bank`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_bold" priority="50">
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="before">
+    <div class="col-4">
+      <div>
+                        IBAN: <span t-field="company.partner_id.bank_ids.acc_number"/>
+      </div>
+      <div>
+                        BIC: <span t-field="company.partner_id.bank_ids.bank_id.bic"/>
+      </div>
+    </div>
+  </xpath>
+</data>
+
+```
+Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_bold.add_bank.xml)
+
 ### Remove Background Image  
 ID: `mint_system.web.external_layout_bold.remove_background_image`  
 ```xml

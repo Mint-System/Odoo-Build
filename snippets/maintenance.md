@@ -1,4 +1,18 @@
 # Maintenance
+## Hr Equipment Request View Form  
+### X Calibrated Until  
+ID: `mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="maintenance.hr_equipment_request_view_form" priority="50">
+    <xpath expr="//field[@name='maintenance_type']" position="after">
+        <field name="x_calibrated_until"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/maintenance.hr_equipment_request_view_form.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/maintenance.hr_equipment_request_view_form.x_calibrated_until.xml)
+
 ## Hr Equipment Request View Tree  
 ### Show Schedule Date  
 ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`  
@@ -12,6 +26,18 @@ ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`
 
 ```
 Source: [snippets/maintenance.hr_equipment_request_view_tree.show_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/maintenance.hr_equipment_request_view_tree.show_schedule_date.xml)
+
+### X Calibrated Until  
+ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="maintenance.hr_equipment_request_view_tree" priority="50">
+    <xpath expr="//field[@name='request_date']" position="after">
+        <field name="x_calibrated_until"/>
+    </xpath>
+</data>
+```
+Source: [snippets/maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml)
 
 ## Hr Equipment View Form  
 ### X Calibrated Until  

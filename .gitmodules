@@ -74,3 +74,7 @@
 	path = addons/sozialinfo
 	url = git@github.com:sozialinfo/odoo-apps-sozialinfo.git
 	branch = 16.0
+[submodule "oca/web-api"]
+	path = oca/web-api
+	url = git@github.com:OCA/web-api.git
+	branch = 16.0

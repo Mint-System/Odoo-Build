@@ -4247,6 +4247,19 @@ ID: `mint_system.sale.view_order_line_tree.editable`
 ```
 Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.editable.xml)
 
+### Enable Create  
+ID: `mint_system.sale.view_order_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="create">true</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.enable_create.xml)
+
 ### Fields Optional Hide  
 ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
 ```xml
@@ -4569,6 +4582,30 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
 
+### Show Payment Term Id  
+ID: `mint_system.sale.view_order_tree.show_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <field name="state" position="after">
+        <field name="payment_term_id" optional="hide"/>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_tree.show_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_payment_term_id.xml)
+
+### Show Project  
+ID: `mint_system.sale.view_order_tree.show_project`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <field name="partner_id" position="after">
+        <field name="project_id" optional="hide"/>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_tree.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_project.xml)
+
 ### Show State  
 ID: `mint_system.sale.view_order_tree.show_state`  
 ```xml
@@ -4581,6 +4618,19 @@ ID: `mint_system.sale.view_order_tree.show_state`
 
 ```
 Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_state.xml)
+
+### X Country Id Name  
+ID: `mint_system.sale.view_order_tree.x_country_id_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="x_country_id_name"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_country_id_name.xml)
 
 ### X Payment State  
 ID: `mint_system.sale.view_order_tree.x_payment_state`  
