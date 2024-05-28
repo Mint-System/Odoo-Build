@@ -342,6 +342,12 @@ function restart() {
 }
 
 function stop() {
+    # Exports for Docker Compose
+    export POSTGRES_PORT
+    export ODOO_PORT
+    export DOCKER_TAG
+    export DOCKER_ADDONS_PATH
+
     if test -z "$1"; then
         docker-compose stop
     fi
