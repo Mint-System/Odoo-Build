@@ -649,7 +649,7 @@ function checkout() {
 }
 
 function checkout-revision() {
-    echo "Execute snapt script for revision: $ODOO_REVISION"
+    echo "Execute script for revision: $ODOO_REVISION"
     ./scripts/odoo_revision_${ODOO_REVISION}
 }
 
