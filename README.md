@@ -7,17 +7,19 @@ Odoo Build
 
 This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
-This projects provides a highly opinionated way to develop Odoo and Odoo modules. It supports the following scenarios:
+This projects provides a highly opinionated way to develop Odoo modules. It features:
 
+* **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
 * **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
-* **Import and Export Database**: Use Odoo scripts to copy and restore a remote customer database to the local environment. Investigate issues and deploy the database at ease.
-* **Community Edition**: Checkout the Odoo Community Edition and start editing the source code.
-* **Enterprise Modules**: Checkout the Odoo enterprise modules and deploy them into the Odoo Docker container or the Odoo source.
-* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
+* **Native**: Start an Odoo server directly from the source.
+* **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database at ease.
+* **Community Modules**: The most common community modules are checked out when setting up the project.
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
-* **Odoo Image**: Build and publish an custom Odoo Docker image. See [README](./build/README.md) for details.
-* **Kubernetes**: Deploy Odoo and Postgres to Kubernetes cluster.
+* **Odoo Revisions**: Snapshot the Odoo source at a specific date.
+* **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
+* **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
+* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
 
 ## Requirements
 
@@ -31,7 +33,7 @@ You can also use [Nix](https://nixos.org/) to setup the development requirements
 
 ## Usage
 
-The usage section is a set of workflows. Pick the one required by your scenario. See `task help` or [task](./task.md) for details about the project commands.
+The usage section is a set of workflows. See `task help` or [task](./task.md) for details about the project commands.
 
 Clone this repository.
 
@@ -46,7 +48,7 @@ When working with Nix, run the nix-shell.
 nix-shell
 ```
 
-Checkout branch.
+Checkout the Odoo version.
 
 ```bash
 task checkout 13.0
@@ -60,7 +62,7 @@ task checkout 16.0
 task checkout 17.0
 ```
 
-Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/)
+Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
 
 ```bash
 task install-odoo-scripts
@@ -110,6 +112,8 @@ task create-module addons/project_report
 ```
 
 **Load modules from thirdpary folder**
+
+Clone thirdparty repos into the `thirdparty` folder.
 
 To load modules from a thirdparty folder, set this env var in your `.env` file
 
@@ -161,10 +165,10 @@ Open database manager [http://localhost:8000/](http://localhost:8000/) and login
 
 **Remove Docker conainers**
 
-Kill docker containers and volumes.
+Remove Docker containers and volumes.
 
 ```bash
-task kill
+task down
 ```
 
 **Stop all Docker containers**
@@ -184,8 +188,15 @@ task drop-db
 To build the Docker image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.0
+ODOO_REVISION=16.0.2024.0405
 DOCKER_REGISTRY=mint-system/
+DOCKER_TAG=odoo:16.0.2024.0405
+```
+
+Checkout the Odoo revision.
+
+```bash
+task checkout-revision
 ```
 
 Build the Odoo image.

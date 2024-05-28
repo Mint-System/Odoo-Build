@@ -4247,6 +4247,19 @@ ID: `mint_system.sale.view_order_line_tree.editable`
 ```
 Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.editable.xml)
 
+### Enable Create  
+ID: `mint_system.sale.view_order_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="create">true</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.enable_create.xml)
+
 ### Fields Optional Hide  
 ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
 ```xml

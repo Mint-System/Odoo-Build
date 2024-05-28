@@ -178,7 +178,6 @@ function docker-login() {
 }
 
 function publish() {
-
     echo "Push Docker image ${DOCKER_REGISTRY}${DOCKER_TAG}"
     docker --config "$HOME/.docker/$DOCKER_REGISTRY" push "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
@@ -285,7 +284,7 @@ function start() {
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
+        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-handler odoo.tools.convert:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -512,7 +511,7 @@ function test-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
-function remove-module-requirements() {
+function remove-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -650,16 +649,8 @@ function checkout() {
 }
 
 function checkout-revision() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
- 
-    cd odoo || exit
-    git checkout "$1"
-    cd .. || exit
-    cd enterprise || exit
-    git checkout "$1"
-    cd .. || exit
-    cd themes || exit
-    git checkout "$1"
+    echo "Execute snapt script for revision: $ODOO_REVISION"
+    ./scripts/odoo_revision_${ODOO_REVISION}
 }
 
 function git-submodule-pull() {
