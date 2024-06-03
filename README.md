@@ -16,7 +16,7 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Community Modules**: The most common community modules are checked out when setting up the project.
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
-* **Odoo Revisions**: Snapshot the Odoo source at a specific date.
+* **[Odoo Revisions](revisions.md)**: Snapshot the Odoo source at a specific date.
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
 * **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
