@@ -1,4 +1,5 @@
 version: "3"
+name: odoo-build
 services:
   odoo:
     container_name: odoo
