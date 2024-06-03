@@ -139,7 +139,6 @@ function get-module-version() {
 }
 
 function generate-revisions() {
-    # Delete the existing revisions.md file
     rm -f revisions.md
 
     echo "# Odoo Revisions" > revisions.md
@@ -149,26 +148,24 @@ function generate-revisions() {
     echo "For each major release there are multiple revisions." >> revisions.md
     echo >> revisions.md
 
-    declare -A revisions
+    declare -A REVISIONS
 
-    # Loop through files in the scripts/ directory that match the pattern
-    for file in scripts/odoo_revision_*; do
-        if [[ -f "$file" ]]; then
-            revision=$(basename "$file" | sed 's/odoo_revision_//')
-            major_version=$(echo "$revision" | cut -d'.' -f1-2)
+    for FILE in scripts/odoo_revision_*; do
+        if [[ -f "$FILE" ]]; then
+            REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
+            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
-            if [[ -z "${revisions[$major_version]}" ]]; then
-                revisions[$major_version]="## $major_version"
+            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
+                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
             fi
 
-            revisions[$major_version]+=$'\n\n'
-            revisions[$major_version]+="[$revision](./$file)"
+            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
+            REVISIONS[$MAJOR_VERSION]+="[$REVISION](./$FILE)"
         fi
     done
 
-    # Sort the versions and write to the markdown file
-    for version in $(echo "${!revisions[@]}" | tr ' ' '\n' | sort -V); do
-        echo -e "${revisions[$version]}" >> revisions.md
+    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+        echo -e "${REVISIONS[$VERSION]}" >> revisions.md
         echo >> revisions.md
     done
 }
@@ -1103,6 +1100,7 @@ function update-docs() {
     done
 
     generate-revisions
+
     if ! grep -q "\*\*Odoo Revisions\*\*" README.md; then
         echo "Odoo Revisions section not found in README.md."
         exit 1
