@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
+
+  <field name="state" position="after">
+    <field name="activity_date_deadline"/>
+    <field name="activity_ids"/>
+    <field name="activity_state"/>
+    <field name="my_activity_date_deadline"/>
+  </field>
+
+</data>

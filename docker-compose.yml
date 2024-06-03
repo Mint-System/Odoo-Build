@@ -1,4 +1,5 @@
 version: "3"
+name: odoo-build
 services:
   odoo:
     container_name: odoo
@@ -15,6 +16,7 @@ services:
       PASSWORD: odoo
       PORT: ${POSTGRES_PORT}
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/,/mnt/thirdparty
+      LOG_LEVEL: debug
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:

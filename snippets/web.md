@@ -126,20 +126,26 @@ Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Min
 ### Add Bank  
 ID: `mint_system.web.external_layout_bold.add_bank`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_bold" priority="50">
-  <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="before">
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
+    <attribute name="class">col-3</attribute>
+  </xpath>
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[3]" position="replace"/>
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
     <div class="col-4">
       <div>
-                        IBAN: <span t-field="company.partner_id.bank_ids.acc_number"/>
+                        IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
       </div>
       <div>
-                        BIC: <span t-field="company.partner_id.bank_ids.bank_id.bic"/>
+                        BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
       </div>
     </div>
   </xpath>
-</data>
 
+</data>
 ```
 Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_bold.add_bank.xml)
 

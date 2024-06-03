@@ -6,6 +6,7 @@ A better Odoo image.
 - Detects and aggregates nested module folders 
 - The Odoo source is set to the latest commit of date in tag
 - Ships with python 3.11
+- Define log level with env var
 
 ## Usage
 
@@ -25,6 +26,7 @@ services:
       PASSWORD: odoo
       PORT: 5432
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
+      LOG_LEVEL: debug
     ports:
       - "127.0.0.1:8069:8069"
     volumes:

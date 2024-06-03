@@ -15,14 +15,14 @@ if [ -v PASSWORD_FILE ]; then
 fi
 
 ME=$(basename "$0")
-
+ 
 entrypoint_log() {
     if [ -z "${ODOO_ENTRYPOINT_QUIET_LOGS:-}" ]; then
         echo "$@"
     fi
 }
 
-set_odoo_addons_path() {
+set_odoo_config_env() {
     if [ -n "$ODOO_ADDONS_PATH" ]; then 
 
         entrypoint_log "$ME: Update ODOO_ADDONS_PATH env var"
@@ -33,9 +33,12 @@ set_odoo_addons_path() {
         # Set parent folder of module paths as new addons path
         ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
+
+    : "${LOG_LEVEL:=info}"
+    export LOG_LEVEL
 }
 
-set_odoo_addons_path
+set_odoo_config_env
 
 auto_envsubst() {
     local TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"

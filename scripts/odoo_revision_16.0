@@ -1,0 +1,19 @@
+#!/bin/bash
+
+ODOO_REVISION=16.0
+
+# Checkout odoo repo
+cd odoo && git checkout 16.0
+cd ..
+
+# Checkout enterprise repo
+cd enterprise && git checkout 16.0
+cd ..
+
+# Checkout theme repo
+cd themes && git checkout 16.0
+cd ..
+
+# Pull docker image
+DIGEST=odoo:16.0
+docker pull "$DIGEST"
