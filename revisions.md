@@ -6,6 +6,8 @@ For each major release there are multiple revisions.
 
 ## 13.0
 
+[13.0](./scripts/odoo_revision_13.0)
+
 [13.0.2022.0228](./scripts/odoo_revision_13.0.2022.0228)
 
 ## 14.0

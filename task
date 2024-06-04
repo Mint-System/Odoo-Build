@@ -1101,17 +1101,6 @@ function update-docs() {
 
     generate-revisions
 
-    if ! grep -q "\*\*Odoo Revisions\*\*" README.md; then
-        echo "Odoo Revisions section not found in README.md."
-        exit 1
-    fi
-
-    if ! grep -q "\*\*\[Odoo Revisions\](revisions.md)\*\*" README.md; then
-        echo "Linking revisions.md in README.md"
-        sed -i 's/\*\*Odoo Revisions\*\*/\*\*\[Odoo Revisions\](revisions.md)\*\*/' README.md
-    else
-        echo "Link to revisions.md already exists in README.md"
-    fi
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
