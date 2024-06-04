@@ -1081,12 +1081,12 @@ function generate-revisions-doc() {
     echo "Update revisions doc file."
 
     rm -f "revisions.md"
-
     echo -e "# Odoo Revisions \n\
 A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.\n\
 For each major release there are multiple revisions.\n" > "revisions.md"
 
     declare -A REVISIONS
+    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/16.0"
 
     for FILE in scripts/odoo_revision_*; do
         if [[ -f "$FILE" ]]; then
@@ -1098,7 +1098,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$MAJOR_VERSION]+=$'\n\n'
-            REVISIONS[$MAJOR_VERSION]+="[$REVISION](./$FILE)"
+            REVISIONS[$MAJOR_VERSION]+="[$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
@@ -1108,11 +1108,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
 }
 
 function update-docs() {
-
-    lint-snippets
-
     generate-snippets-doc
-
     generate-revisions-doc    
 }
 
