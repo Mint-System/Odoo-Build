@@ -1,7 +1,5 @@
-# Odoo Revisions
-
+# Odoo Revisions 
 A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.
-
 For each major release there are multiple revisions.
 
 ## 13.0
@@ -13,6 +11,8 @@ For each major release there are multiple revisions.
 ## 14.0
 
 [14.0](./scripts/odoo_revision_14.0)
+
+[14.0.2023.0327](./scripts/odoo_revision_14.0.2023.0327)
 
 [14.0.2023.0612](./scripts/odoo_revision_14.0.2023.0612)
 
@@ -26,6 +26,8 @@ For each major release there are multiple revisions.
 
 [15.0.2023.1106](./scripts/odoo_revision_15.0.2023.1106)
 
+[15.0.2024.0104](./scripts/odoo_revision_15.0.2024.0104)
+
 [15.0.2024.0126](./scripts/odoo_revision_15.0.2024.0126)
 
 [15.0.2024.0405](./scripts/odoo_revision_15.0.2024.0405)
@@ -33,6 +35,10 @@ For each major release there are multiple revisions.
 ## 16.0
 
 [16.0](./scripts/odoo_revision_16.0)
+
+[16.0.2022.1117](./scripts/odoo_revision_16.0.2022.1117)
+
+[16.0.2022.1226](./scripts/odoo_revision_16.0.2022.1226)
 
 [16.0.2023.0227](./scripts/odoo_revision_16.0.2023.0227)
 

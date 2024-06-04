@@ -138,38 +138,6 @@ function get-module-version() {
     fi
 }
 
-function generate-revisions() {
-    rm -f revisions.md
-
-    echo "# Odoo Revisions" > revisions.md
-    echo >> revisions.md
-    echo "A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date." >> revisions.md
-    echo >> revisions.md
-    echo "For each major release there are multiple revisions." >> revisions.md
-    echo >> revisions.md
-
-    declare -A REVISIONS
-
-    for FILE in scripts/odoo_revision_*; do
-        if [[ -f "$FILE" ]]; then
-            REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
-            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
-
-            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
-                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
-            fi
-
-            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
-            REVISIONS[$MAJOR_VERSION]+="[$REVISION](./$FILE)"
-        fi
-    done
-
-    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
-        echo -e "${REVISIONS[$VERSION]}" >> revisions.md
-        echo >> revisions.md
-    done
-}
-
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
         echo "Init venv$GIT_BRANCH with $(python --version)."
@@ -687,8 +655,13 @@ function checkout() {
 }
 
 function checkout-revision() {
-    echo "Execute script for revision: $ODOO_REVISION"
-    ./scripts/odoo_revision_${ODOO_REVISION}
+    if [ -n "$1" ]; then
+        echo "Execute script for revision: $1"
+        ./scripts/odoo_revision_"$1"
+    else
+        echo "Execute script for revision: $ODOO_REVISION"
+        ./scripts/odoo_revision_"${ODOO_REVISION}"
+    fi
 }
 
 function git-submodule-pull() {
@@ -839,6 +812,9 @@ function install-snippet() {
 }
 
 function lint-snippets() {
+
+    echo "Lint snippets files ..."
+
     FILES="snippets/*.xml"
 
     for FILE in $FILES; do
@@ -1041,11 +1017,10 @@ function patch-database() {
     echo "Patching database succeeded"
 }
 
-function update-docs() {
+function generate-snippets-doc() {
 
-    lint-snippets
-
-    echo "Update snippets README file."
+    echo "Update snippets doc file."
+    
     echo "# Snippets" > snippets.md
     echo "In Odoo everything is described as an XML document. \
     Snippets are modifications (edits) for these XML documents. \
@@ -1098,10 +1073,47 @@ function update-docs() {
             done
         done
     done
-
-    generate-revisions
-
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
+}
+
+function generate-revisions-doc() {
+
+    echo "Update revisions doc file."
+
+    rm -f "revisions.md"
+
+    echo -e "# Odoo Revisions \n\
+A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.\n\
+For each major release there are multiple revisions.\n" > "revisions.md"
+
+    declare -A REVISIONS
+
+    for FILE in scripts/odoo_revision_*; do
+        if [[ -f "$FILE" ]]; then
+            REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
+            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+
+            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
+                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
+            fi
+
+            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
+            REVISIONS[$MAJOR_VERSION]+="[$REVISION](./$FILE)"
+        fi
+    done
+
+    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+        echo -e "${REVISIONS[$VERSION]}\n" >> "revisions.md"
+    done
+}
+
+function update-docs() {
+
+    lint-snippets
+
+    generate-snippets-doc
+
+    generate-revisions-doc    
 }
 
 function visualize-dependencies() {
