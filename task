@@ -138,6 +138,38 @@ function get-module-version() {
     fi
 }
 
+function generate-revisions() {
+    rm -f revisions.md
+
+    echo "# Odoo Revisions" > revisions.md
+    echo >> revisions.md
+    echo "A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date." >> revisions.md
+    echo >> revisions.md
+    echo "For each major release there are multiple revisions." >> revisions.md
+    echo >> revisions.md
+
+    declare -A REVISIONS
+
+    for FILE in scripts/odoo_revision_*; do
+        if [[ -f "$FILE" ]]; then
+            REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
+            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+
+            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
+                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
+            fi
+
+            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
+            REVISIONS[$MAJOR_VERSION]+="[$REVISION](./$FILE)"
+        fi
+    done
+
+    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+        echo -e "${REVISIONS[$VERSION]}" >> revisions.md
+        echo >> revisions.md
+    done
+}
+
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
         echo "Init venv$GIT_BRANCH with $(python --version)."
@@ -1066,6 +1098,9 @@ function update-docs() {
             done
         done
     done
+
+    generate-revisions
+
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
