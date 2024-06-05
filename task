@@ -15,16 +15,20 @@ if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
     export $(cat .env | sed 's/^#.*//g' | xargs)
 fi
 
-# Set env vars
+# Dynamic env vars
+
 PATH="$PATH:./odoo"
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
+LOG_LEVEL=${LOG_LEVEL:="info"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
-DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
+
+# Conditional env vars
 
 if [ -z "${DOCKER_REGISTRY}" ]; then 
     DOCKER_REGISTRY=""
@@ -284,7 +288,7 @@ function start() {
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all
+        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -332,6 +336,12 @@ function down() {
 }
 
 function restart() {
+    # Exports for Docker Compose
+    export POSTGRES_PORT
+    export ODOO_PORT
+    export DOCKER_TAG
+    export DOCKER_ADDONS_PATH
+
     if test -z "$1"; then
         docker-compose restart
     fi

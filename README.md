@@ -111,7 +111,7 @@ Scaffold a new module.
 task create-module addons/project_report
 ```
 
-**Load modules from thirdpary folder**
+**Load modules from thirdparty folder**
 
 Clone thirdparty repos into the `thirdparty` folder.
 
@@ -154,6 +154,14 @@ docker-odoo-install -m show_db_name
 ### Common
 
 Instructions that are true for Docker and native usage paths.
+
+**Change log level**
+
+To change the log level of Odoo set this env var in your `.env` file:
+
+```bash
+LOG_LEVEL=debug
+```
 
 **Enable developer mode**
 
