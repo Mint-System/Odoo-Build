@@ -16,7 +16,7 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Community Modules**: The most common community modules are checked out when setting up the project.
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
-* **Odoo Revisions**: Snapshot the Odoo source at a specific date.
+* **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
 * **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
@@ -111,7 +111,7 @@ Scaffold a new module.
 task create-module addons/project_report
 ```
 
-**Load modules from thirdpary folder**
+**Load modules from thirdparty folder**
 
 Clone thirdparty repos into the `thirdparty` folder.
 
@@ -154,6 +154,14 @@ docker-odoo-install -m show_db_name
 ### Common
 
 Instructions that are true for Docker and native usage paths.
+
+**Change log level**
+
+To change the log level of Odoo set this env var in your `.env` file:
+
+```bash
+LOG_LEVEL=debug
+```
 
 **Enable developer mode**
 
