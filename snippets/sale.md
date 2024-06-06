@@ -3329,6 +3329,19 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`
 ```
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
 
+### Show Temporal Type  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_temporal_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50">
+    <field name="order_id" position="after">
+        <field name="temporal_type"/>
+    </field>
+</data>
+
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml)
+
 ## Sale Order Portal Content  
 ### Add Header And Footer Note  
 ID: `mint_system.sale.sale_order_portal_content.add_header_and_footer_note`  
@@ -3960,6 +3973,19 @@ ID: `mint_system.sale.view_order_form.show_commitment_date`
 
 ```
 Source: [snippets/sale.view_order_form.show_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_commitment_date.xml)
+
+### Show Invoice Lines  
+ID: `mint_system.sale.view_order_form.show_invoice_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="after">
+        <field name="invoice_lines" widget="many2many_tags" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_form.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_invoice_lines.xml)
 
 ### Show Order Line Project Id  
 ID: `mint_system.sale.view_order_form.show_order_line_project_id`  

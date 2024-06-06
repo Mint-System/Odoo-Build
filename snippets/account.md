@@ -3541,6 +3541,20 @@ ID: `mint_system.account.view_move_form.show_stock_move_line_ids`
 ```
 Source: [snippets/account.view_move_form.show_stock_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_stock_move_line_ids.xml)
 
+### Show Subscription Dates  
+ID: `mint_system.account.view_move_form.show_subscription_dates`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="product_id" position="before">
+        <field name="subscription_start_date" optional="hide"/>
+        <field name="subscription_end_date" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_form.show_subscription_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.show_subscription_dates.xml)
+
 ### Show Tax Line Id  
 ID: `mint_system.account.view_move_form.show_tax_line_id`  
 ```xml
