@@ -26,7 +26,8 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
-* Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
+* Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
+* Install [PostgreSQL](https://www.postgresql.org/download/)
 * bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task).
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.

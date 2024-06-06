@@ -210,7 +210,9 @@ function install-native() {
 
         echo "Install xmllint"
         sudo apt install libxml2-utils
+
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
+
         echo "Welcome daring Mac user. Let's try our best to get this working."
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
@@ -218,6 +220,7 @@ function install-native() {
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
+        
     else 
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
