@@ -70,4 +70,5 @@
 | update-snippet         | [env][path]       | Update snippet xml definition.                                                            |
 | upload-module          | [env][path]       | Zip and upload Odoo module.                                                               |
 | visualize-dependencies | [path]            | Generate visualizations of module dependencies.                                           |
+| version                |                   | Show version of required tools.                                                           |
 | zip-module             | [path]            | Create zip file for module.                                                               |

@@ -60,6 +60,16 @@ function info() {
     echo "Addons Path: $ADDONS_PATH"
 }
 
+function version() {
+    pyenv -v
+    python -V
+    pip -V
+    wkhtmltopdf -V
+    psql -V
+    docker -v
+    docker-compose -v
+}
+
 function set-addons-path() {
 
     # Read addons path list
@@ -220,7 +230,7 @@ function install-native() {
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
-        
+
     else 
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
@@ -1374,6 +1384,9 @@ case "$1" in
         ;;
     upload-module)
         upload-module "$2" "$3"
+        ;;
+    version)
+        version
         ;;
     visualize-dependencies)
         visualize-dependencies "$2"
