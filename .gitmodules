@@ -78,3 +78,7 @@
 	path = oca/web-api
 	url = git@github.com:OCA/web-api.git
 	branch = 16.0
+[submodule "rest-framework"]
+	path = rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 16.0
