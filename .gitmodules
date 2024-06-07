@@ -82,3 +82,7 @@
 	path = oca/rest-framework
 	url = git@github.com:OCA/rest-framework.git
 	branch = 16.0
+[submodule "oca/server-auth"]
+	path = oca/server-auth
+	url = git@github.com:OCA/server-auth.git
+	branch = 16.0
