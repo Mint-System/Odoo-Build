@@ -89,7 +89,6 @@ COPY ./build/odoo.conf.template /etc/odoo/
 COPY ./build/entrypoint.sh /
 
 # Create a user named odoo
-
 ARG UID=101
 ARG GID=101
 RUN groupadd --gid $GID odoo
