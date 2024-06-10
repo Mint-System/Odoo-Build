@@ -86,3 +86,7 @@
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
 	branch = 16.0
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
+	branch = 16.0
