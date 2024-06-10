@@ -1132,25 +1132,25 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     for FILE in scripts/odoo_revision_*; do
         if [[ -f "$FILE" ]]; then
             REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
-            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+            VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
-            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
-                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
+            if [[ -z "${REVISIONS[$VERSION]}" ]]; then
+                REVISIONS[$VERSION]="## $VERSION"
             fi
 
-            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
-            REVISIONS[$MAJOR_VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+=$'\n\n'
+            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
-    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
-        echo -e "${REVISIONS[$VERSION]}\n" >> "revisions.md"
+    for REVISION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+        echo -e "${REVISIONS[$REVISION]}\n" >> "revisions.md"
     done
 }
 
 function update-docs() {
     generate-snippets-doc
-    generate-revisions-doc    
+    generate-revisions-doc
 }
 
 function visualize-dependencies() {
@@ -1273,6 +1273,7 @@ case "$1" in
         ;;
     import-csv)
         import-csv "$2" "$3"
+        ;;
     info)
         info
         ;;

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ODOO_REVISION=13.0.2022.0228
+ODOO_REVISION=13.0.20220228
 
 # Checkout enterprise repo
 cd enterprise && git checkout 5f89ea34af741d159d30e41a12fa94db95234d2a
