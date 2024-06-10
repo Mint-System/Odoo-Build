@@ -9,7 +9,7 @@
 | checkout-revision      | [revision]        | Run Odoo revision script or checkout revision set by env var.                             |
 | clear-assets           | [db]              | Clear all assets of Odoo database.                                                        |
 | clear-filestore        | [db]              | Clear local filestore folder. No param will clear all filestores. Default is branch name. |
-| convert-database       | [db]              | Convert database backup file from postgres 9.5 to latest. Default is branch name.         |
+| convert-database       | [db]              | Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name.       |
 | create-module          | [path]            | Create new Odoo module from template.                                                     |
 | deploy                 | [name]            | Deploy to Kubernets cluster. Options: db, admin, odoo, mail.                              |
 | disable-auto-install   |                   | Disable auto install for enterprise modules.                                              |
@@ -28,6 +28,7 @@
 | git-submodule-remove   | [path]            | Remove git submodule.                                                                     |
 | git-submodule-switch   | [branch]          | Switch branch for all submodules.                                                         |
 | git-submodule-update   |                   | Update submodules from .gitmodules file.                                                  |
+| import-csv             | [db][path]        | Import data from csv. Filename must match PostgreSQL table name.                          |
 | info                   |                   | Show values of project env vars.                                                          |
 | init-db                | [db]              | Initialize the Odoo database. Default is branch name.                                     |
 | init-nextcloud-env     | [env]             | Create env file for Nextcloud instance.                                                   |

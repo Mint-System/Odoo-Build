@@ -1,4 +1,4 @@
-![](https://github.com/Mint-System/Odoo-Build/raw/14.0/logo.png)
+![](https://github.com/Mint-System/Odoo-Build/raw/16.0/logo.png)
 
 Odoo Build
 ==========
@@ -20,7 +20,8 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
 * **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
-* **Remote Connections**: Setup remote Odoo and Nextcloud connections.
+* **Credentials**: Setup credentials to log into Odoo.
+* **Import Data**: Import Odoo records from CSV.
 
 ## Requirements
 

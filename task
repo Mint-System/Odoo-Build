@@ -481,6 +481,24 @@ function list-addons() {
     echo "$ADDONS_PATH"
 }
 
+function import-csv() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    FILE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        FILE_PATH="$1"
+    fi
+
+    FILE_NAME=$(basename "$FILE_PATH")
+    echo "Importing $FILE_NAME to $DATABASE ..."
+    docker cp "$FILE_PATH" db:/tmp/
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
+}
+
 function install-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -1253,6 +1271,8 @@ case "$1" in
         help task
         exit 1
         ;;
+    import-csv)
+        import-csv "$2" "$3"
     info)
         info
         ;;
