@@ -588,6 +588,27 @@ function create-module() {
     odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
 }
 
+function generate-module-security() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    MODULE_NAME=$(basename "$1")
+    PARENT_DIR=$(dirname "$1")
+    MODEL_DOT_NAME="$2"
+    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_')
+
+    ACCESS_FILE="$PARENT_DIR/$MODULE_NAME/security/ir.model.access.csv"
+
+    if [ ! -f "$ACCESS_FILE" ]; then
+        echo "Init security file: $ACCESS_FILE"
+        echo "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink" > "$ACCESS_FILE"
+    fi
+
+    echo "Add model access to $ACCESS_FILE"
+    echo "access_${MODEL_NAME}_user,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_user,1,0,0,0" >> "$ACCESS_FILE"
+    echo "access_${MODEL_NAME}_manager,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
+}
+
 function drop-db() {
     DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
@@ -1239,6 +1260,9 @@ case "$1" in
         ;;
     generate-admin-passwd)
         generate-admin-passwd "$2"
+        ;;
+    generate-module-security)
+        generate-module-security "$2" "$3"
         ;;
     get-module-version)
         get-module-version "$2"
