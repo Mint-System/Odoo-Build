@@ -301,7 +301,7 @@ function start() {
         activate-venv
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "mail" ]]; then
