@@ -299,9 +299,16 @@ function start() {
 
     if [[ "$1" =~ "native" ]]; then
         activate-venv
-        echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        PORT=8069
+        while [ $PORT -le 8079 ]; do
+            if ! lsof -i:$PORT >/dev/null 2>&1; then
+                break
+            fi
+            PORT=$((PORT + 1))
+        done
+        echo "Open http://localhost:$PORT url in your browser."
+        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "mail" ]]; then
