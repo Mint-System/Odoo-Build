@@ -86,25 +86,25 @@ task install-native
 
 **Initialize and start Odoo from source**
 
-Run database container only
+Run database container only.
 
 ```bash
 task start db
 ```
 
-Initialize database
+Initialize database.
 
 ```bash
 task init-db
 ```
 
-Start Odoo from source
+Start Odoo from source.
 
 ```bash
 task start native
 ```
 
-Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
+The browser will be opened automatically.
 
 **Create a new module from source**
 
@@ -166,17 +166,13 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-**Enable developer mode**
-
-Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
-
 **Manage database with Docker**
 
 Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
 **Remove Docker conainers**
 
-Remove Docker containers and volumes.
+This removes containers and volumes.
 
 ```bash
 task down
@@ -233,7 +229,7 @@ Register an outgoing mail server with these informations:
 
 name: `Mailhog`
 host: `localhost`\
-port: `1'025`
+port: `1025`
 
 ## Troubleshooting
 
