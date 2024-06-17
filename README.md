@@ -225,11 +225,11 @@ Start mail server.
 task start mail
 ```
 
-Register an outgoing mail server with these informations:
+Setup mail server config for Odoo.
 
-name: `Mailhog`
-host: `localhost`\
-port: `1025`
+```bash
+task setup-mail
+```
 
 ## Troubleshooting
 

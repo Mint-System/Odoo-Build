@@ -388,7 +388,8 @@ function start-shell() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
+    set-addons-path
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function start-psql() {
@@ -406,7 +407,7 @@ function init-db() {
     set-addons-path
 
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
 
 function odoo-cloc() {
@@ -414,7 +415,8 @@ function odoo-cloc() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin cloc -d "$DATABASE" --config 'config/odoo.conf' --stop-after-init --no-http
+    set-addons-path
+    odoo-bin cloc -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -452,7 +454,7 @@ function update-module() {
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function translate-module() {
@@ -477,7 +479,7 @@ function translate-module() {
     set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function list-addons() {
@@ -519,7 +521,7 @@ function install-module() {
     activate-venv
     set-addons-path
     echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function install-requirements() {
@@ -560,7 +562,7 @@ function test-module() {
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {
@@ -579,7 +581,7 @@ function remove-module() {
     set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --no-http
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -622,6 +624,17 @@ function drop-db() {
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
 }
 
+function setup-mail() {
+    DATABASE="$1"
+    DATABASE=${DATABASE:="$GIT_BRANCH"}
+
+    activate-venv
+    set-addons-path
+    echo "Setup mail server for database $DATABASE:"
+    echo "env['ir.mail_server'].create({'name':'Mailhog','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+}
+
 function set-admin() {
     DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
@@ -652,9 +665,10 @@ function reset-views() {
     fi
 
     activate-venv
+    set-addons-path
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function convert-database() {
@@ -931,7 +945,8 @@ function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1" --config 'config/odoo.conf' --no-http
+    set-addons-path
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1"--config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function init-config-dir() {
@@ -1011,7 +1026,8 @@ function save-config() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin -d "$DATABASE" -s --config 'config/odoo.conf' --stop-after-init --no-http
+    set-addons-path
+    odoo-bin -d "$DATABASE" -s --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function git-submodule-add() {
@@ -1384,8 +1400,8 @@ case "$1" in
     save-config)
         save-config "$2"
         ;;
-    send-support-mail)
-        send-support-mail
+    setup-mail)
+        setup-mail "$2"
         ;;
     set-admin)
         set-admin "$2"

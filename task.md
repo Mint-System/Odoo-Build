@@ -56,7 +56,7 @@
 | reset-views              | [db][key]         | Execute hard reset on views matching keys.                                                |
 | restart                  | [name]            | Restart docker container.                                                                 |
 | save-config              | [name]            | Save Odoo database config                                                                 |
-| send-support-mail        |                   | Sends an mail for support@local to smtp://localhost                                       |
+| setup-mail               | [db]              | Setup outgoing mail config in Odoo db.                                                    |
 | set-admin                | [db]              | Sets the password for the first user in database. Default is branch name.                 |
 | source                   |                   | Source the Python virtual env.                                                            |
 | start                    | [name][db]        | Start docker container. Options: none, db, admin, odoo, native, mail.                     |
