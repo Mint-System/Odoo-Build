@@ -1,0 +1,13 @@
+<data inherit_id="sale.order.form.sale.stock" priority="50">
+    
+    <xpath expr="//field[@name='picking_note']" position="replace"/>
+    <xpath expr="//field[@name='picking_customer_note']" position="replace"/>
+
+    <xpath expr="//group[@name='note_group']" position="after">
+        <group name="sale_shipping" position="inside">
+                <field name="picking_note" string="Notiz Rüstschein" readonly="state not in ('draft','sent')"/>
+                <field name="picking_customer_note" string="Notiz Lieferschein" readonly="state not in ('draft','sent')"/>
+            </group>
+    </xpath>
+    
+</data>
