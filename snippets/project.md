@@ -124,6 +124,19 @@ ID: `mint_system.project.view_project.show_date_start`
 ```
 Source: [snippets/project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/project.view_project.show_date_start.xml)
 
+### Show Privacy Visibility  
+ID: `mint_system.project.view_project.show_privacy_visibility`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+    <field name="user_id" position="after">
+        <field name="privacy_visibility" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/project.view_project.show_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/project.view_project.show_privacy_visibility.xml)
+
 ## View Project Kanban  
 ### Disable Create  
 ID: `mint_system.project.view_project_kanban.disable_create`  
@@ -164,6 +177,19 @@ ID: `mint_system.project.view_project.show_date_start`
 
 ```
 Source: [snippets/project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/project.view_project.show_date_start.xml)
+
+### Show Privacy Visibility  
+ID: `mint_system.project.view_project.show_privacy_visibility`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="project.view_project" priority="50">
+    <field name="user_id" position="after">
+        <field name="privacy_visibility" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/project.view_project.show_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/project.view_project.show_privacy_visibility.xml)
 
 ## View Task Form2  
 ### Domain Gantt Dates  
