@@ -49,4 +49,55 @@
             </tr>
         </table>
     </xpath>
+
+    <!-- Odoo 17
+
+     <xpath expr="//div[@class='page']/div[2]" position="replace">
+
+        <div class="row">
+            <div class="col-4">
+                <strong>Verkaufsauftrag: </strong>
+                <span t-field="o.sale_id.name"/>
+            </div>
+            <div class="col-3">
+                <strong>Bestelldatum: </strong>
+                <span t-field="o.sale_id.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Kontakt Verkauf: </strong>
+                <span t-field="o.sale_id.user_id"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>Kunden-Nr.: </strong>
+                <span t-field="o.partner_id.ref"/>
+            </div>
+            <div class="col-3">
+                <strong>Lieferdatum: </strong>
+                <span t-esc="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Tel. Direkt: </strong>
+                <span t-field="o.sale_id.user_id.phone"/>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 40px">
+            <div class="col-4">
+                <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
+                    <strong>Spediteur: </strong>
+                    <span t-field="o.carrier_id"/>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>E-Mail: </strong>
+                <span t-field="o.sale_id.user_id.email"/>
+            </div>
+        </div>
+
+    </xpath>
+    -->
+
 </data>
