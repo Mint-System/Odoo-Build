@@ -18,10 +18,6 @@
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 17.0
-[submodule "addons/odoo_apps_thirdparty"]
-	path = addons/odoo_apps_thirdparty
-	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
-	branch = 17.0
 [submodule "oca/sale-workflow"]
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow.git
