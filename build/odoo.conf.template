@@ -2,7 +2,7 @@
 addons_path = $ODOO_ADDONS_PATH,$ADDONS_PATH
 data_dir = /var/lib/odoo
 log_level = $LOG_LEVEL
-; admin_passwd = admin
+admin_passwd = $ADMIN_PASSWD
 ; csv_internal_sep = ,
 ; db_maxconn = 64
 ; db_name = False

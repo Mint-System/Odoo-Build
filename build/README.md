@@ -17,7 +17,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.2024.0405
+    image: mintsystem/odoo:16.0.2024
     depends_on:
       - db
     environment:
@@ -27,6 +27,7 @@ services:
       PORT: 5432
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
       LOG_LEVEL: debug
+      ADMIN_PASSWD: oqua9AiHeibac2pie9ei
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
