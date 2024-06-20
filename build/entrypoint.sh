@@ -39,6 +39,9 @@ set_odoo_config_env() {
 
     : "${ADMIN_PASSWD:=odoo}"
     export ADMIN_PASSWD
+
+    : "${DBFILTER:=.*}"
+    export DBFILTER
 }
 
 set_odoo_config_env

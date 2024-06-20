@@ -28,6 +28,7 @@ services:
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
       LOG_LEVEL: debug
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
+      DBFILTER: ^%d$
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
