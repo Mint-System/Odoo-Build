@@ -255,7 +255,7 @@ OSError: [Errno 24] inotify instance limit reached
 
 **Solution**
 
-Increase ifnotify watch limit.
+Increase inotify watch limit.
 
 ```bash
 sudo vi /etc/sysctl.conf
