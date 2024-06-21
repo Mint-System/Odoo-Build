@@ -1,0 +1,20 @@
+<data inherit_id="web.external_layout_bold" priority="50">
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
+    <attribute name="class">col-3</attribute>
+  </xpath>
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[3]" position="replace"/>
+
+  <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
+    <div class="col-4">
+      <div>
+                        IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
+      </div>
+      <div>
+                        BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
+      </div>
+    </div>
+  </xpath>
+
+</data>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="base.res_partner_kanban_view" priority="50">
+    <xpath expr="//field[@name='email']" position="after">
+        <field name="property_product_pricelist"/>
+    </xpath>
+    <xpath expr="//li[@t-if='record.email.raw_value']" position="after">
+      <li t-if="record.property_product_pricelist.raw_value"><field name="property_product_pricelist"/></li>
+    </xpath>
+</data>

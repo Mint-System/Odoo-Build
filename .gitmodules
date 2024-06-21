@@ -250,3 +250,7 @@
 	path = oca/helpdesk
 	url = git@github.com:OCA/helpdesk.git
 	branch = 15.0
+[submodule "oca/web-api"]
+	path = oca/web-api
+	url = git@github.com:OCA/web-api.git
+	branch = 15.0

@@ -34,6 +34,7 @@ export default defineUserConfig({
                         '/README.md',
                         '/task.md',
                         '/snippets.md',
+                        '/revisions.md',
                     ],
                 },
             ],

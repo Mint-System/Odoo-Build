@@ -955,6 +955,24 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
 Source: [snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml)
 
 ## View Blanket Order Tree  
+### Activities  
+ID: `mint_system.sale_blanket_order.view_blanket_order_tree.activities`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
+
+  <field name="state" position="after">
+    <field name="activity_date_deadline"/>
+    <field name="activity_ids"/>
+    <field name="activity_state"/>
+    <field name="my_activity_date_deadline"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_tree.activities.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_tree.activities.xml)
+
 ### Reset View  
 ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`  
 ```xml
