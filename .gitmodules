@@ -230,10 +230,6 @@
 	path = oca/credit-control
 	url = https://github.com/OCA/credit-control
 	branch = 15.0
-[submodule "addons/odoo_apps_thirdparty"]
-	path = addons/odoo_apps_thirdparty
-	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
-	branch = 15.0
 [submodule "odoo"]
 	path = odoo
 	url = https://github.com/odoo/odoo.git
