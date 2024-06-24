@@ -254,3 +254,7 @@
 	path = oca/web-api
 	url = git@github.com:OCA/web-api.git
 	branch = 16.0
+[submodule "addons/connector"]
+	path = addons/connector
+	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
+	branch = 16.0
