@@ -36,6 +36,12 @@ set_odoo_config_env() {
 
     : "${LOG_LEVEL:=info}"
     export LOG_LEVEL
+
+    : "${ADMIN_PASSWD:=odoo}"
+    export ADMIN_PASSWD
+
+    : "${DBFILTER:=.*}"
+    export DBFILTER
 }
 
 set_odoo_config_env

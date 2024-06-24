@@ -1,4 +1,4 @@
-![](https://github.com/Mint-System/Odoo-Build/raw/14.0/logo.png)
+![](https://github.com/Mint-System/Odoo-Build/raw/16.0/logo.png)
 
 Odoo Build
 ==========
@@ -20,13 +20,16 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
 * **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
+* **Credentials**: Setup credentials to log into Odoo.
+* **Import Data**: Import Odoo records from CSV.
 
 ## Requirements
 
 The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
-* Install python 3.6+ with [pyenv](https://github.com/pyenv/pyenv)
+* Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
+* Install [PostgreSQL](https://www.postgresql.org/download/)
 * bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task).
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
@@ -83,25 +86,25 @@ task install-native
 
 **Initialize and start Odoo from source**
 
-Run database container only
+Run database container only.
 
 ```bash
 task start db
 ```
 
-Initialize database
+Initialize database.
 
 ```bash
 task init-db
 ```
 
-Start Odoo from source
+Start Odoo from source.
 
 ```bash
 task start native
 ```
 
-Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
+The browser will be opened automatically.
 
 **Create a new module from source**
 
@@ -163,17 +166,13 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-**Enable developer mode**
-
-Open this url [http://localhost:8069/web?debug=1](http://localhost:8069/web?debug=1), which contains the debug flag.
-
 **Manage database with Docker**
 
 Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
 **Remove Docker conainers**
 
-Remove Docker containers and volumes.
+This removes containers and volumes.
 
 ```bash
 task down
@@ -226,11 +225,11 @@ Start mail server.
 task start mail
 ```
 
-Register an outgoing mail server with these informations:
+Setup mail server config for Odoo.
 
-name: `Mailhog`
-host: `localhost`\
-port: `1'025`
+```bash
+task setup-mail
+```
 
 ## Troubleshooting
 
@@ -256,7 +255,7 @@ OSError: [Errno 24] inotify instance limit reached
 
 **Solution**
 
-Increase ifnotify watch limit.
+Increase inotify watch limit.
 
 ```bash
 sudo vi /etc/sysctl.conf

@@ -60,6 +60,16 @@ function info() {
     echo "Addons Path: $ADDONS_PATH"
 }
 
+function version() {
+    pyenv -v
+    python -V
+    pip -V
+    wkhtmltopdf -V
+    psql -V
+    docker -v
+    docker-compose -v
+}
+
 function set-addons-path() {
 
     # Read addons path list
@@ -210,7 +220,9 @@ function install-native() {
 
         echo "Install xmllint"
         sudo apt install libxml2-utils
+
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
+
         echo "Welcome daring Mac user. Let's try our best to get this working."
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
@@ -218,6 +230,7 @@ function install-native() {
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
+
     else 
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
@@ -286,16 +299,21 @@ function start() {
 
     if [[ "$1" =~ "native" ]]; then
         activate-venv
-        echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069/web?debug=1&db=$DATABASE" &
-        odoo-bin --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        PORT=8069
+        while [ $PORT -le 8079 ]; do
+            if ! lsof -i:$PORT >/dev/null 2>&1; then
+                break
+            fi
+            PORT=$((PORT + 1))
+        done
+        echo "Open http://localhost:$PORT url in your browser."
+        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "mail" ]]; then
         echo "Open http://localhost:8025 url in your browser."
-        docker-compose up -d mail
-        # echo "Run \`docker exec -it mail setup email add odoo@example.com\`"
-        # echo "Run \`docker exec -it mail setup email add test@example.com\`"
+        open-url-with-delay "http://localhost:8025" & docker-compose up -d mail
     fi
 }
 
@@ -370,7 +388,8 @@ function start-shell() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
+    set-addons-path
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function start-psql() {
@@ -388,7 +407,7 @@ function init-db() {
     set-addons-path
 
     echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 }
 
 function odoo-cloc() {
@@ -396,7 +415,8 @@ function odoo-cloc() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin cloc -d "$DATABASE" --config 'config/odoo.conf' --stop-after-init --no-http
+    set-addons-path
+    odoo-bin cloc -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -434,7 +454,7 @@ function update-module() {
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function translate-module() {
@@ -459,13 +479,31 @@ function translate-module() {
     set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function list-addons() {
     activate-venv
     set-addons-path
     echo "$ADDONS_PATH"
+}
+
+function import-csv() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    FILE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        FILE_PATH="$1"
+    fi
+
+    FILE_NAME=$(basename "$FILE_PATH")
+    echo "Importing $FILE_NAME to $DATABASE ..."
+    docker cp "$FILE_PATH" db:/tmp/
+    docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
 }
 
 function install-module() {
@@ -483,7 +521,7 @@ function install-module() {
     activate-venv
     set-addons-path
     echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function install-requirements() {
@@ -524,7 +562,7 @@ function test-module() {
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
 function remove-module() {
@@ -543,7 +581,7 @@ function remove-module() {
     set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --addons-path="$ADDONS_PATH" --no-http
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -557,12 +595,44 @@ function create-module() {
     odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
 }
 
+function generate-module-security() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    MODULE_NAME=$(basename "$1")
+    PARENT_DIR=$(dirname "$1")
+    MODEL_DOT_NAME="$2"
+    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_')
+
+    ACCESS_FILE="$PARENT_DIR/$MODULE_NAME/security/ir.model.access.csv"
+
+    if [ ! -f "$ACCESS_FILE" ]; then
+        echo "Init security file: $ACCESS_FILE"
+        echo "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink" > "$ACCESS_FILE"
+    fi
+
+    echo "Add model access to $ACCESS_FILE"
+    echo "access_${MODEL_NAME}_user,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_user,1,0,0,0" >> "$ACCESS_FILE"
+    echo "access_${MODEL_NAME}_manager,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
+}
+
 function drop-db() {
     DATABASE="$1"
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
+}
+
+function setup-mail() {
+    DATABASE="$1"
+    DATABASE=${DATABASE:="$GIT_BRANCH"}
+
+    activate-venv
+    set-addons-path
+    echo "Setup mail server for database $DATABASE:"
+    echo "env['ir.mail_server'].create({'name':'Mailhog','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function set-admin() {
@@ -595,9 +665,10 @@ function reset-views() {
     fi
 
     activate-venv
+    set-addons-path
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo-bin shell -d "$DATABASE" --config 'config/odoo.conf' --no-http
+    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function convert-database() {
@@ -874,7 +945,8 @@ function update-app-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1" --config 'config/odoo.conf' --no-http
+    set-addons-path
+    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1"--config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function init-config-dir() {
@@ -954,7 +1026,8 @@ function save-config() {
     DATABASE=${DATABASE:="$GIT_BRANCH"}
 
     activate-venv
-    odoo-bin -d "$DATABASE" -s --config 'config/odoo.conf' --stop-after-init --no-http
+    set-addons-path
+    odoo-bin -d "$DATABASE" -s --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function git-submodule-add() {
@@ -1101,25 +1174,25 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     for FILE in scripts/odoo_revision_*; do
         if [[ -f "$FILE" ]]; then
             REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
-            MAJOR_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+            VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
-            if [[ -z "${REVISIONS[$MAJOR_VERSION]}" ]]; then
-                REVISIONS[$MAJOR_VERSION]="## $MAJOR_VERSION"
+            if [[ -z "${REVISIONS[$VERSION]}" ]]; then
+                REVISIONS[$VERSION]="## $VERSION"
             fi
 
-            REVISIONS[$MAJOR_VERSION]+=$'\n\n'
-            REVISIONS[$MAJOR_VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+=$'\n\n'
+            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
-    for VERSION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
-        echo -e "${REVISIONS[$VERSION]}\n" >> "revisions.md"
+    for REVISION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+        echo -e "${REVISIONS[$REVISION]}\n" >> "revisions.md"
     done
 }
 
 function update-docs() {
     generate-snippets-doc
-    generate-revisions-doc    
+    generate-revisions-doc
 }
 
 function visualize-dependencies() {
@@ -1209,6 +1282,9 @@ case "$1" in
     generate-admin-passwd)
         generate-admin-passwd "$2"
         ;;
+    generate-module-security)
+        generate-module-security "$2" "$3"
+        ;;
     get-module-version)
         get-module-version "$2"
         ;;
@@ -1239,6 +1315,9 @@ case "$1" in
     help)
         help task
         exit 1
+        ;;
+    import-csv)
+        import-csv "$2" "$3"
         ;;
     info)
         info
@@ -1321,8 +1400,8 @@ case "$1" in
     save-config)
         save-config "$2"
         ;;
-    send-support-mail)
-        send-support-mail
+    setup-mail)
+        setup-mail "$2"
         ;;
     set-admin)
         set-admin "$2"
@@ -1371,6 +1450,9 @@ case "$1" in
         ;;
     upload-module)
         upload-module "$2" "$3"
+        ;;
+    version)
+        version
         ;;
     visualize-dependencies)
         visualize-dependencies "$2"

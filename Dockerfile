@@ -20,12 +20,6 @@ RUN apt-get update \
         libssl-dev \
         node-less \
         npm \
-        python3-dev \
-        libpq-dev \
-        libldap2-dev \
-        libsasl2-dev \
-        gcc \
-        python3-venv \
         python3-magic \
         python3-num2words \
         python3-odf \
@@ -42,7 +36,13 @@ RUN apt-get update \
         python3-xlrd \
         python3-xlwt \
         xz-utils \
-        gettext && \
+        gettext \
+        python3-dev \
+        libpq-dev \
+        libldap2-dev \
+        libsasl2-dev \
+        gcc \
+        python3-venv && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
     fi; \
@@ -89,7 +89,6 @@ COPY ./build/odoo.conf.template /etc/odoo/
 COPY ./build/entrypoint.sh /
 
 # Create a user named odoo
-
 ARG UID=101
 ARG GID=101
 RUN groupadd --gid $GID odoo
