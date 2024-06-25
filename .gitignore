@@ -26,3 +26,4 @@ thirdparty/*
 !thirdparty/.gitkeep
 .idea/
 .obsidian
+*.swp

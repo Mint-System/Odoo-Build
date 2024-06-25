@@ -13,8 +13,7 @@
         "security/ir.model.access.csv",
         "report/invoice_document.xml",
         "data/ir_sequence.xml",
-        "views/assets.xml",
-        "views/sale_order.xml"
+        "views/sale_order_views.xml"
     ],
     "installable": True,
     "application": False,
