@@ -506,7 +506,7 @@ function import-csv() {
     docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
 }
 
-function install-module() {
+function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1334,8 +1334,8 @@ case "$1" in
     init-venv)
         init-venv
         ;;
-    install-module)
-        install-module "$2" "$3"
+    init-module)
+        init-module "$2" "$3"
         ;;
     install-native)
         install-native
