@@ -24,6 +24,46 @@
         </field>
     </record>
 
+    <record id="view_form" model="ir.ui.view">
+        <field name="name">{{ name }}.view_tree</field>
+        <field name="model">{{ name }}</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="button_close" string="Close" states="prepared" type="object" />
+                    <field name="state" widget="statusbar" select="1" readonly="1" />
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button
+                            name="action_view_attachments"
+                            type="object"
+                            class="oe_stat_button"
+                            icon="fa-file"
+                        >
+                            <field
+                                name="attachment_count"
+                                string="Attachments"
+                                widget="statinfo"
+                            />
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group>
+                            <field name="value" />
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
     <record id="view_pivot" model="ir.ui.view">
         <field name="name">{{ name }}.view_pivot</field>
         <field name="model">{{ name }}</field>
