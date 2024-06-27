@@ -565,7 +565,7 @@ function test-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
-function remove-module() {
+function uninstall-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1385,8 +1385,8 @@ case "$1" in
     release-module)
         release-module "$2"
         ;;
-    remove-module)
-        remove-module "$2" "$3"
+    uninstall-module)
+        uninstall-module "$2" "$3"
         ;;
     reset-views)
         reset-views "$2" "$3"

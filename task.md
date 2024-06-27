@@ -52,7 +52,7 @@
 | publish                  |                   | Publish Odoo Docker image.                                                                |
 | ps                       |                   | List docker processes.                                                                    |
 | release-module           | [path]            | Create GitHub release for a module.                                                       |
-| remove-module            | [db][name]        | Remove target Odoo module.                                                                |
+| uninstall-module         | [db][name]        | Remove target Odoo module.                                                                |
 | reset-views              | [db][key]         | Execute hard reset on views matching keys.                                                |
 | restart                  | [name]            | Restart docker container.                                                                 |
 | save-config              | [name]            | Save Odoo database config                                                                 |
