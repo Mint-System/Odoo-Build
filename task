@@ -311,6 +311,14 @@ function start() {
         odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
+    if [[ "$1" =~ "queue" ]]; then
+        activate-venv
+        PORT=8069
+        echo "Open http://localhost:$PORT url in your browser."
+        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
+    fi
+
     if [[ "$1" =~ "mail" ]]; then
         echo "Open http://localhost:8025 url in your browser."
         open-url-with-delay "http://localhost:8025" & docker-compose up -d mail
@@ -506,7 +514,7 @@ function import-csv() {
     docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
 }
 
-function install-module() {
+function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -565,7 +573,7 @@ function test-module() {
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
 }
 
-function uninstall-module() {
+function remove-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1334,8 +1342,8 @@ case "$1" in
     init-venv)
         init-venv
         ;;
-    install-module)
-        install-module "$2" "$3"
+    init-module)
+        init-module "$2" "$3"
         ;;
     install-native)
         install-native
@@ -1385,8 +1393,8 @@ case "$1" in
     release-module)
         release-module "$2"
         ;;
-    uninstall-module)
-        uninstall-module "$2" "$3"
+    remove-module)
+        remove-module "$2" "$3"
         ;;
     reset-views)
         reset-views "$2" "$3"

@@ -35,7 +35,7 @@
 | init-nextcloud-env       | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env            | [env]             | Create env file for Odoo Instance.                                                        |
 | init-venv                |                   | Initialize python virtual env.                                                            |
-| install-module           | [db][name,path]   | Install target Odoo module.  Default database is branch name.                             |
+| init-module              | [db][name,path]   | Initialize Odoo module.  Default database is branch name.                                 |
 | install-native           |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts     |                   | Install Odoo scripts.                                                                     |
 | install-requirements     | [db][path]        | Install python packages from requirements.txt.                                            |
@@ -52,7 +52,7 @@
 | publish                  |                   | Publish Odoo Docker image.                                                                |
 | ps                       |                   | List docker processes.                                                                    |
 | release-module           | [path]            | Create GitHub release for a module.                                                       |
-| uninstall-module         | [db][name]        | Remove target Odoo module.                                                                |
+| remove-module            | [db][name]        | Remove target Odoo module.                                                                |
 | reset-views              | [db][key]         | Execute hard reset on views matching keys.                                                |
 | restart                  | [name]            | Restart docker container.                                                                 |
 | save-config              | [name]            | Save Odoo database config                                                                 |
