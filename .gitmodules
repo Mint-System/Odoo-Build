@@ -90,10 +90,6 @@
 	path = oca/social
 	url = git@github.com:OCA/social.git
 	branch = 16.0
-[submodule "addons/survey"]
-	path = addons/survey
-	url = git@github.com:Mint-System/survey.git
-	branch = 16.0
 [submodule "addons/connector"]
 	path = addons/connector
 	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
