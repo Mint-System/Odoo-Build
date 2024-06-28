@@ -311,6 +311,14 @@ function start() {
         odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
+    if [[ "$1" =~ "queue" ]]; then
+        activate-venv
+        PORT=8069
+        echo "Open http://localhost:$PORT url in your browser."
+        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
+    fi
+
     if [[ "$1" =~ "mail" ]]; then
         echo "Open http://localhost:8025 url in your browser."
         open-url-with-delay "http://localhost:8025" & docker-compose up -d mail
