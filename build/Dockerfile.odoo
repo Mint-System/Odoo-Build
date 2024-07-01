@@ -10,6 +10,8 @@ gettext
 
 USER odoo
 
+ENV ADDONS_PATH=/usr/lib/python3/dist-packages/odoo/addons
+
 RUN pip install prometheus-client
 
 COPY ./build/odoo.conf.template /etc/odoo/

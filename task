@@ -182,6 +182,9 @@ function build() {
     if [ -n "$1" ]; then
         DOCKERFILE="$1"
     fi
+    
+    echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
 
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
     docker build . -f "$DOCKERFILE"  --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"

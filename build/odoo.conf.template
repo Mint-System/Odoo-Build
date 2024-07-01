@@ -1,5 +1,5 @@
 [options]
-addons_path = $ODOO_ADDONS_PATH,/opt/odoo/addons
+addons_path = $ODOO_ADDONS_PATH,$ADDONS_PATH
 data_dir = /var/lib/odoo
 log_level = $LOG_LEVEL
 admin_passwd = $ADMIN_PASSWD
