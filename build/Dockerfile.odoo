@@ -1,0 +1,17 @@
+ARG ODOO_IMAGE
+
+FROM $ODOO_IMAGE
+
+USER root
+
+RUN apt-get update && \
+apt-get install -y --no-install-recommends \
+gettext
+
+USER odoo
+
+RUN pip install prometheus-client
+
+COPY ./build/odoo.conf.template /etc/odoo/
+
+COPY ./build/entrypoint.sh /

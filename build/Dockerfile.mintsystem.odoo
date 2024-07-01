@@ -42,6 +42,7 @@ RUN apt-get update \
         libldap2-dev \
         libsasl2-dev \
         gcc \
+        fonts-lato \
         python3-venv && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
@@ -82,7 +83,6 @@ ENV PATH=/opt/odoo-venv/bin:$PATH
 COPY ./odoo /opt/odoo
 RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt \
     && pip list
-ENV ADDONS_PATH=/opt/odoo/addons
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./build/odoo.conf.template /etc/odoo/

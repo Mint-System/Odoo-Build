@@ -4,10 +4,6 @@ services:
   odoo:
     container_name: odoo
     image: "${DOCKER_REGISTRY}${DOCKER_TAG}"
-    build:
-      context: .
-      args:
-        ODOO_IMAGE: "${DOCKER_TAG}"
     depends_on:
       - db
     environment:
