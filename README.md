@@ -140,10 +140,10 @@ task start
 
 Initialize database. The parameter `-d` specifies the name of the parameter and is mandatory.
 
-Use `docker-odoo-install help` to show all options.
+Use `docker-odoo-init help` to show all options.
 
 ```bash
-docker-odoo-install -d mydatabase
+docker-odoo-init -d odoo -i web
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -255,7 +255,7 @@ OSError: [Errno 24] inotify instance limit reached
 
 **Solution**
 
-Increase ifnotify watch limit.
+Increase inotify watch limit.
 
 ```bash
 sudo vi /etc/sysctl.conf

@@ -2,7 +2,7 @@
 
 | command                  | option            | description                                                                               |
 | ------------------------ | ----------------- | ----------------------------------------------------------------------------------------- |
-| build                    |                   | Build Odoo Docker image.                                                                  |
+| build                    | [path]            | Build Odoo Docker image. Optionally pass specific Dockerfile.                             |
 | change-uuid              | [env]             | Change database uuid via xmlrpc.                                                          |
 | checkout                 | [branch][branch]  | Switch and merge from one branch to another.                                              |
 | checkout-config-files    | [branch]          | Checkout config files from another branch.                                                |
@@ -35,7 +35,7 @@
 | init-nextcloud-env       | [env]             | Create env file for Nextcloud instance.                                                   |
 | init-odoo-env            | [env]             | Create env file for Odoo Instance.                                                        |
 | init-venv                |                   | Initialize python virtual env.                                                            |
-| install-module           | [db][name,path]   | Install target Odoo module.  Default database is branch name.                             |
+| init-module              | [db][name,path]   | Initialize Odoo module.  Default database is branch name.                                 |
 | install-native           |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts     |                   | Install Odoo scripts.                                                                     |
 | install-requirements     | [db][path]        | Install python packages from requirements.txt.                                            |
