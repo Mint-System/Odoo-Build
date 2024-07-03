@@ -9,6 +9,10 @@ ENV LANG C.UTF-8
 # Retrieve the target architecture to install the correct wkhtmltopdf package
 ARG TARGETARCH
 
+
+# Retrieve the Odoo version
+ARG ODOO_VERSION
+
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -84,6 +88,9 @@ COPY ./odoo /opt/odoo
 RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt \
     && pip list
 ENV ADDONS_PATH=/opt/odoo/addons
+
+# Set env vars
+ENV ODOO_VERSION $ODOO_VERSION
 
 # Copy entrypoint script and Odoo configuration file
 COPY ./build/odoo.conf.template /etc/odoo/
