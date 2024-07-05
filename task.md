@@ -1,5 +1,3 @@
-# Help
-
 | command                  | option            | description                                                                               |
 | ------------------------ | ----------------- | ----------------------------------------------------------------------------------------- |
 | build                    | [path]            | Build Odoo Docker image. Optionally pass specific Dockerfile.                             |
