@@ -27,6 +27,7 @@ ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
+DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
 
 # Conditional env vars
 
@@ -178,8 +179,15 @@ function disable-auto-install() {
 }
 
 function build() {
-    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    if [ -n "$1" ]; then
+        DOCKERFILE="$1"
+    fi
+    
+    echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
+
+    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
+    docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -1240,7 +1248,7 @@ case "$1" in
         activate-venv
         ;;
     build)
-        build
+        build "$2"
         ;;
     change-uuid)
         change-uuid "$2"

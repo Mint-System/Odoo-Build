@@ -30,7 +30,7 @@ The Odoo development environment has the following requirements:
 * [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
 * Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
 * Install [PostgreSQL](https://www.postgresql.org/download/)
-* bash/zsh alias `task='./task'` with optional [completion](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh-completions/_task).
+* bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
@@ -75,7 +75,7 @@ task install-odoo-scripts
 
 Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
 
-**Install Odoo native requirements**
+#### Install Odoo native requirements
 
 Pull the `odoo` submodule and install the python dependencies.
 
@@ -84,7 +84,7 @@ git submodule update odoo
 task install-native
 ```
 
-**Initialize and start Odoo from source**
+#### Initialize and start Odoo from source
 
 Run database container only.
 
@@ -106,7 +106,7 @@ task start native
 
 The browser will be opened automatically.
 
-**Create a new module from source**
+#### Create a new module from source
 
 Scaffold a new module.
 
@@ -114,7 +114,7 @@ Scaffold a new module.
 task create-module addons/project_report
 ```
 
-**Load modules from thirdparty folder**
+#### Load modules from thirdparty folder
 
 Clone thirdparty repos into the `thirdparty` folder.
 
@@ -130,7 +130,7 @@ The paths will be appended to the Odoo config.
 
 Run Odoo with Docker container.
 
-**Start and initialize Odoo with Docker**
+#### Start and initialize Odoo with Docker
 
 Run docker compose.
 
@@ -148,7 +148,7 @@ docker-odoo-init -d odoo -i web
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-**Install custom module**
+#### Install custom module
 
 ```bash
 docker-odoo-install -m show_db_name
@@ -158,7 +158,7 @@ docker-odoo-install -m show_db_name
 
 Instructions that are true for Docker and native usage paths.
 
-**Change log level**
+#### Change log level
 
 To change the log level of Odoo set this env var in your `.env` file:
 
@@ -166,11 +166,11 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-**Manage database with Docker**
+#### Manage database with Docker
 
 Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
-**Remove Docker conainers**
+#### Remove Docker containers
 
 This removes containers and volumes.
 
@@ -178,13 +178,13 @@ This removes containers and volumes.
 task down
 ```
 
-**Stop all Docker containers**
+#### Stop all Docker containers
 
 ```bash
 task stop
 ```
 
-**Remove database**
+#### Remove database
 
 ```bash
 task drop-db
