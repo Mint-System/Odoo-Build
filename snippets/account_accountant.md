@@ -39,3 +39,16 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
 ```
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)
 
+## View Bank Statement Line Tree Bank Rec Widget  
+### Show Partner Name  
+ID: `mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account_accountant.view_bank_statement_line_tree_bank_rec_widget" priority="50">
+    <field name="partner_id" position="after"> 
+        <field name="partner_name" />
+    </field>
+</data>
+```
+Source: [snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)
+
