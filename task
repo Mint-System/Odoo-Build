@@ -1393,6 +1393,19 @@ case "$1" in
     logs)
         docker logs odoo -f
         ;;
+    node-install)
+        npm install
+        ;;
+    node-dev)
+        npm run vue-dev
+        ;;
+    node-build)
+        npm run vue-build
+        ;;
+    node-serve-build)
+        cd .vuepress/dist
+        npx serve
+        ;;
     patch-database)
         patch-database "$2" "$3"
         ;;

@@ -1,9 +1,9 @@
+import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
 import { searchPlugin } from '@vuepress/plugin-search'
 import { plausiblePlugin } from './plausible'
 import { defineUserConfig } from 'vuepress'
 import sidebar from './sidebar'
-import { viteBundler } from '@vuepress/bundler-vite'
 
 export default defineUserConfig({
     bundler: viteBundler(),

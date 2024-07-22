@@ -4,8 +4,8 @@
   "description": "The Mint System Odoo development environment.",
   "main": "index.js",
   "scripts": {
-    "dev": "vuepress dev .",
-    "build": "vuepress build ."
+    "vue-dev": "vuepress dev .",
+    "vue-build": "vuepress build ."
   },
   "repository": {
     "type": "git",

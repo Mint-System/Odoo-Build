@@ -45,6 +45,10 @@
 | list-addons              |                   | List odoo addons.                                                                         |
 | list-env                 |                   | List env files.                                                                           |
 | logs                     |                   | Tail Odoo Docker container logs.                                                          |
+| node-install             |                   | Install build dependencies.                                                               |
+| node-dev                 |                   | Start vuepress development server.                                                        |
+| node-build               |                   | Create vuepress build.                                                                    |
+| node-serve-build         |                   | Serve vuepress build.                                                                     |
 | odoo-cloc                | [db]              | Count custom line of codes. Default is branch name.                                       |
 | patch-database           | [db][path]        | Apply sql file to database. Default database is branch name.                              |
 | publish                  |                   | Publish Odoo Docker image.                                                                |
