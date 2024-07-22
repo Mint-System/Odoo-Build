@@ -422,8 +422,12 @@ function init-db() {
     activate-venv
     set-addons-path
 
-    echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    echo "Initialize database."
+    if [[ -n "$ODOO_PARAM" ]] ; then
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+    else
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    fi
 }
 
 function odoo-cloc() {
