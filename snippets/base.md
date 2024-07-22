@@ -355,6 +355,32 @@ ID: `mint_system.base.view_partner_form.attributes_child_ids`
 ```
 Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.attributes_child_ids.xml)
 
+### Hide Meeting  
+ID: `mint_system.base.view_partner_form.hide_meeting`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//button[@name='schedule_meeting']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_form.hide_meeting.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.hide_meeting.xml)
+
+### Hide Opportunity  
+ID: `mint_system.base.view_partner_form.hide_opportunity`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_form.hide_opportunity.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.hide_opportunity.xml)
+
 ### Lang Required  
 ID: `mint_system.base.view_partner_form.lang_required`  
 ```xml
