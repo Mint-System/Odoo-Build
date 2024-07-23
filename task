@@ -1201,7 +1201,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+="#### [$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
