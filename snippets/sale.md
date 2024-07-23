@@ -3533,6 +3533,20 @@ ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`
 ```
 Source: [snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml)
 
+## Sale Order Tree  
+### Carrier Id  
+ID: `mint_system.sale.sale_order_tree.carrier_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_tree" priority="50">
+    <xpath expr="//field[@name='validity_date']" position="after">
+        <field name="carrier_id" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.sale_order_tree.carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_tree.carrier_id.xml)
+
 ## Sale Order View Search Inherit Quotation  
 ### Add Filter Cancel  
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_cancel`  
@@ -3865,6 +3879,44 @@ ID: `mint_system.sale.view_order_form.move_commitment_date`
 
 ```
 Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_commitment_date.xml)
+
+### Move Note  
+ID: `mint_system.sale.view_order_form.move_note`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+
+    <xpath expr="//field[@name='picking_note']" position="replace"/>
+    <xpath expr="//field[@name='picking_customer_note']" position="replace"/>
+
+    <xpath expr="//group[@name='note_group']" position="after">
+        <group name="sale_shipping" position="inside">
+            <field name="picking_note" string="Notiz Rüstschein" placeholder="Notiz ..." readonly="state not in ('draft','sent')"/>
+            <field name="picking_customer_note" string="Notiz Lieferschein" placeholder="Notiz ..." readonly="state not in ('draft','sent')"/>
+        </group>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_note.xml)
+
+### Move Picking Notes  
+ID: `mint_system.sale.view_order_form.move_picking_notes`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+
+    <xpath expr="//field[@name='picking_note']" position="replace"/>
+    <xpath expr="//field[@name='picking_customer_note']" position="replace"/>
+
+    <xpath expr="//group[@name='note_group']" position="before">
+        <group name="sale_shipping" position="inside">
+            <field name="picking_note" string="Notiz Rüstschein" readonly="state not in ('draft','sent')"/>
+            <field name="picking_customer_note" string="Notiz Lieferschein" readonly="state not in ('draft','sent')"/>
+        </group>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_picking_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_picking_notes.xml)
 
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  

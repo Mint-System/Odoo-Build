@@ -4,10 +4,6 @@ services:
   odoo:
     container_name: odoo
     image: "${DOCKER_REGISTRY}${DOCKER_TAG}"
-    build:
-      context: .
-      args:
-        ODOO_IMAGE: "${DOCKER_TAG}"
     depends_on:
       - db
     environment:
@@ -15,7 +11,7 @@ services:
       USER: odoo
       PASSWORD: odoo
       PORT: ${POSTGRES_PORT}
-      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/,/mnt/thirdparty
+      ODOO_ADDONS_PATH: ${ODOO_ADDONS_PATH}
       LOG_LEVEL: ${LOG_LEVEL}
       ADMIN_PASSWD: ${ADMIN_PASSWD}
       DBFILTER: ${DBFILTER}

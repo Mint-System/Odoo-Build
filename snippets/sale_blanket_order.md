@@ -884,6 +884,18 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
+### Move Client Order Ref  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+  <xpath expr="//field[@name='validity_date']" position="after">
+    <xpath expr="//field[@name='client_order_ref']" position="move"/>
+  </xpath>
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
+
 ### X Product Uom Category Id  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id`  
 ```xml

@@ -302,9 +302,9 @@ ID: `mint_system.website_sale.products_item.prefix_price`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="website_sale.products_item" priority="50">
-    <t t-if="'base_price' in template_price_vals" position="before">
+    <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
         <span>From</span>
-    </t>
+    </xpath>
 </data>
 
 ```

@@ -3453,13 +3453,14 @@ ID: `mint_system.ir_model.stock_production_lot.x_hostname`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="x_forcepoint_pos" model="ir.model.fields">
-        <field name="field_description">Forcepoint PoS</field>
+    <record id="x_hostname" model="ir.model.fields">
+        <field name="field_description">Hostname</field>
         <field name="model">stock.production.lot</field>
         <field name="model_id" ref="stock.model_stock_production_lot"/>
-        <field name="name">x_forcepoint_pos</field>
+        <field name="name">x_hostname</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">char</field>
     </record>
 </odoo>
@@ -3513,13 +3514,14 @@ ID: `mint_system.ir_model.stock_production_lot.x_managed_service`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="x_managed_service_field" model="ir.model.fields">
+    <record id="x_managed_service" model="ir.model.fields">
         <field name="field_description">Managed Service</field>
         <field name="model">stock.production.lot</field>
         <field name="model_id" ref="stock.model_stock_production_lot"/>
         <field name="name">x_managed_service</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">selection</field>
         <field name="selection">[
             ('high', 'MS1 High'),

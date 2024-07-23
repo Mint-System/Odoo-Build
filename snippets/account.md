@@ -716,23 +716,22 @@ ID: `mint_system.account.report_invoice_document.format_pos`
 ```
 Source: [snippets/account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_pos.xml)
 
-### Format Qty With Decimal  
-ID: `mint_system.account.report_invoice_document.format_qty_with_decimal`  
+### Format Qty Without Decimal  
+ID: `mint_system.account.report_invoice_document.format_qty_without_decimal`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//span[@id='qty']" position="replace">
+    <span t-field="line.quantity" position="replace">
         <t t-if="line.quantity.is_integer()">
-            <span id="qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+            <span t-field="line.quantity" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
-            <span id="qty" t-field="line.quantity"/>
+            <span t-field="line.quantity"/>
         </t>
-    </xpath>
+    </span>
 </data>
 
 ```
-Source: [snippets/account.report_invoice_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_qty_with_decimal.xml)
+Source: [snippets/account.report_invoice_document.format_qty_without_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_qty_without_decimal.xml)
 
 ### Format Table Border  
 ID: `mint_system.account.report_invoice_document.format_table_border`  
@@ -2923,6 +2922,23 @@ ID: `mint_system.account.report_invoice.print_with_payments`
 
 ```
 Source: [snippets/account.report_invoice.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice.print_with_payments.xml)
+
+## Report Timesheet  
+### Report  
+ID: `mint_system.account.report_timesheet.report`  
+```xml
+<?xml version="1.0"?>
+<t t-name="account.report_timesheet">
+    <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="doc">
+			  <t t-call="hr_timesheet.report_timesheet" t-lang="doc.partner_id.lang">
+		            <t t-set="docs" t-value="doc.timesheet_ids" />
+	          </t>
+        </t>
+    </t>
+</t>
+```
+Source: [snippets/account.report_timesheet.report.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_timesheet.report.xml)
 
 ## Res Config Settings View Form  
 ### Domain Expense Currency Exchange Account Id  

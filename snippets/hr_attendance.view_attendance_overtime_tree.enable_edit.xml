@@ -1,0 +1,7 @@
+<data inherit_id="hr_attendance.view_attendance_overtime_tree" priority="50" groups="hr_attendance.group_hr_attendance_manager">
+    <tree position="attributes">
+        <attribute name="create">1</attribute>
+        <attribute name="edit">1</attribute>
+        <attribute name="editable">top</attribute>
+    </tree>
+</data>

@@ -27,6 +27,7 @@ ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
+DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
 
 # Conditional env vars
 
@@ -178,8 +179,15 @@ function disable-auto-install() {
 }
 
 function build() {
-    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker build . --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    if [ -n "$1" ]; then
+        DOCKERFILE="$1"
+    fi
+    
+    echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
+
+    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
+    docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -311,6 +319,14 @@ function start() {
         odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
+    if [[ "$1" =~ "queue" ]]; then
+        activate-venv
+        PORT=8069
+        echo "Open http://localhost:$PORT url in your browser."
+        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
+        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
+    fi
+
     if [[ "$1" =~ "mail" ]]; then
         echo "Open http://localhost:8025 url in your browser."
         open-url-with-delay "http://localhost:8025" & docker-compose up -d mail
@@ -406,8 +422,12 @@ function init-db() {
     activate-venv
     set-addons-path
 
-    echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    echo "Initialize database."
+    if [[ -n "$ODOO_PARAM" ]] ; then
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+    else
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    fi
 }
 
 function odoo-cloc() {
@@ -506,7 +526,7 @@ function import-csv() {
     docker exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
 }
 
-function install-module() {
+function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
@@ -1232,7 +1252,7 @@ case "$1" in
         activate-venv
         ;;
     build)
-        build
+        build "$2"
         ;;
     change-uuid)
         change-uuid "$2"
@@ -1334,8 +1354,8 @@ case "$1" in
     init-venv)
         init-venv
         ;;
-    install-module)
-        install-module "$2" "$3"
+    init-module)
+        init-module "$2" "$3"
         ;;
     install-native)
         install-native
@@ -1372,6 +1392,19 @@ case "$1" in
         ;;
     logs)
         docker logs odoo -f
+        ;;
+    node-install)
+        npm install
+        ;;
+    node-dev)
+        npm run dev
+        ;;
+    node-build)
+        npm run build
+        ;;
+    node-serve-build)
+        cd .vuepress/dist
+        npx serve
         ;;
     patch-database)
         patch-database "$2" "$3"
