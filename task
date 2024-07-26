@@ -1215,6 +1215,10 @@ function update-docs() {
     generate-revisions-doc
 }
 
+function generate-modules-summary() {
+    python3 scripts/fetch_modules.py
+}
+
 function visualize-dependencies() {
 
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -1471,6 +1475,9 @@ case "$1" in
         ;;
     update-docs)
         update-docs
+        ;;
+    generate-modules-summary)
+        generate-modules-summary
         ;;
     update-module)
         update-module "$2" "$3"
