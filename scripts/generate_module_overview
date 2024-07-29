@@ -42,10 +42,16 @@ for branch in branches:
 
         if submodule["url"].startswith("git@"):
             org = submodule["url"].split(":")[1].split("/")[0]
-            repo = submodule["url"].split(":")[1].split("/")[1].replace(".git", "")
+            repo = submodule["url"].split(":")[1].split("/")[1].replace(".git", "").lower()
         elif submodule["url"].startswith("https://"):
             org = submodule["url"].replace("https://github.com/", "").split("/")[0]
-            repo = submodule["url"].replace("https://github.com/", "").split("/")[1]
+            repo = submodule["url"].replace("https://github.com/", "").split("/")[1].lower()
+        
+        if org == "mint-system":
+            org = "Mint-System"
+        if repo.startswith("odoo-apps-"):
+            repo = repo.replace("odoo-apps-", "")
+
         path = submodule["path"]
 
         if not org:
