@@ -45,7 +45,7 @@ for branch in branches:
             repo = submodule["url"].split(":")[1].split("/")[1].replace(".git", "").lower()
         elif submodule["url"].startswith("https://"):
             org = submodule["url"].replace("https://github.com/", "").split("/")[0]
-            repo = submodule["url"].replace("https://github.com/", "").split("/")[1].lower()
+            repo = submodule["url"].replace("https://github.com/", "").split("/")[1].replace(".git", "").lower()
         
         if org == "mint-system":
             org = "Mint-System"
