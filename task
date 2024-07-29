@@ -251,7 +251,7 @@ function install-native() {
     pip install -r odoo/requirements.txt
 
     echo "Install OCA development tools"
-    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo GitPython
+    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
 
     echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib

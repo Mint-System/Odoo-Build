@@ -1,15 +1,27 @@
 #!/usr/bin/env python3
 
-from git import Repo
 import os
 import subprocess
+import configparser
+
+def read_gitmodules(file_path):
+    config = configparser.ConfigParser(allow_no_value=True, delimiters=('=', ':'))
+    config.read(file_path)
+    modules = []
+    for section in config.sections():
+        path = config[section].get('path', 'Not found')
+        url = config[section].get('url', 'Not found')
+        submodule_info = {
+            'path': path,
+            'url': url
+        }
+        if path not in ["odoo", "enterprise", "themes"]:
+            modules.append(submodule_info)
+    return modules
 
 # Settings
-branches = ["15.0", "16.0"]
+branches = ["16.0"]
 output_file = "modules.md"
-
-# Get current repo
-repo = Repo(".")
 
 # Define dictionary for module list
 module_data = {}
@@ -18,24 +30,24 @@ module_data = {}
 for branch in branches:
 
     # Switch to the branch
-    repo.git.checkout(branch)
+    subprocess.run(["git", "switch", branch])
 
     # Get all submodules
-    submdoules = repo.submodules
-
+    submodules = read_gitmodules(".gitmodules")
+    
     # Iterate over each submodule
-    for submodule in filter(lambda x: x.path not in ["odoo", "enterprise", "themes"], submdoules):
+    for submodule in submodules:
 
-        if submodule.url.startswith("git@"):
-            org = submodule.url.split(":")[1].split("/")[0]
-            repo = submodule.url.split(":")[1].split("/")[1].replace(".git", "")
-        elif submodule.url.startswith("https://"):
-            org = submodule.url.replace("https://github.com/", "").split("/")[0]
-            repo = submodule.url.replace("https://github.com/", "").split("/")[1]
-        path = submodule.path
+        if submodule["url"].startswith("git@"):
+            org = submodule["url"].split(":")[1].split("/")[0]
+            repo = submodule["url"].split(":")[1].split("/")[1].replace(".git", "")
+        elif submodule["url"].startswith("https://"):
+            org = submodule["url"].replace("https://github.com/", "").split("/")[0]
+            repo = submodule["url"].replace("https://github.com/", "").split("/")[1]
+        path = submodule["path"]
 
         if not org:
-            raise ValueError(f"Org not found in {submodule.url}")
+            raise ValueError(f"Org not found in {submodule['url']}")
 
         # Get list of modules
         result = subprocess.run(
