@@ -97,14 +97,17 @@ for key, value in module_info.items():
         'link': value
     })
 
+# Switch to the default branch
+subprocess.run(["git", "switch", "16.0"])
+
 with open(output_file, "w") as f:
     f.write("# Modules\n")
     
     for org, repos in groupby(module_data, key = itemgetter('org')):
-        f.write(f"\n## {org}\n\n")
+        f.write(f"## {org}\n\n")
         
         for repo, modules in groupby(repos, key = itemgetter('repo')):
-            f.write(f"\n### {repo}\n\n")
+            f.write(f"### {repo}\n\n")
             f.write(" | name | links |\n")
             f.write("|---|---|\n")
 
