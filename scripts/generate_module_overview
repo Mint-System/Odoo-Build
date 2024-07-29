@@ -22,7 +22,7 @@ def read_gitmodules(file_path):
     return modules
 
 # Settings
-branches = ["13.0", "14.0", "15.0", "16.0", "17.0"]
+branches = ["14.0", "15.0", "16.0", "17.0"]
 output_file = "modules.md"
 
 # Define dictionary for module data
@@ -52,13 +52,19 @@ for branch in branches:
             raise ValueError(f"Org not found in {submodule['url']}")
 
         # Get list of modules
-        result = subprocess.run(
-            ["git", "-C", path, "ls-tree", "--name-only", "-d", branch],
-            capture_output=True,
-            text=True,
-            check=True
-        )
-        modules = result.stdout.split("\n")
+        try:
+            result = subprocess.run(
+                ["git", "-C", path, "ls-tree", "--name-only", "-d", branch],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            modules = result.stdout.split("\n")
+        except subprocess.CalledProcessError as e:
+            print(f"Error executing command: {e}")
+            print(f"Return code: {e.returncode}")
+            print(f"stderr: {e.stderr}")
+            modules = []
 
         # Cleanup list
         modules = list(filter(None, modules))
