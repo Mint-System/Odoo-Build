@@ -48,6 +48,10 @@ export default defineUserConfig({
                         {
                             text: 'Revisions',
                             link: '/revisions',
+                        },
+                        {
+                            text: 'Modules',
+                            link: '/modules',
                         }
                     ],
                 },
