@@ -1212,7 +1212,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
 
 function generate-module-overview() {
     echo "Update module overview doc file."
-    active-venv
+    activate-venv
     ./scripts/generate_module_overview
 }
 
