@@ -1912,28 +1912,28 @@ This page shows all the modules mnaged with Odoo Build grouped by organization a
 | pydantic | [14.0](https://github.com/OCA/rest-framework/tree/14.0) [15.0](https://github.com/OCA/rest-framework/tree/15.0) [16.0](https://github.com/OCA/rest-framework/tree/16.0) |
 | rest_log | [14.0](https://github.com/OCA/rest-framework/tree/14.0) [15.0](https://github.com/OCA/rest-framework/tree/15.0) [16.0](https://github.com/OCA/rest-framework/tree/16.0) |
 
-### sale-reporting.git
+### sale-reporting
 
  | name | links |
 |---|---|
-| product_sold_by_delivery_week | [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_backorder | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_comment_template | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_layout_category_hide_detail | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_order_invoice_date | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_order_line_position | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_order_product_recommendation_product_sold_by_delivery_week | [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_order_report_product_image | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_order_weight | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_outgoing_product | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_packaging_report | [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_report_commitment_date | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_report_crossed_out_original_price | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_report_delivered | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_report_delivered_brand | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-| sale_report_delivered_subtotal | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_report_delivered_volume | [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
-| sale_report_delivery_date | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
+| product_sold_by_delivery_week | [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_backorder | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_comment_template | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_layout_category_hide_detail | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_order_invoice_date | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_order_line_position | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_order_product_recommendation_product_sold_by_delivery_week | [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_order_report_product_image | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_order_weight | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_outgoing_product | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_packaging_report | [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_report_commitment_date | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_report_crossed_out_original_price | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_report_delivered | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_report_delivered_brand | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
+| sale_report_delivered_subtotal | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_report_delivered_volume | [16.0](https://github.com/OCA/sale-reporting/tree/16.0) |
+| sale_report_delivery_date | [14.0](https://github.com/OCA/sale-reporting/tree/14.0) |
 
 ### sale-workflow
 
@@ -2756,34 +2756,34 @@ This page shows all the modules mnaged with Odoo Build grouped by organization a
 | endpoint_route_handler | [16.0](https://github.com/OCA/web-api/tree/16.0) |
 | webservice | [15.0](https://github.com/OCA/web-api/tree/15.0) [16.0](https://github.com/OCA/web-api/tree/16.0) |
 
-### website.git
+### website
 
  | name | links |
 |---|---|
-| website_analytics_matomo | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_breadcrumb | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_conditional_visibility_user_group | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_cookiebot | [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_cookiefirst | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_crm_privacy_policy | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_crm_quick_answer | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_form_require_legal | [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_forum_subscription | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_google_analytics_4 | [14.0](https://github.com/OCA/website.git/tree/14.0) |
-| website_google_tag_manager | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_legal_page | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_local_font | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_menu_by_user_status | [14.0](https://github.com/OCA/website.git/tree/14.0) |
-| website_no_crawler | [14.0](https://github.com/OCA/website.git/tree/14.0) |
-| website_odoo_debranding | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_plausible | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_require_login | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_snippet_big_button | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_snippet_country_dropdown | [14.0](https://github.com/OCA/website.git/tree/14.0) [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-| website_snippet_dynamic_link | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_snippet_marginless_gallery | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_snippet_openstreetmap | [15.0](https://github.com/OCA/website.git/tree/15.0) |
-| website_whatsapp | [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
+| website_analytics_matomo | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_breadcrumb | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_conditional_visibility_user_group | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_cookiebot | [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_cookiefirst | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_crm_privacy_policy | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_crm_quick_answer | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_form_require_legal | [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_forum_subscription | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_google_analytics_4 | [14.0](https://github.com/OCA/website/tree/14.0) |
+| website_google_tag_manager | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_legal_page | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_local_font | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_menu_by_user_status | [14.0](https://github.com/OCA/website/tree/14.0) |
+| website_no_crawler | [14.0](https://github.com/OCA/website/tree/14.0) |
+| website_odoo_debranding | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_plausible | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_require_login | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_snippet_big_button | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_snippet_country_dropdown | [14.0](https://github.com/OCA/website/tree/14.0) [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
+| website_snippet_dynamic_link | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_snippet_marginless_gallery | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_snippet_openstreetmap | [15.0](https://github.com/OCA/website/tree/15.0) |
+| website_whatsapp | [15.0](https://github.com/OCA/website/tree/15.0) [16.0](https://github.com/OCA/website/tree/16.0) |
 
 ### web
 
