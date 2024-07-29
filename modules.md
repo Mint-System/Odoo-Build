@@ -4,406 +4,466 @@ This page shows all the modules mnaged with Odoo Build grouped by organization a
 
 ## Mint-System
 
-### Certificate-Planer
+### account-financial-reporting
 
  | name | links |
 |---|---|
-| ./ | [14.0](https://github.com/Mint-System/Certificate-Planer/tree/14.0) |
+| account_financial_report_contra_accounts | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
+| account_financial_report_reverse_move_lines | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
+| account_financial_report_show_grouped_none | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) |
+| account_followup_email_from | [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
+| account_followup_hide_communication | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
+| account_general_ledger_contra_accounts | [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) [16.0](https://github.com/Mint-System/account-financial-reporting/tree/16.0) |
+| account_journal_items_report | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
+| account_move_line_contra_accounts | [14.0](https://github.com/Mint-System/account-financial-reporting/tree/14.0) [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) [16.0](https://github.com/Mint-System/account-financial-reporting/tree/16.0) |
+| account_reports_hide_ref | [16.0](https://github.com/Mint-System/account-financial-reporting/tree/16.0) |
+| account_sale_timesheet_report | [15.0](https://github.com/Mint-System/account-financial-reporting/tree/15.0) |
 
-### Demand-Planner
-
- | name | links |
-|---|---|
-| demand_planner | [14.0](https://github.com/Mint-System/Demand-Planner/tree/14.0) |
-| demand_planner_test_data | [14.0](https://github.com/Mint-System/Demand-Planner/tree/14.0) |
-
-### Odoo-Apps-Account-Financial-Reporting
-
- | name | links |
-|---|---|
-| account_financial_report_contra_accounts | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-| account_financial_report_reverse_move_lines | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-| account_financial_report_show_grouped_none | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) |
-| account_followup_email_from | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-| account_followup_hide_communication | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-| account_general_ledger_contra_accounts | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/16.0) |
-| account_journal_items_report | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-| account_move_line_contra_accounts | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/16.0) |
-| account_reports_hide_ref | [16.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/16.0) |
-| account_sale_timesheet_report | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-
-### Odoo-Apps-Account-Invoicing
+### account-invoicing
 
  | name | links |
 |---|---|
-| account_invoice_carrier | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_invoice_comment | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_invoice_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_invoice_detail | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_invoice_multiline_ref | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_invoice_notes | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_invoice_sale_partner | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_invoice_select_bank | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_move_invoice_partner | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_move_line_accounting_description_stock | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_move_line_description | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_move_line_link_pickings | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_move_line_position | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| account_move_post_warn | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| account_move_reconciled_date | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| l10n_ch_disable_default_reports | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| l10n_ch_invoice_reports_with_payments | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| l10n_ch_qr_code_ref | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| l10n_ch_qr_iban | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| nivels_deduct_supplier_discount | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| purchase_invoice_prepare_partner | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| sale_invoice_carrier | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| sale_invoice_cash_rounding_default | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/15.0) |
-| sale_invoice_line_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| sale_invoice_prepare_bank | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-| sale_invoice_prepare_partner | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
+| account_followup_mail_layout | [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_followup_manual_reminder | [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_carrier | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_comment | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_description | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| account_invoice_detail | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| account_invoice_move_date | [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_multiline_ref | [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| account_invoice_notes | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_outstanding_credit | [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_sale_partner | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_invoice_select_bank | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_move_invoice_partner | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_move_line_accounting_description_stock | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| account_move_line_description | [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| account_move_line_link_pickings | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| account_move_line_position | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| account_move_post_warn | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| account_move_reconciled_date | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| l10n_ch_disable_default_reports | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| l10n_ch_invoice_reports_with_payments | [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| l10n_ch_qr_code_ref | [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| l10n_ch_qr_iban | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) |
+| nivels_deduct_supplier_discount | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| purchase_invoice_prepare_partner | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| sale_invoice_carrier | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| sale_invoice_cash_rounding_default | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [15.0](https://github.com/Mint-System/account-invoicing/tree/15.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| sale_invoice_ignore_ref | [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| sale_invoice_line_description | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) [16.0](https://github.com/Mint-System/account-invoicing/tree/16.0) |
+| sale_invoice_prepare_bank | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
+| sale_invoice_prepare_partner | [14.0](https://github.com/Mint-System/account-invoicing/tree/14.0) |
 
-### Odoo-Apps-Company
-
- | name | links |
-|---|---|
-| company_registry_footer | [14.0](https://github.com/Mint-System/Odoo-Apps-Company/tree/14.0) |
-
-### Odoo-Apps-Connector
-
- | name | links |
-|---|---|
-| meilisearch_base | [16.0](https://github.com/Mint-System/Odoo-Apps-Connector/tree/16.0) |
-
-### Odoo-Apps-Contract
+### certificate-planer
 
  | name | links |
 |---|---|
-| contract_format_date_marker | [15.0](https://github.com/Mint-System/Odoo-Apps-Contract/tree/15.0) |
+| ./ | [14.0](https://github.com/Mint-System/certificate-planer/tree/14.0) |
 
-### Odoo-Apps-HR
-
- | name | links |
-|---|---|
-| fleet_hr_vehicle_request | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_activity_date | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_attendance_delta | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_attendance_ip_check | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| hr_attendance_kiosk_mode_color | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| hr_attendance_missing | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_attendance_overtime_hours | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| hr_attendance_overtime_negative_hours | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_attendance_policy | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_attendance_user_acl | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_birthday_calendar | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_employee_attendance_report | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_employee_employ_like | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_employee_skill | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/17.0) |
-| hr_expense_vehicle_request | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_holidays_calendar_department | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_holidays_custom_hours | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_holidays_ics_attachment | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_holidays_leave_archive | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_holidays_negative_hours | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_holidays_remaining_leaves | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_holidays_type_note | [16.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/16.0) |
-| hr_recruitment_firstname | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_shortname | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_timesheet_from_until | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| hr_timesheet_multiline_name | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| hr_vehicle_request | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_vehicle_request_calendar | [14.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/14.0) |
-| hr_work_entry_profile | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| project_timesheet_limit | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-| resource_calendar_get_days | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-
-### Odoo-Apps-Management-System
+### company
 
  | name | links |
 |---|---|
-| mgmt | [16.0](https://github.com/Mint-System/Odoo-Apps-Management-System/tree/16.0) |
+| company_registry_footer | [14.0](https://github.com/Mint-System/company/tree/14.0) |
 
-### Odoo-Apps-Manufacture
-
- | name | links |
-|---|---|
-| maintenance_plan_request_name | [15.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/15.0) |
-| manufacture_production_move_date | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_bom_consumption | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_bom_list | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_bom_position | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-| mrp_documents_share | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-| mrp_production_assign_lot | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-| mrp_production_create_upstream_backorder | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_downstream_lot | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_generate_lot | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_note | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_release | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-| mrp_production_unplan_move | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_update_upstream_move | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_production_upstream_state | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_workorder_disable_autostart | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| mrp_workorder_set_producing_qty | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-| stock_mrp_available | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
-| stock_mrp_traceability_list | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-
-### Odoo-Apps-Partner-Contact
+### connector
 
  | name | links |
 |---|---|
-| partner_contact_department_note | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_contact_location_in_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_duplicate_acc_number | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_hide_address | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_multi_pricelist | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_ref_sequence | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_secondary_email | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_secondary_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_type_order | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-| partner_type_sale | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
+| meilisearch_base | [16.0](https://github.com/Mint-System/connector/tree/16.0) |
 
-### Odoo-Apps-Product-Attribute
+### contract
 
  | name | links |
 |---|---|
-| product_country_of_origin | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_dimension_attributes | [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_end_of_life_dates | [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) |
-| product_feeder_id | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_information_management | [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_listprice_currency | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_material_attributes | [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_name_sequence | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) |
-| product_packaging_parent | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) |
-| product_pricelist_fixed_discount | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_type_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
-| product_type_description2 | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) |
-| product_variant_description | [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) |
+| contract_format_date_marker | [15.0](https://github.com/Mint-System/contract/tree/15.0) |
 
-### Odoo-Apps-Project
+### demand-planner
 
  | name | links |
 |---|---|
-| project_key_link_type | [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) |
-| project_partner_open_tasks | [16.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/16.0) |
-| project_phase | [14.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/16.0) |
-| project_phase_estimate | [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) |
-| project_task_all_menu | [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/17.0) |
-| project_task_dependency_counter | [14.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) |
+| demand_planner | [14.0](https://github.com/Mint-System/demand-planner/tree/14.0) |
+| demand_planner_test_data | [14.0](https://github.com/Mint-System/demand-planner/tree/14.0) |
 
-### Odoo-Apps-Purchase-Workflow
+### hr
 
  | name | links |
 |---|---|
-| purchase_order_address | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_comment | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_line_date | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_line_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_order_line_position | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_line_price_default | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_order_line_relay_price | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_order_notes | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_partner_incoterm | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_order_partner_shipping | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_order_subscription | [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_order_validate | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_requisition_fiscal | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_incoterm | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_line_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_requisition_notes | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_order_address | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_other_information_page | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_payment_term | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_reference | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_send | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_tag | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/16.0) |
-| purchase_requisition_total | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_requisition_user | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
-| purchase_sale_order_analytic_account | [15.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/15.0) |
-| purchase_stock_sale_owner | [15.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/15.0) |
+| fleet_hr_vehicle_request | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_activity_date | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_attendance_delta | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_attendance_ip_check | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| hr_attendance_kiosk_mode_color | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| hr_attendance_missing | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_attendance_overtime_hours | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| hr_attendance_overtime_negative_hours | [15.0](https://github.com/Mint-System/hr/tree/15.0) [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_attendance_policy | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_attendance_user_acl | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_birthday_calendar | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_employee_attendance_report | [14.0](https://github.com/Mint-System/hr/tree/14.0) [15.0](https://github.com/Mint-System/hr/tree/15.0) [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_employee_employ_like | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_employee_skill | [14.0](https://github.com/Mint-System/hr/tree/14.0) [15.0](https://github.com/Mint-System/hr/tree/15.0) [16.0](https://github.com/Mint-System/hr/tree/16.0) [17.0](https://github.com/Mint-System/hr/tree/17.0) |
+| hr_expense_vehicle_request | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_holidays_calendar_department | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_holidays_custom_hours | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_holidays_ics_attachment | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_holidays_leave_archive | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_holidays_negative_hours | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_holidays_remaining_leaves | [14.0](https://github.com/Mint-System/hr/tree/14.0) [15.0](https://github.com/Mint-System/hr/tree/15.0) [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_holidays_type_note | [16.0](https://github.com/Mint-System/hr/tree/16.0) |
+| hr_recruitment_firstname | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_shortname | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_timesheet_from_until | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| hr_timesheet_multiline_name | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| hr_vehicle_request | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_vehicle_request_calendar | [14.0](https://github.com/Mint-System/hr/tree/14.0) |
+| hr_work_entry_profile | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| project_timesheet_limit | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
+| resource_calendar_get_days | [15.0](https://github.com/Mint-System/hr/tree/15.0) |
 
-### Odoo-Apps-SaaS
-
- | name | links |
-|---|---|
-| licensespring_base | [15.0](https://github.com/Mint-System/Odoo-Apps-SaaS/tree/15.0) |
-
-### Odoo-Apps-Sale-Workflow
-
- | name | links |
-|---|---|
-| industry_fsm_sale_default_task | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_cancel_state | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_carrier | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_comment | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_commitment_date | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_contact_person | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_crm_tags | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_date_confirmed | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_invoice_shipping_partner | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_line_description | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_notes | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_readonly_states | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_readonly_states_extended | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_reference | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_send | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_stock_terms | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_blanket_order_template | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_expense_description_date | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_expense_link | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_expense_unlink | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_comment | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_contact_person | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_default_carrier | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_invoice_shipping_partner_restrict | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_line_date_propagate | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_line_description_name | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_line_form_action | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_line_name_get | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_line_position | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_line_pricelist_fixed_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_line_temporary_price | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_notes | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_partner_membership | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_partner_pricelist | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_partner_ref | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_project_key | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_order_sale_partner | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_order_template_notes | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_partner_shipping_group | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_product_set_search | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-| sale_subscription_disable_tokenization | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_subscription_partner_pricelist | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_subscription_period_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
-| sale_timesheet_total_validated | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-
-### Odoo-Apps-Server-Tools
+### management-system
 
  | name | links |
 |---|---|
-| auth_impersonate_user | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/17.0) |
-| auth_oauth_keycloak | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) |
-| auth_totp_ip_check | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/17.0) |
-| base_action_manager_access | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| base_db_anonymization | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| base_recursion_limit | [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) |
-| base_vat_required_vies | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| board_users | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) |
-| home_background_image | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) |
-| mail_disable_translation | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| mail_format_with_parent | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| mail_server_filter | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/17.0) |
-| mail_service_users | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/17.0) |
-| mail_tracking_helpdesk_bounce_ticket | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| product_disable_translation | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| prometheus_exporter | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/17.0) |
-| show_db_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) |
-| url_slug | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-| web_enterprise_admin_expiration_panel | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
+| mgmt | [16.0](https://github.com/Mint-System/management-system/tree/16.0) |
 
-### Odoo-Apps-Social
+### manufacture
 
  | name | links |
 |---|---|
-| account_move_mail_thread | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/15.0) |
-| account_move_send_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| account_move_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/16.0) |
-| mail_activity_datetime | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| mail_composer_default_template | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/15.0) |
-| mail_no_autofollow | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/16.0) |
-| mail_thread_context | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| mail_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/16.0) |
-| purchase_order_send_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| purchase_order_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| sale_order_send_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
-| sale_order_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/16.0) |
+| maintenance_plan_request_name | [15.0](https://github.com/Mint-System/manufacture/tree/15.0) |
+| manufacture_production_move_date | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_bom_consumption | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_bom_list | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_bom_position | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) |
+| mrp_documents_share | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [15.0](https://github.com/Mint-System/manufacture/tree/15.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) [17.0](https://github.com/Mint-System/manufacture/tree/17.0) |
+| mrp_production_assign_lot | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) |
+| mrp_production_create_upstream_backorder | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_downstream_lot | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_generate_lot | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_note | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_release | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) |
+| mrp_production_unplan_move | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_update_upstream_move | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_production_upstream_state | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_workorder_disable_autostart | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| mrp_workorder_set_producing_qty | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) |
+| stock_mrp_available | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) |
+| stock_mrp_traceability_list | [14.0](https://github.com/Mint-System/manufacture/tree/14.0) [16.0](https://github.com/Mint-System/manufacture/tree/16.0) [17.0](https://github.com/Mint-System/manufacture/tree/17.0) |
 
-### Odoo-Apps-Stock-Logistics-Workflow
-
- | name | links |
-|---|---|
-| amqp_base | [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) |
-| amqp_stock | [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) |
-| stock_account_location_valued | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_aggregated_move_line | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_aggregated_move_lines_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_barcode_maintenance | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_barcode_mrp | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_barcode_packaging | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_critical_forecast | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/17.0) |
-| stock_critical_forecast_link_replenish | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_critical_forecast_promised_agreed | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_forecasted_report_min_qty | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_inventory_summary | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_lot_traceability_list | [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/17.0) |
-| stock_move_available_locations | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_move_line_lot_done | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_move_line_packaging | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_move_line_position | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_move_sale_order_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_move_upstream_quantity | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_move_upstream_state | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_move_weight_uom | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_picking_mrp_production_assign | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_picking_mrp_production_done | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_picking_notes | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_picking_responsible | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_product_last_move | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_production_lot_active | [17.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/17.0) |
-| stock_production_lot_date | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
-| stock_production_lot_qty_storable | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
-| stock_vendor_evaluation | [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/17.0) |
-
-### Odoo-Apps-Vertical-Forestry
+### odoo-theme-mint-system
 
  | name | links |
 |---|---|
-| forestry_base | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
-| forestry_project | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
-| forestry_stock | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
-| forestry_timesheet | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
+| ./ | [14.0](https://github.com/Mint-System/odoo-theme-mint-system/tree/14.0) |
 
-### Odoo-Apps-Vertical-SaaS
+### partner-contact
 
  | name | links |
 |---|---|
-| license | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
-| license_ocad | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
-| license_sale | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
-| license_subscription | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
-| license_website | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
+| base_country_sequence | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| base_location_city | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_contact_association | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_contact_department_note | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_contact_location_in_name | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_duplicate_acc_number | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) |
+| partner_hide_address | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) |
+| partner_multi_pricelist | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) |
+| partner_multiline_street2 | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_optional_commercial_partner | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_readonly_access | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_ref_sequence | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_secondary_email | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_secondary_name | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_type_membership | [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_type_order | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [15.0](https://github.com/Mint-System/partner-contact/tree/15.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
+| partner_type_sale | [14.0](https://github.com/Mint-System/partner-contact/tree/14.0) [15.0](https://github.com/Mint-System/partner-contact/tree/15.0) [16.0](https://github.com/Mint-System/partner-contact/tree/16.0) |
 
-### Odoo-Apps-Website
-
- | name | links |
-|---|---|
-| website_date_of_birth | [14.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/15.0) |
-| website_product_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/15.0) |
-| website_sale_default_country_ch | [14.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/15.0) |
-| website_sale_float_qty | [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
-| website_sale_minimum_order_quantity | [15.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
-| website_sale_pricelist_fixed_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
-
-### Odoo-Apps-Web
-
- | name | links |
-|---|---|
-| web_editor_show_code | [14.0](https://github.com/Mint-System/Odoo-Apps-Web/tree/14.0) |
-| web_report_custom_fonts | [14.0](https://github.com/Mint-System/Odoo-Apps-Web/tree/14.0) |
-
-### Odoo-Apps-manufacture
+### product-attribute
 
  | name | links |
 |---|---|
-| mrp_documents_share | [17.0](https://github.com/Mint-System/Odoo-Apps-manufacture/tree/17.0) |
-| stock_mrp_traceability_list | [17.0](https://github.com/Mint-System/Odoo-Apps-manufacture/tree/17.0) |
+| product_country_of_origin | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_dimension_attributes | [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_end_of_life_dates | [15.0](https://github.com/Mint-System/product-attribute/tree/15.0) |
+| product_feeder_id | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_information_management | [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_listprice_currency | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_material_attributes | [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_name_sequence | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [15.0](https://github.com/Mint-System/product-attribute/tree/15.0) |
+| product_packaging_parent | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) |
+| product_pricelist_fixed_discount | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_type_description | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) [15.0](https://github.com/Mint-System/product-attribute/tree/15.0) [16.0](https://github.com/Mint-System/product-attribute/tree/16.0) |
+| product_type_description2 | [14.0](https://github.com/Mint-System/product-attribute/tree/14.0) |
+| product_variant_description | [15.0](https://github.com/Mint-System/product-attribute/tree/15.0) |
 
-### Odoo-Theme-Mint-System
+### project
 
  | name | links |
 |---|---|
-| ./ | [14.0](https://github.com/Mint-System/Odoo-Theme-Mint-System/tree/14.0) |
+| project_key_link_type | [15.0](https://github.com/Mint-System/project/tree/15.0) |
+| project_partner_open_tasks | [16.0](https://github.com/Mint-System/project/tree/16.0) |
+| project_phase | [14.0](https://github.com/Mint-System/project/tree/14.0) [15.0](https://github.com/Mint-System/project/tree/15.0) [16.0](https://github.com/Mint-System/project/tree/16.0) |
+| project_phase_estimate | [15.0](https://github.com/Mint-System/project/tree/15.0) |
+| project_task_all_menu | [15.0](https://github.com/Mint-System/project/tree/15.0) [16.0](https://github.com/Mint-System/project/tree/16.0) [17.0](https://github.com/Mint-System/project/tree/17.0) |
+| project_task_dependency_counter | [14.0](https://github.com/Mint-System/project/tree/14.0) [15.0](https://github.com/Mint-System/project/tree/15.0) |
+
+### purchase-workflow
+
+ | name | links |
+|---|---|
+| purchase_order_address | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_comment | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_line_date | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_line_description | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_order_line_position | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [15.0](https://github.com/Mint-System/purchase-workflow/tree/15.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_line_price_default | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_order_line_relay_price | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_order_notes | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_partner_incoterm | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_order_partner_shipping | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_order_subscription | [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_order_validate | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_requisition_fiscal | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_incoterm | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_line_description | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_requisition_notes | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_order_address | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_other_information_page | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_payment_term | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_reference | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_send | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_tag | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) [16.0](https://github.com/Mint-System/purchase-workflow/tree/16.0) |
+| purchase_requisition_total | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_requisition_user | [14.0](https://github.com/Mint-System/purchase-workflow/tree/14.0) |
+| purchase_sale_order_analytic_account | [15.0](https://github.com/Mint-System/purchase-workflow/tree/15.0) |
+| purchase_stock_sale_owner | [15.0](https://github.com/Mint-System/purchase-workflow/tree/15.0) |
+
+### saas
+
+ | name | links |
+|---|---|
+| licensespring_base | [15.0](https://github.com/Mint-System/saas/tree/15.0) |
+
+### sale-workflow
+
+ | name | links |
+|---|---|
+| industry_fsm_sale_default_task | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_cancel_state | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_carrier | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_comment | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_commitment_date | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_contact_person | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_crm_tags | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_date_confirmed | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_discount | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_fiscal | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_blanket_order_invoice_shipping_partner | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_line_description | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_notes | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_readonly_states | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_readonly_states_extended | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_reference | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_send | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_stock_terms | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_blanket_order_template | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_expense_description_date | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_expense_link | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_expense_unlink | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_check_price | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_comment | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_contact_person | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_default_carrier | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_default_commitment_date | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_delivery_note | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_expected_commitment_date | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_invoice_shipping_partner_restrict | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_line_date_propagate | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_line_default_packaging | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_line_description_name | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_line_form_action | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_line_name_get | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_line_not_billable | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_line_pos | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_line_position | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_line_pricelist_fixed_discount | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_line_purchase_margin | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_line_temporary_price | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_mrp_production_cancel | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_multi_pricelist | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) |
+| sale_order_notes | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_partner_membership | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_partner_pricelist | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_partner_ref | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_project_key | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_order_sale_partner | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_order_template_notes | [14.0](https://github.com/Mint-System/sale-workflow/tree/14.0) [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_partner_shipping_group | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_product_set_search | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+| sale_subscription_disable_tokenization | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_subscription_partner_pricelist | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_subscription_period_discount | [16.0](https://github.com/Mint-System/sale-workflow/tree/16.0) |
+| sale_timesheet_total_validated | [15.0](https://github.com/Mint-System/sale-workflow/tree/15.0) |
+
+### server-tools
+
+ | name | links |
+|---|---|
+| auth_impersonate_user | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) [16.0](https://github.com/Mint-System/server-tools/tree/16.0) [17.0](https://github.com/Mint-System/server-tools/tree/17.0) |
+| auth_oauth_keycloak | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) |
+| auth_totp_ip_check | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) [16.0](https://github.com/Mint-System/server-tools/tree/16.0) [17.0](https://github.com/Mint-System/server-tools/tree/17.0) |
+| base_action_manager_access | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| base_db_anonymization | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| base_recursion_limit | [15.0](https://github.com/Mint-System/server-tools/tree/15.0) |
+| base_vat_required_vies | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| board_users | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) |
+| home_background_image | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) |
+| mail_disable_translation | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| mail_format_with_parent | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| mail_server_filter | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) [16.0](https://github.com/Mint-System/server-tools/tree/16.0) [17.0](https://github.com/Mint-System/server-tools/tree/17.0) |
+| mail_service_users | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) [16.0](https://github.com/Mint-System/server-tools/tree/16.0) [17.0](https://github.com/Mint-System/server-tools/tree/17.0) |
+| mail_tracking_helpdesk_bounce_ticket | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| product_disable_translation | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| prometheus_exporter | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) [15.0](https://github.com/Mint-System/server-tools/tree/15.0) [16.0](https://github.com/Mint-System/server-tools/tree/16.0) [17.0](https://github.com/Mint-System/server-tools/tree/17.0) |
+| show_db_name | [14.0](https://github.com/Mint-System/server-tools/tree/14.0) |
+| url_slug | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+| web_enterprise_admin_expiration_panel | [16.0](https://github.com/Mint-System/server-tools/tree/16.0) |
+
+### social
+
+ | name | links |
+|---|---|
+| account_move_mail_thread | [14.0](https://github.com/Mint-System/social/tree/14.0) [15.0](https://github.com/Mint-System/social/tree/15.0) |
+| account_move_send_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| account_move_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) [15.0](https://github.com/Mint-System/social/tree/15.0) [16.0](https://github.com/Mint-System/social/tree/16.0) |
+| mail_activity_datetime | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| mail_composer_default_template | [14.0](https://github.com/Mint-System/social/tree/14.0) [15.0](https://github.com/Mint-System/social/tree/15.0) |
+| mail_no_autofollow | [14.0](https://github.com/Mint-System/social/tree/14.0) [15.0](https://github.com/Mint-System/social/tree/15.0) [16.0](https://github.com/Mint-System/social/tree/16.0) |
+| mail_thread_context | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| mail_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) [15.0](https://github.com/Mint-System/social/tree/15.0) [16.0](https://github.com/Mint-System/social/tree/16.0) |
+| purchase_order_send_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| purchase_order_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| sale_order_send_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) |
+| sale_order_unsubscribe | [14.0](https://github.com/Mint-System/social/tree/14.0) [16.0](https://github.com/Mint-System/social/tree/16.0) |
+
+### stock-logistics-workflow
+
+ | name | links |
+|---|---|
+| amqp_base | [15.0](https://github.com/Mint-System/stock-logistics-workflow/tree/15.0) |
+| amqp_stock | [15.0](https://github.com/Mint-System/stock-logistics-workflow/tree/15.0) |
+| stock_account_location_valued | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_aggregated_move_line | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_aggregated_move_lines_description | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_barcode_maintenance | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_barcode_mrp | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_barcode_packaging | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_critical_forecast | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [15.0](https://github.com/Mint-System/stock-logistics-workflow/tree/15.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) [17.0](https://github.com/Mint-System/stock-logistics-workflow/tree/17.0) |
+| stock_critical_forecast_link_replenish | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_critical_forecast_promised_agreed | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_forecasted_report_min_qty | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_inventory_summary | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_lot_traceability_list | [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) [17.0](https://github.com/Mint-System/stock-logistics-workflow/tree/17.0) |
+| stock_move_available_locations | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_move_line_lot_done | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_move_line_packaging | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_move_line_position | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [15.0](https://github.com/Mint-System/stock-logistics-workflow/tree/15.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_move_sale_order_name | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_move_upstream_quantity | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_move_upstream_state | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_move_weight_uom | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_picking_mrp_production_assign | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_picking_mrp_production_done | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_picking_notes | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_picking_responsible | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_product_last_move | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_production_lot_active | [17.0](https://github.com/Mint-System/stock-logistics-workflow/tree/17.0) |
+| stock_production_lot_date | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) |
+| stock_production_lot_qty_storable | [14.0](https://github.com/Mint-System/stock-logistics-workflow/tree/14.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) |
+| stock_vendor_evaluation | [15.0](https://github.com/Mint-System/stock-logistics-workflow/tree/15.0) [16.0](https://github.com/Mint-System/stock-logistics-workflow/tree/16.0) [17.0](https://github.com/Mint-System/stock-logistics-workflow/tree/17.0) |
+
+### thirdparty
+
+ | name | links |
+|---|---|
+| base_business_document_import_generic_tools | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| bt_account_sepa | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| bt_swissdec | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| bt_swissdec_hr_expense | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| bt_swissdec_pre | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| bt_tutorial | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| delegations | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| delivery_dpdch | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| dev_blanket_sale_order | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| eq_cancel_mrp_orders | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| eq_website_default_code | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| facebook_ads_feeds | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| gio_generic_excel_addon | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| gio_payroll_custom | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| gio_payroll_report | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| google_shop | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| hr_holidays_delegations | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| impersonate | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| l10n_ch_qr_isr_invoice_import | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| mail_manual_routing | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| muk_rest | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| odoo_elasticsearch | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| odoo_microsoft_account | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| partner_color_codes | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| payment_payrexx | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| payment_saferpay | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| pits_payment_saferpay | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| printnode_base | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| sale_metered_usage | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| sh_inv_merge_pdf | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| sh_shop_price_hide | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| sh_task_time_adv | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| survey_send_to_list | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| tissa_mrp | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| website_discount_voucher | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| website_font_hco_mercury_ssm | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| website_minimum_order_quantity | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+| wk_base_survey | [14.0](https://github.com/Mint-System/thirdparty/tree/14.0) |
+| wk_wizard_messages | [16.0](https://github.com/Mint-System/thirdparty/tree/16.0) |
+
+### vertical-forestry
+
+ | name | links |
+|---|---|
+| forestry_base | [15.0](https://github.com/Mint-System/vertical-forestry/tree/15.0) |
+| forestry_project | [15.0](https://github.com/Mint-System/vertical-forestry/tree/15.0) |
+| forestry_stock | [15.0](https://github.com/Mint-System/vertical-forestry/tree/15.0) |
+| forestry_timesheet | [15.0](https://github.com/Mint-System/vertical-forestry/tree/15.0) |
+
+### vertical-saas
+
+ | name | links |
+|---|---|
+| license | [16.0](https://github.com/Mint-System/vertical-saas/tree/16.0) |
+| license_ocad | [16.0](https://github.com/Mint-System/vertical-saas/tree/16.0) |
+| license_sale | [16.0](https://github.com/Mint-System/vertical-saas/tree/16.0) |
+| license_subscription | [16.0](https://github.com/Mint-System/vertical-saas/tree/16.0) |
+| license_website | [16.0](https://github.com/Mint-System/vertical-saas/tree/16.0) |
+
+### website
+
+ | name | links |
+|---|---|
+| website_date_of_birth | [14.0](https://github.com/Mint-System/website/tree/14.0) [15.0](https://github.com/Mint-System/website/tree/15.0) |
+| website_product_description | [14.0](https://github.com/Mint-System/website/tree/14.0) [15.0](https://github.com/Mint-System/website/tree/15.0) |
+| website_sale_default_country_ch | [14.0](https://github.com/Mint-System/website/tree/14.0) [15.0](https://github.com/Mint-System/website/tree/15.0) |
+| website_sale_float_qty | [16.0](https://github.com/Mint-System/website/tree/16.0) |
+| website_sale_minimum_order_quantity | [15.0](https://github.com/Mint-System/website/tree/15.0) [16.0](https://github.com/Mint-System/website/tree/16.0) |
+| website_sale_pricelist_fixed_discount | [16.0](https://github.com/Mint-System/website/tree/16.0) |
+
+### web
+
+ | name | links |
+|---|---|
+| web_editor_show_code | [14.0](https://github.com/Mint-System/web/tree/14.0) |
+| web_report_custom_fonts | [14.0](https://github.com/Mint-System/web/tree/14.0) |
 
 ## OCA
 
@@ -2816,135 +2876,4 @@ This page shows all the modules mnaged with Odoo Build grouped by organization a
 | web_widget_uom | [14.0](https://github.com/OCA/web/tree/14.0) |
 | web_widget_url_advanced | [14.0](https://github.com/OCA/web/tree/14.0) [15.0](https://github.com/OCA/web/tree/15.0) |
 | web_widget_x2many_2d_matrix | [14.0](https://github.com/OCA/web/tree/14.0) [15.0](https://github.com/OCA/web/tree/15.0) [16.0](https://github.com/OCA/web/tree/16.0) |
-
-## mint-system
-
-### odoo-apps-account-invoicing
-
- | name | links |
-|---|---|
-| account_followup_mail_layout | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_followup_manual_reminder | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_carrier | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_comment | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_move_date | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_notes | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_outstanding_credit | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_sale_partner | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_invoice_select_bank | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_move_invoice_partner | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_move_line_position | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| account_move_reconciled_date | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| sale_invoice_carrier | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| sale_invoice_cash_rounding_default | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| sale_invoice_ignore_ref | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-| sale_invoice_line_description | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-
-### odoo-apps-partner-contact
-
- | name | links |
-|---|---|
-| base_country_sequence | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| base_location_city | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_contact_association | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_contact_department_note | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_contact_location_in_name | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_multiline_street2 | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_optional_commercial_partner | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_readonly_access | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_ref_sequence | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_secondary_email | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_secondary_name | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_type_membership | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_type_order | [15.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/15.0) [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-| partner_type_sale | [15.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/15.0) [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-
-### odoo-apps-sale-workflow
-
- | name | links |
-|---|---|
-| sale_blanket_order_cancel_state | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_carrier | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_comment | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_commitment_date | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_contact_person | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_crm_tags | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_date_confirmed | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_discount | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_fiscal | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_invoice_shipping_partner | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_line_description | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_notes | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_readonly_states | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_readonly_states_extended | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_reference | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_send | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_stock_terms | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_blanket_order_template | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_expense_link | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_expense_unlink | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_check_price | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_comment | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_contact_person | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_default_carrier | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_default_commitment_date | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_delivery_note | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_expected_commitment_date | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_date_propagate | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_default_packaging | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_description_name | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_name_get | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_not_billable | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_pos | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_pricelist_fixed_discount | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_line_purchase_margin | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_mrp_production_cancel | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_multi_pricelist | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_notes | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_sale_partner | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-| sale_order_template_notes | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-
-### odoo-apps-thirdparty
-
- | name | links |
-|---|---|
-| base_business_document_import_generic_tools | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| bt_account_sepa | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| bt_swissdec | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| bt_swissdec_hr_expense | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| bt_swissdec_pre | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| bt_tutorial | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| delegations | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| delivery_dpdch | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| dev_blanket_sale_order | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| eq_cancel_mrp_orders | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| eq_website_default_code | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| facebook_ads_feeds | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| gio_generic_excel_addon | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| gio_payroll_custom | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| gio_payroll_report | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| google_shop | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| hr_holidays_delegations | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| impersonate | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| l10n_ch_qr_isr_invoice_import | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| mail_manual_routing | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| muk_rest | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| odoo_elasticsearch | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| odoo_microsoft_account | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| partner_color_codes | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| payment_payrexx | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| payment_saferpay | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| pits_payment_saferpay | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| printnode_base | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| sale_metered_usage | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| sh_inv_merge_pdf | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| sh_shop_price_hide | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| sh_task_time_adv | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| survey_send_to_list | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| tissa_mrp | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| website_discount_voucher | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| website_font_hco_mercury_ssm | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| website_minimum_order_quantity | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
-| wk_base_survey | [14.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/14.0) |
-| wk_wizard_messages | [16.0](https://github.com/mint-system/odoo-apps-thirdparty/tree/16.0) |
 
