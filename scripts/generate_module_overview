@@ -108,7 +108,7 @@ subprocess.run(["git", "switch", "16.0"])
 
 with open(output_file, "w") as f:
     f.write("# Modules\n\n")
-    f.write("This page shows all the modules mnaged with Odoo Build grouped by organization and repository.\n\n")
+    f.write("This page shows all the modules managed with Odoo Build grouped by organization and repository.\n\n")
     
     for org, repos in groupby(module_data, key = itemgetter('org')):
         f.write(f"## {org}\n\n")

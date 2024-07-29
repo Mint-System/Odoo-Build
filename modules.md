@@ -1,6 +1,6 @@
 # Modules
 
-This page shows all the modules mnaged with Odoo Build grouped by organization and repository.
+This page shows all the modules managed with Odoo Build grouped by organization and repository.
 
 ## Mint-System
 
