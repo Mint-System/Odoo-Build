@@ -20,7 +20,7 @@ def read_gitmodules(file_path):
     return modules
 
 # Settings
-branches = ["16.0"]
+branches = ["15.0", "16.0"]
 output_file = "modules.md"
 
 # Define dictionary for module list
