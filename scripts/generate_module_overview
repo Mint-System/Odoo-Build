@@ -3,6 +3,8 @@
 import os
 import subprocess
 import configparser
+from itertools import groupby
+from operator import itemgetter
 
 def read_gitmodules(file_path):
     config = configparser.ConfigParser(allow_no_value=True, delimiters=('=', ':'))
@@ -23,8 +25,8 @@ def read_gitmodules(file_path):
 branches = ["15.0", "16.0"]
 output_file = "modules.md"
 
-# Define dictionary for module list
-module_data = {}
+# Define dictionary for module data
+module_info = {}
 
 # Iterate over each branch
 for branch in branches:
@@ -69,21 +71,38 @@ for branch in branches:
             url = f"https://github.com/{org}/{repo}"
             branch_link = f" [{branch}]({url}/tree/{branch})"
 
-            if module_key in module_data:
-                module_data[module_key] += branch_link
+            if module_key in module_info:
+                module_info[module_key] += branch_link
             else:
-                module_data[module_key] = branch_link
+                module_info[module_key] = branch_link
 
 
-# Sort mdoule data by key
-module_data = dict(sorted(module_data.items()))
+# Sort module data by key
+module_info = dict(sorted(module_info.items()))
+
+# Process module data
+module_data = []
+for key, value in module_info.items():
+    org, repo, name = key.split('|')
+    module_data.append({
+        'org': org,
+        'repo': repo,
+        'name': name,
+        'link': value
+    })
 
 with open(output_file, "w") as f:
-    f.write("| org | repo | name | link |\n")
-    f.write("|---|---|---|---|\n")
+    f.write("# Modules\n")
+    
+    for org, repos in groupby(module_data, key = itemgetter('org')):
+        f.write(f"\n## {org}\n\n")
+        
+        for repo, modules in groupby(repos, key = itemgetter('repo')):
+            f.write(f"\n### {repo}\n\n")
+            f.write(" | name | links |\n")
+            f.write("|---|---|\n")
 
-    for key, links in module_data.items():
-        org, repo, name = key.split('|')
-        f.write(f"| {org} | {repo} | {name} |{links} |\n")
+            for module in modules:
+                f.write(f"| {module['name']} |{module['link']} |\n")
 
 print(f"Markdown table created in {output_file}")
