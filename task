@@ -251,7 +251,7 @@ function install-native() {
     pip install -r odoo/requirements.txt
 
     echo "Install OCA development tools"
-    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
+    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo GitPython
 
     echo "Install OCA openupgrade tools"
     pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
@@ -1075,8 +1075,8 @@ function git-submodule-remove() {
 }
 
 function git-submodule-list() {
-    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
@@ -1210,9 +1210,16 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
+function generate-module-overview() {
+    echo "Update module overview doc file."
+    active-venv
+    ./scripts/generate_module_overview
+}
+
 function update-docs() {
     generate-snippets-doc
     generate-revisions-doc
+    generate-module-overview
 }
 
 function visualize-dependencies() {
@@ -1304,6 +1311,9 @@ case "$1" in
         ;;
     generate-module-security)
         generate-module-security "$2" "$3"
+        ;;
+    generate-module-overview)
+        generate-module-overview
         ;;
     get-module-version)
         get-module-version "$2"
