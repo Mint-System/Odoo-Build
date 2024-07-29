@@ -24,7 +24,7 @@ export default defineUserConfig({
             { text: 'Help', link: '/task' },
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
-            { text: 'Apps', link: 'https://apps.odoo.com/apps/modules/browse?author=Mint%20System%20GmbH' },
+            { text: 'Modules', link: '/modules' },
             { text: 'Mint System', link: 'https://www.mint-system.ch/odoo' }
         ],
         sidebar: {

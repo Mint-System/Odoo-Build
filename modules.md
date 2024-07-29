@@ -1,5 +1,4 @@
 # Modules
-
 ## Mint-System
 
 ### Certificate-Planer
@@ -7,14 +6,12 @@
  | name | links |
 |---|---|
 | ./ | [14.0](https://github.com/Mint-System/Certificate-Planer/tree/14.0) |
-
 ### Demand-Planner
 
  | name | links |
 |---|---|
 | demand_planner | [14.0](https://github.com/Mint-System/Demand-Planner/tree/14.0) |
 | demand_planner_test_data | [14.0](https://github.com/Mint-System/Demand-Planner/tree/14.0) |
-
 ### Odoo-Apps-Account-Financial-Reporting
 
  | name | links |
@@ -29,7 +26,6 @@
 | account_move_line_contra_accounts | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/16.0) |
 | account_reports_hide_ref | [16.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/16.0) |
 | account_sale_timesheet_report | [15.0](https://github.com/Mint-System/Odoo-Apps-Account-Financial-Reporting/tree/15.0) |
-
 ### Odoo-Apps-Account-Invoicing
 
  | name | links |
@@ -60,25 +56,21 @@
 | sale_invoice_line_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
 | sale_invoice_prepare_bank | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
 | sale_invoice_prepare_partner | [14.0](https://github.com/Mint-System/Odoo-Apps-Account-Invoicing/tree/14.0) |
-
 ### Odoo-Apps-Company
 
  | name | links |
 |---|---|
 | company_registry_footer | [14.0](https://github.com/Mint-System/Odoo-Apps-Company/tree/14.0) |
-
 ### Odoo-Apps-Connector
 
  | name | links |
 |---|---|
 | meilisearch_base | [16.0](https://github.com/Mint-System/Odoo-Apps-Connector/tree/16.0) |
-
 ### Odoo-Apps-Contract
 
  | name | links |
 |---|---|
 | contract_format_date_marker | [15.0](https://github.com/Mint-System/Odoo-Apps-Contract/tree/15.0) |
-
 ### Odoo-Apps-HR
 
  | name | links |
@@ -114,13 +106,11 @@
 | hr_work_entry_profile | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
 | project_timesheet_limit | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
 | resource_calendar_get_days | [15.0](https://github.com/Mint-System/Odoo-Apps-HR/tree/15.0) |
-
 ### Odoo-Apps-Management-System
 
  | name | links |
 |---|---|
 | mgmt | [16.0](https://github.com/Mint-System/Odoo-Apps-Management-System/tree/16.0) |
-
 ### Odoo-Apps-Manufacture
 
  | name | links |
@@ -144,7 +134,6 @@
 | mrp_workorder_set_producing_qty | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
 | stock_mrp_available | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) |
 | stock_mrp_traceability_list | [14.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Manufacture/tree/16.0) |
-
 ### Odoo-Apps-Partner-Contact
 
  | name | links |
@@ -159,7 +148,6 @@
 | partner_secondary_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
 | partner_type_order | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
 | partner_type_sale | [14.0](https://github.com/Mint-System/Odoo-Apps-Partner-Contact/tree/14.0) |
-
 ### Odoo-Apps-Product-Attribute
 
  | name | links |
@@ -177,7 +165,6 @@
 | product_type_description | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/16.0) |
 | product_type_description2 | [14.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/14.0) |
 | product_variant_description | [15.0](https://github.com/Mint-System/Odoo-Apps-Product-Attribute/tree/15.0) |
-
 ### Odoo-Apps-Project
 
  | name | links |
@@ -188,7 +175,6 @@
 | project_phase_estimate | [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) |
 | project_task_all_menu | [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/17.0) |
 | project_task_dependency_counter | [14.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/14.0) [15.0](https://github.com/Mint-System/Odoo-Apps-Project/tree/15.0) |
-
 ### Odoo-Apps-Purchase-Workflow
 
  | name | links |
@@ -219,13 +205,11 @@
 | purchase_requisition_user | [14.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/14.0) |
 | purchase_sale_order_analytic_account | [15.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/15.0) |
 | purchase_stock_sale_owner | [15.0](https://github.com/Mint-System/Odoo-Apps-Purchase-Workflow/tree/15.0) |
-
 ### Odoo-Apps-SaaS
 
  | name | links |
 |---|---|
 | licensespring_base | [15.0](https://github.com/Mint-System/Odoo-Apps-SaaS/tree/15.0) |
-
 ### Odoo-Apps-Sale-Workflow
 
  | name | links |
@@ -275,7 +259,6 @@
 | sale_subscription_partner_pricelist | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
 | sale_subscription_period_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/16.0) |
 | sale_timesheet_total_validated | [15.0](https://github.com/Mint-System/Odoo-Apps-Sale-Workflow/tree/15.0) |
-
 ### Odoo-Apps-Server-Tools
 
  | name | links |
@@ -299,7 +282,6 @@
 | show_db_name | [14.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/14.0) |
 | url_slug | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
 | web_enterprise_admin_expiration_panel | [16.0](https://github.com/Mint-System/Odoo-Apps-Server-Tools/tree/16.0) |
-
 ### Odoo-Apps-Social
 
  | name | links |
@@ -316,7 +298,6 @@
 | purchase_order_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
 | sale_order_send_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) |
 | sale_order_unsubscribe | [14.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Social/tree/16.0) |
-
 ### Odoo-Apps-Stock-Logistics-Workflow
 
  | name | links |
@@ -352,7 +333,6 @@
 | stock_production_lot_date | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) |
 | stock_production_lot_qty_storable | [14.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/14.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) |
 | stock_vendor_evaluation | [15.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/16.0) [17.0](https://github.com/Mint-System/Odoo-Apps-Stock-Logistics-Workflow/tree/17.0) |
-
 ### Odoo-Apps-Vertical-Forestry
 
  | name | links |
@@ -361,7 +341,6 @@
 | forestry_project | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
 | forestry_stock | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
 | forestry_timesheet | [15.0](https://github.com/Mint-System/Odoo-Apps-Vertical-Forestry/tree/15.0) |
-
 ### Odoo-Apps-Vertical-SaaS
 
  | name | links |
@@ -371,7 +350,6 @@
 | license_sale | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
 | license_subscription | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
 | license_website | [16.0](https://github.com/Mint-System/Odoo-Apps-Vertical-SaaS/tree/16.0) |
-
 ### Odoo-Apps-Website
 
  | name | links |
@@ -382,27 +360,23 @@
 | website_sale_float_qty | [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
 | website_sale_minimum_order_quantity | [15.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/15.0) [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
 | website_sale_pricelist_fixed_discount | [16.0](https://github.com/Mint-System/Odoo-Apps-Website/tree/16.0) |
-
 ### Odoo-Apps-Web
 
  | name | links |
 |---|---|
 | web_editor_show_code | [14.0](https://github.com/Mint-System/Odoo-Apps-Web/tree/14.0) |
 | web_report_custom_fonts | [14.0](https://github.com/Mint-System/Odoo-Apps-Web/tree/14.0) |
-
 ### Odoo-Apps-manufacture
 
  | name | links |
 |---|---|
 | mrp_documents_share | [17.0](https://github.com/Mint-System/Odoo-Apps-manufacture/tree/17.0) |
 | stock_mrp_traceability_list | [17.0](https://github.com/Mint-System/Odoo-Apps-manufacture/tree/17.0) |
-
 ### Odoo-Theme-Mint-System
 
  | name | links |
 |---|---|
 | ./ | [14.0](https://github.com/Mint-System/Odoo-Theme-Mint-System/tree/14.0) |
-
 ## OCA
 
 ### account-closing
@@ -419,7 +393,6 @@
 | account_invoice_start_end_dates_move | [14.0](https://github.com/OCA/account-closing/tree/14.0) [16.0](https://github.com/OCA/account-closing/tree/16.0) |
 | account_move_cutoff | [14.0](https://github.com/OCA/account-closing/tree/14.0) |
 | account_multicurrency_revaluation | [14.0](https://github.com/OCA/account-closing/tree/14.0) [15.0](https://github.com/OCA/account-closing/tree/15.0) [16.0](https://github.com/OCA/account-closing/tree/16.0) |
-
 ### account-financial-reporting
 
  | name | links |
@@ -433,7 +406,6 @@
 | mis_builder_cash_flow | [14.0](https://github.com/OCA/account-financial-reporting/tree/14.0) [15.0](https://github.com/OCA/account-financial-reporting/tree/15.0) [16.0](https://github.com/OCA/account-financial-reporting/tree/16.0) |
 | mis_template_financial_report | [14.0](https://github.com/OCA/account-financial-reporting/tree/14.0) [15.0](https://github.com/OCA/account-financial-reporting/tree/15.0) [16.0](https://github.com/OCA/account-financial-reporting/tree/16.0) |
 | partner_statement | [14.0](https://github.com/OCA/account-financial-reporting/tree/14.0) [15.0](https://github.com/OCA/account-financial-reporting/tree/15.0) [16.0](https://github.com/OCA/account-financial-reporting/tree/16.0) |
-
 ### account-financial-tools
 
  | name | links |
@@ -502,7 +474,6 @@
 | product_category_tax | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0) |
 | stock_account_no_auto_reconcile | [15.0](https://github.com/OCA/account-financial-tools/tree/15.0) |
 | stock_account_prepare_anglo_saxon_out_lines_hook | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0) |
-
 ### account-invoicing
 
  | name | links |
@@ -617,7 +588,6 @@
 | stock_picking_invoicing | [14.0](https://github.com/OCA/account-invoicing/tree/14.0) [15.0](https://github.com/OCA/account-invoicing/tree/15.0) [16.0](https://github.com/OCA/account-invoicing/tree/16.0) |
 | stock_picking_invoicing_incoterm | [14.0](https://github.com/OCA/account-invoicing/tree/14.0) [15.0](https://github.com/OCA/account-invoicing/tree/15.0) |
 | stock_picking_return_refund_option | [15.0](https://github.com/OCA/account-invoicing/tree/15.0) [16.0](https://github.com/OCA/account-invoicing/tree/16.0) |
-
 ### account-reconcile
 
  | name | links |
@@ -630,7 +600,6 @@
 | account_reconcile_oca | [16.0](https://github.com/OCA/account-reconcile/tree/16.0) |
 | account_statement_base | [16.0](https://github.com/OCA/account-reconcile/tree/16.0) |
 | base_transaction_id | [16.0](https://github.com/OCA/account-reconcile/tree/16.0) |
-
 ### bank-payment
 
  | name | links |
@@ -657,7 +626,6 @@
 | account_payment_purchase | [14.0](https://github.com/OCA/bank-payment/tree/14.0) [15.0](https://github.com/OCA/bank-payment/tree/15.0) [16.0](https://github.com/OCA/bank-payment/tree/16.0) |
 | account_payment_purchase_stock | [14.0](https://github.com/OCA/bank-payment/tree/14.0) [15.0](https://github.com/OCA/bank-payment/tree/15.0) [16.0](https://github.com/OCA/bank-payment/tree/16.0) |
 | account_payment_sale | [14.0](https://github.com/OCA/bank-payment/tree/14.0) [15.0](https://github.com/OCA/bank-payment/tree/15.0) [16.0](https://github.com/OCA/bank-payment/tree/16.0) |
-
 ### bank-statement-import
 
  | name | links |
@@ -685,7 +653,6 @@
 | account_statement_import_qif | [16.0](https://github.com/OCA/bank-statement-import/tree/16.0) |
 | account_statement_import_sheet_file | [16.0](https://github.com/OCA/bank-statement-import/tree/16.0) |
 | account_statement_import_txt_xlsx | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0) [15.0](https://github.com/OCA/bank-statement-import/tree/15.0) |
-
 ### brand
 
  | name | links |
@@ -706,7 +673,6 @@
 | product_brand_tag | [14.0](https://github.com/OCA/brand/tree/14.0) [16.0](https://github.com/OCA/brand/tree/16.0) |
 | product_brand_tag_secondary | [14.0](https://github.com/OCA/brand/tree/14.0) |
 | sale_brand | [14.0](https://github.com/OCA/brand/tree/14.0) [15.0](https://github.com/OCA/brand/tree/15.0) [16.0](https://github.com/OCA/brand/tree/16.0) |
-
 ### business-requirement
 
  | name | links |
@@ -716,7 +682,6 @@
 | business_requirement_deliverable | [14.0](https://github.com/OCA/business-requirement/tree/14.0) |
 | business_requirement_sale | [14.0](https://github.com/OCA/business-requirement/tree/14.0) |
 | business_requirement_sale_timesheet | [14.0](https://github.com/OCA/business-requirement/tree/14.0) |
-
 ### community-data-files
 
  | name | links |
@@ -733,7 +698,6 @@
 | l10n_eu_product_adr_dangerous_goods | [14.0](https://github.com/OCA/community-data-files/tree/14.0) |
 | product_fao_fishing | [14.0](https://github.com/OCA/community-data-files/tree/14.0) [15.0](https://github.com/OCA/community-data-files/tree/15.0) [16.0](https://github.com/OCA/community-data-files/tree/16.0) |
 | uom_unece | [14.0](https://github.com/OCA/community-data-files/tree/14.0) [15.0](https://github.com/OCA/community-data-files/tree/15.0) [16.0](https://github.com/OCA/community-data-files/tree/16.0) |
-
 ### connector
 
  | name | links |
@@ -744,7 +708,6 @@
 | connector_base_product | [14.0](https://github.com/OCA/connector/tree/14.0) [15.0](https://github.com/OCA/connector/tree/15.0) [16.0](https://github.com/OCA/connector/tree/16.0) |
 | test_component | [14.0](https://github.com/OCA/connector/tree/14.0) [15.0](https://github.com/OCA/connector/tree/15.0) [16.0](https://github.com/OCA/connector/tree/16.0) |
 | test_connector | [14.0](https://github.com/OCA/connector/tree/14.0) [15.0](https://github.com/OCA/connector/tree/15.0) [16.0](https://github.com/OCA/connector/tree/16.0) |
-
 ### contract
 
  | name | links |
@@ -780,7 +743,6 @@
 | contract_variable_quantity | [14.0](https://github.com/OCA/contract/tree/14.0) [15.0](https://github.com/OCA/contract/tree/15.0) [16.0](https://github.com/OCA/contract/tree/16.0) |
 | product_contract | [14.0](https://github.com/OCA/contract/tree/14.0) [15.0](https://github.com/OCA/contract/tree/15.0) [16.0](https://github.com/OCA/contract/tree/16.0) |
 | subscription_oca | [14.0](https://github.com/OCA/contract/tree/14.0) [15.0](https://github.com/OCA/contract/tree/15.0) [16.0](https://github.com/OCA/contract/tree/16.0) |
-
 ### credit-control
 
  | name | links |
@@ -797,7 +759,6 @@
 | sale_financial_risk_info | [14.0](https://github.com/OCA/credit-control/tree/14.0) [15.0](https://github.com/OCA/credit-control/tree/15.0) [16.0](https://github.com/OCA/credit-control/tree/16.0) |
 | sale_payment_sheet_financial_risk | [15.0](https://github.com/OCA/credit-control/tree/15.0) [16.0](https://github.com/OCA/credit-control/tree/16.0) |
 | stock_financial_risk | [14.0](https://github.com/OCA/credit-control/tree/14.0) [16.0](https://github.com/OCA/credit-control/tree/16.0) |
-
 ### crm
 
  | name | links |
@@ -830,7 +791,6 @@
 | crm_won_reason | [15.0](https://github.com/OCA/crm/tree/15.0) |
 | crm_won_restrict_per_stage | [15.0](https://github.com/OCA/crm/tree/15.0) [16.0](https://github.com/OCA/crm/tree/16.0) |
 | marketing_crm_partner | [14.0](https://github.com/OCA/crm/tree/14.0) [15.0](https://github.com/OCA/crm/tree/15.0) [16.0](https://github.com/OCA/crm/tree/16.0) |
-
 ### dms
 
  | name | links |
@@ -842,7 +802,6 @@
 | dms_field_auto_classification | [15.0](https://github.com/OCA/dms/tree/15.0) |
 | dms_user_role | [15.0](https://github.com/OCA/dms/tree/15.0) |
 | hr_dms_field | [15.0](https://github.com/OCA/dms/tree/15.0) |
-
 ### e-commerce
 
  | name | links |
@@ -903,7 +862,6 @@
 | website_sale_wishlist_hide_price | [15.0](https://github.com/OCA/e-commerce/tree/15.0) [16.0](https://github.com/OCA/e-commerce/tree/16.0) |
 | website_sale_wishlist_keep | [14.0](https://github.com/OCA/e-commerce/tree/14.0) [15.0](https://github.com/OCA/e-commerce/tree/15.0) [16.0](https://github.com/OCA/e-commerce/tree/16.0) |
 | website_snippet_product_category | [15.0](https://github.com/OCA/e-commerce/tree/15.0) [16.0](https://github.com/OCA/e-commerce/tree/16.0) |
-
 ### edi
 
  | name | links |
@@ -980,7 +938,6 @@
 | sale_order_packaging_import | [14.0](https://github.com/OCA/edi/tree/14.0) |
 | sale_order_ubl | [14.0](https://github.com/OCA/edi/tree/14.0) |
 | test_base_import_pdf_by_template | [15.0](https://github.com/OCA/edi/tree/15.0) |
-
 ### helpdesk
 
  | name | links |
@@ -993,7 +950,6 @@
 | helpdesk_motive | [15.0](https://github.com/OCA/helpdesk/tree/15.0) [16.0](https://github.com/OCA/helpdesk/tree/16.0) |
 | helpdesk_product | [16.0](https://github.com/OCA/helpdesk/tree/16.0) |
 | helpdesk_type | [15.0](https://github.com/OCA/helpdesk/tree/15.0) [16.0](https://github.com/OCA/helpdesk/tree/16.0) |
-
 ### hr-attendance
 
  | name | links |
@@ -1014,7 +970,6 @@
 | hr_attendance_validation | [14.0](https://github.com/OCA/hr-attendance/tree/14.0) |
 | hr_birthday_welcome_message | [14.0](https://github.com/OCA/hr-attendance/tree/14.0) |
 | hr_contract_update_overtime | [16.0](https://github.com/OCA/hr-attendance/tree/16.0) |
-
 ### hr-holidays
 
  | name | links |
@@ -1032,7 +987,6 @@
 | hr_holidays_summary_email | [14.0](https://github.com/OCA/hr-holidays/tree/14.0) |
 | hr_leave_custom_hour_interval | [14.0](https://github.com/OCA/hr-holidays/tree/14.0) [15.0](https://github.com/OCA/hr-holidays/tree/15.0) |
 | hr_leave_type_code | [16.0](https://github.com/OCA/hr-holidays/tree/16.0) |
-
 ### hr
 
  | name | links |
@@ -1084,7 +1038,6 @@
 | hr_study | [15.0](https://github.com/OCA/hr/tree/15.0) |
 | hr_worked_days_from_timesheet | [14.0](https://github.com/OCA/hr/tree/14.0) [15.0](https://github.com/OCA/hr/tree/15.0) |
 | resource_hook | [14.0](https://github.com/OCA/hr/tree/14.0) |
-
 ### iot
 
  | name | links |
@@ -1097,7 +1050,6 @@
 | iot_output_oca | [14.0](https://github.com/OCA/iot/tree/14.0) [15.0](https://github.com/OCA/iot/tree/15.0) [16.0](https://github.com/OCA/iot/tree/16.0) |
 | iot_rule | [14.0](https://github.com/OCA/iot/tree/14.0) [15.0](https://github.com/OCA/iot/tree/15.0) |
 | iot_template_oca | [14.0](https://github.com/OCA/iot/tree/14.0) [15.0](https://github.com/OCA/iot/tree/15.0) [16.0](https://github.com/OCA/iot/tree/16.0) |
-
 ### knowledge
 
  | name | links |
@@ -1118,7 +1070,6 @@
 | document_url | [14.0](https://github.com/OCA/knowledge/tree/14.0) [15.0](https://github.com/OCA/knowledge/tree/15.0) [16.0](https://github.com/OCA/knowledge/tree/16.0) |
 | document_url_google_drive | [16.0](https://github.com/OCA/knowledge/tree/16.0) |
 | knowledge | [14.0](https://github.com/OCA/knowledge/tree/14.0) [15.0](https://github.com/OCA/knowledge/tree/15.0) |
-
 ### l10n-switzerland
 
  | name | links |
@@ -1140,7 +1091,6 @@
 | l10n_ch_pain_credit_transfer | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0) |
 | l10n_ch_states | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0) [15.0](https://github.com/OCA/l10n-switzerland/tree/15.0) |
 | server_env_ebill_paynet | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0) |
-
 ### maintenance
 
  | name | links |
@@ -1179,7 +1129,6 @@
 | maintenance_team_hierarchy | [14.0](https://github.com/OCA/maintenance/tree/14.0) [15.0](https://github.com/OCA/maintenance/tree/15.0) |
 | maintenance_timesheet | [14.0](https://github.com/OCA/maintenance/tree/14.0) [15.0](https://github.com/OCA/maintenance/tree/15.0) |
 | maintenance_timesheet_time_control | [14.0](https://github.com/OCA/maintenance/tree/14.0) [15.0](https://github.com/OCA/maintenance/tree/15.0) |
-
 ### management-system
 
  | name | links |
@@ -1216,7 +1165,6 @@
 | mgmtsystem_quality | [16.0](https://github.com/OCA/management-system/tree/16.0) |
 | mgmtsystem_review | [16.0](https://github.com/OCA/management-system/tree/16.0) |
 | mgmtsystem_survey | [16.0](https://github.com/OCA/management-system/tree/16.0) |
-
 ### manufacture
 
  | name | links |
@@ -1302,7 +1250,6 @@
 | stock_picking_product_kit_helper | [14.0](https://github.com/OCA/manufacture/tree/14.0) [15.0](https://github.com/OCA/manufacture/tree/15.0) |
 | stock_replenishment_mrp_bom_selection | [15.0](https://github.com/OCA/manufacture/tree/15.0) |
 | stock_whole_kit_constraint | [14.0](https://github.com/OCA/manufacture/tree/14.0) [15.0](https://github.com/OCA/manufacture/tree/15.0) |
-
 ### partner-contact
 
  | name | links |
@@ -1407,7 +1354,6 @@
 | res_partner_journal_items_link | [15.0](https://github.com/OCA/partner-contact/tree/15.0) |
 | sale_customer_rank | [14.0](https://github.com/OCA/partner-contact/tree/14.0) [16.0](https://github.com/OCA/partner-contact/tree/16.0) |
 | sale_partner_company_group | [15.0](https://github.com/OCA/partner-contact/tree/15.0) [16.0](https://github.com/OCA/partner-contact/tree/16.0) |
-
 ### product-attribute
 
  | name | links |
@@ -1537,7 +1483,6 @@
 | stock_production_lot_expired_date | [16.0](https://github.com/OCA/product-attribute/tree/16.0) |
 | uom_category_active | [16.0](https://github.com/OCA/product-attribute/tree/16.0) |
 | uom_extra_data | [14.0](https://github.com/OCA/product-attribute/tree/14.0) |
-
 ### project
 
  | name | links |
@@ -1607,7 +1552,6 @@
 | project_wbs | [14.0](https://github.com/OCA/project/tree/14.0) [15.0](https://github.com/OCA/project/tree/15.0) |
 | sale_project_copy_tasks | [15.0](https://github.com/OCA/project/tree/15.0) [16.0](https://github.com/OCA/project/tree/16.0) |
 | sale_project_service_tracking_copy_tasks | [14.0](https://github.com/OCA/project/tree/14.0) |
-
 ### purchase-workflow
 
  | name | links |
@@ -1768,7 +1712,6 @@
 | subcontracted_service | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0) |
 | supplier_calendar | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0) |
 | vendor_transport_lead_time | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0) |
-
 ### queue
 
  | name | links |
@@ -1785,7 +1728,6 @@
 | test_base_import_async | [16.0](https://github.com/OCA/queue/tree/16.0) |
 | test_queue_job | [16.0](https://github.com/OCA/queue/tree/16.0) |
 | test_queue_job_batch | [16.0](https://github.com/OCA/queue/tree/16.0) |
-
 ### reporting-engine
 
  | name | links |
@@ -1826,7 +1768,6 @@
 | sql_export_excel | [15.0](https://github.com/OCA/reporting-engine/tree/15.0) [16.0](https://github.com/OCA/reporting-engine/tree/16.0) |
 | sql_export_mail | [15.0](https://github.com/OCA/reporting-engine/tree/15.0) [16.0](https://github.com/OCA/reporting-engine/tree/16.0) |
 | sql_request_abstract | [15.0](https://github.com/OCA/reporting-engine/tree/15.0) [16.0](https://github.com/OCA/reporting-engine/tree/16.0) |
-
 ### rest-framework
 
  | name | links |
@@ -1849,7 +1790,6 @@
 | model_serializer | [14.0](https://github.com/OCA/rest-framework/tree/14.0) [15.0](https://github.com/OCA/rest-framework/tree/15.0) [16.0](https://github.com/OCA/rest-framework/tree/16.0) |
 | pydantic | [14.0](https://github.com/OCA/rest-framework/tree/14.0) [15.0](https://github.com/OCA/rest-framework/tree/15.0) [16.0](https://github.com/OCA/rest-framework/tree/16.0) |
 | rest_log | [14.0](https://github.com/OCA/rest-framework/tree/14.0) [15.0](https://github.com/OCA/rest-framework/tree/15.0) [16.0](https://github.com/OCA/rest-framework/tree/16.0) |
-
 ### sale-reporting.git
 
  | name | links |
@@ -1872,7 +1812,6 @@
 | sale_report_delivered_subtotal | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
 | sale_report_delivered_volume | [16.0](https://github.com/OCA/sale-reporting.git/tree/16.0) |
 | sale_report_delivery_date | [14.0](https://github.com/OCA/sale-reporting.git/tree/14.0) |
-
 ### sale-workflow
 
  | name | links |
@@ -2067,7 +2006,6 @@
 | sales_team_security_crm | [14.0](https://github.com/OCA/sale-workflow/tree/14.0) [15.0](https://github.com/OCA/sale-workflow/tree/15.0) |
 | sales_team_security_sale | [14.0](https://github.com/OCA/sale-workflow/tree/14.0) [15.0](https://github.com/OCA/sale-workflow/tree/15.0) |
 | sell_only_by_packaging | [16.0](https://github.com/OCA/sale-workflow/tree/16.0) |
-
 ### server-auth
 
  | name | links |
@@ -2098,7 +2036,6 @@
 | users_ldap_populate | [14.0](https://github.com/OCA/server-auth/tree/14.0) [16.0](https://github.com/OCA/server-auth/tree/16.0) |
 | vault | [14.0](https://github.com/OCA/server-auth/tree/14.0) [15.0](https://github.com/OCA/server-auth/tree/15.0) [16.0](https://github.com/OCA/server-auth/tree/16.0) |
 | vault_share | [14.0](https://github.com/OCA/server-auth/tree/14.0) [15.0](https://github.com/OCA/server-auth/tree/15.0) [16.0](https://github.com/OCA/server-auth/tree/16.0) |
-
 ### server-backend
 
  | name | links |
@@ -2120,7 +2057,6 @@
 | base_user_role_profile | [14.0](https://github.com/OCA/server-backend/tree/14.0) |
 | server_action_navigate | [14.0](https://github.com/OCA/server-backend/tree/14.0) [16.0](https://github.com/OCA/server-backend/tree/16.0) |
 | server_action_sort | [16.0](https://github.com/OCA/server-backend/tree/16.0) |
-
 ### server-env
 
  | name | links |
@@ -2137,7 +2073,6 @@
 | server_environment_files_sample | [15.0](https://github.com/OCA/server-env/tree/15.0) |
 | server_environment_iap | [14.0](https://github.com/OCA/server-env/tree/14.0) |
 | server_environment_ir_config_parameter | [14.0](https://github.com/OCA/server-env/tree/14.0) [15.0](https://github.com/OCA/server-env/tree/15.0) [16.0](https://github.com/OCA/server-env/tree/16.0) |
-
 ### server-tools
 
  | name | links |
@@ -2227,7 +2162,6 @@
 | tracking_manager | [14.0](https://github.com/OCA/server-tools/tree/14.0) [15.0](https://github.com/OCA/server-tools/tree/15.0) [16.0](https://github.com/OCA/server-tools/tree/16.0) |
 | upgrade_analysis | [14.0](https://github.com/OCA/server-tools/tree/14.0) [15.0](https://github.com/OCA/server-tools/tree/15.0) [16.0](https://github.com/OCA/server-tools/tree/16.0) |
 | url_attachment_search_fuzzy | [14.0](https://github.com/OCA/server-tools/tree/14.0) [16.0](https://github.com/OCA/server-tools/tree/16.0) |
-
 ### server-ux
 
  | name | links |
@@ -2288,7 +2222,6 @@
 | test_base_tier_validation | [14.0](https://github.com/OCA/server-ux/tree/14.0) |
 | user_all_groups | [16.0](https://github.com/OCA/server-ux/tree/16.0) |
 | web_archive_date | [14.0](https://github.com/OCA/server-ux/tree/14.0) [15.0](https://github.com/OCA/server-ux/tree/15.0) |
-
 ### social
 
  | name | links |
@@ -2364,7 +2297,6 @@
 | microsoft_outlook_single_tenant | [14.0](https://github.com/OCA/social/tree/14.0) [15.0](https://github.com/OCA/social/tree/15.0) |
 | outgoing_email_by_model | [15.0](https://github.com/OCA/social/tree/15.0) |
 | website_mass_mailing_name | [14.0](https://github.com/OCA/social/tree/14.0) |
-
 ### stock-logistics-warehouse
 
  | name | links |
@@ -2496,7 +2428,6 @@
 | stock_vertical_lift_storage_type | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0) |
 | stock_vlm_mgmt | [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0) |
 | stock_warehouse_calendar | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0) |
-
 ### stock-logistics-workflow
 
  | name | links |
@@ -2628,7 +2559,6 @@
 | stock_valuation_layer_usage | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0) |
 | stock_valuation_no_developer_mode | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0) |
 | stock_warn_option | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0) |
-
 ### survey
 
  | name | links |
@@ -2641,7 +2571,6 @@
 | survey_question_type_nps | [14.0](https://github.com/OCA/survey/tree/14.0) |
 | survey_text_question_validation_length | [14.0](https://github.com/OCA/survey/tree/14.0) |
 | survey_xlsx | [14.0](https://github.com/OCA/survey/tree/14.0) |
-
 ### timesheet
 
  | name | links |
@@ -2684,7 +2613,6 @@
 | sale_timesheet_order_line_sync | [14.0](https://github.com/OCA/timesheet/tree/14.0) |
 | sale_timesheet_rounded | [14.0](https://github.com/OCA/timesheet/tree/14.0) [15.0](https://github.com/OCA/timesheet/tree/15.0) [16.0](https://github.com/OCA/timesheet/tree/16.0) |
 | sale_timesheet_task_exclude | [15.0](https://github.com/OCA/timesheet/tree/15.0) [16.0](https://github.com/OCA/timesheet/tree/16.0) |
-
 ### web-api
 
  | name | links |
@@ -2693,7 +2621,6 @@
 | endpoint_auth_api_key | [16.0](https://github.com/OCA/web-api/tree/16.0) |
 | endpoint_route_handler | [16.0](https://github.com/OCA/web-api/tree/16.0) |
 | webservice | [15.0](https://github.com/OCA/web-api/tree/15.0) [16.0](https://github.com/OCA/web-api/tree/16.0) |
-
 ### website.git
 
  | name | links |
@@ -2722,7 +2649,6 @@
 | website_snippet_marginless_gallery | [15.0](https://github.com/OCA/website.git/tree/15.0) |
 | website_snippet_openstreetmap | [15.0](https://github.com/OCA/website.git/tree/15.0) |
 | website_whatsapp | [15.0](https://github.com/OCA/website.git/tree/15.0) [16.0](https://github.com/OCA/website.git/tree/16.0) |
-
 ### web
 
  | name | links |
@@ -2814,9 +2740,7 @@
 | web_widget_uom | [14.0](https://github.com/OCA/web/tree/14.0) |
 | web_widget_url_advanced | [14.0](https://github.com/OCA/web/tree/14.0) [15.0](https://github.com/OCA/web/tree/15.0) |
 | web_widget_x2many_2d_matrix | [14.0](https://github.com/OCA/web/tree/14.0) [15.0](https://github.com/OCA/web/tree/15.0) [16.0](https://github.com/OCA/web/tree/16.0) |
-
 ## mint-system
-
 
 ### odoo-apps-account-invoicing
 
@@ -2838,7 +2762,6 @@
 | sale_invoice_cash_rounding_default | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
 | sale_invoice_ignore_ref | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
 | sale_invoice_line_description | [16.0](https://github.com/mint-system/odoo-apps-account-invoicing/tree/16.0) |
-
 ### odoo-apps-partner-contact
 
  | name | links |
@@ -2857,7 +2780,6 @@
 | partner_type_membership | [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
 | partner_type_order | [15.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/15.0) [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
 | partner_type_sale | [15.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/15.0) [16.0](https://github.com/mint-system/odoo-apps-partner-contact/tree/16.0) |
-
 ### odoo-apps-sale-workflow
 
  | name | links |
@@ -2902,7 +2824,6 @@
 | sale_order_notes | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
 | sale_order_sale_partner | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
 | sale_order_template_notes | [14.0](https://github.com/mint-system/odoo-apps-sale-workflow/tree/14.0) |
-
 ### odoo-apps-thirdparty
 
  | name | links |
