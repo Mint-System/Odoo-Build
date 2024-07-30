@@ -1217,9 +1217,9 @@ function generate-module-overview() {
 }
 
 function update-docs() {
-    generate-snippets-doc
-    generate-revisions-doc
     generate-module-overview
+    generate-revisions-doc
+    generate-snippets-doc
 }
 
 function visualize-dependencies() {
