@@ -2909,6 +2909,32 @@ ID: `mint_system.account.report_invoice_document.x_picking_list`
 ```
 Source: [snippets/account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_picking_list.xml)
 
+### X Show Bank Details  
+ID: `mint_system.account.report_invoice_document.x_show_bank_details`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p name="payment_communication" position="after">
+
+        <p t-if="o.x_show_bank_details and o.currency_id.name == 'CHF'">
+            <strong>Bank Account CHF</strong><br/>
+            Bank: Raiffeisenbank, CH-6341 Baar<br/>
+            Number: 81454 - 46998.41<br/>
+            SWIFT: RAIFCH22XXX<br/>
+            IBAN: CH13 8080 8007 4030 9457
+        </p>
+        <p t-if="o.x_show_bank_details and o.currency_id.name == 'EUR'">
+            <strong>Bank Account EUR</strong><br/>
+            Bank: Raiffeisenbank, CH-6341 Baar<br/>
+            Number: 81454 - 46998.66<br/>
+            SWIFT: RAIFCH22XXX<br/>
+            IBAN: CH86 8080 8008 3148 5950 8
+        </p>
+        
+    </p>
+</data>
+```
+Source: [snippets/account.report_invoice_document.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_show_bank_details.xml)
+
 ## Report Invoice  
 ### Print With Payments  
 ID: `mint_system.account.report_invoice.print_with_payments`  
@@ -3712,6 +3738,19 @@ ID: `mint_system.account.view_move_form.x_sale_order_id`
 
 ```
 Source: [snippets/account.view_move_form.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_sale_order_id.xml)
+
+### X Show Bank Details  
+ID: `mint_system.account.view_move_form.x_show_bank_details`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="team_id" position="after">
+        <field name="x_show_bank_details"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_form.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_show_bank_details.xml)
 
 ## View Move Line Tax Audit Tree  
 ### Show Balance  
