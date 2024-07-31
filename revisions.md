@@ -68,3 +68,5 @@ For each major release there are multiple revisions.
 
 #### [17.0.20240405](https://github.com/Mint-System/Odoo-Build/tree/16.0/scripts/odoo_revision_17.0.20240405)
 
+#### [17.0.20240730](https://github.com/Mint-System/Odoo-Build/tree/16.0/scripts/odoo_revision_17.0.20240730)
+
