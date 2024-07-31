@@ -422,8 +422,12 @@ function init-db() {
     activate-venv
     set-addons-path
 
-    echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    echo "Initialize database."
+    if [[ -n "$ODOO_PARAM" ]] ; then
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+    else
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    fi
 }
 
 function odoo-cloc() {
@@ -1071,8 +1075,8 @@ function git-submodule-remove() {
 }
 
 function git-submodule-list() {
-    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
@@ -1197,7 +1201,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+="#### [$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
@@ -1206,9 +1210,16 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
+function generate-module-overview() {
+    echo "Update module overview doc file."
+    activate-venv
+    ./scripts/generate_module_overview
+}
+
 function update-docs() {
-    generate-snippets-doc
+    generate-module-overview
     generate-revisions-doc
+    generate-snippets-doc
 }
 
 function visualize-dependencies() {
@@ -1301,6 +1312,9 @@ case "$1" in
     generate-module-security)
         generate-module-security "$2" "$3"
         ;;
+    generate-module-overview)
+        generate-module-overview
+        ;;
     get-module-version)
         get-module-version "$2"
         ;;
@@ -1388,6 +1402,19 @@ case "$1" in
         ;;
     logs)
         docker logs odoo -f
+        ;;
+    node-install)
+        npm install
+        ;;
+    node-dev)
+        npm run dev
+        ;;
+    node-build)
+        npm run build
+        ;;
+    node-serve-build)
+        cd .vuepress/dist
+        npx serve
         ;;
     patch-database)
         patch-database "$2" "$3"

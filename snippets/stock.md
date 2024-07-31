@@ -211,13 +211,10 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 </t>
                                 <br/>
                                 <br/>
-                                <t t-if="move_line.lot_id.name">
+                                <t>
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode"/>
                                     <br/>
                                     <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])"/>
-                                </t>
-                                <t t-else="">
-                                    <span class="use-font-opensans-medium default text-muted">No barcode available</span>
                                 </t>
                                 <br/>
                                 <br/>
@@ -7048,6 +7045,19 @@ ID: `mint_system.stock.view_production_lot_form.x_device_name`
 
 ```
 Source: [snippets/stock.view_production_lot_form.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_device_name.xml)
+
+### X Forcepoint  
+ID: `mint_system.stock.view_production_lot_form.x_forcepoint`  
+```xml
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+      <field name="x_forcepoint_pos"/>
+      <field name="x_forcepoint_pol"/>
+    </field>
+  </data>
+  
+```
+Source: [snippets/stock.view_production_lot_form.x_forcepoint.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_forcepoint.xml)
 
 ### X Hostname  
 ID: `mint_system.stock.view_production_lot_form.x_hostname`  

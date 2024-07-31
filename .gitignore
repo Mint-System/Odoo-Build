@@ -1,14 +1,12 @@
 __pycache__
 .DS_Store
 .env
-addons
 tmp
 default.vim
 managed-modules
 venv*
 node_modules
 .vercel
-oca/openupgrade
 .vscode
 *.log
 upgrade-report.html
@@ -17,8 +15,6 @@ public
 .temp
 .cache
 dist
-=2.0.0
-=4.0.0
 origin.dump
 filestore
 upgraded.dump

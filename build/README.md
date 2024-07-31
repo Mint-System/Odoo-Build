@@ -1,4 +1,4 @@
-# Odoo Build
+# [Odoo Build](https://odoo.build/)
 
 A better Odoo image.
 
@@ -6,7 +6,7 @@ A better Odoo image.
 - Detects and aggregates nested module folders 
 - The Odoo source is set to the latest commit of date in tag
 - Ships with python 3.11
-- Define log level with env var
+- Define Odoo configs with env vars
 
 ## Usage
 

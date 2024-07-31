@@ -9,7 +9,6 @@ ENV LANG C.UTF-8
 # Retrieve the target architecture to install the correct wkhtmltopdf package
 ARG TARGETARCH
 
-
 # Retrieve the Odoo version
 ARG ODOO_VERSION
 
