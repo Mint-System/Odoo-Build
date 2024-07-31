@@ -140,7 +140,13 @@ Run Odoo with Docker container.
 
 #### Start and initialize Odoo with Docker
 
-Run docker compose.
+Set the Odoo addons path in your `.env` file:
+
+```bash
+ODOO_ADDONS_PATH=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
+```
+
+Run Docker Compose.
 
 ```bash
 task start
