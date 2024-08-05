@@ -1,0 +1,13 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+<xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
+    <div class="row">
+      <div class="col">
+        <span t-if="doc.payment_term_id.note">
+          Payment terms: <strong t-field="doc.payment_term_id.name"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
