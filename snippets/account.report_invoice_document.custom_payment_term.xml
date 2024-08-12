@@ -6,3 +6,13 @@
     </p>
     </xpath>
 </data>
+
+<!-- Version 16
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@name='payment_term']" position="replace">
+        <p t-if="o.invoice_payment_term_id" name="payment_term">
+      Payment terms: <strong t-field="o.invoice_payment_term_id.name"/>
+    </p>
+    </xpath>
+</data>
+-->
