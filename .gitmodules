@@ -38,3 +38,7 @@
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 17.0
+[submodule "oca/management-system"]
+	path = oca/management-system
+	url = git@github.com:OCA/management-system.git
+	branch = 17.0
