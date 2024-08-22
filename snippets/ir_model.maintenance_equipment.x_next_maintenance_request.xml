@@ -7,16 +7,16 @@
         <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
         <field name="name">x_next_maintenance_request</field>
         <field name="store" eval="False"/>
-        <field name="readonly" eval="False"/>
+        <field name="readonly" eval="True"/>
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
         <field name="relation">maintenance.request</field>
         <field name="depends">name, maintenance_ids.schedule_date</field>
         <field name="compute">for record in self:
-    next_maintenance = record.maintenance_ids.search([('stage_id.done', '=', False), ('equipment_id', '=', record.id), ('schedule_date', '=', True)], order='schedule_date', limit=1)
-    if next_maintenance:
+    next_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['1', '2']), ('equipment_id', '=', record.id)], order='schedule_date', limit=1)
+    if next_maintenance and next_maintenance.schedule_date:
         record['x_next_maintenance_request'] = next_maintenance.id
     else:
-        record['x_next_maintenance_request'] = 0</field>
+        record['x_next_maintenance_request'] = None</field>
     </record>
 </odoo>

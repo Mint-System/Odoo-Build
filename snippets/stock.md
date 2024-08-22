@@ -211,13 +211,10 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
                                 </t>
                                 <br/>
                                 <br/>
-                                <t t-if="move_line.lot_id.name">
+                                <t>
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode"/>
                                     <br/>
                                     <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])"/>
-                                </t>
-                                <t t-else="">
-                                    <span class="use-font-opensans-medium default text-muted">No barcode available</span>
                                 </t>
                                 <br/>
                                 <br/>
@@ -1188,6 +1185,24 @@ ID: `mint_system.stock.report_delivery_document.add_date`
 
 ```
 Source: [snippets/stock.report_delivery_document.add_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_date.xml)
+
+### Add Drawing File  
+ID: `mint_system.stock.report_delivery_document.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]/span" position="after">
+        <t t-if="move.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{move.product_id.drawing_file.url}}">
+                <span t-field="move.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_drawing_file.xml)
 
 ### Add Header And Footer Note  
 ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`  
@@ -2300,6 +2315,57 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table`
             </tr>
         </table>
     </xpath>
+
+    <!-- Odoo 17
+
+     <xpath expr="//div[@class='page']/div[2]" position="replace">
+
+        <div class="row">
+            <div class="col-4">
+                <strong>Verkaufsauftrag: </strong>
+                <span t-field="o.sale_id.name"/>
+            </div>
+            <div class="col-3">
+                <strong>Bestelldatum: </strong>
+                <span t-field="o.sale_id.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Kontakt Verkauf: </strong>
+                <span t-field="o.sale_id.user_id"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>Kunden-Nr.: </strong>
+                <span t-field="o.partner_id.ref"/>
+            </div>
+            <div class="col-3">
+                <strong>Lieferdatum: </strong>
+                <span t-esc="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Tel. Direkt: </strong>
+                <span t-field="o.sale_id.user_id.phone"/>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 40px">
+            <div class="col-4">
+                <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
+                    <strong>Spediteur: </strong>
+                    <span t-field="o.carrier_id"/>
+                </div>
+            </div>
+            <div class="col-3">
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>E-Mail: </strong>
+                <span t-field="o.sale_id.user_id.email"/>
+            </div>
+        </div>
+
+    </xpath>
+    -->
+
 </data>
 
 ```
@@ -2497,51 +2563,56 @@ Source: [snippets/stock.report_delivery_document.replace_sale_line_name.xml](htt
 ### Replace Table  
 ID: `mint_system.stock.report_delivery_document.replace_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//table[@name='stock_move_table']" position="replace">
-        <table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px; " t-if="o.state!='done'" name="stock_move_table">
-            <thead>
-                <tr style="color:black; border-bottom: 1px solid rgb(220,220,220);">
-                    <th style="padding-left: 9px; padding-bottom: 10px; width:10%;">Art. Nr.</th>
-                    <th name="th_sm_product" style="width:35%;">
-                        <strong>Bezeichnung</strong>
-                    </th>
-                    <th style="width:25%;">Typenbezeichnung</th>
-                    <th name="th_sm_quantity" style="width:20%; text-align:right; padding-right:20px;">
-                        <strong>Menge</strong>
-                    </th>
-                    <th style="width:15%; text-align: right; padding-right: 10px">Lieferdatum</th>
-                </tr>
-            </thead>
-            <tbody>
-                <t t-set="lines" t-value="o.move_lines.filtered(lambda x: x.product_uom_qty)"/>
-                <tr t-foreach="lines" t-as="move" style="border-bottom: 1px solid rgb(220,220,220);">
-                    <td style="padding-left: 10px; padding-top:5px; vertical-align:top;">
-                        <span t-field="move.product_id.default_code"/>
-                    </td>
-                    <td style="padding-top:5px; padding-right: 10px; vertical-align:top;">
-                        <span t-field="move.product_id.name"/>
-                        <p t-if="move.description_picking != move.product_id.name">
-                            <span t-field="move.description_picking"/>
-                        </p>
-                    </td>
-                    <td style="padding-top:5px; vertical-align:top;">
-                        <span t-field="move.product_id.type_description"/>
-                    </td>
-                    <td style="width:18%; text-align:right; padding-right:20px; padding-top:5px; vertical-align:top;">
-                        <span t-field="move.product_uom_qty"/>
-                        <span t-field="move.product_uom"/>
-                    </td>
-                    <td style="text-align: right; padding-right: 10px; padding-top:5px; vertical-align:top;">
-                        <span t-field="move.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </xpath>
-</data>
 
+    <xpath expr="//div[@class='page']/div[2]" position="replace">
+
+        <div class="row">
+            <div class="col-4">
+                <strong>Verkaufsauftrag: </strong>
+                <span t-field="o.sale_id.name"/>
+            </div>
+            <div class="col-3">
+                <strong>Bestelldatum: </strong>
+                <span t-field="o.sale_id.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Kontakt Verkauf: </strong>
+                <span t-field="o.sale_id.user_id"/>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <strong>Kunden-Nr.: </strong>
+                <span t-field="o.partner_id.ref"/>
+            </div>
+            <div class="col-3">
+                <strong>Lieferdatum: </strong>
+                <span t-esc="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>Tel. Direkt: </strong>
+                <span t-field="o.sale_id.user_id.phone"/>
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 40px">
+            <div class="col-4">
+            </div>
+            <div class="col-3">
+                <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
+                    <strong>Spediteur: </strong>
+                    <span t-field="o.carrier_id"/>
+                </div>
+            </div>
+            <div class="col-5" style="margin-left: 60px">
+                <strong>E-Mail: </strong>
+                <span t-field="o.sale_id.user_id.email"/>
+            </div>
+        </div>
+
+    </xpath>
+
+</data>
 ```
 Source: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.replace_table.xml)
 
@@ -3179,6 +3250,24 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Drawing File  
+ID: `mint_system.stock.report_picking.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//tbody[1]//td[1]/span" position="after">
+        <t t-if="ml.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{ml.product_id.drawing_file.url}}">
+                <span t-field="ml.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_drawing_file.xml)
+
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
@@ -3485,6 +3574,17 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 
 ```
 Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
+
+### Move State  
+ID: `mint_system.stock.report_picking.move_state`  
+```xml
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//div[@name='div_sched_date']" position="after">
+        <xpath expr="//div[@name='div_state']" position="move"/>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.move_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.move_state.xml)
 
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
@@ -4540,6 +4640,24 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 ```
 Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_delivery_note.xml)
 
+### Add Drawing File  
+ID: `mint_system.stock.report_picking.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//tbody[1]//td[1]/span" position="after">
+        <t t-if="ml.product_id.drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{ml.product_id.drawing_file.url}}">
+                <span t-field="ml.product_id.drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.add_drawing_file.xml)
+
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
@@ -4846,6 +4964,17 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 
 ```
 Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.modify_no_reserved_product.xml)
+
+### Move State  
+ID: `mint_system.stock.report_picking.move_state`  
+```xml
+<data inherit_id="stock.report_picking" priority="50">
+    <xpath expr="//div[@name='div_sched_date']" position="after">
+        <xpath expr="//div[@name='div_state']" position="move"/>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_picking.move_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.move_state.xml)
 
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
@@ -5831,6 +5960,24 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_c
 
 ```
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
+
+### Add Drawing File  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+    <xpath expr="//tr/td[1]/span[1]" position="after">
+        <t t-if="aggregated_lines[line]['product'].drawing_file">
+            <br/>
+            <span>Drawing: </span>
+            <a t-attf-href="{{aggregated_lines[line]['product'].drawing_file.url}}">
+                <span t-esc="aggregated_lines[line]['product'].drawing_file.display_name"/>
+            </a>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml)
 
 ### Format Pos  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`  
@@ -6885,6 +7032,84 @@ ID: `mint_system.stock.view_production_lot_form.x_autoremove`
 
 ```
 Source: [snippets/stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_autoremove.xml)
+
+### X Device Name  
+ID: `mint_system.stock.view_production_lot_form.x_device_name`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_device_name"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_device_name.xml)
+
+### X Forcepoint  
+ID: `mint_system.stock.view_production_lot_form.x_forcepoint`  
+```xml
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+      <field name="x_forcepoint_pos"/>
+      <field name="x_forcepoint_pol"/>
+    </field>
+  </data>
+  
+```
+Source: [snippets/stock.view_production_lot_form.x_forcepoint.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_forcepoint.xml)
+
+### X Hostname  
+ID: `mint_system.stock.view_production_lot_form.x_hostname`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_hostname"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_hostname.xml)
+
+### X Ip Address  
+ID: `mint_system.stock.view_production_lot_form.x_ip_address`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_ip_address"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_ip_address.xml)
+
+### X Location  
+ID: `mint_system.stock.view_production_lot_form.x_location`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_location"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_location.xml)
+
+### X Managed Service  
+ID: `mint_system.stock.view_production_lot_form.x_managed_service`  
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+        <field name="x_managed_service"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_production_lot_form.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_production_lot_form.x_managed_service.xml)
 
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  

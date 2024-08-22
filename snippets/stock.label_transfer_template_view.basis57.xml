@@ -206,13 +206,10 @@
                                 </t>
                                 <br/>
                                 <br/>
-                                <t t-if="move_line.lot_id.name">
+                                <t>
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s' % ('EAN13', barcode, 600, 50)" alt="Barcode"/>
                                     <br/>
                                     <span class="use-font-opensans-medium barcode" t-esc="'%s %s %s' % (barcode[0], barcode[1:8], barcode[8:])"/>
-                                </t>
-                                <t t-else="">
-                                    <span class="use-font-opensans-medium default text-muted">No barcode available</span>
                                 </t>
                                 <br/>
                                 <br/>

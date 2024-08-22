@@ -215,11 +215,17 @@ Source: [snippets/mail.mail_notification_light.reduce_to_content.xml](https://gi
 ### Remove Access Link  
 ID: `mint_system.mail.mail_notification_light.remove_access_link`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mail.mail_notification_light" priority="60">
-    <xpath expr="//t[@t-if='has_button_access']" position="replace"/>
+    <xpath expr="//t[@t-if='has_button_access']/.." position="replace">
+      <td valign="middle">
+        <span style="font-size: 10px;"><t t-out="model_description or 'document'"/></span>
+        <br/>
+        <span style="font-size: 20px; font-weight: bold;">
+            <t t-out="message.record_name and message.record_name.replace('/','-') or ''"/>
+        </span>
+    </td>
+  </xpath>
 </data>
-
 ```
 Source: [snippets/mail.mail_notification_light.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail.mail_notification_light.remove_access_link.xml)
 

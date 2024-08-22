@@ -1,0 +1,72 @@
+#!/bin/bash
+set -e
+
+if [[ -a ".env" ]]; then
+    export $(cat .env | sed 's/^#.*//g' | xargs)
+fi
+
+function help() {
+    echo
+    echo "task <command> [options]"
+    echo
+    echo "commands:"
+    echo
+
+    # Define column widths
+    cmd_width=10
+    opt_width=6
+    desc_width=32
+
+    # Print table header
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "Command" "Option" "Description"
+    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
+
+    # Print table rows
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "all" "" "Run all tasks."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init" "" "Init local env."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint" "" "Run pre-commit."
+
+    echo
+}
+
+function version() {
+    python3 -V
+    pip -V
+}
+
+function init() {
+    echo "Install python dependencies"
+    python3 -m venv env
+    source env/bin/activate
+    pip install pre-commit
+}
+
+function lint() {
+    echo "Run pre-commit"
+    source env/bin/activate
+    pre-commit run --all-files # --show-diff-on-failure --color=always
+}
+
+case "$1" in
+    help)
+        help
+        ;;
+    all)
+        version
+        init
+        lint
+        ;;
+    version)
+        version
+        ;;
+    init)
+        init
+        ;;
+    lint)
+        lint
+        ;;
+    *)
+        help
+        exit 1;
+esac

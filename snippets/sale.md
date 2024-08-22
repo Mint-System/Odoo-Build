@@ -2007,6 +2007,30 @@ ID: `mint_system.sale.report_saleorder_document.group_by_product`
 ```
 Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.group_by_product.xml)
 
+### Move Order Note  
+ID: `mint_system.sale.report_saleorder_document.move_order_note`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    
+    <xpath expr="//p[@name='order_note']" position="replace">
+    </xpath>  
+      
+    <xpath expr="/t/t/div/div[6]" position="after">
+      
+      <div class="row">
+      <div class="col">
+        <span>
+          <p t-field="doc.note" name="order_note"/>
+        </span>
+      </div>
+    </div>
+  
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.move_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.move_order_note.xml)
+
 ### Remove Discount Percentage  
 ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`  
 ```xml
@@ -2293,6 +2317,25 @@ ID: `mint_system.sale.report_saleorder_document.replace_partner_id`
 
 ```
 Source: [snippets/sale.report_saleorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_partner_id.xml)
+
+### Replace Payment Term  
+ID: `mint_system.sale.report_saleorder_document.replace_payment_term`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+<xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
+    <div class="row">
+      <div class="col">
+        <span t-if="doc.payment_term_id.note">
+          Payment terms: <strong t-field="doc.payment_term_id.name"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_payment_term.xml)
 
 ### Replace Product Description  
 ID: `mint_system.sale.report_saleorder_document.replace_product_description`  
@@ -2919,76 +2962,44 @@ Source: [snippets/sale.report_saleorder_document.style_swissfragrance.xml](https
 ### Style Tissa  
 ID: `mint_system.sale.report_saleorder_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            .o_company_1_layout {
-                font-family: arial;
-            }
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada tr.first td {
-                padding-bottom: 0;
-            }
-            table.trimada tr.second td {
-                padding-top: 0;
-            }
-            table.trimada tr.second {
-                border-bottom: 1px solid rgb(220,220,220);
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody #commitment_date {
-              text-align: right;
-            }
-            table.trimada tbody td span#product_uom_qty {
-              font-weight: bold;
-            }
-            table.trimada tbody td span#product_uom_qty_confirmed {
-              font-weight: bold;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <xpath expr="//table[2]" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//th[@id='commitment_date']" position="attributes">
-        <attribute name="class">text-right</attribute>
-    </xpath>
-</data>
+<data inherit_id="sale.report_saleorder_document" priority="50">
 
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		  .table-sm {
+				padding: 0.3rem !important;
+			}	
+		  .table-sm td {
+				border-top: 1px solid #dee2e6 !important;
+				padding: 0.3rem !important;
+			}
+			.table-sm th {
+				border-top: 1px solid #dee2e6 !important;
+				padding: 0.3rem !important;
+			}
+			table#info {
+				font-size: 9pt;
+			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+			}
+		</style>
+	</xpath>
+	
+	<xpath expr="//div[@t-field='doc.partner_invoice_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+
+  <xpath expr="//div[@t-field='doc.partner_shipping_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_tissa.xml)
 
@@ -3329,6 +3340,19 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`
 ```
 Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
 
+### Show Temporal Type  
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_temporal_type`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50">
+    <field name="order_id" position="after">
+        <field name="temporal_type"/>
+    </field>
+</data>
+
+```
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml)
+
 ## Sale Order Portal Content  
 ### Add Header And Footer Note  
 ID: `mint_system.sale.sale_order_portal_content.add_header_and_footer_note`  
@@ -3519,6 +3543,20 @@ ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`
 
 ```
 Source: [snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml)
+
+## Sale Order Tree  
+### Carrier Id  
+ID: `mint_system.sale.sale_order_tree.carrier_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_tree" priority="50">
+    <xpath expr="//field[@name='validity_date']" position="after">
+        <field name="carrier_id" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.sale_order_tree.carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_tree.carrier_id.xml)
 
 ## Sale Order View Search Inherit Quotation  
 ### Add Filter Cancel  
@@ -3853,6 +3891,44 @@ ID: `mint_system.sale.view_order_form.move_commitment_date`
 ```
 Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_commitment_date.xml)
 
+### Move Note  
+ID: `mint_system.sale.view_order_form.move_note`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+
+    <xpath expr="//field[@name='picking_note']" position="replace"/>
+    <xpath expr="//field[@name='picking_customer_note']" position="replace"/>
+
+    <xpath expr="//group[@name='note_group']" position="after">
+        <group name="sale_shipping" position="inside">
+            <field name="picking_note" string="Notiz Rüstschein" placeholder="Notiz ..." readonly="state not in ('draft','sent')"/>
+            <field name="picking_customer_note" string="Notiz Lieferschein" placeholder="Notiz ..." readonly="state not in ('draft','sent')"/>
+        </group>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_note.xml)
+
+### Move Picking Notes  
+ID: `mint_system.sale.view_order_form.move_picking_notes`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+
+    <xpath expr="//field[@name='picking_note']" position="replace"/>
+    <xpath expr="//field[@name='picking_customer_note']" position="replace"/>
+
+    <xpath expr="//group[@name='note_group']" position="before">
+        <group name="sale_shipping" position="inside">
+            <field name="picking_note" string="Notiz Rüstschein" readonly="state not in ('draft','sent')"/>
+            <field name="picking_customer_note" string="Notiz Lieferschein" readonly="state not in ('draft','sent')"/>
+        </group>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.view_order_form.move_picking_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_picking_notes.xml)
+
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
 ```xml
@@ -3960,6 +4036,19 @@ ID: `mint_system.sale.view_order_form.show_commitment_date`
 
 ```
 Source: [snippets/sale.view_order_form.show_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_commitment_date.xml)
+
+### Show Invoice Lines  
+ID: `mint_system.sale.view_order_form.show_invoice_lines`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='order_line']/tree/field[@name='qty_invoiced']" position="after">
+        <field name="invoice_lines" widget="many2many_tags" optional="hide"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_form.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_invoice_lines.xml)
 
 ### Show Order Line Project Id  
 ID: `mint_system.sale.view_order_form.show_order_line_project_id`  
@@ -4246,6 +4335,19 @@ ID: `mint_system.sale.view_order_line_tree.editable`
 
 ```
 Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.editable.xml)
+
+### Enable Create  
+ID: `mint_system.sale.view_order_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_line_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="create">true</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.enable_create.xml)
 
 ### Fields Optional Hide  
 ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
@@ -4569,6 +4671,30 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 ```
 Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
 
+### Show Payment Term Id  
+ID: `mint_system.sale.view_order_tree.show_payment_term_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <field name="state" position="after">
+        <field name="payment_term_id" optional="hide"/>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_tree.show_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_payment_term_id.xml)
+
+### Show Project  
+ID: `mint_system.sale.view_order_tree.show_project`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <field name="partner_id" position="after">
+        <field name="project_id" optional="hide"/>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_tree.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_project.xml)
+
 ### Show State  
 ID: `mint_system.sale.view_order_tree.show_state`  
 ```xml
@@ -4581,6 +4707,19 @@ ID: `mint_system.sale.view_order_tree.show_state`
 
 ```
 Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_state.xml)
+
+### X Country Id Name  
+ID: `mint_system.sale.view_order_tree.x_country_id_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.view_order_tree" priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="x_country_id_name"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_order_tree.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_country_id_name.xml)
 
 ### X Payment State  
 ID: `mint_system.sale.view_order_tree.x_payment_state`  
