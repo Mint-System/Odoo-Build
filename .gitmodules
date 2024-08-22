@@ -258,3 +258,15 @@
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
 	branch = 16.0
+[submodule "oca/l10n-switzerland"]
+	path = oca/l10n-switzerland
+	url = git@github.com:OCA/l10n-switzerland.git
+	branch = 16.0
+[submodule "oca/maintenance"]
+	path = oca/maintenance
+	url = git@github.com:OCA/maintenance.git
+	branch = 16.0
+[submodule "oca/dms"]
+	path = oca/dms
+	url = git@github.com:OCA/dms.git
+	branch = 16.0
