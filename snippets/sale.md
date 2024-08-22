@@ -2007,6 +2007,30 @@ ID: `mint_system.sale.report_saleorder_document.group_by_product`
 ```
 Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.group_by_product.xml)
 
+### Move Order Note  
+ID: `mint_system.sale.report_saleorder_document.move_order_note`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    
+    <xpath expr="//p[@name='order_note']" position="replace">
+    </xpath>  
+      
+    <xpath expr="/t/t/div/div[6]" position="after">
+      
+      <div class="row">
+      <div class="col">
+        <span>
+          <p t-field="doc.note" name="order_note"/>
+        </span>
+      </div>
+    </div>
+  
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.move_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.move_order_note.xml)
+
 ### Remove Discount Percentage  
 ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`  
 ```xml
@@ -2293,6 +2317,25 @@ ID: `mint_system.sale.report_saleorder_document.replace_partner_id`
 
 ```
 Source: [snippets/sale.report_saleorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_partner_id.xml)
+
+### Replace Payment Term  
+ID: `mint_system.sale.report_saleorder_document.replace_payment_term`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+<xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
+    <div class="row">
+      <div class="col">
+        <span t-if="doc.payment_term_id.note">
+          Payment terms: <strong t-field="doc.payment_term_id.name"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_payment_term.xml)
 
 ### Replace Product Description  
 ID: `mint_system.sale.report_saleorder_document.replace_product_description`  
@@ -2919,76 +2962,44 @@ Source: [snippets/sale.report_saleorder_document.style_swissfragrance.xml](https
 ### Style Tissa  
 ID: `mint_system.sale.report_saleorder_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            .o_company_1_layout {
-                font-family: arial;
-            }
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada tr.first td {
-                padding-bottom: 0;
-            }
-            table.trimada tr.second td {
-                padding-top: 0;
-            }
-            table.trimada tr.second {
-                border-bottom: 1px solid rgb(220,220,220);
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody #commitment_date {
-              text-align: right;
-            }
-            table.trimada tbody td span#product_uom_qty {
-              font-weight: bold;
-            }
-            table.trimada tbody td span#product_uom_qty_confirmed {
-              font-weight: bold;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <xpath expr="//table[2]" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//th[@id='commitment_date']" position="attributes">
-        <attribute name="class">text-right</attribute>
-    </xpath>
-</data>
+<data inherit_id="sale.report_saleorder_document" priority="50">
 
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		  .table-sm {
+				padding: 0.3rem !important;
+			}	
+		  .table-sm td {
+				border-top: 1px solid #dee2e6 !important;
+				padding: 0.3rem !important;
+			}
+			.table-sm th {
+				border-top: 1px solid #dee2e6 !important;
+				padding: 0.3rem !important;
+			}
+			table#info {
+				font-size: 9pt;
+			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+			}
+		</style>
+	</xpath>
+	
+	<xpath expr="//div[@t-field='doc.partner_invoice_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+
+  <xpath expr="//div[@t-field='doc.partner_shipping_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_tissa.xml)
 

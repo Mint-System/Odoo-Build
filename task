@@ -246,21 +246,10 @@ function install-native() {
 
     echo "Install Odoo development tools"
     pip install setuptools wheel ${PIP_INOTIFY} watchdog
+    pip install -r requirements.txt
 
     echo "Install Odoo dependencies"
-    pip install -r odoo/requirements.txt
-
-    echo "Install OCA development tools"
-    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
-
-    echo "Install OCA openupgrade tools"
-    pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
-
-    echo "Install prometheus_exporter dependency"
-    pip install prometheus-client
-
-    echo "Install base_view_inheritance_extension dependency"
-    pip install astor
+    pip install -r odoo/requirements.txt    
 }
 
 function open-url-with-delay(){
@@ -449,7 +438,7 @@ function lint-module() {
 
     echo "Update index.html"
     cd "$1" || exit
-    rst2html5 README.rst static/description/index.html
+    rst2html5.py README.rst static/description/index.html
 
     echo "Stage changes"
     git add .

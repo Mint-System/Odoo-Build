@@ -573,6 +573,16 @@ ID: `mint_system.account.report_invoice_document.custom_payment_term`
     </xpath>
 </data>
 
+<!-- Version 16
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@name='payment_term']" position="replace">
+        <p t-if="o.invoice_payment_term_id" name="payment_term">
+      Payment terms: <strong t-field="o.invoice_payment_term_id.name"/>
+    </p>
+    </xpath>
+</data>
+-->
+
 ```
 Source: [snippets/account.report_invoice_document.custom_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.custom_payment_term.xml)
 
@@ -1286,12 +1296,27 @@ ID: `mint_system.account.report_invoice_document.move_incoterm`
 ```
 Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.move_incoterm.xml)
 
+### Move Narration  
+ID: `mint_system.account.report_invoice_document.move_narration`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@name='comment']/.." position="after">
+        <xpath expr="//div/div[@name='comment']" position="move"/>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.move_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.move_narration.xml)
+
 ### Net Value Summary  
 ID: `mint_system.account.report_invoice_document.net_value_summary`  
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='total']//table/tr[1]" position="before">
+    <!-- Version 16
+     <xpath expr="//div[@id='total']//table/t[1]" position="before">
+    -->
         <t t-set="net_value_of_goods" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type == 'product').mapped('price_subtotal'))"/>
         <t t-set="additional_expenses" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type != 'product').mapped('price_subtotal'))"/>
         <tr>
@@ -1310,7 +1335,6 @@ ID: `mint_system.account.report_invoice_document.net_value_summary`
         </tr>
     </xpath>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.net_value_summary.xml)
 
@@ -2767,16 +2791,25 @@ ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`
     </xpath>
 </data>
 
+<!-- Version 16
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@name='payment_term']" position="after">
+        <t t-foreach="o.partner_id.x_studio_field_5jUpb" t-as="text">
+            <span t-raw="text.x_studio_rechnungstext"/>
+        </t>
+    </xpath>
+</data>
+-->
 ```
 Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.tissa_rechnungstext.xml)
 
 ### Tissa Replace Infotable  
 ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
     table#info {
       width: 100%;
       margin-bottom: 45px;
@@ -2790,83 +2823,80 @@ ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`
       font-size: 9pt;
     }
     </style>
-        <table id="info">
-            <tr>
-                <td>
-          Kundennummer:
+    <table id="info">
+      
+    <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
+
+      <tr>
+        <td>
+          Kontaktnummer:
         </td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>
+        <td>
+          <span t-field="o.partner_id.id"/>
+        </td>
+        <td>
           Datum:
         </td>
-                <td>
-                    <span t-field="o.invoice_date"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
+        <td>
+          <span t-field="o.invoice_date"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
           USt-IdNr:
         </td>
-                <td>
-                    <span t-field="o.partner_id.vat"/>
-                </td>
-                <td>Unser Auftrag:</td>
-                <td>
-                    <t t-if="o.sale_order_id.origin"><span t-field="o.sale_order_id.origin"/>
+        <td>
+          <span t-field="o.partner_id.vat"/>
+        </td>
+        <td>Unser Auftrag:</td>
+        <td>
+          <t t-if="order_id.origin">
+            <span t-field="order_id.origin"/>
  / 
           </t>
-                    <span t-field="o.invoice_origin"/>
-                </td>
-            </tr>
-            <tr>
-                <td width="16%">EORI-Nummer:</td>
-                <td width="44%">
-                    <span t-field="o.partner_id.x_studio_eori_nummer"/>
-                </td>
-                <td>Abruf:</td>
-                <td>
-                    <span t-field="o.sale_order_id.comment"/>
-                    <t t-if="o.sale_order_id.x_studio_kommission">
-             /            <span t-field="o.sale_order_id.x_studio_kommission"/>
+          <span t-field="o.invoice_origin"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="16%">EORI-Nummer:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Abruf:</td>
+        <td>
+          <span t-field="order_id.comment"/>
+          <t t-if="order_id.x_studio_kommission">
+             /            <span t-field="order_id.x_studio_kommission"/>
           </t>
-                </td>
-            </tr>
-            <tr>
-                <td>Ihre Bestellung:</td>
-                <td>
-                    <span t-field="o.sale_order_id.blanket_order_id.client_order_ref"/>
-                </td>
-                <td>Kundenbetreuer/in:</td>
-                <td>
-                    <span t-field="o.partner_id.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <span t-field="o.sale_order_id.blanket_order_id.date_confirmed"/>
-                </td>
-                <td width="19%">Sachbearbeiter/in:</td>
-                <td width="21%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td/>
-                <td>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field="order_id.client_order_ref"/>          
+        </td>
+        <td>Ansprechpartner/in:</td>
+        <td>
+          <span t-field="o.partner_id.user_id"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td/>
+        <td/>
+        <td>
           MwSt-Nr:
         </td>
-                <td>
-          CHE-103.327.797 MWST
+        <td>
+          <span t-field="o.company_id.vat"/>  
         </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
+      </tr>
 
+    </table>
+  </xpath>
+</data>
 ```
 Source: [snippets/account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.tissa_replace_infotable.xml)
 
