@@ -150,7 +150,3 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 13.0
-[submodule "addons/odoo_apps_thirdparty"]
-	path = addons/odoo_apps_thirdparty
-	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
-	branch = 13.0
