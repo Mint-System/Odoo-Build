@@ -253,10 +253,6 @@
 	path = oca/sale-reporting
 	url = https://github.com/OCA/sale-reporting.git
 	branch = 14.0
-[submodule "addons/odoo_apps_thirdparty"]
-	path = addons/odoo_apps_thirdparty
-	url = git@gitlab.com:mint-system/odoo-apps-thirdparty.git
-	branch = 14.0
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
 	url = git@github.com:OCA/e-commerce.git
