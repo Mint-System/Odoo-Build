@@ -355,6 +355,32 @@ ID: `mint_system.base.view_partner_form.attributes_child_ids`
 ```
 Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.attributes_child_ids.xml)
 
+### Hide Meeting  
+ID: `mint_system.base.view_partner_form.hide_meeting`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//button[@name='schedule_meeting']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_form.hide_meeting.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.hide_meeting.xml)
+
+### Hide Opportunity  
+ID: `mint_system.base.view_partner_form.hide_opportunity`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>
+
+```
+Source: [snippets/base.view_partner_form.hide_opportunity.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.hide_opportunity.xml)
+
 ### Lang Required  
 ID: `mint_system.base.view_partner_form.lang_required`  
 ```xml
@@ -449,6 +475,25 @@ ID: `mint_system.base.view_partner_form.readonly_property_product_pricelist`
 
 ```
 Source: [snippets/base.view_partner_form.readonly_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.readonly_property_product_pricelist.xml)
+
+### Remove Smart Buttons  
+ID: `mint_system.base.view_partner_form.remove_smart_buttons`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_partner_form" priority="50">
+    <button name="schedule_meeting" position="replace" />
+    <button name="action_view_opportunity" position="replace" />
+    <xpath expr="//field[@name='task_count']/.." position="replace" />
+    <xpath expr="//field[@name='purchase_order_count']/.." position="replace" />
+    <xpath expr="//field[@name='supplier_invoice_count']/.." position="replace" />
+    <button name="open_partner_ledger" position="replace" />
+    <xpath expr="//field[@name='mass_mailing_contacts_count']/.." position="replace" />
+    <xpath expr="//field[@name='mass_mailing_stats_count']/.." position="replace" />
+    <field name="is_published" position="replace" />
+</data>
+
+```
+Source: [snippets/base.view_partner_form.remove_smart_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.remove_smart_buttons.xml)
 
 ### Show Color  
 ID: `mint_system.base.view_partner_form.show_color`  

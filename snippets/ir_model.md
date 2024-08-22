@@ -492,6 +492,25 @@ ID: `mint_system.ir_model.account_move.x_recurring_inverval`
 ```
 Source: [snippets/ir_model.account_move.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_recurring_inverval.xml)
 
+### X Show Bank Details  
+ID: `mint_system.ir_model.account_move.x_show_bank_details`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_show_bank_details" model="ir.model.fields">
+        <field name="field_description">Show Bank Details</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_show_bank_details</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">Boolean</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_show_bank_details.xml)
+
 ### X Studio Description  
 ID: `mint_system.ir_model.account_move.x_studio_description`  
 ```xml
@@ -3453,13 +3472,14 @@ ID: `mint_system.ir_model.stock_production_lot.x_hostname`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="x_forcepoint_pos" model="ir.model.fields">
-        <field name="field_description">Forcepoint PoS</field>
+    <record id="x_hostname" model="ir.model.fields">
+        <field name="field_description">Hostname</field>
         <field name="model">stock.production.lot</field>
         <field name="model_id" ref="stock.model_stock_production_lot"/>
-        <field name="name">x_forcepoint_pos</field>
+        <field name="name">x_hostname</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">char</field>
     </record>
 </odoo>
@@ -3513,13 +3533,14 @@ ID: `mint_system.ir_model.stock_production_lot.x_managed_service`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="x_managed_service_field" model="ir.model.fields">
+    <record id="x_managed_service" model="ir.model.fields">
         <field name="field_description">Managed Service</field>
         <field name="model">stock.production.lot</field>
         <field name="model_id" ref="stock.model_stock_production_lot"/>
         <field name="name">x_managed_service</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">selection</field>
         <field name="selection">[
             ('high', 'MS1 High'),

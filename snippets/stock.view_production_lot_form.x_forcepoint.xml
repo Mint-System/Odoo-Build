@@ -1,0 +1,7 @@
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <field name="ref" position="after">
+      <field name="x_forcepoint_pos"/>
+      <field name="x_forcepoint_pol"/>
+    </field>
+  </data>
+  

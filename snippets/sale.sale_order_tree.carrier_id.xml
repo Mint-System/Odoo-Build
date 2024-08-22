@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.sale_order_tree" priority="50">
+    <xpath expr="//field[@name='validity_date']" position="after">
+        <field name="carrier_id" optional="hide"/>
+    </xpath>
+</data>

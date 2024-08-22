@@ -742,41 +742,47 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xm
 ### Style Tissa  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            table#info {
-                font-size: 9pt;
-                font-family: arial;
-            }
-            h2 {
-            font-size: 1.2rem;
-            font-weight: bold;
-            margin: 50px 0 30px 0
-            }
-            body {
-                font-size: 11pt;
-                font-family: arial;
-            }
-            .table th {
-              padding: 0.2rem;
-              padding-left: 0.5rem;
-            }
-            .note p {
-                font-family: arial;
-                margin-bottom: 0px;
-            }
-          .note p:last-child {
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+			}
+			h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+			}
+			.table th {
+			  border-top: 1px solid #dee2e6 !important;
+			  padding: 0.3rem !important;
+			  padding-left: 0.5rem;
+			}
+			.table td {
+			  border-top: 1px solid #dee2e6 !important;
+			}
+			.note p {
+				margin-bottom: 0px;
+			}
+		  .note p:last-child {
         margin-bottom: 30px;
       }
-        </style>
-    </xpath>
-    <xpath expr="//div[@id='summary']/div" position="attributes">
-        <attribute name="t-attf-class">#{'col-4' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
-    </xpath>
-</data>
+		</style>
+	</xpath>
 
+	<xpath expr="//table/thead//th[1]" position="attributes">
+		<attribute name="style">text-align: left</attribute>
+	</xpath>
+
+	<xpath expr="//div[@id='summary']/div" position="attributes">
+		<attribute name="t-attf-class">#{'col-4 offset-8' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+	</xpath>
+
+</data>
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
@@ -884,6 +890,18 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
+### Move Client Order Ref  
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+  <xpath expr="//field[@name='validity_date']" position="after">
+    <xpath expr="//field[@name='client_order_ref']" position="move"/>
+  </xpath>
+</data>
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
+
 ### X Product Uom Category Id  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id`  
 ```xml
@@ -955,6 +973,24 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
 Source: [snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml)
 
 ## View Blanket Order Tree  
+### Activities  
+ID: `mint_system.sale_blanket_order.view_blanket_order_tree.activities`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
+
+  <field name="state" position="after">
+    <field name="activity_date_deadline"/>
+    <field name="activity_ids"/>
+    <field name="activity_state"/>
+    <field name="my_activity_date_deadline"/>
+  </field>
+
+</data>
+
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_tree.activities.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_tree.activities.xml)
+
 ### Reset View  
 ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`  
 ```xml
