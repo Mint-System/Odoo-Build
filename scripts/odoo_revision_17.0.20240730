@@ -1,0 +1,32 @@
+#!/bin/bash
+
+ODOO_REVISION=17.0.20240730
+
+# Checkout odoo repo
+cd odoo && git checkout 1531edc40d52ee04f21fee6b973ed5b614a9c28b
+
+# Create tag on the odoo repo
+git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+cd ..
+
+# Checkout enterprise repo
+cd enterprise && git checkout 6946d29cea5f9721683e53fff9bb225bdf8260e8
+
+# Create tag on the enterprise repo
+git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+cd ..
+
+# Checkout theme repo
+cd themes && git checkout ab8e7b1550cfc9b8373c5aab8a77b255716446b3
+
+# Create tag on the odoo repo
+git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+cd ..
+
+# Pull docker image
+DIGEST=odoo@sha256:3178ddce5bf9e6d731eca2d4ce50ee539f7ed33be1030eb4ac435f0200d002b9
+docker pull "$DIGEST"
+IMAGE_ID=$(docker image inspect "$DIGEST" --format "{{ .ID }}")
+
+# Tag the docker image
+docker tag ${IMAGE_ID:7:12} odoo:$ODOO_REVISION

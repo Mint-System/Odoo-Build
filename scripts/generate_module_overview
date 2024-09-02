@@ -1,0 +1,125 @@
+#!/usr/bin/env python3
+
+import os
+import subprocess
+import configparser
+from itertools import groupby
+from operator import itemgetter
+
+def read_gitmodules(file_path):
+    config = configparser.ConfigParser(allow_no_value=True, delimiters=('=', ':'))
+    config.read(file_path)
+    modules = []
+    for section in config.sections():
+        path = config[section].get('path', 'Not found')
+        url = config[section].get('url', 'Not found')
+        submodule_info = {
+            'path': path,
+            'url': url
+        }
+        if path not in ["odoo", "enterprise", "themes"]:
+            modules.append(submodule_info)
+    return modules
+
+# Settings
+branches = ["14.0", "15.0", "16.0", "17.0"]
+output_file = "modules.md"
+
+# Define dictionary for module data
+module_info = {}
+
+# Iterate over each branch
+for branch in branches:
+
+    # Switch to the branch
+    subprocess.run(["git", "switch", branch])
+
+    # Get all submodules
+    submodules = read_gitmodules(".gitmodules")
+    
+    # Iterate over each submodule
+    for submodule in submodules:
+
+        if submodule["url"].startswith("git@"):
+            org = submodule["url"].split(":")[1].split("/")[0]
+            repo = submodule["url"].split(":")[1].split("/")[1].replace(".git", "").lower()
+        elif submodule["url"].startswith("https://"):
+            org = submodule["url"].replace("https://github.com/", "").split("/")[0]
+            repo = submodule["url"].replace("https://github.com/", "").split("/")[1].replace(".git", "").lower()
+        
+        if org == "mint-system":
+            org = "Mint-System"
+        if repo.startswith("odoo-apps-"):
+            repo = repo.replace("odoo-apps-", "")
+
+        path = submodule["path"]
+
+        if not org:
+            raise ValueError(f"Org not found in {submodule['url']}")
+
+        # Get list of modules
+        try:
+            result = subprocess.run(
+                ["git", "-C", path, "ls-tree", "--name-only", "-d", branch],
+                capture_output=True,
+                text=True,
+                check=True
+            )
+            modules = result.stdout.split("\n")
+        except subprocess.CalledProcessError as e:
+            print(f"Error executing command: {e}")
+            print(f"Return code: {e.returncode}")
+            print(f"stderr: {e.stderr}")
+            modules = []
+
+        # Cleanup list
+        modules = list(filter(None, modules))
+        modules = list(filter(lambda x: x not in ["setup", ".github"], modules))
+
+        # Add module data to the dictionary
+        for module in modules:
+            module_key = f"{org}|{repo}|{module}"
+
+            url = f"https://github.com/{org}/{repo}"
+            branch_link = f" [{branch}]({url}/tree/{branch})"
+
+            if module_key in module_info:
+                module_info[module_key] += branch_link
+            else:
+                module_info[module_key] = branch_link
+
+
+# Sort module data by key
+module_info = dict(sorted(module_info.items()))
+
+# Process module data
+module_data = []
+for key, value in module_info.items():
+    org, repo, name = key.split('|')
+    module_data.append({
+        'org': org,
+        'repo': repo,
+        'name': name,
+        'link': value
+    })
+
+# Switch to the default branch
+subprocess.run(["git", "switch", "16.0"])
+
+with open(output_file, "w") as f:
+    f.write("# Modules\n\n")
+    f.write("This page shows all the modules managed with Odoo Build grouped by organization and repository.\n\n")
+    
+    for org, repos in groupby(module_data, key = itemgetter('org')):
+        f.write(f"## {org}\n\n")
+        
+        for repo, modules in groupby(repos, key = itemgetter('repo')):
+            f.write(f"### {repo}\n\n")
+            f.write(" | name | links |\n")
+            f.write("|---|---|\n")
+
+            for module in modules:
+                f.write(f"| {module['name']} |{module['link']} |\n")
+            f.write("\n")
+
+print(f"Markdown table created in {output_file}")

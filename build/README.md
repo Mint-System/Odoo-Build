@@ -7,6 +7,7 @@ A better Odoo image.
 - The Odoo source is set to the latest commit of date in tag
 - Ships with python 3.11
 - Define Odoo configs with env vars
+- Set and get environment name from server config
 
 ## Usage
 
@@ -29,6 +30,7 @@ services:
       LOG_LEVEL: debug
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
       DBFILTER: ^%d$
+      ENVIRONMENT: production
     ports:
       - "127.0.0.1:8069:8069"
     volumes:

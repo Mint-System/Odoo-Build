@@ -1,0 +1,7 @@
+pre-commit
+pyyaml
+docutils
+rst2html5
+odoorpc
+coverage
+pylint-odoo

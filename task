@@ -246,21 +246,10 @@ function install-native() {
 
     echo "Install Odoo development tools"
     pip install setuptools wheel ${PIP_INOTIFY} watchdog
+    pip install -r requirements.txt
 
     echo "Install Odoo dependencies"
-    pip install -r odoo/requirements.txt
-
-    echo "Install OCA development tools"
-    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
-
-    echo "Install OCA openupgrade tools"
-    pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
-
-    echo "Install prometheus_exporter dependency"
-    pip install prometheus-client
-
-    echo "Install base_view_inheritance_extension dependency"
-    pip install astor
+    pip install -r odoo/requirements.txt    
 }
 
 function open-url-with-delay(){
@@ -422,8 +411,12 @@ function init-db() {
     activate-venv
     set-addons-path
 
-    echo "Make sure only one odoo process is running when initalizing the database."
-    odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    echo "Initialize database."
+    if [[ -n "$ODOO_PARAM" ]] ; then
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+    else
+        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    fi
 }
 
 function odoo-cloc() {
@@ -445,7 +438,7 @@ function lint-module() {
 
     echo "Update index.html"
     cd "$1" || exit
-    rst2html5 README.rst static/description/index.html
+    rst2html5.py README.rst static/description/index.html
 
     echo "Stage changes"
     git add .
@@ -1071,8 +1064,8 @@ function git-submodule-remove() {
 }
 
 function git-submodule-list() {
-    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
@@ -1197,7 +1190,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+="#### [$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
@@ -1206,9 +1199,16 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
+function generate-module-overview() {
+    echo "Update module overview doc file."
+    activate-venv
+    ./scripts/generate_module_overview
+}
+
 function update-docs() {
-    generate-snippets-doc
+    generate-module-overview
     generate-revisions-doc
+    generate-snippets-doc
 }
 
 function visualize-dependencies() {
@@ -1301,6 +1301,9 @@ case "$1" in
     generate-module-security)
         generate-module-security "$2" "$3"
         ;;
+    generate-module-overview)
+        generate-module-overview
+        ;;
     get-module-version)
         get-module-version "$2"
         ;;
@@ -1388,6 +1391,19 @@ case "$1" in
         ;;
     logs)
         docker logs odoo -f
+        ;;
+    node-install)
+        npm install
+        ;;
+    node-dev)
+        npm run dev
+        ;;
+    node-build)
+        npm run build
+        ;;
+    node-serve-build)
+        cd .vuepress/dist
+        npx serve
         ;;
     patch-database)
         patch-database "$2" "$3"
