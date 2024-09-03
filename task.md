@@ -34,6 +34,7 @@
 | init-odoo-env            | [env]             | Create env file for Odoo Instance.                                                        |
 | init-venv                |                   | Initialize python virtual env.                                                            |
 | init-module              | [db][name,path]   | Initialize Odoo module.  Default database is branch name.                                 |
+| load-language         | [db][lang]        | Install language package in Odoo db.                                                      |
 | install-native           |                   | Install Odoo requirements in source folder.                                               |
 | install-odoo-scripts     |                   | Install Odoo scripts.                                                                     |
 | install-requirements     | [db][path]        | Install python packages from requirements.txt.                                            |

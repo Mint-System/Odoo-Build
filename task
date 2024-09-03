@@ -529,7 +529,7 @@ function init-module() {
 
     activate-venv
     set-addons-path
-    echo "Installing module $MODULE_NAME on $DATABASE ..."
+    echo "Initialize module $MODULE_NAME on $DATABASE ..."
     odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
@@ -642,6 +642,25 @@ function setup-mail() {
     echo "Setup mail server for database $DATABASE:"
     echo "env['ir.mail_server'].create({'name':'Mailhog','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
     odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+}
+
+
+function load-language() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    LANGUAGE="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$GIT_BRANCH"
+        LANGUAGE="$1"
+    fi
+
+    activate-venv
+    set-addons-path
+    echo "Setup language $LANGUAGE for database $DATABASE:"
+    odoo-bin -d "$DATABASE" -u all --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$LANGUAGE" 
 }
 
 function set-admin() {
@@ -1355,6 +1374,9 @@ case "$1" in
         ;;
     init-module)
         init-module "$2" "$3"
+        ;;
+    load-language)
+        load-language "$2" "$3"
         ;;
     install-native)
         install-native
