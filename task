@@ -644,7 +644,6 @@ function setup-mail() {
     odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
-
 function load-language() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
