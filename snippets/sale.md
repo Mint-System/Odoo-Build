@@ -1234,13 +1234,12 @@ ID: `mint_system.sale.report_saleorder_document.add_proforma_note`
         <xpath expr="//span[@name='order_note']" position="after">
             <t t-if="is_pro_forma">
             <span>
-                <p>Der Unterzeichner erkl&#xE4;rt, dass die in diesem Dokument aufgef&#xFC;hrten Waren und Ursprungserzeugnisse der Schweiz sind und den Ursprungsregeln im Pr&#xE4;ferenzverkehr mit der EU entsprechen.<br/><br/></p>
+                <p>Der Ausführer der Waren, auf die sich dieses Handelspapier bezieht, erkl&#xE4;rt, dass diese Waren, soweit nicht anders angegeben, pr&#xE4;ferenzbeg&#xFC;nstigte Schweiz Ursprungswaren sind.<br/><br/></p>
                 <p>Unterschrift: _______________________&#xA0;&#xA0;&#xA0;&#xA0;Datum: _______________________<br/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Aersolution Interior AG<br/></p>
             </span>
         </t>
     </xpath>
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_proforma_note.xml)
 
@@ -2006,6 +2005,20 @@ ID: `mint_system.sale.report_saleorder_document.group_by_product`
 </t>
 ```
 Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.group_by_product.xml)
+
+### Hide Line Item  
+ID: `mint_system.sale.report_saleorder_document.hide_line_item`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
+        <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
+    </xpath>
+   
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.hide_line_item.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_line_item.xml)
 
 ### Move Order Note  
 ID: `mint_system.sale.report_saleorder_document.move_order_note`  
