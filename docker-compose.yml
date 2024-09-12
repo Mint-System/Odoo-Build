@@ -15,6 +15,7 @@ services:
       LOG_LEVEL: ${LOG_LEVEL}
       ADMIN_PASSWD: ${ADMIN_PASSWD}
       DBFILTER: ${DBFILTER}
+      ENVIRONMENT: ${ENVIRONMENT}
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:

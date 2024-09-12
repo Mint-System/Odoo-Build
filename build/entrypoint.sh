@@ -42,6 +42,9 @@ set_odoo_config_env() {
 
     : "${DBFILTER:=.*}"
     export DBFILTER
+
+    : "${ENVIRONMENT:=development}"
+    export ENVIRONMENT
 }
 
 set_odoo_config_env

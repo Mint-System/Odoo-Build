@@ -11,6 +11,7 @@
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
+        "security/security.xml",
         "report/invoice_document.xml",
         "data/ir_sequence.xml",
         "views/sale_order_views.xml"

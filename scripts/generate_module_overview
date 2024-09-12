@@ -80,8 +80,11 @@ for branch in branches:
         for module in modules:
             module_key = f"{org}|{repo}|{module}"
 
-            url = f"https://github.com/{org}/{repo}"
-            branch_link = f" [{branch}]({url}/tree/{branch})"
+            if org == "Mint-System":
+                url = f"https://github.com/{org}/odoo-apps-{repo}"
+            else:
+                url = f"https://github.com/{org}/{repo}"
+            branch_link = f" [{branch}]({url}/tree/{branch}/{module})"
 
             if module_key in module_info:
                 module_info[module_key] += branch_link
