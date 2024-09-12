@@ -16,6 +16,8 @@ exclude: |
   readme/.*\.(rst|md)$|
   # Ignore build and dist directories in addons
   /build/|/dist/|
+  # Ignore test files in addons
+  /tests/samples/.*|
   # You don't usually want a bot to modify your legal texts
   (LICENSE.*|COPYING.*)
 default_language_version:
@@ -46,13 +48,13 @@ repos:
       # update the NOT INSTALLABLE ADDONS section above
       - id: oca-update-pre-commit-excluded-addons
       - id: oca-fix-manifest-website
-        args: ["https://github.com/OCA/sale-workflow"]
+        args: ["https://github.com/OCA/management-system"]
       - id: oca-gen-addon-readme
         args:
           - --addons-dir=.
           - --branch=17.0
           - --org-name=OCA
-          - --repo-name=sale-workflow
+          - --repo-name=management-system
           - --if-source-changed
           - --keep-source-digest
           - --convert-fragments-to-markdown

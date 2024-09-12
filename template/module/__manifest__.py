@@ -13,15 +13,15 @@
         "security/ir.model.access.csv",
         "security/security.xml",
         "report/invoice_document.xml",
-        "data/ir_sequence.xml",
+        "data/ir_sequence_data.xml",
         "views/sale_order_views.xml"
     ],
+    "demo": ["demo/demo.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
     "images": ["images/screen.png"],
     "qweb": ["static/src/xml/board.xml"],
-    "demo": ["demo/document_demo.xml"],
     "assets": {
         "web.assets_backend": [
             "{{ name }}/static/src/js/action_refresh.js",
