@@ -58,3 +58,7 @@
 	path = addons/management-system
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
 	branch = 17.0
+[submodule "oca/manufacture"]
+	path = oca/manufacture
+	url = git@github.com:OCA/manufacture.git
+	branch = 17.0
