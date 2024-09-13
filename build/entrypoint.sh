@@ -45,6 +45,12 @@ set_odoo_config_env() {
 
     : "${ENVIRONMENT:=development}"
     export ENVIRONMENT
+
+    : "${LIST_DB:=True}"
+    export LIST_DB
+
+    : "${PROXY_MODE:=False}"
+    export PROXY_MODE
 }
 
 set_odoo_config_env
