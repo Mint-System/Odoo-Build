@@ -16,6 +16,8 @@ services:
       ADMIN_PASSWD: ${ADMIN_PASSWD}
       DBFILTER: ${DBFILTER}
       ENVIRONMENT: ${ENVIRONMENT}
+      LIST_DB: ${LIST_DB}
+      PROXY_MODE: ${PROXY_MODE}
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:

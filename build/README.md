@@ -18,7 +18,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.2024
+    image: mintsystem/odoo:17.0.20240730
     depends_on:
       - db
     environment:
@@ -31,6 +31,8 @@ services:
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
       DBFILTER: ^%d$
       ENVIRONMENT: production
+      LIST_DB: False
+      PROXY_MODE: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
