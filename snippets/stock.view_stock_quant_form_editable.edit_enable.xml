@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_quant_form_editable" priority="50">
+    <form position="attributes">
+        <attribute name="edit">true</attribute>
+    </form>
+</data>
