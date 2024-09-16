@@ -1,7 +1,6 @@
 ![](https://github.com/Mint-System/Odoo-Build/raw/16.0/logo.png)
 
-Odoo Build
-==========
+# Odoo Build
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/)
 
@@ -9,28 +8,28 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 
 This projects provides a highly opinionated way to develop Odoo modules. It features:
 
-* **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
-* **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
-* **Native**: Start an Odoo server directly from the source.
-* **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database at ease.
-* **Community Modules**: The most common community modules are checked out when setting up the project.
-* **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
-* **Odoo Scripts**: Develope scripts to patch Odoo code.
-* **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
-* **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
-* **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
-* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
-* **Credentials**: Setup credentials to log into Odoo.
-* **Import Data**: Import Odoo records from CSV.
+- **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
+- **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
+- **Native**: Start an Odoo server directly from the source.
+- **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database at ease.
+- **Community Modules**: The most common community modules are checked out when setting up the project.
+- **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
+- **Odoo Scripts**: Develope scripts to patch Odoo code.
+- **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
+- **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
+- **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
+- **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
+- **Credentials**: Setup credentials to log into Odoo.
+- **Import Data**: Import Odoo records from CSV.
 
 ## Requirements
 
 The Odoo development environment has the following requirements:
 
-* [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
-* Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
-* Install [PostgreSQL](https://www.postgresql.org/download/)
-* bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
+- [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
+- Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
+- Install [PostgreSQL](https://www.postgresql.org/download/)
+- bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
@@ -73,7 +72,7 @@ task install-odoo-scripts
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
+Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!\_OS, Darwin
 
 #### Install Odoo native requirements
 
@@ -257,7 +256,7 @@ The checkout command fails tue to unregistered submdoules.
 
 Remove the submodule with `git rm`, f.e. `git rm oca/dms`.
 
-### inotify instance limit reached 
+### inotify instance limit reached
 
 **Problem**
 
@@ -300,4 +299,15 @@ Reinstall with pip flags.
 
 ```
 pip install python-ldap --force-reinstall --no-binary python-ldap
+```
+
+**Problem**
+
+init-db fails with psycopg2 errors on macOS / Darwin.
+
+**Solution**
+
+```
+source venvXX.0/bin/activate
+pip install psycopg2-binary --force
 ```
