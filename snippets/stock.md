@@ -7165,6 +7165,20 @@ ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`
 ```
 Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
 
+## View Stock Quant Form Editable  
+### Edit Enable  
+ID: `mint_system.stock.view_stock_quant_form_editable.edit_enable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_stock_quant_form_editable" priority="50">
+    <form position="attributes">
+        <attribute name="edit">true</attribute>
+    </form>
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_form_editable.edit_enable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_quant_form_editable.edit_enable.xml)
+
 ## View Stock Quant Package Form  
 ### Add Estimated Pack Weight Kg  
 ID: `mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg`  
