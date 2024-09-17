@@ -235,7 +235,13 @@ function install-native() {
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
         brew install wkhtmltopdf libsasl2 openldap openssl libxml2
+        
+        echo "Install the binary version of psycopg2"
+        pip install psycopg2-binary --force
+
+        echo "Add LDFLAGS to .env file"
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
+          echo '' >> .env
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
 
