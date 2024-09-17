@@ -142,10 +142,6 @@
 	path = oca/server-env
 	url = git@github.com:OCA/server-env.git
 	branch = 13.0
-[submodule "addons/web"]
-	path = addons/web
-	url = git@github.com:Mint-System/Odoo-Apps-Web.git
-	branch = 13.0
 [submodule "addons/server_tools"]
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git

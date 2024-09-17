@@ -4,7 +4,7 @@
         <xpath expr="//span[@name='order_note']" position="after">
             <t t-if="is_pro_forma">
             <span>
-                <p>Der Unterzeichner erkl&#xE4;rt, dass die in diesem Dokument aufgef&#xFC;hrten Waren und Ursprungserzeugnisse der Schweiz sind und den Ursprungsregeln im Pr&#xE4;ferenzverkehr mit der EU entsprechen.<br/><br/></p>
+                <p>Der Ausführer der Waren, auf die sich dieses Handelspapier bezieht, erkl&#xE4;rt, dass diese Waren, soweit nicht anders angegeben, pr&#xE4;ferenzbeg&#xFC;nstigte Schweiz Ursprungswaren sind.<br/><br/></p>
                 <p>Unterschrift: _______________________&#xA0;&#xA0;&#xA0;&#xA0;Datum: _______________________<br/>&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Aersolution Interior AG<br/></p>
             </span>
         </t>

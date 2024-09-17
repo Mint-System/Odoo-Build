@@ -7,6 +7,7 @@ A better Odoo image.
 - The Odoo source is set to the latest commit of date in tag
 - Ships with python 3.11
 - Define Odoo configs with env vars
+- Set and get environment name from server config
 
 ## Usage
 
@@ -17,7 +18,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.2024
+    image: mintsystem/odoo:17.0.20240730
     depends_on:
       - db
     environment:
@@ -29,6 +30,9 @@ services:
       LOG_LEVEL: debug
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
       DBFILTER: ^%d$
+      ENVIRONMENT: production
+      LIST_DB: False
+      PROXY_MODE: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:

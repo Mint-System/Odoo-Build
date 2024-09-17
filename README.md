@@ -301,3 +301,16 @@ Reinstall with pip flags.
 ```
 pip install python-ldap --force-reinstall --no-binary python-ldap
 ```
+
+### psycopg2 symbol not found
+
+**Problem**
+
+`init-db` fails with psycopg2 errors on macOS / Darwin.
+
+**Solution**
+
+```bash
+source task source
+pip install psycopg2-binary --force
+```
