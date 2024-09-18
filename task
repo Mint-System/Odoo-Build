@@ -701,7 +701,7 @@ function pytest-module() {
     echo "db_password = odoo" >> "$ODOO_CONFIG"
     echo "db_user = odoo" >> "$ODOO_CONFIG"
     
-    pytest -s --odoo-config="$ODOO_CONFIG" --odoo-database="$DATABASE" "$MODULE_PATH"
+    pytest -s --odoo-http --odoo-config="$ODOO_CONFIG" --odoo-database="$DATABASE" "$MODULE_PATH"
 }
 
 function remove-module() {
