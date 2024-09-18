@@ -118,7 +118,7 @@ task create-module addons/project_report
 
 Clone thirdparty repos into the `thirdparty` folder.
 
-To load modules from a thirdparty folder, set this env var in your `.env` file.
+To load modules from a thirdparty folder, set this env var in your `.env` file:
 
 ```bash
 ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
@@ -128,10 +128,20 @@ The paths will be appended to the Odoo config.
 
 #### Initialize without demo data
 
-In your `.env` file define this Odoo parameter env var.
+In your `.env` file define this Odoo parameter env var:
 
 ```bash
 ODOO_PARAM="--without-demo=all"
+```
+
+#### Define Odoo database name
+
+By default the database name is the current branch name.
+
+To define the name, set this env var in your `.env` file:
+
+```bash
+ODOO_DATABASE=odoo
 ```
 
 ### Docker

@@ -18,12 +18,13 @@ fi
 # Dynamic env vars
 
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-LOG_LEVEL=${LOG_LEVEL:="info"}
+ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+LOG_LEVEL=${LOG_LEVEL:="info"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
 DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
@@ -278,7 +279,7 @@ function start() {
     # Use default database if second param is not given
     DATABASE="$2"
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
     fi
 
     if test -z "$1"; then
@@ -398,7 +399,7 @@ function stop() {
 
 function start-shell() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
@@ -407,14 +408,14 @@ function start-shell() {
 
 function start-psql() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     docker exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
 }
 
 function init-db() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
@@ -429,7 +430,7 @@ function init-db() {
 
 function odoo-cloc() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
@@ -464,7 +465,7 @@ function update-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
@@ -483,7 +484,7 @@ function translate-module() {
     LANGUAGE="$3"    
 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_PATH="$1"
         MODULE_NAME=$(basename "$1")
     fi
@@ -513,7 +514,7 @@ function import-csv() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
     fi
 
@@ -531,7 +532,7 @@ function init-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
@@ -549,7 +550,7 @@ function install-requirements() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
     fi
 
@@ -572,7 +573,7 @@ function test-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
@@ -590,7 +591,7 @@ function remove-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
@@ -635,7 +636,7 @@ function generate-module-security() {
 
 function drop-db() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
@@ -643,7 +644,7 @@ function drop-db() {
 
 function setup-mail() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
@@ -660,7 +661,7 @@ function load-language() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         LANGUAGE="$1"
     fi
 
@@ -672,7 +673,7 @@ function load-language() {
 
 function set-admin() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "SELECT login, password FROM res_users WHERE id=2;"
@@ -680,7 +681,7 @@ function set-admin() {
 
 function clear-assets() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     echo "Delete these assets for $DATABASE:"
     psql "postgres://odoo:odoo@localhost/$DATABASE" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
@@ -695,7 +696,7 @@ function reset-views() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         KEY=$(basename "$1")
     fi
 
@@ -1058,7 +1059,7 @@ function upload-module() {
 
 function save-config() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
@@ -1126,7 +1127,7 @@ function patch-database() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILENAME="$1"
     fi
 
