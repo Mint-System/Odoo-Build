@@ -124,6 +124,7 @@ LOG_LEVEL=${LOG_LEVEL:="info"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
 DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
+BROWSER_OPEN=${BROWSER_OPEN:=true}
 
 # Conditional env vars
 
@@ -359,8 +360,10 @@ function install-native() {
 
 function open-url-with-delay(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    sleep 2
-    $OS_OPEN "$1"
+    if $BROWSER_OPEN; then
+        sleep 2
+        $OS_OPEN "$1"
+    fi
 }
 
 function start() {    

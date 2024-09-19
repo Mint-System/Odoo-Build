@@ -144,6 +144,14 @@ To define the name, set this env var in your `.env` file:
 ODOO_DATABASE=odoo
 ```
 
+#### Disable browser open
+
+To disable the browser open when starting the Odoo server edit the `.env` file:
+
+```bash
+BROWSER_OPEN=false
+```
+
 ### Docker
 
 Run Odoo with Docker container.
