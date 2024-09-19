@@ -1,14 +1,110 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
 
+function help-table() {
+    # Define column widths
+    cmd_width=25
+    opt_width=20
+    desc_width=90
+
+    # Print table header
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "Command" "Option" "Description"
+    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
+
+    # Print table rows
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[path]" "Build Odoo Docker image. Optionally pass specific Dockerfile."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch][branch]" "Switch and merge from one branch to another."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-config-files" "[branch]" "Checkout config files from another branch."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-assets" "[db]" "Clear all assets of Odoo database."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module" "[path]" "Create new Odoo module from template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "deploy" "[name]" "Deploy to Kubernetes cluster. Options: db, admin, odoo, mail."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-auto-install" "" "Disable auto install for enterprise modules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docker-login" "" "Setup Docker Hub login credentials."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "drop-db" "[db]" "Drop target Odoo database. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "edit-env" "[env]" "Open env file in default editor."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Update submodules listed in the .gitmodules file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-list" "" "List path and url of submodules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-remove" "[path]" "Remove git submodule."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-switch" "[branch]" "Switch branch for all submodules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-odoo-env" "[env]" "Create env file for Odoo Instance."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][name,path]" "Initialize Odoo module. Default database is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "load-language" "[db][lang]" "Install language package in Odoo db."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-native" "" "Install Odoo requirements in source folder."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet xml definition."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "down" "[name]" "Remove docker containers and volumes. Options: none, db, admin, odoo, mail."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list" "" "List Docker containers."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-addons" "" "List Odoo addons."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo Docker container logs."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "publish" "" "Publish Odoo Docker image."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List docker processes."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pytest-module" "[db][name,path]" "Run module tests with pytest."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "release-module" "[path]" "Create GitHub release for a module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-module" "[db][name]" "Remove target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart docker container."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "save-config" "[name]" "Save Odoo database config."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail" "[db]" "Setup outgoing mail config in Odoo db."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start docker container. Options: none, db, admin, odoo, native, mail."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env]" "Test json rpc connection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-docs" "" "Update project docs."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-readme" "[path]" "Update Readme file of Odoo module collection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet xml definition."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upload-module" "[env][path]" "Zip and upload Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "zip-module" "[path]" "Create zip file for module."
+}
 function help() {
-echo
-echo "$1 <command> [options]"
-echo
-echo "commands:"
-echo
-column -t -s"|" ./task.md | tail -n +3
-echo
+    echo
+    echo "$1 <command> [options]"
+    echo
+    echo "commands:"
+    echo
+    help-table
+    echo
+}
+
+generate-help-doc() {
+    help-table > task.md 
 }
 
 if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
@@ -17,14 +113,14 @@ fi
 
 # Dynamic env vars
 
-PATH="$PATH:./odoo"
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-LOG_LEVEL=${LOG_LEVEL:="info"}
+ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+LOG_LEVEL=${LOG_LEVEL:="info"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
 DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
@@ -235,7 +331,13 @@ function install-native() {
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
         brew install wkhtmltopdf libsasl2 openldap openssl libxml2
+        
+        echo "Install the binary version of psycopg2"
+        pip install psycopg2-binary --force
+
+        echo "Add LDFLAGS to .env file"
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
+          echo '' >> .env
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
 
@@ -246,21 +348,13 @@ function install-native() {
 
     echo "Install Odoo development tools"
     pip install setuptools wheel ${PIP_INOTIFY} watchdog
+    pip install -r requirements.txt
 
     echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
 
-    echo "Install OCA development tools"
-    pip install pre-commit pyyaml docutils rst2html5 odoorpc coverage pylint-odoo
-
-    echo "Install OCA openupgrade tools"
-    pip install git+https://github.com/OCA/openupgradelib.git@master#egg=openupgradelib
-
-    echo "Install prometheus_exporter dependency"
-    pip install prometheus-client
-
-    echo "Install base_view_inheritance_extension dependency"
-    pip install astor
+    echo "Install Odoo as python package"
+    pip install -e odoo
 }
 
 function open-url-with-delay(){
@@ -281,7 +375,7 @@ function start() {
     # Use default database if second param is not given
     DATABASE="$2"
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
     fi
 
     if test -z "$1"; then
@@ -316,7 +410,7 @@ function start() {
         done
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        odoo --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "queue" ]]; then
@@ -324,7 +418,7 @@ function start() {
         PORT=8069
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo-bin --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
+        odoo --database="$DATABASE" --config "config/odoo.conf" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
     fi
 
     if [[ "$1" =~ "mail" ]]; then
@@ -401,42 +495,42 @@ function stop() {
 
 function start-shell() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
-    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function start-psql() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     docker exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
 }
 
 function init-db() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
 
     echo "Initialize database."
     if [[ -n "$ODOO_PARAM" ]] ; then
-        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+        odoo -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
     else
-        odoo-bin -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+        odoo -d "$DATABASE" -i base --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
     fi
 }
 
 function odoo-cloc() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
-    odoo-bin cloc -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo cloc -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function lint-module() {
@@ -449,7 +543,7 @@ function lint-module() {
 
     echo "Update index.html"
     cd "$1" || exit
-    rst2html5 README.rst static/description/index.html
+    rst2html5.py README.rst static/description/index.html
 
     echo "Stage changes"
     git add .
@@ -467,14 +561,14 @@ function update-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -u "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo -d "$DATABASE" -u "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function translate-module() {
@@ -486,7 +580,7 @@ function translate-module() {
     LANGUAGE="$3"    
 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_PATH="$1"
         MODULE_NAME=$(basename "$1")
     fi
@@ -499,7 +593,7 @@ function translate-module() {
     set-addons-path
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
-    odoo-bin -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    odoo -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
 }
 
 function list-addons() {
@@ -516,7 +610,7 @@ function import-csv() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
     fi
 
@@ -534,14 +628,14 @@ function init-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
-    echo "Installing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    echo "Initialize module $MODULE_NAME on $DATABASE ..."
+    odoo -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function install-requirements() {
@@ -552,7 +646,7 @@ function install-requirements() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
     fi
 
@@ -575,14 +669,39 @@ function test-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
-    odoo-bin -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+    odoo -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+}
+
+function pytest-module() {
+    DATABASE="$1"
+    MODULE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$ODOO_DATABASE"
+        MODULE_PATH="$1"
+    fi
+
+    activate-venv
+    set-addons-path
+
+    ODOO_CONFIG="tmp/odoo.conf"
+    echo "Write $ODOO_CONFIG"
+
+    echo "[options]" > "$ODOO_CONFIG"
+    echo "addons_path=$ADDONS_PATH" >> "$ODOO_CONFIG"
+    echo "db_host = localhost" >> "$ODOO_CONFIG"
+    echo "db_password = odoo" >> "$ODOO_CONFIG"
+    echo "db_user = odoo" >> "$ODOO_CONFIG"
+    
+    pytest -s --odoo-http --odoo-config="$ODOO_CONFIG" --odoo-database="$DATABASE" "$MODULE_PATH"
 }
 
 function remove-module() {
@@ -593,7 +712,7 @@ function remove-module() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
     fi
 
@@ -601,7 +720,7 @@ function remove-module() {
     set-addons-path
     echo "Remove module $MODULE_NAME"
     echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function create-module() {
@@ -612,7 +731,7 @@ function create-module() {
 
     activate-venv
     echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
-    odoo-bin scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
+    odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
 }
 
 function generate-module-security() {
@@ -638,7 +757,7 @@ function generate-module-security() {
 
 function drop-db() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
@@ -646,18 +765,36 @@ function drop-db() {
 
 function setup-mail() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
     echo "Setup mail server for database $DATABASE:"
     echo "env['ir.mail_server'].create({'name':'Mailhog','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
-    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+}
+
+function load-language() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    LANGUAGE="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$ODOO_DATABASE"
+        LANGUAGE="$1"
+    fi
+
+    activate-venv
+    set-addons-path
+    echo "Setup language $LANGUAGE for database $DATABASE:"
+    odoo -d "$DATABASE" -u all --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$LANGUAGE" 
 }
 
 function set-admin() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "SELECT login, password FROM res_users WHERE id=2;"
@@ -665,7 +802,7 @@ function set-admin() {
 
 function clear-assets() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     echo "Delete these assets for $DATABASE:"
     psql "postgres://odoo:odoo@localhost/$DATABASE" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
@@ -680,7 +817,7 @@ function reset-views() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         KEY=$(basename "$1")
     fi
 
@@ -688,7 +825,7 @@ function reset-views() {
     set-addons-path
     echo "Reset views for key $KEY"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo-bin shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell -d "$DATABASE" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function convert-database() {
@@ -702,14 +839,32 @@ function convert-database() {
     echo "Converted database file $1 to ${1}2"
 }
 
-function git-submodule-update() {
-    echo "Update git submodules."
+function git-submodule-init() {
+    echo "Init git submodules."
+
+    # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
     SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
     for SUBMODULE in $SUBMODULES; do
-        # The init flag is required for the inital checkout
-        # The --depth flag cannot be used when working on multiple branches
+        if [ ! -d "$SUBMODULE" ]; then
+            echo "Initializing submodule: $SUBMODULE"
+            git submodule update --init "$SUBMODULE"
+        fi
+    done
+}
+
+function git-submodule-checkout() {
+    echo "Update git submodules."
+
+    # The --depth flag cannot be used when working on multiple branches in submodules
+    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    for SUBMODULE in $SUBMODULES; do
         echo "Update git submodule: $SUBMODULE"
-        git submodule update --init "$SUBMODULE"
+        COMMIT_HASH=$(git ls-tree HEAD "$SUBMODULE" | awk '{print $3}')
+        CWD=$(pwd)
+        cd "$SUBMODULE" || exit
+        git stash
+        git checkout "$COMMIT_HASH"
+        cd "$CWD" || exit
     done
 }
 
@@ -747,10 +902,12 @@ function checkout() {
         GIT_BRANCH="$2"
     fi
 
-    echo "Switch branch."
+    echo "Switch current branch to $1."
     git switch "$1"
 
-    git-submodule-update
+    git-submodule-init
+
+    git-submodule-checkout
 
     git-submodule-switch "$1"
 }
@@ -793,9 +950,6 @@ function release-module() {
 
     echo "Release notes:"
     echo "$RELEASE_NOTES"
-
-    # echo "Create release $VERSION ..."
-    # gh release create "v$VERSION" -t "Release $VERSION"
 }
 
 function zip-module() {
@@ -966,7 +1120,7 @@ function update-app-list() {
 
     activate-venv
     set-addons-path
-    echo "env['ir.module.module'].update_list()" | odoo-bin shell -d "$1"--config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
+    echo "env['ir.module.module'].update_list()" | odoo shell -d "$1"--config "config/odoo.conf" --addons-path="$ADDONS_PATH" --no-http
 }
 
 function init-config-dir() {
@@ -1043,11 +1197,11 @@ function upload-module() {
 
 function save-config() {
     DATABASE="$1"
-    DATABASE=${DATABASE:="$GIT_BRANCH"}
+    DATABASE="$ODOO_DATABASE"
 
     activate-venv
     set-addons-path
-    odoo-bin -d "$DATABASE" -s --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo -d "$DATABASE" -s --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function git-submodule-add() {
@@ -1075,8 +1229,8 @@ function git-submodule-remove() {
 }
 
 function git-submodule-list() {
-    git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    # git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
 }
 
 function git-feature-branch(){
@@ -1111,7 +1265,7 @@ function patch-database() {
 
     # Use default database if second param is not given 
     if test -z "$2"; then
-        DATABASE="$GIT_BRANCH"
+        DATABASE="$ODOO_DATABASE"
         FILENAME="$1"
     fi
 
@@ -1201,7 +1355,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="[$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+="#### [$REVISION]($PATH_URL/$FILE)"
         fi
     done
 
@@ -1210,9 +1364,17 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
+function generate-module-overview() {
+    echo "Update module overview doc file."
+    activate-venv
+    ./scripts/generate_module_overview
+}
+
 function update-docs() {
-    generate-snippets-doc
+    generate-module-overview
     generate-revisions-doc
+    generate-snippets-doc
+    generate-help-doc
 }
 
 function visualize-dependencies() {
@@ -1302,8 +1464,14 @@ case "$1" in
     generate-admin-passwd)
         generate-admin-passwd "$2"
         ;;
+    generate-help-doc)
+        generate-help-doc
+        ;;
     generate-module-security)
         generate-module-security "$2" "$3"
+        ;;
+    generate-module-overview)
+        generate-module-overview
         ;;
     get-module-version)
         get-module-version "$2"
@@ -1326,11 +1494,14 @@ case "$1" in
     git-submodule-remove)
         git-submodule-remove "$2"
         ;;
+    git-submodule-checkout)
+        git-submodule-checkout
+        ;;
+    git-submodule-init)
+        git-submodule-init
+        ;;
     git-submodule-switch)
         git-submodule-switch "$2"
-        ;;
-    git-submodule-update)
-        git-submodule-update
         ;;
     help)
         help task
@@ -1356,6 +1527,9 @@ case "$1" in
         ;;
     init-module)
         init-module "$2" "$3"
+        ;;
+    load-language)
+        load-language "$2" "$3"
         ;;
     install-native)
         install-native
@@ -1414,6 +1588,9 @@ case "$1" in
         ;;
     ps)
         docker ps --format 'table {{.Names}}\t{{.Image}}\t{{(.Label "description")}}\t{{.Status}}'
+        ;;
+    pytest-module)
+        pytest-module "$2" "$3"
         ;;
     release-module)
         release-module "$2"

@@ -1,0 +1,20 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p name="payment_communication" position="after">
+
+        <p t-if="o.x_show_bank_details and o.currency_id.name == 'CHF'">
+            <strong>Bank Account CHF</strong><br/>
+            Bank: Raiffeisenbank, CH-6341 Baar<br/>
+            Number: 81454 - 46998.41<br/>
+            SWIFT: RAIFCH22XXX<br/>
+            IBAN: CH13 8080 8007 4030 9457
+        </p>
+        <p t-if="o.x_show_bank_details and o.currency_id.name == 'EUR'">
+            <strong>Bank Account EUR</strong><br/>
+            Bank: Raiffeisenbank, CH-6341 Baar<br/>
+            Number: 81454 - 46998.66<br/>
+            SWIFT: RAIFCH22XXX<br/>
+            IBAN: CH86 8080 8008 3148 5950 8
+        </p>
+        
+    </p>
+</data>

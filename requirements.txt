@@ -1,0 +1,9 @@
+pre-commit
+pyyaml
+docutils
+rst2html5
+odoorpc
+coverage
+pylint-odoo
+pytest==7.4.4
+pytest-odoo

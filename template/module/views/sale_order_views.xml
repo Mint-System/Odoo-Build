@@ -1,20 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
 
-    <record id="view_order_form" model="ir.ui.view">
-        <field name="name">{{ name }}.view_order_form</field>
-        <field name="model">sale.order</field>
-        <field name="inherit_id" ref="sale.view_order_form" />
-        <field name="arch" type="xml">
-            <xpath expr="//field[@name='order_line']/tree[1]/field[@name='sequence']"
-                position="after">
-                <field name="position" />
-            </xpath>
-        </field>
-    </record>
-
-    <record id="view_tree" model="ir.ui.view">
-        <field name="name">{{ name }}.view_tree</field>
+    <record id="tree_view" model="ir.ui.view">
+        <field name="name">{{ name }}.tree_view</field>
         <field name="model">{{ name }}</field>
         <field name="arch" type="xml">
             <tree>
@@ -24,14 +12,14 @@
         </field>
     </record>
 
-    <record id="view_form" model="ir.ui.view">
-        <field name="name">{{ name }}.view_tree</field>
+    <record id="form_view" model="ir.ui.view">
+        <field name="name">{{ name }}.form_view</field>
         <field name="model">{{ name }}</field>
         <field name="arch" type="xml">
             <form>
                 <header>
+                <field name="state" widget="statusbar" select="1" readonly="1" />
                     <button name="button_close" string="Close" states="prepared" type="object" />
-                    <field name="state" widget="statusbar" select="1" readonly="1" />
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -53,19 +41,23 @@
                             <field name="name"/>
                         </h1>
                     </div>
-                    <group>
-                        <group>
-                            <field name="value" />
-                        </group>
-                    </group>
+                    <notebook>
+                        <page string="General Information" name="general_info">
+                            <group>
+                                <group>
+                                    <field name="value" />
+                                </group>
+                            </group>
+                        </page>
+                    </notebook>
                 </sheet>
             </form>
         </field>
     </record>
 
 
-    <record id="view_pivot" model="ir.ui.view">
-        <field name="name">{{ name }}.view_pivot</field>
+    <record id="pivot_view" model="ir.ui.view">
+        <field name="name">{{ name }}.pivot_view</field>
         <field name="model">{{ name }}</field>
         <field name="arch" type="xml">
             <pivot>
@@ -76,7 +68,7 @@
         </field>
     </record>
 
-    <record id="action_view_tree" model="ir.actions.act_window">
+    <record id="action_document_view" model="ir.actions.act_window">
         <field name="name">Documents</field>
         <field name="res_model">{{ name }}</field>
         <field name="view_mode">tree,form</field>
@@ -101,7 +93,7 @@
     <menuitem name="Configurations" id="{{ name }}.menu_configuration" parent="{{ name }}.menu_root" />
 
     <menuitem name="Documents" id="{{ name }}.menu_document" parent="{{ name }}.documents_menu"
-        action="{{ name }}.action_view_tree" />
+        action="{{ name }}.action_document_view" />
     <menuitem name="Server to list" id="{{ name }}.menu_server_action"
         parent="{{ name }}.menu_configuration" action="{{ name }}.document_server_action" />
 
