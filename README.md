@@ -118,7 +118,7 @@ task create-module addons/project_report
 
 Clone thirdparty repos into the `thirdparty` folder.
 
-To load modules from a thirdparty folder, set this env var in your `.env` file.
+To load modules from a thirdparty folder, set this env var in your `.env` file:
 
 ```bash
 ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
@@ -128,10 +128,28 @@ The paths will be appended to the Odoo config.
 
 #### Initialize without demo data
 
-In your `.env` file define this Odoo parameter env var.
+In your `.env` file define this Odoo parameter env var:
 
 ```bash
 ODOO_PARAM="--without-demo=all"
+```
+
+#### Define Odoo database name
+
+By default the database name is the current branch name.
+
+To define the name, set this env var in your `.env` file:
+
+```bash
+ODOO_DATABASE=odoo
+```
+
+#### Disable browser open
+
+To disable the browser open when starting the Odoo server edit the `.env` file:
+
+```bash
+BROWSER_OPEN=false
 ```
 
 ### Docker
@@ -300,4 +318,17 @@ Reinstall with pip flags.
 
 ```
 pip install python-ldap --force-reinstall --no-binary python-ldap
+```
+
+### psycopg2 symbol not found
+
+**Problem**
+
+`init-db` fails with psycopg2 errors on macOS / Darwin.
+
+**Solution**
+
+```bash
+source task source
+pip install psycopg2-binary --force
 ```

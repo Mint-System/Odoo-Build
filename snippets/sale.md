@@ -2863,6 +2863,18 @@ ID: `mint_system.sale.report_saleorder_document.style_gelso`
 ```
 Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_gelso.xml)
 
+### Style Lapp  
+ID: `mint_system.sale.report_saleorder_document.style_lapp`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4</attribute>
+    </xpath>    
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_lapp.xml)
+
 ### Style Mint System  
 ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
 ```xml

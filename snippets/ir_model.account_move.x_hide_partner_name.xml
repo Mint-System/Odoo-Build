@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="x_show_bank_details" model="ir.model.fields">
-        <field name="field_description">Show Bank Details</field>
+    <record id="x_hide_partner_name" model="ir.model.fields">
+        <field name="field_description">Hide Partner Name</field>
         <field name="model">account.move</field>
         <field name="model_id" ref="account.model_account_move"/>
-        <field name="name">x_show_bank_details</field>
+        <field name="name">x_hide_partner_name</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="True"/>
