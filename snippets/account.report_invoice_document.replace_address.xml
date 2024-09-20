@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@t-field='o.partner_id']" position="replace">
         <t t-if="o.partner_invoice_id.is_company == true">
