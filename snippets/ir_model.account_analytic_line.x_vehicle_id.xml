@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_vehicle_id" model="ir.model.fields">
+        <field name="field_description">Fahrzeug</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_analytic_line"/>
+        <field name="name">x_vehicle_id</field>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">fleet.vehicle</field>        	
+        <field name="related">task_id.vehicle_id</field>        
+    </record>
+</odoo>
