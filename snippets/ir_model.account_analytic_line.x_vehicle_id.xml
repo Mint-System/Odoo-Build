@@ -2,7 +2,7 @@
 <odoo>
     <record id="x_vehicle_id" model="ir.model.fields">
         <field name="field_description">Fahrzeug</field>
-        <field name="model">account.move.line</field>
+        <field name="model">account.analytic.line</field>
         <field name="model_id" ref="account.model_account_analytic_line"/>
         <field name="name">x_vehicle_id</field>
         <field name="readonly" eval="True"/>
