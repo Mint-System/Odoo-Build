@@ -379,7 +379,7 @@ ID: `mint_system.product.product_template_kanban_view.add_product_info`
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_kanban_view" priority="50">&gt;
 
-  <xpath expr="//div[@class='oe_kanban_details']" position="replace"><div class="oe_kanban_details"><t t-if="record.default_code.value">[<field name="default_code"/>]</t><strong class="o_kanban_record_title"><field name="name"/></strong><div><field name="type_description"/></div><div t-if="record.type.raw_value == 'product'">On hand: <field name="qty_available"/> <field name="uom_id"/> / <field name="virtual_available"/> <field name="uom_id"/>
+  <xpath expr="//div[@class='oe_kanban_details']" position="replace"><div class="oe_kanban_details"><t t-if="record.default_code.value">[<field name="default_code"/>] </t><strong class="o_kanban_record_title"><field name="name"/></strong><div><field name="type_description"/></div><div t-if="record.type.raw_value == 'product'">On hand: <field name="qty_available"/> <field name="uom_id"/> / <field name="virtual_available"/> <field name="uom_id"/>
     </div></div></xpath>
 
 </data>
@@ -419,7 +419,7 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
-    <xpath expr="//group[@name='group_general']/field[@name='default_code']" position="replace"/>
+    <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
 </data>
 
 ```
@@ -589,7 +589,7 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_search_view" priority="50">
-    <xpath expr="//field[@name='pricelist_id']" position="after">
+    <xpath expr="//field[@name='attribute_line_ids']" position="after">
         <separator/>
         <field string="Typenbezeichnung" name="type_description" filter_domain="['|', ('type_description', 'like', self), ('type_description2', 'like', self)]"/>
     </xpath>

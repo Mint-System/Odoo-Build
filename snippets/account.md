@@ -1532,7 +1532,6 @@ Source: [snippets/account.report_invoice_document.replace_address_and_informatio
 ID: `mint_system.account.report_invoice_document.replace_address`  
 ```xml
 <?xml version="1.0"?>
-<!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@t-field='o.partner_id']" position="replace">
         <t t-if="o.partner_invoice_id.is_company == true">
@@ -2926,6 +2925,24 @@ ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`
 ```
 Source: [snippets/account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_hide_on_invoice.xml)
 
+### X Hide Partner Name  
+ID: `mint_system.account.report_invoice_document.x_hide_partner_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//address[@t-field='o.partner_id']"  position="attributes">
+        <t t-if="o.x_hide_partner_name">
+            <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+        <t t-else="">
+            <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_hide_partner_name.xml)
+
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
 ```xml
@@ -3467,6 +3484,23 @@ ID: `mint_system.account.view_move_form.remove_isr_button`
 ```
 Source: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.remove_isr_button.xml)
 
+### Replace Button Scan Wizzard  
+ID: `mint_system.account.view_move_form.replace_button_scan_wizzard`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+   
+    <xpath expr="//button[@name='get_import_wizard']" position="replace">
+        <button type="object" name="get_import_wizard" string="Scan next QR Bill" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+
+    <xpath expr="//button[@name='get_update_reference_wizard']" position="replace">
+        <button type="object" class="btn-primary o_button_payment_reference" name="get_update_reference_wizard" help="Update reference with scan" string="Scan QR" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+</data>
+```
+Source: [snippets/account.view_move_form.replace_button_scan_wizzard.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.replace_button_scan_wizzard.xml)
+
 ### Show Bank Partner Id  
 ID: `mint_system.account.view_move_form.show_bank_partner_id`  
 ```xml
@@ -3725,6 +3759,19 @@ ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`
 
 ```
 Source: [snippets/account.view_move_form.x_has_downpayment_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_has_downpayment_warn_msg.xml)
+
+### X Hide Partner Name  
+ID: `mint_system.account.view_move_form.x_hide_partner_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="team_id" position="after">
+        <field name="x_hide_partner_name"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_form.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_hide_partner_name.xml)
 
 ### X Invoice Warn Msg  
 ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  

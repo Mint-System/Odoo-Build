@@ -18,6 +18,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_move_line_contra_accounts | [14.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/14.0/account_move_line_contra_accounts) [15.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/15.0/account_move_line_contra_accounts) [16.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/16.0/account_move_line_contra_accounts) |
 | account_reports_hide_ref | [16.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/16.0/account_reports_hide_ref) |
 | account_sale_timesheet_report | [15.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/15.0/account_sale_timesheet_report) |
+| account_show_invoice_date | [15.0](https://github.com/Mint-System/odoo-apps-account-financial-reporting/tree/15.0/account_show_invoice_date) |
 
 ### account-invoicing
 
@@ -1074,7 +1075,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_holidays_settings | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_settings) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_settings) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_settings) |
 | hr_holidays_summary_email | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_summary_email) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_summary_email) |
 | hr_holidays_validity_date | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_validity_date) |
-| hr_leave_custom_hour_interval | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_leave_custom_hour_interval) [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_leave_custom_hour_interval) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_leave_custom_hour_interval) |
+| hr_leave_custom_hour_interval | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_leave_custom_hour_interval) [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_leave_custom_hour_interval) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_leave_custom_hour_interval) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_leave_custom_hour_interval) |
 | hr_leave_type_code | [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_leave_type_code) |
 | resource_leaves_geographic | [16.0](https://github.com/OCA/hr-holidays/tree/16.0/resource_leaves_geographic) |
 
@@ -1104,7 +1105,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_employee_document | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_document) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_document) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_document) [17.0](https://github.com/OCA/hr/tree/17.0/hr_employee_document) |
 | hr_employee_firstname | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_firstname) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_firstname) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_firstname) [17.0](https://github.com/OCA/hr/tree/17.0/hr_employee_firstname) |
 | hr_employee_group_overview_readonly | [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_group_overview_readonly) |
-| hr_employee_id | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_id) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_id) |
+| hr_employee_id | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_id) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_id) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_id) |
 | hr_employee_lastnames | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_lastnames) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_lastnames) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_lastnames) |
 | hr_employee_medical_examination | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_medical_examination) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_medical_examination) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_medical_examination) |
 | hr_employee_partner_external | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_partner_external) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_partner_external) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_partner_external) |
@@ -1629,6 +1630,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | project_key | [13.0](https://github.com/OCA/project/tree/13.0/project_key) [14.0](https://github.com/OCA/project/tree/14.0/project_key) [16.0](https://github.com/OCA/project/tree/16.0/project_key) |
 | project_list | [13.0](https://github.com/OCA/project/tree/13.0/project_list) [14.0](https://github.com/OCA/project/tree/14.0/project_list) [15.0](https://github.com/OCA/project/tree/15.0/project_list) [16.0](https://github.com/OCA/project/tree/16.0/project_list) |
 | project_mail_chatter | [14.0](https://github.com/OCA/project/tree/14.0/project_mail_chatter) |
+| project_merge | [16.0](https://github.com/OCA/project/tree/16.0/project_merge) |
 | project_milestone | [13.0](https://github.com/OCA/project/tree/13.0/project_milestone) [14.0](https://github.com/OCA/project/tree/14.0/project_milestone) [15.0](https://github.com/OCA/project/tree/15.0/project_milestone) |
 | project_milestone_tree | [16.0](https://github.com/OCA/project/tree/16.0/project_milestone_tree) |
 | project_parent | [13.0](https://github.com/OCA/project/tree/13.0/project_parent) [16.0](https://github.com/OCA/project/tree/16.0/project_parent) [17.0](https://github.com/OCA/project/tree/17.0/project_parent) |
@@ -2179,7 +2181,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_transaction_form_link | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_transaction_form_link) |
 | sale_triple_discount | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_triple_discount) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_triple_discount) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_triple_discount) |
 | sale_validity | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_validity) |
-| sale_validity_auto_cancel | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity_auto_cancel) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_validity_auto_cancel) |
+| sale_validity_auto_cancel | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity_auto_cancel) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_validity_auto_cancel) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_validity_auto_cancel) |
 | sale_warn_option | [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_warn_option) |
 | sale_wishlist | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_wishlist) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_wishlist) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_wishlist) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_wishlist) |
 | sales_team_security | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sales_team_security) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sales_team_security) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sales_team_security) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sales_team_security) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sales_team_security) |
@@ -2328,7 +2330,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | iap_alternative_provider | [13.0](https://github.com/OCA/server-tools/tree/13.0/iap_alternative_provider) [14.0](https://github.com/OCA/server-tools/tree/14.0/iap_alternative_provider) [15.0](https://github.com/OCA/server-tools/tree/15.0/iap_alternative_provider) [16.0](https://github.com/OCA/server-tools/tree/16.0/iap_alternative_provider) [17.0](https://github.com/OCA/server-tools/tree/17.0/iap_alternative_provider) |
 | jsonifier | [14.0](https://github.com/OCA/server-tools/tree/14.0/jsonifier) [15.0](https://github.com/OCA/server-tools/tree/15.0/jsonifier) [16.0](https://github.com/OCA/server-tools/tree/16.0/jsonifier) [17.0](https://github.com/OCA/server-tools/tree/17.0/jsonifier) |
 | jsonifier_stored | [14.0](https://github.com/OCA/server-tools/tree/14.0/jsonifier_stored) |
-| letsencrypt | [13.0](https://github.com/OCA/server-tools/tree/13.0/letsencrypt) [14.0](https://github.com/OCA/server-tools/tree/14.0/letsencrypt) [15.0](https://github.com/OCA/server-tools/tree/15.0/letsencrypt) |
+| letsencrypt | [13.0](https://github.com/OCA/server-tools/tree/13.0/letsencrypt) [14.0](https://github.com/OCA/server-tools/tree/14.0/letsencrypt) [15.0](https://github.com/OCA/server-tools/tree/15.0/letsencrypt) [16.0](https://github.com/OCA/server-tools/tree/16.0/letsencrypt) |
 | mail_cleanup | [14.0](https://github.com/OCA/server-tools/tree/14.0/mail_cleanup) |
 | mail_server_relay_disallowed | [13.0](https://github.com/OCA/server-tools/tree/13.0/mail_server_relay_disallowed) |
 | model_read_only | [14.0](https://github.com/OCA/server-tools/tree/14.0/model_read_only) |

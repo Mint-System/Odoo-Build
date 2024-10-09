@@ -237,6 +237,18 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`
 ```
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
 
+### X Vehicle Id  
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+   <xpath expr="//tree/field[@name='category_id']" position="after">
+         <field name="x_vehicle_id" optional="hide"/>
+    </xpath>
+</data>
+```
+Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml)
+
 ## Portal My Timesheets  
 ### Show Billable  
 ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`  

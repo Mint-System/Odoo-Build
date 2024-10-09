@@ -86,6 +86,27 @@ ID: `mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type`
 ```
 Source: [snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_analytic_line.x_timesheet_invoice_type.xml)
 
+### X Vehicle Id  
+ID: `mint_system.ir_model.account_analytic_line.x_vehicle_id`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_vehicle_id" model="ir.model.fields">
+        <field name="field_description">Fahrzeug</field>
+        <field name="model">account.analytic.line</field>
+        <field name="model_id" ref="account.model_account_analytic_line"/>
+        <field name="name">x_vehicle_id</field>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">many2one</field>
+        <field name="relation">fleet.vehicle</field>        	
+        <field name="related">task_id.vehicle_id</field>        
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_analytic_line.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_analytic_line.x_vehicle_id.xml)
+
 ## Account Bank Statement  
 ### X Cashbox End Ids  
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`  
@@ -377,6 +398,25 @@ ID: `mint_system.ir_model.account_move.x_has_downpayment`
 ```
 Source: [snippets/ir_model.account_move.x_has_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_has_downpayment.xml)
 
+### X Hide Partner Name  
+ID: `mint_system.ir_model.account_move.x_hide_partner_name`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_hide_partner_name" model="ir.model.fields">
+        <field name="field_description">Hide Partner Name</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_hide_partner_name</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="True"/>
+        <field name="ttype">Boolean</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.account_move.x_hide_partner_name.xml)
+
 ### X Hr Expense Sheet Ids  
 ID: `mint_system.ir_model.account_move.x_hr_expense_sheet_ids`  
 ```xml
@@ -504,7 +544,7 @@ ID: `mint_system.ir_model.account_move.x_show_bank_details`
         <field name="name">x_show_bank_details</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">Boolean</field>
     </record>
 </odoo>

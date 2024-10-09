@@ -2020,6 +2020,29 @@ ID: `mint_system.sale.report_saleorder_document.hide_line_item`
 ```
 Source: [snippets/sale.report_saleorder_document.hide_line_item.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_line_item.xml)
 
+### Hs Code And Origin  
+ID: `mint_system.sale.report_saleorder_document.hs_code_and_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_description']" position="after">
+        <th name="th_hs_code">HS-Code</th>
+    </xpath>
+    <xpath expr="//th[@name='th_hs_code']" position="after">
+        <th name="th_Origin">Origin</th>
+    </xpath>
+    
+    <xpath expr="//td[@name='td_name']" position="after">
+       <td name="td_hs_code"></td>
+    </xpath>
+    <xpath expr="//td[@name='td_hs_code']" position="after">
+       <td name="td_oriding"></td>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hs_code_and_origin.xml)
+
 ### Move Order Note  
 ID: `mint_system.sale.report_saleorder_document.move_order_note`  
 ```xml
