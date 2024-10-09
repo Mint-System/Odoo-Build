@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_description']" position="after">
+        <th name="th_hs_code">HS-Code</th>
+    </xpath>
+    <xpath expr="//th[@name='th_hs_code']" position="after">
+        <th name="th_Origin">Origin</th>
+    </xpath>
+    
+    <xpath expr="//td[@name='td_name']" position="after">
+       <td name="td_hs_code"></td>
+    </xpath>
+    <xpath expr="//td[@name='td_hs_code']" position="after">
+       <td name="td_oriding"></td>
+    </xpath>
+</data>

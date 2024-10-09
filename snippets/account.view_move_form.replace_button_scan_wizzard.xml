@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+   
+    <xpath expr="//button[@name='get_import_wizard']" position="replace">
+        <button type="object" name="get_import_wizard" string="Scan next QR Bill" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+
+    <xpath expr="//button[@name='get_update_reference_wizard']" position="replace">
+        <button type="object" class="btn-primary o_button_payment_reference" name="get_update_reference_wizard" help="Update reference with scan" string="Scan QR" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+</data>
