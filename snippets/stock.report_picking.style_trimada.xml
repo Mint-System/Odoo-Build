@@ -1,93 +1,103 @@
-<?xml version="1.0"?>
-<data inherit_id="stock.report_picking" priority="60"><xpath expr="//div[hasclass('page')]" position="before"><style>
-          p {
-            font-size: 9pt;
-                font-family: arial;
-          }
-            table.trimada {
-              width: 100%;
-                font-size: 9pt;
-                font-family: arial;
-                margin-top: 20px;
-            }
-            table.trimada thead tr {
-                border-top: solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              padding-left: 10px;
-              text-align: left;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada thead th#product_uom_qty {
-              width: 35mm;
-              text-align: right;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody tr {
-              vertical-align: top;
-                border-bottom: 1px solid rgb(220,220,220)
-            }
-            table.trimada tbody td#default_code {
-              padding-left: 10px;
-              text-align: left;
-            }
-            table.trimada tbody td span#description_pickingout {
-              font-style: italic;
-            }
-            table.trimada tbody td#product_uom_qty {
-              text-align: right;
-            }            
-            table.trimada tbody td span#product_uom_qty {
-              font-weight: bold;
-            }
-            table.trimada tbody td span#product_uom_qty_done {
-              font-weight: bold;
-            }
-            table.trimada tbody td span#qty_available {
-              font-size: 7pt;
-            }
-            table.trimada tbody td span#qty_available_uom_id {
-              font-size: 7pt;
-            }
-            table.trimada tbody td span#qty_done {
-              font-weight: normal;
-              font-size: 9pt;
-            }
-            table.trimada #barcode {
-              text-align: right;
-            }
-          div.address_block {
-              font-size: 10pt;
-                font-family: arial;
-                margin-top: 20px;
-                margin-left: 10px;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-            .mrp_note {
-                font-size: 9pt;
-                font-family: arial;
-                padding-bottom: 3mm;
-            }
-        </style></xpath>
+<data inherit_id="stock.report_picking" priority="60">
 
-.    <xpath expr="//th[@name='th_product']/../../.." position="attributes"><attribute name="class" separator=" " add="trimada table-borderless"/></xpath>
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		  p {
+		    font-size: 9pt;
+				font-family: arial;
+		  }
+			table.trimada {
+			  width: 100%;
+				font-size: 9pt;
+				font-family: arial;
+				margin-top: 20px;
+			}
+			table.trimada thead tr {
+				border-top: solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  padding-left: 10px;
+			  text-align: left;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			table.trimada thead th#product_uom_qty {
+			  width: 35mm;
+			  text-align: right;
+			}
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody tr {
+			  vertical-align: top;
+				border-bottom: 1px solid rgb(220,220,220)
+			}
+			table.trimada tbody td#default_code {
+			  padding-left: 10px;
+			  text-align: left;
+			}
+			table.trimada tbody td span#description_pickingout {
+			  font-style: italic;
+			}
+			table.trimada tbody td#product_uom_qty {
+			  text-align: right;
+			}			
+			table.trimada tbody td span#product_uom_qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#product_uom_qty_done {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#qty_available {
+			  font-size: 7pt;
+			}
+			table.trimada tbody td span#qty_available_uom_id {
+			  font-size: 7pt;
+			}
+			table.trimada tbody td span#qty_done {
+			  font-weight: normal;
+			  font-size: 9pt;
+			}
+			table.trimada #barcode {
+			  text-align: right;
+			}
+		  div.address_block {
+			  font-size: 10pt;
+				font-family: arial;
+				margin-top: 20px;
+				margin-left: 10px;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			.mrp_note {
+				font-size: 9pt;
+				font-family: arial;
+				padding-bottom: 3mm;
+			}
+		</style>
+	</xpath>
+
+
+	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless text-start"/>
+	</xpath>
+
+	<xpath expr="//th[@name='th_barcode']" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
 
 </data>

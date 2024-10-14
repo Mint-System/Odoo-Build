@@ -1,6 +1,7 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
-        <attribute name="t-foreach">doc.order_line.filtered(lambda l: not is_confirmation or (is_confirmation and l.qty_to_deliver &gt; 0))</attribute>
-    </xpath>
+
+  <xpath expr="//t[@t-foreach='lines_to_report']" position="attributes">
+    <attribute name="t-foreach">lines_to_report.filtered(lambda l: not is_confirmation or (is_confirmation and l.qty_to_deliver &gt; 0))</attribute>
+  </xpath>
+
 </data>
