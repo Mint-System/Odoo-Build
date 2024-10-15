@@ -1,18 +1,22 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//th[@name='th_quantity']" position="attributes">
-        <attribute name="id">th_quantity</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_description']" position="attributes">
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <xpath expr="//table[2]//th[3]" position="attributes">
         <attribute name="id">description</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='invoice_line_table']//th[4]" position="attributes">
+        <attribute name="id">quantity</attribute>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
         <attribute name="id">quantity</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
         <attribute name="id">qty</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+
+    <xpath expr="//table[@name='invoice_line_table']//td[4]/span[1]" position="attributes">
         <attribute name="id">price</attribute>
     </xpath>
+
 </data>

@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//table/thead/tr/th[1]" position="before">
+<data inherit_id="account.report_invoice_document" priority="51">
+    <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
         <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
@@ -10,7 +10,7 @@
             <span>Pos</span>
         </th>
     </xpath>
-    <xpath expr="//span[@t-field='line.name']/.." position="before">
+    <xpath expr="/table[@name='invoice_line_table']//t[1]/td[1]" position="before">
         <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
         <span t-esc="line.position" />
