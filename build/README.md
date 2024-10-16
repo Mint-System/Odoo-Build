@@ -10,6 +10,8 @@ A better Odoo image.
 - Stores session information in database
 - Set and get environment name from server config
 
+Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
+
 ## Usage
 
 ```yml
