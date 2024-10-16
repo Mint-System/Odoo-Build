@@ -1,0 +1,65 @@
+version: "3"
+name: odoo-build
+services:
+  odoo:
+    container_name: odoo
+    image: "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    depends_on:
+      - db
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+      PORT: ${POSTGRES_PORT}
+      ODOO_ADDONS_PATH: ${ODOO_ADDONS_PATH}
+      LOG_LEVEL: ${LOG_LEVEL}
+      ADMIN_PASSWD: ${ADMIN_PASSWD}
+      DBFILTER: ${DBFILTER}
+      ENVIRONMENT: ${ENVIRONMENT}
+      LIST_DB: ${LIST_DB}
+      PROXY_MODE: ${PROXY_MODE}
+    ports:
+      - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./addons:/mnt/addons
+      - ./oca:/mnt/oca
+      - ./enterprise:/mnt/enterprise
+      - ./themes:/mnt/themes
+      - ./thirdparty:/mnt/thirdparty
+  admin:
+    container_name: admin
+    image: dpage/pgadmin4:6
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8000:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - admin-data:/var/lib/pgadmin
+      - ./config/servers.json:/pgadmin4/servers.json
+  db:
+    container_name: db
+    image: postgres:12-alpine
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+  mail:
+    image: mailhog/mailhog
+    container_name: mail
+    hostname: mail
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+volumes:
+  odoo-data:
+  db-data:
+  admin-data:
+  mail-data:

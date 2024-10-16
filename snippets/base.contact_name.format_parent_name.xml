@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<data inherit_id="base.contact_name" priority="50">
+    <xpath expr="//t[1]/span" position="replace">
+        <!--if object has no parent show name only-->
+        <t t-if="not object.parent_name">
+            <span itemprop="name" t-esc="object.name"/>
+        </t>
+        <!-- if object has parent with same name show name only -->
+        <t t-if="object.name == object.parent_name">
+            <span itemprop="name" t-esc="object.parent_name"/>
+        </t>
+        <!--if object has parent with different name show parent on second line -->
+        <t t-if="object.parent_name and object.name != object.parent_name ">
+            <span itemprop="name" t-esc="object.name"/><br/>
+            <span itemprop="name" t-esc="object.parent_name"/>
+        </t>
+    </xpath>
+</data>

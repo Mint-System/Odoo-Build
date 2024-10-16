@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_partner_ref" model="ir.model.fields">
+        <field name="field_description">Kunden Nr.</field>
+        <field name="model">sale.order</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">partner_ref</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">Char</field>
+        <field name="related">partner_id.ref</field>
+    </record>
+</odoo>

@@ -1,0 +1,32 @@
+{
+  "name": "odoo-build",
+  "version": "1.0.0",
+  "description": "The Mint System Odoo development environment.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev .",
+    "build": "vuepress build ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mint-System/Odoo-Build.git"
+  },
+  "keywords": [
+    "odoo",
+    "development",
+    "environment",
+    "build"
+  ],
+  "author": "Mint System",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Mint-System/Odoo-Build/issues"
+  },
+  "homepage": "https://github.com/Mint-System/Odoo-Build#readme",
+  "devDependencies": {
+    "@vuepress/bundler-vite": "^2.0.0-rc.14",
+    "@vuepress/plugin-search": "^2.0.0-rc.39",
+    "@vuepress/theme-default": "^2.0.0-rc.39",
+    "vuepress": "^2.0.0-rc.14"
+  }
+}

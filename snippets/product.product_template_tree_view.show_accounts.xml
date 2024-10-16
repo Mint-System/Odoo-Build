@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="product.product_template_tree_view" priority="50">
+    <xpath expr="//field[@name='list_price']" position="before">
+        <field name="property_account_income_id" optional="hide"/>
+        <field name="property_account_expense_id" optional="hide"/>
+    </xpath>
+</data>

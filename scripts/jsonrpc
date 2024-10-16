@@ -1,0 +1,31 @@
+#!/usr/bin/env python3
+
+import odoorpc
+import os
+from urllib.parse import urlparse
+
+url = os.environ.get('ODOO_URL') or 'http://localhost:8069'
+db = os.environ.get('ODOO_DATABASE') or 'odoo'
+username = os.getenv('ODOO_USERNAME') or 'admin'
+password = os.environ.get('ODOO_PASSWORD') or 'admin'
+
+# Prepare the connection to the server
+url = urlparse(url)
+if url.scheme == 'https':
+    protocol = 'jsonrpc+ssl'
+    port = 443
+if url.scheme == 'http':
+    protocol = 'jsonrpc'
+    port = 80
+odoo = odoorpc.ODOO(url.hostname, protocol=protocol, port=(url.port or port))
+
+# Check available databases
+print(odoo.db.list())
+
+# Login
+odoo.login(db, username, password)
+
+# Current user
+user = odoo.env.user
+print(user.name) # name of the user connected
+print(odoo.env.company_id.name) # the name of its company

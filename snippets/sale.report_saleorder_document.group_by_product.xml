@@ -1,0 +1,213 @@
+<t t-name="sale.report_saleorder_pro_forma">
+    <t t-call="web.html_container">
+        <t t-set="is_pro_forma" t-value="True"/>
+        <t t-set="is_pro_forma_consolidated" t-value="True"/>
+        <t t-call="web.external_layout">
+
+            <style>
+           .info td {
+              padding-left: 5px;
+              padding-right: 5px;
+              border-bottom: 1px solid #D3D3D3;
+            }           
+            .border-solid-black td {
+              border: 1px solid black;
+            }
+            thead th {
+              font-weight: bold;
+              padding: 5px;
+            }
+            h2 {
+              padding-left: 5px;
+            }
+            h3 {
+              font-size: 22px;
+              padding-left: 5px;
+            }
+            </style>
+
+            <h2 class="mt-4">
+                <span>Pro-Forma Invoice</span>
+            </h2>
+
+            <h3>Orders:</h3>
+            <table class="info">
+                <thead>
+                    <tr>
+                        <th class="text-start">Ref</th>
+                        <th class="text-start">Company Name</th>
+                        <th class="text-start">Street</th>
+                        <th class="text-start">Zip</th>
+                        <th class="text-start">City</th>
+                        <th class="text-end">Currency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <t t-foreach="docs" t-as="doc">
+                        <tr>
+                            <td>
+                                <span t-field="doc.name"/>
+                            </td>
+                            <td>
+                                <span t-field="doc.partner_id.name"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.street"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.zip"/>
+                            </td>
+                            <td>
+                                <span t-esc="doc.partner_id.city"/>
+                            </td>
+                            <td class="text-end">
+                                <span t-esc="doc.currency_id.name"/>
+                            </td>
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+
+            <table class="table table-sm o_main_table mt-4">
+                <thead style="display: table-row-group">
+                    <tr>
+                        <th name="th_description" class="text-start">Description</th>
+                        <th name="th_quantity" class="text-end">Quantity</th>
+                        <th name="th_priceunit" class="text-end">Unit Price</th>
+                        <th name="th_taxes" class="text-end">Taxes</th>
+                        <th name="th_subtotal" class="text-end">Amount</th>
+                    </tr>
+                </thead>
+
+                <tbody class="sale_tbody">
+                    <t t-set="lines" t-value="docs.order_line.sorted(key=lambda l: (l.name), reverse=True)"/>
+                    <t t-set="consolidated_products" t-value="{}"/>
+                    <t t-foreach="lines" t-as="line">
+                        <t t-set="product_name" t-value="line.name"/>
+                        <t t-set="line_name" t-value="line.product_id.name"/>
+                        <t t-set="line_default_code" t-value="line.product_id.default_code"/>
+                        <t t-set="line_hs_code" t-value="line.product_id.hs_code"/>
+                        <t t-set="line_quantity" t-value="line.product_uom_qty"/>
+                        <t t-set="line_price_unit" t-value="line.price_unit"/>
+                        <t t-set="line_tax_id" t-value="line.tax_id.description"/>
+                        <t t-set="line_subtotal" t-value="line.price_subtotal"/>
+                        <t t-set="line_price_total" t-value="line.price_total"/>
+                        <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
+                        <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'name': line_name, 'default_code': line_default_code, 'hs_code': line_hs_code, 'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'tax_id': line_tax_id, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
+                    </t>
+
+                    <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
+                        <t t-if="not line.display_type">
+                            <t t-foreach="consolidated_products.items()" t-as="product_data">
+                                <tr>
+                                    <td name="td_name">
+                                        <span style="font-weight: bold" t-esc="product_data[1]['name']"/>
+                                        <br/>
+                                        Product Code: <span t-esc="product_data[1]['default_code']"/>
+                                        <br/>
+                                        <t t-if="product_data[1]['hs_code']">HS-Code: <span t-esc="product_data[1]['hs_code']"/>
+                                        </t>
+                                    </td>
+                                    <td name="td_quantity" class="text-end">
+                                        <span t-esc="product_data[1]['quantity']"/>
+                                        <span t-field="line.product_uom"/>
+                                    </td>
+                                    <td name="td_priceunit" class="text-end">
+                                        <t t-set="unit_price" t-value="product_data[1]['subtotal'] / product_data[1]['quantity'] "/>
+                                        <span class="text-nowrap" t-esc="unit_price" t-options="{'widget': 'float', 'precision': 3}"/>
+                                    </td>
+                                    <td name="td_taxes" class="text-end">
+                                        <span t-esc="product_data[1]['tax_id']"/>
+                                    </td>
+
+                                    <td name="td_subtotal" class="text-end o_price_total">
+                                        <span t-esc="product_data[1]['subtotal']" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                    </td>
+                                </tr>
+                            </t>
+                        </t>
+                    </tr>
+                </tbody>
+                <t t-set="consolidated_price_total" t-value="0"/>
+                <t t-foreach="docs" t-as="doc">
+                    <t t-foreach="doc.order_line" t-as="line">
+                        <t t-set="consolidated_price_total" t-value="consolidated_price_total + line.price_total"/>
+                    </t>
+                </t>
+            </table>
+
+            <div class="clearfix" name="so_total_summary">
+                <div id="total" class="row" name="total">
+                    <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
+                        <table class="table table-sm">
+                            <!-- Tax totals -->
+                            <t t-set="tax_totals" t-value="doc.tax_totals"/>
+
+                            <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
+
+                                <tr class="border-black o_subtotal">
+                                    <td>
+                                        <strong t-esc="subtotal['name']"/>
+                                    </td>
+
+                                    <td class="text-end">
+                                        <span t-att-class="oe_subtotal_footer_separator" t-esc="consolidated_price_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                    </td>
+                                </tr>
+                                <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+                                <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                                    <tr>
+                                        <t t-if="tax_totals['display_tax_base']">
+                                            <td>
+                                                <span t-esc="amount_by_group['tax_group_name']"/>
+                                                <span class="text-nowrap"> on
+                                                    <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
+                                                </span>
+                                            </td>
+                                            <td class="text-end o_price_total">
+                                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                        <t t-else="">
+                                            <td>
+                                                <span class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/>
+                                            </td>
+                                            <td class="text-end o_price_total">
+                                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                                            </td>
+                                        </t>
+                                    </tr>
+                                </t>
+                            </t>
+
+                            <t t-set="has_rounding" t-value="'formatted_amount_total_rounded' in tax_totals"/>
+                            <!--Total amount with all taxes-->
+                            <tr class="border-black o_total">
+                                <t t-if="has_rounding">
+                                    <td>Total</td>
+                                </t>
+                                <t t-else="">
+                                    <td>
+                                        <strong>Total</strong>
+                                    </td>
+                                </t>
+                                <td class="text-end">
+                                    <t t-set="consolidated_price_total" t-value="consolidated_price_total + amount_by_group['tax_group_amount']"/>
+                                    <span t-esc="consolidated_price_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
+                                </td>
+                            </tr>
+                            <tr t-if="has_rounding">
+                                <td>
+                                    <strong>Total Rounded</strong>
+                                </td>
+                                <td class="text-end">
+                                    <span t-esc="tax_totals['formatted_amount_total_rounded']"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+</t>

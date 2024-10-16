@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_as4_import" model="ir.model.fields">
+        <field name="field_description">AS4 Import</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_sale_id_as4_import</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">boolean</field>
+        <field name="related">sale_id.x_as4import</field>
+    </record>
+</odoo>

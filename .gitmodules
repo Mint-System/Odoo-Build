@@ -1,0 +1,12 @@
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+	branch = 18.0
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+	branch = 18.0
+[submodule "themes"]
+	path = themes
+	url = git@github.com:odoo/design-themes.git
+	branch = 18.0

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+  <xpath expr="//table[@class='company_header table-borderless']" position="replace">
+    <table class="company_header table-borderless" t-att-style="'height: %dmm;' % (din_header_spacing or 27)">
+      <tr>
+        <td>
+          <div class="h3 mt0" t-field="company.report_header"/>
+        </td>
+        <td style="width: 30%;"/>
+        <td style="width: 40%;">
+          <table style="width: 40%;">
+            <tr>
+              <td style="width: 40%; text-align: center;">
+                <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" t-att-style="'max-height: 40mm;' 'display: inline-block;'"/>
+              </td>
+            </tr>
+          </table>
+          <td style="width: 30%;"/>
+        </td>
+      </tr>
+    </table>
+  </xpath>
+</data>

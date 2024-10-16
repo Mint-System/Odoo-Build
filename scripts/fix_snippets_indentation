@@ -1,0 +1,17 @@
+#!/bin/bash
+
+folder_path="snippets"
+
+for file_path in "$folder_path"/*.xml; do
+    if [ -f "$file_path" ]; then
+        echo "Processing $file_path"
+        
+        # Use xmlstarlet to reformat the XML with 4-space indentation
+        xmlstarlet fo --indent-spaces 4 "$file_path" > "${file_path}.tmp"
+        
+        # Replace the original file with the formatted one
+        mv "${file_path}.tmp" "$file_path"
+        
+        echo "Conversion successful for $file_path"
+    fi
+done

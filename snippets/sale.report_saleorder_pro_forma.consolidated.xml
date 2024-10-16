@@ -1,0 +1,72 @@
+<t t-name="sale.report_saleorder_pro_forma">
+    <t t-call="web.html_container">
+        <t t-set="is_pro_forma" t-value="True"/>
+        <t t-set="is_pro_forma_consolidated" t-value="True"/>
+       <t t-call="web.external_layout">
+         
+          <t t-foreach="docs" t-as="doc">
+            <span t-field="doc.partner_id"/>, 
+            <span t-esc="doc.name"/>, 
+            <span t-esc="doc.client_order_ref"/>
+            <br/>
+          
+          </t>
+          
+          
+         <table class="table table-sm o_main_table mt-4"> 
+          <thead style="display: table-row-group">
+              <tr>
+                  <th name="th_description" class="text-start">Description</th>
+                  <th name="th_quantity">Quantity</th>
+                  <th name="th_priceunit" class="text-end">Unit Price</th>
+                  <th name="th_discount"/>
+                  <th name="th_taxes" class="text-end">Taxes</th>
+                  <th name="th_subtotal" class="text-end"/>
+              </tr>
+          </thead>
+          </table>
+         
+          
+       
+         <t t-foreach="docs" t-as="doc">
+           
+       
+        <table class="table table-sm o_main_table mt-4">
+          
+          <!--
+           <tbody class="sale_tbody">
+             <t t-set="lines" t-value="doc.order_line.sorted(key=lambda l: (-l.sequence, l.name, -l.id), reverse=True)"/>
+             
+               <t t-foreach="lines" t-as="line">
+                 <tr>
+                  <td name="td_name"><span t-field="line.name"/></td>
+                </tr>
+               </t>
+             
+            </tbody>
+            -->
+            
+            <tbody class="sale_tbody">
+            <t t-set="lines" t-value="doc.order_line"/>
+            <t t-foreach="lines" t-as="line">
+                <tr>
+                    <t t-if="not previous_name or line.name != previous_name">
+                        <td name="td_name">
+                            <span t-field="line.name"/>
+                        </td>
+                    </t>
+                    <t t-set="previous_name" t-value="line.name"/>
+                </tr>
+            </t>
+        </tbody>
+
+        
+         
+         </table>
+      
+        </t>
+          
+       </t>
+        
+    </t>
+</t>

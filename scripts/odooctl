@@ -1,0 +1,86 @@
+#!/usr/bin/env python3
+
+import xmlrpc.client
+import argparse, sys, os, ast
+from urllib.parse import urlparse
+
+example_text = """
+example: 
+    odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
+    odooctl --model 'ir.module.module' --method update_list
+"""
+
+parser=argparse.ArgumentParser(
+    prog='odooctl',
+    description='Update Odoo records using the XML-RPC API.',
+    epilog=example_text,
+)
+
+# Define arguments
+parser.add_argument('--model', help='Model')
+parser.add_argument('--domain', help='Domain')
+parser.add_argument('--field', help='Field')
+parser.add_argument('--method', help='Field')
+parser.add_argument('--value', help='Value')
+
+# Parse arguments
+args=parser.parse_args()
+
+# Get environemtn variables
+url = os.environ.get('ODOO_URL') or 'http://localhost:8069'
+db = os.environ.get('ODOO_DATABASE') or 'odoo'
+username = os.getenv('ODOO_USERNAME') or 'admin'
+password = os.environ.get('ODOO_PASSWORD') or 'admin'
+
+# Connect
+common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+uid = common.authenticate(db, username, password, {})
+models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+
+# Check permissions
+models.execute_kw(db, uid, password,
+    args.model, 'check_access_rights',
+    ['read'], {'raise_exception': False})
+
+if args.method == 'create':
+    # Execute method
+    models.execute_kw(db, uid, password,
+        args.model, args.method, [eval(args.value)])
+
+    print("Success")
+
+if args.method == 'search_one':
+    # Parse domain
+    domain = ast.literal_eval(args.domain) if args.domain else False
+
+    # Search records
+    ids = models.execute_kw(db, uid, password,
+        args.model, 'search', [[domain]])
+
+    print(ids[0])
+
+if args.method == 'get_id':
+    # Parse value
+    value = ast.literal_eval(args.value)
+
+    # Search records
+    res = models.execute_kw(db, uid, password,'ir.model.data', 'get_object_reference', [value[0],value[1]])
+
+    print(res[1])
+
+if args.field:
+    # Parse domain and value
+    domain = ast.literal_eval(args.domain) if args.domain else False
+    value = ast.literal_eval(args.value)
+
+    # Search records
+    ids = models.execute_kw(db, uid, password,
+        args.model, 'search',
+        [[domain]] if domain else [[]])
+
+    # Write records
+    models.execute_kw(db, uid, password,
+        args.model, 'write',
+        [ids, { args.field: value }])
+
+    print("Success")

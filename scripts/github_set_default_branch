@@ -1,0 +1,49 @@
+#!/bin/bash
+
+# Set your GitHub personal access token and organization name
+ACCESS_TOKEN=""
+ORG_NAME=""
+NEW_DEFAULT_BRANCH="16.0"
+
+if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
+    export $(cat .env | sed 's/^#.*//g' | xargs)
+fi
+
+# Check if the new default branch exists in the repository
+check_branch_existence() {
+    local repo_name=$1
+    local branch=$2
+    curl -s -o /dev/null -I -w "%{http_code}" -H "Authorization: token $ACCESS_TOKEN" \
+        "https://api.github.com/repos/$ORG_NAME/$repo_name/branches/$branch"
+}
+
+# Get a list of repositories in the organization
+REPOS=$(curl -s -H "Authorization: token $ACCESS_TOKEN" \
+    "https://api.github.com/orgs/$ORG_NAME/repos?per_page=100")
+
+# Loop through each repository in the organization
+for repo in $(echo "$REPOS" | jq -r '.[] | @base64'); do
+    name=$(echo "$repo" | base64 --decode | jq -r '.name')
+    default_branch=$(echo "$repo" | base64 --decode | jq -r '.default_branch')
+
+    # Check if the repository's default branch doesn't match the new default branch
+    if [ "$default_branch" != "$NEW_DEFAULT_BRANCH" ]; then
+        # Check if the new default branch exists in the repository
+        if [ "$(check_branch_existence "$name" "$NEW_DEFAULT_BRANCH")" = "200" ]; then
+            # Get the current default branch of the repository
+            current_default_branch=$(curl -s -H "Authorization: token $ACCESS_TOKEN" \
+                "https://api.github.com/repos/$ORG_NAME/$name" | jq -r '.default_branch')
+
+            # Check if the current default branch matches the old default branch name
+
+            echo "Updating default branch for '$name' to '$NEW_DEFAULT_BRANCH'..."
+            curl -X PATCH -H "Authorization: token $ACCESS_TOKEN" \
+                -H "Accept: application/vnd.github.v3+json" \
+                -d "{\"default_branch\": \"$NEW_DEFAULT_BRANCH\"}" \
+                "https://api.github.com/repos/$ORG_NAME/$name"
+
+        else
+            echo "New default branch '$NEW_DEFAULT_BRANCH' doesn't exist in '$name'. Skipping update."
+        fi
+    fi
+done

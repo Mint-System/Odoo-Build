@@ -1,0 +1,8 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <p t-field="o.partner_id.ref" position="replace">
+        <p class="m-0" t-esc="o.partner_id.ref or o.partner_id.parent_id.ref" />
+    </p>
+    <div t-if="o.partner_id.ref" position="attributes">
+        <attribute name="t-if">o.partner_id.ref or o.partner_id.parent_id.ref</attribute>
+    </div>
+</data>

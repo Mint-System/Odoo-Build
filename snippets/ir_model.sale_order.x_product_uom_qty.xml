@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_product_uom_qty" model="ir.model.fields">
+        <field name="field_description">Gesamtmenge</field>
+        <field name="model">sale.order</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_product_uom_qty</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">order_line</field>
+        <field name="compute">for rec in self:
+      lines = rec.order_line.filtered(lambda l: l.product_id.categ_id.name == 'Ware')
+      rec['x_product_uom_qty'] = sum(lines.mapped(lambda l: l.product_id.weight * l.product_uom_qty))</field>
+    </record>
+</odoo>

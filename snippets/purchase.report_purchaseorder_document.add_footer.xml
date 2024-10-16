@@ -1,0 +1,33 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//div[@class='oe_structure']/.." position="after">
+    <style>
+      table#footer {
+        width: 100%;
+        font-size: 8pt;
+      }
+      table#footer tr, td {
+        vertical-align: top;
+      }
+    </style>
+    <table id="footer">
+      <tr>
+        <td width="40%" t-if="o.payment_term_id.note">
+          <span>Zahlungsbedingungen </span>
+          <span t-field="o.payment_term_id"/>
+        </td>
+        <td width="60%">
+          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
+         
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <span>MWST-Nr: </span>
+          <span t-field="o.company_id.vat"/>
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
+</data>

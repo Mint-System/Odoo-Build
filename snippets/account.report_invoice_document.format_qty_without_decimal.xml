@@ -1,0 +1,10 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <span t-field="line.quantity" position="replace">
+        <t t-if="line.quantity.is_integer()">
+            <span t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span t-field="line.quantity"/>
+        </t>
+    </span>
+</data>

@@ -1,0 +1,6 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+<xpath expr="//div/p[@name='order_note']/.." position="replace">
+</xpath>
+
+</data>

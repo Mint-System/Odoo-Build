@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_phase_id_name" model="ir.model.fields">
+        <field name="field_description">Project Phase</field>
+        <field name="model">account.move.line</field>
+        <field name="model_id" ref="account.model_account_analytic_line"/>
+        <field name="name">x_phase_ids_name</field>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+        <field name="related">task_id.phase_id.name</field>        
+    </record>
+</odoo>
