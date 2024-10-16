@@ -11,7 +11,11 @@ services:
       USER: odoo
       PASSWORD: odoo
       PORT: ${POSTGRES_PORT}
+      GIT_SSH_PRIVATE_KEY: ${GIT_SSH_PRIVATE_KEY}
+      ADDONS_GIT_REPOS: ${ADDONS_GIT_REPOS}
       ODOO_ADDONS_PATH: ${ODOO_ADDONS_PATH}
+      SERVER_WIDE_MODULES: ${SERVER_WIDE_MODULES}
+      SESSION_DB_URI: ${SESSION_DB_URI}
       LOG_LEVEL: ${LOG_LEVEL}
       ADMIN_PASSWD: ${ADMIN_PASSWD}
       DBFILTER: ${DBFILTER}
@@ -43,7 +47,7 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:12-alpine
+    image: postgres:14-alpine
     ports:
       - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:

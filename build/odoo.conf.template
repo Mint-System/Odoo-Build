@@ -8,6 +8,7 @@ environment = $ENVIRONMENT
 list_db = $LIST_DB
 proxy_mode = $PROXY_MODE
 workers = $WORKERS
+server_wide_modules = $SERVER_WIDE_MODULES
 ; csv_internal_sep = ,
 ; db_maxconn = 64
 ; db_name = False
