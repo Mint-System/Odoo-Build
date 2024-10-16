@@ -509,10 +509,10 @@ Source: [snippets/purchase.report_purchaseorder_document.add_email.xml](https://
 ### Add Footer  
 ID: `mint_system.purchase.report_purchaseorder_document.add_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//div[@class='oe_structure']/.." position="after">
-        <style>
+
+  <xpath expr="//div[@class='oe_structure']/.." position="after">
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
@@ -521,22 +521,26 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
         vertical-align: top;
       }
     </style>
-        <table id="footer">
-            <tr>
-                <td width="40%" t-if="o.payment_term_id.note">Zahlungsbedingungen 
-          <span t-field="o.payment_term_id.note"/>
+    <table id="footer">
+      <tr>
+        <td width="40%" t-if="o.payment_term_id.note">
+          <span>Zahlungsbedingungen </span>
+          <span t-field="o.payment_term_id"/>
         </td>
-                <td width="60%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen
+        <td width="60%">
+          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
+         
         </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr: 
+      </tr>
+      <tr>
+        <td>
+          <span>MWST-Nr: </span>
           <span t-field="o.company_id.vat"/>
         </td>
-            </tr>
-        </table>
-    </xpath>
+      </tr>
+    </table>
+  </xpath>
+
 </data>
 
 ```
@@ -706,17 +710,34 @@ Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https:/
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">&gt;
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-  <xpath expr="//h2[1]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
-  <xpath expr="//h2[2]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
-  <xpath expr="//h2[3]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
-  <xpath expr="//h2[4]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
+  <xpath expr="//h2[1]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+  <xpath expr="//h2[2]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+  <xpath expr="//h2[3]" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
 
 </data>
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_title.xml)
+
+### Format Total  
+ID: `mint_system.purchase.report_purchaseorder_document.format_total`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//div[@id='total']/div" position="attributes">
+        <attribute name="class"/>
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.format_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_total.xml)
 
 ### Get Position  
 ID: `mint_system.purchase.report_purchaseorder_document.get_position`  
@@ -725,7 +746,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.get_position`
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
-            <span>Pos</span>
+            <strong>Pos</strong>
         </th>
     </xpath>
     <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="before">

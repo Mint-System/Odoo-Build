@@ -1,5 +1,6 @@
 | Command                   | Option               | Description                                                                                |
 |---------------------------|----------------------|--------------------------------------------------------------------------------------------|
+| activate-venv             |                      | Activate virtualenv.                                                                       |
 | build                     | [path]               | Build Odoo Docker image. Optionally pass specific Dockerfile.                              |
 | change-uuid               | [env]                | Change database uuid via xmlrpc.                                                           |
 | checkout                  | [branch][branch]     | Switch and merge from one branch to another.                                               |
@@ -19,6 +20,7 @@
 | translate-module          | [env][path][lang]    | Generate translation for Odoo module.                                                      |
 | generate-help-doc         |                      | Write help table to task.md file.                                                          |
 | generate-module-security  | [path][model]        | Generate model access file for a selected model of a module.                               |
+| get-addons-path           |                      | Finds modules in addons folder.                                                            |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
 | git-mig-branch            | [path]               | Create migration branch for Odoo module.                                                   |
@@ -41,7 +43,6 @@
 | install-odoo-scripts      |                      | Install Odoo scripts.                                                                      |
 | install-requirements      | [db][path]           | Install python packages from requirements.txt.                                             |
 | install-snippet           | [env][path]          | Install snippet xml definition.                                                            |
-| down                      | [name]               | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.                |
 | lint-module               | [path]               | Run pylint odoo for module.                                                                |
 | lint-snippets             |                      | Run checks for all snippets.                                                               |
 | list                      |                      | List Docker containers.                                                                    |
@@ -58,6 +59,7 @@
 | ps                        |                      | List docker processes.                                                                     |
 | pytest-module             | [db][name,path]      | Run module tests with pytest.                                                              |
 | release-module            | [path]               | Create GitHub release for a module.                                                        |
+| remove                    | [name]               | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.                |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
 | reset-views               | [db][key]            | Execute hard reset on views matching keys.                                                 |
 | restart                   | [name]               | Restart docker container.                                                                  |
