@@ -33,6 +33,7 @@ services:
       ENVIRONMENT: production
       LIST_DB: False
       PROXY_MODE: True
+      WORKERS: 4
     ports:
       - "127.0.0.1:8069:8069"
     volumes:

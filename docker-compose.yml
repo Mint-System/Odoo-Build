@@ -18,6 +18,7 @@ services:
       ENVIRONMENT: ${ENVIRONMENT}
       LIST_DB: ${LIST_DB}
       PROXY_MODE: ${PROXY_MODE}
+      WORKERS: ${WORKERS}
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:

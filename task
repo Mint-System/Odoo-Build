@@ -12,6 +12,7 @@ function help-table() {
     echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
 
     # Print table rows
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "activate-venv" "" "Activate virtualenv."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[path]" "Build Odoo Docker image. Optionally pass specific Dockerfile."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch][branch]" "Switch and merge from one branch to another."
@@ -31,6 +32,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Finds modules in addons folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
@@ -53,7 +55,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet xml definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "down" "[name]" "Remove docker containers and volumes. Options: none, db, admin, odoo, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list" "" "List Docker containers."
@@ -70,6 +71,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List docker processes."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pytest-module" "[db][name,path]" "Run module tests with pytest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "release-module" "[path]" "Create GitHub release for a module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove" "[name]" "Remove docker containers and volumes. Options: none, db, admin, odoo, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart docker container."
@@ -186,15 +188,25 @@ function set-addons-path() {
         fi
     done
 
-    # Convert to docker paths
-    DOCKER_ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|enterprise|/mnt/enterprise|g'| sed 's|,|,/mnt/|g' | sed 's|,/mnt/odoo||g')"
-
     # Convert to native paths
-    ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo,|,odoo/addons,|g')"
+    ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|odoo,|odoo/addons,|g')"
     # Append env var
     if [ -n "$ODOO_ADDONS_PATH" ]; then
         ADDONS_PATH="${ODOO_ADDONS_PATH},${ADDONS_PATH}"
     fi
+}
+
+function get-addons-path() {
+    set-addons-path
+    MODULE_PATH=$(echo "$ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname | sort -u | tr "\n" ",")
+    ADDONS_PATH=$(echo "$MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+    if [ -d "enterprise" ]; then
+        ADDONS_PATH="$ADDONS_PATH,enterprise"
+    fi
+    if [ -d "themes" ]; then
+        ADDONS_PATH="$ADDONS_PATH,themes"
+    fi
+    echo "$ADDONS_PATH"
 }
 
 function update-readme() {
@@ -373,7 +385,6 @@ function start() {
     export POSTGRES_PORT
     export ODOO_PORT
     export DOCKER_TAG
-    export DOCKER_ADDONS_PATH
     
     # Use default database if second param is not given
     DATABASE="$2"
@@ -438,12 +449,11 @@ function deploy() {
     fi
 }
 
-function down() {
+function remove() {
     # Exports for Docker Compose
     export POSTGRES_PORT
     export ODOO_PORT
     export DOCKER_TAG
-    export DOCKER_ADDONS_PATH
 
     if test -z "$1"; then
         docker-compose down -v
@@ -471,7 +481,6 @@ function restart() {
     export POSTGRES_PORT
     export ODOO_PORT
     export DOCKER_TAG
-    export DOCKER_ADDONS_PATH
 
     if test -z "$1"; then
         docker-compose restart
@@ -487,7 +496,6 @@ function stop() {
     export POSTGRES_PORT
     export ODOO_PORT
     export DOCKER_TAG
-    export DOCKER_ADDONS_PATH
 
     if test -z "$1"; then
         docker-compose stop
@@ -1455,8 +1463,8 @@ case "$1" in
     docker-login)
         docker-login
         ;;
-    down)
-        down "$2"
+    remove)
+        remove "$2"
         ;;
     drop-db)
         drop-db "$2"
@@ -1475,6 +1483,9 @@ case "$1" in
         ;;
     generate-module-overview)
         generate-module-overview
+        ;;
+    get-addons-path)
+        get-addons-path
         ;;
     get-module-version)
         get-module-version "$2"
