@@ -95,3 +95,26 @@ COPY ./odoo.conf.template /etc/odoo/
 
 USER odoo
 ```
+
+## Troubleshooting
+
+### Session folder not writable
+
+**Problem**
+
+When starting the container the following error shows up:
+
+```
+/var/lib/odoo/sessions: directory is not writable
+```
+
+**Cause**
+
+The Odoo user/group have a different uid/gid.
+
+**Solution**
+
+```bash
+docker exec -u root -it $CONTAINER bash
+chown -R odoo:odoo /var/lib/odoo
+```
