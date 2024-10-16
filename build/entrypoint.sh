@@ -25,14 +25,17 @@ entrypoint_log() {
 set_odoo_config_env() {
     if [ -n "$ODOO_ADDONS_PATH" ]; then 
 
-        entrypoint_log "$ME: Update ODOO_ADDONS_PATH env var"
+        entrypoint_log "$ME: Resolve addons path: $ODOO_ADDONS_PATH"
 
-        # Search for module manifest files containing "version.+17.0" and return list of module paths
-        ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs dirname | sort -u | tr "\n" ",")
+        # Search for module manifest files containing "version.+NN.0" and return list of module paths
+        ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
 
         # Set parent folder of module paths as new addons path
         ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+        
+        export ODOO_ADDONS_PATH
     fi
+
 
     : "${LOG_LEVEL:=info}"
     export LOG_LEVEL
@@ -51,6 +54,9 @@ set_odoo_config_env() {
 
     : "${PROXY_MODE:=False}"
     export PROXY_MODE
+
+    : "${WORKERS:=0}"
+    export WORKERS
 }
 
 set_odoo_config_env

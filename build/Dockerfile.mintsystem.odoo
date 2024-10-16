@@ -1,5 +1,7 @@
 FROM debian:bookworm-slim
-MAINTAINER Mint System GmbH <info@mint-system.ch>
+
+LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
+LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
 
 SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
 
