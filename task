@@ -60,6 +60,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list" "" "List Docker containers."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-addons" "" "List Odoo addons."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo Docker container logs."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
@@ -923,6 +924,10 @@ function checkout() {
     git-submodule-switch "$1"
 }
 
+function list-revision() {
+    ls scripts/odoo_revision_* | sed 's/scripts\/odoo_revision_//g'
+}
+
 function checkout-revision() {
     if [ -n "$1" ]; then
         echo "Execute script for revision: $1"
@@ -1544,6 +1549,9 @@ case "$1" in
         ;;
     load-language)
         load-language "$2" "$3"
+        ;;
+    list-revision)
+        list-revision
         ;;
     install-native)
         install-native
