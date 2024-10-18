@@ -576,11 +576,13 @@ Source: [snippets/web.external_layout_standard.replace_header_with_image.xml](ht
 ### Replace Header  
 ID: `mint_system.web.external_layout_standard.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
+
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
-            <table style="width:100%; font-size: 9pt; color:rgb(102,102,102); font-family:arial;">
+
+            <table style="width:100%; font-size: 9pt; color:rgb(102,102,102); border-color: white; font-family:arial;">
+
                 <tr height="27px;">
                     <td style="width:19%; border-left: 1px solid rgb(102,102,102);"/>
                     <td style="width:18%; border-left: 1px solid rgb(102,102,102);"/>
@@ -589,6 +591,7 @@ ID: `mint_system.web.external_layout_standard.replace_header`
                         <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px; float:right"/>
                     </td>
                 </tr>
+
                 <tr style="line-height: 1.2;">
                     <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">
                         <span t-field="company.name"/>
@@ -604,15 +607,20 @@ ID: `mint_system.web.external_layout_standard.replace_header`
                     <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">www.trimada.ch</td>
                 </tr>
                 <tr style="line-height: 1.2;">
-                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">CH-<span t-field="company.partner_id.zip"/> <span t-field="company.partner_id.city"/></td>
-                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Fax 056 618 77 07</td>
-                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">
-                        <span t-field="company.partner_id.email"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </xpath>
+                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">CH-<span t-field="company.partner_id.zip"/>
+                    <span t-field="company.partner_id.city"/>
+                </td>
+                <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Fax 056 618 77 07</td>
+                <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">
+                    <span t-field="company.partner_id.email"/>
+                </td>
+            </tr>
+
+        </table>
+
+
+    </div>
+</xpath>
 </data>
 
 ```

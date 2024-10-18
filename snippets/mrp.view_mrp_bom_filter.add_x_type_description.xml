@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter" priority="50">
-    <xpath expr="//field[@name='bom_line_ids']" position="after">
-        <field name="x_type_description" string="Typenbezeichnung" filter_domain="['|', ('x_type_description', 'ilike', self), ('x_type_description_bom_line', 'ilike', self)]"/>
-    </xpath>
+	<xpath expr="//field[@name='bom_line_ids']" position="after">
+		<field name="x_type_description" string="Typenbezeichnung" filter_domain="[('x_type_description', 'ilike', self)]"/>
+	</xpath>
 </data>

@@ -51,18 +51,10 @@ When working with Nix, run the nix-shell.
 nix-shell
 ```
 
-Checkout the Odoo version.
+Checkout the Odoo version. Supported versions are: 13.0, 14.0, 15.0, 16.0, 17.0, 18.0
 
 ```bash
-task checkout 13.0
-# or
-task checkout 14.0
-# or
-task checkout 15.0
-# or
-task checkout 16.0
-# or
-task checkout 17.0
+task checkout $VERSION
 ```
 
 Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
@@ -142,6 +134,14 @@ To define the name, set this env var in your `.env` file:
 
 ```bash
 ODOO_DATABASE=odoo
+```
+
+#### Disable browser open
+
+To disable the browser open when starting the Odoo server edit the `.env` file:
+
+```bash
+BROWSER_OPEN=false
 ```
 
 ### Docker
