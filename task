@@ -109,8 +109,8 @@ generate-help-doc() {
     help-table > task.md 
 }
 
-if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
-    export $(cat .env | sed 's/^#.*//g' | xargs)
+if [[ -a ".env" ]]; then
+    source .env
 fi
 
 # Dynamic env vars
