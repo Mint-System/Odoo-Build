@@ -334,3 +334,22 @@ pip install python-ldap --force-reinstall --no-binary python-ldap
 source task source
 pip install psycopg2-binary --force
 ```
+
+### Distribution not found
+
+**Problem**
+
+After switching the Odoo version with `task checkout` the `task` command fail with this error:
+
+```
+pkg_resources.DistributionNotFound: The 'odoo==XX.0' distribution was not found and is required by the application
+```
+
+**Solution**
+
+The local Odoo package needs to be updated:
+
+```bash
+source task source
+pip install -e odoo 
+```
