@@ -47,7 +47,7 @@ services:
       - ./config/servers.json:/pgadmin4/servers.json
   db:
     container_name: db
-    image: postgres:14-alpine
+    image: ${POSTGRES_IMAGE:-postgres:14-alpine}
     ports:
       - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:

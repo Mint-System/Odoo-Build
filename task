@@ -273,6 +273,7 @@ function init-venv() {
 function activate-venv() {
     echo "Source virtualenv venv$GIT_BRANCH."
     source "venv$GIT_BRANCH/bin/activate"
+
     echo "$(python --version) is active."
 }
 
@@ -367,7 +368,7 @@ function install-native() {
     echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
 
-    echo "Install Odoo as python package"
+    echo "Configure Odoo as python package"
     pip install -e odoo
 }
 
