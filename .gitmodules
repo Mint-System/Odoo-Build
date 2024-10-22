@@ -62,3 +62,7 @@
 	path = oca/manufacture
 	url = git@github.com:OCA/manufacture.git
 	branch = 17.0
+[submodule "oca/brand"]
+	path = oca/brand
+	url = git@github.com:OCA/brand.git
+	branch = 17.0
