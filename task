@@ -508,7 +508,9 @@ function stop() {
 
 function start-shell() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     activate-venv
     set-addons-path
@@ -517,14 +519,18 @@ function start-shell() {
 
 function start-psql() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     docker exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
 }
 
 function init-db() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     activate-venv
     set-addons-path
@@ -539,7 +545,9 @@ function init-db() {
 
 function odoo-cloc() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     activate-venv
     set-addons-path
@@ -770,7 +778,9 @@ function generate-module-security() {
 
 function drop-db() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
     psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
@@ -778,7 +788,9 @@ function drop-db() {
 
 function setup-mail() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     activate-venv
     set-addons-path
@@ -807,7 +819,9 @@ function load-language() {
 
 function set-admin() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
     psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "SELECT login, password FROM res_users WHERE id=2;"
@@ -815,7 +829,9 @@ function set-admin() {
 
 function clear-assets() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     echo "Delete these assets for $DATABASE:"
     psql "postgres://odoo:odoo@localhost/$DATABASE" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
@@ -1214,7 +1230,9 @@ function upload-module() {
 
 function save-config() {
     DATABASE="$1"
-    DATABASE="$ODOO_DATABASE"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
 
     activate-venv
     set-addons-path
