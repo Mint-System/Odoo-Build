@@ -1,4 +1,118 @@
 # Account
+## Document Tax Totals  
+### Replace Summary  
+ID: `mint_system.account.document_tax_totals.replace_summary`  
+```xml
+<data inherit_id="account.document_tax_totals" priority="50">
+
+    <xpath expr="//t/t[1]" position="replace">
+
+        <style>
+			table.trimada_summary tr {
+				border-top: solid 1px !important;
+				border-bottom: solid 1px;
+			}
+			table.trimada_summary td {
+				padding-top: 8px;
+			}
+			table.trimada_details tr {
+			  border-top: 0px !important;
+			  border-bottom: 0px;
+			  line-height: 0.7;
+			}
+			table.trimada_summary #amount_untaxed_label {
+				width: 15.5%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_untaxed {
+				width: 23%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_by_group_label {
+				width: 12%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_by_group {
+				width: 17%;
+				text-align: left;
+			}
+			table.trimada_summary #current_subtotal_label {
+				width: 14%;
+				text-align: right;
+			}
+			table.trimada_summary #current_subtotal {
+				width: 18%;
+				text-align: right;
+			}
+        </style>
+
+        <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
+            <tr>
+                <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
+
+                    <td id="amount_untaxed_label">
+                        <strong>Warenwert</strong>
+                    </td>
+                    
+                    <td>
+                       <span t-att-class="oe_subtotal_footer_separator" t-esc="subtotal['formatted_amount']"/>
+                    </td>
+
+                    <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+                    <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                        <t t-if="tax_totals['display_tax_base']">
+                            <td>
+                                <span t-esc="amount_by_group['tax_group_name']"/>
+                            </td>
+                            
+                            <td>
+                               <span t-if="not amount_by_group['hide_base_amount']" class="text-nowrap"> on
+                                    <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
+                                </span>
+                            </td>
+                            
+                            <td class="text-end o_price_total">
+                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                            </td>
+                        </t>
+                        
+                        <t t-else="">
+                            <td>
+                                <span style="padding-right: 10px" class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/>
+                                <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
+                            </td>
+                        </t>
+                    </t>
+
+                    <t t-if="'formatted_rounding_amount' in tax_totals and tax_totals['rounding_amount'] != 0">
+                        <td>Rounding</td>
+                        <td class="text-end">
+                            <span t-esc="tax_totals['formatted_rounding_amount']"/>
+                        </td>
+                    </t>
+
+                    <td>
+                        <strong>Total</strong>
+                    </td>
+                    <td class="text-end">
+                        <span t-esc="tax_totals['formatted_amount_total_rounded']" t-if="'formatted_amount_total_rounded' in tax_totals"/>
+                        <span t-esc="tax_totals['formatted_amount_total']" t-else=""/>
+                    </td>
+
+                </t>
+
+            </tr>
+
+        </table>
+    </xpath>
+    
+    <xpath expr="//tr[@class='border-black o_total']" position="replace">
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.document_tax_totals.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.document_tax_totals.replace_summary.xml)
+
 ## Portal Invoice Page  
 ### Convert Html Note  
 ID: `mint_system.account.portal_invoice_page.convert_html_note`  
@@ -652,6 +766,17 @@ ID: `mint_system.account.report_invoice_document.format_address_blocks`
 ```
 Source: [snippets/account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_address_blocks.xml)
 
+### Format Clearfix  
+ID: `mint_system.account.report_invoice_document.format_clearfix`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@id='total']/div" position="attributes">
+        <attribute name="t-attf-class"/>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.format_clearfix.xml)
+
 ### Format Description  
 ID: `mint_system.account.report_invoice_document.format_description`  
 ```xml
@@ -796,8 +921,8 @@ Source: [snippets/account.report_invoice_document.format_units.xml](https://gith
 ID: `mint_system.account.report_invoice_document.get_position`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//table/thead/tr/th[1]" position="before">
+<data inherit_id="account.report_invoice_document" priority="51">
+    <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
         <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
@@ -807,7 +932,7 @@ ID: `mint_system.account.report_invoice_document.get_position`
             <span>Pos</span>
         </th>
     </xpath>
-    <xpath expr="//span[@t-field='line.name']/.." position="before">
+    <xpath expr="/table[@name='invoice_line_table']//t[1]/td[1]" position="before">
         <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
         <span t-esc="line.position" />
@@ -1532,7 +1657,6 @@ Source: [snippets/account.report_invoice_document.replace_address_and_informatio
 ID: `mint_system.account.report_invoice_document.replace_address`  
 ```xml
 <?xml version="1.0"?>
-<!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@t-field='o.partner_id']" position="replace">
         <t t-if="o.partner_invoice_id.is_company == true">
@@ -2228,22 +2352,26 @@ Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https:/
 ID: `mint_system.account.report_invoice_document.set_ids`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//th[@name='th_quantity']" position="attributes">
-        <attribute name="id">th_quantity</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_description']" position="attributes">
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <xpath expr="//table[2]//th[3]" position="attributes">
         <attribute name="id">description</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='invoice_line_table']//th[4]" position="attributes">
+        <attribute name="id">quantity</attribute>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
         <attribute name="id">quantity</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
         <attribute name="id">qty</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+
+    <xpath expr="//table[@name='invoice_line_table']//td[4]/span[1]" position="attributes">
         <attribute name="id">price</attribute>
     </xpath>
+
 </data>
 
 ```
@@ -2926,6 +3054,24 @@ ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`
 ```
 Source: [snippets/account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_hide_on_invoice.xml)
 
+### X Hide Partner Name  
+ID: `mint_system.account.report_invoice_document.x_hide_partner_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//address[@t-field='o.partner_id']"  position="attributes">
+        <t t-if="o.x_hide_partner_name">
+            <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+        <t t-else="">
+            <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_hide_partner_name.xml)
+
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
 ```xml
@@ -3467,6 +3613,23 @@ ID: `mint_system.account.view_move_form.remove_isr_button`
 ```
 Source: [snippets/account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.remove_isr_button.xml)
 
+### Replace Button Scan Wizzard  
+ID: `mint_system.account.view_move_form.replace_button_scan_wizzard`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+   
+    <xpath expr="//button[@name='get_import_wizard']" position="replace">
+        <button type="object" name="get_import_wizard" string="Scan next QR Bill" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+
+    <xpath expr="//button[@name='get_update_reference_wizard']" position="replace">
+        <button type="object" class="btn-primary o_button_payment_reference" name="get_update_reference_wizard" help="Update reference with scan" string="Scan QR" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
+    </xpath>
+</data>
+```
+Source: [snippets/account.view_move_form.replace_button_scan_wizzard.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.replace_button_scan_wizzard.xml)
+
 ### Show Bank Partner Id  
 ID: `mint_system.account.view_move_form.show_bank_partner_id`  
 ```xml
@@ -3725,6 +3888,19 @@ ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`
 
 ```
 Source: [snippets/account.view_move_form.x_has_downpayment_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_has_downpayment_warn_msg.xml)
+
+### X Hide Partner Name  
+ID: `mint_system.account.view_move_form.x_hide_partner_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="team_id" position="after">
+        <field name="x_hide_partner_name"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_form.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_form.x_hide_partner_name.xml)
 
 ### X Invoice Warn Msg  
 ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  

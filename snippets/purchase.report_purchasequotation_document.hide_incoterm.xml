@@ -1,0 +1,3 @@
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">  
+  <xpath expr="//div[@t-if='o.incoterm_id']" position="replace"/>  
+</data>

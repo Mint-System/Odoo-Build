@@ -1,67 +1,74 @@
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#open_quantity {
-              width: 30mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody tr {
-                border-bottom: 1px solid rgb(220,220,220)
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody td#open_quantity {
-              text-align: right !important;
-            }
-            table.trimada tbody td#quantity {
-              text-align: right;
-            }            
-            table.trimada tbody span#qty {
-              font-weight: bold;
-            }
-            table.trimada tbody span#open_qty {
-              font-weight: bold;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <table name="stock_move_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
-    <table name="stock_backorder_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table.trimada {
+				font-size: 9pt;
+				font-family: arial;
+				color: black;
+			}
+			table.trimada thead tr {
+				border-top:solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  text-align: right;
+			}
+			table.trimada thead th#open_quantity {
+			  width: 30mm;
+			  text-align: right;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody tr {
+				border-bottom: 1px solid rgb(220,220,220)
+			}
+			table.trimada tbody td#default_code {
+			  text-align: right;
+			}
+			table.trimada tbody td#open_quantity {
+			  text-align: right !important;
+			}
+			table.trimada tbody td#quantity {
+			  text-align: right;
+			}			
+			table.trimada tbody span#qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody span#open_qty {
+			  font-weight: bold;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+			th#description {
+			  text-align: left;
+			}
+		</style>
+	</xpath>
+
+	<table name="stock_move_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
+	<table name="stock_backorder_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
 </data>

@@ -2,7 +2,7 @@
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
-            <span>Pos</span>
+            <strong>Pos</strong>
         </th>
     </xpath>
     <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="before">
