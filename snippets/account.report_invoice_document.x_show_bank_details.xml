@@ -1,6 +1,8 @@
 <data inherit_id="account.report_invoice_document" priority="50">
     <p name="payment_communication" position="after">
-
+        <p t-if="o.x_show_bank_details">
+            Please use the following communication for your payment: <b><span t-field="o.payment_reference"/></b>
+        </p>
         <p t-if="o.x_show_bank_details and o.currency_id.name == 'CHF'">
             <strong>Bank Account CHF</strong><br/>
             Bank: Raiffeisenbank, CH-6341 Baar<br/>
@@ -15,6 +17,6 @@
             SWIFT: RAIFCH22XXX<br/>
             IBAN: CH86 8080 8008 3148 5950 8
         </p>
-        
     </p>
+    <p name="payment_communication" position="replace"/>
 </data>
