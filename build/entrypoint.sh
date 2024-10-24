@@ -22,6 +22,47 @@ entrypoint_log() {
     fi
 }
 
+git_clone_addons() {
+    if [ -n "$ADDONS_GIT_REPOS" ]; then
+        
+        # Setup git ssh key
+        mkdir -p ~/.ssh
+        echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        eval "$(ssh-agent -s)" >> /dev/null
+        ssh-add ~/.ssh/id_ed25519
+        
+        # Clone git repo addons into /var/lib/odoo/addons
+        for ADDON_GIT_REPO in $(echo "$ADDONS_GIT_REPOS" | tr "," "\n"); do
+            
+            # Parse git ssh url
+            GIT_HOSTNAME=$(echo "$ADDON_GIT_REPO" | cut -d "@" -f 2 | cut -d ":" -f 1)
+            GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 1)
+            GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 2)
+            GIT_PATH=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 1 | cut -d ":" -f 2 | cut -d "." -f 1)
+            ADDON_PATH="/var/lib/odoo/addons/$GIT_PATH"
+
+            # Clone git repo and submodules
+            if [ ! -d "$ADDON_PATH" ]; then
+                ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
+                entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
+                git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$ADDON_PATH"
+                cd "$ADDON_PATH"
+                git submodule update --init --recursive && git submodule update --init --recursive
+            fi
+
+            # Add git repo to addons path
+            if [ -n "$ODOO_ADDONS_PATH" ]; then
+                ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ADDON_PATH"
+            else
+                ODOO_ADDONS_PATH="$ADDON_PATH"
+            fi
+        done
+    fi
+}
+
+git_clone_addons
+
 set_odoo_config_env() {
     if [ -n "$ODOO_ADDONS_PATH" ]; then 
 
@@ -29,13 +70,14 @@ set_odoo_config_env() {
 
         # Search for module manifest files containing "version.+NN.0" and return list of module paths
         ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
-
-        # Set parent folder of module paths as new addons path
-        ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
         
-        export ODOO_ADDONS_PATH
+        # Set parent folder of module paths as new addons path
+        ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+        
+        if [ -n "$ODOO_MODULE_PATH" ]; then
+            ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ODOO_MODULE_PATH"
+        fi
     fi
-
 
     : "${LOG_LEVEL:=info}"
     export LOG_LEVEL
@@ -57,6 +99,9 @@ set_odoo_config_env() {
 
     : "${WORKERS:=0}"
     export WORKERS
+
+    : "${SERVER_WIDE_MODULES:=web}"
+    export SERVER_WIDE_MODULES
 }
 
 set_odoo_config_env

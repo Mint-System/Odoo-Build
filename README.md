@@ -63,6 +63,8 @@ Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
 task install-odoo-scripts
 ```
 
+Decide wether you want to run Odoo in native mode (from source) or with Docker as a container.
+
 ### Native
 
 Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
@@ -162,7 +164,7 @@ Run Docker Compose.
 task start
 ```
 
-Initialize database. The parameter `-d` specifies the name of the parameter and is mandatory.
+Initialize database with the Odoo script.
 
 Use `docker-odoo-init help` to show all options.
 
@@ -180,7 +182,7 @@ docker-odoo-install -m show_db_name
 
 ### Common
 
-Instructions that are true for Docker and native usage paths.
+Instructions that are true for Docker and native usage.
 
 #### Change log level
 
@@ -199,7 +201,7 @@ Open database manager [http://localhost:8000/](http://localhost:8000/) and login
 This removes containers and volumes.
 
 ```bash
-task down
+task remove
 ```
 
 #### Stop all Docker containers
@@ -214,7 +216,15 @@ task stop
 task drop-db
 ```
 
-### Image
+### Define Postgres image version
+
+Define the Postgres image in your `.env` file:
+
+```bash
+POSTGRES_IMAGE=postgres:12-alpine
+```
+
+### Build Odoo image
 
 To build the Docker image setup these `.env` vars:
 
@@ -241,7 +251,7 @@ Publish the Odoo image.
 task publish
 ```
 
-### Mail
+### Mail catcher
 
 Start mail server.
 
@@ -323,4 +333,23 @@ pip install python-ldap --force-reinstall --no-binary python-ldap
 ```bash
 source task source
 pip install psycopg2-binary --force
+```
+
+### Distribution not found
+
+**Problem**
+
+After switching the Odoo version with `task checkout` the `task` command fail with this error:
+
+```
+pkg_resources.DistributionNotFound: The 'odoo==XX.0' distribution was not found and is required by the application
+```
+
+**Solution**
+
+The local Odoo package needs to be updated:
+
+```bash
+source task source
+pip install -e odoo 
 ```

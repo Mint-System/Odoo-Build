@@ -850,62 +850,68 @@ Source: [snippets/sale.report_saleorder_document.add_drawing.xml](https://github
 ### Add Footer  
 ID: `mint_system.sale.report_saleorder_document.add_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//table[3]" position="after">
-        <style>
+
+<xpath expr="//div/p[@name='order_note']/.." position="after">
+  <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        margin-top: 25px;
       }
       table#footer tr, td {
         vertical-align: top;
       }
     </style>
-        <table id="footer">
-            <tr>
-                <td width="50%" t-if="doc.payment_term_id.note">Zahlungsbedingungen 
-          <span t-field="doc.payment_term_id.note"/>
+    <table id="footer">
+      <tr>
+        <td width="50%" t-if="doc.payment_term_id">
+          <span>Zahlungsbedingungen </span>
+          <span t-field="doc.payment_term_id"/>
         </td>
-                <td width="50%" t-if="not doc.payment_term_id.note">
+         <td width="50%" t-if="not doc.payment_term_id">
         </td>
-                <td width="50%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Lieferbedingungen
+        
+        <td width="50%">
+          Lieferung gemäss unseren allgemeinen Lieferbedingungen
         </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr: 
+      </tr>
+      <tr>
+        <td>
+           <span>MWST-Nr: </span>
            <span t-field="doc.company_id.vat"/>
         </td>
-                <td>
-                    <table width="100%">
-                        <tr>
-                            <td width="35%">
+        <td>
+          <table width="100%">
+          <tr>
+            <td width="35%">
                Bankverbindungen:
             </td>
-                            <td width="65%">
+              <td width="65%">
               UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
              </td>
-                        </tr>
-                        <tr>
-                            <td>
+          </tr> 
+          <tr> 
+             <td>
             </td>
-                            <td>
+            <td>
             (CHF) IBAN CH63 0027 3273 Q978 6962 0
             </td>
-                        </tr>
-                        <tr>
-                            <td>
+          </tr>
+       
+          <tr>
+            <td>
             </td>
-                            <td>
+            <td>
             (EUR) IBAN CH59 0027 3273 HN10 3698 0
             </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-        </table>
-    </xpath>
+          </tr>
+          </table> 
+        </td>
+      </tr>
+    </table>
+  </xpath>
+
 </data>
 
 ```
@@ -986,15 +992,16 @@ Source: [snippets/sale.report_saleorder_document.add_informations_space.xml](htt
 ### Add Infotable  
 ID: `mint_system.sale.report_saleorder_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//h2" position="after">
-        <style>
+
+  <xpath expr="//h2" position="after">
+    <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
+        border-color: white;
       }
         table#info tr {
         line-height: 1.2;
@@ -1004,57 +1011,59 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
         font-size: 9pt;
       }
     </style>
-        <table id="info">
-            <tr>
-                <td width="17%">Date</td>
-                <td width="40%">
-                    <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td width="18%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="doc.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="doc.partner_id.ref"/>
-                </td>
-                <td>Delivery Method</td>
-                <td>
-                    <span t-field="doc.carrier_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Order</td>
-                <td>
-                    <span t-field="doc.client_order_ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="doc.incoterm"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="doc.comment"/>
-                </td>
-                <t t-if="doc.blanket_order_id">
-                    <td>Blanket Order</td>
-                    <td>
-                        <span t-field="doc.blanket_order_id"/>
-                        <t t-if="doc.blanket_order_id.client_order_ref"> /              <span t-field="doc.blanket_order_id.client_order_ref"/>
+    <table id="info">
+      <tr>
+        <td width="17%">Date</td>
+        <td width="40%">
+          <span t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field="doc.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field="doc.partner_id.ref"/>
+        </td>
+        <td>Delivery Method</td>
+        <td>
+          <span t-field="doc.carrier_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Order</td>
+        <td>
+          <span t-field="doc.client_order_ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="doc.incoterm"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field="doc.comment"/>
+        </td>
+        <t t-if="doc.blanket_order_id">
+          <td>Blanket Order</td>
+          <td>
+            <span t-field="doc.blanket_order_id"/>
+            <t t-if="doc.blanket_order_id.client_order_ref"> /              <span t-field="doc.blanket_order_id.client_order_ref"/>
             </t>
-                    </td>
-                </t>
-                <t t-else="">
-                    <td/>
-                    <td/>
-                </t>
-            </tr>
-        </table>
-    </xpath>
+          </td>
+        </t>
+        <t t-else="">
+          <td/>
+          <td/>
+        </t>
+      </tr>
+    </table>
+
+  </xpath>
+
 </data>
 
 ```
@@ -1265,21 +1274,21 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
   </style>
     <xpath expr="//t[@t-set='address']/div" position="replace">
         <div class="address margin">
-            <t t-if="doc.partner_contact_id">
-                <div t-esc="doc.partner_contact_id.parent_id.name"/>
-                <div t-esc="doc.partner_contact_id.parent_id.name2"/>
-                <span t-esc="doc.partner_contact_id.title.name"/>
-                <span t-esc="doc.partner_contact_id.name"/>
-                <div t-esc="doc.partner_contact_id.street"/>
-                <div t-esc="doc.partner_contact_id.street2"/>
-                <span t-esc="doc.partner_contact_id.zip"/>
-                <span t-esc="doc.partner_contact_id.city"/>
-                <t t-if="doc.partner_contact_id.country_id.code != 'CH'">
-                    <div t-esc="doc.partner_contact_id.country_id.name"/>
+            <t t-if="doc.partner_sale_id">
+                <div t-esc="doc.partner_sale_id.parent_id.name"/>
+                <div t-esc="doc.partner_sale_id.parent_id.name2"/>
+                <span t-esc="doc.partner_sale_id.title.name"/>
+                <span t-esc="doc.partner_sale_id.name"/>
+                <div t-esc="doc.partner_sale_id.street"/>
+                <div t-esc="doc.partner_sale_id.street2"/>
+                <span t-esc="doc.partner_sale_id.zip"/>
+                <span t-esc="doc.partner_sale_id.city"/>
+                <t t-if="doc.partner_sale_id.country_id.code != 'CH'">
+                    <div t-esc="doc.partner_sale_id.country_id.name"/>
                 </t>
             </t>
             <t t-else="">
-                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_contact_id"/>
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}" name="partner_sale_id"/>
             </t>
         </div>
     </xpath>
@@ -1445,11 +1454,12 @@ Source: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https
 ### Confirmation Filter Lines  
 ID: `mint_system.sale.report_saleorder_document.confirmation_filter_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//t[@t-foreach='doc.order_line']" position="attributes">
-        <attribute name="t-foreach">doc.order_line.filtered(lambda l: not is_confirmation or (is_confirmation and l.qty_to_deliver &gt; 0))</attribute>
-    </xpath>
+
+  <xpath expr="//t[@t-foreach='lines_to_report']" position="attributes">
+    <attribute name="t-foreach">lines_to_report.filtered(lambda l: not is_confirmation or (is_confirmation and l.qty_to_deliver &gt; 0))</attribute>
+  </xpath>
+
 </data>
 
 ```
@@ -1508,14 +1518,16 @@ Source: [snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml
 ### Confirmation Title  
 ID: `mint_system.sale.report_saleorder_document.confirmation_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//h2/t[1]" position="replace">
-        <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">
-            <span t-if="is_confirmation">Confirmation # </span>
-            <span t-if="doc.state not in ['draft','sent'] and not is_confirmation">Order # </span>
-            <span t-if="doc.state in ['draft','sent'] and not is_confirmation">Quotation # </span>
-        </t>
+
+    <xpath expr="//h2" position="replace">
+        <h2>
+            <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice # </span>
+            <span t-elif="is_confirmation">Confirmation # </span>
+            <span t-elif="doc.state not in ['draft','sent'] and not is_confirmation">Order # </span>
+            <span t-elif="doc.state in ['draft','sent'] and not is_confirmation">Quotation # </span>
+            <span t-field="doc.name"/>
+        </h2>
     </xpath>
 </data>
 
@@ -1627,6 +1639,19 @@ ID: `mint_system.sale.report_saleorder_document.format_as_date`
 
 ```
 Source: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_as_date.xml)
+
+### Format Clearfix  
+ID: `mint_system.sale.report_saleorder_document.format_clearfix`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//div[@name='so_total_summary']/div/div" position="attributes">
+        <attribute name="t-attf-class"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_clearfix.xml)
 
 ### Format Discount  
 ID: `mint_system.sale.report_saleorder_document.format_discount`  
@@ -2094,9 +2119,11 @@ Source: [snippets/sale.report_saleorder_document.remove_informations.xml](https:
 ### Remove Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.remove_payment_terms`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//span[@t-field='doc.payment_term_id.note']" position="replace"/>
+
+<xpath expr="//div/p[@name='order_note']/.." position="replace">
+</xpath>
+
 </data>
 
 ```
@@ -2555,47 +2582,48 @@ Source: [snippets/sale.report_saleorder_document.round_total_price.xml](https://
 ### Second Row  
 ID: `mint_system.sale.report_saleorder_document.second_row`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
-        <attribute name="t-att-class">"first"</attribute>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
-        <t t-if="line.product_id.type_description">
-            <tr class="second">
-                <td/>
-                <td/>
-                <td colspan="6">
-                    <span t-field="line.name"/>
-                    <br/>
-                    <t t-if="line.product_id.country_of_origin_id.code">
-          Ursprungsland:
+  
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
+    <attribute name="t-att-class">"first"</attribute>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
+    <t t-if="line.product_id.type_description">
+    <tr class="second">
+      <td/>
+      <td/>
+      <td colspan="6">
+        <span t-field="line.name"/><br/>
+        <t t-if="line.product_id.country_of_origin_id.code">
+          <span>Ursprungsland:</span>
           <span t-field="line.product_id.country_of_origin_id.code"/>
         </t>
-                    <t t-if="line.product_id.hs_code">
-          / Zollposition:
+        <t t-if="line.product_id.hs_code">
+          <span>/ Zollposition:</span>
           <span t-field="line.product_id.hs_code"/>
         </t>
-                </td>
-            </tr>
-        </t>
-        <t t-if="not line.product_id.type_description">
-            <tr class="second">
-                <td/>
-                <td/>
-                <td colspan="6">
-                    <t t-if="line.product_id.country_of_origin_id.code">
-          Ursprungsland:
+      </td>
+    </tr>
+    </t>
+    <t t-if="not line.product_id.type_description">
+    <tr class="second">
+      <td/>
+      <td/>
+      <td colspan="6">
+        <t t-if="line.product_id.country_of_origin_id.code">
+          <span>Ursprungsland:</span>
           <span t-field="line.product_id.country_of_origin_id.code"/>
         </t>
-                    <t t-if="line.product_id.hs_code">
-          / Zollposition:
+        <t t-if="line.product_id.hs_code">
+          <span>/ Zollposition:</span>
           <span t-field="line.product_id.hs_code"/>
         </t>
-                </td>
-            </tr>
-        </t>
-    </xpath>
+      </td>
+    </tr>
+    </t>
+  </xpath>
+
 </data>
 
 ```
@@ -3054,76 +3082,91 @@ Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            .o_company_1_layout {
-                font-family: arial;
-            }
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada tr.first td {
-                padding-bottom: 0;
-            }
-            table.trimada tr.second td {
-                padding-top: 0;
-            }
-            table.trimada tr.second {
-                border-bottom: 1px solid rgb(220,220,220);
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody #commitment_date {
-              text-align: right;
-            }
-            table.trimada tbody td span#product_uom_qty {
-              font-weight: bold;
-            }
-            table.trimada tbody td span#product_uom_qty_confirmed {
-              font-weight: bold;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <xpath expr="//table[2]" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//th[@id='commitment_date']" position="attributes">
-        <attribute name="class">text-right</attribute>
-    </xpath>
-</data>
 
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			.o_company_1_layout {
+				font-family: arial;
+			}
+			table.trimada {
+				font-size: 9pt;
+				font-family: arial;
+				color: black;
+			}
+			table.trimada tr.first td {
+				padding-bottom: 0;
+			}
+			table.trimada tr.second td {
+				padding-top: 0;
+			}
+			table.trimada tr.second {
+				border-bottom: 1px solid rgb(220,220,220);
+			}
+			table.trimada thead tr {
+				border-top:solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  text-align: right;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody td#default_code {
+			  text-align: right;
+			}
+			table.trimada tbody #commitment_date {
+			  text-align: right;
+			}
+			table.trimada tbody td span#product_uom_qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody td span#product_uom_qty_confirmed {
+			  font-weight: bold;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+	
+	 <xpath expr="//h2" position="attributes">
+    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  </xpath>
+
+	<xpath expr="//th[@name='th_description']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+
+	<xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+	
+	<xpath expr="//table/thead//th[@name='th_commitment_date']" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+	
+	<xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_trimada.xml)
 
