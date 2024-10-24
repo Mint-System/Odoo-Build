@@ -49,7 +49,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][name,path]" "Initialize Odoo module. Default database is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-native" "" "Install Odoo requirements in source folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
@@ -645,18 +645,29 @@ function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
+    MODULE_PATH="$2"
 
     # Use default database if second param is not given 
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
-        MODULE_NAME=$(basename "$1")
+        MODULE_PATH="$1"
+    fi
+
+    # Check if module path is a module repo
+    if [ -f "$MODULE_PATH/README.md" ]; then
+        
+        # Look for manifest files in repo folder
+        # Get parent folder name of manifest files
+        # Create a comma separated string of folder names
+        MODULES=$(find "$MODULE_PATH" -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname |   xargs -r -I {} basename {}, | sort -u | tr "\n" " " | sed 's/ //g')
+    else
+        MODULES=$(basename "$MODULE_PATH")
     fi
 
     activate-venv
     set-addons-path
-    echo "Initialize module $MODULE_NAME on $DATABASE ..."
-    odoo -d "$DATABASE" -i "$MODULE_NAME" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    echo "Initialize module $MODULES on $DATABASE ..."
+    odoo -d "$DATABASE" -i "$MODULES" --config "config/odoo.conf" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function install-requirements() {
