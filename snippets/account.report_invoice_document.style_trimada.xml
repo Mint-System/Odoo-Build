@@ -83,7 +83,7 @@
 	</span>
 	
 	<div id="total" position="attributes">
-		<attribute name="style">font-size: 9pt</attribute>
+		<attribute name="style">font-size: 9pt; color: blue</attribute>
 	</div>
 	
 </data>
