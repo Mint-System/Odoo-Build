@@ -270,3 +270,7 @@
 	path = oca/dms
 	url = git@github.com:OCA/dms.git
 	branch = 16.0
+[submodule "addons/spreadsheet"]
+	path = addons/spreadsheet
+	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
+	branch = 16.0

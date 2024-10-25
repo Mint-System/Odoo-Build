@@ -212,21 +212,27 @@ function get-addons-path() {
 
 function update-readme() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    FILE_NAME=$(basename "$1")
-    if [[ "$FILE_NAME" != "README.md" ]]; then echo "\$1 must point to README.md file."; exit; fi
-    MODULES_DIR=$(dirname "$1")
+    README_PATH="$1"
+    FILE_NAME=$(basename "$README_PATH")
+
+    if [[ "$FILE_NAME" != "README.md" ]]; then
+        README_PATH="$1/README.md"
+        FILE_NAME="README.md"
+    fi
+
+    REPO_PATH=$(dirname "$README_PATH")
     
-    MANIFEST_FILES="$MODULES_DIR/*/__manifest__.py"
+    MANIFEST_FILES="$REPO_PATH/*/__manifest__.py"
 
     # Find marker in readme and clear content after
-    echo "Clear modules table for $1."
+    echo "Clear modules table for $README_PATH."
     MARKER="## Available modules"
-    sed -i "/$MARKER/Q" "$1"
+    sed -i "/$MARKER/Q" "$README_PATH"
 
-    echo "$MARKER" >> "$1"
-    echo "" >> "$1"
-    echo "| Module | Summary |" >> "$1"
-    echo "| --- | --- |" >> "$1"
+    echo "$MARKER" >> "$README_PATH"
+    echo "" >> "$README_PATH"
+    echo "| Module | Summary |" >> "$README_PATH"
+    echo "| --- | --- |" >> "$README_PATH"
 
     # Clear table after a marker
     for MANIFEST_FILE in $MANIFEST_FILES; do
@@ -234,7 +240,7 @@ function update-readme() {
         MODULE_NAME=$(basename "$MODULE_DIR")
         echo "Add summary of $MODULE_NAME to readme file."
         SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
-        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "$1"
+        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "$README_PATH"
     done
 }
 
