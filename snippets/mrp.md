@@ -963,10 +963,14 @@ Source: [snippets/mrp.report_mrporder.modify_section_operations.xml](https://git
 ### Modify Section Order Definition  
 ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-    <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
-        <style>
+
+  <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
+
+    <style>
+     .table &gt; :not(:first-child) {
+      border-top: none;
+    }
     .table {
       margin: 0 0 0 10px;
       width: 98%;
@@ -990,60 +994,63 @@ ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`
       padding: 0 0 0 0;
     }
     </style>
-        <div class="row table th">
-            <div class="col-2">
-                <span>Produkt</span>
-            </div>
-            <div class="col-4">
-                <span t-field="o.product_id.default_code"/>
-            </div>
-            <div class="col-6">
-                <span>Typenbezeichnung</span>
-            </div>
-        </div>
-        <div class="row table td">
-            <div class="col-6">
-                <span t-field="o.product_id.name"/>
-            </div>
-            <div class="col-6">
-                <span t-field="o.product_id.type_description"/>
-            </div>
-        </div>
-        <div class="col-3" t-if="o.product_description_variants">
-            <strong>Description:</strong>
-            <br/>
-            <span t-field="o.product_description_variants"/>
-        </div>
-        <div class="row table th">
-            <div class="col-2">
-                <span>Menge</span>
-            </div>
-            <div class="col-4">
+    <div class="row table th">
+      <div class="col-2">
+        <span>Produkt</span>
       </div>
-            <div class="col-6">
-                <span>Datum</span>
-            </div>
-        </div>
-        <div class="row table td">
-            <div class="col-6">
-                <strong>
-                    <span t-field="o.product_qty"/>
-                </strong>
-                <strong>
-                    <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
-                </strong>
-            </div>
-            <div class="col-4">
+      <div class="col-4">
+        <span t-field="o.product_id.default_code"/>
+      </div>
+      <div class="col-6">
+        <span>Typenbezeichnung</span>
+      </div>
+    </div>
+    <div class="row table td">
+      <div class="col-6">
+        <span t-field="o.product_id.name"/>
+      </div>
+      <div class="col-6">
+        <span t-field="o.product_id.type_description"/>
+      </div>
+    </div>
+
+    <div class="col-3" t-if="o.product_description_variants">
+      <strong>Description:</strong>
+      <br/>
+      <span t-field="o.product_description_variants"/>
+    </div>
+
+    <div class="row table th">
+      <div class="col-2">
+        <span>Menge</span>
+      </div>
+      <div class="col-4">
+      </div>
+      <div class="col-6">
+        <span>Datum</span>
+      </div>
+    </div>
+    <div class="row table td">
+      <div class="col-6">
+        <strong>
+          <span t-field="o.product_qty"/>
+        </strong>
+        <strong>
+          <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
+        </strong>
+      </div>
+      <div class="col-4">
         Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
       </div>
-            <div class="col-2 text-right">
-                <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+      <div class="col-2 text-end">
+        <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </strong>
-            </div>
-        </div>
-    </xpath>
-</data>
+      </div>
+    </div>
 
+  </xpath>
+
+</data>
 ```
 Source: [snippets/mrp.report_mrporder.modify_section_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrporder.modify_section_order_definition.xml)
 
@@ -1369,7 +1376,149 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
 ```
 Source: [snippets/mrp.report_mrporder.show_stock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrporder.show_stock.xml)
 
+### Title With Border  
+ID: `mint_system.mrp.report_mrporder.title_with_border`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrporder" priority="50">
+
+  <xpath expr="//h2/../.." position="attributes">
+    <attribute name="id">title-with-border</attribute>
+  </xpath>
+
+  <xpath expr="//h2/../..//div[2]" position="replace">
+    <div class="col-5">
+      <span t-field="o.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:210px; height:60px;'}"/>
+    </div>
+  </xpath>
+
+  <xpath expr="//h2/../.." position="before">
+
+    <style>
+	    #title-with-border {
+	      border: solid 1px;
+	      margin-left: 5px;
+	      margin-right: 5px;
+	    }	    
+	      #title-with-border h2 {
+	      margin-bottom: 0;
+	      padding-top: 15px;
+	      padding-left: 15px;
+	    }
+	    #title-with-border .col-7 {
+
+	    }
+       #title-with-border span.text-right {
+	      float: right;
+	    }
+       #title-with-border img {
+	      padding-top: 5px;
+        padding-bottom: 5px;
+	    }
+      #title-with-border .col-5 {
+	      padding-right: 5px;
+	    }
+    </style>
+
+  </xpath>
+</data>
+
+```
+Source: [snippets/mrp.report_mrporder.title_with_border.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrporder.title_with_border.xml)
+
 ## Report Mrp Production Components  
+### Modify Section Consumed Products  
+ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_products`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+
+  <xpath expr="//table" position="replace">
+    <style>
+    table#section_consumed_products {
+      width: 98%;
+      margin: 0 0 10px 10px;
+      font-size: 10pt;
+    }
+    table#section_consumed_products th {
+      font-size: 10pt;
+      font-weight: bold;
+      vertical-align: left;
+      padding-left: 5px;
+      padding-bottom: 5px;
+    }
+    table#section_consumed_products td {
+      vertical-align: top;
+      padding-left: 5px;
+      padding-bottom: 5px;
+      padding-top: 5px;
+    }
+    table#note {
+      width: 100%;
+      margin-top: 30px;
+      font-size: 14pt;
+      padding-left:10px;
+    }
+    </style>
+
+    <table id="section_consumed_products" t-if="o.move_raw_ids">
+      <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
+      <thead>
+        <tr style="border-bottom: 1px solid rgb(220,220,220);">
+          <th width="10%" style="text-align: left;">Art. Nr.</th>
+          <th width="31%" style="text-align: left;">Bezeichnung</th>
+          <th width="29%" style="text-align: left;">Typenbezeichnung</th>
+          <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
+          <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
+        </tr>
+      </thead>
+      <body>
+        <t t-if="o.move_raw_ids">
+          <tr style="border-bottom: 1px solid rgb(220,220,220); vertical-align: top; font-size: 10pt;" t-foreach="o.move_raw_ids" t-as="raw_line">
+            <td>
+              <span t-field="raw_line.product_id.default_code"/>
+            </td>
+            <td>
+              <span t-field="raw_line.product_id.name"/>
+            </td>
+            <td>
+              <span t-field="raw_line.product_id.type_description"/>
+            </td>
+            <td style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">
+              <span t-field="raw_line.product_uom_qty"/>
+              <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
+            </td>
+            <td t-if="has_product_barcode" width="15%" class="text-center">
+              <t t-if="raw_line.product_id.barcode">                 
+                <div t-field="raw_line.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:100px; height:35px;'}"/>
+              </t>              
+            </td>
+          </tr>
+        </t>
+      </body>
+    </table>
+
+    <table id="note">
+      <thead>
+        <tr style="border-bottom: 1px solid rgb(220,220,220);">
+          <th>Notiz</th>
+        </tr>
+      </thead>
+      <body>
+          <tr style="vertical-align: top; font-size: 10pt;">
+            <td>
+               <span t-field="o.x_note"/>
+            </td>
+          </tr>
+      </body>      
+    </table>
+
+  </xpath>
+</data>
+
+```
+Source: [snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml)
+
 ### Remove Barcode  
 ID: `mint_system.mrp.report_mrp_production_components.remove_barcode`  
 ```xml
@@ -1381,6 +1530,32 @@ ID: `mint_system.mrp.report_mrp_production_components.remove_barcode`
 
 ```
 Source: [snippets/mrp.report_mrp_production_components.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.remove_barcode.xml)
+
+### Replace Title Section To Consume Products  
+ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_consume_products`  
+```xml
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+
+  <xpath expr="//h3" position="replace">
+    <style>
+      table#consumed_products {
+        width:98%;
+        margin: 20px 0 10px 10px;
+        font-size: 14pt;
+        font-weight: bold;
+        padding-left: 5px;
+      }
+    </style>
+    <table id="consumed_products">
+      <tr style="border-bottom: 1px solid rgb(220,220,220);">
+        <td style="padding-bottom: 5px">Benötigte Produkte
+        </td>
+      </tr>
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/mrp.report_mrp_production_components.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.replace_title_section_to_consume_products.xml)
 
 ### Show Expected  
 ID: `mint_system.mrp.report_mrp_production_components.show_expected`  

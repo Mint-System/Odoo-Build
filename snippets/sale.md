@@ -2914,6 +2914,26 @@ ID: `mint_system.sale.report_saleorder_document.style_gelso`
 ```
 Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_gelso.xml)
 
+### Style Hygentile  
+ID: `mint_system.sale.report_saleorder_document.style_hygentile`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .o_company_1_layout {
+            font-size: 10x;
+        }
+        .o_report_layout_bold table tbody tr td {
+            padding-top: 0px;
+            padding-botoom: 0px;
+        }
+        </style>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_hygentile.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_hygentile.xml)
+
 ### Style Lapp  
 ID: `mint_system.sale.report_saleorder_document.style_lapp`  
 ```xml

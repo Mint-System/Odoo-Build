@@ -2802,88 +2802,95 @@ Source: [snippets/account.report_invoice_document.style_tissa.xml](https://githu
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada tr.first td {
-                padding-bottom: 0;
-            }
-            table.trimada tr.second td {
-                padding-top: 0;
-            }
-            table.trimada tr.second {
-                border-bottom: 1px solid rgb(220,220,220);
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#open_quantity {
-              width: 30mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody td#open_quantity {
-              text-align: right !important;
-            }
-            table.trimada tbody td#quantity {
-              text-align: right;
-            }            
-            table.trimada tbody span#qty {
-              font-weight: bold;
-            }
-            table.trimada tbody span#open_qty {
-              font-weight: bold;
-            }
-            .address {
-              font-size: 10pt;
-              line-height: 1.2;
-              padding-bottom:33mm;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <table name="invoice_line_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
-    <table name="invoice_line_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
-    <span id="qty" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span>
-</data>
 
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table.trimada {
+				font-size: 9pt;
+				font-family: arial;
+				color: black;
+			}
+			table.trimada tr.first td {
+				padding-bottom: 0;
+			}
+			table.trimada tr.second td {
+				padding-top: 0;
+			}
+			table.trimada tr.second {
+				border-bottom: 1px solid rgb(220,220,220);
+			}
+			table.trimada thead tr {
+				border-top:solid 1px;
+				border-bottom: solid 1px;
+			}
+			table.trimada thead th#position {
+				width: 5mm;
+			}
+			table.trimada thead th#default_code {
+			  width: 27mm;
+			  text-align: right;
+			}
+			table.trimada thead th#open_quantity {
+			  width: 30mm;
+			  text-align: right;
+			}
+			table.trimada thead th#quantity {
+			  width: 25mm;
+			  text-align: right !important;
+			}
+			table.trimada tbody td#position {
+			  text-align: right;
+			}
+			table.trimada tbody td#default_code {
+			  text-align: right;
+			}
+			table.trimada tbody td#open_quantity {
+			  text-align: right !important;
+			}
+			table.trimada tbody td#quantity {
+			  text-align: right;
+			}			
+			table.trimada tbody span#qty {
+			  font-weight: bold;
+			}
+			table.trimada tbody span#open_qty {
+			  font-weight: bold;
+			}
+			.address {
+			  font-size: 10pt;
+			  line-height: 1.2;
+			  padding-bottom:33mm;
+			}
+			.subtitel {
+				font-size: 11pt;
+				font-family: arial;
+				margin-top: 10mm;
+			}
+			.note {
+				font-size: 9pt;
+				font-family: arial;
+			}
+		</style>
+	</xpath>
+
+	<table name="invoice_line_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
+	<table name="invoice_line_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
+  <span id="qty" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</span>
+	
+	<div id="total" position="attributes">
+		<attribute name="style">font-size: 9pt; color: blue</attribute>
+	</div>
+	
+</data>
 ```
 Source: [snippets/account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_trimada.xml)
 
@@ -3090,7 +3097,9 @@ ID: `mint_system.account.report_invoice_document.x_show_bank_details`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
     <p name="payment_communication" position="after">
-
+        <p t-if="o.x_show_bank_details">
+            Please use the following communication for your payment: <b><span t-field="o.payment_reference"/></b>
+        </p>
         <p t-if="o.x_show_bank_details and o.currency_id.name == 'CHF'">
             <strong>Bank Account CHF</strong><br/>
             Bank: Raiffeisenbank, CH-6341 Baar<br/>
@@ -3105,8 +3114,8 @@ ID: `mint_system.account.report_invoice_document.x_show_bank_details`
             SWIFT: RAIFCH22XXX<br/>
             IBAN: CH86 8080 8008 3148 5950 8
         </p>
-        
     </p>
+    <p name="payment_communication" position="replace"/>
 </data>
 ```
 Source: [snippets/account.report_invoice_document.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_show_bank_details.xml)

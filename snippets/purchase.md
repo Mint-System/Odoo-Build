@@ -509,6 +509,7 @@ Source: [snippets/purchase.report_purchaseorder_document.add_email.xml](https://
 ### Add Footer  
 ID: `mint_system.purchase.report_purchaseorder_document.add_footer`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="//div[@class='oe_structure']/.." position="after">
@@ -516,6 +517,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
       table#footer {
         width: 100%;
         font-size: 8pt;
+        margin-top: 25px;
       }
       table#footer tr, td {
         vertical-align: top;
@@ -542,7 +544,6 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_footer.xml)
 
@@ -775,129 +776,130 @@ Source: [snippets/purchase.report_purchaseorder_document.header_margin.xml](http
 ### Modify Main Table  
 ID: `mint_system.purchase.report_purchaseorder_document.modify_main_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <!-- add default_code   -->
-    <xpath expr="//table/thead/tr/th[1]" position="after">
-        <th>
-            <span>Artikel Nr.</span>
-        </th>
-    </xpath>
-    <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="after">
-        <td>
-            <span t-field="line.product_id.default_code"/>
-        </td>
-    </xpath>
-    <!-- replace product description -->
-    <xpath expr="//table/tbody/t[2]/tr/t[1]/td[3]/span" position="replace">
-        <t>
-            <span style="font-weight:bold;" t-field="line.product_id.type_description"/>
-        </t>
-    </xpath>
-    <!-- add second row -->
-    <xpath expr="//tbody//tr[1]" position="after">
-        <tr>
-            <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
-            <td style="padding:0; padding-left:3px; line-height: 1.2"/>
-            <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
-                <span t-field="line.name"/>
-                <br/>
-                <t t-if="line.product_id.country_of_origin_id.code">Ursprungsland: <span t-field="line.product_id.country_of_origin_id.code"/>
-        </t>
-                <t t-if="line.product_id.hs_code"> / Zollposition: <span t-field="line.product_id.hs_code"/>
-        </t>
-            </td>
-            <td/>
-        </tr>
-        <tr style="border-bottom: 1px solid rgb(220,220,220)">
-            <td colspan="8"/>
-        </tr>
-    </xpath>
-    <!-- format main_table -->
-    <xpath expr="//table[@class='table table-sm o_main_table']" position="attributes">
-        <attribute name="style">width: 100%; font-size:9pt</attribute>
-        <attribute name="class">table table-borderless table-sm</attribute>
-    </xpath>
-    <!-- header-->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr" position="attributes">
-        <attribute name="style">border-top:solid 1px; border-bottom: solid 1px; color: black;</attribute>
-    </xpath>
-    <!-- header: position -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[1]" position="attributes"><attribute name="style">width: 5mm</attribute>/&gt;
-  </xpath>
-    <!-- header: default code -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[2]" position="attributes"><attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>"/&gt;
-  </xpath>
-    <!-- header: description -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[3]" position="attributes"><attribute name="style">width: 73mm</attribute>/&gt;
-  </xpath>
-    <!-- header: commitment date -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[5]" position="attributes">
-        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
-    </xpath>
-    <!-- header: qty -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[5]" position="attributes"><attribute name="style">text-align: right; padding-right: 5px</attribute>"/&gt;
-  </xpath>
-    <!-- position -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[1]" position="attributes"><attribute name="style">text-align: right</attribute>/&gt;
-  </xpath>
-    <!-- default code -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[2]" position="attributes"><attribute name="style">text-align: right; padding-right: 10px;</attribute>/&gt;
-  </xpath>
-    <!-- remove taxes -->
-    <xpath expr="//thead/tr[1]/th[4]" position="replace"/>
-    <xpath expr="//tbody/t[2]/tr[1]/t[1]/td[4]" position="replace"/>
-    <!-- commitment date -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[4]/span" position="attributes">
-        <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
-    <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr[1]/t[1]/td[4]" position="attributes">
-        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
-    </xpath>
-    <!-- qty-->
-    <xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </xpath>
-    <xpath expr="/t/t/div/table[2]/tbody/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
-        <attribute name="class" separator=" " add="o_bold"/>
-    </xpath>
-    <!-- price -->
-    <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[6]/span" position="replace">
-        <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
-    </xpath>
-    <xpath expr="//table[@class='table table-borderless table-sm']" position="after">
-        <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_footer"/>
-        </t>
-        <table class="table table-borderless table-sm" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
-            <tr>
-                <td style="width:15.5%; text-align:left">
-                    <Strong>Warenwert</Strong>
-                </td>
-                <td style="width:23%; text-align:left">
-                    <span t-field="o.amount_untaxed"/>
-                </td>
-                <t t-if="o.amount_tax &gt; 0">
-                    <td style="width:12%; text-align:left">MWST</td>
-                    <td style="width:17%; text-align:left">
-                        <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                    </td>
-                </t>
-                <t t-elif="o.amount_tax == 0">
-                    <td/>
-                    <td/>
-                </t>
-                <td style="width:14%; text-align:right">
-                    <Strong>Bestellbetrag</Strong>
-                </td>
-                <td style="width:18%; text-align:right" class="text-right">
-                    <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
 
+  <!-- add default_code   -->
+  <xpath expr="//table/thead/tr/th[1]" position="after">
+    <th>
+      <strong>Artikel Nr.</strong>
+    </th>
+  </xpath>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="after">
+    <td>
+      <span t-field="line.product_id.default_code"/>
+    </td>
+  </xpath>
+
+  <!-- replace product description -->
+  <xpath expr="//table/tbody/t[2]/tr/t[1]/td[3]/span" position="replace">
+    <t>
+      <span style="font-weight:bold;" t-field="line.product_id.type_description"/>
+    </t>
+  </xpath>
+
+  <!-- add second row -->
+  <xpath expr="//tbody//tr[1]" position="after">
+    <tr>
+      <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
+      <td style="padding:0; padding-left:3px; line-height: 1.2"/>
+      <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+        <span t-field="line.name"/>
+        <br/>
+        <t t-if="line.product_id.country_of_origin_id.code">Ursprungsland: <span t-field="line.product_id.country_of_origin_id.code"/>
+        </t>
+        <t t-if="line.product_id.hs_code"> / Zollposition: <span t-field="line.product_id.hs_code"/>
+        </t>
+      </td>
+      <td/>
+    </tr>
+    <tr style="border-bottom: 1px solid rgb(220,220,220)">
+      <td colspan="8"/>
+    </tr>
+  </xpath>
+  
+  <!-- format main_table -->
+  <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="attributes">
+    <attribute name="style">width: 100%; font-size:9pt</attribute>
+    <attribute name="class">table table-borderless table-sm</attribute>
+  </xpath>
+  
+  <!-- header-->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr" position="attributes">
+    <attribute name="style">border-top:solid 1px; border-bottom: solid 1px; color: black; font-weight:bold;</attribute>
+  </xpath>
+  
+  <!-- header: position -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[1]" position="attributes">
+    <attribute name="style">width: 5mm</attribute>
+  </xpath>
+  
+  <!-- header: default code -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[2]" position="attributes">
+    <attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>
+  </xpath>
+  
+    <!-- header: description -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[3]" position="attributes">
+    <attribute name="style">text-align: left; width: 73mm</attribute>
+  </xpath>
+
+  <!-- header: commitment date -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[5]" position="attributes">
+    <attribute name="class" separator=" " add="text-start" remove="text-center"/>
+  </xpath>
+
+  <!-- header: qty -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/thead/tr/th[5]" position="attributes">
+    <attribute name="style">text-align: right; padding-right: 5px</attribute>
+  </xpath>
+
+  <!-- position -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[1]" position="attributes">
+    <attribute name="style">text-align: right</attribute>
+  </xpath>
+
+  <!-- default code -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[2]" position="attributes">
+    <attribute name="style">text-align: right; padding-right: 10px;</attribute>
+  </xpath>
+
+  <!-- remove taxes -->
+  <xpath expr="//thead/tr[1]/th[4]" position="replace"/>
+  <xpath expr="//tbody/t[2]/tr[1]/t[1]/td[4]" position="replace"/>
+  
+  <!-- commitment date -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[4]" position="attributes">
+    <attribute name="class">text-start</attribute>
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+  <!-- qty-->
+  <xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"integer"</attribute>
+  </xpath>
+  <xpath expr="/t/t/div/table[2]/tbody/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+    <attribute name="class" separator=" " add="o_bold"/>
+  </xpath>
+  
+  <!-- price -->
+  <xpath expr="//table[@class='table table-borderless table-sm']/tbody/t[2]/tr/t[1]/td[6]/span" position="replace">
+    <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
+  </xpath>
+
+  <!-- note footer -->
+  <xpath expr="//table[@class='table table-borderless table-sm']" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+  </xpath>
+
+  <!-- Summary -->
+  <xpath expr="//div[@id='total']" position="attributes">
+    <attribute name="style">font-size:9pt;</attribute>
+  </xpath>
+
+
+</data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.modify_main_table.xml)
 
@@ -1582,11 +1584,11 @@ Source: [snippets/purchase.report_purchaseorder_document.x_warranty.xml](https:/
 ### Add Default Code  
 ID: `mint_system.purchase.report_purchasequotation_document.add_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
     <xpath expr="//thead/tr/th[1]" position="after">
         <th>
-            <span>Artikel Nr.</span>
+            <strong>Artikel Nr.</strong>
         </th>
     </xpath>
     <xpath expr="//tbody/t/tr/t[1]/td[1]" position="after">
@@ -1594,6 +1596,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_default_code`
             <span t-field="order_line.product_id.default_code"/>
         </td>
     </xpath>
+
 </data>
 
 ```
@@ -1602,10 +1605,10 @@ Source: [snippets/purchase.report_purchasequotation_document.add_default_code.xm
 ### Add Footer  
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//div[@class='oe_structure']/.." position="after">
-        <style>
+
+  <xpath expr="//div[@class='oe_structure']/.." position="after">
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
@@ -1614,22 +1617,24 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
         vertical-align: top;
       }
     </style>
-        <table id="footer">
-            <tr>
-                <td width="40%" t-if="o.payment_term_id.note">Zahlungsbedingungen 
-          <span t-field="o.payment_term_id.note"/>
+    <table id="footer">
+      <tr>
+        <td width="40%" t-if="o.payment_term_id">
+          <span>Zahlungsbedingungen </span>
+          <span t-field="o.payment_term_id"/>
         </td>
-                <td width="60%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen
+        <td width="60%">
+          Lieferung gemäss unseren allgemeinen Einkaufsbedingungen
         </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr: 
+      </tr>
+      <tr>
+        <td>MWST-Nr: 
           <span t-field="o.company_id.vat"/>
         </td>
-            </tr>
-        </table>
-    </xpath>
+      </tr>
+    </table>
+  </xpath>
+
 </data>
 
 ```
@@ -1768,21 +1773,22 @@ Source: [snippets/purchase.report_purchasequotation_document.append_payment_term
 ### Format Address Blocks  
 ID: `mint_system.purchase.report_purchasequotation_document.format_address_blocks`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    
     <xpath expr="//t[@t-set='address']/div" position="attributes">
         <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
         <attribute name="t-options-fields">['address', 'name']</attribute>
     </xpath>
-    <xpath expr="/t/t/t[4]/t/strong" position="replace">
-        <div style="font-size:8pt; font-weight:bold">Shipping address:</div>
+
+    <xpath expr="//div/div/div[1]" position="after">
+        <t t-set="information_block">
+            <strong style="font-size:10pt;">Shipping address:</strong>
+            <div style="font-size:10pt;" t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+                <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
+            </div>
+        </t>
     </xpath>
-    <xpath expr="/t/t/t[4]/t/div/span" position="replace">
-  </xpath>
-    <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
-    </xpath>
+
 </data>
 
 ```
@@ -1854,7 +1860,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.get_position`
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
-            <span>Pos</span>
+            <strong>Pos</strong>
         </th>
     </xpath>
     <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="before">
@@ -1871,109 +1877,135 @@ Source: [snippets/purchase.report_purchasequotation_document.get_position.xml](h
 ID: `mint_system.purchase.report_purchasequotation_document.header_margin`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="/t/t/div/table" position="attributes">
-        <attribute name="style" separator=";" add="margin-top: 2rem"/>
-    </xpath>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">  
+  <xpath expr="//div[@id='informations']" position="replace"/>  
 </data>
 
 ```
 Source: [snippets/purchase.report_purchasequotation_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.header_margin.xml)
 
+### Hide Incoterm  
+ID: `mint_system.purchase.report_purchasequotation_document.hide_incoterm`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">  
+  <xpath expr="//div[@t-if='o.incoterm_id']" position="replace"/>  
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.hide_incoterm.xml)
+
 ### Modify Main Table  
 ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <!-- replace product description -->
-    <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
-        <t>
-            <span style="font-weight:bold;" t-field="order_line.product_id.type_description"/>
-        </t>
-    </xpath>
-    <!-- add second row -->
-    <xpath expr="//tbody//tr[1]" position="after">
-        <tr>
-            <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
-            <td style="padding:0; padding-left:3px; line-height: 1.2"/>
-            <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
-                <span t-field="order_line.name"/>
-                <br/>
-                <t t-if="order_line.product_id.country_of_origin_id.code">Ursprungsland: <span t-field="order_line.product_id.country_of_origin_id.code"/>
-        </t>
-                <t t-if="order_line.product_id.hs_code"> / Zollposition: <span t-field="order_line.product_id.hs_code"/>
-        </t>
-            </td>
-        </tr>
-        <tr style="border-bottom: 1px solid rgb(220,220,220)">
-            <td colspan="8"/>
-        </tr>
-    </xpath>
-    <xpath expr="//table[2]" position="attributes">
-        <attribute name="style">color: black; font-size:9pt</attribute>
-        <attribute name="class">table table-borderless table-sm </attribute>
-    </xpath>
-    <!-- header -->
-    <xpath expr="//table[2]/thead" position="attributes">
-        <attribute name="style">color: black; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
-    </xpath>
-    <!-- Header: position -->
-    <xpath expr="//table[2]/thead/tr/th[1]" position="attributes"><attribute name="style">width: 20px</attribute>/&gt;
+
+  <!-- replace product description -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
+    <t>
+      <span style="font-weight:bold;" t-field="order_line.product_id.type_description"/>
+    </t>
   </xpath>
-    <!-- header: default code -->
-    <xpath expr="//table/thead/tr/th[2]" position="attributes">
-        <attribute name="style">width: 100px; text-align: right; padding-right: 10px</attribute>
-    </xpath>
-    <!-- header: description -->
-    <xpath expr="//table/thead/tr/th[3]" position="attributes">
-        <attribute name="style">width: 400px;</attribute>
-    </xpath>
-    <!-- header: date_planned -->
-    <xpath expr="//table/thead/tr/th[4]" position="attributes">
-        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
-    </xpath>
-    <!-- position -->
-    <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="attributes"><attribute name="style">text-align: right;</attribute>/&gt;
-  </xpath>
-    <!-- default code -->
-    <xpath expr="//table/tbody/t/tr/t[1]/td[2]" position="attributes">
-        <attribute name="style">text-align: right; padding-right: 10px</attribute>
-    </xpath>
-    <!-- date_planned -->
-    <xpath expr="//table/tbody/t/tr/t[1]/td[4]" position="attributes">
-        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
-    </xpath>
-    <xpath expr="//table/tbody/t/tr/t[1]/td[4]/span[1]" position="attributes">
-        <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
-    <!-- qty -->
-    <xpath expr="//table/tbody/t/tr/t[1]/td[5]/span" position="replace">
-        <span style="font-weight: bold" t-esc="'%g' % order_line.product_qty"/>
-    </xpath>
-    <xpath expr="//table[2]" position="after">
-        <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_footer"/>
+
+  <!-- add second row -->
+  <xpath expr="//tbody//tr[1]" position="after">
+    <tr>
+      <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
+      <td style="padding:0; padding-left:3px; line-height: 1.2"/>
+      <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+        <span t-field="order_line.name"/>
+        <br/>
+        <t t-if="order_line.product_id.country_of_origin_id.code">Ursprungsland: <span t-field="order_line.product_id.country_of_origin_id.code"/>
         </t>
-        <table class="table table-borderless table-sm" style="margin-top:20px; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
-            <tr>
-                <td style="width:15.5%; text-align:left">
-                    <Strong>Warenwert</Strong>
-                </td>
-                <td style="width:23%; text-align:left">
-                    <span t-field="o.currency_id"/>
-                </td>
-                <td style="width:12%; text-align:left"/>
-                <td style="width:17%; text-align:left">         
+        <t t-if="order_line.product_id.hs_code"> / Zollposition: <span t-field="order_line.product_id.hs_code"/>
+        </t>
+      </td>
+
+    </tr>
+    <tr style="border-bottom: 1px solid rgb(220,220,220)">
+      <td colspan="8"/>
+    </tr>
+  </xpath>
+
+  <xpath expr="//table[2]" position="attributes">
+    <attribute name="style">color: black; font-size:9pt; font-family: arial</attribute>
+    <attribute name="class">table table-borderless table-sm </attribute>
+  </xpath>
+
+  <!-- header -->
+  <xpath expr="//table[2]/thead" position="attributes">
+    <attribute name="style">color: black; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>
+  </xpath>
+
+  <!-- Header: position -->
+  <xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
+    <attribute name="style">width: 20px</attribute>/&gt;
+  </xpath>
+
+  <!-- header: default code -->
+  <xpath expr="//table/thead/tr/th[2]" position="attributes">
+    <attribute name="style">width: 100px; text-align: right; padding-right: 10px</attribute>
+  </xpath>
+
+  <!-- header: description -->
+  <xpath expr="//table/thead/tr/th[3]" position="attributes">
+    <attribute name="style">width: 400px;</attribute>
+  </xpath>
+
+  <!-- header: date_planned -->
+  <xpath expr="//table/thead/tr/th[4]" position="attributes">
+    <attribute name="class" separator=" " add="text-left" remove="text-center"/>
+  </xpath>
+
+  <!-- position -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="attributes">
+    <attribute name="style">text-align: right;</attribute>/&gt;
+  </xpath>
+
+  <!-- default code -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[2]" position="attributes">
+    <attribute name="style">text-align: right; padding-right: 10px</attribute>
+  </xpath>
+
+  <!-- date_planned -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[4]" position="attributes">
+    <attribute name="class" separator=" " add="text-left" remove="text-center"/>
+  </xpath>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[4]/span[1]" position="attributes">
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
+  <!-- qty -->
+  <xpath expr="//table/tbody/t/tr/t[1]/td[5]/span" position="replace">
+    <span style="font-weight: bold" t-esc="'%g' % order_line.product_qty"/>
+  </xpath>
+
+
+  <xpath expr="//table[2]" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+    <table class="table table-borderless table-sm" style="margin-top:20px; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+      
+      <tr>
+        <td style="width:15.5%; text-align:left">
+          <Strong>Warenwert</Strong>
         </td>
-                <td style="width:14%; text-align:right">
-                    <Strong>Bestellbetrag</Strong>
-                </td>
-                <td style="width:18%; text-align:right" class="text-right">
-                    <span t-field="o.currency_id"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
+        <td style="width:23%; text-align:left">
+          <span t-field="o.currency_id"/>
+        </td>
+        <td style="width:12%; text-align:left"/>
+        <td style="width:17%; text-align:left">         
+        </td>
+        <td style="width:14%; text-align:right">
+          <Strong>Bestellbetrag</Strong>
+        </td>
+        <td style="width:18%; text-align:right" class="text-end">
+          <span t-field="o.currency_id"/>
+        </td>
+      </tr>
+
+    </table>    
+  </xpath>
+
 </data>
 
 ```

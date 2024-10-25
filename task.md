@@ -37,7 +37,7 @@
 | init-nextcloud-env        | [env]                | Create env file for Nextcloud instance.                                                    |
 | init-odoo-env             | [env]                | Create env file for Odoo Instance.                                                         |
 | init-venv                 |                      | Initialize python virtual env.                                                             |
-| init-module               | [db][name,path]      | Initialize Odoo module. Default database is branch name.                                   |
+| init-module               | [db][path,module]    | Initialize Odoo module. Default database is branch name.                                   |
 | load-language             | [db][lang]           | Install language package in Odoo db.                                                       |
 | install-native            |                      | Install Odoo requirements in source folder.                                                |
 | install-odoo-scripts      |                      | Install Odoo scripts.                                                                      |
@@ -48,6 +48,7 @@
 | list                      |                      | List Docker containers.                                                                    |
 | list-addons               |                      | List Odoo addons.                                                                          |
 | list-env                  |                      | List env files.                                                                            |
+| list-revision             |                      | List available Odoo revisions.                                                             |
 | logs                      |                      | Tail Odoo Docker container logs.                                                           |
 | node-install              |                      | Install build dependencies.                                                                |
 | node-dev                  |                      | Start vuepress development server.                                                         |
