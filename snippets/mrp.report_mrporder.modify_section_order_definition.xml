@@ -1,7 +1,11 @@
-<?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-    <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
-        <style>
+
+  <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
+
+    <style>
+     .table &gt; :not(:first-child) {
+      border-top: none;
+    }
     .table {
       margin: 0 0 0 10px;
       width: 98%;
@@ -25,56 +29,60 @@
       padding: 0 0 0 0;
     }
     </style>
-        <div class="row table th">
-            <div class="col-2">
-                <span>Produkt</span>
-            </div>
-            <div class="col-4">
-                <span t-field="o.product_id.default_code"/>
-            </div>
-            <div class="col-6">
-                <span>Typenbezeichnung</span>
-            </div>
-        </div>
-        <div class="row table td">
-            <div class="col-6">
-                <span t-field="o.product_id.name"/>
-            </div>
-            <div class="col-6">
-                <span t-field="o.product_id.type_description"/>
-            </div>
-        </div>
-        <div class="col-3" t-if="o.product_description_variants">
-            <strong>Description:</strong>
-            <br/>
-            <span t-field="o.product_description_variants"/>
-        </div>
-        <div class="row table th">
-            <div class="col-2">
-                <span>Menge</span>
-            </div>
-            <div class="col-4">
+    <div class="row table th">
+      <div class="col-2">
+        <span>Produkt</span>
       </div>
-            <div class="col-6">
-                <span>Datum</span>
-            </div>
-        </div>
-        <div class="row table td">
-            <div class="col-6">
-                <strong>
-                    <span t-field="o.product_qty"/>
-                </strong>
-                <strong>
-                    <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
-                </strong>
-            </div>
-            <div class="col-4">
+      <div class="col-4">
+        <span t-field="o.product_id.default_code"/>
+      </div>
+      <div class="col-6">
+        <span>Typenbezeichnung</span>
+      </div>
+    </div>
+    <div class="row table td">
+      <div class="col-6">
+        <span t-field="o.product_id.name"/>
+      </div>
+      <div class="col-6">
+        <span t-field="o.product_id.type_description"/>
+      </div>
+    </div>
+
+    <div class="col-3" t-if="o.product_description_variants">
+      <strong>Description:</strong>
+      <br/>
+      <span t-field="o.product_description_variants"/>
+    </div>
+
+    <div class="row table th">
+      <div class="col-2">
+        <span>Menge</span>
+      </div>
+      <div class="col-4">
+      </div>
+      <div class="col-6">
+        <span>Datum</span>
+      </div>
+    </div>
+    <div class="row table td">
+      <div class="col-6">
+        <strong>
+          <span t-field="o.product_qty"/>
+        </strong>
+        <strong>
+          <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
+        </strong>
+      </div>
+      <div class="col-4">
         Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
       </div>
-            <div class="col-2 text-right">
-                <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+      <div class="col-2 text-end">
+        <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </strong>
-            </div>
-        </div>
-    </xpath>
+      </div>
+    </div>
+
+  </xpath>
+
 </data>

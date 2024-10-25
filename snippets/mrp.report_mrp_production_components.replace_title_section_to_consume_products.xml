@@ -1,0 +1,20 @@
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
+
+  <xpath expr="//h3" position="replace">
+    <style>
+      table#consumed_products {
+        width:98%;
+        margin: 20px 0 10px 10px;
+        font-size: 14pt;
+        font-weight: bold;
+        padding-left: 5px;
+      }
+    </style>
+    <table id="consumed_products">
+      <tr style="border-bottom: 1px solid rgb(220,220,220);">
+        <td style="padding-bottom: 5px">Benötigte Produkte
+        </td>
+      </tr>
+    </table>
+  </xpath>
+</data>
