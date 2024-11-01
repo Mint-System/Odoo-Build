@@ -18,7 +18,7 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
 * **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
-* **Kubernetes**: Deploy Odoo and Postgres to a Kubernetes cluster.
+* **Kubernetes**: Deploy Odoo and Postgres to a minikube cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
 * **Credentials**: Setup credentials to log into Odoo.
 * **Import Data**: Import Odoo records from CSV.
@@ -33,6 +33,8 @@ The Odoo development environment has the following requirements:
 * bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
+
+To test Kubernetes deployments for Odoo install [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
 
 ## Usage
 
@@ -216,7 +218,7 @@ task stop
 task drop-db
 ```
 
-### Define Postgres image version
+#### Define Postgres image version
 
 Define the Postgres image in your `.env` file:
 
@@ -224,7 +226,7 @@ Define the Postgres image in your `.env` file:
 POSTGRES_IMAGE=postgres:12-alpine
 ```
 
-### Build Odoo image
+#### Build Odoo image
 
 To build the Docker image setup these `.env` vars:
 
@@ -251,7 +253,7 @@ Publish the Odoo image.
 task publish
 ```
 
-### Mail catcher
+#### Mail catcher
 
 Start mail server.
 
@@ -263,6 +265,28 @@ Setup mail server config for Odoo.
 
 ```bash
 task setup-mail
+```
+
+### Kubernetes
+
+Run a local Kubernets cluster with minikube.
+
+#### Start minikube
+
+Ensure you have `minikube` installed.
+
+```bash
+task start-minikube
+```
+
+#### Deploy Odoo to minikube
+
+Ensure you have `kubectl` installed and can access the cluster.
+
+The following command applies the Odoo and Postgres manifests and initializes the Odoo database.
+
+```bash
+task init-minikube
 ```
 
 ## Troubleshooting

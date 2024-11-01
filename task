@@ -46,6 +46,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-minikube" "" "Deploy the Odoo K8s manifets."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
@@ -81,6 +82,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start docker container. Options: none, db, admin, odoo, native, mail."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-minikube" "" "Start minikube Kubernetes cluster."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
@@ -449,6 +451,11 @@ function start() {
     fi
 }
 
+function start-minikube() {
+    echo "Start minikube."
+    minikube start
+}
+
 function deploy() {
     if [[ "$1" =~ "db" ]]; then
         kubectl apply -f k3s/postgres.yml
@@ -530,6 +537,26 @@ function start-psql() {
     fi
 
     docker exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
+}
+
+function init-minikube() {
+    echo "Deploy Postgres:"
+    kubectl apply -f k8s/postgres-cm.yaml
+    kubectl apply -f k8s/postgres-pvc.yaml
+    kubectl apply -f k8s/postgres-deploy.yaml
+    kubectl apply -f k8s/postgres-svc.yaml
+
+    echo "Deploy Odoo:"
+    kubectl apply -f k8s/odoo-cm.yaml
+    kubectl apply -f k8s/odoo17-deploy.yaml
+    kubectl apply -f k8s/odoo-svc.yaml
+
+    echo "Init Odoo database:"
+    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
+    kubectl exec "$ODOO_POD" -- env
+    kubectl exec "$ODOO_POD" -- /bin/bash -c "odoo -d odoo -i web --db_host \$HOST -r\$USER -w\$PASSWORD --stop-after-init --no-http"
+
+    echo "Access Odoo with: $(minikube service odoo --url)"
 }
 
 function init-db() {
@@ -1571,6 +1598,9 @@ case "$1" in
     init-db)
         init-db "$2"
         ;;
+    init-minikube)
+        init-minikube
+        ;;
     init-nextcloud-env)
         init-nextcloud-env "$2"
         ;;
@@ -1676,6 +1706,9 @@ case "$1" in
         ;;
     source)
         activate-venv
+        ;;
+    start-minikube)
+        start-minikube
         ;;
     start-psql)
         start-psql "$2"
