@@ -1,0 +1,58 @@
+<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+
+    <xpath expr="//div[@class='information_block']/.." position="replace">
+
+        <td style="width:30px;"/>
+        <td style="vertical-align: top;">
+            <table>
+                <td style="font-size: 14px; font-weight: bold; padding-bottom: 15px; white-space: nowrap;">
+                    <span style="margin-right: 5px;" t-field="o.l10n_din5008_document_title"/>
+                    <span t-field="o.name"/>
+                </td>
+                <tr>
+                    <td style="width: 100px;">
+                        <span>Datum:</span>
+                    </td>
+                    <td>
+                        <span t-field="o.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Unser Auftrag:</span>
+                    </td>
+                    <td>
+                        <span t-field="o.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Ihr Auftrag:</span>
+                    </td>
+                    <td>
+                        <span t-field="o.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Lieferdatum:</span>
+                    </td>
+                    <td>
+                        <span t-field="o.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Incoeterm:</span>
+                    </td>
+                    <td>
+                        <span t-field="o.name"/>
+                    </td>
+                </tr>
+                
+            </table>
+        </td>
+
+    </xpath>
+
+</data>

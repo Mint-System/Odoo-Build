@@ -1,0 +1,12 @@
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//table[@id='main_table']/thead/tr/th[2]" position="after">
+    <th class="text-end">
+      <strong>Qty</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
+  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
+
+</data>

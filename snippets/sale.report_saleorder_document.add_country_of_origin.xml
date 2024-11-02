@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_quantity']" position="before">
+        <th name="th_country_of_origin" class="text-start">Origin</th>
+    </xpath>
+    <xpath expr="//td[@name='td_quantity']" position="before">
+        <td name="td_country_of_origin" class="text-start">
+            <span t-field="line.product_id.country_of_origin.code"></span>
+        </td>
+    </xpath>
+</data>
