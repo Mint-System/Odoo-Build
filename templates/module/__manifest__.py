@@ -16,18 +16,15 @@
         "data/ir_sequence_data.xml",
         "views/sale_order_views.xml"
     ],
-    "demo": ["demo/demo.xml"],
     "installable": True,
     "application": False,
     "auto_install": False,
     "images": ["images/screen.png"],
+    "demo": ["demo/demo.xml"],
     "qweb": ["static/src/xml/board.xml"],
     "assets": {
         "web.assets_backend": [
-            "{{ name }}/static/src/js/action_refresh.js",
-        ],
-        "web.assets_qweb": [
-            "{{ name }}/static/src/xml/listview_refresh.xml",
-        ],
+            "{{ name }}/static/src/css/style.css",
+        ]
     },
 }

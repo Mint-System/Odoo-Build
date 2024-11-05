@@ -22,6 +22,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module" "[path]" "Create new Odoo module from template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-revision" "[revision]" "Create new Odoo revision."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "deploy" "[name]" "Deploy to Kubernetes cluster. Options: db, admin, odoo, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-auto-install" "" "Disable auto install for enterprise modules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
@@ -32,6 +33,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from module template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Finds modules in addons folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -769,7 +771,7 @@ function create-module() {
 
     activate-venv
     echo "Scaffolding module $MODULE_NAME in $PARENT_DIR ..."
-    odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t template/module
+    odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t templates/module
 }
 
 function generate-module-security() {
@@ -970,6 +972,42 @@ function checkout-revision() {
         echo "Execute script for revision: $ODOO_REVISION"
         ./scripts/odoo_revision_"${ODOO_REVISION}"
     fi
+}
+
+function create-revision() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    REVISION="$1" # 16.0.20241029
+    ODOO_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+    ODOO_DATE=$(echo "$REVISION" | cut -d'.' -f3-)
+    BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
+    
+    # Pull Docker image with revision
+    IMAGE=odoo:"$ODOO_VERSION-$ODOO_DATE"
+    docker pull "$IMAGE"
+    DOCKER_REF=$(docker inspect --format='{{index .RepoDigests 0}}' "$IMAGE")
+
+    # Get git commit by date
+    cd odoo
+    ODOO_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
+    git checkout "$ODOO_REF"
+    cd ..
+    cd enterprise
+    ENTERPRISE_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
+    git checkout "$ENTERPRISE_REF"
+    cd ..
+    cd themes
+    THEME_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
+    git checkout "$THEME_REF"
+    cd ..
+
+    echo "Create revision: $REVISION"
+    export REVISION ODOO_REF ENTERPRISE_REF THEME_REF DOCKER_REF
+    envsubst '$REVISION $ODOO_REF $ENTERPRISE_REF $THEME_REF $DOCKER_REF' < templates/odoo_revision > scripts/odoo_revision_"$REVISION"
+    chmod +x scripts/odoo_revision_"$REVISION"
+
+    echo "Checkout revision: $REVISION"
+    checkout-revision "$REVISION"
 }
 
 function git-submodule-pull() {
@@ -1491,6 +1529,9 @@ case "$1" in
         ;;
     create-module)
         create-module "$2"
+        ;;
+    create-revision)
+        create-revision "$2"
         ;;
     deploy)
         deploy "$2"
