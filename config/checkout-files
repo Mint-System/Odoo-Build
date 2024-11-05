@@ -6,7 +6,7 @@ build
 config
 scripts
 snippets
-template
+templates
 docker-compose.yml
 package.json
 package-lock.json
