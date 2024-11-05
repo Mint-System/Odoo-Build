@@ -7,7 +7,7 @@ A better Odoo image.
 - Setup `odoo.conf` with environment vars
 - Clones addons from git repos
 - Detects and aggregates nested module folders
-- Stores session information in database
+- Store session information in database
 - Set and get environment name from server config
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
@@ -37,6 +37,7 @@ services:
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#17.0,git@github.com:OCA/server-tools.git#17.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
       SERVER_WIDE_MODULES: web,session_db
+      PIP_INSTALL: astor
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       LOG_LEVEL: debug
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
@@ -75,11 +76,7 @@ Extend the image with additional python packages:
 ```dockerfile
 FROM mintsystem/odoo:17.0.20240730
 
-USER root
-
-RUN python -m pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
-
-USER odoo
+RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
 
 ### Add custom Odoo conf
@@ -89,11 +86,7 @@ Copy a custom Odoo conf file to the image:
 ```dockerfile
 FROM mintsystem/odoo:17.0.20240730
 
-USER root
-
 COPY ./odoo.conf.template /etc/odoo/
-
-USER odoo
 ```
 
 ## Troubleshooting

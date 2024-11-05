@@ -108,12 +108,19 @@ RUN useradd --uid $UID --gid $GID -m odoo
 # Set the working directory
 WORKDIR /opt/odoo
 
-# Set permissions and mount /var/lib/odoo to allow restoring filestore and /mnt/extra-addons for users addons
-RUN chown odoo:odoo /etc/odoo \
-    && mkdir -p /mnt/extra-addons \
-    && chown -R odoo:odoo /mnt/extra-addons \
+# Give access and ownership to odoo for:
+# Config: /etc/odoo
+# Data: /var/lib/odoo
+# Python: /opt/odoo-venv
+# Addons: /mnt/extra-addons
+RUN chown -R odoo:odoo /etc/odoo \
     && mkdir -p /var/lib/odoo \
-    && chown -R odoo:odoo /var/lib/odoo
+    && chown -R odoo:odoo /var/lib/odoo\
+    && chown -R odoo:odoo /opt/odoo-venv \
+    && mkdir -p /mnt/extra-addons \
+    && chown -R odoo:odoo /mnt/extra-addons
+
+# Define volumes
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services

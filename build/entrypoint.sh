@@ -121,9 +121,17 @@ auto_envsubst() {
 
 auto_envsubst
 
-entrypoint_log "$ME: List python packages:"
- 
-pip list
+pip_install() {
+    if [ -n "$PIP_INSTALL" ]; then
+        entrypoint_log "$ME: Install python packages: $PIP_INSTALL"
+        pip install --no-cache-dir $PIP_INSTALL
+    fi
+
+    entrypoint_log "$ME: List python packages:" 
+    pip list
+}
+
+pip_install
 
 entrypoint_log "$ME: Running Odoo $ODOO_VERSION as user: $USER"
 
