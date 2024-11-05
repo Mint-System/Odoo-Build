@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odoo-config
+  labels:
+    app: odoo
+data:
+  HOST: postgres
+  USER: odoo
+  PASSWORD: odoo
