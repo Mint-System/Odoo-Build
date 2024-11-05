@@ -2312,6 +2312,27 @@ ID: `mint_system.ir_model.res_partner.x_privacy_visibility`
 ```
 Source: [snippets/ir_model.res_partner.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_privacy_visibility.xml)
 
+### X Schema  
+ID: `mint_system.ir_model.res_partner.x_schema`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_schema" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">Schema</field>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_schema</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_schema.xml)
+
 ### X Stock Move Ids  
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`  
 ```xml
@@ -2334,6 +2355,27 @@ ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
 ```
 Source: [snippets/ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_stock_move_ids.xml)
 
+### X Vat  
+ID: `mint_system.ir_model.res_partner.x_vat`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_vat" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">VAT</field>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_vat</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_vat.xml)
+
 ### X Vst  
 ID: `mint_system.ir_model.res_partner.x_vst`  
 ```xml
@@ -2354,6 +2396,27 @@ ID: `mint_system.ir_model.res_partner.x_vst`
 
 ```
 Source: [snippets/ir_model.res_partner.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_vst.xml)
+
+### X Zaz  
+ID: `mint_system.ir_model.res_partner.x_zaz`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_zaz" model="ir.model.fields">
+        <field name="domain">[]</field>
+        <field name="field_description">ZAZ</field>
+        <field name="model">res.partner</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="name">x_vat</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.res_partner.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.res_partner.x_zaz.xml)
 
 ## Sale Blanket Order Line  
 ### X Product Uom Category Id  

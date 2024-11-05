@@ -10,6 +10,7 @@
 | clear-filestore           | [db]                 | Clear local filestore folder. No param will clear all filestores. Default is branch name.  |
 | convert-database          | [db]                 | Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name.        |
 | create-module             | [path]               | Create new Odoo module from template.                                                      |
+| create-revision           | [revision]           | Create new Odoo revision.                                                                  |
 | deploy                    | [name]               | Deploy to Kubernetes cluster. Options: db, admin, odoo, mail.                              |
 | disable-auto-install      |                      | Disable auto install for enterprise modules.                                               |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
@@ -20,6 +21,7 @@
 | translate-module          | [env][path][lang]    | Generate translation for Odoo module.                                                      |
 | generate-help-doc         |                      | Write help table to task.md file.                                                          |
 | generate-module-security  | [path][model]        | Generate model access file for a selected model of a module.                               |
+| generate-module-model     | [path][model]        | Generate model files from module template.                                                 |
 | get-addons-path           |                      | Finds modules in addons folder.                                                            |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
@@ -34,6 +36,7 @@
 | import-csv                | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.                           |
 | info                      |                      | Show values of project env vars.                                                           |
 | init-db                   | [db]                 | Initialize the Odoo database. Default is branch name.                                      |
+| init-minikube             |                      | Deploy the Odoo K8s manifets.                                                              |
 | init-nextcloud-env        | [env]                | Create env file for Nextcloud instance.                                                    |
 | init-odoo-env             | [env]                | Create env file for Odoo Instance.                                                         |
 | init-venv                 |                      | Initialize python virtual env.                                                             |
@@ -69,6 +72,7 @@
 | set-admin                 | [db]                 | Sets the password for the first user in database. Default is branch name.                  |
 | source                    |                      | Source the Python virtual env.                                                             |
 | start                     | [name][db]           | Start docker container. Options: none, db, admin, odoo, native, mail.                      |
+| start-minikube            |                      | Start minikube Kubernetes cluster.                                                         |
 | start-psql                | [db]                 | Start PSQL shell in Docker container. Default is branch name.                              |
 | start-shell               | [db]                 | Start Odoo shell from source folder. Default is branch name.                               |
 | stop                      | [name]               | Stop docker containers.                                                                    |

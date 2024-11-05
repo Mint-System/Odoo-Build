@@ -595,6 +595,18 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_produc
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_description.xml)
 
+### Replace Product Id  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_id`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="49">
+
+  <xpath expr="//table[1]//td[1]" position="replace"/>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_product_id.xml)
+
 ### Replace Product Uom Id With Schedule Date  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_uom_id_with_schedule_date`  
 ```xml
@@ -635,6 +647,24 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_schedu
 
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_schedule_date_with_price_unit.xml)
+
+### Replace Table Header  
+ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_table_header`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//table[@id='main_table']/thead/tr/th[2]" position="after">
+    <th class="text-end">
+      <strong>Qty</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
+  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_table_header.xml)
 
 ### Replace Title  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_title`  

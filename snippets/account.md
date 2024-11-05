@@ -932,7 +932,7 @@ ID: `mint_system.account.report_invoice_document.get_position`
             <span>Pos</span>
         </th>
     </xpath>
-    <xpath expr="/table[@name='invoice_line_table']//t[1]/td[1]" position="before">
+    <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
         <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
         <span t-esc="line.position" />
@@ -2443,6 +2443,25 @@ ID: `mint_system.account.report_invoice_document.show_categ_id`
 
 ```
 Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_categ_id.xml)
+
+### Show Country Of Origin  
+ID: `mint_system.account.report_invoice_document.show_country_of_origin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="60">
+    <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
+        <th name="th_country_of_origin" class="text-right">
+            <span>Origin</span>
+        </th>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="before">
+        <td name="td_country_of_origin" class="text-right">
+            <span t-esc="line.product_id.country_of_origin"/>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.show_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_country_of_origin.xml)
 
 ### Show Credit Note  
 ID: `mint_system.account.report_invoice_document.show_credit_note`  
