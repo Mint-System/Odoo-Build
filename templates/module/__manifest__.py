@@ -7,7 +7,7 @@
     "website": "https://www.mint-system.ch",
     "category": "Purchase,Technical,Accounting,Invoicing,Sales,Human Resources,Services,Helpdesk,Manufacturing,Website,Inventory,Administration,Productivity",
     "version": "16.0.1.0.0",
-    "license": "AGPL-3",
+    "license": "AGPL-3,OPL-1",
     "depends": ["base"],
     "data": [
         "security/ir.model.access.csv",
