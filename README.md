@@ -27,14 +27,14 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 
 The Odoo development environment has the following requirements:
 
-* [Docker](https://docs.docker.com/engine/install/) and [Docker Compose](https://docs.docker.com/compose/)
+* [Docker](https://docs.docker.com/engine/install/)
 * Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
 * Install [PostgreSQL](https://www.postgresql.org/download/)
 * bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
-To test Kubernetes deployments for Odoo install [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl).
+Instal [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
 
 ## Usage
 
@@ -71,12 +71,26 @@ Decide wether you want to run Odoo in native mode (from source) or with Docker a
 
 Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
 
-#### Install Odoo native requirements
+#### Setup Odoo environment
 
-Pull the `odoo` submodule and install the python dependencies.
+Init submodules and switch to the Odoo version.
 
 ```bash
-git submodule update odoo
+task git-submodule-init
+task git-submodule-switch $VERSION
+```
+
+#### Setup Python environment
+
+Install Python and pip.
+
+```bash
+pyenv install
+```
+
+Install the python dependencies.
+
+```bash
 task install-native
 ```
 
@@ -104,11 +118,24 @@ The browser will be opened automatically.
 
 #### Create a new module from source
 
-Scaffold a new module.
+Create a new module.
 
 ```bash
-task create-module addons/project_report
+task create-module addons/project/project_sprint
 ```
+
+Add a new model.
+
+```bash
+task generate-module-model addons/project/project_sprint project.sprint
+```
+
+Add model security.
+
+```bash
+task generate-module-security addons/project/project_sprint project.sprint
+```
+
 
 #### Load modules from thirdparty folder
 
@@ -130,7 +157,7 @@ In your `.env` file define this Odoo parameter env var:
 ODOO_PARAM="--without-demo=all"
 ```
 
-#### Define Odoo database name
+#### Set Odoo database name
 
 By default the database name is the current branch name.
 
@@ -212,7 +239,7 @@ task remove
 task stop
 ```
 
-#### Remove database
+#### Drop database
 
 ```bash
 task drop-db
@@ -226,7 +253,7 @@ Define the Postgres image in your `.env` file:
 POSTGRES_IMAGE=postgres:12-alpine
 ```
 
-#### Build Odoo image
+#### Build and publish Odoo image
 
 To build the Docker image setup these `.env` vars:
 
@@ -253,7 +280,7 @@ Publish the Odoo image.
 task publish
 ```
 
-#### Mail catcher
+#### Setup mail catcher
 
 Start mail server.
 
@@ -376,4 +403,53 @@ The local Odoo package needs to be updated:
 ```bash
 source task source
 pip install -e odoo 
+```
+
+### Import Error lxml
+
+**Problem**
+
+After install the Pyhton dependencies and running Odoo the following error is thrown:
+
+```
+ImportError: lxml.html.clean module is now a separate project lxml_html_clean.
+Install lxml[html_clean] or lxml_html_clean directly.
+```
+
+**Solution**
+
+Pin the version lxml.
+
+```bash
+pip install lxml==4.9.3
+```
+
+#### Attribute Error werkzeug
+
+**Problem**
+
+After install the Pyhton dependencies and running Odoo the following error is thrown:
+
+```
+Traceback (most recent call last):
+  File "/home/janikvonrotz/Odoo-Build/venv17.0/bin/odoo", line 7, in <module>
+    exec(compile(f.read(), __file__, 'exec'))
+  File "/home/janikvonrotz/Odoo-Build/odoo/setup/odoo", line 5, in <module>
+    import odoo
+  File "/home/janikvonrotz/Odoo-Build/odoo/odoo/__init__.py", line 119, in <module>
+    from . import service
+  File "/home/janikvonrotz/Odoo-Build/odoo/odoo/service/__init__.py", line 5, in <module>
+    from . import model
+  File "/home/janikvonrotz/Odoo-Build/odoo/odoo/service/model.py", line 13, in <module>
+    from odoo.http import request
+  File "/home/janikvonrotz/Odoo-Build/odoo/odoo/http.py", line 279, in <module>
+    if parse_version(werkzeug.__version__) >= parse_version('2.0.2'):
+                     ^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'werkzeug' has no attribute '__version__'
+```
+
+**Solution**
+
+```bash
+pip install Werkzeug==2.2.2
 ```

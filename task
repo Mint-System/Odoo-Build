@@ -32,7 +32,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from module template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Find nested modules and return addons path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -43,6 +43,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-remove" "[path]" "Remove git submodule."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-delete" "" "Delete all submodule folders."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-switch" "[branch]" "Switch branch for all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
@@ -170,9 +171,8 @@ function version() {
     wkhtmltopdf -V
     psql -V
     docker -v
-    docker-compose -v
+    docker compose version
     minikube version    
-    kubectl version
 }
 
 function set-addons-path() {
@@ -354,7 +354,8 @@ function install-native() {
         rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.*
 
         echo "Install python-ldap and psycopg2 build dependencies"
-        sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev
+        sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev libpq-dev
+
 
         echo "Install xmllint"
         sudo apt install libxml2-utils
@@ -416,21 +417,21 @@ function start() {
     if test -z "$1"; then
         echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
-        docker-compose up -d
+        docker compose up -d
     fi
 
     if [[ "$1" =~ "db" ]]; then
-        docker-compose up -d db
+        docker compose up -d db
     fi
 
     if [[ "$1" =~ "admin" ]]; then
-        docker-compose up -d admin
+        docker compose up -d admin
         echo "Open http://localhost:8000 url in your browser."
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
         echo "Start odoo container ${DOCKER_REGISTRY}${DOCKER_TAG}"
-        docker-compose up -d odoo
+        docker compose up -d odoo
         echo "Open http://localhost:8069 url in your browser."
     fi
 
@@ -458,7 +459,7 @@ function start() {
 
     if [[ "$1" =~ "mail" ]]; then
         echo "Open http://localhost:8025 url in your browser."
-        open-url-with-delay "http://localhost:8025" & docker-compose up -d mail
+        open-url-with-delay "http://localhost:8025" & docker compose up -d mail
     fi
 }
 
@@ -482,23 +483,23 @@ function remove() {
     export DOCKER_TAG
 
     if test -z "$1"; then
-        docker-compose down -v
+        docker compose down -v
     fi
 
     if [[ "$1" =~ "db" ]]; then
-        docker-compose rm -f -s -v db
+        docker compose rm -f -s -v db
     fi
 
     if [[ "$1" =~ "admin" ]]; then
-        docker-compose rm -f -s -v admin
+        docker compose rm -f -s -v admin
     fi
     
     if [[ "$1" =~ "odoo" ]]; then
-        docker-compose rm -f -s -v odoo
+        docker compose rm -f -s -v odoo
     fi
 
     if [[ "$1" =~ "mail" ]]; then
-        docker-compose rm -f -s -v mail
+        docker compose rm -f -s -v mail
     fi
 }
 
@@ -509,11 +510,11 @@ function restart() {
     export DOCKER_TAG
 
     if test -z "$1"; then
-        docker-compose restart
+        docker compose restart
     fi
 
     if [[ "db|mail|odoo" =~ $1 ]]; then
-        docker-compose restart "$1"
+        docker compose restart "$1"
     fi
 }
 
@@ -524,10 +525,10 @@ function stop() {
     export DOCKER_TAG
 
     if test -z "$1"; then
-        docker-compose stop
+        docker compose stop
     fi
 
-    docker-compose stop "$1"
+    docker compose stop "$1"
 }
 
 function start-shell() {
@@ -825,6 +826,32 @@ function generate-module-security() {
     echo "access_${MODEL_NAME}_manager,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
 }
 
+function generate-module-model() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    MODULE_PATH="$1"
+    MODULE_NAME=$(basename "$1")
+
+    # Generate template values
+    MODEL_DOT_NAME="$2" # res.partner
+    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
+    
+    echo "Substitute model template"
+    envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model.py > "$MODULE_PATH/models/$MODEL_NAME.py"
+    echo "from . import $MODEL_NAME" >> "$MODULE_PATH/models/__init__.py"
+
+    echo "Substitute view template"
+    mkdir -p "$MODULE_PATH/views"
+    envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model_views.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
+    echo "Update file $MODULE_NAME/__manifest__.py with:"
+    echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
+}
+
 function drop-db() {
     DATABASE="$1"
     if [ -z "$DATABASE" ]; then
@@ -917,16 +944,34 @@ function convert-database() {
     echo "Converted database file $1 to ${1}2"
 }
 
+function git-submodule-ls() {
+    echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+}
+
+function git-submodule-list() {
+    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
+    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+} 
+
+function git-submodule-delete() {
+    echo "Delete git submodules."
+
+    # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
+    SUBMODULES=$(git-submodule-ls)
+    for SUBMODULE in $SUBMODULES; do
+        echo "Delete submodule: $SUBMODULE"
+        rm -rf "$SUBMODULE"
+    done
+}
+
 function git-submodule-init() {
     echo "Init git submodules."
 
     # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
-    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
-        if [ ! -d "$SUBMODULE" ]; then
-            echo "Initializing submodule: $SUBMODULE"
-            git submodule update --init "$SUBMODULE"
-        fi
+        echo "Initializing submodule: $SUBMODULE"
+        git submodule update --init "$SUBMODULE"
     done
 }
 
@@ -934,7 +979,7 @@ function git-submodule-checkout() {
     echo "Update git submodules."
 
     # The --depth flag cannot be used when working on multiple branches in submodules
-    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
         echo "Update git submodule: $SUBMODULE"
         COMMIT_HASH=$(git ls-tree HEAD "$SUBMODULE" | awk '{print $3}')
@@ -950,7 +995,7 @@ function git-submodule-switch() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Switch branch on git submodules."
-    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
         echo "Switch git submodule branch to $1: $SUBMODULE"
         CWD=$(pwd)
@@ -1348,11 +1393,6 @@ function git-submodule-remove() {
     rm -rf .git/modules/"$1"
 }
 
-function git-submodule-list() {
-    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
-}
-
 function git-feature-branch(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -1587,6 +1627,9 @@ case "$1" in
     generate-help-doc)
         generate-help-doc
         ;;
+    generate-module-model)
+        generate-module-model "$2" "$3"
+        ;;
     generate-module-security)
         generate-module-security "$2" "$3"
         ;;
@@ -1607,6 +1650,9 @@ case "$1" in
         ;;
     git-submodule-add)
         git-submodule-add "$2" "$3"
+        ;;
+    git-submodule-delete)
+        git-submodule-delete
         ;;
     git-submodule-list)
         git-submodule-list
