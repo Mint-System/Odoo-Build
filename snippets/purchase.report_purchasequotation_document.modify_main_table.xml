@@ -50,6 +50,7 @@
   <!-- header: description -->
   <xpath expr="//table/thead/tr/th[3]" position="attributes">
     <attribute name="style">width: 400px;</attribute>
+    <attribute name="class" separator=" " add="text-start" remove="text-center"/>
   </xpath>
 
   <!-- header: date_planned -->

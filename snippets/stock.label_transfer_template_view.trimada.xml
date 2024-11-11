@@ -23,7 +23,7 @@
                         padding-bottom: 3mm;
                     }
                     .title {
-                        font-size: 11mm;
+                        font-size: 13mm;
                         margin: 3mm 3mm 0 3mm;
                         font-weight: bold;
                         text-align: center;
