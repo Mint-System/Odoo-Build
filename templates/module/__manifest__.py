@@ -10,8 +10,8 @@
     "license": "AGPL-3,OPL-1",
     "depends": ["base"],
     "data": [
-        "security/ir.model.access.csv",
         "security/security.xml",
+        "security/ir.model.access.csv",
     ],
     "installable": True,
     "application": False,

@@ -12,7 +12,7 @@ class ${MODEL_CAMEL_NAME}(models.Model):
     name = fields.Char()
     value = fields.Integer()
     state = fields.Selection([
-        ('draft', 'Draft'),
-        ('confirm', 'Confirmed'),
-        ('cancel', 'Cancelled'),
-    ], string='Status')
+        ("draft", "Draft"),
+        ("confirm", "Confirmed"),
+        ("cancel", "Cancelled"),
+    ], string="Status")

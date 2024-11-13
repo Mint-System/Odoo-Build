@@ -33,6 +33,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Find nested modules and return addons path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -468,14 +469,6 @@ function start-minikube() {
     minikube start
 }
 
-function deploy() {
-    if [[ "$1" =~ "db" ]]; then
-        kubectl apply -f k3s/postgres.yml
-        kubectl port-forward deployments/postgres 5432:5432 > /dev/null 2>&1 &
-        echo "Port 5432 forwarded to localhost."
-    fi
-}
-
 function remove() {
     # Exports for Docker Compose
     export POSTGRES_PORT
@@ -821,9 +814,18 @@ function generate-module-security() {
         echo "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink" > "$ACCESS_FILE"
     fi
 
+    # id
+    # name
+    # model_id:id
+    # group_id:id
+    # perm_read
+    # perm_write
+    # perm_create
+    # perm_unlink
+
     echo "Add model access to $ACCESS_FILE"
-    echo "access_${MODEL_NAME}_user,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_user,1,0,0,0" >> "$ACCESS_FILE"
-    echo "access_${MODEL_NAME}_manager,$MODULE_NAME.$MODEL_DOT_NAME,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
+    echo "access_${MODEL_NAME}_user,access.$MODEL_DOT_NAME.user,model_${MODEL_NAME},base.group_user,1,0,0,0" >> "$ACCESS_FILE"
+    echo "access_${MODEL_NAME}_manager,access.$MODEL_DOT_NAME.manager,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
 }
 
 function generate-module-model() {
@@ -848,6 +850,27 @@ function generate-module-model() {
     echo "Substitute view template"
     mkdir -p "$MODULE_PATH/views"
     envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model_views.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
+    echo "Update file $MODULE_NAME/__manifest__.py with:"
+    echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
+}
+
+function generate-module-snippet() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    MODULE_PATH="$1"
+    VIEW_REF="$2"
+
+    # Generate template values
+    MODEL_NAME="crm_lead"
+    MODEL_DOT_NAME="crm.lead"
+    MODULE_NAME=$(basename "$1")
+    SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1) 
+    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f1) 
+    export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME XML_ID
+
+    echo "Substitute snippet template"
+    envsubst '$MODULE_NAME $MODEL_DOT_NAME $SRC_MODULE_NAME $XML_ID' < templates/model_snippet.xml > "$MODULE_PATH/views/$MODEL_NAME_views.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with:"
     echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
 }
@@ -1718,8 +1741,8 @@ case "$1" in
     install-snippet)
         install-snippet "$2" "$3"
         ;;
-    install-snippets)
-        install-snippets
+    generate-module-snippet)
+        generate-module-snippet "$2" "$3"
         ;;
     install)
         install

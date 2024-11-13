@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="${XML_ID}" model="ir.ui.view">
+        <field name="name">${MODULE_NAME}.${XML_ID}</field>
+        <field name="model">$MODEL_DOT_NAME</field>
+        <field name="inherit_id" ref="${SRC_MODULE_NAME}.${XML_ID}"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="value" />
+            </xpath>
+            <xpath expr="//button[@name='button_confirm']" position="before">
+                <button string="Create document" name="action_create_document" type="object" class="oe_highlight" title="Create document" attrs="{'invisible': [('value', '=', 'example')]}"/>
+            </xpath>
+            <button name="action_view_contact" position="after">
+                <button name="action_view_document"
+                    type="object" class="oe_stat_button"
+                    icon="fa-file-0" attrs="{'invisible': [('document_count', '=', 0)]}">
+                    <div class="o_field_widget o_stat_info">
+                        <span class="o_stat_value"><field name="document_count"/></span>
+                        <span class="o_stat_text">Documents</span>
+                    </div>
+                </button>
+            </button>
+        </field>
+    </record>
+</odoo>
