@@ -23,6 +23,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module" "[path]" "Create new Odoo module from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-revision" "[revision]" "Create new Odoo revision."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-auto-install" "" "Disable auto install for enterprise modules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docker-login" "" "Setup Docker Hub login credentials."
@@ -50,8 +52,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-minikube" "" "Deploy the Odoo K8s manifests."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "load-language" "[db][lang]" "Install language package in Odoo db."
@@ -88,7 +88,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env]" "Test json rpc connection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-odoo-jsonrpc" "[env][model]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-docs" "" "Update project docs."
@@ -124,7 +124,7 @@ GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
-ODOO_DEVELOPMENT_CONFIG_DIR="$HOME/.config/odoo-build"
+ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
@@ -216,7 +216,7 @@ function get-addons-path() {
 }
 
 function list-env() {
-    ls -f "$ODOO_DEVELOPMENT_CONFIG_DIR"
+    ls -f "$ODOO_BUILD_CONFIG_DIR"
 }
 
 function list-modules() {
@@ -298,7 +298,7 @@ function activate-venv() {
 }
 
 function load-env() {
-    ENV_FILE="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    ENV_FILE="$ODOO_BUILD_CONFIG_DIR/.env.$1"
     echo "Load env file $ENV_FILE"
 
     export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
@@ -1191,10 +1191,15 @@ function change-uuid() {
     scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
 }
 
-function test-jsonrpc() {
+function test-odoo-jsonrpc() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
     activate-venv
     [ -n "$1" ] && load-env "$1"
-    scripts/jsonrpc
+    
+    ODOO_MODEL="$2"
+    export ODOO_MODEL
+    scripts/odoo_jsonrpc
 }
 
 function generate-admin-passwd() {
@@ -1310,38 +1315,50 @@ function update-app-list() {
 }
 
 function init-config-dir() {
-    echo "Ensure $ODOO_DEVELOPMENT_CONFIG_DIR exists"
-    mkdir -p "$ODOO_DEVELOPMENT_CONFIG_DIR"
+    echo "Ensure $ODOO_BUILD_CONFIG_DIR exists"
+    mkdir -p "$ODOO_BUILD_CONFIG_DIR"
 }
 
-function init-odoo-env() {
+function create-odoo-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     init-config-dir
-    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
+    if [ -f "$ENV_FILEPATH" ]; then
+        echo "Env file already exists: $ENV_FILEPATH"
+        exit 1
+    fi
 
     echo "Init env file: $ENV_FILEPATH"
     echo "#ODOO_URL=" > "$ENV_FILEPATH"
     echo "ODOO_DATABASE=" >> "$ENV_FILEPATH"
     echo "ODOO_USERNAME=" >> "$ENV_FILEPATH"
     echo "ODOO_PASSWORD=" >> "$ENV_FILEPATH"
+
+    echo "Edit with: task edit-env $1"
 }
 
-function init-nextcloud-env() {
+function create-nextcloud-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     init-config-dir
-    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
+    if [ -f "$ENV_FILEPATH" ]; then
+        echo "Env file already exists: $ENV_FILEPATH"
+        exit 1
+    fi
 
     echo "Init env file: $ENV_FILEPATH"
     echo "NEXTCLOUD_URL=" > "$ENV_FILEPATH"
     echo "NEXTCLOUD_USERNAME=" >> "$ENV_FILEPATH"
     echo "NEXTCLOUD_PASSWORD=" >> "$ENV_FILEPATH"
+
+    echo "Edit with: task edit-env $1"
 }
 
 function edit-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ENV_FILEPATH="$ODOO_DEVELOPMENT_CONFIG_DIR/.env.$1"
+    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
     "$EDITOR" "$ENV_FILEPATH"
 }
 
@@ -1711,11 +1728,11 @@ case "$1" in
     init-minikube)
         init-minikube
         ;;
-    init-nextcloud-env)
-        init-nextcloud-env "$2"
+    create-nextcloud-env)
+        create-nextcloud-env "$2"
         ;;
-    init-odoo-env)
-        init-odoo-env "$2"
+    create-odoo-env)
+        create-odoo-env "$2"
         ;;
     init-venv)
         init-venv
@@ -1832,8 +1849,8 @@ case "$1" in
     test-coverage-module)
         test-coverage-module "$2" "$3"
         ;;
-    test-jsonrpc)
-        test-jsonrpc "$2"
+    test-odoo-jsonrpc)
+        test-odoo-jsonrpc "$2" "$3"
         ;;
     test-module)
         test-module "$2" "$3"
