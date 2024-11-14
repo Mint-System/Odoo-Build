@@ -1,16 +1,16 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data inherit_id="sale.report_purchaserequisitions" priority="50">
   
-  <xpath expr="//th[@id='name']" position="replace"/>
-    
-  <xpath expr="//td[@id='name']" position="replace">
-    <td id="name">
-      <t t-if="line_ids.product_id.type_description">
-        <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
-      </t>
-      <t t-if="not line_ids.product_id.type_description">
-        <span t-field="line_ids.product_description_variants"/>
-      </t>
-    </td>
-  </xpath>
+    <xpath expr="//th[@id='name']" position="replace"/>
+
+    <xpath expr="//td[@id='name']" position="replace">
+        <td id="name">
+            <t t-if="line_ids.product_id.type_description">
+                <span style="font-weight: bold" t-field="line_ids.product_id.type_description"/>
+            </t>
+            <t t-if="not line_ids.product_id.type_description">
+                <span t-field="line_ids.product_description_variants"/>
+            </t>
+        </td>
+    </xpath>
 
 </data>
