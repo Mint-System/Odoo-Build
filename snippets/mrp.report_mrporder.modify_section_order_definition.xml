@@ -74,10 +74,10 @@
           <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
         </strong>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
       </div>
-      <div class="col-2 text-end">
+      <div class="col-3 text-end">
         <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </strong>
       </div>

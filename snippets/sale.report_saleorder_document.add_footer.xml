@@ -6,9 +6,12 @@
         width: 100%;
         font-size: 8pt;
         margin-top: 25px;
+        border-color: white;
+        line-height: 1.5;
       }
       table#footer tr, td {
         vertical-align: top;
+        border-color: white;
       }
     </style>
     <table id="footer">
