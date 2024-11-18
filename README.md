@@ -300,7 +300,11 @@ Run a local Kubernets cluster with kind or minikube.
 
 #### Start Kubernetes Cluster
 
+Start Kubernetes with `kind`.
 
+```bash
+task start-kind
+```
 
 Or start Kubernetes with `minikube`.
 
