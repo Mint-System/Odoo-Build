@@ -1,28 +1,33 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-  <xpath expr="//h2" position="after">
+  <xpath expr="//div[@id='informations']" position="before">
     <style>
-      table#info {
-        width: 100%;
-        margin-bottom: 25px;
-        font-size: 9pt;
-        font-family: arial;
-        border-color: white;
-      }
-        table#info tr {
-        line-height: 1.2;
-        text-align: left;
-      }
-        .note {
-        font-size: 9pt;
-      }
+    table#info {
+      width: 100%;
+      margin-bottom: 25px;
+      font-size: 9pt;
+      font-family: arial;
+      border-color: white;
+    }
+     table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
     </style>
     <table id="info">
       <tr>
-        <td width="17%">Order Deadline</td>
+        <td width="17%">Oder Date</td>
         <td width="40%">
-          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+          <t t-if="o.date_approve">
+            <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+          </t>
+          <t t-else="">
+            <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+          </t>
         </td>
         <td width="18%">Our Reference</td>
         <td width="25%">
@@ -41,6 +46,7 @@
       </tr>
       <tr>
         <td/>
+
         <td>
           <span t-field="o.partner_ref"/>
         </td>
@@ -53,7 +59,6 @@
             </t>
           </td>
         </t>
-
       </tr>
       <tr>
         <td>Reference</td>

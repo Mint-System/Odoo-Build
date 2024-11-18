@@ -7,6 +7,7 @@
       width: 98%;
       margin: 0 0 10px 10px;
       font-size: 10pt;
+      border-color: white;
     }
     table#section_consumed_products th {
       font-size: 10pt;
@@ -26,6 +27,11 @@
       margin-top: 30px;
       font-size: 14pt;
       padding-left:10px;
+      text-align: left;
+      border-color: white;
+    }
+    table#note th {
+      padding-bottom: 5px;
     }
     </style>
 
