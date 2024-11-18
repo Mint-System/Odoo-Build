@@ -18,7 +18,7 @@ This projects provides a highly opinionated way to develop Odoo modules. It feat
 * **Odoo Scripts**: Develope scripts to patch Odoo code.
 * **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
-* **Kubernetes**: Deploy Odoo and Postgres to a minikube cluster.
+* **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.
 * **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
 * **Credentials**: Setup credentials to log into Odoo.
 * **Import Data**: Import Odoo records from CSV.
@@ -34,7 +34,7 @@ The Odoo development environment has the following requirements:
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
-Instal [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
+Install [kind](https://kind.sigs.k8s.io/) or [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
 
 ## Usage
 
@@ -296,24 +296,26 @@ task setup-mail
 
 ### Kubernetes
 
-Run a local Kubernets cluster with minikube.
+Run a local Kubernets cluster with kind or minikube.
 
-#### Start minikube
+#### Start Kubernetes Cluster
 
-Ensure you have `minikube` installed.
+
+
+Or start Kubernetes with `minikube`.
 
 ```bash
 task start-minikube
 ```
 
-#### Deploy Odoo to minikube
+#### Deploy Odoo to Kubernetes
 
 Ensure you have `kubectl` installed and can access the cluster.
 
 The following command applies the Odoo and Postgres manifests and initializes the Odoo database.
 
 ```bash
-task init-minikube
+task k8s-apply
 ```
 
 ## Troubleshooting
