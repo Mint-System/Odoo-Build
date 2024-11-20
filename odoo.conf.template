@@ -5,3 +5,6 @@ db_host = localhost
 db_password = odoo
 db_user = odoo
 environment = development
+
+[ir.config_parameter]
+web.base.url = $ODOO_BASE_URL
