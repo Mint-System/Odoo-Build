@@ -25,7 +25,9 @@ cd ..
 
 # Pull docker image
 DIGEST=odoo@sha256:29ce6a70b8a955fefba9d900d115c62bd074c43eb8b2fca69ec5e3cf5519a9d6
-docker pull "$DIGEST"
+if $ODOO_REVISION_DOCKER_PULL; then
+    docker pull "$DIGEST"
+fi
 IMAGE_ID=$(docker image inspect "$DIGEST" --format "{{ .ID }}")
 
 # Tag the docker image

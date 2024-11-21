@@ -24,7 +24,9 @@ git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
 cd ..
 
 # Pull docker image
-docker pull odoo@sha256:3934899d8b1d4cc0ff058dca355eb6632e61f21d251e9bd325c67ec3dcd2ccb1
+if $ODOO_REVISION_DOCKER_PULL; then
+    docker pull odoo@sha256:3934899d8b1d4cc0ff058dca355eb6632e61f21d251e9bd325c67ec3dcd2ccb1
+fi
 
 # Tag the docker image
 docker tag e4d47774edee odoo:$ODOO_REVISION

@@ -134,6 +134,7 @@ DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
 DOCKERFILE="./build/Dockerfile.mintsystem.odoo"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
+ODOO_REVISION_DOCKER_PULL=${ODOO_REVISION_DOCKER_PULL:=true}
 
 # Conditional env vars
 
@@ -1073,6 +1074,7 @@ function list-revision() {
 }
 
 function checkout-revision() {
+    export ODOO_REVISION_DOCKER_PULL
     if [ -n "$1" ]; then
         echo "Execute script for revision: $1"
         ./scripts/odoo_revision_"$1"

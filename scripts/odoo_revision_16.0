@@ -16,4 +16,6 @@ cd ..
 
 # Pull docker image
 DIGEST=odoo:16.0
-docker pull "$DIGEST"
+if $ODOO_REVISION_DOCKER_PULL; then
+    docker pull "$DIGEST"
+fi
