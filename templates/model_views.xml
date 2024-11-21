@@ -66,20 +66,20 @@
         </field>
     </record>
 
-    <record id="action_${MODULE_NAME}_view" model="ir.actions.act_window">
+    <record id="action_${MODEL_NAME}_view" model="ir.actions.act_window">
         <field name="name">${NAME}s</field>
         <field name="res_model">$MODEL_DOT_NAME</field>
         <field name="view_mode">tree,form</field>
         <field name="search_view_id" ref="${MODEL_NAME}_search_view" />
     </record>
 
-    <menuitem id="${MODULE_NAME}.menu_root" name="Documents" web_icon="advert_base,static/description/icon.png" />
+    <menuitem id="${MODULE_NAME}.menu_root" name="Documents" web_icon="${MODULE_NAME},static/description/icon.png" />
     <menuitem id="${MODULE_NAME}.menu_document" name="Documents" parent="${MODULE_NAME}.menu_root" />
     <menuitem 
         id="${MODULE_NAME}.menu_$MODEL_NAME"
         name="${NAME}s" 
         parent="${MODULE_NAME}.menu_document"
-        action="${MODULE_NAME}.action_${MODULE_NAME}_view"
+        action="${MODULE_NAME}.action_${MODEL_NAME}_view"
         sequence="10"
     />
 

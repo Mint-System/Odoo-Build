@@ -862,7 +862,7 @@ function generate-module-model() {
     mkdir -p "$MODULE_PATH/views"
     envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model_views.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with:"
-    echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
+    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
 }
 
 function generate-module-snippet() {
