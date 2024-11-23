@@ -5,7 +5,7 @@
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
     </xpath>
 
-    <xpath expr="//table[1]" position="attributes">
+    <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="attributes">
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
     </xpath>

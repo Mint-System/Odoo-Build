@@ -1,56 +1,66 @@
+<?xml version="1.0"?>
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
 
     <xpath expr="//div[@class='information_block']/.." position="replace">
 
-        <td style="width:30px;"/>
+        <style>
+            div.information_block {
+                font-family: arial;
+            }
+            div.information_block tr {
+                heigt: 30px;
+            }
+            .din_page.invoice_note tr .address, .din_page.invoice_note tr .shipping_address {
+                width: 77mm;
+            }
+            div.information_block {
+                line-height: 1.5;
+            }
+        </style>
+
+
         <td style="vertical-align: top;">
-            <table>
-                <td style="font-size: 14px; font-weight: bold; padding-bottom: 15px; white-space: nowrap;">
-                    <span style="margin-right: 5px;" t-field="o.l10n_din5008_document_title"/>
-                    <span t-field="o.name"/>
-                </td>
-                <tr>
-                    <td style="width: 100px;">
-                        <span>Datum:</span>
-                    </td>
-                    <td>
-                        <span t-field="o.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Unser Auftrag:</span>
-                    </td>
-                    <td>
-                        <span t-field="o.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Ihr Auftrag:</span>
-                    </td>
-                    <td>
-                        <span t-field="o.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Lieferdatum:</span>
-                    </td>
-                    <td>
-                        <span t-field="o.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span>Incoeterm:</span>
-                    </td>
-                    <td>
-                        <span t-field="o.name"/>
-                    </td>
-                </tr>
-                
-            </table>
+            <div class="information_block">
+                <t t-if="'l10n_din5008_template_data' in company" t-set="template_data" t-value="company.l10n_din5008_template_data"/>
+                <t t-if="o and 'l10n_din5008_template_data' in o" t-set="template_data" t-value="o.l10n_din5008_template_data"/>
+                <table>
+
+                    <tr>
+                        <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+
+                            <span t-if="not o and not docs">
+                                <t t-out="company.l10n_din5008_document_title"/>
+                            </span>
+                            <span t-else="">
+                                <t t-set="o" t-value="docs[0]" t-if="not o"/>
+                                <span t-if="'l10n_din5008_document_title' in o">
+                                    <t t-out="o.l10n_din5008_document_title"/>
+                                </span>
+                                <span t-elif="'name' in o" t-field="o.name"/>
+                            </span>
+
+                            <span>
+                                <t t-out="template_data[0][1]"/>
+                            </span>
+                        </td>
+                    </tr>
+
+
+                    <t t-foreach="template_data" t-as="row" t-index="i">
+                        <t t-if="template_data != template_data[0]">
+                            <tr>
+                                <td>
+                                    <t t-out="row[0]"/>
+                                </td>
+                                <td>
+                                    <t t-out="row[1]"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+
+                </table>
+            </div>
         </td>
 
     </xpath>

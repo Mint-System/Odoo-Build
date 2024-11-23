@@ -5,7 +5,7 @@
     </xpath>
     <xpath expr="//td[@name='td_quantity']" position="before">
         <td name="td_hs_code" class="text-start">
-            <span t-field="line.product_id.hs_code"></span>
+            <span t-field="line.product_id.hs_code"/>
         </td>
     </xpath>
 </data>

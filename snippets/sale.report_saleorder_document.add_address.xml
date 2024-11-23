@@ -1,9 +1,8 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-    <xpath expr="//div[@name='so_total_summary']" position="after">
+    <xpath expr="//t[@t-set='address']" position="after">
 
-        <table style="margin-left: 0px; margin-top: 30px">
+        <table style="margin-top: 0px">
 
             <style>
     .company_invoice_line {
@@ -13,7 +12,7 @@
             </style>
 
             <tr style="height: 100px;">
-                <td style="width: 280px; vertical-align: top">
+                <td style="width: 280px; vertical-align: top; padding-left: 5mm; ">
                     <span style="font-size: 7pt">Warenempfänger</span>
                     <hr class="company_invoice_line"/>
                     <div>
@@ -31,8 +30,8 @@
                         </t>
                     </div>
                 </td>
-                <td style="width: 60px"/>
-                <td style="width: 280px; vertical-align: top">
+                <td style="width: 70px"/>
+                <td style="width: 270px; vertical-align: top; padding-left: 5mm; ">
                     <span style="font-size: 7pt">Warenversender</span>
                     <hr class="company_invoice_line"/>
                     <div>
@@ -51,9 +50,9 @@
                 </td>
             </tr>
         </table>
-        <table style="margin-left: 0px">
+        <table style="margin-left: 0px; margin-bottom: 50px">
             <tr>
-                <td style="width: 80px; vertical-align: top">
+                <td style="width: 80px; vertical-align: top; padding-left: 5mm; ">
                     <div>USt-IdNr.</div>
                     <div>EORI Nr.</div>
                 </td>
@@ -62,13 +61,13 @@
                     <div>3001245</div>
                 </td>
 
-                <td style="width: 60px"/>
+                <td style="width: 70px"/>
 
-                <td style="width: 80px; vertical-align: top">
+                <td style="width: 80px; vertical-align: top; padding-left: 5mm; ">
                     <div>No. de TVA</div>
                     <div>No. de EORI</div>
                 </td>
-                <td style="width: 200px; vertical-align: top">
+                <td style="width: 190px; vertical-align: top">
                     <div>FR03980163075</div>
                     <div>NFRCH980163075</div>
                 </td>
@@ -76,10 +75,10 @@
 
             <tr>
 
-                <td colspan="3" style="width: 340px; vertical-align: top">
+                <td colspan="3" style="width: 350px; vertical-align: top; padding-left: 5mm; ">
                     <div>Steuerfreie innergemeinschaftliche Lieferung</div>
                 </td>
-                <td colspan="3" style="width: 280px; vertical-align: top">
+                <td colspan="3" style="width: 270px; vertical-align: top; padding-left: 5mm; ">
                     <div>Livraison exonérée selon l'article 138 de la Directive TVA</div>
                 </td>
             </tr>
