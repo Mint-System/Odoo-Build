@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data inherit_id="mrp.report_mrp_production_components" priority="50">
 
   <xpath expr="//h3" position="replace">
     <style>

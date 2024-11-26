@@ -50,7 +50,8 @@ RUN apt-get update \
         libsasl2-dev \
         gcc \
         fonts-lato \
-        python3-venv && \
+        python3-venv \
+        openssh-server && \
     if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
     fi; \
