@@ -518,6 +518,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
         width: 100%;
         font-size: 8pt;
         margin-top: 25px;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
@@ -546,6 +547,91 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_footer.xml)
+
+### Add Infotable  
+ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="before">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 25px;
+      font-size: 9pt;
+      font-family: arial;
+      border-color: white;
+    }
+     table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id="info">
+      <tr>
+        <td width="17%">Oder Date</td>
+        <td width="40%">
+          <t t-if="o.date_approve">
+            <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+          </t>
+          <t t-else="">
+            <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+          </t>
+        </td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.incoterm_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
+
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field="o.requisition_id"/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
+            </t>
+          </td>
+        </t>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field="o.comment"/>
+        </td>
+        <td/>
+        <td/>
+      </tr>
+    </table>
+
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_infotable.xml)
 
 ### Add Taxes  
 ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`  
@@ -1605,6 +1691,7 @@ Source: [snippets/purchase.report_purchasequotation_document.add_default_code.xm
 ### Add Footer  
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
   <xpath expr="//div[@class='oe_structure']/.." position="after">
@@ -1612,6 +1699,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
@@ -1636,7 +1724,6 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_footer.xml)
 
@@ -1645,13 +1732,15 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//h2" position="after">
-        <style>
+
+  <xpath expr="//h2" position="after">
+    <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
+        border-color: white;
       }
         table#info tr {
         line-height: 1.2;
@@ -1661,92 +1750,60 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
         font-size: 9pt;
       }
     </style>
-        <table id="info">
-            <tr>
-                <td width="17%">Order Deadline</td>
-                <td width="40%">
-                    <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td width="18%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <t t-if="o.requisition_id">
-                    <td>Purchase Contract</td>
-                    <td>
-                        <span t-field="o.requisition_id"/>
-                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
-            </t>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td/>
-                <td/>
-            </tr>
-        </table>
-        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_header"/>
-        </t>
-    </xpath>
-    <!--
-    <xpath expr="//h2" position="after">
-    <div id="informations">
-    <table width="100%">
+    <table id="info">
       <tr>
-        <td width="17%">Kunden-Nr.</td>
-        <td width="41%">
-          <span t-field="o.partner_id.ref"/>
-        </td>
-        <td width="17%">Datum</td>
-        <td width="25%">
+        <td width="17%">Order Deadline</td>
+        <td width="40%">
           <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
         </td>
-      </tr>
-      <tr>
-        <td>Ihre Referenz</td>
-        <td>
-          <span t-field="o.partner_ref"/>
-        </td>
-        <td>Kontaktperson</td>
-        <td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
           <span t-field="o.user_id"/>
         </td>
       </tr>
       <tr>
-        <td/>
-        <td/>
-        <td>Mwst-Nr:</td>
+        <td>Customer No.</td>
         <td>
-          <span t-field="res_company.vat"/> MWST
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.incoterm_id"/>
         </td>
       </tr>
-    </table>
-    </div> 
- </xpath>
-  -->
-</data>
+      <tr>
+        <td/>
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
 
+        <t t-if="o.requisition_id">
+          <td>Purchase Contract</td>
+          <td>
+            <span t-field="o.requisition_id"/>
+            <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
+            </t>
+          </td>
+        </t>
+
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field="o.comment"/>
+        </td>
+        <td/>
+        <td/>
+      </tr>
+    </table>
+
+    <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_header"/>
+    </t>
+
+  </xpath>
+
+</data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 
@@ -1948,6 +2005,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`
   <!-- header: description -->
   <xpath expr="//table/thead/tr/th[3]" position="attributes">
     <attribute name="style">width: 400px;</attribute>
+    <attribute name="class" separator=" " add="text-start" remove="text-center"/>
   </xpath>
 
   <!-- header: date_planned -->
@@ -2007,7 +2065,6 @@ ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
 

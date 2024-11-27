@@ -103,34 +103,39 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-    <xpath expr="//table[@id='main_table']" position="after">
-        <style>
+
+  <xpath expr="//table[@id='main_table']" position="after">
+
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
       }
     </style>
-        <table id="footer">
-            <tr>
-                <td width="50%" t-if="o.payment_term_id.note">Zahlungsbedingungen 
-          <span t-field="o.payment_term_id.note"/>
+    <table id="footer">
+      <tr>
+        <td width="50%" t-if="o.payment_term_id">
+          <span>Zahlungsbedingungen </span>
+          <span t-field="o.payment_term_id"/>
         </td>
-                <td width="50%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen
+        <td width="50%">
+          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
         </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr: 
+      </tr>
+      <tr>
+        <td>
+          <span>MWST-Nr: </span>
           <span t-field="o.company_id.vat"/>
         </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
+      </tr>
+    </table>
+  </xpath>
 
+</data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml)
 
@@ -176,13 +181,15 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-    <xpath expr="//h2" position="after">
-        <style>
+
+  <xpath expr="//h2" position="after">
+    <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
+        border-color: white;
       }
         table#info tr {
         line-height: 1.2;
@@ -192,49 +199,50 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
         font-size: 9pt;
       }
     </style>
-        <table id="info">
-            <tr>
-                <td width="17%">Date</td>
-                <td width="40%">
-                    <span t-field="o.ordering_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td width="18%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.vendor_id.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <td>Agreement Deadline</td>
-                <td>
-                    <span t-field="o.date_end" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td/>
-                <td/>
-            </tr>
-        </table>
-    </xpath>
-</data>
+    <table id="info">
+      <tr>
+        <td width="17%">Date</td>
+        <td width="40%">
+          <span t-field="o.ordering_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="18%">Our Reference</td>
+        <td width="25%">
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field="o.vendor_id.ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.incoterm_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td/>
+        <td>
+          <span t-field="o.partner_ref"/>
+        </td>
+        <td>Agreement Deadline</td>
+        <td>
+          <span t-field="o.date_end" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+          <span t-field="o.comment"/>
+        </td>
+        <td/>
+        <td/>
+      </tr>
+    </table>
 
+  </xpath>
+
+</data>
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 

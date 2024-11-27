@@ -424,8 +424,12 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//span[@t-field='line.discount']" position="replace"><span t-field="line.discount"/>%
+
+<xpath expr="//span[@t-field='line.discount']" position="replace">
+    <span t-field="line.discount"/>
+    <span>%</span>
   </xpath>
+
 </data>
 
 ```
@@ -1987,10 +1991,12 @@ ID: `mint_system.account.report_invoice_document.replace_infotable`
       width: 100%;
       margin-bottom: 25px;
       font-size: 9pt;
+      border-color: white;
     }
     table#info tr {
       line-height: 1.2;
       text-align: left;
+      border-color: white;
     }
     .note {
       font-size: 9pt;

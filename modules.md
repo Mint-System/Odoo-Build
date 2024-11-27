@@ -24,8 +24,10 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 
  | name | links |
 |---|---|
+| account_followup_due_filter | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_followup_due_filter) |
 | account_followup_mail_layout | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_followup_mail_layout) |
 | account_followup_manual_reminder | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_followup_manual_reminder) |
+| account_followup_print_false | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_followup_print_false) |
 | account_invoice_carrier | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_carrier) [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_invoice_carrier) |
 | account_invoice_comment | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_comment) [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_invoice_comment) |
 | account_invoice_description | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_description) [15.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/15.0/account_invoice_description) |
@@ -86,6 +88,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
  | name | links |
 |---|---|
 | base_kardex | [17.0](https://github.com/Mint-System/odoo-apps-connector/tree/17.0/base_kardex) |
+| git_base | [16.0](https://github.com/Mint-System/odoo-apps-connector/tree/16.0/git_base) |
 | meilisearch_base | [16.0](https://github.com/Mint-System/odoo-apps-connector/tree/16.0/meilisearch_base) |
 | product_kardex | [17.0](https://github.com/Mint-System/odoo-apps-connector/tree/17.0/product_kardex) |
 | stock_kardex | [17.0](https://github.com/Mint-System/odoo-apps-connector/tree/17.0/stock_kardex) |
@@ -188,7 +191,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 
  | name | links |
 |---|---|
-| ./ | [13.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/13.0/./) [14.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/14.0/./) |
+| static | [13.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/13.0/static) [14.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/14.0/static) |
+| views | [13.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/13.0/views) [14.0](https://github.com/Mint-System/odoo-apps-odoo-theme-mint-system/tree/14.0/views) |
 
 ### partner-contact
 
@@ -201,6 +205,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | partner_contact_location_in_name | [14.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/14.0/partner_contact_location_in_name) [16.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/16.0/partner_contact_location_in_name) |
 | partner_contact_user_acl | [16.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/16.0/partner_contact_user_acl) |
 | partner_duplicate_acc_number | [14.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/14.0/partner_duplicate_acc_number) |
+| partner_email_history | [16.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/16.0/partner_email_history) |
 | partner_hide_address | [14.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/14.0/partner_hide_address) |
 | partner_multi_pricelist | [14.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/14.0/partner_multi_pricelist) |
 | partner_multiline_street2 | [16.0](https://github.com/Mint-System/odoo-apps-partner-contact/tree/16.0/partner_multiline_street2) |
@@ -317,7 +322,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_order_line_date_propagate | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_date_propagate) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_line_date_propagate) |
 | sale_order_line_default_packaging | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_default_packaging) |
 | sale_order_line_description_name | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_description_name) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_line_description_name) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_line_description_name) |
-| sale_order_line_form_action | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_line_form_action) |
+| sale_order_line_form_action | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_line_form_action) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_line_form_action) |
 | sale_order_line_name_get | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_name_get) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_line_name_get) |
 | sale_order_line_not_billable | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_not_billable) |
 | sale_order_line_pos | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_line_pos) |
@@ -365,6 +370,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mail_tracking_helpdesk_bounce_ticket | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_tracking_helpdesk_bounce_ticket) |
 | product_disable_translation | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/product_disable_translation) |
 | prometheus_exporter | [13.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/13.0/prometheus_exporter) [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/prometheus_exporter) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/prometheus_exporter) [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/prometheus_exporter) [17.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/17.0/prometheus_exporter) |
+| server_config_environment | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/server_config_environment) |
 | show_db_name | [13.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/13.0/show_db_name) [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/show_db_name) |
 | url_slug | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/url_slug) |
 | web_enterprise_admin_expiration_panel | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/web_enterprise_admin_expiration_panel) |
@@ -380,6 +386,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mail_composer_default_template | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_composer_default_template) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_composer_default_template) |
 | mail_composer_mass_layout | [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_composer_mass_layout) |
 | mail_no_autofollow | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_no_autofollow) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_no_autofollow) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_no_autofollow) |
+| mail_template_subscribe | [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_template_subscribe) |
 | mail_thread_context | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_thread_context) |
 | mail_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_unsubscribe) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_unsubscribe) |
 | purchase_order_send_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/purchase_order_send_unsubscribe) |
@@ -541,6 +548,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_maturity_date_default | [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_maturity_date_default) |
 | account_menu | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_menu) |
 | account_move_budget | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_budget) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_move_budget) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_move_budget) |
+| account_move_default_journal | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_default_journal) |
 | account_move_fiscal_month | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_fiscal_month) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_move_fiscal_month) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_move_fiscal_month) |
 | account_move_fiscal_year | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_fiscal_year) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_move_fiscal_year) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_move_fiscal_year) |
 | account_move_force_removal | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_force_removal) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_move_force_removal) |
@@ -562,7 +570,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_move_transfer_partner | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_move_transfer_partner) |
 | account_netting | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_netting) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_netting) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_netting) |
 | account_no_default | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_no_default) |
-| account_partner_required | [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_partner_required) |
+| account_partner_required | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_partner_required) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_partner_required) |
 | account_reconcile_show_boolean | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_reconcile_show_boolean) |
 | account_sequence_option | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_sequence_option) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_sequence_option) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_sequence_option) |
 | account_spread_cost_revenue | [14.0](https://github.com/OCA/account-financial-tools/tree/14.0/account_spread_cost_revenue) [15.0](https://github.com/OCA/account-financial-tools/tree/15.0/account_spread_cost_revenue) [16.0](https://github.com/OCA/account-financial-tools/tree/16.0/account_spread_cost_revenue) |
@@ -585,7 +593,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_invoice_analytic_search | [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_analytic_search) |
 | account_invoice_anglo_saxon_no_cogs_deferral | [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_anglo_saxon_no_cogs_deferral) |
 | account_invoice_base_invoicing_mode | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/account_invoice_base_invoicing_mode) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_invoice_base_invoicing_mode) |
-| account_invoice_block_payment | [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_block_payment) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_invoice_block_payment) |
+| account_invoice_block_payment | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_invoice_block_payment) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_block_payment) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_invoice_block_payment) |
 | account_invoice_blocking | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/account_invoice_blocking) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_invoice_blocking) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_blocking) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_invoice_blocking) |
 | account_invoice_change_currency | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_invoice_change_currency) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_change_currency) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_invoice_change_currency) |
 | account_invoice_check_picking_date | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/account_invoice_check_picking_date) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_invoice_check_picking_date) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_invoice_check_picking_date) |
@@ -665,8 +673,10 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_portal_hide_invoice | [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_portal_hide_invoice) |
 | account_portal_invoice_search | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/account_portal_invoice_search) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_portal_invoice_search) |
 | account_portal_invoice_search_by_lot | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/account_portal_invoice_search_by_lot) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_portal_invoice_search_by_lot) |
+| account_receipt_base | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_receipt_base) |
 | account_receipt_journal | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_receipt_journal) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_receipt_journal) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_receipt_journal) |
 | account_receipt_print | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_receipt_print) |
+| account_receipt_sale | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_receipt_sale) |
 | account_receipt_send | [15.0](https://github.com/OCA/account-invoicing/tree/15.0/account_receipt_send) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_receipt_send) |
 | account_refund_payment_term | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/account_refund_payment_term) |
 | account_tax_change | [16.0](https://github.com/OCA/account-invoicing/tree/16.0/account_tax_change) |
@@ -692,6 +702,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_order_invoicing_grouping_criteria | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/sale_order_invoicing_grouping_criteria) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/sale_order_invoicing_grouping_criteria) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/sale_order_invoicing_grouping_criteria) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/sale_order_invoicing_grouping_criteria) |
 | sale_order_invoicing_qty_percentage | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/sale_order_invoicing_qty_percentage) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/sale_order_invoicing_qty_percentage) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/sale_order_invoicing_qty_percentage) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/sale_order_invoicing_qty_percentage) |
 | sale_order_invoicing_queued | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/sale_order_invoicing_queued) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/sale_order_invoicing_queued) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/sale_order_invoicing_queued) |
+| sale_stock_picking_invoicing | [14.0](https://github.com/OCA/account-invoicing/tree/14.0/sale_stock_picking_invoicing) |
 | sale_timesheet_invoice_description | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/sale_timesheet_invoice_description) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/sale_timesheet_invoice_description) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/sale_timesheet_invoice_description) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/sale_timesheet_invoice_description) |
 | stock_account_move_reset_to_draft | [16.0](https://github.com/OCA/account-invoicing/tree/16.0/stock_account_move_reset_to_draft) |
 | stock_picking_invoicing | [13.0](https://github.com/OCA/account-invoicing/tree/13.0/stock_picking_invoicing) [14.0](https://github.com/OCA/account-invoicing/tree/14.0/stock_picking_invoicing) [15.0](https://github.com/OCA/account-invoicing/tree/15.0/stock_picking_invoicing) [16.0](https://github.com/OCA/account-invoicing/tree/16.0/stock_picking_invoicing) |
@@ -730,6 +741,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_payment_mode_default_account | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_mode_default_account) |
 | account_payment_order | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order) [15.0](https://github.com/OCA/bank-payment/tree/15.0/account_payment_order) [16.0](https://github.com/OCA/bank-payment/tree/16.0/account_payment_order) |
 | account_payment_order_grouped_output | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order_grouped_output) [15.0](https://github.com/OCA/bank-payment/tree/15.0/account_payment_order_grouped_output) [16.0](https://github.com/OCA/bank-payment/tree/16.0/account_payment_order_grouped_output) |
+| account_payment_order_lock_draft | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order_lock_draft) |
 | account_payment_order_notification | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order_notification) [16.0](https://github.com/OCA/bank-payment/tree/16.0/account_payment_order_notification) |
 | account_payment_order_return | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order_return) [15.0](https://github.com/OCA/bank-payment/tree/15.0/account_payment_order_return) [16.0](https://github.com/OCA/bank-payment/tree/16.0/account_payment_order_return) |
 | account_payment_order_sequence_payment_mode | [14.0](https://github.com/OCA/bank-payment/tree/14.0/account_payment_order_sequence_payment_mode) |
@@ -780,8 +792,10 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_statement_import_online_ponto | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_online_ponto) [15.0](https://github.com/OCA/bank-statement-import/tree/15.0/account_statement_import_online_ponto) [16.0](https://github.com/OCA/bank-statement-import/tree/16.0/account_statement_import_online_ponto) |
 | account_statement_import_online_ponto_ing | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_online_ponto_ing) |
 | account_statement_import_online_qonto | [16.0](https://github.com/OCA/bank-statement-import/tree/16.0/account_statement_import_online_qonto) |
+| account_statement_import_online_wise | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_online_wise) |
 | account_statement_import_paypal | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_paypal) [15.0](https://github.com/OCA/bank-statement-import/tree/15.0/account_statement_import_paypal) |
 | account_statement_import_qif | [16.0](https://github.com/OCA/bank-statement-import/tree/16.0/account_statement_import_qif) |
+| account_statement_import_sftp | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_sftp) |
 | account_statement_import_sheet_file | [16.0](https://github.com/OCA/bank-statement-import/tree/16.0/account_statement_import_sheet_file) |
 | account_statement_import_txt_xlsx | [14.0](https://github.com/OCA/bank-statement-import/tree/14.0/account_statement_import_txt_xlsx) [15.0](https://github.com/OCA/bank-statement-import/tree/15.0/account_statement_import_txt_xlsx) |
 
@@ -895,6 +909,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_invoice_overdue_warn_sale | [14.0](https://github.com/OCA/credit-control/tree/14.0/account_invoice_overdue_warn_sale) [16.0](https://github.com/OCA/credit-control/tree/16.0/account_invoice_overdue_warn_sale) |
 | account_payment_return_financial_risk | [14.0](https://github.com/OCA/credit-control/tree/14.0/account_payment_return_financial_risk) [15.0](https://github.com/OCA/credit-control/tree/15.0/account_payment_return_financial_risk) [16.0](https://github.com/OCA/credit-control/tree/16.0/account_payment_return_financial_risk) |
 | partner_risk_insurance | [14.0](https://github.com/OCA/credit-control/tree/14.0/partner_risk_insurance) [15.0](https://github.com/OCA/credit-control/tree/15.0/partner_risk_insurance) [16.0](https://github.com/OCA/credit-control/tree/16.0/partner_risk_insurance) |
+| partner_risk_insurance_security | [14.0](https://github.com/OCA/credit-control/tree/14.0/partner_risk_insurance_security) |
 | sale_financial_risk | [14.0](https://github.com/OCA/credit-control/tree/14.0/sale_financial_risk) [15.0](https://github.com/OCA/credit-control/tree/15.0/sale_financial_risk) [16.0](https://github.com/OCA/credit-control/tree/16.0/sale_financial_risk) |
 | sale_financial_risk_info | [14.0](https://github.com/OCA/credit-control/tree/14.0/sale_financial_risk_info) [15.0](https://github.com/OCA/credit-control/tree/15.0/sale_financial_risk_info) [16.0](https://github.com/OCA/credit-control/tree/16.0/sale_financial_risk_info) |
 | sale_payment_sheet_financial_risk | [15.0](https://github.com/OCA/credit-control/tree/15.0/sale_payment_sheet_financial_risk) [16.0](https://github.com/OCA/credit-control/tree/16.0/sale_payment_sheet_financial_risk) |
@@ -906,7 +921,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 |---|---|
 | crm_claim | [13.0](https://github.com/OCA/crm/tree/13.0/crm_claim) [14.0](https://github.com/OCA/crm/tree/14.0/crm_claim) [15.0](https://github.com/OCA/crm/tree/15.0/crm_claim) [16.0](https://github.com/OCA/crm/tree/16.0/crm_claim) |
 | crm_claim_code | [13.0](https://github.com/OCA/crm/tree/13.0/crm_claim_code) [14.0](https://github.com/OCA/crm/tree/14.0/crm_claim_code) [15.0](https://github.com/OCA/crm/tree/15.0/crm_claim_code) [16.0](https://github.com/OCA/crm/tree/16.0/crm_claim_code) |
-| crm_claim_type | [13.0](https://github.com/OCA/crm/tree/13.0/crm_claim_type) [15.0](https://github.com/OCA/crm/tree/15.0/crm_claim_type) [16.0](https://github.com/OCA/crm/tree/16.0/crm_claim_type) |
+| crm_claim_type | [13.0](https://github.com/OCA/crm/tree/13.0/crm_claim_type) [14.0](https://github.com/OCA/crm/tree/14.0/crm_claim_type) [15.0](https://github.com/OCA/crm/tree/15.0/crm_claim_type) [16.0](https://github.com/OCA/crm/tree/16.0/crm_claim_type) |
 | crm_industry | [13.0](https://github.com/OCA/crm/tree/13.0/crm_industry) [14.0](https://github.com/OCA/crm/tree/14.0/crm_industry) [15.0](https://github.com/OCA/crm/tree/15.0/crm_industry) [16.0](https://github.com/OCA/crm/tree/16.0/crm_industry) |
 | crm_l10n_eu_nace | [14.0](https://github.com/OCA/crm/tree/14.0/crm_l10n_eu_nace) |
 | crm_lead_code | [13.0](https://github.com/OCA/crm/tree/13.0/crm_lead_code) [14.0](https://github.com/OCA/crm/tree/14.0/crm_lead_code) [15.0](https://github.com/OCA/crm/tree/15.0/crm_lead_code) [16.0](https://github.com/OCA/crm/tree/16.0/crm_lead_code) |
@@ -972,6 +987,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | website_sale_barcode_search | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_barcode_search) |
 | website_sale_cart_expire | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_cart_expire) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_cart_expire) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_cart_expire) |
 | website_sale_category_breadcrumb | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_category_breadcrumb) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_category_breadcrumb) |
+| website_sale_charge_payment_fee | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_charge_payment_fee) |
 | website_sale_checkout_country_vat | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_checkout_country_vat) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_checkout_country_vat) |
 | website_sale_checkout_skip_payment | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_checkout_skip_payment) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_checkout_skip_payment) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_checkout_skip_payment) |
 | website_sale_comparison_hide_price | [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_comparison_hide_price) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_comparison_hide_price) |
@@ -998,6 +1014,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | website_sale_product_image_sample | [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_product_image_sample) |
 | website_sale_product_item_cart_custom_qty | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_product_item_cart_custom_qty) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_product_item_cart_custom_qty) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_product_item_cart_custom_qty) |
 | website_sale_product_minimal_price | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_product_minimal_price) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_product_minimal_price) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_product_minimal_price) |
+| website_sale_product_name_fixed_height | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_product_name_fixed_height) |
 | website_sale_product_reference_displayed | [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_product_reference_displayed) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_product_reference_displayed) |
 | website_sale_product_sort | [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_product_sort) |
 | website_sale_require_legal | [14.0](https://github.com/OCA/e-commerce/tree/14.0/website_sale_require_legal) [15.0](https://github.com/OCA/e-commerce/tree/15.0/website_sale_require_legal) [16.0](https://github.com/OCA/e-commerce/tree/16.0/website_sale_require_legal) |
@@ -1134,15 +1151,16 @@ This page shows all the modules managed with Odoo Build grouped by organization 
  | name | links |
 |---|---|
 | .oca | [17.0](https://github.com/OCA/hr-holidays/tree/17.0/.oca) |
-| hr_holidays_auto_extend | [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_auto_extend) |
+| hr_holidays_auto_extend | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_auto_extend) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_auto_extend) |
 | hr_holidays_calendar_event_privacy | [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_calendar_event_privacy) |
+| hr_holidays_calendar_name | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_calendar_name) |
 | hr_holidays_credit | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_credit) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_credit) |
 | hr_holidays_leave_auto_approve | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_leave_auto_approve) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_leave_auto_approve) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_leave_auto_approve) |
 | hr_holidays_leave_repeated | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_leave_repeated) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_leave_repeated) |
 | hr_holidays_leave_self_approve | [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_leave_self_approve) |
 | hr_holidays_natural_period | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_natural_period) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_natural_period) [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_natural_period) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_natural_period) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_holidays_natural_period) |
 | hr_holidays_public | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_public) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_public) [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_public) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_public) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_holidays_public) |
-| hr_holidays_public_city | [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_public_city) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_public_city) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_holidays_public_city) |
+| hr_holidays_public_city | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_public_city) [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_public_city) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_public_city) [17.0](https://github.com/OCA/hr-holidays/tree/17.0/hr_holidays_public_city) |
 | hr_holidays_public_overtime | [15.0](https://github.com/OCA/hr-holidays/tree/15.0/hr_holidays_public_overtime) |
 | hr_holidays_settings | [13.0](https://github.com/OCA/hr-holidays/tree/13.0/hr_holidays_settings) [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_settings) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_settings) |
 | hr_holidays_summary_email | [14.0](https://github.com/OCA/hr-holidays/tree/14.0/hr_holidays_summary_email) [16.0](https://github.com/OCA/hr-holidays/tree/16.0/hr_holidays_summary_email) |
@@ -1191,6 +1209,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_employee_ssn | [14.0](https://github.com/OCA/hr/tree/14.0/hr_employee_ssn) [15.0](https://github.com/OCA/hr/tree/15.0/hr_employee_ssn) [16.0](https://github.com/OCA/hr/tree/16.0/hr_employee_ssn) |
 | hr_holidays_settings | [15.0](https://github.com/OCA/hr/tree/15.0/hr_holidays_settings) |
 | hr_job_category | [14.0](https://github.com/OCA/hr/tree/14.0/hr_job_category) [15.0](https://github.com/OCA/hr/tree/15.0/hr_job_category) |
+| hr_maintenance_workspace | [14.0](https://github.com/OCA/hr/tree/14.0/hr_maintenance_workspace) |
 | hr_org_chart_overview | [14.0](https://github.com/OCA/hr/tree/14.0/hr_org_chart_overview) [15.0](https://github.com/OCA/hr/tree/15.0/hr_org_chart_overview) |
 | hr_period | [14.0](https://github.com/OCA/hr/tree/14.0/hr_period) |
 | hr_personal_equipment_request | [14.0](https://github.com/OCA/hr/tree/14.0/hr_personal_equipment_request) [15.0](https://github.com/OCA/hr/tree/15.0/hr_personal_equipment_request) [16.0](https://github.com/OCA/hr/tree/16.0/hr_personal_equipment_request) |
@@ -1246,6 +1265,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | ebill_paynet | [13.0](https://github.com/OCA/l10n-switzerland/tree/13.0/ebill_paynet) [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_paynet) |
 | ebill_paynet_customer_free_ref | [13.0](https://github.com/OCA/l10n-switzerland/tree/13.0/ebill_paynet_customer_free_ref) [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_paynet_customer_free_ref) |
 | ebill_postfinance | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_postfinance) [16.0](https://github.com/OCA/l10n-switzerland/tree/16.0/ebill_postfinance) |
+| ebill_postfinance_customer_free_ref | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_postfinance_customer_free_ref) |
 | ebill_postfinance_server_env | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_postfinance_server_env) [16.0](https://github.com/OCA/l10n-switzerland/tree/16.0/ebill_postfinance_server_env) |
 | ebill_postfinance_stock | [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/ebill_postfinance_stock) [16.0](https://github.com/OCA/l10n-switzerland/tree/16.0/ebill_postfinance_stock) |
 | l10n_ch_account_tags | [13.0](https://github.com/OCA/l10n-switzerland/tree/13.0/l10n_ch_account_tags) [14.0](https://github.com/OCA/l10n-switzerland/tree/14.0/l10n_ch_account_tags) [16.0](https://github.com/OCA/l10n-switzerland/tree/16.0/l10n_ch_account_tags) |
@@ -1350,10 +1370,12 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_account_bom_attribute_match | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_account_bom_attribute_match) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_account_bom_attribute_match) |
 | mrp_analytic_cost | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_analytic_cost) |
 | mrp_attachment_mgmt | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_attachment_mgmt) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_attachment_mgmt) |
+| mrp_auto_assign | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_auto_assign) |
 | mrp_bom_attribute_match | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_attribute_match) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_bom_attribute_match) |
 | mrp_bom_attribute_match_duplicate_kit | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_attribute_match_duplicate_kit) |
 | mrp_bom_attribute_match_semifinished_product | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_attribute_match_semifinished_product) |
 | mrp_bom_component_menu | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_component_menu) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_bom_component_menu) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_bom_component_menu) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_bom_component_menu) |
+| mrp_bom_find_ignore | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_find_ignore) |
 | mrp_bom_hierarchy | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_bom_hierarchy) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_bom_hierarchy) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_bom_hierarchy) |
 | mrp_bom_image | [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_bom_image) |
 | mrp_bom_line_formula_quantity | [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_bom_line_formula_quantity) |
@@ -1371,12 +1393,14 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_lot_number_propagation | [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_lot_number_propagation) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_lot_number_propagation) |
 | mrp_lot_on_hand_first | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_lot_on_hand_first) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_lot_on_hand_first) |
 | mrp_lot_production_date | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_lot_production_date) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_lot_production_date) |
+| mrp_mass_production_order | [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_mass_production_order) |
 | mrp_multi_level | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_multi_level) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_multi_level) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_multi_level) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_multi_level) |
 | mrp_multi_level_estimate | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_multi_level_estimate) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_multi_level_estimate) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_multi_level_estimate) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_multi_level_estimate) |
 | mrp_package_propagation | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_package_propagation) |
 | mrp_packaging_default | [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_packaging_default) |
 | mrp_planned_order_matrix | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_planned_order_matrix) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_planned_order_matrix) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_planned_order_matrix) |
 | mrp_production_auto_validate | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_auto_validate) |
+| mrp_production_back_to_draft | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_back_to_draft) |
 | mrp_production_byproduct_cost_share | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_byproduct_cost_share) |
 | mrp_production_component_availability_search | [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_production_component_availability_search) |
 | mrp_production_date_planned_finished | [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_production_date_planned_finished) |
@@ -1389,6 +1413,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_production_serial_matrix | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_serial_matrix) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_production_serial_matrix) |
 | mrp_production_split | [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_production_split) |
 | mrp_progress_button | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_progress_button) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_progress_button) |
+| mrp_repair_order | [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_repair_order) |
+| mrp_repair_reuse_component | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_repair_reuse_component) |
 | mrp_restrict_lot | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_restrict_lot) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_restrict_lot) |
 | mrp_routing | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_routing) |
 | mrp_sale_info | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_sale_info) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_sale_info) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_sale_info) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_sale_info) |
@@ -1401,7 +1427,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_subcontracting_purchase_link | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_subcontracting_purchase_link) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_subcontracting_purchase_link) |
 | mrp_subcontracting_purchase_partner_management | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_subcontracting_purchase_partner_management) |
 | mrp_subcontracting_resupply_link | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_subcontracting_resupply_link) |
-| mrp_subcontracting_skip_no_negative | [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_subcontracting_skip_no_negative) |
+| mrp_subcontracting_skip_no_negative | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_subcontracting_skip_no_negative) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_subcontracting_skip_no_negative) |
 | mrp_tag | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_tag) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_tag) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_tag) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_tag) |
 | mrp_unbuild_move_link | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_unbuild_move_link) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_unbuild_move_link) |
 | mrp_unbuild_subcontracting | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_unbuild_subcontracting) |
@@ -1418,11 +1444,14 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | quality_control_oca | [14.0](https://github.com/OCA/manufacture/tree/14.0/quality_control_oca) [15.0](https://github.com/OCA/manufacture/tree/15.0/quality_control_oca) [16.0](https://github.com/OCA/manufacture/tree/16.0/quality_control_oca) [17.0](https://github.com/OCA/manufacture/tree/17.0/quality_control_oca) |
 | quality_control_oca_timesheet | [17.0](https://github.com/OCA/manufacture/tree/17.0/quality_control_oca_timesheet) |
 | quality_control_stock_oca | [14.0](https://github.com/OCA/manufacture/tree/14.0/quality_control_stock_oca) [15.0](https://github.com/OCA/manufacture/tree/15.0/quality_control_stock_oca) [16.0](https://github.com/OCA/manufacture/tree/16.0/quality_control_stock_oca) [17.0](https://github.com/OCA/manufacture/tree/17.0/quality_control_stock_oca) |
+| quality_control_team_oca | [14.0](https://github.com/OCA/manufacture/tree/14.0/quality_control_team_oca) |
 | repair_discount | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_discount) |
+| repair_picking | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_picking) |
 | repair_picking_after_done | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_picking_after_done) |
 | repair_refurbish | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_refurbish) |
 | repair_refurbish_repair_stock_move | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_refurbish_repair_stock_move) |
 | repair_sale_order | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_sale_order) |
+| repair_stock | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_stock) |
 | repair_stock_move | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_stock_move) |
 | repair_type | [14.0](https://github.com/OCA/manufacture/tree/14.0/repair_type) |
 | stock_picking_product_kit_helper | [14.0](https://github.com/OCA/manufacture/tree/14.0/stock_picking_product_kit_helper) [15.0](https://github.com/OCA/manufacture/tree/15.0/stock_picking_product_kit_helper) |
@@ -1452,7 +1481,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | partner_address_version | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_address_version) |
 | partner_affiliate | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_affiliate) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_affiliate) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_affiliate) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_affiliate) |
 | partner_auto_archive | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_auto_archive) |
-| partner_bank_acc_type_constraint | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_bank_acc_type_constraint) |
+| partner_bank_acc_type_constraint | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_bank_acc_type_constraint) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_bank_acc_type_constraint) |
 | partner_bank_active | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_bank_active) |
 | partner_bank_code | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_bank_code) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_bank_code) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_bank_code) |
 | partner_bank_sort_code | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_bank_sort_code) |
@@ -1480,7 +1509,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | partner_contact_role | [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_contact_role) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_contact_role) |
 | partner_contact_tags_in_popup | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_contact_tags_in_popup) |
 | partner_contact_type_end_user | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_contact_type_end_user) |
-| partner_country_lang | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_country_lang) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_country_lang) |
+| partner_country_lang | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_country_lang) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_country_lang) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_country_lang) |
 | partner_country_state_required | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_country_state_required) |
 | partner_create_format_phone | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_create_format_phone) |
 | partner_data_vies_populator | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_data_vies_populator) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_data_vies_populator) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_data_vies_populator) |
@@ -1488,6 +1517,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | partner_deduplicate_by_ref | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_deduplicate_by_ref) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_deduplicate_by_ref) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_deduplicate_by_ref) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_deduplicate_by_ref) |
 | partner_deduplicate_by_website | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_deduplicate_by_website) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_deduplicate_by_website) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_deduplicate_by_website) |
 | partner_deduplicate_filter | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_deduplicate_filter) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_deduplicate_filter) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_deduplicate_filter) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_deduplicate_filter) |
+| partner_default_sale_discount | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_default_sale_discount) |
 | partner_disable_gravatar | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_disable_gravatar) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_disable_gravatar) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_disable_gravatar) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_disable_gravatar) |
 | partner_display_name_line_break | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_display_name_line_break) |
 | partner_duns | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_duns) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_duns) |
@@ -1527,6 +1557,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | partner_readonly_security | [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_readonly_security) |
 | partner_ref_unique | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_ref_unique) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_ref_unique) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_ref_unique) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_ref_unique) |
 | partner_second_lastname | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_second_lastname) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_second_lastname) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_second_lastname) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_second_lastname) |
+| partner_sequence_address_type | [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_sequence_address_type) |
 | partner_shipping_policy | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_shipping_policy) |
 | partner_stage | [13.0](https://github.com/OCA/partner-contact/tree/13.0/partner_stage) [14.0](https://github.com/OCA/partner-contact/tree/14.0/partner_stage) [15.0](https://github.com/OCA/partner-contact/tree/15.0/partner_stage) [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_stage) |
 | partner_store | [16.0](https://github.com/OCA/partner-contact/tree/16.0/partner_store) |
@@ -1563,6 +1594,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | product_attribute_company_favorite | [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_attribute_company_favorite) |
 | product_attribute_model_link | [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_attribute_model_link) |
 | product_attribute_value_menu | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_attribute_value_menu) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_attribute_value_menu) [15.0](https://github.com/OCA/product-attribute/tree/15.0/product_attribute_value_menu) [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_attribute_value_menu) |
+| product_attribute_variant_rules | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_attribute_variant_rules) |
 | product_barcode_required | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_barcode_required) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_barcode_required) |
 | product_bom_revision | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_bom_revision) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_bom_revision) |
 | product_categ_image | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_categ_image) |
@@ -1614,6 +1646,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | product_packaging_type | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_packaging_type) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_packaging_type) [15.0](https://github.com/OCA/product-attribute/tree/15.0/product_packaging_type) |
 | product_packaging_type_pallet | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_packaging_type_pallet) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_packaging_type_pallet) |
 | product_packaging_type_required | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_packaging_type_required) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_packaging_type_required) |
+| product_packaging_type_vendor | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_packaging_type_vendor) |
 | product_packaging_unit_price_calculator | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_packaging_unit_price_calculator) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_packaging_unit_price_calculator) |
 | product_pricelist_alternative | [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_pricelist_alternative) |
 | product_pricelist_assortment | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_pricelist_assortment) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_pricelist_assortment) |
@@ -1635,7 +1668,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | product_profile | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_profile) [15.0](https://github.com/OCA/product-attribute/tree/15.0/product_profile) [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_profile) |
 | product_readonly_security | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_readonly_security) |
 | product_restricted_type | [13.0](https://github.com/OCA/product-attribute/tree/13.0/product_restricted_type) [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_restricted_type) [15.0](https://github.com/OCA/product-attribute/tree/15.0/product_restricted_type) |
-| product_route_mto | [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_route_mto) |
+| product_route_mto | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_route_mto) [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_route_mto) |
 | product_sale_description | [16.0](https://github.com/OCA/product-attribute/tree/16.0/product_sale_description) |
 | product_sale_manufactured_for | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_sale_manufactured_for) |
 | product_search_by_display_name | [14.0](https://github.com/OCA/product-attribute/tree/14.0/product_search_by_display_name) |
@@ -1695,10 +1728,12 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | project_department | [15.0](https://github.com/OCA/project/tree/15.0/project_department) [16.0](https://github.com/OCA/project/tree/16.0/project_department) |
 | project_description | [13.0](https://github.com/OCA/project/tree/13.0/project_description) |
 | project_duplicate_subtask | [13.0](https://github.com/OCA/project/tree/13.0/project_duplicate_subtask) [14.0](https://github.com/OCA/project/tree/14.0/project_duplicate_subtask) [15.0](https://github.com/OCA/project/tree/15.0/project_duplicate_subtask) [16.0](https://github.com/OCA/project/tree/16.0/project_duplicate_subtask) |
-| project_forecast_line | [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line) |
-| project_forecast_line_bokeh_chart | [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line_bokeh_chart) |
-| project_forecast_line_deadline | [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line_deadline) |
+| project_forecast_line | [14.0](https://github.com/OCA/project/tree/14.0/project_forecast_line) [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line) |
+| project_forecast_line_bokeh_chart | [14.0](https://github.com/OCA/project/tree/14.0/project_forecast_line_bokeh_chart) [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line_bokeh_chart) |
+| project_forecast_line_deadline | [14.0](https://github.com/OCA/project/tree/14.0/project_forecast_line_deadline) [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line_deadline) |
 | project_forecast_line_holidays_public | [15.0](https://github.com/OCA/project/tree/15.0/project_forecast_line_holidays_public) |
+| project_forecast_line_milestone | [14.0](https://github.com/OCA/project/tree/14.0/project_forecast_line_milestone) |
+| project_forecast_line_priority | [14.0](https://github.com/OCA/project/tree/14.0/project_forecast_line_priority) |
 | project_gtd | [14.0](https://github.com/OCA/project/tree/14.0/project_gtd) |
 | project_hr | [13.0](https://github.com/OCA/project/tree/13.0/project_hr) [14.0](https://github.com/OCA/project/tree/14.0/project_hr) [15.0](https://github.com/OCA/project/tree/15.0/project_hr) [16.0](https://github.com/OCA/project/tree/16.0/project_hr) |
 | project_key | [13.0](https://github.com/OCA/project/tree/13.0/project_key) [14.0](https://github.com/OCA/project/tree/14.0/project_key) [16.0](https://github.com/OCA/project/tree/16.0/project_key) |
@@ -1736,14 +1771,14 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | project_task_code | [13.0](https://github.com/OCA/project/tree/13.0/project_task_code) [14.0](https://github.com/OCA/project/tree/14.0/project_task_code) [15.0](https://github.com/OCA/project/tree/15.0/project_task_code) [16.0](https://github.com/OCA/project/tree/16.0/project_task_code) |
 | project_task_default_stage | [13.0](https://github.com/OCA/project/tree/13.0/project_task_default_stage) [14.0](https://github.com/OCA/project/tree/14.0/project_task_default_stage) [15.0](https://github.com/OCA/project/tree/15.0/project_task_default_stage) [16.0](https://github.com/OCA/project/tree/16.0/project_task_default_stage) |
 | project_task_dependency | [13.0](https://github.com/OCA/project/tree/13.0/project_task_dependency) [14.0](https://github.com/OCA/project/tree/14.0/project_task_dependency) [15.0](https://github.com/OCA/project/tree/15.0/project_task_dependency) |
-| project_task_description_template | [15.0](https://github.com/OCA/project/tree/15.0/project_task_description_template) [16.0](https://github.com/OCA/project/tree/16.0/project_task_description_template) |
+| project_task_description_template | [14.0](https://github.com/OCA/project/tree/14.0/project_task_description_template) [15.0](https://github.com/OCA/project/tree/15.0/project_task_description_template) [16.0](https://github.com/OCA/project/tree/16.0/project_task_description_template) |
 | project_task_digitized_signature | [13.0](https://github.com/OCA/project/tree/13.0/project_task_digitized_signature) [14.0](https://github.com/OCA/project/tree/14.0/project_task_digitized_signature) |
 | project_task_link | [16.0](https://github.com/OCA/project/tree/16.0/project_task_link) |
 | project_task_markdown | [13.0](https://github.com/OCA/project/tree/13.0/project_task_markdown) |
 | project_task_material | [13.0](https://github.com/OCA/project/tree/13.0/project_task_material) [14.0](https://github.com/OCA/project/tree/14.0/project_task_material) [15.0](https://github.com/OCA/project/tree/15.0/project_task_material) [16.0](https://github.com/OCA/project/tree/16.0/project_task_material) |
 | project_task_milestone | [15.0](https://github.com/OCA/project/tree/15.0/project_task_milestone) |
 | project_task_name_with_id | [16.0](https://github.com/OCA/project/tree/16.0/project_task_name_with_id) |
-| project_task_note | [15.0](https://github.com/OCA/project/tree/15.0/project_task_note) [16.0](https://github.com/OCA/project/tree/16.0/project_task_note) |
+| project_task_note | [14.0](https://github.com/OCA/project/tree/14.0/project_task_note) [15.0](https://github.com/OCA/project/tree/15.0/project_task_note) [16.0](https://github.com/OCA/project/tree/16.0/project_task_note) |
 | project_task_personal_stage_auto_fold | [15.0](https://github.com/OCA/project/tree/15.0/project_task_personal_stage_auto_fold) [16.0](https://github.com/OCA/project/tree/16.0/project_task_personal_stage_auto_fold) |
 | project_task_project_required | [14.0](https://github.com/OCA/project/tree/14.0/project_task_project_required) [16.0](https://github.com/OCA/project/tree/16.0/project_task_project_required) |
 | project_task_pull_request | [13.0](https://github.com/OCA/project/tree/13.0/project_task_pull_request) [14.0](https://github.com/OCA/project/tree/14.0/project_task_pull_request) [15.0](https://github.com/OCA/project/tree/15.0/project_task_pull_request) [16.0](https://github.com/OCA/project/tree/16.0/project_task_pull_request) |
@@ -1788,6 +1823,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | purchase_blanket_order | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_blanket_order) [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_blanket_order) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_blanket_order) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_blanket_order) |
 | purchase_cancel_confirm | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_cancel_confirm) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_cancel_confirm) |
 | purchase_cancel_reason | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_cancel_reason) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_cancel_reason) |
+| purchase_cancel_remaining_delivery | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_cancel_remaining_delivery) |
 | purchase_commercial_partner | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_commercial_partner) [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_commercial_partner) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_commercial_partner) |
 | purchase_date_planned_manual | [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_date_planned_manual) |
 | purchase_default_terms_conditions | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_default_terms_conditions) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_default_terms_conditions) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_default_terms_conditions) |
@@ -1810,6 +1846,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | purchase_last_price_info | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_last_price_info) [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_last_price_info) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_last_price_info) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_last_price_info) |
 | purchase_line_procurement_group | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_line_procurement_group) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_line_procurement_group) |
 | purchase_line_reassign | [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_line_reassign) |
+| purchase_line_service_qty_received | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_line_service_qty_received) |
 | purchase_location_by_line | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_location_by_line) [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_location_by_line) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_location_by_line) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_location_by_line) |
 | purchase_lot | [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_lot) [16.0](https://github.com/OCA/purchase-workflow/tree/16.0/purchase_lot) |
 | purchase_manual_currency | [13.0](https://github.com/OCA/purchase-workflow/tree/13.0/purchase_manual_currency) [14.0](https://github.com/OCA/purchase-workflow/tree/14.0/purchase_manual_currency) [15.0](https://github.com/OCA/purchase-workflow/tree/15.0/purchase_manual_currency) |
@@ -2063,6 +2100,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | product_price_category | [16.0](https://github.com/OCA/sale-workflow/tree/16.0/product_price_category) |
 | product_supplierinfo_for_customer_elaboration | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/product_supplierinfo_for_customer_elaboration) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/product_supplierinfo_for_customer_elaboration) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/product_supplierinfo_for_customer_elaboration) |
 | product_supplierinfo_for_customer_sale | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/product_supplierinfo_for_customer_sale) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/product_supplierinfo_for_customer_sale) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/product_supplierinfo_for_customer_sale) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/product_supplierinfo_for_customer_sale) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/product_supplierinfo_for_customer_sale) |
+| product_supplierinfo_for_customer_sale_blanket_order | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/product_supplierinfo_for_customer_sale_blanket_order) |
+| product_supplierinfo_for_customer_sale_quick | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/product_supplierinfo_for_customer_sale_quick) |
 | sale_advance_payment | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_advance_payment) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_advance_payment) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_advance_payment) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_advance_payment) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_advance_payment) |
 | sale_amount_payment_link | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_amount_payment_link) |
 | sale_attached_product | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_attached_product) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_attached_product) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_attached_product) |
@@ -2077,6 +2116,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_automatic_workflow_periodicity | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_automatic_workflow_periodicity) |
 | sale_automatic_workflow_stock | [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_automatic_workflow_stock) |
 | sale_blanket_order | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_blanket_order) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_blanket_order) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_blanket_order) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_blanket_order) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_blanket_order) |
+| sale_blanket_order_revision | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_blanket_order_revision) |
 | sale_block_no_stock | [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_block_no_stock) |
 | sale_by_packaging | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_by_packaging) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_by_packaging) |
 | sale_cancel_confirm | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_cancel_confirm) |
@@ -2127,7 +2167,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_missing_tracking_tier_validation | [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_missing_tracking_tier_validation) |
 | sale_mrp_bom | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_mrp_bom) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_mrp_bom) |
 | sale_numeric_step | [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_numeric_step) |
-| sale_order_amount_to_invoice | [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_order_amount_to_invoice) |
+| sale_order_amount_to_invoice | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_order_amount_to_invoice) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_order_amount_to_invoice) |
 | sale_order_archive | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_order_archive) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_order_archive) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_order_archive) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_order_archive) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_order_archive) |
 | sale_order_carrier_auto_assign | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_order_carrier_auto_assign) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_order_carrier_auto_assign) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_order_carrier_auto_assign) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_order_carrier_auto_assign) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_order_carrier_auto_assign) |
 | sale_order_change_analytic_account | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_order_change_analytic_account) |
@@ -2226,6 +2266,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_purchase_procurement_group_by_line | [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_purchase_procurement_group_by_line) |
 | sale_purchase_requisition | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_purchase_requisition) |
 | sale_quick | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_quick) |
+| sale_quick_blanket_order | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_quick_blanket_order) |
 | sale_quick_seasonality | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_quick_seasonality) |
 | sale_quotation_number | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_quotation_number) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_quotation_number) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_quotation_number) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_quotation_number) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_quotation_number) |
 | sale_quotation_template_product_multi_add | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_quotation_template_product_multi_add) |
@@ -2258,7 +2299,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_transaction_form_link | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_transaction_form_link) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_transaction_form_link) |
 | sale_triple_discount | [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_triple_discount) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_triple_discount) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_triple_discount) |
 | sale_validity | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_validity) |
-| sale_validity_auto_cancel | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity_auto_cancel) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_validity_auto_cancel) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_validity_auto_cancel) |
+| sale_validity_auto_cancel | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_validity_auto_cancel) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_validity_auto_cancel) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_validity_auto_cancel) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sale_validity_auto_cancel) |
 | sale_warn_option | [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_warn_option) |
 | sale_wishlist | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sale_wishlist) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sale_wishlist) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sale_wishlist) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sale_wishlist) |
 | sales_team_security | [13.0](https://github.com/OCA/sale-workflow/tree/13.0/sales_team_security) [14.0](https://github.com/OCA/sale-workflow/tree/14.0/sales_team_security) [15.0](https://github.com/OCA/sale-workflow/tree/15.0/sales_team_security) [16.0](https://github.com/OCA/sale-workflow/tree/16.0/sales_team_security) [17.0](https://github.com/OCA/sale-workflow/tree/17.0/sales_team_security) |
@@ -2280,16 +2321,17 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | auth_jwt_demo | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_jwt_demo) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_jwt_demo) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_jwt_demo) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_jwt_demo) |
 | auth_jwt_server_env | [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_jwt_server_env) |
 | auth_ldaps | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_ldaps) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_ldaps) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_ldaps) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_ldaps) |
-| auth_oauth_autologin | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_oauth_autologin) |
+| auth_oauth_autologin | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_oauth_autologin) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_oauth_autologin) |
 | auth_oauth_multi_token | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_oauth_multi_token) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_oauth_multi_token) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_oauth_multi_token) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_oauth_multi_token) |
 | auth_oauth_ropc | [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_oauth_ropc) |
 | auth_oidc | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_oidc) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_oidc) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_oidc) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_oidc) |
-| auth_oidc_environment | [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_oidc_environment) |
+| auth_oidc_environment | [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_oidc_environment) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_oidc_environment) |
 | auth_saml | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_saml) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_saml) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_saml) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_saml) |
 | auth_session_timeout | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_session_timeout) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_session_timeout) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_session_timeout) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_session_timeout) |
 | auth_signup_partner_company | [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_signup_partner_company) |
 | auth_signup_verify_email | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_signup_verify_email) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_signup_verify_email) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_signup_verify_email) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_signup_verify_email) |
 | auth_user_case_insensitive | [13.0](https://github.com/OCA/server-auth/tree/13.0/auth_user_case_insensitive) [14.0](https://github.com/OCA/server-auth/tree/14.0/auth_user_case_insensitive) [15.0](https://github.com/OCA/server-auth/tree/15.0/auth_user_case_insensitive) [16.0](https://github.com/OCA/server-auth/tree/16.0/auth_user_case_insensitive) |
+| base_user_empty_password | [14.0](https://github.com/OCA/server-auth/tree/14.0/base_user_empty_password) |
 | base_user_show_email | [13.0](https://github.com/OCA/server-auth/tree/13.0/base_user_show_email) [14.0](https://github.com/OCA/server-auth/tree/14.0/base_user_show_email) [16.0](https://github.com/OCA/server-auth/tree/16.0/base_user_show_email) |
 | impersonate_login | [16.0](https://github.com/OCA/server-auth/tree/16.0/impersonate_login) |
 | password_security | [13.0](https://github.com/OCA/server-auth/tree/13.0/password_security) [14.0](https://github.com/OCA/server-auth/tree/14.0/password_security) [15.0](https://github.com/OCA/server-auth/tree/15.0/password_security) [16.0](https://github.com/OCA/server-auth/tree/16.0/password_security) |
@@ -2329,7 +2371,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | auth_saml_environment | [14.0](https://github.com/OCA/server-env/tree/14.0/auth_saml_environment) [15.0](https://github.com/OCA/server-env/tree/15.0/auth_saml_environment) |
 | data_encryption | [14.0](https://github.com/OCA/server-env/tree/14.0/data_encryption) [16.0](https://github.com/OCA/server-env/tree/16.0/data_encryption) |
 | mail_environment | [13.0](https://github.com/OCA/server-env/tree/13.0/mail_environment) [14.0](https://github.com/OCA/server-env/tree/14.0/mail_environment) [15.0](https://github.com/OCA/server-env/tree/15.0/mail_environment) [16.0](https://github.com/OCA/server-env/tree/16.0/mail_environment) |
-| mail_environment_google_gmail | [15.0](https://github.com/OCA/server-env/tree/15.0/mail_environment_google_gmail) [16.0](https://github.com/OCA/server-env/tree/16.0/mail_environment_google_gmail) |
+| mail_environment_google_gmail | [14.0](https://github.com/OCA/server-env/tree/14.0/mail_environment_google_gmail) [15.0](https://github.com/OCA/server-env/tree/15.0/mail_environment_google_gmail) [16.0](https://github.com/OCA/server-env/tree/16.0/mail_environment_google_gmail) |
 | mail_environment_office365 | [14.0](https://github.com/OCA/server-env/tree/14.0/mail_environment_office365) [15.0](https://github.com/OCA/server-env/tree/15.0/mail_environment_office365) |
 | payment_environment | [13.0](https://github.com/OCA/server-env/tree/13.0/payment_environment) [14.0](https://github.com/OCA/server-env/tree/14.0/payment_environment) |
 | pos_environment | [16.0](https://github.com/OCA/server-env/tree/16.0/pos_environment) |
@@ -2364,7 +2406,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | base_force_record_noupdate | [16.0](https://github.com/OCA/server-tools/tree/16.0/base_force_record_noupdate) |
 | base_future_response | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_future_response) |
 | base_generate_code | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_generate_code) |
-| base_import_odoo | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_import_odoo) |
+| base_import_odoo | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_import_odoo) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_import_odoo) |
 | base_jsonify | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_jsonify) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_jsonify) |
 | base_kanban_stage | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_kanban_stage) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_kanban_stage) |
 | base_kanban_stage_state | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_kanban_stage_state) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_kanban_stage_state) |
@@ -2373,6 +2415,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | base_multi_image | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_multi_image) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_multi_image) [16.0](https://github.com/OCA/server-tools/tree/16.0/base_multi_image) |
 | base_name_search_improved | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_name_search_improved) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_name_search_improved) [16.0](https://github.com/OCA/server-tools/tree/16.0/base_name_search_improved) |
 | base_name_search_multi_lang | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_name_search_multi_lang) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_name_search_multi_lang) |
+| base_order_by_related | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_order_by_related) |
 | base_partition | [16.0](https://github.com/OCA/server-tools/tree/16.0/base_partition) [17.0](https://github.com/OCA/server-tools/tree/17.0/base_partition) |
 | base_remote | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_remote) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_remote) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_remote) [16.0](https://github.com/OCA/server-tools/tree/16.0/base_remote) |
 | base_report_auto_create_qweb | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_report_auto_create_qweb) |
@@ -2386,11 +2429,12 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | base_time_window | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_time_window) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_time_window) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_time_window) [16.0](https://github.com/OCA/server-tools/tree/16.0/base_time_window) |
 | base_translation_field_label | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_translation_field_label) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_translation_field_label) |
 | base_video_link | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_video_link) |
+| base_view_full_arch | [14.0](https://github.com/OCA/server-tools/tree/14.0/base_view_full_arch) |
 | base_view_inheritance_extension | [13.0](https://github.com/OCA/server-tools/tree/13.0/base_view_inheritance_extension) [14.0](https://github.com/OCA/server-tools/tree/14.0/base_view_inheritance_extension) [15.0](https://github.com/OCA/server-tools/tree/15.0/base_view_inheritance_extension) [16.0](https://github.com/OCA/server-tools/tree/16.0/base_view_inheritance_extension) [17.0](https://github.com/OCA/server-tools/tree/17.0/base_view_inheritance_extension) |
 | bus_alt_connection | [13.0](https://github.com/OCA/server-tools/tree/13.0/bus_alt_connection) [14.0](https://github.com/OCA/server-tools/tree/14.0/bus_alt_connection) [16.0](https://github.com/OCA/server-tools/tree/16.0/bus_alt_connection) |
 | company_country | [13.0](https://github.com/OCA/server-tools/tree/13.0/company_country) |
 | configuration_helper | [13.0](https://github.com/OCA/server-tools/tree/13.0/configuration_helper) [14.0](https://github.com/OCA/server-tools/tree/14.0/configuration_helper) |
-| cron_daylight_saving_time_resistant | [16.0](https://github.com/OCA/server-tools/tree/16.0/cron_daylight_saving_time_resistant) |
+| cron_daylight_saving_time_resistant | [14.0](https://github.com/OCA/server-tools/tree/14.0/cron_daylight_saving_time_resistant) [16.0](https://github.com/OCA/server-tools/tree/16.0/cron_daylight_saving_time_resistant) |
 | database_cleanup | [13.0](https://github.com/OCA/server-tools/tree/13.0/database_cleanup) [14.0](https://github.com/OCA/server-tools/tree/14.0/database_cleanup) [15.0](https://github.com/OCA/server-tools/tree/15.0/database_cleanup) [16.0](https://github.com/OCA/server-tools/tree/16.0/database_cleanup) [17.0](https://github.com/OCA/server-tools/tree/17.0/database_cleanup) |
 | datetime_formatter | [13.0](https://github.com/OCA/server-tools/tree/13.0/datetime_formatter) [14.0](https://github.com/OCA/server-tools/tree/14.0/datetime_formatter) [15.0](https://github.com/OCA/server-tools/tree/15.0/datetime_formatter) [16.0](https://github.com/OCA/server-tools/tree/16.0/datetime_formatter) |
 | dbfilter_from_header | [13.0](https://github.com/OCA/server-tools/tree/13.0/dbfilter_from_header) [14.0](https://github.com/OCA/server-tools/tree/14.0/dbfilter_from_header) [15.0](https://github.com/OCA/server-tools/tree/15.0/dbfilter_from_header) [16.0](https://github.com/OCA/server-tools/tree/16.0/dbfilter_from_header) [17.0](https://github.com/OCA/server-tools/tree/17.0/dbfilter_from_header) |
@@ -2418,7 +2462,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | monitoring | [15.0](https://github.com/OCA/server-tools/tree/15.0/monitoring) |
 | nsca_client | [13.0](https://github.com/OCA/server-tools/tree/13.0/nsca_client) [14.0](https://github.com/OCA/server-tools/tree/14.0/nsca_client) |
 | onchange_helper | [13.0](https://github.com/OCA/server-tools/tree/13.0/onchange_helper) [14.0](https://github.com/OCA/server-tools/tree/14.0/onchange_helper) [15.0](https://github.com/OCA/server-tools/tree/15.0/onchange_helper) [16.0](https://github.com/OCA/server-tools/tree/16.0/onchange_helper) [17.0](https://github.com/OCA/server-tools/tree/17.0/onchange_helper) |
-| profiler | [13.0](https://github.com/OCA/server-tools/tree/13.0/profiler) |
+| profiler | [13.0](https://github.com/OCA/server-tools/tree/13.0/profiler) [14.0](https://github.com/OCA/server-tools/tree/14.0/profiler) |
 | rpc_helper | [14.0](https://github.com/OCA/server-tools/tree/14.0/rpc_helper) [16.0](https://github.com/OCA/server-tools/tree/16.0/rpc_helper) |
 | scheduler_error_mailer | [13.0](https://github.com/OCA/server-tools/tree/13.0/scheduler_error_mailer) [14.0](https://github.com/OCA/server-tools/tree/14.0/scheduler_error_mailer) [15.0](https://github.com/OCA/server-tools/tree/15.0/scheduler_error_mailer) [16.0](https://github.com/OCA/server-tools/tree/16.0/scheduler_error_mailer) [17.0](https://github.com/OCA/server-tools/tree/17.0/scheduler_error_mailer) |
 | sentry | [13.0](https://github.com/OCA/server-tools/tree/13.0/sentry) [14.0](https://github.com/OCA/server-tools/tree/14.0/sentry) [15.0](https://github.com/OCA/server-tools/tree/15.0/sentry) [16.0](https://github.com/OCA/server-tools/tree/16.0/sentry) [17.0](https://github.com/OCA/server-tools/tree/17.0/sentry) |
@@ -2445,6 +2489,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | announcement_dialog_size | [16.0](https://github.com/OCA/server-ux/tree/16.0/announcement_dialog_size) |
 | barcode_action | [13.0](https://github.com/OCA/server-ux/tree/13.0/barcode_action) [14.0](https://github.com/OCA/server-ux/tree/14.0/barcode_action) [15.0](https://github.com/OCA/server-ux/tree/15.0/barcode_action) [16.0](https://github.com/OCA/server-ux/tree/16.0/barcode_action) |
 | base_action_visibility_restriction | [13.0](https://github.com/OCA/server-ux/tree/13.0/base_action_visibility_restriction) [14.0](https://github.com/OCA/server-ux/tree/14.0/base_action_visibility_restriction) |
+| base_action_visibility_restriction_domain | [14.0](https://github.com/OCA/server-ux/tree/14.0/base_action_visibility_restriction_domain) |
 | base_archive_date | [13.0](https://github.com/OCA/server-ux/tree/13.0/base_archive_date) [14.0](https://github.com/OCA/server-ux/tree/14.0/base_archive_date) [15.0](https://github.com/OCA/server-ux/tree/15.0/base_archive_date) |
 | base_archive_security | [16.0](https://github.com/OCA/server-ux/tree/16.0/base_archive_security) |
 | base_binary_url_import | [13.0](https://github.com/OCA/server-ux/tree/13.0/base_binary_url_import) [16.0](https://github.com/OCA/server-ux/tree/16.0/base_binary_url_import) |
@@ -2499,6 +2544,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | test_base_tier_validation | [14.0](https://github.com/OCA/server-ux/tree/14.0/test_base_tier_validation) |
 | user_all_groups | [16.0](https://github.com/OCA/server-ux/tree/16.0/user_all_groups) |
 | web_archive_date | [13.0](https://github.com/OCA/server-ux/tree/13.0/web_archive_date) [14.0](https://github.com/OCA/server-ux/tree/14.0/web_archive_date) [15.0](https://github.com/OCA/server-ux/tree/15.0/web_archive_date) |
+| web_tree_customized_field_list | [14.0](https://github.com/OCA/server-ux/tree/14.0/web_tree_customized_field_list) |
 
 ### social
 
@@ -2508,7 +2554,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | base_user_signature | [15.0](https://github.com/OCA/social/tree/15.0/base_user_signature) [16.0](https://github.com/OCA/social/tree/16.0/base_user_signature) |
 | email_template_qweb | [13.0](https://github.com/OCA/social/tree/13.0/email_template_qweb) [14.0](https://github.com/OCA/social/tree/14.0/email_template_qweb) [15.0](https://github.com/OCA/social/tree/15.0/email_template_qweb) [16.0](https://github.com/OCA/social/tree/16.0/email_template_qweb) |
 | fetchmail_mail_activity_team_activity | [15.0](https://github.com/OCA/social/tree/15.0/fetchmail_mail_activity_team_activity) |
-| fetchmail_thread_default | [13.0](https://github.com/OCA/social/tree/13.0/fetchmail_thread_default) [16.0](https://github.com/OCA/social/tree/16.0/fetchmail_thread_default) |
+| fetchmail_thread_default | [13.0](https://github.com/OCA/social/tree/13.0/fetchmail_thread_default) [14.0](https://github.com/OCA/social/tree/14.0/fetchmail_thread_default) [16.0](https://github.com/OCA/social/tree/16.0/fetchmail_thread_default) |
 | mail_activity_board | [13.0](https://github.com/OCA/social/tree/13.0/mail_activity_board) [14.0](https://github.com/OCA/social/tree/14.0/mail_activity_board) [15.0](https://github.com/OCA/social/tree/15.0/mail_activity_board) [16.0](https://github.com/OCA/social/tree/16.0/mail_activity_board) |
 | mail_activity_creator | [13.0](https://github.com/OCA/social/tree/13.0/mail_activity_creator) [14.0](https://github.com/OCA/social/tree/14.0/mail_activity_creator) [15.0](https://github.com/OCA/social/tree/15.0/mail_activity_creator) |
 | mail_activity_done | [13.0](https://github.com/OCA/social/tree/13.0/mail_activity_done) [14.0](https://github.com/OCA/social/tree/14.0/mail_activity_done) [15.0](https://github.com/OCA/social/tree/15.0/mail_activity_done) [16.0](https://github.com/OCA/social/tree/16.0/mail_activity_done) |
@@ -2522,14 +2568,17 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mail_allow_portal_internal_note | [14.0](https://github.com/OCA/social/tree/14.0/mail_allow_portal_internal_note) |
 | mail_attach_existing_attachment | [13.0](https://github.com/OCA/social/tree/13.0/mail_attach_existing_attachment) [14.0](https://github.com/OCA/social/tree/14.0/mail_attach_existing_attachment) [15.0](https://github.com/OCA/social/tree/15.0/mail_attach_existing_attachment) [16.0](https://github.com/OCA/social/tree/16.0/mail_attach_existing_attachment) |
 | mail_attach_existing_attachment_account | [13.0](https://github.com/OCA/social/tree/13.0/mail_attach_existing_attachment_account) [14.0](https://github.com/OCA/social/tree/14.0/mail_attach_existing_attachment_account) |
+| mail_autogenerated_header | [14.0](https://github.com/OCA/social/tree/14.0/mail_autogenerated_header) |
 | mail_autosubscribe | [13.0](https://github.com/OCA/social/tree/13.0/mail_autosubscribe) [14.0](https://github.com/OCA/social/tree/14.0/mail_autosubscribe) [15.0](https://github.com/OCA/social/tree/15.0/mail_autosubscribe) [16.0](https://github.com/OCA/social/tree/16.0/mail_autosubscribe) |
 | mail_chatter_thread_colour | [13.0](https://github.com/OCA/social/tree/13.0/mail_chatter_thread_colour) [14.0](https://github.com/OCA/social/tree/14.0/mail_chatter_thread_colour) |
 | mail_composer_cc_bcc | [15.0](https://github.com/OCA/social/tree/15.0/mail_composer_cc_bcc) [16.0](https://github.com/OCA/social/tree/16.0/mail_composer_cc_bcc) |
 | mail_composer_cc_bcc_account | [16.0](https://github.com/OCA/social/tree/16.0/mail_composer_cc_bcc_account) |
+| mail_contact_type | [14.0](https://github.com/OCA/social/tree/14.0/mail_contact_type) |
 | mail_debrand | [13.0](https://github.com/OCA/social/tree/13.0/mail_debrand) [14.0](https://github.com/OCA/social/tree/14.0/mail_debrand) [15.0](https://github.com/OCA/social/tree/15.0/mail_debrand) [16.0](https://github.com/OCA/social/tree/16.0/mail_debrand) |
 | mail_discuss_security | [16.0](https://github.com/OCA/social/tree/16.0/mail_discuss_security) |
 | mail_drop_target | [13.0](https://github.com/OCA/social/tree/13.0/mail_drop_target) [14.0](https://github.com/OCA/social/tree/14.0/mail_drop_target) [15.0](https://github.com/OCA/social/tree/15.0/mail_drop_target) [16.0](https://github.com/OCA/social/tree/16.0/mail_drop_target) |
 | mail_filter_adressee_by_contact | [14.0](https://github.com/OCA/social/tree/14.0/mail_filter_adressee_by_contact) |
+| mail_forward | [15.0](https://github.com/OCA/social/tree/15.0/mail_forward) |
 | mail_full_expand | [13.0](https://github.com/OCA/social/tree/13.0/mail_full_expand) [14.0](https://github.com/OCA/social/tree/14.0/mail_full_expand) |
 | mail_gateway | [16.0](https://github.com/OCA/social/tree/16.0/mail_gateway) |
 | mail_gateway_telegram | [16.0](https://github.com/OCA/social/tree/16.0/mail_gateway_telegram) |
@@ -2539,6 +2588,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mail_layout_force | [14.0](https://github.com/OCA/social/tree/14.0/mail_layout_force) [15.0](https://github.com/OCA/social/tree/15.0/mail_layout_force) [16.0](https://github.com/OCA/social/tree/16.0/mail_layout_force) |
 | mail_layout_preview | [13.0](https://github.com/OCA/social/tree/13.0/mail_layout_preview) [14.0](https://github.com/OCA/social/tree/14.0/mail_layout_preview) [15.0](https://github.com/OCA/social/tree/15.0/mail_layout_preview) [16.0](https://github.com/OCA/social/tree/16.0/mail_layout_preview) |
 | mail_no_user_assign_notification | [15.0](https://github.com/OCA/social/tree/15.0/mail_no_user_assign_notification) |
+| mail_notification_clean_status_error | [14.0](https://github.com/OCA/social/tree/14.0/mail_notification_clean_status_error) |
 | mail_notification_custom_subject | [13.0](https://github.com/OCA/social/tree/13.0/mail_notification_custom_subject) [14.0](https://github.com/OCA/social/tree/14.0/mail_notification_custom_subject) [15.0](https://github.com/OCA/social/tree/15.0/mail_notification_custom_subject) [16.0](https://github.com/OCA/social/tree/16.0/mail_notification_custom_subject) |
 | mail_notification_with_history | [14.0](https://github.com/OCA/social/tree/14.0/mail_notification_with_history) |
 | mail_optional_autofollow | [13.0](https://github.com/OCA/social/tree/13.0/mail_optional_autofollow) [14.0](https://github.com/OCA/social/tree/14.0/mail_optional_autofollow) [15.0](https://github.com/OCA/social/tree/15.0/mail_optional_autofollow) [16.0](https://github.com/OCA/social/tree/16.0/mail_optional_autofollow) |
@@ -2550,9 +2600,11 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mail_post_defer | [15.0](https://github.com/OCA/social/tree/15.0/mail_post_defer) [16.0](https://github.com/OCA/social/tree/16.0/mail_post_defer) |
 | mail_preview_audio | [13.0](https://github.com/OCA/social/tree/13.0/mail_preview_audio) [14.0](https://github.com/OCA/social/tree/14.0/mail_preview_audio) [15.0](https://github.com/OCA/social/tree/15.0/mail_preview_audio) |
 | mail_preview_base | [13.0](https://github.com/OCA/social/tree/13.0/mail_preview_base) [14.0](https://github.com/OCA/social/tree/14.0/mail_preview_base) [15.0](https://github.com/OCA/social/tree/15.0/mail_preview_base) |
+| mail_print | [15.0](https://github.com/OCA/social/tree/15.0/mail_print) |
 | mail_quoted_reply | [13.0](https://github.com/OCA/social/tree/13.0/mail_quoted_reply) [14.0](https://github.com/OCA/social/tree/14.0/mail_quoted_reply) [15.0](https://github.com/OCA/social/tree/15.0/mail_quoted_reply) [16.0](https://github.com/OCA/social/tree/16.0/mail_quoted_reply) |
 | mail_restrict_follower_selection | [13.0](https://github.com/OCA/social/tree/13.0/mail_restrict_follower_selection) [14.0](https://github.com/OCA/social/tree/14.0/mail_restrict_follower_selection) [15.0](https://github.com/OCA/social/tree/15.0/mail_restrict_follower_selection) [16.0](https://github.com/OCA/social/tree/16.0/mail_restrict_follower_selection) |
 | mail_restrict_send_button | [14.0](https://github.com/OCA/social/tree/14.0/mail_restrict_send_button) |
+| mail_save_as_template_security | [15.0](https://github.com/OCA/social/tree/15.0/mail_save_as_template_security) |
 | mail_send_confirmation | [16.0](https://github.com/OCA/social/tree/16.0/mail_send_confirmation) |
 | mail_send_copy | [14.0](https://github.com/OCA/social/tree/14.0/mail_send_copy) [15.0](https://github.com/OCA/social/tree/15.0/mail_send_copy) |
 | mail_server_by_user | [14.0](https://github.com/OCA/social/tree/14.0/mail_server_by_user) |
@@ -2588,11 +2640,13 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_move_line_stock_info | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/account_move_line_stock_info) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/account_move_line_stock_info) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/account_move_line_stock_info) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/account_move_line_stock_info) |
 | base_product_merge | [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/base_product_merge) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/base_product_merge) |
 | procurement_auto_create_group | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/procurement_auto_create_group) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/procurement_auto_create_group) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/procurement_auto_create_group) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/procurement_auto_create_group) |
+| procurement_auto_create_group_by_product | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/procurement_auto_create_group_by_product) |
 | product_packaging_usability | [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/product_packaging_usability) |
 | product_quantity_update_force_inventory | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/product_quantity_update_force_inventory) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/product_quantity_update_force_inventory) |
 | product_route_profile | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/product_route_profile) |
 | sale_automatic_workflow_reserve_sale_stock | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/sale_automatic_workflow_reserve_sale_stock) |
 | sale_stock_available_info_popup | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/sale_stock_available_info_popup) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/sale_stock_available_info_popup) |
+| sale_stock_on_hand_popup | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/sale_stock_on_hand_popup) |
 | scrap_location_filter | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/scrap_location_filter) |
 | scrap_reason_code | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/scrap_reason_code) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/scrap_reason_code) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/scrap_reason_code) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/scrap_reason_code) |
 | stock_account_change_qty_reason | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_account_change_qty_reason) |
@@ -2601,8 +2655,10 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_available | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_available) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_available) |
 | stock_available_base_exclude_location | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_base_exclude_location) |
 | stock_available_immediately | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_available_immediately) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_immediately) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_available_immediately) |
+| stock_available_immediately_exclude_location | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_immediately_exclude_location) |
 | stock_available_mrp | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_available_mrp) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_mrp) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_available_mrp) |
 | stock_available_portal | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_portal) |
+| stock_available_stock_mts_mto_rule | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_stock_mts_mto_rule) |
 | stock_available_unreserved | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_available_unreserved) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_available_unreserved) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_available_unreserved) |
 | stock_change_qty_reason | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_change_qty_reason) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_change_qty_reason) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_change_qty_reason) |
 | stock_cubiscan | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_cubiscan) |
@@ -2626,6 +2682,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_inventory_lockdown | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_inventory_lockdown) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_inventory_lockdown) |
 | stock_inventory_preparation_filter | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_inventory_preparation_filter) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_inventory_preparation_filter) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_inventory_preparation_filter) |
 | stock_inventory_preparation_filter_pos | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_inventory_preparation_filter_pos) |
+| stock_inventory_tier_validation | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_inventory_tier_validation) |
 | stock_location_bin_name | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_location_bin_name) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_location_bin_name) |
 | stock_location_children | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_location_children) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_location_children) |
 | stock_location_empty | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_location_empty) |
@@ -2652,7 +2709,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_move_purchase_uom | [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_move_purchase_uom) |
 | stock_mts_mto_mrp_rule | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_mts_mto_mrp_rule) |
 | stock_mts_mto_rule | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_mts_mto_rule) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_mts_mto_rule) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_mts_mto_rule) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_mts_mto_rule) |
-| stock_orderpoint_generator | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_orderpoint_generator) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_orderpoint_generator) |
+| stock_orderpoint_generator | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_orderpoint_generator) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_orderpoint_generator) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_orderpoint_generator) |
 | stock_orderpoint_manual_procurement | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_orderpoint_manual_procurement) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_orderpoint_manual_procurement) |
 | stock_orderpoint_manual_procurement_uom | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_orderpoint_manual_procurement_uom) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_orderpoint_manual_procurement_uom) |
 | stock_orderpoint_move_link | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_orderpoint_move_link) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_orderpoint_move_link) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_orderpoint_move_link) |
@@ -2703,6 +2760,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_request_picking_type | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_request_picking_type) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_request_picking_type) |
 | stock_request_purchase | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_request_purchase) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_request_purchase) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_request_purchase) |
 | stock_request_separate_picking | [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_request_separate_picking) |
+| stock_request_sequence_option | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_request_sequence_option) |
 | stock_request_submit | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_request_submit) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_request_submit) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_request_submit) |
 | stock_request_tier_validation | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_request_tier_validation) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_request_tier_validation) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_request_tier_validation) |
 | stock_reservation_date_show | [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_reservation_date_show) |
@@ -2710,7 +2768,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_reserve_rule | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_reserve_rule) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_reserve_rule) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_reserve_rule) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_reserve_rule) |
 | stock_reserve_sale | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_reserve_sale) |
 | stock_reserve_sale_mrp | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_reserve_sale_mrp) |
-| stock_route_mto | [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_route_mto) |
+| stock_route_mto | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_route_mto) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_route_mto) |
 | stock_scrap_location_default | [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_scrap_location_default) |
 | stock_search_supplierinfo_code | [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_search_supplierinfo_code) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_search_supplierinfo_code) |
 | stock_secondary_unit | [13.0](https://github.com/OCA/stock-logistics-warehouse/tree/13.0/stock_secondary_unit) [14.0](https://github.com/OCA/stock-logistics-warehouse/tree/14.0/stock_secondary_unit) [15.0](https://github.com/OCA/stock-logistics-warehouse/tree/15.0/stock_secondary_unit) [16.0](https://github.com/OCA/stock-logistics-warehouse/tree/16.0/stock_secondary_unit) |
@@ -2766,12 +2824,13 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_landed_costs_purchase_auto | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_landed_costs_purchase_auto) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_landed_costs_purchase_auto) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_landed_costs_purchase_auto) |
 | stock_landed_costs_security | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_landed_costs_security) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_landed_costs_security) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_landed_costs_security) |
 | stock_lock_lot | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_lock_lot) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lock_lot) |
-| stock_lot_on_hand_first | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lot_on_hand_first) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_lot_on_hand_first) |
+| stock_lot_on_hand_first | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lot_on_hand_first) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_lot_on_hand_first) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_lot_on_hand_first) |
 | stock_lot_product_qty_search | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lot_product_qty_search) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_lot_product_qty_search) |
 | stock_lot_production_date | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lot_production_date) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_lot_production_date) |
 | stock_lot_scrap | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_lot_scrap) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_lot_scrap) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_lot_scrap) |
 | stock_mass_scrap | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_mass_scrap) |
 | stock_move_assign_picking_hook | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_move_assign_picking_hook) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_move_assign_picking_hook) |
+| stock_move_backdating | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_move_backdating) |
 | stock_move_change_source_location | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_move_change_source_location) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_move_change_source_location) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_move_change_source_location) |
 | stock_move_consu_location_from_putaway | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_move_consu_location_from_putaway) |
 | stock_move_forced_lot | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_move_forced_lot) |
@@ -2790,6 +2849,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_partner_delivery_window | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_partner_delivery_window) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_partner_delivery_window) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_partner_delivery_window) |
 | stock_picking_assign_serial_final | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_assign_serial_final) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_assign_serial_final) |
 | stock_picking_auto_create_lot | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_auto_create_lot) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_auto_create_lot) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_auto_create_lot) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_auto_create_lot) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_auto_create_lot) |
+| stock_picking_auto_create_lot_qty | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_auto_create_lot_qty) |
 | stock_picking_auto_create_package | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_auto_create_package) |
 | stock_picking_back2draft | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_back2draft) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_back2draft) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_back2draft) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_back2draft) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_back2draft) |
 | stock_picking_backorder_strategy | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_backorder_strategy) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_backorder_strategy) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_backorder_strategy) |
@@ -2800,7 +2860,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_picking_batch_operation_quick_change | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_batch_operation_quick_change) |
 | stock_picking_batch_set_quantity | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_batch_set_quantity) |
 | stock_picking_cancel_reason | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_cancel_reason) |
-| stock_picking_customer_ref | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_customer_ref) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_customer_ref) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_customer_ref) |
+| stock_picking_customer_ref | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_customer_ref) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_customer_ref) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_customer_ref) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_customer_ref) |
 | stock_picking_default_planned_transfer | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_default_planned_transfer) |
 | stock_picking_filter_lot | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_filter_lot) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_filter_lot) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_filter_lot) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_filter_lot) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_filter_lot) |
 | stock_picking_grn_mandatory | [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_grn_mandatory) |
@@ -2821,6 +2881,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_picking_origin_reference_purchase | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_origin_reference_purchase) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_origin_reference_purchase) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_origin_reference_purchase) |
 | stock_picking_origin_reference_sale | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_origin_reference_sale) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_origin_reference_sale) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_origin_reference_sale) |
 | stock_picking_package_preparation | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_package_preparation) |
+| stock_picking_partner_note | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_partner_note) |
 | stock_picking_product_assortment | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_product_assortment) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_product_assortment) |
 | stock_picking_product_assortment_availability_inline | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_product_assortment_availability_inline) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_product_assortment_availability_inline) |
 | stock_picking_product_availability_inline | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_product_availability_inline) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_product_availability_inline) |
@@ -2832,8 +2893,9 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_picking_putinpack_restriction | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_putinpack_restriction) |
 | stock_picking_quick | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_quick) |
 | stock_picking_reallocation | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_reallocation) |
+| stock_picking_restrict_cancel_printed | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_restrict_cancel_printed) |
 | stock_picking_restrict_cancel_with_orig_move | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_restrict_cancel_with_orig_move) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_restrict_cancel_with_orig_move) |
-| stock_picking_return_lot | [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_return_lot) |
+| stock_picking_return_lot | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_return_lot) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_return_lot) |
 | stock_picking_return_restricted_qty | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_return_restricted_qty) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_return_restricted_qty) |
 | stock_picking_return_show_lot | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_return_show_lot) |
 | stock_picking_sale_order_link | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_sale_order_link) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_sale_order_link) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_sale_order_link) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_sale_order_link) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_sale_order_link) |
@@ -2842,7 +2904,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_picking_show_lot | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_show_lot) |
 | stock_picking_show_return | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_show_return) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_show_return) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_show_return) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_show_return) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_show_return) |
 | stock_picking_start | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_start) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_start) |
-| stock_picking_supplier_ref | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_supplier_ref) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_supplier_ref) |
+| stock_picking_supplier_ref | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_supplier_ref) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_supplier_ref) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_supplier_ref) |
 | stock_picking_tier_validation | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_tier_validation) |
 | stock_picking_warn_message | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_warn_message) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_picking_warn_message) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_warn_message) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_picking_warn_message) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_picking_warn_message) |
 | stock_picking_whole_scrap | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_picking_whole_scrap) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_picking_whole_scrap) |
@@ -2859,6 +2921,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_receipt_lot_info | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_receipt_lot_info) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_receipt_lot_info) |
 | stock_reception_discrepancy_distribution | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_reception_discrepancy_distribution) |
 | stock_remote_measure | [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_remote_measure) |
+| stock_restrict_expiration_date | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_restrict_expiration_date) |
 | stock_restrict_lot | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_restrict_lot) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_restrict_lot) [16.0](https://github.com/OCA/stock-logistics-workflow/tree/16.0/stock_restrict_lot) [17.0](https://github.com/OCA/stock-logistics-workflow/tree/17.0/stock_restrict_lot) |
 | stock_restrict_lot_update | [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_restrict_lot_update) |
 | stock_return_request | [13.0](https://github.com/OCA/stock-logistics-workflow/tree/13.0/stock_return_request) [14.0](https://github.com/OCA/stock-logistics-workflow/tree/14.0/stock_return_request) [15.0](https://github.com/OCA/stock-logistics-workflow/tree/15.0/stock_return_request) |
@@ -2899,6 +2962,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_timesheet_editable_top | [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_editable_top) |
 | hr_timesheet_employee_analytic_tag | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_employee_analytic_tag) [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_employee_analytic_tag) |
 | hr_timesheet_name_customer | [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_name_customer) |
+| hr_timesheet_predefined_description | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_predefined_description) |
 | hr_timesheet_purchase_order | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_purchase_order) |
 | hr_timesheet_report | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_report) [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_report) |
 | hr_timesheet_report_milestone | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_report_milestone) |
@@ -2909,7 +2973,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_timesheet_sheet_autodraft | [13.0](https://github.com/OCA/timesheet/tree/13.0/hr_timesheet_sheet_autodraft) [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_sheet_autodraft) [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_autodraft) [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_sheet_autodraft) |
 | hr_timesheet_sheet_autodraft_project | [13.0](https://github.com/OCA/timesheet/tree/13.0/hr_timesheet_sheet_autodraft_project) |
 | hr_timesheet_sheet_begin_end | [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_begin_end) |
-| hr_timesheet_sheet_no_create | [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_no_create) |
+| hr_timesheet_sheet_no_create | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_sheet_no_create) [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_no_create) |
 | hr_timesheet_sheet_period | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_sheet_period) [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_period) |
 | hr_timesheet_sheet_policy_department_manager | [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_sheet_policy_department_manager) [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_sheet_policy_department_manager) |
 | hr_timesheet_sheet_policy_project_manager | [13.0](https://github.com/OCA/timesheet/tree/13.0/hr_timesheet_sheet_policy_project_manager) [14.0](https://github.com/OCA/timesheet/tree/14.0/hr_timesheet_sheet_policy_project_manager) [15.0](https://github.com/OCA/timesheet/tree/15.0/hr_timesheet_sheet_policy_project_manager) [16.0](https://github.com/OCA/timesheet/tree/16.0/hr_timesheet_sheet_policy_project_manager) |
@@ -2999,6 +3063,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | web_confirm_duplicate | [13.0](https://github.com/OCA/web/tree/13.0/web_confirm_duplicate) |
 | web_copy_confirm | [14.0](https://github.com/OCA/web/tree/14.0/web_copy_confirm) [15.0](https://github.com/OCA/web/tree/15.0/web_copy_confirm) [16.0](https://github.com/OCA/web/tree/16.0/web_copy_confirm) |
 | web_create_write_confirm | [14.0](https://github.com/OCA/web/tree/14.0/web_create_write_confirm) |
+| web_custom_modifier | [14.0](https://github.com/OCA/web/tree/14.0/web_custom_modifier) |
 | web_dark_mode | [16.0](https://github.com/OCA/web/tree/16.0/web_dark_mode) |
 | web_dashboard_tile | [16.0](https://github.com/OCA/web/tree/16.0/web_dashboard_tile) |
 | web_datetime_picker_default_time | [16.0](https://github.com/OCA/web/tree/16.0/web_datetime_picker_default_time) |
@@ -3031,15 +3096,16 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | web_no_bubble | [13.0](https://github.com/OCA/web/tree/13.0/web_no_bubble) [14.0](https://github.com/OCA/web/tree/14.0/web_no_bubble) [15.0](https://github.com/OCA/web/tree/15.0/web_no_bubble) [16.0](https://github.com/OCA/web/tree/16.0/web_no_bubble) |
 | web_notify | [13.0](https://github.com/OCA/web/tree/13.0/web_notify) [14.0](https://github.com/OCA/web/tree/14.0/web_notify) [15.0](https://github.com/OCA/web/tree/15.0/web_notify) [16.0](https://github.com/OCA/web/tree/16.0/web_notify) |
 | web_notify_channel_message | [14.0](https://github.com/OCA/web/tree/14.0/web_notify_channel_message) [16.0](https://github.com/OCA/web/tree/16.0/web_notify_channel_message) |
-| web_notify_upgrade | [16.0](https://github.com/OCA/web/tree/16.0/web_notify_upgrade) |
+| web_notify_upgrade | [14.0](https://github.com/OCA/web/tree/14.0/web_notify_upgrade) [16.0](https://github.com/OCA/web/tree/16.0/web_notify_upgrade) |
 | web_pivot_computed_measure | [13.0](https://github.com/OCA/web/tree/13.0/web_pivot_computed_measure) [15.0](https://github.com/OCA/web/tree/15.0/web_pivot_computed_measure) [16.0](https://github.com/OCA/web/tree/16.0/web_pivot_computed_measure) |
+| web_pivot_hide_total | [14.0](https://github.com/OCA/web/tree/14.0/web_pivot_hide_total) |
 | web_pwa_oca | [13.0](https://github.com/OCA/web/tree/13.0/web_pwa_oca) [14.0](https://github.com/OCA/web/tree/14.0/web_pwa_oca) [15.0](https://github.com/OCA/web/tree/15.0/web_pwa_oca) [16.0](https://github.com/OCA/web/tree/16.0/web_pwa_oca) |
 | web_refresher | [13.0](https://github.com/OCA/web/tree/13.0/web_refresher) [14.0](https://github.com/OCA/web/tree/14.0/web_refresher) [15.0](https://github.com/OCA/web/tree/15.0/web_refresher) [16.0](https://github.com/OCA/web/tree/16.0/web_refresher) |
 | web_remember_tree_column_width | [14.0](https://github.com/OCA/web/tree/14.0/web_remember_tree_column_width) [15.0](https://github.com/OCA/web/tree/15.0/web_remember_tree_column_width) [16.0](https://github.com/OCA/web/tree/16.0/web_remember_tree_column_width) |
 | web_responsive | [13.0](https://github.com/OCA/web/tree/13.0/web_responsive) [14.0](https://github.com/OCA/web/tree/14.0/web_responsive) [15.0](https://github.com/OCA/web/tree/15.0/web_responsive) [16.0](https://github.com/OCA/web/tree/16.0/web_responsive) |
 | web_save_discard_button | [16.0](https://github.com/OCA/web/tree/16.0/web_save_discard_button) |
 | web_search_with_and | [13.0](https://github.com/OCA/web/tree/13.0/web_search_with_and) [14.0](https://github.com/OCA/web/tree/14.0/web_search_with_and) [15.0](https://github.com/OCA/web/tree/15.0/web_search_with_and) [16.0](https://github.com/OCA/web/tree/16.0/web_search_with_and) |
-| web_select_all_companies | [15.0](https://github.com/OCA/web/tree/15.0/web_select_all_companies) [16.0](https://github.com/OCA/web/tree/16.0/web_select_all_companies) |
+| web_select_all_companies | [14.0](https://github.com/OCA/web/tree/14.0/web_select_all_companies) [15.0](https://github.com/OCA/web/tree/15.0/web_select_all_companies) [16.0](https://github.com/OCA/web/tree/16.0/web_select_all_companies) |
 | web_send_message_popup | [13.0](https://github.com/OCA/web/tree/13.0/web_send_message_popup) [14.0](https://github.com/OCA/web/tree/14.0/web_send_message_popup) [15.0](https://github.com/OCA/web/tree/15.0/web_send_message_popup) [16.0](https://github.com/OCA/web/tree/16.0/web_send_message_popup) |
 | web_session_auto_close | [13.0](https://github.com/OCA/web/tree/13.0/web_session_auto_close) |
 | web_set_single_page_hidden | [13.0](https://github.com/OCA/web/tree/13.0/web_set_single_page_hidden) |
@@ -3048,6 +3114,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | web_theme_classic | [16.0](https://github.com/OCA/web/tree/16.0/web_theme_classic) |
 | web_time_range_menu_custom | [13.0](https://github.com/OCA/web/tree/13.0/web_time_range_menu_custom) [15.0](https://github.com/OCA/web/tree/15.0/web_time_range_menu_custom) |
 | web_timeline | [13.0](https://github.com/OCA/web/tree/13.0/web_timeline) [14.0](https://github.com/OCA/web/tree/14.0/web_timeline) [15.0](https://github.com/OCA/web/tree/15.0/web_timeline) [16.0](https://github.com/OCA/web/tree/16.0/web_timeline) |
+| web_tooltip_field | [14.0](https://github.com/OCA/web/tree/14.0/web_tooltip_field) |
 | web_touchscreen | [16.0](https://github.com/OCA/web/tree/16.0/web_touchscreen) |
 | web_translate_dialog | [13.0](https://github.com/OCA/web/tree/13.0/web_translate_dialog) |
 | web_tree_duplicate | [16.0](https://github.com/OCA/web/tree/16.0/web_tree_duplicate) |

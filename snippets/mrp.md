@@ -230,7 +230,6 @@ Source: [snippets/mrp.label_production_view_pdf.basis57.xml](https://github.com/
 ### Trimada  
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="mrp.label_production_view_pdf.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="production">
@@ -252,7 +251,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               padding-bottom: 3mm;
           }
           .title {
-              font-size: 11mm;
+              font-size: 13mm;
               margin: 3mm 3mm 0 3mm;
               font-weight: bold;
               text-align: center;
@@ -260,7 +259,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               line-height: 1;
           }
           .description {
-              font-size: 9mm;
+              font-size: 10mm;
               margin: 0 3mm 0 3mm;
               text-align: center;
               height: 23mm;
@@ -281,7 +280,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               border-bottom: solid 1px;
           }
           .order {
-              font-size: 7mm;
+              font-size: 8mm;
               margin: 3mm 3mm 0 3mm;
               text-align: left;
               border-bottom: solid 1px;
@@ -295,7 +294,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
               font-size: 5mm;
               text-align: center;
               height: 8mm;
-              line-height: 10mm;
+              line-height: 12mm;
           }
           .col-6 {
             padding-right: 0;
@@ -309,7 +308,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
                             <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
+                                <span t-field="move.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:85px;'}"/>
                             </div>
                         </div>
                         <div class="description">
@@ -331,12 +330,12 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
                             </div>
                             <div class="col-6 box">
                                 <div t-if="production.name" class="text-right">
-                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', production.name, 250, 80)" alt="Barcode"/>
+                                     <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
                         </div>
                     </div>
                 </div>
@@ -344,7 +343,6 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
         </t>
     </t>
 </t>
-
 ```
 Source: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
@@ -1039,10 +1037,10 @@ ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`
           <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
         </strong>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
       </div>
-      <div class="col-2 text-end">
+      <div class="col-3 text-end">
         <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </strong>
       </div>
@@ -1439,6 +1437,7 @@ ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_pr
       width: 98%;
       margin: 0 0 10px 10px;
       font-size: 10pt;
+      border-color: white;
     }
     table#section_consumed_products th {
       font-size: 10pt;
@@ -1458,6 +1457,11 @@ ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_pr
       margin-top: 30px;
       font-size: 14pt;
       padding-left:10px;
+      text-align: left;
+      border-color: white;
+    }
+    table#note th {
+      padding-bottom: 5px;
     }
     </style>
 
@@ -1515,7 +1519,6 @@ ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_pr
 
   </xpath>
 </data>
-
 ```
 Source: [snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml)
 
@@ -1534,6 +1537,7 @@ Source: [snippets/mrp.report_mrp_production_components.remove_barcode.xml](https
 ### Replace Title Section To Consume Products  
 ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_consume_products`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="mrp.report_mrp_production_components" priority="50">
 
   <xpath expr="//h3" position="replace">
@@ -1544,6 +1548,7 @@ ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_c
         font-size: 14pt;
         font-weight: bold;
         padding-left: 5px;
+        border-color: white;
       }
     </style>
     <table id="consumed_products">
@@ -1771,28 +1776,28 @@ ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.workcenter_line_kanban" priority="50">
-    <xpath expr="//h5" position="replace">
-        <h5 class="oe_kanban_bottom_left">
-            <table>
-                <tr>
-                    <td class="font-weight-bold">
+  
+<xpath expr="//div[@class='o_kanban_workorder_date']/h5" position="replace"/>
+
+<xpath expr="//div[@class='o_kanban_record_bottom']/h5" position="replace">
+  <h5 class="oe_kanban_bottom_left">
+    
+    <table>
+      <tr>
+        <td>
            Start Datum: <field name="date_planned_start" type="date"/>
         </td>
-                </tr>
-                <tr>
-                    <td>
-                        <span><t t-esc="record.product_id.value"/>, </span>
-                        <span>
-                            <t t-esc="record.qty_production.value"/>
-                            <t t-esc="record.product_uom_id.value"/>
-                        </span>
-                    </td>
-                </tr>
-            </table>
-        </h5>
-    </xpath>
-</data>
+      </tr>
+      <tr style="font-weight: normal;">
+        <td>
+         <span><t t-esc="record.product_id.value"/>, </span> <span><t t-esc="record.qty_production.value"/> <t t-esc="record.product_uom_id.value"/></span>
+        </td>
+      </tr>
+    </table>
 
+  </h5>
+</xpath>
+</data>
 ```
 Source: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
 

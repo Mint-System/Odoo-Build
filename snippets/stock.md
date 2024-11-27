@@ -277,7 +277,7 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
                         padding-bottom: 3mm;
                     }
                     .title {
-                        font-size: 11mm;
+                        font-size: 13mm;
                         margin: 3mm 3mm 0 3mm;
                         font-weight: bold;
                         text-align: center;
@@ -1260,8 +1260,9 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//h2" position="after">
-        <style>
+
+  <xpath expr="//h2" position="after">
+    <style>
       .info_table tbody tr td:first-of-type {
       text-align: left;
       width: 5mm;
@@ -1270,51 +1271,59 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
         font-size: 9pt;
       }
     </style>
-        <table id="infotable" class="info_table" style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black;">
-            <tr style="line-height: 1.2">
-                <td style="width:25mm;">Date</td>
-                <td style="width:85mm;">
-                    <span t-field="o.date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td style="width:25mm;">Order No.</td>
-                <td style="width:45mm;">
-                    <span t-field="o.origin"/>
-                </td>
-            </tr>
-            <tr style="line-height: 1.2">
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.sale_id.partner_id.ref"/>
-                </td>
-                <td>Our Reference</td>
-                <td>
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr style="line-height: 1.2">
-                <td>Order</td>
-                <td>
-                    <span t-field="o.sale_id.client_order_ref"/>
-                </td>
-                <td>Delivery Method</td>
-                <td>
-                    <span t-field="o.carrier_id"/>
-                </td>
-            </tr>
-            <tr style="line-height: 1.2">
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.sale_id.comment"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.sale_id.incoterm"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
 
+    <table id="infotable" class="info_table" style="width:100%; margin-bottom:25px; padding-left:0px; font-size:9pt; font-family:arial; color:black; border-color: white;">
+
+      <tr style="line-height: 1.2">
+        <td style="width:25mm;">Date</td>
+        <td style="width:85mm;">
+          <span t-field="o.date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td style="width:25mm;">Order No.</td>
+        <td style="width:45mm;">
+          <span t-field="o.origin"/>
+        </td>
+      </tr>
+
+      <tr style="line-height: 1.2">
+        <td>Customer No.</td>
+        <td>
+          <span t-field="o.sale_id.partner_id.ref"/>
+        </td>
+        <td>Our Reference</td>
+        <td>
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+
+      <tr style="line-height: 1.2">
+        <td>Order</td>
+        <td>
+          <span t-field="o.sale_id.client_order_ref"/>
+        </td>
+
+        <td>Delivery Method</td>
+        <td>
+          <span t-field="o.carrier_id"/>
+        </td>
+      </tr>
+
+      <tr style="line-height: 1.2">
+        <td>Reference</td>
+        <td>
+          <span t-field="o.sale_id.comment"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.sale_id.incoterm"/>
+        </td>
+      </tr>
+
+    </table>
+
+  </xpath>
+
+</data>
 ```
 Source: [snippets/stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_infotable.xml)
 
@@ -3422,6 +3431,7 @@ Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint
 ### Group By Date  
 ID: `mint_system.stock.report_picking.group_by_date`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//div[hasclass('page')]" position="before">
@@ -3466,7 +3476,7 @@ ID: `mint_system.stock.report_picking.group_by_date`
               <span t-field="ml.product_id.description_picking"/>
             </td>
             <td id="product_uom_qty">
-              <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+              <span t-if="o.state != 'done'" t-field="ml.reserved_uom_qty"/>
               <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
               <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 
@@ -3509,7 +3519,6 @@ ID: `mint_system.stock.report_picking.group_by_date`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.group_by_date.xml)
 
@@ -3983,84 +3992,88 @@ Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-    <xpath expr="//div[@name='div_origin']/.." position="replace">
-        <style>
-            table.trimada_order {
-              width: 100%;
-                font-size: 11pt;
-                font-family: arial;
-            }
-            table.trimada_order tr {
-              border-bottom: 1px solid rgb(220,220,220);
-            }
-         .first_col {
-              width: 44%;
-              padding-left: 10px;
-              padding-top: 5px;
-              padding-bottom: 5px;
-            }
-            .second_col {
-              width: 56%;
-            }
-            .last_row {
-              border-bottom: 0px !important;
-            }
+
+  <xpath expr="//div[@name='div_origin']/.." position="replace">
+
+    <style>
+			table.trimada_order {
+			  width: 100%;
+				font-size: 11pt;
+				font-family: arial;
+				border-color: white;
+			}
+			table.trimada_order tr {
+			  border-bottom: 1px solid rgb(220,220,220);
+			}
+		 .first_col {
+			  width: 44%;
+			  padding-left: 10px;
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+			  border-color: white;
+			}
+			.second_col {
+			  width: 56%;
+			}
+			.last_row {
+			  border-bottom: 0px !important;
+			}
     </style>
-        <table class="trimada_order">
-            <tr>
-                <t t-if="o.picking_type_id.id == 12">
-                    <td class="first_col">
-                        <strong>
+
+    <table class="trimada_order">
+      <tr>
+        <t t-if="o.picking_type_id.id == 12">
+          <td class="first_col">
+            <strong>
               Fertigungsauftrag
               <span t-field="o.origin"/>
             </strong>
-                    </td>
-                    <td class="second_col">
-                        <strong>
+          </td>
+          <td class="second_col">
+            <strong>
               Produkt
               <span/>
             </strong>
-                        <span t-field="o.group_id.mrp_production_ids.product_id"/>
-                    </td>
-                </t>
-                <t t-if="o.picking_type_id.id != 12">
-                    <td class="first_col">
-                        <strong>
+            <span t-field="o.group_id.mrp_production_ids.product_id"/>
+          </td>
+        </t>
+        <t t-if="o.picking_type_id.id != 12">
+          <td class="first_col">
+            <strong>
               Bestellung
               <span t-field="o.origin"/>
             </strong>
-                    </td>
-                    <td/>
-                </t>
-            </tr>
-            <tr>
-                <td class="first_col">
+          </td>
+          <td/>
+        </t>
+      </tr>
+      <tr>
+        <td class="first_col">
           Status:
           <span t-field="o.state"/>
         </td>
-                <td class="second_col">
+        <td class="second_col">
           Datum:
           <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </td>
-            </tr>
-            <tr class="last_row">
-                <td class="first_col">
+      </tr>
+      <tr class="last_row">
+        <td class="first_col">
           Typ:
           <span t-field="o.picking_type_id.code"/>
         </td>
-                <t t-if="o.carrier_id">
-                    <td>
+        <t t-if="o.carrier_id">
+          <td>
             Auslieferungsmethode:
             <span t-field="o.carrier_id"/>
           </td>
-                </t>
-            </tr>
-        </table>
-    </xpath>
-</data>
+        </t>
+      </tr>
+    </table>
 
+  </xpath>
+</data>
 ```
 Source: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_order_definition.xml)
 
@@ -4851,6 +4864,7 @@ Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint
 ### Group By Date  
 ID: `mint_system.stock.report_picking.group_by_date`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
 
   <xpath expr="//div[hasclass('page')]" position="before">
@@ -4895,7 +4909,7 @@ ID: `mint_system.stock.report_picking.group_by_date`
               <span t-field="ml.product_id.description_picking"/>
             </td>
             <td id="product_uom_qty">
-              <span t-if="o.state != 'done'" t-field="ml.product_uom_qty"/>
+              <span t-if="o.state != 'done'" t-field="ml.reserved_uom_qty"/>
               <span t-if="o.state == 'done'" t-field="ml.qty_done"/>
               <span t-field="ml.product_uom_id" groups="uom.group_uom"/>
 
@@ -4938,7 +4952,6 @@ ID: `mint_system.stock.report_picking.group_by_date`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.group_by_date.xml)
 
@@ -5412,84 +5425,88 @@ Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-    <xpath expr="//div[@name='div_origin']/.." position="replace">
-        <style>
-            table.trimada_order {
-              width: 100%;
-                font-size: 11pt;
-                font-family: arial;
-            }
-            table.trimada_order tr {
-              border-bottom: 1px solid rgb(220,220,220);
-            }
-         .first_col {
-              width: 44%;
-              padding-left: 10px;
-              padding-top: 5px;
-              padding-bottom: 5px;
-            }
-            .second_col {
-              width: 56%;
-            }
-            .last_row {
-              border-bottom: 0px !important;
-            }
+
+  <xpath expr="//div[@name='div_origin']/.." position="replace">
+
+    <style>
+			table.trimada_order {
+			  width: 100%;
+				font-size: 11pt;
+				font-family: arial;
+				border-color: white;
+			}
+			table.trimada_order tr {
+			  border-bottom: 1px solid rgb(220,220,220);
+			}
+		 .first_col {
+			  width: 44%;
+			  padding-left: 10px;
+			  padding-top: 5px;
+			  padding-bottom: 5px;
+			  border-color: white;
+			}
+			.second_col {
+			  width: 56%;
+			}
+			.last_row {
+			  border-bottom: 0px !important;
+			}
     </style>
-        <table class="trimada_order">
-            <tr>
-                <t t-if="o.picking_type_id.id == 12">
-                    <td class="first_col">
-                        <strong>
+
+    <table class="trimada_order">
+      <tr>
+        <t t-if="o.picking_type_id.id == 12">
+          <td class="first_col">
+            <strong>
               Fertigungsauftrag
               <span t-field="o.origin"/>
             </strong>
-                    </td>
-                    <td class="second_col">
-                        <strong>
+          </td>
+          <td class="second_col">
+            <strong>
               Produkt
               <span/>
             </strong>
-                        <span t-field="o.group_id.mrp_production_ids.product_id"/>
-                    </td>
-                </t>
-                <t t-if="o.picking_type_id.id != 12">
-                    <td class="first_col">
-                        <strong>
+            <span t-field="o.group_id.mrp_production_ids.product_id"/>
+          </td>
+        </t>
+        <t t-if="o.picking_type_id.id != 12">
+          <td class="first_col">
+            <strong>
               Bestellung
               <span t-field="o.origin"/>
             </strong>
-                    </td>
-                    <td/>
-                </t>
-            </tr>
-            <tr>
-                <td class="first_col">
+          </td>
+          <td/>
+        </t>
+      </tr>
+      <tr>
+        <td class="first_col">
           Status:
           <span t-field="o.state"/>
         </td>
-                <td class="second_col">
+        <td class="second_col">
           Datum:
           <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </td>
-            </tr>
-            <tr class="last_row">
-                <td class="first_col">
+      </tr>
+      <tr class="last_row">
+        <td class="first_col">
           Typ:
           <span t-field="o.picking_type_id.code"/>
         </td>
-                <t t-if="o.carrier_id">
-                    <td>
+        <t t-if="o.carrier_id">
+          <td>
             Auslieferungsmethode:
             <span t-field="o.carrier_id"/>
           </td>
-                </t>
-            </tr>
-        </table>
-    </xpath>
-</data>
+        </t>
+      </tr>
+    </table>
 
+  </xpath>
+</data>
 ```
 Source: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_picking.replace_order_definition.xml)
 
