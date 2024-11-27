@@ -218,6 +218,11 @@ function get-addons-path() {
     echo "$ADDONS_PATH"
 }
 
+function template-odoo-rc() {
+    echo "Template $ODOO_RC"
+    envsubst < "odoo.conf.template" > "$ODOO_RC"
+}
+
 function list-env() {
     ls -f "$ODOO_BUILD_CONFIG_DIR"
 }
@@ -440,6 +445,7 @@ function start() {
 
     if [[ "$1" =~ "native" ]]; then
         activate-venv
+        template-odoo-rc
         PORT=8069
         while [ $PORT -le 8079 ]; do
             if ! lsof -i:$PORT >/dev/null 2>&1; then
@@ -448,8 +454,6 @@ function start() {
             PORT=$((PORT + 1))
         done
         export ODOO_BASE_URL="http://localhost:8069"
-        echo "Template $ODOO_RC"
-        envsubst < "odoo.conf.template" > "$ODOO_RC"
 
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
@@ -583,7 +587,8 @@ function init-db() {
 
     activate-venv
     set-addons-path
-
+    template-odoo-rc
+    
     echo "Initialize database."
     if [[ -n "$ODOO_PARAM" ]] ; then
         odoo -d "$DATABASE" -i base --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
