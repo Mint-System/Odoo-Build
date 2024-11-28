@@ -73,11 +73,11 @@ Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin
 
 #### Setup Odoo environment
 
-Init submodules and switch to the Odoo version.
+Init submodules and checkout the Odoo version.
 
 ```bash
 task git-submodule-init
-task git-submodule-switch $VERSION
+task git-submodule-sync
 ```
 
 #### Setup Python environment

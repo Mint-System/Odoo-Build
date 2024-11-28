@@ -15,7 +15,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "activate-venv" "" "Activate virtualenv."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[path]" "Build Odoo Docker image. Optionally pass specific Dockerfile."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch][branch]" "Switch and merge from one branch to another."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch]" "Checkout Odoo version / branch."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-config-files" "[branch]" "Checkout config files from another branch."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-assets" "[db]" "Clear all assets of Odoo database."
@@ -41,13 +41,14 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Update submodules listed in the .gitmodules file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Checkout submodule commits."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-list" "" "List path and url of submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-remove" "[path]" "Remove git submodule."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-delete" "" "Delete all submodule folders."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-switch" "[branch]" "Switch branch for all submodules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-sync" "" "Switch, stash and pull all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
@@ -1014,8 +1015,24 @@ function git-submodule-init() {
     done
 }
 
+function git-submodule-pull() {
+    echo "Pull git submodules"
+    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    for SUBMODULE in $SUBMODULES; do
+        echo "Pull git submodule: $SUBMODULE"
+        UPDATE=$(git config submodule."$SUBMODULE".update)
+        CWD=$(pwd)
+        cd "$SUBMODULE" || exit
+        git stash
+        if [ -z "$UPDATE" ]; then
+            git pull origin "$GIT_BRANCH"
+        fi;
+        cd "$CWD" || exit
+    done
+}
+
 function git-submodule-checkout() {
-    echo "Update git submodules."
+    echo "Checkout submodule commits."
 
     # The --depth flag cannot be used when working on multiple branches in submodules
     SUBMODULES=$(git-submodule-ls)
@@ -1031,18 +1048,27 @@ function git-submodule-checkout() {
 }
 
 function git-submodule-switch() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if [[ -n "$1" ]]; then
+        GIT_BRANCH="$1"
+    fi
 
     echo "Switch branch on git submodules."
     SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
-        echo "Switch git submodule branch to $1: $SUBMODULE"
+        echo "Switch git submodule branch to $GIT_BRANCH: $SUBMODULE"
         CWD=$(pwd)
         cd "$SUBMODULE" || exit
         git stash
-        git switch "$1"
+        git switch "$GIT_BRANCH"
         cd "$CWD" || exit
     done
+}
+
+function git-submodule-sync() {
+    echo "Switch, pull and checkout submodules."
+    git-submodule-switch
+    git-submodule-pull
+    git-submodule-checkout
 }
 
 function checkout-config-files() {
@@ -1069,9 +1095,9 @@ function checkout() {
 
     git-submodule-init
 
-    git-submodule-checkout
+    git-submodule-switch
 
-    git-submodule-switch "$1"
+    git-submodule-checkout
 }
 
 function list-revision() {
@@ -1123,21 +1149,6 @@ function create-revision() {
 
     echo "Checkout revision: $REVISION"
     checkout-revision "$REVISION"
-}
-
-function git-submodule-pull() {
-    echo "Pull git submodules"
-    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
-    for SUBMODULE in $SUBMODULES; do
-        echo "Pull git submodule: $SUBMODULE"
-        UPDATE=$(git config submodule."$SUBMODULE".update)
-        CWD=$(pwd)
-        cd "$SUBMODULE" || exit
-        if [ -z "$UPDATE" ]; then
-            git pull
-        fi;
-        cd "$CWD" || exit
-    done
 }
 
 function release-module() {
@@ -1728,6 +1739,9 @@ case "$1" in
         ;;
     git-submodule-switch)
         git-submodule-switch "$2"
+        ;;
+    git-submodule-sync)
+        git-submodule-sync
         ;;
     help)
         help task
