@@ -60,6 +60,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet xml definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "k8s-apply" "" "Apply the Odoo K8s manifests."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-modules" "[addons-path]" "Run pylint odoo for modules in addons folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "" "List Odoo modules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
@@ -91,6 +92,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-odoo-jsonrpc" "[env][model]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-modules" "[db][name,path]" "Test target Odoo modules in addon folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-docs" "" "Update project docs."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
@@ -628,6 +630,27 @@ function lint-module() {
     pre-commit run --all-files
 }
 
+function lint-modules() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    DATABASE="$1"
+    MODULE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$ODOO_DATABASE"
+        MODULE_PATH="$1"
+    fi
+
+    MODULES=$(find "$MODULE_PATH" -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname |   xargs -r -I {} basename {}, | sort -u | tr "\n" " " | sed 's/ //g')
+
+    for MODULE in ${MODULES//,/ }; do 
+        echo "Linting module $MODULE ... on"
+        pwd
+        lint-module "$MODULE_PATH/$MODULE"
+    done
+}
+
 function update-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -757,6 +780,24 @@ function test-module() {
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
     odoo -d "$DATABASE" -i "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+}
+
+function test-modules() {
+    DATABASE="$1"
+    MODULE_PATH="$2"
+
+    # Use default database if second param is not given 
+    if test -z "$2"; then
+        DATABASE="$ODOO_DATABASE"
+        MODULE_PATH="$1"
+    fi
+
+    MODULES=$(find "$MODULE_PATH" -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname |   xargs -r -I {} basename {}, | sort -u | tr "\n" " " | sed 's/ //g')
+
+    for MODULE in ${MODULES//,/ }; do 
+        echo "Testing module $MODULE ..."
+        test-module "$DATABASE" "$MODULE"
+    done
 }
 
 function pytest-module() {
@@ -1784,6 +1825,9 @@ case "$1" in
     lint-module)
         lint-module "$2"
         ;;
+    lint-modules)
+        lint-modules "$2"
+        ;;
     lint-snippets)
         lint-snippets
         ;;
@@ -1874,6 +1918,9 @@ case "$1" in
         ;;
     test-module)
         test-module "$2" "$3"
+        ;;
+    test-modules)
+        test-modules "$2" "$3"
         ;;
     translate-module)
         translate-module "$2" "$3" "$4"
