@@ -87,6 +87,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-env" "[env]" "Output content of the env file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start docker container. Options: none, db, admin, odoo, native, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-kind" "" "Start kind Kubernetes cluster."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-minikube" "" "Start minikube Kubernetes cluster."
@@ -241,10 +242,6 @@ function get-addons-path() {
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
     envsubst < "odoo.conf.template" > "$ODOO_RC"
-}
-
-function list-env() {
-    ls -f "$ODOO_BUILD_CONFIG_DIR"
 }
 
 function list-modules() {
@@ -644,7 +641,7 @@ function lint-module() {
 
     echo "Run pre-commit in $PWD"
     pre-commit run --all-files # --show-diff-on-failure --color=always
-    
+
     echo "Stage changes"
     git  add .
 
@@ -1434,6 +1431,16 @@ function create-nextcloud-env() {
     echo "Edit with: task edit-env $1"
 }
 
+function list-env() {
+    ls -a1 "$ODOO_BUILD_CONFIG_DIR"
+}
+
+function show-env() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
+    cat "$ENV_FILEPATH"
+}
+
 function edit-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
@@ -1920,6 +1927,9 @@ case "$1" in
         ;;
     source)
         activate-venv
+        ;;
+    show-env)
+        show-env "$2"
         ;;
     start-kind)
         start-kind
