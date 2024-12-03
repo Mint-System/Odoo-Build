@@ -9,6 +9,8 @@ templates
 .git-reset-files
 .gitignore
 docker-compose.yml
+logo.png
+odoo.conf.template
 package.json
 package-lock.json
 README.md
