@@ -57,7 +57,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
   mail:
-    image: mailhog/mailhog
+    image: axllent/mailpit
     container_name: mail
     hostname: mail
     ports:

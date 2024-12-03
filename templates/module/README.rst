@@ -18,7 +18,7 @@ Configuration
 Maintainer
 ~~~~~~~~~~
 
-.. image:: https://raw.githubusercontent.com/Mint-System/Wiki/master/assets/mint-system-logo.png
+.. image:: https://raw.githubusercontent.com/Mint-System/Wiki/main/attachments/mint-system-logo.png
   :target: https://www.mint-system.ch
 
 This module is maintained by Mint System GmbH.

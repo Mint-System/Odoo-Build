@@ -22,6 +22,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module" "[path]" "Create new Odoo module from template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module-repo" "[path]" "Initialize Odoo module repo from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-revision" "[revision]" "Create new Odoo revision."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
@@ -36,7 +37,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Find nested modules and return addons path."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Output addons path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -64,7 +65,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "" "List Odoo modules."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "[path]" "Get modules in path as list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo Docker container logs."
@@ -187,15 +188,16 @@ function version() {
 
 function set-addons-path() {
 
-    # Read addons path list
+    # Read addons path from git submodules
     SUBMODULES_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | tr '\n' ',' |  sed 's/,*$//g')"
 
+    # Remove excluded addons
     EXCLUDES="addons/theme_mint_system addons/company addons/web"
     for EXCLUDE in $EXCLUDES; do
         SUBMODULES_PATH=$(echo "$SUBMODULES_PATH" | sed "s|${EXCLUDE},||g")
     done
 
-    # Check if dir exists
+    # Check if addons dir exist
     for ADDON in $SUBMODULES_PATH; do
         if [ -d "$ADDON" ]; then
             echo "Path does not exist: $ADDON"
@@ -205,13 +207,16 @@ function set-addons-path() {
 
     # Convert to native paths
     ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|odoo,|odoo/addons,|g')"
-    # Append env var
+
+    # Append paths from config env var
     if [ -n "$ODOO_ADDONS_PATH" ]; then
         ADDONS_PATH="${ODOO_ADDONS_PATH},${ADDONS_PATH}"
     fi
 }
 
 function get-modules() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
     OPTION="$2"
     if [ -z "$OPTION" ]; then
         OPTION="dirname"
@@ -228,14 +233,6 @@ function get-modules() {
 
 function get-addons-path() {
     set-addons-path
-    MODULE_PATH=$(get-modules "$ADDONS_PATH")
-    ADDONS_PATH=$(echo "$MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" ",")
-    if [ -d "enterprise" ]; then
-        ADDONS_PATH="$ADDONS_PATH,enterprise"
-    fi
-    if [ -d "themes" ]; then
-        ADDONS_PATH="$ADDONS_PATH,themes"
-    fi
     echo "$ADDONS_PATH"
 }
 
@@ -245,8 +242,8 @@ function template-odoo-rc() {
 }
 
 function list-modules() {
-    set-addons-path
-    echo get-modules "$ADDONS_PATH" basename | tr "," "\n"
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    echo $(get-modules "$1" basename | tr "," "\n")
 }
 
 function update-readme() {
@@ -356,10 +353,14 @@ function docker-login() {
 }
 
 function publish() {
+    LATEST_TAG="odoo:$GIT_BRANCH"
+    echo "Tag Docker image ${DOCKER_REGISTRY}${DOCKER_TAG} with ${DOCKER_REGISTRY}${LATEST_TAG}"
+    docker tag "${DOCKER_REGISTRY}${DOCKER_TAG}" "${DOCKER_REGISTRY}${LATEST_TAG}"
+
     echo "Push Docker image ${DOCKER_REGISTRY}${DOCKER_TAG}"
     docker --config "$HOME/.docker/$DOCKER_REGISTRY" push "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker --config "$HOME/.docker/$DOCKER_REGISTRY" push "${DOCKER_REGISTRY}${LATEST_TAG}"
 }
-
 
 function install-odoo-scripts() {
     curl -L https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install | bash
@@ -862,6 +863,26 @@ function create-module() {
     odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t templates/module
 }
 
+function create-module-repo() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    REPO_PATH="$1"
+    REPO_NAME=$(basename "$REPO_PATH")
+
+    # If repo already exists, create new branch
+    if [ -d "$REPO_PATH/.git" ]; then
+        echo "Create new branch $REPO_NAME in $REPO_PATH"
+        cd "$REPO_PATH" || exit
+        git switch --orphan -c "$GIT_BRANCH"
+
+        echo "Remove all files from $REPO_PATH"
+        rm -rf "$REPO_PATH/*"
+    fi
+
+    echo "Copy template files from templates/GIT_BRANCH to $REPO_PATH"
+    cp templates/GIT_BRANCH/* "$REPO_PATH"
+}
+
 function generate-module-security() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
@@ -958,7 +979,7 @@ function setup-mail() {
     activate-venv
     set-addons-path
     echo "Setup mail server for database $DATABASE:"
-    echo "env['ir.mail_server'].create({'name':'Mailhog','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
+    echo "env['ir.mail_server'].create({'name':'Mailpit','smtp_host':'localhost','smtp_port':1025});env.cr.commit()" | 
     odoo shell -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
@@ -1868,7 +1889,7 @@ case "$1" in
         list-env
         ;;
     list-modules)
-        list-modules
+        list-modules "$2"
         ;;
     logs)
         docker logs odoo -f
