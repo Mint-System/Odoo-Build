@@ -626,15 +626,15 @@ function install-native() {
         exit 1
     fi
 
-    echo "Install Odoo development tools"
-    pip install setuptools wheel ${PIP_INOTIFY} watchdog
-    pip install -r requirements.txt
-
     echo "Install Odoo dependencies"
     pip install -r odoo/requirements.txt
 
     echo "Configure Odoo as python package"
     pip install -e odoo
+
+    echo "Install Odoo development tools"
+    pip install setuptools wheel ${PIP_INOTIFY} watchdog
+    pip install -r requirements.txt
 }
 
 # Process Commands
@@ -1146,7 +1146,7 @@ function lint-module() {
     find "$1" -type f -exec chmod u=rw,go=r {} \;
 
     echo "Update index.html"
-    rst2html5.py "$1/README.rst"  "$1/static/description/index.html"
+    rst2html5 "$1/README.rst"  "$1/static/description/index.html"
 
     pushd . 
     cd "$1"

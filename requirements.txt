@@ -1,10 +1,10 @@
 pre-commit
 pyyaml
-docutils
-rst2html5
 odoorpc
 coverage
 pylint-odoo
 pytest==7.4.4
 pytest-odoo
 manifestoo
+rst2html5==2.0.1
+docutils==0.21.2
