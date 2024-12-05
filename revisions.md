@@ -84,3 +84,5 @@ For each major release there are multiple revisions.
 
 #### [18.0.20241007](https://github.com/Mint-System/Odoo-Build/tree/16.0/scripts/odoo_revision_18.0.20241007)
 
+#### [18.0.20241125](https://github.com/Mint-System/Odoo-Build/tree/16.0/scripts/odoo_revision_18.0.20241125)
+

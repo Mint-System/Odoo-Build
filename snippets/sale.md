@@ -3173,6 +3173,33 @@ ID: `mint_system.sale.report_saleorder_document.style_hygentile`
 ```
 Source: [snippets/sale.report_saleorder_document.style_hygentile.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_hygentile.xml)
 
+### Style Lapp  
+ID: `mint_system.sale.report_saleorder_document.style_lapp`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+    </xpath>
+
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
+        <attribute name="style">border-top-width: 1px</attribute>
+    </xpath>
+
+    <xpath expr="//div[@name='total']" position="attributes">
+        <attribute name="style">width: 280px; float: right</attribute>
+    </xpath>
+
+    <xpath expr="//div[@name='total']/div" position="attributes">
+        <attribute name="t-attf-class"/>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_lapp.xml)
+
 ### Style Mint System  
 ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
 ```xml

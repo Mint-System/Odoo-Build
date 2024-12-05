@@ -3,13 +3,14 @@
 | activate-venv             |                      | Activate virtualenv.                                                                       |
 | build                     | [path]               | Build Odoo Docker image. Optionally pass specific Dockerfile.                              |
 | change-uuid               | [env]                | Change database uuid via xmlrpc.                                                           |
-| checkout                  | [branch][branch]     | Switch and merge from one branch to another.                                               |
+| checkout                  | [branch]             | Checkout Odoo version / branch.                                                            |
 | checkout-config-files     | [branch]             | Checkout config files from another branch.                                                 |
 | checkout-revision         | [revision]           | Run Odoo revision script or checkout revision set by env var.                              |
 | clear-assets              | [db]                 | Clear all assets of Odoo database.                                                         |
 | clear-filestore           | [db]                 | Clear local filestore folder. No param will clear all filestores. Default is branch name.  |
 | convert-database          | [db]                 | Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name.        |
 | create-module             | [path]               | Create new Odoo module from template.                                                      |
+| create-module-repo        | [path]               | Initialize Odoo module repo from template.                                                 |
 | create-revision           | [revision]           | Create new Odoo revision.                                                                  |
 | create-nextcloud-env      | [env]                | Create env file for Nextcloud instance.                                                    |
 | create-odoo-env           | [env]                | Create env file for Odoo Instance.                                                         |
@@ -24,18 +25,20 @@
 | generate-module-security  | [path][model]        | Generate model access file for a selected model of a module.                               |
 | generate-module-model     | [path][model]        | Generate model files from templates.                                                       |
 | generate-module-snippet   | [path][ref]          | Generate view snippet from template.                                                       |
-| get-addons-path           |                      | Find nested modules and return addons path.                                                |
+| get-addons-path           |                      | Output addons path.                                                                        |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
+| get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
 | git-mig-branch            | [path]               | Create migration branch for Odoo module.                                                   |
 | git-submodule-add         | [url] [path]         | Add git submodule.                                                                         |
-| git-submodule-checkout    |                      | Update submodules listed in the .gitmodules file.                                          |
+| git-submodule-checkout    |                      | Checkout submodule commits.                                                                |
 | git-submodule-list        |                      | List path and url of submodules.                                                           |
 | git-submodule-init        |                      | Init submodules listed in the .gitmodules file.                                            |
 | git-submodule-pull        |                      | Pull all submodules.                                                                       |
 | git-submodule-remove      | [path]               | Remove git submodule.                                                                      |
 | git-submodule-delete      |                      | Delete all submodule folders.                                                              |
 | git-submodule-switch      | [branch]             | Switch branch for all submodules.                                                          |
+| git-submodule-sync        |                      | Switch, stash and pull all submodules.                                                     |
 | import-csv                | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.                           |
 | info                      |                      | Show values of project env vars.                                                           |
 | init-db                   | [db]                 | Initialize the Odoo database. Default is branch name.                                      |
@@ -48,8 +51,9 @@
 | install-snippet           | [env][path]          | Install snippet xml definition.                                                            |
 | k8s-apply                 |                      | Apply the Odoo K8s manifests.                                                              |
 | lint-module               | [path]               | Run pylint odoo for module.                                                                |
+| lint-module-repo          | [path]               | Run pylint odoo for modules in repo folder.                                                |
 | lint-snippets             |                      | Run checks for all snippets.                                                               |
-| list-modules              |                      | List Odoo modules.                                                                         |
+| list-modules              | [path]               | Get modules in path as list.                                                               |
 | list-env                  |                      | List env files.                                                                            |
 | list-revision             |                      | List available Odoo revisions.                                                             |
 | logs                      |                      | Tail Odoo Docker container logs.                                                           |
@@ -70,7 +74,9 @@
 | save-config               | [name]               | Save Odoo database config.                                                                 |
 | setup-mail                | [db]                 | Setup outgoing mail config in Odoo db.                                                     |
 | set-admin                 | [db]                 | Sets the password for the first user in database. Default is branch name.                  |
+| set-addons-path           |                      | Set Odoo addons path env variable.                                                         |
 | source                    |                      | Source the Python virtual env.                                                             |
+| show-env                  | [env]                | Output content of the env file.                                                            |
 | start                     | [name][db]           | Start docker container. Options: none, db, admin, odoo, native, mail.                      |
 | start-kind                |                      | Start kind Kubernetes cluster.                                                             |
 | start-minikube            |                      | Start minikube Kubernetes cluster.                                                         |
@@ -79,6 +85,7 @@
 | stop                      | [name]               | Stop docker containers.                                                                    |
 | test-odoo-jsonrpc         | [env][model]         | Test json rpc connection.                                                                  |
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
+| test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | update-app-list           | [db]                 | Update app list.                                                                           |
 | update-docs               |                      | Update project docs.                                                                       |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |
