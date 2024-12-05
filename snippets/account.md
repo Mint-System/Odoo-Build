@@ -4019,6 +4019,33 @@ ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`
 ```
 Source: [snippets/account.view_move_line_tax_audit_tree.sum_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_line_tax_audit_tree.sum_currency.xml)
 
+## View Move Line Tree  
+### Enable Create  
+ID: `mint_system.account.view_move_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_line_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="create">1</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/account.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_line_tree.enable_create.xml)
+
+### Show Cumulated Balance  
+ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_line_tree" priority="50">
+    <field name="balance" position="after">
+        <field name="cumulated_balance" optional="hide"/>
+    </field>
+</data>
+
+```
+Source: [snippets/account.view_move_line_tree.show_cumulated_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_line_tree.show_cumulated_balance.xml)
+
 ## View Move Line Tree Grouped General  
 ### Amount Currency Optional  
 ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`  
@@ -4034,6 +4061,19 @@ ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_opt
 Source: [snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
 
 ## View Move Line Tree  
+### Enable Create  
+ID: `mint_system.account.view_move_line_tree.enable_create`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.view_move_line_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="create">1</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/account.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.view_move_line_tree.enable_create.xml)
+
 ### Show Cumulated Balance  
 ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`  
 ```xml
