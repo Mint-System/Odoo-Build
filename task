@@ -80,6 +80,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pytest-module" "[db][name,path]" "Run module tests with pytest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "release-module" "[path]" "Create GitHub release for a module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove" "[name]" "Remove docker containers and volumes. Options: none, db, admin, odoo, mail."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-env" "[env]" "Remove environment config."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart docker container."
@@ -95,7 +96,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-odoo-jsonrpc" "[env][model]" "Test json rpc connection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-commands" "" "Test task commands."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env][model]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
@@ -108,6 +110,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "zip-module" "[path]" "Create zip file for module."
 }
+
 function help() {
     echo
     echo "$1 <command> [options]"
@@ -308,6 +311,12 @@ function edit-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
     "$EDITOR" "$ENV_FILEPATH"
+}
+
+function remove-env() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
+    rm "$ENV_FILEPATH"
 }
 
 # Docs Commands
@@ -767,6 +776,32 @@ function stop() {
     fi
 
     docker compose stop "$1"
+}
+
+function test-commands() {
+    activate-venv
+    version
+
+    echo "Setup ssh keys"
+    if [ ! -f "tmp/ed25519" ]; then
+        ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
+    fi
+
+    echo "Setup Docker environment."
+    export DOCKER_REGISTRY=mintsystem/
+    export ODOO_ADDONS_PATH="/mnt/enterprise"
+    export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools#$GIT_BRANCH"
+    export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
+    export ODOO_DATABASE=test
+    start
+
+    # Smoke test
+    docker-odoo-init -d "$ODOO_DATABASE" -i contacts -w
+    scripts/jsonrpc
+    
+    # Cleanup
+    # docker-odoo-drop -d test
+    # stop
 }
 
 # Kubernetes Commands
@@ -1687,7 +1722,7 @@ function create-revision() {
 
 # RPC Commands
 
-function test-odoo-jsonrpc() {
+function test-jsonrpc() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
@@ -1695,7 +1730,7 @@ function test-odoo-jsonrpc() {
     
     ODOO_MODEL="$2"
     export ODOO_MODEL
-    scripts/odoo_jsonrpc
+    scripts/jsonrpc
 }
 
 function git-submodule-add() {
@@ -1953,6 +1988,9 @@ case "$1" in
     release-module)
         release-module "$2"
         ;;
+    remove-env)
+        remove-env "$2"
+        ;;
     remove-module)
         remove-module "$2" "$3"
         ;;
@@ -2001,11 +2039,14 @@ case "$1" in
     stop)
         stop "$2"
         ;;
+    test-commands)
+        test-commands
+        ;;
     test-coverage-module)
         test-coverage-module "$2" "$3"
         ;;
-    test-odoo-jsonrpc)
-        test-odoo-jsonrpc "$2" "$3"
+    test-jsonrpc)
+        test-jsonrpc "$2" "$3"
         ;;
     test-module)
         test-module "$2" "$3"

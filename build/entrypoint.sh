@@ -27,11 +27,14 @@ git_clone_addons() {
         
         # Setup git ssh key
         mkdir -p ~/.ssh
-        echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-        eval "$(ssh-agent -s)" >> /dev/null
-        ssh-add ~/.ssh/id_ed25519
-        
+        if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+            entrypoint_log "Setup SSH key from env vars."
+            echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+            chmod 600 ~/.ssh/id_ed25519
+            eval "$(ssh-agent -s)" >> /dev/null
+            ssh-add ~/.ssh/id_ed25519
+        fi
+
         # Clone git repo addons into /var/lib/odoo/addons
         for ADDON_GIT_REPO in $(echo "$ADDONS_GIT_REPOS" | tr "," "\n"); do
             
@@ -44,6 +47,7 @@ git_clone_addons() {
 
             # Clone git repo and submodules
             if [ ! -d "$ADDON_PATH" ]; then
+                mkdir -p "$ADDON_PATH"
                 ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
                 entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
                 git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$ADDON_PATH"
