@@ -1675,14 +1675,21 @@ function list-revision() {
 }
 
 function checkout-revision() {
-    export ODOO_REVISION_DOCKER_PULL
     if [ -n "$1" ]; then
-        echo "Execute script for revision: $1"
-        ./scripts/odoo_revision_"$1"
-    else
-        echo "Execute script for revision: $ODOO_REVISION"
-        ./scripts/odoo_revision_"${ODOO_REVISION}"
+        ODOO_REVISION="$1"
     fi
+    ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
+
+    echo "Update revision var in .env file."
+    if grep -q "ODOO_REVISION" .env; then
+        sed -i -e "s/^ODOO_REVISION=${ODOO_VERSION}.*/ODOO_REVISION=${ODOO_REVISION}/" .env
+    else
+        echo "ODOO_REVISION=${ODOO_REVISION}" >> .env
+    fi
+
+    export ODOO_REVISION_DOCKER_PULL
+    echo "Execute script for revision: $ODOO_REVISION"
+    ./scripts/odoo_revision_"${ODOO_REVISION}" 
 }
 
 function create-revision() {
