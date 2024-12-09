@@ -794,6 +794,7 @@ function test-docker() {
     # export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
     export ODOO_DATABASE=test
     export PIP_INSTALL=prometheus-client
+    install-odoo-scripts
     start
 
     # Install modules
