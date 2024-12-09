@@ -796,6 +796,9 @@ function test-docker() {
     export PIP_INSTALL=prometheus-client
     install-odoo-scripts
     start
+    
+    # Debug
+    docker logs odoo
 
     # Install modules
     docker-odoo-init -d "$ODOO_DATABASE" -i contacts,web_enterprise,mail_server_filter,prometheus_exporter,server_config_environment -w
