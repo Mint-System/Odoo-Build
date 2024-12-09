@@ -85,27 +85,26 @@ set_odoo_config_env() {
 
     : "${LOG_LEVEL:=info}"
     export LOG_LEVEL
-
     : "${ADMIN_PASSWD:=odoo}"
     export ADMIN_PASSWD
-
     : "${DBFILTER:=.*}"
     export DBFILTER
-
     : "${ENVIRONMENT:=development}"
     export ENVIRONMENT
-
     : "${LIST_DB:=True}"
     export LIST_DB
-
     : "${PROXY_MODE:=False}"
     export PROXY_MODE
-
     : "${WORKERS:=0}"
     export WORKERS
-
     : "${SERVER_WIDE_MODULES:=web}"
     export SERVER_WIDE_MODULES
+    : "${LIMIT_REQUEST:=8192}"
+    export LIMIT_REQUEST
+    : "${LIMIT_TIME_CPU:=60}"
+    export LIMIT_TIME_CPU
+    : "${LIMIT_TIME_REAL:=120}"
+    export LIMIT_TIME_REAL
 }
 
 set_odoo_config_env

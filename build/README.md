@@ -6,6 +6,7 @@ A better Odoo image.
 - Odoo source is based on exact git revision
 - Setup `odoo.conf` with environment vars
 - Clones addons from git repos
+- Install pip packages without building the image
 - Detects and aggregates nested module folders
 - Store session information in database
 - Set and get environment name from server config
@@ -45,6 +46,9 @@ services:
       LIST_DB: False
       PROXY_MODE: True
       WORKERS: 4
+      LIMIT_REQUEST: 16384
+      LIMIT_TIME_CPU: 300
+      LIMIT_TIME_REAL: 600
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
