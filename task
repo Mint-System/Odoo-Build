@@ -98,6 +98,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-docker" "" "Test docker environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env][model]" "Test json rpc connection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-k8s" "" "Test Kubernetes environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
@@ -834,15 +835,18 @@ function k8s-apply() {
 
     echo "Deploy Odoo:"
     kubectl apply -f k8s/odoo-cm.yaml
-    kubectl apply -f k8s/odoo17-deploy.yaml
+    kubectl apply -f k8s/odoo16-deploy.yaml
     kubectl apply -f k8s/odoo-svc.yaml
 
-    echo "Init Odoo database:"
-    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
+    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo | sed 's/pod\///')
+    echo "Init Odoo database in $ODOO_POD pod:"
     kubectl exec "$ODOO_POD" -- env
     kubectl exec "$ODOO_POD" -- /bin/bash -c "odoo -d odoo -i web --db_host \$HOST -r\$USER -w\$PASSWORD --stop-after-init --no-http"
+}
 
-    echo "Access Odoo with: $(minikube service odoo --url)"
+function test-k8s() {
+    start-kind
+    k8s-apply
 }
 
 # Interactive Shell Commands
@@ -2063,6 +2067,9 @@ case "$1" in
         ;;
     test-jsonrpc)
         test-jsonrpc "$2" "$3"
+        ;;
+    test-k8s)
+        test-k8s
         ;;
     test-module)
         test-module "$2" "$3"
