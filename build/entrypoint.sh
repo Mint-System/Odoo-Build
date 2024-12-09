@@ -38,23 +38,25 @@ git_clone_addons() {
         # Clone git repo addons into /var/lib/odoo/addons
         for ADDON_GIT_REPO in $(echo "$ADDONS_GIT_REPOS" | tr "," "\n"); do
             
-            # Parse git ssh url
-            GIT_HOSTNAME=$(echo "$ADDON_GIT_REPO" | cut -d "@" -f 2 | cut -d ":" -f 1)
-            GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 1)
-            GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 2)
-            GIT_PATH=$(echo "$ADDON_GIT_REPO" | cut -d "#" -f 1 | cut -d ":" -f 2 | cut -d "." -f 1)
+            # Supported urls:
+            # SSH: git@github.com:OCA/server-tools.git#16.0
+            # HTTP: https://github.com/OCA/server-tools.git#16.0
+
+            GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d# -f1)
+            GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
+            GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
+            GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
             ADDON_PATH="/var/lib/odoo/addons/$GIT_PATH"
 
-            # Clone git repo and submodules
-            if [ ! -d "$ADDON_PATH" ]; then
+            if [ ! -d "$ADDON_PATH/.git" ]; then
+                # Clone git repo and submodules
                 mkdir -p "$ADDON_PATH"
                 ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
                 entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
                 git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$ADDON_PATH"
-                cd "$ADDON_PATH"
-                git submodule update --init --recursive && git submodule update --init --recursive
+                git -C "$ADDON_PATH" submodule update --init --recursive
             fi
-
+            
             # Add git repo to addons path
             if [ -n "$ODOO_ADDONS_PATH" ]; then
                 ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ADDON_PATH"

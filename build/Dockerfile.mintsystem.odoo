@@ -98,6 +98,8 @@ ENV ODOO_VERSION $ODOO_VERSION
 # Copy entrypoint script and Odoo configuration file
 COPY ./build/odoo.conf.template /etc/odoo/
 COPY ./build/entrypoint.sh /
+COPY ./build/parse-url /usr/local/bin/parse-url
+RUN chmod +x /usr/local/bin/parse-url
 
 # Create a user named odoo
 ARG UID=102

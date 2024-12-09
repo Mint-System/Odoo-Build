@@ -586,6 +586,10 @@ function upload-module() {
     echo -e "$UPLOADS"
 }
 
+function logs() {
+    docker logs odoo -f
+}
+
 # Script Commands
 
 function install-odoo-scripts() {
@@ -790,23 +794,16 @@ function test-docker() {
     echo "Setup Docker environment."
     export DOCKER_REGISTRY=mintsystem/
     export ODOO_ADDONS_PATH="/mnt/enterprise"
-    export ADDONS_GIT_REPOS="git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},git@github.com:OCA/server-tools.git#${GIT_BRANCH}"
-    # export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
+    export ADDONS_GIT_REPOS="https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH}"
+    export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
     export ODOO_DATABASE=test
     export PIP_INSTALL=prometheus-client
     install-odoo-scripts
     start
-    
-    # Debug
-    docker logs odoo
 
     # Install modules
     docker-odoo-init -d "$ODOO_DATABASE" -i contacts,web_enterprise,mail_server_filter,prometheus_exporter,server_config_environment -w
     restart
-
-    # Cleanup
-    docker-odoo-drop -d test
-    stop
 }
 
 # Kubernetes Commands
@@ -1970,7 +1967,7 @@ case "$1" in
         list-modules "$2"
         ;;
     logs)
-        docker logs odoo -f
+        logs
         ;;
     node-install)
         npm install
