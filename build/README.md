@@ -20,7 +20,7 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:17.0.20240730
+    image: mintsystem/odoo:16.0.20241125
     depends_on:
       - db
     environment:
@@ -35,7 +35,7 @@ services:
         AAAEDx6kjL/1dmz7WZctryva7EphDT1rHyyfjxFiEPVnmrXq6hHU+8rTzWvCsLmGVJcztD
         bhw9A6lKXKYt5+c+KKHFAAAAEmJvdEBtaW50LXN5c3RlbS5jaAECAw==
         -----END OPENSSH PRIVATE KEY-----
-      ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#17.0,git@github.com:OCA/server-tools.git#17.0"
+      ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
       SERVER_WIDE_MODULES: web,session_db
       PIP_INSTALL: astor
@@ -78,7 +78,7 @@ volumes:
 Extend the image with additional python packages:
 
 ```dockerfile
-FROM mintsystem/odoo:17.0.20240730
+FROM mintsystem/odoo:16.0.20241125
 
 RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -88,7 +88,7 @@ RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi pa
 Copy a custom Odoo conf file to the image:
 
 ```dockerfile
-FROM mintsystem/odoo:17.0.20240730
+FROM mintsystem/odoo:16.0.20241125
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
