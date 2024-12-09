@@ -96,7 +96,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-commands" "" "Test task commands."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-docker" "" "Test docker environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env][model]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
@@ -778,7 +778,7 @@ function stop() {
     docker compose stop "$1"
 }
 
-function test-commands() {
+function test-docker() {
     activate-venv
     version
 
@@ -790,18 +790,19 @@ function test-commands() {
     echo "Setup Docker environment."
     export DOCKER_REGISTRY=mintsystem/
     export ODOO_ADDONS_PATH="/mnt/enterprise"
-    export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools#$GIT_BRANCH"
-    export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
+    export ADDONS_GIT_REPOS="git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},git@github.com:OCA/server-tools.git#${GIT_BRANCH}"
+    # export GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
     export ODOO_DATABASE=test
+    export PIP_INSTALL=prometheus-client
     start
 
-    # Smoke test
-    docker-odoo-init -d "$ODOO_DATABASE" -i contacts -w
-    scripts/jsonrpc
-    
+    # Install modules
+    docker-odoo-init -d "$ODOO_DATABASE" -i contacts,web_enterprise,mail_server_filter,prometheus_exporter,server_config_environment -w
+    restart
+
     # Cleanup
-    # docker-odoo-drop -d test
-    # stop
+    docker-odoo-drop -d test
+    stop
 }
 
 # Kubernetes Commands
@@ -2039,8 +2040,8 @@ case "$1" in
     stop)
         stop "$2"
         ;;
-    test-commands)
-        test-commands
+    test-docker)
+        test-docker
         ;;
     test-coverage-module)
         test-coverage-module "$2" "$3"
