@@ -184,7 +184,8 @@ function version() {
     psql -V
     docker -v
     docker compose version
-    minikube version    
+    minikube version
+    kind version
 }
 
 function generate-admin-passwd() {
@@ -804,11 +805,12 @@ function test-docker() {
     # Debug
     docker ps
     docker logs db
+    sleep 3
     docker logs odoo
 
     # Install modules
     docker-odoo-init -d "$ODOO_DATABASE" -i contacts,web_enterprise,mail_server_filter,prometheus_exporter,server_config_environment -w
-    restart
+    restart odoo
 }
 
 # Kubernetes Commands
