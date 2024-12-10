@@ -1340,6 +1340,7 @@ function generate-module-security() {
     MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_')
 
     ACCESS_FILE="$PARENT_DIR/$MODULE_NAME/security/ir.model.access.csv"
+    mkdir -p "$PARENT_DIR/$MODULE_NAME/security"
 
     if [ ! -f "$ACCESS_FILE" ]; then
         echo "Init security file: $ACCESS_FILE"
