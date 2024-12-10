@@ -30,8 +30,7 @@ try:
     odoo.login(db, username, password)
 
     # Current user
-    user = odoo.env.user
-    print(f"Current user: {user.display_name}")
+    print(f"Current user id: {odoo.env.uid}")
 
     # Get records
     records = odoo.env[model].search([])

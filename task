@@ -38,6 +38,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Output addons path."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-jsonrpc-session" "[env]" "Get user session token for Odoo env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -74,6 +75,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-checkin" "[env]" "Attendance checkin on target Odoo env."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-checkout" "[env]" "Attendance checkout on target Odoo env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "publish" "" "Publish Odoo Docker image."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List docker processes."
@@ -1568,6 +1571,13 @@ function lint-snippets() {
 
 # Git Commands
 
+function git-submodule-add() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
+}
+
 function git-submodule-ls() {
     echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
 }
@@ -1575,7 +1585,7 @@ function git-submodule-ls() {
 function git-submodule-list() {
     # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
     git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
-} 
+}
 
 function git-submodule-delete() {
     echo "Delete git submodules."
@@ -1586,6 +1596,23 @@ function git-submodule-delete() {
         echo "Delete submodule: $SUBMODULE"
         rm -rf "$SUBMODULE"
     done
+}
+
+function git-submodule-remove() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    echo "Deinit submodule"
+    git submodule deinit -f "$1"
+    
+    echo "Move submodule to tmp folder"
+    mkdir -p tmp/"$1"
+    mv "$1" tmp/"$1"
+
+    echo "Remove submodule from work tree"
+    git rm -f "$1"
+
+    echo "Remove submodule from .git folder"
+    rm -rf .git/modules/"$1"
 }
 
 function git-submodule-init() {
@@ -1653,6 +1680,30 @@ function git-submodule-sync() {
     git-submodule-switch
     git-submodule-pull
     git-submodule-checkout
+}
+
+function git-feature-branch(){
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    MODULE_NAME=$(basename "$1")
+    MODULE_PATH=$(dirname "$1")
+
+    echo "Create feature branch for $MODULE_NAME in $MODULE_PATH ..."
+    cd ./"$MODULE_PATH" || exit
+    pwd
+    git switch -c "feature-$MODULE_NAME"
+}
+
+function git-mig-branch(){
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    MODULE_NAME=$(basename "$1")
+    MODULE_PATH=$(dirname "$1")
+
+    echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
+    cd ./"$MODULE_PATH" || exit
+    pwd
+    git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
 }
 
 function checkout-config-files() {
@@ -1742,63 +1793,60 @@ function create-revision() {
 
 # RPC Commands
 
+get-jsonrpc-session() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+
+    load-env "$1"
+    AUTH_URL="${ODOO_URL}/web/session/authenticate"
+    AUTH_PAYLOAD=$(cat <<EOF
+{
+    "jsonrpc": "2.0",
+    "method": "call",
+    "params": {
+        "db": "${ODOO_DATABASE}",
+        "login": "${ODOO_USERNAME}",
+        "password": "${ODOO_PASSWORD}"
+    },
+    "id": 1
+}
+EOF
+)
+
+    echo "Authenticating with Odoo..."
+    RESPONSE=$(curl -s \
+        -X POST \
+        -H "Content-Type: application/json" \
+        -d "${AUTH_PAYLOAD}" \
+        "${AUTH_URL}")
+
+    # Extract session ID from the response
+    SESSION_ID=$(echo "$RESPONSE" | jq -r '.result.session_id')
+    if [[ "$SESSION_ID" == "null" || -z "$SESSION_ID" ]]; then
+        echo "Authentication failed! Response: $RESPONSE"
+        exit 1
+    fi
+
+    echo "Authentication successful! Session ID: $SESSION_ID"
+    echo "$SESSION_ID"
+}
+
 function test-jsonrpc() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
-    [ -n "$1" ] && load-env "$1"
-    
+    load-env "$1"
     ODOO_MODEL="$2"
     export ODOO_MODEL
+
     scripts/jsonrpc
 }
 
-function git-submodule-add() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
-    git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
-}
-
-function git-submodule-remove() {
+odoo-checkout() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    echo "Deinit submodule"
-    git submodule deinit -f "$1"
-    
-    echo "Move submodule to tmp folder"
-    mkdir -p tmp/"$1"
-    mv "$1" tmp/"$1"
-
-    echo "Remove submodule from work tree"
-    git rm -f "$1"
-
-    echo "Remove submodule from .git folder"
-    rm -rf .git/modules/"$1"
-}
-
-function git-feature-branch(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    MODULE_NAME=$(basename "$1")
-    MODULE_PATH=$(dirname "$1")
-
-    echo "Create feature branch for $MODULE_NAME in $MODULE_PATH ..."
-    cd ./"$MODULE_PATH" || exit
-    pwd
-    git switch -c "feature-$MODULE_NAME"
-}
-
-function git-mig-branch(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    MODULE_NAME=$(basename "$1")
-    MODULE_PATH=$(dirname "$1")
-
-    echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
-    cd ./"$MODULE_PATH" || exit
-    pwd
-    git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
+    load-env "$1"
+    SESSION_ID=$(get-jsonrpc-session "$1")
 }
 
 case "$1" in
@@ -1870,6 +1918,9 @@ case "$1" in
         ;;
     get-addons-path)
         get-addons-path
+        ;;
+    get-jsonrpc-session)
+        get-jsonrpc-session "$2"
         ;;
     get-modules)
         get-modules "$2" "$3"
@@ -1992,6 +2043,12 @@ case "$1" in
     node-serve-build)
         cd .vuepress/dist
         npx serve
+        ;;
+    odoo-checkin)
+        odoo-checkin "$2"
+        ;;
+    odoo-checkout)
+        odoo-checkout "$2"
         ;;
     patch-database)
         patch-database "$2" "$3"
