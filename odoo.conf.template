@@ -7,4 +7,5 @@ db_user = odoo
 environment = development
 
 [ir.config_parameter]
-web.base.url = $ODOO_BASE_URL
+git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
+git.ssh_private_key = $GIT_SSH_PRIVATE_KEY

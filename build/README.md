@@ -29,14 +29,12 @@ services:
       PASSWORD: odoo
       PORT: 5432
       ENVIRONMENT: production
-      GIT_SSH_PUBLIC_KEY: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
+      GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
       GIT_SSH_PRIVATE_KEY: |
         -----BEGIN OPENSSH PRIVATE KEY-----
         b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
         QyNTUxOQAAACA0fSG4tJgE4wssdRGIOfeKBZGNK4IbYKPqZxRzrwHMpgAAAKi5ZBaFuWQW
         hQAAAAtzc2gtZWQyNTUxOQAAACA0fSG4tJgE4wssdRGIOfeKBZGNK4IbYKPqZxRzrwHMpg
-        AAAEBXswXHgmrlsqC9ftU9mA/D+kd3q+3D22PdK5KEEPINnTR9Ibi0mATjCyx1EYg594oF
-        kY0rghtgo+pnFHOvAcymAAAAIk1pbnQtU3lzdGVtLVByb2plY3QtTUNDQGdpdGh1Yi5jb2
         0BAgM=
         -----END OPENSSH PRIVATE KEY-----
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"

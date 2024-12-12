@@ -31,15 +31,14 @@ git_clone_addons() {
             entrypoint_log "Setup SSH key from env vars."
             echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
             chmod 600 ~/.ssh/id_ed25519
-            eval "$(ssh-agent -s)" >> /dev/null
+            eval "$(ssh-agent -s)"
             ssh-add ~/.ssh/id_ed25519
-
-            # Convert to one line string for Odoo conf
-            GIT_SSH_PRIVATE_KEY=$(cat ~/.ssh/id_ed25519 | tr -d '\n')
         fi
 
         # Clone git repo addons into /var/lib/odoo/git
-        for ADDON_GIT_REPO in $(echo "$ADDONS_GIT_REPOS" | tr "," "\n"); do
+        entrypoint_log "Cloning git repos: $ADDONS_GIT_REPOS"
+        ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")        
+        for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
             
             # Supported urls:
             # SSH: git@github.com:OCA/server-tools.git#16.0
@@ -72,6 +71,12 @@ git_clone_addons() {
                 ODOO_ADDONS_PATH="$ADDON_PATH"
             fi
         done
+
+        # Remove git ssh key
+        if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+            ssh-add -d ~/.ssh/id_ed25519
+            rm ~/.ssh/id_ed25519
+        fi
     fi
 }
 
@@ -111,6 +116,9 @@ set_odoo_config_env() {
     export LIMIT_TIME_CPU
     : "${LIMIT_TIME_REAL:=120}"
     export LIMIT_TIME_REAL
+    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    export GIT_SSH_PRIVATE_KEY
+    export GIT_SSH_PUBLIC_KEY
 }
 
 set_odoo_config_env

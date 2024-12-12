@@ -99,6 +99,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in Docker container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-odoo-rc" "" "Template the Odoo config file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-docker" "" "Test docker environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env][model]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-k8s" "" "Test Kubernetes environment."
@@ -229,6 +230,10 @@ function get-addons-path() {
 
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
+
+    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    export GIT_SSH_PRIVATE_KEY
+    export GIT_SSH_PUBLIC_KEY
     envsubst < "odoo.conf.template" > "$ODOO_RC"
 }
 
@@ -2117,6 +2122,9 @@ case "$1" in
         ;;
     stop)
         stop "$2"
+        ;;
+    template-odoo-rc)
+        template-odoo-rc
         ;;
     test-docker)
         test-docker
