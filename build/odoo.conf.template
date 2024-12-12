@@ -38,3 +38,7 @@ limit_time_real = $LIMIT_TIME_REAL
 ; xmlrpcs = True
 ; xmlrpcs_interface = 
 ; xmlrpcs_port = 8071
+
+[ir.config_parameter]
+git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
+git.ssh_private_key = $GIT_SSH_PRIVATE_KEY

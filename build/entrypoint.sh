@@ -33,9 +33,12 @@ git_clone_addons() {
             chmod 600 ~/.ssh/id_ed25519
             eval "$(ssh-agent -s)" >> /dev/null
             ssh-add ~/.ssh/id_ed25519
+
+            # Convert to one line string for Odoo conf
+            GIT_SSH_PRIVATE_KEY=$(cat ~/.ssh/id_ed25519 | tr -d '\n')
         fi
 
-        # Clone git repo addons into /var/lib/odoo/addons
+        # Clone git repo addons into /var/lib/odoo/git
         for ADDON_GIT_REPO in $(echo "$ADDONS_GIT_REPOS" | tr "," "\n"); do
             
             # Supported urls:
@@ -46,7 +49,7 @@ git_clone_addons() {
             GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
             GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
             GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
-            ADDON_PATH="/var/lib/odoo/addons/$GIT_PATH"
+            ADDON_PATH="/var/lib/odoo/git/$GIT_HOSTNAME/$GIT_PATH"
 
             if [ ! -d "$ADDON_PATH/.git" ]; then
                 # Clone git repo and submodules
@@ -54,6 +57,11 @@ git_clone_addons() {
                 ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
                 entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
                 git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$ADDON_PATH"
+                git -C "$ADDON_PATH" submodule update --init --recursive
+            else
+                entrypoint_log "$ME: Update $GIT_URL branch $GIT_BRANCH"
+                git -C "$ADDON_PATH" switch "$GIT_BRANCH"
+                git -C "$ADDON_PATH" pull
                 git -C "$ADDON_PATH" submodule update --init --recursive
             fi
             
@@ -78,11 +86,7 @@ set_odoo_config_env() {
         ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
         
         # Set parent folder of module paths as new addons path
-        ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
-        
-        if [ -n "$ODOO_MODULE_PATH" ]; then
-            ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ODOO_MODULE_PATH"
-        fi
+        ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
 
     : "${LOG_LEVEL:=info}"
@@ -129,7 +133,7 @@ auto_envsubst
 pip_install() {
     if [ -n "$PIP_INSTALL" ]; then
         entrypoint_log "$ME: Install python packages: $PIP_INSTALL"
-        pip install --no-cache-dir $PIP_INSTALL
+        pip install --no-cache-dir "$PIP_INSTALL"
     fi
 
     entrypoint_log "$ME: List python packages:" 
