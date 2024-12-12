@@ -796,18 +796,20 @@ function test-docker() {
     activate-venv
     version
 
-    echo "Setup ssh keys"
-    if [ ! -f "tmp/ed25519" ]; then
-        ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
+    if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
+        echo "Generate SSH private key."
+        if [ ! -f "tmp/ed25519" ]; then
+            ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
+        fi
+        GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
+        export GIT_SSH_PRIVATE_KEY
+        GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
     fi
 
     echo "Setup Docker environment."
     export DOCKER_REGISTRY=mintsystem/
     export ODOO_ADDONS_PATH="/mnt/enterprise"
     export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
-    GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
-    export GIT_SSH_PRIVATE_KEY
-    GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
     export GIT_SSH_PUBLIC_KEY
     export ODOO_DATABASE=test
     export PIP_INSTALL=prometheus-client
