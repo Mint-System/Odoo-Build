@@ -14,4 +14,4 @@ jobs:
       - name: Run task test-docker
         run: ./task test-docker
       - name: Run task test-k8s
-        run: ./task test-docker
+        run: ./task test-k8s
