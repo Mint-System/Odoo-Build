@@ -1763,9 +1763,24 @@ function checkout-revision() {
         echo "ODOO_REVISION=${ODOO_REVISION}" >> .env
     fi
 
-    export ODOO_REVISION_DOCKER_PULL
-    echo "Execute script for revision: $ODOO_REVISION"
-    ./scripts/odoo_revision_"${ODOO_REVISION}" 
+    echo "Load refs for revision: $ODOO_REVISION"
+    export $(cat "scripts/odoo_revision_$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+
+    echo "Checkout and tag git repos ..."
+    git -C odoo checkout $ODOO_REF
+    git -C odoo tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+    git -C enterprise checkout $ENTERPRISE_REF
+    git -C enterprise tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+    git -C themes checkout $THEME_REF
+    git -C themes tag -a $ODOO_REVISION -m "$ODOO_REVISION"
+
+
+    if $ODOO_REVISION_DOCKER_PULL; then
+        echo "Pull and tag Docker image ..."
+        docker pull "$ODOO_DOCKER_REF"
+        IMAGE_ID=$(docker image inspect "$ODOO_DOCKER_REF" --format "{{ .ID }}")
+        docker tag ${IMAGE_ID:7:12} odoo:$ODOO_REVISION
+    fi
 }
 
 function create-revision() {

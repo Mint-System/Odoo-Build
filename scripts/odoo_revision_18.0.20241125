@@ -1,23 +1,7 @@
-#!/bin/bash
-
 ODOO_REVISION=18.0.20241125
-
-# Checkout odoo repo
-cd odoo && git checkout 9cd3b8559fdba83f6f88f84dc1384e4bcb33bdc1
-
-# Create tag on the odoo repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout enterprise repo
-cd enterprise && git checkout 8b22d1f390e0761a54a83828a782740def85bb64
-
-# Create tag on the enterprise repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout theme repo
-cd themes && git checkout 5ce9cc6f2d112b37307fac2a3e2dd3960272a9b9
+ODOO_REF=9cd3b8559fdba83f6f88f84dc1384e4bcb33bdc1
+ODOO_ENTERPRISE_REF=8b22d1f390e0761a54a83828a782740def85bb64
+ODOO_THEME_REF=5ce9cc6f2d112b37307fac2a3e2dd3960272a9b9
 
 # Create tag on the odoo repo
 git tag -a $ODOO_REVISION -m "$ODOO_REVISION"

@@ -1,34 +1,6 @@
-#!/bin/bash
-
 ODOO_REVISION=16.0.20230904
+ODOO_REF=6cf3b617d8082df5820283d07e6623b7684cefdd
+ODOO_ENTERPRISE_REF=359009dc36635669d6760e2a8ddda08d90a1c643
+ODOO_THEME_REF=598fcffbae57c0eab422db669e75f52dd5c267e4
+ODOO_DOCKER_REF=odoo@sha256:5f4f87d99eb68f6487dfccfc59ea130378dcdd7d52b42e8f6f00031db09ab037
 
-# Checkout odoo repo
-cd odoo && git checkout 6cf3b617d8082df5820283d07e6623b7684cefdd
-
-# Create tag on the odoo repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout enterprise repo
-cd enterprise && git checkout 359009dc36635669d6760e2a8ddda08d90a1c643
-
-# Create tag on the enterprise repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout theme repo
-cd themes && git checkout 598fcffbae57c0eab422db669e75f52dd5c267e4
-
-# Create tag on the odoo repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Pull docker image
-DIGEST=odoo@sha256:5f4f87d99eb68f6487dfccfc59ea130378dcdd7d52b42e8f6f00031db09ab037
-if $ODOO_REVISION_DOCKER_PULL; then
-    docker pull "$DIGEST"
-fi
-IMAGE_ID=$(docker image inspect "$DIGEST" --format "{{ .ID }}")
-
-# Tag the docker image
-docker tag ${IMAGE_ID:7:12} odoo:$ODOO_REVISION

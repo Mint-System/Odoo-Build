@@ -1,31 +1,5 @@
-#!/bin/bash
-
 ODOO_REVISION=$REVISION
-
-# Checkout odoo repo
-cd odoo && git checkout $ODOO_REF
-
-# Create tag on the odoo repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout enterprise repo
-cd enterprise && git checkout $ENTERPRISE_REF
-
-# Create tag on the enterprise repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Checkout theme repo
-cd themes && git checkout $THEME_REF
-
-# Create tag on the odoo repo
-git tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-cd ..
-
-# Pull docker image
-docker pull "$DOCKER_REF"
-IMAGE_ID=$(docker image inspect "$DOCKER_REF" --format "{{ .ID }}")
-
-# Tag the docker image
-docker tag ${IMAGE_ID:7:12} odoo:$ODOO_REVISION
+ODOO_REF=$ODOO_REF
+ODOO_ENTERPRISE_REF=$ENTERPRISE_REF
+ODOO_THEME_REF=$THEME_REF
+ODOO_DOCKER_REF=$DOCKER_REF
