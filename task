@@ -1168,7 +1168,11 @@ function update-module() {
     activate-venv
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
-    odoo -d "$DATABASE" -u "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    if [[ -n "$ODOO_PARAM" ]] ; then
+        odoo --database "$DATABASE" --update "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
+    else
+        odoo --database "$DATABASE" --update "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    fi
 }
 
 function translate-module() {
@@ -2052,6 +2056,9 @@ case "$1" in
     node-serve-build)
         cd .vuepress/dist
         npx serve
+        ;;
+    odoo-cloc)
+        odoo-cloc "$2"
         ;;
     odoo-checkin)
         odoo-checkin "$2"
