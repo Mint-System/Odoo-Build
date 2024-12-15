@@ -26,6 +26,7 @@
 | generate-module-model     | [path][model]        | Generate model files from templates.                                                       |
 | generate-module-snippet   | [path][ref]          | Generate view snippet from template.                                                       |
 | get-addons-path           |                      | Output addons path.                                                                        |
+| get-jsonrpc-session       | [env]                | Get user session token for Odoo env.                                                       |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
@@ -62,12 +63,15 @@
 | node-build                |                      | Create vuepress build.                                                                     |
 | node-serve-build          |                      | Serve vuepress build.                                                                      |
 | odoo-cloc                 | [db]                 | Count custom line of codes. Default is branch name.                                        |
+| odoo-checkin              | [env]                | Attendance checkin on target Odoo env.                                                     |
+| odoo-checkout             | [env]                | Attendance checkout on target Odoo env.                                                    |
 | patch-database            | [db][path]           | Apply sql file to database. Default database is branch name.                               |
 | publish                   |                      | Publish Odoo Docker image.                                                                 |
 | ps                        |                      | List docker processes.                                                                     |
 | pytest-module             | [db][name,path]      | Run module tests with pytest.                                                              |
 | release-module            | [path]               | Create GitHub release for a module.                                                        |
 | remove                    | [name]               | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.                |
+| remove-env                | [env]                | Remove environment config.                                                                 |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
 | reset-views               | [db][key]            | Execute hard reset on views matching keys.                                                 |
 | restart                   | [name]               | Restart docker container.                                                                  |
@@ -83,7 +87,10 @@
 | start-psql                | [db]                 | Start PSQL shell in Docker container. Default is branch name.                              |
 | start-shell               | [db]                 | Start Odoo shell from source folder. Default is branch name.                               |
 | stop                      | [name]               | Stop docker containers.                                                                    |
-| test-odoo-jsonrpc         | [env][model]         | Test json rpc connection.                                                                  |
+| template-odoo-rc          |                      | Template the Odoo config file.                                                             |
+| test-docker               |                      | Test docker environment.                                                                   |
+| test-jsonrpc              | [env][model]         | Test json rpc connection.                                                                  |
+| test-k8s                  |                      | Test Kubernetes environment.                                                               |
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | update-app-list           | [db]                 | Update app list.                                                                           |

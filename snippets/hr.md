@@ -165,6 +165,19 @@ ID: `mint_system.hr.view_employee_form.plan_permission`
 ```
 Source: [snippets/hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr.view_employee_form.plan_permission.xml)
 
+### Show Last Attendance  
+ID: `mint_system.hr.view_employee_form.show_last_attendance`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="hr.view_employee_form" priority="50">
+    <xpath expr="//field[@name='user_id']" position="after">
+        <field name="last_attendance_id" />
+    </xpath>
+</data>
+
+```
+Source: [snippets/hr.view_employee_form.show_last_attendance.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr.view_employee_form.show_last_attendance.xml)
+
 ### User Id Domain  
 ID: `mint_system.hr.view_employee_form.user_id_domain`  
 ```xml

@@ -93,6 +93,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-env" "[env]" "Output content of the env file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start docker container. Options: none, db, admin, odoo, native, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-kind" "" "Start kind Kubernetes cluster."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-minikube" "" "Start minikube Kubernetes cluster."
@@ -1750,6 +1751,21 @@ function list-revision() {
     ls scripts/odoo_revision_* | sed 's/scripts\/odoo_revision_//g'
 }
 
+function show-revision() {
+    if [ -n "$1" ]; then
+        ODOO_REVISION="$1"
+    fi
+    ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
+
+    echo "Load refs for revision: $ODOO_REVISION"
+    export $(cat "scripts/odoo_revision_$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+
+    echo "Odoo Ref: $ODOO_REF"
+    echo "Odoo Enterprise Ref: $ODOO_ENTERPRISE_REF"
+    echo "Odoo Themes Ref: $ODOO_THEME_REF"
+    echo "Odoo Docker Ref: $ODOO_DOCKER_REF"
+}
+
 function checkout-revision() {
     if [ -n "$1" ]; then
         ODOO_REVISION="$1"
@@ -1769,9 +1785,9 @@ function checkout-revision() {
     echo "Checkout and tag git repos ..."
     git -C odoo checkout $ODOO_REF
     git -C odoo tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-    git -C enterprise checkout $ENTERPRISE_REF
+    git -C enterprise checkout $ODOO_ENTERPRISE_REF
     git -C enterprise tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-    git -C themes checkout $THEME_REF
+    git -C themes checkout $ODOO_THEME_REF
     git -C themes tag -a $ODOO_REVISION -m "$ODOO_REVISION"
 
 
@@ -2122,6 +2138,9 @@ case "$1" in
         ;;
     set-addons-path)
         set-addons-path
+        ;;
+    show-revision)
+        show-revision "$2"
         ;;
     source)
         activate-venv

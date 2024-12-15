@@ -574,8 +574,8 @@ ID: `mint_system.base.view_partner_form.show_type`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-    <xpath expr="//field[@name='category_id']" position="after">
-        <field name="type"/>
+    <xpath expr="//field[@name='street']" position="before">
+        <field name="type" readonly="1"/>
     </xpath>
 </data>
 
