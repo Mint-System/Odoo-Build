@@ -26,6 +26,7 @@ export default defineUserConfig({
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
+            { text: 'Changelog', link: '/CHANGELOG' },
             { text: 'Mint System', link: 'https://www.mint-system.ch/odoo' }
         ],
         sidebar: {
@@ -53,6 +54,10 @@ export default defineUserConfig({
                         {
                             text: 'Modules',
                             link: '/modules',
+                        },
+                        {
+                            text: 'Changelog',
+                            link: '/CHANGELOG',
                         }
                     ],
                 },
@@ -75,7 +80,7 @@ export default defineUserConfig({
         }),
         shikiPlugin({
             theme: 'catppuccin-latte',
-            langs: ['bash', 'yml', 'yaml', 'json', 'css', 'html', 'xml', 'groovy', 'py', 'python', 'sql', 'powershell', 'txt', 'csv', 'mermaid', 'md', 'markdown', 'toml', 'php'],
+            langs: ['bash', 'yml', 'yaml', 'json', 'css', 'html', 'xml', 'groovy', 'py', 'python', 'sql', 'powershell', 'txt', 'csv', 'mermaid', 'md', 'markdown', 'toml', 'php', 'dockerfile'],
         }),
     ],
 })

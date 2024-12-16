@@ -358,7 +358,7 @@ Increase inotify watch limit.
 sudo vi /etc/sysctl.conf
 ```
 
-```conf
+```
 fs.inotify.max_user_watches=524288
 fs.inotify.max_user_instances=256
 ```

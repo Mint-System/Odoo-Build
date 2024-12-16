@@ -8,6 +8,7 @@ templates
 .git-checkout-files
 .git-reset-files
 .gitignore
+CHANGELOG.md
 docker-compose.yml
 logo.png
 odoo.conf.template
