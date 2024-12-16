@@ -34,9 +34,12 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-overview" "" "Update module overview doc file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-snippets-doc" "" "Update snippets doc file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-revisions-doc" "" "Update revisions doc file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Output addons path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-jsonrpc-session" "[env]" "Get user session token for Odoo env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
@@ -453,7 +456,10 @@ For each major release there are multiple revisions.\n" > "revisions.md"
             fi
 
             REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="#### [$REVISION]($PATH_URL/$FILE)"
+            REVISIONS[$VERSION]+="#### $REVISION"
+            REVISIONS[$VERSION]+=$'\n\n```bash\n'
+            REVISIONS[$VERSION]+=$(cat "$FILE")
+            REVISIONS[$VERSION]+=$'\n```'
         fi
     done
 
@@ -1978,6 +1984,12 @@ case "$1" in
         ;;
     generate-module-overview)
         generate-module-overview
+        ;;
+    generate-revisions-doc)
+        generate-revisions-doc
+        ;;    
+    generate-snippets-doc)
+        generate-snippets-doc
         ;;
     get-addons-path)
         get-addons-path
