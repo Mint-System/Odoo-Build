@@ -851,6 +851,9 @@ function k8s-apply() {
     kubectl apply -f k8s/odoo16-deploy.yaml
     kubectl apply -f k8s/odoo-svc.yaml
 
+    # debug
+    kubectl get pods
+
     ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
     POSTGRES_POD=$(kubectl get pods -o=name --all-namespaces | grep postgres)
 

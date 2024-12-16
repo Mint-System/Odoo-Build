@@ -344,6 +344,12 @@ While starting the native server this error is thrown:
 OSError: [Errno 24] inotify instance limit reached
 ```
 
+Or this error:
+
+```bash
+inotify.calls.InotifyError: Call failed (should not be -1): (-1) ERRNO=(0)
+```
+
 **Solution**
 
 Increase inotify watch limit.
