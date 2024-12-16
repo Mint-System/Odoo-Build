@@ -1,9 +1,16 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//div[@id='incoterm']" position="attributes">
-        <attribute name="class" separator=" " add="col-auto col-3 mw-100 mb-2"/>
+
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .mt-4 {
+            margin-top: 0rem !important;
+            }
+        </style>
     </xpath>
-    <xpath expr="//p[@id='date_order']" position="attributes">
-        <attribute name="t-options-widget">"date"</attribute>
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="class"/>
+        <attribute name="style">margin-top: 2rem</attribute>
     </xpath>
+    
 </data>

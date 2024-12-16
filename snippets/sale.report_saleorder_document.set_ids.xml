@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//div[@id='informations']//p[@t-field='doc.incoterm.code']/.." position="attributes">
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.incoterm.code']/.." position="attributes">
         <attribute name="id">incoterm</attribute>
     </xpath>
-    <xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.date_order']" position="attributes">
         <attribute name="id">date_order</attribute>
     </xpath>
     <xpath expr="//th[@name='th_description']" position="attributes">
