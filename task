@@ -42,6 +42,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-fetch" "" "Fetch all Odoo version branches."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Checkout submodule commits."
@@ -1590,6 +1591,14 @@ function lint-snippets() {
 
 # Git Commands
 
+function git-fetch() {
+    git fetch origin 14.0
+    git fetch origin 15.0
+    git fetch origin 16.0
+    git fetch origin 17.0
+    git fetch origin 18.0
+}
+
 function git-submodule-add() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
@@ -1976,6 +1985,9 @@ case "$1" in
         ;;
     get-module-version)
         get-module-version "$2"
+        ;;
+    git-fetch)
+        git-fetch
         ;;
     git-feature-branch)
         git-feature-branch "$2"
