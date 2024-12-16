@@ -858,6 +858,7 @@ function k8s-apply() {
     kubectl apply -f k8s/odoo-svc.yaml
 
     echo -e "\Get pods:"
+    sleep 3
     kubectl get pods
 
     ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
