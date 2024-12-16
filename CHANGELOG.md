@@ -18,7 +18,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * All functions in `task` have been sorted and grouped.
 * `checkout-revision` updates var in `.env` file.
-* Replaced [[Mailhog]] with [[Mailpit]].
+* Replaced Mailhog with Mailpit
 * Refactored Odoo revision scripts.
 
 ## 2024-11-27
