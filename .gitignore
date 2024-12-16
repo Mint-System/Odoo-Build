@@ -1,26 +1,41 @@
+# Build
+
 __pycache__
-.DS_Store
-.env
-tmp
-default.vim
-managed-modules
+*.pyc
 venv*
 node_modules
 .vercel
-.vscode
-*.log
-upgrade-report.html
 public
-*.pyc
 .temp
 .cache
 dist
+
+# File management
+
+.DS_Store
+
+# IDEs
+
+default.vim
+.vscode
+.idea
+.obsidian
+*.swp
+
+# Odoo
+
+*.log
+upgrade-report.html
 origin.dump
-filestore
 upgraded.dump
 thirdparty/*
 !thirdparty/.gitkeep
-.idea/
-.obsidian
-*.swp
+.env
+tmp
 odoo.conf
+
+# Deprecated repos
+
+addons/certificate_planer
+addons/company
+addons/theme_mint_system

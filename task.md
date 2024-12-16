@@ -30,6 +30,7 @@
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
+| git-fetch                 |                      | Fetch all Odoo version branches.                                                           |
 | git-mig-branch            | [path]               | Create migration branch for Odoo module.                                                   |
 | git-submodule-add         | [url] [path]         | Add git submodule.                                                                         |
 | git-submodule-checkout    |                      | Checkout submodule commits.                                                                |
@@ -81,6 +82,7 @@
 | set-addons-path           |                      | Set Odoo addons path env variable.                                                         |
 | source                    |                      | Source the Python virtual env.                                                             |
 | show-env                  | [env]                | Output content of the env file.                                                            |
+| show-revision             | [revision]           | Show references of Odoo revision.                                                          |
 | start                     | [name][db]           | Start docker container. Options: none, db, admin, odoo, native, mail.                      |
 | start-kind                |                      | Start kind Kubernetes cluster.                                                             |
 | start-minikube            |                      | Start minikube Kubernetes cluster.                                                         |
