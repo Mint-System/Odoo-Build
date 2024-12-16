@@ -846,18 +846,19 @@ function k8s-apply() {
     kubectl apply -f k8s/postgres-deploy.yaml
     kubectl apply -f k8s/postgres-svc.yaml
 
-    echo "Deploy Odoo:"
+    echo -e "\nDeploy Odoo:"
     kubectl apply -f k8s/odoo-cm.yaml
     kubectl apply -f k8s/odoo16-deploy.yaml
     kubectl apply -f k8s/odoo-svc.yaml
 
-    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo | sed 's/pod\///')
-    POSTGRES_POD=$(kubectl get pods -o=name --all-namespaces | grep postgres | sed 's/pod\///')
+    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
+    POSTGRES_POD=$(kubectl get pods -o=name --all-namespaces | grep postgres)
 
+    echo -e "\nWait for $ODOO_POD and $POSTGRES_POD pods to be ready:"
     kubectl wait --for=condition=Ready "$ODOO_POD"
     kubectl wait --for=condition=Ready "$POSTGRES_POD"
   
-    echo "Init Odoo database in $ODOO_POD pod:"
+    echo -e "\nInit Odoo database in $ODOO_POD pod:"
     kubectl exec "$ODOO_POD" -- env
     kubectl exec "$ODOO_POD" -- /bin/bash -c "odoo -d odoo -i web --db_host \$HOST -r\$USER -w\$PASSWORD --stop-after-init --no-http"
 }
