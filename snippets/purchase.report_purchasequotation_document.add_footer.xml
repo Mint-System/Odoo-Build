@@ -1,11 +1,11 @@
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="//div[@class='oe_structure']/.." position="after">
     <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        margin-top: 25px;
         border-color: white;
       }
       table#footer tr, td {
@@ -14,16 +14,18 @@
     </style>
     <table id="footer">
       <tr>
-        <td width="40%" t-if="o.payment_term_id">
+        <td width="40%" t-if="o.payment_term_id.note">
           <span>Zahlungsbedingungen </span>
           <span t-field="o.payment_term_id"/>
         </td>
         <td width="60%">
-          Lieferung gemäss unseren allgemeinen Einkaufsbedingungen
+          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
+         
         </td>
       </tr>
       <tr>
-        <td>MWST-Nr: 
+        <td>
+          <span>MWST-Nr: </span>
           <span t-field="o.company_id.vat"/>
         </td>
       </tr>

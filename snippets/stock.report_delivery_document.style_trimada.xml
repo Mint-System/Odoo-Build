@@ -2,6 +2,9 @@
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
+		  .o_company_1_layout {
+        font-family: arial;
+      }
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -47,6 +50,12 @@
 			}
 			table.trimada tbody span#open_qty {
 			  font-weight: bold;
+			}
+			address div {
+			  line-height: 1.2;
+			}
+			.d-flex span {
+			  line-height: 1.2;
 			}
 			.subtitel {
 				font-size: 11pt;

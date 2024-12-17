@@ -1,71 +1,75 @@
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
     table#info {
       width: 100%;
       margin-bottom: 25px;
       font-size: 9pt;
       border-color: white;
     }
+    table#info span {
+       line-height: 1.2;
+    }
     table#info tr {
       line-height: 1.2;
       text-align: left;
-      border-color: white;
     }
     .note {
       font-size: 9pt;
     }
     </style>
-        <table id="info">
-            <tr>
-                <td/>
-                <td/>
-                <td>Order No.</td>
-                <td>
-                    <span t-field="o.invoice_origin"/>
-                </td>
-            </tr>
-            <tr>
-                <td width="17%">Invoice date</td>
-                <td width="44%">
-                    <span t-field="o.invoice_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td width="14%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>Delivery Method</td>
-                <td>
-                    <span t-field="o.carrier_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Order</td>
-                <td>
-                    <span t-field="o.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.invoice_incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td>Delivery Date</td>
-                <td>
-                    <span t-field="o.x_date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
+    <table id="info">
+      <tr>
+        <td/>
+        <td/>
+        <td>Order No.</td>
+        <td>
+          <span t-field="o.invoice_origin"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="17%">Invoice date</td>
+        <td width="41%">
+          <span t-field="o.invoice_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="17%">Our Reference</td>
+        <td width="25%">
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td>Delivery Method</td>
+        <td>
+          <span t-field="o.carrier_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Order</td>
+        <td>
+          <span t-field="o.ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.invoice_incoterm_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+           <span t-field="o.comment"/>
+        </td>
+        
+        <td>Delivery Date</td>
+        <td>
+          <span t-field="o.x_date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+    
+      </tr>
+    </table>
+  </xpath>
 </data>

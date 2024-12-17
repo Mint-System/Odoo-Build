@@ -1,7 +1,10 @@
 <data inherit_id="account.report_invoice_document" priority="60">
 
 	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+		<style>		  
+		  	.o_company_1_layout {
+        		font-family: arial;
+      		}  		  
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -53,9 +56,15 @@
 			table.trimada tbody span#open_qty {
 			  font-weight: bold;
 			}
+			address {
+			  line-height: 1.2;
+			}
+			.mb-0 span {
+			  line-height: 1.2;
+			}
 			.address {
 			  font-size: 10pt;
-			  line-height: 1.2;
+			  line-height: 1.2 !important;
 			  padding-bottom:33mm;
 			}
 			.subtitel {

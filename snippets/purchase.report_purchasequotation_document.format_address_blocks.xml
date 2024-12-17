@@ -7,8 +7,8 @@
 
     <xpath expr="//div/div/div[1]" position="after">
         <t t-set="information_block">
-            <strong style="font-size:10pt;">Shipping address:</strong>
-            <div style="font-size:10pt;" t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+            <div style="font-weight: bold; font-size:8pt; padding-bottom: 5px">Shipping address:</div>
+            <div style="font-size:10pt; line-height: 1.2">
                 <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
             </div>
         </t>

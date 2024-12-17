@@ -13,6 +13,9 @@
         line-height: 1.2;
         text-align: left;
       }
+       table#info span {
+       line-height: 1.2;
+      }
         .note {
         font-size: 9pt;
       }

@@ -49,6 +49,12 @@
 			table.trimada tbody td span#product_uom_qty_confirmed {
 			  font-weight: bold;
 			}
+			address {
+			  line-height: 1.2;
+			}
+			.mb-0 span {
+			  line-height: 1.2;
+			}
 			.subtitel {
 				font-size: 11pt;
 				font-family: arial;
