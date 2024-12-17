@@ -866,6 +866,7 @@ function k8s-apply() {
 
     echo -e "\nWait for $ODOO_POD and $POSTGRES_POD pods to be running:"
     kubectl wait --for=condition=Ready "$ODOO_POD" "$POSTGRES_POD" --timeout=60s
+    sleep 3
 
     echo -e "\nInit Odoo database in $ODOO_POD pod:"
     kubectl exec "$ODOO_POD" -- env
