@@ -112,6 +112,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-docs" "" "Update project docs."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-readme" "[path]" "Update Readme file of Odoo module collection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet xml definition."
@@ -1169,6 +1170,15 @@ function init-module() {
     set-addons-path
     echo "Initialize module $MODULES on $DATABASE ..."
     odoo -d "$DATABASE" -i "$MODULES" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+}
+
+function upgrade-module() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    activate-venv
+    echo "Upgrade code of module $1 from $2 ..."
+    odoo upgrade_code --addons-path "$1" --from "$2"
 }
 
 function update-module() {
@@ -2230,6 +2240,9 @@ case "$1" in
         ;;
     update-docs)
         update-docs
+        ;;
+    upgrade-module)
+        upgrade-module "$2" "$3"
         ;;
     update-module)
         update-module "$2" "$3"
