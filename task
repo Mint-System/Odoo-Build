@@ -511,14 +511,15 @@ function get-module-version() {
         echo "\$1 is empty."
     else
         # Get version of module
-        VERSION=$(grep -m 1 version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
+        VERSION=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
+        
         # Set default version
         [ -z "$VERSION" ] && VERSION=0.0
 
         COUNT_DOTS=$(echo "$VERSION" | grep -o "\." | wc -l)
 
-        # check if oca version or enterprise version
+        # Check if oca version or enterprise version
         if [[ $COUNT_DOTS == 2 ]]; then
             VERSION="$GIT_BRANCH.$VERSION"
         fi
