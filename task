@@ -1,5 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
+set -e
 
 function help-table() {
     # Define column widths
@@ -624,7 +625,7 @@ function upgrade-odoo() {
     DATABASE="$1"
     ODOO_TARGET_VERSION="$2"
     MODE="test"
-    if [ -n "$3" ]; then
+    if [ -z "$3" ]; then
         # Options: test, production
         MODE="$2"
     fi
@@ -632,11 +633,10 @@ function upgrade-odoo() {
 
     echo "Execute Odoo upgrade script in $MODE mode for $DATABASE with version $ODOO_TARGET_VERSION."
     echo "The database will be restored as $NEW_DATABASE."
-    alias odoo-upgrade="python <(curl -s https://upgrade.odoo.com/upgrade)"
     export PGHOST=localhost
     export PGUSER=odoo
     export PGPASSWORD=odoo
-    odoo-upgrade "$MODE" -d "$DATABASE" -t "$ODOO_TARGET_VERSION" -r "$NEW_DATABASE"
+    python <(curl -s https://upgrade.odoo.com/upgrade) "$MODE" -d "$DATABASE" -t "$ODOO_TARGET_VERSION" -r "$NEW_DATABASE"
     echo "Upgrade finished successfully."
 }
 
