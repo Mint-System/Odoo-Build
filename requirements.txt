@@ -11,3 +11,4 @@ docutils==0.21.2
 setuptools
 wheel
 watchdog
+pdfminer.six

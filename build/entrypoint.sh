@@ -91,7 +91,10 @@ set_odoo_config_env() {
         ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
         
         # Set parent folder of module paths as new addons path
-        ODOO_ADDONS_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+        ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+    
+        # Append module paths to addons path
+        ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ODOO_MODULE_PATH"
     fi
 
     : "${LOG_LEVEL:=info}"
