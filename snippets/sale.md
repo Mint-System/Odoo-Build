@@ -1216,6 +1216,9 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
         line-height: 1.2;
         text-align: left;
       }
+       table#info span {
+       line-height: 1.2;
+      }
         .note {
         font-size: 9pt;
       }
@@ -1274,7 +1277,6 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_infotable.xml)
 
@@ -1413,6 +1415,22 @@ ID: `mint_system.sale.report_saleorder_document.add_partner_contact_id`
 ```
 Source: [snippets/sale.report_saleorder_document.add_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_partner_contact_id.xml)
 
+### Add Partner Sale Id  
+ID: `mint_system.sale.report_saleorder_document.add_partner_sale_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.client_order_ref']/.." position="after">
+        <div t-if="doc.partner_sale_id.name and doc.partner_sale_id.parent_id" class="col-auto col-3 mw-100 mb-2">
+            <strong>Contact</strong>
+            <p t-field="doc.partner_sale_id.name"/>
+        </div>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_partner_sale_id.xml)
+
 ### Add Percentage Sign  
 ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`  
 ```xml
@@ -1468,7 +1486,6 @@ Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://
 ### Address Block  
 ID: `mint_system.sale.report_saleorder_document.address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <style>
       .address {
@@ -1480,6 +1497,7 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
       .title {
         font-size: 8pt;
         font-weight: bold;
+        padding-bottom: 3px;
       }
       .margin {
         padding-bottom: 33mm;
@@ -1518,7 +1536,6 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
         </t>
     </xpath>
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.address_block.xml)
 
@@ -1649,16 +1666,22 @@ Source: [snippets/sale.report_saleorder_document.add_weight.xml](https://github.
 ### Append Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="/t/t/div/div[6]" position="after">
-        <div class="row">
-            <div class="col">
-                <strong>Zahlungsbedingungen: </strong>
-                <span t-field="doc.payment_term_id.name"/>
-            </div>
-        </div>
-    </xpath>
+<data inherit_id="sale.report_saleorder_document">
+
+<xpath expr="//div/span[@t-field='doc.note']/.." position="before">
+    <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+      <div class="col">
+         <strong>Zahlungsbedingungen: </strong>
+         <t t-if="doc.x_payment_term_blanket_order">
+           <span t-field="doc.x_payment_term_blanket_order"/>
+         </t>
+         <t t-if="not doc.x_payment_term_blanket_order">
+           <span t-field="doc.payment_term_id.name"/>
+         </t>
+      </div>
+    </div>
+</xpath>
+
 </data>
 
 ```
@@ -2917,10 +2940,10 @@ ID: `mint_system.sale.report_saleorder_document.set_ids`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//div[@id='informations']//p[@t-field='doc.incoterm.code']/.." position="attributes">
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.incoterm.code']/.." position="attributes">
         <attribute name="id">incoterm</attribute>
     </xpath>
-    <xpath expr="//div[@id='informations']//p[@t-field='doc.date_order']" position="attributes">
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.date_order']" position="attributes">
         <attribute name="id">date_order</attribute>
     </xpath>
     <xpath expr="//th[@name='th_description']" position="attributes">
@@ -3140,16 +3163,22 @@ Source: [snippets/sale.report_saleorder_document.style_carbo_link.xml](https://g
 ### Style Gelso  
 ID: `mint_system.sale.report_saleorder_document.style_gelso`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//div[@id='incoterm']" position="attributes">
-        <attribute name="class" separator=" " add="col-auto col-3 mw-100 mb-2"/>
-    </xpath>
-    <xpath expr="//p[@id='date_order']" position="attributes">
-        <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
-</data>
 
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .mt-4 {
+            margin-top: 0rem !important;
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="class"/>
+        <attribute name="style">margin-top: 2rem</attribute>
+    </xpath>
+    
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_gelso.xml)
 
@@ -3406,6 +3435,12 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 			}
 			table.trimada tbody td span#product_uom_qty_confirmed {
 			  font-weight: bold;
+			}
+			address {
+			  line-height: 1.2;
+			}
+			.mb-0 span {
+			  line-height: 1.2;
 			}
 			.subtitel {
 				font-size: 11pt;

@@ -7,6 +7,7 @@
 | checkout-config-files     | [branch]             | Checkout config files from another branch.                                                 |
 | checkout-revision         | [revision]           | Run Odoo revision script or checkout revision set by env var.                              |
 | clear-assets              | [db]                 | Clear all assets of Odoo database.                                                         |
+| clear-views               | [db]                 | Clear all views of Odoo database.                                                          |
 | clear-filestore           | [db]                 | Clear local filestore folder. No param will clear all filestores. Default is branch name.  |
 | convert-database          | [db]                 | Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name.        |
 | create-module             | [path]               | Create new Odoo module from template.                                                      |
@@ -39,10 +40,10 @@
 | git-submodule-checkout    |                      | Checkout submodule commits.                                                                |
 | git-submodule-list        |                      | List path and url of submodules.                                                           |
 | git-submodule-init        |                      | Init submodules listed in the .gitmodules file.                                            |
-| git-submodule-pull        |                      | Pull all submodules.                                                                       |
-| git-submodule-remove      | [path]               | Remove git submodule.                                                                      |
+| git-submodule-pull        |                      | Pull all submodules listed in the .gitmodules file.                                        |
+| git-submodule-remove      | [path]               | Remove a git submodule.                                                                    |
 | git-submodule-delete      |                      | Delete all submodule folders.                                                              |
-| git-submodule-switch      | [branch]             | Switch branch for all submodules.                                                          |
+| git-submodule-switch      | [branch]             | Switch branch for all submodules listed in the .gitmodules file.                           |
 | git-submodule-sync        |                      | Switch, stash and pull all submodules.                                                     |
 | import-csv                | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.                           |
 | info                      |                      | Show values of project env vars.                                                           |
@@ -100,6 +101,8 @@
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | update-app-list           | [db]                 | Update app list.                                                                           |
 | update-docs               |                      | Update project docs.                                                                       |
+| upgrade-module            | [path][version]      | Upgrade code of module from target Odoo version.                                           |
+| upgrade-odoo              | [db][version][mode]  | Run the Odoo upgrade scripts. Default mode ist 'test'.                                     |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |
 | update-readme             | [path]               | Update Readme file of Odoo module collection.                                              |
 | update-snippet            | [env][path]          | Update snippet xml definition.                                                             |

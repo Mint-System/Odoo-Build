@@ -1258,7 +1258,6 @@ Source: [snippets/stock.report_delivery_document.add_incoterms.xml](https://gith
 ### Add Infotable  
 ID: `mint_system.stock.report_delivery_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
   <xpath expr="//h2" position="after">
@@ -1266,6 +1265,9 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
       .info_table tbody tr td:first-of-type {
       text-align: left;
       width: 5mm;
+     }
+     table#infotable span {
+       line-height: 1.2;
      }
       .note {
         font-size: 9pt;
@@ -3071,6 +3073,9 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
+		  .o_company_1_layout {
+        font-family: arial;
+      }
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -3117,6 +3122,12 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 			table.trimada tbody span#open_qty {
 			  font-weight: bold;
 			}
+			address div {
+			  line-height: 1.2;
+			}
+			.d-flex span {
+			  line-height: 1.2;
+			}
 			.subtitel {
 				font-size: 11pt;
 				font-family: arial;
@@ -3141,7 +3152,6 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 	</table>
 
 </data>
-
 ```
 Source: [snippets/stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.style_trimada.xml)
 

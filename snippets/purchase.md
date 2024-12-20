@@ -551,7 +551,6 @@ Source: [snippets/purchase.report_purchaseorder_document.add_footer.xml](https:/
 ### Add Infotable  
 ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="//div[@id='informations']" position="before">
@@ -566,6 +565,9 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
      table#info tr {
       line-height: 1.2;
       text-align: left;
+    }
+     table#info span {
+      line-height: 1.2;
     }
     .note {
       font-size: 9pt;
@@ -675,18 +677,18 @@ Source: [snippets/purchase.report_purchaseorder_document.append_incoterm.xml](ht
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="/t/t/div/div[4]" position="after">
-        <div class="row">
-            <div class="col">
-                <t t-if="o.payment_term_id" name="payment_term">
-                    <strong>Payment Terms: </strong>
-                    <span t-field="o.payment_term_id.name"/>
-                </t>
-            </div>
-        </div>
-    </xpath>
+<data inherit_id="purchase.report_purchaseorder_document">
+
+<xpath expr="//div[@id='total']" position="after">
+    <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+      <div class="col">
+        <t t-if="o.payment_term_id" name="payment_term">
+            <strong>Payment Terms: </strong><span t-field="o.payment_term_id.name"/>
+        </t>
+      </div>
+    </div>
+  </xpath>
+  
 </data>
 
 ```
@@ -713,21 +715,25 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_address_blocks`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//t[@t-set='address']/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
-    </xpath>
-    <xpath expr="/t/t/t[4]/t/strong" position="replace">
-        <div style="font-size:8pt; font-weight:bold">Shipping address:</div>
-    </xpath>
-    <xpath expr="/t/t/t[4]/t/div/span" position="replace">
-  </xpath>
-    <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
-    </xpath>
-</data>
 
+  <xpath expr="//t[@t-set='address']/div" position="attributes">
+    <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/strong" position="replace">
+    <div style="font-size:8pt; font-weight:bold; padding-bottom: 5px">Shipping address:</div>
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/div/span" position="replace">
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
+    <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+
+</data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_address_blocks.xml)
 
@@ -797,16 +803,18 @@ Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https:/
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
 
-  <xpath expr="//h2[1]" position="attributes">
-    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  <xpath expr="//div/h2[1]" position="attributes">
+    <attribute name="style">color: black; margin-top: 2rem</attribute>
   </xpath>
-  <xpath expr="//h2[2]" position="attributes">
-    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  
+  <xpath expr="//div/h2[2]" position="attributes">
+    <attribute name="style">color: black; margin-top: 2rem</attribute>
   </xpath>
-  <xpath expr="//h2[3]" position="attributes">
-    <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+  
+  <xpath expr="//div/h2[3]" position="attributes">
+    <attribute name="style">color: black; margin-top: 2rem</attribute>
   </xpath>
 
 </data>
@@ -1336,13 +1344,13 @@ Source: [snippets/purchase.report_purchaseorder_document.replace_product_descrip
 ### Replace Representative  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="replace">
-        <span t-field="o.user_id.email"/>
-    </xpath>
-</data>
+<data inherit_id="purchase.report_purchaseorder_document">
 
+  <xpath expr="//div[@id='informations']//p[@t-field='o.user_id']" position="replace">
+    <p t-field="o.user_id.email"/>
+  </xpath>
+
+</data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_representative.xml)
 
@@ -1616,6 +1624,24 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_tissa.xml)
 
+### Style Trimada  
+ID: `mint_system.purchase.report_purchaseorder_document.style_trimada`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+		.o_company_1_layout {
+  			font-family: arial;
+		}			
+		</style>
+	</xpath>
+
+	
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_trimada.xml)
+
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`  
 ```xml
@@ -1691,14 +1717,14 @@ Source: [snippets/purchase.report_purchasequotation_document.add_default_code.xm
 ### Add Footer  
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
 ```xml
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
   <xpath expr="//div[@class='oe_structure']/.." position="after">
     <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        margin-top: 25px;
         border-color: white;
       }
       table#footer tr, td {
@@ -1707,16 +1733,18 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
     </style>
     <table id="footer">
       <tr>
-        <td width="40%" t-if="o.payment_term_id">
+        <td width="40%" t-if="o.payment_term_id.note">
           <span>Zahlungsbedingungen </span>
           <span t-field="o.payment_term_id"/>
         </td>
         <td width="60%">
-          Lieferung gemäss unseren allgemeinen Einkaufsbedingungen
+          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
+         
         </td>
       </tr>
       <tr>
-        <td>MWST-Nr: 
+        <td>
+          <span>MWST-Nr: </span>
           <span t-field="o.company_id.vat"/>
         </td>
       </tr>
@@ -1727,10 +1755,41 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_footer.xml)
 
+### Add Infoblock  
+ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+ <xpath expr="//div[@id='informations']" position="replace">
+ 
+    <div id="informations" class="row mt32 mb32">
+        <div t-if="o.user_id" class="col-3 bm-2">
+            <strong>Ansprechperson Einkauf</strong>
+            <p t-field="o.user_id.email" class="m-0"/>
+        </div>
+        <div t-if="o.partner_ref" class="col-3 bm-2">
+            <strong>Ihre Referenz</strong>
+            <p t-field="o.partner_ref" class="m-0"/>
+        </div>
+        <div t-if="o.date_order" class="col-3 bm-2">
+            <strong>Frist für Angebotsabgabe</strong>
+            <p t-field="o.date_order" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </div>
+        <div t-if="o.incoterm_id" class="col-3 bm-2">
+            <strong>Incoterm</strong>
+            <p t-field="o.incoterm_id.code" class="m-0"/>
+        </div> 
+    </div>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.add_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_infoblock.xml)
+
 ### Add Infotable  
 ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
   <xpath expr="//h2" position="after">
@@ -1745,6 +1804,9 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
         table#info tr {
         line-height: 1.2;
         text-align: left;
+      }
+      table#info span {
+        line-height: 1.2;
       }
         .note {
         font-size: 9pt;
@@ -1839,15 +1901,14 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_address_block
 
     <xpath expr="//div/div/div[1]" position="after">
         <t t-set="information_block">
-            <strong style="font-size:10pt;">Shipping address:</strong>
-            <div style="font-size:10pt;" t-if="o.picking_type_id and o.picking_type_id.warehouse_id">
+            <div style="font-weight: bold; font-size:8pt; padding-bottom: 5px">Shipping address:</div>
+            <div style="font-size:10pt; line-height: 1.2">
                 <div t-field="o.picking_type_id.warehouse_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
             </div>
         </t>
     </xpath>
 
 </data>
-
 ```
 Source: [snippets/purchase.report_purchasequotation_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_address_blocks.xml)
 
@@ -2290,80 +2351,15 @@ Source: [snippets/purchase.report_purchasequotation_document.style_moser.xml](ht
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-            table.trimada {
-                font-size: 9pt;
-                font-family: arial;
-                color: black;
-            }
-            table.trimada tr.first td {
-                padding-bottom: 0;
-            }
-            table.trimada tr.second td {
-                padding-top: 0;
-            }
-            table.trimada tr.second {
-                border-bottom: 1px solid rgb(220,220,220);
-            }
-            table.trimada thead tr {
-                border-top:solid 1px;
-                border-bottom: solid 1px;
-            }
-            table.trimada thead th#position {
-                width: 5mm;
-            }
-            table.trimada thead th#default_code {
-              width: 27mm;
-              text-align: right;
-            }
-            table.trimada thead th#open_quantity {
-              width: 30mm;
-              text-align: right;
-            }
-            table.trimada thead th#quantity {
-              width: 25mm;
-              text-align: right !important;
-            }
-            table.trimada tbody td#position {
-              text-align: right;
-            }
-            table.trimada tbody td#default_code {
-              text-align: right;
-            }
-            table.trimada tbody td#open_quantity {
-              text-align: right !important;
-            }
-            table.trimada tbody td#quantity {
-              text-align: right;
-            }            
-            table.trimada tbody span#qty {
-              font-weight: bold;
-            }
-            table.trimada tbody span#open_qty {
-              font-weight: bold;
-            }
-            .subtitel {
-                font-size: 11pt;
-                font-family: arial;
-                margin-top: 10mm;
-            }
-            .note {
-                font-size: 9pt;
-                font-family: arial;
-            }
-        </style>
-    </xpath>
-    <xpath expr="//table[2]" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
-    <xpath expr="//div[@name='information_block']" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </xpath>
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+    .o_company_1_layout {
+      font-family: arial;
+    }
+    </style>
+  </xpath>
 </data>
-
 ```
 Source: [snippets/purchase.report_purchasequotation_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_trimada.xml)
 

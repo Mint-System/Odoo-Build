@@ -284,7 +284,19 @@ ID: `mint_system.account.report_invoice_document.add_iban`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
+
+    <!-- Odoo 17.0 -->
+    <xpath expr="//span[@id='payment_terms_note_id']/.." position="after">
+        <div class="row">
+            <div class="col">
+                <span>IBAN: </span>
+                <span t-field="o.partner_bank_id.acc_number"/>
+            </div>
+        </div>
+    </xpath>
+
     <!-- Odoo 14.0 -->
+    <!--
     <xpath expr="/t/t/div/p[2]" position="before">
         <t t-if="not o.partner_bank_id._eligible_for_qr_code('ch_qr', o.partner_id, o.currency_id)">
             <p>
@@ -299,7 +311,7 @@ ID: `mint_system.account.report_invoice_document.add_iban`
                 </b>
             </p>
         </t>
-    </xpath>
+    </xpath> -->
     <!-- Odoo 13.0 -->
     <!-- <xpath expr="/t/t/div/p[2]" position="after">
       <div class="row">
@@ -308,8 +320,8 @@ ID: `mint_system.account.report_invoice_document.add_iban`
           <span t-field="o.invoice_partner_bank_id.acc_number"/>
       </div>
       </div>
-  </xpath>
-  <xpath expr="/t/t/div/div[3]" position="after">
+    </xpath>
+    <xpath expr="/t/t/div/div[3]" position="after">
       <div class="row">
       <div class="col">
           <span>Bank/BIC: </span>
@@ -318,7 +330,7 @@ ID: `mint_system.account.report_invoice_document.add_iban`
           <br/>
       </div>
       </div>
-  </xpath> -->
+    </xpath> -->
 </data>
 
 ```
@@ -1660,25 +1672,37 @@ Source: [snippets/account.report_invoice_document.replace_address_and_informatio
 ### Replace Address  
 ID: `mint_system.account.report_invoice_document.replace_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@t-field='o.partner_id']" position="replace">
-        <t t-if="o.partner_invoice_id.is_company == true">
-            <div t-esc="o.partner_invoice_id.name"/>
-            <div t-esc="o.partner_invoice_id.street"/>
-            <div t-esc="o.partner_invoice_id.street2"/>
-            <span t-esc="o.partner_invoice_id.zip"/>
-            <span t-esc="o.partner_invoice_id.city"/>
-            <t t-if="o.partner_invoice_id.country_id.code != 'CH'">
-                <div t-esc="oo.partner_invoice_id.country_id.name"/>
-            </t>
-        </t>
-        <t t-else="">
-            <div t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-        </t>
-    </xpath>
-</data>
 
+    <xpath expr="//t[@t-set='information_block']/.." position="replace">
+        <div class="col-6">
+            <t t-set="information_block">
+                <div groups="account.group_delivery_invoice_address" name="shipping_address_block">
+                    <div style="font-weight: bold; font-size: 8pt; padding-bottom: 5px">Shipping Address:</div>
+                    <div t-field="o.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                </div>
+            </t>
+        </div>
+    </xpath>
+
+    <xpath expr="//div[@name='address_not_same_as_shipping']" position="replace">
+        <div class="col-6" name="address_not_same_as_shipping">
+            <t t-set="address">
+                <address class="mb-0" t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+            </t>
+        </div>
+    </xpath>
+
+    <xpath expr="//div[@name='address_same_as_shipping']" position="replace">
+        <div class="offset-col-6 col-6" name="address_same_as_shipping">
+            <t t-set="address">
+                <address class="mb-0" t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+
+            </t>
+        </div>
+    </xpath>
+
+</data>
 ```
 Source: [snippets/account.report_invoice_document.replace_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.replace_address.xml)
 
@@ -1983,78 +2007,81 @@ Source: [snippets/account.report_invoice_document.replace_information_table.xml]
 ### Replace Infotable  
 ID: `mint_system.account.report_invoice_document.replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
     table#info {
       width: 100%;
       margin-bottom: 25px;
       font-size: 9pt;
       border-color: white;
     }
+    table#info span {
+       line-height: 1.2;
+    }
     table#info tr {
       line-height: 1.2;
       text-align: left;
-      border-color: white;
     }
     .note {
       font-size: 9pt;
     }
     </style>
-        <table id="info">
-            <tr>
-                <td/>
-                <td/>
-                <td>Order No.</td>
-                <td>
-                    <span t-field="o.invoice_origin"/>
-                </td>
-            </tr>
-            <tr>
-                <td width="17%">Invoice date</td>
-                <td width="44%">
-                    <span t-field="o.invoice_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-                <td width="14%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>Delivery Method</td>
-                <td>
-                    <span t-field="o.carrier_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Order</td>
-                <td>
-                    <span t-field="o.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.invoice_incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td>Delivery Date</td>
-                <td>
-                    <span t-field="o.x_date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
+    <table id="info">
+      <tr>
+        <td/>
+        <td/>
+        <td>Order No.</td>
+        <td>
+          <span t-field="o.invoice_origin"/>
+        </td>
+      </tr>
+      <tr>
+        <td width="17%">Invoice date</td>
+        <td width="41%">
+          <span t-field="o.invoice_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+        <td width="17%">Our Reference</td>
+        <td width="25%">
+          <span t-field="o.user_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Customer No.</td>
+        <td>
+          <span t-field="o.partner_id.ref"/>
+        </td>
+        <td>Delivery Method</td>
+        <td>
+          <span t-field="o.carrier_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Order</td>
+        <td>
+          <span t-field="o.ref"/>
+        </td>
+        <td>Incoterm</td>
+        <td>
+          <span t-field="o.invoice_incoterm_id"/>
+        </td>
+      </tr>
+      <tr>
+        <td>Reference</td>
+        <td>
+           <span t-field="o.comment"/>
+        </td>
+        
+        <td>Delivery Date</td>
+        <td>
+          <span t-field="o.x_date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+        </td>
+    
+      </tr>
+    </table>
+  </xpath>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.replace_infotable.xml)
 
@@ -2830,7 +2857,10 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 <data inherit_id="account.report_invoice_document" priority="60">
 
 	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+		<style>		  
+		  	.o_company_1_layout {
+        		font-family: arial;
+      		}  		  
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -2882,9 +2912,15 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 			table.trimada tbody span#open_qty {
 			  font-weight: bold;
 			}
+			address {
+			  line-height: 1.2;
+			}
+			.mb-0 span {
+			  line-height: 1.2;
+			}
 			.address {
 			  font-size: 10pt;
-			  line-height: 1.2;
+			  line-height: 1.2 !important;
 			  padding-bottom:33mm;
 			}
 			.subtitel {

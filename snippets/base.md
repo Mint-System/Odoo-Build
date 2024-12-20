@@ -305,6 +305,19 @@ ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 ```
 Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_company_form.show_analytic_plan_id.xml)
 
+### Show Font  
+ID: `mint_system.base.view_company_form.show_font`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="base.view_company_form" priority="50">
+    <field name="favicon" position="after">
+        <field name="font"/>
+    </field>
+</data>
+
+```
+Source: [snippets/base.view_company_form.show_font.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_company_form.show_font.xml)
+
 ## View Country Tree  
 ### Set Limit  
 ID: `mint_system.base.view_country_tree.set_limit`  
