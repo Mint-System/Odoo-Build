@@ -16,5 +16,6 @@ package.json
 package-lock.json
 README.md
 requirements.txt
+servers.json
 task
 task.md
