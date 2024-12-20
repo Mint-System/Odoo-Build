@@ -1841,7 +1841,7 @@ function show-revision() {
     ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 
     echo "Load refs for revision: $ODOO_REVISION"
-    export $(cat "scripts/odoo_revision_$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+    source "scripts/odoo_revision_$ODOO_REVISION"
 
     echo "Odoo Ref: $ODOO_REF"
     echo "Odoo Enterprise Ref: $ODOO_ENTERPRISE_REF"
@@ -1897,8 +1897,8 @@ function create-revision() {
 
     # Get git commit by date
     cd odoo
-    ODOO_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
-    git checkout "$ODOO_REF"
+    REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
+    git checkout "$REF"
     cd ..
     cd enterprise
     ENTERPRISE_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
@@ -1910,8 +1910,8 @@ function create-revision() {
     cd ..
 
     echo "Create revision: $REVISION"
-    export REVISION ODOO_REF ENTERPRISE_REF THEME_REF DOCKER_REF
-    envsubst '$REVISION $ODOO_REF $ENTERPRISE_REF $THEME_REF $DOCKER_REF' < templates/odoo_revision > scripts/odoo_revision_"$REVISION"
+    export REVISION REF ENTERPRISE_REF THEME_REF DOCKER_REF
+    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF $DOCKER_REF' < templates/odoo_revision > scripts/odoo_revision_"$REVISION"
     chmod +x scripts/odoo_revision_"$REVISION"
 
     echo "Checkout revision: $REVISION"
