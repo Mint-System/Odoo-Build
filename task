@@ -1,6 +1,7 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
-set -e
+# Commands such as git pull return exit code if there are not changes
+# set -e
 
 function help-table() {
     # Define column widths
