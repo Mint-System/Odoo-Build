@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Undefined
+
+### Added
+
+* Run the Odoo upgrade script with `upgrade-odoo`.
+* Upgrade module code with `upgrade-module`.
+
 ## 2024-12-16
 
 ### Added
