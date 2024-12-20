@@ -7,21 +7,22 @@ Odoo Build
 
 This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
-This projects provides a highly opinionated way to develop Odoo modules. It features:
+This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
 * **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
 * **Docker Compose**: Spin up a Odoo, Postgres and pgAdmin Docker container and experiment locally.
 * **Native**: Start an Odoo server directly from the source.
+* **Multiple Versions**: With Odoo Build you can switch between Odoo versions starting from 13. up to 18.0.
+* **Develop Modules**: Scaffold new modules, develop new Odoo features locally.
 * **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database at ease.
-* **Community Modules**: The most common community modules are checked out when setting up the project.
+* **Community Repos**: The most common community repos are checked out when setting up the project.
 * **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
-* **Odoo Scripts**: Develope scripts to patch Odoo code.
 * **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 * **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.
 * **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.
-* **Develop Modules**: Scaffold a new module, develop new Odoo features locally and [much more](./task.md).
-* **Credentials**: Setup credentials to log into Odoo.
-* **Import Data**: Import Odoo records from CSV.
+* **Credentials**: Manage login credentials for Odoo and Nextcloud.
+* **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
+* And [much more](./task.md).
 
 ## Requirements
 
@@ -69,7 +70,7 @@ Decide wether you want to run Odoo in native mode (from source) or with Docker a
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin 
+Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin, Windows with Ubuntu on WSL2.
 
 #### Setup Odoo environment
 
@@ -135,7 +136,6 @@ Add model security.
 ```bash
 task generate-module-security addons/project/project_sprint project.sprint
 ```
-
 
 #### Load modules from thirdparty folder
 

@@ -8,3 +8,6 @@ pytest-odoo
 manifestoo
 rst2html5==2.0.1
 docutils==0.21.2
+setuptools
+wheel
+watchdog
