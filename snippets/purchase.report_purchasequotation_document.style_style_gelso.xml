@@ -1,0 +1,9 @@
+<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+    .mt32 {
+      margin-top: 10px !important;
+    }
+    </style>
+  </xpath>
+</data>

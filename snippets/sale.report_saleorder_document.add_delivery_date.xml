@@ -1,5 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <!-- Version 17-->
+    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+        <th>
+            <span>Lieferdatum</span>
+        </th>
+    </xpath>
+    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+        <td>
+            <span t-field="line.commitment_date" t-options="{&quot;format&quot;: &quot;dd.MM.yyyy&quot;}"/>
+        </td>
+    </xpath>
+
+    <!--
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
         <th>
             <span>Del. Date</span>
@@ -15,5 +29,7 @@
     </xpath>
     <xpath expr="//div/table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
+    </xpath>    
+    -->
+    
 </data>
