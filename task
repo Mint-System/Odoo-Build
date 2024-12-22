@@ -1272,6 +1272,10 @@ function translate-module() {
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
     odoo -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    # if lang is de_CH then rename the file to de.po.
+    if [[ "$LANGUAGE" == "de_CH" ]]; then
+        mv "$MODULE_PATH/i18n/$LANGUAGE.po" "$MODULE_PATH/i18n/de.po"
+    fi
 }
 
 function lint-module() {
