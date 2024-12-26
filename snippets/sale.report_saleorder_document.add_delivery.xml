@@ -1,0 +1,15 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+        <th>
+            <span>LS</span>
+        </th>
+    </xpath>
+    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+        <td>
+            <span t-field="line.move_ids.picking_id"/><br/>
+            <span t-field="line.move_ids.picking_id.date_done"/>
+        </td>
+    </xpath>
+    
+</data>
