@@ -5,11 +5,13 @@ A better Odoo image.
 - Ships with python 3.11
 - Odoo source is based on exact git revision
 - Setup `odoo.conf` with environment vars
-- Clones addons from git repos
+- Clone addons from git repos
 - Install pip packages without building the image
-- Detects and aggregates nested module folders
+- Detects addons in nested module folders
 - Store session information in database
-- Set and get environment name from server config
+- Get environment name from server config
+- Initialize database with selected modules
+- Auto update modules that have changed
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
 
@@ -39,6 +41,9 @@ services:
         -----END OPENSSH PRIVATE KEY-----
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
+      ODOO_ADDONS_INIT: web
+      ODOO_ADDONS_INIT_LANG: de_CH
+      ODOO_ADDONS_AUTO_UPDATE: True
       SERVER_WIDE_MODULES: web,session_db
       PIP_INSTALL: astor
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
@@ -73,11 +78,79 @@ volumes:
   db-data:
 ```
 
+### Database Connection
+
+Odoo supports the PostgreSQL database only.
+
+* `HOST` Name of the database container.
+* `USER` Database username.
+* `PASSWORD` Database user password.
+* `PORT` Postgres server port. Default is `5432`.
+
+### Module Repos
+
+The entrypoint script can clone git repositories.
+
+* `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
+* `GIT_SSH_PRIVATE_KEY` Private key for SSH connection.
+* `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
+
+### Addons
+
+The entrypoint script searches for module folders in the addons paths and creates a new addons path.
+
+* `ODOO_ADDONS_PATH` Comma seperated list of container paths to the addons folders.
+* `ODOO_INIT_DB` Name of the database to initialise. Default is `odoo`.
+* `ODOO__INIT_LANG` Language used for database initialisation. Default is `en_US`.
+* `ODOO_ADDONS_INIT` Provide comma separated list of modules for database initialisation. Default is `web`.
+* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update these modules. Default is `False`
+
+The default login is `admin:admin`.
+
+### Server Environment
+
+The Odoo server can be configured using the following env vars.
+
+* `ENVIRONMENT` Provide an environment name. Can be accessed with `config.get("environment")`.
+* `PIP_INSTALL` Space seperated list of python packages.
+* `SERVER_WIDE_MODULES` Comma separated list of modules to load with server.
+* `PROXY_MODE` Enable server proxy mode. Default is `False`.
+* `LOG_LEVEL` Set the logging level. Default is `info`.
+
+### Database Manager
+
+The Odoo database manager is disabled by default.
+
+* `LIST_DB` Enable the database manager. Default is `False`.
+* `ADMIN_PASSWD` Master password for database manager. Default is `odoo`.
+* `DB_FILTER` Set filter for database name. Default is `.*`.
+
+### Process Limits
+
+Odoo is a multi-thread Python process.
+
+* `WORKERS` Define how many workers should be spawned. Default is `0`.
+* `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
+* `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
+* `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
+
+### Container Paths
+
+Here are the most important container paths.
+
+* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
+* `/var/lib/odoo/git` The cloned module repos are stored here.
+* `/opt/odoo-venv` This is where Python packages are installed.
+* `/mnt/extra-addons` Module folders are loaded from this path by default.
+
 ## Develop
+
+As with every Docker image this image can be updated.
 
 ### Install packages
 
-Extend the image with additional python packages:
+Extend the image with additional Python packages.
 
 ```dockerfile
 FROM mintsystem/odoo:16.0.20241125
@@ -87,7 +160,7 @@ RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi pa
 
 ### Add custom Odoo conf
 
-Copy a custom Odoo conf file to the image:
+Copy a custom Odoo conf file to the image.
 
 ```dockerfile
 FROM mintsystem/odoo:16.0.20241125

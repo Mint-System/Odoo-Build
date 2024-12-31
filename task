@@ -941,10 +941,10 @@ function init-db() {
     template-odoo-rc
     
     echo "Initialize database."
-    if [[ -n "$ODOO_PARAM" ]] ; then
-        odoo -d "$DATABASE" -i base --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+    if [[ -n "$ODOO_PARAM" ]]; then
+        odoo -d "$DATABASE" -i web --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
     else
-        odoo -d "$DATABASE" -i base --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+        odoo -d "$DATABASE" -i web --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
     fi
 }
 

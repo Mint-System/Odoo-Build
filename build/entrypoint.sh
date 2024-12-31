@@ -153,9 +153,7 @@ pip_install() {
 
 pip_install
 
-entrypoint_log "$ME: Running Odoo $ODOO_VERSION as user: $USER"
-
-# Set the postgres database host, port, user and password according to the environment
+# set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
 : ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
 : ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
@@ -176,6 +174,22 @@ check_config "db_host" "$HOST"
 check_config "db_port" "$PORT"
 check_config "db_user" "$USER"
 check_config "db_password" "$PASSWORD"
+
+init_db() {
+    : "${ODOO_INIT_DB:=odoo}"
+
+    if [ -n "$ODOO_INIT_DB" ]; then
+        : "${ODOO_INIT_LANG:=en_US}"
+        : "${ODOO_ADDONS_INIT:=web}"
+        entrypoint_log "$ME: Initialize database $ODOO_INIT_DB with modules: $ODOO_ADDONS_INIT"
+        wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_INIT_DB" --init "$ODOO_ADDONS_INIT" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG") || true
+    fi
+}
+
+init_db
+
+entrypoint_log "$ME: Running Odoo $ODOO_VERSION as user: $USER"
 
 case "$1" in
     -- | odoo)
