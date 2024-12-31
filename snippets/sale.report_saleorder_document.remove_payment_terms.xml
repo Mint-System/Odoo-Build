@@ -1,6 +1,7 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//div/p[@name='order_note']/.." position="replace">
-</xpath>
+    <xpath expr="//div/p/span[@t-field='doc.payment_term_id.note']" position="replace">
+    </xpath>
 
 </data>
