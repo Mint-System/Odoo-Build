@@ -105,7 +105,7 @@ The entrypoint script searches for module folders in the addons paths and create
 * `ODOO_INIT` Enable to initalise the database. Default is `False`.
 * `ODOO_INIT_LANG` Language used for database initialisation. Default is `en_US`.
 * `ODOO_INIT_ADDONS` Provide comma separated list of modules for database initialisation. Default is `web`.
-* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update modules that changed. Default is `False`
+* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update modules that changed. Default is `False`.
 
 The default login is `admin:admin`.
 
