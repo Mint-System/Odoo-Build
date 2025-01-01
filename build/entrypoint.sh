@@ -95,6 +95,9 @@ set_odoo_config_env() {
     
         # Append module paths to addons path
         ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ODOO_MODULE_PATH"
+
+        # Remove duplicate module paths
+        ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | sort -u | tr "\n" "," | sed 's/,$//')
     fi
 
     : "${LOG_LEVEL:=info}"
@@ -144,7 +147,7 @@ auto_envsubst
 pip_install() {
     if [ -n "$PIP_INSTALL" ]; then
         entrypoint_log "$ME: Install python packages: $PIP_INSTALL"
-        pip install --no-cache-dir "$PIP_INSTALL"
+        pip install --no-cache-dir $(echo "$PIP_INSTALL" | tr "," " ")
     fi
 
     entrypoint_log "$ME: List python packages:" 
@@ -176,14 +179,27 @@ check_config "db_user" "$USER"
 check_config "db_password" "$PASSWORD"
 
 init_db() {
-    : "${ODOO_INIT_DB:=odoo}"
+    : "${ODOO_DATABASE:=odoo}"
+    : "${ODOO_INIT:=False}"
 
-    if [ -n "$ODOO_INIT_DB" ]; then
+    # Check if database exists
+    wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+    DATABASE_EXISTS=$(exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
+    
+    # If not exists, create database
+    if [ "$DATABASE_EXISTS" = "0" ]; then
+        entrypoint_log "$ME: Create database $ODOO_DATABASE"
+        (exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/" -tAc "CREATE DATABASE $ODOO_DATABASE;") || true
+    fi
+
+    # Check if database is initialized
+    DATABASE_INITIALIZED=$(exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+    
+    if [ "$ODOO_INIT" = "True" ] && [ "$DATABASE_INITIALIZED" = "0" ]; then
         : "${ODOO_INIT_LANG:=en_US}"
-        : "${ODOO_ADDONS_INIT:=web}"
-        entrypoint_log "$ME: Initialize database $ODOO_INIT_DB with modules: $ODOO_ADDONS_INIT"
-        wait-for-psql.py ${DB_ARGS[@]} --timeout=30
-        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_INIT_DB" --init "$ODOO_ADDONS_INIT" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG") || true
+        : "${ODOO_INIT_ADDONS:=web}"
+        entrypoint_log "$ME: Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS"
+        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
     fi
 }
 

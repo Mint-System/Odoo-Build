@@ -13,6 +13,7 @@ ARG TARGETARCH
 
 # Retrieve the Odoo version
 ARG ODOO_VERSION
+ARG ODOO_DATE
 
 # Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
 RUN apt-get update \
@@ -91,6 +92,9 @@ COPY ./odoo /opt/odoo
 RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt \
     && pip list
 ENV ADDONS_PATH=/opt/odoo/addons
+
+# Set release serial
+RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
 
 # Set env vars
 ENV ODOO_VERSION $ODOO_VERSION

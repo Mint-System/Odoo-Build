@@ -551,8 +551,13 @@ function build() {
     echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
     docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
 
+    ODOO_DATE=""
+    if [[ "ODOO_REVISION" != "GIT_BRANCH" ]]; then
+       ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    fi
+
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
-    docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -842,23 +847,21 @@ function test-docker() {
         GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
     fi
 
-    echo "Setup Docker environment."
+    echo "Set environment vars."
     export DOCKER_REGISTRY=mintsystem/
-    export ODOO_ADDONS_PATH="/mnt/enterprise"
-    export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
+
     export GIT_SSH_PUBLIC_KEY
-    export ODOO_DATABASE=test
-    export PIP_INSTALL=prometheus-client
-    install-odoo-scripts
+    export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
+    
+    export ODOO_ADDONS_PATH="/mnt/enterprise"
+    export PIP_INSTALL=prometheus-client,manifestoo,unittest-xml-reporting
+
+    export ODOO_INIT=True
+    export ODOO_INIT_LANG=de_CH
+    export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
+
     start
-
-    # Wait for container to be ready
-    sleep 3
-    docker logs odoo
-
-    # Install modules
-    docker-odoo-init -d "$ODOO_DATABASE" -i contacts,web_enterprise,mail_server_filter,prometheus_exporter,server_environment_ir_config_parameter,git_base -w
-    restart odoo
+    restart
 }
 
 # Kubernetes Commands

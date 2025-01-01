@@ -1,17 +1,17 @@
 [options]
 addons_path = $ODOO_ADDONS_PATH,$ADDONS_PATH
-data_dir = /var/lib/odoo
+environment = $ENVIRONMENT
+server_wide_modules = $SERVER_WIDE_MODULES
+proxy_mode = $PROXY_MODE
 log_level = $LOG_LEVEL
+list_db = $LIST_DB
 admin_passwd = $ADMIN_PASSWD
 dbfilter = $DBFILTER
-environment = $ENVIRONMENT
-list_db = $LIST_DB
-proxy_mode = $PROXY_MODE
 workers = $WORKERS
-server_wide_modules = $SERVER_WIDE_MODULES
 limit_request = $LIMIT_REQUEST
 limit_time_cpu = $LIMIT_TIME_CPU
 limit_time_real = $LIMIT_TIME_REAL
+data_dir = /var/lib/odoo
 ; csv_internal_sep = ,
 ; db_maxconn = 64
 ; db_name = False

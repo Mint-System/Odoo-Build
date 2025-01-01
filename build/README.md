@@ -30,7 +30,6 @@ services:
       USER: odoo
       PASSWORD: odoo
       PORT: 5432
-      ENVIRONMENT: production
       GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
       GIT_SSH_PRIVATE_KEY: |
         -----BEGIN OPENSSH PRIVATE KEY-----
@@ -41,17 +40,19 @@ services:
         -----END OPENSSH PRIVATE KEY-----
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
-      ODOO_ADDONS_INIT: web
-      ODOO_ADDONS_INIT_LANG: de_CH
+      ODOO_DATABASE: 16.0
+      ODOO_INIT: True
+      ODOO_INIT_LANG: de_CH
       ODOO_ADDONS_AUTO_UPDATE: True
+      ENVIRONMENT: production
+      PIP_INSTALL: postgres-client,manifestoo
       SERVER_WIDE_MODULES: web,session_db
-      PIP_INSTALL: astor
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
+      PROXY_MODE: True
       LOG_LEVEL: debug
+      LIST_DB: False
       ADMIN_PASSWD: oqua9AiHeibac2pie9ei
       DBFILTER: ^%d$
-      LIST_DB: False
-      PROXY_MODE: True
       WORKERS: 4
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
@@ -80,7 +81,7 @@ volumes:
 
 ### Database Connection
 
-Odoo supports the PostgreSQL database only.
+Odoo supports PostgreSQL database only.
 
 * `HOST` Name of the database container.
 * `USER` Database username.
@@ -100,10 +101,11 @@ The entrypoint script can clone git repositories.
 The entrypoint script searches for module folders in the addons paths and creates a new addons path.
 
 * `ODOO_ADDONS_PATH` Comma seperated list of container paths to the addons folders.
-* `ODOO_INIT_DB` Name of the database to initialise. Default is `odoo`.
-* `ODOO__INIT_LANG` Language used for database initialisation. Default is `en_US`.
-* `ODOO_ADDONS_INIT` Provide comma separated list of modules for database initialisation. Default is `web`.
-* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update these modules. Default is `False`
+* `ODOO_DATABASE` Name of the Odoo database. Default is `odoo`.
+* `ODOO_INIT` Enable to initalise the database. Default is `False`.
+* `ODOO_INIT_LANG` Language used for database initialisation. Default is `en_US`.
+* `ODOO_INIT_ADDONS` Provide comma separated list of modules for database initialisation. Default is `web`.
+* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update modules that changed. Default is `False`
 
 The default login is `admin:admin`.
 
@@ -112,8 +114,9 @@ The default login is `admin:admin`.
 The Odoo server can be configured using the following env vars.
 
 * `ENVIRONMENT` Provide an environment name. Can be accessed with `config.get("environment")`.
-* `PIP_INSTALL` Space seperated list of python packages.
+* `PIP_INSTALL` Comma seperated list of python packages.
 * `SERVER_WIDE_MODULES` Comma separated list of modules to load with server.
+* `SESSION_DB_URI` Connection string for storing session data in database.
 * `PROXY_MODE` Enable server proxy mode. Default is `False`.
 * `LOG_LEVEL` Set the logging level. Default is `info`.
 
