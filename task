@@ -861,7 +861,6 @@ function test-docker() {
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
 
     start
-    restart
 }
 
 # Kubernetes Commands
