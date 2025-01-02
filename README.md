@@ -1,5 +1,3 @@
-![](https://github.com/Mint-System/Odoo-Build/raw/16.0/logo.png)
-
 Odoo Build
 ==========
 

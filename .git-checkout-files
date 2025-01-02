@@ -10,7 +10,6 @@ templates
 .gitignore
 CHANGELOG.md
 docker-compose.yml
-logo.png
 odoo.conf.template
 package.json
 package-lock.json
