@@ -7,20 +7,20 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
-* **Odoo Source**: 🔍 Checkout the Odoo Community and Enterprise Edition and start editing the source code.  
-* **Docker Compose**: 🐳 Spin up an Odoo, Postgres, and pgAdmin Docker container and experiment locally.  
-* **Native**: 💻 Start an Odoo server directly from the source.  
-* **Multiple Versions**: 🔄 With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.  
-* **Develop Modules**: 🛠️ Scaffold new modules, develop new Odoo features locally.  
-* **Import and Export Database**: 📥 Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.  
-* **Community Repos**: 🤝 The most common community repos are checked out when setting up the project.  
-* **Customizing Snippets**: ✂️ Create [snippets](./snippets.md) and push them to an Odoo database.  
-* **Odoo Revisions**: 🕰️ Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
-* **Odoo Image**: 📦 Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.  
-* **Kubernetes**: ☸️ Deploy Odoo and Postgres to a local Kubernetes cluster.  
-* **Credentials**: 🔑 Manage login credentials for Odoo and Nextcloud.  
-* **Odoo Upgrade**: ⬆️ Helper commands to ease the Odoo upgrade process.  
-* **And More**: 🚀 See [task help](./task.md).  
+* 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.  
+* 🐳 **Docker Compose**: Spin up an Odoo, Postgres, and pgAdmin Docker container and experiment locally.  
+* 💻 **Native**: Start an Odoo server directly from the source.  
+* 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.  
+* 🛠️ **Develop Modules**: Scaffold new modules, develop new Odoo features locally.  
+* 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.  
+* 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.  
+* ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.  
+* 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
+* 📦 **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.  
+* ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
+* 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
+* ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
+* 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
 
