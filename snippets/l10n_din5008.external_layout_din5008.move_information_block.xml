@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<data inherit_id="l10n_din5008.external_layout_din5008" priority="60">
+
+    <xpath expr="//div[@class='information_block']/.." position="replace"/>
+
+    <xpath expr="//div[@class='address']/.." position="before">
+        <td>
+            <div class="information_block" style="line-height: 1.2">
+                <t t-if="'l10n_din5008_template_data' in company" t-set="template_data" t-value="company.l10n_din5008_template_data"/>
+                <t t-if="o and 'l10n_din5008_template_data' in o" t-set="template_data" t-value="o.l10n_din5008_template_data"/>
+                <table>
+                    <t t-foreach="template_data" t-as="row">
+                        <tr>
+                            <td style="padding-right: 20px">
+                                <t t-out="row[0]"/>
+                            </td>
+                            <td>
+                                <t t-out="row[1]"/>
+                            </td>
+                        </tr>
+                    </t>
+                </table>
+            </div>
+        </td>
+    </xpath>
+
+    <xpath expr="//div[@class='information_block']" position="attributes">
+        <attribute name="class">address</attribute>
+    </xpath>
+
+</data>

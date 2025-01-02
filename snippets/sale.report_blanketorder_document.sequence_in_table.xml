@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-    <xpath expr="/t/t/div/table/thead/tr/th[1]" position="before">
+
+    <xpath expr="//table[@class='table table-condensed table-borderless']/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>
         </th>
-        <xpath expr="//table/tbody/t[2][@t-foreach='doc.order_line']" position="before">
-            <t t-set="index" t-value="1"/>
-        </xpath>
     </xpath>
-    <xpath expr="/t/t/div/table/tbody/t[1]/tr[1]/td[1]" position="before">
+
+    <xpath expr="//table//t[@t-foreach='doc.line_ids']" position="before">
+        <t t-set="index" t-value="1"/>
+    </xpath>
+
+    <xpath expr="//tbody[@class='sale_tbody']//span[@t-field='l.name']/.." position="before">
         <td>
             <span t-esc="index"/>
             <t t-set="index" t-value="index+1"/>
         </td>
     </xpath>
+
 </data>

@@ -1,34 +1,38 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-    <xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
+  
+<xpath expr="//table[@class='table table-condensed table-borderless']/thead/tr" position="replace">
+    <tr>
+        <th>Product</th>
+        <th class="text-end">Original Qty</th>
+        <th class="text-center">Scheduled Date</th>
+        <th class="text-end">Unit Price</th>
+        <th class="text-end">Amount</th>
+    </tr>
+</xpath>
+  
+<xpath expr="//tbody[@class='sale_tbody']/t[2]" position="replace">
+    <t t-foreach="doc.line_ids" t-as="l">
         <tr>
-            <th>Product</th>
-            <th class="text-right">Original Qty</th>
-            <th class="text-center">Scheduled Date</th>
-            <th class="text-right">Unit Price</th>
-            <th class="text-right">Amount</th>
+            <td>
+                <span t-field="l.name"/>
+            </td>
+            <td class="text-end">
+                <span t-field="l.original_uom_qty"/>
+                <span t-field="l.product_uom" groups="uom.group_uom"/>
+            </td>
+            <td class="text-center">
+                <span t-field="l.date_schedule"/>
+            </td>
+                                
+            <td class="text-end">
+                <span t-field="l.price_unit"/>
+            </td>
+            <td class="text-end">
+                 <span t-field="l.price_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+            </td>
         </tr>
-    </xpath>
-    <xpath expr="//tbody[@class='sale_tbody']/t" position="replace">
-        <t t-foreach="doc.line_ids" t-as="l">
-            <tr>
-                <td>
-                    <span t-field="l.name"/>
-                </td>
-                <td class="text-right">
-                    <span t-field="l.original_uom_qty"/>
-                    <span t-field="l.product_uom" groups="uom.group_uom"/>
-                </td>
-                <td class="text-center">
-                    <span t-field="l.date_schedule"/>
-                </td>
-                <td class="text-right">
-                    <span t-field="l.price_unit"/>
-                </td>
-                <td class="text-right">
-                    <span t-field="l.price_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
-                </td>
-            </tr>
-        </t>
-    </xpath>
+     </t>
+</xpath>
+
 </data>
