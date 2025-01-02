@@ -18,7 +18,6 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
 ## Usage
 
 ```yml
-version: "3"
 services:
   odoo:
     container_name: odoo
@@ -131,7 +130,7 @@ The Odoo database manager is disabled by default.
 
 ### Process Limits
 
-Odoo is a multi-thread Python process.
+Odoo is a multi-threaded Python process.
 
 * `WORKERS` Define how many workers should be spawned. Default is `0`.
 * `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
