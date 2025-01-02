@@ -55,6 +55,7 @@ services:
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
+      CLICK_ODOO_UPDATE: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -104,7 +105,7 @@ The entrypoint script searches for module folders in the addons path and creates
 
 If enabled the entrypoint script initializes the Odoo database.
 
-* `ODOO_DATABASE` Name of the Odoo database. Default is `odoo`.
+* `ODOO_DATABASE` Name of the Odoo database. No default is set.
 * `ODOO_INIT` Enable to initalise the database. Default is `False`.
 * `ODOO_INIT_LANG` Language used for database initialisation. Default is `en_US`.
 * `ODOO_INIT_ADDONS` Provide comma separated list of modules for database initialisation. Default is `web`.
@@ -159,9 +160,11 @@ docker exec odoo manifestoo --select-found list
 
 ### click-odoo
 
-With the click-odoo you can manage the Odoo database. 
+With click-odoo you can manage the Odoo database.
 
-Update all modules that have changed:
+* `CLICK_ODOO_UPDATE` If enabled click-odoo is used to update modules that have changed. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
+
+Update all modules manually:
 
 ```bash
 docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo

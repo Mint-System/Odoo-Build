@@ -35,6 +35,7 @@ services:
       LIMIT_REQUEST: ${LIMIT_REQUEST}
       LIMIT_TIME_CPU: ${LIMIT_TIME_CPU}
       LIMIT_TIME_REAL: ${LIMIT_TIME_REAL}
+      CLICK_ODOO_UPDATE: ${CLICK_ODOO_UPDATE}
     ports:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:

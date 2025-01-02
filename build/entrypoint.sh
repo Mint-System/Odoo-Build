@@ -139,7 +139,7 @@ auto_envsubst() {
 
     DEFINED_ENVS=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${FILTER}/ ) ? name : \"\" } }" < /dev/null ))
 
-    if [[ -f "$TEMPLATE_FILE" ]]; then 
+    if [[ -f "$TEMPLATE_FILE" ]]; then
         entrypoint_log "$ME: Running envsubst on $TEMPLATE_FILE to $OUTPUT_FILE"
         envsubst "$DEFINED_ENVS" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
     fi
@@ -182,31 +182,45 @@ check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 
 init_db() {
-    : "${ODOO_DATABASE:=odoo}"
-    : "${ODOO_INIT:=False}"
+    if [ -n "$ODOO_DATABASE" ]; then
+        : "${ODOO_INIT:=False}"
 
-    # Check if database exists
-    wait-for-psql.py ${DB_ARGS[@]} --timeout=30
-    DATABASE_EXISTS=$(exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
-    
-    # If not exists, create database
-    if [ "$DATABASE_EXISTS" = "0" ]; then
-        entrypoint_log "$ME: Create database $ODOO_DATABASE"
-        (exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/" -tAc "CREATE DATABASE $ODOO_DATABASE;") || true
-    fi
+        entrypoint_log "$ME: Check if database $ODOO_DATABASE exists"
+        wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+        DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
 
-    # Check if database is initialized
-    DATABASE_INITIALIZED=$(exec psql "postgres://$USER:$PASSWORD@$HOST:$PORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
-    
-    if [ "$ODOO_INIT" = "True" ] && [ "$DATABASE_INITIALIZED" = "0" ]; then
-        : "${ODOO_INIT_LANG:=en_US}"
-        : "${ODOO_INIT_ADDONS:=web}"
-        entrypoint_log "$ME: Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS"
-        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
+        # If it does not exist, create it
+        if [ "$DATABASE_EXISTS" = "0" ]; then
+            entrypoint_log "$ME: Create database $ODOO_DATABASE"
+            (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE $ODOO_DATABASE;") || true
+        fi
+
+        entrypoint_log "$ME: Check if database $ODOO_DATABASE is initialized"
+        DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+        
+        if [ "$ODOO_INIT" = "True" ] && [ "$DATABASE_INITIALIZED" = "0" ]; then
+            : "${ODOO_INIT_LANG:=en_US}"
+            : "${ODOO_INIT_ADDONS:=web}"
+            entrypoint_log "$ME: Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS"
+            (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
+        fi
     fi
 }
 
 init_db
+
+click_odoo_update() {
+    if [ -n "$ODOO_DATABASE" ]; then
+        : "${CLICK_ODOO_UPDATE:=False}"
+
+        if [ "$CLICK_ODOO_UPDATE" = "True" ] && [ -n "$ODOO_ADDONS_PATH" ]; then
+            entrypoint_log "$ME: Run click-odoo-update"
+            (exec click-odoo-update --addons-path="${ODOO_ADDONS_PATH},${ADDONS_PATH}" -d "$ODOO_DATABASE" ) || true
+        fi
+    fi
+}
+
+click_odoo_update
 
 entrypoint_log "$ME: Running Odoo $ODOO_VERSION as user: $USER"
 

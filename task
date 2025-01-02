@@ -856,9 +856,12 @@ function test-docker() {
     export ODOO_ADDONS_PATH="/mnt/enterprise"
     export PIP_INSTALL=prometheus-client,manifestoo,unittest-xml-reporting
 
+    export ODOO_DATABASE=test
     export ODOO_INIT=True
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
+    
+    export CLICK_ODOO_UPDATE=True
 
     start
 }
