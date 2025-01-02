@@ -754,6 +754,10 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`
 		<style>
 			table#info {
 				font-size: 9pt;
+				border: white;
+			}
+			table#summary{
+				border: white;
 			}
 			h2 {
 			font-size: 1.2rem;
@@ -783,9 +787,13 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`
 	<xpath expr="//table/thead//th[1]" position="attributes">
 		<attribute name="style">text-align: left</attribute>
 	</xpath>
-
+ 
 	<xpath expr="//div[@id='summary']/div" position="attributes">
 		<attribute name="t-attf-class">#{'col-4 offset-8' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+	</xpath>
+	
+		<xpath expr="//div[@id='summary']/div/table" position="attributes">
+		<attribute name="style">border: white</attribute>
 	</xpath>
 
 </data>

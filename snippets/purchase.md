@@ -1593,6 +1593,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`
 			}
 			table#info {
 				font-size: 9pt;
+				border: white;
 			}
 			h2 {
 			  font-size: 1.2rem;
@@ -1873,17 +1874,18 @@ Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="/t/t/div/div[4]" position="after">
-        <div class="row">
-            <div class="col">
-                <t t-if="o.payment_term_id" name="payment_term">
-                    <strong>Payment Terms: </strong>
-                    <span t-field="o.payment_term_id.name"/>
-                </t>
-            </div>
-        </div>
-    </xpath>
+<data inherit_id="purchase.report_purchasequotation_document">
+
+<xpath expr="/t/t/div/table" position="after">
+    <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+      <div class="col">
+        <t t-if="o.payment_term_id" name="payment_term">
+            <strong>Zahlungsbedingungen: </strong><span t-field="o.payment_term_id.name"/>
+        </t>
+      </div>
+    </div>
+  </xpath>
+  
 </data>
 
 ```
@@ -1971,6 +1973,21 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_qty`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
 
+### Format Title  
+ID: `mint_system.purchase.report_purchasequotation_document.format_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
+        <t t-if="order_line.product_uom.id == 1">
+            <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.report_purchasequotation_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_title.xml)
+
 ### Get Position  
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`  
 ```xml
@@ -1995,10 +2012,13 @@ Source: [snippets/purchase.report_purchasequotation_document.get_position.xml](h
 ID: `mint_system.purchase.report_purchasequotation_document.header_margin`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">  
-  <xpath expr="//div[@id='informations']" position="replace"/>  
-</data>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
 
+  <xpath expr="//div/h2[1]" position="attributes">
+    <attribute name="style">color: black; margin-top: 2rem</attribute>
+  </xpath>
+
+</data>
 ```
 Source: [snippets/purchase.report_purchasequotation_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.header_margin.xml)
 
@@ -2144,6 +2164,25 @@ ID: `mint_system.purchase.report_purchasequotation_document.product_hide_bracket
 ```
 Source: [snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml)
 
+### Qty With Decimal  
+ID: `mint_system.purchase.report_purchasequotation_document.qty_with_decimal`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+  <xpath expr="//span[@id='product_qty']" position="replace">
+    <t t-if="order_line.product_uom.id == 1">
+      <span id="product_qty" t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+    </t>
+    <t t-else="">
+      <span id="product_qty" t-field="order_line.product_qty"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml)
+
 ### Remove Date Planned  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`  
 ```xml
@@ -2163,11 +2202,11 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//p[@t-field='o.incoterm_id.code']/.." position="replace"/>
+    <xpath expr="//div[@id='informations']" position="replace"/>
     <!--
-  <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/strong[1]" position="replace"/>
-  <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="replace"/>
-  -->
+    <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/strong[1]" position="replace"/>
+    <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="replace"/>
+    -->
 </data>
 
 ```
@@ -2282,9 +2321,11 @@ ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
-        <attribute name="id">product_qty</attribute>
-    </xpath>
+
+	<xpath expr="//span[@t-field='order_line.product_qty']" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+
 </data>
 
 ```
@@ -2303,6 +2344,21 @@ ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`
 
 ```
 Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.sort_by_name.xml)
+
+### Style Gelso  
+ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+    .mt32 {
+      margin-top: 10px !important;
+    }
+    </style>
+  </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_gelso.xml)
 
 ### Style Moser  
 ID: `mint_system.purchase.report_purchasequotation_document.style_moser`  

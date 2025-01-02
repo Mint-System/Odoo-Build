@@ -1417,6 +1417,21 @@ ID: `mint_system.stock.report_delivery_document.add_table_margin`
 ```
 Source: [snippets/stock.report_delivery_document.add_table_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_table_margin.xml)
 
+### Add Title  
+ID: `mint_system.stock.report_delivery_document.add_title`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//span[@t-field='o.name']" position="before">
+      <t t-if="o.picking_type_id.id == 2">
+        <span>Delivery slip </span>
+      </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.add_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_title.xml)
+
 ### Add Weight  
 ID: `mint_system.stock.report_delivery_document.add_weight`  
 ```xml
@@ -1753,6 +1768,24 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 
 ```
 Source: [snippets/stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.get_position.xml)
+
+### Header Margin  
+ID: `mint_system.stock.report_delivery_document.header_margin`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document">
+
+  <xpath expr="//div/table[1]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+  </xpath>
+  
+  <xpath expr="//div/table[2]" position="attributes">
+    <attribute name="style" separator=";" add="margin-top: 1rem"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.header_margin.xml)
 
 ### Hide Address  
 ID: `mint_system.stock.report_delivery_document.hide_address`  
@@ -2252,7 +2285,7 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//div[@class='page']/div[1]" position="replace">
+    <xpath expr="//div[@class='report-wrapping-flexbox clearfix row mt32 mb32']" position="replace">
         <div>
             <table style="border-style:none; width:100%">
                 <tr>

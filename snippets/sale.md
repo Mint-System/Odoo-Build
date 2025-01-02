@@ -997,6 +997,20 @@ ID: `mint_system.sale.report_saleorder_document.add_delivery_date`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <!-- Version 17-->
+    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+        <th>
+            <span>Lieferdatum</span>
+        </th>
+    </xpath>
+    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+        <td>
+            <span t-field="line.commitment_date" t-options="{&quot;format&quot;: &quot;dd.MM.yyyy&quot;}"/>
+        </td>
+    </xpath>
+
+    <!--
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
         <th>
             <span>Del. Date</span>
@@ -1012,11 +1026,34 @@ ID: `mint_system.sale.report_saleorder_document.add_delivery_date`
     </xpath>
     <xpath expr="//div/table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
+    </xpath>    
+    -->
+    
 </data>
 
 ```
 Source: [snippets/sale.report_saleorder_document.add_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_delivery_date.xml)
+
+### Add Delivery  
+ID: `mint_system.sale.report_saleorder_document.add_delivery`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+        <th>
+            <span>LS</span>
+        </th>
+    </xpath>
+    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+        <td>
+            <span t-field="line.move_ids.picking_id"/><br/>
+            <span t-field="line.move_ids.picking_id.date_done"/>
+        </td>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_delivery.xml)
 
 ### Add Drawing  
 ID: `mint_system.sale.report_saleorder_document.add_drawing`  
@@ -2354,6 +2391,58 @@ ID: `mint_system.sale.report_saleorder_document.move_payment_term`
 ```
 Source: [snippets/sale.report_saleorder_document.move_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.move_payment_term.xml)
 
+### Qty Remaining  
+ID: `mint_system.sale.report_saleorder_document.qty_remaining`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//td[@name='td_quantity']" position="replace">
+    <t t-set="blanket_line_ids" t-value="doc.blanket_order_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>
+    <t t-set="remaining_qty" t-value="sum(blanket_line_ids.mapped('remaining_uom_qty'))"/>
+
+    <td name="td_quantity" class="text-end">
+      <span t-field="line.product_uom_qty"/>
+      <span t-field="line.product_uom"/>
+      <t t-if="blanket_line_ids">
+        /
+        <t t-if="line.product_uom.id == 1">
+         <span t-esc="'%.0f'%(remaining_qty)"/>
+        </t>
+        <t t-else="">
+          <span t-esc="'%.3f'%(remaining_qty)"/>
+        </t>
+          <span t-field="line.product_uom"/>        
+      </t>
+    </td>
+
+  </xpath>
+
+  <xpath expr="//th[@name='th_quantity']" position="replace">
+    <th t-if="doc.blanket_order_id" name="th_quantity" class="text-end">Qty / Rem. Agreement Qty</th>
+    <th t-if="not doc.blanket_order_id" name="th_quantity" class="text-end">Qty</th>
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.qty_remaining.xml)
+
+### Remove Commitment Date  
+ID: `mint_system.sale.report_saleorder_document.remove_commitment_date`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document">>
+
+<xpath expr="//div/table/thead/tr/th[2]" position="replace">
+  
+  </xpath>
+  <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[2]" position="replace">
+    
+  </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.remove_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_commitment_date.xml)
+
 ### Remove Discount Percentage  
 ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`  
 ```xml
@@ -2381,10 +2470,11 @@ Source: [snippets/sale.report_saleorder_document.remove_informations.xml](https:
 ### Remove Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.remove_payment_terms`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-<xpath expr="//div/p[@name='order_note']/.." position="replace">
-</xpath>
+    <xpath expr="//div/p/span[@t-field='doc.payment_term_id.note']" position="replace">
+    </xpath>
 
 </data>
 
@@ -3358,6 +3448,7 @@ ID: `mint_system.sale.report_saleorder_document.style_tissa`
 			}
 			table#info {
 				font-size: 9pt;
+				border: white;
 			}
 			h2 {
 			font-size: 1.2rem;

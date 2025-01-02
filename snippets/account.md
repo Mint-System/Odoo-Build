@@ -447,6 +447,42 @@ ID: `mint_system.account.report_invoice_document.add_percentage_sign`
 ```
 Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_percentage_sign.xml)
 
+### Add Picking Date  
+ID: `mint_system.account.report_invoice_document.add_picking_date`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
+        <th name="th_picking_date" class="text-right">
+            <span>Delivery Date</span>
+        </th>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']" position="before">
+        <td name="td_picking_name" class="text-right">        
+            <span t-esc="line.sale_line_ids.move_ids.picking_id.date_done" t-options="{'widget': 'date'}"/>           
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_picking_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_picking_date.xml)
+
+### Add Picking Name  
+ID: `mint_system.account.report_invoice_document.add_picking_name`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
+        <th name="th_picking_name" class="text-right">
+            <span>Delivery Bill</span>
+        </th>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']" position="before">
+        <td name="td_picking_name" class="text-right">        
+            <span t-esc="line.sale_line_ids.move_ids.picking_id.name"/>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_picking_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_picking_name.xml)
+
 ### Add Qr Iban  
 ID: `mint_system.account.report_invoice_document.add_qr_iban`  
 ```xml
@@ -1454,7 +1490,7 @@ ID: `mint_system.account.report_invoice_document.net_value_summary`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='total']//table/tr[1]" position="before">
+    <xpath expr="//div[@id='total']//table/t[1]" position="before">
     <!-- Version 16
      <xpath expr="//div[@id='total']//table/t[1]" position="before">
     -->
@@ -2385,28 +2421,27 @@ Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https:/
 ID: `mint_system.account.report_invoice_document.set_ids`  
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="account.report_invoice_document" priority="60">
+<data inherit_id="account.report_invoice_document" priority="50">
+  
+	<xpath expr="//th[@name='th_quantity']" position="attributes">
+		<attribute name="id">th_quantity</attribute>
+	</xpath>
 
-    <xpath expr="//table[2]//th[3]" position="attributes">
-        <attribute name="id">description</attribute>
-    </xpath>
-
-    <xpath expr="//table[@name='invoice_line_table']//th[4]" position="attributes">
-        <attribute name="id">quantity</attribute>
-    </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
-        <attribute name="id">quantity</attribute>
-    </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
-        <attribute name="id">qty</attribute>
-    </xpath>
-
-    <xpath expr="//table[@name='invoice_line_table']//td[4]/span[1]" position="attributes">
-        <attribute name="id">price</attribute>
-    </xpath>
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="id">description</attribute>
+	</xpath>
+	<xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
+		<attribute name="id">quantity</attribute>
+	</xpath>
+	<xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+		<attribute name="id">qty</attribute>
+	</xpath>
+	
+	<xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+		<attribute name="id">price</attribute>
+	</xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.set_ids.xml)
 
