@@ -256,7 +256,7 @@ POSTGRES_IMAGE=postgres:12-alpine
 To build the Docker image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.0.2024.0405
+ODOO_REVISION=16.0.20241220
 DOCKER_REGISTRY=mint-system/
 ```
 
