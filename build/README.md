@@ -3,15 +3,15 @@
 A better Odoo image.
 
 - Ships with python 3.11
-- Odoo source is based on exact git revision
+- Odoo source is based on exact [revision](https://odoo.build/revisions.html)
 - Setup `odoo.conf` with environment vars
 - Clone addons from git repos
 - Install pip packages without building the image
-- Detects addons in nested module folders
+- Detect addons in nested module folders
 - Store session information in database
 - Get environment name from server config
 - Initialize database with selected modules
-- Auto update modules that have changed
+- Built-in [manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
 
@@ -22,14 +22,14 @@ version: "3"
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20241125
+    image: mintsystem/odoo:16.0.20241220
     depends_on:
       - db
     environment:
-      HOST: db
-      USER: odoo
-      PASSWORD: odoo
-      PORT: 5432
+      PGHOST: db
+      PGUSER: odoo
+      PGPASSWORD: odoo
+      PGPORT: 5432
       GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
       GIT_SSH_PRIVATE_KEY: |
         -----BEGIN OPENSSH PRIVATE KEY-----
@@ -43,9 +43,8 @@ services:
       ODOO_DATABASE: 16.0
       ODOO_INIT: True
       ODOO_INIT_LANG: de_CH
-      ODOO_ADDONS_AUTO_UPDATE: True
       ENVIRONMENT: production
-      PIP_INSTALL: postgres-client,manifestoo
+      PIP_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: web,session_db
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
@@ -83,10 +82,10 @@ volumes:
 
 Odoo supports PostgreSQL database only.
 
-* `HOST` Name of the database container.
-* `USER` Database username.
-* `PASSWORD` Database user password.
-* `PORT` Postgres server port. Default is `5432`.
+* `PGHOST` Name of the database container.
+* `PGUSER` Database username.
+* `PGPASSWORD` Database user password.
+* `PGPORT` Postgres server port. Default is `5432`.
 
 ### Module Repos
 
@@ -96,18 +95,20 @@ The entrypoint script can clone git repositories.
 * `GIT_SSH_PRIVATE_KEY` Private key for SSH connection.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
 
-### Addons
+### Addons Path
 
-The entrypoint script searches for module folders in the addons paths and creates a new addons path.
+The entrypoint script searches for module folders in the addons path and creates a new addons path.
 
-* `ODOO_ADDONS_PATH` Comma seperated list of container paths to the addons folders.
+* `ODOO_ADDONS_PATH` Comma seperated list of container paths pointing to addon folders.
+
+### Initialize
+
+If enabled the entrypoint script initializes the Odoo database.
+
 * `ODOO_DATABASE` Name of the Odoo database. Default is `odoo`.
 * `ODOO_INIT` Enable to initalise the database. Default is `False`.
 * `ODOO_INIT_LANG` Language used for database initialisation. Default is `en_US`.
 * `ODOO_INIT_ADDONS` Provide comma separated list of modules for database initialisation. Default is `web`.
-* `ODOO_ADDONS_AUTO_UPDATE` Detect file changes in module folders and update modules that changed. Default is `False`.
-
-The default login is `admin:admin`.
 
 ### Server Environment
 
@@ -147,16 +148,36 @@ Here are the most important container paths.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/mnt/extra-addons` Module folders are loaded from this path by default.
 
+### Mainfestoo
+
+With the Manifestoo cli you can query the module manifests files.
+
+List all modules:
+
+```bash
+docker exec odoo manifestoo --select-found list
+```
+
+### click-odoo
+
+With the click-odoo you can manage the Odoo database. 
+
+Update all modules that have changed:
+
+```bash
+docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
+```
+
 ## Develop
 
 As with every Docker image this image can be updated.
 
 ### Install packages
 
-Extend the image with additional Python packages.
+Extend the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20241125
+FROM mintsystem/odoo:16.0.20241220
 
 RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -166,7 +187,7 @@ RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi pa
 Copy a custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20241125
+FROM mintsystem/odoo:16.0.20241220
 
 COPY ./odoo.conf.template /etc/odoo/
 ```

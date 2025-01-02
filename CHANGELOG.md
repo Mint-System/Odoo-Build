@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 * Image has env vars to initialize database.
 * `test-docker` uses new env vars to initialize database.
 * Extended usage section of Odoo Build README file.
+* Use the prefixed `PG` env vars for database connection.
 
 ### Fixed
 

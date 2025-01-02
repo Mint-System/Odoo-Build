@@ -99,32 +99,35 @@ set_odoo_config_env() {
         # Remove duplicate module paths
         ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | sort -u | tr "\n" "," | sed 's/,$//')
     fi
+    
+    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    export GIT_SSH_PRIVATE_KEY
+    export GIT_SSH_PUBLIC_KEY
 
+    : "${ENVIRONMENT:=development}"
+    export ENVIRONMENT
+    : "${SERVER_WIDE_MODULES:=web}"
+    export SERVER_WIDE_MODULES
+    : "${PROXY_MODE:=False}"
+    export PROXY_MODE
     : "${LOG_LEVEL:=info}"
     export LOG_LEVEL
+
+    : "${LIST_DB:=True}"
+    export LIST_DB
     : "${ADMIN_PASSWD:=odoo}"
     export ADMIN_PASSWD
     : "${DBFILTER:=.*}"
     export DBFILTER
-    : "${ENVIRONMENT:=development}"
-    export ENVIRONMENT
-    : "${LIST_DB:=True}"
-    export LIST_DB
-    : "${PROXY_MODE:=False}"
-    export PROXY_MODE
+
     : "${WORKERS:=0}"
     export WORKERS
-    : "${SERVER_WIDE_MODULES:=web}"
-    export SERVER_WIDE_MODULES
     : "${LIMIT_REQUEST:=8192}"
     export LIMIT_REQUEST
     : "${LIMIT_TIME_CPU:=60}"
     export LIMIT_TIME_CPU
     : "${LIMIT_TIME_REAL:=120}"
     export LIMIT_TIME_REAL
-    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
-    export GIT_SSH_PRIVATE_KEY
-    export GIT_SSH_PUBLIC_KEY
 }
 
 set_odoo_config_env
@@ -158,10 +161,10 @@ pip_install
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
-: ${HOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
-: ${PORT:=${DB_PORT_5432_TCP_PORT:=5432}}
-: ${USER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
+: ${PGHOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
+: ${PGPORT:=${DB_PORT_5432_TCP_PORT:=5432}}
+: ${PGUSER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
+: ${PGPASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
 
 DB_ARGS=()
 function check_config() {
@@ -173,10 +176,10 @@ function check_config() {
     DB_ARGS+=("--${param}")
     DB_ARGS+=("${value}")
 }
-check_config "db_host" "$HOST"
-check_config "db_port" "$PORT"
-check_config "db_user" "$USER"
-check_config "db_password" "$PASSWORD"
+check_config "db_host" "$PGHOST"
+check_config "db_port" "$PGPORT"
+check_config "db_user" "$PGUSER"
+check_config "db_password" "$PGPASSWORD"
 
 init_db() {
     : "${ODOO_DATABASE:=odoo}"

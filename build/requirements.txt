@@ -1,0 +1,2 @@
+manifestoo
+click-odoo-contrib
