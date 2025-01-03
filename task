@@ -837,9 +837,11 @@ function stop() {
 function test-docker() {
     activate-venv
     version
+    info
 
     if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
         echo "Generate SSH private key."
+        mkdir -p tmp
         if [ ! -f "tmp/ed25519" ]; then
             ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
         fi
