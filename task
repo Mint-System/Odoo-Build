@@ -31,6 +31,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-auto-install" "" "Disable auto install for enterprise modules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-snippet" "[env][path]" "Disable snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docker-login" "" "Setup Docker Hub login credentials."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "drop-db" "[db]" "Drop target Odoo database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "edit-env" "[env]" "Open env file in default editor."
@@ -68,7 +69,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-native" "" "Install Odoo requirements in source folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet xml definition."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "k8s-apply" "" "Apply the Odoo K8s manifests."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
@@ -92,6 +93,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove" "[name]" "Remove docker containers and volumes. Options: none, db, admin, odoo, mail."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-env" "[env]" "Remove environment config."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-module" "[db][name]" "Remove target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-snippet" "[env][path]" "Remove snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart docker container."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "save-config" "[name]" "Save Odoo database config."
@@ -119,7 +121,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-readme" "[path]" "Update Readme file of Odoo module collection."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet xml definition."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upload-module" "[env][path]" "Zip and upload Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
@@ -864,6 +866,10 @@ function test-docker() {
     export CLICK_ODOO_UPDATE=True
 
     start
+
+    # Wait until container is ready with curl loop for 60 seconds
+    echo "Wait for container to be ready."
+    while ! curl --fail -s http://localhost:8069; do sleep 1; done
 }
 
 # Kubernetes Commands
@@ -1568,20 +1574,6 @@ function reset-views() {
     odoo shell -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-function update-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
-    # Generate view name from filename
-    FILE=$(basename "$2")
-    NAME="mint_system.${FILE%.xml}"
-
-    activate-venv
-    load-env "$1"
-    echo "Update view with name $NAME"
-    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat "$2")'''"
-}
-
 function install-snippet() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
@@ -1614,6 +1606,48 @@ function install-snippet() {
         'inherit_id': $INHERIT_ID, 
         'arch_base': '''$(cat "$2")'''
     }"
+}
+
+function update-snippet() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename "$2")
+    NAME="mint_system.${FILE%.xml}"
+
+    activate-venv
+    load-env "$1"
+    echo "Update view with name $NAME"
+    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat "$2")'''"
+}
+
+function disable-snippet() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename "$2")
+    NAME="mint_system.${FILE%.xml}"
+
+    activate-venv
+    load-env "$1"
+    echo "Disable view with name $NAME"
+    scripts/odooctl --model "ir.ui.view" --domain "['name', '=', '$NAME']" --field "active" --value "False"
+}
+
+function remove-snippet() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    # Generate view name from filename
+    FILE=$(basename "$2")
+    NAME="mint_system.${FILE%.xml}"
+
+    activate-venv
+    load-env "$1"
+    echo "Remove view with name $NAME"
+    scripts/odooctl --model "ir.ui.view" --domain "['name', '=', '$NAME']" --method "unlink"
 }
 
 function lint-snippets() {
@@ -2131,6 +2165,9 @@ case "$1" in
     create-odoo-env)
         create-odoo-env "$2"
         ;;
+    disable-snippet)
+        disable-snippet "$2" "$3"
+        ;;
     init-venv)
         init-venv
         ;;
@@ -2221,6 +2258,9 @@ case "$1" in
         ;;
     remove-module)
         remove-module "$2" "$3"
+        ;;
+    remove-snippet)
+        remove-snippet "$2" "$3"
         ;;
     reset-views)
         reset-views "$2" "$3"

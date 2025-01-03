@@ -1,11 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-  <xpath expr="//h2" position="before">      
-      <style>
-        img {
-          padding-top: 40px;
-        }                              
-        </style>
-        <span t-field="o.sale_id.client_order_ref" t-options="{ &quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>    
-  </xpath>
+    <xpath expr="//t[@name='partner_header']" position="before">
+        <span t-field="o.sale_id.client_order_ref" t-options="{&quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>
+    </xpath>
 </data>

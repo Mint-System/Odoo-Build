@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-  
-<xpath expr="//table[@class='table table-condensed table-borderless']" position="attributes">
-     <attribute name="style" add="font-size:16px"/>
-  </xpath>
-  
-  <xpath expr="//table[@class='table table-sm']/.." position="attributes">
-     <attribute name="style" add="font-size:16px"/>
-  </xpath>
-
+    <xpath expr="//table[@class='table table-condensed']" position="attributes">
+        <attribute name="style" add="font-size:16px"/>
+    </xpath>
+    <xpath expr="//div[@class='col-xs-4 pull-right']" position="attributes">
+        <attribute name="style" add="font-size:16px"/>
+    </xpath>
 </data>
