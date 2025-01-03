@@ -875,7 +875,7 @@ function test-docker() {
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
     echo "Check if auto upgrade was successful."
     scripts/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
-    docker-odoo-remove -d test -r partner_firstname
+    docker-odoo-uninstall -d test -u partner_firstname
     restart odoo
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
 
