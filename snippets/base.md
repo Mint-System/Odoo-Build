@@ -16,11 +16,13 @@ ID: `mint_system.base.contact_name.format_parent_name`
         </t>
         <!--if object has parent with different name show parent on second line -->
         <t t-if="object.parent_name and object.name != object.parent_name ">
-            <span itemprop="name" t-esc="object.name"/><br/>
+            <span itemprop="name" t-esc="object.name"/>
+            <br/>
             <span itemprop="name" t-esc="object.parent_name"/>
         </t>
     </xpath>
 </data>
+
 ```
 Source: [snippets/base.contact_name.format_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.contact_name.format_parent_name.xml)
 
@@ -181,7 +183,9 @@ ID: `mint_system.base.res_partner_kanban_view.show_pricelist`
         <field name="property_product_pricelist"/>
     </xpath>
     <xpath expr="//li[@t-if='record.email.raw_value']" position="after">
-      <li t-if="record.property_product_pricelist.raw_value"><field name="property_product_pricelist"/></li>
+        <li t-if="record.property_product_pricelist.raw_value">
+            <field name="property_product_pricelist"/>
+        </li>
     </xpath>
 </data>
 
@@ -209,9 +213,11 @@ ID: `mint_system.base.res_partner_kanban_view.x_eori`
 <?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
-        <br/><field name="x_eori"/>
+        <br/>
+        <field name="x_eori"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/base.res_partner_kanban_view.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.x_eori.xml)
 
@@ -221,9 +227,11 @@ ID: `mint_system.base.res_partner_kanban_view.x_schema`
 <?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']" position="before">
-        <field name="x_schema" widget="badge"/><br/>
+        <field name="x_schema" widget="badge"/>
+        <br/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/base.res_partner_kanban_view.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.x_schema.xml)
 
@@ -233,9 +241,11 @@ ID: `mint_system.base.res_partner_kanban_view.x_vat`
 <?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
-        <br/><field name="x_vat"/>
+        <br/>
+        <field name="x_vat"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/base.res_partner_kanban_view.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.x_vat.xml)
 
@@ -245,9 +255,11 @@ ID: `mint_system.base.res_partner_kanban_view.x_zaz`
 <?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
-        <br/><field name="x_zaz"/>
+        <br/>
+        <field name="x_zaz"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/base.res_partner_kanban_view.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.res_partner_kanban_view.x_zaz.xml)
 
@@ -421,9 +433,9 @@ ID: `mint_system.base.view_partner_form.hide_meeting`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-  <xpath expr="//button[@name='schedule_meeting']" position="attributes">
-    <attribute name="invisible">1</attribute>
-  </xpath>
+    <xpath expr="//button[@name='schedule_meeting']" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </xpath>
 </data>
 
 ```
@@ -434,9 +446,9 @@ ID: `mint_system.base.view_partner_form.hide_opportunity`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-  <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
-    <attribute name="invisible">1</attribute>
-  </xpath>
+    <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
+        <attribute name="invisible">1</attribute>
+    </xpath>
 </data>
 
 ```
@@ -447,12 +459,11 @@ ID: `mint_system.base.view_partner_form.lang_required`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
-  <xpath expr="//sheet/group/group/field[@name='lang']" position="attributes">
-    <attribute name="required">1</attribute>
-  </xpath>
-
+    <xpath expr="//sheet/group/group/field[@name='lang']" position="attributes">
+        <attribute name="required">1</attribute>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/base.view_partner_form.lang_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.lang_required.xml)
 
@@ -489,20 +500,18 @@ Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](ht
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
-  <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
+    <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
-
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="ref"/>
-  </xpath>
-
-  <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
-    <field name="ref"/>
-  </xpath>
-
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="ref"/>
+    </xpath>
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="ref"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.move_ref.xml)
 
@@ -542,15 +551,15 @@ ID: `mint_system.base.view_partner_form.remove_smart_buttons`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-    <button name="schedule_meeting" position="replace" />
-    <button name="action_view_opportunity" position="replace" />
-    <xpath expr="//field[@name='task_count']/.." position="replace" />
-    <xpath expr="//field[@name='purchase_order_count']/.." position="replace" />
-    <xpath expr="//field[@name='supplier_invoice_count']/.." position="replace" />
-    <button name="open_partner_ledger" position="replace" />
-    <xpath expr="//field[@name='mass_mailing_contacts_count']/.." position="replace" />
-    <xpath expr="//field[@name='mass_mailing_stats_count']/.." position="replace" />
-    <field name="is_published" position="replace" />
+    <button name="schedule_meeting" position="replace"/>
+    <button name="action_view_opportunity" position="replace"/>
+    <xpath expr="//field[@name='task_count']/.." position="replace"/>
+    <xpath expr="//field[@name='purchase_order_count']/.." position="replace"/>
+    <xpath expr="//field[@name='supplier_invoice_count']/.." position="replace"/>
+    <button name="open_partner_ledger" position="replace"/>
+    <xpath expr="//field[@name='mass_mailing_contacts_count']/.." position="replace"/>
+    <xpath expr="//field[@name='mass_mailing_stats_count']/.." position="replace"/>
+    <field name="is_published" position="replace"/>
 </data>
 
 ```
@@ -624,17 +633,16 @@ Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mi
 ### X Bexioid  
 ID: `mint_system.base.view_partner_form.x_bexioid`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
-  <xpath expr="//field[@name='vat']" position="after">
-    <field name="x_bexioid" readonly="1"/>
-  </xpath>
-
-  <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
-    <field name="x_bexioid"/>
-  </xpath>
-
+    <xpath expr="//field[@name='vat']" position="after">
+        <field name="x_bexioid" readonly="1"/>
+    </xpath>
+    <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
+        <field name="x_bexioid"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/base.view_partner_form.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_form.x_bexioid.xml)
 
@@ -695,15 +703,12 @@ ID: `mint_system.base.view_partner_form.x_global_location_number`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
-
     <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
-
 </data>
 
 ```
@@ -766,15 +771,12 @@ ID: `mint_system.base.view_partner_form.x_vst`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
-
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_vst"/>
     </xpath>
-
     <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
         <field name="x_vst"/>
     </xpath>
-
 </data>
 
 ```
@@ -910,9 +912,9 @@ ID: `mint_system.base.view_partner_tree.show_pricelist`
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <data inherit_id="base.view_partner_tree" priority="50">
-  <xpath expr="//field[@name='user_id']" position="after">
-    <field name="property_product_pricelist" optional="show"/>
-  </xpath>
+    <xpath expr="//field[@name='user_id']" position="after">
+        <field name="property_product_pricelist" optional="show"/>
+    </xpath>
 </data>
 
 ```
@@ -950,7 +952,7 @@ ID: `mint_system.base.view_partner_tree.show_ref`
 <?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="before">
-        <field name="ref" optional="show" string="Ku-Nr." />
+        <field name="ref" optional="show" string="Ku-Nr."/>
     </field>
 </data>
 
@@ -1018,6 +1020,7 @@ ID: `mint_system.base.view_partner_tree.x_eori`
         <field name="x_eori"/>
     </field>
 </data>
+
 ```
 Source: [snippets/base.view_partner_tree.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_eori.xml)
 
@@ -1037,17 +1040,16 @@ Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.c
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_tree.x_global_location_number`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
-
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
-
     <xpath expr="//notebook//form/sheet/group/group/field[@name='company_id']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
-
 </data>
+
 ```
 Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_global_location_number.xml)
 
@@ -1060,6 +1062,7 @@ ID: `mint_system.base.view_partner_tree.x_schema`
         <field name="x_schema" optional="show" widget="badge"/>
     </field>
 </data>
+
 ```
 Source: [snippets/base.view_partner_tree.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_schema.xml)
 
@@ -1072,6 +1075,7 @@ ID: `mint_system.base.view_partner_tree.x_vat`
         <field name="x_vat"/>
     </field>
 </data>
+
 ```
 Source: [snippets/base.view_partner_tree.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_vat.xml)
 
@@ -1097,6 +1101,7 @@ ID: `mint_system.base.view_partner_tree.x_zaz`
         <field name="x_zaz"/>
     </field>
 </data>
+
 ```
 Source: [snippets/base.view_partner_tree.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_partner_tree.x_zaz.xml)
 
@@ -1151,10 +1156,9 @@ ID: `mint_system.base.view_res_partner_filter.main_contacts`
 <?xml version="1.0" encoding="utf-8"?>
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <xpath expr="//filter[@name='type_company']" position="after">
-      <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
+        <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
     </xpath>
 </data>
-
 
 ```
 Source: [snippets/base.view_res_partner_filter.main_contacts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.main_contacts.xml)

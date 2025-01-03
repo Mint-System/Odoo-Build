@@ -171,7 +171,7 @@ ID: `mint_system.hr.view_employee_form.show_last_attendance`
 <?xml version="1.0"?>
 <data inherit_id="hr.view_employee_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
-        <field name="last_attendance_id" />
+        <field name="last_attendance_id"/>
     </xpath>
 </data>
 

@@ -230,6 +230,7 @@ Source: [snippets/mrp.label_production_view_pdf.basis57.xml](https://github.com/
 ### Trimada  
 ID: `mint_system.mrp.label_production_view_pdf.trimada`  
 ```xml
+<?xml version="1.0"?>
 <t t-name="mrp.label_production_view_pdf.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="production">
@@ -330,12 +331,12 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
                             </div>
                             <div class="col-6 box">
                                 <div t-if="production.name" class="text-right">
-                                     <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
+                                    <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
                         </div>
                     </div>
                 </div>
@@ -343,6 +344,7 @@ ID: `mint_system.mrp.label_production_view_pdf.trimada`
         </t>
     </t>
 </t>
+
 ```
 Source: [snippets/mrp.label_production_view_pdf.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.label_production_view_pdf.trimada.xml)
 
@@ -589,45 +591,45 @@ Source: [snippets/mrp.mrp_production_form_view.move_finished_ids.xml](https://gi
 ### Replace Workorder Tree View  
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
-<!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
-  <xpath expr="//field[@name='workorder_ids']" position="inside">
-    <tree editable="bottom" js_class="tablet_list_view">
-      <field name="consumption" invisible="1"/>
-      <field name="company_id" invisible="1"/>
-      <field name="is_produced" invisible="1"/>
-      <field name="is_user_working" invisible="1"/>
-      <field name="product_uom_id" invisible="1" readonly="0"/>
-      <field name="production_state" invisible="1"/>
-      <field name="production_bom_id" invisible="1"/>
-      <field name="qty_producing" invisible="1"/>
-      <field name="time_ids" invisible="1"/>
-      <field name="working_state" invisible="1"/>
-      <field name="operation_id" invisible="1" domain="['|', ('bom_id', '=', production_bom_id), ('bom_id', '=', False)]" context="{'default_workcenter_id': workcenter_id, 'default_company_id': company_id}"/>
-      <field name="name" string="Operation"/>
-      <field name="workcenter_id"/>
-      <field name="product_id" optional="hide"/>
-      <field name="lot_id" optional="hide" domain="['|',('company_id','=',False),('company_id','=',company_id)]"/>
-      <field name="date_planned_start" optional="show"/>
-      <field name="date_planned_finished" optional="hide"/>
-      <field name="date_start" optional="hide" readonly="1"/>
-      <field name="date_finished" optional="hide" readonly="1"/>
-      <field name="duration_expected" widget="float_time"/>
-      <field name="duration" widget="mrp_time_counter" attrs="{'invisible': [('production_state','=', 'draft')], 'readonly': [('is_user_working', '=', True)]}"/>
-      <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state not in ('done', 'cancel')" attrs="{'invisible': [('production_state', 'in', ('draft', 'done'))]}"/>
-      <field name="production_state" invisible="1"/>
-      <button name="button_start" type="object" string="Start" class="btn-success" attrs="{'invisible': ['|', '|', '|', ('production_state','in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('state', '=', 'done'), ('is_user_working', '!=', False)]}"/>
-      <button name="button_pending" type="object" string="Pause" class="btn-warning" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
-      <button name="button_finish" type="object" string="Done" class="btn-success" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
-      <button name="433" type="action" string="Block" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked')]}"/>
-      <button name="button_unblock" type="object" string="Unblock" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '!=', 'blocked')]}"/>
-      <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" context="{'default_workcenter_id': workcenter_id}"/>
-      <button name="open_tablet_view" type="object" icon="fa-tablet" context="{'from_production_order': True}" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'cancel', 'done')), ('state', '=', 'done')]}"/>
-      <field name="show_json_popover" invisible="1"/>
-      <field name="json_popover" widget="mrp_workorder_popover" string=" " width="0.1" attrs="{'invisible': [('show_json_popover', '=', False)]}"/>
-    </tree>
-  </xpath>
-
+    <!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
+    <xpath expr="//field[@name='workorder_ids']" position="inside">
+        <tree editable="bottom" js_class="tablet_list_view">
+            <field name="consumption" invisible="1"/>
+            <field name="company_id" invisible="1"/>
+            <field name="is_produced" invisible="1"/>
+            <field name="is_user_working" invisible="1"/>
+            <field name="product_uom_id" invisible="1" readonly="0"/>
+            <field name="production_state" invisible="1"/>
+            <field name="production_bom_id" invisible="1"/>
+            <field name="qty_producing" invisible="1"/>
+            <field name="time_ids" invisible="1"/>
+            <field name="working_state" invisible="1"/>
+            <field name="operation_id" invisible="1" domain="['|', ('bom_id', '=', production_bom_id), ('bom_id', '=', False)]" context="{'default_workcenter_id': workcenter_id, 'default_company_id': company_id}"/>
+            <field name="name" string="Operation"/>
+            <field name="workcenter_id"/>
+            <field name="product_id" optional="hide"/>
+            <field name="lot_id" optional="hide" domain="['|',('company_id','=',False),('company_id','=',company_id)]"/>
+            <field name="date_planned_start" optional="show"/>
+            <field name="date_planned_finished" optional="hide"/>
+            <field name="date_start" optional="hide" readonly="1"/>
+            <field name="date_finished" optional="hide" readonly="1"/>
+            <field name="duration_expected" widget="float_time"/>
+            <field name="duration" widget="mrp_time_counter" attrs="{'invisible': [('production_state','=', 'draft')], 'readonly': [('is_user_working', '=', True)]}"/>
+            <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state not in ('done', 'cancel')" attrs="{'invisible': [('production_state', 'in', ('draft', 'done'))]}"/>
+            <field name="production_state" invisible="1"/>
+            <button name="button_start" type="object" string="Start" class="btn-success" attrs="{'invisible': ['|', '|', '|', ('production_state','in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('state', '=', 'done'), ('is_user_working', '!=', False)]}"/>
+            <button name="button_pending" type="object" string="Pause" class="btn-warning" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
+            <button name="button_finish" type="object" string="Done" class="btn-success" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
+            <button name="433" type="action" string="Block" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked')]}"/>
+            <button name="button_unblock" type="object" string="Unblock" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '!=', 'blocked')]}"/>
+            <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" context="{'default_workcenter_id': workcenter_id}"/>
+            <button name="open_tablet_view" type="object" icon="fa-tablet" context="{'from_production_order': True}" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'cancel', 'done')), ('state', '=', 'done')]}"/>
+            <field name="show_json_popover" invisible="1"/>
+            <field name="json_popover" widget="mrp_workorder_popover" string=" " width="0.1" attrs="{'invisible': [('show_json_popover', '=', False)]}"/>
+        </tree>
+    </xpath>
 </data>
 
 ```
@@ -961,11 +963,10 @@ Source: [snippets/mrp.report_mrporder.modify_section_operations.xml](https://git
 ### Modify Section Order Definition  
 ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
-
-    <style>
+    <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
+        <style>
      .table &gt; :not(:first-child) {
       border-top: none;
     }
@@ -992,63 +993,60 @@ ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`
       padding: 0 0 0 0;
     }
     </style>
-    <div class="row table th">
-      <div class="col-2">
-        <span>Produkt</span>
+        <div class="row table th">
+            <div class="col-2">
+                <span>Produkt</span>
+            </div>
+            <div class="col-4">
+                <span t-field="o.product_id.default_code"/>
+            </div>
+            <div class="col-6">
+                <span>Typenbezeichnung</span>
+            </div>
+        </div>
+        <div class="row table td">
+            <div class="col-6">
+                <span t-field="o.product_id.name"/>
+            </div>
+            <div class="col-6">
+                <span t-field="o.product_id.type_description"/>
+            </div>
+        </div>
+        <div class="col-3" t-if="o.product_description_variants">
+            <strong>Description:</strong>
+            <br/>
+            <span t-field="o.product_description_variants"/>
+        </div>
+        <div class="row table th">
+            <div class="col-2">
+                <span>Menge</span>
+            </div>
+            <div class="col-4">
       </div>
-      <div class="col-4">
-        <span t-field="o.product_id.default_code"/>
-      </div>
-      <div class="col-6">
-        <span>Typenbezeichnung</span>
-      </div>
-    </div>
-    <div class="row table td">
-      <div class="col-6">
-        <span t-field="o.product_id.name"/>
-      </div>
-      <div class="col-6">
-        <span t-field="o.product_id.type_description"/>
-      </div>
-    </div>
-
-    <div class="col-3" t-if="o.product_description_variants">
-      <strong>Description:</strong>
-      <br/>
-      <span t-field="o.product_description_variants"/>
-    </div>
-
-    <div class="row table th">
-      <div class="col-2">
-        <span>Menge</span>
-      </div>
-      <div class="col-4">
-      </div>
-      <div class="col-6">
-        <span>Datum</span>
-      </div>
-    </div>
-    <div class="row table td">
-      <div class="col-6">
-        <strong>
-          <span t-field="o.product_qty"/>
-        </strong>
-        <strong>
-          <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
-        </strong>
-      </div>
-      <div class="col-3">
+            <div class="col-6">
+                <span>Datum</span>
+            </div>
+        </div>
+        <div class="row table td">
+            <div class="col-6">
+                <strong>
+                    <span t-field="o.product_qty"/>
+                </strong>
+                <strong>
+                    <span t-field="o.product_uom_id.name" groups="uom.group_uom"/>
+                </strong>
+            </div>
+            <div class="col-3">
         Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
       </div>
-      <div class="col-3 text-end">
-        <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            <div class="col-3 text-end">
+                <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </strong>
-      </div>
-    </div>
-
-  </xpath>
-
+            </div>
+        </div>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/mrp.report_mrporder.modify_section_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrporder.modify_section_order_definition.xml)
 
@@ -1379,20 +1377,16 @@ ID: `mint_system.mrp.report_mrporder.title_with_border`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//h2/../.." position="attributes">
-    <attribute name="id">title-with-border</attribute>
-  </xpath>
-
-  <xpath expr="//h2/../..//div[2]" position="replace">
-    <div class="col-5">
-      <span t-field="o.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:210px; height:60px;'}"/>
-    </div>
-  </xpath>
-
-  <xpath expr="//h2/../.." position="before">
-
-    <style>
+    <xpath expr="//h2/../.." position="attributes">
+        <attribute name="id">title-with-border</attribute>
+    </xpath>
+    <xpath expr="//h2/../..//div[2]" position="replace">
+        <div class="col-5">
+            <span t-field="o.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:210px; height:60px;'}"/>
+        </div>
+    </xpath>
+    <xpath expr="//h2/../.." position="before">
+        <style>
 	    #title-with-border {
 	      border: solid 1px;
 	      margin-left: 5px;
@@ -1417,8 +1411,7 @@ ID: `mint_system.mrp.report_mrporder.title_with_border`
 	      padding-right: 5px;
 	    }
     </style>
-
-  </xpath>
+    </xpath>
 </data>
 
 ```
@@ -1430,9 +1423,8 @@ ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_pr
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrp_production_components" priority="50">
-
-  <xpath expr="//table" position="replace">
-    <style>
+    <xpath expr="//table" position="replace">
+        <style>
     table#section_consumed_products {
       width: 98%;
       margin: 0 0 10px 10px;
@@ -1464,61 +1456,59 @@ ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_pr
       padding-bottom: 5px;
     }
     </style>
-
-    <table id="section_consumed_products" t-if="o.move_raw_ids">
-      <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
-      <thead>
-        <tr style="border-bottom: 1px solid rgb(220,220,220);">
-          <th width="10%" style="text-align: left;">Art. Nr.</th>
-          <th width="31%" style="text-align: left;">Bezeichnung</th>
-          <th width="29%" style="text-align: left;">Typenbezeichnung</th>
-          <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
-          <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
-        </tr>
-      </thead>
-      <body>
-        <t t-if="o.move_raw_ids">
-          <tr style="border-bottom: 1px solid rgb(220,220,220); vertical-align: top; font-size: 10pt;" t-foreach="o.move_raw_ids" t-as="raw_line">
-            <td>
-              <span t-field="raw_line.product_id.default_code"/>
-            </td>
-            <td>
-              <span t-field="raw_line.product_id.name"/>
-            </td>
-            <td>
-              <span t-field="raw_line.product_id.type_description"/>
-            </td>
-            <td style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">
-              <span t-field="raw_line.product_uom_qty"/>
-              <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
-            </td>
-            <td t-if="has_product_barcode" width="15%" class="text-center">
-              <t t-if="raw_line.product_id.barcode">                 
-                <div t-field="raw_line.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:100px; height:35px;'}"/>
-              </t>              
-            </td>
-          </tr>
-        </t>
-      </body>
-    </table>
-
-    <table id="note">
-      <thead>
-        <tr style="border-bottom: 1px solid rgb(220,220,220);">
-          <th>Notiz</th>
-        </tr>
-      </thead>
-      <body>
-          <tr style="vertical-align: top; font-size: 10pt;">
-            <td>
-               <span t-field="o.x_note"/>
-            </td>
-          </tr>
-      </body>      
-    </table>
-
-  </xpath>
+        <table id="section_consumed_products" t-if="o.move_raw_ids">
+            <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
+            <thead>
+                <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                    <th width="10%" style="text-align: left;">Art. Nr.</th>
+                    <th width="31%" style="text-align: left;">Bezeichnung</th>
+                    <th width="29%" style="text-align: left;">Typenbezeichnung</th>
+                    <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
+                    <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
+                </tr>
+            </thead>
+            <body>
+                <t t-if="o.move_raw_ids">
+                    <tr style="border-bottom: 1px solid rgb(220,220,220); vertical-align: top; font-size: 10pt;" t-foreach="o.move_raw_ids" t-as="raw_line">
+                        <td>
+                            <span t-field="raw_line.product_id.default_code"/>
+                        </td>
+                        <td>
+                            <span t-field="raw_line.product_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="raw_line.product_id.type_description"/>
+                        </td>
+                        <td style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">
+                            <span t-field="raw_line.product_uom_qty"/>
+                            <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
+                        </td>
+                        <td t-if="has_product_barcode" width="15%" class="text-center">
+                            <t t-if="raw_line.product_id.barcode">
+                                <div t-field="raw_line.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:100px; height:35px;'}"/>
+                            </t>
+                        </td>
+                    </tr>
+                </t>
+            </body>
+        </table>
+        <table id="note">
+            <thead>
+                <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                    <th>Notiz</th>
+                </tr>
+            </thead>
+            <body>
+                <tr style="vertical-align: top; font-size: 10pt;">
+                    <td>
+                        <span t-field="o.x_note"/>
+                    </td>
+                </tr>
+            </body>
+        </table>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.modify_section_consumed_products.xml)
 
@@ -1539,9 +1529,8 @@ ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_c
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrp_production_components" priority="50">
-
-  <xpath expr="//h3" position="replace">
-    <style>
+    <xpath expr="//h3" position="replace">
+        <style>
       table#consumed_products {
         width:98%;
         margin: 20px 0 10px 10px;
@@ -1551,14 +1540,15 @@ ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_c
         border-color: white;
       }
     </style>
-    <table id="consumed_products">
-      <tr style="border-bottom: 1px solid rgb(220,220,220);">
-        <td style="padding-bottom: 5px">Benötigte Produkte
+        <table id="consumed_products">
+            <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                <td style="padding-bottom: 5px">Ben&#xF6;tigte Produkte
         </td>
-      </tr>
-    </table>
-  </xpath>
+            </tr>
+        </table>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/mrp.report_mrp_production_components.replace_title_section_to_consume_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.report_mrp_production_components.replace_title_section_to_consume_products.xml)
 
@@ -1638,9 +1628,9 @@ ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.view_mrp_bom_filter" priority="50">
-	<xpath expr="//field[@name='bom_line_ids']" position="after">
-		<field name="x_type_description" string="Typenbezeichnung" filter_domain="[('x_type_description', 'ilike', self)]"/>
-	</xpath>
+    <xpath expr="//field[@name='bom_line_ids']" position="after">
+        <field name="x_type_description" string="Typenbezeichnung" filter_domain="[('x_type_description', 'ilike', self)]"/>
+    </xpath>
 </data>
 
 ```
@@ -1776,28 +1766,29 @@ ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.workcenter_line_kanban" priority="50">
-  
-<xpath expr="//div[@class='o_kanban_workorder_date']/h5" position="replace"/>
-
-<xpath expr="//div[@class='o_kanban_record_bottom']/h5" position="replace">
-  <h5 class="oe_kanban_bottom_left">
-    
-    <table>
-      <tr>
-        <td>
+    <xpath expr="//div[@class='o_kanban_workorder_date']/h5" position="replace"/>
+    <xpath expr="//div[@class='o_kanban_record_bottom']/h5" position="replace">
+        <h5 class="oe_kanban_bottom_left">
+            <table>
+                <tr>
+                    <td>
            Start Datum: <field name="date_planned_start" type="date"/>
         </td>
-      </tr>
-      <tr style="font-weight: normal;">
-        <td>
-         <span><t t-esc="record.product_id.value"/>, </span> <span><t t-esc="record.qty_production.value"/> <t t-esc="record.product_uom_id.value"/></span>
-        </td>
-      </tr>
-    </table>
-
-  </h5>
-</xpath>
+                </tr>
+                <tr style="font-weight: normal;">
+                    <td>
+                        <span><t t-esc="record.product_id.value"/>, </span>
+                        <span>
+                            <t t-esc="record.qty_production.value"/>
+                            <t t-esc="record.product_uom_id.value"/>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </h5>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.workcenter_line_kanban.add_date_planned_start.xml)
 

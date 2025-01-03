@@ -3,6 +3,7 @@
 ### Enable Edit  
 ID: `mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="hr_attendance.view_attendance_overtime_tree" priority="50" groups="hr_attendance.group_hr_attendance_manager">
     <tree position="attributes">
         <attribute name="create">1</attribute>

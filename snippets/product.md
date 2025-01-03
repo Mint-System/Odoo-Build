@@ -251,12 +251,11 @@ ID: `mint_system.product.product_template_form_view.last_incoming_date`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-
-  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
-    <field name="last_incoming_date"/>
-  </xpath>
-  
+    <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+        <field name="last_incoming_date"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/product.product_template_form_view.last_incoming_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_incoming_date.xml)
 
@@ -265,14 +264,14 @@ ID: `mint_system.product.product_template_form_view.last_moves`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-
-  <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
-    <group name="moves" string="Bewegungen" colspan="4">
-      <field name="last_outgoing_date"/>
-      <field name="last_incoming_date"/>
-    </group>
-  </xpath>
+    <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
+        <group name="moves" string="Bewegungen" colspan="4">
+            <field name="last_outgoing_date"/>
+            <field name="last_incoming_date"/>
+        </group>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/product.product_template_form_view.last_moves.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_moves.xml)
 
@@ -281,12 +280,11 @@ ID: `mint_system.product.product_template_form_view.last_outgoing_date`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-
-  <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
-    <field name="last_outgoing_date"/>
-  </xpath>
-  
+    <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
+        <field name="last_outgoing_date"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_outgoing_date.xml)
 
@@ -680,6 +678,7 @@ ID: `mint_system.product.product_template_tree_view.show_accounts`
         <field name="property_account_expense_id" optional="hide"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.show_accounts.xml)
 

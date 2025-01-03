@@ -26,9 +26,8 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
-
-<xpath expr="//table[@id='summary']" position="after">
-  <style>
+    <xpath expr="//table[@id='summary']" position="after">
+        <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
@@ -39,53 +38,52 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`
         vertical-align: top;
       }
     </style>
-    <table id="footer">
-      <tr>
-        <td width="40%" t-if="doc.payment_term_id">
-          <span>Zahlungsbedingungen </span>
-          <span t-field="doc.payment_term_id"/>
-        </td>
-        <td width="60%">
+        <table id="footer">
+            <tr>
+                <td width="40%" t-if="doc.payment_term_id">
+                    <span>Zahlungsbedingungen </span>
+                    <span t-field="doc.payment_term_id"/>
+                </td>
+                <td width="60%">
           Delivery according to our general delivery conditions
         </td>
-      </tr>
-      <tr>
-        <td>
-           <span>VAT no: </span>
-           <span t-field="doc.company_id.vat"/>
-        </td>
-        <td>
-          <table width="100%">
-          <tr>
-            <td width="35%">
+            </tr>
+            <tr>
+                <td>
+                    <span>VAT no: </span>
+                    <span t-field="doc.company_id.vat"/>
+                </td>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td width="35%">
                Bank accounts:
             </td>
-              <td width="65%">
+                            <td width="65%">
               UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
              </td>
-          </tr> 
-          <tr> 
-             <td>
+                        </tr>
+                        <tr>
+                            <td>
             </td>
-            <td>
+                            <td>
             (CHF) IBAN CH63 0027 3273 Q978 6962 0
             </td>
-          </tr>
-       
-          <tr>
-            <td>
+                        </tr>
+                        <tr>
+                            <td>
             </td>
-            <td>
+                            <td>
             (EUR) IBAN CH59 0027 3273 HN10 3698 0
             </td>
-          </tr>
-          </table> 
-        </td>
-      </tr>
-    </table>
-  </xpath>
-
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml)
 
@@ -748,10 +746,10 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xm
 ### Style Tissa  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
 			table#info {
 				font-size: 9pt;
 				border: white;
@@ -782,21 +780,18 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`
         margin-bottom: 30px;
       }
 		</style>
-	</xpath>
-
-	<xpath expr="//table/thead//th[1]" position="attributes">
-		<attribute name="style">text-align: left</attribute>
-	</xpath>
- 
-	<xpath expr="//div[@id='summary']/div" position="attributes">
-		<attribute name="t-attf-class">#{'col-4 offset-8' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
-	</xpath>
-	
-		<xpath expr="//div[@id='summary']/div/table" position="attributes">
-		<attribute name="style">border: white</attribute>
-	</xpath>
-
+    </xpath>
+    <xpath expr="//table/thead//th[1]" position="attributes">
+        <attribute name="style">text-align: left</attribute>
+    </xpath>
+    <xpath expr="//div[@id='summary']/div" position="attributes">
+        <attribute name="t-attf-class">#{'col-4 offset-8' if report_type != 'html' else 'col-sm-7 col-md-5'} ml-auto</attribute>
+    </xpath>
+    <xpath expr="//div[@id='summary']/div/table" position="attributes">
+        <attribute name="style">border: white</attribute>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
@@ -909,10 +904,11 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_re
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
-  <xpath expr="//field[@name='validity_date']" position="after">
-    <xpath expr="//field[@name='client_order_ref']" position="move"/>
-  </xpath>
+    <xpath expr="//field[@name='validity_date']" position="after">
+        <xpath expr="//field[@name='client_order_ref']" position="move"/>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
 
@@ -992,14 +988,12 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.activities`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
-
-  <field name="state" position="after">
-    <field name="activity_date_deadline"/>
-    <field name="activity_ids"/>
-    <field name="activity_state"/>
-    <field name="my_activity_date_deadline"/>
-  </field>
-
+    <field name="state" position="after">
+        <field name="activity_date_deadline"/>
+        <field name="activity_ids"/>
+        <field name="activity_state"/>
+        <field name="my_activity_date_deadline"/>
+    </field>
 </data>
 
 ```

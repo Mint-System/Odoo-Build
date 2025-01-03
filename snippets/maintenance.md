@@ -36,6 +36,7 @@ ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`
         <field name="x_calibrated_until"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml)
 

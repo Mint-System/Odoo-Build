@@ -18,7 +18,7 @@ ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_end_da
 <?xml version="1.0"?>
 <data inherit_id="sale_subscription.sale_subscription_order_view_form" priority="50">
     <xpath expr="//group[@name='sales_person']//field[@name='to_renew']" position="before">
-        <field name="end_date" attrs="{'invisible': [('recurrence_id', '=', False)]}" />
+        <field name="end_date" attrs="{'invisible': [('recurrence_id', '=', False)]}"/>
     </xpath>
 </data>
 

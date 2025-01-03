@@ -103,10 +103,8 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-  <xpath expr="//table[@id='main_table']" position="after">
-
-    <style>
+    <xpath expr="//table[@id='main_table']" position="after">
+        <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
@@ -116,26 +114,26 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_footer`
         vertical-align: top;
       }
     </style>
-    <table id="footer">
-      <tr>
-        <td width="50%" t-if="o.payment_term_id">
-          <span>Zahlungsbedingungen </span>
-          <span t-field="o.payment_term_id"/>
-        </td>
-        <td width="50%">
-          <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <span>MWST-Nr: </span>
-          <span t-field="o.company_id.vat"/>
-        </td>
-      </tr>
-    </table>
-  </xpath>
-
+        <table id="footer">
+            <tr>
+                <td width="50%" t-if="o.payment_term_id">
+                    <span>Zahlungsbedingungen </span>
+                    <span t-field="o.payment_term_id"/>
+                </td>
+                <td width="50%">
+                    <span>Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen</span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span>MWST-Nr: </span>
+                    <span t-field="o.company_id.vat"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_footer.xml)
 
@@ -181,9 +179,8 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-  <xpath expr="//h2" position="after">
-    <style>
+    <xpath expr="//h2" position="after">
+        <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
@@ -199,50 +196,49 @@ ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_infotable`
         font-size: 9pt;
       }
     </style>
-    <table id="info">
-      <tr>
-        <td width="17%">Date</td>
-        <td width="40%">
-          <span t-field="o.ordering_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-        </td>
-        <td width="18%">Our Reference</td>
-        <td width="25%">
-          <span t-field="o.user_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Customer No.</td>
-        <td>
-          <span t-field="o.vendor_id.ref"/>
-        </td>
-        <td>Incoterm</td>
-        <td>
-          <span t-field="o.incoterm_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td/>
-        <td>
-          <span t-field="o.partner_ref"/>
-        </td>
-        <td>Agreement Deadline</td>
-        <td>
-          <span t-field="o.date_end" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Reference</td>
-        <td>
-          <span t-field="o.comment"/>
-        </td>
-        <td/>
-        <td/>
-      </tr>
-    </table>
-
-  </xpath>
-
+        <table id="info">
+            <tr>
+                <td width="17%">Date</td>
+                <td width="40%">
+                    <span t-field="o.ordering_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+                <td width="18%">Our Reference</td>
+                <td width="25%">
+                    <span t-field="o.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.vendor_id.ref"/>
+                </td>
+                <td>Incoterm</td>
+                <td>
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td/>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <td>Agreement Deadline</td>
+                <td>
+                    <span t-field="o.date_end" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Reference</td>
+                <td>
+                    <span t-field="o.comment"/>
+                </td>
+                <td/>
+                <td/>
+            </tr>
+        </table>
+    </xpath>
 </data>
+
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.add_infotable.xml)
 
@@ -606,10 +602,9 @@ Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_produ
 ### Replace Product Id  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_product_id`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="49">
-
-  <xpath expr="//table[1]//td[1]" position="replace"/>
-
+    <xpath expr="//table[1]//td[1]" position="replace"/>
 </data>
 
 ```
@@ -659,18 +654,17 @@ Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_sched
 ### Replace Table Header  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.replace_table_header`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
-
-  <xpath expr="//table[@id='main_table']/thead/tr/th[2]" position="after">
-    <th class="text-end">
-      <strong>Qty</strong>
-    </th>
-  </xpath>
-
-  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
-  <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
-
+    <xpath expr="//table[@id='main_table']/thead/tr/th[2]" position="after">
+        <th class="text-end">
+            <strong>Qty</strong>
+        </th>
+    </xpath>
+    <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
+    <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="replace"/>
 </data>
+
 ```
 Source: [snippets/purchase_requisition.report_purchaserequisitions.replace_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisitions.replace_table_header.xml)
 

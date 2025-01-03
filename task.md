@@ -17,6 +17,7 @@
 | create-odoo-env           | [env]                | Create env file for Odoo Instance.                                                         |
 | disable-auto-install      |                      | Disable auto install for enterprise modules.                                               |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
+| disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
 | docker-login              |                      | Setup Docker Hub login credentials.                                                        |
 | drop-db                   | [db]                 | Drop target Odoo database. Default is branch name.                                         |
 | edit-env                  | [env]                | Open env file in default editor.                                                           |
@@ -30,7 +31,6 @@
 | generate-snippets-doc     |                      | Update snippets doc file.                                                                  |
 | generate-revisions-doc    |                      | Update revisions doc file.                                                                 |
 | get-addons-path           |                      | Output addons path.                                                                        |
-| get-jsonrpc-session       | [env]                | Get user session token for Odoo env.                                                       |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | git-feature-branch        | [path]               | Create feature branch for Odoo module.                                                     |
@@ -54,7 +54,7 @@
 | install-native            |                      | Install Odoo requirements in source folder.                                                |
 | install-odoo-scripts      |                      | Install Odoo scripts.                                                                      |
 | install-requirements      | [db][path]           | Install python packages from requirements.txt.                                             |
-| install-snippet           | [env][path]          | Install snippet xml definition.                                                            |
+| install-snippet           | [env][path]          | Install snippet definition.                                                                |
 | k8s-apply                 |                      | Apply the Odoo K8s manifests.                                                              |
 | lint-module               | [path]               | Run pylint odoo for module.                                                                |
 | lint-module-repo          | [path]               | Run pylint odoo for modules in repo folder.                                                |
@@ -68,8 +68,6 @@
 | node-build                |                      | Create vuepress build.                                                                     |
 | node-serve-build          |                      | Serve vuepress build.                                                                      |
 | odoo-cloc                 | [db]                 | Count custom line of codes. Default is branch name.                                        |
-| odoo-checkin              | [env]                | Attendance checkin on target Odoo env.                                                     |
-| odoo-checkout             | [env]                | Attendance checkout on target Odoo env.                                                    |
 | patch-database            | [db][path]           | Apply sql file to database. Default database is branch name.                               |
 | publish                   |                      | Publish Odoo Docker image.                                                                 |
 | ps                        |                      | List docker processes.                                                                     |
@@ -78,6 +76,7 @@
 | remove                    | [name]               | Remove docker containers and volumes. Options: none, db, admin, odoo, mail.                |
 | remove-env                | [env]                | Remove environment config.                                                                 |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
+| remove-snippet            | [env][path]          | Remove snippet definition.                                                                 |
 | reset-views               | [db][key]            | Execute hard reset on views matching keys.                                                 |
 | restart                   | [name]               | Restart docker container.                                                                  |
 | save-config               | [name]               | Save Odoo database config.                                                                 |
@@ -95,7 +94,7 @@
 | stop                      | [name]               | Stop docker containers.                                                                    |
 | template-odoo-rc          |                      | Template the Odoo config file.                                                             |
 | test-docker               |                      | Test docker environment.                                                                   |
-| test-jsonrpc              | [env][model]         | Test json rpc connection.                                                                  |
+| test-xmlrpc               | [env]                | Test json rpc connection.                                                                  |
 | test-k8s                  |                      | Test Kubernetes environment.                                                               |
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
@@ -105,7 +104,7 @@
 | upgrade-odoo              | [db][version][mode]  | Run the Odoo upgrade scripts. Default mode ist 'test'.                                     |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |
 | update-readme             | [path]               | Update Readme file of Odoo module collection.                                              |
-| update-snippet            | [env][path]          | Update snippet xml definition.                                                             |
+| update-snippet            | [env][path]          | Update snippet definition.                                                                 |
 | upload-module             | [env][path]          | Zip and upload Odoo module.                                                                |
 | visualize-dependencies    | [path]               | Generate visualizations of module dependencies.                                            |
 | version                   |                      | Show version of required tools.                                                            |

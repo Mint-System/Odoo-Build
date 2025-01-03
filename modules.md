@@ -805,8 +805,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 
  | name | links |
 |---|---|
-| account_brand | [14.0](https://github.com/OCA/brand/tree/14.0/account_brand) [15.0](https://github.com/OCA/brand/tree/15.0/account_brand) [16.0](https://github.com/OCA/brand/tree/16.0/account_brand) |
-| analytic_brand | [14.0](https://github.com/OCA/brand/tree/14.0/analytic_brand) [15.0](https://github.com/OCA/brand/tree/15.0/analytic_brand) |
+| account_brand | [14.0](https://github.com/OCA/brand/tree/14.0/account_brand) [15.0](https://github.com/OCA/brand/tree/15.0/account_brand) [16.0](https://github.com/OCA/brand/tree/16.0/account_brand) [17.0](https://github.com/OCA/brand/tree/17.0/account_brand) |
+| analytic_brand | [14.0](https://github.com/OCA/brand/tree/14.0/analytic_brand) [15.0](https://github.com/OCA/brand/tree/15.0/analytic_brand) [17.0](https://github.com/OCA/brand/tree/17.0/analytic_brand) |
 | brand | [14.0](https://github.com/OCA/brand/tree/14.0/brand) [15.0](https://github.com/OCA/brand/tree/15.0/brand) [16.0](https://github.com/OCA/brand/tree/16.0/brand) [17.0](https://github.com/OCA/brand/tree/17.0/brand) |
 | brand_external_report_layout | [14.0](https://github.com/OCA/brand/tree/14.0/brand_external_report_layout) [15.0](https://github.com/OCA/brand/tree/15.0/brand_external_report_layout) [16.0](https://github.com/OCA/brand/tree/16.0/brand_external_report_layout) |
 | contract_brand | [14.0](https://github.com/OCA/brand/tree/14.0/contract_brand) [15.0](https://github.com/OCA/brand/tree/15.0/contract_brand) |
@@ -820,7 +820,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | product_brand_stock_account | [16.0](https://github.com/OCA/brand/tree/16.0/product_brand_stock_account) |
 | product_brand_tag | [14.0](https://github.com/OCA/brand/tree/14.0/product_brand_tag) [16.0](https://github.com/OCA/brand/tree/16.0/product_brand_tag) |
 | product_brand_tag_secondary | [14.0](https://github.com/OCA/brand/tree/14.0/product_brand_tag_secondary) |
-| sale_brand | [14.0](https://github.com/OCA/brand/tree/14.0/sale_brand) [15.0](https://github.com/OCA/brand/tree/15.0/sale_brand) [16.0](https://github.com/OCA/brand/tree/16.0/sale_brand) |
+| sale_brand | [14.0](https://github.com/OCA/brand/tree/14.0/sale_brand) [15.0](https://github.com/OCA/brand/tree/15.0/sale_brand) [16.0](https://github.com/OCA/brand/tree/16.0/sale_brand) [17.0](https://github.com/OCA/brand/tree/17.0/sale_brand) |
 
 ### business-requirement
 
@@ -1130,6 +1130,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | helpdesk_motive | [15.0](https://github.com/OCA/helpdesk/tree/15.0/helpdesk_motive) [16.0](https://github.com/OCA/helpdesk/tree/16.0/helpdesk_motive) |
 | helpdesk_product | [16.0](https://github.com/OCA/helpdesk/tree/16.0/helpdesk_product) |
 | helpdesk_ticket_close_inactive | [16.0](https://github.com/OCA/helpdesk/tree/16.0/helpdesk_ticket_close_inactive) |
+| helpdesk_ticket_partner_response | [16.0](https://github.com/OCA/helpdesk/tree/16.0/helpdesk_ticket_partner_response) |
 | helpdesk_type | [15.0](https://github.com/OCA/helpdesk/tree/15.0/helpdesk_type) [16.0](https://github.com/OCA/helpdesk/tree/16.0/helpdesk_type) |
 
 ### hr-attendance
@@ -1414,7 +1415,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_multi_level_estimate | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_multi_level_estimate) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_multi_level_estimate) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_multi_level_estimate) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_multi_level_estimate) |
 | mrp_package_propagation | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_package_propagation) |
 | mrp_packaging_default | [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_packaging_default) |
-| mrp_planned_order_matrix | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_planned_order_matrix) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_planned_order_matrix) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_planned_order_matrix) |
+| mrp_planned_order_matrix | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_planned_order_matrix) [15.0](https://github.com/OCA/manufacture/tree/15.0/mrp_planned_order_matrix) [16.0](https://github.com/OCA/manufacture/tree/16.0/mrp_planned_order_matrix) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_planned_order_matrix) |
 | mrp_production_auto_validate | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_auto_validate) |
 | mrp_production_back_to_draft | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_back_to_draft) [17.0](https://github.com/OCA/manufacture/tree/17.0/mrp_production_back_to_draft) |
 | mrp_production_byproduct_cost_share | [14.0](https://github.com/OCA/manufacture/tree/14.0/mrp_production_byproduct_cost_share) |
@@ -2481,8 +2482,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | fetchmail_attach_from_folder | [16.0](https://github.com/OCA/server-tools/tree/16.0/fetchmail_attach_from_folder) |
 | fetchmail_incoming_log | [13.0](https://github.com/OCA/server-tools/tree/13.0/fetchmail_incoming_log) [14.0](https://github.com/OCA/server-tools/tree/14.0/fetchmail_incoming_log) [15.0](https://github.com/OCA/server-tools/tree/15.0/fetchmail_incoming_log) |
 | fetchmail_incoming_log_test | [15.0](https://github.com/OCA/server-tools/tree/15.0/fetchmail_incoming_log_test) |
-| fetchmail_notify_error_to_sender | [13.0](https://github.com/OCA/server-tools/tree/13.0/fetchmail_notify_error_to_sender) [14.0](https://github.com/OCA/server-tools/tree/14.0/fetchmail_notify_error_to_sender) [15.0](https://github.com/OCA/server-tools/tree/15.0/fetchmail_notify_error_to_sender) |
-| fetchmail_notify_error_to_sender_test | [13.0](https://github.com/OCA/server-tools/tree/13.0/fetchmail_notify_error_to_sender_test) [14.0](https://github.com/OCA/server-tools/tree/14.0/fetchmail_notify_error_to_sender_test) |
+| fetchmail_notify_error_to_sender | [13.0](https://github.com/OCA/server-tools/tree/13.0/fetchmail_notify_error_to_sender) [14.0](https://github.com/OCA/server-tools/tree/14.0/fetchmail_notify_error_to_sender) [15.0](https://github.com/OCA/server-tools/tree/15.0/fetchmail_notify_error_to_sender) [17.0](https://github.com/OCA/server-tools/tree/17.0/fetchmail_notify_error_to_sender) |
+| fetchmail_notify_error_to_sender_test | [13.0](https://github.com/OCA/server-tools/tree/13.0/fetchmail_notify_error_to_sender_test) [14.0](https://github.com/OCA/server-tools/tree/14.0/fetchmail_notify_error_to_sender_test) [17.0](https://github.com/OCA/server-tools/tree/17.0/fetchmail_notify_error_to_sender_test) |
 | html_image_url_extractor | [13.0](https://github.com/OCA/server-tools/tree/13.0/html_image_url_extractor) [14.0](https://github.com/OCA/server-tools/tree/14.0/html_image_url_extractor) [15.0](https://github.com/OCA/server-tools/tree/15.0/html_image_url_extractor) |
 | html_text | [13.0](https://github.com/OCA/server-tools/tree/13.0/html_text) [14.0](https://github.com/OCA/server-tools/tree/14.0/html_text) [15.0](https://github.com/OCA/server-tools/tree/15.0/html_text) [16.0](https://github.com/OCA/server-tools/tree/16.0/html_text) |
 | iap_alternative_provider | [13.0](https://github.com/OCA/server-tools/tree/13.0/iap_alternative_provider) [14.0](https://github.com/OCA/server-tools/tree/14.0/iap_alternative_provider) [15.0](https://github.com/OCA/server-tools/tree/15.0/iap_alternative_provider) [16.0](https://github.com/OCA/server-tools/tree/16.0/iap_alternative_provider) [17.0](https://github.com/OCA/server-tools/tree/17.0/iap_alternative_provider) |

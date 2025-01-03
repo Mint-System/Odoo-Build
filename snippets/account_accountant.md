@@ -8,6 +8,7 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
     <xpath expr="//div[@id='payment_ref']/.." position="replace">        
     </xpath>
 </data>
+
 ```
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml)
 
@@ -19,6 +20,7 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
     <xpath expr="//templates//field[@name='statement_id']/.." position="replace">        
     </xpath>
 </data>
+
 ```
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml)
 
@@ -32,10 +34,11 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
         <div class="flex_row">
             <div id="row3_col1">
                 <field name="narration"/>
-            </div>            
+            </div>
         </div>
     </xpath>
 </data>
+
 ```
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)
 
@@ -45,10 +48,11 @@ ID: `mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widge
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account_accountant.view_bank_statement_line_tree_bank_rec_widget" priority="50">
-    <field name="partner_id" position="after"> 
-        <field name="partner_name" />
+    <field name="partner_id" position="after">
+        <field name="partner_name"/>
     </field>
 </data>
+
 ```
 Source: [snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)
 

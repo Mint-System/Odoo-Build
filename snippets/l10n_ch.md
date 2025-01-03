@@ -34,6 +34,7 @@ Source: [snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https:
 ### Format Country Code  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace">
         <span if="o.company_id.country_id.code != 'CH'" t-field="o.company_id.country_id.code"/>
@@ -57,21 +58,22 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
-
-    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street']" position="replace" />
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street']" position="replace"/>
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street2']" position="replace">
-        <span t-field="o.partner_id.street2" /><br t-if="o.partner_id.street2" />
-        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3" /><br t-if="o.partner_id.street3" />
-        <span t-if="o.partner_id.street" t-field="o.partner_id.street" />
+        <span t-field="o.partner_id.street2"/>
+        <br t-if="o.partner_id.street2"/>
+        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3"/>
+        <br t-if="o.partner_id.street3"/>
+        <span t-if="o.partner_id.street" t-field="o.partner_id.street"/>
     </xpath>
-
-    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street']" position="replace" />
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street']" position="replace"/>
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street2']" position="replace">
-        <span t-if="o.partner_id.street2" t-field="o.partner_id.street2" /><br t-if="o.partner_id.street2" />
-        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3" /><br t-if="o.partner_id.street3" />
-        <span t-if="o.partner_id.street" t-field="o.partner_id.street" />
+        <span t-if="o.partner_id.street2" t-field="o.partner_id.street2"/>
+        <br t-if="o.partner_id.street2"/>
+        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3"/>
+        <br t-if="o.partner_id.street3"/>
+        <span t-if="o.partner_id.street" t-field="o.partner_id.street"/>
     </xpath>
-
 </data>
 
 ```
@@ -106,6 +108,7 @@ Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](http
 ### Replace Commercial Partner  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']" position="replace">
         <span t-esc="o.partner_id.name or o.partner_id.parent_id.name"/>
@@ -114,17 +117,17 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`
         <span t-esc="o.partner_id.name or o.partner_id.parent_id.name"/>
     </xpath>
 </data>
+
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)
 
 ### Replace Title  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
-
-<xpath expr="//div[@class='swissqr_content_v2']" position="after">
- 
-     <style>
+    <xpath expr="//div[@class='swissqr_content_v2']" position="after">
+        <style>
           .trimada {
                font-size: 9pt;
                font-family: arial;
@@ -136,16 +139,15 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`
                font-size: 13pt;
           }
      </style>
-     <div class="trimada" t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-     <br/>
-     <br/>
-     <br/>
-     <span class="trimada name">Rechnung <t t-esc="o.name"/></span>
-     <br/>
-     <span class="trimada">Rechnungsdatum: <t t-options="{&quot;widget&quot;: &quot;date&quot;}" t-esc="o.invoice_date"/></span>
-     <br/>
-</xpath>
-
+        <div class="trimada" t-field="o.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        <br/>
+        <br/>
+        <br/>
+        <span class="trimada name">Rechnung <t t-esc="o.name"/></span>
+        <br/>
+        <span class="trimada">Rechnungsdatum: <t t-options="{&quot;widget&quot;: &quot;date&quot;}" t-esc="o.invoice_date"/></span>
+        <br/>
+    </xpath>
 </data>
 
 ```
