@@ -693,11 +693,13 @@ function install-native() {
     pip install ${PIP_INOTIFY}
     pip install -r requirements.txt
 
-    echo "Install Odoo dependencies"
-    pip install -r odoo/requirements.txt
+    if [ -f "odoo/requirements.txt" ]; then
+        echo "Install Odoo dependencies"
+        pip install -r odoo/requirements.txt
 
-    echo "Configure Odoo as python package"
-    pip install -e odoo
+        echo "Configure Odoo as python package"
+        pip install -e odoo
+    fi
 }
 
 # Process Commands
