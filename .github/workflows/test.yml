@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - name: Run task install-odoo-scripts
+        run: ./task install-odoo-scripts
       - name: Run task test-docker
         run: ./task test-docker
       - name: Run task test-k8s

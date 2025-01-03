@@ -92,12 +92,13 @@ set_odoo_config_env() {
         
         # Set parent folder of module paths as new addons path
         ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
-    
-        # Append module paths to addons path
-        ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ODOO_MODULE_PATH"
 
-        # Remove duplicate module paths
-        ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | sort -u | tr "\n" "," | sed 's/,$//')
+        # Enterprise modules always have version 1.0
+        if [[ "$ODOO_ADDONS_PATH" =~ "/mnt/enterprise" ]]; then
+            ODOO_ADDONS_PATH="/mnt/enterprise,$ODOO_MODULE_PATH"
+        else
+            ODOO_ADDONS_PATH="$ODOO_MODULE_PATH"
+        fi
     fi
     
     GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)

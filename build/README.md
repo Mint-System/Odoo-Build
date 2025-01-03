@@ -44,7 +44,7 @@ services:
       ODOO_INIT_LANG: de_CH
       ENVIRONMENT: production
       PIP_INSTALL: prometheus-client
-      SERVER_WIDE_MODULES: web,session_db
+      SERVER_WIDE_MODULES: web,session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
       LOG_LEVEL: debug
@@ -55,6 +55,7 @@ services:
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
+      MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
       CLICK_ODOO_UPDATE: True
     ports:
       - "127.0.0.1:8069:8069"
@@ -147,6 +148,12 @@ Here are the most important container paths.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/mnt/extra-addons` Module folders are loaded from this path by default.
+
+### Disable Auto Install
+
+With `module_change_auto_install` module you can disable the auto installation of specific modules.
+
+* `MODULE_AUTO_INSTALL_DISABLED` Comma separated list of modules that should be auto installed. Requires `module_change_auto_install` in `SERVER_WIDE_MODULES`.
 
 ### Mainfestoo
 

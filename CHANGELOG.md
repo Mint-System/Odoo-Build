@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. The format 
 * Image shows revision date in settings page.
 * Image supports env vars to initialize database.
 * `test-docker` uses new env vars to initialize database.
+* Test image features with `test-docker`.
 * Extended usage section of the Image README file.
 * Use prefixed `PG` env vars for database connection.
 * Image supports auto update modules with click-odoo.
@@ -31,7 +32,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Removed `logo.png`.
 * Removed `scripts/jsonrpc`.
-* Removed commands `get-jsonrpc-session, `odoo-checkin` and `odoo-checkout`.
+* Removed commands `get-jsonrpc-session`, `odoo-checkin` and `odoo-checkout`.
 * Removed `odoorpc` from requirements.txt.
 
 ## 2024-12-16
