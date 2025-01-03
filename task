@@ -863,10 +863,9 @@ function test-docker() {
     export PIP_INSTALL=prometheus-client,manifestoo
     export SERVER_WIDE_MODULES=web,session_db,module_change_auto_install
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
-    export LIST_DB=True
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
     export CLICK_ODOO_UPDATE=True
-    start
+    start db,odoo
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
 
     echo "Test auto upgrade."
@@ -884,12 +883,11 @@ function test-docker() {
     export ODOO_URL="http://localhost:8069"
     export ODOO_USERNAME=admin
     export ODOO_PASSWORD=admin
-    remove-env test
     create-odoo-env test
     show-env test
     test-xmlrpc test
 
-    echo "Install disable and remove snippet."
+    echo "Install, update, disable and remove snippet."
     install-snippet test snippets/base.view_partner_form.show_type.xml
     update-snippet test snippets/base.view_partner_form.show_type.xml
     disable-snippet test snippets/base.view_partner_form.show_type.xml
@@ -902,6 +900,9 @@ function test-docker() {
     docker-odoo-drop -d test
     docker-odoo-restore -d test -f /var/tmp/test.zip
     change-uuid test
+
+    echo "Cleanup test environment."
+    remove-env test
 }
 
 # Kubernetes Commands
