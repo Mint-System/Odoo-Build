@@ -1,25 +1,20 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
-  <xpath expr="//table[@class='company_header table-borderless']" position="replace">
-
-    <style>
+    <xpath expr="//table[@class='company_header table-borderless']" position="replace">
+        <style>
       .din_page.header table img {
         float: none;
       }      
     </style>
-
-
-    <table class="company_header table-borderless" t-att-style="'height: %dmm;' % (din_header_spacing or 27)">
-
-      <tr style="height: 35px">
+        <table class="company_header table-borderless" t-att-style="'height: %dmm;' % (din_header_spacing or 27)">
+            <tr style="height: 35px">
 
       </tr>
-      <tr>
-
-        <td>
-          <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" t-att-style="'max-height: 20mm; display: block; margin: 0 auto; padding-top: 10mm;'"/>
-        </td>
-      </tr>
-    </table>
-  </xpath>
+            <tr>
+                <td>
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" t-att-style="'max-height: 20mm; display: block; margin: 0 auto; padding-top: 10mm;'"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

@@ -1,5 +1,4 @@
+<?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="49">
-
-  <xpath expr="//table[1]//td[1]" position="replace"/>
-
+    <xpath expr="//table[1]//td[1]" position="replace"/>
 </data>

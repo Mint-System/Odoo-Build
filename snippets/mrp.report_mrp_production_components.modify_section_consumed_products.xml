@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrp_production_components" priority="50">
-
-  <xpath expr="//table" position="replace">
-    <style>
+    <xpath expr="//table" position="replace">
+        <style>
     table#section_consumed_products {
       width: 98%;
       margin: 0 0 10px 10px;
@@ -34,58 +33,55 @@
       padding-bottom: 5px;
     }
     </style>
-
-    <table id="section_consumed_products" t-if="o.move_raw_ids">
-      <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
-      <thead>
-        <tr style="border-bottom: 1px solid rgb(220,220,220);">
-          <th width="10%" style="text-align: left;">Art. Nr.</th>
-          <th width="31%" style="text-align: left;">Bezeichnung</th>
-          <th width="29%" style="text-align: left;">Typenbezeichnung</th>
-          <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
-          <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
-        </tr>
-      </thead>
-      <body>
-        <t t-if="o.move_raw_ids">
-          <tr style="border-bottom: 1px solid rgb(220,220,220); vertical-align: top; font-size: 10pt;" t-foreach="o.move_raw_ids" t-as="raw_line">
-            <td>
-              <span t-field="raw_line.product_id.default_code"/>
-            </td>
-            <td>
-              <span t-field="raw_line.product_id.name"/>
-            </td>
-            <td>
-              <span t-field="raw_line.product_id.type_description"/>
-            </td>
-            <td style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">
-              <span t-field="raw_line.product_uom_qty"/>
-              <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
-            </td>
-            <td t-if="has_product_barcode" width="15%" class="text-center">
-              <t t-if="raw_line.product_id.barcode">                 
-                <div t-field="raw_line.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:100px; height:35px;'}"/>
-              </t>              
-            </td>
-          </tr>
-        </t>
-      </body>
-    </table>
-
-    <table id="note">
-      <thead>
-        <tr style="border-bottom: 1px solid rgb(220,220,220);">
-          <th>Notiz</th>
-        </tr>
-      </thead>
-      <body>
-          <tr style="vertical-align: top; font-size: 10pt;">
-            <td>
-               <span t-field="o.x_note"/>
-            </td>
-          </tr>
-      </body>      
-    </table>
-
-  </xpath>
+        <table id="section_consumed_products" t-if="o.move_raw_ids">
+            <t t-set="has_product_barcode" t-value="any(m.product_id.barcode for m in o.move_raw_ids)"/>
+            <thead>
+                <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                    <th width="10%" style="text-align: left;">Art. Nr.</th>
+                    <th width="31%" style="text-align: left;">Bezeichnung</th>
+                    <th width="29%" style="text-align: left;">Typenbezeichnung</th>
+                    <th width="20%" style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">Menge</th>
+                    <th width="10%" t-if="has_product_barcode" class="text-center">Strichcode</th>
+                </tr>
+            </thead>
+            <body>
+                <t t-if="o.move_raw_ids">
+                    <tr style="border-bottom: 1px solid rgb(220,220,220); vertical-align: top; font-size: 10pt;" t-foreach="o.move_raw_ids" t-as="raw_line">
+                        <td>
+                            <span t-field="raw_line.product_id.default_code"/>
+                        </td>
+                        <td>
+                            <span t-field="raw_line.product_id.name"/>
+                        </td>
+                        <td>
+                            <span t-field="raw_line.product_id.type_description"/>
+                        </td>
+                        <td style="text-align: right; padding-right: 20px" t-attf-class="{{ 'text-right' if not has_product_barcode else '' }}">
+                            <span t-field="raw_line.product_uom_qty"/>
+                            <span t-field="raw_line.product_uom" groups="uom.group_uom"/>
+                        </td>
+                        <td t-if="has_product_barcode" width="15%" class="text-center">
+                            <t t-if="raw_line.product_id.barcode">
+                                <div t-field="raw_line.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:100px; height:35px;'}"/>
+                            </t>
+                        </td>
+                    </tr>
+                </t>
+            </body>
+        </table>
+        <table id="note">
+            <thead>
+                <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                    <th>Notiz</th>
+                </tr>
+            </thead>
+            <body>
+                <tr style="vertical-align: top; font-size: 10pt;">
+                    <td>
+                        <span t-field="o.x_note"/>
+                    </td>
+                </tr>
+            </body>
+        </table>
+    </xpath>
 </data>

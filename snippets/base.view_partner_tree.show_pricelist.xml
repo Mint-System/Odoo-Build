@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data inherit_id="base.view_partner_tree" priority="50">
-  <xpath expr="//field[@name='user_id']" position="after">
-    <field name="property_product_pricelist" optional="show"/>
-  </xpath>
+    <xpath expr="//field[@name='user_id']" position="after">
+        <field name="property_product_pricelist" optional="show"/>
+    </xpath>
 </data>

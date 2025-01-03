@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
-
-  <xpath expr="//td[@name='td_quantity']" position="attributes">
-    <attribute name="style">width: 80px</attribute>
-  </xpath>
-
+    <xpath expr="//td[@name='td_quantity']" position="attributes">
+        <attribute name="style">width: 80px</attribute>
+    </xpath>
 </data>

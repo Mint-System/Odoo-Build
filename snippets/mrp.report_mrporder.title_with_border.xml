@@ -1,19 +1,15 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-
-  <xpath expr="//h2/../.." position="attributes">
-    <attribute name="id">title-with-border</attribute>
-  </xpath>
-
-  <xpath expr="//h2/../..//div[2]" position="replace">
-    <div class="col-5">
-      <span t-field="o.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:210px; height:60px;'}"/>
-    </div>
-  </xpath>
-
-  <xpath expr="//h2/../.." position="before">
-
-    <style>
+    <xpath expr="//h2/../.." position="attributes">
+        <attribute name="id">title-with-border</attribute>
+    </xpath>
+    <xpath expr="//h2/../..//div[2]" position="replace">
+        <div class="col-5">
+            <span t-field="o.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:210px; height:60px;'}"/>
+        </div>
+    </xpath>
+    <xpath expr="//h2/../.." position="before">
+        <style>
 	    #title-with-border {
 	      border: solid 1px;
 	      margin-left: 5px;
@@ -38,6 +34,5 @@
 	      padding-right: 5px;
 	    }
     </style>
-
-  </xpath>
+    </xpath>
 </data>

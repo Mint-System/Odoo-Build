@@ -6,7 +6,6 @@
     </p>
     </xpath>
 </data>
-
 <!-- Version 16
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@name='payment_term']" position="replace">

@@ -1,18 +1,19 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
-
-    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street']" position="replace" />
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street']" position="replace"/>
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street2']" position="replace">
-        <span t-field="o.partner_id.street2" /><br t-if="o.partner_id.street2" />
-        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3" /><br t-if="o.partner_id.street3" />
-        <span t-if="o.partner_id.street" t-field="o.partner_id.street" />
+        <span t-field="o.partner_id.street2"/>
+        <br t-if="o.partner_id.street2"/>
+        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3"/>
+        <br t-if="o.partner_id.street3"/>
+        <span t-if="o.partner_id.street" t-field="o.partner_id.street"/>
     </xpath>
-
-    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street']" position="replace" />
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street']" position="replace"/>
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.street2']" position="replace">
-        <span t-if="o.partner_id.street2" t-field="o.partner_id.street2" /><br t-if="o.partner_id.street2" />
-        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3" /><br t-if="o.partner_id.street3" />
-        <span t-if="o.partner_id.street" t-field="o.partner_id.street" />
+        <span t-if="o.partner_id.street2" t-field="o.partner_id.street2"/>
+        <br t-if="o.partner_id.street2"/>
+        <span t-if="o.partner_id.street3" t-field="o.partner_id.street3"/>
+        <br t-if="o.partner_id.street3"/>
+        <span t-if="o.partner_id.street" t-field="o.partner_id.street"/>
     </xpath>
-
 </data>

@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrp_production_components" priority="50">
-
-  <xpath expr="//h3" position="replace">
-    <style>
+    <xpath expr="//h3" position="replace">
+        <style>
       table#consumed_products {
         width:98%;
         margin: 20px 0 10px 10px;
@@ -12,11 +11,11 @@
         border-color: white;
       }
     </style>
-    <table id="consumed_products">
-      <tr style="border-bottom: 1px solid rgb(220,220,220);">
-        <td style="padding-bottom: 5px">Benötigte Produkte
+        <table id="consumed_products">
+            <tr style="border-bottom: 1px solid rgb(220,220,220);">
+                <td style="padding-bottom: 5px">Ben&#xF6;tigte Produkte
         </td>
-      </tr>
-    </table>
-  </xpath>
+            </tr>
+        </table>
+    </xpath>
 </data>

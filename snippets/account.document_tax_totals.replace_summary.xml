@@ -1,7 +1,6 @@
+<?xml version="1.0"?>
 <data inherit_id="account.document_tax_totals" priority="50">
-
     <xpath expr="//t/t[1]" position="replace">
-
         <style>
 			table.trimada_summary tr {
 				border-top: solid 1px !important;
@@ -40,37 +39,30 @@
 				text-align: right;
 			}
         </style>
-
         <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
             <tr>
                 <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
-
                     <td id="amount_untaxed_label">
                         <strong>Warenwert</strong>
                     </td>
-                    
                     <td>
-                       <span t-att-class="oe_subtotal_footer_separator" t-esc="subtotal['formatted_amount']"/>
+                        <span t-att-class="oe_subtotal_footer_separator" t-esc="subtotal['formatted_amount']"/>
                     </td>
-
                     <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
                     <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
                         <t t-if="tax_totals['display_tax_base']">
                             <td>
                                 <span t-esc="amount_by_group['tax_group_name']"/>
                             </td>
-                            
                             <td>
-                               <span t-if="not amount_by_group['hide_base_amount']" class="text-nowrap"> on
+                                <span t-if="not amount_by_group['hide_base_amount']" class="text-nowrap"> on
                                     <t t-esc="amount_by_group['formatted_tax_group_base_amount']"/>
                                 </span>
                             </td>
-                            
                             <td class="text-end o_price_total">
                                 <span class="text-nowrap" t-esc="amount_by_group['formatted_tax_group_amount']"/>
                             </td>
                         </t>
-                        
                         <t t-else="">
                             <td>
                                 <span style="padding-right: 10px" class="text-nowrap" t-esc="amount_by_group['tax_group_name']"/>
@@ -78,14 +70,12 @@
                             </td>
                         </t>
                     </t>
-
                     <t t-if="'formatted_rounding_amount' in tax_totals and tax_totals['rounding_amount'] != 0">
                         <td>Rounding</td>
                         <td class="text-end">
                             <span t-esc="tax_totals['formatted_rounding_amount']"/>
                         </td>
                     </t>
-
                     <td>
                         <strong>Total</strong>
                     </td>
@@ -93,15 +83,10 @@
                         <span t-esc="tax_totals['formatted_amount_total_rounded']" t-if="'formatted_amount_total_rounded' in tax_totals"/>
                         <span t-esc="tax_totals['formatted_amount_total']" t-else=""/>
                     </td>
-
                 </t>
-
             </tr>
-
         </table>
     </xpath>
-    
     <xpath expr="//tr[@class='border-black o_total']" position="replace">
     </xpath>
-
 </data>

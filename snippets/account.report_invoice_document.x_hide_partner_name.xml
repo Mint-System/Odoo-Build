@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//address[@t-field='o.partner_id']"  position="attributes">
+    <xpath expr="//address[@t-field='o.partner_id']" position="attributes">
         <t t-if="o.x_hide_partner_name">
             <address class="mb-0" t-field="o.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;], &quot;no_marker&quot;: True}"/>
         </t>

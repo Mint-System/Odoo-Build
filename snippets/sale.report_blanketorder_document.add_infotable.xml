@@ -1,8 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-
-  <xpath expr="//h2" position="after">
-    <style>
+    <xpath expr="//h2" position="after">
+        <style>
       table#info {
         width: 100%;
         margin-bottom: 25px;
@@ -18,49 +17,47 @@
         font-size: 9pt;
       }
     </style>
-    <table id="info">
-      <tr>
-        <td width="17%">Date</td>
-        <td width="40%">
-          <span t-field="doc.date_confirmed" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-        </td>
-        <td width="18%">Our Reference</td>
-        <td width="25%">
-          <span t-field="doc.user_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Customer No.</td>
-        <td>
-          <span t-field="doc.partner_id.ref"/>
-        </td>
-        <td>Delivery Method</td>
-        <td>
-          <span t-field="doc.carrier_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Order</td>
-        <td>
-          <span t-field="doc.client_order_ref"/>
-        </td>
-        <td>Incoterm</td>
-        <td>
-          <span t-field="doc.incoterm"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Reference</td>
-        <td>
-          <span t-field="doc.comment"/>
-        </td>
-        <td>Validity Date</td>
-        <td>
-          <span t-field="doc.validity_date"/>
-        </td>
-      </tr>
-    </table>
-
-  </xpath>
-
+        <table id="info">
+            <tr>
+                <td width="17%">Date</td>
+                <td width="40%">
+                    <span t-field="doc.date_confirmed" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+                <td width="18%">Our Reference</td>
+                <td width="25%">
+                    <span t-field="doc.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="doc.partner_id.ref"/>
+                </td>
+                <td>Delivery Method</td>
+                <td>
+                    <span t-field="doc.carrier_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Order</td>
+                <td>
+                    <span t-field="doc.client_order_ref"/>
+                </td>
+                <td>Incoterm</td>
+                <td>
+                    <span t-field="doc.incoterm"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Reference</td>
+                <td>
+                    <span t-field="doc.comment"/>
+                </td>
+                <td>Validity Date</td>
+                <td>
+                    <span t-field="doc.validity_date"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
 </data>

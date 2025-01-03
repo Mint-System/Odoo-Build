@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Command `test-xmlrpc` renamed to `test-xmlrpc`.
 * Refactored `odooctl` cli.
+* Added emojies to the README feature list.
 
 ### Fixed
 

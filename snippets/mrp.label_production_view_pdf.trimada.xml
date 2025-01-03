@@ -1,3 +1,4 @@
+<?xml version="1.0"?>
 <t t-name="mrp.label_production_view_pdf.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="production">
@@ -98,12 +99,12 @@
                             </div>
                             <div class="col-6 box">
                                 <div t-if="production.name" class="text-right">
-                                     <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
+                                    <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
                         </div>
                     </div>
                 </div>

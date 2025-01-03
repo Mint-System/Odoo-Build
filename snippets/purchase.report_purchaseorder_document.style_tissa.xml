@@ -1,7 +1,7 @@
+<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
 		  .table-sm {
 				padding: 0.3rem !important;
 			}	
@@ -30,18 +30,14 @@
 			  text-align: left;
 			}
 		</style>
-	</xpath>
-
-	<xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
-		<attribute name="t-options">{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": False}</attribute>
-	</xpath>
-
-	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
-		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
-	</xpath>
-	
-	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style">text-align: left</attribute>
-	</xpath>
-
+    </xpath>
+    <xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
+        <attribute name="t-options">{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": False}</attribute>
+    </xpath>
+    <xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+        <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+    </xpath>
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style">text-align: left</attribute>
+    </xpath>
 </data>

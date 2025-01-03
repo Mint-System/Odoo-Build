@@ -4,9 +4,11 @@
         <th class="text-left">Purpose</th>
     </xpath>
     <xpath expr="//table/tr/td[3]" position="after">
-        <td class="text-left"><t t-esc="x_studio_bemerkungen"/></td>
+        <td class="text-left">
+            <t t-esc="x_studio_bemerkungen"/>
+        </td>
     </xpath>
     <xpath expr="//table/tfoot/tr/td[3]" position="after">
-        <td></td>
+        <td/>
     </xpath>
 </data>

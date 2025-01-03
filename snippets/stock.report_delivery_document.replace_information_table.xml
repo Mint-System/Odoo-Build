@@ -49,7 +49,6 @@
             </tr>
         </table>
     </xpath>
-
     <!-- Odoo 17
 
      <xpath expr="//div[@class='page']/div[2]" position="replace">
@@ -99,5 +98,4 @@
 
     </xpath>
     -->
-
 </data>

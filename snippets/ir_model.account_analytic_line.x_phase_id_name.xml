@@ -9,6 +9,6 @@
         <field name="store" eval="True"/>
         <field name="copied" eval="False"/>
         <field name="ttype">char</field>
-        <field name="related">task_id.phase_id.name</field>        
+        <field name="related">task_id.phase_id.name</field>
     </record>
 </odoo>

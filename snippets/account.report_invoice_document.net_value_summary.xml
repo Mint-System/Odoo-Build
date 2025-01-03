@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='total']//table/t[1]" position="before">
-    <!-- Version 16
+        <!-- Version 16
      <xpath expr="//div[@id='total']//table/t[1]" position="before">
     -->
         <t t-set="net_value_of_goods" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type == 'product').mapped('price_subtotal'))"/>

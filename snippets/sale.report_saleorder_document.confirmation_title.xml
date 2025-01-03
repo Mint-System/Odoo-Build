@@ -1,5 +1,5 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-
     <xpath expr="//h2" position="replace">
         <h2>
             <span t-if="env.context.get('proforma', False) or is_pro_forma">Pro-Forma Invoice # </span>

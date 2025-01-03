@@ -1,14 +1,13 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document">
-
-<xpath expr="/t/t/div/table" position="after">
-    <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
-      <div class="col">
-        <t t-if="o.payment_term_id" name="payment_term">
-            <strong>Zahlungsbedingungen: </strong><span t-field="o.payment_term_id.name"/>
-        </t>
-      </div>
-    </div>
-  </xpath>
-  
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="/t/t/div/table" position="after">
+        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="col">
+                <t t-if="o.payment_term_id" name="payment_term">
+                    <strong>Zahlungsbedingungen: </strong>
+                    <span t-field="o.payment_term_id.name"/>
+                </t>
+            </div>
+        </div>
+    </xpath>
 </data>

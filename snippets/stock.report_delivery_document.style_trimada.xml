@@ -1,7 +1,7 @@
+<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
-
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
 		  .o_company_1_layout {
         font-family: arial;
       }
@@ -70,14 +70,11 @@
 			  text-align: left;
 			}
 		</style>
-	</xpath>
-
-	<table name="stock_move_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
-	<table name="stock_backorder_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
+    </xpath>
+    <table name="stock_move_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
+    <table name="stock_backorder_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
 </data>

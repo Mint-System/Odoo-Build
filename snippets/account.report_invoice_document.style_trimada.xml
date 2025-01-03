@@ -1,7 +1,7 @@
+<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
-
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>		  
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>		  
 		  	.o_company_1_layout {
         		font-family: arial;
       		}  		  
@@ -77,22 +77,17 @@
 				font-family: arial;
 			}
 		</style>
-	</xpath>
-
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
-	<table name="invoice_line_table" position="attributes">
-		<attribute name="class" separator=" " add="trimada table-borderless"/>
-	</table>
-
-  <span id="qty" position="attributes">
-		<attribute name="t-options-widget">"integer"</attribute>
-	</span>
-	
-	<div id="total" position="attributes">
-		<attribute name="style">font-size: 9pt; color: blue</attribute>
-	</div>
-	
+    </xpath>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="class" separator=" " add="trimada table-borderless"/>
+    </table>
+    <span id="qty" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
+    <div id="total" position="attributes">
+        <attribute name="style">font-size: 9pt; color: blue</attribute>
+    </div>
 </data>

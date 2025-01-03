@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="60">
-    <xpath expr="//div" position="after">    
+    <xpath expr="//div" position="after">
         <style>
             .o_company_2_layout {
                 font-family: arial;

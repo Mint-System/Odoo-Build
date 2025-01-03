@@ -1,16 +1,10 @@
 <?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">&gt;
 
-  <xpath expr="//div/h2[1]" position="attributes">
-    <attribute name="style">color: black; margin-top: 2rem</attribute>
-  </xpath>
+  <xpath expr="//div/h2[1]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
   
-  <xpath expr="//div/h2[2]" position="attributes">
-    <attribute name="style">color: black; margin-top: 2rem</attribute>
-  </xpath>
+  <xpath expr="//div/h2[2]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
   
-  <xpath expr="//div/h2[3]" position="attributes">
-    <attribute name="style">color: black; margin-top: 2rem</attribute>
-  </xpath>
+  <xpath expr="//div/h2[3]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
 
 </data>

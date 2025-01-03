@@ -1,9 +1,9 @@
+<?xml version="1.0"?>
 <t t-name="sale.report_saleorder_pro_forma">
     <t t-call="web.html_container">
         <t t-set="is_pro_forma" t-value="True"/>
         <t t-set="is_pro_forma_consolidated" t-value="True"/>
         <t t-call="web.external_layout">
-
             <style>
            .info td {
               padding-left: 5px;
@@ -25,11 +25,9 @@
               padding-left: 5px;
             }
             </style>
-
             <h2 class="mt-4">
                 <span>Pro-Forma Invoice</span>
             </h2>
-
             <h3>Orders:</h3>
             <table class="info">
                 <thead>
@@ -67,7 +65,6 @@
                     </t>
                 </tbody>
             </table>
-
             <table class="table table-sm o_main_table mt-4">
                 <thead style="display: table-row-group">
                     <tr>
@@ -78,7 +75,6 @@
                         <th name="th_subtotal" class="text-end">Amount</th>
                     </tr>
                 </thead>
-
                 <tbody class="sale_tbody">
                     <t t-set="lines" t-value="docs.order_line.sorted(key=lambda l: (l.name), reverse=True)"/>
                     <t t-set="consolidated_products" t-value="{}"/>
@@ -95,14 +91,11 @@
                         <t t-set="consolidated_product" t-value="consolidated_products.get(product_name, {'quantity': 0, 'price_unit': 0, 'discount': 0, 'subtotal': 0, 'price_total': 0})"/>
                         <t t-set="consolidated_products" t-value="consolidated_products | dict({product_name: {'name': line_name, 'default_code': line_default_code, 'hs_code': line_hs_code, 'quantity': consolidated_product['quantity'] + line_quantity, 'price_unit': consolidated_product['price_unit'] + line_price_unit, 'tax_id': line_tax_id, 'subtotal': consolidated_product['subtotal'] + line_subtotal, 'price_total': consolidated_product['price_total'] + line_price_total}})"/>
                     </t>
-
                     <tr t-att-class="'bg-200 fw-bold o_line_section' if line.display_type == 'line_section' else 'fst-italic o_line_note' if line.display_type == 'line_note' else ''">
                         <t t-if="not line.display_type">
                             <t t-foreach="consolidated_products.items()" t-as="product_data">
                                 <tr>
-                                    <td name="td_name">
-                                        <span style="font-weight: bold" t-esc="product_data[1]['name']"/>
-                                        <br/>
+                                    <td name="td_name"><span style="font-weight: bold" t-esc="product_data[1]['name']"/><br/>
                                         Product Code: <span t-esc="product_data[1]['default_code']"/>
                                         <br/>
                                         <t t-if="product_data[1]['hs_code']">HS-Code: <span t-esc="product_data[1]['hs_code']"/>
@@ -119,7 +112,6 @@
                                     <td name="td_taxes" class="text-end">
                                         <span t-esc="product_data[1]['tax_id']"/>
                                     </td>
-
                                     <td name="td_subtotal" class="text-end o_price_total">
                                         <span t-esc="product_data[1]['subtotal']" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
                                     </td>
@@ -135,21 +127,17 @@
                     </t>
                 </t>
             </table>
-
             <div class="clearfix" name="so_total_summary">
                 <div id="total" class="row" name="total">
                     <div t-attf-class="#{'col-6' if report_type != 'html' else 'col-sm-7 col-md-6'} ms-auto">
                         <table class="table table-sm">
                             <!-- Tax totals -->
                             <t t-set="tax_totals" t-value="doc.tax_totals"/>
-
                             <t t-foreach="tax_totals['subtotals']" t-as="subtotal">
-
                                 <tr class="border-black o_subtotal">
                                     <td>
                                         <strong t-esc="subtotal['name']"/>
                                     </td>
-
                                     <td class="text-end">
                                         <span t-att-class="oe_subtotal_footer_separator" t-esc="consolidated_price_total" t-options="{'widget': 'monetary', 'display_currency': doc.currency_id}"/>
                                     </td>
@@ -179,7 +167,6 @@
                                     </tr>
                                 </t>
                             </t>
-
                             <t t-set="has_rounding" t-value="'formatted_amount_total_rounded' in tax_totals"/>
                             <!--Total amount with all taxes-->
                             <tr class="border-black o_total">

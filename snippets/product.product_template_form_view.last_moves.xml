@@ -1,10 +1,9 @@
 <?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
-
-  <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
-    <group name="moves" string="Bewegungen" colspan="4">
-      <field name="last_outgoing_date"/>
-      <field name="last_incoming_date"/>
-    </group>
-  </xpath>
+    <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
+        <group name="moves" string="Bewegungen" colspan="4">
+            <field name="last_outgoing_date"/>
+            <field name="last_incoming_date"/>
+        </group>
+    </xpath>
 </data>

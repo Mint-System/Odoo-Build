@@ -5,7 +5,7 @@
         <div class="flex_row">
             <div id="row3_col1">
                 <field name="narration"/>
-            </div>            
+            </div>
         </div>
     </xpath>
 </data>

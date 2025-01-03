@@ -9,6 +9,6 @@
         <field name="readonly" eval="True"/>
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
-        <field name="related">product_id.drawing_file</field>        
+        <field name="related">product_id.drawing_file</field>
     </record>
 </odoo>

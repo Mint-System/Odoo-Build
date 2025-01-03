@@ -1,43 +1,42 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-  
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
-    <attribute name="t-att-class">"first"</attribute>
-  </xpath>
-
-  <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
-    <t t-if="line.product_id.type_description">
-    <tr class="second">
-      <td/>
-      <td/>
-      <td colspan="6">
-        <span t-field="line.name"/><br/>
-        <t t-if="line.product_id.country_of_origin_id.code">
-          <span>Ursprungsland:</span>
-          <span t-field="line.product_id.country_of_origin_id.code"/>
+    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
+        <attribute name="t-att-class">"first"</attribute>
+    </xpath>
+    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
+        <t t-if="line.product_id.type_description">
+            <tr class="second">
+                <td/>
+                <td/>
+                <td colspan="6">
+                    <span t-field="line.name"/>
+                    <br/>
+                    <t t-if="line.product_id.country_of_origin_id.code">
+                        <span>Ursprungsland:</span>
+                        <span t-field="line.product_id.country_of_origin_id.code"/>
+                    </t>
+                    <t t-if="line.product_id.hs_code">
+                        <span>/ Zollposition:</span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+            </tr>
         </t>
-        <t t-if="line.product_id.hs_code">
-          <span>/ Zollposition:</span>
-          <span t-field="line.product_id.hs_code"/>
+        <t t-if="not line.product_id.type_description">
+            <tr class="second">
+                <td/>
+                <td/>
+                <td colspan="6">
+                    <t t-if="line.product_id.country_of_origin_id.code">
+                        <span>Ursprungsland:</span>
+                        <span t-field="line.product_id.country_of_origin_id.code"/>
+                    </t>
+                    <t t-if="line.product_id.hs_code">
+                        <span>/ Zollposition:</span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+            </tr>
         </t>
-      </td>
-    </tr>
-    </t>
-    <t t-if="not line.product_id.type_description">
-    <tr class="second">
-      <td/>
-      <td/>
-      <td colspan="6">
-        <t t-if="line.product_id.country_of_origin_id.code">
-          <span>Ursprungsland:</span>
-          <span t-field="line.product_id.country_of_origin_id.code"/>
-        </t>
-        <t t-if="line.product_id.hs_code">
-          <span>/ Zollposition:</span>
-          <span t-field="line.product_id.hs_code"/>
-        </t>
-      </td>
-    </tr>
-    </t>
-  </xpath>
-
+    </xpath>
 </data>

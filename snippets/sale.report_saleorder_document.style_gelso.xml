@@ -1,5 +1,5 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="60">
-
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         .mt-4 {
@@ -7,10 +7,8 @@
             }
         </style>
     </xpath>
-
     <xpath expr="//h2" position="attributes">
         <attribute name="class"/>
         <attribute name="style">margin-top: 2rem</attribute>
     </xpath>
-    
 </data>

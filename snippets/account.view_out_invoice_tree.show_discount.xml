@@ -1,9 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="account.view_out_invoice_tree" priority="50">
-
-  <xpath expr="//field[@name='invoice_date_due']" position="after">
-    <field string="Skonto-Datum" name="discount_date"/>
-    <field string="Skonto" name="has_discount"/>
-  </xpath>
-
+    <xpath expr="//field[@name='invoice_date_due']" position="after">
+        <field string="Skonto-Datum" name="discount_date"/>
+        <field string="Skonto" name="has_discount"/>
+    </xpath>
 </data>

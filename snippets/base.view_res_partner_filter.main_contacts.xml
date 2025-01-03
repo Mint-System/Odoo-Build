@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <xpath expr="//filter[@name='type_company']" position="after">
-      <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
+        <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
     </xpath>
 </data>
-

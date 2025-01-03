@@ -3,5 +3,4 @@
     <xpath expr="//t[@t-if='not line.display_type']" position="attributes">
         <attribute name="t-if">not line.display_type and not line.product_id.x_hide_on_sale_order</attribute>
     </xpath>
-   
 </data>

@@ -1,7 +1,6 @@
+<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
-
     <xpath expr="//div[@name='right_box']/.." position="replace">
-
         <style>
 			table.trimada_header {
 				width: 100%;
@@ -16,10 +15,9 @@
 				padding: 5px;
 			}
         </style>
-
         <table class="trimada_header">
             <tr>
-                <td>Rüstschein <span t-field="o.name"/>
+                <td>R&#xFC;stschein <span t-field="o.name"/>
                 </td>
                 <td>
                     <span>
@@ -28,6 +26,5 @@
                 </td>
             </tr>
         </table>
-
     </xpath>
 </data>

@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="60">
-
     <xpath expr="//div[@class='information_block']/.." position="replace"/>
-
     <xpath expr="//div[@class='address']/.." position="before">
         <td>
             <div class="information_block" style="line-height: 1.2">
@@ -23,9 +21,7 @@
             </div>
         </td>
     </xpath>
-
     <xpath expr="//div[@class='information_block']" position="attributes">
         <attribute name="class">address</attribute>
     </xpath>
-
 </data>

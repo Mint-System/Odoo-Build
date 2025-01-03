@@ -11,7 +11,8 @@
         </t>
         <!--if object has parent with different name show parent on second line -->
         <t t-if="object.parent_name and object.name != object.parent_name ">
-            <span itemprop="name" t-esc="object.name"/><br/>
+            <span itemprop="name" t-esc="object.name"/>
+            <br/>
             <span itemprop="name" t-esc="object.parent_name"/>
         </t>
     </xpath>
