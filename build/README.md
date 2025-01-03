@@ -11,7 +11,7 @@ A better Odoo image.
 - Store session information in database
 - Get environment name from server config
 - Initialize database with selected modules
-- Built-in [manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
+- Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
 
@@ -157,7 +157,7 @@ With `module_change_auto_install` module you can disable the auto installation o
 
 ### Mainfestoo
 
-With the Manifestoo cli you can query the module manifests files.
+With the [Manifestoo](https://github.com/acsone/manifestoo) cli you can query the module manifest files.
 
 List all modules:
 
@@ -167,7 +167,7 @@ docker exec odoo manifestoo --select-found list
 
 ### click-odoo
 
-With click-odoo you can manage the Odoo database.
+With [click-odoo](https://github.com/acsone/click-odoo) you can manage the Odoo database.
 
 * `CLICK_ODOO_UPDATE` If enabled click-odoo is used to update modules that have changed. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
 
