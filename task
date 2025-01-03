@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")" || exit
-# Commands such as git pull return exit code if there are not changes
+# Commands such as git pull return exit code if there are no changes
 # set -e
 
 function help-table() {
