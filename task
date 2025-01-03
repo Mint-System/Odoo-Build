@@ -45,7 +45,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-snippets-doc" "" "Update snippets doc file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-revisions-doc" "" "Update revisions doc file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Output addons path."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-jsonrpc-session" "[env]" "Get user session token for Odoo env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -83,8 +82,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-checkin" "[env]" "Attendance checkin on target Odoo env."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-checkout" "[env]" "Attendance checkout on target Odoo env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "publish" "" "Publish Odoo Docker image."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List docker processes."
@@ -111,7 +108,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop docker containers."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-odoo-rc" "" "Template the Odoo config file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-docker" "" "Test docker environment."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-jsonrpc" "[env][model]" "Test json rpc connection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-xmlrpc" "[env]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-k8s" "" "Test Kubernetes environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
@@ -293,10 +290,10 @@ function create-odoo-env() {
     fi
 
     echo "Init env file: $ENV_FILEPATH"
-    echo "#ODOO_URL=" > "$ENV_FILEPATH"
-    echo "ODOO_DATABASE=" >> "$ENV_FILEPATH"
-    echo "ODOO_USERNAME=" >> "$ENV_FILEPATH"
-    echo "ODOO_PASSWORD=" >> "$ENV_FILEPATH"
+    echo "ODOO_URL=$ODOO_URL" > "$ENV_FILEPATH"
+    echo "ODOO_DATABASE=$ODOO_DATABASE" >> "$ENV_FILEPATH"
+    echo "ODOO_USERNAME=$ODOO_USERNAME" >> "$ENV_FILEPATH"
+    echo "ODOO_PASSWORD=$ODOO_PASSWORD" >> "$ENV_FILEPATH"
 
     echo "Edit with: task edit-env $1"
 }
@@ -863,13 +860,29 @@ function test-docker() {
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
     
+    export LIST_DB=True
+
     export CLICK_ODOO_UPDATE=True
 
     start
 
-    # Wait until container is ready with curl loop for 60 seconds
     echo "Wait for container to be ready."
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
+
+    echo "Setup and test RPC credentials."
+    export ODOO_URL="http://localhost:8069"
+    export ODOO_USERNAME=admin
+    export ODOO_PASSWORD=admin
+    remove-env test
+    create-odoo-env test
+    show-env test
+    test-xmlrpc test
+
+    echo "Install disable and remove snippet."
+    install-snippet test snippets/base.view_partner_form.show_type.xml
+    update-snippet test snippets/base.view_partner_form.show_type.xml
+    disable-snippet test snippets/base.view_partner_form.show_type.xml
+    remove-snippet test snippets/base.view_partner_form.show_type.xml
 }
 
 # Kubernetes Commands
@@ -1079,8 +1092,8 @@ function disable-mailserver() {
 
     activate-venv
     load-env "$1"
-    scripts/odooctl --model 'ir.mail_server' --field 'active' --value False
-    scripts/odooctl --model 'fetchmail.server' --field 'active' --value False
+    scripts/odooctl --method 'write' --model 'ir.mail_server' --field 'active' --value False
+    scripts/odooctl --method 'write' --model 'fetchmail.server' --field 'active' --value False
 }
 
 function change-uuid() {
@@ -1090,7 +1103,7 @@ function change-uuid() {
     load-env "$1"
     UUID=$(uuidgen)
     echo "Set uuid $UUID for $1."
-    scripts/odooctl --model 'ir.config_parameter' --domain "['key', '=', 'database.uuid']" --field	'value' --value "'$UUID'"
+    scripts/odooctl --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field	'value' --value "'$UUID'"
 }
 
 function update-app-list() {
@@ -1594,8 +1607,9 @@ function install-snippet() {
     activate-venv
     load-env "$1"
     echo "Search for view with name $MODULE_NAME.$XML_ID"
-    INHERIT_ID=$(scripts/odooctl --method 'get_id' --model 'ir.model.data' --value "['$MODULE_NAME','$XML_ID']")
+    INHERIT_ID=$(scripts/odooctl --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
     echo "Found view id $INHERIT_ID"
+    
     echo "Apply view $NAME"
     scripts/odooctl --method 'create' --model 'ir.ui.view' --value "{ 
         'name': '$NAME',
@@ -1619,7 +1633,7 @@ function update-snippet() {
     activate-venv
     load-env "$1"
     echo "Update view with name $NAME"
-    scripts/odooctl --model 'ir.ui.view' --domain "['name', '=', '$NAME']" --field 'arch_base' --value "'''$(cat "$2")'''"
+    scripts/odooctl --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
 }
 
 function disable-snippet() {
@@ -1633,7 +1647,7 @@ function disable-snippet() {
     activate-venv
     load-env "$1"
     echo "Disable view with name $NAME"
-    scripts/odooctl --model "ir.ui.view" --domain "['name', '=', '$NAME']" --field "active" --value "False"
+    scripts/odooctl --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
 }
 
 function remove-snippet() {
@@ -1647,7 +1661,7 @@ function remove-snippet() {
     activate-venv
     load-env "$1"
     echo "Remove view with name $NAME"
-    scripts/odooctl --model "ir.ui.view" --domain "['name', '=', '$NAME']" --method "unlink"
+    scripts/odooctl --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
 }
 
 function lint-snippets() {
@@ -1963,60 +1977,13 @@ function create-revision() {
 
 # RPC Commands
 
-get-jsonrpc-session() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-
-    load-env "$1"
-    AUTH_URL="${ODOO_URL}/web/session/authenticate"
-    AUTH_PAYLOAD=$(cat <<EOF
-{
-    "jsonrpc": "2.0",
-    "method": "call",
-    "params": {
-        "db": "${ODOO_DATABASE}",
-        "login": "${ODOO_USERNAME}",
-        "password": "${ODOO_PASSWORD}"
-    },
-    "id": 1
-}
-EOF
-)
-
-    echo "Authenticating with Odoo..."
-    RESPONSE=$(curl -s \
-        -X POST \
-        -H "Content-Type: application/json" \
-        -d "${AUTH_PAYLOAD}" \
-        "${AUTH_URL}")
-
-    # Extract session ID from the response
-    SESSION_ID=$(echo "$RESPONSE" | jq -r '.result.session_id')
-    if [[ "$SESSION_ID" == "null" || -z "$SESSION_ID" ]]; then
-        echo "Authentication failed! Response: $RESPONSE"
-        exit 1
-    fi
-
-    echo "Authentication successful! Session ID: $SESSION_ID"
-    echo "$SESSION_ID"
-}
-
-function test-jsonrpc() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+function test-xmlrpc() {
+    if test -z "$1"; then echo "\$1 is empty."; exit 1; fi
 
     activate-venv
     load-env "$1"
-    ODOO_MODEL="$2"
-    export ODOO_MODEL
 
-    scripts/jsonrpc
-}
-
-odoo-checkout() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    load-env "$1"
-    SESSION_ID=$(get-jsonrpc-session "$1")
+    echo "Connect to database and count res.partner records: $(scripts/odooctl --model "res.partner" --method "search_count" --domain '[]')"
 }
 
 case "$1" in
@@ -2097,9 +2064,6 @@ case "$1" in
         ;;
     get-addons-path)
         get-addons-path
-        ;;
-    get-jsonrpc-session)
-        get-jsonrpc-session "$2"
         ;;
     get-modules)
         get-modules "$2" "$3"
@@ -2232,12 +2196,6 @@ case "$1" in
     odoo-cloc)
         odoo-cloc "$2"
         ;;
-    odoo-checkin)
-        odoo-checkin "$2"
-        ;;
-    odoo-checkout)
-        odoo-checkout "$2"
-        ;;
     patch-database)
         patch-database "$2" "$3"
         ;;
@@ -2319,8 +2277,8 @@ case "$1" in
     test-coverage-module)
         test-coverage-module "$2" "$3"
         ;;
-    test-jsonrpc)
-        test-jsonrpc "$2" "$3"
+    test-xmlrpc)
+        test-xmlrpc "$2" "$3"
         ;;
     test-k8s)
         test-k8s

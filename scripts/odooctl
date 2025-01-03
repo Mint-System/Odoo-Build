@@ -5,28 +5,31 @@ import argparse, sys, os, ast
 from urllib.parse import urlparse
 
 example_text = """
-example: 
-    odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
-    odooctl --model 'ir.module.module' --method update_list
+example: odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
 """
 
-parser=argparse.ArgumentParser(
+parser = argparse.ArgumentParser(
     prog='odooctl',
     description='Update Odoo records using the XML-RPC API.',
     epilog=example_text,
 )
 
 # Define arguments
-parser.add_argument('--model', help='Model')
-parser.add_argument('--domain', help='Domain')
-parser.add_argument('--field', help='Field')
-parser.add_argument('--method', help='Field')
-parser.add_argument('--value', help='Value')
+parser.add_argument('--model', help='Name of model in format "res.partner"')
+parser.add_argument('--domain', help='Domain in format [("field", "operator", "value"), ...]')
+parser.add_argument('--field', help='Field name of model to write or read')
+parser.add_argument('--method', help='Methods are: create, write, read, search_count, search_one, unlink')
+parser.add_argument('--value', help='Value to write')
 
 # Parse arguments
-args=parser.parse_args()
+args = parser.parse_args()
 
-# Get environemtn variables
+# Show help if no command is given
+if not any(vars(args).values()):
+    parser.print_help()
+    sys.exit()
+
+# Get environment variables
 url = os.environ.get('ODOO_URL') or 'http://localhost:8069'
 db = os.environ.get('ODOO_DATABASE') or 'odoo'
 username = os.getenv('ODOO_USERNAME') or 'admin'
@@ -38,49 +41,36 @@ uid = common.authenticate(db, username, password, {})
 models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
 
 # Check permissions
-models.execute_kw(db, uid, password,
-    args.model, 'check_access_rights',
-    ['read'], {'raise_exception': False})
+models.execute_kw(db, uid, password, args.model, 'check_access_rights', ['read'], {'raise_exception': False})
 
+# Parse domain and value
+if args.domain:
+    domain = ast.literal_eval(args.domain) if args.domain else False
+
+if args.value:
+    value = ast.literal_eval(args.value)
+
+# Execute method
 if args.method == 'create':
-    # Execute method
-    models.execute_kw(db, uid, password,
-        args.model, args.method, [eval(args.value)])
+    models.execute_kw(db, uid, password, args.model, args.method, [value])
 
-    print("Success")
+if args.method == 'write':
+    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
+    models.execute_kw(db, uid, password, args.model, 'write', [ids, {args.field: value}])
+
+if args.method == 'read':
+    ids = models.execute_kw(db, uid, password, args.model, 'search',  [domain], {'limit': 1})
+    res = models.execute_kw(db, uid, password, args.model, 'read', [ids])
+    print(res[0][args.field])
+
+if args.method == 'search_count':
+    count = models.execute_kw(db, uid, password, args.model, 'search_count', [domain])
+    print(count)
 
 if args.method == 'search_one':
-    # Parse domain
-    domain = ast.literal_eval(args.domain) if args.domain else False
-
-    # Search records
-    ids = models.execute_kw(db, uid, password,
-        args.model, 'search', [[domain]])
-
+    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
     print(ids[0])
 
-if args.method == 'get_id':
-    # Parse value
-    value = ast.literal_eval(args.value)
-
-    # Search records
-    res = models.execute_kw(db, uid, password,'ir.model.data', 'get_object_reference', [value[0],value[1]])
-
-    print(res[1])
-
-if args.field:
-    # Parse domain and value
-    domain = ast.literal_eval(args.domain) if args.domain else False
-    value = ast.literal_eval(args.value)
-
-    # Search records
-    ids = models.execute_kw(db, uid, password,
-        args.model, 'search',
-        [[domain]] if domain else [[]])
-
-    # Write records
-    models.execute_kw(db, uid, password,
-        args.model, 'write',
-        [ids, { args.field: value }])
-
-    print("Success")
+if args.method == 'unlink':
+    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
+    models.execute_kw(db, uid, password, args.model, 'unlink', [ids])

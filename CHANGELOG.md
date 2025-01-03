@@ -15,10 +15,23 @@ All notable changes to this project will be documented in this file. The format 
 * Extended usage section of the Image README file.
 * Use prefixed `PG` env vars for database connection.
 * Image supports auto update modules with click-odoo.
+* New commands to manage snippets `disable-snippet` and `remove-snippet`.
+
+### Updated
+
+* Command `test-xmlrpc` renamed to `test-xmlrpc`.
+* Refactored `odooctl` cli.
 
 ### Fixed
 
 * Append nested module paths to the addons path env var.
+
+### Removed
+
+* Removed `logo.png`.
+* Removed `scripts/jsonrpc`.
+* Removed commands `get-jsonrpc-session, `odoo-checkin` and `odoo-checkout`.
+* Removed `odoorpc` from requirements.txt.
 
 ## 2024-12-16
 

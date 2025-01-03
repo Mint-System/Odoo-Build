@@ -1,6 +1,5 @@
 pre-commit
 pyyaml
-odoorpc
 coverage
 pylint-odoo
 pytest==7.4.4
