@@ -16,7 +16,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.  
 * ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.  
 * 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
-* 📦 **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./build/README.md) for details.  
+* 📦 **Odoo Image**: Build and publish a custom Odoo Docker image. See [README](./image/README.md) for details.  
 * ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
