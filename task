@@ -1940,7 +1940,7 @@ function checkout-revision() {
 
     echo "Update revision var in .env file."
     if grep -q "ODOO_REVISION" .env; then
-        sed -i -e "s/^ODOO_REVISION=${ODOO_VERSION}.*/ODOO_REVISION=${ODOO_REVISION}/" .env
+        sed -i -e "s/^ODOO_REVISION=.*/ODOO_REVISION=${ODOO_REVISION}/" .env
     else
         echo "ODOO_REVISION=${ODOO_REVISION}" >> .env
     fi
