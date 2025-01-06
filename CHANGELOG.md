@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file. The format 
 * Use prefixed `PG` env vars for database connection.
 * Image supports auto update modules with click-odoo.
 * New commands to manage snippets `disable-snippet` and `remove-snippet`.
+* Support `MODULE_AUTO_INSTALL_DISABLED` for native path.
 
 ### Updated
 

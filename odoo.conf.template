@@ -5,6 +5,8 @@ db_host = localhost
 db_password = odoo
 db_user = odoo
 environment = development
+server_wide_modules = $SERVER_WIDE_MODULES
+modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 
 [ir.config_parameter]
 git.ssh_public_key = $GIT_SSH_PUBLIC_KEY

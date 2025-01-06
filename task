@@ -240,7 +240,11 @@ function get-addons-path() {
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
-    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    export SERVER_WIDE_MODULES
+    export MODULE_AUTO_INSTALL_DISABLED
+    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+        GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    fi
     export GIT_SSH_PRIVATE_KEY
     export GIT_SSH_PUBLIC_KEY
     envsubst < "odoo.conf.template" > "$ODOO_RC"
