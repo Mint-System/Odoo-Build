@@ -909,6 +909,7 @@ function test-docker() {
 
     echo "Cleanup test environment."
     remove-env test
+    git -C oca/partner-contact checkout .
 }
 
 # Kubernetes Commands
