@@ -88,7 +88,7 @@ RUN python3 -m venv /opt/odoo-venv
 ENV PATH=/opt/odoo-venv/bin:$PATH
 
 # Install Odoo tools
-COPY ./build/requirements.txt /opt/odoo-venv/
+COPY ./image/requirements.txt /opt/odoo-venv/
 RUN pip install --no-cache-dir -r /opt/odoo-venv/requirements.txt
 
 # Install Odoo
@@ -104,9 +104,9 @@ RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py
 ENV ODOO_VERSION $ODOO_VERSION
 
 # Copy entrypoint script and Odoo configuration file
-COPY ./build/odoo.conf.template /etc/odoo/
-COPY ./build/entrypoint.sh /
-COPY ./build/parse-url /usr/local/bin/
+COPY ./image/odoo.conf.template /etc/odoo/
+COPY ./image/entrypoint.sh /
+COPY ./image/parse-url /usr/local/bin/
 RUN chmod +x /usr/local/bin/parse-url
 
 # Create a user named odoo
@@ -139,7 +139,7 @@ EXPOSE 8069 8071 8072
 # Set the default config file
 ENV ODOO_RC /etc/odoo/odoo.conf
 
-COPY ./build/wait-for-psql.py /usr/local/bin/
+COPY ./image/wait-for-psql.py /usr/local/bin/
 
 # Set default user when running the container
 USER odoo
