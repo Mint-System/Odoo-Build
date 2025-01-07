@@ -560,7 +560,7 @@ function build() {
     fi
 
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
-    docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    SOURCE_DATE_EPOCH=0 docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
