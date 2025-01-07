@@ -48,27 +48,27 @@ git_clone_addons() {
             GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
             GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
             GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
-            ADDON_PATH="/var/lib/odoo/git/$GIT_HOSTNAME/$GIT_PATH"
+            GIT_PATH="/var/lib/odoo/git/$GIT_HOSTNAME/$GIT_PATH"
 
-            if [ ! -d "$ADDON_PATH/.git" ]; then
+            if [ ! -d "$GIT_PATH/.git" ]; then
                 # Clone git repo and submodules
-                mkdir -p "$ADDON_PATH"
+                mkdir -p "$GIT_PATH"
                 ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
                 entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
-                git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$ADDON_PATH"
-                git -C "$ADDON_PATH" submodule update --init --recursive
+                git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$GIT_PATH"
+                git -C "$GIT_PATH" submodule update --init --recursive
             else
                 entrypoint_log "$ME: Update $GIT_URL branch $GIT_BRANCH"
-                git -C "$ADDON_PATH" switch "$GIT_BRANCH"
-                git -C "$ADDON_PATH" pull
-                git -C "$ADDON_PATH" submodule update --init --recursive
+                git -C "$GIT_PATH" switch "$GIT_BRANCH"
+                git -C "$GIT_PATH" pull
+                git -C "$GIT_PATH" submodule update --init --recursive
             fi
             
             # Add git repo to addons path
             if [ -n "$ODOO_ADDONS_PATH" ]; then
-                ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$ADDON_PATH"
+                ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$GIT_PATH"
             else
-                ODOO_ADDONS_PATH="$ADDON_PATH"
+                ODOO_ADDONS_PATH="$GIT_PATH"
             fi
         done
 

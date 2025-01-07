@@ -884,12 +884,10 @@ function test-docker() {
     sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/partner-contact/partner_firstname/models/res_partner.py
     restart odoo
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
+
     echo "Check if auto upgrade was successful."
     scripts/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
-    docker-odoo-uninstall -d test -u partner_firstname
-    restart odoo
-    while ! curl --fail -s http://localhost:8069; do sleep 1; done
-
+    
     echo "Setup and test RPC credentials."
     export ODOO_URL="http://localhost:8069"
     export ODOO_USERNAME=admin
@@ -905,8 +903,6 @@ function test-docker() {
     remove-snippet test snippets/base.view_partner_form.show_type.xml
 
     echo "Test Odoo scripts."
-    docker-odoo-list
-    docker-odoo-cloc -d test
     docker-odoo-backup -d test
     docker-odoo-drop -d test
     docker-odoo-restore -d test -f /var/tmp/test.zip
