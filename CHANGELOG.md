@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file. The format 
 * Refactored `odooctl` cli.
 * Added emojies to the README feature list.
 * Rename `build` folder to `image`.
+* Moved selected Python packages to requirements.txt.
 
 ### Fixed
 
@@ -36,6 +37,7 @@ All notable changes to this project will be documented in this file. The format 
 * Removed `scripts/jsonrpc`.
 * Removed commands `get-jsonrpc-session`, `odoo-checkin` and `odoo-checkout`.
 * Removed `odoorpc` from requirements.txt.
+* Removed packages for `psql`.
 
 ## 2024-12-16
 

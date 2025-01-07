@@ -1,5 +1,7 @@
 FROM debian:bookworm-slim
 
+# BAsed on https://github.com/odoo/docker/blob/master/16.0/Dockerfile
+
 LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
 LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
 
@@ -27,20 +29,12 @@ RUN apt-get update \
         node-less \
         npm \
         python3-magic \
-        python3-num2words \
         python3-odf \
         python3-pdfminer \
         python3-pip \
-        python3-phonenumbers \
-        python3-pyldap \
-        python3-qrcode \
         python3-renderpm \
-        python3-setuptools \
         python3-slugify \
-        python3-vobject \
         python3-watchdog \
-        python3-xlrd \
-        python3-xlwt \
         xz-utils \
         git \
         openssh-client \
@@ -67,16 +61,14 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
 # Install latest postgresql-client
-RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
-    && GNUPGHOME="$(mktemp -d)" \
-    && export GNUPGHOME \
-    && repokey='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8' \
-    && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "${repokey}" \
-    && gpg --batch --armor --export "${repokey}" > /etc/apt/trusted.gpg.d/pgdg.gpg.asc \
-    && gpgconf --kill all \
-    && rm -rf "$GNUPGHOME" \
-    && apt-get update  \
-    && apt-get install --no-install-recommends -y postgresql-client \
+RUN apt-get update \
+    && apt-get install -y curl gnupg2 \
+    && mkdir -p /etc/apt/keyrings \
+    && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /etc/apt/keyrings/postgresql.gpg \
+    && echo "deb [signed-by=/etc/apt/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends postgresql-client \
+    && apt-get purge -y --auto-remove curl gnupg2 \
     && rm -f /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 

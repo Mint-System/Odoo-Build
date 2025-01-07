@@ -28,8 +28,7 @@ The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/)
 * Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
-* Install [PostgreSQL](https://www.postgresql.org/download/)
-* bash/zsh alias `task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
+* bash/zsh alias `alias task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
 
@@ -72,10 +71,9 @@ Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin, W
 
 #### Setup Odoo environment
 
-Init submodules and checkout the Odoo version.
+Sync the submodule branch.
 
 ```bash
-task git-submodule-init
 task git-submodule-sync
 ```
 
@@ -95,7 +93,7 @@ task install-native
 
 #### Initialize and start Odoo from source
 
-Run database container only.
+Start database container only.
 
 ```bash
 task start db
