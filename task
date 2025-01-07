@@ -1812,8 +1812,14 @@ function git-submodule-init() {
     # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
     SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
-        echo "Initializing submodule: $SUBMODULE"
-        git submodule update --init "$SUBMODULE"
+        SHALLOW=$(git config submodule."$SUBMODULE".shallow)
+        if [ "$SHALLOW" = "true" ]; then
+            echo "Initializing submodule: $SUBMODULE (shallow)"
+            git submodule update --init --depth 1 "$SUBMODULE"
+        else
+            echo "Initializing submodule: $SUBMODULE"
+            git submodule update --init "$SUBMODULE"
+        fi
     done
 }
 

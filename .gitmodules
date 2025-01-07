@@ -2,6 +2,7 @@
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 16.0
+	shallow = true
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -10,6 +11,7 @@
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 16.0
+	shallow = true
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git

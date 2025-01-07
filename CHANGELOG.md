@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file. The format 
 * Image supports auto update modules with click-odoo.
 * New commands to manage snippets `disable-snippet` and `remove-snippet`.
 * Support `MODULE_AUTO_INSTALL_DISABLED` for native path.
+* Shallow checkout for submodules with option `shallow = true`.
 
 ### Updated
 
