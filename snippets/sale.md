@@ -194,7 +194,7 @@ ID: `mint_system.sale.report_blanketorder_document.change_column_order`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_blanketorder_document" priority="50">
-    <xpath expr="//table[@class='table table-condensed']/thead/tr" position="replace">
+    <xpath expr="//table[@class='table table-condensed table-borderless']/thead/tr" position="replace">    
         <tr>
             <th>Product</th>
             <th class="text-right">Original Qty</th>

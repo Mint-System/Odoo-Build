@@ -1045,8 +1045,8 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//table[1]/thead[1]/tr[1]/th[2]" position="replace"/>
-    <xpath expr="//table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[2]" position="replace"/>
+    <xpath expr="//table[1]/thead[1]/tr[1]/th[7]" position="replace"/>
+    <xpath expr="//table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[7]" position="replace"/>
 </data>
 
 ```

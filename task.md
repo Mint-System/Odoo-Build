@@ -15,6 +15,7 @@
 | create-revision           | [revision]           | Create new Odoo revision.                                                                  |
 | create-nextcloud-env      | [env]                | Create env file for Nextcloud instance.                                                    |
 | create-odoo-env           | [env]                | Create env file for Odoo Instance.                                                         |
+| create-snippet            | [id]                 | Create snippet from template.                                                              |
 | disable-auto-install      |                      | Disable auto install for enterprise modules.                                               |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
 | disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
