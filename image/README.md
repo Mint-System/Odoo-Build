@@ -45,7 +45,7 @@ services:
       ODOO_INIT_LANG: de_CH
       ENVIRONMENT: production
       PIP_INSTALL: prometheus-client
-      SERVER_WIDE_MODULES: web,session_db,module_change_auto_install
+      SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
       LOG_LEVEL: debug

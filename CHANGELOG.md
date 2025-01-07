@@ -39,6 +39,7 @@ All notable changes to this project will be documented in this file. The format 
 * Removed commands `get-jsonrpc-session`, `odoo-checkin` and `odoo-checkout`.
 * Removed `odoorpc` from requirements.txt.
 * Removed packages for `psql`.
+* Removed command `disable-auto-install`.
 
 ## 2024-12-16
 

@@ -30,7 +30,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-snippet" "[id]" "Create snippet from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-auto-install" "" "Disable auto install for enterprise modules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-snippet" "[env][path]" "Disable snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docker-login" "" "Setup Docker Hub login credentials."
@@ -53,6 +52,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Checkout submodule commits."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-ls" "" "List submodule path space separated."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-list" "" "List path and url of submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules listed in the .gitmodules file."
@@ -537,11 +537,6 @@ function get-module-version() {
 function list-modules() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     echo $(get-modules "$1" basename | tr "," "\n")
-}
-
-function disable-auto-install() {
-    echo "Disable auto install for all enterprise modules."
-    find . -type f -name '__manifest__.py' -exec sed -i'' $'s/\'auto_install\': True,/\'auto_install\': False,/g' {} +
 }
 
 # Docker Commands
@@ -1812,7 +1807,7 @@ function git-submodule-init() {
     # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
     SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
-        SHALLOW=$(git config submodule."$SUBMODULE".shallow)
+        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         if [ "$SHALLOW" = "true" ]; then
             echo "Initializing submodule: $SUBMODULE (shallow)"
             git submodule update --init --depth 1 "$SUBMODULE"
@@ -1825,33 +1820,33 @@ function git-submodule-init() {
 
 function git-submodule-pull() {
     echo "Pull git submodules"
-    SUBMODULES=$(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
         echo "Pull git submodule: $SUBMODULE"
+        git -C "$SUBMODULE" stash
         UPDATE=$(git config submodule."$SUBMODULE".update)
-        CWD=$(pwd)
-        cd "$SUBMODULE" || exit
-        git stash
         if [ -z "$UPDATE" ]; then
-            git pull origin "$GIT_BRANCH"
+            git -C "$SUBMODULE" pull origin "$GIT_BRANCH"
         fi;
-        cd "$CWD" || exit
     done
 }
 
 function git-submodule-checkout() {
     echo "Checkout submodule commits."
-
-    # The --depth flag cannot be used when working on multiple branches in submodules
     SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
-        echo "Update git submodule: $SUBMODULE"
+        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         COMMIT_HASH=$(git ls-tree HEAD "$SUBMODULE" | awk '{print $3}')
-        CWD=$(pwd)
-        cd "$SUBMODULE" || exit
-        git stash
-        git checkout "$COMMIT_HASH"
-        cd "$CWD" || exit
+        if [ "$SHALLOW" = "true" ]; then
+            echo "Update git submodule: $SUBMODULE (shallow)"
+            git -C "$SUBMODULE" stash
+            git -C "$SUBMODULE" fetch origin "$COMMIT_HASH"
+            git -C "$SUBMODULE" checkout "$COMMIT_HASH"
+        else
+            echo "Update git submodule: $SUBMODULE"
+            git -C "$SUBMODULE" stash
+            git -C "$SUBMODULE" checkout "$COMMIT_HASH"
+        fi
     done
 }
 
@@ -1864,11 +1859,8 @@ function git-submodule-switch() {
     SUBMODULES=$(git-submodule-ls)
     for SUBMODULE in $SUBMODULES; do
         echo "Switch git submodule branch to $GIT_BRANCH: $SUBMODULE"
-        CWD=$(pwd)
-        cd "$SUBMODULE" || exit
-        git stash
-        git switch "$GIT_BRANCH"
-        cd "$CWD" || exit
+        git -C "$SUBMODULE" stash
+        git -C "$SUBMODULE" switch "$GIT_BRANCH"
     done
 }
 
@@ -2070,9 +2062,6 @@ case "$1" in
     create-snippet)
         create-snippet "$2"
         ;;
-    disable-auto-install)
-        disable-auto-install
-        ;;
     disable-mailserver)
         disable-mailserver "$2"
         ;;
@@ -2132,6 +2121,9 @@ case "$1" in
         ;;
     git-submodule-delete)
         git-submodule-delete
+        ;;
+    git-submodule-ls)
+        git-submodule-ls
         ;;
     git-submodule-list)
         git-submodule-list
