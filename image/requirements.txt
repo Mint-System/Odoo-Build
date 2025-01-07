@@ -1,3 +1,4 @@
+# Replaced from Docker apt install
 num2words==0.5.9
 phonenumbers==8.13.52 
 python-ldap==3.4.0
@@ -6,5 +7,10 @@ setuptools==66.1.1
 vobject==0.9.6.1
 xlrd==1.2.0
 xlwt==1.3.0
+# Python 3.11 Odoo packages
+lxml==4.9.3
+urllib3==2.0.7
+werkzeug==2.2.2
+# Built-in
 manifestoo==1.0
 click-odoo-contrib==1.20

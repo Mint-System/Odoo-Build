@@ -560,7 +560,7 @@ function build() {
     fi
 
     echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
-    SOURCE_DATE_EPOCH=0 docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -659,15 +659,20 @@ function install-native() {
     if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-        echo "Install wkhtmltopdf"
-        sudo apt remove wkhtmltopdf
-        wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
-        tar xvf wkhtmltox*.tar.xz
-        sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
-        rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.*
+        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | grep -Po '^wkhtmltopdf \K[\d.]+')
+        if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
+            echo "Install wkhtmltopdf"
+            sudo apt remove wkhtmltopdf
+            wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+            tar xvf wkhtmltox*.tar.xz
+            sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
+            rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.*
+        else
+            echo "wkhtmltopdf version is already 0.12.4"
+        fi
 
         echo "Install python-ldap and psycopg2 build dependencies"
-        sudo apt-get install -y libsasl2-dev python-dev libldap2-dev libssl-dev libpq-dev
+        sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
         echo "Install xmllint"
         sudo apt install -y libxml2-utils

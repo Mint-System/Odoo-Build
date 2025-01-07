@@ -4,6 +4,7 @@ A better Odoo image.
 
 - Ships with python 3.11
 - Odoo source is based on exact [revision](https://odoo.build/revisions.html)
+- Image build is reproducible
 - Setup `odoo.conf` with environment vars
 - Clone addons from git repos
 - Install pip packages without building the image
@@ -177,9 +178,9 @@ Update all modules manually:
 docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
 ```
 
-## Develop
+## Extend
 
-As with every Docker image this image can be updated.
+This image can be customized and extended as needed.
 
 ### Install packages
 
@@ -200,6 +201,10 @@ FROM mintsystem/odoo:16.0.20241220
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
+
+### Develop
+
+See [Odoo Build > Build and publish Odoo image](https://odoo.build/#build-and-publish-odoo-image) for details.
 
 ## Troubleshooting
 

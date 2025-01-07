@@ -1,13 +1,20 @@
+# Odoo testing
 pre-commit
 pyyaml
 coverage
 pylint-odoo
 pytest==7.4.4
 pytest-odoo
+# Module docs
 manifestoo
 rst2html5==2.0.1
 docutils==0.21.2
+# Odoo packages
 setuptools
 wheel
 watchdog
 pdfminer.six
+# Python 3.11 Odoo packages
+lxml==4.9.3
+urllib3==2.0.7
+werkzeug==2.2.2
