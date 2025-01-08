@@ -26,6 +26,7 @@ function help() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init" "" "Init local env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint" "" "Run pre-commit and update index.html."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
 
     echo
 }
@@ -76,6 +77,9 @@ case "$1" in
         ;;
     lint)
         lint
+        ;;
+    source)
+        source env/bin/activate
         ;;
     *)
         help
