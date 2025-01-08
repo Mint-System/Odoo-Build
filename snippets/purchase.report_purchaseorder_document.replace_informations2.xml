@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+        <table id="info">
+            <tr>
+                <td width="20%">Oder Date</td>
+                <td width="30%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="20%">Incoterm</td>
+                <td width="30%">
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <td>Payment terms</td>
+                <td>
+                    <span t-field="o.payment_term_id"/>
+                </td>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                    <td>Our Reference</td>
+                    <td width="25%">
+                        <span t-field="o.user_id"/>,                         
+                        <span t-field="o.user_id.email"/>,                         
+                        <span t-field="o.user_id.phone"/>
+                    </td>
+                </t>
+            </tr>
+        </table>
+    </xpath>
+</data>
