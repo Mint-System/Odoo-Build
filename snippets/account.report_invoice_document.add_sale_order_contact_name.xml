@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
-        <div class="col-auto col-3 mw-100 mb-2">
+
+    <xpath expr="//div[@id='informations']//div[@name='reference']" position="replace">
+        <div class="col-2" style="margin-bottom: 10px;">
             <strong>Your contact</strong>
-            <p class="m-0" t-field="o.sale_order_id.partner_contact_id.name"/>
+            <div t-field="o.partner_sale_id.name"/>
+            <div t-field="o.partner_sale_id.email" style="font-size: 12px;" />
         </div>
     </xpath>
+
 </data>
