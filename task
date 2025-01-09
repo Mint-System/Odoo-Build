@@ -192,7 +192,7 @@ function info() {
 }
 
 function version() {
-    python -V
+    activate-venv
     uv --version
     wkhtmltopdf -V
     docker -v

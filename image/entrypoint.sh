@@ -56,12 +56,15 @@ git_clone_addons() {
                 ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
                 entrypoint_log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
                 git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$GIT_PATH"
-                git -C "$GIT_PATH" submodule update --init --recursive
             else
                 entrypoint_log "$ME: Update $GIT_URL branch $GIT_BRANCH"
                 git -C "$GIT_PATH" switch "$GIT_BRANCH"
                 git -C "$GIT_PATH" pull
-                git -C "$GIT_PATH" submodule update --init --recursive
+            fi
+
+            if [ -f "$GIT_PATH/.gitmodules" ]; then
+                echo "$ME: Init and update git submodules in $GIT_PATH"
+                git -C "$GIT_PATH" submodule update --init --recursive --depth 1
             fi
             
             # Add git repo to addons path

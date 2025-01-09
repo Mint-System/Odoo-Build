@@ -371,7 +371,7 @@ ImportError: libldap_r-2.4.so.2: cannot open shared object file: No such file or
 
 Reinstall with pip flags.
 
-```
+```bash
 pip install python-ldap --force-reinstall --no-binary python-ldap
 ```
 
