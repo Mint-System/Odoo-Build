@@ -1,4 +1,4 @@
-# [Odoo Build](https://odoo.build/)
+# [Mint System Odoo Image](https://odoo.build/image/)
 
 A better Odoo image.
 
@@ -15,7 +15,7 @@ A better Odoo image.
 - 🗄️ Initialize database with selected modules
 - 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 
 ## Usage
 
@@ -191,6 +191,16 @@ Extend the image with Python packages.
 FROM mintsystem/odoo:16.0.20241220
 
 RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
+```
+
+Or with apt packages.
+
+```dockerfile
+FROM mintsystem/odoo:16.0.20241220
+
+USER root
+RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
+USER odoo
 ```
 
 ### Add custom Odoo conf
