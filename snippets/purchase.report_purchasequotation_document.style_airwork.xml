@@ -1,0 +1,17 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+        h2 {
+            color: black;
+        }
+        .o_company_1_layout.o_report_layout_boxed h2 span {
+            color: black;
+        }
+    </style>
+  </xpath>
+
+  <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
+    <attribute name="class">table table-sm o_main_table table-borderless mt-4</attribute>
+  </xpath>
+
+</data>
