@@ -1865,10 +1865,9 @@ function git-submodule-switch() {
 }
 
 function git-submodule-sync() {
-    echo "Switch, pull and checkout submodules."
+    echo "Switch and pull submodules."
     git-submodule-switch
     git-submodule-pull
-    git-submodule-checkout
 }
 
 function git-feature-branch(){
