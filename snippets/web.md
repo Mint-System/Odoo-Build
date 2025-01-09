@@ -182,6 +182,47 @@ ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`
 Source: [snippets/web.external_layout_bold.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_bold.set_header_footer_font_size.xml)
 
 ## External Layout Boxed  
+### Footer Airwork  
+ID: `mint_system.web.external_layout_boxed.footer_airwork`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="50">
+    <xpath expr="//div[@t-attf-class='footer o_boxed_footer o_company_#{company.id}_layout']" position="replace">
+
+        <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
+
+            <table style="font-size: 11px">
+                <tr>
+                    <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
+                    <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>
+                    <td style="width: 200px; text-align: left">Bankverbindung: Raiffeisenbank Luzern</td>
+                    <td style="width: 220px; text-align: left">IBAN CHF: CH12 8080 8008 9455 6909 9</td>
+                </tr>
+                <tr>
+                    <td>Bahnhofweg 1</td>
+                    <td>E-Mail: office(at)air-work.com</td>
+                    <td>Schulstrasse 1</td>
+                    <td>IBAN EUR (€): CH28 8080 8009 7827 3963 0</td>
+                </tr>
+                <tr>
+                    <td>CH-6405 Immensee</td>
+                    <td>UID CHE-113.380.391 MWST</td>
+                    <td>CH-6037 Root</td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td>www.air-work.swiss</td>
+                    <td></td>
+                    <td>SWIFT: RAIFCH22</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_boxed.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_boxed.footer_airwork.xml)
+
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
 ```xml

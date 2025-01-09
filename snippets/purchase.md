@@ -1154,6 +1154,76 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_address_and_info
 ```
 Source: [snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml)
 
+### Replace Informations2  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+        <table id="info">
+            <tr>
+                <td width="20%">Oder Date</td>
+                <td width="30%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="20%">Incoterm</td>
+                <td width="30%">
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <td>Payment terms</td>
+                <td>
+                    <span t-field="o.payment_term_id"/>
+                </td>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                    <td>Our Reference</td>
+                    <td width="25%">
+                        <span t-field="o.user_id"/>,                         
+                        <span t-field="o.user_id.email"/>,                         
+                        <span t-field="o.user_id.phone"/>
+                    </td>
+                </t>
+            </tr>
+        </table>
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_informations2.xml)
+
 ### Replace Informations  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`  
 ```xml
@@ -1448,6 +1518,25 @@ ID: `mint_system.purchase.report_purchaseorder_document.sort_by_name`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.sort_by_name.xml)
+
+### Style Airwork  
+ID: `mint_system.purchase.report_purchaseorder_document.style_airwork`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+        h2 {
+            color: black;
+        }
+        .o_company_1_layout.o_report_layout_boxed h2 span {
+            color: black;
+        }
+		</style>
+	</xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_airwork.xml)
 
 ### Style Carbo Link  
 ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`  
@@ -2171,6 +2260,77 @@ ID: `mint_system.purchase.report_purchasequotation_document.repeat_table_header`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.repeat_table_header.xml)
 
+### Replace Informations2  
+ID: `mint_system.purchase.report_purchasequotation_document.replace_informations2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+        <table id="info">
+            <tr>
+                <td width="20%">Oder Date</td>
+                <td width="30%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="20%">Incoterm</td>
+                <td width="30%">
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <td>Payment terms</td>
+                <td>
+                    <span t-field="o.payment_term_id"/>
+                </td>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                    <td>Our Reference</td>
+                    <td width="25%">
+                        <span t-field="o.user_id"/>,                         
+                        <span t-field="o.user_id.email"/>,                         
+                        <span t-field="o.user_id.phone"/>
+                    </td>
+                </t>
+            </tr>
+        </table>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.report_purchasequotation_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.replace_informations2.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`  
 ```xml
@@ -2274,6 +2434,29 @@ ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`
 
 ```
 Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.sort_by_name.xml)
+
+### Style Airwork  
+ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+        h2 {
+            color: black;
+        }
+        .o_company_1_layout.o_report_layout_boxed h2 span {
+            color: black;
+        }
+    </style>
+  </xpath>
+
+  <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
+    <attribute name="class">table table-sm o_main_table table-borderless mt-4</attribute>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_airwork.xml)
 
 ### Style Gelso  
 ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`  

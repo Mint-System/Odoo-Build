@@ -16,7 +16,6 @@
 | create-nextcloud-env      | [env]                | Create env file for Nextcloud instance.                                                    |
 | create-odoo-env           | [env]                | Create env file for Odoo Instance.                                                         |
 | create-snippet            | [id]                 | Create snippet from template.                                                              |
-| disable-auto-install      |                      | Disable auto install for enterprise modules.                                               |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
 | disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
 | docker-login              |                      | Setup Docker Hub login credentials.                                                        |
@@ -39,6 +38,7 @@
 | git-mig-branch            | [path]               | Create migration branch for Odoo module.                                                   |
 | git-submodule-add         | [url] [path]         | Add git submodule.                                                                         |
 | git-submodule-checkout    |                      | Checkout submodule commits.                                                                |
+| git-submodule-ls          |                      | List submodule path space separated.                                                       |
 | git-submodule-list        |                      | List path and url of submodules.                                                           |
 | git-submodule-init        |                      | Init submodules listed in the .gitmodules file.                                            |
 | git-submodule-pull        |                      | Pull all submodules listed in the .gitmodules file.                                        |
