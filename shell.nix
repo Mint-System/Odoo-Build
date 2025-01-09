@@ -5,7 +5,7 @@ pkgs.mkShell {
     docker
     python3
     wkhtmltopdf
-    python3.pkgs.pip
+    uv
   ];
   shellHook = ''
     alias task='./task'

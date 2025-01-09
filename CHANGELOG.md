@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file. The format 
 * New commands to manage snippets `disable-snippet` and `remove-snippet`.
 * Support `MODULE_AUTO_INSTALL_DISABLED` for native path.
 * Shallow checkout for submodules with option `shallow = true`.
+* Replace `pip` with `uv`.
 
 ### Updated
 

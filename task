@@ -165,12 +165,12 @@ fi
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
     TARGETARCH=linux/arm64/v8
-    PIP_INOTIFY=""
+    PYTHON_NOTIFY=""
     OS_OPEN="open"
 else
     OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
     TARGETARCH=amd64
-    PIP_INOTIFY="inotify"
+    PYTHON_NOTIFY="inotify"
     OS_OPEN="xdg-open"
 fi
 
@@ -192,9 +192,8 @@ function info() {
 }
 
 function version() {
-    pyenv -v
     python -V
-    pip -V
+    uv --version
     wkhtmltopdf -V
     docker -v
     docker compose version
@@ -213,15 +212,14 @@ function generate-admin-passwd() {
 
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
-        echo "Init venv$GIT_BRANCH with $(python --version)."
-        python -m venv "venv$GIT_BRANCH"
+        echo "Init venv$GIT_BRANCH with $(uv --version)."
+        uv venv "venv$GIT_BRANCH"
     fi
 }
 
 function activate-venv() {
     echo "Source virtualenv venv$GIT_BRANCH."
     source "venv$GIT_BRANCH/bin/activate"
-
     echo "$(python --version) is active."
 }
 
@@ -680,7 +678,7 @@ function install-native() {
         brew install wkhtmltopdf libsasl2 openldap openssl libxml2
         
         echo "Install the binary version of psycopg2"
-        pip install psycopg2-binary --force
+        uv pip install psycopg2-binary --force
 
         echo "Add LDFLAGS to .env file"
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
@@ -694,14 +692,15 @@ function install-native() {
     fi
 
     echo "Install Odoo development tools"
-    pip install ${PIP_INOTIFY}
-    pip install -r requirements.txt
+    uv pip install ${PYTHON_NOTIFY}
+    uv pip install -r requirements.txt
 
     if [ -f "odoo/requirements.txt" ]; then
         echo "Install Odoo dependencies"
-        pip install -r odoo/requirements.txt
+        uv pip install -r odoo/requirements.txt
 
         echo "Configure Odoo as python package"
+        uv pip install pip
         pip install -e odoo
     fi
 }
@@ -866,7 +865,7 @@ function test-docker() {
     export ODOO_INIT=True
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
-    export PIP_INSTALL=prometheus-client,manifestoo
+    export PYTHON_INSTALL=prometheus-client,manifestoo
     export SERVER_WIDE_MODULES=web,session_db,module_change_auto_install
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
@@ -1232,7 +1231,7 @@ function install-requirements() {
     else
         activate-venv
         echo "Installing python packages in virutal env ..."
-        pip install -r "$FILE_PATH"
+        uv pip install -r "$FILE_PATH"
     fi
 }
 

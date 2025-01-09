@@ -2,17 +2,18 @@
 
 A better Odoo image.
 
-- Ships with python 3.11
-- Odoo source is based on exact [revision](https://odoo.build/revisions.html)
-- Image build is reproducible
-- Setup `odoo.conf` with environment vars
-- Clone addons from git repos
-- Install pip packages without building the image
-- Detect addons in nested module folders
-- Store session information in database
-- Get environment name from server config
-- Initialize database with selected modules
-- Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
+- 🐍 Ships with python 3.11
+- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage python
+- 🔄 Odoo source is based on exact [revision](https://odoo.build/revisions.html)
+- 💎 Image build is reproducible
+- ⚙️ Setup `odoo.conf` with environment vars
+- 🌱 Clone addons from git repos
+- 🛠️ Install python packages without building the image
+- 📂 Detect addons in nested module folders
+- 💾 Store session information in database
+- 🖥️ Get environment name from server config
+- 🗄️ Initialize database with selected modules
+- 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/build>
 
@@ -44,7 +45,7 @@ services:
       ODOO_INIT: True
       ODOO_INIT_LANG: de_CH
       ENVIRONMENT: production
-      PIP_INSTALL: prometheus-client
+      PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
@@ -117,7 +118,7 @@ If enabled the entrypoint script initializes the Odoo database.
 The Odoo server can be configured using the following env vars.
 
 * `ENVIRONMENT` Provide an environment name. Can be accessed with `config.get("environment")`.
-* `PIP_INSTALL` Comma seperated list of python packages.
+* `PYTHON_INSTALL` Comma seperated list of python packages.
 * `SERVER_WIDE_MODULES` Comma separated list of modules to load with server.
 * `SESSION_DB_URI` Connection string for storing session data in database.
 * `PROXY_MODE` Enable server proxy mode. Default is `False`.

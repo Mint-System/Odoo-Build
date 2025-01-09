@@ -27,7 +27,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/)
-* Install Python 3.11+ with [pyenv](https://github.com/pyenv/pyenv)
+* Install Python 3.11+ with [uv](https://docs.astral.sh/uv/)
 * bash/zsh alias `alias task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
@@ -79,13 +79,7 @@ task git-submodule-sync
 
 #### Setup Python environment
 
-Install Python and pip.
-
-```bash
-pyenv install
-```
-
-Install the python dependencies.
+Install the Python and dependencies.
 
 ```bash
 task install-native
