@@ -6,6 +6,16 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
+* Build Docker image for `linux/amd64` and `linux/arm64`.
+
+### Updated
+
+* Ensure `templates/task` is using `uv.
+
+## 2025-01-10
+
+### Added
+
 * Run the Odoo upgrade script with `upgrade-odoo`.
 * Upgrade module code with `upgrade-module`.
 * After switching version branch with `checkout` the new branch is pulled.

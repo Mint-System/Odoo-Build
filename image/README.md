@@ -2,18 +2,19 @@
 
 A better Odoo image.
 
-- 🐍 Ships with python 3.11
-- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage python
-- 🔄 Odoo source is based on exact [revision](https://odoo.build/revisions.html)
-- 💎 Image build is reproducible
-- ⚙️ Setup `odoo.conf` with environment vars
-- 🌱 Clone addons from git repos
-- 🛠️ Install python packages without building the image
-- 📂 Detect addons in nested module folders
-- 💾 Store session information in database
-- 🖥️ Get environment name from server config
-- 🗄️ Initialize database with selected modules
-- 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib)
+- 🐍 Ships with python 3.11.
+- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage python.
+- 🔄 Odoo source is based on exact [revision](https://odoo.build/revisions.html).
+- 💎 Image build is reproducible.
+- ⚙️ Setup `odoo.conf` with environment vars.
+- 🌱 Clone addons from git repos.
+- 🛠️ Install python packages without building the image.
+- 📂 Detect addons in nested module folders.
+- 💾 Store session information in database.
+- 🖥️ Get environment name from server config.
+- 🗄️ Initialize database with selected modules.
+- 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
+- 🌈 Multiplatform image supports `amd64` and `arm64`.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 
@@ -179,7 +180,7 @@ Update all modules manually:
 docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
 ```
 
-## Extend
+## Build
 
 This image can be customized and extended as needed.
 
@@ -213,7 +214,7 @@ FROM mintsystem/odoo:16.0.20241220
 COPY ./odoo.conf.template /etc/odoo/
 ```
 
-### Develop
+## Develop
 
 See [Odoo Build > Build and publish Odoo image](https://odoo.build/#build-and-publish-odoo-image) for details.
 

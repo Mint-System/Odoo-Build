@@ -245,6 +245,8 @@ POSTGRES_IMAGE=postgres:12-alpine
 
 #### Build and publish Odoo image
 
+Make sure your Docker setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
+
 To build the Docker image setup these `.env` vars:
 
 ```bash

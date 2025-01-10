@@ -15,7 +15,7 @@ function help-table() {
 
     # Print table rows
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "activate-venv" "" "Activate virtualenv."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[path]" "Build Odoo Docker image. Optionally pass specific Dockerfile."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[platform]" "Build Odoo Docker image. Optionally define the target platform."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch]" "Checkout Odoo version / branch."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-config-files" "[branch]" "Checkout config files from another branch."
@@ -153,7 +153,6 @@ POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 DOCKER_TAG=${DOCKER_TAG:="odoo:${ODOO_REVISION}"}
 DOCKER_CONFIG="$HOME/.docker/$DOCKER_REGISTRY"
-DOCKERFILE="./image/Dockerfile.mintsystem.odoo"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
 ODOO_REVISION_DOCKER_PULL=${ODOO_REVISION_DOCKER_PULL:=true}
 
@@ -164,12 +163,10 @@ if [ -z "${DOCKER_REGISTRY}" ]; then
 fi
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
-    TARGETARCH=linux/arm64/v8
     PYTHON_NOTIFY=""
     OS_OPEN="open"
 else
     OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
-    TARGETARCH=amd64
     PYTHON_NOTIFY="inotify"
     OS_OPEN="xdg-open"
 fi
@@ -179,7 +176,6 @@ fi
 function info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
-    echo "Target Arch: $TARGETARCH"
     echo "Git Branch: $GIT_BRANCH"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Port: $ODOO_PORT"
@@ -540,20 +536,26 @@ function list-modules() {
 # Docker Commands
 
 function build() {
+    DOCKERFILE="image/Dockerfile"
+    # PLATFORM="linux/amd64"
+    PLATFORM="linux/amd64,linux/arm64"
     if [ -n "$1" ]; then
-        DOCKERFILE="$1"
+        PLATFORM="$1"
     fi
-    
-    echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
-    docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
-
     ODOO_DATE=""
     if [[ "ODOO_REVISION" != "$GIT_BRANCH" ]]; then
        ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     fi
 
-    echo "Run Docker build with tag ${DOCKER_REGISTRY}${DOCKER_TAG} and $DOCKERFILE"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker build . -f "$DOCKERFILE" --build-arg ODOO_VERSION="$GIT_BRANCH" --build-arg ODOO_DATE="$ODOO_DATE" --build-arg TARGETARCH="$TARGETARCH" --build-arg ODOO_IMAGE="${DOCKER_REGISTRY}${DOCKER_TAG}" -t "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    echo "Remove Docker image with tag ${DOCKER_REGISTRY}${DOCKER_TAG}"
+    docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
+
+    echo "Run Docker build ${DOCKER_REGISTRY}${DOCKER_TAG} for ${PLATFORM}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+        --file "$DOCKERFILE" \
+        --build-arg ODOO_VERSION="$GIT_BRANCH" \
+        --build-arg ODOO_DATE="$ODOO_DATE" \
+        --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -719,6 +721,7 @@ function start() {
     set-addons-path
 
     # Exports for Docker Compose
+    export DOCKER_REGISTRY
     export POSTGRES_PORT
     export ODOO_PORT
     export DOCKER_TAG
