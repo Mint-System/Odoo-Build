@@ -45,3 +45,17 @@ modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
 git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
 
+[outgoing_mail]
+smtp_host = $ODOO_MAIL_SMTP_HOST
+smtp_port = $ODOO_MAIL_SMTP_PORT
+smtp_user = $ODOO_MAIL_USERNAME
+smtp_pass = $ODOO_MAIL_PASSWORD
+smtp_encryption = $ODOO_MAIL_SMTP_ENCRYPTION
+
+[incoming_mail]
+server = $ODOO_MAIL_IMAP_HOST
+port = $ODOO_MAIL_IMAP_PORT
+server_type = $ODOO_MAIL_IMAP_SSL
+is_ssl = $ODOO_MAIL_IMAP_SSL
+user = $ODOO_MAIL_USERNAME
+password = $ODOO_MAIL_PASSWORD

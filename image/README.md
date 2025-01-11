@@ -32,6 +32,14 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      ODOO_MAIL_SMTP_HOST: mail.infomaniak.com
+      ODOO_MAIL_SMTP_PORT: 587
+      ODOO_MAIL_SMTP_ENCRYPTION: SSL
+      ODOO_MAIL_IMAP_HOST: mail.infomaniak.com
+      ODOO_MAIL_IMAP_PORT: 993
+      ODOO_MAIL_IMAP_SSL: True
+      ODOO_MAIL_USERNAME: test@mint-system.ch
+      ODOO_MAIL_PASSWORD: *****
       GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
       GIT_SSH_PRIVATE_KEY: |
         -----BEGIN OPENSSH PRIVATE KEY-----
@@ -52,7 +60,7 @@ services:
       PROXY_MODE: True
       LOG_LEVEL: debug
       LIST_DB: False
-      ADMIN_PASSWD: oqua9AiHeibac2pie9ei
+      ADMIN_PASSWD: *****
       DBFILTER: ^%d$
       WORKERS: 4
       LIMIT_REQUEST: 16384
@@ -90,6 +98,17 @@ Odoo supports PostgreSQL database only.
 * `PGUSER` Database username.
 * `PGPASSWORD` Database user password.
 * `PGPORT` Postgres server port. Default is `5432`.
+
+### Incoming and Outgoing Mail-Server
+
+* `ODOO_MAIL_SMTP_HOST`: SMTP hostname for sending mails.
+* `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
+* `ODOO_MAIL_SMTP_ENCRYPTION`: SMTP encryption type. Default is `ssl`.
+* `ODOO_MAIL_IMAP_HOST`: IMAP hostname for receiving mails. Default is `ODOO_MAIL_SMTP_HOST`.
+* `ODOO_MAIL_IMAP_PORT`: IMAP port. Default is `993`.
+* `ODOO_MAIL_IMAP_SSL`: Enable IMAP SSL. Default is `1`.
+* `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
+* `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 
 ### Module Repos
 
