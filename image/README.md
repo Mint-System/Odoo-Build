@@ -24,7 +24,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20241220
+    image: mintsystem/odoo:16.0.20250106
     depends_on:
       - db
     environment:
@@ -208,7 +208,7 @@ This image can be customized and extended as needed.
 Extend the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20241220
+FROM mintsystem/odoo:16.0.20250106
 
 RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -216,7 +216,7 @@ RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi pa
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20241220
+FROM mintsystem/odoo:16.0.20250106
 
 USER root
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
@@ -228,7 +228,7 @@ USER odoo
 Copy a custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20241220
+FROM mintsystem/odoo:16.0.20250106
 
 COPY ./odoo.conf.template /etc/odoo/
 ```

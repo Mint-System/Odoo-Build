@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Build Docker image for `linux/amd64` and `linux/arm64`.
+* Store and restore `.env` to pass store with `pass-store-dotenv` and `pass-restore-dotenv`.
 
 ### Updated
 

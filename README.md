@@ -250,7 +250,7 @@ Make sure your Docker setup can build [multi-platform images](https://docs.docke
 To build the Docker image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.0.20241220
+ODOO_REVISION=16.0.20250106
 DOCKER_REGISTRY=mint-system/
 ```
 

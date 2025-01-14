@@ -83,6 +83,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-store-dotenv" "" "Store content of .env in pass entry."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-restore-dotenv" "" "Restore content of .env from pass entry."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "publish" "" "Publish Odoo Docker image."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List docker processes."
@@ -140,14 +142,18 @@ if [[ -a ".env" ]]; then
     source .env
 fi
 
+# Static env vars
+
+PASS_ENTRY=env/Odoo-Build
+ODOO_RC="odoo.conf"
+ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
+
 # Dynamic env vars
 
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-ODOO_RC="odoo.conf"
 ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
-ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
@@ -2023,6 +2029,26 @@ function test-xmlrpc() {
     echo "Connect to database and count res.partner records: $(scripts/odooctl --model "res.partner" --method "search_count" --domain '[]')"
 }
 
+# Pass Commands
+
+function pass-store-dotenv() {
+    if [ -f .env ]; then
+        echo "Store .env file in pass: $PASS_ENTRY"
+        cat .env | pass insert -m -f "$PASS_ENTRY"
+    else
+        echo "No .env file found."
+    fi
+}
+
+function pass-restore-dotenv() {
+    if pass find "$PASS_ENTRY" >/dev/null; then
+        echo "Restore .env file from pass: $PASS_ENTRY"
+        pass show "$PASS_ENTRY" > .env
+    else
+        echo "Pass entry not found."
+    fi
+}
+
 case "$1" in
     activate-venv)
         activate-venv
@@ -2235,6 +2261,12 @@ case "$1" in
         ;;
     odoo-cloc)
         odoo-cloc "$2"
+        ;;
+    pass-store-dotenv)
+        pass-store-dotenv
+        ;;
+    pass-restore-dotenv)
+        pass-restore-dotenv
         ;;
     patch-database)
         patch-database "$2" "$3"
