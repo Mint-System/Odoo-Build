@@ -97,7 +97,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart docker container."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "save-config" "[name]" "Save Odoo database config."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail" "[db]" "Setup outgoing mail config in Odoo db."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail" "[db]" "Setup mail config in Odoo db."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
@@ -884,7 +885,11 @@ function test-docker() {
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
     export CLICK_ODOO_UPDATE=True
-    start db,odoo
+    export ODOO_MAIL_SMTP_HOST=mail
+    export ODOO_MAIL_SMTP_PORT=1025
+    export ODOO_MAIL_SMTP_ENCRYPTION=none
+    export MAIL_DEFAULT_FROM="test"
+    start db,odoo,mail
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
 
     echo "Test auto upgrade."
@@ -1096,6 +1101,68 @@ function setup-mail() {
         echo "Update system parameter mail.catchall.domain with value $MAIL_CATCHALL_DOMAIN."
         echo "env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1).write({'value': '$MAIL_CATCHALL_DOMAIN'});env.cr.commit()" |
         odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    fi
+}
+
+function setup-mail-sql() {
+    DATABASE="$1"
+    if [ -z "$DATABASE" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
+
+    activate-venv
+    set-addons-path
+
+    if [ -n "$ODOO_MAIL_SMTP_HOST" ]; then
+        ODOO_MAIL_SMTP_PORT=${ODOO_MAIL_SMTP_PORT:="587"}
+        ODOO_MAIL_SMTP_ENCRYPTION=${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}
+        ODOO_MAIL_SMTP_FROM_FILTER=${ODOO_MAIL_SMTP_FROM_FILTER:=""}
+
+        IR_MAIL_SERVER_ID=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT id FROM ir_mail_server WHERE name = '$ODOO_MAIL_SMTP_HOST' LIMIT 1")
+        if [ -z "$IR_MAIL_SERVER_ID" ]; then
+            echo "Setup outgoing mail server $ODOO_MAIL_SMTP_HOST for database $DATABASE."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "INSERT INTO ir_mail_server (active, name, smtp_host, smtp_port, smtp_user, smtp_pass, smtp_encryption, from_filter, smtp_authentication) VALUES (TRUE, '$ODOO_MAIL_SMTP_HOST', '$ODOO_MAIL_SMTP_HOST', $ODOO_MAIL_SMTP_PORT, '$ODOO_MAIL_USERNAME', '$ODOO_MAIL_PASSWORD', '$ODOO_MAIL_SMTP_ENCRYPTION', '$ODOO_MAIL_SMTP_FROM_FILTER', 'login')"
+        fi
+    fi
+
+    if [ -n "$ODOO_MAIL_IMAP_HOST" ]; then
+        ODOO_MAIL_IMAP_PORT=${ODOO_MAIL_IMAP_PORT:="993"}
+        ODOO_MAIL_IMAP_SSL=${ODOO_MAIL_IMAP_SSL:="True"}
+
+        FETCHMAIL_SERVER_ID=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT id FROM fetchmail_server WHERE name = '$ODOO_MAIL_SMTP_HOST' LIMIT 1")
+        if [ -z "$FETCHMAIL_SERVER_ID" ]; then
+            echo "Setup incoming mail server $ODOO_MAIL_IMAP_HOST for database $DATABASE."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "INSERT INTO fetchmail_server (\"active\", \"name\", \"server\", \"port\", \"user\", \"password\", \"is_ssl\", \"server_type\", \"state\") VALUES (TRUE, '$ODOO_MAIL_SMTP_HOST', '$ODOO_MAIL_IMAP_HOST', $ODOO_MAIL_IMAP_PORT, '$ODOO_MAIL_USERNAME', '$ODOO_MAIL_PASSWORD', $ODOO_MAIL_IMAP_SSL, 'imap', 'done')"
+        fi
+    fi
+
+    if [ -n "$MAIL_CATCHALL_ALIAS" ]; then
+        MAIL_CATCHALL_ALIAS_VALUE=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.catchall.alias'")
+        if [ "$MAIL_CATCHALL_ALIAS_VALUE" != "$MAIL_CATCHALL_ALIAS" ]; then
+            echo "Update system parameter mail.catchall.alias with value $MAIL_CATCHALL_ALIAS."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_CATCHALL_ALIAS' WHERE key = 'mail.catchall.alias'"
+        fi
+    fi
+
+    if [ -n "$MAIL_DEFAULT_FROM" ]; then
+        MAIL_DEFAULT_FROM_VALUE=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.default.from'")
+        if [ "$MAIL_DEFAULT_FROM_VALUE" != "$MAIL_DEFAULT_FROM" ]; then
+            echo "Update system parameter mail.default.from with value $MAIL_DEFAULT_FROM."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_DEFAULT_FROM' WHERE key = 'mail.default.from'"
+        fi
+    fi
+
+    if [ -n "$MAIL_CATCHALL_DOMAIN" ]; then
+        MAIL_CATCHALL_DOMAIN_KEY=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT id FROM ir_config_parameter WHERE key = 'mail.catchall.domain'")
+        if [ -z "$MAIL_CATCHALL_DOMAIN_KEY" ]; then
+            echo "Add system parameter mail.catchall.domain with value $MAIL_CATCHALL_DOMAIN."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "INSERT INTO ir_config_parameter (key, value) VALUES ('mail.catchall.domain', '$MAIL_CATCHALL_DOMAIN')"
+        fi
+        MAIL_CATCHALL_DOMAIN_VALUE=$(docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.catchall.domain'")
+        if [ "$MAIL_CATCHALL_DOMAIN_VALUE" != "$MAIL_CATCHALL_DOMAIN" ]; then
+            echo "Update system parameter mail.catchall.domain with value $MAIL_CATCHALL_DOMAIN."
+            docker exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_CATCHALL_DOMAIN' WHERE key = 'mail.catchall.domain'"
+        fi
     fi
 }
 
@@ -2361,6 +2428,9 @@ case "$1" in
         ;;
     setup-mail)
         setup-mail "$2"
+        ;;
+    setup-mail-sql)
+        setup-mail-sql "$2"
         ;;
     set-admin)
         set-admin "$2"

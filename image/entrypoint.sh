@@ -213,6 +213,58 @@ init_db() {
 
 init_db
 
+setup_mail() {
+    
+    if [ -n "$ODOO_MAIL_SMTP_HOST" ]; then
+        ODOO_MAIL_SMTP_PORT=${ODOO_MAIL_SMTP_PORT:="587"}
+        ODOO_MAIL_SMTP_ENCRYPTION=${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}
+        ODOO_MAIL_SMTP_FROM_FILTER=${ODOO_MAIL_SMTP_FROM_FILTER:=""}
+
+        IR_MAIL_SERVER_ID=$(psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -tAc "SELECT id FROM ir_mail_server WHERE name = '$ODOO_MAIL_SMTP_HOST' LIMIT 1")
+        if [ -z "$IR_MAIL_SERVER_ID" ]; then
+            entrypoint_log "$ME: Setup outgoing mail server $ODOO_MAIL_SMTP_HOST for database $DATABASE."
+            psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -c "INSERT INTO ir_mail_server (name, smtp_host, smtp_port, smtp_user, smtp_pass, smtp_encryption, from_filter) VALUES ('$ODOO_MAIL_SMTP_HOST', '$ODOO_MAIL_SMTP_HOST', $ODOO_MAIL_SMTP_PORT, '$ODOO_MAIL_USERNAME', '$ODOO_MAIL_PASSWORD', '$ODOO_MAIL_SMTP_ENCRYPTION', '$ODOO_MAIL_SMTP_FROM_FILTER')"
+        fi
+    fi
+
+    if [ -n "$ODOO_MAIL_IMAP_HOST" ]; then
+        ODOO_MAIL_IMAP_PORT=${ODOO_MAIL_IMAP_PORT:="993"}
+        ODOO_MAIL_IMAP_SSL=${ODOO_MAIL_IMAP_SSL:="True"}
+
+        FETCHMAIL_SERVER_ID=$(psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -tAc "SELECT id FROM fetchmail_server WHERE name = '$ODOO_MAIL_SMTP_HOST' LIMIT 1")
+        if [ -z "$FETCHMAIL_SERVER_ID" ]; then
+            entrypoint_log "$ME: Setup incoming mail server $ODOO_MAIL_IMAP_HOST for database $DATABASE."
+            psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -c "INSERT INTO fetchmail_server (name, server, port, user, password, is_ssl) VALUES ('$ODOO_MAIL_SMTP_HOST', '$ODOO_MAIL_IMAP_HOST', $ODOO_MAIL_IMAP_PORT, '$ODOO_MAIL_USERNAME', '$ODOO_MAIL_PASSWORD', $ODOO_MAIL_IMAP_SSL)"
+        fi
+    fi
+
+    if [ -n "$MAIL_CATCHALL_ALIAS" ]; then
+        MAIL_CATCHALL_ALIAS_VALUE=$(psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.catchall.alias'")
+        if [ "$MAIL_CATCHALL_ALIAS_VALUE" != "$MAIL_CATCHALL_ALIAS" ]; then
+            entrypoint_log "$ME: Update system parameter mail.catchall.alias with value $MAIL_CATCHALL_ALIAS."
+            psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_CATCHALL_ALIAS' WHERE key = 'mail.catchall.alias'"
+        fi
+    fi
+
+    if [ -n "$MAIL_DEFAULT_FROM" ]; then
+        MAIL_DEFAULT_FROM_VALUE=$(psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.default.from'")
+        if [ "$MAIL_DEFAULT_FROM_VALUE" != "$MAIL_DEFAULT_FROM" ]; then
+            entrypoint_log "$ME: Update system parameter mail.default.from with value $MAIL_DEFAULT_FROM."
+            psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_DEFAULT_FROM' WHERE key = 'mail.default.from'"
+        fi
+    fi
+
+    if [ -n "$MAIL_CATCHALL_DOMAIN" ]; then
+        MAIL_CATCHALL_DOMAIN_VALUE=$(psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -tAc "SELECT value FROM ir_config_parameter WHERE key = 'mail.catchall.domain'")
+        if [ "$MAIL_CATCHALL_DOMAIN_VALUE" != "$MAIL_CATCHALL_DOMAIN" ]; then
+            entrypoint_log "$ME: Update system parameter mail.catchall.domain with value $MAIL_CATCHALL_DOMAIN."
+            psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$DATABASE" -c "UPDATE ir_config_parameter SET value = '$MAIL_CATCHALL_DOMAIN' WHERE key = 'mail.catchall.domain'"
+        fi
+    fi
+}
+
+setup_mail
+
 click_odoo_update() {
     if [ -n "$ODOO_DATABASE" ]; then
         : "${CLICK_ODOO_UPDATE:=False}"
