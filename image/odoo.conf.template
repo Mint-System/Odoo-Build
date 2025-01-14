@@ -1,6 +1,8 @@
 [options]
+data_dir = /var/lib/odoo
 addons_path = $ODOO_ADDONS_PATH,$ADDONS_PATH
 environment = $ENVIRONMENT
+running_env = $ENVIRONMENT
 server_wide_modules = $SERVER_WIDE_MODULES
 proxy_mode = $PROXY_MODE
 log_level = $LOG_LEVEL
@@ -11,7 +13,7 @@ workers = $WORKERS
 limit_request = $LIMIT_REQUEST
 limit_time_cpu = $LIMIT_TIME_CPU
 limit_time_real = $LIMIT_TIME_REAL
-data_dir = /var/lib/odoo
+modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 ; csv_internal_sep = ,
 ; db_maxconn = 64
 ; db_name = False
@@ -39,23 +41,6 @@ data_dir = /var/lib/odoo
 ; xmlrpcs_interface = 
 ; xmlrpcs_port = 8071
 
-modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
-
 [ir.config_parameter]
 git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
 git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
-
-[outgoing_mail]
-smtp_host = $ODOO_MAIL_SMTP_HOST
-smtp_port = $ODOO_MAIL_SMTP_PORT
-smtp_user = $ODOO_MAIL_USERNAME
-smtp_pass = $ODOO_MAIL_PASSWORD
-smtp_encryption = $ODOO_MAIL_SMTP_ENCRYPTION
-
-[incoming_mail]
-server = $ODOO_MAIL_IMAP_HOST
-port = $ODOO_MAIL_IMAP_PORT
-server_type = $ODOO_MAIL_IMAP_SSL
-is_ssl = $ODOO_MAIL_IMAP_SSL
-user = $ODOO_MAIL_USERNAME
-password = $ODOO_MAIL_PASSWORD

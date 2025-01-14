@@ -32,9 +32,13 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      MAIL_DEFAULT_FROM: test
+      MAIL_CATCHALL_DOMAIN: mint-system.ch
+      MAIL_CATCHALL_ALIAS: test@mint-system.ch
       ODOO_MAIL_SMTP_HOST: mail.infomaniak.com
       ODOO_MAIL_SMTP_PORT: 587
-      ODOO_MAIL_SMTP_ENCRYPTION: SSL
+      ODOO_MAIL_SMTP_ENCRYPTION: starttls
+      ODOO_MAIL_SMTP_FROM_FILTER: test@mint-system.ch
       ODOO_MAIL_IMAP_HOST: mail.infomaniak.com
       ODOO_MAIL_IMAP_PORT: 993
       ODOO_MAIL_IMAP_SSL: True
@@ -53,6 +57,7 @@ services:
       ODOO_DATABASE: 16.0
       ODOO_INIT: True
       ODOO_INIT_LANG: de_CH
+      ODOO_INIT_ADDONS: server_environment_ir_config_parameter
       ENVIRONMENT: production
       PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
@@ -99,14 +104,25 @@ Odoo supports PostgreSQL database only.
 * `PGPASSWORD` Database user password.
 * `PGPORT` Postgres server port. Default is `5432`.
 
+### System Parameters
+
+Define Odoo system parameters. Requires `server_environment_ir_config_parameter` to be in `ODOO_INIT_ADDONS`.
+
+* `MAIL_CATCHALL_ALIAS`: Name of the catchall mail adress. Default is `catchall`.
+* `MAIL_CATCHALL_DOMAIN`: Domain name of of the catchall mail addres
+* `MAIL_DEFAULT_FROM`: From name for outgoing mails. Default is `notification`.
+
 ### Incoming and Outgoing Mail-Server
 
-* `ODOO_MAIL_SMTP_HOST`: SMTP hostname for sending mails.
+Load mail server configuration from environment vars.
+
+* `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
 * `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
-* `ODOO_MAIL_SMTP_ENCRYPTION`: SMTP encryption type. Default is `ssl`.
-* `ODOO_MAIL_IMAP_HOST`: IMAP hostname for receiving mails. Default is `ODOO_MAIL_SMTP_HOST`.
+* `ODOO_MAIL_SMTP_ENCRYPTION`: SMTP encryption type. Default is `starttls`.
+* `ODOO_MAIL_SMTP_FROM_FILTER`: Send mails from this address only. Default is `""`.
+* `ODOO_MAIL_IMAP_HOST`: If set Odoo fetches mails from this host.
 * `ODOO_MAIL_IMAP_PORT`: IMAP port. Default is `993`.
-* `ODOO_MAIL_IMAP_SSL`: Enable IMAP SSL. Default is `1`.
+* `ODOO_MAIL_IMAP_SSL`: Enable IMAP SSL. Default is `True`.
 * `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
 * `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 

@@ -151,7 +151,7 @@ auto_envsubst() {
 
 auto_envsubst
 
-PYTHON_INSTALL() {
+python_install() {
     if [ -n "$PYTHON_INSTALL" ]; then
         entrypoint_log "$ME: Install python packages: $PYTHON_INSTALL"
         uv pip install --no-cache-dir $(echo "$PYTHON_INSTALL" | tr "," " ")
@@ -161,7 +161,7 @@ PYTHON_INSTALL() {
     uv pip list
 }
 
-PYTHON_INSTALL
+python_install
 
 # set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
