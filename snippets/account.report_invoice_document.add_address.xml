@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@class='row']" position="after">
+
+        <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+
+            <style>
+    .company_invoice_line {
+    margin-top: 1mm;
+    margin-bottom: 2mm;
+    }
+            </style>
+
+            <tr style="height: 100px;">
+                <td style="width: 280px; vertical-align: top; padding-left: 5mm; ">
+                    <span style="font-size: 7pt">Warenempfänger</span>
+                    <hr class="company_invoice_line"/>
+                    <div>
+                        <t>
+                            <div t-field="o.partner_shipping_id.parent_id"/>
+                            <div t-field="o.partner_shipping_id.street"/>
+                            <div>
+                                <span t-field="o.partner_shipping_id.zip"/>
+                                <span t-field="o.partner_shipping_id.city"/>
+                            </div>
+                            <div t-field="o.partner_shipping_id.country_id"/>
+                        </t>
+                    </div>
+                </td>
+                <td style="width: 70px"/>
+                <td style="width: 270px; vertical-align: top; padding-left: 5mm; ">
+                    <span style="font-size: 7pt">Warenversender</span>
+                    <hr class="company_invoice_line"/>
+                    <t t-if="o.x_sale_order_id">
+                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/>
+                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street"/>
+                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street2"/>
+                        <div>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.zip"/>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.city"/>
+                        </div>
+                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.country_id"/>
+                    </t>
+                </td>
+            </tr>
+        </table>
+        <table style="margin-left: 0px; margin-bottom: 50px; border: transparent">
+            <tr>
+                <td style="width: 80px; vertical-align: top; padding-left: 5mm; ">
+                    <div>USt-IdNr.</div>
+                    <div>EORI Nr.</div>
+                </td>
+                <td style="width: 200px; vertical-align: top">
+                    <div>DE812033417</div>
+                    <div>3001245</div>
+                </td>
+
+                <td style="width: 70px"/>
+
+                <td style="width: 80px; vertical-align: top; padding-left: 5mm; ">
+                    <div>No. de TVA</div>
+                    <div>No. de EORI</div>
+                </td>
+                <td style="width: 190px; vertical-align: top">
+                    <div>FR03980163075</div>
+                    <div>NFRCH980163075</div>
+                </td>
+            </tr>
+
+            <tr>
+
+                <td colspan="3" style="width: 340px; vertical-align: top; padding-left: 5mm; ">
+                    <div>Steuerfreie innergemeinschaftliche Lieferung</div>
+                </td>
+                <td colspan="3" style="width: 270px; vertical-align: top; padding-left: 5mm; ">
+                    <div>Livraison exonérée selon l'article 138 de la Directive TVA</div>
+                </td>
+            </tr>
+
+        </table>
+
+    </xpath>
+</data>

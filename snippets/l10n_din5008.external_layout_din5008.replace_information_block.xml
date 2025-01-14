@@ -32,9 +32,6 @@
                                 </span>
                                 <span t-elif="'name' in o" t-field="o.name"/>
                             </span>
-                            <span>
-                                <t t-out="template_data[0][1]"/>
-                            </span>
                         </td>
                     </tr>
                     <t t-foreach="template_data" t-as="row" t-index="i">
