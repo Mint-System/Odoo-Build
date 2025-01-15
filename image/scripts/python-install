@@ -1,9 +1,9 @@
 #!/bin/bash
 
 if [ -n "$PYTHON_INSTALL" ]; then
-    entrypoint-log "$ME: Install python packages: $PYTHON_INSTALL"
+    entrypoint-log "Install python packages: $PYTHON_INSTALL"
     uv pip install --no-cache-dir $(echo "$PYTHON_INSTALL" | tr "," " ")
 fi
 
-entrypoint-log "$ME: List python packages:" 
+entrypoint-log "List python packages:" 
 uv pip list

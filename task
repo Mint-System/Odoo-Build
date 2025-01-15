@@ -563,10 +563,16 @@ function build() {
     docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
 
     echo "Run Docker build ${DOCKER_REGISTRY}${DOCKER_TAG} for ${PLATFORM}"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+    # SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+    #     --file "$DOCKERFILE" \
+    #     --build-arg ODOO_VERSION="$GIT_BRANCH" \
+    #     --build-arg ODOO_DATE="$ODOO_DATE" \
+    #     --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
+     SOURCE_DATE_EPOCH=0 docker build . \
         --file "$DOCKERFILE" \
         --build-arg ODOO_VERSION="$GIT_BRANCH" \
         --build-arg ODOO_DATE="$ODOO_DATE" \
+        --build-arg TARGETARCH="amd64" \
         --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
@@ -889,6 +895,7 @@ function test-docker() {
     export ODOO_MAIL_SMTP_PORT=1025
     export ODOO_MAIL_SMTP_ENCRYPTION=none
     export MAIL_DEFAULT_FROM="test"
+    export BROWSER_OPEN=false
     start db,odoo,mail
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
 
@@ -1134,7 +1141,8 @@ if mail_default_from:
     if mail_default_from_id.value != mail_default_from:
         env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1).write({'value': mail_default_from})
     env.cr.commit()
-EOF)
+EOF
+)
 
     echo "Setup mail server configuation for database $DATABASE."
     echo "$PYTHON_SCRIPT" | odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http

@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# Based on: https://github.com/odoo/docker/blob/master/18.0/entrypoint.sh
+
 set -e
 
 echo "  ___      _               ____        _ _     _ "
@@ -14,11 +16,27 @@ if [ -v PASSWORD_FILE ]; then
     PASSWORD="$(< $PASSWORD_FILE)"
 fi
 
-ME=$(basename "$0")
+source git-clone-addons
 
-git-clone-addons
+source set-addons-path
 
-set-odoo-config-env
+GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+export GIT_SSH_PRIVATE_KEY
+export GIT_SSH_PUBLIC_KEY
+
+export ENVIRONMENT=${ENVIRONMENT:="development"}
+export SERVER_WIDE_MODULES=${SERVER_WIDE_MODULES:="web"}
+export PROXY_MODE=${PROXY_MODE:=False}
+export LOG_LEVEL=${LOG_LEVEL:="info"}
+
+export LIST_DB=${LIST_DB:=True}
+export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
+export DBFILTER=${DBFILTER:=".*"}
+
+export WORKERS=${WORKERS:=0}
+export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
+export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}
+export LIMIT_TIME_REAL=${LIMIT_TIME_REAL:=120}
 
 auto-envsubst
 
@@ -46,13 +64,16 @@ check_config "db_port" "$PGPORT"
 check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 
+entrypoint-log "Waiting for database connection."
+wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+
 init-db
 
 setup-mail
 
 odoo-update
 
-entrypoint-log "$ME: Running Odoo $ODOO_VERSION as user: $USER"
+entrypoint-log "Running Odoo $ODOO_VERSION as user: $USER"
 
 case "$1" in
     -- | odoo)

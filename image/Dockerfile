@@ -100,24 +100,7 @@ ENV ODOO_VERSION=$ODOO_VERSION
 
 # Copy entrypoint scripts and Odoo configuration file
 
-COPY ./image/scripts/parse-url /usr/local/bin/
-RUN chmod +x /usr/local/bin/parse-url
-COPY ./image/scripts/entrypoint-log /usr/local/bin/
-RUN chmod +x /usr/local/bin/entrypoint-log
-COPY ./image/scripts/git-clone-addons /usr/local/bin/
-RUN chmod +x /usr/local/bin/git-clone-addons
-COPY ./image/scripts/set-odoo-config-env /usr/local/bin/
-RUN chmod +x /usr/local/bin/set-odoo-config-env
-COPY ./image/scripts/auto-envsubst /usr/local/bin/
-RUN chmod +x /usr/local/bin/auto-envsubst
-COPY ./image/scripts/python-install /usr/local/bin/
-RUN chmod +x /usr/local/bin/python-install
-COPY ./image/scripts/init-db /usr/local/bin/
-RUN chmod +x /usr/local/bin/init-db
-COPY ./image/scripts/setup-mail /usr/local/bin/
-RUN chmod +x /usr/local/bin/setup-mail
-COPY ./image/scripts/odoo-update /usr/local/bin/
-RUN chmod +x /usr/local/bin/odoo-update
+COPY ./image/scripts/* /usr/local/bin/
 COPY ./image/entrypoint.sh /
 COPY ./image/odoo.conf.template /etc/odoo/
 

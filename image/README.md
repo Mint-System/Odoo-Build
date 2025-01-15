@@ -226,7 +226,7 @@ Extend the image with Python packages.
 ```dockerfile
 FROM mintsystem/odoo:16.0.20250106
 
-RUN pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
+RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
 
 Or with apt packages.

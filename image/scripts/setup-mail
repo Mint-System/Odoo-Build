@@ -1,6 +1,10 @@
 #!/bin/bash
 
-PYTHON_SCRIPT=$(cat <<EOF
+DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+
+if [ "$DATABASE_INITIALIZED" = "1" ]; then
+
+    PYTHON_SCRIPT=$(cat <<EOF
 
 # Set python vars from env vars
 smtp_host = '$ODOO_MAIL_SMTP_HOST'
@@ -77,8 +81,9 @@ if mail_default_from:
     if mail_default_from_id.value != mail_default_from:
         env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1).write({'value': mail_default_from})
     env.cr.commit()
-EOF)
+EOF
+)
 
-    entrypoint-log "$ME: Setup mail server configuation for database $DATABASE."
-    exec (echo "$PYTHON_SCRIPT" | 
-    odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http) || true
+    entrypoint-log "Setup mail server configuation for database $DATABASE."
+    (echo "$PYTHON_SCRIPT" | odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http) || true
+fi

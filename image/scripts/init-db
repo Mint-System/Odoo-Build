@@ -3,23 +3,22 @@
 if [ -n "$ODOO_DATABASE" ]; then
     : "${ODOO_INIT:=False}"
 
-    entrypoint-log "$ME: Check if database $ODOO_DATABASE exists"
-    wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+    entrypoint-log "Check if database $ODOO_DATABASE exists."
     DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
 
     # If it does not exist, create it
     if [ "$DATABASE_EXISTS" = "0" ]; then
-        entrypoint-log "$ME: Create database $ODOO_DATABASE"
+        entrypoint-log "Create database $ODOO_DATABASE."
         (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE $ODOO_DATABASE;") || true
     fi
 
-    entrypoint-log "$ME: Check if database $ODOO_DATABASE is initialized"
+    entrypoint-log "Check if database $ODOO_DATABASE is initialized"
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
     
     if [ "$ODOO_INIT" = "True" ] && [ "$DATABASE_INITIALIZED" = "0" ]; then
         : "${ODOO_INIT_LANG:=en_US}"
         : "${ODOO_INIT_ADDONS:=web}"
-        entrypoint-log "$ME: Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS"
+        entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS."
         (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
     fi
 fi

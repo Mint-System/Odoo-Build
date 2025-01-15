@@ -1,12 +1,12 @@
 #!/bin/bash
 
-local TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
-local OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
-local FILTER="${ODOO_ENVSUBST_FILTER:-}"
+TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
+OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
+FILTER="${ODOO_ENVSUBST_FILTER:-}"
 
 DEFINED_ENVS=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${FILTER}/ ) ? name : \"\" } }" < /dev/null ))
 
 if [[ -f "$TEMPLATE_FILE" ]]; then
-    entrypoint-log "$ME: Running envsubst on $TEMPLATE_FILE to $OUTPUT_FILE"
+    entrypoint-log "Running envsubst on $TEMPLATE_FILE to $OUTPUT_FILE."
     envsubst "$DEFINED_ENVS" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
 fi
