@@ -687,15 +687,15 @@ function install-native() {
         echo "Install python-ldap and psycopg2 build dependencies"
         sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
-        echo "Install xmllint"
-        sudo apt install -y libxml2-utils
+        echo "Install xmllint and gettext"
+        sudo apt install -y libxml2-utils gettext
 
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
         echo "Welcome daring Mac user. Let's try our best to get this working."
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
-        brew install wkhtmltopdf libsasl2 openldap openssl libxml2
+        brew install gettext wkhtmltopdf libsasl2 openldap openssl libxml2
         
         echo "Install the binary version of psycopg2"
         uv pip install psycopg2-binary --force
@@ -915,6 +915,8 @@ function test-docker() {
     create-odoo-env test
     show-env test
     test-xmlrpc test
+
+    echo "
 
     echo "Install, update, disable and remove snippet."
     install-snippet test snippets/base.view_partner_form.show_type.xml
