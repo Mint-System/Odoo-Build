@@ -1,0 +1,60 @@
+#!/bin/bash
+
+if [ -n "$ADDONS_GIT_REPOS" ]; then
+    
+    # Setup git ssh key
+    mkdir -p ~/.ssh
+    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+        entrypoint-log "Setup SSH key from env vars."
+        echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519
+    fi
+
+    # Clone git repo addons into /var/lib/odoo/git
+    entrypoint-log "Cloning git repos: $ADDONS_GIT_REPOS"
+    ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")        
+    for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
+        
+        # Supported urls:
+        # SSH: git@github.com:OCA/server-tools.git#16.0
+        # HTTP: https://github.com/OCA/server-tools.git#16.0
+
+        GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d# -f1)
+        GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
+        GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
+        GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
+        GIT_PATH="/var/lib/odoo/git/$GIT_HOSTNAME/$GIT_PATH"
+
+        if [ ! -d "$GIT_PATH/.git" ]; then
+            # Clone git repo and submodules
+            mkdir -p "$GIT_PATH"
+            ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
+            entrypoint-log "$ME: Clone $GIT_URL branch $GIT_BRANCH"
+            git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$GIT_PATH"
+        else
+            entrypoint-log "$ME: Update $GIT_URL branch $GIT_BRANCH"
+            git -C "$GIT_PATH" switch "$GIT_BRANCH"
+            git -C "$GIT_PATH" pull
+        fi
+
+        if [ -f "$GIT_PATH/.gitmodules" ]; then
+            echo "$ME: Init and update git submodules in $GIT_PATH"
+            git -C "$GIT_PATH" submodule update --init --recursive --depth 1
+        fi
+        
+        # Add git repo to addons path
+        if [ -n "$ODOO_ADDONS_PATH" ]; then
+            ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$GIT_PATH"
+        else
+            ODOO_ADDONS_PATH="$GIT_PATH"
+        fi
+    done
+
+    # Remove git ssh key
+    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+        ssh-add -d ~/.ssh/id_ed25519
+        rm ~/.ssh/id_ed25519
+    fi
+fi

@@ -1,0 +1,47 @@
+
+if [ -n "$ODOO_ADDONS_PATH" ]; then 
+
+    entrypoint-log "$ME: Resolve addons path: $ODOO_ADDONS_PATH"
+
+    # Search for module manifest files containing "version.+NN.0" and return list of module paths
+    ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
+    
+    # Set parent folder of module paths as new addons path
+    ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+
+    # Enterprise modules always have version 1.0
+    if [[ "$ODOO_ADDONS_PATH" =~ "/mnt/enterprise" ]]; then
+        ODOO_ADDONS_PATH="/mnt/enterprise,$ODOO_MODULE_PATH"
+    else
+        ODOO_ADDONS_PATH="$ODOO_MODULE_PATH"
+    fi
+fi
+
+GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+export GIT_SSH_PRIVATE_KEY
+export GIT_SSH_PUBLIC_KEY
+
+: "${ENVIRONMENT:=development}"
+export ENVIRONMENT
+: "${SERVER_WIDE_MODULES:=web}"
+export SERVER_WIDE_MODULES
+: "${PROXY_MODE:=False}"
+export PROXY_MODE
+: "${LOG_LEVEL:=info}"
+export LOG_LEVEL
+
+: "${LIST_DB:=True}"
+export LIST_DB
+: "${ADMIN_PASSWD:=odoo}"
+export ADMIN_PASSWD
+: "${DBFILTER:=.*}"
+export DBFILTER
+
+: "${WORKERS:=0}"
+export WORKERS
+: "${LIMIT_REQUEST:=8192}"
+export LIMIT_REQUEST
+: "${LIMIT_TIME_CPU:=60}"
+export LIMIT_TIME_CPU
+: "${LIMIT_TIME_REAL:=120}"
+export LIMIT_TIME_REAL

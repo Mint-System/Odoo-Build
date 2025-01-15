@@ -98,11 +98,28 @@ RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py
 # Set env vars
 ENV ODOO_VERSION=$ODOO_VERSION
 
-# Copy entrypoint script and Odoo configuration file
-COPY ./image/odoo.conf.template /etc/odoo/
-COPY ./image/entrypoint.sh /
-COPY ./image/parse-url /usr/local/bin/
+# Copy entrypoint scripts and Odoo configuration file
+
+COPY ./image/scripts/parse-url /usr/local/bin/
 RUN chmod +x /usr/local/bin/parse-url
+COPY ./image/scripts/entrypoint-log /usr/local/bin/
+RUN chmod +x /usr/local/bin/entrypoint-log
+COPY ./image/scripts/git-clone-addons /usr/local/bin/
+RUN chmod +x /usr/local/bin/git-clone-addons
+COPY ./image/scripts/set-odoo-config-env /usr/local/bin/
+RUN chmod +x /usr/local/bin/set-odoo-config-env
+COPY ./image/scripts/auto-envsubst /usr/local/bin/
+RUN chmod +x /usr/local/bin/auto-envsubst
+COPY ./image/scripts/python-install /usr/local/bin/
+RUN chmod +x /usr/local/bin/python-install
+COPY ./image/scripts/init-db /usr/local/bin/
+RUN chmod +x /usr/local/bin/init-db
+COPY ./image/scripts/setup-mail /usr/local/bin/
+RUN chmod +x /usr/local/bin/setup-mail
+COPY ./image/scripts/odoo-update /usr/local/bin/
+RUN chmod +x /usr/local/bin/odoo-update
+COPY ./image/entrypoint.sh /
+COPY ./image/odoo.conf.template /etc/odoo/
 
 # Create odoo user
 ARG UID=102
