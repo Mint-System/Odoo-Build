@@ -1,6 +1,11 @@
-# [Mint System Odoo](https://odoo.build/image/)
+[Mint System Odoo](https://odoo.build/image/)
+===
+
+[![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/)
 
 A better Odoo image.
+
+This container image is an improvement of the official Odoo image:
 
 - 🐍 Ships with python 3.11.
 - 📦 Uses [uv](https://docs.astral.sh/uv/) to manage python.
