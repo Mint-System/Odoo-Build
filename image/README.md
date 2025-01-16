@@ -1,4 +1,4 @@
-# [Mint System Odoo Image](https://odoo.build/image/)
+# [Mint System Odoo](https://odoo.build/image/)
 
 A better Odoo image.
 
