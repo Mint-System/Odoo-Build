@@ -3,6 +3,10 @@ cd "$(dirname "$0")" || exit
 # Commands such as git pull return exit code if there are no changes
 # set -e
 
+if [[ -a ".env" ]]; then
+    source .env
+fi
+
 function help-table() {
     # Define column widths
     cmd_width=25
@@ -138,10 +142,6 @@ function help() {
     help-table
     echo
 }
-
-if [[ -a ".env" ]]; then
-    source .env
-fi
 
 # Static env vars
 
@@ -549,8 +549,8 @@ function list-modules() {
 
 function build() {
     DOCKERFILE="image/Dockerfile"
-    # PLATFORM="linux/amd64"
-    PLATFORM="linux/amd64,linux/arm64"
+    PLATFORM="arm64"
+    # PLATFORM="linux/amd64,linux/arm64"
     if [ -n "$1" ]; then
         PLATFORM="$1"
     fi
@@ -563,17 +563,17 @@ function build() {
     docker image rm "${DOCKER_REGISTRY}${DOCKER_TAG}"
 
     echo "Run Docker build ${DOCKER_REGISTRY}${DOCKER_TAG} for ${PLATFORM}"
-    # SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
-    #     --file "$DOCKERFILE" \
-    #     --build-arg ODOO_VERSION="$GIT_BRANCH" \
-    #     --build-arg ODOO_DATE="$ODOO_DATE" \
-    #     --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
-     SOURCE_DATE_EPOCH=0 docker build . \
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$DOCKERFILE" \
         --build-arg ODOO_VERSION="$GIT_BRANCH" \
         --build-arg ODOO_DATE="$ODOO_DATE" \
-        --build-arg TARGETARCH="amd64" \
         --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
+    #  SOURCE_DATE_EPOCH=0 docker build . \
+    #     --file "$DOCKERFILE" \
+    #     --build-arg ODOO_VERSION="$GIT_BRANCH" \
+    #     --build-arg ODOO_DATE="$ODOO_DATE" \
+    #     --build-arg TARGETARCH="amd64" \
+    #     --tag "${DOCKER_REGISTRY}${DOCKER_TAG}"
 }
 
 function docker-login() {
@@ -916,7 +916,7 @@ function test-docker() {
     show-env test
     test-xmlrpc test
 
-    echo "
+    echo "Send mail with message post."
 
     echo "Install, update, disable and remove snippet."
     install-snippet test snippets/base.view_partner_form.show_type.xml
@@ -1060,91 +1060,7 @@ function setup-mail() {
     activate-venv
     set-addons-path
 
-    PYTHON_SCRIPT=$(cat <<EOF
-
-# Set python vars from env vars
-smtp_host = '$ODOO_MAIL_SMTP_HOST'
-smtp_port = ${ODOO_MAIL_SMTP_PORT:="587"}
-smtp_encryption = '${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}'
-smtp_from_filter = '${ODOO_MAIL_SMTP_FROM_FILTER:=""}'
-imap_host = '$ODOO_MAIL_IMAP_HOST'
-imap_port = ${ODOO_MAIL_IMAP_PORT:="993"}
-imap_ssl = ${ODOO_MAIL_IMAP_SSL:="True"}
-mail_user = '$ODOO_MAIL_USER'
-mail_password = '$ODOO_MAIL_PASSWORD'
-mail_catchall_alias = '$ODOO_MAIL_CATCHALL_ALIAS'
-mail_catchall_domain = '$ODOO_MAIL_CATCHALL_DOMAIN'
-mail_default_from = '$ODOO_MAIL_DEFAULT_FROM'
-
-# Default SMTP host is Mailpit
-if not smtp_host:
-    smtp_host = localhost
-    smtp_port = 1025
-    smtp_encryption = 'none'
-
-# Setup outgoing mail server
-if smtp_host:
-    ir_mail_server = {
-        'name': smtp_host,
-        'smtp_host': smtp_host,
-        'smtp_port': smtp_port,
-        'smtp_user': mail_user,
-        'smtp_pass': mail_password,
-        'smtp_encryption': smtp_encryption,
-        'from_filter': smtp_from_filter
-    }
-    ir_mail_server_id = env['ir.mail_server'].search([('name', '=', smtp_host)], limit=1)
-    if ir_mail_server_id:
-        ir_mail_server_id.write(ir_mail_server)
-    else:
-        env['ir.mail_server'].create(ir_mail_server)
-    env.cr.commit()
-
-# Setup incoming mail server
-if imap_host:
-    fetchmail_server = {
-        'name': imap_host,
-        'server': imap_host,
-        'port': imap_port,
-        'user': mail_user,
-        'password': mail_password,
-        'is_ssl': imap_ssl,
-        'state': 'done'
-    }
-    fetchmail_server_id = env['fetchmail.server'].search([('name', '=', imap_host)], limit=1)
-    if fetchmail_server_id:
-        fetchmail_server_id.write(fetchmail_server)
-    else:
-        env['fetchmail.server'].create(fetchmail_server)
-    env.cr.commit()
-
-# Setup system parameters
-
-if mail_catchall_alias:
-    mail_catchall_alias_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1)
-    if not mail_catchall_alias_id:
-        env['ir.config_parameter'].create({'key': 'mail.catchall.alias', 'value': mail_catchall_alias})
-    if mail_catchall_alias_id.value != mail_catchall_alias:
-        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1).write({'value': mail_catchall_alias})
-    env.cr.commit()
-
-if mail_catchall_domain:
-    mail_catchall_domain_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1)
-    if not mail_catchall_domain_id:
-        env['ir.config_parameter'].create({'key': 'mail.catchall.domain', 'value': mail_catchall_domain})
-    if mail_catchall_domain_id.value != mail_catchall_domain:
-        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1).write({'value': mail_catchall_domain})
-    env.cr.commit()
-
-if mail_default_from:
-    mail_default_from_id = env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1)
-    if not mail_default_from_id:
-        env['ir.config_parameter'].create({'key': 'mail.default.from', 'value': mail_default_from})
-    if mail_default_from_id.value != mail_default_from:
-        env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1).write({'value': mail_default_from})
-    env.cr.commit()
-EOF
-)
+    PYTHON_SCRIPT=$(envsubst < scripts/setup-mail)
 
     echo "Setup mail server configuation for database $DATABASE."
     echo "$PYTHON_SCRIPT" | odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
