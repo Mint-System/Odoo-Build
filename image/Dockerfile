@@ -60,17 +60,20 @@ RUN apt-get update && \
     && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
     && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
-# https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_arm64.deb
+# wcurl https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_arm64.deb
+# sha1sum wkhtmltox_0.12.6.1-3.bookworm_arm64.deb
 
 # Install latest postgresql-client
-RUN apt-get update \
-    && apt-get install -y curl gnupg2 \
-    && mkdir -p /etc/apt/keyrings \
-    && curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc | gpg --dearmor -o /etc/apt/keyrings/postgresql.gpg \
-    && echo "deb [signed-by=/etc/apt/keyrings/postgresql.gpg] http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main" > /etc/apt/sources.list.d/pgdg.list \
-    && apt-get update \
-    && apt-get install -y --no-install-recommends postgresql-client \
-    && apt-get purge -y --auto-remove curl gnupg2 \
+RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
+    && GNUPGHOME="$(mktemp -d)" \
+    && export GNUPGHOME \
+    && repokey='B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8' \
+    && gpg --batch --keyserver keyserver.ubuntu.com --recv-keys "${repokey}" \
+    && gpg --batch --armor --export "${repokey}" > /etc/apt/trusted.gpg.d/pgdg.gpg.asc \
+    && gpgconf --kill all \
+    && rm -rf "$GNUPGHOME" \
+    && apt-get update  \
+    && apt-get install --no-install-recommends -y postgresql-client \
     && rm -f /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 

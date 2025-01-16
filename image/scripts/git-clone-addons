@@ -57,4 +57,6 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         ssh-add -d ~/.ssh/id_ed25519
         rm ~/.ssh/id_ed25519
     fi
+
+    export ODOO_ADDONS_PATH
 fi
