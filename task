@@ -641,9 +641,9 @@ function upgrade-odoo() {
     DATABASE="$1"
     ODOO_TARGET_VERSION="$2"
     MODE="test"
-    if [ -z "$3" ]; then
+    if [ -n "$3" ]; then
         # Options: test, production
-        MODE="$2"
+        MODE="$3"
     fi
     NEW_DATABASE="${DATABASE}_${ODOO_TARGET_VERSION}"
 
