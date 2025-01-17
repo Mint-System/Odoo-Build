@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//div[@class='row']" position="after">
@@ -19,6 +18,9 @@
                     <div>
                         <t>
                             <div t-field="o.partner_shipping_id.parent_id"/>
+                            <t t-if="not o.partner_shipping_id.parent_id">
+                                <div t-field="o.partner_shipping_id.name"/>
+                            </t>
                             <div t-field="o.partner_shipping_id.street"/>
                             <div>
                                 <span t-field="o.partner_shipping_id.zip"/>
