@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//div[@t-field='doc.partner_id']" position="replace">
+        <t t-if="is_pro_forma">
+        </t>
+        <t t-else="">
+            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+        </t>
+    </xpath>
+</data>

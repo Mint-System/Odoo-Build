@@ -10,7 +10,7 @@
                 <td style="width: 50px"/>
                 <td style="width: 300px; vertical-align: top">
                     <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Zahlung: </span>
+                        <span>Zahlbar bis: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
                     <div>

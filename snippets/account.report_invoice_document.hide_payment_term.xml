@@ -1,7 +1,12 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//p[@name='payment_term']" position="replace"/>
+  <xpath expr="//p[@name='payment_term']" position="replace"/>
 </data>
+
+<!--
+    <xpath expr="//span[@id='payment_terms_note_id']" position="replace"/>
+-->
+
 <!--
   <xpath expr="//div[@name='payment_term']" position="replace">
     <t t-if="o.move_type == 'out_refund'">

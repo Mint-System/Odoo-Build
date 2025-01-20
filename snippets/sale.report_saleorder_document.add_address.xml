@@ -11,8 +11,8 @@
     }
             </style>
 
-            <tr style="height: 100px;">
-                <td style="width: 280px; vertical-align: top; padding-left: 5mm;">
+            <tr style="height: 80px;">
+                <td style="width: 290px; vertical-align: top; padding-left: 5mm;">
                     <span style="font-size: 7pt">Warenempfänger</span>
                     <hr class="company_invoice_line"/>
                     <div>
@@ -21,8 +21,8 @@
                         </t>
                     </div>
                 </td>
-                <td style="width: 60px"/>
-                <td style="width: 280px; vertical-align: top">
+                <td style="width: 70px"/>
+                <td style="width: 260px; vertical-align: top">
                     <span style="font-size: 7pt">Warenversender</span>
                     <hr class="company_invoice_line"/>
                     <div>
@@ -34,10 +34,13 @@
                 </td>
             </tr>
         </table>
-        <table name="vat_eori" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent">
+        <table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3">
 
             <tr>
-                <td style="width: 90px; vertical-align: top; padding-left: 5mm;">
+                <td style="width: 120px; vertical-align: top; padding-left: 5mm;">
+                    <t t-if="doc.partner_shipping_id.vat">
+                        <div>USt-IdNr.</div>
+                    </t>
                     <t t-if="doc.partner_shipping_id.x_vat">
                         <div>MWST Nr.</div>
                     </t>
@@ -48,8 +51,10 @@
                         <div>ZAZ Konto Nr.</div>
                     </t>
                 </td>
-
-                <td style="width: 190px; vertical-align: top">
+                <td style="width: 180px; vertical-align: top">
+                    <t t-if="doc.partner_shipping_id.vat">
+                        <div t-field="doc.partner_shipping_id.vat"/>
+                    </t>
                     <t t-if="doc.partner_shipping_id.x_vat">
                         <div t-field="doc.partner_shipping_id.x_vat"/>
                     </t>
@@ -60,24 +65,33 @@
                         <div t-field="doc.partner_shipping_id.x_zaz"/>
                     </t>
                 </td>
-
                 <td style="width: 60px"/>
-
-                <td style="width: 90px; vertical-align: top">
+                <td style="width: 100px; vertical-align: top">
+                    <t t-if="doc.warehouse_id.partner_id.vat">
+                        <div>USt-IdNr.</div>
+                    </t>
                     <t t-if="doc.warehouse_id.partner_id.x_vat">
                         <div>MWST Nr.</div>
                     </t>
                     <t t-if="doc.warehouse_id.partner_id.x_eori">
                         <div>EORI Nr.</div>
                     </t>
+                    <t t-if="doc.warehouse_id.partner_id.x_zaz">
+                        <div>ZAZ Konto Nr.</div>
+                    </t>
                 </td>
-
-                <td style="width: 190px; vertical-align: top">
+                <td style="width: 180px; vertical-align: top">
+                    <t t-if="doc.warehouse_id.partner_id.vat">
+                        <div t-field="doc.warehouse_id.partner_id.vat"/>
+                    </t>
                     <t t-if="doc.warehouse_id.partner_id.x_vat">
                         <div t-field="doc.warehouse_id.partner_id.x_vat"/>
                     </t>
                     <t t-if="doc.warehouse_id.partner_id.x_eori">
                         <div t-field="doc.warehouse_id.partner_id.x_eori"/>
+                    </t>
+                    <t t-if="doc.warehouse_id.partner_id.x_zaz">
+                        <div t-field="doc.warehouse_id.partner_id.x_zaz"/>
                     </t>
                 </td>
             </tr>
