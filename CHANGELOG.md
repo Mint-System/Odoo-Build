@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Ensure `templates/task` is using `uv.
 * Split functions in `entrypoint.sh` into multiple scripts.
+* Ensure task file matches <https://taskfile.buld> specification.
 
 ## 2025-01-10
 
