@@ -5,7 +5,7 @@
     """,
     "author": "Mint System GmbH, Odoo Community Association (OCA)",
     "website": "https://www.mint-system.ch",
-    "category": "Purchase,Technical,Accounting,Invoicing,Sales,Human Resources,Services,Helpdesk,Manufacturing,Website,Inventory,Administration,Productivity",
+    "category": "Repository",
     "version": "16.0.1.0.0",
     "license": "AGPL-3,OPL-1",
     "depends": ["base"],
