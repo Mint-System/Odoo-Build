@@ -1,20 +1,17 @@
-<?xml version="1.0"?>
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
     <xpath expr="//div[@class='information_block']/.." position="replace">
         <style>
-            div.information_block {
-                font-family: arial;
-            }
             div.information_block tr {
                 heigt: 30px;
             }
             .din_page.invoice_note tr .address, .din_page.invoice_note tr .shipping_address {
-                width: 77mm;
+                width: 76mm;
             }
             div.information_block {
                 line-height: 1.5;
             }
         </style>
+
         <td style="vertical-align: top;">
             <div class="information_block">
                 <t t-if="'l10n_din5008_template_data' in company" t-set="template_data" t-value="company.l10n_din5008_template_data"/>
@@ -34,20 +31,109 @@
                             </span>
                         </td>
                     </tr>
-                    <t t-foreach="template_data" t-as="row" t-index="i">
-                        <t t-if="template_data != template_data[0]">
-                            <tr>
-                                <td>
-                                    <t t-out="row[0]"/>
-                                </td>
-                                <td>
-                                    <t t-out="row[1]"/>
-                                </td>
-                            </tr>
-                        </t>
+
+                    <!-- Rechnung -->
+                    <t t-if="o.type_name == 'Ausgangsrechnung'">
+
+                        <tr>
+                            <td>
+                                <span>Invoice No.</span>
+                            </td>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Invoice Date</span>
+                            </td>
+                            <td>
+                                <span t-field="o.invoice_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Payment Date</span>
+                            </td>
+                            <td>
+                                <span t-field="o.invoice_date_due"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Source</span>
+                            </td>
+                            <td>
+                                <span t-field="o.invoice_origin"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Reference</span>
+                            </td>
+                            <td>
+                                <span t-field="o.ref"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Delivery Date</span>
+                            </td>
+                            <td>
+                                <span t-field="o.delivery_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Incoterms</span>
+                            </td>
+                            <td>
+                                <span t-field="o.invoice_incoterm_id.code"/>
+                            </td>
+                        </tr>
                     </t>
+
+                    <!-- Verkaufsauftrag -->
+                    <t t-if="o.type_name == 'Verkaufsauftrag' or o.type_name == 'Bon de commande'">
+                        <tr>
+                            <td>
+                                <span>Order No.</span>
+                            </td>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Order Date</span>
+                            </td>
+                            <td>                               
+                                <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Your reference</span>
+                            </td>
+                            <td>
+
+                                <span t-field="o.client_order_ref"/>
+
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Incoterms</span>
+                            </td>
+                            <td>
+                                <span t-field="o.incoterm.code"/>
+                            </td>
+                        </tr>
+                    </t>
+
                 </table>
             </div>
         </td>
+
     </xpath>
 </data>

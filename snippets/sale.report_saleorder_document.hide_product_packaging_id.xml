@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//span[@t-field='line.product_packaging_id']/.." position="replace"/>
+</data>
