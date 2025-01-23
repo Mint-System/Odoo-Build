@@ -3,13 +3,14 @@
 if [ -n "$ADDONS_GIT_REPOS" ]; then
     
     # Setup git ssh key
-    mkdir -p ~/.ssh
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         entrypoint-log "Setup SSH key from env vars."
+        mkdir -p ~/.ssh
+        chmod 700 ~/.ssh
         echo "$GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519
+        ssh-add ~/.ssh/id_ed25519 || true
     fi
 
     # Clone git repo addons into /var/lib/odoo/git

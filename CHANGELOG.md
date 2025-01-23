@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file. The format 
 * Store and restore `.env` to pass store with `pass-store-dotenv` and `pass-restore-dotenv`.
 * Init database with selected modules defined `ODOO_INIT_ADDONS`.
 * Enable mail server configuration from env vars.
+* Support podman.
+* Docker compose file is now a tempalte `template-docker-compose`.
 
 ### Updated
 
@@ -17,6 +19,7 @@ All notable changes to this project will be documented in this file. The format 
 * Split functions in `entrypoint.sh` into multiple scripts.
 * Ensure task file matches <https://taskfile.buld> specification.
 * Fallback to empty string for docker compose env vars.
+* Renamed `DOCKER` to `CONTAINER` and `docker` to `container`.
 
 ## 2025-01-10
 

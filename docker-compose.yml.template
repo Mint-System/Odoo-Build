@@ -1,0 +1,97 @@
+name: odoo-build
+services:
+  odoo:
+    container_name: odoo
+    image: "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    depends_on:
+      - db
+    environment:
+      HOST: db
+      USER: odoo
+      PASSWORD: odoo
+      PORT: ${POSTGRES_PORT}
+      PGHOST: db
+      PGUSER: odoo
+      PGPASSWORD: odoo
+      PGPORT: ${POSTGRES_PORT}
+      MAIL_DEFAULT_FROM: ${MAIL_DEFAULT_FROM}
+      MAIL_CATCHALL_DOMAIN: ${MAIL_CATCHALL_DOMAIN}
+      MAIL_CATCHALL_ALIAS: ${MAIL_CATCHALL_ALIAS}
+      ODOO_MAIL_SMTP_HOST: ${ODOO_MAIL_SMTP_HOST}
+      ODOO_MAIL_SMTP_PORT: ${ODOO_MAIL_SMTP_PORT}
+      ODOO_MAIL_SMTP_ENCRYPTION: ${ODOO_MAIL_SMTP_ENCRYPTION}
+      ODOO_MAIL_SMTP_FROM_FILTER: ${ODOO_MAIL_SMTP_FROM_FILTER}
+      ODOO_MAIL_IMAP_HOST: ${ODOO_MAIL_IMAP_HOST}
+      ODOO_MAIL_IMAP_PORT: ${ODOO_MAIL_IMAP_PORT}
+      ODOO_MAIL_IMAP_SSL: ${ODOO_MAIL_IMAP_SSL}
+      ODOO_MAIL_USERNAME: ${ODOO_MAIL_USERNAME}
+      ODOO_MAIL_PASSWORD: ${ODOO_MAIL_PASSWORD}
+      GIT_SSH_PUBLIC_KEY: ${GIT_SSH_PUBLIC_KEY}
+      GIT_SSH_PRIVATE_KEY: ${GIT_SSH_PRIVATE_KEY}
+      ADDONS_GIT_REPOS: ${ADDONS_GIT_REPOS}
+      ODOO_ADDONS_PATH: ${ODOO_ADDONS_PATH}
+      ODOO_DATABASE: ${ODOO_DATABASE}
+      ODOO_INIT: ${ODOO_INIT}
+      ODOO_INIT_LANG: ${ODOO_INIT_LANG}
+      ODOO_INIT_ADDONS: ${ODOO_INIT_ADDONS}
+      ENVIRONMENT: ${ENVIRONMENT}
+      PYTHON_INSTALL: ${PYTHON_INSTALL}
+      SERVER_WIDE_MODULES: ${SERVER_WIDE_MODULES}
+      SESSION_DB_URI: ${SESSION_DB_URI}
+      PROXY_MODE: ${PROXY_MODE}
+      LOG_LEVEL: ${LOG_LEVEL}
+      LIST_DB: ${LIST_DB}
+      ADMIN_PASSWD: ${ADMIN_PASSWD}
+      DBFILTER: ${DBFILTER}
+      WORKERS: ${WORKERS}
+      LIMIT_REQUEST: ${LIMIT_REQUEST}
+      LIMIT_TIME_CPU: ${LIMIT_TIME_CPU}
+      LIMIT_TIME_REAL: ${LIMIT_TIME_REAL}
+      MODULE_AUTO_INSTALL_DISABLED: ${MODULE_AUTO_INSTALL_DISABLED}
+      CLICK_ODOO_UPDATE: ${CLICK_ODOO_UPDATE}
+    ports:
+      - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./addons:/mnt/addons
+      - ./oca:/mnt/oca
+      - ./enterprise:/mnt/enterprise
+      - ./themes:/mnt/themes
+      - ./thirdparty:/mnt/thirdparty
+  admin:
+    container_name: admin
+    image: docker.io/dpage/pgadmin4:6
+    depends_on:
+      - db
+    ports:
+      - "127.0.0.1:8000:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - admin-data:/var/lib/pgadmin
+      - ./servers.json:/pgadmin4/servers.json
+  db:
+    container_name: db
+    image: ${POSTGRES_IMAGE:-docker.io/library/postgres:14-alpine}
+    ports:
+      - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      POSTGRES_DB: ${ODOO_DATABASE}
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+  mail:
+    image: docker.io/axllent/mailpit
+    container_name: mail
+    hostname: mail
+    ports:
+      - "1025:1025"
+      - "8025:8025"
+volumes:
+  odoo-data:
+  db-data:
+  admin-data:
+  mail-data:

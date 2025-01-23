@@ -5,13 +5,8 @@ FROM debian:bookworm-slim
 LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
 LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
 
-SHELL ["/bin/bash", "-xo", "pipefail", "-c"]
-
 # Generate locale C.UTF-8 for postgres and general locale data
 ENV LANG=C.UTF-8
-
-# Retrieve the target architecture to install the correct wkhtmltopdf package
-ARG TARGETARCH
 
 # Retrieve the Odoo version
 ARG ODOO_VERSION
@@ -110,10 +105,8 @@ COPY ./image/entrypoint.sh /
 COPY ./image/odoo.conf.template /etc/odoo/
 
 # Create odoo user
-ARG UID=102
-ARG GID=102
-RUN groupadd --gid $GID odoo
-RUN useradd --uid $UID --gid $GID -m odoo
+RUN groupadd odoo
+RUN useradd -s /bin/bash -g odoo -m odoo
 
 # Set the working directory
 WORKDIR /opt/odoo
@@ -144,5 +137,4 @@ COPY ./image/wait-for-psql.py /usr/local/bin/
 # Set default user when running the container
 USER odoo
 
-ENTRYPOINT ["/entrypoint.sh"]
-CMD ["odoo"]
+CMD ["/entrypoint.sh", "odoo"]

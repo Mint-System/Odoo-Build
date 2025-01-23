@@ -39,3 +39,7 @@ odoo.conf
 addons/certificate_planer
 addons/company
 addons/theme_mint_system
+
+# Container
+
+docker-compose.yml

@@ -8,7 +8,7 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
 * 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.  
-* 🐳 **Docker Compose**: Spin up an Odoo, Postgres, and pgAdmin Docker container and experiment locally.  
+* 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.  
 * 💻 **Native**: Start an Odoo server directly from the source.  
 * 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.  
 * 🛠️ **Develop Modules**: Scaffold new modules, develop new Odoo features locally.  
@@ -16,7 +16,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.  
 * ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.  
 * 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
-* 📦 **Docker Image**: Build and publish a custom Odoo Docker image. See [README](./image/README.md) for details.  
+* 📦 **Container Image**: Build and publish a custom Odoo image. See [README](./image/README.md) for details.  
 * ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
@@ -26,11 +26,18 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 
 The Odoo development environment has the following requirements:
 
-* [Docker](https://docs.docker.com/engine/install/)
+* [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
 * Install Python 3.11+ with [uv](https://docs.astral.sh/uv/)
-* bash/zsh alias `alias task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
+
+**Command Completion (Optional)**
+
+bash/zsh alias `alias task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
+
+**Nix (Optional)**
 
 You can also use [Nix](https://nixos.org/) to setup the development requirements.
+
+**Kubernetes (Optional)**
 
 Install [kind](https://kind.sigs.k8s.io/) or [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
 
@@ -63,7 +70,7 @@ Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
 task install-odoo-scripts
 ```
 
-Decide wether you want to run Odoo in native mode (from source) or with Docker as a container.
+Decide wether you want to run Odoo in native mode (from source) or as a container.
 
 ### Native
 
@@ -165,11 +172,11 @@ To disable the browser open when starting the Odoo server edit the `.env` file:
 BROWSER_OPEN=false
 ```
 
-### Docker
+### Container
 
-Run Odoo with Docker container.
+Run Odoo as container.
 
-#### Start and initialize Odoo with Docker
+#### Start and initialize Odoo
 
 Set the Odoo addons path in your `.env` file:
 
@@ -177,7 +184,7 @@ Set the Odoo addons path in your `.env` file:
 ODOO_ADDONS_PATH=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
 ```
 
-Run Docker Compose.
+Run container compose.
 
 ```bash
 task start
@@ -201,7 +208,7 @@ docker-odoo-install -m show_db_name
 
 ### Common
 
-Instructions that are true for Docker and native usage.
+Instructions that are true for container and native usage.
 
 #### Change log level
 
@@ -211,11 +218,11 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-#### Manage database with Docker
+#### Manage database with container
 
 Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
-#### Remove Docker containers
+#### Remove containers
 
 This removes containers and volumes.
 
@@ -223,7 +230,7 @@ This removes containers and volumes.
 task remove
 ```
 
-#### Stop all Docker containers
+#### Stop all containers
 
 ```bash
 task stop
@@ -240,18 +247,18 @@ task drop-db
 Define the Postgres image in your `.env` file:
 
 ```bash
-POSTGRES_IMAGE=postgres:12-alpine
+POSTGRES_IMAGE=docker.io/library/postgres:12-alpine
 ```
 
-#### Build and publish Odoo image
+#### Build and publish container image
 
-Make sure your Docker setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
+Make sure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
 
-To build the Docker image setup these `.env` vars:
+To build the container image setup these `.env` vars:
 
 ```bash
 ODOO_REVISION=16.0.20250106
-DOCKER_REGISTRY=mint-system/
+CONTAINER_REGISTRY=mint-system/
 ```
 
 Checkout the Odoo revision.

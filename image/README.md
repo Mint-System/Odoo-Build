@@ -29,7 +29,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250106
+    image: docker.io/library/mintsystem/odoo:16.0.20250106
     depends_on:
       - db
     environment:
@@ -88,7 +88,7 @@ services:
       - ./themes:/mnt/themes
   db:
     container_name: db
-    image: postgres:14-alpine
+    image: docker.io/library/postgres:14-alpine
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
@@ -205,7 +205,7 @@ With the [Manifestoo](https://github.com/acsone/manifestoo) cli you can query th
 List all modules:
 
 ```bash
-docker exec odoo manifestoo --select-found list
+$CONTAINER_ENGINE exec odoo manifestoo --select-found list
 ```
 
 ### click-odoo
@@ -217,7 +217,7 @@ With [click-odoo](https://github.com/acsone/click-odoo) you can manage the Odoo 
 Update all modules manually:
 
 ```bash
-docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
+$CONTAINER_ENGINE exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
 ```
 
 ## Build
@@ -229,7 +229,7 @@ This image can be customized and extended as needed.
 Extend the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM docker.io/library/mintsystem/odoo:16.0.20250106
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -237,7 +237,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM docker.io/library/mintsystem/odoo:16.0.20250106
 
 USER root
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
@@ -249,34 +249,11 @@ USER odoo
 Copy a custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM docker.io/library/mintsystem/odoo:16.0.20250106
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
 
 ## Develop
 
-See [Odoo Build > Build and publish Odoo image](https://odoo.build/#build-and-publish-odoo-image) for details.
-
-## Troubleshooting
-
-### Session folder not writable
-
-**Problem**
-
-When starting the container the following error shows up:
-
-```
-/var/lib/odoo/sessions: directory is not writable
-```
-
-**Cause**
-
-The Odoo user/group have a different uid/gid.
-
-**Solution**
-
-```bash
-docker exec -u root -it $CONTAINER bash
-chown -R odoo:odoo /var/lib/odoo
-```
+See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-odoo-image) for details.

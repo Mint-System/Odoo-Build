@@ -20,7 +20,7 @@ jobs:
         run: ./task install-native
       - name: Run task install-odoo-scripts
         run: ./task install-odoo-scripts
-      - name: Run task test-docker
-        run: ./task test-docker
+      - name: Run task test-container
+        run: ./task test-container
       - name: Run task test-k8s
         run: ./task test-k8s

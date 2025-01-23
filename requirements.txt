@@ -1,3 +1,5 @@
+# podman
+podman-compose
 # Odoo testing
 pre-commit
 pyyaml
