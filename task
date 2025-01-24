@@ -159,7 +159,8 @@ ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
-CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="docker.io/mintsystem/"}
+CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="docker.io/library/mintsystem/"}
+DOCKER_REGISTRY=${DOCKER_REGISTRY:="mintsystem/"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
@@ -639,7 +640,8 @@ function build() {
             --file "$MANIFEST_FILE" \
             --build-arg ODOO_VERSION="$GIT_BRANCH" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
-            --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+            --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
+            --load
     fi
 }
 
@@ -662,10 +664,10 @@ function publish() {
     echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
     $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
 
-    echo "Push container image ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${LATEST_TAG}"
+        echo "Push container image to ${DOCKER_REGISTRY}${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${DOCKER_REGISTRY}${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${DOCKER_REGISTRY}${LATEST_TAG}"
     fi
 }
 
@@ -933,8 +935,7 @@ function test-container() {
         if [ ! -f "tmp/ed25519" ]; then
             ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
         fi
-        GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519)
-        export GIT_SSH_PRIVATE_KEY
+        GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
         GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
     fi
     
@@ -942,7 +943,7 @@ function test-container() {
     git submodule update --init oca/partner-contact
 
     echo "Start container environment."
-    export CONTAINER_REGISTRY=docker.io/library/mintsystem/
+    export GIT_SSH_PRIVATE_KEY
     export GIT_SSH_PUBLIC_KEY
     export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
     export ODOO_ADDONS_PATH="/mnt/enterprise,/mnt/oca"

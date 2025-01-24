@@ -20,10 +20,6 @@ source git-clone-addons
 
 source set-addons-path
 
-GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
-export GIT_SSH_PRIVATE_KEY
-export GIT_SSH_PUBLIC_KEY
-
 export ENVIRONMENT=${ENVIRONMENT:="development"}
 export SERVER_WIDE_MODULES=${SERVER_WIDE_MODULES:="web"}
 export PROXY_MODE=${PROXY_MODE:=False}

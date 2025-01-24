@@ -47,28 +47,22 @@ services:
       ODOO_MAIL_SMTP_FROM_FILTER: test@mint-system.ch
       ODOO_MAIL_IMAP_HOST: mail.infomaniak.com
       ODOO_MAIL_IMAP_PORT: 993
-      ODOO_MAIL_IMAP_SSL: True
+      ODOO_MAIL_IMAP_SSL: "True"
       ODOO_MAIL_USERNAME: test@mint-system.ch
       ODOO_MAIL_PASSWORD: *****
       GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
-      GIT_SSH_PRIVATE_KEY: |
-        -----BEGIN OPENSSH PRIVATE KEY-----
-        b3BlbnNzaC1rZXktdjEAAAAABG5vbmUAAAAEbm9uZQAAAAAAAAABAAAAMwAAAAtzc2gtZW
-        QyNTUxOQAAACA0fSG4tJgE4wssdRGIOfeKBZGNK4IbYKPqZxRzrwHMpgAAAKi5ZBaFuWQW
-        hQAAAAtzc2gtZWQyNTUxOQAAACA0fSG4tJgE4wssdRGIOfeKBZGNK4IbYKPqZxRzrwHMpg
-        0BAgM=
-        -----END OPENSSH PRIVATE KEY-----
+      GIT_SSH_PRIVATE_KEY: LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLQpiM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQU13QUFBQXR6YzJndFpXClF5TlRVeE9RQUFBQ0EwZlNHNHRKZ0U0d3NzZFJHSU9mZUtCWkdOSzRJYllLUHFaeFJ6cndITXBnQUFBS2k1WkJhRnVXUVcKaFFBQUFBdHpjMmd0WldReU5UVXhPUUFBQUNBMGZTRzR0SmdFNHdzc2RSR0lPZmVLQlpTks0SWJZS1BxWnhSenJ3SE1wZwowQkFnTT0KLS0tLS1FTkQgT1BFTlNTSCBQUklWQVRFIEtFWS0tLS0tCg==
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
-      ODOO_DATABASE: 16.0
-      ODOO_INIT: True
+      ODOO_DATABASE: "16.0"
+      ODOO_INIT: "True"
       ODOO_INIT_LANG: de_CH
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter
       ENVIRONMENT: production
       PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
-      PROXY_MODE: True
+      PROXY_MODE: "True"
       LOG_LEVEL: debug
       LIST_DB: False
       ADMIN_PASSWD: *****
@@ -78,7 +72,7 @@ services:
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
-      CLICK_ODOO_UPDATE: True
+      CLICK_ODOO_UPDATE: "True"
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -137,7 +131,7 @@ Load mail server configuration from environment vars.
 The entrypoint script can clone git repositories.
 
 * `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
-* `GIT_SSH_PRIVATE_KEY` Private key for SSH connection.
+* `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
 
 ### Addons Path
