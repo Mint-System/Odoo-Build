@@ -17,9 +17,10 @@ This container image is an improvement of the official Odoo image:
 - 📂 Detect addons in nested module folders.
 - 💾 Store session information in database.
 - 🖥️ Get environment name from server config.
-- 🗄️ Initialize database with selected modules.
+- 📋 Initialize database with selected modules.
 - 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
 - 🌈 Multiplatform image supports `amd64` and `arm64`.
+- 🪴 Runs without root privileges.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 

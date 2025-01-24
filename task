@@ -159,6 +159,7 @@ ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
+CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="docker.io/mintsystem/"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
@@ -172,9 +173,6 @@ if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
     COMPOSE_COMMAND="podman-compose"
 fi
 
-if [ -z "${CONTAINER_REGISTRY}" ]; then 
-    CONTAINER_REGISTRY=""
-fi
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
     PYTHON_NOTIFY=""

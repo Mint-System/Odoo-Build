@@ -9,7 +9,7 @@ templates
 .git-reset-files
 .gitignore
 CHANGELOG.md
-docker-compose.yml
+docker-compose.yml.template
 odoo.conf.template
 package.json
 package-lock.json

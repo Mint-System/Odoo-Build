@@ -137,4 +137,5 @@ COPY ./image/wait-for-psql.py /usr/local/bin/
 # Set default user when running the container
 USER odoo
 
-CMD ["/entrypoint.sh", "odoo"]
+ENTRYPOINT ["/entrypoint.sh"]
+CMD ["odoo"]

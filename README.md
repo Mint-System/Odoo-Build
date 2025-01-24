@@ -176,6 +176,14 @@ BROWSER_OPEN=false
 
 Run Odoo as container.
 
+#### Set podman as container engine
+
+If you are using podman, set this `.env` var:
+
+```bash
+CONTAINER_ENGINE=podman
+```
+
 #### Start and initialize Odoo
 
 Set the Odoo addons path in your `.env` file:
