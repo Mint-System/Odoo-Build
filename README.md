@@ -255,7 +255,7 @@ task drop-db
 Define the Postgres image in your `.env` file:
 
 ```bash
-POSTGRES_IMAGE=docker.io/library/postgres:12-alpine
+POSTGRES_IMAGE=postgres:12-alpine
 ```
 
 #### Build and publish container image

@@ -30,7 +30,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 services:
   odoo:
     container_name: odoo
-    image: docker.io/library/mintsystem/odoo:16.0.20250106
+    image: mintsystem/odoo:16.0.20250106
     depends_on:
       - db
     environment:
@@ -83,7 +83,7 @@ services:
       - ./themes:/mnt/themes
   db:
     container_name: db
-    image: docker.io/library/postgres:14-alpine
+    image: postgres:14-alpine
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
@@ -224,7 +224,7 @@ This image can be customized and extended as needed.
 Extend the image with Python packages.
 
 ```dockerfile
-FROM docker.io/library/mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250106
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -232,7 +232,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM docker.io/library/mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250106
 
 USER root
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
@@ -244,7 +244,7 @@ USER odoo
 Copy a custom Odoo conf file to the image.
 
 ```dockerfile
-FROM docker.io/library/mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250106
 
 COPY ./odoo.conf.template /etc/odoo/
 ```

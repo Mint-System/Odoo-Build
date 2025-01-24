@@ -159,8 +159,7 @@ ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
-CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="docker.io/library/mintsystem/"}
-DOCKER_REGISTRY=${DOCKER_REGISTRY:="mintsystem/"}
+CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
@@ -665,9 +664,9 @@ function publish() {
     $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
 
     if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        echo "Push container image to ${DOCKER_REGISTRY}${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${DOCKER_REGISTRY}${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${DOCKER_REGISTRY}${LATEST_TAG}"
+        echo "Push container image to ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${LATEST_TAG}"
     fi
 }
 
@@ -2144,7 +2143,7 @@ function create-revision() {
     BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
     
     # Pull container image with revision
-    IMAGE=docker.io/library/odoo:"$ODOO_VERSION-$ODOO_DATE"
+    IMAGE=odoo:"$ODOO_VERSION-$ODOO_DATE"
     $CONTAINER_ENGINE pull "$IMAGE"
     CONTAINER_REF=$($CONTAINER_ENGINE inspect --format='{{index .RepoDigests 0}}' "$IMAGE")
 
