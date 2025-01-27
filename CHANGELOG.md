@@ -17,7 +17,7 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Updated
 
-* Ensure `templates/task` is using `uv.
+* Ensure `templates/task` is using `uv`.
 * Split functions in `entrypoint.sh` into multiple scripts.
 * Ensure task file matches <https://taskfile.build> specification.
 * Fallback to empty string for docker compose env vars.
