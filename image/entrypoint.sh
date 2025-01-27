@@ -21,7 +21,7 @@ source git-clone-addons
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
-if [ -z "$SERVER_WIDE_MODULES" ]; then
+if [ -n "$SERVER_WIDE_MODULES" ]; then
     SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
 else
     SERVER_WIDE_MODULES="base,web"

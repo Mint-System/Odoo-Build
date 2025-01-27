@@ -173,6 +173,12 @@ if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
     COMPOSE_COMMAND="podman-compose"
 fi
 
+if [ -n "$SERVER_WIDE_MODULES" ]; then
+    SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
+else
+    SERVER_WIDE_MODULES="base,web"
+fi
+
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
     PYTHON_NOTIFY=""
