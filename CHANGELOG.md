@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Build Docker image for `linux/amd64` and `linux/arm64`.
 * Store and restore `.env` to pass store with `pass-store-dotenv` and `pass-restore-dotenv`.
-* Init database with selected modules defined `ODOO_INIT_ADDONS`.
+* Init database with selected modules defined in `ODOO_INIT_ADDONS`.
 * Enable mail server configuration from env vars.
 * Support podman as container engine.
 * Docker compose file is now a tempalte `template-docker-compose`.
