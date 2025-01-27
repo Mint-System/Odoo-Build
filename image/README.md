@@ -155,7 +155,7 @@ The Odoo server can be configured using the following env vars.
 
 * `ENVIRONMENT` Provide an environment name. Can be accessed with `config.get("environment")`.
 * `PYTHON_INSTALL` Comma seperated list of python packages.
-* `SERVER_WIDE_MODULES` Comma separated list of modules to load with server.
+* `SERVER_WIDE_MODULES` Comma separated list of modules to load with server. The variable will be prefixed with `base,web`.
 * `SESSION_DB_URI` Connection string for storing session data in database.
 * `PROXY_MODE` Enable server proxy mode. Default is `False`.
 * `LOG_LEVEL` Set the logging level. Default is `info`.

@@ -21,7 +21,12 @@ source git-clone-addons
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
-export SERVER_WIDE_MODULES=${SERVER_WIDE_MODULES:="base,web"}
+if [ -z "$SERVER_WIDE_MODULES" ]; then
+    SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
+else
+    SERVER_WIDE_MODULES="base,web"
+fi
+export SERVER_WIDE_MODULES
 export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
 
