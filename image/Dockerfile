@@ -111,17 +111,23 @@ RUN useradd -s /bin/bash -g odoo -m odoo
 # Set the working directory
 WORKDIR /opt/odoo
 
-# Grant access and ownership to odoo for:
+# Setup folder and permissions:
 # Config: /etc/odoo
 # Data: /var/lib/odoo
 # Python: /opt/odoo-venv
 # Addons: /mnt/extra-addons
+RUN mkdir -p /var/lib/odoo \
+    && mkdir -p /mnt/extra-addons
 RUN chown -R odoo:odoo /etc/odoo \
-    && mkdir -p /var/lib/odoo \
-    && chown -R odoo:odoo /var/lib/odoo\
-    && chown -R odoo:odoo /opt/odoo-venv \
-    && mkdir -p /mnt/extra-addons \
-    && chown -R odoo:odoo /mnt/extra-addons
+    /var/lib/odoo \
+    /opt/odoo-venv \
+    /mnt/extra-addons
+
+# OpenShift compatible permissions
+RUN chmod -R g=u /etc/odoo \
+    /var/lib/odoo \
+    /opt/odoo-venv \
+    /mnt/extra-addons
 
 # Define volumes
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]

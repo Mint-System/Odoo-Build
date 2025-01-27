@@ -707,7 +707,7 @@ function upload-module() {
 }
 
 function logs() {
-    $CONTAINER_ENGINE logs odoo
+    $CONTAINER_ENGINE logs --follow odoo
 }
 
 # Script Commands
