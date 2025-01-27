@@ -20,7 +20,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
-* 🧠 **LLM**: Prompt LLMs with module code and apply as patch.
+* 🧠 **LLM**: Prompt LLMs with module code and apply changes as git patch.
 * 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
@@ -42,7 +42,7 @@ You can also use [Nix](https://nixos.org/) to setup the development requirements
 
 Install [kind](https://kind.sigs.k8s.io/) or [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
 
-**Large Language Models (Optonal)**
+**LLM (Optional)**
 
 Install the [llm](https://datasette.io/tools/llm) cli to make use of the LLM features.
 

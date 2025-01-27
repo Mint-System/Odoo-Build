@@ -10,16 +10,22 @@ All notable changes to this project will be documented in this file. The format 
 * Store and restore `.env` to pass store with `pass-store-dotenv` and `pass-restore-dotenv`.
 * Init database with selected modules defined `ODOO_INIT_ADDONS`.
 * Enable mail server configuration from env vars.
-* Support podman.
+* Support podman as container engine.
 * Docker compose file is now a tempalte `template-docker-compose`.
+* Command to update module code with LLMs `llm-update`.
+* Add LLM integration as feature to the README.
 
 ### Updated
 
 * Ensure `templates/task` is using `uv.
 * Split functions in `entrypoint.sh` into multiple scripts.
-* Ensure task file matches <https://taskfile.buld> specification.
+* Ensure task file matches <https://taskfile.build> specification.
 * Fallback to empty string for docker compose env vars.
 * Renamed `DOCKER` to `CONTAINER` and `docker` to `container`.
+
+### Fixed
+
+* Set default `base,web` for server environment module.
 
 ## 2025-01-10
 
@@ -46,7 +52,7 @@ All notable changes to this project will be documented in this file. The format 
 * Refactored `odooctl` cli.
 * Added emojies to the README feature list.
 * Rename `build` folder to `image`.
-* Moved selected Python packages to requirements.txt.
+* Moved selected Python packages to `requirements.txt`.
 
 ### Fixed
 
