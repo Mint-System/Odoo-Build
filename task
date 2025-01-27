@@ -81,6 +81,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "[path]" "Get modules in path as list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path]" "Send module files with prompt to LLM and update with results."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo container logs."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
@@ -166,6 +167,7 @@ BROWSER_OPEN=${BROWSER_OPEN:=true}
 ODOO_REVISION_CONTAINER_PULL=${ODOO_REVISION_CONTAINER_PULL:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
+LLM_MODEL=${LLM_MODEL:="deepseek-coder"}
 
 # Conditional env vars
 
@@ -2014,7 +2016,7 @@ function git-submodule-checkout() {
 }
 
 function git-submodule-switch() {
-    if [[ -n "$1" ]]; then
+    if [ -n "$1" ]; then
         GIT_BRANCH="$1"
     fi
 
@@ -2204,6 +2206,69 @@ function pass-restore-dotenv() {
         pass show "$PASS_ENTRY" > .env
     else
         echo "Pass entry not found."
+    fi
+}
+
+# LLM Commands
+
+function llm-update() {
+    if test -z "$1"; then 
+        echo "\$1 is empty."; 
+        exit 1; 
+    fi
+
+    # Get list of files
+    FILES=$(find "$1" -type f \( -name "*.py" -o -name "*.xml" \))
+
+    echo -e "Loaded these files into prompt:\n\n$FILES\n"
+
+    # Get task description
+    read -p "Enter the task description: " TASK_DESCRIPTION
+
+    # Prepare the files content for prompt
+    FILE_CONTENTS=""
+    for file in $FILES; do
+        FILE_CONTENTS+="<<< $file >>>
+$(cat "$file")
+
+"
+    done
+
+    # Define the prompt
+    PROMPT="EOF
+Look at the code files below and do the following:
+
+$TASK_DESCRIPTION
+
+Output your response in the format of a git patch file. The patch should include only the changes to the files, and it should be applicable with 'git apply'. Do not include any explanations or extra information outside of the patch format.
+
+Here are the files:
+
+$FILE_CONTENTS
+EOF"
+
+    # Run the llm command with the prompt
+    echo -e "\nWait for the response of the $LLM_MODEL llm."
+    RESULT=$(llm -m "$LLM_MODEL" "$PROMPT")
+
+    # Check if the result is empty
+    if test -z "$RESULT"; then
+        echo "No response from the model. Exiting."
+        exit 1
+    fi
+
+    # Save the patch to a file
+    PATCH_FILE="tmp/llm_changes.patch"
+    echo "$RESULT" > "$PATCH_FILE"
+    echo -e "Saved patch to $PATCH_FILE.\n"
+
+    # Preview patch file and ask to apply
+    git apply --check "$PATCH_FILE"
+    less "$PATCH_FILE"
+    read -p "Do you want to apply this patch? (y/n): " CONFIRM
+    if [[ "$CONFIRM" =~ ^[Yy]$ ]]; then
+        git apply "$PATCH_FILE"
+        echo "Applied patch file."
     fi
 }
 
