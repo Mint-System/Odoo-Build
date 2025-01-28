@@ -959,7 +959,7 @@ function test-container() {
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
     export PYTHON_INSTALL=prometheus-client,manifestoo
-    export SERVER_WIDE_MODULES=web,session_db,module_change_auto_install
+    export SERVER_WIDE_MODULES=session_db,module_change_auto_install
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
     export CLICK_ODOO_UPDATE=True
@@ -989,6 +989,15 @@ function test-container() {
     test-xmlrpc test
 
     echo "Send mail with message post."
+    scripts/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
+    docker-odoo-shell -d test -f -p "env['res.partner'].browse(3)._message_subscribe([7])"
+    docker-odoo-shell -d test -f -p "env['res.partner'].browse(3).message_post(body='ping', subtype_id=1)"
+    
+    echo "Check if receiver is user@example.com"
+    TO_ADDRESS=$(curl -X GET "http://localhost:8025/api/v1/messages?limit=1" \
+        -H 'accept: application/json' | jq ".messages[0].To[0].Address")
+    [ "$TO_ADDRESS" = '"user@example.com"' ]
+    echo "Assert: $?"
 
     echo "Install, update, disable and remove snippet."
     install-snippet test snippets/base.view_partner_form.show_type.xml
@@ -1132,6 +1141,11 @@ function setup-mail() {
     activate-venv
     set-addons-path
 
+    export ODOO_MAIL_SMTP_HOST="localhost"
+    export ODOO_MAIL_SMTP_PORT="1025"
+    export ODOO_MAIL_SMTP_ENCRYPTION="none"
+    export ODOO_MAIL_IMAP_PORT="993"
+    export ODOO_MAIL_IMAP_SSL="True"
     PYTHON_SCRIPT=$(envsubst < scripts/setup-mail)
 
     echo "Setup mail server configuation for database $DATABASE."

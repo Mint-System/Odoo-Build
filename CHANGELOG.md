@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Undefined
+
+### Updated
+
+* Ensure that `image/scripts/setup-mail` and `scripts/setup-mail` have the same structure.
+* Command `setup-mail` is tested with `test-container`.
+
 ## 2024-01-27
 
 ### Added

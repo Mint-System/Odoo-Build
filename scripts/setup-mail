@@ -1,22 +1,16 @@
 # Set python vars from env vars
 smtp_host = '$ODOO_MAIL_SMTP_HOST'
-smtp_port = ${ODOO_MAIL_SMTP_PORT:="587"}
-smtp_encryption = '${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}'
-smtp_from_filter = '${ODOO_MAIL_SMTP_FROM_FILTER:=""}'
+smtp_port = $ODOO_MAIL_SMTP_PORT
+smtp_encryption = '$ODOO_MAIL_SMTP_ENCRYPTION'
+smtp_from_filter = '$ODOO_MAIL_SMTP_FROM_FILTER'
 imap_host = '$ODOO_MAIL_IMAP_HOST'
-imap_port = ${ODOO_MAIL_IMAP_PORT:="993"}
-imap_ssl = ${ODOO_MAIL_IMAP_SSL:="True"}
+imap_port = $ODOO_MAIL_IMAP_PORT
+imap_ssl = $ODOO_MAIL_IMAP_SSL
 mail_user = '$ODOO_MAIL_USER'
 mail_password = '$ODOO_MAIL_PASSWORD'
 mail_catchall_alias = '$ODOO_MAIL_CATCHALL_ALIAS'
 mail_catchall_domain = '$ODOO_MAIL_CATCHALL_DOMAIN'
 mail_default_from = '$ODOO_MAIL_DEFAULT_FROM'
-
-# Default SMTP host is Mailpit
-if not smtp_host:
-    smtp_host = localhost
-    smtp_port = 1025
-    smtp_encryption = 'none'
 
 # Setup outgoing mail server
 if smtp_host:
