@@ -11,7 +11,7 @@
         </th>
     </xpath>
     <!-- <xpath expr="//span[@t-field='line.name']/.." position="before"> -->
-    <xpath expr="//t[1]/td[1]" position="before">
+    <xpath expr="//td[@name='td_name']" position="before">
         <td id="position">
             <span t-field="line.position"/>
         </td>

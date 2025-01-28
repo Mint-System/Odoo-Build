@@ -1,6 +1,15 @@
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
-    <xpath expr="//td[@name='td_quantity']" position="attributes">
-        <attribute name="style">width: 80px</attribute>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+         .table td {
+            border-bottom-width: 0;
+         }
+        </style>
     </xpath>
+
+    <xpath expr="//table[@class='table table-sm o_main_table table-borderless']" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
+    </xpath>
+
 </data>

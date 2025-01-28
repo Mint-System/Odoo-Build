@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="/t/div" position="replace">
+        <!--
+        <t t-if="report_type == 'pdf'">
+        -->
+        
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <table style="width: 100%; border: transparent; ">
+                <tr style="line-height: 1.2;">
+                    <td style="width: 50%; padding-top: 10px; font-weight: bold">Kunststoffsammelsack Schweiz GmbH</td>
+                     <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px; " rowspan="4">
+                        <img t-if="company.logo" t-att-src="'/web/image/966'" style="height: 45px;" alt="Logo"/>
+                    </td>
+                    <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px;" rowspan="4">
+                        <img t-if="company.logo" t-att-src="'/web/image/945'" style="height: 45px;" alt="Logo"/>
+                    </td>
+                    <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px; border-bottom: solid 1px;" rowspan="4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height:90px;" alt="Logo"/>    
+                    </td>
+                </tr>
+                <tr style="line-height: 1.2;">
+                    <td>Sammeln, Verwerten - Kreisläufe schliessen</td>
+                </tr>
+                <tr>
+                    <td>Seedorferstrasse 13a</td>
+                </tr>
+                <tr style="line-height: 1.2; border-bottom: solid 1px; ">
+                    <td style="padding-bottom: 10px;">6460 Altdorf</td>
+                </tr>
+            </table>
+        </div>
+        <!--
+        </t>
+        -->
+    </xpath>
+</data>

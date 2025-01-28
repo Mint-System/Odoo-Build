@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
+        <tr>
+
+            <t t-set="pickings" t-value="list(set(line.sale_line_ids.move_ids))"/>
+
+            <t t-foreach="pickings" t-as="picking">
+                <t t-if="picking.state == 'done'">
+
+                    <tr>
+                        <td style="padding: 0px; padding-left: 4px; border-bottom-width: 1px" colspan="6">
+                            <t t-if="picking.picking_id.x_date_done">
+                                <span>Lieferdatum: </span>
+                                <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
+                            </t>
+                            <span>LS: </span>
+                            <t t-if="picking.picking_id.x_name">
+                                <span t-esc="picking.picking_id.x_name"/>
+                            </t>
+                            <t t-else="">
+                                <span t-esc="picking.picking_id.name"/>
+                            </t>
+                            <span>Menge: </span>
+                            <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
+                            <t t-foreach="move_lines" t-as="move_line">
+                                <t t-if="line.product_id.id == move_line.product_id.id">
+                                    <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <span t-esc="move_line.product_uom_id.name"/>
+                                </t>
+                            </t>
+                        </td>
+
+                    </tr>
+                </t>
+            </t>
+            
+        </tr>
+    </xpath>
+</data>

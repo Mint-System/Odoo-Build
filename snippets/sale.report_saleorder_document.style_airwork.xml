@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class">table table-sm o_main_table  mt-4</attribute>
+    </xpath>    
+</data>
