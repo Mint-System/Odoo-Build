@@ -56,12 +56,15 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Checkout submodule commits."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-ls" "" "List submodule path space separated."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-commit-all" "[message][path]" "Commit all changes in path."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-ls" "[grep]" "List submodule path space separated."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-list" "" "List path and url of submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules listed in the .gitmodules file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-push" "" "Push all submodules in path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-remove" "[path]" "Remove a git submodule."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-delete" "" "Delete all submodule folders."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-status" "[path]" "Show status for submodules in path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-switch" "[branch]" "Switch branch for all submodules listed in the .gitmodules file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-sync" "" "Switch, stash and pull all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
@@ -1944,7 +1947,11 @@ function git-submodule-add() {
 }
 
 function git-submodule-ls() {
-    echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    if [ -n "$1" ]; then
+        echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    else
+        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+    fi
 }
 
 function git-submodule-list() {
@@ -2040,6 +2047,37 @@ function git-submodule-switch() {
         echo "Switch git submodule branch to $GIT_BRANCH: $SUBMODULE"
         git -C "$SUBMODULE" stash
         git -C "$SUBMODULE" switch "$GIT_BRANCH"
+    done
+}
+
+function git-submodule-status() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    SUBMODULES=$(git-submodule-ls "$1")
+
+    echo "Show status git submodules."
+    for SUBMODULE in $SUBMODULES; do
+        git -C "$SUBMODULE" status
+    done
+}
+
+function git-submodule-commit-all() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    SUBMODULES=$(git-submodule-ls "$1")
+
+    echo "Commit git submodules."
+    for SUBMODULE in $SUBMODULES; do
+        git -C "$SUBMODULE" add --all
+        git -C "$SUBMODULE" commit --message "$2"
+    done
+}
+
+function git-submodule-push() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    SUBMODULES=$(git-submodule-ls "$1")
+
+    echo "Push git submodules."
+    for SUBMODULE in $SUBMODULES; do
+        git -C "$SUBMODULE" push
     done
 }
 
@@ -2241,49 +2279,68 @@ function llm-update() {
 
     # Prepare the files content for prompt
     FILE_CONTENTS=""
-    for file in $FILES; do
-        FILE_CONTENTS+="<<< $file >>>
-$(cat "$file")
+    for FILE in $FILES; do
+        FILE_CONTENTS+="<<< $FILE >>>
+$(cat "$FILE")
 
 "
     done
 
-    # Define the prompt
-    PROMPT="EOF
+    PROMPT_FILE="tmp/llm_update"
+    echo -e "\nWrite prompt to $PROMPT_FILE."
+    cat << EOF > "$PROMPT_FILE"
 Look at the code files below and do the following:
 
 $TASK_DESCRIPTION
 
-Output your response in the format of a git patch file. The patch should include only the changes to the files, and it should be applicable with 'git apply'. Do not include any explanations or extra information outside of the patch format.
+Output the updated content for each file in the following format:
+<<< filename >>>
+<updated content>
 
 Here are the files:
 
 $FILE_CONTENTS
-EOF"
+EOF
 
     # Run the llm command with the prompt
-    echo -e "\nWait for the response of the $LLM_MODEL llm."
-    RESULT=$(llm -m "$LLM_MODEL" "$PROMPT")
+    echo -e "Send prompt and wait for the response of the $LLM_MODEL LLM."
+    RESULT=$(cat "$PROMPT_FILE" | llm -m "$LLM_MODEL")
 
     # Check if the result is empty
-    if test -z "$RESULT"; then
+    if [ -z "$RESULT" ]; then
         echo "No response from the model. Exiting."
         exit 1
     fi
 
-    # Save the patch to a file
-    PATCH_FILE="tmp/llm_changes.patch"
-    echo "$RESULT" > "$PATCH_FILE"
-    echo -e "Saved patch to $PATCH_FILE.\n"
+    # Save the result to a file
+    RESULT_FILE="tmp/llm_update_result"
+    echo "$RESULT" > "$RESULT_FILE"
+    echo -e "Saved response to $RESULT_FILE.\n"
 
-    # Preview patch file and ask to apply
-    git apply --check "$PATCH_FILE"
-    less "$PATCH_FILE"
-    read -p "Do you want to apply this patch? (y/n): " CONFIRM
-    if [[ "$CONFIRM" =~ ^[Yy]$ ]]; then
-        git apply "$PATCH_FILE"
-        echo "Applied patch file."
+    # Show a preview of the response file
+    less "$RESULT_FILE"
+
+    # Ask for confirmation before updating files
+    read -p "Do you want to apply these updates to the files? (y/n): " CONFIRM
+    if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
+        echo "Aborted file updates."
+        exit 0
     fi
+
+    # Parse the response from the file and update the files directly
+    echo -e "Parsing the response and updating files...\n"
+    CURRENT_FILE=""
+    while IFS= read -r LINE; do
+        if [[ $LINE =~ "^<<<" ]]; then
+            CURRENT_FILE="${BASH_REMATCH[1]}"
+            echo "Processing updates for $CURRENT_FILE..."
+            > "$CURRENT_FILE"
+        elif [[ -n $CURRENT_FILE ]]; then
+            echo "$LINE" >> "$CURRENT_FILE"
+        fi
+    done < "$RESULT_FILE"
+
+    echo -e "\nAll files have been updated."
 }
 
 if declare -f "$1" > /dev/null; then

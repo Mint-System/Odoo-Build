@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# Define the directory where the search starts
+DIRECTORY="addons"
+
+# Function to update the __manifest__.py file
+update_manifest() {
+    # Update author field in __manifest__.py
+    sed -i 's/"author": "Mint System GmbH, Odoo Community Association (OCA)"/"author": "Mint System GmbH"/g' "$1"
+}
+
+# Function to update .pylintrc file
+update_pylintrc() {
+    # Update the author field in .pylintrc
+    sed -i 's/author = "Mint System GmbH, Odoo Community Association (OCA)"/author = "Mint System GmbH"/g' "$1"
+}
+
+# Find all __manifest__.py files and .pylintrc files, and process them
+find "$DIRECTORY" -type f \( -name "__manifest__.py" -o -name ".pylintrc" \) | while read -r file; do
+    if [[ "$file" == *__manifest__.py ]]; then
+        update_manifest "$file"
+    elif [[ "$file" == *.pylintrc ]]; then
+        update_pylintrc "$file"
+    fi
+done
+
+echo "Update complete."

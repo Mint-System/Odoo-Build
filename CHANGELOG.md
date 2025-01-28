@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Commands to update git submodules in batch `-status`, `-commit-all`, `-push`.
+
 ### Updated
 
 * Ensure that `image/scripts/setup-mail` and `scripts/setup-mail` have the same structure.
