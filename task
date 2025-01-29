@@ -1955,8 +1955,23 @@ function git-submodule-ls() {
 }
 
 function git-submodule-list() {
-    # git submodule foreach --quiet 'printf "%-30s %-20s\n" "$name" "$(git rev-parse --abbrev-ref HEAD)"'
-    git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url//g' | awk '{ print $1 "," $2}'
+    # Define column widths
+    path_width=35
+    url_width=50
+    branch_width=8
+
+    # Print table header
+    printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
+    echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
+
+    SUBMODULES=$(git-submodule-ls)
+    for SUBMODULE in $SUBMODULES; do
+        URL=$(git config --file .gitmodules --get "submodule.$SUBMODULE.url")
+        URL=${URL#git@github.com:}
+        URL=${URL%.git}
+        BRANCH=$(git -C "$SUBMODULE" branch --show-current 2>/dev/null || echo "detached")
+        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$SUBMODULE" "$URL" "${BRANCH:-detached}"
+    done
 }
 
 function git-submodule-delete() {
