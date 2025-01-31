@@ -55,7 +55,6 @@ services:
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
       ODOO_DATABASE: "16.0"
-      ODOO_INIT: "True"
       ODOO_INIT_LANG: de_CH
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter
       ENVIRONMENT: production
@@ -114,7 +113,7 @@ Define Odoo system parameters. Requires `server_environment_ir_config_parameter`
 
 ### Incoming and Outgoing Mail-Server
 
-Load mail server configuration from environment vars.
+Define the mail configuration with these env vars:
 
 * `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
 * `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
@@ -126,6 +125,12 @@ Load mail server configuration from environment vars.
 * `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
 * `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 
+And load the configuration into the database by running:
+
+```bash
+docker-compose run --rm odoo setup-mail
+```
+
 ### Module Repos
 
 The entrypoint script can clone git repositories.
@@ -133,6 +138,12 @@ The entrypoint script can clone git repositories.
 * `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
 * `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
+
+Run the command:
+
+```bash
+docker-compose run --rm odoo git-clone-addons
+```
 
 ### Addons Path
 
@@ -142,12 +153,17 @@ The entrypoint script searches for module folders in the addons path and creates
 
 ### Initialize
 
-If enabled the entrypoint script initializes the Odoo database.
+Set these environment variables for database initaisation:
 
 * `ODOO_DATABASE` Name of the Odoo database. No default is set.
-* `ODOO_INIT` Enable to initalise the database. Default is `False`.
 * `ODOO_INIT_LANG` Language used for database initialisation. Default is `en_US`.
 * `ODOO_INIT_ADDONS` Provide comma separated list of modules for database initialisation. Default is `web`.
+
+And run the init command:
+
+```bash
+docker-compose run --rm odoo init-db
+```
 
 ### Server Environment
 

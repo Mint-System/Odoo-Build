@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Add git path to addons path
+if [ -n "$ADDONS_GIT_REPOS" ]; then
+    ODOO_ADDONS_PATH="/var/lib/odoo/git,$ODOO_ADDONS_PATH"
+fi
+
 if [ -n "$ODOO_ADDONS_PATH" ]; then 
 
     entrypoint-log "Resolve addons path: $ODOO_ADDONS_PATH"

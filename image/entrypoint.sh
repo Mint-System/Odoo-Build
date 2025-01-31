@@ -16,8 +16,6 @@ if [ -v PASSWORD_FILE ]; then
     PASSWORD="$(< $PASSWORD_FILE)"
 fi
 
-source git-clone-addons
-
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
@@ -68,11 +66,11 @@ check_config "db_password" "$PGPASSWORD"
 entrypoint-log "Waiting for database connection."
 wait-for-psql.py ${DB_ARGS[@]} --timeout=30
 
-init-db
+# init-db
 
-setup-mail
+# setup-mail
 
-odoo-update
+# odoo-update
 
 entrypoint-log "Running Odoo $ODOO_VERSION as user: $USER"
 

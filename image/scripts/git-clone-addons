@@ -45,13 +45,6 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
             entrypoint-log "Init and update git submodules in $GIT_PATH."
             git -C "$GIT_PATH" submodule update --init --recursive --depth 1
         fi
-        
-        # Add git repo to addons path
-        if [ -n "$ODOO_ADDONS_PATH" ]; then
-            ODOO_ADDONS_PATH="$ODOO_ADDONS_PATH,$GIT_PATH"
-        else
-            ODOO_ADDONS_PATH="$GIT_PATH"
-        fi
     done
 
     # Remove git ssh key
@@ -59,6 +52,4 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         ssh-add -d ~/.ssh/id_ed25519
         rm ~/.ssh/id_ed25519
     fi
-
-    export ODOO_ADDONS_PATH
 fi

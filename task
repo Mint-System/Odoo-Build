@@ -973,26 +973,31 @@ function test-container() {
     echo "Start container environment."
     start db,mail
 
-    echo "Init Odoo container."
+    echo "Clone Odoo addons."
     export GIT_SSH_PRIVATE_KEY
     export GIT_SSH_PUBLIC_KEY
     export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
+    docker-compose run --rm odoo git-clone-addons
+    
+    echo "Init Odoo database."
     export ODOO_ADDONS_PATH="/mnt/enterprise,/mnt/oca"
     export ODOO_DATABASE=test
-    export ODOO_INIT=True
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
     export PYTHON_INSTALL=prometheus-client,manifestoo
-    init odoo
+    docker-compose run --rm odoo init-db
+
+    echo "Setup Odoo mail config."
+    export ODOO_MAIL_SMTP_HOST=mail
+    export ODOO_MAIL_SMTP_PORT=1025
+    export ODOO_MAIL_SMTP_ENCRYPTION=none
+    docker-compose run --rm odoo setup-mail
     
     echo "Start Odoo container."
     export SERVER_WIDE_MODULES=session_db,module_change_auto_install
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
     export CLICK_ODOO_UPDATE=True
-    export ODOO_MAIL_SMTP_HOST=mail
-    export ODOO_MAIL_SMTP_PORT=1025
-    export ODOO_MAIL_SMTP_ENCRYPTION=none
     export MAIL_DEFAULT_FROM="test"
     export BROWSER_OPEN=false
     start odoo
