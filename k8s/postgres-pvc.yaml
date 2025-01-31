@@ -1,27 +1,27 @@
 ---
 apiVersion: v1
-kind: PersistentVolumeClaim # Create PVC
+kind: PersistentVolumeClaim
 metadata:
-  name: postgresql-data-claim # Sets name of PV
+  name: postgresql-data-claim
 spec:
   storageClassName: manual
   accessModes:
-    - ReadWriteMany # Sets read and write access
+    - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi # Sets volume size
+      storage: 10Gi
 ---
 apiVersion: v1
-kind: PersistentVolume # Create a PV
+kind: PersistentVolume
 metadata:
-  name: postgresql-data # Sets PV's name
+  name: postgresql-data
   labels:
-    type: local # Sets PV's type to local
+    type: local
 spec:
   storageClassName: manual
   capacity:
-    storage: 10Gi # Sets PV Volume
+    storage: 10Gi
   accessModes:
     - ReadWriteMany
   hostPath:
-    path: "/data/volume" # Sets the volume's path
+    path: "/data/volume"

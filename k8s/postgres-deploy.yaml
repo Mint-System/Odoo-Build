@@ -2,7 +2,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: postgres  # Sets Deployment name
+  name: postgres
 spec:
   replicas: 1
   selector:
@@ -15,9 +15,9 @@ spec:
     spec:
       containers:
         - name: postgres
-          image: postgres:16 # Sets Image
+          image: postgres:16
           ports:
-            - containerPort: 5432  # Exposes container port
+            - containerPort: 5432
           envFrom:
             - configMapRef:
                 name: postgres-config

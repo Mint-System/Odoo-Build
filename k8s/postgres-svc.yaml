@@ -2,12 +2,12 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: postgres # Sets service name
+  name: postgres
   labels:
-    app: postgres # Labels and Selectors
+    app: postgres
 spec:
-  type: NodePort # Sets service type
+  type: NodePort
   ports:
-    - port: 5432 # Sets port to run the postgres application
+    - port: 5432
   selector:
     app: postgres

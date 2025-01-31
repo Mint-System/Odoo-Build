@@ -89,6 +89,6 @@ if mail_default_from:
 EOF
 )
 
-    entrypoint-log "Setup mail server configuation for database $DATABASE."
+    entrypoint-log "Setup mail server configuation for database $ODOO_DATABASE."
     (echo "$PYTHON_SCRIPT" | odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http) || true
 fi

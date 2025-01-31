@@ -6,6 +6,23 @@ metadata:
   labels:
     app: odoo
 data:
-  HOST: postgres
-  USER: odoo
-  PASSWORD: odoo
+  PGHOST: postgres
+  PGUSER: odoo
+  PGPASSWORD: odoo
+  PROXY_MODE: "True"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: odoo-init-config
+  labels:
+    app: odoo
+data:
+  PGHOST: postgres
+  PGUSER: odoo
+  PGPASSWORD: odoo
+  PROXY_MODE: "True"
+  ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
+  ODOO_DATABASE: "odoo"
+  ODOO_INIT: "True"
+  ODOO_INIT_LANG: de_CH

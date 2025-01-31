@@ -69,6 +69,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-sync" "" "Switch, stash and pull all submodules."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init" "[name][db]" "Init container. Options: odoo."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
@@ -821,6 +822,23 @@ function open-url-with-delay(){
     fi
 }
 
+function init() {
+    activate-venv
+    set-addons-path
+    template-docker-compose
+
+    # Use default database if second param is not given
+    DATABASE="$2"
+    if [ -z "$2" ]; then
+        DATABASE="$ODOO_DATABASE"
+    fi
+
+    if [[ "$1" =~ "odoo" ]]; then
+        echo "Init Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        $COMPOSE_COMMAND run --rm odoo odoo --stop-after-init
+    fi    
+}
+
 function start() {
     activate-venv
     set-addons-path
@@ -833,7 +851,7 @@ function start() {
     fi
 
     if [ -z "$1" ] ; then
-        echo "Start odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        echo "Start all container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         $COMPOSE_COMMAND up -d
     fi
@@ -848,7 +866,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
-        echo "Start odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        echo "Start Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
     fi
@@ -953,6 +971,9 @@ function test-container() {
     git submodule update --init oca/partner-contact
 
     echo "Start container environment."
+    start db,mail
+
+    echo "Init Odoo container."
     export GIT_SSH_PRIVATE_KEY
     export GIT_SSH_PUBLIC_KEY
     export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
@@ -962,6 +983,9 @@ function test-container() {
     export ODOO_INIT_LANG=de_CH
     export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
     export PYTHON_INSTALL=prometheus-client,manifestoo
+    init odoo
+    
+    echo "Start Odoo container."
     export SERVER_WIDE_MODULES=session_db,module_change_auto_install
     export SESSION_DB_URI=postgres://odoo:odoo@db/test
     export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
@@ -971,7 +995,8 @@ function test-container() {
     export ODOO_MAIL_SMTP_ENCRYPTION=none
     export MAIL_DEFAULT_FROM="test"
     export BROWSER_OPEN=false
-    start db,odoo,mail
+    start odoo
+    
     while ! curl --fail -s http://localhost:8069; do sleep 1; done
 
     echo "Test auto upgrade."
@@ -1040,10 +1065,9 @@ function k8s-apply() {
 
     echo -e "\nDeploy Odoo:"
     kubectl apply -f k8s/odoo-cm.yaml
-    kubectl apply -f k8s/odoo16-deploy.yaml
+    kubectl apply -f k8s/odoo-deploy.yaml
     kubectl apply -f k8s/odoo-svc.yaml
 
-    
     echo -e "\nWait until resources are ready."
     sleep 8
 
@@ -1052,11 +1076,6 @@ function k8s-apply() {
 
     echo -e "\nWait for $ODOO_POD and $POSTGRES_POD pods to be running:"
     kubectl wait --for=condition=Ready "$ODOO_POD" "$POSTGRES_POD" --timeout=60s
-    sleep 3
-
-    echo -e "\nInit Odoo database in $ODOO_POD pod:"
-    kubectl exec "$ODOO_POD" -- env
-    kubectl exec "$ODOO_POD" -- /bin/bash -c "odoo -d odoo -i web --db_host \$HOST -r\$USER -w\$PASSWORD --stop-after-init --no-http"
 }
 
 function test-k8s() {
