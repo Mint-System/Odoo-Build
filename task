@@ -2011,7 +2011,7 @@ function git-submodule-init() {
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         if [ "$SHALLOW" = "true" ]; then
             echo "Initializing submodule: $SUBMODULE (shallow)"
-            git submodule update --init --depth 1 "$SUBMODULE"
+            git submodule update --init --depth 1 --remote --checkout --branch "$GIT_BRANCH" "$SUBMODULE"
         else
             echo "Initializing submodule: $SUBMODULE"
             git submodule update --init "$SUBMODULE"

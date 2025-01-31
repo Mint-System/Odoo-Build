@@ -1,17 +1,7 @@
-[submodule "enterprise"]
-	path = enterprise
-	url = git@github.com:odoo/enterprise.git
-	branch = 16.0
-	shallow = true
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 16.0
-[submodule "odoo"]
-	path = odoo
-	url = git@github.com:odoo/odoo.git
-	branch = 16.0
-	shallow = true
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
@@ -275,4 +265,12 @@
 [submodule "addons/spreadsheet"]
 	path = addons/spreadsheet
 	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
+	branch = 16.0
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+	branch = 16.0
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
 	branch = 16.0
