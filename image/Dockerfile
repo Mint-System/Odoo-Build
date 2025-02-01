@@ -100,7 +100,7 @@ ENV ODOO_VERSION=$ODOO_VERSION
 
 # Copy entrypoint scripts and Odoo configuration file
 
-COPY ./image/scripts/* /usr/local/bin/
+COPY ./image/bin/* /usr/local/bin/
 COPY ./image/entrypoint.sh /
 COPY ./image/odoo.conf.template /etc/odoo/
 

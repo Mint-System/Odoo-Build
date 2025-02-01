@@ -12,10 +12,6 @@ echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
 echo
 echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
-if [ -v PASSWORD_FILE ]; then
-    PASSWORD="$(< $PASSWORD_FILE)"
-fi
-
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
@@ -66,11 +62,9 @@ check_config "db_password" "$PGPASSWORD"
 entrypoint-log "Waiting for database connection."
 wait-for-psql.py ${DB_ARGS[@]} --timeout=30
 
-# init-db
+setup-mail
 
-# setup-mail
-
-# odoo-update
+odoo-update
 
 entrypoint-log "Running Odoo $ODOO_VERSION as user: $USER"
 

@@ -1,6 +1,6 @@
 .vuepress
+bin
 image
-scripts
 snippets
 templates
 .dockerignore

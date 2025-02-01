@@ -12,6 +12,8 @@ All notable changes to this project will be documented in this file. The format 
 
 * Ensure that `image/scripts/setup-mail` and `scripts/setup-mail` have the same structure.
 * Command `setup-mail` is tested with `test-container`.
+* Renamed `scripts` to `bin`.
+* Refactored the initialisation of the Odoo image.
 
 ## 2024-01-27
 
