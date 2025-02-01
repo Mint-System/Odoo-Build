@@ -1143,11 +1143,13 @@ ID: `mint_system.mrp.report_mrporder.quality_points`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="mrp.report_mrporder" priority="50">
-    <xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
-        <ul style="list-style-type:none;">
-            <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">&#x2610; <span t-field="quality_point.title"/></li>
-        </ul>
+
+	<xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
+		<ul style="list-style-type:none;">
+		  <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point" style="whitespace: nowrap;">- <span t-field="quality_point.title"/></li>
+	  </ul>
     </xpath>
+
 </data>
 
 ```
@@ -1362,7 +1364,7 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
-                <span t-field="move_line.reserved_uom_qty"/>
+                <!-- <span t-field="move_line.reserved_uom_qty"/> -->
                 <br/>
             </span>
         </td>

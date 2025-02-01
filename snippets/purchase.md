@@ -1045,10 +1045,9 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//table[1]/thead[1]/tr[1]/th[7]" position="replace"/>
-    <xpath expr="//table[1]/tbody[1]/t[2]/tr[1]/t[1]/td[7]" position="replace"/>
+    <xpath expr="//th[@name='th_taxes']" position="replace"/>
+    <xpath expr="//td[@name='td_taxes']" position="replace"/>
 </data>
-
 ```
 Source: [snippets/purchase.report_purchaseorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_taxes.xml)
 
@@ -1210,13 +1209,19 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`
                     <td>
                         <span t-field="o.partner_id.name"/>
                     </td>
-                    <td>Our Reference</td>
-                    <td width="25%">
-                        <span t-field="o.user_id"/>,                         
-                        <span t-field="o.user_id.email"/>,                         
-                        <span t-field="o.user_id.phone"/>
-                    </td>
                 </t>
+                <t t-else="">
+                    <td></td>
+                    <td></td>
+                </t>
+                <td>Our Reference</td>
+                <td width="25%">
+                    <span t-field="o.user_id"/>
+,                         
+                    <span t-field="o.user_id.email"/>
+,                         
+                    <span t-field="o.user_id.phone"/>
+                </td>
             </tr>
         </table>
     </xpath>
@@ -1833,6 +1838,83 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_infoblock.xml)
 
+### Add Informations2  
+ID: `mint_system.purchase.report_purchasequotation_document.add_informations2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//h2" position="after">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+        <table id="info">
+            <tr>
+                <td width="20%">Oder Date</td>
+                <td width="30%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="20%">Incoterm</td>
+                <td width="30%">
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <td>Payment terms</td>
+                <td>
+                    <span t-field="o.payment_term_id"/>
+                </td>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+                <t t-else="">
+                    <td></td>
+                    <td></td>
+                </t>
+                <td>Our Reference</td>
+                <td width="25%">
+                    <span t-field="o.user_id"/>
+,                         
+                    <span t-field="o.user_id.email"/>
+,                         
+                    <span t-field="o.user_id.phone"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.report_purchasequotation_document.add_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_informations2.xml)
+
 ### Add Infotable  
 ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`  
 ```xml
@@ -2438,7 +2520,7 @@ Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](h
 ### Style Airwork  
 ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`  
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+<data inherit_id="purchase.report_purchasequotation_document" priority="60">
   <xpath expr="//div[hasclass('page')]" position="before">
     <style>
         h2 {
@@ -2452,6 +2534,10 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`
 
   <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
     <attribute name="class">table table-sm o_main_table table-borderless mt-4</attribute>
+  </xpath>
+  
+   <xpath expr="//th[@name='th_description']" position="attributes">
+    <attribute name="class">text-start</attribute>
   </xpath>
 
 </data>

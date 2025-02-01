@@ -3389,6 +3389,26 @@ ID: `mint_system.ir_model.stock_picking.x_client_order_ref`
 ```
 Source: [snippets/ir_model.stock_picking.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_client_order_ref.xml)
 
+### X Date Done  
+ID: `mint_system.ir_model.stock_picking.x_date_done`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_date_done" model="ir.model.fields">
+        <field name="field_description">Lieferdatum</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_date_done</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">date</field>        
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_picking.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_date_done.xml)
+
 ### X Date Order  
 ID: `mint_system.ir_model.stock_picking.x_date_order`  
 ```xml
@@ -3409,6 +3429,26 @@ ID: `mint_system.ir_model.stock_picking.x_date_order`
 
 ```
 Source: [snippets/ir_model.stock_picking.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_date_order.xml)
+
+### X Name  
+ID: `mint_system.ir_model.stock_picking.x_name`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_name" model="ir.model.fields">
+        <field name="field_description">Referenz</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_name</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>        
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_picking.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_picking.x_name.xml)
 
 ### X Origin And Partner Id  
 ID: `mint_system.ir_model.stock_picking.x_origin_and_partner_id`  

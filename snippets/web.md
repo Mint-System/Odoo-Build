@@ -191,7 +191,7 @@ ID: `mint_system.web.external_layout_boxed.footer_airwork`
 
         <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
 
-            <table style="font-size: 11px">
+            <table style="font-size: 11px; border: transparent">
                 <tr>
                     <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
                     <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>
@@ -200,7 +200,7 @@ ID: `mint_system.web.external_layout_boxed.footer_airwork`
                 </tr>
                 <tr>
                     <td>Bahnhofweg 1</td>
-                    <td>E-Mail: office(at)air-work.com</td>
+                    <td>E-Mail: office@air-work.com</td>
                     <td>Schulstrasse 1</td>
                     <td>IBAN EUR (€): CH28 8080 8009 7827 3963 0</td>
                 </tr>
@@ -208,13 +208,13 @@ ID: `mint_system.web.external_layout_boxed.footer_airwork`
                     <td>CH-6405 Immensee</td>
                     <td>UID CHE-113.380.391 MWST</td>
                     <td>CH-6037 Root</td>
-                    <td></td>
+                    <td/>
                 </tr>
                 <tr>
                     <td>www.air-work.swiss</td>
-                    <td></td>
+                    <td/>
                     <td>SWIFT: RAIFCH22</td>
-                    <td></td>
+                    <td/>
                 </tr>
             </table>
         </div>
@@ -316,6 +316,49 @@ ID: `mint_system.web.external_layout_standard.eksb_layout`
 ```
 Source: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.eksb_layout.xml)
 
+### Footer Airwork  
+ID: `mint_system.web.external_layout_standard.footer_airwork`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+  <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
+
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+      <div style="border-top: 1px solid black;">
+        <table style="font-size: 11px;">
+          <tr>
+            <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
+            <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>
+            <td style="width: 200px; text-align: left">Bankverbindung: Raiffeisenbank Luzern</td>
+            <td style="width: 220px; text-align: left">IBAN CHF: CH12 8080 8008 9455 6909 9</td>
+          </tr>
+          <tr>
+            <td>Bahnhofweg 1</td>
+            <td>E-Mail: office@air-work.com</td>
+            <td>Schulstrasse 1</td>
+            <td>IBAN EUR (€): CH28 8080 8009 7827 3963 0</td>
+          </tr>
+          <tr>
+            <td>CH-6405 Immensee</td>
+            <td>UID CHE-113.380.391 MWST</td>
+            <td>CH-6037 Root</td>
+            <td/>
+          </tr>
+          <tr>
+            <td>www.air-work.swiss</td>
+            <td/>
+            <td>SWIFT: RAIFCH22</td>
+            <td/>
+          </tr>
+        </table>
+      </div>
+    </div>
+    
+  </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.footer_airwork.xml)
+
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_standard.footer_company_registry`  
 ```xml
@@ -331,6 +374,34 @@ ID: `mint_system.web.external_layout_standard.footer_company_registry`
 
 ```
 Source: [snippets/web.external_layout_standard.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.footer_company_registry.xml)
+
+### Footer Kunststoffsammelsack  
+ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+  <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
+
+    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+      <div style="border-top: 1px solid black;">
+        <table style="width: 100%; border: transparent">
+          <tr style="line-height: 1.2; ">
+            <td style="padding-top:7px; width: 33%; text-align: left; ">info@kunststoffsammelsack.ch</td>
+            <td style="width: 33%; text-align: center">wwww.kunststoffsammelsack.ch</td>
+            <td style="width: 33%; text-align: right">+41 41 760 33 36</td>
+          </tr>
+          <tr style="line-height: 1.2;">
+            <td>CHE-411.930.537 MWST</td>
+            
+          </tr>          
+        </table>
+      </div>
+    </div>
+    
+  </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml)
 
 ### Format Header Slogan  
 ID: `mint_system.web.external_layout_standard.format_header_slogan`  
@@ -350,6 +421,49 @@ ID: `mint_system.web.external_layout_standard.format_header_slogan`
 
 ```
 Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.format_header_slogan.xml)
+
+### Header Kunststoffsammelsack  
+ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="/t/div" position="replace">
+        <!--
+        <t t-if="report_type == 'pdf'">
+        -->
+        
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <table style="width: 100%; border: transparent; ">
+                <tr style="line-height: 1.2;">
+                    <td style="width: 50%; padding-top: 10px; font-weight: bold">Kunststoffsammelsack Schweiz GmbH</td>
+                     <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px; " rowspan="4">
+                        <img t-if="company.logo" t-att-src="'/web/image/966'" style="height: 45px;" alt="Logo"/>
+                    </td>
+                    <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px;" rowspan="4">
+                        <img t-if="company.logo" t-att-src="'/web/image/945'" style="height: 45px;" alt="Logo"/>
+                    </td>
+                    <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px; border-bottom: solid 1px;" rowspan="4">
+                        <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height:90px;" alt="Logo"/>    
+                    </td>
+                </tr>
+                <tr style="line-height: 1.2;">
+                    <td>Sammeln, Verwerten - Kreisläufe schliessen</td>
+                </tr>
+                <tr>
+                    <td>Seedorferstrasse 13a</td>
+                </tr>
+                <tr style="line-height: 1.2; border-bottom: solid 1px; ">
+                    <td style="padding-bottom: 10px;">6460 Altdorf</td>
+                </tr>
+            </table>
+        </div>
+        <!--
+        </t>
+        -->
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.header_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.header_kunststoffsammelsack.xml)
 
 ### Header Styles  
 ID: `mint_system.web.external_layout_standard.header_styles`  

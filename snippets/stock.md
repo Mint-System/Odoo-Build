@@ -7050,6 +7050,18 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 ```
 Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.x_count_boxes.xml)
 
+### X Date Done  
+ID: `mint_system.stock.view_picking_form.x_date_done`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+    <field name="date_deadline" position="before">
+        <field name="x_date_done"/>
+    </field>
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.x_date_done.xml)
+
 ### X Date Order  
 ID: `mint_system.stock.view_picking_form.x_date_order`  
 ```xml
@@ -7075,6 +7087,18 @@ ID: `mint_system.stock.view_picking_form.x_label_qty`
 
 ```
 Source: [snippets/stock.view_picking_form.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.x_label_qty.xml)
+
+### X Name  
+ID: `mint_system.stock.view_picking_form.x_name`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.view_picking_form" priority="50">
+    <field name="partner_id" position="before">
+        <field name="x_name"/>
+    </field>
+</data>
+```
+Source: [snippets/stock.view_picking_form.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_picking_form.x_name.xml)
 
 ### X Vst  
 ID: `mint_system.stock.view_picking_form.x_vst`  
