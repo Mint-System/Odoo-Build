@@ -140,7 +140,7 @@ Once you start the image the `entrypoint.sh` script will:
 Once the container is running you can update modules with this command: 
 
 ```bash
-$CONTAINER_ENGINE exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
+docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
 ```
 
 ### Analyze
@@ -150,7 +150,7 @@ With the [Manifestoo](https://github.com/acsone/manifestoo) cli you can query th
 List all modules:
 
 ```bash
-$CONTAINER_ENGINE exec odoo manifestoo --select-found list
+docker exec odoo manifestoo --select-found list
 ```
 
 ## Environment
