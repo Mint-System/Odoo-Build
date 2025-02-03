@@ -964,17 +964,14 @@ function test-container() {
             if [ ! -f "tmp/ed25519" ]; then
                 ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
             fi
-
             GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
             GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
-
-            echo "$GIT_SSH_PRIVATE_KEY" | base64 -d > tmp/ed25519_decoded
-            chmod 600 tmp/ed25519_decoded
-            export GIT_SSH_COMMAND="ssh -i tmp/ed25519_decoded -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
         fi
         
-        echo "TEST: Clone submodule"
-        git submodule update --init oca/partner-contact
+        echo "TEST: Clone submodule with https"
+        if [ ! -d "oca/partner-contact" ]; then
+            git clone https://github.com/OCA/partner-contact.git oca/partner-contact
+        fi
 
         echo "TEST: Start container environment."
         export BROWSER_OPEN=false
