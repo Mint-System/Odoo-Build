@@ -892,7 +892,6 @@ function run() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     activate-venv
-    template-docker-compose
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2"
@@ -1006,8 +1005,10 @@ function test-container() {
         export BROWSER_OPEN=false
         start odoo
 
-        echo "Wait for Odoo server."
-        while ! curl -s -o /dev/null -w "%{http_code}" "http://localhost:8069/web/login?db=test" | grep -q "^200$"; do sleep 1; done
+        until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
+            echo "Waiting for Odoo to be ready ..."
+            sleep 3
+        done
         
         echo -e "\033[38;5;214mTEST\033[0m: Init oca module."
         docker-odoo-init -d test -i partner_firstname
@@ -1016,9 +1017,11 @@ function test-container() {
         sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
 
-        echo "Wait for Odoo server."
-        while ! curl -s -o /dev/null -w "%{http_code}" "http://localhost:8069/web/login?db=test" | grep -q "^200$"; do sleep 1; done
-        #FIXME: bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
+        until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
+            echo "Waiting for Odoo to be ready ..."
+            sleep 3
+        done
+        bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
         
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
@@ -1029,12 +1032,12 @@ function test-container() {
         test-xmlrpc test
 
         echo -e "\033[38;5;214mTEST\033[0m: Send mail with message post."
-        #FIXME: bin/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
+        bin/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
         docker-odoo-shell -d test -f -p "env['res.partner'].browse(3)._message_subscribe([7])"
         docker-odoo-shell -d test -f -p "env['res.partner'].browse(3).message_post(body='ping', subtype_id=1)"
         TO_ADDRESS=$(curl -X GET "http://localhost:8025/api/v1/messages?limit=1" \
             -H 'accept: application/json' | jq ".messages[0].To[0].Address")
-        #FIXME: [ "$TO_ADDRESS" = '"user@example.com"' ]
+        [ "$TO_ADDRESS" = '"user@example.com"' ]
 
         echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet."
         install-snippet test snippets/base.view_partner_form.show_type.xml
