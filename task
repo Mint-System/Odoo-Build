@@ -163,6 +163,7 @@ ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
+POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
@@ -573,10 +574,12 @@ function list-modules() {
 function template-docker-compose() {
     echo "Template docker-compose.yml"
 
+    # Extract variables and export them
+    # grep -oP '\$\{([^}]+)\}' docker-compose.yml.template | sed 's/${\([^}]\+\)}/export \1/'
     export CONTAINER_REGISTRY
     export CONTAINER_TAG
     export POSTGRES_PORT
-    export ODOO_PORT
+    export POSTGRES_PORT
     export MAIL_DEFAULT_FROM
     export MAIL_CATCHALL_DOMAIN
     export MAIL_CATCHALL_ALIAS
@@ -596,6 +599,7 @@ function template-docker-compose() {
     export ADDONS_GIT_REPOS
     export ODOO_ADDONS_PATH
     export ODOO_DATABASE
+    export ODOO_INIT
     export ODOO_INIT_LANG
     export ODOO_INIT_ADDONS
     export ENVIRONMENT
@@ -613,9 +617,12 @@ function template-docker-compose() {
     export LIMIT_TIME_REAL
     export MODULE_AUTO_INSTALL_DISABLED
     export CLICK_ODOO_UPDATE
-    export PGADMIN_DEFAULT_EMAIL
-    export PGADMIN_DEFAULT_PASSWORD
+    export ODOO_PORT
+    export ODOO_PORT
     export POSTGRES_IMAGE
+    export POSTGRES_PORT
+    export POSTGRES_PORT
+    export ODOO_DATABASE
 
     envsubst < "docker-compose.yml.template" > "docker-compose.yml"
 }
