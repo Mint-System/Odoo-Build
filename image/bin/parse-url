@@ -10,7 +10,7 @@ Help() {
     echo
     echo "$SCRIPT"
     echo
-    echo "Description: Filter URL for segments."
+    echo "Description: Parse and output segements."
     echo "Syntax: $SCRIPT <url> [url|proto|user|pass|hostname|subdomain|port|path]"
     echo "Example: $SCRIPT https://www.example.com subdomain,hostname"
     echo "         $SCRIPT git@github.com:OCA/server-tools.git user,hostname,path"

@@ -20,30 +20,36 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
     for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
         
         # Supported urls:
-        # SSH: git@github.com:OCA/server-tools.git#16.0
-        # HTTP: https://github.com/OCA/server-tools.git#16.0
+        # ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0
+        # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0
 
         GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d# -f1)
         GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
         GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
+        GIT_PROTO=$(parse-url "$GIT_URL" proto)
         GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
-        GIT_PATH="/var/lib/odoo/git/$GIT_HOSTNAME/$GIT_PATH"
+        GIT_LOCAL_PATH="/var/lib/odoo/git/${GIT_HOSTNAME}/$GIT_PATH"
 
-        if [ ! -d "$GIT_PATH/.git" ]; then
+        if [ ! -d "$GIT_LOCAL_PATH/.git" ]; then
             # Clone git repo and submodules
-            mkdir -p "$GIT_PATH"
+            mkdir -p "$GIT_LOCAL_PATH"
             ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
-            entrypoint-log "Clone $GIT_URL branch $GIT_BRANCH."
-            git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$GIT_PATH"
+            
+            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "https://github.com" ] && [ -n "$GITHUB_USERNAME" ]; then
+                GIT_URL="${GIT_PROTO}${GITHUB_USERNAME}:${GITHUB_PERSONAL_ACCESS_TOKEN}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            fi
+
+            entrypoint-log "Clone ${GIT_PROTO}${GIT_HOSTNAME} branch $GIT_BRANCH."
+            git clone "$GIT_URL" --depth 1 --single-branch --branch "$GIT_BRANCH" "$GIT_LOCAL_PATH"
         else
             entrypoint-log "Update $GIT_URL branch $GIT_BRANCH."
-            git -C "$GIT_PATH" switch "$GIT_BRANCH"
-            git -C "$GIT_PATH" pull
+            git -C "$GIT_LOCAL_PATH" switch "$GIT_BRANCH"
+            git -C "$GIT_LOCAL_PATH" pull
         fi
 
-        if [ -f "$GIT_PATH/.gitmodules" ]; then
-            entrypoint-log "Init and update git submodules in $GIT_PATH."
-            git -C "$GIT_PATH" submodule update --init --recursive --depth 1
+        if [ -f "$GIT_LOCAL_PATH/.gitmodules" ]; then
+            entrypoint-log "Init and update git submodules in $GIT_LOCAL_PATH."
+            git -C "$GIT_LOCAL_PATH" submodule update --init --recursive --depth 1
         fi
     done
 

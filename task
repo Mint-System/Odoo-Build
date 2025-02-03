@@ -590,6 +590,8 @@ function template-docker-compose() {
     export ODOO_MAIL_PASSWORD
     export GIT_SSH_PUBLIC_KEY
     export GIT_SSH_PRIVATE_KEY
+    export GITHUB_USERNAME
+    export GITHUB_PERSONAL_ACCESS_TOKEN
     export ADDONS_GIT_REPOS
     export ODOO_ADDONS_PATH
     export ODOO_DATABASE

@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Commands to update git submodules in batch `-status`, `-commit-all`, `-push`.
+* Support `GITHUB_USERNAME` and `GITHUB_PERSONAL_ACCESS_TOKEN` in image.
 
 ### Updated
 
