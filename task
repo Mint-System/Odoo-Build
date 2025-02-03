@@ -973,7 +973,7 @@ function test-container() {
         
         echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
         if [ ! -d "oca/oca-partner-contact" ]; then
-            git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/oca-partner-contact
+            git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/partner-contact
         fi
 
         echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
@@ -1005,13 +1005,15 @@ function test-container() {
         export MAIL_DEFAULT_FROM="test"
         export BROWSER_OPEN=false
         start odoo
-        while ! curl --fail -s http://localhost:8069; do sleep 1; done
+        while ! curl --fail -s http://localhost:8069/web/login; do sleep 1; done
         
-        echo -e "\033[38;5;214mTEST\033[0m: Run auto update."
+        echo -e "\033[38;5;214mTEST\033[0m: Init oca module."
         docker-odoo-init -d test -i partner_firstname
-        sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/oca-partner-contact/partner_firstname/models/res_partner.py
+
+        echo -e "\033[38;5;214mTEST\033[0m: Run auto update."
+        sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
-        while ! curl --fail -s http://localhost:8069; do sleep 1; done
+        while ! curl --fail -s http://localhost:8069/web/login; do sleep 1; done
         #FIXME: bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
         
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
