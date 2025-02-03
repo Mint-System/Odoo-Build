@@ -892,6 +892,7 @@ function run() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     activate-venv
+    template-docker-compose
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2"
@@ -953,7 +954,7 @@ function test-container() {
         drop-db test
         remove odoo
         remove-env test
-        rm -rf oca/oca-partner-contact
+        git -C oca/partner-contact checkout .
     else
         activate-venv
         version
