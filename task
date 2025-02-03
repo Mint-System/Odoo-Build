@@ -970,22 +970,22 @@ function test-container() {
             GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
         fi
         
-        echo "TEST: Clone submodule with https"
+        echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
         if [ ! -d "oca/oca-partner-contact" ]; then
             git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/oca-partner-contact
         fi
 
-        echo "TEST: Start container environment."
+        echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
         export BROWSER_OPEN=false
         start db,mail
 
-        echo "TEST: Clone Odoo addons."
+        echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
         run odoo git-clone-addons
 
-        echo "TEST: Init Odoo database."
+        echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
         export ODOO_ADDONS_PATH="/mnt/enterprise,/mnt/oca"
         export ODOO_DATABASE=test
         export ODOO_INIT_LANG=de_CH
@@ -993,7 +993,7 @@ function test-container() {
         export PYTHON_INSTALL=prometheus-client,manifestoo
         run odoo init-db
 
-        echo "TEST: Start Odoo container."
+        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
         export ODOO_MAIL_SMTP_HOST=mail
         export ODOO_MAIL_SMTP_PORT=1025
         export ODOO_MAIL_SMTP_ENCRYPTION=none
@@ -1006,14 +1006,14 @@ function test-container() {
         start odoo
         while ! curl --fail -s http://localhost:8069; do sleep 1; done
         
-        echo "TEST: Run auto update."
+        echo -e "\033[38;5;214mTEST\033[0m: Run auto update."
         docker-odoo-init -d test -i partner_firstname
         sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/oca-partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         while ! curl --fail -s http://localhost:8069; do sleep 1; done
         bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
         
-        echo "TEST: Setup and check RPC credentials."
+        echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
         export ODOO_USERNAME=admin
         export ODOO_PASSWORD=admin
@@ -1021,7 +1021,7 @@ function test-container() {
         show-env test
         test-xmlrpc test
 
-        echo "TEST: Send mail with message post."
+        echo -e "\033[38;5;214mTEST\033[0m: Send mail with message post."
         bin/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
         docker-odoo-shell -d test -f -p "env['res.partner'].browse(3)._message_subscribe([7])"
         docker-odoo-shell -d test -f -p "env['res.partner'].browse(3).message_post(body='ping', subtype_id=1)"
@@ -1029,13 +1029,13 @@ function test-container() {
             -H 'accept: application/json' | jq ".messages[0].To[0].Address")
         [ "$TO_ADDRESS" = '"user@example.com"' ]
 
-        echo "TEST: Install, update, disable and remove snippet."
+        echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet."
         install-snippet test snippets/base.view_partner_form.show_type.xml
         update-snippet test snippets/base.view_partner_form.show_type.xml
         disable-snippet test snippets/base.view_partner_form.show_type.xml
         remove-snippet test snippets/base.view_partner_form.show_type.xml
 
-        echo "TEST: Run Odoo scripts."
+        echo -e "\033[38;5;214mTEST\033[0m: Run Odoo scripts."
         docker-odoo-backup -d test
         docker-odoo-drop -d test
         docker-odoo-restore -d test -f /var/tmp/test.zip
