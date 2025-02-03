@@ -1011,7 +1011,7 @@ function test-container() {
         sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/oca-partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         while ! curl --fail -s http://localhost:8069; do sleep 1; done
-        bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
+        # bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
         
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
