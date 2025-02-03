@@ -1,25 +1,45 @@
 #!/usr/bin/env python3
 
+import sys, os, ast
+
 import xmlrpc.client
-import argparse, sys, os, ast
+from argparse import ArgumentParser, RawTextHelpFormatter
 from urllib.parse import urlparse
 
 example_text = """
-example: odooctl --model 'res.partner' --domain "('id', '=', 66)" --field 'name' --value Test
+# Create a new partner with name and email
+odooctl --method 'create' --model 'res.partner' --value "{'name': 'User', 'email': 'user@example.com'}"
+
+# Update the name of the partner with id 66
+odooctl --method 'write' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name' --value 'New Name'
+
+# Read the 'name' field of the partner with id 66
+odooctl --method 'read' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name'
+
+# Count the number of partners with email domain 'example.com'
+odooctl --method 'search_count' --model 'res.partner' --domain "[('email', 'like', '%example.com%')]"
+
+# Find the id of the first partner with email 'user@example.com'
+odooctl --method 'search_one' --model 'res.partner' --domain "[('email', '=', 'user@example.com')]"
+
+# Delete the partner with id 66
+odooctl --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
 """
 
-parser = argparse.ArgumentParser(
+# Create the ArgumentParser
+parser = ArgumentParser(
     prog='odooctl',
     description='Update Odoo records using the XML-RPC API.',
-    epilog=example_text,
+    formatter_class=RawTextHelpFormatter,
+    epilog=example_text
 )
 
 # Define arguments
-parser.add_argument('--model', help='Name of model in format "res.partner"')
-parser.add_argument('--domain', help='Domain in format [("field", "operator", "value"), ...]')
-parser.add_argument('--field', help='Field name of model to write or read')
-parser.add_argument('--method', help='Methods are: create, write, read, search_count, search_one, unlink')
-parser.add_argument('--value', help='Value to write')
+parser.add_argument('--model', help='The Odoo model to interact with, e.g., "res.partner".')
+parser.add_argument('--domain', help='The domain filter in the form of [("field", "operator", "value")], used to search for records.')
+parser.add_argument('--field', help='The field name in the model to update or read.')
+parser.add_argument('--method', help='The operation to perform: "create", "write", "read", "search_count", "search_one", or "unlink".')
+parser.add_argument('--value', help='The value to write or create, or the field to read.')
 
 # Parse arguments
 args = parser.parse_args()
@@ -35,42 +55,42 @@ db = os.environ.get('ODOO_DATABASE') or 'odoo'
 username = os.getenv('ODOO_USERNAME') or 'admin'
 password = os.environ.get('ODOO_PASSWORD') or 'admin'
 
-# Connect
-common = xmlrpc.client.ServerProxy('{}/xmlrpc/2/common'.format(url))
+# Connect to Odoo
+common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
 uid = common.authenticate(db, username, password, {})
-models = xmlrpc.client.ServerProxy('{}/xmlrpc/2/object'.format(url))
+models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
 
-# Check permissions
+# Check if the user has access rights
 models.execute_kw(db, uid, password, args.model, 'check_access_rights', ['read'], {'raise_exception': False})
 
 # Parse domain and value
 if args.domain:
-    domain = ast.literal_eval(args.domain) if args.domain else False
+    domain = ast.literal_eval(args.domain)
 
 if args.value:
     value = ast.literal_eval(args.value)
 
-# Execute method
+# Execute the method based on the user's choice
 if args.method == 'create':
-    models.execute_kw(db, uid, password, args.model, args.method, [value])
+    models.execute_kw(db, uid, password, args.model, 'create', [value])
 
-if args.method == 'write':
+elif args.method == 'write':
     ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
     models.execute_kw(db, uid, password, args.model, 'write', [ids, {args.field: value}])
 
-if args.method == 'read':
-    ids = models.execute_kw(db, uid, password, args.model, 'search',  [domain], {'limit': 1})
+elif args.method == 'read':
+    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain], {'limit': 1})
     res = models.execute_kw(db, uid, password, args.model, 'read', [ids])
     print(res[0][args.field])
 
-if args.method == 'search_count':
+elif args.method == 'search_count':
     count = models.execute_kw(db, uid, password, args.model, 'search_count', [domain])
     print(count)
 
-if args.method == 'search_one':
+elif args.method == 'search_one':
     ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
     print(ids[0])
 
-if args.method == 'unlink':
+elif args.method == 'unlink':
     ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
     models.execute_kw(db, uid, password, args.model, 'unlink', [ids])

@@ -90,6 +90,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odooctl" "" "Execute odooctl cli."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-store-dotenv" "" "Store content of .env in pass entry."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-restore-dotenv" "" "Restore content of .env from pass entry."
@@ -1011,7 +1012,7 @@ function test-container() {
         sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/oca-partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         while ! curl --fail -s http://localhost:8069; do sleep 1; done
-        # bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
+        bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
         
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
@@ -2272,6 +2273,10 @@ function test-xmlrpc() {
     load-env "$1"
 
     echo "Connect to database and count res.partner records: $(bin/odooctl --model "res.partner" --method "search_count" --domain '[]')"
+}
+
+function odooctl(){
+    bin/odooctl "$@"
 }
 
 # Pass Commands
