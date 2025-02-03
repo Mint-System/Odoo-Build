@@ -964,10 +964,13 @@ function test-container() {
             if [ ! -f "tmp/ed25519" ]; then
                 ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
             fi
-            # eval "$(ssh-agent -s)"
-            # ssh-add tmp/ed25519 || (entrypoint-log "Dumping tmp/ed25519 content:" && cat tmp/ed25519)
+
             GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
             GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
+
+            echo "$GIT_SSH_PRIVATE_KEY" | base64 -d > tmp/ed25519_decoded
+            chmod 600 tmp/ed25519_decoded
+            export GIT_SSH_COMMAND="ssh -i tmp/ed25519_decoded -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no"
         fi
         
         echo "TEST: Clone submodule"
