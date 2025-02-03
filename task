@@ -971,9 +971,10 @@ function test-container() {
         fi
         
         echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
-        if [ ! -d "oca/partner-contact" ]; then
-            git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/partner-contact
-        fi
+        # if [ ! -d "oca/partner-contact" ]; then
+        (git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
+        ls -lsh oca/partner-contact
+        # fi
 
         echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
         export BROWSER_OPEN=false
