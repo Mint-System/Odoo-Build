@@ -951,7 +951,7 @@ function test-container() {
         drop-db test
         remove odoo
         remove-env test
-        git -C oca/partner-contact checkout .
+        rm -rf oca/oca-partner-contact
     else
         activate-venv
         version
@@ -969,8 +969,8 @@ function test-container() {
         fi
         
         echo "TEST: Clone submodule with https"
-        if [ ! -d "oca/partner-contact" ]; then
-            git clone https://github.com/OCA/partner-contact.git oca/partner-contact
+        if [ ! -d "oca/oca-partner-contact" ]; then
+            git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/oca-partner-contact
         fi
 
         echo "TEST: Start container environment."
@@ -1006,7 +1006,7 @@ function test-container() {
         
         echo "TEST: Run auto update."
         docker-odoo-init -d test -i partner_firstname
-        sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/partner-contact/partner_firstname/models/res_partner.py
+        sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/oca-partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         while ! curl --fail -s http://localhost:8069; do sleep 1; done
         bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
