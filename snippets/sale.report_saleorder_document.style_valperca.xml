@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        
+    
+    <style>
+      .maintable th {
+          border-bottom: solid 1px;
+       }
+      .maintable td {
+          border-bottom: solid grey 1px;
+      }
+      .clearfix td {
+          border-bottom: solid 1px;
+      }
+	</style>
+    </xpath>
+   
+    <xpath expr="//table[@class='o_has_total_table table o_main_table table-borderless']" position="attributes">
+        <attribute name="class">maintable o_has_total_table table o_main_table</attribute>
+    </xpath>
+    
+    
+</data>
