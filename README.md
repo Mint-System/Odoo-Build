@@ -32,11 +32,11 @@ The Odoo development environment has the following requirements:
 
 **Command Completion (Optional)**
 
-bash/zsh alias `alias task='./task'` with optional [bash](https://github.com/janikvonrotz/dotfiles/blob/master/bash/completions/task_completions)/[zsh](https://github.com/janikvonrotz/dotfiles/blob/master/oh-my-zsh/completions/_task) completion.
+bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#completion).
 
 **Nix (Optional)**
 
-You can also use [Nix](https://nixos.org/) to setup the development requirements.
+You can use [Nix](https://nixos.org/) to setup the requirements.
 
 **Kubernetes (Optional)**
 
