@@ -84,7 +84,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "[path]" "Get modules in path as list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path]" "Feed module files with prompt to LLM and apply updates with git path."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply updates with git path."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo container logs."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
@@ -2324,23 +2324,27 @@ function llm-update() {
         exit 1; 
     fi
 
-    # Get list of files
+    # Get files from path
     FILES=$(find "$1" -type f \( -name "*.py" -o -name "*.xml" \))
-
     echo -e "Loaded these files into prompt:\n\n$FILES\n"
 
-    # Get task description
-    read -p "Enter the task description: " TASK_DESCRIPTION
+    # Prompt task description
+    if [ -z "$2" ]; then
+        read -p "Enter the task description: " TASK_DESCRIPTION
+    else
+        TASK_DESCRIPTION="$2"
+    fi
 
     # Prepare the files content for prompt
     FILE_CONTENTS=""
     for FILE in $FILES; do
-        FILE_CONTENTS+="<<< $FILE >>>
+        FILE_CONTENTS+="<<<$FILE>>>
 $(cat "$FILE")
 
 "
     done
 
+    # Define prompt content
     PROMPT_FILE="tmp/llm_update"
     echo -e "\nWrite prompt to $PROMPT_FILE."
     cat << EOF > "$PROMPT_FILE"
@@ -2348,20 +2352,20 @@ Look at the code files below and do the following:
 
 $TASK_DESCRIPTION
 
-Output the updated content for each file in the following format:
-<<< filename >>>
-<updated content>
+Output all files that you need to change in full again, including your changes. 
+In the same format as I provide the files below. Under no circumstances output any other text, 
+no additional infos, no code formatting chars. Only the code in the given format.
 
 Here are the files:
 
 $FILE_CONTENTS
 EOF
 
-    # Run the llm command with the prompt
+    # Run the llm command
     echo -e "Send prompt and wait for the response of the $LLM_MODEL LLM."
     RESULT=$(cat "$PROMPT_FILE" | llm -m "$LLM_MODEL")
 
-    # Check if the result is empty
+    # Check if result is empty
     if [ -z "$RESULT" ]; then
         echo "No response from the model. Exiting."
         exit 1
@@ -2372,13 +2376,12 @@ EOF
     echo "$RESULT" > "$RESULT_FILE"
     echo -e "Saved response to $RESULT_FILE.\n"
 
-    # Show a preview of the response file
+    # Show a preview of result file
     less "$RESULT_FILE"
 
     # Ask for confirmation before updating files
     read -p "Do you want to apply these updates to the files? (y/n): " CONFIRM
     if [[ ! "$CONFIRM" =~ ^[Yy]$ ]]; then
-        echo "Aborted file updates."
         exit 0
     fi
 
@@ -2386,16 +2389,14 @@ EOF
     echo -e "Parsing the response and updating files...\n"
     CURRENT_FILE=""
     while IFS= read -r LINE; do
-        if [[ $LINE =~ "^<<<" ]]; then
+        if [[ $LINE =~ ^"<<<"(.*)">>>" ]]; then
             CURRENT_FILE="${BASH_REMATCH[1]}"
-            echo "Processing updates for $CURRENT_FILE..."
+            echo "Update file $CURRENT_FILE."
             > "$CURRENT_FILE"
         elif [[ -n $CURRENT_FILE ]]; then
             echo "$LINE" >> "$CURRENT_FILE"
         fi
     done < "$RESULT_FILE"
-
-    echo -e "\nAll files have been updated."
 }
 
 if declare -f "$1" > /dev/null; then
