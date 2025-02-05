@@ -84,7 +84,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "[path]" "Get modules in path as list."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply updates with git path."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo container logs."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
