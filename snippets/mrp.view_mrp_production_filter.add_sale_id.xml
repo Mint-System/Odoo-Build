@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<data inherit_id="mrp.view_mrp_production_filter" priority="50">
+    <xpath expr="//field[@name='name']" position="replace">
+        <field name="name" string="Manufacturing Order" filter_domain="['|', '|', ('name', 'ilike', self), ('origin', 'ilike', self), ('sale_id', 'ilike', self)]"/>
+        <field name="sale_id"/>
+    </xpath>
+</data>
