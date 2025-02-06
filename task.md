@@ -4,6 +4,7 @@
 | build                     | [platform]           | Build Odoo Conainer image. Optionally define the target platform.                          |
 | change-uuid               | [env]                | Change database uuid via xmlrpc.                                                           |
 | checkout                  | [branch]             | Checkout Odoo version / branch.                                                            |
+| checkout-all              |                      | Checkout every Odoo version / branch.                                                      |
 | checkout-config-files     | [branch]             | Checkout config files from another branch.                                                 |
 | checkout-revision         | [revision]           | Run Odoo revision script or checkout revision set by env var.                              |
 | clear-assets              | [db]                 | Clear all assets of Odoo database.                                                         |
@@ -66,12 +67,13 @@
 | list-modules              | [path]               | Get modules in path as list.                                                               |
 | list-env                  |                      | List env files.                                                                            |
 | list-revision             |                      | List available Odoo revisions.                                                             |
-| llm-update                | [path]               | Feed module files with prompt to LLM and apply updates with git path.                      |
+| llm-update                | [path][prompt]       | Feed module files with prompt to LLM and apply file changes.                               |
 | logs                      |                      | Tail Odoo container logs.                                                                  |
 | node-install              |                      | Install build dependencies.                                                                |
 | node-dev                  |                      | Start vuepress development server.                                                         |
 | node-build                |                      | Create vuepress build.                                                                     |
 | node-serve-build          |                      | Serve vuepress build.                                                                      |
+| odooctl                   |                      | Execute odooctl cli.                                                                       |
 | odoo-cloc                 | [db]                 | Count custom line of codes. Default is branch name.                                        |
 | pass-store-dotenv         |                      | Store content of .env in pass entry.                                                       |
 | pass-restore-dotenv       |                      | Restore content of .env from pass entry.                                                   |

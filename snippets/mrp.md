@@ -1666,6 +1666,20 @@ ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`
 ```
 Source: [snippets/mrp.view_mrp_production_filter.add_not_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.view_mrp_production_filter.add_not_planned.xml)
 
+### Add Sale Id  
+ID: `mint_system.mrp.view_mrp_production_filter.add_sale_id`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="mrp.view_mrp_production_filter" priority="50">
+    <xpath expr="//field[@name='name']" position="replace">
+        <field name="name" string="Manufacturing Order" filter_domain="['|', '|', ('name', 'ilike', self), ('origin', 'ilike', self), ('sale_id', 'ilike', self)]"/>
+        <field name="sale_id"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/mrp.view_mrp_production_filter.add_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.view_mrp_production_filter.add_sale_id.xml)
+
 ## View Mrp Production Workorder Form View Filter  
 ### Add Date Planned Start Set  
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set`  

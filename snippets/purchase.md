@@ -2520,6 +2520,7 @@ Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](h
 ### Style Airwork  
 ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="60">
   <xpath expr="//div[hasclass('page')]" position="before">
     <style>
@@ -2529,15 +2530,23 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`
         .o_company_1_layout.o_report_layout_boxed h2 span {
             color: black;
         }
-    </style>
+            </style>
   </xpath>
 
   <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
-    <attribute name="class">table table-sm o_main_table table-borderless mt-4</attribute>
+    <attribute name="class">table table-sm o_main_table mt-4</attribute>
   </xpath>
-  
-   <xpath expr="//th[@name='th_description']" position="attributes">
+
+  <xpath expr="//th[@name='th_description']" position="attributes">
     <attribute name="class">text-start</attribute>
+  </xpath>
+
+  <xpath expr="//t[@t-set='information_block']/div/div" position="attributes">
+    <attribute name="t-options">{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": True}</attribute>
+  </xpath>
+
+  <xpath expr="//t[@t-set='address']/div" position="attributes">
+    <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": True}</attribute>
   </xpath>
 
 </data>

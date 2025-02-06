@@ -1260,13 +1260,28 @@ ID: `mint_system.sale.report_saleorder_document.add_hs_code2`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//td[@name='td_name']/span" position="after">
-        <t t-if="line.product_id.hs_code">
-            <br/>
-            <span>HS-Code: </span>
-            <span t-field="line.product_id.hs_code"/>
-        </t>
+
+    <xpath expr="//td[@name='td_name']/../.." position="after">
+        <tr style="border-top: solid white !important">
+            <td/>
+            <td colspan="3">
+                <span t-field="line.name"/>
+                <t t-if="line.product_id.hs_code">
+                    <br/>
+                    <span>HS-Code: </span>
+                    <span t-field="line.product_id.hs_code"/>
+                </t>
+            </td>
+            <td/>
+        </tr>
     </xpath>
+
+    <xpath expr="//td[@name='td_name']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_template_id"/>
+        </td>
+    </xpath>
+
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_hs_code2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_hs_code2.xml)
@@ -2752,7 +2767,6 @@ Source: [snippets/sale.report_saleorder_document.replace_address_and_information
 ### Replace Informations2  
 ID: `mint_system.sale.report_saleorder_document.replace_informations2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
@@ -2774,50 +2788,76 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations2`
             text-align: top;
             } 
         </style>
-        <table id="info">
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
             <tr>
-                <td width="20%">Oder Date</td>
-                <td width="30%">
-                    <t t-if="doc.date_order">
+                <t t-if="doc.date_order">
+                    <td width="200px">Order Date</td>
+                    <td width="500px">
+
                         <span id="date_order" t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                </td>
-                <td width="20%">Incoterm</td>
-                <td width="30%">
-                    <span t-field="doc.incoterm"/>
-                </td>
+
+                    </td>
+                </t>
             </tr>
             <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="doc.client_order_ref"/>
-                </td>
-                <td>Payment terms</td>
-                <td>
-                    <span t-field="doc.payment_term_id"/>
-                </td>
+                <t t-if="doc.client_order_ref">
+                    <td>Your Reference</td>
+                    <td>
+
+                        <span t-field="doc.client_order_ref"/>
+
+                    </td>
+                </t>
             </tr>
             <tr>
                 <t t-if="doc.partner_id.parent_id">
-                    <td>Your Reference</td>
+                    <td>Your Contact</td>
                     <td>
                         <span t-field="doc.partner_id.name"/>
                     </td>
                 </t>
-                <t t-else="">
-                    <td></td>
-                    <td></td>
-                </t>
-                <td>Our Reference</td>
-                <td width="25%">
-                    <span t-field="doc.user_id"/>,                         
-                    <span t-field="doc.user_id.email"/>,                         
-                    <span t-field="doc.user_id.phone"/>
-                </td>
             </tr>
-        </table>
+            <tr>
+                <t t-if="doc.commitment_date">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="doc.commitment_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.incoterm">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="doc.incoterm.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="doc.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="doc.user_id"/>
+                        <t t-if="doc.user_id.email">
+                           ,                            <span t-field="doc.user_id.email"/>
+                        </t>
+                        <t t-if="doc.user_id.phone">
+                           ,                            <span t-field="doc.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
     </xpath>
-
 </data>
 
 ```
@@ -3094,6 +3134,34 @@ ID: `mint_system.sale.report_saleorder_document.round_total_price`
 
 ```
 Source: [snippets/sale.report_saleorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.round_total_price.xml)
+
+### Second Row2  
+ID: `mint_system.sale.report_saleorder_document.second_row2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//td[@name='td_name']/../.." position="after">
+        <tr style="border-top: solid white !important">
+            <td/>
+            <td colspan="3">
+                <span t-field="line.name"/>
+                <br/>
+                <span>HS-Code</span>
+            </td>
+            <td/>
+        </tr>
+    </xpath>
+
+    <xpath expr="//td[@name='td_name']" position="replace">
+        <td name="td_name">
+            <span t-field="line.product_template_id"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.second_row2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.second_row2.xml)
 
 ### Second Row  
 ID: `mint_system.sale.report_saleorder_document.second_row`  
@@ -3732,6 +3800,36 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 
 ```
 Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_trimada.xml)
+
+### Style Valperca  
+ID: `mint_system.sale.report_saleorder_document.style_valperca`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        
+    
+    <style>
+      .maintable th {
+          border-bottom: solid 1px;
+       }
+      .maintable td {
+          border-bottom: solid grey 1px;
+      }
+      .clearfix td {
+          border-bottom: solid 1px;
+      }
+	</style>
+    </xpath>
+   
+    <xpath expr="//table[@class='o_has_total_table table o_main_table table-borderless']" position="attributes">
+        <attribute name="class">maintable o_has_total_table table o_main_table</attribute>
+    </xpath>
+    
+    
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.style_valperca.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_valperca.xml)
 
 ### Style Xinomer  
 ID: `mint_system.sale.report_saleorder_document.style_xinomer`  

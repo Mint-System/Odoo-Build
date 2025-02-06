@@ -263,6 +263,19 @@ ID: `mint_system.web.external_layout_boxed.increase_logo_size`
 ```
 Source: [snippets/web.external_layout_boxed.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_boxed.increase_logo_size.xml)
 
+### Style Carbo Link  
+ID: `mint_system.web.external_layout_boxed.style_carbo_link`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="60">
+    <xpath expr="//div[@t-field='company.report_footer']/.." position="attributes">
+        <attribute name="style">font-size: 76%</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/web.external_layout_boxed.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_boxed.style_carbo_link.xml)
+
 ## External Layout Standard  
 ### Eksb Layout  
 ID: `mint_system.web.external_layout_standard.eksb_layout`  
@@ -482,6 +495,17 @@ ID: `mint_system.web.external_layout_standard.header_styles`
 ```
 Source: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.header_styles.xml)
 
+### Hide Address  
+ID: `mint_system.web.external_layout_standard.hide_address`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="//div[@name='company_address']/.." position="replace"/>
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.hide_address.xml)
+
 ### Hide Header  
 ID: `mint_system.web.external_layout_standard.hide_header`  
 ```xml
@@ -492,6 +516,17 @@ ID: `mint_system.web.external_layout_standard.hide_header`
 
 ```
 Source: [snippets/web.external_layout_standard.hide_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.hide_header.xml)
+
+### Hide Moto  
+ID: `mint_system.web.external_layout_standard.hide_moto`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="//div[@name='moto']" position="replace"/>
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.hide_moto.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.hide_moto.xml)
 
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
@@ -829,6 +864,25 @@ ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`
 
 ```
 Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.show_sale_order_in_footer.xml)
+
+### Style Airwork  
+ID: `mint_system.web.external_layout_standard.style_airwork`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_standard" priority="60">
+    <xpath expr="//div[1]/div[1]/div[1]" position="attributes">
+        <attribute name="class">col-12 text-center</attribute>
+    </xpath>
+    <xpath expr="//div[1]/div[1]/div[1]/img" position="attributes">
+        <attribute name="style">max-height: 85px</attribute>
+    </xpath>
+    
+    <xpath expr="//div[@class='col-12'][1]/div[1]" position="attributes">
+        <attribute name="style">border-bottom: 0px ;</attribute>
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.style_airwork.xml)
 
 ### Style Header  
 ID: `mint_system.web.external_layout_standard.style_header`  

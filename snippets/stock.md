@@ -2232,6 +2232,78 @@ ID: `mint_system.stock.report_delivery_document.replace_header`
 ```
 Source: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.replace_header.xml)
 
+### Replace Informations2  
+ID: `mint_system.stock.report_delivery_document.replace_informations2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//div[@name='div_origin']/.." position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+
+        <table id="infotable" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="o.date_done">
+                    <td width="200px">Order Date</td>
+                    <td width="500px">
+                        <span id="date_done" t-field="o.date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.origin">
+                    <td>Order Reference</td>
+                    <td>
+                        <span t-field="o.origin"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
+    </xpath>
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.replace_informations2.xml)
+
 ### Replace Informations  
 ID: `mint_system.stock.report_delivery_document.replace_informations`  
 ```xml
@@ -2760,6 +2832,37 @@ ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`
 
 ```
 Source: [snippets/stock.report_delivery_document.sale_stock_picking_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.sale_stock_picking_note.xml)
+
+### Second Row  
+ID: `mint_system.stock.report_delivery_document.second_row`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//td[@name='td_name']/../.." position="after">
+        <tr style="border-top: solid white !important">
+            <td/>
+            <td colspan="3">
+                <span t-field="line.name"/>
+                <t t-if="line.product_id.hs_code">
+                    <br/>
+                    <span>HS-Code: </span>
+                    <span t-field="line.product_id.hs_code"/>
+                </t>
+            </td>
+            <td/>
+        </tr>
+    </xpath>
+
+    <xpath expr="//td[@name='td_name']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_template_id"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.second_row.xml)
 
 ### Sequence In Table  
 ID: `mint_system.stock.report_delivery_document.sequence_in_table`  

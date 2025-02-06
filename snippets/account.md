@@ -1495,7 +1495,7 @@ ID: `mint_system.account.report_invoice_document.hide_delivery_date`
 ```xml
 <?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//p[@name="delivery_date">']" position="replace"/>
+    <xpath expr="//p[@name='delivery_date']" position="replace"/>
 </data>
 
 ```
@@ -2058,6 +2058,106 @@ ID: `mint_system.account.report_invoice_document.replace_footer`
 
 ```
 Source: [snippets/account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.replace_footer.xml)
+
+### Replace Informations2  
+ID: `mint_system.account.report_invoice_document.replace_informations2`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="o.date_order">
+                    <td width="200px">Order Date</td>
+                    <td width="500px">
+
+                        <span id="date_order" t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.client_order_ref">
+                    <td>Your Reference</td>
+                    <td>
+
+                        <span t-field="o.client_order_ref"/>
+
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.commitment_date">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="o.commitment_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.incoterm">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.incoterm.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.replace_informations2.xml)
 
 ### Replace Informations  
 ID: `mint_system.account.report_invoice_document.replace_informations`  
