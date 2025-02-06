@@ -22,6 +22,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[platform]" "Build Odoo Conainer image. Optionally define the target platform."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch]" "Checkout Odoo version / branch."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-all" "" "Checkout every Odoo version / branch."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-config-files" "[branch]" "Checkout config files from another branch."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-assets" "[db]" "Clear all assets of Odoo database."
@@ -2186,6 +2187,15 @@ function checkout() {
     git-submodule-init
 
     git-submodule-switch
+}
+
+function checkout-all() {
+    checkout 13.0
+    checkout 14.0
+    checkout 15.0
+    checkout 16.0
+    checkout 17.0
+    checkout 18.0
 }
 
 # Revision Commands
