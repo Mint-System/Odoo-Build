@@ -91,7 +91,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odooctl" "" "Execute odooctl cli."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odooctl" "[param]" "Execute odooctl cli."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-store-dotenv" "" "Store content of .env in pass entry."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-restore-dotenv" "" "Restore content of .env from pass entry."
@@ -254,7 +254,6 @@ function activate-venv() {
 function load-env() {
     ENV_FILE="$ODOO_BUILD_CONFIG_DIR/.env.$1"
     echo "Load env file $ENV_FILE"
-
     export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
 }
 
@@ -2303,6 +2302,7 @@ function test-xmlrpc() {
 }
 
 function odooctl(){
+    activate-venv
     bin/odooctl "$@"
 }
 
