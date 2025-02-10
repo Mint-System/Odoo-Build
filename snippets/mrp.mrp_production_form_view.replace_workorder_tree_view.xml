@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
     <!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
     <xpath expr="//field[@name='workorder_ids']" position="inside">

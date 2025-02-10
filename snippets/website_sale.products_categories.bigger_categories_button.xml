@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- Add class to categories button -->
 <data inherit_id="website_sale.products_categories" priority="50">
     <xpath expr="//button" position="replace">

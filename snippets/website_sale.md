@@ -3,7 +3,6 @@
 ### Countries Filter  
 ID: `mint_system.website_sale.address.countries_filter`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
     <t t-foreach="countries" position="attributes">
         <attribute name="t-foreach">countries.filtered(lambda c: c.code in ['CH', 'LI'])</attribute>
@@ -16,7 +15,6 @@ Source: [snippets/website_sale.address.countries_filter.xml](https://github.com/
 ### Hide Shipping Use Same  
 ID: `mint_system.website_sale.address.hide_shipping_use_same`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
         <attribute name="style">display: none;</attribute>
@@ -29,7 +27,6 @@ Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://githu
 ### Overwrite Required  
 ID: `mint_system.website_sale.address.overwrite_required`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@name='field_required']" position="replace">
         <input type="hidden" name="field_required" t-att-value="'name,email'"/>
@@ -57,7 +54,6 @@ Source: [snippets/website_sale.address.overwrite_required.xml](https://github.co
 ### Show Firstname Lastname  
 ID: `mint_system.website_sale.address.show_firstname_lastname`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@name='name']/.." position="after">
         <div t-attf-class="mb-3 #{error.get('firstname') and 'o_has_error' or ''} col-lg-12 div_firstname">
@@ -81,7 +77,6 @@ Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://gith
 ### Show Shipping Name  
 ID: `mint_system.website_sale.confirmation.show_shipping_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.confirmation" priority="50">
     <span t-esc="order.partner_invoice_id" position="before"><span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
   </span>
@@ -96,7 +91,6 @@ Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://gith
 ### Hide Cart  
 ID: `mint_system.website_sale.header_cart_link.hide_cart`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.header_cart_link" priority="50">
     <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -110,7 +104,6 @@ Source: [snippets/website_sale.header_cart_link.hide_cart.xml](https://github.co
 ### Remove Communication  
 ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.payment_confirmation_status" priority="50">
     <xpath expr="//div[@t-if='order.reference']" position="replace"/>
 </data>
@@ -122,7 +115,6 @@ Source: [snippets/website_sale.payment_confirmation_status.remove_communication.
 ### Hide Cart  
 ID: `mint_system.website_sale.product.hide_cart`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -140,7 +132,6 @@ Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-Sy
 ### Hide Price  
 ID: `mint_system.website_sale.product.hide_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -153,7 +144,6 @@ Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-S
 ### Show Default Code  
 ID: `mint_system.website_sale.product.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <p t-field="product.description_sale" position="after">
         <p t-if="product_variant.default_code">
@@ -169,7 +159,6 @@ Source: [snippets/website_sale.product.show_default_code.xml](https://github.com
 ### Show Product Dimension  
 ID: `mint_system.website_sale.product.show_product_dimension`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Dimensions</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.dimension_ids" t-as="dimension"><li><span t-field="dimension.name"/><t t-if="dimension.value"><span t-field="dimension.value"/></t></li></t></ul></div>
@@ -182,7 +171,6 @@ Source: [snippets/website_sale.product.show_product_dimension.xml](https://githu
 ### Show Product Material  
 ID: `mint_system.website_sale.product.show_product_material`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Materials</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.material_ids" t-as="material"><li><span t-field="material.name"/><t t-if="material.percent"><span t-field="material.percent"/></t></li></t></ul></div>
@@ -196,7 +184,6 @@ Source: [snippets/website_sale.product.show_product_material.xml](https://github
 ### Bigger Categories Button  
 ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
 ```xml
-<?xml version="1.0"?>
 <!-- Add class to categories button -->
 <data inherit_id="website_sale.products_categories" priority="50">
     <xpath expr="//button" position="replace">
@@ -213,7 +200,6 @@ Source: [snippets/website_sale.products_categories.bigger_categories_button.xml]
 ### Hide Cart  
 ID: `mint_system.website_sale.product.hide_cart`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -231,7 +217,6 @@ Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-Sy
 ### Hide Price  
 ID: `mint_system.website_sale.product.hide_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -244,7 +229,6 @@ Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-S
 ### Show Default Code  
 ID: `mint_system.website_sale.product.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <p t-field="product.description_sale" position="after">
         <p t-if="product_variant.default_code">
@@ -260,7 +244,6 @@ Source: [snippets/website_sale.product.show_default_code.xml](https://github.com
 ### Show Product Dimension  
 ID: `mint_system.website_sale.product.show_product_dimension`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Dimensions</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.dimension_ids" t-as="dimension"><li><span t-field="dimension.name"/><t t-if="dimension.value"><span t-field="dimension.value"/></t></li></t></ul></div>
@@ -273,7 +256,6 @@ Source: [snippets/website_sale.product.show_product_dimension.xml](https://githu
 ### Show Product Material  
 ID: `mint_system.website_sale.product.show_product_material`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Materials</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.material_ids" t-as="material"><li><span t-field="material.name"/><t t-if="material.percent"><span t-field="material.percent"/></t></li></t></ul></div>
@@ -287,7 +269,6 @@ Source: [snippets/website_sale.product.show_product_material.xml](https://github
 ### Hide Price  
 ID: `mint_system.website_sale.products_item.hide_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.products_item" priority="50">
     <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
@@ -300,7 +281,6 @@ Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/
 ### Prefix Price  
 ID: `mint_system.website_sale.products_item.prefix_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="website_sale.products_item" priority="50">
     <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
         <span>From</span>

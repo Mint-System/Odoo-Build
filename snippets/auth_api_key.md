@@ -3,7 +3,6 @@
 ### Enable Created And Edit  
 ID: `mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="auth_api_key.auth_api_key_form_view" priority="60">
     <form position="attributes">
         <attribute name="create">1</attribute>

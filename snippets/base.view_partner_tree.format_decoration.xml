@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <xpath expr="//field[@name='display_name']" position="attributes">
     <attribute name="decoration-bf">is_company</attribute>
 </xpath>

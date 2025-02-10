@@ -3,7 +3,6 @@
 ### Basis57  
 ID: `mint_system.stock.label_transfer_template_view.basis57`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
         <style>
@@ -252,7 +251,6 @@ Source: [snippets/stock.label_transfer_template_view.basis57.xml](https://github
 ### Trimada  
 ID: `mint_system.stock.label_transfer_template_view.trimada`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.label_transfer_template_view.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
@@ -374,7 +372,6 @@ Source: [snippets/stock.label_transfer_template_view.trimada.xml](https://github
 ### Hide Location Id  
 ID: `mint_system.stock.product_template_search_form_view_stock.hide_location_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.product_template_search_form_view_stock" priority="50">
     <xpath expr="//field[@name='location_id']" position="replace">   
   </xpath>
@@ -386,7 +383,6 @@ Source: [snippets/stock.product_template_search_form_view_stock.hide_location_id
 ### Hide Pricelist Id  
 ID: `mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.product_template_search_form_view_stock" priority="50">
     <xpath expr="//field[@name='pricelist_id']" position="replace">   
   </xpath>
@@ -398,7 +394,6 @@ Source: [snippets/stock.product_template_search_form_view_stock.hide_pricelist_i
 ### Hide Warehouse Id  
 ID: `mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.product_template_search_form_view_stock" priority="50">
     <xpath expr="//field[@name='warehouse_id']" position="replace">   
   </xpath>
@@ -411,7 +406,6 @@ Source: [snippets/stock.product_template_search_form_view_stock.hide_warehouse_i
 ### Basis57  
 ID: `mint_system.stock.report_bordero.basis57`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_bordero.basis57">
     <t t-call="web.html_container">
         <t t-call="web.external_layout">
@@ -507,7 +501,6 @@ Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-Syst
 ### Tissa  
 ID: `mint_system.stock.report_certificatecofc_simplified.tissa`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_certificatecofc.tissa">
     <t t-call="web.html_container">
         <t t-call="web.external_layout">
@@ -825,7 +818,6 @@ Source: [snippets/stock.report_certificatecofc_simplified.tissa.xml](https://git
 ### Tissa  
 ID: `mint_system.stock.report_certificatecofc.tissa`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_certificatecofc.tissa">
     <t t-call="web.html_container">
         <t t-call="web.external_layout">
@@ -1152,7 +1144,6 @@ Source: [snippets/stock.report_certificatecofc.tissa.xml](https://github.com/Min
 ### Add Address Space  
 ID: `mint_system.stock.report_delivery_document.add_address_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <t t-set="address" position="before">
         <style>
@@ -1169,7 +1160,6 @@ Source: [snippets/stock.report_delivery_document.add_address_space.xml](https://
 ### Add Date  
 ID: `mint_system.stock.report_delivery_document.add_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//th[@name='th_sm_product']" position="after">
         <th>
@@ -1189,7 +1179,6 @@ Source: [snippets/stock.report_delivery_document.add_date.xml](https://github.co
 ### Add Drawing File  
 ID: `mint_system.stock.report_delivery_document.add_drawing_file`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]/span" position="after">
         <t t-if="move.product_id.drawing_file">
@@ -1208,7 +1197,6 @@ Source: [snippets/stock.report_delivery_document.add_drawing_file.xml](https://g
 ### Add Header And Footer Note  
 ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@id='infotable']" position="after">
         <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
@@ -1228,7 +1216,6 @@ Source: [snippets/stock.report_delivery_document.add_header_and_footer_note.xml]
 ### Add Header Space  
 ID: `mint_system.stock.report_delivery_document.add_header_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">padding-top: 5rem</attribute>
@@ -1241,7 +1228,6 @@ Source: [snippets/stock.report_delivery_document.add_header_space.xml](https://g
 ### Add Incoterms  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[1]/div[1]/div[2]" position="after">
         <div class="col-auto" name="div_incoterms">
@@ -1259,7 +1245,6 @@ Source: [snippets/stock.report_delivery_document.add_incoterms.xml](https://gith
 ### Add Infotable  
 ID: `mint_system.stock.report_delivery_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//h2" position="after">
         <style>
@@ -1325,7 +1310,6 @@ Source: [snippets/stock.report_delivery_document.add_infotable.xml](https://gith
 ### Add Note  
 ID: `mint_system.stock.report_delivery_document.add_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@name='signature']" position="before">
         <div style="margin-top: 50px">
@@ -1378,7 +1362,6 @@ Source: [snippets/stock.report_delivery_document.add_note.xml](https://github.co
 ### Add Open Quantity In Backorder  
 ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[2]" position="after">
         <th>
@@ -1397,7 +1380,6 @@ Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.
 ### Add Table Margin  
 ID: `mint_system.stock.report_delivery_document.add_table_margin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div/table[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -1413,7 +1395,6 @@ Source: [snippets/stock.report_delivery_document.add_table_margin.xml](https://g
 ### Add Title  
 ID: `mint_system.stock.report_delivery_document.add_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@t-field='o.name']" position="before">
         <t t-if="o.picking_type_id.id == 2">
@@ -1428,7 +1409,6 @@ Source: [snippets/stock.report_delivery_document.add_title.xml](https://github.c
 ### Add Weight  
 ID: `mint_system.stock.report_delivery_document.add_weight`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//th[@name='th_sm_quantity']" position="before">
         <th>
@@ -1449,7 +1429,6 @@ Source: [snippets/stock.report_delivery_document.add_weight.xml](https://github.
 ### Append Signature Text  
 ID: `mint_system.stock.report_delivery_document.append_signature_text`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_line_table']" position="after">
         <style>
@@ -1497,7 +1476,6 @@ Source: [snippets/stock.report_delivery_document.append_signature_text.xml](http
 ### Backorder Signature Section  
 ID: `mint_system.stock.report_delivery_document.backorder_signature_section`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_line_table']" position="after">
         <p>Retouren:<br/><br/>
@@ -1514,11 +1492,12 @@ Source: [snippets/stock.report_delivery_document.backorder_signature_section.xml
 ### Barcode Customer Reference  
 ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//t[@name='partner_header']" position="before">
-        <span t-field="o.sale_id.client_order_ref" t-options="{&quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>
-    </xpath>
+
+  <xpath expr="//h2" position="before">
+    <span t-field="o.sale_id.client_order_ref" t-options="{&quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>
+  </xpath>
+
 </data>
 
 ```
@@ -1527,7 +1506,6 @@ Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml]
 ### Disable Stock Move Line Table  
 ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <table name="stock_move_table" position="attributes">
         <attribute name="t-if"/>
@@ -1543,7 +1521,6 @@ Source: [snippets/stock.report_delivery_document.disable_stock_move_line_table.x
 ### Filter Qty Done  
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
         <t t-set="lines" t-value="lines.filtered(lambda l: l.quantity_done &gt; 0)"/>
@@ -1562,7 +1539,6 @@ Source: [snippets/stock.report_delivery_document.filter_qty_done.xml](https://gi
 ### Format Address Blocks  
 ID: `mint_system.stock.report_delivery_document.format_address_blocks`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//t[@t-set='address']/div" position="attributes">
         <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
@@ -1589,7 +1565,6 @@ Source: [snippets/stock.report_delivery_document.format_address_blocks.xml](http
 ### Format Address  
 ID: `mint_system.stock.report_delivery_document.format_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@t-field='partner.commercial_partner_id']" position="replace">
         <div t-field="partner.commercial_partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;,], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
@@ -1602,7 +1577,6 @@ Source: [snippets/stock.report_delivery_document.format_address.xml](https://git
 ### Format Date Short  
 ID: `mint_system.stock.report_delivery_document.format_date_short`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//p[@t-field='o.date_done']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
@@ -1624,7 +1598,6 @@ Source: [snippets/stock.report_delivery_document.format_date_short.xml](https://
 ### Format Main Table  
 ID: `mint_system.stock.report_delivery_document.format_main_table`  
 ```xml
-<?xml version="1.0"?>
 <!-- Change style of first column -->
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table" position="attributes">
@@ -1646,7 +1619,6 @@ Source: [snippets/stock.report_delivery_document.format_main_table.xml](https://
 ### Format Pos  
 ID: `mint_system.stock.report_delivery_document.format_pos`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_backorder_table']/tbody//td" position="attributes">
         <attribute name="style">text-align: right; width: 5mm</attribute>
@@ -1659,7 +1631,6 @@ Source: [snippets/stock.report_delivery_document.format_pos.xml](https://github.
 ### Format Qty  
 ID: `mint_system.stock.report_delivery_document.format_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <span t-field="move.product_uom_qty" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
@@ -1675,7 +1646,6 @@ Source: [snippets/stock.report_delivery_document.format_qty.xml](https://github.
 ### Format Table Border  
 ID: `mint_system.stock.report_delivery_document.format_table_border`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']" position="before">
         <style>
@@ -1705,7 +1675,6 @@ Source: [snippets/stock.report_delivery_document.format_table_border.xml](https:
 ### Format Title Trimada  
 ID: `mint_system.stock.report_delivery_document.format_title_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
@@ -1718,7 +1687,6 @@ Source: [snippets/stock.report_delivery_document.format_title_trimada.xml](https
 ### Format Title  
 ID: `mint_system.stock.report_delivery_document.format_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//h2" position="replace">
         <h2>
@@ -1733,7 +1701,6 @@ Source: [snippets/stock.report_delivery_document.format_title.xml](https://githu
 ### Get Position  
 ID: `mint_system.stock.report_delivery_document.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
@@ -1778,7 +1745,6 @@ Source: [snippets/stock.report_delivery_document.get_position.xml](https://githu
 ### Header Margin  
 ID: `mint_system.stock.report_delivery_document.header_margin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div/table[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -1794,7 +1760,6 @@ Source: [snippets/stock.report_delivery_document.header_margin.xml](https://gith
 ### Hide Address  
 ID: `mint_system.stock.report_delivery_document.hide_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@name='customer_address']" position="replace"/>
     <xpath expr="//div[@name='partner_header']" position="replace"/>
@@ -1806,7 +1771,6 @@ Source: [snippets/stock.report_delivery_document.hide_address.xml](https://githu
 ### Hide Backorder Quantity  
 ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_backorder_table']/thead//th[4]" position="replace">
         <th/>
@@ -1819,7 +1783,6 @@ Source: [snippets/stock.report_delivery_document.hide_backorder_quantity.xml](ht
 ### Hide If Not In State Done  
 ID: `mint_system.stock.report_delivery_document.hide_if_not_in_state_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='page']" position="attributes">
         <attribute name="t-if">o.state == 'done'</attribute>
@@ -1837,7 +1800,6 @@ Source: [snippets/stock.report_delivery_document.hide_if_not_in_state_done.xml](
 ### Hide Information Block  
 ID: `mint_system.stock.report_delivery_document.hide_information_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//t[@t-set='information_block']" position="replace"/>
 </data>
@@ -1848,7 +1810,6 @@ Source: [snippets/stock.report_delivery_document.hide_information_block.xml](htt
 ### Hide Name  
 ID: `mint_system.stock.report_delivery_document.hide_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@t-field='o.name']/.." position="replace">
   </xpath>
@@ -1860,7 +1821,6 @@ Source: [snippets/stock.report_delivery_document.hide_name.xml](https://github.c
 ### Hide Ordered  
 ID: `mint_system.stock.report_delivery_document.hide_ordered`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//th[@name='th_sm_ordered']" position="replace"/>
     <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[4]" position="replace"/>
@@ -1872,7 +1832,6 @@ Source: [snippets/stock.report_delivery_document.hide_ordered.xml](https://githu
 ### Hide Product Uom Qty  
 ID: `mint_system.stock.report_delivery_document.hide_product_uom_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@t-field='move.product_uom_qty']/..." position="replace">
   </xpath>
@@ -1884,20 +1843,25 @@ Source: [snippets/stock.report_delivery_document.hide_product_uom_qty.xml](https
 ### Hs Code Origin And Weight  
 ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//div/table[1]/tbody/tr/td[1]/span" position="after">
-        <t t-if="move.product_id.hs_code"><br/>
-      HS Code: <span t-field="move.product_id.hs_code"/>
+  <xpath expr="//div/table[1]/tbody/tr/td[1]/span" position="after">
+    <t t-if="move.product_id.hs_code">
+      <br/>
+      <span>HS Code: </span>
+      <span t-field="move.product_id.hs_code"/>
     </t>
-        <t t-if="move.product_id.country_of_origin_id.code"><br/>
-      Country of Origin: <span t-field="move.product_id.country_of_origin_id.code"/>
+    <t t-if="move.product_id.country_of_origin_id.code">
+      <br/>
+      <span>Country of Origin: </span>
+      <span t-field="move.product_id.country_of_origin_id.code"/>
     </t>
-        <t t-if="move.product_id.weight"><br/>
-      Weight: <span t-field="move.product_id.weight"/>
-    <span t-field="move.product_id.weight_uom_id.display_name"/>
-  </t>
-    </xpath>
+    <t t-if="move.product_id.weight">
+      <br/>
+      <span>Weight: </span>
+      <span t-field="move.product_id.weight"/>
+      <span t-field="move.product_id.weight_uom_id.display_name"/>
+    </t>
+  </xpath>
 </data>
 
 ```
@@ -1906,7 +1870,6 @@ Source: [snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml](
 ### Margin After Title  
 ID: `mint_system.stock.report_delivery_document.margin_after_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//h2" position="attributes">
         <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
@@ -1919,7 +1882,6 @@ Source: [snippets/stock.report_delivery_document.margin_after_title.xml](https:/
 ### Margin Before Title  
 ID: `mint_system.stock.report_delivery_document.margin_before_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//h2" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -1932,7 +1894,6 @@ Source: [snippets/stock.report_delivery_document.margin_before_title.xml](https:
 ### Modify Main Table  
 ID: `mint_system.stock.report_delivery_document.modify_main_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <!-- header -->
     <!--<xpath expr="//table[@name='stock_move_table']/thead" position="attributes">-->
@@ -2021,7 +1982,6 @@ Source: [snippets/stock.report_delivery_document.modify_main_table.xml](https://
 ### Move Lines  
 ID: `mint_system.stock.report_delivery_document.move_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_line_table']" position="before">
         <table class="tissa table table-sm" name="move_table">
@@ -2067,7 +2027,6 @@ Source: [snippets/stock.report_delivery_document.move_lines.xml](https://github.
 ### Pos In Table  
 ID: `mint_system.stock.report_delivery_document.pos_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
@@ -2102,7 +2061,6 @@ Source: [snippets/stock.report_delivery_document.pos_in_table.xml](https://githu
 ### Remove Informations  
 ID: `mint_system.stock.report_delivery_document.remove_informations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@name='div_origin']/.." position="replace">
 </xpath>
@@ -2114,7 +2072,6 @@ Source: [snippets/stock.report_delivery_document.remove_informations.xml](https:
 ### Replace Address And Information Block  
 ID: `mint_system.stock.report_delivery_document.replace_address_and_information_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="replace"/>
     <xpath expr="//t[@t-set='information_block']" position="replace">
@@ -2181,7 +2138,6 @@ Source: [snippets/stock.report_delivery_document.replace_address_and_information
 ### Replace Description Sale  
 ID: `mint_system.stock.report_delivery_document.replace_description_sale`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="55">
     <xpath expr="//span[@t-field='move.product_id']" position="replace">
         <t t-if="move.product_id.description_sale">
@@ -2199,7 +2155,6 @@ Source: [snippets/stock.report_delivery_document.replace_description_sale.xml](h
 ### Replace Header  
 ID: `mint_system.stock.report_delivery_document.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@t-if='o.origin']/.." position="before">
         <style>
@@ -2235,7 +2190,6 @@ Source: [snippets/stock.report_delivery_document.replace_header.xml](https://git
 ### Replace Informations2  
 ID: `mint_system.stock.report_delivery_document.replace_informations2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
     <xpath expr="//div[@name='div_origin']/.." position="replace">
@@ -2307,7 +2261,6 @@ Source: [snippets/stock.report_delivery_document.replace_informations2.xml](http
 ### Replace Informations  
 ID: `mint_system.stock.report_delivery_document.replace_informations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='page']/div[1]" position="replace">
         <style>
@@ -2361,29 +2314,42 @@ Source: [snippets/stock.report_delivery_document.replace_informations.xml](https
 ### Replace Information Table2  
 ID: `mint_system.stock.report_delivery_document.replace_information_table2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='report-wrapping-flexbox clearfix row mt32 mb32']" position="replace">
+
+        <style>
+            table#info_table {
+               border: transparent;
+               width: 100%;
+            }
+            table#info_table tr td {
+               border-right: none;
+            }
+            table#info_table strong {
+               color: black;
+            }
+        </style>
+
         <div>
-            <table style="border-style:none; width:100%">
+            <table id="info_table">
                 <tr>
-                    <td style="border-style:none">
+                    <td>
                         <strong>Customer Reference</strong>
                         <p t-field="o.sudo().sale_id.client_order_ref"/>
                     </td>
-                    <td style="border-style:none">
+                    <td>
                         <strong>Shipping Date</strong>
                         <p t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
                     </td>
-                    <td style="border-style:none">
+                    <td>
                         <strong>Incoterms</strong>
                         <p t-field="res_company.incoterm_id.code"/>
                     </td>
-                    <td style="border-style:none">
+                    <td>
                         <strong>Carrier</strong>
                         <p t-field="o.carrier_id"/>
                     </td>
-                    <td style="border-style:none">
+                    <td>
                         <span>
                             <strong>Total Weight</strong>
                         </span>
@@ -2391,7 +2357,7 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
                         <span t-field="o.shipping_weight"/>
                         <span t-field="o.weight_uom_name"/>
                     </td>
-                    <td style="border-style:none">
+                    <td>
                         <strong>Order</strong>
                         <p t-field="o.origin"/>
                     </td>
@@ -2400,14 +2366,12 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
         </div>
     </xpath>
 </data>
-
 ```
 Source: [snippets/stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.replace_information_table2.xml)
 
 ### Replace Information Table  
 ID: `mint_system.stock.report_delivery_document.replace_information_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='page']/div[1]" position="replace">
         <table class="table table-borderless table-sm">
@@ -2515,7 +2479,6 @@ Source: [snippets/stock.report_delivery_document.replace_information_table.xml](
 ### Replace Infotable  
 ID: `mint_system.stock.report_delivery_document.replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='page']/div[1]" position="replace">
         <style>
@@ -2560,7 +2523,6 @@ Source: [snippets/stock.report_delivery_document.replace_infotable.xml](https://
 ### Replace Name  
 ID: `mint_system.stock.report_delivery_document.replace_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@t-field='o.name']/.." position="replace">
         <h2>
@@ -2575,7 +2537,6 @@ Source: [snippets/stock.report_delivery_document.replace_name.xml](https://githu
 ### Replace Order Definition  
 ID: `mint_system.stock.report_delivery_document.replace_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@t-if='o.origin']/.." position="replace">
         <style>
@@ -2616,7 +2577,6 @@ Source: [snippets/stock.report_delivery_document.replace_order_definition.xml](h
 ### Replace Product Description On Backorder  
 ID: `mint_system.stock.report_delivery_document.replace_product_description_on_backorder`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/tbody/t/tr/td[1]" position="replace">
         <td>
@@ -2649,7 +2609,6 @@ Source: [snippets/stock.report_delivery_document.replace_product_description_on_
 ### Replace Product Description  
 ID: `mint_system.stock.report_delivery_document.replace_product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="replace">
         <td>
@@ -2679,7 +2638,6 @@ Source: [snippets/stock.report_delivery_document.replace_product_description.xml
 ### Replace Product Uom Qty  
 ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//span[@t-field='move.product_uom_qty']" position="replace">
         <span t-field="move.quantity_done"/>
@@ -2692,7 +2650,6 @@ Source: [snippets/stock.report_delivery_document.replace_product_uom_qty.xml](ht
 ### Replace Sale Line Name  
 ID: `mint_system.stock.report_delivery_document.replace_sale_line_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="55">
     <xpath expr="//span[@t-field='move.product_id']" position="replace">
         <t t-if="move.sale_line_id">
@@ -2710,7 +2667,6 @@ Source: [snippets/stock.report_delivery_document.replace_sale_line_name.xml](htt
 ### Replace Table  
 ID: `mint_system.stock.report_delivery_document.replace_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//div[@class='page']/div[2]" position="replace">
         <div class="row">
@@ -2764,7 +2720,6 @@ Source: [snippets/stock.report_delivery_document.replace_table.xml](https://gith
 ### Round Qty2  
 ID: `mint_system.stock.report_delivery_document.round_qty2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@id='qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -2786,7 +2741,6 @@ Source: [snippets/stock.report_delivery_document.round_qty2.xml](https://github.
 ### Round Qty  
 ID: `mint_system.stock.report_delivery_document.round_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//span[@id='qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -2808,7 +2762,6 @@ Source: [snippets/stock.report_delivery_document.round_qty.xml](https://github.c
 ### Sale Order Note  
 ID: `mint_system.stock.report_delivery_document.sale_order_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_line_table']" position="after">
         <p t-if="o.sale_id.note" style="margin-top: 3rem;" t-field="o.sale_id.note"/>
@@ -2821,7 +2774,6 @@ Source: [snippets/stock.report_delivery_document.sale_order_note.xml](https://gi
 ### Sale Stock Picking Note  
 ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="55">
     <xpath expr="//p[@t-if='o.customer_note']" position="replace">
   </xpath>
@@ -2836,7 +2788,6 @@ Source: [snippets/stock.report_delivery_document.sale_stock_picking_note.xml](ht
 ### Second Row  
 ID: `mint_system.stock.report_delivery_document.second_row`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
 
     <xpath expr="//td[@name='td_name']/../.." position="after">
@@ -2867,7 +2818,6 @@ Source: [snippets/stock.report_delivery_document.second_row.xml](https://github.
 ### Sequence In Table  
 ID: `mint_system.stock.report_delivery_document.sequence_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
@@ -2887,7 +2837,6 @@ Source: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://
 ### Set Customer Reference  
 ID: `mint_system.stock.report_delivery_document.set_customer_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="before">
         <t t-set="information_block">
@@ -2907,7 +2856,6 @@ Source: [snippets/stock.report_delivery_document.set_customer_reference.xml](htt
 ### Set Ids  
 ID: `mint_system.stock.report_delivery_document.set_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
         <attribute name="id">description</attribute>
@@ -2950,7 +2898,6 @@ Source: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com
 ### Set Name  
 ID: `mint_system.stock.report_delivery_document.set_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']//td[1]" position="attributes">
         <attribute name="name">td_sm_product</attribute>
@@ -2969,7 +2916,6 @@ Source: [snippets/stock.report_delivery_document.set_name.xml](https://github.co
 ### Set Page Font Size  
 ID: `mint_system.stock.report_delivery_document.set_page_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
@@ -2986,7 +2932,6 @@ Source: [snippets/stock.report_delivery_document.set_page_font_size.xml](https:/
 ### Set Table Font Size  
 ID: `mint_system.stock.report_delivery_document.set_table_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']" position="before">
         <style>
@@ -3004,7 +2949,6 @@ Source: [snippets/stock.report_delivery_document.set_table_font_size.xml](https:
 ### Set Title Font Size  
 ID: `mint_system.stock.report_delivery_document.set_title_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
@@ -3021,7 +2965,6 @@ Source: [snippets/stock.report_delivery_document.set_title_font_size.xml](https:
 ### Show Customer Info Product Code  
 ID: `mint_system.stock.report_delivery_document.show_customer_info_product_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <span t-field="move.product_id" position="before">
         <t t-set="customer_info" t-value="move.product_id._select_customerinfo(partner=o.partner_id)"/>
@@ -3037,7 +2980,6 @@ Source: [snippets/stock.report_delivery_document.show_customer_info_product_code
 ### Show Default Code  
 ID: `mint_system.stock.report_delivery_document.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']" position="before">
         <style>
@@ -3070,7 +3012,6 @@ Source: [snippets/stock.report_delivery_document.show_default_code.xml](https://
 ### Show Lot Ids  
 ID: `mint_system.stock.report_delivery_document.show_lot_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <!-- <xpath expr="//table[@name='stock_move_table']//th[@name='th_sm_product']" position="after">
     <th name="th_lot_ids">
@@ -3100,7 +3041,6 @@ Source: [snippets/stock.report_delivery_document.show_lot_ids.xml](https://githu
 ### Show Quantity Done  
 ID: `mint_system.stock.report_delivery_document.show_quantity_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/t/td[2]/span[1]" position="attributes">
         <attribute name="t-field">move.quantity_done</attribute>
@@ -3113,7 +3053,6 @@ Source: [snippets/stock.report_delivery_document.show_quantity_done.xml](https:/
 ### Sort By Position  
 ID: `mint_system.stock.report_delivery_document.sort_by_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
         <t t-set="lines" t-value="lines.sorted(key=lambda l: (l.position))"/>
@@ -3132,7 +3071,6 @@ Source: [snippets/stock.report_delivery_document.sort_by_position.xml](https://g
 ### Style Carbo Link  
 ID: `mint_system.stock.report_delivery_document.style_carbo_link`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3153,10 +3091,37 @@ ID: `mint_system.stock.report_delivery_document.style_carbo_link`
 ```
 Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.style_carbo_link.xml)
 
+### Style Gelso  
+ID: `mint_system.stock.report_delivery_document.style_gelso`  
+```xml
+<data inherit_id="stock.report_delivery_document" priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .mt-4 {
+            margin-top: 5px !important;           
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sml_product']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="class">table table-sm table-borderless</attribute>
+    </xpath>
+    
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class">table table-sm table-borderless</attribute>
+    </xpath>
+    
+</data>
+```
+Source: [snippets/stock.report_delivery_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.style_gelso.xml)
+
 ### Style Swissfragrance  
 ID: `mint_system.stock.report_delivery_document.style_swissfragrance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <style>
       .cell_left {
@@ -3181,7 +3146,6 @@ Source: [snippets/stock.report_delivery_document.style_swissfragrance.xml](https
 ### Style Tissa  
 ID: `mint_system.stock.report_delivery_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3212,7 +3176,6 @@ Source: [snippets/stock.report_delivery_document.style_tissa.xml](https://github
 ### Style Trimada  
 ID: `mint_system.stock.report_delivery_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3299,7 +3262,6 @@ Source: [snippets/stock.report_delivery_document.style_trimada.xml](https://gith
 ### Switch Address Block  
 ID: `mint_system.stock.report_delivery_document.switch_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="after">
         <t t-set="information_block">
@@ -3318,7 +3280,6 @@ Source: [snippets/stock.report_delivery_document.switch_address_block.xml](https
 ### Title Supplement  
 ID: `mint_system.stock.report_delivery_document.title_supplement`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//h2" position="replace">
         <h2>Delivery Slip <span t-field="o.name"/></h2>
@@ -3331,7 +3292,6 @@ Source: [snippets/stock.report_delivery_document.title_supplement.xml](https://g
 ### X Hide On Delivery  
 ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
         <t t-set="lines" t-value="lines.filtered(lambda l: not l.product_id.x_hide_on_delivery)"/>
@@ -3351,7 +3311,6 @@ Source: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https:/
 ### Aersolution  
 ID: `mint_system.stock.report_label.aersolution`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_label.aersolution">
     <t t-foreach="range(0, label_qty)" t-as="label_qty">
         <div class="row">
@@ -3388,7 +3347,6 @@ Source: [snippets/stock.report_label.aersolution.xml](https://github.com/Mint-Sy
 ### Aersolution  
 ID: `mint_system.stock.report_lot_label.aersolution`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_lot_label.aersolution">
     <t t-call="web.basic_layout">
         <div class="page">
@@ -3410,7 +3368,6 @@ Source: [snippets/stock.report_lot_label.aersolution.xml](https://github.com/Min
 ### Add Address Block  
 ID: `mint_system.stock.report_picking.add_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]" position="after">
         <div class="table address_block">
@@ -3429,7 +3386,6 @@ Source: [snippets/stock.report_picking.add_address_block.xml](https://github.com
 ### Add Delivery Note  
 ID: `mint_system.stock.report_picking.add_delivery_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="/t/t/t/t/div/table[1]" position="after">
         <p t-field="o.delivery_note"/>
@@ -3442,7 +3398,6 @@ Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com
 ### Add Drawing File  
 ID: `mint_system.stock.report_picking.add_drawing_file`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//tbody[1]//td[1]/span" position="after">
         <t t-if="ml.product_id.drawing_file">
@@ -3461,7 +3416,6 @@ Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[@id='main_table']" position="after">
         <t t-set="production" t-value="o.group_id.mrp_production_ids"/>
@@ -3479,7 +3433,6 @@ Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://gi
 ### Barcode Label  
 ID: `mint_system.stock.report_picking.barcode_label`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div/div/div/img" position="before">
         <strong>R&#xFC;stschein Code:</strong>
@@ -3492,7 +3445,6 @@ Source: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Min
 ### Format Delivery Date  
 ID: `mint_system.stock.report_picking.format_delivery_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
@@ -3505,7 +3457,6 @@ Source: [snippets/stock.report_picking.format_delivery_date.xml](https://github.
 ### Format Qty Available  
 ID: `mint_system.stock.report_picking.format_qty_available`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <span id="qty_available" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
@@ -3518,7 +3469,6 @@ Source: [snippets/stock.report_picking.format_qty_available.xml](https://github.
 ### Format Qty  
 ID: `mint_system.stock.report_picking.format_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <t t-if="ml.product_uom_id.id == 1">
@@ -3544,7 +3494,6 @@ Source: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-S
 ### Format Title  
 ID: `mint_system.stock.report_picking.format_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1[@t-field='o.name']" position="replace">
         <h1 t-esc="'R&#xFC;stschein ' + o.name.replace('WH/OUT/', '')"/>
@@ -3557,7 +3506,6 @@ Source: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint
 ### Get Position  
 ID: `mint_system.stock.report_picking.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <!-- <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id"> -->
@@ -3583,7 +3531,6 @@ Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint
 ### Group By Date  
 ID: `mint_system.stock.report_picking.group_by_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <!-- Get all lines without duplicates -->
@@ -3664,7 +3611,6 @@ Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Min
 ### Header Box  
 ID: `mint_system.stock.report_picking.header_box`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1" position="replace">
         <div class="header_box">
@@ -3687,7 +3633,6 @@ Source: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-S
 ### Hide Address  
 ID: `mint_system.stock.report_picking.hide_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_outgoing_address']/.." position="replace"/>
 </data>
@@ -3698,7 +3643,6 @@ Source: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint
 ### Hide Location Dest  
 ID: `mint_system.stock.report_picking.hide_location_dest`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <!-- Hide destination location column for outgoing deliveries of operation type Pick Components -->
     <xpath expr="//th[@name='th_to']" position="replace">
@@ -3718,7 +3662,6 @@ Source: [snippets/stock.report_picking.hide_location_dest.xml](https://github.co
 ### Hide Name  
 ID: `mint_system.stock.report_picking.hide_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1[@t-field='o.name']" position="replace"/>
 </data>
@@ -3729,7 +3672,6 @@ Source: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-Sy
 ### Margin Barcode  
 ID: `mint_system.stock.report_picking.margin_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div/div/div/img" position="attributes">
         <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
@@ -3742,7 +3684,6 @@ Source: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mi
 ### Margin Before Table  
 ID: `mint_system.stock.report_picking.margin_before_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//table[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -3755,7 +3696,6 @@ Source: [snippets/stock.report_picking.margin_before_table.xml](https://github.c
 ### Modify No Reserved Product  
 ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
         <attribute name="t-value">o.move_ids.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
@@ -3768,7 +3708,6 @@ Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://g
 ### Move State  
 ID: `mint_system.stock.report_picking.move_state`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_sched_date']" position="after">
         <xpath expr="//div[@name='div_state']" position="move"/>
@@ -3781,7 +3720,6 @@ Source: [snippets/stock.report_picking.move_state.xml](https://github.com/Mint-S
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_incoming_address']/div[1]" position="before">
         <div t-if="o.partner_id.ref">
@@ -3799,7 +3737,6 @@ Source: [snippets/stock.report_picking.partner_ref.xml](https://github.com/Mint-
 ### Pos In Table  
 ID: `mint_system.stock.report_picking.pos_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
@@ -3823,7 +3760,6 @@ Source: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint
 ### Pricelist Below Address  
 ID: `mint_system.stock.report_picking.pricelist_below_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='partner_header']/p" position="after">
         <span t-field="o.sale_id.pricelist_id.display_name"/>
@@ -3836,7 +3772,6 @@ Source: [snippets/stock.report_picking.pricelist_below_address.xml](https://gith
 ### Product Description  
 ID: `mint_system.stock.report_picking.product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//td[@id='description_picking']" position="replace">
         <td id="description_picking">
@@ -3863,7 +3798,6 @@ Source: [snippets/stock.report_picking.product_description.xml](https://github.c
 ### Relocate Quantity  
 ID: `mint_system.stock.report_picking.relocate_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
     <xpath expr="//th[@id='th_to']" position="after">
@@ -3898,7 +3832,6 @@ Source: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com
 ### Remove From And To  
 ID: `mint_system.stock.report_picking.remove_from_and_to`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_from']" position="replace">
   </xpath>
@@ -3914,7 +3847,6 @@ Source: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.co
 ### Remove Reservation Notice  
 ID: `mint_system.stock.report_picking.remove_reservation_notice`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[hasclass('page')]/p[1]" position="replace"/>
 </data>
@@ -3925,7 +3857,6 @@ Source: [snippets/stock.report_picking.remove_reservation_notice.xml](https://gi
 ### Remove Serial Number  
 ID: `mint_system.stock.report_picking.remove_serial_number`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@t-if='has_serial_number']" position="replace">
   </xpath>
@@ -3939,7 +3870,6 @@ Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.
 ### Remove To  
 ID: `mint_system.stock.report_picking.remove_to`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_to']" position="replace">
         <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
@@ -3964,7 +3894,6 @@ Source: [snippets/stock.report_picking.remove_to.xml](https://github.com/Mint-Sy
 ### Replace Barcode  
 ID: `mint_system.stock.report_picking.replace_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//td[@id='barcode']" position="replace">
         <td id="barcode" class="trimada" t-if="has_barcode">
@@ -3986,7 +3915,6 @@ Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/M
 ### Replace Header  
 ID: `mint_system.stock.report_picking.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='right_box']/.." position="replace">
         <style>
@@ -4023,7 +3951,6 @@ Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mi
 ### Replace Infotable  
 ID: `mint_system.stock.report_picking.replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@class='page']/div[1]" position="replace">
         <style>
@@ -4112,7 +4039,6 @@ Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_origin']/.." position="replace">
         <style>
@@ -4198,7 +4124,6 @@ Source: [snippets/stock.report_picking.replace_order_definition.xml](https://git
 ### Replace Table  
 ID: `mint_system.stock.report_picking.replace_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
         <table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px" t-if="o.move_line_ids and o.move_ids_without_package">
@@ -4291,7 +4216,6 @@ Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Min
 ### Round Qty2  
 ID: `mint_system.stock.report_picking.round_qty2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -4313,7 +4237,6 @@ Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-S
 ### Round Qty  
 ID: `mint_system.stock.report_picking.round_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -4335,7 +4258,6 @@ Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-Sy
 ### Set Ids  
 ID: `mint_system.stock.report_picking.set_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//th[@name='th_product']" position="attributes">
         <attribute name="id">th_product</attribute>
@@ -4360,7 +4282,6 @@ Source: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-Syst
 ### Show Default Code  
 ID: `mint_system.stock.report_picking.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@id='th_product']" position="before">
         <th id="default_code">
@@ -4380,7 +4301,6 @@ Source: [snippets/stock.report_picking.show_default_code.xml](https://github.com
 ### Show Full Address  
 ID: `mint_system.stock.report_picking.show_full_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='partner_header']/div" position="attributes">
         <attribute name="t-options-fields">['name', 'phone', 'address']</attribute>
@@ -4393,7 +4313,6 @@ Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com
 ### Show Lot  
 ID: `mint_system.stock.report_picking.show_lot`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_product']/../th[4]" position="after">
         <th name="th_lot">
@@ -4413,7 +4332,6 @@ Source: [snippets/stock.report_picking.show_lot.xml](https://github.com/Mint-Sys
 ### Show Move Not Lines  
 ID: `mint_system.stock.report_picking.show_move_not_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="40">
     <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="attributes">
         <attribute name="t-if">o.move_ids_without_package</attribute>
@@ -4459,7 +4377,6 @@ Source: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.c
 ### Show Move Qty  
 ID: `mint_system.stock.report_picking.show_move_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@t-field='ml.product_uom_qty']" position="replace">
         <span t-if="o.state != 'done'" t-field="move.product_uom_qty"/>
@@ -4472,7 +4389,6 @@ Source: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Min
 ### Show Order Date  
 ID: `mint_system.stock.report_picking.show_order_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_origin']" position="after">
         <div t-if="o.sale_id" class="col-auto" name="div_date_order">
@@ -4488,7 +4404,6 @@ Source: [snippets/stock.report_picking.show_order_date.xml](https://github.com/M
 ### Show Packaging  
 ID: `mint_system.stock.report_picking.show_packaging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="after">
         <th>
@@ -4508,7 +4423,6 @@ Source: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mi
 ### Show Qty Available  
 ID: `mint_system.stock.report_picking.show_qty_available`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[4]/thead/tr/th[6]" position="after">
         <th id="qty_available">
@@ -4529,7 +4443,6 @@ Source: [snippets/stock.report_picking.show_qty_available.xml](https://github.co
 ### Stock Delivery Note  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="/t/t/t/t/div/table[1]" position="after">
         <div class="row">
@@ -4546,7 +4459,6 @@ Source: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.c
 ### Style Trimada  
 ID: `mint_system.stock.report_picking.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -4652,7 +4564,6 @@ Source: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Min
 ### X Count Packaging  
 ID: `mint_system.stock.report_picking.x_count_packaging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]/thead/tr/th[2]" position="after">
         <th>
@@ -4672,7 +4583,6 @@ Source: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com
 ### X Packaging Uom Id  
 ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@t-field='ml.product_uom_id']" position="replace">
         <span t-if="not move.product_packaging.x_packaging_uom_id" t-field="ml.product_uom_id" groups="uom.group_uom"/>
@@ -4687,7 +4597,6 @@ Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.co
 ### Tissa  
 ID: `mint_system.stock.report_picking_document.tissa`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="report_picking_document.tissa">
     <style>
     table#info {
@@ -4806,7 +4715,6 @@ Source: [snippets/stock.report_picking_document.tissa.xml](https://github.com/Mi
 ### Add Address Block  
 ID: `mint_system.stock.report_picking.add_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]" position="after">
         <div class="table address_block">
@@ -4825,7 +4733,6 @@ Source: [snippets/stock.report_picking.add_address_block.xml](https://github.com
 ### Add Delivery Note  
 ID: `mint_system.stock.report_picking.add_delivery_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="/t/t/t/t/div/table[1]" position="after">
         <p t-field="o.delivery_note"/>
@@ -4838,7 +4745,6 @@ Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com
 ### Add Drawing File  
 ID: `mint_system.stock.report_picking.add_drawing_file`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//tbody[1]//td[1]/span" position="after">
         <t t-if="ml.product_id.drawing_file">
@@ -4857,7 +4763,6 @@ Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/
 ### Add Mrp Production X Note  
 ID: `mint_system.stock.report_picking.add_mrp_production_x_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[@id='main_table']" position="after">
         <t t-set="production" t-value="o.group_id.mrp_production_ids"/>
@@ -4875,7 +4780,6 @@ Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://gi
 ### Barcode Label  
 ID: `mint_system.stock.report_picking.barcode_label`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div/div/div/img" position="before">
         <strong>R&#xFC;stschein Code:</strong>
@@ -4888,7 +4792,6 @@ Source: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Min
 ### Format Delivery Date  
 ID: `mint_system.stock.report_picking.format_delivery_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//p[@t-field='o.scheduled_date']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
@@ -4901,7 +4804,6 @@ Source: [snippets/stock.report_picking.format_delivery_date.xml](https://github.
 ### Format Qty Available  
 ID: `mint_system.stock.report_picking.format_qty_available`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <span id="qty_available" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
@@ -4914,7 +4816,6 @@ Source: [snippets/stock.report_picking.format_qty_available.xml](https://github.
 ### Format Qty  
 ID: `mint_system.stock.report_picking.format_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <t t-if="ml.product_uom_id.id == 1">
@@ -4940,7 +4841,6 @@ Source: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-S
 ### Format Title  
 ID: `mint_system.stock.report_picking.format_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1[@t-field='o.name']" position="replace">
         <h1 t-esc="'R&#xFC;stschein ' + o.name.replace('WH/OUT/', '')"/>
@@ -4953,7 +4853,6 @@ Source: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint
 ### Get Position  
 ID: `mint_system.stock.report_picking.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <!-- <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id"> -->
@@ -4979,7 +4878,6 @@ Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint
 ### Group By Date  
 ID: `mint_system.stock.report_picking.group_by_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <!-- Get all lines without duplicates -->
@@ -5060,7 +4958,6 @@ Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Min
 ### Header Box  
 ID: `mint_system.stock.report_picking.header_box`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1" position="replace">
         <div class="header_box">
@@ -5083,7 +4980,6 @@ Source: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-S
 ### Hide Address  
 ID: `mint_system.stock.report_picking.hide_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_outgoing_address']/.." position="replace"/>
 </data>
@@ -5094,7 +4990,6 @@ Source: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint
 ### Hide Location Dest  
 ID: `mint_system.stock.report_picking.hide_location_dest`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <!-- Hide destination location column for outgoing deliveries of operation type Pick Components -->
     <xpath expr="//th[@name='th_to']" position="replace">
@@ -5114,7 +5009,6 @@ Source: [snippets/stock.report_picking.hide_location_dest.xml](https://github.co
 ### Hide Name  
 ID: `mint_system.stock.report_picking.hide_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//h1[@t-field='o.name']" position="replace"/>
 </data>
@@ -5125,7 +5019,6 @@ Source: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-Sy
 ### Margin Barcode  
 ID: `mint_system.stock.report_picking.margin_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div/div/div/img" position="attributes">
         <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
@@ -5138,7 +5031,6 @@ Source: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mi
 ### Margin Before Table  
 ID: `mint_system.stock.report_picking.margin_before_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//table[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -5151,7 +5043,6 @@ Source: [snippets/stock.report_picking.margin_before_table.xml](https://github.c
 ### Modify No Reserved Product  
 ID: `mint_system.stock.report_picking.modify_no_reserved_product`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//t[@t-set='no_reserved_product']" position="attributes">
         <attribute name="t-value">o.move_ids.filtered(lambda x: x.product_uom_qty != x.reserved_availability and x.state!='done')</attribute>
@@ -5164,7 +5055,6 @@ Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://g
 ### Move State  
 ID: `mint_system.stock.report_picking.move_state`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_sched_date']" position="after">
         <xpath expr="//div[@name='div_state']" position="move"/>
@@ -5177,7 +5067,6 @@ Source: [snippets/stock.report_picking.move_state.xml](https://github.com/Mint-S
 ### Partner Ref  
 ID: `mint_system.stock.report_picking.partner_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_incoming_address']/div[1]" position="before">
         <div t-if="o.partner_id.ref">
@@ -5195,7 +5084,6 @@ Source: [snippets/stock.report_picking.partner_ref.xml](https://github.com/Mint-
 ### Pos In Table  
 ID: `mint_system.stock.report_picking.pos_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
@@ -5219,7 +5107,6 @@ Source: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint
 ### Pricelist Below Address  
 ID: `mint_system.stock.report_picking.pricelist_below_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='partner_header']/p" position="after">
         <span t-field="o.sale_id.pricelist_id.display_name"/>
@@ -5232,7 +5119,6 @@ Source: [snippets/stock.report_picking.pricelist_below_address.xml](https://gith
 ### Product Description  
 ID: `mint_system.stock.report_picking.product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//td[@id='description_picking']" position="replace">
         <td id="description_picking">
@@ -5259,7 +5145,6 @@ Source: [snippets/stock.report_picking.product_description.xml](https://github.c
 ### Relocate Quantity  
 ID: `mint_system.stock.report_picking.relocate_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
     <xpath expr="//th[@id='th_to']" position="after">
@@ -5294,7 +5179,6 @@ Source: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com
 ### Remove From And To  
 ID: `mint_system.stock.report_picking.remove_from_and_to`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_from']" position="replace">
   </xpath>
@@ -5310,7 +5194,6 @@ Source: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.co
 ### Remove Reservation Notice  
 ID: `mint_system.stock.report_picking.remove_reservation_notice`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[hasclass('page')]/p[1]" position="replace"/>
 </data>
@@ -5321,7 +5204,6 @@ Source: [snippets/stock.report_picking.remove_reservation_notice.xml](https://gi
 ### Remove Serial Number  
 ID: `mint_system.stock.report_picking.remove_serial_number`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@t-if='has_serial_number']" position="replace">
   </xpath>
@@ -5335,7 +5217,6 @@ Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.
 ### Remove To  
 ID: `mint_system.stock.report_picking.remove_to`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_to']" position="replace">
         <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">
@@ -5360,7 +5241,6 @@ Source: [snippets/stock.report_picking.remove_to.xml](https://github.com/Mint-Sy
 ### Replace Barcode  
 ID: `mint_system.stock.report_picking.replace_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//td[@id='barcode']" position="replace">
         <td id="barcode" class="trimada" t-if="has_barcode">
@@ -5382,7 +5262,6 @@ Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/M
 ### Replace Header  
 ID: `mint_system.stock.report_picking.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='right_box']/.." position="replace">
         <style>
@@ -5419,7 +5298,6 @@ Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mi
 ### Replace Infotable  
 ID: `mint_system.stock.report_picking.replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@class='page']/div[1]" position="replace">
         <style>
@@ -5508,7 +5386,6 @@ Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com
 ### Replace Order Definition  
 ID: `mint_system.stock.report_picking.replace_order_definition`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_origin']/.." position="replace">
         <style>
@@ -5594,7 +5471,6 @@ Source: [snippets/stock.report_picking.replace_order_definition.xml](https://git
 ### Replace Table  
 ID: `mint_system.stock.report_picking.replace_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
         <table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px" t-if="o.move_line_ids and o.move_ids_without_package">
@@ -5687,7 +5563,6 @@ Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Min
 ### Round Qty2  
 ID: `mint_system.stock.report_picking.round_qty2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -5709,7 +5584,6 @@ Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-S
 ### Round Qty  
 ID: `mint_system.stock.report_picking.round_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
@@ -5731,7 +5605,6 @@ Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-Sy
 ### Set Ids  
 ID: `mint_system.stock.report_picking.set_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//th[@name='th_product']" position="attributes">
         <attribute name="id">th_product</attribute>
@@ -5756,7 +5629,6 @@ Source: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-Syst
 ### Show Default Code  
 ID: `mint_system.stock.report_picking.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@id='th_product']" position="before">
         <th id="default_code">
@@ -5776,7 +5648,6 @@ Source: [snippets/stock.report_picking.show_default_code.xml](https://github.com
 ### Show Full Address  
 ID: `mint_system.stock.report_picking.show_full_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='partner_header']/div" position="attributes">
         <attribute name="t-options-fields">['name', 'phone', 'address']</attribute>
@@ -5789,7 +5660,6 @@ Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com
 ### Show Lot  
 ID: `mint_system.stock.report_picking.show_lot`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_product']/../th[4]" position="after">
         <th name="th_lot">
@@ -5809,7 +5679,6 @@ Source: [snippets/stock.report_picking.show_lot.xml](https://github.com/Mint-Sys
 ### Show Move Not Lines  
 ID: `mint_system.stock.report_picking.show_move_not_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="40">
     <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="attributes">
         <attribute name="t-if">o.move_ids_without_package</attribute>
@@ -5855,7 +5724,6 @@ Source: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.c
 ### Show Move Qty  
 ID: `mint_system.stock.report_picking.show_move_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@t-field='ml.product_uom_qty']" position="replace">
         <span t-if="o.state != 'done'" t-field="move.product_uom_qty"/>
@@ -5868,7 +5736,6 @@ Source: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Min
 ### Show Order Date  
 ID: `mint_system.stock.report_picking.show_order_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//div[@name='div_origin']" position="after">
         <div t-if="o.sale_id" class="col-auto" name="div_date_order">
@@ -5884,7 +5751,6 @@ Source: [snippets/stock.report_picking.show_order_date.xml](https://github.com/M
 ### Show Packaging  
 ID: `mint_system.stock.report_picking.show_packaging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="after">
         <th>
@@ -5904,7 +5770,6 @@ Source: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mi
 ### Show Qty Available  
 ID: `mint_system.stock.report_picking.show_qty_available`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[4]/thead/tr/th[6]" position="after">
         <th id="qty_available">
@@ -5925,7 +5790,6 @@ Source: [snippets/stock.report_picking.show_qty_available.xml](https://github.co
 ### Stock Delivery Note  
 ID: `mint_system.stock.report_picking.stock_delivery_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="/t/t/t/t/div/table[1]" position="after">
         <div class="row">
@@ -5942,7 +5806,6 @@ Source: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.c
 ### Style Trimada  
 ID: `mint_system.stock.report_picking.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -6048,7 +5911,6 @@ Source: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Min
 ### X Count Packaging  
 ID: `mint_system.stock.report_picking.x_count_packaging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//table[1]/thead/tr/th[2]" position="after">
         <th>
@@ -6068,7 +5930,6 @@ Source: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com
 ### X Packaging Uom Id  
 ID: `mint_system.stock.report_picking.x_packaging_uom_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//span[@t-field='ml.product_uom_id']" position="replace">
         <span t-if="not move.product_packaging.x_packaging_uom_id" t-field="ml.product_uom_id" groups="uom.group_uom"/>
@@ -6083,7 +5944,6 @@ Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.co
 ### Aersolution  
 ID: `mint_system.stock.report_reception_report_label.aersolution`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="stock.report_reception_report_label.aersolution">
     <t t-call="web.basic_layout">
         <div class="page">
@@ -6107,7 +5967,6 @@ Source: [snippets/stock.report_reception_report_label.aersolution.xml](https://g
 ### Filter Active  
 ID: `mint_system.stock.search_product_lot_filter.filter_active`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.search_product_lot_filter" priority="50">
     <field name="product_id" position="after">
         <filter name="active" string="Archiviert" domain="[('active', '=', False)]"/>
@@ -6121,7 +5980,6 @@ Source: [snippets/stock.search_product_lot_filter.filter_active.xml](https://git
 ### Add Country Of Origin And Hs Code  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
     <xpath expr="///tr/td[1]/p/span[1]" position="after">
         <br/>
@@ -6145,7 +6003,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_country_
 ### Add Default Code  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//td[2]" position="after">
         <tr style="border-bottom: 1px solid rgb(220,220,220)">
@@ -6165,7 +6022,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_
 ### Add Drawing File  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//tr/td[1]/span[1]" position="after">
         <t t-if="aggregated_lines[line]['product'].drawing_file">
@@ -6184,7 +6040,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_
 ### Format Pos  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//t[@t-if='o.sale_id']/td" position="attributes">
         <attribute name="style">text-align: right; width: 5mm</attribute>
@@ -6200,7 +6055,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_pos.x
 ### Format Table  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//td[@name='move_line_aggregated_qty_done']" position="attributes">
         <attribute name="class">text-right</attribute>
@@ -6220,7 +6074,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_table
 ### Get Position  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="/t/tr/td[1]" position="before">
         <t t-if="o.purchase_id or o.sale_id">
@@ -6248,10 +6101,37 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`
 ```
 Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
 
+### Hs Code Origin And Weight  
+ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight`  
+```xml
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+
+    <xpath expr="/t/tr/td[1]/span" position="after">
+        <t t-if="aggregated_lines[line]['product'].hs_code">
+            <br/>
+            <span>HS Code: </span>
+            <span t-field="aggregated_lines[line]['product'].hs_code"/>
+        </t>
+        <t>
+            <br/>
+            <span>Country of Origin: </span>
+            <span t-field="o.product_id.country_of_origin_id.code"/>
+        </t>
+        <t t-if="aggregated_lines[line]['product'].weight">
+            <br/>
+            <span>Weight: </span>
+            <span t-field="aggregated_lines[line]['product'].weight"/>
+            <span t-field="aggregated_lines[line]['product'].weight_uom_id.display_name"/>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml)
+
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="/t/tr/td[1]" position="before">
         <td>
@@ -6267,7 +6147,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table
 ### Replace Description  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
     <xpath expr="//tr/td[2]" position="replace">
         <td>
@@ -6297,7 +6176,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_desc
 ### Replace Name  
 ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
     <xpath expr="//tr/td[1]/span[1]" position="replace">
         <strong>
@@ -6313,7 +6191,6 @@ Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name
 ### Barcode  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="//span[@t-field='move_line.lot_id.name']" position="after">
         <t t-set="barcode" t-value="move_line.lot_id.name"/>
@@ -6327,7 +6204,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.barcode.xml](
 ### Description Sale  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="//td[1]" position="replace">
         <td>
@@ -6347,7 +6223,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_s
 ### Get Position  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="//td[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
@@ -6364,7 +6239,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.get_position.
 ### Pos In Table  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="/t/td[1]" position="before">
         <td>
@@ -6380,7 +6254,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.
 ### Show Customer Info Product Code  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
     <xpath expr="//td[1]//span[1]" position="before">
         <t t-set="customer_info" t-value="move_line.product_id._select_customerinfo(partner=o.partner_id)"/>
@@ -6396,7 +6269,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.show_customer
 ### Style Tissa  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
     <xpath expr="//td[1]" position="before">
         <style>
@@ -6417,7 +6289,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.x
 ### X Hide On Delivery  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="55">
     <xpath expr="/t" position="replace">
         <t t-name="stock.stock_report_delivery_has_serial_move_line">
@@ -6455,7 +6326,6 @@ Source: [snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_del
 ### Sequence In Table  
 ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_kit_sections" priority="50">
     <xpath expr="//t[@t-set='kit_move_lines']" position="before">
         <span t-set="index" t-value="1"/>
@@ -6469,7 +6339,6 @@ Source: [snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml
 ### Add Package Info  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
     <xpath expr="/t/tr/td/span" position="before">
         <strong>Package: </strong>
@@ -6491,7 +6360,6 @@ Source: [snippets/stock.stock_report_delivery_package_section_line.add_package_i
 ### Add Type  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_type`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
     <xpath expr="/t/tr/td/span" position="before">
         <strong>Package: </strong>
@@ -6513,7 +6381,6 @@ Source: [snippets/stock.stock_report_delivery_package_section_line.add_type.xml]
 ### Set Color  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
     <xpath expr="/t/tr/td" position="attributes">
         <attribute name="class" separator=" " add="text-800"/>
@@ -6527,7 +6394,6 @@ Source: [snippets/stock.stock_report_delivery_package_section_line.set_color.xml
 ### Show Barcode  
 ID: `mint_system.stock.view_location_form.show_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_location_form" priority="50">
     <xpath expr="//group[@name='additional_info']//field[@name='replenish_location']" position="after">
         <field name="barcode"/>
@@ -6540,7 +6406,6 @@ Source: [snippets/stock.view_location_form.show_barcode.xml](https://github.com/
 ### Show Id  
 ID: `mint_system.stock.view_location_form.show_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_location_form" priority="50">
     <xpath expr="//group[@name='additional_info']//field[@name='replenish_location']" position="after">
         <field name="id"/>
@@ -6554,7 +6419,6 @@ Source: [snippets/stock.view_location_form.show_id.xml](https://github.com/Mint-
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_form.enable_edit_and_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <form position="attributes">
         <attribute name="create">1</attribute>
@@ -6568,7 +6432,6 @@ Source: [snippets/stock.view_move_form.enable_edit_and_create.xml](https://githu
 ### Show Immediate Transfer  
 ID: `mint_system.stock.view_move_form.show_immediate_transfer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="move_type" position="after">
         <field name="immediate_transfer"/>
@@ -6581,7 +6444,6 @@ Source: [snippets/stock.view_move_form.show_immediate_transfer.xml](https://gith
 ### Show Locations  
 ID: `mint_system.stock.view_move_form.show_locations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <xpath expr="//field[@name='move_ids_without_package']//field[@name='product_id']" position="after">
         <field name="location_id"/>
@@ -6595,7 +6457,6 @@ Source: [snippets/stock.view_move_form.show_locations.xml](https://github.com/Mi
 ### Show Lot Ids  
 ID: `mint_system.stock.view_move_form.show_lot_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="move_dest_ids" position="after">
         <field name="lot_ids"/>
@@ -6608,7 +6469,6 @@ Source: [snippets/stock.view_move_form.show_lot_ids.xml](https://github.com/Mint
 ### Show Move Finished Ids  
 ID: `mint_system.stock.view_move_form.show_move_finished_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <xpath expr="//field[@name='procure_method']" position="after">
         <field name="move_finished_ids"/>
@@ -6621,7 +6481,6 @@ Source: [snippets/stock.view_move_form.show_move_finished_ids.xml](https://githu
 ### Show Move Lines  
 ID: `mint_system.stock.view_move_form.show_move_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <group name="origin_grp" position="before">
         <group name="move_lines">
@@ -6644,7 +6503,6 @@ Source: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/M
 ### Show Order Finished Lot Ids  
 ID: `mint_system.stock.view_move_form.show_order_finished_lot_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="move_dest_ids" position="after">
         <field name="order_finished_lot_ids"/>
@@ -6657,7 +6515,6 @@ Source: [snippets/stock.view_move_form.show_order_finished_lot_ids.xml](https://
 ### Show Packaging  
 ID: `mint_system.stock.view_move_form.show_packaging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="name" position="before">
         <field name="product_packaging"/>
@@ -6670,7 +6527,6 @@ Source: [snippets/stock.view_move_form.show_packaging.xml](https://github.com/Mi
 ### Show Partner  
 ID: `mint_system.stock.view_move_form.show_partner`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <xpath expr="//field[@name='move_ids_without_package']//field[@name='product_id']" position="after">
         <field name="partner_id"/>
@@ -6683,7 +6539,6 @@ Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint
 ### Show Picking Code  
 ID: `mint_system.stock.view_move_form.show_picking_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="origin" position="after">
         <field name="picking_code"/>
@@ -6696,7 +6551,6 @@ Source: [snippets/stock.view_move_form.show_picking_code.xml](https://github.com
 ### Show Picking Id  
 ID: `mint_system.stock.view_move_form.show_picking_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="origin" position="after">
         <field name="picking_id"/>
@@ -6709,7 +6563,6 @@ Source: [snippets/stock.view_move_form.show_picking_id.xml](https://github.com/M
 ### Show Production  
 ID: `mint_system.stock.view_move_form.show_production`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <xpath expr="//field[@name='procure_method']" position="after">
         <field name="production_id"/>
@@ -6722,7 +6575,6 @@ Source: [snippets/stock.view_move_form.show_production.xml](https://github.com/M
 ### Show Quantity Done  
 ID: `mint_system.stock.view_move_form.show_quantity_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="name" position="before">
         <field name="quantity_done"/>
@@ -6735,7 +6587,6 @@ Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.co
 ### Show Reservation Date  
 ID: `mint_system.stock.view_move_form.show_reservation_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="date_deadline" position="after">
         <field name="reservation_date"/>
@@ -6748,7 +6599,6 @@ Source: [snippets/stock.view_move_form.show_reservation_date.xml](https://github
 ### Show Stock Valuation Layer Ids  
 ID: `mint_system.stock.view_move_form.show_stock_valuation_layer_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_form" priority="50">
     <field name="move_dest_ids" position="after">
         <field name="stock_valuation_layer_ids"/>
@@ -6762,7 +6612,6 @@ Source: [snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml](https
 ### Enable Edit And Create  
 ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
     <form position="attributes">
         <attribute name="create">1</attribute>
@@ -6776,7 +6625,6 @@ Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://
 ### Show Move Id  
 ID: `mint_system.stock.view_move_line_form.show_move_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
     <field name="origin" position="after">
         <field name="move_id"/>
@@ -6789,7 +6637,6 @@ Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com
 ### Show Product Qty  
 ID: `mint_system.stock.view_move_line_form.show_product_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_form" priority="50">
     <field name="lot_id" position="before">
         <field name="product_qty"/>
@@ -6803,7 +6650,6 @@ Source: [snippets/stock.view_move_line_form.show_product_qty.xml](https://github
 ### Enable Create  
 ID: `mint_system.stock.view_move_line_tree.enable_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_line_tree" priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
@@ -6817,7 +6663,6 @@ Source: [snippets/stock.view_move_line_tree.enable_create.xml](https://github.co
 ### Add Partner  
 ID: `mint_system.stock.view_move_tree.add_partner`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="location_dest_id" position="after">
         <field name="partner_id" optional="hide"/>
@@ -6830,7 +6675,6 @@ Source: [snippets/stock.view_move_tree.add_partner.xml](https://github.com/Mint-
 ### Add Picking Partner  
 ID: `mint_system.stock.view_move_tree.add_picking_partner`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="location_dest_id" position="after">
         <field name="picking_partner_id" optional="hide"/>
@@ -6843,7 +6687,6 @@ Source: [snippets/stock.view_move_tree.add_picking_partner.xml](https://github.c
 ### Enable Create  
 ID: `mint_system.stock.view_move_tree.enable_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
@@ -6856,7 +6699,6 @@ Source: [snippets/stock.view_move_tree.enable_create.xml](https://github.com/Min
 ### Show Create Details  
 ID: `mint_system.stock.view_move_tree.show_create_details`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="date" position="after">
         <field name="create_date" optional="hide"/>
@@ -6869,7 +6711,6 @@ Source: [snippets/stock.view_move_tree.show_create_details.xml](https://github.c
 ### Show Date  
 ID: `mint_system.stock.view_move_tree.show_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="date" position="attributes">
         <attribute name="groups"/>
@@ -6882,7 +6723,6 @@ Source: [snippets/stock.view_move_tree.show_date.xml](https://github.com/Mint-Sy
 ### Show Optional  
 ID: `mint_system.stock.view_move_tree.show_optional`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="product_uom_qty" position="attributes">
         <attribute name="optional">hide</attribute>
@@ -6895,7 +6735,6 @@ Source: [snippets/stock.view_move_tree.show_optional.xml](https://github.com/Min
 ### Show Reservation Date  
 ID: `mint_system.stock.view_move_tree.show_reservation_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="location_dest_id" position="after">
         <field name="reservation_date" optional="hide"/>
@@ -6908,7 +6747,6 @@ Source: [snippets/stock.view_move_tree.show_reservation_date.xml](https://github
 ### Sort Date  
 ID: `mint_system.stock.view_move_tree.sort_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <tree position="attributes">
         <attribute name="default_order">date desc</attribute>
@@ -6921,7 +6759,6 @@ Source: [snippets/stock.view_move_tree.sort_date.xml](https://github.com/Mint-Sy
 ### X Operation Qty  
 ID: `mint_system.stock.view_move_tree.x_operation_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="product_uom_qty" position="after">
         <field name="x_operation_qty" sum="Inventar Total"/>
@@ -6934,7 +6771,6 @@ Source: [snippets/stock.view_move_tree.x_operation_qty.xml](https://github.com/M
 ### X Picking Partner  
 ID: `mint_system.stock.view_move_tree.x_picking_partner`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_move_tree" priority="50">
     <field name="location_dest_id" position="after">
         <field name="x_picking_partner_id" optional="hide"/>
@@ -6948,7 +6784,6 @@ Source: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com
 ### Hide Fields  
 ID: `mint_system.stock.view_picking_form.hide_fields`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//button[@name='button_validate']" position="attributes">
         <attribute name="attrs">{'invisible': ['|', '|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False), ('started', '=', False)]}</attribute>
@@ -6961,7 +6796,6 @@ Source: [snippets/stock.view_picking_form.hide_fields.xml](https://github.com/Mi
 ### Modify Invisible Button Validate  
 ID: `mint_system.stock.view_picking_form.modify_invisible_button_validate`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//button[@name='button_validate']" position="attributes">
         <attribute name="attrs">{'invisible': ['|', '|', ('state', 'in', ('waiting','confirmed')), ('show_validate', '=', False), ('started', '=', False)]}</attribute>
@@ -6974,7 +6808,6 @@ Source: [snippets/stock.view_picking_form.modify_invisible_button_validate.xml](
 ### Modify Readonly Date Done  
 ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='date_done']" position="attributes">
         <attribute name="attrs">{'invisible': [('state', '!=', 'done')], 'readonly': [('is_locked', '=', True)]}</attribute>
@@ -6987,7 +6820,6 @@ Source: [snippets/stock.view_picking_form.modify_readonly_date_done.xml](https:/
 ### Modify Readonly Partner Id  
 ID: `mint_system.stock.view_picking_form.modify_readonly_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='partner_id']" position="attributes">
         <attribute name="attrs">{'readonly': ['|',('is_locked', '=', True), ('state', 'in' ,[('done', 'cancel')])]}</attribute>
@@ -7000,7 +6832,6 @@ Source: [snippets/stock.view_picking_form.modify_readonly_partner_id.xml](https:
 ### Modify Readonly User Id  
 ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="attributes">
         <attribute name="attrs">{'readonly': ['|',('is_locked', '=', True), ('state', 'in' ,[('done', 'cancel')])]}</attribute>
@@ -7013,7 +6844,6 @@ Source: [snippets/stock.view_picking_form.modify_readonly_user_id.xml](https://g
 ### Move Detailed Operations Page  
 ID: `mint_system.stock.view_picking_form.move_detailed_operations_page`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//page[@name='detailed_operations']" position="before">
         <xpath expr="//page[@name='operations']" position="move"/>
@@ -7026,7 +6856,6 @@ Source: [snippets/stock.view_picking_form.move_detailed_operations_page.xml](htt
 ### Scheduled Date Readonly  
 ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='scheduled_date']" position="attributes">
         <attribute name="attrs">{'readonly': True}</attribute>
@@ -7039,7 +6868,6 @@ Source: [snippets/stock.view_picking_form.scheduled_date_readonly.xml](https://g
 ### Sequence Handle  
 ID: `mint_system.stock.view_picking_form.sequence_handle`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='display_assign_serial']" position="after">
         <field name="sequence" widget="handle"/>
@@ -7052,7 +6880,6 @@ Source: [snippets/stock.view_picking_form.sequence_handle.xml](https://github.co
 ### Show Date  
 ID: `mint_system.stock.view_picking_form.show_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//field[@name='date']" position="attributes">
         <attribute name="invisible">0</attribute>
@@ -7065,7 +6892,6 @@ Source: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint
 ### Show Details Visible  
 ID: `mint_system.stock.view_picking_form.show_details_visible`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//button[@name='action_show_details']" position="attributes">
         <attribute name="attrs"/>
@@ -7078,7 +6904,6 @@ Source: [snippets/stock.view_picking_form.show_details_visible.xml](https://gith
 ### Show Move Line Ids  
 ID: `mint_system.stock.view_picking_form.show_move_line_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="backorder_id" position="after">
         <field name="move_line_ids"/>
@@ -7091,7 +6916,6 @@ Source: [snippets/stock.view_picking_form.show_move_line_ids.xml](https://github
 ### Show Weight  
 ID: `mint_system.stock.view_picking_form.show_weight`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="product_uom" position="after">
         <field name="weight" optional="hide"/>
@@ -7104,7 +6928,6 @@ Source: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mi
 ### X As4 Import  
 ID: `mint_system.stock.view_picking_form.x_as4_import`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <xpath expr="//group[@name='other_infos']" position="inside">
         <field name="x_as4_import"/>
@@ -7117,7 +6940,6 @@ Source: [snippets/stock.view_picking_form.x_as4_import.xml](https://github.com/M
 ### X Autocomplete  
 ID: `mint_system.stock.view_picking_form.x_autocomplete`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="date_deadline" position="before">
         <field name="x_autocomplete" attrs="{'invisible': ['|', ('picking_type_code', '!=', 'incoming'), ('state', '=', 'done')]}"/>
@@ -7130,7 +6952,6 @@ Source: [snippets/stock.view_picking_form.x_autocomplete.xml](https://github.com
 ### X Client Order Ref  
 ID: `mint_system.stock.view_picking_form.x_client_order_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="origin" position="after">
         <field name="x_client_order_ref"/>
@@ -7143,7 +6964,6 @@ Source: [snippets/stock.view_picking_form.x_client_order_ref.xml](https://github
 ### X Count Boxes  
 ID: `mint_system.stock.view_picking_form.x_count_boxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="product_uom" position="after">
         <field name="x_count_boxes" optional="show"/>
@@ -7156,7 +6976,6 @@ Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/
 ### X Date Done  
 ID: `mint_system.stock.view_picking_form.x_date_done`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="date_deadline" position="before">
         <field name="x_date_done"/>
@@ -7168,7 +6987,6 @@ Source: [snippets/stock.view_picking_form.x_date_done.xml](https://github.com/Mi
 ### X Date Order  
 ID: `mint_system.stock.view_picking_form.x_date_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="origin" position="after">
         <field name="x_date_order"/>
@@ -7181,7 +6999,6 @@ Source: [snippets/stock.view_picking_form.x_date_order.xml](https://github.com/M
 ### X Label Qty  
 ID: `mint_system.stock.view_picking_form.x_label_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="product_uom" position="after">
         <field name="x_label_qty" optional="show"/>
@@ -7194,7 +7011,6 @@ Source: [snippets/stock.view_picking_form.x_label_qty.xml](https://github.com/Mi
 ### X Name  
 ID: `mint_system.stock.view_picking_form.x_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="partner_id" position="before">
         <field name="x_name"/>
@@ -7206,7 +7022,6 @@ Source: [snippets/stock.view_picking_form.x_name.xml](https://github.com/Mint-Sy
 ### X Vst  
 ID: `mint_system.stock.view_picking_form.x_vst`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_form" priority="50">
     <field name="origin" position="after">
         <field name="x_vst"/>
@@ -7220,7 +7035,6 @@ Source: [snippets/stock.view_picking_form.x_vst.xml](https://github.com/Mint-Sys
 ### Filter Groupby Expected Date  
 ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_internal_search" priority="50">
     <filter name="expected_date" position="after">
         <filter string="Scheduled Date by Day" name="expected_date_day" domain="[]" context="{'group_by': 'scheduled_date:day'}"/>
@@ -7233,7 +7047,6 @@ Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_dat
 ### Filter X Client Order Ref  
 ID: `mint_system.stock.view_picking_internal_search.filter_x_client_order_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_picking_internal_search" priority="50">
     <filter name="starred" position="after">
         <field string="Bestellnummer Kunde" name="x_client_order_ref" filter_domain="[('x_client_order_ref', 'ilike', self)]"/>
@@ -7247,7 +7060,6 @@ Source: [snippets/stock.view_picking_internal_search.filter_x_client_order_ref.x
 ### X Autoremove  
 ID: `mint_system.stock.view_production_lot_form.x_autoremove`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_form" priority="50">
     <field name="removal_date" position="after">
         <field name="x_autoremove"/>
@@ -7273,7 +7085,6 @@ Source: [snippets/stock.view_production_lot_form.x_device_name.xml](https://gith
 ### X Forcepoint  
 ID: `mint_system.stock.view_production_lot_form.x_forcepoint`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_form" priority="50">
     <field name="ref" position="after">
         <field name="x_forcepoint_pos"/>
@@ -7339,7 +7150,6 @@ Source: [snippets/stock.view_production_lot_form.x_managed_service.xml](https://
 ### X Production Id  
 ID: `mint_system.stock.view_production_lot_form.x_production_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_form" priority="50">
     <xpath expr="//group[@name='main_group']/group/div" position="after">
         <field name="x_production_id" readonly="1"/>
@@ -7352,7 +7162,6 @@ Source: [snippets/stock.view_production_lot_form.x_production_id.xml](https://gi
 ### X Weight Uom  
 ID: `mint_system.stock.view_production_lot_form.x_weight_uom`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_form" priority="50">
     <xpath expr="//group[@name='main_group']/group/div" position="after">
         <field name="x_weight_uom" readonly="1"/>
@@ -7366,7 +7175,6 @@ Source: [snippets/stock.view_production_lot_form.x_weight_uom.xml](https://githu
 ### Show Qty  
 ID: `mint_system.stock.view_production_lot_tree.show_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_tree" priority="50">
     <field name="product_id" position="after">
         <field name="product_qty"/>
@@ -7380,7 +7188,6 @@ Source: [snippets/stock.view_production_lot_tree.show_qty.xml](https://github.co
 ### Edit Reserved Qty  
 ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_move_line_operation_tree" priority="50">
     <field name="product_uom_qty" position="attributes">
         <attribute name="readonly">0</attribute>
@@ -7394,7 +7201,6 @@ Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xm
 ### Edit Enable  
 ID: `mint_system.stock.view_stock_quant_form_editable.edit_enable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_form_editable" priority="50">
     <form position="attributes">
         <attribute name="edit">true</attribute>
@@ -7408,7 +7214,6 @@ Source: [snippets/stock.view_stock_quant_form_editable.edit_enable.xml](https://
 ### Add Estimated Pack Weight Kg  
 ID: `mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_package_form" priority="50">
     <xpath expr="//span[@class='text-muted'][1]" position="replace">
         <span class="text-muted">(computed: <field name="estimated_pack_weight_kg" nolabel="1"/>
@@ -7420,10 +7225,21 @@ ID: `mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_k
 Source: [snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml)
 
 ## View Stock Quant Tree Editable  
+### Enable Delete  
+ID: `mint_system.stock.view_stock_quant_tree_editable.enable_delete`  
+```xml
+<data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
+    <tree position="attributes">
+        <attribute name="delete">1</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_tree_editable.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_quant_tree_editable.enable_delete.xml)
+
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
     <field name="inventory_quantity" position="after">
         <field name="reserved_quantity"/>
@@ -7436,7 +7252,6 @@ Source: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xm
 ### X Expiration Date  
 ID: `mint_system.stock.view_stock_quant_tree_editable.x_expiration_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
     <field name="removal_date" position="after">
         <field name="x_expiration_date" optional="show"/>
@@ -7447,10 +7262,21 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.x_expiration_date`
 Source: [snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml)
 
 ## View Stock Quant Tree  
+### Enable Delete  
+ID: `mint_system.stock.view_stock_quant_tree.enable_delete`  
+```xml
+<data inherit_id="stock.view_stock_quant_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="delete">1</attribute>
+    </tree>
+</data>
+
+```
+Source: [snippets/stock.view_stock_quant_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_stock_quant_tree.enable_delete.xml)
+
 ### Show Reserved Quantity  
 ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_stock_quant_tree" priority="50">
     <field name="available_quantity" position="after">
         <field name="reserved_quantity"/>
@@ -7464,7 +7290,6 @@ Source: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https:
 ### Show Lead Days Date  
 ID: `mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.view_warehouse_orderpoint_tree_editable" priority="50">
     <field name="json_lead_days_popover" position="after">
         <field name="lead_days_date"/>
@@ -7478,7 +7303,6 @@ Source: [snippets/stock.view_warehouse_orderpoint_tree_editable.show_lead_days_d
 ### Add Weight Uom Name  
 ID: `mint_system.stock.vpicktree.add_weight_uom_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='weight']" position="replace">
         <field name="weight"/>
@@ -7492,7 +7316,6 @@ Source: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mi
 ### Default Order Name  
 ID: `mint_system.stock.vpicktree.default_order_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <tree position="attributes">
         <attribute name="default_order">name desc</attribute>
@@ -7505,7 +7328,6 @@ Source: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Min
 ### Format Date Deadline  
 ID: `mint_system.stock.vpicktree.format_date_deadline`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='date_deadline']" position="attributes">
         <attribute name="widget">date</attribute>
@@ -7518,7 +7340,6 @@ Source: [snippets/stock.vpicktree.format_date_deadline.xml](https://github.com/M
 ### Format Scheduled Date  
 ID: `mint_system.stock.vpicktree.format_scheduled_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='scheduled_date']" position="attributes">
         <attribute name="widget">date</attribute>
@@ -7531,7 +7352,6 @@ Source: [snippets/stock.vpicktree.format_scheduled_date.xml](https://github.com/
 ### Modify Invisible Scheduled Date  
 ID: `mint_system.stock.vpicktree.modify_invisible_scheduled_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='scheduled_date']" position="attributes">
         <attribute name="attrs">{'invisible': [('state', 'in' , 'cancel')]}</attribute>
@@ -7544,7 +7364,6 @@ Source: [snippets/stock.vpicktree.modify_invisible_scheduled_date.xml](https://g
 ### Show Delivery Note  
 ID: `mint_system.stock.vpicktree.show_delivery_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='partner_id']" position="after">
         <field name="delivery_note" optional="show"/>
@@ -7557,7 +7376,6 @@ Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Min
 ### Started  
 ID: `mint_system.stock.vpicktree.started`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="started"/>
@@ -7570,7 +7388,6 @@ Source: [snippets/stock.vpicktree.started.xml](https://github.com/Mint-System/Od
 ### Weight Sum  
 ID: `mint_system.stock.vpicktree.weight_sum`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='weight']" position="attributes">
         <attribute name="sum"/>
@@ -7583,7 +7400,6 @@ Source: [snippets/stock.vpicktree.weight_sum.xml](https://github.com/Mint-System
 ### X Client Order Ref  
 ID: `mint_system.stock.vpicktree.x_client_order_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="client_order_ref" optional="show"/>
@@ -7596,7 +7412,6 @@ Source: [snippets/stock.vpicktree.x_client_order_ref.xml](https://github.com/Min
 ### X Date Order  
 ID: `mint_system.stock.vpicktree.x_date_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="x_date_order" optional="show"/>
@@ -7609,7 +7424,6 @@ Source: [snippets/stock.vpicktree.x_date_order.xml](https://github.com/Mint-Syst
 ### X Origin  
 ID: `mint_system.stock.vpicktree.x_origin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='x_origin']" position="replace">
         <field name="x_origin"/>
@@ -7622,7 +7436,6 @@ Source: [snippets/stock.vpicktree.x_origin.xml](https://github.com/Mint-System/O
 ### X Vst  
 ID: `mint_system.stock.vpicktree.x_vst`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="stock.vpicktree" priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="x_vst"/>

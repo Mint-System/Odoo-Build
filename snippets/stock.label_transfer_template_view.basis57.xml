@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <t t-name="stock.label_transfer_template_view.basis57">
     <t t-call="web.basic_layout">
         <style>

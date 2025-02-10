@@ -3,7 +3,6 @@
 ### Hide Enrich Revenue  
 ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="crm_iap_lead_enrich.crm_lead_view_form" priority="50">
     <xpath position="replace">
   </xpath>

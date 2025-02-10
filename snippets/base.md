@@ -3,7 +3,6 @@
 ### Format Parent Name  
 ID: `mint_system.base.contact_name.format_parent_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.contact_name" priority="50">
     <xpath expr="//t[1]/span" position="replace">
         <!--if object has no parent show name only-->
@@ -29,7 +28,6 @@ Source: [snippets/base.contact_name.format_parent_name.xml](https://github.com/M
 ### Modify Name  
 ID: `mint_system.base.contact_name.modify_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.contact_name" priority="50">
     <xpath expr="//div" position="replace">
         <t t-if="object.parent_name">
@@ -55,7 +53,6 @@ Source: [snippets/base.contact_name.modify_name.xml](https://github.com/Mint-Sys
 ### Remove Parent Name  
 ID: `mint_system.base.contact_name.remove_parent_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.contact_name" priority="50">
     <xpath expr="//t[2]" position="replace"/>
     <xpath expr="//span[@itemprop='name']" position="attributes">
@@ -70,7 +67,6 @@ Source: [snippets/base.contact_name.remove_parent_name.xml](https://github.com/M
 ### Show Ir Actions Server Id  
 ID: `mint_system.base.ir_cron_view_tree.show_ir_actions_server_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.ir_cron_view_tree" priority="50">
     <field name="model_id" position="after">
         <field name="ir_actions_server_id" optional="hide"/>
@@ -84,7 +80,6 @@ Source: [snippets/base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://
 ### Remove Domain Widget  
 ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.ir_filters_view_form" priority="50">
     <field name="domain" position="attributes">
         <attribute name="widget"/>
@@ -98,7 +93,6 @@ Source: [snippets/base.ir_filters_view_form.remove_domain_widget.xml](https://gi
 ### Group Erp System  
 ID: `mint_system.base.module_view_kanban.group_erp_system`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.module_view_kanban" priority="50">
     <button name="button_immediate_install" position="attributes">
         <attribute name="groups">base.group_erp_manager</attribute>
@@ -121,7 +115,6 @@ Source: [snippets/base.module_view_kanban.group_erp_system.xml](https://github.c
 ### Add Zip Bic Code City  
 ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_bank_view_search" priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <separator/>
@@ -139,7 +132,6 @@ Source: [snippets/base.res_bank_view_search.add_zip_bic_code_city.xml](https://g
 ### Show Agreements Count  
 ID: `mint_system.base.res_partner_kanban_view.show_agreements_count`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//kanban/field[@name='type']" position="after">
         <field name="agreements_count"/>
@@ -162,7 +154,6 @@ Source: [snippets/base.res_partner_kanban_view.show_agreements_count.xml](https:
 ### Show Phone  
 ID: `mint_system.base.res_partner_kanban_view.show_phone`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//li/field[@name='email']/.." position="before">
         <li t-if="record.phone.raw_value" class="o_text_overflow">
@@ -195,7 +186,6 @@ Source: [snippets/base.res_partner_kanban_view.show_pricelist.xml](https://githu
 ### Show Website  
 ID: `mint_system.base.res_partner_kanban_view.show_website`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//li/field[@name='email']/.." position="after">
         <li t-if="record.website.raw_value" class="o_text_overflow">
@@ -210,7 +200,6 @@ Source: [snippets/base.res_partner_kanban_view.show_website.xml](https://github.
 ### X Eori  
 ID: `mint_system.base.res_partner_kanban_view.x_eori`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
@@ -224,7 +213,6 @@ Source: [snippets/base.res_partner_kanban_view.x_eori.xml](https://github.com/Mi
 ### X Schema  
 ID: `mint_system.base.res_partner_kanban_view.x_schema`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']" position="before">
         <field name="x_schema" widget="badge"/>
@@ -238,7 +226,6 @@ Source: [snippets/base.res_partner_kanban_view.x_schema.xml](https://github.com/
 ### X Vat  
 ID: `mint_system.base.res_partner_kanban_view.x_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
@@ -252,7 +239,6 @@ Source: [snippets/base.res_partner_kanban_view.x_vat.xml](https://github.com/Min
 ### X Zaz  
 ID: `mint_system.base.res_partner_kanban_view.x_zaz`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.res_partner_kanban_view" priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
@@ -267,7 +253,6 @@ Source: [snippets/base.res_partner_kanban_view.x_zaz.xml](https://github.com/Min
 ### Remove Fleet Groups  
 ID: `mint_system.base.user_groups_view.remove_fleet_groups`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.user_groups_view" priority="50">
     <field name="in_group_154" position="replace"/>
     <field name="in_group_153" position="replace"/>
@@ -280,7 +265,6 @@ Source: [snippets/base.user_groups_view.remove_fleet_groups.xml](https://github.
 ### Add Display Name  
 ID: `mint_system.base.view_bank_form.add_display_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_bank_form" priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="display_name"/>
@@ -294,7 +278,6 @@ Source: [snippets/base.view_bank_form.add_display_name.xml](https://github.com/M
 ### Show Account Onboarding Panel  
 ID: `mint_system.base.view_company_form.show_account_onboarding_panel`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
     <field name="website" position="after">
         <field name="account_dashboard_onboarding_state"/>
@@ -307,7 +290,6 @@ Source: [snippets/base.view_company_form.show_account_onboarding_panel.xml](http
 ### Show Analytic Plan Id  
 ID: `mint_system.base.view_company_form.show_analytic_plan_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
     <field name="website" position="after">
         <field name="analytic_plan_id"/>
@@ -320,7 +302,6 @@ Source: [snippets/base.view_company_form.show_analytic_plan_id.xml](https://gith
 ### Show Font  
 ID: `mint_system.base.view_company_form.show_font`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_company_form" priority="50">
     <field name="favicon" position="after">
         <field name="font"/>
@@ -334,7 +315,6 @@ Source: [snippets/base.view_company_form.show_font.xml](https://github.com/Mint-
 ### Set Limit  
 ID: `mint_system.base.view_country_tree.set_limit`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_country_tree" priority="50">
     <tree position="attributes">
         <attribute name="limit">250</attribute>
@@ -348,7 +328,6 @@ Source: [snippets/base.view_country_tree.set_limit.xml](https://github.com/Mint-
 ### Show State  
 ID: `mint_system.base.view_model_fields_form.show_state`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_model_fields_form" priority="50">
     <field name="ttype" position="after">
         <field name="state"/>
@@ -362,7 +341,6 @@ Source: [snippets/base.view_model_fields_form.show_state.xml](https://github.com
 ### Add Commercial Partner Id  
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='bank_ids']/.." position="before">
         <group>
@@ -377,7 +355,6 @@ Source: [snippets/base.view_partner_form.add_commercial_partner_id.xml](https://
 ### Add Credit Limit  
 ID: `mint_system.base.view_partner_form.add_credit_limit`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='property_account_payable_id']" position="after">
         <field name="credit_limit"/>
@@ -392,7 +369,6 @@ Source: [snippets/base.view_partner_form.add_credit_limit.xml](https://github.co
 ### Add Department And Lang On Page Contact Addresses  
 ID: `mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="52">&gt;
 
 <data><xpath expr="//page[@name='contact_addresses']/field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[1]/field[@name='comment']" position="before"><field name="department"/><field name="lang"/></xpath></data>
@@ -405,7 +381,6 @@ Source: [snippets/base.view_partner_form.add_department_and_lang_on_page_contact
 ### Add Display Name  
 ID: `mint_system.base.view_partner_form.add_display_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="display_name"/>
@@ -418,7 +393,6 @@ Source: [snippets/base.view_partner_form.add_display_name.xml](https://github.co
 ### Attributes Child Ids  
 ID: `mint_system.base.view_partner_form.attributes_child_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='child_ids']" position="attributes">
         <attribute name="mode">tree</attribute>
@@ -431,7 +405,6 @@ Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://githu
 ### Hide Meeting  
 ID: `mint_system.base.view_partner_form.hide_meeting`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//button[@name='schedule_meeting']" position="attributes">
         <attribute name="invisible">1</attribute>
@@ -444,7 +417,6 @@ Source: [snippets/base.view_partner_form.hide_meeting.xml](https://github.com/Mi
 ### Hide Opportunity  
 ID: `mint_system.base.view_partner_form.hide_opportunity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
         <attribute name="invisible">1</attribute>
@@ -457,7 +429,6 @@ Source: [snippets/base.view_partner_form.hide_opportunity.xml](https://github.co
 ### Lang Required  
 ID: `mint_system.base.view_partner_form.lang_required`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//sheet/group/group/field[@name='lang']" position="attributes">
         <attribute name="required">1</attribute>
@@ -470,7 +441,6 @@ Source: [snippets/base.view_partner_form.lang_required.xml](https://github.com/M
 ### Move Company Registry  
 ID: `mint_system.base.view_partner_form.move_company_registry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <xpath expr="//page[@name='sales_purchases']//field[@name='company_registry']" position="move"/>
@@ -483,7 +453,6 @@ Source: [snippets/base.view_partner_form.move_company_registry.xml](https://gith
 ### Move Property Product Pricelist  
 ID: `mint_system.base.view_partner_form.move_property_product_pricelist`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='property_product_pricelist']" position="replace"/>
     <xpath expr="//field[@name='vat']" position="after">
@@ -500,7 +469,6 @@ Source: [snippets/base.view_partner_form.move_property_product_pricelist.xml](ht
 ### Move Ref  
 ID: `mint_system.base.view_partner_form.move_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
@@ -518,7 +486,6 @@ Source: [snippets/base.view_partner_form.move_ref.xml](https://github.com/Mint-S
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_form.move_zip_and_city`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='city']" position="replace"/>
     <xpath expr="//field[@name='state_id']" position="replace"/>
@@ -536,7 +503,6 @@ Source: [snippets/base.view_partner_form.move_zip_and_city.xml](https://github.c
 ### Readonly Property Product Pricelist  
 ID: `mint_system.base.view_partner_form.readonly_property_product_pricelist`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='property_product_pricelist']" position="attributes">
         <attribute name="readonly">1</attribute>
@@ -549,7 +515,6 @@ Source: [snippets/base.view_partner_form.readonly_property_product_pricelist.xml
 ### Remove Smart Buttons  
 ID: `mint_system.base.view_partner_form.remove_smart_buttons`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <button name="schedule_meeting" position="replace"/>
     <button name="action_view_opportunity" position="replace"/>
@@ -568,7 +533,6 @@ Source: [snippets/base.view_partner_form.remove_smart_buttons.xml](https://githu
 ### Show Color  
 ID: `mint_system.base.view_partner_form.show_color`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="color" widget="color_picker"/>
@@ -581,7 +545,6 @@ Source: [snippets/base.view_partner_form.show_color.xml](https://github.com/Mint
 ### Show Industry  
 ID: `mint_system.base.view_partner_form.show_industry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='industry_id']" position="attributes">
         <attribute name="attrs">{'invisible': False}</attribute>
@@ -594,7 +557,6 @@ Source: [snippets/base.view_partner_form.show_industry.xml](https://github.com/M
 ### Show Type  
 ID: `mint_system.base.view_partner_form.show_type`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='street']" position="before">
         <field name="type" readonly="1"/>
@@ -607,7 +569,6 @@ Source: [snippets/base.view_partner_form.show_type.xml](https://github.com/Mint-
 ### Show User Ids  
 ID: `mint_system.base.view_partner_form.show_user_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//page[@name='internal_notes']" position="inside">
         <field name="user_ids"/>
@@ -620,7 +581,6 @@ Source: [snippets/base.view_partner_form.show_user_ids.xml](https://github.com/M
 ### Show User Id  
 ID: `mint_system.base.view_partner_form.show_user_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//page[@name='internal_notes']" position="inside">
         <field name="user_id"/>
@@ -633,7 +593,6 @@ Source: [snippets/base.view_partner_form.show_user_id.xml](https://github.com/Mi
 ### X Bexioid  
 ID: `mint_system.base.view_partner_form.x_bexioid`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_bexioid" readonly="1"/>
@@ -649,7 +608,6 @@ Source: [snippets/base.view_partner_form.x_bexioid.xml](https://github.com/Mint-
 ### X Birthdate  
 ID: `mint_system.base.view_partner_form.x_birthdate`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_birthdate" attrs="{'invisible': [('is_company','=',True)]}"/>
@@ -662,7 +620,6 @@ Source: [snippets/base.view_partner_form.x_birthdate.xml](https://github.com/Min
 ### X Created On  
 ID: `mint_system.base.view_partner_form.x_created_on`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_created_on"/>
@@ -675,7 +632,6 @@ Source: [snippets/base.view_partner_form.x_created_on.xml](https://github.com/Mi
 ### X Eori  
 ID: `mint_system.base.view_partner_form.x_eori`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_eori"/>
@@ -688,7 +644,6 @@ Source: [snippets/base.view_partner_form.x_eori.xml](https://github.com/Mint-Sys
 ### X External Ref  
 ID: `mint_system.base.view_partner_form.x_external_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_external_ref"/>
@@ -701,7 +656,6 @@ Source: [snippets/base.view_partner_form.x_external_ref.xml](https://github.com/
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_form.x_global_location_number`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
@@ -717,7 +671,6 @@ Source: [snippets/base.view_partner_form.x_global_location_number.xml](https://g
 ### X Packaging Ref  
 ID: `mint_system.base.view_partner_form.x_packaging_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='ref']" position="after">
         <field name="x_packaging_ref"/>
@@ -730,7 +683,6 @@ Source: [snippets/base.view_partner_form.x_packaging_ref.xml](https://github.com
 ### X Privacy Visibility  
 ID: `mint_system.base.view_partner_form.x_privacy_visibility`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="x_privacy_visibility"/>
@@ -743,7 +695,6 @@ Source: [snippets/base.view_partner_form.x_privacy_visibility.xml](https://githu
 ### X Schema  
 ID: `mint_system.base.view_partner_form.x_schema`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="x_schema"/>
@@ -756,7 +707,6 @@ Source: [snippets/base.view_partner_form.x_schema.xml](https://github.com/Mint-S
 ### X Vat  
 ID: `mint_system.base.view_partner_form.x_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_vat"/>
@@ -769,7 +719,6 @@ Source: [snippets/base.view_partner_form.x_vat.xml](https://github.com/Mint-Syst
 ### X Vst  
 ID: `mint_system.base.view_partner_form.x_vst`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_vst"/>
@@ -785,7 +734,6 @@ Source: [snippets/base.view_partner_form.x_vst.xml](https://github.com/Mint-Syst
 ### X Zaz  
 ID: `mint_system.base.view_partner_form.x_zaz`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_form" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_zaz"/>
@@ -799,7 +747,6 @@ Source: [snippets/base.view_partner_form.x_zaz.xml](https://github.com/Mint-Syst
 ### Add Ref Zip Type  
 ID: `mint_system.base.view_partner_tree.add_ref_zip_type`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <xpath expr="//field[@name='display_name']" position="after">
         <field name="ref"/>
@@ -818,7 +765,6 @@ Source: [snippets/base.view_partner_tree.add_ref_zip_type.xml](https://github.co
 ### Format Decoration  
 ID: `mint_system.base.view_partner_tree.format_decoration`  
 ```xml
-<?xml version="1.0"?>
 <xpath expr="//field[@name='display_name']" position="attributes">
     <attribute name="decoration-bf">is_company</attribute>
 </xpath>
@@ -829,7 +775,6 @@ Source: [snippets/base.view_partner_tree.format_decoration.xml](https://github.c
 ### Move Zip And City  
 ID: `mint_system.base.view_partner_tree.move_zip_and_city`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="60">
     <field name="city" position="replace"/>
     <field name="zip" position="replace"/>
@@ -845,7 +790,6 @@ Source: [snippets/base.view_partner_tree.move_zip_and_city.xml](https://github.c
 ### Optional Payment Terms  
 ID: `mint_system.base.view_partner_tree.optional_payment_terms`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="vat" position="after">
         <field name="property_payment_term_id" optional="hide"/>
@@ -858,7 +802,6 @@ Source: [snippets/base.view_partner_tree.optional_payment_terms.xml](https://git
 ### Optional Zip  
 ID: `mint_system.base.view_partner_tree.optional_zip`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="city" position="before">
         <field name="zip" optional="hide"/>
@@ -871,7 +814,6 @@ Source: [snippets/base.view_partner_tree.optional_zip.xml](https://github.com/Mi
 ### Property Payment Term Id  
 ID: `mint_system.base.view_partner_tree.property_payment_term_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="category_id" position="after">
         <field name="property_payment_term_id" optional="hide"/>
@@ -884,7 +826,6 @@ Source: [snippets/base.view_partner_tree.property_payment_term_id.xml](https://g
 ### Show Company Registry  
 ID: `mint_system.base.view_partner_tree.show_company_registry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="vat" position="before">
         <field name="company_registry" optional="show"/>
@@ -897,7 +838,6 @@ Source: [snippets/base.view_partner_tree.show_company_registry.xml](https://gith
 ### Show Industry  
 ID: `mint_system.base.view_partner_tree.show_industry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="country_id" position="after">
         <field name="industry_id" optional="hide"/>
@@ -923,7 +863,6 @@ Source: [snippets/base.view_partner_tree.show_pricelist.xml](https://github.com/
 ### Show Property Payment Term Id  
 ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="category_id" position="after">
         <field name="property_payment_term_id" optional="show"/>
@@ -936,7 +875,6 @@ Source: [snippets/base.view_partner_tree.show_property_payment_term_id.xml](http
 ### Show Property Product Pricelist  
 ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="60">
     <field name="country_id" position="after">
         <field name="property_product_pricelist" optional="hide"/>
@@ -949,7 +887,6 @@ Source: [snippets/base.view_partner_tree.show_property_product_pricelist.xml](ht
 ### Show Ref  
 ID: `mint_system.base.view_partner_tree.show_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="before">
         <field name="ref" optional="show" string="Ku-Nr."/>
@@ -962,7 +899,6 @@ Source: [snippets/base.view_partner_tree.show_ref.xml](https://github.com/Mint-S
 ### Show Street  
 ID: `mint_system.base.view_partner_tree.show_street`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="city" position="before">
         <field name="street" optional="show"/>
@@ -975,7 +911,6 @@ Source: [snippets/base.view_partner_tree.show_street.xml](https://github.com/Min
 ### Show Type  
 ID: `mint_system.base.view_partner_tree.show_type`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="before">
         <field name="type" optional="show"/>
@@ -988,7 +923,6 @@ Source: [snippets/base.view_partner_tree.show_type.xml](https://github.com/Mint-
 ### Show X Schema  
 ID: `mint_system.base.view_partner_tree.show_x_schema`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="after">
         <field name="x_schema" optional="show"/>
@@ -1001,7 +935,6 @@ Source: [snippets/base.view_partner_tree.show_x_schema.xml](https://github.com/M
 ### X Bexioid  
 ID: `mint_system.base.view_partner_tree.x_bexioid`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="active" position="after">
         <field name="x_bexioid" optional="hide"/>
@@ -1014,7 +947,6 @@ Source: [snippets/base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-
 ### X Eori  
 ID: `mint_system.base.view_partner_tree.x_eori`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="after">
         <field name="x_eori"/>
@@ -1027,7 +959,6 @@ Source: [snippets/base.view_partner_tree.x_eori.xml](https://github.com/Mint-Sys
 ### X First Sale Date  
 ID: `mint_system.base.view_partner_tree.x_first_sale_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="user_id" position="after">
         <field name="x_first_sale_date" optional="hide"/>
@@ -1040,7 +971,6 @@ Source: [snippets/base.view_partner_tree.x_first_sale_date.xml](https://github.c
 ### X Global Location Number  
 ID: `mint_system.base.view_partner_tree.x_global_location_number`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
@@ -1056,7 +986,6 @@ Source: [snippets/base.view_partner_tree.x_global_location_number.xml](https://g
 ### X Schema  
 ID: `mint_system.base.view_partner_tree.x_schema`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="after">
         <field name="x_schema" optional="show" widget="badge"/>
@@ -1069,7 +998,6 @@ Source: [snippets/base.view_partner_tree.x_schema.xml](https://github.com/Mint-S
 ### X Vat  
 ID: `mint_system.base.view_partner_tree.x_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="after">
         <field name="x_vat"/>
@@ -1082,7 +1010,6 @@ Source: [snippets/base.view_partner_tree.x_vat.xml](https://github.com/Mint-Syst
 ### X Vst  
 ID: `mint_system.base.view_partner_tree.x_vst`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="60">
     <field name="active" position="after">
         <field name="x_vst" optional="hide"/>
@@ -1095,7 +1022,6 @@ Source: [snippets/base.view_partner_tree.x_vst.xml](https://github.com/Mint-Syst
 ### X Zaz  
 ID: `mint_system.base.view_partner_tree.x_zaz`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_partner_tree" priority="50">
     <field name="display_name" position="after">
         <field name="x_zaz"/>
@@ -1109,7 +1035,6 @@ Source: [snippets/base.view_partner_tree.x_zaz.xml](https://github.com/Mint-Syst
 ### Add Zip  
 ID: `mint_system.base.view_res_bank_tree.add_zip`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_res_bank_tree" priority="50">
     <xpath expr="//field[@name='city']" position="before">
         <field name="zip"/>
@@ -1123,7 +1048,6 @@ Source: [snippets/base.view_res_bank_tree.add_zip.xml](https://github.com/Mint-S
 ### Add Type Description  
 ID: `mint_system.base.view_res_partner_filter.add_type_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <xpath expr="//field[@name='pricelist_id']" position="after">
         <separator/>
@@ -1138,7 +1062,6 @@ Source: [snippets/base.view_res_partner_filter.add_type_description.xml](https:/
 ### Add Zip And City  
 ID: `mint_system.base.view_res_partner_filter.add_zip_and_city`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <separator/>
@@ -1166,7 +1089,6 @@ Source: [snippets/base.view_res_partner_filter.main_contacts.xml](https://github
 ### Search Zip  
 ID: `mint_system.base.view_res_partner_filter.search_zip`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <field name="user_id" position="after">
         <field name="zip"/>
@@ -1180,7 +1102,6 @@ Source: [snippets/base.view_res_partner_filter.search_zip.xml](https://github.co
 ### Show Comments  
 ID: `mint_system.base.view_translation_lang_src_value_tree.show_comments`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_translation_lang_src_value_tree" priority="50">
     <field name="value" position="after">
         <field name="comments"/>
@@ -1194,7 +1115,6 @@ Source: [snippets/base.view_translation_lang_src_value_tree.show_comments.xml](h
 ### Show Comments  
 ID: `mint_system.base.view_translation_tree.show_comments`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_translation_tree" priority="50">
     <field name="state" position="after">
         <field name="comments"/>
@@ -1220,7 +1140,6 @@ Source: [snippets/base.view_translation_tree.show_comments.xml](https://github.c
 ### Email  
 ID: `mint_system.base.view_users_form.email`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_users_form" priority="50">
     <field name="odoobot_state" position="after">
         <field name="email"/>
@@ -1233,7 +1152,6 @@ Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System
 ### Specific Ations  
 ID: `mint_system.base.view_users_form.specific_ations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_users_form" priority="50">
     <xpath expr="//field[@name='in_group_88']" position="attributes">
         <attribute name="help">M&#xE4;chtige Server-Aktionen (zum Beispiel "Lagerbuchung abbrechen")</attribute>
@@ -1246,7 +1164,6 @@ Source: [snippets/base.view_users_form.specific_ations.xml](https://github.com/M
 ### Write Partner Id  
 ID: `mint_system.base.view_users_form.write_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_users_form" priority="50">
     <xpath expr="//group/field[@name='partner_id']" position="attributes">
         <attribute name="readonly">0</attribute>
@@ -1260,7 +1177,6 @@ Source: [snippets/base.view_users_form.write_partner_id.xml](https://github.com/
 ### Add Key  
 ID: `mint_system.base.view_view_form.add_key`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base.view_view_form" priority="50">
     <xpath expr="//group[1]/field[@name='name']" position="before">
         <field name="key"/>

@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="style" separator=" " add="width: 350px"/>

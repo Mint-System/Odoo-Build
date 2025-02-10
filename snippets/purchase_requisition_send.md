@@ -3,7 +3,6 @@
 ### Relocate Send Button  
 ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="purchase_requisition_send.view_purchase_requisition_form" priority="50">
     <xpath expr="//button[@name='action_order_send']" position="replace"/>
     <xpath expr="//button[@name='493']" position="after">

@@ -1,5 +1,4 @@
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">>
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">>
 
   <xpath expr="//div/h2[1]" position="attributes">
     <attribute name="style">color: black; margin-top: 2rem</attribute>

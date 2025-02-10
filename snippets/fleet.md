@@ -3,7 +3,6 @@
 ### Show Reservation  
 ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="fleet.fleet_vehicle_view_form" priority="50">
     <xpath expr="//group/group[5]" position="after">
         <group string="Reservation">

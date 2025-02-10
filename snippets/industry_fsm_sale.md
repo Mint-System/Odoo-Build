@@ -3,7 +3,6 @@
 ### Add Description  
 ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
         <field name="description" filter_domain="[('description', 'ilike', self)]"/>
@@ -16,7 +15,6 @@ Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.add_description
 ### X Systemname  
 ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
         <field name="x_systemname" filter_domain="[('x_systemname', 'ilike', self)]"/>
@@ -29,7 +27,6 @@ Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.x_systemname.xm
 ### X User Text  
 ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
         <field name="x_user_text" filter_domain="[('x_user_text', 'ilike', self)]"/>
@@ -43,7 +40,6 @@ Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml
 ### Add Taxes  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//th[@class='text-end'][4]" position="after">
         <th id="final_tax" t-if="final_tax" class="text-end">Taxes</th>
@@ -61,7 +57,6 @@ Source: [snippets/industry_fsm_sale.worksheet_time_and_material.add_taxes.xml](h
 ### Remove Taxes  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//th[@class='text-end'][3]" position="replace"/>
     <xpath expr="//td[@class='text-end'][3]" position="replace"/>
@@ -73,7 +68,6 @@ Source: [snippets/industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml
 ### Replace Product Description  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="50">
     <xpath expr="//tr[1]/t[1]/td[1]" position="replace">
         <td>
@@ -90,7 +84,6 @@ Source: [snippets/industry_fsm_sale.worksheet_time_and_material.replace_product_
 ### Round Final Total  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//span[@t-esc='final_total']" position="replace">
         <span t-esc="round(float(final_total) * 20) / 20" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.sale_order_id.pricelist_id.currency_id}"/>
@@ -103,7 +96,6 @@ Source: [snippets/industry_fsm_sale.worksheet_time_and_material.round_final_tota
 ### Style Moser  
 ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//div[1]" position="before">
         <style>

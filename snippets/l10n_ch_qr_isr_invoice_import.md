@@ -3,7 +3,6 @@
 ### Show Partner Id  
 ID: `mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="l10n_ch_qr_isr_invoice_import.account_invoice_import_form" priority="50">
     <field name="partner_id" position="attributes">
         <attribute name="attrs">{'readonly': ['|',('scan_type', '!=', 'qr'), ('state', '!=', 'select-partner')], 'invisible': [('state', 'in', ('import', 'reference-update'))]}</attribute>

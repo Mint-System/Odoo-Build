@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="hr.plan_wizard" priority="50">
     <xpath expr="//footer/button[1]" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>

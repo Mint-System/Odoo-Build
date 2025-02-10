@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <record id="project.view_project_calendar.view" model="ir.ui.view">
     <field name="name">mint_system.project.view_project_calendar.view</field>
     <field name="model">project.project</field>

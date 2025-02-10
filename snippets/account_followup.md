@@ -3,7 +3,6 @@
 ### Style Sozialinfo  
 ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_followup.report_followup_print_all" priority="50">
     <t t-call-assets="account_followup.assets_followup_report" position="after">
         <style>
@@ -25,7 +24,6 @@ Source: [snippets/account_followup.report_followup_print_all.style_sozialinfo.xm
 ### Padding Before Table  
 ID: `mint_system.account_followup.template_followup_report.padding_before_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_followup.template_followup_report" priority="50">
     <xpath expr="//table[hasclass('o_account_reports_table')]" position="attributes">
         <attribute name="style">padding-top: 2rem</attribute>
@@ -38,7 +36,6 @@ Source: [snippets/account_followup.template_followup_report.padding_before_table
 ### Remove Summary Placeholder  
 ID: `mint_system.account_followup.template_followup_report.remove_summary_placeholder`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_followup.template_followup_report" priority="50">
     <xpath expr="//span[hasclass('o_account_report_summary_placeholder')]" position="replace"/>
 </data>

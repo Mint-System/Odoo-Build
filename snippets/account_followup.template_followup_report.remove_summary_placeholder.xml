@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="account_followup.template_followup_report" priority="50">
     <xpath expr="//span[hasclass('o_account_report_summary_placeholder')]" position="replace"/>
 </data>

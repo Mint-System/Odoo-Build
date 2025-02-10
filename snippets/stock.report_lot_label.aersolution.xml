@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <t t-name="stock.report_lot_label.aersolution">
     <t t-call="web.basic_layout">
         <div class="page">

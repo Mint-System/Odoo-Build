@@ -3,7 +3,6 @@
 ### Account Ids Optional  
 ID: `mint_system.account_asset.view_account_asset_form.account_ids_optional`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_asset.view_account_asset_form" priority="50">
     <field name="account_asset_id" position="attributes">
         <attribute name="attrs">{'invisible': ['|', ('display_account_asset_id', '=', False), ('asset_type', '!=', 'purchase')]}</attribute>

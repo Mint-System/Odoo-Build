@@ -3,7 +3,6 @@
 ### Show Id  
 ID: `mint_system.industry_fsm.project_task_view_list_fsm.show_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.project_task_view_list_fsm" priority="50">
     <xpath expr="//field[@name='progress']" position="after">
         <field name="id" string="ID" optional="hide"/>
@@ -17,7 +16,6 @@ Source: [snippets/industry_fsm.project_task_view_list_fsm.show_id.xml](https://g
 ### Add Info  
 ID: `mint_system.industry_fsm.worksheet_custom.add_info`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom" priority="50">
     <xpath expr="//div[1]" position="before">
         <h1>Arbeitsrapport</h1>
@@ -59,7 +57,6 @@ Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com
 ### Replace Layout  
 ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom" priority="50">
     <xpath expr="//t[@t-call='web.external_layout']" position="replace">
         <t t-call="web.external_layout_worksheet">
@@ -75,7 +72,6 @@ Source: [snippets/industry_fsm.worksheet_custom.replace_layout.xml](https://gith
 ### Remove Address  
 ID: `mint_system.industry_fsm.worksheet_custom_page.remove_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
     <xpath expr="//div/div[1]" position="replace"/>
 </data>
@@ -86,7 +82,6 @@ Source: [snippets/industry_fsm.worksheet_custom_page.remove_address.xml](https:/
 ### Replace Display Name  
 ID: `mint_system.industry_fsm.worksheet_custom_page.replace_display_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
     <xpath expr="//span[@t-field='line.display_name']" position="replace">
         <span t-field="line.name"/>
@@ -99,7 +94,6 @@ Source: [snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml](h
 ### Style Moser  
 ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom_page" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -125,7 +119,6 @@ Source: [snippets/industry_fsm.worksheet_custom_page.style_moser.xml](https://gi
 ### Add Info  
 ID: `mint_system.industry_fsm.worksheet_custom.add_info`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom" priority="50">
     <xpath expr="//div[1]" position="before">
         <h1>Arbeitsrapport</h1>
@@ -167,7 +160,6 @@ Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com
 ### Replace Layout  
 ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="industry_fsm.worksheet_custom" priority="50">
     <xpath expr="//t[@t-call='web.external_layout']" position="replace">
         <t t-call="web.external_layout_worksheet">

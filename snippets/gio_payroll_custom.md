@@ -3,7 +3,6 @@
 ### Holiday Wage As Percentage  
 ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="gio_payroll_custom.gio_view_hr_contract_form" priority="50">
     <field name="gio_holiday_rate" position="attributes">
         <attribute name="widget">percentage</attribute>
@@ -17,7 +16,6 @@ Source: [snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_p
 ### New Report  
 ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="gio_payroll_custom.hr_payroll_report_view" priority="50">
     <xpath expr="/t" position="replace">
         <template id="hr_payroll_report_view">

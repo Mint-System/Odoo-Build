@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_taxes']" position="replace">
         <th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">

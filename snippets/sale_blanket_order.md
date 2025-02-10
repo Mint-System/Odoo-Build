@@ -3,7 +3,6 @@
 ### Add Discount  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_discount`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//th[@id='price_subtotal']" position="after">
         <!-- Is there a discount on at least one line? -->
@@ -24,7 +23,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_discount.x
 ### Add Footer  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table[@id='summary']" position="after">
         <style>
@@ -90,7 +88,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml
 ### Add Header And Footer Note  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table[@id='info']" position="after">
         <t t-if="doc.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
@@ -123,7 +120,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_and
 ### Add Header Space  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">padding-top: 5rem</attribute>
@@ -136,7 +132,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_spa
 ### Add Infotable  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//h2" position="after">
         <style>
@@ -205,7 +200,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.
 ### Add Product Uom  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table/thead//th[3]" position="after">
         <th name="th_product_uom" class="text-right">ME</th>
@@ -223,7 +217,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.add_product_uo
 ### Address Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
     <xpath expr="/t/t/div/div[2]" position="replace"><t t-set="address"><t t-if="doc.partner_contact_id"><div t-esc="doc.partner_contact_id.parent_id.name"/><div t-esc="doc.partner_contact_id.parent_id.name2"/><span t-esc="doc.partner_contact_id.title.name"/><span t-esc="doc.partner_contact_id.name"/><div t-esc="doc.partner_contact_id.street"/><div t-esc="doc.partner_contact_id.street2"/><span t-esc="doc.partner_contact_id.zip"/><span t-esc="doc.partner_contact_id.city"/><t t-if="doc.partner_contact_id.country_id.code != 'CH'"><div t-esc="doc.partner_contact_id.country_id.name"/></t></t><t t-else=""><div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/><p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>
@@ -242,7 +235,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.address_block.
 ### Add Vat  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//div[@name='comment']" position="before">
         <p>MwSt.-Nr.: 
@@ -254,10 +246,51 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_vat`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml)
 
+### Change Column Order  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.change_column_order`  
+```xml
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+    <xpath expr="//table[@class='table table-condensed table-borderless']/thead/tr" position="replace">
+        <tr>
+            <th class="text-start">Product</th>
+            <th class="text-end">Original Qty</th>
+            <th class="text-center">Scheduled Date</th>
+            <th class="text-end">Unit Price</th>
+            <th class="text-end">Amount</th>
+        </tr>
+    </xpath>
+
+    <xpath expr="//tbody[@class='sale_tbody']/t[2]" position="replace">
+        <t t-foreach="doc.line_ids" t-as="l">
+            <tr>
+                <td>
+                    <span t-field="l.name"/>
+                </td>
+                <td class="text-end">
+                    <span t-field="l.original_uom_qty"/>
+                    <span t-field="l.product_uom" groups="uom.group_uom"/>
+                </td>
+                <td class="text-center">
+                    <span t-field="l.date_schedule"/>
+                </td>
+                <td class="text-end">
+                    <span t-field="l.price_unit"/>
+                </td>
+                <td class="text-end">
+                    <span t-field="l.price_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: l.currency_id}"/>
+                </td>
+            </tr>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.change_column_order.xml)
+
 ### Extend Title  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//h2" position="replace">
         <h2>
@@ -274,7 +307,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.extend_title.x
 ### Format Qty With Decimal  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
     <xpath expr="//span[@id='original_uom_qty']" position="replace">
         <t t-if="l.product_uom.id == 1">
@@ -292,7 +324,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_wit
 ### Format Qty  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
     <span id="qty" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
@@ -305,7 +336,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml
 ### Get Position  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th id="position">
@@ -325,7 +355,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.get_position.x
 ### Hide Date Schedule  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//th[@id='date_schedule']" position="replace"/>
     <xpath expr="//td[@id='date_schedule']" position="replace"/>
@@ -337,7 +366,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.hide_date_sche
 ### Modify Information Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table[2]/thead//th[3]" position="replace">
    </xpath>
@@ -359,7 +387,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.modify_informa
 ### Relocate Price Unit  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table[2]/thead//th[3]" position="replace">
    </xpath>
@@ -381,7 +408,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.relocate_price
 ### Remove Date Schedule  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table/thead/tr/th[3]" position="replace"/>
     <xpath expr="//span[@t-field='l.date_schedule']/.." position="replace"/>
@@ -393,7 +419,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_date_sc
 ### Remove Informations  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_informations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
   </xpath>
@@ -405,7 +430,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_informa
 ### Remove Vat  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 </data>
@@ -416,7 +440,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml
 ### Replace Address Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
     <xpath expr="//div[@t-field='doc.partner_id']/../.." position="replace"><div class="row"><div class="col-7"/><div class="col-5"><div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/></div></div></xpath>
@@ -429,7 +452,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_addres
 ### Replace Infoblock  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <div class="row" id="informations">
@@ -467,7 +489,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infobl
 ### Replace Partner Id  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
  <xpath expr="//div[@t-field='doc.partner_id']" position="replace"><t t-if="doc.partner_contact_id"><div t-field="doc.partner_contact_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/></t><t t-if="not doc.partner_contact_id"><div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/></t></xpath>
@@ -480,7 +501,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_partne
 ### Replace Product Description  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
 <xpath expr="//span[@t-field='l.product_id']" position="replace"><t t-if="l.product_id.type_description"><span style="font-weight: bold" t-field="l.product_id.type_description"/></t><t t-if="not l.product_id.type_description"><span t-field="l.name"/></t></xpath>
@@ -493,7 +513,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_produc
 ### Replace Product Id  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
  <xpath expr="//span[@t-field='l.product_id']" position="replace"><span t-field="l.name"/></xpath>
@@ -506,7 +525,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_produc
 ### Replace Summary  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//span[@t-field='doc.amount_untaxed']/../../../../.." position="replace">
         <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
@@ -540,7 +558,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summar
 ### Round Price  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//span[@t-field='l.price_unit']" position="replace">
         <span t-esc="'%g' % l.price_unit if str(l.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % l.price_unit"/>
@@ -553,7 +570,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.round_price.xm
 ### Round Total Price  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_total_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//span[@t-field='l.price_subtotal']" position="replace">
         <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal)).replace(',','\'')"/>
@@ -566,7 +582,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.round_total_pr
 ### Second Row  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
         <attribute name="t-att-class">"first"</attribute>
@@ -613,7 +628,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml
 ### Set Ids Tissa  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//div[@class='page']/div[2]" position="attributes">
         <attribute name="id">address</attribute>
@@ -630,7 +644,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.
 ### Set Ids  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table//th[4]" position="attributes">
         <attribute name="id">original_uom_qty</attribute>
@@ -688,7 +701,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids.xml](h
 ### Show Default Code  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table[2]/thead/tr/th[1]" position="before">
         <th id="default_code">
@@ -708,7 +720,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.show_default_c
 ### Show Description  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="after">
         <th id="name">
@@ -728,7 +739,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.show_descripti
 ### Style Gelso  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_gelso`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -746,7 +756,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xm
 ### Style Tissa  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -798,7 +807,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xm
 ### Style Trimada  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -862,7 +870,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.style_trimada.
 ### Title Margin  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
 
   <xpath expr="//h2" position="attributes"><attribute name="style" separator=";" add="margin-top:10mm; margin-bottom:3mm;"/></xpath>
@@ -876,7 +883,6 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.x
 ### Fiscal Position Id  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
     <xpath expr="//field[@name='payment_term_id']" position="after">
         <field name="fiscal_position_id" invisible="1"/>
@@ -889,7 +895,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_form.fiscal_position_id.
 ### Modify Attributes Date Confirmed  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
     <xpath expr="//field[@name='date_confirmed']" position="attributes">
         <attribute name="attrs">{"invisible": [["state","in",["cancel"]]], "readonly": [["state","in",["cancel"]]], "required": [["state","in",["sent", "open","done", "expired"]]]}</attribute>
@@ -902,7 +907,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_d
 ### Move Client Order Ref  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
     <xpath expr="//field[@name='validity_date']" position="after">
         <xpath expr="//field[@name='client_order_ref']" position="move"/>
@@ -915,7 +919,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_form.move_client_order_r
 ### X Product Uom Category Id  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
     <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="before">
         <field name="x_product_uom_category_id" invisible="1"/>
@@ -931,7 +934,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_categ
 ### X State  
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_state`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="state" readonly="0"/>
@@ -945,7 +947,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_form.x_state.xml](https:
 ### Replace Filter  
 ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_search" priority="50">
     <xpath expr="/search" position="replace">
         <search>
@@ -986,7 +987,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xm
 ### Activities  
 ID: `mint_system.sale_blanket_order.view_blanket_order_tree.activities`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
     <field name="state" position="after">
         <field name="activity_date_deadline"/>
@@ -1002,7 +1002,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_tree.activities.xml](htt
 ### Reset View  
 ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="default_order">id desc</attribute>
@@ -1031,7 +1030,6 @@ Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](htt
 ### Modify Attributes Blanket Order Line  
 ID: `mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_blanket_order.view_order_form" priority="50">
     <xpath expr="//field[@name='blanket_order_line']" position="before">
         <field name="order_partner_id" invisible="1"/>

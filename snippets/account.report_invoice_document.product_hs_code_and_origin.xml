@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- Show custom field country of origin and hs code -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">

@@ -3,7 +3,6 @@
 ### Report  
 ID: `mint_system.digest.digest_mail_main.report`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="digest.digest_mail_main.report">
     <t t-set="body">
         <t t-set="kpi_data" t-value="env['digest.digest'].browse(1).compute_kpis(env.user.company_id, env.user)"/>

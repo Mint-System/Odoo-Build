@@ -3,7 +3,6 @@
 ### Format Address Block  
 ID: `mint_system.web.address_layout.format_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.address_layout" priority="50">
     <xpath expr="//t[@t-if='address']" position="replace">
         <t t-if="address">
@@ -30,7 +29,6 @@ Source: [snippets/web.address_layout.format_address_block.xml](https://github.co
 ### Repositioning Address Blocks  
 ID: `mint_system.web.address_layout.repositioning_address_blocks`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.address_layout" priority="50">
     <xpath expr="//t[@t-if='address']" position="replace">
         <t t-if="address">
@@ -56,7 +54,6 @@ Source: [snippets/web.address_layout.repositioning_address_blocks.xml](https://g
 ### Pivot Measure White Space  
 ID: `mint_system.web.assets_common.pivot_measure_white_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.assets_common" priority="50">
     <xpath expr="." position="inside">
         <style>
@@ -73,7 +70,6 @@ Source: [snippets/web.assets_common.pivot_measure_white_space.xml](https://githu
 ### Set Chatter Width  
 ID: `mint_system.web.assets_common.set_chatter_width`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.assets_common" priority="50">
     <xpath expr="." position="inside">
         <style>
@@ -92,7 +88,6 @@ Source: [snippets/web.assets_common.set_chatter_width.xml](https://github.com/Mi
 ### Set Form Width  
 ID: `mint_system.web.assets_common.set_form_width`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.assets_common" priority="50">
     <xpath expr="." position="inside">
         <style>
@@ -112,7 +107,6 @@ Source: [snippets/web.assets_common.set_form_width.xml](https://github.com/Mint-
 ### Remove  
 ID: `mint_system.web.brand_promotion_message.remove`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.brand_promotion_message" priority="50">
     <xpath expr="//t[@name='Brand Promotion Message']" position="replace">
         <t name="Brand Promotion Message" t-name="web.brand_promotion_message"/>
@@ -126,7 +120,6 @@ Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Min
 ### Add Bank  
 ID: `mint_system.web.external_layout_bold.add_bank`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_bold" priority="50">
     <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
         <attribute name="class">col-3</attribute>
@@ -150,7 +143,6 @@ Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint
 ### Remove Background Image  
 ID: `mint_system.web.external_layout_bold.remove_background_image`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_bold" priority="50">
     <xpath expr="/t/div[2]" position="replace">
         <div t-attf-class="article o_report_layout_bold o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '' }});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
@@ -166,7 +158,6 @@ Source: [snippets/web.external_layout_bold.remove_background_image.xml](https://
 ### Set Header Footer Font Size  
 ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_bold" priority="50">
     <xpath expr="/t/div[1]" position="before">
         <style>
@@ -185,7 +176,6 @@ Source: [snippets/web.external_layout_bold.set_header_footer_font_size.xml](http
 ### Footer Airwork  
 ID: `mint_system.web.external_layout_boxed.footer_airwork`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
     <xpath expr="//div[@t-attf-class='footer o_boxed_footer o_company_#{company.id}_layout']" position="replace">
 
@@ -226,7 +216,6 @@ Source: [snippets/web.external_layout_boxed.footer_airwork.xml](https://github.c
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
     <xpath expr="//li[@t-if='company.vat']" position="after">
         <t t-if="company._name != 'base.document.layout'">
@@ -242,7 +231,6 @@ Source: [snippets/web.external_layout_boxed.footer_company_registry.xml](https:/
 ### Hide Company Details  
 ID: `mint_system.web.external_layout_boxed.hide_company_details`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
     <xpath expr="//div[@name='company_address']/.." position="replace"/>
 </data>
@@ -253,7 +241,6 @@ Source: [snippets/web.external_layout_boxed.hide_company_details.xml](https://gi
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_boxed.increase_logo_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="50">
     <xpath expr="//img[@t-if='company.logo']" position="attributes">
         <attribute name="style">width: 720px; margin-top: 10px</attribute>
@@ -266,7 +253,6 @@ Source: [snippets/web.external_layout_boxed.increase_logo_size.xml](https://gith
 ### Style Carbo Link  
 ID: `mint_system.web.external_layout_boxed.style_carbo_link`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_boxed" priority="60">
     <xpath expr="//div[@t-field='company.report_footer']/.." position="attributes">
         <attribute name="style">font-size: 76%</attribute>
@@ -276,11 +262,36 @@ ID: `mint_system.web.external_layout_boxed.style_carbo_link`
 ```
 Source: [snippets/web.external_layout_boxed.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_boxed.style_carbo_link.xml)
 
+### Style Gelso  
+ID: `mint_system.web.external_layout_boxed.style_gelso`  
+```xml
+<data inherit_id="web.external_layout_boxed" priority="60">
+    <xpath expr="//div[@class='o_boxed_header']" position="after">
+        <style>
+                .mb8 {
+                margin-bottom: 0px !important;
+                }
+                .mb4 {
+                margin-bottom: 0px !important;
+                }
+        </style>
+    </xpath>
+    <xpath expr="//div[@t-field='company.report_footer']" position="after">
+        <style>
+                p {
+                    margin-top: 5px;
+                    margin-bottom: 2px;
+                }
+        </style>
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_boxed.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_boxed.style_gelso.xml)
+
 ## External Layout Standard  
 ### Eksb Layout  
 ID: `mint_system.web.external_layout_standard.eksb_layout`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
@@ -332,7 +343,6 @@ Source: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.c
 ### Footer Airwork  
 ID: `mint_system.web.external_layout_standard.footer_airwork`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
@@ -375,7 +385,6 @@ Source: [snippets/web.external_layout_standard.footer_airwork.xml](https://githu
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_standard.footer_company_registry`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//li[@t-if='company.vat']" position="after">
         <t t-if="company._name != 'base.document.layout'">
@@ -391,7 +400,6 @@ Source: [snippets/web.external_layout_standard.footer_company_registry.xml](http
 ### Footer Kunststoffsammelsack  
 ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
@@ -419,7 +427,6 @@ Source: [snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml](
 ### Format Header Slogan  
 ID: `mint_system.web.external_layout_standard.format_header_slogan`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@name='moto']" position="replace">
         <style>
@@ -438,7 +445,6 @@ Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https:/
 ### Header Kunststoffsammelsack  
 ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace">
         <!--
@@ -470,6 +476,7 @@ ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`
                 </tr>
             </table>
         </div>
+        
         <!--
         </t>
         -->
@@ -481,7 +488,6 @@ Source: [snippets/web.external_layout_standard.header_kunststoffsammelsack.xml](
 ### Header Styles  
 ID: `mint_system.web.external_layout_standard.header_styles`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="before">
         <style>
@@ -498,7 +504,6 @@ Source: [snippets/web.external_layout_standard.header_styles.xml](https://github
 ### Hide Address  
 ID: `mint_system.web.external_layout_standard.hide_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@name='company_address']/.." position="replace"/>
 </data>
@@ -509,7 +514,6 @@ Source: [snippets/web.external_layout_standard.hide_address.xml](https://github.
 ### Hide Header  
 ID: `mint_system.web.external_layout_standard.hide_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace"/>
 </data>
@@ -520,7 +524,6 @@ Source: [snippets/web.external_layout_standard.hide_header.xml](https://github.c
 ### Hide Moto  
 ID: `mint_system.web.external_layout_standard.hide_moto`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@name='moto']" position="replace"/>
 </data>
@@ -531,7 +534,6 @@ Source: [snippets/web.external_layout_standard.hide_moto.xml](https://github.com
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_standard.increase_logo_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//img[@t-if='company.logo']" position="attributes">
         <!-- <attribute name="style">max-height: 90px;</attribute> -->
@@ -545,7 +547,6 @@ Source: [snippets/web.external_layout_standard.increase_logo_size.xml](https://g
 ### Move Company Details  
 ID: `mint_system.web.external_layout_standard.move_company_details`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@class='row'][2]" position="replace"/>
     <xpath expr="//div[@name='moto']" position="replace">
@@ -562,7 +563,6 @@ Source: [snippets/web.external_layout_standard.move_company_details.xml](https:/
 ### Remove Company Info Footer  
 ID: `mint_system.web.external_layout_standard.remove_company_info_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@name='financial_infos']/../ul[1]" position="replace">
   </xpath>
@@ -574,7 +574,6 @@ Source: [snippets/web.external_layout_standard.remove_company_info_footer.xml](h
 ### Remove Contact  
 ID: `mint_system.web.external_layout_standard.remove_contact`  
 ```xml
-<?xml version="1.0"?>
 <!-- Remove contact info in footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
     <!-- Works until Odoo 14.0 -->
@@ -590,7 +589,6 @@ Source: [snippets/web.external_layout_standard.remove_contact.xml](https://githu
 ### Remove Footer Line  
 ID: `mint_system.web.external_layout_standard.remove_footer_line`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <div style="border-top: 1px solid black;" position="attributes">
         <attribute name="style"/>
@@ -603,7 +601,6 @@ Source: [snippets/web.external_layout_standard.remove_footer_line.xml](https://g
 ### Remove Header Address  
 ID: `mint_system.web.external_layout_standard.remove_header_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@name='company_address']" position="replace">
   </xpath>
@@ -615,7 +612,6 @@ Source: [snippets/web.external_layout_standard.remove_header_address.xml](https:
 ### Remove Header Space  
 ID: `mint_system.web.external_layout_standard.remove_header_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[hasclass('pt-5')]" position="attributes">
         <attribute name="class"/>
@@ -628,7 +624,6 @@ Source: [snippets/web.external_layout_standard.remove_header_space.xml](https://
 ### Remove Paging  
 ID: `mint_system.web.external_layout_standard.remove_paging`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <div t-if="report_type == 'pdf'" position="replace"/>
 </data>
@@ -639,7 +634,6 @@ Source: [snippets/web.external_layout_standard.remove_paging.xml](https://github
 ### Replace Footer  
 ID: `mint_system.web.external_layout_standard.replace_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div[3]" position="replace">
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
@@ -739,7 +733,6 @@ Source: [snippets/web.external_layout_standard.replace_footer.xml](https://githu
 ### Replace Header With Image  
 ID: `mint_system.web.external_layout_standard.replace_header_with_image`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
@@ -764,7 +757,6 @@ Source: [snippets/web.external_layout_standard.replace_header_with_image.xml](ht
 ### Replace Header  
 ID: `mint_system.web.external_layout_standard.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
@@ -811,7 +803,6 @@ Source: [snippets/web.external_layout_standard.replace_header.xml](https://githu
 ### Replace Url  
 ID: `mint_system.web.external_layout_standard.replace_url`  
 ```xml
-<?xml version="1.0"?>
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
     <!-- Works until Odoo 14.0 -->
@@ -826,7 +817,6 @@ Source: [snippets/web.external_layout_standard.replace_url.xml](https://github.c
 ### Set Header Footer Font Size  
 ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <!-- <xpath expr="/t/div[1]" position="before">
     <style>
@@ -855,7 +845,6 @@ Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](
 ### Show Sale Order In Footer  
 ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[3]/div[1]" position="before">
         <span t-if="xmlid == 'sale.report_saleorder'"/>
@@ -868,7 +857,6 @@ Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](ht
 ### Style Airwork  
 ID: `mint_system.web.external_layout_standard.style_airwork`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="60">
     <xpath expr="//div[1]/div[1]/div[1]" position="attributes">
         <attribute name="class">col-12 text-center</attribute>
@@ -887,7 +875,6 @@ Source: [snippets/web.external_layout_standard.style_airwork.xml](https://github
 ### Style Header  
 ID: `mint_system.web.external_layout_standard.style_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div[@class='col-12'][1]/div[1]" position="attributes">
         <attribute name="style">border-bottom: 0px ;</attribute>
@@ -900,7 +887,6 @@ Source: [snippets/web.external_layout_standard.style_header.xml](https://github.
 ### Tissa Layout  
 ID: `mint_system.web.external_layout_standard.tissa_layout`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="web.external_layout_standard">
     <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
         <div class="row">
@@ -960,7 +946,6 @@ Source: [snippets/web.external_layout_standard.tissa_layout.xml](https://github.
 ### Worksheet  
 ID: `mint_system.web.external_layout.worksheet`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.external_layout" priority="50">
     <t t-name="web.external_layout.worksheet">
         <t t-if="not o" t-set="o" t-value="doc"/>
@@ -995,7 +980,6 @@ Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-Sys
 ### Header Styles  
 ID: `mint_system.web.internal_layout.header_styles`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="50">
     <xpath expr="/t/div" position="before">
         <style>
@@ -1012,7 +996,6 @@ Source: [snippets/web.internal_layout.header_styles.xml](https://github.com/Mint
 ### Replace Header  
 ID: `mint_system.web.internal_layout.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="50">
     <xpath expr="//div[@class='header']" position="replace">
         <div class="header">
@@ -1035,7 +1018,6 @@ Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Min
 ### Trimada  
 ID: `mint_system.web.internal_layout.trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.internal_layout" priority="16">
     <t t-name="web.internal_layout.trimada">
         <t t-if="not o" t-set="o" t-value="doc"/>
@@ -1085,7 +1067,6 @@ Source: [snippets/web.internal_layout.trimada.xml](https://github.com/Mint-Syste
 ### Color Navbar  
 ID: `mint_system.web.layout.color_navbar`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.layout" priority="50">
     <!-- The id's of the companies have to be adjusted -->
     <xpath expr="//body" position="inside">
@@ -1105,7 +1086,6 @@ Source: [snippets/web.layout.color_navbar.xml](https://github.com/Mint-System/Od
 ### Disable Footer  
 ID: `mint_system.web.login_layout.disable_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.login_layout" priority="50">
     <xpath expr="//t/div" position="before">
         <t t-set="disable_footer" t-value="True"/>
@@ -1119,7 +1099,6 @@ Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-S
 ### Remove Login Form  
 ID: `mint_system.web.login.remove_login_form`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.login" priority="50">
     <xpath expr="//form/div[1]" position="attributes">
         <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
@@ -1153,7 +1132,6 @@ Source: [snippets/web.login.remove_login_form.xml](https://github.com/Mint-Syste
 ### Set Font  
 ID: `mint_system.web.styles_company_report.set_font`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="web.styles_company_report" priority="50">
     <xpath expr="//t[@t-set='font']" position="replace">
         <t t-set="font" t-value="'arial'"/>

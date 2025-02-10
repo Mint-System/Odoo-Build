@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="stock.report_picking" priority="50">
     <xpath expr="//th[@name='th_to']" position="replace">
         <th name="th_to" t-if="o.picking_type_id.code != 'outgoing' and o.picking_type_id.id != 12" groups="stock.group_stock_multi_locations">

@@ -3,7 +3,6 @@
 ### Group Erp System  
 ID: `mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="base_install_request.ir_module_module_view_kanban" priority="50">
     <button name="action_open_install_request" position="attributes">
         <attribute name="groups">!base.group_erp_manager</attribute>

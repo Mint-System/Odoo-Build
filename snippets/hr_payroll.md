@@ -3,7 +3,6 @@
 ### View Pivot  
 ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`  
 ```xml
-<?xml version="1.0"?>
 <odoo>
     <record model="ir.ui.view" id="hr_payroll.hr_payslip_line.view_pivot">
         <field name="name">hr_payroll.hr_payslip_line.view_pivot</field>
@@ -23,7 +22,6 @@ Source: [snippets/hr_payroll.hr_payslip_line.view_pivot.xml](https://github.com/
 ### Filter Date From  
 ID: `mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.hr_payslip_line_view_search_register" priority="50">
     <xpath expr="//filter[@name='last_quarter']" position="after">
         <separator/>
@@ -38,7 +36,6 @@ Source: [snippets/hr_payroll.hr_payslip_line_view_search_register.filter_date_fr
 ### Switch Account  
 ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.hr_salary_rule_form" priority="50">
     <xpath expr="//field[@name='account_debit']" position="before">
         <xpath expr="//field[@name='account_credit']" position="move"/>
@@ -52,7 +49,6 @@ Source: [snippets/hr_payroll.hr_salary_rule_form.switch_account.xml](https://git
 ### Gio Custom Payroll  
 ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.report_payslip" priority="50">
     <t t-call="web.external_layout" position="replace">
         <t t-call="web.external_layout">
@@ -253,7 +249,6 @@ Source: [snippets/hr_payroll.report_payslip.gio_custom_payroll.xml](https://gith
 ### Gio Payroll Report  
 ID: `mint_system.hr_payroll.report_payslip.gio_payroll_report`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.report_payslip" priority="50">
     <xpath expr="//div[@class='page']" position="replace">
         <div class="page" style="font-family:dinot !important;">
@@ -461,7 +456,6 @@ Source: [snippets/hr_payroll.report_payslip.gio_payroll_report.xml](https://gith
 ### Show Gio Amount  
 ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
     <field name="salary_rule_id" position="before">
         <field name="gio_amount" string="Basis" optional="show"/>
@@ -474,7 +468,6 @@ Source: [snippets/hr_payroll.view_hr_payslip_form.show_gio_amount.xml](https://g
 ### Show Queued For Pdf  
 ID: `mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
     <field name="negative_net_to_report_message" position="after">
         <field name="queued_for_pdf"/>
@@ -488,7 +481,6 @@ Source: [snippets/hr_payroll.view_hr_payslip_form.show_queued_for_pdf.xml](https
 ### Slip Show Optional  
 ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_payroll.view_hr_payslip_line_tree" priority="50">
     <field name="total" position="after">
         <field name="slip_id" optional="show"/>

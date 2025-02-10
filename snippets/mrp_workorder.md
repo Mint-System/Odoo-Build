@@ -3,7 +3,6 @@
 ### Modify Readonly  
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
     <xpath expr="//field[@name='finished_lot_id']" position="attributes">
         <attribute name="attrs">{'readonly': True}</attribute>
@@ -19,7 +18,6 @@ Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.x
 ### Remove Button Action Continue  
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
     <xpath expr="//button[@name='action_continue'][3]" position="replace">    
   </xpath>
@@ -33,7 +31,6 @@ Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_act
 ### Remove Button Do Finish  
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
     <xpath expr="//button[@name='do_finish']" position="replace">    
   </xpath>

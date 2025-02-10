@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <odoo>
     <record model="ir.ui.view" id="hr_payroll.hr_payslip_line.view_pivot">
         <field name="name">hr_payroll.hr_payslip_line.view_pivot</field>

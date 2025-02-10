@@ -3,7 +3,6 @@
 ### Add Row  
 ID: `mint_system.account_batch_payment.print_batch_payment.add_row`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_batch_payment.print_batch_payment" priority="50">
     <xpath expr="//table/thead/tr/th[3]" position="after">
         <th class="text-left">Purpose</th>
@@ -24,7 +23,6 @@ Source: [snippets/account_batch_payment.print_batch_payment.add_row.xml](https:/
 ### Sort  
 ID: `mint_system.account_batch_payment.print_batch_payment.sort`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_batch_payment.print_batch_payment" priority="50">
     <xpath expr=" //tr[@t-as='payment']" position="replace">
         <tr t-foreach="sorted(page['payments'], key=lambda l: l.partner_id.name)" t-as="payment">
@@ -51,7 +49,6 @@ Source: [snippets/account_batch_payment.print_batch_payment.sort.xml](https://gi
 ### Show Sct Generic  
 ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_batch_payment.view_batch_payment_form" priority="50">
     <field name="batch_type" position="after">
         <field name="sct_generic"/>

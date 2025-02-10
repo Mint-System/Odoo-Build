@@ -3,7 +3,6 @@
 ### Advanced Search  
 ID: `mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_tickets_view_search" priority="50">
     <field name="name" position="attributes">
         <attribute name="filter_domain">['|',('name','ilike',self),('description','ilike',self)]</attribute>
@@ -17,7 +16,6 @@ Source: [snippets/helpdesk.helpdesk_tickets_view_search.advanced_search.xml](htt
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.x_date_deadline`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_tickets_view_tree" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="x_date_deadline" widget="date"/>
@@ -31,7 +29,6 @@ Source: [snippets/helpdesk.helpdesk_tickets_view_tree.x_date_deadline.xml](https
 ### Domain So Line  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.domain_so_line`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
     <field name="so_line" position="attributes">
         <attribute name="domain">[('is_service', '=', True), ('order_partner_id', 'child_of', parent.commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
@@ -44,7 +41,6 @@ Source: [snippets/helpdesk.helpdesk_ticket_view_form.domain_so_line.xml](https:/
 ### Remove Properties  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.remove_properties`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
     <field name="properties" position="replace"/>
 </data>
@@ -55,7 +51,6 @@ Source: [snippets/helpdesk.helpdesk_ticket_view_form.remove_properties.xml](http
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_date_deadline`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
     <field name="domain_user_ids" position="after">
         <field name="x_date_deadline" widget="date"/>
@@ -68,7 +63,6 @@ Source: [snippets/helpdesk.helpdesk_ticket_view_form.x_date_deadline.xml](https:
 ### X Link With Ids  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
     <field name="description" position="replace">
         <notebook>
@@ -96,7 +90,6 @@ Source: [snippets/helpdesk.helpdesk_ticket_view_form.x_link_with_ids.xml](https:
 ### X Date Deadline  
 ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="helpdesk.helpdesk_ticket_view_kanban" priority="50">
     <xpath expr="//field[@name='commercial_partner_id']/.." position="after">
         <div>

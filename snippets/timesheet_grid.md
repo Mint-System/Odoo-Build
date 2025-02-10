@@ -3,7 +3,6 @@
 ### Show Name  
 ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="timesheet_grid.timesheet_view_form" priority="50">
     <xpath expr="//field[@name='task_id']" position="after">
         <field name="name"/>

@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <t t-name="web.external_layout_standard">
     <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
         <div class="row">

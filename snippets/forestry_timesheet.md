@@ -3,7 +3,6 @@
 ### Show Has Trailer  
 ID: `mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="forestry_timesheet.report_project_task_deliveryslip" priority="50">
     <t t-if="doc.vehicle_id" position="after">
         <br/>

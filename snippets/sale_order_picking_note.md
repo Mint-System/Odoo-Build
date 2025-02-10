@@ -3,7 +3,6 @@
 ### Move Note Fields  
 ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_order_picking_note.view_order_form_inherit_sale_stock" priority="50" type="form" model="sale.order">
     <field name="picking_note" position="replace"/>
     <field name="picking_customer_note" position="replace"/>

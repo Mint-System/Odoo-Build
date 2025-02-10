@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.sale_order_view_search_inherit_quotation" priority="50">
     <xpath expr="//filter[@name='my_quotation']" position="replace"/>
 </data>

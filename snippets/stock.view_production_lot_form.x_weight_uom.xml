@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="stock.view_production_lot_form" priority="50">
     <xpath expr="//group[@name='main_group']/group/div" position="after">
         <field name="x_weight_uom" readonly="1"/>

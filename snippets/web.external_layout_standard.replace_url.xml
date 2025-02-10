@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- Replace website url in document footer -->
 <data inherit_id="web.external_layout_standard" priority="50">
     <!-- Works until Odoo 14.0 -->

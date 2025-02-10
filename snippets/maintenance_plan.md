@@ -3,7 +3,6 @@
 ### Hide Next Maintenance Date  
 ID: `mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance_plan.maintenance_plan_view_form" priority="50">
     <xpath expr="//field[@name='next_maintenance_date']" position="replace"/>
 </data>

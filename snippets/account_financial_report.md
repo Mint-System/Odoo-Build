@@ -3,7 +3,6 @@
 ### Replace Layout  
 ID: `mint_system.account_financial_report.general_ledger.replace_layout`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.general_ledger" priority="50">
     <xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">
         <attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>
@@ -17,7 +16,6 @@ Source: [snippets/account_financial_report.general_ledger.replace_layout.xml](ht
 ### Style Trimada  
 ID: `mint_system.account_financial_report.internal_layout.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.internal_layout" priority="60">
     <xpath expr="//link" position="replace">
         <style>
@@ -144,7 +142,6 @@ Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](ht
 ### Trimada  
 ID: `mint_system.account_financial_report.internal_layout.trimada`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="account_financial_report.internal_layout">
     <t t-if="not o" t-set="o" t-value="doc"/>
     <t t-if="not company">
@@ -313,7 +310,6 @@ Source: [snippets/account_financial_report.internal_layout.trimada.xml](https://
 ### Hide Filters  
 ID: `mint_system.account_financial_report.report_general_ledger_base.hide_filters`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
     <xpath expr="//t[@t-call='account_financial_report.report_general_ledger_filters']" position="replace"/>
 </data>
@@ -324,7 +320,6 @@ Source: [snippets/account_financial_report.report_general_ledger_base.hide_filte
 ### Replace Title  
 ID: `mint_system.account_financial_report.report_general_ledger_base.replace_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
     <xpath expr="//h4/.." position="replace">
         <div class="title">Kontoauszug vom <span t-esc="date_from" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
@@ -340,7 +335,6 @@ Source: [snippets/account_financial_report.report_general_ledger_base.replace_ti
 ### Hide  
 ID: `mint_system.account_financial_report.report_general_ledger_ending_cumul.hide`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_ending_cumul" priority="50">
     <xpath expr="//div[@class='act_as_row labels']" position="replace"/>
 </data>
@@ -352,7 +346,6 @@ Source: [snippets/account_financial_report.report_general_ledger_ending_cumul.hi
 ### Initial Balance And Cumulated  
 ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
     <xpath expr="//div/div[@class='act_as_row lines']" position="replace">
         <div class="act_as_row lines" style="font-style: italic">
@@ -491,7 +484,6 @@ Source: [snippets/account_financial_report.report_general_ledger_lines.initial_b
 ### Replace Header  
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_header`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
     <xpath expr="//div[@class='act_as_row labels']" position="replace">
         <div class="act_as_row labels">
@@ -529,7 +521,6 @@ Source: [snippets/account_financial_report.report_general_ledger_lines.replace_h
 ### Replace Lines  
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
     <xpath expr="//t/div[@class='act_as_row lines']" position="replace">
         <div class="act_as_row lines">

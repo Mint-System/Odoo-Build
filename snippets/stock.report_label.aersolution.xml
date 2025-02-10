@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <t t-name="stock.report_label.aersolution">
     <t t-foreach="range(0, label_qty)" t-as="label_qty">
         <div class="row">

@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. The format 
 * Command `setup-mail` is tested with `test-container`.
 * Renamed `scripts` to `bin`.
 * Refactored the initialisation of the Odoo image.
+* Removed xml header from snippet files.
 
 ## 2024-01-27
 

@@ -3,7 +3,6 @@
 ### Replace Summary  
 ID: `mint_system.account.document_tax_totals.replace_summary`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.document_tax_totals" priority="50">
     <xpath expr="//t/t[1]" position="replace">
         <style>
@@ -103,7 +102,6 @@ Source: [snippets/account.document_tax_totals.replace_summary.xml](https://githu
 ### Convert Html Note  
 ID: `mint_system.account.portal_invoice_page.convert_html_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.portal_invoice_page" priority="50">
     <t t-if="line.display_type == 'line_note'" position="replace">
         <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
@@ -126,7 +124,6 @@ Source: [snippets/account.portal_invoice_page.convert_html_note.xml](https://git
 ### Add Address Space  
 ID: `mint_system.account.report_invoice_document.add_address_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <t t-set="address" position="before">
         <style>
@@ -285,7 +282,6 @@ Source: [snippets/account.report_invoice_document.add_address.xml](https://githu
 ### Add Comment Space  
 ID: `mint_system.account.report_invoice_document.add_comment_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="comment" position="before">
         <style>
@@ -304,7 +300,6 @@ Source: [snippets/account.report_invoice_document.add_comment_space.xml](https:/
 ### Add Company Vat  
 ID: `mint_system.account.report_invoice_document.add_company_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="payment_term" position="after">
         <!-- <strong>MWST-Nr.:</strong> -->
@@ -321,7 +316,6 @@ Source: [snippets/account.report_invoice_document.add_company_vat.xml](https://g
 ### Add Current Subtotal Space  
 ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-esc='current_subtotal']/../.." position="after">
         <tr>
@@ -376,7 +370,6 @@ Source: [snippets/account.report_invoice_document.add_general_information.xml](h
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@id='info']" position="after">
         <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
@@ -396,7 +389,6 @@ Source: [snippets/account.report_invoice_document.add_header_and_footer_note.xml
 ### Add Header Padding  
 ID: `mint_system.account.report_invoice_document.add_header_padding`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">padding-top: 2rem</attribute>
@@ -409,7 +401,6 @@ Source: [snippets/account.report_invoice_document.add_header_padding.xml](https:
 ### Add Header Space  
 ID: `mint_system.account.report_invoice_document.add_header_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">padding-top: 5rem</attribute>
@@ -422,7 +413,6 @@ Source: [snippets/account.report_invoice_document.add_header_space.xml](https://
 ### Add Iban And Bank  
 ID: `mint_system.account.report_invoice_document.add_iban_and_bank`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="/t/t/div/p[2]" position="after">
         <div class="row">
@@ -450,7 +440,6 @@ Source: [snippets/account.report_invoice_document.add_iban_and_bank.xml](https:/
 ### Add Iban  
 ID: `mint_system.account.report_invoice_document.add_iban`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <!-- Odoo 17.0 -->
     <xpath expr="//span[@id='payment_terms_note_id']/.." position="after">
@@ -505,7 +494,6 @@ Source: [snippets/account.report_invoice_document.add_iban.xml](https://github.c
 ### Add Information Space  
 ID: `mint_system.account.report_invoice_document.add_information_space`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='informations']" position="before">
         <style>
@@ -523,7 +511,6 @@ Source: [snippets/account.report_invoice_document.add_information_space.xml](htt
 ### Add Membership Note  
 ID: `mint_system.account.report_invoice_document.add_membership_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <p name="payment_communication" position="before">
         <t t-set="is_recurring" t-value="o.invoice_line_ids.product_id.filtered('membership_ok')"/>
@@ -542,7 +529,6 @@ Source: [snippets/account.report_invoice_document.add_membership_note.xml](https
 ### Add Note  
 ID: `mint_system.account.report_invoice_document.add_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@name='comment']" position="replace">
         <div style="margin-top: 50px">
@@ -601,7 +587,6 @@ Source: [snippets/account.report_invoice_document.add_note.xml](https://github.c
 ### Add Percentage Sign  
 ID: `mint_system.account.report_invoice_document.add_percentage_sign`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.discount']" position="replace">
         <span t-field="line.discount"/>
@@ -615,7 +600,6 @@ Source: [snippets/account.report_invoice_document.add_percentage_sign.xml](https
 ### Add Picking Date  
 ID: `mint_system.account.report_invoice_document.add_picking_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
         <th name="th_picking_date" class="text-right">
@@ -635,7 +619,6 @@ Source: [snippets/account.report_invoice_document.add_picking_date.xml](https://
 ### Add Picking Name  
 ID: `mint_system.account.report_invoice_document.add_picking_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
         <th name="th_picking_name" class="text-right">
@@ -655,7 +638,6 @@ Source: [snippets/account.report_invoice_document.add_picking_name.xml](https://
 ### Add Picking  
 ID: `mint_system.account.report_invoice_document.add_picking`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
@@ -702,7 +684,6 @@ Source: [snippets/account.report_invoice_document.add_picking.xml](https://githu
 ### Add Qr Iban  
 ID: `mint_system.account.report_invoice_document.add_qr_iban`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="payment_term" position="after">
         <p><!-- <strong>Bankkonto:</strong> --><strong>Bank account:</strong><span t-field="o.partner_bank_id.bank_id.name"/>
@@ -718,7 +699,6 @@ Source: [snippets/account.report_invoice_document.add_qr_iban.xml](https://githu
 ### Add Sale Order Contact Name  
 ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//div[@id='informations']//div[@name='reference']" position="replace">
@@ -736,7 +716,6 @@ Source: [snippets/account.report_invoice_document.add_sale_order_contact_name.xm
 ### Add Sale Person  
 ID: `mint_system.account.report_invoice_document.add_sale_person`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <!-- Remove reference -->
     <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
@@ -765,7 +744,6 @@ Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://g
 ### Add Salesperson  
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="/t/t/div/div[1]/div[1]" position="after">
         <div class="col-3 bm-2" t-if="o.invoice_user_id" name="invoice_user_id">
@@ -795,7 +773,6 @@ Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://g
 ### Add Taxes  
 ID: `mint_system.account.report_invoice_document.add_taxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -822,7 +799,6 @@ Source: [snippets/account.report_invoice_document.add_taxes.xml](https://github.
 ### Align Taxes  
 ID: `mint_system.account.report_invoice_document.align_taxes`  
 ```xml
-<?xml version="1.0"?>
 <!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_taxes']" position="attributes">
@@ -839,7 +815,6 @@ Source: [snippets/account.report_invoice_document.align_taxes.xml](https://githu
 ### Bank Account  
 ID: `mint_system.account.report_invoice_document.bank_account`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="/t/t/div/p[2]" position="after">
         <t t-if="o.company_id.id==1">
@@ -873,7 +848,6 @@ Source: [snippets/account.report_invoice_document.bank_account.xml](https://gith
 ### Convert Html Note  
 ID: `mint_system.account.report_invoice_document.convert_html_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <t t-if="line.display_type == 'line_note'" position="replace">
         <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
@@ -895,7 +869,6 @@ Source: [snippets/account.report_invoice_document.convert_html_note.xml](https:/
 ### Custom Address  
 ID: `mint_system.account.report_invoice_document.custom_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']/address" position="replace">
         <address>
@@ -940,7 +913,6 @@ Source: [snippets/account.report_invoice_document.custom_address.xml](https://gi
 ### Custom Payment Term  
 ID: `mint_system.account.report_invoice_document.custom_payment_term`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='payment_term']" position="replace">
         <p t-if="o.invoice_payment_term_id" name="payment_term">
@@ -964,7 +936,6 @@ Source: [snippets/account.report_invoice_document.custom_payment_term.xml](https
 ### Custom Taxes  
 ID: `mint_system.account.report_invoice_document.custom_taxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_taxes']" position="replace">
         <th name="th_taxes" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
@@ -984,7 +955,6 @@ Source: [snippets/account.report_invoice_document.custom_taxes.xml](https://gith
 ### Display Shipping Address  
 ID: `mint_system.account.report_invoice_document.display_shipping_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="/t/t/t" position="after">
         <t t-if="o.partner_shipping_id">
@@ -1004,7 +974,6 @@ Source: [snippets/account.report_invoice_document.display_shipping_address.xml](
 ### Force Company Vat  
 ID: `mint_system.account.report_invoice_document.force_company_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <t t-set="forced_vat" position="replace">
         <t t-set="forced_vat" t-value="o.company_id.vat"/>
@@ -1017,7 +986,6 @@ Source: [snippets/account.report_invoice_document.force_company_vat.xml](https:/
 ### Format Address Blocks  
 ID: `mint_system.account.report_invoice_document.format_address_blocks`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']/div" position="attributes">
         <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
@@ -1030,7 +998,6 @@ Source: [snippets/account.report_invoice_document.format_address_blocks.xml](htt
 ### Format Clearfix  
 ID: `mint_system.account.report_invoice_document.format_clearfix`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='total']/div" position="attributes">
         <attribute name="t-attf-class"/>
@@ -1043,7 +1010,6 @@ Source: [snippets/account.report_invoice_document.format_clearfix.xml](https://g
 ### Format Description  
 ID: `mint_system.account.report_invoice_document.format_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//td[@name='account_invoice_line_name']/span" position="attributes">
         <attribute name="style">white-space: pre-wrap;</attribute>
@@ -1056,7 +1022,6 @@ Source: [snippets/account.report_invoice_document.format_description.xml](https:
 ### Format Discount  
 ID: `mint_system.account.report_invoice_document.format_discount`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <span t-field="line.discount" position="replace">
         <span class="text-nowrap" t-esc="'{0:.2f}'.format(line.discount)"/>
@@ -1069,7 +1034,6 @@ Source: [snippets/account.report_invoice_document.format_discount.xml](https://g
 ### Format Line Total  
 ID: `mint_system.account.report_invoice_document.format_line_total`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
         <span class="text-nowrap" t-esc="('{:,.2f}'.format(line.price_subtotal)).replace(',','\'')" groups="account.group_show_line_subtotals_tax_excluded"/>
@@ -1085,7 +1049,6 @@ Source: [snippets/account.report_invoice_document.format_line_total.xml](https:/
 ### Format Payment Term  
 ID: `mint_system.account.report_invoice_document.format_payment_term`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="payment_term" position="replace">
         <div name="payment_term">
@@ -1104,7 +1067,6 @@ Source: [snippets/account.report_invoice_document.format_payment_term.xml](https
 ### Format Pos  
 ID: `mint_system.account.report_invoice_document.format_pos`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-if='o.sale_order_id']/td" position="attributes">
         <attribute name="style">text-align: right; width: 5mm</attribute>
@@ -1117,7 +1079,6 @@ Source: [snippets/account.report_invoice_document.format_pos.xml](https://github
 ### Format Qty Without Decimal  
 ID: `mint_system.account.report_invoice_document.format_qty_without_decimal`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <span t-field="line.quantity" position="replace">
         <t t-if="line.quantity.is_integer()">
@@ -1135,7 +1096,6 @@ Source: [snippets/account.report_invoice_document.format_qty_without_decimal.xml
 ### Format Table Border  
 ID: `mint_system.account.report_invoice_document.format_table_border`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
         <style>
@@ -1159,7 +1119,6 @@ Source: [snippets/account.report_invoice_document.format_table_border.xml](https
 ### Format Title  
 ID: `mint_system.account.report_invoice_document.format_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
@@ -1172,7 +1131,6 @@ Source: [snippets/account.report_invoice_document.format_title.xml](https://gith
 ### Format Units  
 ID: `mint_system.account.report_invoice_document.format_units`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@name='account_invoice_line_accountable']/td[2]" position="attributes">
         <attribute name="class">text-nowrap</attribute>
@@ -1185,7 +1143,6 @@ Source: [snippets/account.report_invoice_document.format_units.xml](https://gith
 ### Get Position  
 ID: `mint_system.account.report_invoice_document.get_position`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="51">
     <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
         <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
@@ -1215,7 +1172,6 @@ Source: [snippets/account.report_invoice_document.get_position.xml](https://gith
 ### Group By Pickings  
 ID: `mint_system.account.report_invoice_document.group_by_pickings`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="before">
         <!-- Get all pickings without duplicates -->
@@ -1328,7 +1284,6 @@ Source: [snippets/account.report_invoice_document.group_by_pickings.xml](https:/
 ### Group By Product  
 ID: `mint_system.account.report_invoice_document.group_by_product`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//tbody" position="replace">
         <tbody class="invoice_tbody">
@@ -1386,7 +1341,6 @@ Source: [snippets/account.report_invoice_document.group_by_product.xml](https://
 ### Group By Sale Order  
 ID: `mint_system.account.report_invoice_document.group_by_sale_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="before">
         <!-- Get all sale orders without duplicates -->
@@ -1493,7 +1447,6 @@ Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https
 ### Hide Delivery Date  
 ID: `mint_system.account.report_invoice_document.hide_delivery_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='delivery_date']" position="replace"/>
 </data>
@@ -1504,7 +1457,6 @@ Source: [snippets/account.report_invoice_document.hide_delivery_date.xml](https:
 ### Hide Incoterm  
 ID: `mint_system.account.report_invoice_document.hide_incoterm`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='incoterm']" position="replace"/>
 </data>
@@ -1515,7 +1467,6 @@ Source: [snippets/account.report_invoice_document.hide_incoterm.xml](https://git
 ### Hide Payment Term  
 ID: `mint_system.account.report_invoice_document.hide_payment_term`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
   <xpath expr="//p[@name='payment_term']" position="replace"/>
 </data>
@@ -1541,7 +1492,6 @@ Source: [snippets/account.report_invoice_document.hide_payment_term.xml](https:/
 ### Hide Totals Company Currency  
 ID: `mint_system.account.report_invoice_document.hide_totals_company_currency`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-call='account.document_tax_totals_company_currency_template']" position="replace"/>
 </data>
@@ -1552,7 +1502,6 @@ Source: [snippets/account.report_invoice_document.hide_totals_company_currency.x
 ### Hide Vat  
 ID: `mint_system.account.report_invoice_document.hide_vat`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='partner_vat_address_same_as_shipping']" position="replace"/>   
 </data>
@@ -1563,7 +1512,6 @@ Source: [snippets/account.report_invoice_document.hide_vat.xml](https://github.c
 ### Margin After Title  
 ID: `mint_system.account.report_invoice_document.margin_after_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style" separator=";" add="margin-bottom: 1rem"/>
@@ -1576,7 +1524,6 @@ Source: [snippets/account.report_invoice_document.margin_after_title.xml](https:
 ### Margin Before Invoice Table  
 ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <table name="invoice_line_table" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -1589,7 +1536,6 @@ Source: [snippets/account.report_invoice_document.margin_before_invoice_table.xm
 ### Margin Before Title  
 ID: `mint_system.account.report_invoice_document.margin_before_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//h2" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 1rem"/>
@@ -1602,7 +1548,6 @@ Source: [snippets/account.report_invoice_document.margin_before_title.xml](https
 ### Modify Main Table  
 ID: `mint_system.account.report_invoice_document.modify_main_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <!-- add default_code   -->
     <xpath expr="//table[@class='table table-sm o_main_table']/thead/tr/th[1]" position="before">
@@ -1709,7 +1654,6 @@ Source: [snippets/account.report_invoice_document.modify_main_table.xml](https:/
 ### Move Incoterm  
 ID: `mint_system.account.report_invoice_document.move_incoterm`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//p[@name='incoterm']" position="replace"/>
     <xpath expr="//p[2]" position="after">
@@ -1725,7 +1669,6 @@ Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://git
 ### Move Narration  
 ID: `mint_system.account.report_invoice_document.move_narration`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@name='comment']/.." position="after">
         <xpath expr="//div/div[@name='comment']" position="move"/>
@@ -1738,7 +1681,6 @@ Source: [snippets/account.report_invoice_document.move_narration.xml](https://gi
 ### Net Value Summary  
 ID: `mint_system.account.report_invoice_document.net_value_summary`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='total']//table/t[1]" position="before">
         <!-- Version 16
@@ -1769,7 +1711,6 @@ Source: [snippets/account.report_invoice_document.net_value_summary.xml](https:/
 ### Product Hs Code And Origin  
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`  
 ```xml
-<?xml version="1.0"?>
 <!-- Show custom field country of origin and hs code -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">
@@ -1788,7 +1729,6 @@ Source: [snippets/account.report_invoice_document.product_hs_code_and_origin.xml
 ### Product Weight  
 ID: `mint_system.account.report_invoice_document.product_weight`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table/tbody/t[3]/tr/t[1]/td[1]/span" position="after">
         <t t-if="line.product_id.weight"><br/>
@@ -1804,7 +1744,6 @@ Source: [snippets/account.report_invoice_document.product_weight.xml](https://gi
 ### Remove Incoterm  
 ID: `mint_system.account.report_invoice_document.remove_incoterm`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='incoterm']" position="replace">
   </xpath>
@@ -1816,7 +1755,6 @@ Source: [snippets/account.report_invoice_document.remove_incoterm.xml](https://g
 ### Remove Origin  
 ID: `mint_system.account.report_invoice_document.remove_origin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="origin" position="replace"/>
 </data>
@@ -1827,7 +1765,6 @@ Source: [snippets/account.report_invoice_document.remove_origin.xml](https://git
 ### Remove Payment Communication  
 ID: `mint_system.account.report_invoice_document.remove_payment_communication`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='payment_communication']" position="replace"/>
 </data>
@@ -1838,7 +1775,6 @@ Source: [snippets/account.report_invoice_document.remove_payment_communication.x
 ### Remove Payment Term  
 ID: `mint_system.account.report_invoice_document.remove_payment_term`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <p name="payment_term" position="replace"/>
 </data>
@@ -1849,7 +1785,6 @@ Source: [snippets/account.report_invoice_document.remove_payment_term.xml](https
 ### Remove Reference  
 ID: `mint_system.account.report_invoice_document.remove_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div name="reference" position="replace"/>
 </data>
@@ -1860,7 +1795,6 @@ Source: [snippets/account.report_invoice_document.remove_reference.xml](https://
 ### Remove Shipping Address  
 ID: `mint_system.account.report_invoice_document.remove_shipping_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@t-field='o.partner_shipping_id']/.. " position="replace"/>
 </data>
@@ -1871,7 +1805,6 @@ Source: [snippets/account.report_invoice_document.remove_shipping_address.xml](h
 ### Remove Summary Table  
 ID: `mint_system.account.report_invoice_document.remove_summary_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@class='clearfix']" position="replace">
 </xpath>
@@ -1883,7 +1816,6 @@ Source: [snippets/account.report_invoice_document.remove_summary_table.xml](http
 ### Remove Taxes  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//th[@name='th_taxes']" position="replace"/>
     <xpath expr="//span[@id='line_tax_ids']/.." position="replace"/>
@@ -1895,7 +1827,6 @@ Source: [snippets/account.report_invoice_document.remove_taxes.xml](https://gith
 ### Remove Vat Id  
 ID: `mint_system.account.report_invoice_document.remove_vat_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div id="partner_vat_address_same_as_shipping" position="replace"/>
     <div id="partner_vat_address_not_same_as_shipping" position="replace"/>
@@ -1907,7 +1838,6 @@ Source: [snippets/account.report_invoice_document.remove_vat_id.xml](https://git
 ### Replace Address And Information Block  
 ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="replace">
         <div class="row text-900 o_bold">
@@ -1959,7 +1889,6 @@ Source: [snippets/account.report_invoice_document.replace_address_and_informatio
 ### Replace Address  
 ID: `mint_system.account.report_invoice_document.replace_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='information_block']/.." position="replace">
         <div class="col-6">
@@ -1993,7 +1922,6 @@ Source: [snippets/account.report_invoice_document.replace_address.xml](https://g
 ### Replace Footer  
 ID: `mint_system.account.report_invoice_document.replace_footer`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='payment_communication']" position="replace">
   </xpath>
@@ -2062,7 +1990,6 @@ Source: [snippets/account.report_invoice_document.replace_footer.xml](https://gi
 ### Replace Informations2  
 ID: `mint_system.account.report_invoice_document.replace_informations2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
@@ -2162,7 +2089,6 @@ Source: [snippets/account.report_invoice_document.replace_informations2.xml](htt
 ### Replace Informations  
 ID: `mint_system.account.report_invoice_document.replace_informations`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <div id="informations" position="replace">
         <style>
@@ -2238,7 +2164,6 @@ Source: [snippets/account.report_invoice_document.replace_informations.xml](http
 ### Replace Information Table2  
 ID: `mint_system.account.report_invoice_document.replace_information_table2`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//*[@id='informations']" position="replace">
         <style>
@@ -2326,7 +2251,6 @@ Source: [snippets/account.report_invoice_document.replace_information_table2.xml
 ### Replace Information Table  
 ID: `mint_system.account.report_invoice_document.replace_information_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//*[@id='informations']" position="replace">
         <style>
@@ -2391,7 +2315,6 @@ Source: [snippets/account.report_invoice_document.replace_information_table.xml]
 ### Replace Infotable  
 ID: `mint_system.account.report_invoice_document.replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <style>
@@ -2471,7 +2394,6 @@ Source: [snippets/account.report_invoice_document.replace_infotable.xml](https:/
 ### Replace Product Description  
 ID: `mint_system.account.report_invoice_document.replace_product_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
         <t t-if="line.product_id.type_description">
@@ -2501,7 +2423,6 @@ Source: [snippets/account.report_invoice_document.replace_product_description.xm
 ### Replace Summary  
 ID: `mint_system.account.report_invoice_document.replace_summary`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="after">
         <style>
@@ -2625,7 +2546,6 @@ Source: [snippets/account.report_invoice_document.replace_summary.xml](https://g
 ### Reset Address  
 ID: `mint_system.account.report_invoice_document.reset_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="replace">
         <t t-set="address">
@@ -2642,7 +2562,6 @@ Source: [snippets/account.report_invoice_document.reset_address.xml](https://git
 ### Round Price Unit  
 ID: `mint_system.account.report_invoice_document.round_price_unit`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.price_unit']" position="replace">
         <span class="text-nowrap" t-esc="'{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
@@ -2655,7 +2574,6 @@ Source: [snippets/account.report_invoice_document.round_price_unit.xml](https://
 ### Round Price  
 ID: `mint_system.account.report_invoice_document.round_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.price_unit']" position="replace">
         <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '{0:,.2f}'.format(float(line.price_unit)).replace(',','\'')"/>
@@ -2668,7 +2586,6 @@ Source: [snippets/account.report_invoice_document.round_price.xml](https://githu
 ### Round Quantity  
 ID: `mint_system.account.report_invoice_document.round_quantity`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.quantity']" position="replace">
         <span t-esc="'%.2f' % line.quantity"/>
@@ -2681,7 +2598,6 @@ Source: [snippets/account.report_invoice_document.round_quantity.xml](https://gi
 ### Round Total Price  
 ID: `mint_system.account.report_invoice_document.round_total_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.price_subtotal']" position="replace">
         <span t-esc="'{0:,.2f}'.format(float(line.price_subtotal)).replace(',','\'')"/>
@@ -2694,7 +2610,6 @@ Source: [snippets/account.report_invoice_document.round_total_price.xml](https:/
 ### Second Row  
 ID: `mint_system.account.report_invoice_document.second_row`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="attributes">
         <attribute name="class" separator=" " add="first"/>
@@ -2743,7 +2658,6 @@ Source: [snippets/account.report_invoice_document.second_row.xml](https://github
 ### Sequence In Table  
 ID: `mint_system.account.report_invoice_document.sequence_in_table`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
@@ -2767,7 +2681,6 @@ Source: [snippets/account.report_invoice_document.sequence_in_table.xml](https:/
 ### Set Ids  
 ID: `mint_system.account.report_invoice_document.set_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_quantity']" position="attributes">
         <attribute name="id">th_quantity</attribute>
@@ -2792,7 +2705,6 @@ Source: [snippets/account.report_invoice_document.set_ids.xml](https://github.co
 ### Set Page Font Size  
 ID: `mint_system.account.report_invoice_document.set_page_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
@@ -2809,7 +2721,6 @@ Source: [snippets/account.report_invoice_document.set_page_font_size.xml](https:
 ### Set Table Font Size  
 ID: `mint_system.account.report_invoice_document.set_table_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[hasclass('o_main_table')]" position="before">
         <style>
@@ -2827,7 +2738,6 @@ Source: [snippets/account.report_invoice_document.set_table_font_size.xml](https
 ### Set Title Font Size  
 ID: `mint_system.account.report_invoice_document.set_title_font_size`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
@@ -2844,7 +2754,6 @@ Source: [snippets/account.report_invoice_document.set_title_font_size.xml](https
 ### Show Categ Id  
 ID: `mint_system.account.report_invoice_document.show_categ_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">
         <div>
@@ -2859,7 +2768,6 @@ Source: [snippets/account.report_invoice_document.show_categ_id.xml](https://git
 ### Show Country Of Origin  
 ID: `mint_system.account.report_invoice_document.show_country_of_origin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
         <th name="th_country_of_origin" class="text-right">
@@ -2879,7 +2787,6 @@ Source: [snippets/account.report_invoice_document.show_country_of_origin.xml](ht
 ### Show Credit Note  
 ID: `mint_system.account.report_invoice_document.show_credit_note`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <p name="payment_communication" position="before">
         <t t-if="print_with_payments and (o.payment_state != 'invoicing_legacy')">
@@ -2902,7 +2809,6 @@ Source: [snippets/account.report_invoice_document.show_credit_note.xml](https://
 ### Show Customer Info Product Code  
 ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <span t-field="line.name" position="before">
         <t t-if="line.product_id" t-set="customer_info" t-value="line.product_id._select_customerinfo(partner=o.commercial_partner_id)"/>
@@ -2918,7 +2824,6 @@ Source: [snippets/account.report_invoice_document.show_customer_info_product_cod
 ### Show Default Code  
 ID: `mint_system.account.report_invoice_document.show_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
         <style>
@@ -2946,7 +2851,6 @@ Source: [snippets/account.report_invoice_document.show_default_code.xml](https:/
 ### Show Hs Code  
 ID: `mint_system.account.report_invoice_document.show_hs_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
         <th name="th_hs_code" class="text-right">
@@ -2966,7 +2870,6 @@ Source: [snippets/account.report_invoice_document.show_hs_code.xml](https://gith
 ### Show Lot Ids  
 ID: `mint_system.account.report_invoice_document.show_lot_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']/span[1]" position="after">
         <t t-set="lot_ids" t-value="o.picking_ids.move_line_ids.lot_id.filtered(lambda l: l.product_id == line.product_id)"/>
@@ -2989,7 +2892,6 @@ Source: [snippets/account.report_invoice_document.show_lot_ids.xml](https://gith
 ### Show Order Id  
 ID: `mint_system.account.report_invoice_document.show_order_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
         <td name="account_invoice_line_name">
@@ -3011,7 +2913,6 @@ Source: [snippets/account.report_invoice_document.show_order_id.xml](https://git
 ### Show Parent Partner Reference  
 ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <p t-field="o.partner_id.ref" position="replace">
         <p class="m-0" t-esc="o.partner_id.ref or o.partner_id.parent_id.ref"/>
@@ -3027,7 +2928,6 @@ Source: [snippets/account.report_invoice_document.show_parent_partner_reference.
 ### Show Product Name  
 ID: `mint_system.account.report_invoice_document.show_product_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
         <td name="account_invoice_line_name">
@@ -3046,7 +2946,6 @@ Source: [snippets/account.report_invoice_document.show_product_name.xml](https:/
 ### Show Sale Line Ids  
 ID: `mint_system.account.report_invoice_document.show_sale_line_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
         <th name="th_hs_code" class="text-right">
@@ -3066,7 +2965,6 @@ Source: [snippets/account.report_invoice_document.show_sale_line_ids.xml](https:
 ### Show Shipping Address  
 ID: `mint_system.account.report_invoice_document.show_shipping_address`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="after">
         <t t-set="information_block">
@@ -3084,7 +2982,6 @@ Source: [snippets/account.report_invoice_document.show_shipping_address.xml](htt
 ### Show Weight  
 ID: `mint_system.account.report_invoice_document.show_weight`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="inside">
         <br/>
@@ -3116,7 +3013,6 @@ Source: [snippets/account.report_invoice_document.show_weight.xml](https://githu
 ### Style Carbo Link  
 ID: `mint_system.account.report_invoice_document.style_carbo_link`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3143,7 +3039,6 @@ Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://
 ### Style Kunststoffsammelsack  
 ID: `mint_system.account.report_invoice_document.style_kunststoffsammelsack`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3165,7 +3060,6 @@ Source: [snippets/account.report_invoice_document.style_kunststoffsammelsack.xml
 ### Style Lapp  
 ID: `mint_system.account.report_invoice_document.style_lapp`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
 
     <xpath expr="//table[@class='table table-sm o_main_table table-borderless']" position="attributes">
@@ -3190,7 +3084,6 @@ Source: [snippets/account.report_invoice_document.style_lapp.xml](https://github
 ### Style Moser  
 ID: `mint_system.account.report_invoice_document.style_moser`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3231,7 +3124,6 @@ Source: [snippets/account.report_invoice_document.style_moser.xml](https://githu
 ### Style Swissfragrance  
 ID: `mint_system.account.report_invoice_document.style_swissfragrance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']" position="attributes">
         <attribute name="class">table table-sm o_main_table</attribute>
@@ -3244,7 +3136,6 @@ Source: [snippets/account.report_invoice_document.style_swissfragrance.xml](http
 ### Style Tissa  
 ID: `mint_system.account.report_invoice_document.style_tissa`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -3283,7 +3174,6 @@ Source: [snippets/account.report_invoice_document.style_tissa.xml](https://githu
 ### Style Trimada  
 ID: `mint_system.account.report_invoice_document.style_trimada`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>		  
@@ -3383,7 +3273,6 @@ Source: [snippets/account.report_invoice_document.style_trimada.xml](https://git
 ### Switch Address Block  
 ID: `mint_system.account.report_invoice_document.switch_address_block`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='address']" position="after">
         <t t-set="information_block">
@@ -3403,7 +3292,6 @@ Source: [snippets/account.report_invoice_document.switch_address_block.xml](http
 ### Tissa Rechnungstext  
 ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@name='payment_term']" position="after">
         <t t-foreach="o.partner_id.x_studio_field_5jUpb" t-as="text">
@@ -3427,7 +3315,6 @@ Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https
 ### Tissa Replace Infotable  
 ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <style>
@@ -3518,7 +3405,6 @@ Source: [snippets/account.report_invoice_document.tissa_replace_infotable.xml](h
 ### Unit Precision  
 ID: `mint_system.account.report_invoice_document.unit_precision`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//tbody[1]/t[3]/tr[1]/t[1]/td[2]/span[1]" position="attributes">
         <attribute name="t-options-widget">"integer"</attribute>
@@ -3531,7 +3417,6 @@ Source: [snippets/account.report_invoice_document.unit_precision.xml](https://gi
 ### X Hide On Invoice  
 ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@t-set='lines']" position="after">
         <t t-set="lines" t-value="lines.filtered(lambda l: not l.product_id.x_hide_on_invoice)"/>
@@ -3544,7 +3429,6 @@ Source: [snippets/account.report_invoice_document.x_hide_on_invoice.xml](https:/
 ### X Hide Partner Name  
 ID: `mint_system.account.report_invoice_document.x_hide_partner_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//address[@t-field='o.partner_id']" position="attributes">
         <t t-if="o.x_hide_partner_name">
@@ -3562,7 +3446,6 @@ Source: [snippets/account.report_invoice_document.x_hide_partner_name.xml](https
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//p[@t-field='o.invoice_origin']" position="attributes">
         <attribute name="t-field">o.x_picking_list</attribute>
@@ -3575,7 +3458,6 @@ Source: [snippets/account.report_invoice_document.x_picking_list.xml](https://gi
 ### X Show Bank Details  
 ID: `mint_system.account.report_invoice_document.x_show_bank_details`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice_document" priority="50">
     <p name="payment_communication" position="after">
         <p t-if="o.x_show_bank_details">
@@ -3604,7 +3486,6 @@ Source: [snippets/account.report_invoice_document.x_show_bank_details.xml](https
 ### Print With Payments  
 ID: `mint_system.account.report_invoice.print_with_payments`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.report_invoice" priority="50">
     <xpath expr="/t[1]/t[1]/t[1]/t[1]" position="after">
         <t t-set="print_with_payments" t-value="True"/>
@@ -3618,7 +3499,6 @@ Source: [snippets/account.report_invoice.print_with_payments.xml](https://github
 ### Report  
 ID: `mint_system.account.report_timesheet.report`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="account.report_timesheet">
     <t t-call="web.html_container">
         <t t-foreach="docs" t-as="doc">
@@ -3636,7 +3516,6 @@ Source: [snippets/account.report_timesheet.report.xml](https://github.com/Mint-S
 ### Domain Expense Currency Exchange Account Id  
 ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.res_config_settings_view_form" priority="50">
     <field name="expense_currency_exchange_account_id" position="attributes">
         <attribute name="domain">[('internal_type', '=', 'other'), ('deprecated', '=', False)]</attribute>
@@ -3650,7 +3529,6 @@ Source: [snippets/account.res_config_settings_view_form.domain_expense_currency_
 ### Is Move Sent  
 ID: `mint_system.account.view_account_invoice_filter.is_move_sent`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_invoice_filter" priority="50">
     <filter name="to_check" position="after">
         <filter name="is_sent" string="Sent" domain="[('is_move_sent', '=', True)]"/>
@@ -3664,7 +3542,6 @@ Source: [snippets/account.view_account_invoice_filter.is_move_sent.xml](https://
 ### Partner Id  
 ID: `mint_system.account.view_account_invoice_filter.partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_invoice_filter" priority="50">
     <filter name="status" position="after">
         <filter name="partner" string="Partner" context="{'group_by':'partner_id'}"/>
@@ -3678,7 +3555,6 @@ Source: [snippets/account.view_account_invoice_filter.partner_id.xml](https://gi
 ### Show Payment Method Code  
 ID: `mint_system.account.view_account_journal_form.show_payment_method_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_journal_form" priority="50">
     <xpath expr="//field[@name='inbound_payment_method_line_ids']//field[@name='payment_method_id']" position="before">
         <field name="code"/>
@@ -3692,7 +3568,6 @@ Source: [snippets/account.view_account_journal_form.show_payment_method_code.xml
 ### Show Deprecated  
 ID: `mint_system.account.view_account_list.show_deprecated`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_list" priority="50">
     <xpath expr="//field[@name='reconcile']" position="after">
         <field name="deprecated" widget="boolean_toggle"/>
@@ -3706,7 +3581,6 @@ Source: [snippets/account.view_account_list.show_deprecated.xml](https://github.
 ### X Account Codes  
 ID: `mint_system.account.view_account_move_filter.x_account_codes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_move_filter" priority="50">
     <field name="date" position="after">
         <field name="x_account_codes"/>
@@ -3720,7 +3594,6 @@ Source: [snippets/account.view_account_move_filter.x_account_codes.xml](https://
 ### Show Partner Id  
 ID: `mint_system.account.view_account_payment_register_form.show_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_account_payment_register_form" priority="50">
     <field name="partner_bank_id" position="before">
         <field name="partner_id"/>
@@ -3734,7 +3607,6 @@ Source: [snippets/account.view_account_payment_register_form.show_partner_id.xml
 ### Edit Balance  
 ID: `mint_system.account.view_bank_statement_form.edit_balance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
     <field name="balance_start" position="attributes">
         <attribute name="attrs">{'readonly': False}</attribute>
@@ -3750,7 +3622,6 @@ Source: [snippets/account.view_bank_statement_form.edit_balance.xml](https://git
 ### Edit Transactions  
 ID: `mint_system.account.view_bank_statement_form.edit_transactions`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
     <field name="line_ids" position="attributes">
         <attribute name="attrs">{'readonly': [('state', '=', 'confirm')]}</attribute>
@@ -3763,7 +3634,6 @@ Source: [snippets/account.view_bank_statement_form.edit_transactions.xml](https:
 ### Show Cashbox  
 ID: `mint_system.account.view_bank_statement_form.show_cashbox`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
     <field name="balance_start" position="after">
         <button name="open_cashbox_id" attrs="{'invisible': [('journal_type','!=','cash')]}" string="&#x2192; Count" type="object" class="oe_link oe_inline" context="{'balance':'start'}"/>
@@ -3776,7 +3646,6 @@ Source: [snippets/account.view_bank_statement_form.show_cashbox.xml](https://git
 ### Show Move Id  
 ID: `mint_system.account.view_bank_statement_form.show_move_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
     <xpath expr="//page[@name='statement_line_ids']//field[@name='ref']" position="after">
         <field name="move_id" optional="hidden"/>
@@ -3789,7 +3658,6 @@ Source: [snippets/account.view_bank_statement_form.show_move_id.xml](https://git
 ### X Cashbox Start Ids  
 ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_form" priority="50">
     <page name="statement_line_ids" position="after">
         <page string="Kassenpositionen" name="cashbox_ids" attrs="{'invisible': [('journal_type','!=','cash')]}">
@@ -3822,7 +3690,6 @@ Source: [snippets/account.view_bank_statement_form.x_cashbox_start_ids.xml](http
 ### Filter Move Id  
 ID: `mint_system.account.view_bank_statement_line_search.filter_move_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_line_search" priority="50">
     <xpath expr="//field[@name='payment_ref']" position="before">
         <field name="move_id"/>
@@ -3836,7 +3703,6 @@ Source: [snippets/account.view_bank_statement_line_search.filter_move_id.xml](ht
 ### Enable Create  
 ID: `mint_system.account.view_bank_statement_line_tree.enable_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_bank_statement_line_tree" priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
@@ -3850,7 +3716,6 @@ Source: [snippets/account.view_bank_statement_line_tree.enable_create.xml](https
 ### Add Discount Date  
 ID: `mint_system.account.view_in_invoice_tree.add_discount_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_in_invoice_tree" priority="50">
     <field name="invoice_date_due" position="after">
         <field name="discount_date" optional="hide"/>
@@ -3863,7 +3728,6 @@ Source: [snippets/account.view_in_invoice_tree.add_discount_date.xml](https://gi
 ### Format Invoice Date Due  
 ID: `mint_system.account.view_in_invoice_tree.format_invoice_date_due`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_in_invoice_tree" priority="50">
     <xpath expr="//field[@name='invoice_date_due']" position="attributes">
         <attribute name="widget">date</attribute>
@@ -3877,7 +3741,6 @@ Source: [snippets/account.view_in_invoice_tree.format_invoice_date_due.xml](http
 ### Add Currency Id  
 ID: `mint_system.account.view_invoice_tree.add_currency_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <field name="ref" position="after">
         <field name="currency_id" optional="hide"/>
@@ -3890,7 +3753,6 @@ Source: [snippets/account.view_invoice_tree.add_currency_id.xml](https://github.
 ### Add Is Move Sent  
 ID: `mint_system.account.view_invoice_tree.add_is_move_sent`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <field name="state" position="after">
         <field name="is_move_sent" optional="hide"/>
@@ -3903,7 +3765,6 @@ Source: [snippets/account.view_invoice_tree.add_is_move_sent.xml](https://github
 ### Format Ref  
 ID: `mint_system.account.view_invoice_tree.format_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <xpath expr="//field[@name='ref']" position="attributes">
         <attribute name="string">Bestellnummer Kunde</attribute>
@@ -3916,7 +3777,6 @@ Source: [snippets/account.view_invoice_tree.format_ref.xml](https://github.com/M
 ### Show Date  
 ID: `mint_system.account.view_invoice_tree.show_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <xpath expr="//field[@name='invoice_date']" position="after">
         <field name="date" optional="show"/>
@@ -3929,7 +3789,6 @@ Source: [snippets/account.view_invoice_tree.show_date.xml](https://github.com/Mi
 ### X Account Codes  
 ID: `mint_system.account.view_invoice_tree.x_account_codes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <field name="ref" position="after">
         <field name="x_account_codes" optional="hide"/>
@@ -3942,7 +3801,6 @@ Source: [snippets/account.view_invoice_tree.x_account_codes.xml](https://github.
 ### X Bexio Name  
 ID: `mint_system.account.view_invoice_tree.x_bexio_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <xpath expr="//group[@id='header_left_group']/label[1]" position="before">
         <field name="x_bexio_name" readonly="1"/>
@@ -3955,7 +3813,6 @@ Source: [snippets/account.view_invoice_tree.x_bexio_name.xml](https://github.com
 ### X Recurring Inverval  
 ID: `mint_system.account.view_invoice_tree.x_recurring_inverval`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_invoice_tree" priority="50">
     <field name="invoice_date" position="after">
         <field name="x_recurring_inverval" optional="show"/>
@@ -3969,7 +3826,6 @@ Source: [snippets/account.view_invoice_tree.x_recurring_inverval.xml](https://gi
 ### Domain Partner Bank Ids  
 ID: `mint_system.account.view_move_form.domain_partner_bank_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//group[@id='header_left_group']//field[@name='partner_bank_id']" position="attributes">
         <attribute name="domain"/>
@@ -3982,7 +3838,6 @@ Source: [snippets/account.view_move_form.domain_partner_bank_ids.xml](https://gi
 ### Edit Invoice Date  
 ID: `mint_system.account.view_move_form.edit_invoice_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="invoice_date" position="attributes">
         <attribute name="attrs">{}</attribute>
@@ -3995,7 +3850,6 @@ Source: [snippets/account.view_move_form.edit_invoice_date.xml](https://github.c
 ### Format Partner Bank Id  
 ID: `mint_system.account.view_move_form.format_partner_bank_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//group[@name='sale_info_group']/field[@name='partner_bank_id']" position="attributes">
         <attribute name="readonly">1</attribute>
@@ -4008,7 +3862,6 @@ Source: [snippets/account.view_move_form.format_partner_bank_id.xml](https://git
 ### Hide Payment Reference  
 ID: `mint_system.account.view_move_form.hide_payment_reference`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='payment_reference']" position="replace">
     </xpath>
@@ -4020,7 +3873,6 @@ Source: [snippets/account.view_move_form.hide_payment_reference.xml](https://git
 ### Hide Post Before Check  
 ID: `mint_system.account.view_move_form.hide_post_before_check`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//button[@name='action_post'][1]" position="attributes">
         <attribute name="attrs">{'invisible': ['|', '|', ('hide_post_button', '=', True), ('move_type', '!=', 'entry'), ('to_check', '!=', False)]}</attribute>
@@ -4036,7 +3888,6 @@ Source: [snippets/account.view_move_form.hide_post_before_check.xml](https://git
 ### Hide Send Button On Refund  
 ID: `mint_system.account.view_move_form.hide_send_button_on_refund`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//button[@name='action_invoice_sent'][1]" position="attributes">
         <attribute name="attrs"> {'invisible':['|', '|', ('state', '!=', 'posted'), ('is_move_sent', '=', True), ('move_type', 'not in', ('out_invoice'))]}</attribute>
@@ -4052,7 +3903,6 @@ Source: [snippets/account.view_move_form.hide_send_button_on_refund.xml](https:/
 ### Move Ref  
 ID: `mint_system.account.view_move_form.move_ref`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='partner_shipping_id']" position="after">
         <field string="Bestellnummer Kunde" name="ref"/>
@@ -4067,7 +3917,6 @@ Source: [snippets/account.view_move_form.move_ref.xml](https://github.com/Mint-S
 ### Move To Check  
 ID: `mint_system.account.view_move_form.move_to_check`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='to_check']" position="replace"/>
     <xpath expr="//field[@name='ref']" position="after">
@@ -4081,7 +3930,6 @@ Source: [snippets/account.view_move_form.move_to_check.xml](https://github.com/M
 ### Payment Reference Readonly  
 ID: `mint_system.account.view_move_form.payment_reference_readonly`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='payment_reference']" position="attributes">
         <attribute name="attrs">{'readonly': True}</attribute>
@@ -4094,7 +3942,6 @@ Source: [snippets/account.view_move_form.payment_reference_readonly.xml](https:/
 ### Remove Isr Button  
 ID: `mint_system.account.view_move_form.remove_isr_button`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <button id="l10n_ch_btn_isr_print_highlight" position="replace"/>
     <button id="btn_isr_print_normal" position="replace"/>
@@ -4106,7 +3953,6 @@ Source: [snippets/account.view_move_form.remove_isr_button.xml](https://github.c
 ### Replace Button Scan Wizzard  
 ID: `mint_system.account.view_move_form.replace_button_scan_wizzard`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//button[@name='get_import_wizard']" position="replace">
         <button type="object" name="get_import_wizard" string="Scan next QR Bill" attrs="{'invisible': [('move_type', '!=', 'in_invoice')]}"/>
@@ -4122,7 +3968,6 @@ Source: [snippets/account.view_move_form.replace_button_scan_wizzard.xml](https:
 ### Show Bank Partner Id  
 ID: `mint_system.account.view_move_form.show_bank_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="partner_id" position="after">
         <field name="bank_partner_id"/>
@@ -4135,7 +3980,6 @@ Source: [snippets/account.view_move_form.show_bank_partner_id.xml](https://githu
 ### Show Commercial Partner Id  
 ID: `mint_system.account.view_move_form.show_commercial_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="partner_id" position="after">
         <field name="commercial_partner_id"/>
@@ -4148,7 +3992,6 @@ Source: [snippets/account.view_move_form.show_commercial_partner_id.xml](https:/
 ### Show Invoice Origin  
 ID: `mint_system.account.view_move_form.show_invoice_origin`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//group[@id='other_tab_group']//field[@name='ref']" position="after">
         <field name="invoice_origin" readonly="0"/>
@@ -4161,7 +4004,6 @@ Source: [snippets/account.view_move_form.show_invoice_origin.xml](https://github
 ### Show Is Move Sent  
 ID: `mint_system.account.view_move_form.show_is_move_sent`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="currency_id" position="after">
         <field name="is_move_sent" string="Gesendet"/>
@@ -4174,7 +4016,6 @@ Source: [snippets/account.view_move_form.show_is_move_sent.xml](https://github.c
 ### Show Line Partner Id  
 ID: `mint_system.account.view_move_form.show_line_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='partner_id']" position="replace">
         <field name="partner_id" optional="hide"/>
@@ -4190,7 +4031,6 @@ Source: [snippets/account.view_move_form.show_line_partner_id.xml](https://githu
 ### Show Partner Id  
 ID: `mint_system.account.view_move_form.show_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='partner_id']" position="replace">
         <field name="partner_id" optional="hide"/>
@@ -4203,7 +4043,6 @@ Source: [snippets/account.view_move_form.show_partner_id.xml](https://github.com
 ### Show Payment Ids  
 ID: `mint_system.account.view_move_form.show_payment_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="journal_id" position="after">
         <field name="payment_ids"/>
@@ -4216,7 +4055,6 @@ Source: [snippets/account.view_move_form.show_payment_ids.xml](https://github.co
 ### Show Payment State  
 ID: `mint_system.account.view_move_form.show_payment_state`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="payment_reference" position="after">
         <field name="x_payment_state"/>
@@ -4229,7 +4067,6 @@ Source: [snippets/account.view_move_form.show_payment_state.xml](https://github.
 ### Show Posted Before  
 ID: `mint_system.account.view_move_form.show_posted_before`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="to_check" position="after">
         <field name="posted_before"/>
@@ -4242,7 +4079,6 @@ Source: [snippets/account.view_move_form.show_posted_before.xml](https://github.
 ### Show Sale Order Lines  
 ID: `mint_system.account.view_move_form.show_sale_order_lines`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="product_id" position="before">
         <field name="sale_line_ids" widget="many2many_tags" optional="hide"/>
@@ -4255,7 +4091,6 @@ Source: [snippets/account.view_move_form.show_sale_order_lines.xml](https://gith
 ### Show Stock Move Line Ids  
 ID: `mint_system.account.view_move_form.show_stock_move_line_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//field[@name='invoice_line_ids']/tree/field[@name='account_id']" position="before">
         <field name="move_line_ids" widget="many2many_tags" optional="hide"/>
@@ -4268,7 +4103,6 @@ Source: [snippets/account.view_move_form.show_stock_move_line_ids.xml](https://g
 ### Show Subscription Dates  
 ID: `mint_system.account.view_move_form.show_subscription_dates`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="product_id" position="before">
         <field name="subscription_start_date" optional="hide"/>
@@ -4282,7 +4116,6 @@ Source: [snippets/account.view_move_form.show_subscription_dates.xml](https://gi
 ### Show Tax Line Id  
 ID: `mint_system.account.view_move_form.show_tax_line_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="tax_line_id" position="attributes">
         <attribute name="invisible">0</attribute>
@@ -4296,7 +4129,6 @@ Source: [snippets/account.view_move_form.show_tax_line_id.xml](https://github.co
 ### Show User Id  
 ID: `mint_system.account.view_move_form.show_user_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="invoice_user_id" position="after">
         <field name="user_id"/>
@@ -4309,7 +4141,6 @@ Source: [snippets/account.view_move_form.show_user_id.xml](https://github.com/Mi
 ### X Bexio Name  
 ID: `mint_system.account.view_move_form.x_bexio_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//group[@id='header_left_group']/label[1]" position="before">
         <field name="x_bexio_name"/>
@@ -4322,7 +4153,6 @@ Source: [snippets/account.view_move_form.x_bexio_name.xml](https://github.com/Mi
 ### X Drawing File  
 ID: `mint_system.account.view_move_form.x_drawing_file`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="product_id" position="after">
         <field name="x_drawing_file" optional="hide"/>
@@ -4335,7 +4165,6 @@ Source: [snippets/account.view_move_form.x_drawing_file.xml](https://github.com/
 ### X Duplicate Found  
 ID: `mint_system.account.view_move_form.x_duplicate_found`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <header position="after">
         <field name="x_duplicate_found" invisible="1"/>
@@ -4352,7 +4181,6 @@ Source: [snippets/account.view_move_form.x_duplicate_found.xml](https://github.c
 ### X Group Ids  
 ID: `mint_system.account.view_move_form.x_group_ids`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <xpath expr="//page[@id='other_tab']//field[@name='to_check']" position="after">
         <field name="x_group_ids" widget="many2many_tags"/>
@@ -4365,7 +4193,6 @@ Source: [snippets/account.view_move_form.x_group_ids.xml](https://github.com/Min
 ### X Has Downpayment Warn Msg  
 ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <header position="after">
         <field name="x_has_downpayment" invisible="1"/>
@@ -4381,7 +4208,6 @@ Source: [snippets/account.view_move_form.x_has_downpayment_warn_msg.xml](https:/
 ### X Hide Partner Name  
 ID: `mint_system.account.view_move_form.x_hide_partner_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="team_id" position="after">
         <field name="x_hide_partner_name"/>
@@ -4394,7 +4220,6 @@ Source: [snippets/account.view_move_form.x_hide_partner_name.xml](https://github
 ### X Invoice Warn Msg  
 ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <header position="after">
         <field name="x_invoice_warn_msg" invisible="1"/>
@@ -4411,7 +4236,6 @@ Source: [snippets/account.view_move_form.x_invoice_warn_msg.xml](https://github.
 ### X Recurring Inverval  
 ID: `mint_system.account.view_move_form.x_recurring_inverval`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="invoice_date" position="after">
         <field name="x_recurring_inverval"/>
@@ -4424,7 +4248,6 @@ Source: [snippets/account.view_move_form.x_recurring_inverval.xml](https://githu
 ### X Sale Order Id  
 ID: `mint_system.account.view_move_form.x_sale_order_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="product_id" position="before">
         <field name="x_sale_order_id" widget="many2one" optional="hide"/>
@@ -4437,7 +4260,6 @@ Source: [snippets/account.view_move_form.x_sale_order_id.xml](https://github.com
 ### X Show Bank Details  
 ID: `mint_system.account.view_move_form.x_show_bank_details`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_form" priority="50">
     <field name="team_id" position="after">
         <field name="x_show_bank_details"/>
@@ -4451,7 +4273,6 @@ Source: [snippets/account.view_move_form.x_show_bank_details.xml](https://github
 ### Show Balance  
 ID: `mint_system.account.view_move_line_tax_audit_tree.show_balance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tax_audit_tree" priority="50">
     <field name="amount_currency" position="after">
         <field name="balance" optional="hide" sum="Saldo"/>
@@ -4464,7 +4285,6 @@ Source: [snippets/account.view_move_line_tax_audit_tree.show_balance.xml](https:
 ### Sum Currency  
 ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tax_audit_tree" priority="50">
     <field name="amount_currency" position="attributes">
         <attribute name="sum">Amount Currency</attribute>
@@ -4478,7 +4298,6 @@ Source: [snippets/account.view_move_line_tax_audit_tree.sum_currency.xml](https:
 ### Enable Create  
 ID: `mint_system.account.view_move_line_tree.enable_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tree" priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
@@ -4491,7 +4310,6 @@ Source: [snippets/account.view_move_line_tree.enable_create.xml](https://github.
 ### Show Cumulated Balance  
 ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tree" priority="50">
     <field name="balance" position="after">
         <field name="cumulated_balance" optional="hide"/>
@@ -4505,7 +4323,6 @@ Source: [snippets/account.view_move_line_tree.show_cumulated_balance.xml](https:
 ### Amount Currency Optional  
 ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tree_grouped_general" priority="50">
     <field name="amount_currency" position="attributes">
         <attribute name="optional">hide</attribute>
@@ -4519,7 +4336,6 @@ Source: [snippets/account.view_move_line_tree_grouped_general.amount_currency_op
 ### Enable Create  
 ID: `mint_system.account.view_move_line_tree.enable_create`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tree" priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
@@ -4532,7 +4348,6 @@ Source: [snippets/account.view_move_line_tree.enable_create.xml](https://github.
 ### Show Cumulated Balance  
 ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_line_tree" priority="50">
     <field name="balance" position="after">
         <field name="cumulated_balance" optional="hide"/>
@@ -4546,7 +4361,6 @@ Source: [snippets/account.view_move_line_tree.show_cumulated_balance.xml](https:
 ### X Account Codes  
 ID: `mint_system.account.view_move_tree.x_account_codes`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_move_tree" priority="50">
     <field name="ref" position="after">
         <field name="x_account_codes" optional="hide"/>
@@ -4560,7 +4374,6 @@ Source: [snippets/account.view_move_tree.x_account_codes.xml](https://github.com
 ### Format Invoice Date Due  
 ID: `mint_system.account.view_out_invoice_tree.format_invoice_date_due`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_out_invoice_tree" priority="50">
     <xpath expr="//field[@name='invoice_date_due']" position="attributes">
         <attribute name="widget">date</attribute>
@@ -4573,7 +4386,6 @@ Source: [snippets/account.view_out_invoice_tree.format_invoice_date_due.xml](htt
 ### Show Discount  
 ID: `mint_system.account.view_out_invoice_tree.show_discount`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_out_invoice_tree" priority="50">
     <xpath expr="//field[@name='invoice_date_due']" position="after">
         <field string="Skonto-Datum" name="discount_date"/>
@@ -4587,7 +4399,6 @@ Source: [snippets/account.view_out_invoice_tree.show_discount.xml](https://githu
 ### Show Invoice Payment Term Id  
 ID: `mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_out_invoice_tree" priority="50">
     <xpath expr="//field[@name='state']" position="after">
         <field name="invoice_payment_term_id" optional="hide"/>
@@ -4600,7 +4411,6 @@ Source: [snippets/account.view_out_invoice_tree.show_invoice_payment_term_id.xml
 ### Show Partner Shipping  
 ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_out_invoice_tree" priority="50">
     <field name="invoice_date" position="before">
         <field name="partner_shipping_id" optional="hide"/>
@@ -4614,7 +4424,6 @@ Source: [snippets/account.view_out_invoice_tree.show_partner_shipping.xml](https
 ### Show Commercial Partner Id  
 ID: `mint_system.account.view_partner_property_form.show_commercial_partner_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="account.view_partner_property_form" priority="50">
     <xpath expr="//page[@name='accounting']/group[1]" position="before">
         <field name="commercial_partner_id"/>

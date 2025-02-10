@@ -3,7 +3,6 @@
 ### Show Hours And Days Display  
 ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_display`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_allocation_view_form" priority="50">
     <field name="number_of_days_display" position="attributes">
         <attribute name="attrs">{'readonly': ['|', '|', ('type_request_unit', '=', 'hour'), ('state', 'not in', ('draft', 'confirm')), ('allocation_type', '=', 'accrual')]}</attribute>
@@ -22,7 +21,6 @@ Source: [snippets/hr_holidays.hr_leave_allocation_view_form.show_hours_and_days_
 ### Show Parent Id  
 ID: `mint_system.hr_holidays.hr_leave_allocation_view_form.show_parent_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_allocation_view_form" priority="50">
     <field name="allocation_type" position="after">
         <field name="parent_id"/>
@@ -36,7 +34,6 @@ Source: [snippets/hr_holidays.hr_leave_allocation_view_form.show_parent_id.xml](
 ### Add Meeting Id  
 ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_form_manager_approve" priority="50">
     <field name="employee_id" position="after">
         <field name="meeting_id"/>
@@ -49,7 +46,6 @@ Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.add_meeting_id.
 ### Report Note Group  
 ID: `mint_system.hr_holidays.hr_leave_view_form_manager_approve.report_note_group`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_form_manager_approve" priority="50">
     <xpath expr="//div[@groups='hr_holidays.group_hr_holidays_manager']" position="replace">
         <div groups="hr_holidays.group_hr_holidays_responsible">
@@ -66,7 +62,6 @@ Source: [snippets/hr_holidays.hr_leave_view_form_manager_approve.report_note_gro
 ### Show Holiday Allocation  
 ID: `mint_system.hr_holidays.hr_leave_view_form.show_holiday_allocation`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_form" priority="50">
     <label for="request_date_from" position="before">
         <field name="x_requires_allocation" invisible="1"/>
@@ -80,7 +75,6 @@ Source: [snippets/hr_holidays.hr_leave_view_form.show_holiday_allocation.xml](ht
 ### Show Number Of Hours Always  
 ID: `mint_system.hr_holidays.hr_leave_view_form.show_number_of_hours_always`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_form" priority="50">
     <xpath expr="//field[@name='number_of_hours_text']/.." position="attributes">
         <attribute name="attrs">{}</attribute>
@@ -113,7 +107,6 @@ Source: [snippets/hr_holidays.hr_leave_view_timeline.view.xml](https://github.co
 ### Remove Payslip  
 ID: `mint_system.hr_holidays.hr_leave_view_tree.remove_payslip`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_tree" priority="50">
     <xpath expr="//field[@name='payslip_status']" position="replace">
   </xpath>
@@ -125,7 +118,6 @@ Source: [snippets/hr_holidays.hr_leave_view_tree.remove_payslip.xml](https://git
 ### Show Days  
 ID: `mint_system.hr_holidays.hr_leave_view_tree.show_days`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_tree" priority="50">
     <field name="duration_display" position="before">
         <field name="number_of_days" sum="Number of Days" optional="hide"/>
@@ -138,7 +130,6 @@ Source: [snippets/hr_holidays.hr_leave_view_tree.show_days.xml](https://github.c
 ### X Synced  
 ID: `mint_system.hr_holidays.hr_leave_view_tree.x_synced`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.hr_leave_view_tree" priority="50">
     <xpath expr="//field[@name='state']" position="after">
         <field name="x_synced" widget="toggle_button" groups="hr.group_hr_user"/>
@@ -152,7 +143,6 @@ Source: [snippets/hr_holidays.hr_leave_view_tree.x_synced.xml](https://github.co
 ### X Number Of Hours  
 ID: `mint_system.hr_holidays.view_holiday_pivot.x_number_of_hours`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.view_holiday_pivot" priority="50">
     <field name="number_of_days" position="after">
         <field name="x_number_of_hours" type="measure"/>
@@ -166,7 +156,6 @@ Source: [snippets/hr_holidays.view_holiday_pivot.x_number_of_hours.xml](https://
 ### Disable My Team  
 ID: `mint_system.hr_holidays.view_hr_holidays_filter.disable_my_team`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr_holidays.view_hr_holidays_filter" priority="50">
     <xpath expr="//filter[@name='my_team']" position="replace">
         <filter string="My Team" name="my_team" domain="[]" help="Filter has been modified to not filter"/>

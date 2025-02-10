@@ -3,7 +3,6 @@
 ### Hide In State Draft  
 ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_order_line_date.report_saleorder_document" priority="50">
     <xpath expr="//table/thead//tr[1]//th[2]" position="replace">
         <th t-if="doc.state not in ['draft']" id="commitment_date" class="text-left">Commitment Date</th>

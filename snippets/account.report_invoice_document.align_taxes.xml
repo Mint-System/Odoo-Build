@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- Align invoice tax row right -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_taxes']" position="attributes">

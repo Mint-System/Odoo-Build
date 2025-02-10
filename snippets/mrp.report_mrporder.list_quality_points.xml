@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <!-- List quality points in mrp order -->
 <data inherit_id="mrp.report_mrporder" priority="50">
     <xpath expr="/t/t/t/t/div/div[5]/table/tr[2]/td[1]/span" position="after">

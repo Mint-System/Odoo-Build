@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <xpath expr="//div/span[@t-field='doc.note']/.." position="before">
         <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">

@@ -3,7 +3,6 @@
 ### X Relevant For Certificate  
 ID: `mint_system.product.product_category_form_view.x_relevant_for_certificate`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_category_form_view" priority="50">
     <field name="parent_id" position="after">
         <field name="x_relevant_for_certificate"/>
@@ -17,7 +16,6 @@ Source: [snippets/product.product_category_form_view.x_relevant_for_certificate.
 ### Add Feeder Id  
 ID: `mint_system.product.product_normal_form_view.add_feeder_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
         <field name="feeder_id"/>
@@ -30,7 +28,6 @@ Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://gi
 ### Hide Default Code  
 ID: `mint_system.product.product_normal_form_view.hide_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
 </data>
@@ -41,7 +38,6 @@ Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https:
 ### Relocate Barcode  
 ID: `mint_system.product.product_normal_form_view.relocate_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <xpath expr="//page[@name='general_information']//field[@name='barcode']" position="replace"/>
     <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
@@ -55,7 +51,6 @@ Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https:/
 ### Remove Barcode  
 ID: `mint_system.product.product_normal_form_view.remove_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <xpath expr="//field[@name='barcode']" position="replace"/>
 </data>
@@ -66,7 +61,6 @@ Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://g
 ### X Hide On Sale Order  
 ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <field name="description_sale" position="after">
         <field name="x_hide_on_sale_order"/>
@@ -79,7 +73,6 @@ Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](htt
 ### X Warranty  
 ID: `mint_system.product.product_normal_form_view.x_warranty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_form_view" priority="50">
     <field name="product_tag_ids" position="after">
         <field name="x_warranty"/>
@@ -93,7 +86,6 @@ Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://githu
 ### Add X Product Label  
 ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_normal_only_form_view" priority="50">
     <field name="barcode" position="after">
         <field name="x_product_label"/>
@@ -107,7 +99,6 @@ Source: [snippets/product.product_normal_only_form_view.add_x_product_label.xml]
 ### X Description  
 ID: `mint_system.product.product_packaging_form_view.x_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_form_view" priority="50">
     <field name="product_id" position="before">
         <field name="x_description"/>
@@ -120,7 +111,6 @@ Source: [snippets/product.product_packaging_form_view.x_description.xml](https:/
 ### X Packaging Uom Id  
 ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_form_view" priority="50">
     <field name="barcode" position="before">
         <field name="x_packaging_uom_id"/>
@@ -133,7 +123,6 @@ Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](ht
 ### X Print Parent Only  
 ID: `mint_system.product.product_packaging_form_view.x_print_parent_only`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_form_view" priority="50">
     <field name="barcode" position="before">
         <field name="x_print_parent_only"/>
@@ -146,7 +135,6 @@ Source: [snippets/product.product_packaging_form_view.x_print_parent_only.xml](h
 ### X Print Without Parent  
 ID: `mint_system.product.product_packaging_form_view.x_print_without_parent`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_form_view" priority="50">
     <field name="barcode" position="before">
         <field name="x_print_without_parent"/>
@@ -159,7 +147,6 @@ Source: [snippets/product.product_packaging_form_view.x_print_without_parent.xml
 ### X Qty Description  
 ID: `mint_system.product.product_packaging_form_view.x_qty_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_form_view" priority="50">
     <field name="barcode" position="before">
         <field name="x_qty_description"/>
@@ -173,7 +160,6 @@ Source: [snippets/product.product_packaging_form_view.x_qty_description.xml](htt
 ### Show Barcode  
 ID: `mint_system.product.product_packaging_tree_view.show_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_tree_view" priority="50">
     <field name="product_id" position="after">
         <field name="barcode" optional="show"/>
@@ -186,7 +172,6 @@ Source: [snippets/product.product_packaging_tree_view.show_barcode.xml](https://
 ### X Description  
 ID: `mint_system.product.product_packaging_tree_view.x_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_packaging_tree_view" priority="50">
     <field name="product_id" position="after">
         <field name="x_description" optional="show"/>
@@ -200,7 +185,6 @@ Source: [snippets/product.product_packaging_tree_view.x_description.xml](https:/
 ### Make Editable  
 ID: `mint_system.product.product_pricelist_item_tree_view.make_editable`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_pricelist_item_tree_view" priority="50">
     <tree position="attributes">
         <attribute name="editable">bottom</attribute>
@@ -217,7 +201,6 @@ Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](ht
 ### Show Product  
 ID: `mint_system.product.product_pricelist_view.show_product`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_pricelist_view" priority="50">
     <field name="name" position="before">
         <field name="product_tmpl_id"/>
@@ -231,7 +214,6 @@ Source: [snippets/product.product_pricelist_view.show_product.xml](https://githu
 ### Add Type Description  
 ID: `mint_system.product.product_template_form_view.add_type_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//h1/field[@name='name']" position="after">
         <h2>
@@ -249,7 +231,6 @@ Source: [snippets/product.product_template_form_view.add_type_description.xml](h
 ### Last Incoming Date  
 ID: `mint_system.product.product_template_form_view.last_incoming_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
         <field name="last_incoming_date"/>
@@ -262,7 +243,6 @@ Source: [snippets/product.product_template_form_view.last_incoming_date.xml](htt
 ### Last Moves  
 ID: `mint_system.product.product_template_form_view.last_moves`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//page[@name='inventory']/group[@name='inventory']" position="after">
         <group name="moves" string="Bewegungen" colspan="4">
@@ -278,7 +258,6 @@ Source: [snippets/product.product_template_form_view.last_moves.xml](https://git
 ### Last Outgoing Date  
 ID: `mint_system.product.product_template_form_view.last_outgoing_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
         <field name="last_outgoing_date"/>
@@ -291,7 +270,6 @@ Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](htt
 ### Remove List Price  
 ID: `mint_system.product.product_template_form_view.remove_list_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//group[@name='group_standard_price']//div[@name='pricing']" position="replace"/>
     <xpath expr="//group[@name='group_standard_price']//label[@for='list_price']" position="replace"/>
@@ -303,7 +281,6 @@ Source: [snippets/product.product_template_form_view.remove_list_price.xml](http
 ### Remove Standard Price  
 ID: `mint_system.product.product_template_form_view.remove_standard_price`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//group[@name='group_standard_price']//div[@name='standard_price_uom']" position="replace"/>
     <xpath expr="//group[@name='group_standard_price']//label[@for='standard_price']" position="replace"/>
@@ -315,7 +292,6 @@ Source: [snippets/product.product_template_form_view.remove_standard_price.xml](
 ### Remove Uom Po Id  
 ID: `mint_system.product.product_template_form_view.remove_uom_po_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//group[@name='group_general']/field[@name='uom_po_id']" position="replace"/>
 </data>
@@ -326,7 +302,6 @@ Source: [snippets/product.product_template_form_view.remove_uom_po_id.xml](https
 ### Replace Title  
 ID: `mint_system.product.product_template_form_view.replace_title`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_form_view" priority="50">
     <xpath expr="//div[@class='oe_title']" position="replace">
         <div class="oe_title">
@@ -374,7 +349,6 @@ Source: [snippets/product.product_template_form_view.replace_title.xml](https://
 ### Add Product Info  
 ID: `mint_system.product.product_template_kanban_view.add_product_info`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_kanban_view" priority="50">&gt;
 
   <xpath expr="//div[@class='oe_kanban_details']" position="replace"><div class="oe_kanban_details"><t t-if="record.default_code.value">[<field name="default_code"/>] </t><strong class="o_kanban_record_title"><field name="name"/></strong><div><field name="type_description"/></div><div t-if="record.type.raw_value == 'product'">On hand: <field name="qty_available"/> <field name="uom_id"/> / <field name="virtual_available"/> <field name="uom_id"/>
@@ -389,7 +363,6 @@ Source: [snippets/product.product_template_kanban_view.add_product_info.xml](htt
 ### Add X Product Label  
 ID: `mint_system.product.product_template_only_form_view.add_x_product_label`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="barcode" position="after">
         <field name="x_product_label"/>
@@ -402,7 +375,6 @@ Source: [snippets/product.product_template_only_form_view.add_x_product_label.xm
 ### Hide Barcode  
 ID: `mint_system.product.product_template_only_form_view.hide_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <xpath expr="//field[@name='barcode']" position="attributes">
         <attribute name="groups">base.group_erp_manager</attribute>
@@ -415,7 +387,6 @@ Source: [snippets/product.product_template_only_form_view.hide_barcode.xml](http
 ### Hide Default Code  
 ID: `mint_system.product.product_template_only_form_view.hide_default_code`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <xpath expr="//page[@name='general_information']//field[@name='default_code']" position="replace"/>
 </data>
@@ -426,7 +397,6 @@ Source: [snippets/product.product_template_only_form_view.hide_default_code.xml]
 ### Remove Barcode  
 ID: `mint_system.product.product_template_only_form_view.remove_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <xpath expr="//field[@name='barcode']" position="replace"/>
 </data>
@@ -437,7 +407,6 @@ Source: [snippets/product.product_template_only_form_view.remove_barcode.xml](ht
 ### Replace Feeder Id  
 ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="feeder_id" position="replace">
   </field>
@@ -452,7 +421,6 @@ Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml]
 ### Show Can Be Expensed  
 ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <xpath expr="//field[@name='sale_ok']/.." position="after">
         <span class="d-inline-block">
@@ -468,7 +436,6 @@ Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.x
 ### Show Handle  
 ID: `mint_system.product.product_template_only_form_view.show_handle`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <data>
         <xpath expr="//field[@name='packaging_ids']" position="inside">
@@ -489,7 +456,6 @@ Source: [snippets/product.product_template_only_form_view.show_handle.xml](https
 ### X Calibre  
 ID: `mint_system.product.product_template_only_form_view.x_calibre`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="hs_code" position="after">
         <field name="x_calibre"/>
@@ -502,7 +468,6 @@ Source: [snippets/product.product_template_only_form_view.x_calibre.xml](https:/
 ### X Expiration Days  
 ID: `mint_system.product.product_template_only_form_view.x_expiration_days`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="hs_code" position="after">
         <field name="x_expiration_days"/>
@@ -515,7 +480,6 @@ Source: [snippets/product.product_template_only_form_view.x_expiration_days.xml]
 ### X Hide On Delivery  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="hs_code" position="after">
         <field name="x_hide_on_delivery" widget="boolean_toggle"/>
@@ -528,7 +492,6 @@ Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml
 ### X Hide On Invoice  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_invoice`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <group name="properties" position="before">
         <group>
@@ -545,7 +508,6 @@ Source: [snippets/product.product_template_only_form_view.x_hide_on_invoice.xml]
 ### X Hide On Sale Order  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="description_sale" position="after">
         <field name="x_hide_on_sale_order" widget="boolean_toggle"/>
@@ -558,7 +520,6 @@ Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.x
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="hs_code" position="after">
         <field name="x_storage_temperature"/>
@@ -571,7 +532,6 @@ Source: [snippets/product.product_template_only_form_view.x_storage_temperature.
 ### X Warranty  
 ID: `mint_system.product.product_template_only_form_view.x_warranty`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_only_form_view" priority="50">
     <field name="product_tag_ids" position="after">
         <field name="x_warranty"/>
@@ -585,7 +545,6 @@ Source: [snippets/product.product_template_only_form_view.x_warranty.xml](https:
 ### Add Type Description  
 ID: `mint_system.product.product_template_search_view.add_type_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_search_view" priority="50">
     <xpath expr="//field[@name='attribute_line_ids']" position="after">
         <separator/>
@@ -599,7 +558,6 @@ Source: [snippets/product.product_template_search_view.add_type_description.xml]
 ### Modify Name  
 ID: `mint_system.product.product_template_search_view.modify_name`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_search_view" priority="50">
     <xpath expr="//field[@name='name']" position="replace">
         <field name="name" string="Product" filter_domain="['|', '|', '|', '|','|',('default_code', 'ilike', self), ('product_variant_ids.default_code', 'ilike', self),('name', 'ilike', self), ('barcode', 'ilike', self), ('type_description', 'ilike', self), ('type_description2', 'ilike', self)]"/>
@@ -613,7 +571,6 @@ Source: [snippets/product.product_template_search_view.modify_name.xml](https://
 ### Add Default Code And Type Description  
 ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_description`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="51">
     <xpath expr="//field[@name='name']" position="before">
         <field name="default_code"/>
@@ -627,7 +584,6 @@ Source: [snippets/product.product_template_tree_view.add_default_code_and_type_d
 ### Add Last Update Create Date And X Xml Id  
 ID: `mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <xpath expr="//field[@name='list_price']" position="before">
         <field name="x_xml_id" optional="show"/>
@@ -642,7 +598,6 @@ Source: [snippets/product.product_template_tree_view.add_last_update_create_date
 ### Remove Default Code And Responsible  
 ID: `mint_system.product.product_template_tree_view.remove_default_code_and_responsible`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <xpath expr="//field[@name='default_code']" position="replace">
 
@@ -658,7 +613,6 @@ Source: [snippets/product.product_template_tree_view.remove_default_code_and_res
 ### Set Default Order  
 ID: `mint_system.product.product_template_tree_view.set_default_order`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <xpath expr="/tree" position="attributes">
         <attribute name="default_order">default_code asc"</attribute>
@@ -671,7 +625,6 @@ Source: [snippets/product.product_template_tree_view.set_default_order.xml](http
 ### Show Accounts  
 ID: `mint_system.product.product_template_tree_view.show_accounts`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <xpath expr="//field[@name='list_price']" position="before">
         <field name="property_account_income_id" optional="hide"/>
@@ -685,7 +638,6 @@ Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://
 ### X Expiration Days  
 ID: `mint_system.product.product_template_tree_view.x_expiration_days`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <field name="list_price" position="after">
         <field name="x_expiration_days" optional="show"/>
@@ -698,7 +650,6 @@ Source: [snippets/product.product_template_tree_view.x_expiration_days.xml](http
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_tree_view.x_storage_temperature`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_template_tree_view" priority="50">
     <field name="list_price" position="after">
         <field name="x_storage_temperature" optional="hide"/>
@@ -712,7 +663,6 @@ Source: [snippets/product.product_template_tree_view.x_storage_temperature.xml](
 ### Hide Barcode  
 ID: `mint_system.product.product_variant_easy_edit_view.hide_barcode`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="product.product_variant_easy_edit_view" priority="50">
     <xpath expr="//field[@name='barcode']" position="attributes">
         <attribute name="groups">base.group_erp_manager</attribute>
@@ -726,7 +676,6 @@ Source: [snippets/product.product_variant_easy_edit_view.hide_barcode.xml](https
 ### Trimada  
 ID: `mint_system.product.report_producttemplatelabel.trimada`  
 ```xml
-<?xml version="1.0"?>
 <t t-name="product.report_producttemplatelabel.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="template">

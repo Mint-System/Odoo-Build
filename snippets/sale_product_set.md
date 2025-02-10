@@ -3,7 +3,6 @@
 ### Show Button Always  
 ID: `mint_system.sale_product_set.view_order_stock_form.show_button_always`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_product_set.view_order_stock_form" priority="50">
     <button name="639" position="attributes">
         <attribute name="attrs"/>
@@ -17,7 +16,6 @@ Source: [snippets/sale_product_set.view_order_stock_form.show_button_always.xml]
 ### X Categ Id  
 ID: `mint_system.sale_product_set.view_product_set_form.x_categ_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="sale_product_set.view_product_set_form" priority="50">
     <field name="product_id" position="after">
         <field name="x_categ_id"/>

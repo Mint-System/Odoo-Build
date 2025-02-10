@@ -3,7 +3,6 @@
 ### Add Action Time Off Dashboard  
 ID: `mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_form" priority="50">
     <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
         <button name="action_time_off_dashboard" type="object" class="oe_stat_button" icon="fa-calendar" context="{'search_default_employee_id': id}" groups="base.group_user" help="Remaining leaves">
@@ -25,7 +24,6 @@ Source: [snippets/hr.hr_employee_public_view_form.add_action_time_off_dashboard.
 ### Add Mobile Phone  
 ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
     <xpath expr="//ul/li[3]" position="after">
         <li t-if="record.mobile_phone.raw_value" class="o_force_ltr">
@@ -40,7 +38,6 @@ Source: [snippets/hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https:
 ### Show Identification Id  
 ID: `mint_system.hr.hr_employee_public_view_kanban.show_identification_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
     <xpath expr="//templates" position="before">
         <field name="identification_id"/>
@@ -60,7 +57,6 @@ Source: [snippets/hr.hr_employee_public_view_kanban.show_identification_id.xml](
 ### Show Leave  
 ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
     <xpath expr="//templates" position="before">
         <field name="current_leave_id"/>
@@ -82,7 +78,6 @@ Source: [snippets/hr.hr_employee_public_view_kanban.show_leave.xml](https://gith
 ### Add Mobile Phone  
 ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_tree" priority="50">
     <field name="work_phone" position="after">
         <field name="mobile_phone" class="o_force_ltr"/>
@@ -95,7 +90,6 @@ Source: [snippets/hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://
 ### Show Birthday Public  
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_employee_public_view_tree" priority="50">
     <xpath expr="//field[@name='parent_id']" position="after">
         <field name="birthday_public"/>
@@ -109,7 +103,6 @@ Source: [snippets/hr.hr_employee_public_view_tree.show_birthday_public.xml](http
 ### Add Mobile Phone  
 ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.hr_kanban_view_employees" priority="50">
     <xpath expr="//ul/li[3]" position="after">
         <li t-if="record.mobile_phone.raw_value" class="o_force_ltr">
@@ -125,7 +118,6 @@ Source: [snippets/hr.hr_kanban_view_employees.add_mobile_phone.xml](https://gith
 ### Plan Permission  
 ID: `mint_system.hr.plan_wizard.plan_permission`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.plan_wizard" priority="50">
     <xpath expr="//footer/button[1]" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>
@@ -139,7 +131,6 @@ Source: [snippets/hr.plan_wizard.plan_permission.xml](https://github.com/Mint-Sy
 ### Show Identification Id  
 ID: `mint_system.hr.res_users_view_form_profile.show_identification_id`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.res_users_view_form_profile" priority="50">
     <xpath expr="//field[@name='job_title']/.." position="before">
         <h2 class="col-12">
@@ -155,7 +146,6 @@ Source: [snippets/hr.res_users_view_form_profile.show_identification_id.xml](htt
 ### Plan Permission  
 ID: `mint_system.hr.view_employee_form.plan_permission`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.view_employee_form" priority="50">
     <xpath expr="//header/button[@groups='hr.group_hr_manager']" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>
@@ -168,7 +158,6 @@ Source: [snippets/hr.view_employee_form.plan_permission.xml](https://github.com/
 ### Show Last Attendance  
 ID: `mint_system.hr.view_employee_form.show_last_attendance`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.view_employee_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="last_attendance_id"/>
@@ -181,7 +170,6 @@ Source: [snippets/hr.view_employee_form.show_last_attendance.xml](https://github
 ### User Id Domain  
 ID: `mint_system.hr.view_employee_form.user_id_domain`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.view_employee_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="attributes">
         <attribute name="domain">[]</attribute>
@@ -195,7 +183,6 @@ Source: [snippets/hr.view_employee_form.user_id_domain.xml](https://github.com/M
 ### Add Mobile Phone  
 ID: `mint_system.hr.view_employee_tree.add_mobile_phone`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.view_employee_tree" priority="50">
     <field name="work_phone" position="after">
         <field name="mobile_phone" class="o_force_ltr"/>
@@ -209,7 +196,6 @@ Source: [snippets/hr.view_employee_tree.add_mobile_phone.xml](https://github.com
 ### Description Widget Html  
 ID: `mint_system.hr.view_hr_job_form.description_widget_html`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="hr.view_hr_job_form" priority="50">
     <field name="description" position="attributes">
         <attribute name="widget">html</attribute>

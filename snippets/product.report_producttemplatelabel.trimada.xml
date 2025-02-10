@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <t t-name="product.report_producttemplatelabel.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="template">

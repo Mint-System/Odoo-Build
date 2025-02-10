@@ -3,7 +3,6 @@
 ### X Calibrated Until  
 ID: `mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_request_view_form" priority="50">
     <xpath expr="//field[@name='maintenance_type']" position="after">
         <field name="x_calibrated_until"/>
@@ -17,7 +16,6 @@ Source: [snippets/maintenance.hr_equipment_request_view_form.x_calibrated_until.
 ### Show Schedule Date  
 ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_request_view_tree" priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="schedule_date"/>
@@ -30,7 +28,6 @@ Source: [snippets/maintenance.hr_equipment_request_view_tree.show_schedule_date.
 ### X Calibrated Until  
 ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_request_view_tree" priority="50">
     <xpath expr="//field[@name='request_date']" position="after">
         <field name="x_calibrated_until"/>
@@ -44,7 +41,6 @@ Source: [snippets/maintenance.hr_equipment_request_view_tree.x_calibrated_until.
 ### X Calibrated Until  
 ID: `mint_system.maintenance.hr_equipment_view_form.x_calibrated_until`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_view_form" priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_calibrated_until"/>
@@ -57,7 +53,6 @@ Source: [snippets/maintenance.hr_equipment_view_form.x_calibrated_until.xml](htt
 ### X Date Action Required  
 ID: `mint_system.maintenance.hr_equipment_view_form.x_date_action_required`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_view_form" priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_date_action_required"/>
@@ -70,7 +65,6 @@ Source: [snippets/maintenance.hr_equipment_view_form.x_date_action_required.xml]
 ### X Lead Time Recovery Work  
 ID: `mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="maintenance.hr_equipment_view_form" priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_lead_time_recovery_work"/>

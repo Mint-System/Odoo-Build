@@ -3,7 +3,6 @@
 ### Hide Domain  
 ID: `mint_system.agreement.agreement_type_form_view.hide_domain`  
 ```xml
-<?xml version="1.0"?>
 <data inherit_id="agreement.agreement_type_form_view" priority="50">
     <field name="domain" position="replace"/>
 </data>

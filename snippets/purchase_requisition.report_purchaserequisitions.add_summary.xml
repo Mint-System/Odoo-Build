@@ -1,4 +1,3 @@
-<?xml version="1.0"?>
 <data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
     <xpath expr="//table[@id='main_table']" position="after">
         <table id="summary" class="table table-condensed trimada table-borderless" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
