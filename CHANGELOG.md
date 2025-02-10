@@ -17,6 +17,10 @@ All notable changes to this project will be documented in this file. The format 
 * Refactored the initialisation of the Odoo image.
 * Removed xml header from snippet files.
 
+### Removed
+
+* Remove Odoo patch scripts.
+
 ## 2024-01-27
 
 ### Added
