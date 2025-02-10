@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="60">
+    <xpath expr="//div[@class='o_boxed_header']" position="after">
+        <style>
+                .mb8 {
+                margin-bottom: 0px !important;
+                }
+                .mb4 {
+                margin-bottom: 0px !important;
+                }
+        </style>
+    </xpath>
+    <xpath expr="//div[@t-field='company.report_footer']" position="after">
+        <style>
+                p {
+                    margin-top: 5px;
+                    margin-bottom: 2px;
+                }
+        </style>
+    </xpath>
+</data>

@@ -23,7 +23,7 @@
         <table id="info" style="width: 700px; margin-bottom: 50px">
             <tr>
                 <t t-if="doc.date_order">
-                    <td width="200px">Order Date</td>
+                    <td width="200px">Date</td>
                     <td width="500px">
 
                         <span id="date_order" t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>

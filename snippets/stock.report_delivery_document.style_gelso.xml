@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<data inherit_id="stock.report_delivery_document" priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .mt-4 {
+            margin-top: 5px !important;           
+            }
+        </style>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sml_product']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="class">table table-sm table-borderless</attribute>
+    </xpath>
+    
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class">table table-sm table-borderless</attribute>
+    </xpath>
+    
+</data>

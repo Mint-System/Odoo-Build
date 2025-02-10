@@ -2,7 +2,7 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <!-- Version 17-->
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
-        <th>
+        <th class="text-start">
             <span>Lieferdatum</span>
         </th>
     </xpath>

@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//div/table[1]/tbody/tr/td[1]/span" position="after">
-        <t t-if="move.product_id.hs_code"><br/>
-      HS Code: <span t-field="move.product_id.hs_code"/>
+  <xpath expr="//div/table[1]/tbody/tr/td[1]/span" position="after">
+    <t t-if="move.product_id.hs_code">
+      <br/>
+      <span>HS Code: </span>
+      <span t-field="move.product_id.hs_code"/>
     </t>
-        <t t-if="move.product_id.country_of_origin_id.code"><br/>
-      Country of Origin: <span t-field="move.product_id.country_of_origin_id.code"/>
+    <t t-if="move.product_id.country_of_origin_id.code">
+      <br/>
+      <span>Country of Origin: </span>
+      <span t-field="move.product_id.country_of_origin_id.code"/>
     </t>
-        <t t-if="move.product_id.weight"><br/>
-      Weight: <span t-field="move.product_id.weight"/>
-    <span t-field="move.product_id.weight_uom_id.display_name"/>
-  </t>
-    </xpath>
+    <t t-if="move.product_id.weight">
+      <br/>
+      <span>Weight: </span>
+      <span t-field="move.product_id.weight"/>
+      <span t-field="move.product_id.weight_uom_id.display_name"/>
+    </t>
+  </xpath>
 </data>

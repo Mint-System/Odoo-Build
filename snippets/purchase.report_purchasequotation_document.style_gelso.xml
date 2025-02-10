@@ -1,10 +1,26 @@
-<?xml version="1.0"?>
-<data inherit_id="purchase.report_purchasequotation_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-    .mt32 {
-      margin-top: 10px !important;
-    }
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+  <xpath expr="//div[hasclass('page')]" position="before">
+    <style>
+    .mb32 {
+      margin-top: 0px !important;
+      margin-bottom: 0px !important;
+      }
     </style>
-    </xpath>
+  </xpath>
+
+  <xpath expr="//th[@name='th_description']" position="attributes">
+    <attribute name="style" separator=" " add="width: 350px"/>
+    <attribute name="class">text-start</attribute>
+  </xpath>
+
+  <xpath expr="//th[@name='th_date_req']" position="attributes">
+    <attribute name="class">text-start</attribute>
+  </xpath>
+
+  <xpath expr="//span[@t-field='line.date_planned']/.." position="attributes">
+    <attribute name="class">text-start</attribute>
+    <attribute name="t-options-widget">"date"</attribute>
+  </xpath>
+
 </data>

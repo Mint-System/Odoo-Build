@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <div id="informations" class="row mt32 mb32">
+    <xpath expr="//h2" position="after">
+        <div id="infoblock" class="row mt32 mb32">
             <div t-if="o.user_id" class="col-3 bm-2">
                 <strong>Ansprechperson Einkauf</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
@@ -11,7 +11,7 @@
                 <p t-field="o.partner_ref" class="m-0"/>
             </div>
             <div t-if="o.date_order" class="col-3 bm-2">
-                <strong>Frist f&#xFC;r Angebotsabgabe</strong>
+                <strong>Frist für Angebotsabgabe</strong>
                 <p t-field="o.date_order" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.incoterm_id" class="col-3 bm-2">
