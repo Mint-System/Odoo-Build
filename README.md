@@ -20,7 +20,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
-* 🧠 **LLM**: Prompt LLMs with module code and apply changes as git patch.
+* 🧠 **LLM**: Prompt LLMs with module code and apply changes.
 * 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
