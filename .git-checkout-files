@@ -12,7 +12,6 @@ CHANGELOG.md
 docker-compose.yml.template
 odoo.conf.template
 package.json
-package-lock.json
 README.md
 requirements.txt
 servers.json
