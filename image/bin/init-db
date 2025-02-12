@@ -8,7 +8,7 @@ if [ -n "$ODOO_DATABASE" ]; then
     # If it does not exist, create it
     if [ "$DATABASE_EXISTS" = "0" ]; then
         entrypoint-log "Create database $ODOO_DATABASE."
-        (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE $ODOO_DATABASE;") || true
+        (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$ODOO_DATABASE\";") || true
     fi
 
     entrypoint-log "Check if database $ODOO_DATABASE is initialized"

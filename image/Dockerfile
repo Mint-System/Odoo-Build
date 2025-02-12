@@ -1,4 +1,4 @@
-# Based on https://github.com/odoo/docker/blob/master/18.0/Dockerfile
+#FROM: https://github.com/odoo/docker/blob/master/18.0/Dockerfile
 
 FROM debian:bookworm-slim
 
@@ -21,8 +21,6 @@ RUN apt-get update && \
         fonts-noto-cjk \
         gnupg \
         libssl-dev \
-        node-less \
-        npm \
         python3-magic \
         python3-odf \
         python3-pdfminer \
@@ -72,8 +70,8 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
     && rm -f /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 
-# Install rtlcss (on Debian buster)
-RUN npm install -g rtlcss
+# Install pnpm
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
 
 # Install uv https://docs.astral.sh/uv/guides/integration/docker/
 COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/

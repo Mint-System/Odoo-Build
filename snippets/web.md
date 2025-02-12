@@ -348,7 +348,7 @@ ID: `mint_system.web.external_layout_standard.footer_airwork`
 
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
       <div style="border-top: 1px solid black;">
-        <table style="font-size: 11px;">
+        <table style="font-size: 11px; border: transparent;">
           <tr>
             <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
             <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>

@@ -4,10 +4,15 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Fixed
+
+* Escape double quotes for database name in create statement.
+
 ### Added
 
 * Commands to update git submodules in batch `-status`, `-commit-all`, `-push`.
 * Support `GITHUB_USERNAME` and `GITHUB_PERSONAL_ACCESS_TOKEN` in image.
+* Install `pnpm` instead of `npm`.
 
 ### Updated
 
@@ -20,6 +25,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Removed
 
 * Remove Odoo patch scripts.
+* Removed `node-less` and `npm` packages from image
 
 ## 2024-01-27
 

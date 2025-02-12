@@ -73,7 +73,7 @@
 | node-dev                  |                      | Start vuepress development server.                                                         |
 | node-build                |                      | Create vuepress build.                                                                     |
 | node-serve-build          |                      | Serve vuepress build.                                                                      |
-| odooctl                   |                      | Execute odooctl cli.                                                                       |
+| odooctl                   | [param]              | Execute odooctl cli.                                                                       |
 | odoo-cloc                 | [db]                 | Count custom line of codes. Default is branch name.                                        |
 | pass-store-dotenv         |                      | Store content of .env in pass entry.                                                       |
 | pass-restore-dotenv       |                      | Restore content of .env from pass entry.                                                   |

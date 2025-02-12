@@ -7,13 +7,13 @@ A better Odoo image.
 
 This container image is an improvement of the official Odoo image:
 
-- 🐍 Ships with python 3.11.
-- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage python.
+- 🐍 Ships with Python 3.11.
+- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage Python and [pnpm](https://pnpm.io/) to manage Node.
 - 🔄 Odoo source is based on exact [revision](https://odoo.build/revisions.html).
 - 💎 Image build is reproducible.
 - ⚙️ Setup `odoo.conf` with environment vars.
 - 🌱 Clone addons from git repos.
-- 🛠️ Install python packages without building the image.
+- 🛠️ Install Python packages without building the image.
 - 📂 Detect addons in nested module folders.
 - 💾 Store session information in database.
 - 🖥️ Get environment name from server config.
