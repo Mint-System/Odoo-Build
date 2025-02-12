@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: odoo
-          image: mintsystem/odoo:16.0.20250106
+          image: mintsystem/odoo:16.0.20250207
           ports:
           - containerPort: 8069
           envFrom:
@@ -25,13 +25,13 @@ spec:
                 name: odoo-config
       initContainers:
         - name: git-clone-addons
-          image: mintsystem/odoo:16.0.20250106
+          image: mintsystem/odoo:16.0.20250207
           command: ["git-clone-addons"]
           envFrom:
             - configMapRef:
                 name: odoo-config
         - name: init-db
-          image: mintsystem/odoo:16.0.20250106
+          image: mintsystem/odoo:16.0.20250207
           command: ["init-db"]
           envFrom:
             - configMapRef:

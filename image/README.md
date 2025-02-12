@@ -32,7 +32,7 @@ The following is a `docker-compose.yml` file with an Odoo and Postgres service:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250106
+    image: mintsystem/odoo:16.0.20250207
     depends_on:
       - db
     environment:
@@ -263,7 +263,7 @@ This image can be customized and extended as needed.
 Extend the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250207
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -271,7 +271,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250207
 
 USER root
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
@@ -283,7 +283,7 @@ USER odoo
 Copy a custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250106
+FROM mintsystem/odoo:16.0.20250207
 
 COPY ./odoo.conf.template /etc/odoo/
 ```

@@ -271,7 +271,7 @@ Make sure your container setup can build [multi-platform images](https://docs.do
 To build the container image setup these `.env` vars:
 
 ```bash
-ODOO_REVISION=16.0.20250106
+ODOO_REVISION=16.0.20250207
 CONTAINER_REGISTRY=mint-system/
 ```
 
