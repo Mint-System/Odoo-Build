@@ -33,7 +33,7 @@
                     </tr>
 
                     <!-- Rechnung -->
-                    <t t-if="o.type_name == 'Ausgangsrechnung'">
+                    <t t-if="o._name == 'account.move' and o.move_type == 'out_invoice'">
 
                         <tr>
                             <td>
@@ -93,8 +93,8 @@
                         </tr>
                     </t>
 
-                    <!-- Verkaufsauftrag -->
-                    <t t-if="o.type_name == 'Verkaufsauftrag' or o.type_name == 'Bon de commande'">
+                    <!-- Verkaufsauftrag  -->
+                    <t t-if="o._name == 'sale.order'">
                         <tr>
                             <td>
                                 <span>Order No.</span>
@@ -130,6 +130,7 @@
                             </td>
                         </tr>
                     </t>
+                  
 
                 </table>
             </div>
