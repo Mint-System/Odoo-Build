@@ -5,7 +5,6 @@ __pycache__
 venv*
 node_modules
 .vercel
-public
 .temp
 .cache
 dist
