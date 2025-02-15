@@ -1,36 +1,54 @@
 <data inherit_id="web.external_layout_standard" priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
+    <style>
+          #footer span {
+            line-height: 1 !important;
+          }
+    </style>
+
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div style="border-top: 1px solid black;">
-        <table style="font-size: 11px; border: transparent;">
+      <div style="border-top: none;">
+        <table id="footer" style="font-size: 11px; border: transparent;">
           <tr>
-            <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
-            <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>
-            <td style="width: 200px; text-align: left">Bankverbindung: Raiffeisenbank Luzern</td>
+            <td style="width: 230px; text-align: left">
+              <span>AirWork &amp; Heliseilerei GmbH (A&amp;H)</span>
+            </td>
+            <td style="width: 220px; text-align: left">FON +41 41 420 49 64</td>
+            <td style="width: 200px; text-align: left">Raiffeisenbank Luzern</td>
             <td style="width: 220px; text-align: left">IBAN CHF: CH12 8080 8008 9455 6909 9</td>
           </tr>
           <tr>
-            <td>Bahnhofweg 1</td>
-            <td>E-Mail: office@air-work.com</td>
+            <td>
+              <span>Bahnhofweg 1</span>
+            </td>
+            <td>E-Mail office@air-work.com</td>
             <td>Schulstrasse 1</td>
-            <td>IBAN EUR (€): CH28 8080 8009 7827 3963 0</td>
+            <td>IBAN EUR: CH28 8080 8009 7827 3963 0</td>
           </tr>
           <tr>
-            <td>CH-6405 Immensee</td>
+            <td>
+              <span>CH-6405 Immensee</span>
+            </td>
             <td>UID CHE-113.380.391 MWST</td>
             <td>CH-6037 Root</td>
             <td/>
           </tr>
           <tr>
             <td>www.air-work.swiss</td>
-            <td/>
+            <td>HR CH-130.4.011.925-0</td>
             <td>SWIFT: RAIFCH22</td>
-            <td/>
-          </tr>
-        </table>
-      </div>
+
+            <td t-if="report_type == 'pdf'" class="text-end fw-bold">
+                    Page: <span class="page"/>
+ of <span class="topage"/>
+          </td>
+
+        </tr>
+
+      </table>
     </div>
-    
-  </xpath>
+  </div>
+
+</xpath>
 </data>

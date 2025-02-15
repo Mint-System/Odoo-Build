@@ -1,22 +1,19 @@
 <data inherit_id="account.report_invoice_document" priority="51">
-    <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
-        <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
+    <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
       </th>
-    </t> -->
-        <th id="position">
-            <span>Pos</span>
-        </th>
-    </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-        <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
+    </t>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
+    <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
-        <span t-esc="line.position" />
+        <span t-esc="line.position"/>
       </td>
-    </t> -->
-        <td id="position">
-            <span t-esc="line.position"/>
-        </td>
-    </xpath>
+    </t>
+  </xpath>
+
 </data>

@@ -107,7 +107,7 @@
                             <td>
                                 <span>Order Date</span>
                             </td>
-                            <td>                               
+                            <td>
                                 <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
                             </td>
                         </tr>
@@ -123,6 +123,14 @@
                         </tr>
                         <tr>
                             <td>
+                                <span>Delivery Date</span>
+                            </td>
+                            <td>
+                                <span t-field="o.commitment_date"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
                                 <span>Incoterms</span>
                             </td>
                             <td>
@@ -130,8 +138,7 @@
                             </td>
                         </tr>
                     </t>
-                  
-
+                    
                 </table>
             </div>
         </td>
