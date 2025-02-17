@@ -10,6 +10,7 @@
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
                 <!-- <span t-field="move_line.reserved_uom_qty"/> -->
+                <span t-field="move_line.quantity"/>
                 <br/>
             </span>
         </td>

@@ -1,0 +1,5 @@
+<data inherit_id="sale.view_order_form" priority="50">
+    <field name="partner_id" position="after">
+        <field name="partner_invoice_id"/>
+    </field>
+</data>
