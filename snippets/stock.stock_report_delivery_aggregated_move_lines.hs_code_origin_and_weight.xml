@@ -9,7 +9,7 @@
         <t>
             <br/>
             <span>Country of Origin: </span>
-            <span t-field="o.product_id.country_of_origin_id.code"/>
+            <span t-field="o.product_id.country_of_origin.code"/>
         </t>
         <t t-if="aggregated_lines[line]['product'].weight">
             <br/>

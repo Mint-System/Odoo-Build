@@ -6,8 +6,14 @@
             }
         </style>
     </xpath>
+    
     <xpath expr="//h2" position="attributes">
         <attribute name="class"/>
         <attribute name="style">margin-top: 2rem</attribute>
     </xpath>
+    
+    <xpath expr="//th[@id='header_position']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+    
 </data>

@@ -1,0 +1,5 @@
+<data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
+    <xpath expr="//field[@name='state']" position="replace">
+        <field name="state" string="state"/>
+    </xpath>
+</data>
