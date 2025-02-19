@@ -26,7 +26,56 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 
 ## Usage
 
-The following is a `docker-compose.yml` file with an Odoo and Postgres service:
+Details of the most important Odoo image paths:
+
+* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
+* `/var/lib/odoo/sessions` Location where werkzeug stores session information.
+* `/var/lib/odoo/git` The cloned module repos are stored here.
+* `/opt/odoo-venv` This is where Python packages are installed.
+* `/mnt/extra-addons` Module folders are loaded from this path by default.
+
+### Base
+
+The following `docker-compose.yml` file shows a minimal setup:
+
+```yml
+services:
+  odoo:
+    container_name: odoo
+    image: mintsystem/odoo:16.0.20250207
+    depends_on:
+      - db
+    environment:
+      PGHOST: db
+      PGUSER: odoo
+      PGPASSWORD: odoo
+      PGPORT: 5432
+    ports:
+      - "127.0.0.1:8069:8069"
+    volumes:
+      - odoo-data:/var/lib/odoo
+      - ./addons:/mnt/addons
+      - ./oca:/mnt/oca
+      - ./enterprise:/mnt/enterprise
+      - ./themes:/mnt/themes
+  db:
+    container_name: db
+    image: postgres:14-alpine
+    environment:
+      POSTGRES_USER: odoo
+      POSTGRES_PASSWORD: odoo
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+volumes:
+  odoo-data:
+  db-data:
+```
+
+### Customized
+
+This `docker-compose.yml` shows all possible configurations:
 
 ```yml
 services:
@@ -98,17 +147,11 @@ volumes:
   db-data:
 ```
 
-Details of the most important Odoo image paths:
+## Lifecycle
 
-* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
-* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
-* `/var/lib/odoo/git` The cloned module repos are stored here.
-* `/opt/odoo-venv` This is where Python packages are installed.
-* `/mnt/extra-addons` Module folders are loaded from this path by default.
+### Initialize (optional)
 
-### Initialize
-
-Before starting the container you can initialisation scripts. These scripts have external dependencies or are executed once.
+Before starting the container you can initalize the database with selected scripts.
 
 Run the `git-clone-addons` script to clone module repos:
 
@@ -116,17 +159,17 @@ Run the `git-clone-addons` script to clone module repos:
 docker-compose run --rm odoo git-clone-addons
 ```
 
-And run the `init-db` script to initalize the Odoo database:
+Run the `init-db` script to initalize the Odoo database:
 
 ```bash
 docker-compose run --rm odoo init-db
 ```
 
-The scripts are configured with environment variables.
+These scripts are configured with environment variables.
 
 ### Start
 
-Once you start the image the `entrypoint.sh` script will:
+Once you start the container the `entrypoint.sh` script will:
 
 * Run the `set-addons-path` script to assemble the addons path.
 * Apply default values to env vars.
@@ -135,11 +178,11 @@ Once you start the image the `entrypoint.sh` script will:
 * Wait for the database to be ready.
 * Run the `setup-mail` script to update the mail configuration in the database.
 * Run the `odoo-update` script to update modules.
-* Run Odoo server.
+* Run the Odoo server.
 
-### Run
+### Running
 
-Once the container is running you can update modules with this command: 
+Once the container is running, you can update modules with this command: 
 
 ```bash
 docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
@@ -155,7 +198,7 @@ List all modules:
 docker exec odoo manifestoo --select-found list
 ```
 
-## Environment
+## Environment Variables
 
 The container can be configured with environment variables. This section shows all the variables.
 
