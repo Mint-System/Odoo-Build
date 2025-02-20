@@ -1,0 +1,5 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">  
+
+ <xpath expr="//h3[@id='title_product']" position="replace"/> 
+
+</data>

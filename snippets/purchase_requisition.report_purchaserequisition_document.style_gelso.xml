@@ -1,0 +1,7 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+	<xpath expr="//table/thead/tr/th[2]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+
+</data>

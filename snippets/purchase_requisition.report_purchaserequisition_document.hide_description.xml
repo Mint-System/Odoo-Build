@@ -1,0 +1,6 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+    <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+    <xpath expr="//tbody/tr/td/span[@t-field='line_ids.product_description_variants']/.." position="replace"/>
+
+</data>

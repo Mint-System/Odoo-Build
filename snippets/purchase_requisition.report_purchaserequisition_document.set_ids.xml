@@ -1,0 +1,19 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+	<xpath expr="//div[2]" position="attributes">
+		<attribute name="id">info_table</attribute>
+	</xpath>
+
+	<xpath expr="//h3[1]" position="attributes">
+		<attribute name="id">title_product</attribute>
+	</xpath>
+
+	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+
+	<xpath expr="//table" position="attributes">
+		<attribute name="id">details</attribute>
+	</xpath>
+
+</data>

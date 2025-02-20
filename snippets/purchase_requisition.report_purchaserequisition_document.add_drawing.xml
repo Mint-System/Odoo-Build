@@ -1,0 +1,10 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+  
+<xpath expr="//span[@t-field='line_ids.product_id.name']" position="after">
+  <br/>
+  <span>Drawing: </span>
+    <a t-attf-href="{{line_ids.product_id.drawing_file.url}}">
+    <span t-field="line_ids.product_id.drawing_file.display_name"/>
+    </a>
+</xpath>
+</data>

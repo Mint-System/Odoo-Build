@@ -1,0 +1,15 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//thead/tr/th[6]" position="replace">
+    <th class="text-right">
+      <strong>Scheduled Date</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='line_ids.price_unit']/.." position="replace">
+    <td class="text-right">
+      <span t-field="line_ids.schedule_date"/>
+    </td>
+  </xpath>
+
+</data>

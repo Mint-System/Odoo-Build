@@ -1,0 +1,20 @@
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th>
+            <span>Pos</span>
+        </th>
+    </xpath>
+
+    <xpath expr="//table/tbody/t[2][@t-foreach='doc.line_ids']" position="before">
+        <t t-set="index" t-value="1"/>
+    </xpath>
+
+    <xpath expr="//span[@t-field='l.name']/.." position="before">
+        <td>
+            <span t-esc="index"/>
+            <t t-set="index" t-value="index+1"/>
+        </td>
+    </xpath>
+
+</data>
