@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Undefined
+## 2025-02-20
 
 ### Fixed
 
@@ -21,13 +21,14 @@ All notable changes to this project will be documented in this file. The format 
 * Renamed `scripts` to `bin`.
 * Refactored the initialisation of the Odoo image.
 * Removed xml header from snippet files.
+* Switched from Python 3.11 to 3.12.
 
 ### Removed
 
 * Remove Odoo patch scripts.
-* Removed `node-less` and `npm` packages from image
+* Removed `node-less` and `npm` packages from image.
 
-## 2024-01-27
+## 2025-01-27
 
 ### Added
 

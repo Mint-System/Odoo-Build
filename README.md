@@ -29,7 +29,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
-* Install Python 3.11+ with [uv](https://docs.astral.sh/uv/)
+* Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
 
 **Command Completion (Optional)**
 
