@@ -26,18 +26,11 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 
 ## Usage
 
-Details of the most important Odoo image paths:
-
-* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
-* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
-* `/var/lib/odoo/sessions` Location where werkzeug stores session information.
-* `/var/lib/odoo/git` The cloned module repos are stored here.
-* `/opt/odoo-venv` This is where Python packages are installed.
-* `/mnt/extra-addons` Module folders are loaded from this path by default.
+The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
 
 ### Base
 
-The following `docker-compose.yml` file shows a minimal setup:
+The following `docker-compose.yml` file is a basic setup:
 
 ```yml
 services:
@@ -147,9 +140,18 @@ volumes:
   db-data:
 ```
 
+The environment variables are explained in detail further down.
+
 ## Lifecycle
 
-### Initialize (optional)
+The Mint System Odoo image has this container lifecycle in mind:
+
+* **Initalize**: Optionally initialize the database and clone addons.
+* **Start**: The container starts updates the execution environment.
+* **Execution**: Actions that can be performed while the container is running.
+* **Analyze**: Actions to analyse the current state of the container.
+
+### Initialize
 
 Before starting the container you can initalize the database with selected scripts.
 
@@ -180,7 +182,7 @@ Once you start the container the `entrypoint.sh` script will:
 * Run the `odoo-update` script to update modules.
 * Run the Odoo server.
 
-### Running
+### Execution
 
 Once the container is running, you can update modules with this command: 
 
@@ -200,7 +202,7 @@ docker exec odoo manifestoo --select-found list
 
 ## Environment Variables
 
-The container can be configured with environment variables. This section shows all the variables.
+The container can be configured with environment variables. This section shows all the variables in detail:
 
 ### Database Connection
 
@@ -333,4 +335,15 @@ COPY ./odoo.conf.template /etc/odoo/
 
 ## Develop
 
-See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-odoo-image) for details.
+See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-container-image) for details.
+
+### Internals
+
+The most important image paths are:
+
+* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
+* `/var/lib/odoo/sessions` Location where werkzeug stores session information.
+* `/var/lib/odoo/git` The cloned module repos are stored here.
+* `/opt/odoo-venv` This is where Python packages are installed.
+* `/mnt/extra-addons` Module folders are loaded from this path by default.
