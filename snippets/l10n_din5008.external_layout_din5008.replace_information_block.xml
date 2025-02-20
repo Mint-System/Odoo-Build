@@ -5,7 +5,7 @@
                 heigt: 30px;
             }
             .din_page.invoice_note tr .address, .din_page.invoice_note tr .shipping_address {
-                width: 76mm;
+                width: 77mm;
             }
             div.information_block {
                 line-height: 1.5;
@@ -126,7 +126,7 @@
                                 <span>Delivery Date</span>
                             </td>
                             <td>
-                                <span t-field="o.commitment_date"/>
+                                <span t-field="o.commitment_date" t-options="{'widget': 'date'}"/>
                             </td>
                         </tr>
                         <tr>

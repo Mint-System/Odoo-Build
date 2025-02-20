@@ -12,7 +12,10 @@
             </style>
 
             <tr style="height: 80px;">
+
                 <td style="width: 290px; vertical-align: top; padding-left: 5mm;">
+
+
                     <span style="font-size: 7pt">Warenempfänger</span>
                     <hr class="company_invoice_line"/>
                     <div>
@@ -96,21 +99,23 @@
                 </td>
             </tr>
 
-            <tr>
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
-                    <t t-if="doc.partner_shipping_id.x_remarks">
-                        <div t-field="doc.partner_shipping_id.x_remarks"/>
-                    </t>
-                </td>
+            <t t-if="is_pro_forma">
+                <tr>
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
+                        <t t-if="doc.partner_shipping_id.x_remarks">
+                            <div t-field="doc.partner_shipping_id.x_remarks"/>
+                        </t>
+                    </td>
 
-                <td style="width: 60px"/>
+                    <td style="width: 60px"/>
 
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
-                    <t t-if="doc.warehouse_id.partner_id.x_remarks">
-                        <div t-field="doc.warehouse_id.partner_id.x_remarks"/>
-                    </t>
-                </td>
-            </tr>
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
+                        <t t-if="doc.warehouse_id.partner_id.x_remarks">
+                            <div t-field="doc.warehouse_id.partner_id.x_remarks"/>
+                        </t>
+                    </td>
+                </tr>
+            </t>
 
         </table>
 
