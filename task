@@ -689,6 +689,12 @@ function publish() {
         docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
         docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${LATEST_TAG}"
     fi
+
+    if [ "$CONTAINER_ENGINE" == "podman" ]; then
+        echo "Push container image to ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}${LATEST_TAG}"
+    fi
 }
 
 function upload-module() {

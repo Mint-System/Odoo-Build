@@ -1,6 +1,6 @@
 #FROM: https://github.com/odoo/docker/blob/master/18.0/Dockerfile
 
-FROM debian:bookworm-slim
+FROM python:3.12-slim-bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
 LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
