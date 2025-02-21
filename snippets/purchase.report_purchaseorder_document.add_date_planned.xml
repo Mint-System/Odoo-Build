@@ -1,0 +1,15 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_description']" position="after">
+        <th name="th_date_planned" class="text-start">
+            <strong>Date planned</strong>
+        </th>
+    </xpath>
+    <xpath expr="//td[@id='product']" position="after">
+        <td class="text-start">
+            <span t-field="line.date_planned" t-options="{'widget': 'date'}"/>
+        </td>
+    </xpath>
+
+</data>
+

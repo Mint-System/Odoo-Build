@@ -5,11 +5,16 @@
                 heigt: 30px;
             }
             .din_page.invoice_note tr .address, .din_page.invoice_note tr .shipping_address {
-                width: 77mm;
+                width: 85mm;
             }
             div.information_block {
                 line-height: 1.5;
             }
+            
+            .din_page.invoice_note tr .information_block {
+                margin-left: 10mm;
+            }
+            
         </style>
 
         <td style="vertical-align: top;">
