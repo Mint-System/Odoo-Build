@@ -1,0 +1,21 @@
+<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+
+  <xpath expr="//td[@name='move_line_aggregated_qty_ordered']/span[1]" position="replace">
+    <t t-if="aggregated_lines[line]['product_uom'].id == 1">
+      <span t-esc="aggregated_lines[line]['qty_ordered']" t-options="{'widget': 'integer'}"/>
+    </t>
+    <t t-else="">
+      <span t-esc="aggregated_lines[line]['qty_ordered']" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}"/>
+    </t>
+  </xpath>
+
+  <xpath expr="//td[@name='move_line_aggregated_quantity']/t/span[1]" position="replace">
+    <t t-if="aggregated_lines[line]['product_uom'].id == 1">
+      <span t-esc="aggregated_lines[line]['quantity']" t-options="{'widget': 'integer'}"/>
+    </t>
+    <t t-else="">
+      <span t-esc="aggregated_lines[line]['quantity']" t-options="{'widget': 'float', 'decimal_precision': 'Product Unit of Measure'}"/>
+    </t>
+  </xpath>
+
+</data>
