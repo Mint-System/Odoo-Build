@@ -70,6 +70,12 @@
                                     <span>HS Code: </span>
                                     <span t-field="line.product_id.hs_code"/>
                                 </t>
+                                <t t-if="line.product_id.weight">
+                                    <br/>
+                                    <span>Weight: <span t-field="line.product_id.weight"/>
+                                    </span>
+                                    <span t-field="line.product_id.weight_uom_id.display_name"/>
+                                </t>
                             </td>
                             <td class="text-end">
                                 <t t-if="line.product_uom_id.id == 1">
