@@ -12,6 +12,10 @@ All notable changes to this project will be documented in this file. The format 
 
 * Change base image to `python:3.12-slim-bookworm`
 
+### Removed
+
+* Removed everything related to Kubernetes.
+
 ## 2025-02-20
 
 ### Fixed

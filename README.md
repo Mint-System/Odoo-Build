@@ -17,8 +17,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.  
 * ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.  
 * 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
-* 📦 **Container Image**: Build and publish a custom Odoo image. See [README](./image/README.md) for details.  
-* ☸️ **Kubernetes**: Deploy Odoo and Postgres to a local Kubernetes cluster.  
+* 📦 **Container Image**: Build and publish a custom Odoo image. See [README](./image/README.md) for details.
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
 * 🧠 **LLM**: Prompt LLMs with module code and apply changes.
@@ -38,10 +37,6 @@ bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#complet
 **Nix (Optional)**
 
 You can use [Nix](https://nixos.org/) to setup the requirements.
-
-**Kubernetes (Optional)**
-
-Install [kind](https://kind.sigs.k8s.io/) or [minikube](https://minikube.sigs.k8s.io/docs/) and [kubectl](https://kubernetes.io/docs/tasks/tools/#kubectl) to deploy Odoo to Kubernetes.
 
 **LLM (Optional)**
 
@@ -305,34 +300,6 @@ Setup mail server config for Odoo.
 
 ```bash
 task setup-mail
-```
-
-### Kubernetes
-
-Run a local Kubernets cluster with kind or minikube.
-
-#### Start Kubernetes Cluster
-
-Start Kubernetes with `kind`.
-
-```bash
-task start-kind
-```
-
-Or start Kubernetes with `minikube`.
-
-```bash
-task start-minikube
-```
-
-#### Deploy Odoo to Kubernetes
-
-Ensure you have `kubectl` installed and can access the cluster.
-
-The following command applies the Odoo and Postgres manifests and initializes the Odoo database.
-
-```bash
-task k8s-apply
 ```
 
 ## Troubleshooting

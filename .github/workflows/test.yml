@@ -22,5 +22,3 @@ jobs:
         run: ./task install-odoo-scripts
       - name: Run task test-container
         run: ./task test-container
-      - name: Run task test-k8s
-        run: ./task test-k8s

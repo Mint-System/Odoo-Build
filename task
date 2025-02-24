@@ -78,7 +78,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "k8s-apply" "" "Apply the Odoo K8s manifests."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
@@ -116,8 +115,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-env" "[env]" "Output content of the env file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start container. Options: none, db, admin, odoo, native, mail."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-kind" "" "Start kind Kubernetes cluster."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-minikube" "" "Start minikube Kubernetes cluster."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in container container. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop containers."
@@ -126,7 +123,6 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-repo" "[path]" "Update the repo folder from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-container" "[clean]" "Test Odoo image."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-xmlrpc" "[env]" "Test json rpc connection."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-k8s" "" "Test Kubernetes environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
@@ -227,8 +223,6 @@ function version() {
         podman --version
         podman-compose --version
     fi
-    minikube version
-    kind version
 }
 
 function generate-admin-passwd() {
@@ -1097,45 +1091,6 @@ function test-container() {
         # done
         # bin/odooctl --method "search_one" --model "ir.model.fields" --domain "[('name', '=', 'secondname')]"
     fi
-}
-
-# Kubernetes Commands
-
-function start-kind() {
-    echo "Start kind."
-    kind create cluster
-}
-
-function start-minikube() {
-    echo "Start minikube."
-    minikube start
-}
-
-function k8s-apply() {
-    echo "Deploy Postgres:"
-    kubectl apply -f k8s/postgres-cm.yaml
-    kubectl apply -f k8s/postgres-pvc.yaml
-    kubectl apply -f k8s/postgres-deploy.yaml
-    kubectl apply -f k8s/postgres-svc.yaml
-
-    echo -e "\nDeploy Odoo:"
-    kubectl apply -f k8s/odoo-cm.yaml
-    kubectl apply -f k8s/odoo-deploy.yaml
-    kubectl apply -f k8s/odoo-svc.yaml
-
-    echo -e "\nWait until resources are ready."
-    sleep 8
-
-    ODOO_POD=$(kubectl get pods -o=name --all-namespaces | grep odoo)
-    POSTGRES_POD=$(kubectl get pods -o=name --all-namespaces | grep postgres)
-
-    echo -e "\nWait for $ODOO_POD and $POSTGRES_POD pods to be running:"
-    kubectl wait --for=condition=Ready "$ODOO_POD" "$POSTGRES_POD" --timeout=60s
-}
-
-function test-k8s() {
-    start-kind
-    k8s-apply
 }
 
 # Interactive Shell Commands
