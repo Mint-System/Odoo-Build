@@ -123,6 +123,7 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop containers."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-odoo-rc" "" "Template the Odoo config file."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-docker-compose" "" "Template the Docker compose file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-repo" "[path]" "Update the repo folder from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-container" "[clean]" "Test Odoo image."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-xmlrpc" "[env]" "Test json rpc connection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-k8s" "" "Test Kubernetes environment."
@@ -133,9 +134,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-docs" "[path]" "Update the module folder from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-repo" "[path]" "Update the repo folder from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-readme" "[path]" "Update Readme file of Odoo module collection."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-docs" "[path]" "Update the module Readme file."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-repo-docs" "[path]" "Update Readme file of repo folder."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upload-module" "[env][path]" "Zip and upload Odoo module."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
@@ -376,11 +376,11 @@ function remove-env() {
 
 # Docs Commands
 
-generate-help-doc() {
+function generate-help-doc() {
     help-table > task.md 
 }
 
-function update-readme() {
+function update-repo-docs() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     README_PATH="$1"
     FILE_NAME=$(basename "$README_PATH")
@@ -540,7 +540,7 @@ function update-module-docs() {
     cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
 }
 
-function update-module-repo(){
+function template-repo(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     REPO_PATH="$1"
@@ -548,7 +548,7 @@ function update-module-repo(){
     echo "Copy $GIT_BRANCH template files to $REPO_PATH"
     cp -r "templates/$GIT_BRANCH/." "$REPO_PATH"
 
-    update-readme "$REPO_PATH" 
+    update-repo-docs "$REPO_PATH" 
 }
 
 # Module Commands
