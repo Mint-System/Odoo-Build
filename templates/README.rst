@@ -2,13 +2,14 @@
     :target: http://www.gnu.org/licenses/gpl-3.0-standalone.html
     :alt: License: GPL-3
 
-{{ '=' * name|length }}
-{{ (name|replace('_',' ')).title() }}
-{{ '=' * name|length }}
 
-Module summary.
+$MODULE_UNDERLINE
+$MODULE_TITLE
+$MODULE_UNDERLINE
 
-For a detailed documentation have a look at https://www.odoo-wiki.org/{{ (name|replace('_','-')) }}.html
+$MODULE_SUMMARY
+
+For a detailed documentation have a look at https://www.odoo-wiki.org/$MODULE_WIKI_PATH.html
 
 Configuration
 ~~~~~~~~~~~~~

@@ -25,7 +25,7 @@ function help() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "all" "" "Run all tasks."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install" "" "Setup the local environment."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint" "" "Run pre-commit."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "doc" "" "Updte index.html."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docs" "" "Updte index.html."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
 
@@ -51,7 +51,7 @@ function lint() {
 
 }
 
-function doc() {
+function docs() {
     source env/bin/activate
 
     echo "Update index.html for all modules"

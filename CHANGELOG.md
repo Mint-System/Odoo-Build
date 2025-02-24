@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Update module docs with `update-module-docs`
+
 ### Updated
 
 * Change base image to `python:3.12-slim-bookworm`

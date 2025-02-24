@@ -133,6 +133,8 @@ function help-table() {
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-docs" "[path]" "Update the module folder from template."
+    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-repo" "[path]" "Update the repo folder from template."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-readme" "[path]" "Update Readme file of Odoo module collection."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet definition."
     printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upload-module" "[env][path]" "Zip and upload Odoo module."
@@ -517,6 +519,36 @@ function update-docs() {
     generate-revisions-doc
     generate-snippets-doc
     generate-help-doc
+}
+
+function update-module-docs() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    MODULE_PATH="$1"
+    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
+
+    MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('name', ''))")
+    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))") 
+    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    MODULE_WIKI_PATH=$(basename "$MODULE_PATH" | sed 's/_/-/g')
+
+    echo "Update $MODULE_PATH/README.rst"
+    export MODULE_TITLE MODULE_UNDERLINE MODULE_SUMMARY MODULE_WIKI_PATH
+    envsubst '$MODULE_TITLE $MODULE_UNDERLINE $MODULE_SUMMARY $MODULE_WIKI_PATH' < templates/README.rst > "$MODULE_PATH/README.rst"
+
+    echo "Copy app icon"
+    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
+}
+
+function update-module-repo(){
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    REPO_PATH="$1"
+
+    echo "Copy $GIT_BRANCH template files to $REPO_PATH"
+    cp -r "templates/$GIT_BRANCH/." "$REPO_PATH"
+
+    update-readme "$REPO_PATH" 
 }
 
 # Module Commands
