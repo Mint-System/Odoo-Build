@@ -1,0 +1,36 @@
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//table[@name='stock_move_line_table']" position="after">
+
+		<table style="border: white">
+			<tr>
+				<td>
+					net weight:
+					<span t-field="o.x_studio_nettogewicht"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					gross weight:
+					<span t-field="o.x_studio_bruttogewicht"/>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					package:
+					<span t-field="o.x_studio_masse"/>
+				</td>
+			</tr>
+		</table>
+		<table style="margin-top: 30px; border: white">
+			<tr>
+				<td>
+					<span>Goods properly received:
+____________________________________________________________</span>
+				</td>
+			</tr>
+		</table>
+
+	</xpath>
+
+</data>

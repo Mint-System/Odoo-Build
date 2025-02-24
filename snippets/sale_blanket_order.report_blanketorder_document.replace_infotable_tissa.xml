@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id='info'>
+
+      <tr>
+        <td width="16%">
+          Kontaktnummer:
+        </td>
+        <td width="44%">
+          <span t-field='doc.partner_id.id'/>
+        </td>
+        <td>
+          Datum:
+        </td>
+        <td>
+          <span t-field='doc.date_confirmed'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Kontaktperson:
+        </td>
+        <td>
+          <span t-field='doc.partner_sale_id.name'/>
+        </td>
+        <td>Kundenbetreuer/in:</td>
+        <td>
+          <span t-field='doc.partner_id.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>EORI-Nummer:</td>
+        <td>
+          <span t-field="doc.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>
+          MwSt-Nr:
+        </td>
+        <td>
+          <span t-field="doc.company_id.vat"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field='doc.client_order_ref'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Gültigkeitsdatum:</td>
+        <td>
+          <span t-field="doc.validity_date"/>
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>

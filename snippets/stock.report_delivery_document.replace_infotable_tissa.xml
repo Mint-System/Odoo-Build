@@ -1,0 +1,87 @@
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//div[@class='page']/div[1]" position="replace">
+
+   <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id="info">
+
+      <tr>
+        <td width="16%">Kontaktnummer:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.id"/>
+        </td>
+        <td width="19%">
+          Datum:
+        </td>
+        <td width="21%">
+          <span t-field="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Kontaktperson:</td>
+        <td>
+          <span t-field="o.sale_id.partner_sale_id.name"/>
+        </td>
+        <td>Unser Auftrag:</td>
+        <td>
+          <t t-if="o.group_id">
+            <span t-field="o.group_id"/>
+          </t>
+        </td>
+      </tr>
+      
+      <tr>
+        <td>USt-IdNr:</td>
+        <td>
+          <span t-field="o.partner_id.vat"/>
+        </td>
+        <td>Abruf:</td>
+        <td>
+          <span t-field="o.sale_id.comment"/>
+          <t t-if="o.sale_id.x_studio_kommission">
+             /            <span t-field="o.sale_id.x_studio_kommission"/>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>EORI-Nummer:</td>
+        <td>
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Ansprechpartner/in:</td>
+        <td>
+          <span t-field="o.partner_id.user_id"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field="o.sale_id.client_order_ref"/>
+        </td>
+        <td>
+          MwSt-Nr:
+        </td>
+        <td>
+          CHE-103.327.797 MWST
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>

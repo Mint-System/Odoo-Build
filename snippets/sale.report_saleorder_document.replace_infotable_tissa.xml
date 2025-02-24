@@ -1,0 +1,106 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id="info">
+
+      <tr>
+        <td width="16%">
+          Contact Number:
+        </td>
+        <td width="44%">
+          <span t-field="doc.partner_id.id"/>
+        </td>
+        <td>
+          Date:
+        </td>
+        <td>
+          <span t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Your Contact:
+        </td>
+        <td>
+          <span t-field="doc.partner_sale_id.name"/>
+        </td>
+        <td>Our Order:</td>
+        <td>
+          <t t-if="doc.origin">
+            <span t-field="doc.origin"/>
+ / 
+          </t>
+          <span t-field="doc.name"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          VAT-No:
+        </td>
+        <td>
+          <span t-field="doc.partner_id.vat"/>
+        </td>
+        <td>Call-off Order:</td>
+        <td>
+          <span t-field="doc.comment"/>
+          <t t-if="doc.x_studio_kommission">
+             /            <span t-field="doc.x_studio_kommission"/>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>EORI-Number:</td>
+        <td>
+          <span t-field="doc.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Our Contact:</td>
+        <td>
+          <span t-field="doc.partner_id.user_id"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>         
+          <span t-field="doc.client_order_ref"/>       
+        </td>
+        <td>
+          VAT-No:
+        </td>
+        <td>
+          <span t-field="doc.company_id.vat"/>  
+        </td>
+      </tr>
+      
+      <tr>
+        <td/>
+        <td><span t-field="doc.blanket_order_id.date_confirmed"/>      
+        </td>
+        <td>
+          Delivery date ETD:
+        </td>
+        <td>
+          <span t-field="doc.commitment_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>  
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>
