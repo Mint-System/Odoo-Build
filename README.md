@@ -82,7 +82,7 @@ Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin, W
 Sync the submodule branch.
 
 ```bash
-task git-submodule-sync
+task sync-git-submodule
 ```
 
 #### Setup Python environment

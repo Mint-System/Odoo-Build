@@ -9,134 +9,136 @@ fi
 
 function help-table() {
     # Define column widths
-    cmd_width=25
-    opt_width=20
-    desc_width=90
+    CMD_WIDTH=25
+    OPT_WIDTH=20
+    DESC_WIDTH=90
+    COLUMN="| %-${CMD_WIDTH}s | %-${OPT_WIDTH}s | %-${DESC_WIDTH}s |\n"
 
     # Print table header
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "Command" "Option" "Description"
-    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
+    printf "$COLUMN" "Command" "Option" "Description"
+    echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
 
     # Print table rows
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "activate-venv" "" "Activate virtualenv."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "build" "[platform]" "Build Odoo Conainer image. Optionally define the target platform."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "change-uuid" "[env]" "Change database uuid via xmlrpc."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout" "[branch]" "Checkout Odoo version / branch."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-all" "" "Checkout every Odoo version / branch."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-config-files" "[branch]" "Checkout config files from another branch."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-assets" "[db]" "Clear all assets of Odoo database."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-views" "[db]" "Clear all views of Odoo database."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module" "[path]" "Create new Odoo module from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-module-repo" "[path]" "Initialize Odoo module repo from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-revision" "[revision]" "Create new Odoo revision."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "create-snippet" "[id]" "Create snippet from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "disable-snippet" "[env][path]" "Disable snippet definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "container-login" "" "Setup container hub login credentials."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "drop-db" "[db]" "Drop target Odoo database. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "edit-env" "[env]" "Open env file in default editor."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-help-doc" "" "Write help table to task.md file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-overview" "" "Update module overview doc file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-model" "[path][model]" "Generate model files from templates."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-snippets-doc" "" "Update snippets doc file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "generate-revisions-doc" "" "Update revisions doc file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-addons-path" "" "Output addons path."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-module-version" "[path]" "Get module version from manifest."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-feature-branch" "[path]" "Create feature branch for Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-fetch" "" "Fetch all Odoo version branches."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-mig-branch" "[path]" "Create migration branch for Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-add" "[url] [path]" "Add git submodule."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-checkout" "" "Checkout submodule commits."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-commit-all" "[message][path]" "Commit all changes in path."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-ls" "[grep]" "List submodule path space separated."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-list" "" "List path and url of submodules."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-init" "" "Init submodules listed in the .gitmodules file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-pull" "" "Pull all submodules listed in the .gitmodules file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-push" "" "Push all submodules in path."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-remove" "[path]" "Remove a git submodule."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-delete" "" "Delete all submodule folders."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-status" "[path]" "Show status for submodules in path."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-switch" "[branch]" "Switch branch for all submodules listed in the .gitmodules file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "git-submodule-sync" "" "Switch, stash and pull all submodules."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "info" "" "Show values of project env vars."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-venv" "" "Initialize python virtual env."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "load-language" "[db][lang]" "Install language package in Odoo db."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-native" "" "Install Odoo requirements in source folder."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-odoo-scripts" "" "Install Odoo scripts."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install-snippet" "[env][path]" "Install snippet definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module" "[path]" "Run pylint odoo for module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint-snippets" "" "Run checks for all snippets."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-modules" "[path]" "Get modules in path as list."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-env" "" "List env files."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "list-revision" "" "List available Odoo revisions."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "logs" "" "Tail Odoo container logs."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-install" "" "Install build dependencies."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-dev" "" "Start vuepress development server."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-build" "" "Create vuepress build."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "node-serve-build" "" "Serve vuepress build."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odooctl" "[param]" "Execute odooctl cli."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "odoo-cloc" "[db]" "Count custom line of codes. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-store-dotenv" "" "Store content of .env in pass entry."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pass-restore-dotenv" "" "Restore content of .env from pass entry."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "publish" "" "Publish Odoo container image."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "ps" "" "List container processes."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "pytest-module" "[db][name,path]" "Run module tests with pytest."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "release-module" "[path]" "Create GitHub release for a module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove" "[name]" "Remove containers and volumes. Options: none, db, admin, odoo, mail."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-env" "[env]" "Remove environment config."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-module" "[db][name]" "Remove target Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "remove-snippet" "[env][path]" "Remove snippet definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "restart" "[name]" "Restart container."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "run" "[name][cmd]" "Run container with command."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "save-config" "[name]" "Save Odoo database config."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail" "[db]" "Setup mail config in Odoo db."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "set-addons-path" "" "Set Odoo addons path env variable."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-env" "[env]" "Output content of the env file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "show-revision" "[revision]" "Show references of Odoo revision."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start" "[name][db]" "Start container. Options: none, db, admin, odoo, native, mail."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-psql" "[db]" "Start PSQL shell in container container. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "stop" "[name]" "Stop containers."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-odoo-rc" "" "Template the Odoo config file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-docker-compose" "" "Template the Docker compose file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "template-repo" "[path]" "Update the repo folder from template."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-container" "[clean]" "Test Odoo image."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-xmlrpc" "[env]" "Test json rpc connection."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module" "[db][name,path]" "Test target Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-app-list" "[db]" "Update app list."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-docs" "" "Update project docs."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module" "[db][name,path]" "Update target Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-module-docs" "[path]" "Update the module Readme file."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-repo-docs" "[path]" "Update Readme file of repo folder."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "update-snippet" "[env][path]" "Update snippet definition."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "upload-module" "[env][path]" "Zip and upload Odoo module."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "zip-module" "[path]" "Create zip file for module."
+
+    printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
+    printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
+    printf "$COLUMN" "build" "[platform]" "Build Odoo Conainer image. Optionally define the target platform."
+    printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
+    printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
+    printf "$COLUMN" "checkout" "[branch]" "Checkout Odoo version / branch."
+    printf "$COLUMN" "checkout-all" "" "Checkout every Odoo version / branch."
+    printf "$COLUMN" "checkout-config-files" "[branch]" "Checkout config files from another branch."
+    printf "$COLUMN" "checkout-git-submodule" "" "Checkout submodule commits."
+    printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
+    printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
+    printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
+    printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
+    printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes. Default is branch name."
+    printf "$COLUMN" "commit-git-submodule-all" "[message][path]" "Commit all changes in path."
+    printf "$COLUMN" "container-login" "" "Setup container hub login credentials."
+    printf "$COLUMN" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
+    printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
+    printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
+    printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
+    printf "$COLUMN" "create-module-repo" "[path]" "Initialize Odoo module repo from template."
+    printf "$COLUMN" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
+    printf "$COLUMN" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
+    printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
+    printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
+    printf "$COLUMN" "delete-git-submodule" "" "Delete all submodule folders."
+    printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
+    printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
+    printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database. Default is branch name."
+    printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
+    printf "$COLUMN" "fetch-git-origin" "" "Fetch all Odoo version branches."
+    printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
+    printf "$COLUMN" "generate-help-doc" "" "Write help table to task.md file."
+    printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
+    printf "$COLUMN" "generate-module-overview" "" "Update module overview doc file."
+    printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
+    printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
+    printf "$COLUMN" "generate-revisions-doc" "" "Update revisions doc file."
+    printf "$COLUMN" "generate-snippets-doc" "" "Update snippets doc file."
+    printf "$COLUMN" "get-addons-path" "" "Output addons path."
+    printf "$COLUMN" "get-git-submodule-status" "[path]" "Show status for submodules in path."
+    printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
+    printf "$COLUMN" "get-module-version" "[path]" "Get module version from manifest."
+    printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
+    printf "$COLUMN" "info" "" "Show values of project env vars."
+    printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
+    printf "$COLUMN" "init-git-submodule" "" "Init submodules listed in the .gitmodules file."
+    printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
+    printf "$COLUMN" "init-venv" "" "Initialize python virtual env."
+    printf "$COLUMN" "install-native" "" "Install Odoo requirements in source folder."
+    printf "$COLUMN" "install-odoo-scripts" "" "Install Odoo scripts."
+    printf "$COLUMN" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
+    printf "$COLUMN" "install-snippet" "[env][path]" "Install snippet definition."
+    printf "$COLUMN" "install-vuepress" "" "Install Node build dependencies."
+    printf "$COLUMN" "lint-module" "[path]" "Run pylint odoo for module."
+    printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
+    printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
+    printf "$COLUMN" "list-env" "" "List env files."
+    printf "$COLUMN" "list-git-submodule" "" "List path and url of submodules."
+    printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
+    printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
+    printf "$COLUMN" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
+    printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
+    printf "$COLUMN" "logs" "" "Tail Odoo container logs."
+    printf "$COLUMN" "ls-git-submodule" "[grep]" "List submodule path space separated."
+    printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
+    printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
+    printf "$COLUMN" "ps" "" "List container processes."
+    printf "$COLUMN" "publish" "" "Publish Odoo container image."
+    printf "$COLUMN" "pull-git-submodule" "" "Pull all submodules listed in the .gitmodules file."
+    printf "$COLUMN" "push-git-submodule" "" "Push all submodules in path."
+    printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
+    printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
+    printf "$COLUMN" "remove" "[name]" "Remove containers and volumes. Options: none, db, admin, odoo, mail."
+    printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
+    printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
+    printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
+    printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
+    printf "$COLUMN" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
+    printf "$COLUMN" "restart" "[name]" "Restart container."
+    printf "$COLUMN" "restore-dotenv" "" "Restore content of .env from pass entry."
+    printf "$COLUMN" "run" "[name][cmd]" "Run container with command."
+    printf "$COLUMN" "save-config" "[name]" "Save Odoo database config."
+    printf "$COLUMN" "serve-vuepress-build" "" "Serve Vuepress build."
+    printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
+    printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
+    printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
+    printf "$COLUMN" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
+    printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
+    printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
+    printf "$COLUMN" "source" "" "Source the Python virtual env."
+    printf "$COLUMN" "start" "[name][db]" "Start container. Options: none, db, admin, odoo, native, mail."
+    printf "$COLUMN" "start-psql" "[db]" "Start PSQL shell in container container. Default is branch name."
+    printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
+    printf "$COLUMN" "start-vuepress" "" "Start Vuepress development server."
+    printf "$COLUMN" "stop" "[name]" "Stop containers."
+    printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
+    printf "$COLUMN" "switch-git-submodule" "[branch]" "Switch branch for all submodules listed in the .gitmodules file."
+    printf "$COLUMN" "sync-git-submodule" "" "Switch, stash and pull all submodules."
+    printf "$COLUMN" "template-docker-compose" "" "Template the Docker compose file."
+    printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
+    printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
+    printf "$COLUMN" "test-container" "[clean]" "Test Odoo image."
+    printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
+    printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
+    printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
+    printf "$COLUMN" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
+    printf "$COLUMN" "update-app-list" "[db]" "Update app list."
+    printf "$COLUMN" "update-docs" "" "Update project docs."
+    printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
+    printf "$COLUMN" "update-module-docs" "[path]" "Update Readme file of the module."
+    printf "$COLUMN" "update-repo-docs" "[path]" "Update Readme file of the repo."
+    printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
+    printf "$COLUMN" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
+    printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
+    printf "$COLUMN" "upload-module" "[env][path]" "Zip and upload Odoo module."
+    printf "$COLUMN" "version" "" "Show version of required tools."
+    printf "$COLUMN" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
+    printf "$COLUMN" "zip-module" "[path]" "Create zip file for module."
 }
 
 function help() {
@@ -1377,7 +1379,7 @@ function save-config() {
 
 # Report Commands
 
-function odoo-cloc() {
+function clock-odoo() {
     DATABASE="$1"
     if [ -z "$DATABASE" ]; then
         DATABASE="$ODOO_DATABASE"
@@ -1959,7 +1961,7 @@ function lint-snippets() {
 
 # Git Commands
 
-function git-fetch() {
+function fetch-git-origin() {
     git fetch origin 13.0
     git fetch origin 14.0
     git fetch origin 15.0
@@ -1968,14 +1970,14 @@ function git-fetch() {
     git fetch origin 18.0
 }
 
-function git-submodule-add() {
+function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
 }
 
-function git-submodule-ls() {
+function ls-git-submodule() {
     if [ -n "$1" ]; then
         echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g')
     else
@@ -1983,7 +1985,7 @@ function git-submodule-ls() {
     fi
 }
 
-function git-submodule-list() {
+function list-git-submodule() {
     # Define column widths
     path_width=35
     url_width=50
@@ -1993,7 +1995,7 @@ function git-submodule-list() {
     printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
     echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
 
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         URL=$(git config --file .gitmodules --get "submodule.$SUBMODULE.url")
         URL=${URL#git@github.com:}
@@ -2003,18 +2005,18 @@ function git-submodule-list() {
     done
 }
 
-function git-submodule-delete() {
+function delete-git-submodule() {
     echo "Delete git submodules."
 
     # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         echo "Delete submodule: $SUBMODULE"
         rm -rf "$SUBMODULE"
     done
 }
 
-function git-submodule-remove() {
+function remove-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Deinit submodule"
@@ -2031,11 +2033,11 @@ function git-submodule-remove() {
     rm -rf .git/modules/"$1"
 }
 
-function git-submodule-init() {
+function init-git-submodule() {
     echo "Init git submodules."
 
     # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         if [ "$SHALLOW" = "true" ]; then
@@ -2048,9 +2050,9 @@ function git-submodule-init() {
     done
 }
 
-function git-submodule-pull() {
+function pull-git-submodule() {
     echo "Pull git submodules"
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         echo "Pull git submodule: $SUBMODULE"
         git -C "$SUBMODULE" stash
@@ -2061,9 +2063,9 @@ function git-submodule-pull() {
     done
 }
 
-function git-submodule-checkout() {
+function checkout-git-submodule() {
     echo "Checkout submodule commits."
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         COMMIT_HASH=$(git ls-tree HEAD "$SUBMODULE" | awk '{print $3}')
@@ -2080,13 +2082,13 @@ function git-submodule-checkout() {
     done
 }
 
-function git-submodule-switch() {
+function switch-git-submodule() {
     if [ -n "$1" ]; then
         GIT_BRANCH="$1"
     fi
 
     echo "Switch branch on git submodules."
-    SUBMODULES=$(git-submodule-ls)
+    SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         echo "Switch git submodule branch to $GIT_BRANCH: $SUBMODULE"
         git -C "$SUBMODULE" stash
@@ -2094,9 +2096,9 @@ function git-submodule-switch() {
     done
 }
 
-function git-submodule-status() {
+function get-git-submodule-status() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(git-submodule-ls "$1")
+    SUBMODULES=$(ls-git-submodule "$1")
 
     echo "Show status git submodules."
     for SUBMODULE in $SUBMODULES; do
@@ -2104,9 +2106,9 @@ function git-submodule-status() {
     done
 }
 
-function git-submodule-commit-all() {
+function commit-git-submodule-all() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(git-submodule-ls "$1")
+    SUBMODULES=$(ls-git-submodule "$1")
 
     echo "Commit git submodules."
     for SUBMODULE in $SUBMODULES; do
@@ -2115,9 +2117,9 @@ function git-submodule-commit-all() {
     done
 }
 
-function git-submodule-push() {
+function push-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(git-submodule-ls "$1")
+    SUBMODULES=$(ls-git-submodule "$1")
 
     echo "Push git submodules."
     for SUBMODULE in $SUBMODULES; do
@@ -2125,13 +2127,13 @@ function git-submodule-push() {
     done
 }
 
-function git-submodule-sync() {
+function sync-git-submodule() {
     echo "Switch and pull submodules."
-    git-submodule-switch
-    git-submodule-pull
+    switch-git-submodule
+    pull-git-submodule
 }
 
-function git-feature-branch(){
+function create-git-feature-branch(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename "$1")
@@ -2143,7 +2145,7 @@ function git-feature-branch(){
     git switch -c "feature-$MODULE_NAME"
 }
 
-function git-mig-branch(){
+function create-git-mig-branch(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename "$1")
@@ -2176,9 +2178,9 @@ function checkout() {
     git switch "$GIT_BRANCH"
     git pull
 
-    git-submodule-init
+    init-git-submodule
 
-    git-submodule-switch
+    switch-git-submodule
 }
 
 function checkout-all() {
@@ -2300,7 +2302,7 @@ function odooctl(){
 
 # Pass Commands
 
-function pass-store-dotenv() {
+function store-dotenv() {
     if [ -f .env ]; then
         echo "Store .env file in pass: $PASS_ENTRY"
         cat .env | pass insert -m -f "$PASS_ENTRY"
@@ -2309,7 +2311,7 @@ function pass-store-dotenv() {
     fi
 }
 
-function pass-restore-dotenv() {
+function restore-dotenv() {
     if pass find "$PASS_ENTRY" >/dev/null; then
         echo "Restore .env file from pass: $PASS_ENTRY"
         pass show "$PASS_ENTRY" > .env
@@ -2409,16 +2411,16 @@ else
             help task
             exit 1
             ;;
-        node-install)
+        install-vuepress)
             npm install
             ;;
-        node-dev)
+        start-vuepress)
             npm run dev
             ;;
-        node-build)
+        build-vuepress)
             npm run build
             ;;
-        node-serve-build)
+        serve-vuepress-build)
             cd .vuepress/dist
             npx serve
             ;;

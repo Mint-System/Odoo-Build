@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Updated
 
 * Change base image to `python:3.12-slim-bookworm`
+* Renamed all task functions to match the naming pattern
 
 ### Removed
 
