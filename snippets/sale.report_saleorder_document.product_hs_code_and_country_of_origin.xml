@@ -1,0 +1,14 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//span[@t-field='line.name']" position="after">
+        <t t-if="line.product_id.hs_code">
+            <br/>
+            <span>HS Code: </span>
+            <span t-field="line.product_id.hs_code"/>
+        </t>
+        <t t-if="line.product_id.country_of_origin.code">
+            <br/>
+            <span>Country of Origin: </span>
+            <span t-field="line.product_id.country_of_origin.code"/>
+        </t>
+    </xpath>
+</data>

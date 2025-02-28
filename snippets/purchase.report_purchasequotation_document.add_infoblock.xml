@@ -5,6 +5,10 @@
                 <strong>Ansprechperson Einkauf</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
             </div>
+            <div class="col-3 bm-2">
+                <strong>Datum</strong>
+                <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+            </div>
             <div t-if="o.partner_ref" class="col-3 bm-2">
                 <strong>Ihre Referenz</strong>
                 <p t-field="o.partner_ref" class="m-0"/>
