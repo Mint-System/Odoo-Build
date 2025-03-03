@@ -1149,6 +1149,18 @@ ID: `mint_system.base.view_users_form.email`
 ```
 Source: [snippets/base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_users_form.email.xml)
 
+### Show Color  
+ID: `mint_system.base.view_users_form.show_color`  
+```xml
+<data inherit_id="base.view_users_form" priority="50">
+    <field name="service_user" position="after">
+        <field name="color"/>
+    </field>
+</data>
+
+```
+Source: [snippets/base.view_users_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_users_form.show_color.xml)
+
 ### Specific Ations  
 ID: `mint_system.base.view_users_form.specific_ations`  
 ```xml

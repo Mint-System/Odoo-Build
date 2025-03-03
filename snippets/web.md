@@ -346,38 +346,56 @@ ID: `mint_system.web.external_layout_standard.footer_airwork`
 <data inherit_id="web.external_layout_standard" priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
+    <style>
+          #footer span {
+            line-height: 1 !important;
+          }
+    </style>
+
     <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div style="border-top: 1px solid black;">
-        <table style="font-size: 11px; border: transparent;">
+      <div style="border-top: none;">
+        <table id="footer" style="font-size: 11px; border: transparent;">
           <tr>
-            <td style="padding-top:7px; width: 200px; text-align: left">AirWork &amp; Heliseilerei GmbH (A&amp;H)</td>
-            <td style="width: 180px; text-align: left">FON +41 41 420 49 64</td>
-            <td style="width: 200px; text-align: left">Bankverbindung: Raiffeisenbank Luzern</td>
+            <td style="width: 230px; text-align: left">
+              <span>AirWork &amp; Heliseilerei GmbH (A&amp;H)</span>
+            </td>
+            <td style="width: 220px; text-align: left">FON +41 41 420 49 64</td>
+            <td style="width: 200px; text-align: left">Raiffeisenbank Luzern</td>
             <td style="width: 220px; text-align: left">IBAN CHF: CH12 8080 8008 9455 6909 9</td>
           </tr>
           <tr>
-            <td>Bahnhofweg 1</td>
-            <td>E-Mail: office@air-work.com</td>
+            <td>
+              <span>Bahnhofweg 1</span>
+            </td>
+            <td>E-Mail office@air-work.com</td>
             <td>Schulstrasse 1</td>
-            <td>IBAN EUR (€): CH28 8080 8009 7827 3963 0</td>
+            <td>IBAN EUR: CH28 8080 8009 7827 3963 0</td>
           </tr>
           <tr>
-            <td>CH-6405 Immensee</td>
+            <td>
+              <span>CH-6405 Immensee</span>
+            </td>
             <td>UID CHE-113.380.391 MWST</td>
             <td>CH-6037 Root</td>
             <td/>
           </tr>
           <tr>
             <td>www.air-work.swiss</td>
-            <td/>
+            <td>HR CH-130.4.011.925-0</td>
             <td>SWIFT: RAIFCH22</td>
-            <td/>
-          </tr>
-        </table>
-      </div>
+
+            <td t-if="report_type == 'pdf'" class="text-end fw-bold">
+                    Page: <span class="page"/>
+ of <span class="topage"/>
+          </td>
+
+        </tr>
+
+      </table>
     </div>
-    
-  </xpath>
+  </div>
+
+</xpath>
 </data>
 ```
 Source: [snippets/web.external_layout_standard.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.footer_airwork.xml)
@@ -403,24 +421,28 @@ ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`
 <data inherit_id="web.external_layout_standard" priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
-    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div style="border-top: 1px solid black;">
-        <table style="width: 100%; border: transparent">
-          <tr style="line-height: 1.2; ">
-            <td style="padding-top:7px; width: 33%; text-align: left; ">info@kunststoffsammelsack.ch</td>
-            <td style="width: 33%; text-align: center">wwww.kunststoffsammelsack.ch</td>
-            <td style="width: 33%; text-align: right">+41 41 760 33 36</td>
-          </tr>
-          <tr style="line-height: 1.2;">
-            <td>CHE-411.930.537 MWST</td>
-            
-          </tr>          
-        </table>
+    <t t-if="report_type == 'pdf'">
+
+      <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div style="border-top: 1px solid black;">
+          <table style="width: 100%; border: transparent">
+            <tr style="line-height: 1.2; ">
+              <td style="padding-top:7px; width: 33%; text-align: left; ">info@kunststoffsammelsack.ch</td>
+              <td style="width: 33%; text-align: center">wwww.kunststoffsammelsack.ch</td>
+              <td style="width: 33%; text-align: right">+41 41 760 33 36</td>
+            </tr>
+            <tr style="line-height: 1.2;">
+              <td>CHE-411.930.537 MWST</td>
+            </tr>
+          </table>
+        </div>
       </div>
-    </div>
-    
+
+    </t>
+
   </xpath>
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml)
 
@@ -447,19 +469,19 @@ ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`
 ```xml
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="/t/div" position="replace">
-        <!--
+     
         <t t-if="report_type == 'pdf'">
-        -->
+      
         
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <table style="width: 100%; border: transparent; ">
                 <tr style="line-height: 1.2;">
                     <td style="width: 50%; padding-top: 10px; font-weight: bold">Kunststoffsammelsack Schweiz GmbH</td>
                      <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px; " rowspan="4">
-                        <img t-if="company.logo" t-att-src="'/web/image/966'" style="height: 45px;" alt="Logo"/>
+                        <img t-if="company.logo" t-att-src="'/web/image/555'" style="height: 45px;" alt="Logo"/>
                     </td>
                     <td style="width: 15%; vertical-align: bottom; text-align: center; padding-bottom: 17px; border-bottom: solid 1px;" rowspan="4">
-                        <img t-if="company.logo" t-att-src="'/web/image/945'" style="height: 45px;" alt="Logo"/>
+                        <img t-if="company.logo" t-att-src="'/web/image/556'" style="height: 45px;" alt="Logo"/>
                     </td>
                     <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px; border-bottom: solid 1px;" rowspan="4">
                         <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height:90px;" alt="Logo"/>    
@@ -477,11 +499,12 @@ ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`
             </table>
         </div>
         
-        <!--
+       
         </t>
-        -->
+        
     </xpath>
 </data>
+
 ```
 Source: [snippets/web.external_layout_standard.header_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/web.external_layout_standard.header_kunststoffsammelsack.xml)
 

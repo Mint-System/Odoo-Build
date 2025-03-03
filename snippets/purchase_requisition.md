@@ -12,6 +12,273 @@ ID: `mint_system.purchase_requisition.product_supplierinfo_tree_view_inherit.pur
 ```
 Source: [snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.product_supplierinfo_tree_view_inherit.purchase_requisition_id_readonly_false.xml)
 
+## Report Purchaserequisition Document  
+### Add Drawing  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.add_drawing`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+  
+<xpath expr="//span[@t-field='line_ids.product_id.name']" position="after">
+  <br/>
+  <span>Drawing: </span>
+    <a t-attf-href="{{line_ids.product_id.drawing_file.url}}">
+    <span t-field="line_ids.product_id.drawing_file.display_name"/>
+    </a>
+</xpath>
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.add_drawing.xml)
+
+### Add Payment Term  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.add_payment_term`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+    <xpath expr="//div[@t-out='o.description']" position="before">
+        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="col">
+                <span>Payment Terms: </span>
+                <span t-field="o.payment_term_id.name"/>
+            </div>
+        </div>
+    </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.add_payment_term.xml)
+
+### Add Product Description Variants  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.add_product_description_variants`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//tbody//span[@t-field='line_ids.product_id.name']" position="after">
+    <t t-if="line_ids.product_description_variants">
+    <br/>
+    <span t-field="line_ids.product_description_variants"/>
+    </t>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.add_product_description_variants.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.add_product_description_variants.xml)
+
+### Add Product Uom Id  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.add_product_uom_id`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//span[@id='product_qty']" position="after">
+    <span id="product_uom_id" t-field="line_ids.product_uom_id"/>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.add_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.add_product_uom_id.xml)
+
+### Format Qty With Decimal  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.format_qty_with_decimal`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+    <xpath expr="//span[@id='product_qty']" position="replace">
+        <t t-if="line_ids.product_uom_id.id == 1">
+            <span id="product_qty" t-field="line_ids.product_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span id="product_qty" t-field="line_ids.product_qty"/>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.format_qty_with_decimal.xml)
+
+### Hide Description  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_description`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+    <xpath expr="//table/thead/tr/th[2]" position="replace"/>
+    <xpath expr="//tbody/tr/td/span[@t-field='line_ids.product_description_variants']/.." position="replace"/>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.hide_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.hide_description.xml)
+
+### Hide Details  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_details`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//t[@t-if='o.purchase_ids']" position="replace"/>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.hide_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.hide_details.xml)
+
+### Hide Origin  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_origin`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">  
+
+<xpath expr="//div/span[@t-field='o.origin']/.." position="replace">  
+</xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.hide_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.hide_origin.xml)
+
+### Hide Product Uom  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_product_uom`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+    <xpath expr="//table/thead/tr/th[5]" position="replace"/>
+    <xpath expr="//span[@t-field='line_ids.product_uom_id.name']/.." position="replace"/>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.hide_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.hide_product_uom.xml)
+
+### Hide Title Product  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.hide_title_product`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">  
+
+ <xpath expr="//h3[@id='title_product']" position="replace"/> 
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.hide_title_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.hide_title_product.xml)
+
+### Replace Price Unit With Schedule Date  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.replace_price_unit_with_schedule_date`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//thead/tr/th[6]" position="replace">
+    <th class="text-right">
+      <strong>Scheduled Date</strong>
+    </th>
+  </xpath>
+
+  <xpath expr="//span[@t-field='line_ids.price_unit']/.." position="replace">
+    <td class="text-right">
+      <span t-field="line_ids.schedule_date"/>
+    </td>
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.replace_price_unit_with_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.replace_price_unit_with_schedule_date.xml)
+
+### Replace Schedule Date With Price Unit  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.replace_schedule_date_with_price_unit`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+<xpath expr="//thead/tr/th[7]" position="replace">
+  <th class="text-right"><strong>Unit Price</strong></th>
+</xpath>
+
+<xpath expr="//span[@t-field='line_ids.schedule_date']/.." position="replace">
+  <td class="text-right">
+      <span t-field="line_ids.price_unit"/> <span t-field="o.currency_id"/>      
+  </td>
+</xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.replace_schedule_date_with_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.replace_schedule_date_with_price_unit.xml)
+
+### Replace Titel  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.replace_titel`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+<xpath expr="//thead/tr/th[4]" position="replace">
+  <th class="text-right"><strong>Scheduled Date</strong></th>
+</xpath>
+
+<xpath expr="//span[@t-field='line_ids.product_uom_id.category_id.name']/.." position="replace">
+  <td class="text-right">
+      <span t-field="line_ids.schedule_date"/>
+  </td>
+</xpath>
+  
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.replace_titel.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.replace_titel.xml)
+
+### Sequence In Table  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.sequence_in_table`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//table/thead/tr[1]/th[1]" position="before">
+    <th>
+      <span>Pos</span>
+    </th>
+
+  <xpath expr="//table/tbody/tr[1][@t-foreach='o.line_ids']" position="before">
+    <t t-set="index" t-value="1"/>
+  </xpath>
+
+  </xpath>
+  <xpath expr="//table/tbody/tr[1]/td[1]" position="before">
+    <td>
+      <span t-esc="index"/><t t-set="index" t-value="index+1"/>
+    </td>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.sequence_in_table.xml)
+
+### Set Ids  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.set_ids`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+	<xpath expr="//div[2]" position="attributes">
+		<attribute name="id">info_table</attribute>
+	</xpath>
+
+	<xpath expr="//h3[1]" position="attributes">
+		<attribute name="id">title_product</attribute>
+	</xpath>
+
+	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
+		<attribute name="id">product_qty</attribute>
+	</xpath>
+
+	<xpath expr="//table" position="attributes">
+		<attribute name="id">details</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.set_ids.xml)
+
+### Style Gelso  
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.style_gelso`  
+```xml
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+	<xpath expr="//table/thead/tr/th[2]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase_requisition.report_purchaserequisition_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase_requisition.report_purchaserequisition_document.style_gelso.xml)
+
 ## Report Purchaserequisitions  
 ### Add Address Block  
 ID: `mint_system.purchase_requisition.report_purchaserequisitions.add_address_block`  

@@ -550,6 +550,18 @@ ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`
 ```
 Source: [snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.mrp_production_form_view.finished_move_line_ids.xml)
 
+### Format Sale Id  
+ID: `mint_system.mrp.mrp_production_form_view.format_sale_id`  
+```xml
+<data inherit_id="mrp.mrp_production_form_view" priority="50">
+    <xpath expr="//field[@name='sale_id']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_form_view.format_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp.mrp_production_form_view.format_sale_id.xml)
+
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`  
 ```xml
@@ -578,43 +590,53 @@ Source: [snippets/mrp.mrp_production_form_view.move_finished_ids.xml](https://gi
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`  
 ```xml
 <data inherit_id="mrp.mrp_production_form_view" priority="50">
-    <!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
-    <xpath expr="//field[@name='workorder_ids']" position="inside">
-        <tree editable="bottom" js_class="tablet_list_view">
-            <field name="consumption" invisible="1"/>
-            <field name="company_id" invisible="1"/>
-            <field name="is_produced" invisible="1"/>
-            <field name="is_user_working" invisible="1"/>
-            <field name="product_uom_id" invisible="1" readonly="0"/>
-            <field name="production_state" invisible="1"/>
-            <field name="production_bom_id" invisible="1"/>
-            <field name="qty_producing" invisible="1"/>
-            <field name="time_ids" invisible="1"/>
-            <field name="working_state" invisible="1"/>
-            <field name="operation_id" invisible="1" domain="['|', ('bom_id', '=', production_bom_id), ('bom_id', '=', False)]" context="{'default_workcenter_id': workcenter_id, 'default_company_id': company_id}"/>
-            <field name="name" string="Operation"/>
-            <field name="workcenter_id"/>
-            <field name="product_id" optional="hide"/>
-            <field name="lot_id" optional="hide" domain="['|',('company_id','=',False),('company_id','=',company_id)]"/>
-            <field name="date_planned_start" optional="show"/>
-            <field name="date_planned_finished" optional="hide"/>
-            <field name="date_start" optional="hide" readonly="1"/>
-            <field name="date_finished" optional="hide" readonly="1"/>
-            <field name="duration_expected" widget="float_time"/>
-            <field name="duration" widget="mrp_time_counter" attrs="{'invisible': [('production_state','=', 'draft')], 'readonly': [('is_user_working', '=', True)]}"/>
-            <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state not in ('done', 'cancel')" attrs="{'invisible': [('production_state', 'in', ('draft', 'done'))]}"/>
-            <field name="production_state" invisible="1"/>
-            <button name="button_start" type="object" string="Start" class="btn-success" attrs="{'invisible': ['|', '|', '|', ('production_state','in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('state', '=', 'done'), ('is_user_working', '!=', False)]}"/>
-            <button name="button_pending" type="object" string="Pause" class="btn-warning" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
-            <button name="button_finish" type="object" string="Done" class="btn-success" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
-            <button name="433" type="action" string="Block" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked')]}"/>
-            <button name="button_unblock" type="object" string="Unblock" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '!=', 'blocked')]}"/>
-            <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" context="{'default_workcenter_id': workcenter_id}"/>
-            <button name="open_tablet_view" type="object" icon="fa-tablet" context="{'from_production_order': True}" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'cancel', 'done')), ('state', '=', 'done')]}"/>
-            <field name="show_json_popover" invisible="1"/>
-            <field name="json_popover" widget="mrp_workorder_popover" string=" " width="0.1" attrs="{'invisible': [('show_json_popover', '=', False)]}"/>
-        </tree>
-    </xpath>
+<!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
+  <xpath expr="//field[@name='workorder_ids']" position="inside">
+    <tree editable="bottom" js_class="tablet_list_view">
+      <field name="consumption" invisible="1"/>
+      <field name="company_id" invisible="1"/>
+      <field name="is_produced" invisible="1"/>
+      <field name="is_user_working" invisible="1"/>
+      <field name="product_uom_id" invisible="1" readonly="0"/>
+      <field name="production_state" invisible="1"/>
+      <field name="production_bom_id" invisible="1"/>
+      <field name="qty_producing" invisible="1"/>
+      <field name="time_ids" invisible="1"/>
+      <field name="working_state" invisible="1"/>
+      <field name="operation_id" invisible="1" domain="['|', ('bom_id', '=', production_bom_id), ('bom_id', '=', False)]" context="{'default_workcenter_id': workcenter_id, 'default_company_id': company_id}"/>
+      <field name="name" string="Operation"/>
+      <field name="workcenter_id"/>
+      <field name="product_id" optional="hide"/>
+      
+      <!-- Upgrade 16
+      <field name="component_id" optional="hide"/>
+      -->
+      
+      <!-- Upgrade 16
+      <field name="lot_id" optional="hide" domain="[('product_id','=', component_id),'|',('company_id','=',False),('company_id','=',company_id)]"/>
+      -->
+      <field name="lot_id" optional="hide" domain="['|',('company_id','=',False),('company_id','=',company_id)]"/>
+      
+      <field name="date_planned_start" optional="show"/>
+      <field name="date_planned_finished" optional="hide"/>
+      <field name="date_start" optional="hide" readonly="1"/>
+      <field name="date_finished" optional="hide" readonly="1"/>
+      <field name="duration_expected" widget="float_time"/>
+      <field name="duration" widget="mrp_time_counter" attrs="{'invisible': [('production_state','=', 'draft')], 'readonly': [('is_user_working', '=', True)]}"/>
+      <field name="state" widget="badge" decoration-success="state == 'done'" decoration-info="state not in ('done', 'cancel')" attrs="{'invisible': [('production_state', 'in', ('draft', 'done'))]}"/>
+      <field name="production_state" invisible="1"/>
+      <button name="button_start" type="object" string="Start" class="btn-success" attrs="{'invisible': ['|', '|', '|', ('production_state','in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('state', '=', 'done'), ('is_user_working', '!=', False)]}"/>
+      <button name="button_pending" type="object" string="Pause" class="btn-warning" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
+      <button name="button_finish" type="object" string="Done" class="btn-success" attrs="{'invisible': ['|', '|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked'), ('is_user_working', '=', False)]}"/>
+      <button name="433" type="action" string="Block" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '=', 'blocked')]}"/>
+      <button name="button_unblock" type="object" string="Unblock" context="{'default_workcenter_id': workcenter_id}" class="btn-danger" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'done', 'cancel')), ('working_state', '!=', 'blocked')]}"/>
+      <button name="action_open_wizard" type="object" icon="fa-external-link" class="oe_edit_only" context="{'default_workcenter_id': workcenter_id}"/>
+      <button name="open_tablet_view" type="object" icon="fa-tablet" context="{'from_production_order': True}" attrs="{'invisible': ['|', ('production_state', 'in', ('draft', 'cancel', 'done')), ('state', '=', 'done')]}"/>
+      <field name="show_json_popover" invisible="1"/>
+      <field name="json_popover" widget="mrp_workorder_popover" string=" " width="0.1" attrs="{'invisible': [('show_json_popover', '=', False)]}"/>
+    </tree>
+  </xpath>
+
 </data>
 
 ```
@@ -1320,6 +1342,7 @@ ID: `mint_system.mrp.report_mrporder.show_stock`
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
                 <!-- <span t-field="move_line.reserved_uom_qty"/> -->
+                <span t-field="move_line.quantity"/>
                 <br/>
             </span>
         </td>
@@ -1536,7 +1559,8 @@ ID: `mint_system.mrp.report_mrp_production_components.show_stock`
             <span t-foreach="raw_line.move_line_ids" t-as="move_line">
                 <span t-field="move_line.location_id.display_name"/>
                 <t t-if="move_line.lot_id"> (<span t-field="move_line.lot_id"/>) </t>
-                <span t-field="move_line.reserved_uom_qty"/>
+                <!-- <span t-field="move_line.reserved_uom_qty"/> -->
+                <span t-field="move_line.quantity"/>
                 <br/>
             </span>
         </td>

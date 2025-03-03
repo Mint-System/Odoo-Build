@@ -121,6 +121,30 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_invoice_status`
 ```
 Source: [snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml)
 
+### Modify Readonly Partner Ref  
+ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_ref`  
+```xml
+<data inherit_id="purchase.purchase_order_form" priority="50">
+    <xpath expr="//field[@name='partner_ref']" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml)
+
+### Modify Readonly Partner Shipping Id  
+ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_id`  
+```xml
+<data inherit_id="purchase.purchase_order_form" priority="50">
+    <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml)
+
 ### Modify Visibility Button Confirm Reminder Mail  
 ID: `mint_system.purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail`  
 ```xml
@@ -460,6 +484,28 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_date_approve`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_date_approve.xml)
+
+### Add Date Planned  
+ID: `mint_system.purchase.report_purchaseorder_document.add_date_planned`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_description']" position="after">
+        <th name="th_date_planned" class="text-start">
+            <strong>Date planned</strong>
+        </th>
+    </xpath>
+    <xpath expr="//td[@id='product']" position="after">
+        <td class="text-start">
+            <span t-field="line.date_planned" t-options="{'widget': 'date'}"/>
+        </td>
+    </xpath>
+
+</data>
+
+
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_date_planned.xml)
 
 ### Add Email  
 ID: `mint_system.purchase.report_purchaseorder_document.add_email`  
@@ -1735,6 +1781,10 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
             <div t-if="o.user_id" class="col-3 bm-2">
                 <strong>Ansprechperson Einkauf</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
+            </div>
+            <div class="col-3 bm-2">
+                <strong>Datum</strong>
+                <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.partner_ref" class="col-3 bm-2">
                 <strong>Ihre Referenz</strong>

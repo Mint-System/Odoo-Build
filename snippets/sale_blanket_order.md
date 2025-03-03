@@ -486,6 +486,90 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblo
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
 
+### Replace Infotable Tissa  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 45px;
+      font-size: 11pt;
+    }
+    table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+    <table id='info'>
+
+      <tr>
+        <td width="16%">
+          Kontaktnummer:
+        </td>
+        <td width="44%">
+          <span t-field='doc.partner_id.id'/>
+        </td>
+        <td>
+          Datum:
+        </td>
+        <td>
+          <span t-field='doc.date_confirmed'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Kontaktperson:
+        </td>
+        <td>
+          <span t-field='doc.partner_sale_id.name'/>
+        </td>
+        <td>Kundenbetreuer/in:</td>
+        <td>
+          <span t-field='doc.partner_id.user_id'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>EORI-Nummer:</td>
+        <td>
+          <span t-field="doc.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>
+          MwSt-Nr:
+        </td>
+        <td>
+          <span t-field="doc.company_id.vat"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Ihre Bestellung:</td>
+        <td>
+          <span t-field='doc.client_order_ref'/>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Gültigkeitsdatum:</td>
+        <td>
+          <span t-field="doc.validity_date"/>
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)
+
 ### Replace Partner Id  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id`  
 ```xml
@@ -624,6 +708,32 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.second_row.xml)
+
+### Sequence In Table  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table`  
+```xml
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th>
+            <span>Pos</span>
+        </th>
+    </xpath>
+
+    <xpath expr="//table/tbody/t[2][@t-foreach='doc.line_ids']" position="before">
+        <t t-set="index" t-value="1"/>
+    </xpath>
+
+    <xpath expr="//span[@t-field='l.name']/.." position="before">
+        <td>
+            <span t-esc="index"/>
+            <t t-set="index" t-value="index+1"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)
 
 ### Set Ids Tissa  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa`  
@@ -1025,6 +1135,18 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`
 
 ```
 Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml)
+
+### State  
+ID: `mint_system.sale_blanket_order.view_blanket_order_tree.state`  
+```xml
+<data inherit_id="sale_blanket_order.view_blanket_order_tree" priority="50">
+    <xpath expr="//field[@name='state']" position="replace">
+        <field name="state" string="state"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale_blanket_order.view_blanket_order_tree.state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.view_blanket_order_tree.state.xml)
 
 ## View Order Form  
 ### Modify Attributes Blanket Order Line  

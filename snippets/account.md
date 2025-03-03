@@ -635,52 +635,6 @@ ID: `mint_system.account.report_invoice_document.add_picking_name`
 ```
 Source: [snippets/account.report_invoice_document.add_picking_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_picking_name.xml)
 
-### Add Picking  
-ID: `mint_system.account.report_invoice_document.add_picking`  
-```xml
-<data inherit_id="account.report_invoice_document" priority="50">
-
-    <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
-        <tr>
-
-            <t t-set="pickings" t-value="list(set(line.sale_line_ids.move_ids))"/>
-
-            <t t-foreach="pickings" t-as="picking">
-                <t t-if="picking.state == 'done'">
-
-                    <tr>
-                        <td style="padding: 0px; padding-left: 4px; border-bottom-width: 1px" colspan="6">
-                            <t t-if="picking.picking_id.x_date_done">
-                                <span>Lieferdatum: </span>
-                                <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
-                            </t>
-                            <span>LS: </span>
-                            <t t-if="picking.picking_id.x_name">
-                                <span t-esc="picking.picking_id.x_name"/>
-                            </t>
-                            <t t-else="">
-                                <span t-esc="picking.picking_id.name"/>
-                            </t>
-                            <span>Menge: </span>
-                            <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
-                            <t t-foreach="move_lines" t-as="move_line">
-                                <t t-if="line.product_id.id == move_line.product_id.id">
-                                    <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <span t-esc="move_line.product_uom_id.name"/>
-                                </t>
-                            </t>
-                        </td>
-
-                    </tr>
-                </t>
-            </t>
-            
-        </tr>
-    </xpath>
-</data>
-```
-Source: [snippets/account.report_invoice_document.add_picking.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.add_picking.xml)
-
 ### Add Qr Iban  
 ID: `mint_system.account.report_invoice_document.add_qr_iban`  
 ```xml
@@ -1144,26 +1098,23 @@ Source: [snippets/account.report_invoice_document.format_units.xml](https://gith
 ID: `mint_system.account.report_invoice_document.get_position`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="51">
-    <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
-        <!-- <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
+
+  <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
+    <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
       <th id="position">
         <span>Pos</span>
       </th>
-    </t> -->
-        <th id="position">
-            <span>Pos</span>
-        </th>
-    </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-        <!-- <t t-if="line.sale_line_ids or line.purchase_order_id">
+    </t>
+  </xpath>
+
+  <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
+    <t t-if="line.sale_line_ids or line.purchase_order_id">
       <td id="position">
-        <span t-esc="line.position" />
+        <span t-esc="line.position"/>
       </td>
-    </t> -->
-        <td id="position">
-            <span t-esc="line.position"/>
-        </td>
-    </xpath>
+    </t>
+  </xpath>
+
 </data>
 
 ```
@@ -1352,10 +1303,12 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
         <!-- Store if has lines without sale orders -->
         <t t-set="has_lines_without_sale_orders" t-value="len(o.invoice_line_ids.filtered(lambda l: not l.sale_line_ids)) &gt; 0"/>
     </xpath>
-    <xpath expr="//h2/span[1]" position="replace">
+
+    <xpath expr="//h2/span[3]" position="replace">
         <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_sale_orders">Rechnung</span>
         <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_sale_orders">Sammelrechnung</span>
     </xpath>
+
     <xpath expr="//t[@t-foreach='lines']" position="replace">
         <!-- Add empty sale order if there are lines without sale orders -->
         <t t-if="not has_sale_orders or has_lines_without_sale_orders">
@@ -1386,21 +1339,48 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
                     </strong>
                 </td>
             </tr>
+
             <t t-foreach="lines" t-as="line">
                 <!-- Show line if sale order is set and linked or not sale order is set and line is unlinked  -->
+
                 <t t-if="(sale_order and sale_order in line.sale_line_ids.order_id) or (not line.sale_line_ids and not sale_order)">
                     <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                     <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                     <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
-                        <t t-if="not line.display_type" name="account_invoice_line_accountable">
+
+                        <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
+                            <td id="position">
+                                <span t-field="line.position"/>
+                            </td>
                             <td name="account_invoice_line_name">
                                 <span t-field="line.name" t-options="{'widget': 'text'}"/>
+                                <t t-if="line.product_id.country_of_origin.code">
+                                    <br/>
+                                    <span>Country of Origin: </span>
+                                    <span t-field="line.product_id.country_of_origin.code"/>
+                                </t>
+                                <t t-if="line.product_id.hs_code">
+                                    <br/>
+                                    <span>HS Code: </span>
+                                    <span t-field="line.product_id.hs_code"/>
+                                </t>
+                                <t t-if="line.product_id.weight">
+                                    <br/>
+                                    <span>Weight: <span t-field="line.product_id.weight"/>
+                                    </span>
+                                    <span t-field="line.product_id.weight_uom_id.display_name"/>
+                                </t>
                             </td>
-                            <td class="text-right">
-                                <span t-field="line.quantity"/>
+                            <td class="text-end">
+                                <t t-if="line.product_uom_id.id == 1">
+                                    <span id="product_qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
+                                </t>
+                                <t t-else="">
+                                    <span id="product_qty" t-field="line.quantity"/>
+                                </t>
                                 <span t-field="line.product_uom_id" groups="uom.group_uom"/>
                             </td>
-                            <td t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                            <td t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                 <span class="text-nowrap" t-field="line.price_unit"/>
                             </td>
                             <td t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
@@ -1409,9 +1389,8 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
                             <td t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
                                 <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
                             </td>
-                            <td class="text-right o_price_total">
-                                <span class="text-nowrap" t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
-                                <span class="text-nowrap" t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
+                            <td class="text-end o_price_total">
+                                <span class="text-nowrap" t-field="line.price_subtotal"/>
                             </td>
                         </t>
                         <t t-if="line.display_type == 'line_section'">
@@ -1428,7 +1407,7 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
                         </t>
                     </tr>
                     <t t-if="current_section and (line_last or lines[line_index+1].display_type == 'line_section')">
-                        <tr class="is-subtotal text-right">
+                        <tr class="is-subtotal text-end">
                             <td colspan="99">
                                 <strong class="mr16">Subtotal</strong>
                                 <span t-esc="current_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
@@ -1440,7 +1419,6 @@ ID: `mint_system.account.report_invoice_document.group_by_sale_order`
         </t>
     </xpath>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.group_by_sale_order.xml)
 
@@ -1448,7 +1426,7 @@ Source: [snippets/account.report_invoice_document.group_by_sale_order.xml](https
 ID: `mint_system.account.report_invoice_document.hide_delivery_date`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//p[@name='delivery_date']" position="replace"/>
+    <xpath expr="//div[@name='delivery_date']" position="replace"/>
 </data>
 
 ```
@@ -1503,7 +1481,10 @@ Source: [snippets/account.report_invoice_document.hide_totals_company_currency.x
 ID: `mint_system.account.report_invoice_document.hide_vat`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
+    
+    <xpath expr="//div[@id='partner_vat_address_not_same_as_shipping']" position="replace"/>   
     <xpath expr="//div[@id='partner_vat_address_same_as_shipping']" position="replace"/>   
+    
 </data>
 
 ```
@@ -1714,8 +1695,8 @@ ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
 <!-- Show custom field country of origin and hs code -->
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">
-        <t t-if="line.product_id.country_of_origin_id.code"><br/>
-      Country of Origin: <span t-field="line.product_id.country_of_origin_id.code"/>
+        <t t-if="line.product_id.country_of_origin.code"><br/>
+      Country of Origin: <span t-field="line.product_id.country_of_origin.code"/>
     </t>
         <t t-if="line.product_id.hs_code"><br/>
       HS Code: <span t-field="line.product_id.hs_code"/>
@@ -2854,7 +2835,7 @@ ID: `mint_system.account.report_invoice_document.show_hs_code`
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
         <th name="th_hs_code" class="text-right">
-            <span>H.S. Code</span>
+            <span>HS-Code</span>
         </th>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
@@ -3035,6 +3016,27 @@ ID: `mint_system.account.report_invoice_document.style_carbo_link`
 
 ```
 Source: [snippets/account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_carbo_link.xml)
+
+### Style Gelso  
+ID: `mint_system.account.report_invoice_document.style_gelso`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="60">
+
+    <xpath expr="//th[@id='position']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+    <xpath expr="//div[@id='right-elements']" position="attributes">
+        <attribute name="t-attf-class">d-flex justify-content-end w-100</attribute>
+    </xpath>
+
+    <xpath expr="//div[@id='total']" position="attributes">
+        <attribute name="class">col-5 clearfix row</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.style_gelso.xml)
 
 ### Style Kunststoffsammelsack  
 ID: `mint_system.account.report_invoice_document.style_kunststoffsammelsack`  
@@ -3442,6 +3444,52 @@ ID: `mint_system.account.report_invoice_document.x_hide_partner_name`
 
 ```
 Source: [snippets/account.report_invoice_document.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_hide_partner_name.xml)
+
+### X Name  
+ID: `mint_system.account.report_invoice_document.x_name`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
+        <tr>
+
+            <t t-set="pickings" t-value="list(set(line.sale_line_ids.move_ids))"/>
+
+            <t t-foreach="pickings" t-as="picking">
+                <t t-if="picking.state == 'done'">
+
+                    <tr>
+                        <td style="padding: 0px; padding-left: 4px; border-bottom-width: 1px" colspan="6">
+                            <t t-if="picking.picking_id.x_date_done">
+                                <span>Lieferdatum: </span>
+                                <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
+                            </t>
+                            <span>LS: </span>
+                            <t t-if="picking.picking_id.x_name">
+                                <span t-esc="picking.picking_id.x_name"/>
+                            </t>
+                            <t t-else="">
+                                <span t-esc="picking.picking_id.name"/>
+                            </t>
+                            <span>Menge: </span>
+                            <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
+                            <t t-foreach="move_lines" t-as="move_line">
+                                <t t-if="line.product_id.id == move_line.product_id.id">
+                                    <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                    <span t-esc="move_line.product_uom_id.name"/>
+                                </t>
+                            </t>
+                        </td>
+
+                    </tr>
+                </t>
+            </t>
+            
+        </tr>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.x_name.xml)
 
 ### X Picking List  
 ID: `mint_system.account.report_invoice_document.x_picking_list`  
