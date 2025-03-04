@@ -126,7 +126,7 @@ function help-table() {
     printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
-    printf "$COLUMN" "translate-module" "[env][path][lang]" "Generate translation for Odoo module."
+    printf "$COLUMN" "translate-module" "[db][path][lang]" "Generate translation for Odoo module."
     printf "$COLUMN" "update-app-list" "[db]" "Update app list."
     printf "$COLUMN" "update-docs" "" "Update project docs."
     printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
@@ -1532,7 +1532,7 @@ function translate-module() {
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
     odoo -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
-    # if lang is de_CH then rename the file to de.po.
+    # If lang is de_CH then rename the file to de.po.
     if [[ "$LANGUAGE" == "de_CH" ]]; then
         mv "$MODULE_PATH/i18n/$LANGUAGE.po" "$MODULE_PATH/i18n/de.po"
     fi
