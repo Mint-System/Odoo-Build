@@ -1,4 +1,5 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
     <xpath expr="//div[@id='informations']" position="replace">
 
         <style>
@@ -18,52 +19,71 @@
             text-align: top;
             } 
         </style>
-        <table id="info">
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
             <tr>
-                <td width="20%">Oder Date</td>
-                <td width="30%">
-                    <t t-if="o.date_approve">
-                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                    <t t-else="">
-                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                </td>
-                <td width="20%">Incoterm</td>
-                <td width="30%">
-                    <span t-field="o.incoterm_id"/>
-                </td>
+                <t t-if="o.date_approve">
+                    <td width="200px">Date</td>
+                    <td width="500px">
+                        <span id="date_order" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+             <tr>
+                <t t-if="o.date_planned">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="o.date_planned"/>
+                    </td>
+                </t>
             </tr>
             <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <td>Payment terms</td>
-                <td>
-                    <span t-field="o.payment_term_id"/>
-                </td>
+                <t t-if="o.partner_ref">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_ref"/>
+                    </td>
+                </t>
             </tr>
             <tr>
                 <t t-if="o.partner_id.parent_id">
-                    <td>Your Reference</td>
+                    <td>Your Contact</td>
                     <td>
                         <span t-field="o.partner_id.name"/>
                     </td>
                 </t>
-                <t t-else="">
-                    <td></td>
-                    <td></td>
-                </t>
-                <td>Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-,                         
-                    <span t-field="o.user_id.email"/>
-,                         
-                    <span t-field="o.user_id.phone"/>
-                </td>
             </tr>
-        </table>
+            
+            <tr>
+                <t t-if="o.incoterm_id">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.incoterm_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
     </xpath>
 </data>

@@ -1,0 +1,26 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//td[@id='product']/../.." position="after">
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="5">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
+    </xpath>
+
+    <xpath expr="//td[@id='product']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_id"/>
+        </td>
+    </xpath>
+
+</data>

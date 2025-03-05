@@ -1,0 +1,12 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//th[@name='th_price_unit']" position="after">
+        <th name="th_discount" class="text-end">
+            <strong>Discount</strong>
+        </th>
+    </xpath>
+    <xpath expr="//td/span[@t-field='line.price_unit']/.." position="after">
+        <td id="td_discount" class="text-end">
+            <span t-out="line.discount" t-options="{&quot;widget&quot;: &quot;integer&quot;}"/><span> %</span>
+        </td>
+    </xpath>
+</data>
