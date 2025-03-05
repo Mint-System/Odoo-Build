@@ -8,7 +8,7 @@
                     <span t-field="line.name"/>
                     <t t-if="line.product_id.hs_code">
                         <br/>
-                        <span>HS-Code: </span>
+                        <span>HS-Code: </span><br/>
                         <span t-field="line.product_id.hs_code"/>
                     </t>
                 </td>
