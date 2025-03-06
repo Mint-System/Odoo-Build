@@ -3,10 +3,10 @@
 if [ -n "$ADDONS_GIT_REPOS" ]; then
     
     # Setup git ssh key
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         entrypoint-log "Setup SSH key from env vars."
-        mkdir -p ~/.ssh
-        chmod 700 ~/.ssh
         DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
         echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
@@ -30,6 +30,7 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
         GIT_LOCAL_PATH="/var/lib/odoo/git/${GIT_HOSTNAME}/$GIT_PATH"
 
+        m
         ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
 
         if [ ! -d "$GIT_LOCAL_PATH/.git" ]; then
