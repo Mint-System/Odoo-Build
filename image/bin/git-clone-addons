@@ -30,7 +30,6 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
         GIT_LOCAL_PATH="/var/lib/odoo/git/${GIT_HOSTNAME}/$GIT_PATH"
 
-        m
         ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
 
         if [ ! -d "$GIT_LOCAL_PATH/.git" ]; then
