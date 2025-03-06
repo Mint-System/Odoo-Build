@@ -240,10 +240,19 @@ Define the mail configuration with these env vars:
 The image can clone git repositories.
 
 * `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
-* `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection.
+* `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
 * `GITHUB_USERNAME` Username for git clone command with https.
 * `GITHUB_PERSONAL_ACCESS_TOKEN` Token for git clone command with https.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
+
+You can use https and git urls for `ADDONS_GIT_REPOS`:
+
+```bash
+ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0,git@github.com:Mint-System/Odoo-Apps-Server-Tools.gi#16.0
+ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools.gi#16.0
+```
+
+If you use git url a valid SSH private/public key is required.
 
 ### Addons Path
 

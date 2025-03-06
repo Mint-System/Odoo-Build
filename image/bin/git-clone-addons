@@ -30,10 +30,11 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
         GIT_LOCAL_PATH="/var/lib/odoo/git/${GIT_HOSTNAME}/$GIT_PATH"
 
+        ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
+
         if [ ! -d "$GIT_LOCAL_PATH/.git" ]; then
             # Clone git repo and submodules
             mkdir -p "$GIT_LOCAL_PATH"
-            ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
             
             if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "https://github.com" ] && [ -n "$GITHUB_USERNAME" ]; then
                 GIT_URL="${GIT_PROTO}${GITHUB_USERNAME}:${GITHUB_PERSONAL_ACCESS_TOKEN}@${GIT_HOSTNAME}/${GIT_PATH}.git"
