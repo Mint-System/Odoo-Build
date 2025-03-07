@@ -146,10 +146,10 @@ The environment variables are explained in detail further down.
 
 The Mint System Odoo image has this container lifecycle in mind:
 
-* **Initalize**: Optionally initialize the database and clone addons.
-* **Start**: The container starts updates the execution environment.
-* **Execution**: Actions that can be performed while the container is running.
-* **Analyze**: Actions to analyse the current state of the container.
+* **Initialize**: Initialize the database and clone addons.
+* **Start**: The container starts and updates the execution environment.
+* **Execution**: Actions performed while the container is running.
+* **Analyze**: Analyse the current state of the container.
 
 ### Initialize
 
@@ -167,20 +167,20 @@ Run the `init-db` script to initalize the Odoo database:
 docker-compose run --rm odoo init-db
 ```
 
-These scripts are configured with environment variables.
+The scripts are configurable with environment variables.
 
 ### Start
 
 Once you start the container the `entrypoint.sh` script will:
 
 * Run the `set-addons-path` script to assemble the addons path.
-* Apply default values to env vars.
+* Apply default values to env variables.
 * Run the `auto-envsubst` script to template the `odoo.conf` file.
 * Run the `python-install` script to install the Python packages.
 * Wait for the database to be ready.
 * Run the `setup-mail` script to update the mail configuration in the database.
 * Run the `odoo-update` script to update modules.
-* Run the Odoo server.
+* Start the Odoo server.
 
 ### Execution
 
@@ -189,6 +189,8 @@ Once the container is running, you can update modules with this command:
 ```bash
 docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
 ```
+
+This will start a detached Odoo process and updates only the modules that have a different checksum.
 
 ### Analyze
 
@@ -206,7 +208,7 @@ The container can be configured with environment variables. This section shows a
 
 ### Database Connection
 
-Odoo supports PostgreSQL database only.
+Odoo supports the PostgreSQL database only.
 
 * `PGHOST` Name of the database container.
 * `PGUSER` Database username.
@@ -252,7 +254,7 @@ ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0,git@github.com:Mint-Syst
 ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools.gi#16.0
 ```
 
-If you use git url a valid SSH private/public key is required.
+If you use a git url make sure a valid SSH private/public key is defined.
 
 ### Addons Path
 
@@ -262,7 +264,7 @@ The entrypoint script searches for module folders in the addons path and creates
 
 ### Initialize
 
-Set these environment variables for database init:
+Set these environment variables for the database init:
 
 * `ODOO_DATABASE` Name of the Odoo database. No default is set.
 * `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
@@ -270,7 +272,7 @@ Set these environment variables for database init:
 
 ### Server Environment
 
-The Odoo server can be configured using these env vars.
+The Odoo server can be configured using these env vars:
 
 * `ENVIRONMENT` Provide an environment name. Can be accessed with `config.get("environment")`.
 * `PYTHON_INSTALL` Comma seperated list of python packages.
@@ -289,7 +291,7 @@ The Odoo database manager is disabled by default.
 
 ### Process Limits
 
-Odoo is a multi-threaded Python process.
+Odoo is executed as a multi-threaded Python process.
 
 * `WORKERS` Define how many workers should be spawned. Default is `0`.
 * `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
@@ -310,11 +312,11 @@ The container uses [click-odoo](https://github.com/acsone/click-odoo) to update 
 
 ## Build
 
-This image can be customized and extended as needed.
+This image can be customized to any extend.
 
 ### Install packages
 
-Extend the image with Python packages.
+Update the image with Python packages.
 
 ```dockerfile
 FROM mintsystem/odoo:16.0.20250207
@@ -334,7 +336,7 @@ USER odoo
 
 ### Add custom Odoo conf
 
-Copy a custom Odoo conf file to the image.
+Copy custom Odoo conf file to the image.
 
 ```dockerfile
 FROM mintsystem/odoo:16.0.20250207

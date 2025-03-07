@@ -263,7 +263,7 @@ POSTGRES_IMAGE=postgres:12-alpine
 
 Make sure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
 
-To build the container image setup these `.env` vars:
+Setup these `.env` vars to build the container image:
 
 ```bash
 ODOO_REVISION=16.0.20250207
@@ -280,6 +280,12 @@ Build the Odoo image.
 
 ```bash
 task build
+```
+
+Test the image.
+
+```bash
+task test-container
 ```
 
 Publish the Odoo image.
