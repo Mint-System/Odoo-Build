@@ -60,7 +60,7 @@ check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 
 entrypoint-log "Waiting for database connection."
-wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+pg_isready -h "$PGHOST" -p "$PGPORT"
 
 setup-mail
 
@@ -74,12 +74,12 @@ case "$1" in
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+            pg_isready -h "$PGHOST" -p "$PGPORT"
             exec odoo "$@" "${DB_ARGS[@]}"
         fi
         ;;
     -*)
-        wait-for-psql.py ${DB_ARGS[@]} --timeout=30
+        pg_isready -h "$PGHOST" -p "$PGPORT"
         exec odoo "$@" "${DB_ARGS[@]}"
         ;;
     *)

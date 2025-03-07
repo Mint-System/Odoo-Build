@@ -136,8 +136,6 @@ EXPOSE 8069 8071 8072
 # Set the default config file
 ENV ODOO_RC=/etc/odoo/odoo.conf
 
-COPY ./image/wait-for-psql.py /usr/local/bin/
-
 # Set default user when running the container
 USER odoo
 
