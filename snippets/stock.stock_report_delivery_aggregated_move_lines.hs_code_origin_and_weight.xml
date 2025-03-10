@@ -6,7 +6,7 @@
             <span>HS Code: </span>
             <span t-field="aggregated_lines[line]['product'].hs_code"/>
         </t>
-        <t>
+        <t t-if="o.product_id.country_of_origin">
             <br/>
             <span>Country of Origin: </span>
             <span t-field="o.product_id.country_of_origin.code"/>

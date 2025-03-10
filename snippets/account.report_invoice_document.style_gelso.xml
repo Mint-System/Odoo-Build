@@ -1,9 +1,5 @@
 <data inherit_id="account.report_invoice_document" priority="60">
 
-    <xpath expr="//th[@id='position']" position="attributes">
-        <attribute name="class">text-start</attribute>
-    </xpath>
-
     <xpath expr="//div[@id='right-elements']" position="attributes">
         <attribute name="t-attf-class">d-flex justify-content-end w-100</attribute>
     </xpath>

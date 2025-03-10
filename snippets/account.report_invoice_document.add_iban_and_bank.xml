@@ -1,17 +1,15 @@
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="/t/t/div/p[2]" position="after">
+    <xpath expr="//span[@id='payment_terms_note_id']/.." position="after">
         <div class="row">
             <div class="col">
                 <span>IBAN: </span>
-                <span t-field="o.invoice_partner_bank_id.acc_number"/>
+                <span t-field="o.partner_bank_id.acc_number"/>
             </div>
-        </div>
-    </xpath>
-    <xpath expr="/t/t/div/div[3]" position="after">
+        </div> 
         <div class="row">
             <div class="col">
                 <span>Bank/BIC: </span>
-                <span t-field="o.invoice_partner_bank_id.bank_id.display_name"/>
+                <span t-field="o.partner_bank_id.display_name"/>
                 <br/>
                 <br/>
             </div>

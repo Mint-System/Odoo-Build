@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="60">
+<data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//th[@name='th_taxes']" position="replace"/>
     <xpath expr="//span[@id='line_tax_ids']/.." position="replace"/>
 </data>

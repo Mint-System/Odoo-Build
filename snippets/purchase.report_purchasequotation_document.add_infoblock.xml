@@ -5,7 +5,7 @@
                 <strong>Ansprechperson Einkauf</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
             </div>
-            <div class="col-3 bm-2">
+            <div class="col-2 bm-2">
                 <strong>Datum</strong>
                 <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>

@@ -1,21 +1,21 @@
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
     </xpath>
     <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
     </xpath>
     <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
