@@ -21,13 +21,6 @@ RUN apt-get update && \
         fonts-noto-cjk \
         gnupg \
         libssl-dev \
-        python3-magic \
-        python3-odf \
-        python3-pdfminer \
-        python3-renderpm \
-        python3-slugify \
-        python3-watchdog \
-        xz-utils \
         # Custom packages:
         git \
         openssh-client \
@@ -37,6 +30,9 @@ RUN apt-get update && \
         libpq-dev \
         libldap2-dev \
         libsasl2-dev \
+        libcairo2-dev \
+        libjpeg-dev \
+        libgif-dev \
         gcc \
         fonts-lato && \
     if [ -z "${TARGETARCH}" ]; then \

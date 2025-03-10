@@ -6,16 +6,20 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
-* Update module docs with `update-module-docs`
+* Update module docs with `update-module-docs`.
 
 ### Updated
 
-* Change base image to `python:3.12-slim-bookworm`
-* Renamed all task functions to match the naming pattern
+* Change base image to `python:3.12-slim-bookworm`.
+* Renamed all task functions to match the naming pattern.
 
 ### Removed
 
 * Removed everything related to Kubernetes.
+
+### Fixed
+
+* Missing dependency `rlPyCairo` in Docker image.
 
 ## 2025-02-20
 
