@@ -542,6 +542,7 @@ function template-repo(){
     REPO_PATH="$1"
 
     echo "Copy $GIT_BRANCH template files to $REPO_PATH"
+    cp "templates/task" "$REPO_PATH"
     cp -r "templates/$GIT_BRANCH/." "$REPO_PATH"
 
     update-repo-docs "$REPO_PATH" 
