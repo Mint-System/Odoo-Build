@@ -45,14 +45,6 @@ repos:
       - id: oca-update-pre-commit-excluded-addons
       - id: oca-fix-manifest-website
         args: ["https://www.mint-system.ch"]
-      - id: oca-gen-addon-readme
-        args:
-          - --addons-dir=.
-          - --branch=17.0
-          - --org-name=OCA
-          - --if-source-changed
-          - --keep-source-digest
-          - --convert-fragments-to-markdown
       - id: oca-gen-external-dependencies
   - repo: https://github.com/OCA/odoo-pre-commit-hooks
     rev: v0.0.25
