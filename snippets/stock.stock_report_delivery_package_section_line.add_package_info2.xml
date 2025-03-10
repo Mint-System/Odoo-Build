@@ -1,0 +1,14 @@
+<data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
+    <xpath expr="/t/tr/td/span" position="before">
+        <strong>Package: </strong>
+        <span t-field="package.packaging_id.display_name"/>
+        <strong>, </strong>
+        <span t-field="package.packaging_id.packaging_length"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.width"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.height"/>
+        <strong> cm</strong>
+        <strong> (L x W x H), </strong>
+    </xpath>
+</data>

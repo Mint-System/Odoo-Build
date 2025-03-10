@@ -1,15 +1,18 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <!-- Version 17-->
-    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+
+    <xpath expr="//th[@name='th_quantity']" position="after">
         <th class="text-start">
             <span>Lieferdatum</span>
         </th>
     </xpath>
-    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+
+    <xpath expr="//td[@name='td_quantity']" position="after">
         <td>
             <span t-field="line.commitment_date" t-options="{&quot;format&quot;: &quot;dd.MM.yyyy&quot;}"/>
         </td>
     </xpath>
+    
     <!--
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
         <th>

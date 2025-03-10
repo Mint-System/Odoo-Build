@@ -1,0 +1,43 @@
+<data inherit_id="stock.report_delivery_document" priority="60">
+   
+    <xpath expr="//table[@name='stock_move_line_table']" position="after">
+        <div style="margin-top: 30px">
+        
+        <t t-set="lines" t-value="o.move_ids.move_line_ids"/>
+        <t t-set="net_weight" t-value="0.0"/>
+            <tr t-foreach="lines" t-as="move">
+                <t t-set="net_weight" t-value="net_weight + move.quantity"/>
+                <!--
+                <td>
+                    <span t-field="move.quantity"/><br/>
+                </td>
+                -->
+                
+            </tr>
+         
+         <t t-set="lines" t-value="o.package_ids"/>
+         <t t-set="count_packages" t-value="0"/>
+         <t t-set="total_weight" t-value="0.0"/>
+         
+            <tr t-foreach="lines" t-as="package">
+                <t t-set="count_packages" t-value="count_packages + 1"/>
+                <t t-set="total_weight" t-value="total_weight + package.weight"/>
+                <!--
+                <td>
+                    <span t-field="package.name"/><br/>
+                    <span t-field="package.weight"/><br/>
+                </td>
+                -->
+            </tr>
+        <t t-if="count_packages">
+            <strong>Anzahl Pakete:</strong> <t t-esc="count_packages"/><br/>
+        </t>
+        <t t-if="total_weight">
+            <strong>Gesamtgewicht Brutto:</strong> <t t-esc="total_weight"/><span> kg</span><br/>
+        </t>
+        <strong>Gesamtgewicht Netto:</strong> <t t-esc="net_weight"/><span> kg</span>
+        </div>    
+            
+    </xpath>
+    
+</data>

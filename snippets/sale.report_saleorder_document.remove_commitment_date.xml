@@ -1,8 +1,8 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-  <xpath expr="//div/table/thead/tr/th[2]" position="replace">
+  <xpath expr="//div/table/thead/tr/th[3]" position="replace">
   </xpath>
-  <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[2]" position="replace">
+  <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="replace">
   </xpath>
 
 </data>
