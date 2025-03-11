@@ -5,9 +5,9 @@
                 <strong>Your Reference</strong>
                 <p t-field="doc.client_order_ref"/>
             </div>
-            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id">
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_sale_id.name and doc.partner_sale_id.parent_id">
                 <strong>Contact</strong>
-                <p t-field="doc.partner_contact_id.name"/>
+                <p t-field="doc.partner_sale_id.name"/>
             </div>
             <div class="col-auto col-3 mw-100 mb-2">
                 <strong>Order Date</strong>

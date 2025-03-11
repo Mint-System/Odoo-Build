@@ -1,6 +1,6 @@
 <data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
 
-  <xpath expr="//thead/tr/th[6]" position="replace">
+  <xpath expr="//thead/tr/th[4]" position="replace">
     <th class="text-right">
       <strong>Scheduled Date</strong>
     </th>

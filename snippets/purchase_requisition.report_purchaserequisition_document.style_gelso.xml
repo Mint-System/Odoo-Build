@@ -1,5 +1,17 @@
 <data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
 
+	<xpath expr="//div[@class='row my-2']/div[1]" position="attributes">
+		<attribute name="class">col-2</attribute>
+	</xpath>
+
+	<xpath expr="//div[@class='row my-2']/div[2]" position="attributes">
+		<attribute name="class">col-2</attribute>
+	</xpath>
+
+	<xpath expr="//span[@t-field='o.date_end']" position="attributes">
+		<attribute name="t-options">{'widget': 'date'}</attribute>
+	</xpath>
+
 	<xpath expr="//table/thead/tr/th[2]" position="attributes">
 		<attribute name="class">text-start</attribute>
 	</xpath>

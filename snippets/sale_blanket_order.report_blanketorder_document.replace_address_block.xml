@@ -1,5 +1,8 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
-
-    <xpath expr="//div[@t-field='doc.partner_id']/../.." position="replace"><div class="row"><div class="col-7"/><div class="col-5"><div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/></div></div></xpath>
-
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="//t/t/div/div[2]" position="replace">
+        <t t-set="address">
+            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+        </t>
+    </xpath>
 </data>

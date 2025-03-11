@@ -1,0 +1,9 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+    <xpath expr="//div/span[@t-field='o.date_end']/.." position="after">
+        <div class="col-3">
+            <strong>Responsible:</strong>
+            <br/>
+            <span t-field="o.user_id"/>
+        </div>
+    </xpath>
+</data>

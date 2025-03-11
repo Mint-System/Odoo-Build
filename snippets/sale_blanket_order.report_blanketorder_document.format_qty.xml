@@ -1,5 +1,10 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-    <span id="qty" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">  
+    <xpath expr="//span[@t-field='l.original_uom_qty']" position="replace">
+        <t t-if="l.product_uom.id == 1">
+            <span t-field="l.original_uom_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span t-field="l.original_uom_qty"/>
+        </t>
+    </xpath>
 </data>

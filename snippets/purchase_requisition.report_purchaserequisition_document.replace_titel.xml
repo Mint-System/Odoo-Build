@@ -1,13 +1,12 @@
 <data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
 
-<xpath expr="//thead/tr/th[4]" position="replace">
-  <th class="text-right"><strong>Scheduled Date</strong></th>
-</xpath>
-
-<xpath expr="//span[@t-field='line_ids.product_uom_id.category_id.name']/.." position="replace">
-  <td class="text-right">
-      <span t-field="line_ids.schedule_date"/>
-  </td>
-</xpath>
+ <xpath expr="//h2" position="replace">
+        <t t-if="o.state_blanket_order == 'draft'">
+            <h2><span>Request for Quotation purchase contract </span><span t-field="o.name"/></h2>
+        </t>
+        <t t-else="">
+            <h2><span>Contract </span><span t-field="o.name"/></h2>
+        </t>
+    </xpath>
   
 </data>

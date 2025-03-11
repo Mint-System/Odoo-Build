@@ -1,0 +1,8 @@
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="//h2" position="replace">
+        <h2>
+            <span>Blanket Order # </span>
+            <span t-field="doc.name"/>
+        </h2>
+    </xpath>
+</data>
