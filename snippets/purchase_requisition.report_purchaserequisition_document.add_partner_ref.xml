@@ -1,0 +1,10 @@
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+
+  <xpath expr="//span[@t-field='o.ordering_date']/.." position="before">
+    <div t-if="o.partner_ref" class="col-3">
+      <strong>Your reference:</strong>
+      <br/>
+      <span t-field="o.partner_ref"></span>
+    </div>
+  </xpath>
+</data>

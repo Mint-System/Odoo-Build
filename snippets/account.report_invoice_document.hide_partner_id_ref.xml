@@ -1,0 +1,3 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//span[@t-field='o.partner_id.ref']/.." position="replace"/>
+</data>

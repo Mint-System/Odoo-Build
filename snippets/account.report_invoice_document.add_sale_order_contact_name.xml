@@ -1,6 +1,6 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
-    <xpath expr="//div[@id='informations']//div[@name='reference']" position="replace">
+    <xpath expr="//div[@id='informations']//div[@name='reference']" position="before">
         <div class="col-2" style="margin-bottom: 10px;">
             <strong>Your contact</strong>
             <div t-field="o.partner_sale_id.name"/>

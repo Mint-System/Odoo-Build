@@ -1,11 +1,11 @@
 <data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
 
 <xpath expr="//thead/tr/th[7]" position="replace">
-  <th class="text-right"><strong>Unit Price</strong></th>
+  <th class="text-end"><strong>Unit Price</strong></th>
 </xpath>
 
 <xpath expr="//span[@t-field='line_ids.schedule_date']/.." position="replace">
-  <td class="text-right">
+  <td class="text-end">
       <span t-field="line_ids.price_unit"/> <span t-field="o.currency_id"/>      
   </td>
 </xpath>

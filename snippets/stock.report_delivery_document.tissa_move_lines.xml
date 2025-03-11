@@ -1,0 +1,52 @@
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">   
+
+    <table class="tissa table table-sm" name="move_table">
+      <thead>
+        <tr>
+          <th>
+            <strong>Pos</strong>
+          </th>
+          <th>
+            <strong>Product (Sales Description)</strong>
+          </th>
+          <th>
+            <strong/>
+          </th>
+          <th class="cell_right">
+            <strong>Quantity</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="moves" t-value="o.move_lines"/>
+        <tr t-foreach="moves" t-as="move">
+          <t t-if="move.quantity_done &gt; 0">
+          <td>
+            <span t-esc="move.position"/>
+          </td>
+          <td>
+            <t t-if="move.product_id.description_sale">
+              <span t-esc="move.product_id.description_sale"/>
+            </t>
+            <t t-if="not move.product_id.description_sale">
+              <span t-esc="move.product_id.name"/>
+            </t>
+            <div>  
+              <span t-field="move.product_id.product_tmpl_id.x_studio_kundenartikelnr"/>
+            </div>
+          </td>
+          <td/>
+          <td class="cell_right">
+            <span t-esc="move.quantity_done" t-esc-options="{'widget': 'float', 'format': '%.3f'}"/>
+            <span t-field="move.product_uom"/>
+          </td>
+          </t>
+        </tr>
+      </tbody>
+    </table>
+
+  </xpath>
+
+</data>
