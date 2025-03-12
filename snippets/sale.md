@@ -1002,16 +1002,19 @@ ID: `mint_system.sale.report_saleorder_document.add_delivery_date`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <!-- Version 17-->
-    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+
+    <xpath expr="//th[@name='th_quantity']" position="after">
         <th class="text-start">
             <span>Lieferdatum</span>
         </th>
     </xpath>
-    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+
+    <xpath expr="//td[@name='td_quantity']" position="after">
         <td>
             <span t-field="line.commitment_date" t-options="{&quot;format&quot;: &quot;dd.MM.yyyy&quot;}"/>
         </td>
     </xpath>
+    
     <!--
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
         <th>
@@ -2008,7 +2011,7 @@ Source: [snippets/sale.report_saleorder_document.format_note.xml](https://github
 ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//span[@id='product_uom_qty']" position="replace">
+    <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
         <t t-if="line.product_uom.id == 1">
             <span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
         </t>
@@ -2474,9 +2477,9 @@ ID: `mint_system.sale.report_saleorder_document.remove_commitment_date`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
-  <xpath expr="//div/table/thead/tr/th[2]" position="replace">
+  <xpath expr="//div/table/thead/tr/th[3]" position="replace">
   </xpath>
-  <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[2]" position="replace">
+  <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="replace">
   </xpath>
 
 </data>

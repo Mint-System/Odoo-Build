@@ -197,6 +197,23 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
+### Add Payment Terms  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_payment_terms`  
+```xml
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="/t/t/div/div[3]" position="after">
+        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="col">
+                <span>Payment Terms: </span>
+                <span t-field="doc.payment_term_id.name"/>
+            </div>
+        </div>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.add_payment_terms.xml)
+
 ### Add Product Uom  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom`  
 ```xml
@@ -324,10 +341,15 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_wit
 ### Format Qty  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`  
 ```xml
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
-    <span id="qty" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span>
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">  
+    <xpath expr="//span[@t-field='l.original_uom_qty']" position="replace">
+        <t t-if="l.product_uom.id == 1">
+            <span t-field="l.original_uom_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span t-field="l.original_uom_qty"/>
+        </t>
+    </xpath>
 </data>
 
 ```
@@ -440,10 +462,13 @@ Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml
 ### Replace Address Block  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block`  
 ```xml
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">&gt;
-
-    <xpath expr="//div[@t-field='doc.partner_id']/../.." position="replace"><div class="row"><div class="col-7"/><div class="col-5"><div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;fax&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/></div></div></xpath>
-
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="//t/t/div/div[2]" position="replace">
+        <t t-set="address">
+            <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+            <p t-if="doc.partner_id.vat"><t t-esc="doc.company_id.country_id.vat_label or 'Tax ID'"/>: <span t-field="doc.partner_id.vat"/></p>
+        </t>
+    </xpath>
 </data>
 
 ```
@@ -459,9 +484,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblo
                 <strong>Your Reference</strong>
                 <p t-field="doc.client_order_ref"/>
             </div>
-            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_contact_id.name and doc.partner_contact_id.parent_id">
+            <div class="col-auto col-3 mw-100 mb-2" t-if="doc.partner_sale_id.name and doc.partner_sale_id.parent_id">
                 <strong>Contact</strong>
-                <p t-field="doc.partner_contact_id.name"/>
+                <p t-field="doc.partner_sale_id.name"/>
             </div>
             <div class="col-auto col-3 mw-100 mb-2">
                 <strong>Order Date</strong>
@@ -638,6 +663,21 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
 
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml)
+
+### Replace Title  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_title`  
+```xml
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="//h2" position="replace">
+        <h2>
+            <span>Blanket Order # </span>
+            <span t-field="doc.name"/>
+        </h2>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_blanket_order.report_blanketorder_document.replace_title.xml)
 
 ### Round Price  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_price`  

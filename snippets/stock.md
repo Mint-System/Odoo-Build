@@ -1645,6 +1645,55 @@ ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`
 ```
 Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml)
 
+### Add Summary  
+ID: `mint_system.stock.report_delivery_document.add_summary`  
+```xml
+<data inherit_id="stock.report_delivery_document" priority="60">
+   
+    <xpath expr="//table[@name='stock_move_line_table']" position="after">
+        <div style="margin-top: 30px">
+        
+        <t t-set="lines" t-value="o.move_ids.move_line_ids"/>
+        <t t-set="net_weight" t-value="0.0"/>
+            <tr t-foreach="lines" t-as="move">
+                <t t-set="net_weight" t-value="net_weight + move.quantity"/>
+                <!--
+                <td>
+                    <span t-field="move.quantity"/><br/>
+                </td>
+                -->
+                
+            </tr>
+         
+         <t t-set="lines" t-value="o.package_ids"/>
+         <t t-set="count_packages" t-value="0"/>
+         <t t-set="total_weight" t-value="0.0"/>
+         
+            <tr t-foreach="lines" t-as="package">
+                <t t-set="count_packages" t-value="count_packages + 1"/>
+                <t t-set="total_weight" t-value="total_weight + package.weight"/>
+                <!--
+                <td>
+                    <span t-field="package.name"/><br/>
+                    <span t-field="package.weight"/><br/>
+                </td>
+                -->
+            </tr>
+        <t t-if="count_packages">
+            <strong>Anzahl Pakete:</strong> <t t-esc="count_packages"/><br/>
+        </t>
+        <t t-if="total_weight">
+            <strong>Gesamtgewicht Brutto:</strong> <t t-esc="total_weight"/><span> kg</span><br/>
+        </t>
+        <strong>Gesamtgewicht Netto:</strong> <t t-esc="net_weight"/><span> kg</span>
+        </div>    
+            
+    </xpath>
+    
+</data>
+```
+Source: [snippets/stock.report_delivery_document.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.add_summary.xml)
+
 ### Add Table Margin  
 ID: `mint_system.stock.report_delivery_document.add_table_margin`  
 ```xml
@@ -1972,21 +2021,21 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 <data inherit_id="stock.report_delivery_document" priority="60">
     <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
     </xpath>
     <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
     </xpath>
     <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
         <t t-if="o.sale_id or o.purchase_id">
-            <th id="position">
+            <th id="position" class="text-start">
                 <strong>Pos</strong>
             </th>
         </t>
@@ -3784,6 +3833,65 @@ ID: `mint_system.stock.report_delivery_document.switch_address_block`
 
 ```
 Source: [snippets/stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.switch_address_block.xml)
+
+### Tissa Move Lines  
+ID: `mint_system.stock.report_delivery_document.tissa_move_lines`  
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+  <xpath expr="//table[@name='stock_move_line_table']" position="before">   
+
+    <table class="tissa table table-sm" name="move_table">
+      <thead>
+        <tr>
+          <th>
+            <strong>Pos</strong>
+          </th>
+          <th>
+            <strong>Product (Sales Description)</strong>
+          </th>
+          <th>
+            <strong/>
+          </th>
+          <th class="cell_right">
+            <strong>Quantity</strong>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <t t-set="moves" t-value="o.move_lines"/>
+        <tr t-foreach="moves" t-as="move">
+          <t t-if="move.quantity_done &gt; 0">
+          <td>
+            <span t-esc="move.position"/>
+          </td>
+          <td>
+            <t t-if="move.product_id.description_sale">
+              <span t-esc="move.product_id.description_sale"/>
+            </t>
+            <t t-if="not move.product_id.description_sale">
+              <span t-esc="move.product_id.name"/>
+            </t>
+            <div>  
+              <span t-field="move.product_id.product_tmpl_id.x_studio_kundenartikelnr"/>
+            </div>
+          </td>
+          <td/>
+          <td class="cell_right">
+            <span t-esc="move.quantity_done" t-esc-options="{'widget': 'float', 'format': '%.3f'}"/>
+            <span t-field="move.product_uom"/>
+          </td>
+          </t>
+        </tr>
+      </tbody>
+    </table>
+
+  </xpath>
+
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.tissa_move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.tissa_move_lines.xml)
 
 ### Title Supplement  
 ID: `mint_system.stock.report_delivery_document.title_supplement`  
@@ -6636,7 +6744,7 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origi
             <span>HS Code: </span>
             <span t-field="aggregated_lines[line]['product'].hs_code"/>
         </t>
-        <t>
+        <t t-if="o.product_id.country_of_origin">
             <br/>
             <span>Country of Origin: </span>
             <span t-field="o.product_id.country_of_origin.code"/>
@@ -6860,6 +6968,27 @@ ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`
 Source: [snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
 
 ## Stock Report Delivery Package Section Line  
+### Add Package Info2  
+ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info2`  
+```xml
+<data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
+    <xpath expr="/t/tr/td/span" position="before">
+        <strong>Package: </strong>
+        <span t-field="package.packaging_id.display_name"/>
+        <strong>, </strong>
+        <span t-field="package.packaging_id.packaging_length"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.width"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.height"/>
+        <strong> cm</strong>
+        <strong> (L x W x H), </strong>
+    </xpath>
+</data>
+
+```
+Source: [snippets/stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.stock_report_delivery_package_section_line.add_package_info2.xml)
+
 ### Add Package Info  
 ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info`  
 ```xml

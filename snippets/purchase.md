@@ -507,6 +507,24 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_date_planned`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_date_planned.xml)
 
+### Add Discount  
+ID: `mint_system.purchase.report_purchaseorder_document.add_discount`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//th[@name='th_price_unit']" position="after">
+        <th name="th_discount" class="text-end">
+            <strong>Discount</strong>
+        </th>
+    </xpath>
+    <xpath expr="//td/span[@t-field='line.price_unit']/.." position="after">
+        <td id="td_discount" class="text-end">
+            <span t-out="line.discount" t-options="{&quot;widget&quot;: &quot;integer&quot;}"/><span> %</span>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_discount.xml)
+
 ### Add Email  
 ID: `mint_system.purchase.report_purchaseorder_document.add_email`  
 ```xml
@@ -1144,6 +1162,7 @@ Source: [snippets/purchase.report_purchaseorder_document.replace_address_and_inf
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`  
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
     <xpath expr="//div[@id='informations']" position="replace">
 
         <style>
@@ -1163,53 +1182,72 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`
             text-align: top;
             } 
         </style>
-        <table id="info">
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
             <tr>
-                <td width="20%">Oder Date</td>
-                <td width="30%">
-                    <t t-if="o.date_approve">
-                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                    <t t-else="">
-                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                </td>
-                <td width="20%">Incoterm</td>
-                <td width="30%">
-                    <span t-field="o.incoterm_id"/>
-                </td>
+                <t t-if="o.date_approve">
+                    <td width="200px">Date</td>
+                    <td width="500px">
+                        <span id="date_order" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+             <tr>
+                <t t-if="o.date_planned">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="o.date_planned"/>
+                    </td>
+                </t>
             </tr>
             <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <td>Payment terms</td>
-                <td>
-                    <span t-field="o.payment_term_id"/>
-                </td>
+                <t t-if="o.partner_ref">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_ref"/>
+                    </td>
+                </t>
             </tr>
             <tr>
                 <t t-if="o.partner_id.parent_id">
-                    <td>Your Reference</td>
+                    <td>Your Contact</td>
                     <td>
                         <span t-field="o.partner_id.name"/>
                     </td>
                 </t>
-                <t t-else="">
-                    <td></td>
-                    <td></td>
-                </t>
-                <td>Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-,                         
-                    <span t-field="o.user_id.email"/>
-,                         
-                    <span t-field="o.user_id.phone"/>
-                </td>
             </tr>
-        </table>
+            
+            <tr>
+                <t t-if="o.incoterm_id">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.incoterm_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
     </xpath>
 </data>
 ```
@@ -1429,6 +1467,38 @@ ID: `mint_system.purchase.report_purchaseorder_document.row_date_align_left`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.row_date_align_left.xml)
 
+### Second Row  
+ID: `mint_system.purchase.report_purchaseorder_document.second_row`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//td[@id='product']/../.." position="after">
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="5">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span><br/>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
+    </xpath>
+
+    <xpath expr="//td[@id='product']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_id"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.second_row.xml)
+
 ### Sequence In Table  
 ID: `mint_system.purchase.report_purchaseorder_document.sequence_in_table`  
 ```xml
@@ -1503,16 +1573,25 @@ Source: [snippets/purchase.report_purchaseorder_document.sort_by_name.xml](https
 ID: `mint_system.purchase.report_purchaseorder_document.style_airwork`  
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="60">
-	<xpath expr="//div[hasclass('page')]" position="before">
-		<style>
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
         h2 {
             color: black;
         }
         .o_company_1_layout.o_report_layout_boxed h2 span {
             color: black;
         }
-		</style>
-	</xpath>
+        </style>
+    </xpath>
+    
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="class">table table-sm o_main_table  mt-4</attribute>
+    </xpath>    
+
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
 </data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_airwork.xml)
@@ -1548,7 +1627,12 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
     <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="class">text-start</attribute>
         <attribute name="style" separator=" " add="width: 350px"/>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.date_planned']" position="attributes">
+        <attribute name="t-options">{'widget': 'date'}</attribute>
     </xpath>
 </data>
 
@@ -1782,7 +1866,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
                 <strong>Ansprechperson Einkauf</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
             </div>
-            <div class="col-3 bm-2">
+            <div class="col-2 bm-2">
                 <strong>Datum</strong>
                 <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
@@ -2515,27 +2599,16 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`
 ```xml
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
 
-  <xpath expr="//div[hasclass('page')]" position="before">
-    <style>
-    .mb32 {
-      margin-top: 0px !important;
-      margin-bottom: 0px !important;
-      }
-    </style>
+  <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
+    <attribute name="class">table table-borderless mt-4</attribute>
   </xpath>
 
   <xpath expr="//th[@name='th_description']" position="attributes">
-    <attribute name="style" separator=" " add="width: 350px"/>
     <attribute name="class">text-start</attribute>
   </xpath>
 
-  <xpath expr="//th[@name='th_date_req']" position="attributes">
+  <xpath expr="//th[@name='th_expected_date']" position="attributes">
     <attribute name="class">text-start</attribute>
-  </xpath>
-
-  <xpath expr="//span[@t-field='line.date_planned']/.." position="attributes">
-    <attribute name="class">text-start</attribute>
-    <attribute name="t-options-widget">"date"</attribute>
   </xpath>
 
 </data>

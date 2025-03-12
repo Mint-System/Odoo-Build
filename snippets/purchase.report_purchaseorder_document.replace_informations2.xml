@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
 

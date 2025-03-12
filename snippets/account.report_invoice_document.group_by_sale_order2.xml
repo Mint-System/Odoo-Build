@@ -50,7 +50,7 @@
             <tr t-if="not sale_order" class="o_line_note">
                 <td colspan="99" style="padding-top: 1rem;">
                     <strong>
-                        <span>Weitere Positionen: </span+41 79 889 77 54
+                        <span>Weitere Positionen: </span>
                     </strong>
                 </td>
             </tr>
