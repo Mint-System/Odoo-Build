@@ -1,4 +1,4 @@
-
+line-length = 120
 target-version = "py310"
 fix = true
 
@@ -10,6 +10,7 @@ extend-select = [
     "I",  # isort
     "UP",  # pyupgrade
 ]
+extend-safe-fixes = ["UP008"]
 exclude = ["setup/*"]
 
 [format]

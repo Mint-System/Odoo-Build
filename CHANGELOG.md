@@ -7,15 +7,18 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Update module docs with `update-module-docs`.
+* Added develop section with guid on how to update the repo templates.
 
 ### Updated
 
 * Change base image to `python:3.12-slim-bookworm`.
 * Renamed all task functions to match the naming pattern.
+* Updated the repo templates for 16.0, 17.0 and 18.0.
 
 ### Removed
 
 * Removed everything related to Kubernetes.
+* Removed repo templates for 14.0 and 15.0.
 
 ### Fixed
 

@@ -62,7 +62,7 @@ nix-shell
 Checkout the Odoo version. Supported versions are: 13.0, 14.0, 15.0, 16.0, 17.0, 18.0
 
 ```bash
-task checkout $VERSION
+task checkout "$VERSION"
 ```
 
 Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
@@ -307,6 +307,64 @@ Setup mail server config for Odoo.
 ```bash
 task setup-mail
 ```
+
+## Develop
+
+### Update repo template from oca-addons-repo-template
+
+Install copier.
+
+```bash
+source task source
+uv pip install copier
+```
+
+Run copier and select ruff as linter.
+
+```bash
+copier copy --UNSAFE https://github.com/OCA/oca-addons-repo-template.git "templates/$VERSION"
+```
+
+Remove unnecessary linter files.
+
+```bash
+cd "templates/$VERSION"
+rm -rf .github
+rm .copier-answers.yml
+rm .flake8
+rm .isort.cfg
+rm .pylintrc-mandatory
+rm README.md
+```
+
+In `.pre-commit-config.yaml` remove mandatory pylint odoo:
+
+```yaml
+  - id: pylint_odoo
+    args:
+      - --rcfile=.pylintrc-mandatory
+```
+
+In `.pylintrc` remove these rules:
+
+* missing-return
+* duplicate-xml-record-id
+
+In the `.ruff.toml` set this option:
+
+```toml
+line-length = 120
+```
+
+Template the server tools repo and run the linter:
+
+```bash
+task template-repo addons/server_tools
+cd addons/server_tools
+task all
+```
+
+Refine the templates based on the linter results.
 
 ## Troubleshooting
 

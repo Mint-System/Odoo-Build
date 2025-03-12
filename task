@@ -544,6 +544,9 @@ function template-repo(){
     echo "Copy $GIT_BRANCH template files to $REPO_PATH"
     cp "templates/task" "$REPO_PATH"
     cp -r "templates/$GIT_BRANCH/." "$REPO_PATH"
+    rm "$REPO_PATH/.flake8"
+    rm "$REPO_PATH/.isort.cfg"
+    rm "$REPO_PATH/.pylintrc-mandatory"
 
     update-repo-docs "$REPO_PATH" 
 }
