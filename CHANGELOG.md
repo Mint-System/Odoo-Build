@@ -8,12 +8,14 @@ All notable changes to this project will be documented in this file. The format 
 
 * Update module docs with `update-module-docs`.
 * Added develop section with guid on how to update the repo templates.
+* Config pre-commit.
 
 ### Updated
 
 * Change base image to `python:3.12-slim-bookworm`.
 * Renamed all task functions to match the naming pattern.
 * Updated the repo templates for 16.0, 17.0 and 18.0.
+* Renamed all files in bin.
 
 ### Removed
 

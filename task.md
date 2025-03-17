@@ -106,7 +106,7 @@
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | test-xmlrpc               | [env]                | Test json rpc connection.                                                                  |
-| translate-module          | [env][path][lang]    | Generate translation for Odoo module.                                                      |
+| translate-module          | [db][path][lang]     | Generate translation for Odoo module.                                                      |
 | update-app-list           | [db]                 | Update app list.                                                                           |
 | update-docs               |                      | Update project docs.                                                                       |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |

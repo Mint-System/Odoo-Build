@@ -2998,6 +2998,22 @@ ID: `mint_system.account.report_invoice_document.show_hs_code`
 ```
 Source: [snippets/account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_hs_code.xml)
 
+### Show License Names  
+ID: `mint_system.account.report_invoice_document.show_license_names`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']/span[1]" position="after">
+        <t t-set="license_ids" t-value="line.sale_line_ids.mapped('license_ids')"/>
+        <t t-if="license_ids">
+            <br />
+            <span>Licenses: <t t-esc="', '.join(license_ids.mapped('name'))"/></span>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_license_names.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_license_names.xml)
+
 ### Show Lot Ids  
 ID: `mint_system.account.report_invoice_document.show_lot_ids`  
 ```xml
@@ -3109,6 +3125,23 @@ ID: `mint_system.account.report_invoice_document.show_shipping_address`
 
 ```
 Source: [snippets/account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_shipping_address.xml)
+
+### Show Triple Discount  
+ID: `mint_system.account.report_invoice_document.show_triple_discount`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <t t-set="display_discount" position="replace">
+        <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in o.invoice_line_ids)"/>
+    </t>
+    <span t-field="line.discount" position="replace">
+        <t t-if="line.discount"><span class="text-nowrap" t-field="line.discount"/><br /></t>
+        <t t-if="line.discount2"><span class="text-nowrap" t-field="line.discount2"/><br /></t>
+        <t t-if="line.discount3"><span class="text-nowrap" t-field="line.discount3"/></t>
+    </span>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_triple_discount.xml)
 
 ### Show Weight  
 ID: `mint_system.account.report_invoice_document.show_weight`  

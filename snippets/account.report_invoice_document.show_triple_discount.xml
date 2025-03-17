@@ -1,0 +1,10 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <t t-set="display_discount" position="replace">
+        <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in o.invoice_line_ids)"/>
+    </t>
+    <span t-field="line.discount" position="replace">
+        <t t-if="line.discount"><span class="text-nowrap" t-field="line.discount"/><br /></t>
+        <t t-if="line.discount2"><span class="text-nowrap" t-field="line.discount2"/><br /></t>
+        <t t-if="line.discount3"><span class="text-nowrap" t-field="line.discount3"/></t>
+    </span>
+</data>

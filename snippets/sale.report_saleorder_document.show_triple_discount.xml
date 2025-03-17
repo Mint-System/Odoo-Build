@@ -1,0 +1,10 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <t t-set="display_discount" position="replace">
+        <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in lines_to_report)"/>
+    </t>
+    <span t-field="line.discount" position="replace">
+        <t t-if="line.discount"><span t-field="line.discount"/><br /></t>
+        <t t-if="line.discount2"><span t-field="line.discount2"/><br /></t>
+        <t t-if="line.discount3"><span t-field="line.discount3"/></t>
+    </span>
+</data>

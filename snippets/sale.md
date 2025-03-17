@@ -3473,6 +3473,23 @@ ID: `mint_system.sale.report_saleorder_document.show_qty_remaining`
 ```
 Source: [snippets/sale.report_saleorder_document.show_qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_qty_remaining.xml)
 
+### Show Triple Discount  
+ID: `mint_system.sale.report_saleorder_document.show_triple_discount`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <t t-set="display_discount" position="replace">
+        <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in lines_to_report)"/>
+    </t>
+    <span t-field="line.discount" position="replace">
+        <t t-if="line.discount"><span t-field="line.discount"/><br /></t>
+        <t t-if="line.discount2"><span t-field="line.discount2"/><br /></t>
+        <t t-if="line.discount3"><span t-field="line.discount3"/></t>
+    </span>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_triple_discount.xml)
+
 ### Style Airwork  
 ID: `mint_system.sale.report_saleorder_document.style_airwork`  
 ```xml
@@ -4260,6 +4277,23 @@ ID: `mint_system.sale.sale_order_portal_content.show_default_code`
 
 ```
 Source: [snippets/sale.sale_order_portal_content.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.show_default_code.xml)
+
+### Show Triple Discount  
+ID: `mint_system.sale.sale_order_portal_content.show_triple_discount`  
+```xml
+<data inherit_id="sale.sale_order_portal_content" priority="50">
+    <t t-set="display_discount" position="replace">
+        <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in sale_order.order_line)"/>
+    </t>
+    <strong t-if="line.discount &gt; 0" position="replace">
+        <t t-if="line.discount"><span t-field="line.discount"/><br /></t>
+        <t t-if="line.discount2"><span t-field="line.discount2"/><br /></t>
+        <t t-if="line.discount3"><span t-field="line.discount3"/></t>
+    </strong>
+</data>
+
+```
+Source: [snippets/sale.sale_order_portal_content.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.show_triple_discount.xml)
 
 ### X Description  
 ID: `mint_system.sale.sale_order_portal_content.x_description`  

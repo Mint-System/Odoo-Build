@@ -1,0 +1,16 @@
+repos:
+  - repo: local 
+    hooks:
+      - id: prettier
+        name: prettier (with plugin-xml)
+        entry: prettier
+        args:
+          - --write
+          - --list-different
+          - --ignore-unknown
+        types: [text]
+        files: ^snippets/.*\.(xml|yaml|yml)$
+        language: node
+        additional_dependencies:
+          - "prettier@3.3.3"
+          - "@prettier/plugin-xml@3.4.1"

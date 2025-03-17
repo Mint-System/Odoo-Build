@@ -482,9 +482,9 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     declare -A REVISIONS
     PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/16.0"
 
-    for FILE in bin/odoo_revision_*; do
+    for FILE in bin/odoo-revision-*; do
         if [[ -f "$FILE" ]]; then
-            REVISION=$(basename "$FILE" | sed 's/odoo_revision_//')
+            REVISION=$(basename "$FILE" | sed 's/odoo-revision-//')
             VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
             if [[ -z "${REVISIONS[$VERSION]}" ]]; then
@@ -507,7 +507,7 @@ For each major release there are multiple revisions.\n" > "revisions.md"
 function generate-module-overview() {
     echo "Update module overview doc file."
     activate-venv
-    ./bin/generate_module_overview
+    ./bin/generate-module-overview
 }
 
 function update-docs() {
@@ -2200,7 +2200,7 @@ function checkout-all() {
 # Revision Commands
 
 function list-revision() {
-    ls bin/odoo_revision_* | sed 's/scripts\/odoo_revision_//g'
+    ls bin/odoo-revision-* | sed 's/scripts\/odoo-revision-//g'
 }
 
 function show-revision() {
@@ -2210,7 +2210,7 @@ function show-revision() {
     ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 
     echo "Load refs for revision: $ODOO_REVISION"
-    source "bin/odoo_revision_$ODOO_REVISION"
+    source "bin/odoo-revision-$ODOO_REVISION"
 
     echo "Odoo Ref: $ODOO_REF"
     echo "Odoo Enterprise Ref: $ODOO_ENTERPRISE_REF"
@@ -2232,7 +2232,7 @@ function checkout-revision() {
     fi
 
     echo "Load refs for revision: $ODOO_REVISION"
-    export $(cat "bin/odoo_revision_$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+    export $(cat "bin/odoo-revision-$ODOO_REVISION" | sed 's/#.*//g' | xargs)
 
     echo "Checkout and tag git repos ..."
     git -C odoo checkout $ODOO_REF
@@ -2282,8 +2282,8 @@ function create-revision() {
 
     echo "Create revision: $REVISION"
     export REVISION REF ENTERPRISE_REF THEME_REF CONTAINER_REF
-    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF $CONTAINER_REF' < templates/odoo_revision > bin/odoo_revision_"$REVISION"
-    chmod +x bin/odoo_revision_"$REVISION"
+    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF $CONTAINER_REF' < templates/odoo_revision > bin/odoo-revision-"$REVISION"
+    chmod +x bin/odoo-revision-"$REVISION"
 
     echo "Checkout revision: $REVISION"
     checkout-revision "$REVISION"
