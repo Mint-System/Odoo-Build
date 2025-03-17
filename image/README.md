@@ -306,7 +306,7 @@ With `module_change_auto_install` module you can disable the auto installation o
 
 ### Module Update
 
-The container uses [click-odoo](https://github.com/acsone/click-odoo) to update Odoo modules. The feature is disabled by default.
+The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The feature is disabled by default.
 
 * `CLICK_ODOO_UPDATE` If enabled click-odoo is used to update modules that have changed. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
 

@@ -12,6 +12,8 @@ echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
 echo
 echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
+entrypoint-log "Run as user with id: $(id)"
+
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
@@ -65,8 +67,6 @@ pg_isready -h "$PGHOST" -p "$PGPORT"
 setup-mail
 
 odoo-update
-
-entrypoint-log "Running Odoo $ODOO_VERSION as user: $USER"
 
 case "$1" in
     -- | odoo)
