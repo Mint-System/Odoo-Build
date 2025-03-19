@@ -698,21 +698,20 @@ function build() {
 }
 
 function container-login() {
-    if [ -n "$1" ] && [ "$CONTAINER_ENGINE" == "docker" ] ; then
-        echo "Docker login with username $1."
-        echo "$2" | docker login --config "$CONTAINER_CONFIG" -u "$1" --password-stdin
+    if [ -n "$1" ]; then
+        CONTAINER_REGISTRY_USERNAME="$1"
+    fi
+    if [ -n "$2" ]; then
+        CONTAINER_REGISTRY_PASSWORD="$2"
     fi
 
-    echo "Setup container hub login credentials for $CONTAINER_REGISTRY"
-    echo -n "Enter username: " 
-    read CONTAINER_REGISTRY_USERNAME
-    echo -n "Enter password: " 
-    read -s CONTAINER_REGISTRY_PASSWORD
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
+        echo "podman login with username $CONTAINER_REGISTRY_USERNAME."
         podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
     fi
     if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD"
+        echo "Docker login with username $CONTAINER_REGISTRY_USERNAME."
+        echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
     fi
 }
 
