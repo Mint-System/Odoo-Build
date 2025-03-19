@@ -29,6 +29,7 @@ function help-table() {
     printf "$COLUMN" "checkout-all" "" "Checkout every Odoo version / branch."
     printf "$COLUMN" "checkout-config-files" "[branch]" "Checkout config files from another branch."
     printf "$COLUMN" "checkout-git-submodule" "" "Checkout submodule commits."
+    printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
@@ -53,13 +54,13 @@ function help-table() {
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
     printf "$COLUMN" "fetch-git-origin" "" "Fetch all Odoo version branches."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
-    printf "$COLUMN" "generate-help-doc" "" "Write help table to task.md file."
+    printf "$COLUMN" "generate-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
     printf "$COLUMN" "generate-module-overview" "" "Update module overview doc file."
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
-    printf "$COLUMN" "generate-revisions-doc" "" "Update revisions doc file."
-    printf "$COLUMN" "generate-snippets-doc" "" "Update snippets doc file."
+    printf "$COLUMN" "generate-revision-docs" "" "Update revisions doc file."
+    printf "$COLUMN" "generate-snippet-docs" "" "Update snippets doc file."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
     printf "$COLUMN" "get-git-submodule-status" "[path]" "Show status for submodules in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
@@ -84,6 +85,7 @@ function help-table() {
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
+    printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
     printf "$COLUMN" "logs" "" "Tail Odoo container logs."
     printf "$COLUMN" "ls-git-submodule" "[grep]" "List submodule path space separated."
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
@@ -162,6 +164,7 @@ ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
 ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
 ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
+ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
@@ -171,7 +174,6 @@ CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
-ODOO_REVISION_CONTAINER_PULL=${ODOO_REVISION_CONTAINER_PULL:=false}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
 LLM_MODEL=${LLM_MODEL:="deepseek-coder"}
@@ -205,6 +207,7 @@ function info() {
     echo "OS Release: $OS_RELEASE"
     echo "Git Branch: $GIT_BRANCH"
     echo "Odoo Revision: $ODOO_REVISION"
+    echo "Odoo Version: $ODOO_VERSION"
     echo "Odoo Port: $ODOO_PORT"
     echo "Postgres Port: $POSTGRES_PORT"
     echo "Odoo Language: $ODOO_LANGUAGE"
@@ -234,7 +237,7 @@ function generate-admin-passwd() {
     bin/hash_password
 }
 
-# Environment Commands
+# Env Commands
 
 function init-venv() {
     if [ ! -d "venv$GIT_BRANCH" ]; then
@@ -370,6 +373,20 @@ function remove-env() {
     rm "$ENV_FILEPATH"
 }
 
+function load-ssh-key() {
+    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+        echo "Setup SSH key from env vars."
+        DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
+        echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        eval "$(ssh-agent -s)"
+        ssh-add ~/.ssh/id_ed25519 || (echo "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
+    else
+        echo "The SSH key env var is empty."
+        exit 1
+    fi
+}
+
 # Docs Commands
 
 function generate-help-doc() {
@@ -411,7 +428,7 @@ function update-repo-docs() {
 }
 
 
-function generate-snippets-doc() {
+function generate-snippet-docs() {
 
     echo "Update snippets doc file."
     
@@ -470,7 +487,7 @@ function generate-snippets-doc() {
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
-function generate-revisions-doc() {
+function generate-revision-docs() {
 
     echo "Update revisions doc file."
 
@@ -512,9 +529,9 @@ function generate-module-overview() {
 
 function update-docs() {
     generate-module-overview
-    generate-revisions-doc
-    generate-snippets-doc
-    generate-help-doc
+    generate-revision-docs
+    generate-snippet-docs
+    generate-help-docs
 }
 
 function update-module-docs() {
@@ -669,11 +686,8 @@ function build() {
     if [ -n "$1" ]; then
         PLATFORM="$1"
     fi
-    ODOO_DATE=""
-    if [[ "ODOO_REVISION" != "$GIT_BRANCH" ]]; then
-       ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
-    fi
-
+    ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    
     echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
 
@@ -681,7 +695,7 @@ function build() {
         echo "Run Podman build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) podman build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
-            --build-arg ODOO_VERSION="$GIT_BRANCH" \
+            --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     fi
@@ -690,11 +704,19 @@ function build() {
         echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
-            --build-arg ODOO_VERSION="$GIT_BRANCH" \
+            --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
             --load
     fi
+}
+
+function checkout-latest-revision() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    ODOO_VERSION="$1"
+    ODOO_REVISION=$(list-revision | grep "$ODOO_VERSION" | tail -n1)
+    checkout-revision "$ODOO_REVISION"
 }
 
 function container-login() {
@@ -716,7 +738,7 @@ function container-login() {
 }
 
 function publish() {
-    LATEST_TAG="odoo:$GIT_BRANCH"
+    LATEST_TAG="odoo:$ODOO_VERSION"
     echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
     $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
 
@@ -2201,29 +2223,26 @@ function checkout-all() {
 # Revision Commands
 
 function list-revision() {
-    ls bin/odoo-revision-* | sed 's/scripts\/odoo-revision-//g'
+    ls bin/odoo-revision-* | sed 's/bin\/odoo-revision-//g'
 }
 
 function show-revision() {
     if [ -n "$1" ]; then
         ODOO_REVISION="$1"
     fi
-    ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 
-    echo "Load refs for revision: $ODOO_REVISION"
+    echo "Odoo revision: $ODOO_REVISION"
     source "bin/odoo-revision-$ODOO_REVISION"
 
     echo "Odoo Ref: $ODOO_REF"
     echo "Odoo Enterprise Ref: $ODOO_ENTERPRISE_REF"
     echo "Odoo Themes Ref: $ODOO_THEME_REF"
-    echo "Odoo Image Ref: $ODOO_IMAGE_REF"
 }
 
 function checkout-revision() {
     if [ -n "$1" ]; then
         ODOO_REVISION="$1"
     fi
-    ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 
     echo "Update revision var in .env file."
     if grep -q "ODOO_REVISION" .env; then
@@ -2242,31 +2261,15 @@ function checkout-revision() {
     git -C enterprise tag -a $ODOO_REVISION -m "$ODOO_REVISION"
     git -C themes checkout $ODOO_THEME_REF
     git -C themes tag -a $ODOO_REVISION -m "$ODOO_REVISION"
-
-    if $ODOO_REVISION_CONTAINER_PULL; then
-
-        echo "Pull container image ..."
-        $CONTAINER_ENGINE pull "$ODOO_IMAGE_REF"
-        IMAGE_ID=$($CONTAINER_ENGINE image inspect "$ODOO_IMAGE_REF" --format "{{ .ID }}")
-
-        echo "Tag container image with odoo:$ODOO_REVISION"
-        $CONTAINER_ENGINE tag "$IMAGE_ID" odoo:$ODOO_REVISION
-    fi
 }
 
 function create-revision() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    REVISION="$1" # 16.0.20241029
-    ODOO_VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+    REVISION="$1"
     ODOO_DATE=$(echo "$REVISION" | cut -d'.' -f3-)
     BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
     
-    # Pull container image with revision
-    IMAGE=odoo:"$ODOO_VERSION-$ODOO_DATE"
-    $CONTAINER_ENGINE pull "$IMAGE"
-    CONTAINER_REF=$($CONTAINER_ENGINE inspect --format='{{index .RepoDigests 0}}' "$IMAGE")
-
     # Get git commit by date
     cd odoo
     REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
@@ -2282,8 +2285,8 @@ function create-revision() {
     cd ..
 
     echo "Create revision: $REVISION"
-    export REVISION REF ENTERPRISE_REF THEME_REF CONTAINER_REF
-    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF $CONTAINER_REF' < templates/odoo_revision > bin/odoo-revision-"$REVISION"
+    export REVISION REF ENTERPRISE_REF THEME_REF
+    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF' < templates/odoo_revision > bin/odoo-revision-"$REVISION"
     chmod +x bin/odoo-revision-"$REVISION"
 
     echo "Checkout revision: $REVISION"

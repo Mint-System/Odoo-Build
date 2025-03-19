@@ -261,19 +261,12 @@ POSTGRES_IMAGE=postgres:12-alpine
 
 #### Build and publish container image
 
-Make sure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
+Ensure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
 
-Setup these `.env` vars to build the container image:
-
-```bash
-ODOO_REVISION=16.0.20250207
-CONTAINER_REGISTRY=mint-system/
-```
-
-Checkout the Odoo revision.
+Checkout latest revision of the Odoo version.
 
 ```bash
-task checkout-revision
+task checkout-latest-revision "16.0"
 ```
 
 Build the Odoo image.
@@ -309,6 +302,18 @@ task setup-mail
 ```
 
 ## Develop
+
+### Create Odoo revision
+
+Check the latest official Odoo image tag on <https://hub.docker.com/_/odoo/tags>.
+
+Replace the `-` with a `.` in the tag name and create a revision:
+
+```bash
+task create-revision 16.0.20250311
+```
+
+Replace all image references in the docs.
 
 ### Update repo template from oca-addons-repo-template
 

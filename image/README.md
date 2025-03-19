@@ -36,7 +36,7 @@ The following `docker-compose.yml` file is a basic setup:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250207
+    image: mintsystem/odoo:16.0.16.0.20250311
     depends_on:
       - db
     environment:
@@ -74,7 +74,7 @@ This `docker-compose.yml` shows all possible configurations:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250207
+    image: mintsystem/odoo:16.0.16.0.20250311
     depends_on:
       - db
     environment:
@@ -319,7 +319,7 @@ This image can be customized to any extend.
 Update the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250207
+FROM mintsystem/odoo:16.0.16.0.20250311
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -327,11 +327,9 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250207
+FROM mintsystem/odoo:16.0.16.0.20250311
 
-USER root
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
-USER odoo
 ```
 
 ### Add custom Odoo conf
@@ -339,7 +337,7 @@ USER odoo
 Copy custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250207
+FROM mintsystem/odoo:16.0.16.0.20250311
 
 COPY ./odoo.conf.template /etc/odoo/
 ```

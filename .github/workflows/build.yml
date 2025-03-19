@@ -1,0 +1,33 @@
+name: Manual Trigger Workflow
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  task-all:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+      - name: Run task install native
+        run: ./task install-native
+      - name: Run task checkout-latest-revision "16.0"
+        run: ./task checkout-latest-revision "16.0"
+      - name: Run task load-ssh-key
+        run: ./task load-ssh-key
+        env:
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
+          GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
+      - name: Run task build
+        run: ./task build
+      - name: Run task test-container
+        run: ./task test-container
+      - name: Run task publish
+        run: ./task publish
+        env:
+          CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
+          CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
