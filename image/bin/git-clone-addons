@@ -14,6 +14,9 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         ssh-add ~/.ssh/id_ed25519 || (entrypoint-log "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
     fi
 
+    # Make every git directory a safe directory
+    git config --global --add safe.directory "*"
+
     # Clone git repo addons into /var/lib/odoo/git
     entrypoint-log "Cloning git repos: $ADDONS_GIT_REPOS"
     ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")        

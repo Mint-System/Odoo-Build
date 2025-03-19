@@ -7,21 +7,21 @@ A better Odoo image.
 
 This container image is an improvement of the official Odoo image:
 
-- 🐍 Ships with Python 3.12.
-- 📦 Uses [uv](https://docs.astral.sh/uv/) to manage Python and [pnpm](https://pnpm.io/) to manage Node.
-- 🔄 Odoo source is based on exact [revision](https://odoo.build/revisions.html).
-- 💎 Image build is reproducible.
-- ⚙️ Setup `odoo.conf` with environment vars.
-- 🌱 Clone addons from git repos.
-- 🛠️ Install Python packages without building the image.
-- 📂 Detect addons in nested module folders.
-- 💾 Store session information in database.
-- 🖥️ Get environment name from server config.
-- 📋 Initialize database with selected modules.
-- 📜 Built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
-- 🌈 Multiplatform image supports `amd64` and `arm64`.
-- 🪴 Runs without root privileges.
-
+- 🐍 The image uses Python version 3.12.
+- 📦 Package management is handled with [uv](https://docs.astral.sh/uv/) for Python and [pnpm](https://pnpm.io/) for Node.
+- 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions.html).
+- 💎 The image build process ensures reproducibility.
+- ⚙️ Configuration of `odoo.conf` is managed through environment variables.
+- 🌱 Addons are cloned from git repositories.
+- 🛠️ Python packages can be installed without rebuilding the image.
+- 📂 The system detects addons in nested module folders.
+- 💾 Session information can be stored in the database.
+- 🖥️ Environment name is retrieved from server configuration.
+- 📋 Database initialization with selected modules.
+- 📜 The image includes built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
+- 🌈 The multiplatform image supports both `amd64` and `arm64` architectures.
+- 🪴 The container runs without requiring root privileges.
+- 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
 
 ## Usage

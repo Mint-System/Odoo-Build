@@ -1,5 +1,3 @@
-#FROM: https://github.com/odoo/docker/blob/master/18.0/Dockerfile
-
 FROM python:3.12-slim-bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
@@ -49,9 +47,6 @@ RUN apt-get update && \
     && apt-get install -y --no-install-recommends ./wkhtmltox.deb \
     && rm -rf /var/lib/apt/lists/* wkhtmltox.deb
 
-# wcurl https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-3/wkhtmltox_0.12.6.1-3.bookworm_arm64.deb
-# sha1sum wkhtmltox_0.12.6.1-3.bookworm_arm64.deb
-
 # Install latest postgresql-client
 RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /etc/apt/sources.list.d/pgdg.list \
     && GNUPGHOME="$(mktemp -d)" \
@@ -93,14 +88,9 @@ RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py
 ENV ODOO_VERSION=$ODOO_VERSION
 
 # Copy entrypoint scripts and Odoo configuration file
-
 COPY ./image/bin/* /usr/local/bin/
 COPY ./image/entrypoint.sh /
 COPY ./image/odoo.conf.template /etc/odoo/
-
-# Create odoo user
-RUN groupadd odoo
-RUN useradd -s /bin/bash -g odoo -m odoo
 
 # Set the working directory
 WORKDIR /opt/odoo
@@ -112,13 +102,9 @@ WORKDIR /opt/odoo
 # Addons: /mnt/extra-addons
 RUN mkdir -p /var/lib/odoo \
     && mkdir -p /mnt/extra-addons
-RUN chown -R odoo:odoo /etc/odoo \
-    /var/lib/odoo \
-    /opt/odoo-venv \
-    /mnt/extra-addons
 
-# OpenShift compatible permissions
-RUN chmod -R g=u /etc/odoo \
+# Set OpenShift compatible permissions - Make directories writable by any user ID
+RUN chmod -R 775 /etc/odoo \
     /var/lib/odoo \
     /opt/odoo-venv \
     /mnt/extra-addons
@@ -131,9 +117,6 @@ EXPOSE 8069 8071 8072
 
 # Set the default config file
 ENV ODOO_RC=/etc/odoo/odoo.conf
-
-# Set default user when running the container
-USER odoo
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]

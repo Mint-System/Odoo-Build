@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Removed everything related to Kubernetes.
 * Removed repo templates for 14.0 and 15.0.
+* Removed any user/group definitions from image.
 
 ### Fixed
 
