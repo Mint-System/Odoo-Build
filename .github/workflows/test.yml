@@ -18,6 +18,8 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Run task install-native
         run: ./task install-native
+        env:
+          ODOO_REVISION: "18.0"
       - name: Run task install-odoo-scripts
         run: ./task install-odoo-scripts
       - name: Run task test-container
