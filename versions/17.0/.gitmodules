@@ -1,0 +1,100 @@
+[submodule "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+	branch = 17.0
+[submodule "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+	branch = 17.0
+[submodule "themes"]
+	path = themes
+	url = git@github.com:odoo/design-themes.git
+	branch = 17.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
+	branch = 17.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 17.0
+[submodule "oca/sale-workflow"]
+	path = oca/sale-workflow
+	url = git@github.com:OCA/sale-workflow.git
+	branch = 17.0
+[submodule "addons/hr"]
+	path = addons/hr
+	url = git@github.com:Mint-System/Odoo-Apps-HR.git
+	branch = 17.0
+[submodule "addons/stock_logistics_workflow"]
+	path = addons/stock_logistics_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
+	branch = 17.0
+[submodule "addons/manufacture"]
+	path = addons/manufacture
+	url = git@github.com:Mint-System/Odoo-Apps-manufacture.git
+	branch = 17.0
+[submodule "oca/stock-logistics-workflow"]
+	path = oca/stock-logistics-workflow
+	url = git@github.com:OCA/stock-logistics-workflow.git
+	branch = 17.0
+[submodule "oca/management-system"]
+	path = oca/management-system
+	url = git@github.com:OCA/management-system.git
+	branch = 17.0
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = git@github.com:OCA/hr-attendance.git
+	branch = 17.0
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 17.0
+[submodule "addons/connector"]
+	path = addons/connector
+	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
+	branch = 17.0
+[submodule "addons/management-system"]
+	path = addons/management-system
+	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
+	branch = 17.0
+[submodule "oca/manufacture"]
+	path = oca/manufacture
+	url = git@github.com:OCA/manufacture.git
+	branch = 17.0
+[submodule "oca/brand"]
+	path = oca/brand
+	url = git@github.com:OCA/brand.git
+	branch = 17.0
+[submodule "oca/server-tools"]
+	path = oca/server-tools
+	url = git@github.com:OCA/server-tools.git
+	branch = 17.0
+[submodule "oca/partner-contact"]
+	path = oca/partner-contact
+	url = git@github.com:OCA/partner-contact.git
+	branch = 17.0
+[submodule "addons/sale_workflow"]
+	path = addons/sale_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
+	branch = 17.0
+[submodule "oca/bank-statement-import"]
+	path = oca/bank-statement-import
+	url = git@github.com:OCA/bank-statement-import.git
+	branch = 17.0
+[submodule "oca/project"]
+	path = oca/project
+	url = git@github.com:OCA/project.git
+	branch = 17.0
+[submodule "addons/account_invoicing"]
+	path = addons/account_invoicing
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
+	branch = 17.0
+[submodule "addons/product_attribute"]
+	path = addons/product_attribute
+	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+	branch = 17.0
+[submodule "addons/purchase_workflow"]
+	path = addons/purchase_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
+	branch = 17.0

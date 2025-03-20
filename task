@@ -25,19 +25,17 @@ function help-table() {
     printf "$COLUMN" "build" "[platform]" "Build Odoo Conainer image. Optionally define the target platform."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
-    printf "$COLUMN" "checkout" "[branch]" "Checkout Odoo version / branch."
-    printf "$COLUMN" "checkout-all" "" "Checkout every Odoo version / branch."
-    printf "$COLUMN" "checkout-config-files" "[branch]" "Checkout config files from another branch."
+    printf "$COLUMN" "checkout" "[version]" "Checkout Odoo version."
     printf "$COLUMN" "checkout-git-submodule" "" "Checkout submodule commits."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
-    printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores. Default is branch name."
+    printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
-    printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes. Default is branch name."
+    printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
     printf "$COLUMN" "commit-git-submodule-all" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
-    printf "$COLUMN" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest. Default is branch name."
+    printf "$COLUMN" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
@@ -50,9 +48,8 @@ function help-table() {
     printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server." 
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
-    printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database. Default is branch name."
+    printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
-    printf "$COLUMN" "fetch-git-origin" "" "Fetch all Odoo version branches."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "$COLUMN" "generate-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
@@ -67,9 +64,9 @@ function help-table() {
     printf "$COLUMN" "get-module-version" "[path]" "Get module version from manifest."
     printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "$COLUMN" "info" "" "Show values of project env vars."
-    printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database. Default is branch name."
+    printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database."
     printf "$COLUMN" "init-git-submodule" "" "Init submodules listed in the .gitmodules file."
-    printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module. Default database is branch name."
+    printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module."
     printf "$COLUMN" "init-venv" "" "Initialize python virtual env."
     printf "$COLUMN" "install-native" "" "Install Odoo requirements in source folder."
     printf "$COLUMN" "install-odoo-scripts" "" "Install Odoo scripts."
@@ -83,13 +80,14 @@ function help-table() {
     printf "$COLUMN" "list-git-submodule" "" "List path and url of submodules."
     printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
+    printf "$COLUMN" "list-versions" "" "List available Odoo versions."
     printf "$COLUMN" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
     printf "$COLUMN" "logs" "" "Tail Odoo container logs."
     printf "$COLUMN" "ls-git-submodule" "[grep]" "List submodule path space separated."
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
-    printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database. Default database is branch name."
+    printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
     printf "$COLUMN" "ps" "" "List container processes."
     printf "$COLUMN" "publish" "" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-submodule" "" "Pull all submodules listed in the .gitmodules file."
@@ -105,26 +103,27 @@ function help-table() {
     printf "$COLUMN" "restart" "[name]" "Restart container."
     printf "$COLUMN" "restore-dotenv" "" "Restore content of .env from pass entry."
     printf "$COLUMN" "run" "[name][cmd]" "Run container with command."
-    printf "$COLUMN" "save-config" "[name]" "Save Odoo database config."
+    printf "$COLUMN" "save-version" "" "Save submodule refs to version folder."
     printf "$COLUMN" "serve-vuepress-build" "" "Serve Vuepress build."
     printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
-    printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database. Default is branch name."
+    printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
     printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
     printf "$COLUMN" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
     printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "$COLUMN" "source" "" "Source the Python virtual env."
     printf "$COLUMN" "start" "[name][db]" "Start container. Options: none, db, admin, odoo, native, mail."
-    printf "$COLUMN" "start-psql" "[db]" "Start PSQL shell in container container. Default is branch name."
-    printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder. Default is branch name."
+    printf "$COLUMN" "start-psql" "[db]" "Start PSQL shell in container container."
+    printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder."
     printf "$COLUMN" "stop" "[name]" "Stop containers."
     printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
-    printf "$COLUMN" "switch-git-submodule" "[branch]" "Switch branch for all submodules listed in the .gitmodules file."
+    printf "$COLUMN" "switch-git-submodule" "[version]" "Switch branch for all submodules listed in the .gitmodules file."
     printf "$COLUMN" "sync-git-submodule" "" "Switch, stash and pull all submodules."
     printf "$COLUMN" "template-docker-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
     printf "$COLUMN" "test-container" "[clean]" "Test Odoo image."
+    printf "$COLUMN" "test-scripts" "[clean]" "Test Odoo Build scripts."
     printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
@@ -161,10 +160,8 @@ ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 
 # Dynamic env vars
 
-GIT_BRANCH=$(git symbolic-ref --short -q HEAD)
-ODOO_DATABASE=${ODOO_DATABASE:="$GIT_BRANCH"}
-ODOO_REVISION=${ODOO_REVISION:="$GIT_BRANCH"}
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
+ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
@@ -205,7 +202,6 @@ fi
 function info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
-    echo "Git Branch: $GIT_BRANCH"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Version: $ODOO_VERSION"
     echo "Odoo Port: $ODOO_PORT"
@@ -240,15 +236,15 @@ function generate-admin-passwd() {
 # Env Commands
 
 function init-venv() {
-    if [ ! -d "venv$GIT_BRANCH" ]; then
-        echo "Init venv$GIT_BRANCH with $(uv --version)."
-        uv venv "venv$GIT_BRANCH"
+    if [ ! -d "venv$ODOO_VERSION" ]; then
+        echo "Init venv$ODOO_VERSION with $(uv --version)."
+        uv venv "venv$ODOO_VERSION"
     fi
 }
 
 function activate-venv() {
-    echo "Source virtualenv venv$GIT_BRANCH."
-    source "venv$GIT_BRANCH/bin/activate"
+    echo "Source virtualenv venv$ODOO_VERSION."
+    source "venv$ODOO_VERSION/bin/activate"
     echo "$(python --version) is active."
 }
 
@@ -387,9 +383,14 @@ function load-ssh-key() {
     fi
 }
 
+function list-versions() {
+    ls -1 versions
+}
+
 # Docs Commands
 
-function generate-help-doc() {
+function generate-help-docs() {
+    echo "Pipe help table into task.md."
     help-table > task.md 
 }
 
@@ -558,9 +559,9 @@ function template-repo(){
 
     REPO_PATH="$1"
 
-    echo "Copy $GIT_BRANCH template files to $REPO_PATH"
+    echo "Copy $ODOO_VERSION template files to $REPO_PATH"
     cp "templates/task" "$REPO_PATH"
-    cp -r "templates/$GIT_BRANCH/." "$REPO_PATH"
+    cp -r "templates/$ODOO_VERSION/." "$REPO_PATH"
     rm "$REPO_PATH/.flake8"
     rm "$REPO_PATH/.isort.cfg"
     rm "$REPO_PATH/.pylintrc-mandatory"
@@ -579,10 +580,10 @@ function get-modules() {
     fi
 
     if [[ "$OPTION" == "dirname" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     if [[ "$OPTION" == "basename" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${GIT_BRANCH}" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     echo "$MODULES"
 }
@@ -603,10 +604,10 @@ function get-module-version() {
 
         # Check if oca version or enterprise version
         if [[ $COUNT_DOTS == 2 ]]; then
-            VERSION="$GIT_BRANCH.$VERSION"
+            VERSION="$ODOO_VERSION.$VERSION"
         fi
         if [[ $COUNT_DOTS == 1 ]]; then
-            VERSION="$GIT_BRANCH.$VERSION"
+            VERSION="$ODOO_VERSION.$VERSION"
         fi
 
         echo "$VERSION"
@@ -1043,7 +1044,7 @@ function test-container() {
         fi
         
         echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
-        (git clone -b "$GIT_BRANCH" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
+        (git clone -b "$ODOO_VERSION" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
 
         echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
         export BROWSER_OPEN=false
@@ -1052,7 +1053,7 @@ function test-container() {
         echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
-        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${GIT_BRANCH},https://github.com/OCA/server-tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${GIT_BRANCH},https://github.com/Mint-System/Odoo-Apps-Connector.git#${GIT_BRANCH}"
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
         run odoo git-clone-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
@@ -1393,17 +1394,6 @@ function patch-database() {
     echo "Patching database succeeded"
 }
 
-function save-config() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
-    fi
-
-    activate-venv
-    set-addons-path
-    odoo -d "$DATABASE" -s --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
-}
-
 # Report Commands
 
 function clock-odoo() {
@@ -1697,14 +1687,14 @@ function create-module-repo() {
     if [ -d "$REPO_PATH/.git" ]; then
         echo "Create new branch $REPO_NAME in $REPO_PATH"
         cd "$REPO_PATH" || exit
-        git switch --orphan -c "$GIT_BRANCH"
+        git switch --orphan -c "$ODOO_VERSION"
 
         echo "Remove all files from $REPO_PATH"
         rm -rf "$REPO_PATH/*"
     fi
 
-    echo "Copy template files from templates/GIT_BRANCH to $REPO_PATH"
-    cp templates/GIT_BRANCH/* "$REPO_PATH"
+    echo "Copy template files from templates/$ODOO_VERSION to $REPO_PATH"
+    cp "templates/$ODOO_VERSION/*" "$REPO_PATH"
 }
 
 function generate-module-security() {
@@ -1988,20 +1978,11 @@ function lint-snippets() {
 
 # Git Commands
 
-function fetch-git-origin() {
-    git fetch origin 13.0
-    git fetch origin 14.0
-    git fetch origin 15.0
-    git fetch origin 16.0
-    git fetch origin 17.0
-    git fetch origin 18.0
-}
-
 function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
-    git submodule add -f -b "$GIT_BRANCH" "$1" "$2"
+    git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
 }
 
 function ls-git-submodule() {
@@ -2068,10 +2049,10 @@ function init-git-submodule() {
     for SUBMODULE in $SUBMODULES; do
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
         if [ "$SHALLOW" = "true" ]; then
-            echo "Initializing submodule: $SUBMODULE (shallow)"
-            git submodule update --init --depth 1 --remote --checkout --branch "$GIT_BRANCH" "$SUBMODULE"
+            echo "Init git submodule $SUBMODULE (shallow) to $ODOO_VERSION"
+            git submodule update --init --depth 1 --remote --checkout --branch "$ODOO_VERSION" "$SUBMODULE"
         else
-            echo "Initializing submodule: $SUBMODULE"
+            echo "Init git submodule $SUBMODULE to $ODOO_VERSION"
             git submodule update --init "$SUBMODULE"
         fi
     done
@@ -2085,9 +2066,10 @@ function pull-git-submodule() {
         git -C "$SUBMODULE" stash
         UPDATE=$(git config submodule."$SUBMODULE".update)
         if [ -z "$UPDATE" ]; then
-            git -C "$SUBMODULE" pull origin "$GIT_BRANCH"
+            git -C "$SUBMODULE" pull origin "$ODOO_VERSION"
         fi;
     done
+    save-version
 }
 
 function checkout-git-submodule() {
@@ -2095,14 +2077,14 @@ function checkout-git-submodule() {
     SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
-        COMMIT_HASH=$(git ls-tree HEAD "$SUBMODULE" | awk '{print $3}')
+        COMMIT_HASH=$(grep "$SUBMODULE" .gitmodules.csv | cut -d',' -f2)
         if [ "$SHALLOW" = "true" ]; then
-            echo "Update git submodule: $SUBMODULE (shallow)"
+            echo "Checkout git submodule $SUBMODULE (shallow) to $COMMIT_HASH"
             git -C "$SUBMODULE" stash
             git -C "$SUBMODULE" fetch origin "$COMMIT_HASH"
             git -C "$SUBMODULE" checkout "$COMMIT_HASH"
         else
-            echo "Update git submodule: $SUBMODULE"
+            echo "Checkout git submodule $SUBMODULE to $COMMIT_HASH"
             git -C "$SUBMODULE" stash
             git -C "$SUBMODULE" checkout "$COMMIT_HASH"
         fi
@@ -2111,15 +2093,15 @@ function checkout-git-submodule() {
 
 function switch-git-submodule() {
     if [ -n "$1" ]; then
-        GIT_BRANCH="$1"
+        ODOO_VERSION="$1"
     fi
 
     echo "Switch branch on git submodules."
     SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
-        echo "Switch git submodule branch to $GIT_BRANCH: $SUBMODULE"
+        echo "Switch git submodule branch to $ODOO_VERSION: $SUBMODULE"
         git -C "$SUBMODULE" stash
-        git -C "$SUBMODULE" switch "$GIT_BRANCH"
+        git -C "$SUBMODULE" switch "$ODOO_VERSION"
     done
 }
 
@@ -2182,42 +2164,38 @@ function create-git-mig-branch(){
     echo "Create mig branch for $MODULE_NAME in $MODULE_PATH ..."
     cd ./"$MODULE_PATH" || exit
     pwd
-    git switch -c "$GIT_BRANCH-mig-$MODULE_NAME"
-}
-
-function checkout-config-files() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    echo "Checkout config files $1 branch."
-    git checkout "$1" .git-checkout-files .git-reset-files
-
-    echo "Remove reset files."
-    git rm -r $(tr '\n' ' ' < ./.git-reset-files) >/dev/null 2>&1
-
-    echo "Sync checkout files from $1 branch."
-    git checkout "$1" $(tr '\n' ' ' < ./.git-checkout-files)
+    git switch -c "$ODOO_VERSION-mig-$MODULE_NAME"
 }
 
 function checkout() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_BRANCH="$1"
+    ODOO_VERSION="$1"
 
-    echo "Switch current branch to $GIT_BRANCH."
-    git switch "$GIT_BRANCH"
-    git pull
+    echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
+    cp "versions/$ODOO_VERSION/.gitmodules" .
+    cp "versions/$ODOO_VERSION/.python-version" .
+
+    checkout-revision "$ODOO_VERSION"
 
     init-git-submodule
 
     switch-git-submodule
 }
 
-function checkout-all() {
-    checkout 13.0
-    checkout 14.0
-    checkout 15.0
-    checkout 16.0
-    checkout 17.0
-    checkout 18.0
+function save-version() {
+    SUBMODULES_FILE="versions/$ODOO_VERSION/.gitmodules.csv"
+    echo "Save submodule refs to $SUBMODULES_FILE."
+
+    SUBMODULES=$(ls-git-submodule)
+    echo "path,rev" > "$SUBMODULES_FILE"
+    for SUBMODULE in $SUBMODULES; do
+        COMMIT_HASH=$(git submodule status $SUBMODULE | awk '{print $1}')
+        echo "$SUBMODULE,$COMMIT_HASH" >> "$SUBMODULES_FILE"
+    done
+
+    echo "Copy .gitmodules and .python-version to 'versions/$ODOO_VERSION'"
+    cp ".gitmodules" "versions/$ODOO_VERSION/"
+    cp ".python-version" "versions/$ODOO_VERSION/"
 }
 
 # Revision Commands

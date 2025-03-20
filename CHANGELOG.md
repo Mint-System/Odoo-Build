@@ -2,13 +2,15 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Undefined
+## 2025-03-20
 
 ### Added
 
 * Update module docs with `update-module-docs`.
 * Added develop section with guid on how to update the repo templates.
 * Config pre-commit.
+* Added `versions` folder.
+* The new command `save-version` stores the Odoo version files.
 
 ### Updated
 
@@ -16,12 +18,17 @@ All notable changes to this project will be documented in this file. The format 
 * Renamed all task functions to match the naming pattern.
 * Updated the repo templates for 16.0, 17.0 and 18.0.
 * Renamed all files in bin.
+* Renamed the `generate-*-docs` commands.
+* The `checkout` command loads the Odoo version from the `versions` folder.
 
 ### Removed
 
 * Removed everything related to Kubernetes.
 * Removed repo templates for 14.0 and 15.0.
 * Removed any user/group definitions from image.
+* These commands have been removed: `checkout-config-files`, `save-config`.
+* These files have been removed: `.gitmodules`, `.python-version`.
+
 
 ### Fixed
 

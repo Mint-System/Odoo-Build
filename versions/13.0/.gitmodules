@@ -1,0 +1,148 @@
+[submodule  "addons/theme_mint_system"]
+	path = addons/theme_mint_system
+	url = git@github.com:Mint-System/Odoo-Theme-Mint-System.git
+	branch = 13.0
+[submodule  "enterprise"]
+	path = enterprise
+	url = git@github.com:odoo/enterprise.git
+	branch = 13.0
+[submodule  "odoo"]
+	path = odoo
+	url = git@github.com:odoo/odoo.git
+	branch = 13.0
+[submodule  "oca/project"]
+	path = oca/project
+	url = git@github.com:OCA/project.git
+	branch = 13.0
+[submodule  "oca/l10n-switzerland"]
+	path = oca/l10n-switzerland
+	url = git@github.com:OCA/l10n-switzerland.git
+	branch = 13.0
+[submodule  "oca/knowledge"]
+	path = oca/knowledge
+	url = git@github.com:OCA/knowledge.git
+	branch = 13.0
+[submodule  "oca/crm"]
+	path = oca/crm
+	url = git@github.com:OCA/crm.git
+	branch = 13.0
+[submodule  "oca/timesheet"]
+	path = oca/timesheet
+	url = git@github.com:OCA/timesheet.git
+	branch = 13.0
+[submodule  "oca/web"]
+	path = oca/web
+	url = git@github.com:OCA/web.git
+	branch = 13.0
+[submodule  "oca/server-auth"]
+	path = oca/server-auth
+	url = git@github.com:OCA/server-auth.git
+	branch = 13.0
+[submodule  "addons/certificate_planer"]
+	path = addons/certificate_planer
+	url = git@github.com:Mint-System/Certificate-Planner.git
+	branch = 13.0
+[submodule  "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 13.0
+[submodule  "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = git@github.com:OCA/hr-attendance.git
+	branch = 13.0
+[submodule  "oca/server-backend"]
+	path = oca/server-backend
+	url = git@github.com:OCA/server-backend.git
+	branch = 13.0
+[submodule  "oca/server-ux"]
+	path = oca/server-ux
+	url = git@github.com:OCA/server-ux.git
+	branch = 13.0
+[submodule  "oca/stock-logistics-workflow"]
+	path = oca/stock-logistics-workflow
+	url = git@github.com:OCA/stock-logistics-workflow.git
+	branch = 13.0
+[submodule  "oca/partner-contact"]
+	path = oca/partner-contact
+	url = git@github.com:OCA/partner-contact.git
+	branch = 13.0
+[submodule  "themes"]
+	path = themes
+	url = git@github.com:odoo/design-themes.git
+	branch = 13.0
+[submodule  "oca/website"]
+	path = oca/website
+	url = git@github.com:OCA/website.git
+	branch = 13.0
+[submodule  "addons/hr"]
+	path = addons/hr
+	url = git@github.com:Mint-System/Odoo-Apps-HR.git
+	branch = 13.0
+[submodule  "oca/reporting-engine"]
+	path = oca/reporting-engine
+	url = git@github.com:OCA/reporting-engine.git
+	branch = 13.0
+[submodule  "oca/server-tools"]
+	path = oca/server-tools
+	url = git@github.com:OCA/server-tools.git
+	branch = 13.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+	branch = 13.0
+[submodule "oca/sale-workflow"]
+	path = oca/sale-workflow
+	url = git@github.com:OCA/sale-workflow.git
+	branch = 13.0
+[submodule "addons/purchase_workflow"]
+	path = addons/purchase_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
+	branch = 13.0
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
+	branch = 13.0
+[submodule "oca/dms"]
+	path = oca/dms
+	url = git@github.com:OCA/dms.git
+	branch = 13.0
+[submodule "oca/bank-statement-import"]
+	path = oca/bank-statement-import
+	url = git@github.com:OCA/bank-statement-import.git
+	branch = 13.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 13.0
+[submodule "oca/contract"]
+	path = oca/contract
+	url = git@github.com:OCA/contract.git
+	branch = 13.0
+[submodule "addons/project"]
+	path = addons/project
+	url = git@github.com:Mint-System/Odoo-Apps-Project.git
+	branch = 13.0
+[submodule "oca/purchase-workflow"]
+	path = oca/purchase-workflow
+	url = git@github.com:OCA/purchase-workflow.git
+	branch = 13.0
+[submodule "oca/stock-logistics-warehouse"]
+	path = oca/stock-logistics-warehouse
+	url = git@github.com:OCA/stock-logistics-warehouse.git
+	branch = 13.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = git@github.com:OCA/account-invoicing.git
+	branch = 13.0
+[submodule "oca/business-requirement"]
+	path = oca/business-requirement
+	url = git@github.com:OCA/business-requirement.git
+	branch = 13.0
+[submodule "oca/server-env"]
+	path = oca/server-env
+	url = git@github.com:OCA/server-env.git
+	branch = 13.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
+	branch = 13.0

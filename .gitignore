@@ -48,3 +48,8 @@ docker-compose.yml
 .obsidian/appearance.json
 .obsidian/graph.json
 .obsidian/workspace.json
+
+# taskfile
+
+.gitmodules
+.python-version
