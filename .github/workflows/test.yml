@@ -1,10 +1,10 @@
 on:
   pull_request:
     branches:
-      - "16.0*"
+      - "main*"
   push:
     branches:
-      - "16.0"
+      - "main"
 
 jobs:
   task-all:
@@ -22,3 +22,5 @@ jobs:
         run: ./task install-odoo-scripts
       - name: Run task test-container
         run: ./task test-container
+        env:
+          ODOO_VERSION: 18.0

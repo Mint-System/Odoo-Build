@@ -104,7 +104,7 @@ function help-table() {
     printf "$COLUMN" "restore-dotenv" "" "Restore content of .env from pass entry."
     printf "$COLUMN" "run" "[name][cmd]" "Run container with command."
     printf "$COLUMN" "save-version" "" "Save submodule refs to version folder."
-    printf "$COLUMN" "serve-vuepress-build" "" "Serve Vuepress build."
+    printf "$COLUMN" "serve-vuepress" "" "Serve Vuepress build."
     printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
     printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
@@ -799,7 +799,7 @@ function logs() {
 # Script Commands
 
 function install-odoo-scripts() {
-    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/master/roles/odoo_scripts/files/install | bash
+    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/main/roles/odoo_scripts/files/install | bash
 }
 
 function upgrade-odoo() {
@@ -2390,6 +2390,25 @@ EOF
     done < "$RESULT_FILE"
 }
 
+# Vuepress Commands
+
+function install-vuepress() {
+    pnpm install
+}
+
+function dev-vuepress() {
+    pnpm run dev
+}
+
+function build-vuepress() {
+    pnpm run build
+}
+
+function serve-vuepress() {
+    cd .vuepress/dist
+    pnpm serve
+}
+
 if declare -f "$1" > /dev/null; then
     "$1" "${@:2}"
 else
@@ -2397,19 +2416,6 @@ else
         help)
             help task
             exit 1
-            ;;
-        install-vuepress)
-            npm install
-            ;;
-        start-vuepress)
-            npm run dev
-            ;;
-        build-vuepress)
-            npm run build
-            ;;
-        serve-vuepress-build)
-            cd .vuepress/dist
-            npx serve
             ;;
         source)
             activate-venv
