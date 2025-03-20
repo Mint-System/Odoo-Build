@@ -53,7 +53,7 @@ function help-table() {
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "$COLUMN" "generate-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
-    printf "$COLUMN" "generate-module-overview" "" "Update module overview doc file."
+    printf "$COLUMN" "generate-module-overview" "" "Update module overview docs file."
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
     printf "$COLUMN" "generate-revision-docs" "" "Update revisions doc file."
@@ -83,6 +83,7 @@ function help-table() {
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
     printf "$COLUMN" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
+    printf "$COLUMN" "load-version" "[version]" "Load submodule refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
     printf "$COLUMN" "logs" "" "Tail Odoo container logs."
     printf "$COLUMN" "ls-git-submodule" "[grep]" "List submodule path space separated."
@@ -99,6 +100,7 @@ function help-table() {
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
+    printf "$COLUMN" "reset-git-submodule" "" "Abort rebase and reset submodules listed in the .gitmodules file."
     printf "$COLUMN" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "$COLUMN" "restart" "[name]" "Restart container."
     printf "$COLUMN" "restore-dotenv" "" "Restore content of .env from pass entry."
@@ -498,11 +500,11 @@ A Odoo revision is a snapshot of git references of the Odoo source and modules a
 For each major release there are multiple revisions.\n" > "revisions.md"
 
     declare -A REVISIONS
-    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/16.0"
+    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/main"
 
-    for FILE in bin/odoo-revision-*; do
+    for FILE in revisions/*; do
         if [[ -f "$FILE" ]]; then
-            REVISION=$(basename "$FILE" | sed 's/odoo-revision-//')
+            REVISION=$(basename "$FILE")
             VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
             if [[ -z "${REVISIONS[$VERSION]}" ]]; then
@@ -2069,7 +2071,15 @@ function pull-git-submodule() {
             git -C "$SUBMODULE" pull origin "$ODOO_VERSION"
         fi;
     done
-    save-version
+}
+
+function reset-git-submodule() {
+    SUBMODULES=$(ls-git-submodule)
+    for SUBMODULE in $SUBMODULES; do
+        echo "Abort rebase and reset git submodule $SUBMODULE."
+        git -C "$SUBMODULE" rebase --abort
+        git -C "$SUBMODULE" reset --hard
+    done
 }
 
 function checkout-git-submodule() {
@@ -2077,7 +2087,7 @@ function checkout-git-submodule() {
     SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
-        COMMIT_HASH=$(grep "$SUBMODULE" .gitmodules.csv | cut -d',' -f2)
+        COMMIT_HASH=$(grep "$SUBMODULE" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git submodule $SUBMODULE (shallow) to $COMMIT_HASH"
             git -C "$SUBMODULE" stash
@@ -2167,15 +2177,23 @@ function create-git-mig-branch(){
     git switch -c "$ODOO_VERSION-mig-$MODULE_NAME"
 }
 
-function checkout() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ODOO_VERSION="$1"
+function load-version() {
+    if [ -n "$1" ]; then
+        ODOO_VERSION="$1"
+    fi
 
     echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
     cp "versions/$ODOO_VERSION/.gitmodules" .
     cp "versions/$ODOO_VERSION/.python-version" .
 
     checkout-revision "$ODOO_VERSION"
+}
+
+function checkout() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    ODOO_VERSION="$1"
+
+    load-version
 
     init-git-submodule
 
@@ -2201,7 +2219,7 @@ function save-version() {
 # Revision Commands
 
 function list-revision() {
-    ls bin/odoo-revision-* | sed 's/bin\/odoo-revision-//g'
+    ls -1 revisions
 }
 
 function show-revision() {
@@ -2210,7 +2228,7 @@ function show-revision() {
     fi
 
     echo "Odoo revision: $ODOO_REVISION"
-    source "bin/odoo-revision-$ODOO_REVISION"
+    source "revisions/$ODOO_REVISION"
 
     echo "Odoo Ref: $ODOO_REF"
     echo "Odoo Enterprise Ref: $ODOO_ENTERPRISE_REF"
@@ -2230,7 +2248,7 @@ function checkout-revision() {
     fi
 
     echo "Load refs for revision: $ODOO_REVISION"
-    export $(cat "bin/odoo-revision-$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+    export $(cat "revisions/$ODOO_REVISION" | sed 's/#.*//g' | xargs)
 
     echo "Checkout and tag git repos ..."
     git -C odoo checkout $ODOO_REF
@@ -2264,8 +2282,8 @@ function create-revision() {
 
     echo "Create revision: $REVISION"
     export REVISION REF ENTERPRISE_REF THEME_REF
-    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF' < templates/odoo_revision > bin/odoo-revision-"$REVISION"
-    chmod +x bin/odoo-revision-"$REVISION"
+    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF' < templates/odoo_revision > "revisions/$REVISION"
+    chmod +x "revisions/$REVISION"
 
     echo "Checkout revision: $REVISION"
     checkout-revision "$REVISION"

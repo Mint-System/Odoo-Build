@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file. The format 
 * Renamed all files in bin.
 * Renamed the `generate-*-docs` commands.
 * The `checkout` command loads the Odoo version from the `versions` folder.
+* Moved all revision definitions to `revisions` folder.
 
 ### Removed
 

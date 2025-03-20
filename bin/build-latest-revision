@@ -1,4 +1,0 @@
-#!/bin/bash
-
-ODOO_VERSION="16.0"
-ODOO_REVISION=$(task list-revision | grep "$ODOO_VERSION" | tail -n1)
