@@ -20,6 +20,8 @@ jobs:
       - name: Run task load-ssh-key
         run: ./task load-ssh-key
         env:
+          GIT_AUTHOR_NAME: Mintbot
+          GIT_AUTHOR_EMAIL: bot@mint-system.ch
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Run task build
