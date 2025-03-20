@@ -23,4 +23,4 @@ jobs:
       - name: Run task test-container
         run: ./task test-container
         env:
-          ODOO_VERSION: 18.0
+          ODOO_REVISION: "18.0"
