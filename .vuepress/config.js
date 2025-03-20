@@ -18,7 +18,7 @@ export default defineUserConfig({
     theme: defaultTheme({
         logo: '/icon.png',
         repo: 'mint-system/odoo-build',
-        docsBranch: '16.0',
+        docsBranch: 'main',
         editLink: true,
         navbar: [
             { text: 'Home', link: '/' },
