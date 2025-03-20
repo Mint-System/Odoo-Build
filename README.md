@@ -354,6 +354,7 @@ In `.pylintrc` remove these rules:
 
 * missing-return
 * duplicate-xml-record-id
+* redefined-builtin
 
 In the `.ruff.toml` set this option:
 
