@@ -15,8 +15,6 @@ jobs:
         uses: astral-sh/setup-uv@v5
       - name: Run task install native
         run: ./task install-native
-      - name: Run task checkout-latest-revision "16.0"
-        run: ./task checkout-latest-revision "16.0"
       - name: Run task load-ssh-key
         run: ./task load-ssh-key
         env:
@@ -24,6 +22,8 @@ jobs:
           GIT_AUTHOR_EMAIL: bot@mint-system.ch
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
+      - name: Run task checkout-latest-revision "16.0"
+        run: ./task checkout-latest-revision "16.0"
       - name: Run task build
         run: ./task build
       - name: Run task test-container
