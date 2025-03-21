@@ -81,7 +81,6 @@ function help-table() {
     printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
-    printf "$COLUMN" "llm-update" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "$COLUMN" "load-version" "[version]" "Load submodule refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
@@ -135,6 +134,7 @@ function help-table() {
     printf "$COLUMN" "update-module-docs" "[path]" "Update Readme file of the module."
     printf "$COLUMN" "update-repo-docs" "[path]" "Update Readme file of the repo."
     printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
+    printf "$COLUMN" "update-with-llm" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
     printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
     printf "$COLUMN" "upload-module" "[env][path]" "Zip and upload Odoo module."
@@ -2324,7 +2324,7 @@ function restore-dotenv() {
 
 # LLM Commands
 
-function llm-update() {
+function update-with-llm() {
     if test -z "$1"; then 
         echo "\$1 is empty."; 
         exit 1; 
