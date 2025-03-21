@@ -7,20 +7,20 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Update module docs with `update-module-docs`.
-* Added develop section with guid on how to update the repo templates.
-* Config pre-commit.
-* Added `versions` folder.
+* Added develop section with guied on how to update the repo templates.
+* Config for pre-commit added.
+* Added `versions` and `revisions` folder.
 * The new command `save-version` stores the Odoo version files.
 
 ### Updated
 
-* Change base image to `python:3.12-slim-bookworm`.
+* Changed base image to `python:3.12-slim-bookworm`.
 * Renamed all task functions to match the naming pattern.
 * Updated the repo templates for 16.0, 17.0 and 18.0.
-* Renamed all files in bin.
+* Renamed all files in `bin` folder.
 * Renamed the `generate-*-docs` commands.
 * The `checkout` command loads the Odoo version from the `versions` folder.
-* Moved all revision definitions to `revisions` folder.
+* Moved all revision definitions to the `revisions` folder.
 
 ### Removed
 
@@ -29,7 +29,6 @@ All notable changes to this project will be documented in this file. The format 
 * Removed any user/group definitions from image.
 * These commands have been removed: `checkout-config-files`, `save-config`.
 * These files have been removed: `.gitmodules`, `.python-version`.
-
 
 ### Fixed
 
