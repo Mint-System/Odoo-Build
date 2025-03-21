@@ -59,7 +59,7 @@ When working with Nix, run the nix-shell.
 nix-shell
 ```
 
-Checkout the Odoo version. Supported versions are: 13.0, 14.0, 15.0, 16.0, 17.0, 18.0
+Checkout the Odoo version. Show supported versions with `task list-versions`.
 
 ```bash
 task checkout "$VERSION"
@@ -87,7 +87,7 @@ task sync-git-submodule
 
 #### Setup Python environment
 
-Install the Python and dependencies.
+Install packages and Python dependencies.
 
 ```bash
 task install-native
@@ -157,9 +157,9 @@ ODOO_PARAM="--without-demo=all"
 
 #### Set Odoo database name
 
-By default the database name is the current branch name.
+The default database name is the checked out Odoo version.
 
-To define the name, set this env var in your `.env` file:
+To define another name, set this env var in your `.env` file:
 
 ```bash
 ODOO_DATABASE=odoo
@@ -208,12 +208,6 @@ docker-odoo-init -d odoo -i web
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
-
-#### Install custom module
-
-```bash
-docker-odoo-install -m show_db_name
-```
 
 ### Common
 
