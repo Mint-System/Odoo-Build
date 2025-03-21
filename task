@@ -1083,8 +1083,8 @@ function test-container() {
             docker logs odoo --tail 100
         done
 
-        echo -e "\033[38;5;214mTEST\033[0m: Init oca module."
-        docker-odoo-init -d test -i partner_firstname
+        echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
+        ~/bin/docker-odoo-init -d test -i partner_firstname
 
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
@@ -1101,18 +1101,18 @@ function test-container() {
         remove-snippet test snippets/base.view_partner_form.show_type.xml
 
         echo -e "\033[38;5;214mTEST\033[0m: Run Odoo scripts."
-        docker-odoo-backup -d test
-        docker-odoo-drop -d test
-        docker-odoo-restore -d test -f /var/tmp/test.zip
+        ~/bin/docker-odoo-backup -d test
+        ~/bin/docker-odoo-drop -d test
+        ~/bin/docker-odoo-restore -d test -f /var/tmp/test.zip
         change-uuid test
 
         # echo -e "\033[38;5;214mTEST\033[0m: Send mail with message post."
-        # bin/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
-        # docker-odoo-shell -d test -f -p "env['res.partner'].browse(3)._message_subscribe([7])"
-        # docker-odoo-shell -d test -f -p "env['res.partner'].browse(3).message_post(body='ping', subtype_id=1)"
-        # TO_ADDRESS=$(curl -X GET "http://localhost:8025/api/v1/messages?limit=1" \
-        #     -H 'accept: application/json' | jq ".messages[0].To[0].Address")
-        # [ "$TO_ADDRESS" = '"user@example.com"' ]
+        bin/odooctl --method "create" --model "res.partner" --value "{'name': 'User', 'email': 'user@example.com'}"
+        ~/bin/docker-odoo-shell -d test -f -p "env['res.partner'].browse(3)._message_subscribe([7])"
+        ~/bin/docker-odoo-shell -d test -f -p "env['res.partner'].browse(3).message_post(body='ping', subtype_id=1)"
+        TO_ADDRESS=$(curl -X GET "http://localhost:8025/api/v1/messages?limit=1" \
+            -H 'accept: application/json' | jq ".messages[0].To[0].Address")
+        [ "$TO_ADDRESS" = '"user@example.com"' ]
 
         # echo -e "\033[38;5;214mTEST\033[0m: Run auto update."
         # sed -i -E 's/(firstname = fields)/secondname = fields.Char();\1/' oca/partner-contact/partner_firstname/models/res_partner.py
