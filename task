@@ -22,7 +22,7 @@ function help-table() {
 
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
-    printf "$COLUMN" "build" "[platform]" "Build Odoo Conainer image. Optionally define the target platform."
+    printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
     printf "$COLUMN" "checkout" "[version]" "Checkout Odoo version."
@@ -35,7 +35,6 @@ function help-table() {
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
     printf "$COLUMN" "commit-git-submodule-all" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
-    printf "$COLUMN" "convert-database" "[db]" "Convert database backup file from PostgreSQL 9.5 to latest."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
@@ -89,7 +88,7 @@ function help-table() {
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
     printf "$COLUMN" "ps" "" "List container processes."
-    printf "$COLUMN" "publish" "" "Publish Odoo container image."
+    printf "$COLUMN" "publish" "[tag]" "Publish Odoo container image. Optionally pass a tag."
     printf "$COLUMN" "pull-git-submodule" "" "Pull all submodules listed in the .gitmodules file."
     printf "$COLUMN" "push-git-submodule" "" "Push all submodules in path."
     printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
@@ -686,6 +685,12 @@ function build() {
     MANIFEST_FILE="image/Dockerfile"
     PLATFORM="linux/amd64" # linux/arm64
     if [ -n "$1" ]; then
+        MANIFEST_FILE="$1"
+    fi
+    if [ "$MANIFEST_FILE" = "image/odoo-upgrade/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-upgrade"
+    fi
+    if [ -n "$2" ]; then
         PLATFORM="$1"
     fi
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
@@ -741,6 +746,12 @@ function container-login() {
 
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
+
+    if [ "$1" == "odoo-upgrade" ]; then
+        CONTAINER_TAG="odoo-upgrade"
+        LATEST_TAG="odoo-upgrade:latest"
+    fi
+
     echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
     $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
 
@@ -1331,17 +1342,6 @@ function clear-views() {
     echo "Delete all active views for $DATABASE in $CONTAINER :"
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "DELETE FROM report_layout WHERE view_id IN (SELECT id FROM ir_ui_view WHERE active = TRUE);"
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "WITH RECURSIVE views_to_delete AS (SELECT id, inherit_id FROM ir_ui_view WHERE active = TRUE AND inherit_id IS NULL UNION ALL SELECT v.id, v.inherit_id FROM ir_ui_view v JOIN views_to_delete p ON v.inherit_id = p.id) DELETE FROM ir_ui_view WHERE id IN (SELECT id FROM views_to_delete);"
-}
-
-function convert-database() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    unzip "tmp/$1.zip" -d "./tmp/$1"
-    sed -i'' 's/AS integer//g' "./tmp/$1/dump.sql"
-    grep -i 'as integer' "./tmp/$1/dump.sql"
-    cd "tmp/$1" || exit ; zip -r "../${1}2.zip" . ; cd ../.. || exit
-    rm -r "tmp/$1"
-    echo "Converted database file $1 to ${1}2"
 }
 
 function clear-filestore() {

@@ -6,8 +6,8 @@ Execute the Odoo Upgrade from a container.
 ## Usage
 
 ```bash
-docker run -rm -it -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" mintsystem/odoo-upgrade \
-    upgrade -m test 
+docker run -it -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" mintsystem/odoo-upgrade \
+    upgrade --help
 ```
 
 ## Develop
