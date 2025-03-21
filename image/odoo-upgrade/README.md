@@ -15,7 +15,8 @@ export PGUSER="odoo"
 export PGPASSWORD="odoo"
 export NETWORK="odoo-build_default"
 export DATABASE="odoo"
-export TARGET_DATABSE="upgrade"
+export TARGET_DATABASE="upgrade"
+export TARGET_VERSION="18.0"
 ```
 
 Run the upgrade script:
@@ -24,7 +25,7 @@ Run the upgrade script:
 docker run -it \
     -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" \
     --network="$NETWORK" mintsystem/odoo-upgrade \
-    upgrade test -d "$DATABASE" -t "$TARGET_DATABSE"
+    upgrade test -d "$DATABASE" -t "$TARGET_VERSION" -r "$TARGET_DATABASE"
 ```
 
 ## Develop
