@@ -295,6 +295,14 @@ Setup mail server config for Odoo.
 task setup-mail
 ```
 
+### Source env file
+
+Assuming the name of the environment is `test`, you source env vars like this:
+
+```bash
+eval "$(task show-env test)"
+```
+
 ## Develop
 
 ### Create Odoo revision

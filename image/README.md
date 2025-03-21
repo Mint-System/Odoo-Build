@@ -117,7 +117,7 @@ services:
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
-      CLICK_ODOO_UPDATE: "True"
+      CLICK_ODOO_UPDATE: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -298,13 +298,13 @@ Odoo is executed as a multi-threaded Python process.
 * `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
 * `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
 
-### Disable Auto Install
+### Module Auto Install
 
 With `module_change_auto_install` module you can disable the auto installation of specific modules.
 
 * `MODULE_AUTO_INSTALL_DISABLED` Comma separated list of modules that should be auto installed. Requires `module_change_auto_install` in `SERVER_WIDE_MODULES`.
 
-### Module Update
+### Module Auto Update
 
 The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The feature is disabled by default.
 

@@ -355,7 +355,7 @@ function list-env() {
 function show-env() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    cat "$ENV_FILEPATH"
+    cat "$ENV_FILEPATH" | sed 's/^/export /'
 }
 
 function edit-env() {
@@ -1105,6 +1105,20 @@ function test-container() {
         ~/bin/docker-odoo-drop -d test
         ~/bin/docker-odoo-restore -d test -f /var/tmp/test.zip
         change-uuid test
+
+        echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
+        CHECKSUM1=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
+        docker restart odoo
+        until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
+            echo "Waiting for Odoo to be ready ..."
+            sleep 3
+            docker logs odoo --tail 100
+        done
+        CHECKSUM2=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        echo "CHECKSUM1: $CHECKSUM1"
+        echo "CHECKSUM2: $CHECKSUM2"
+        [ "$CHECKSUM1" != "$CHECKSUM2" ]
     fi
 }
 
@@ -1351,7 +1365,7 @@ function change-uuid() {
     load-env "$1"
     UUID=$(uuidgen)
     echo "Set uuid $UUID for $1."
-    bin/odooctl --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field	'value' --value "'$UUID'"
+    bin/odooctl --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
 }
 
 function update-app-list() {
