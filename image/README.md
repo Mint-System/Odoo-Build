@@ -22,7 +22,7 @@ This container image is an improvement of the official Odoo image:
 - 🌈 The multiplatform image supports both `amd64` and `arm64` architectures.
 - 🪴 The container runs without requiring root privileges.
 - 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/16.0/image/>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/>
 
 ## Usage
 

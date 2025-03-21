@@ -4,7 +4,10 @@ RUN apt-get update && apt-get install -y \
     openssh-client \
     rsync \
     postgresql-client \
-    && rm -rf /var/lib/apt/lists/*
+    python3 \
+    python3-uvicorn \
+    && rm -rf /var/lib/apt/lists/* \
+    && ln -s /usr/bin/python3 /usr/bin/python
 
 COPY ./image/odoo-upgrade/bin/* /usr/local/bin/
 

@@ -88,7 +88,7 @@ function help-table() {
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
     printf "$COLUMN" "ps" "" "List container processes."
-    printf "$COLUMN" "publish" "[tag]" "Publish Odoo container image. Optionally pass a tag."
+    printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-submodule" "" "Pull all submodules listed in the .gitmodules file."
     printf "$COLUMN" "push-git-submodule" "" "Push all submodules in path."
     printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
@@ -747,7 +747,7 @@ function container-login() {
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
 
-    if [ "$1" == "odoo-upgrade" ]; then
+    if [ "$1" == "image/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
     fi
