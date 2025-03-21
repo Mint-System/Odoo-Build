@@ -282,7 +282,7 @@ function template-odoo-rc() {
 function set-addons-path() {
 
     # Read addons path from git submodules
-    SUBMODULES_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' |sort |  tr '\n' ',' |  sed 's/,*$//g')"
+    SUBMODULES_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
 
     # Remove excluded addons
     EXCLUDES="addons/theme_mint_system addons/company addons/web"
@@ -1989,9 +1989,9 @@ function add-git-submodule() {
 
 function ls-git-submodule() {
     if [ -n "$1" ]; then
-        echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g')
+        echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     else
-        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g')
+        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     fi
 }
 
