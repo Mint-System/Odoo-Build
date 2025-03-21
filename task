@@ -800,7 +800,8 @@ function logs() {
 # Script Commands
 
 function install-odoo-scripts() {
-    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/main/roles/odoo_scripts/files/install | bash
+    echo "Installing Odoo scripts with user flag."
+    curl -L https://raw.githubusercontent.com/mint-system/ansible-build/main/roles/odoo_scripts/files/install | bash -s -- --user
 }
 
 function upgrade-odoo() {
