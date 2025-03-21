@@ -1059,7 +1059,7 @@ function test-container() {
         run odoo git-clone-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
-        export ODOO_ADDONS_PATH="/mnt/enterprise,/mnt/oca"
+        export ODOO_ADDONS_PATH="/mnt/oca"
         export ODOO_DATABASE=test
         export ODOO_INIT_LANG=de_CH
         export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
@@ -1109,7 +1109,7 @@ function test-container() {
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
         # CHECKSUM1=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
-        docker restart odoo
+        restart odoo
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
             echo "Waiting for Odoo to be ready ..."
             sleep 3
