@@ -28,6 +28,13 @@ docker run -it \
     test -d "$DATABASE" -t "$TARGET_VERSION" -r "$TARGET_DATABASE"
 ```
 
+Show help of upgrade command and arguments:
+
+```bash
+docker run -it mintsystem/odoo-upgrade --help
+docker run -it mintsystem/odoo-upgrade test --help
+```
+
 ## Develop
 
 Update upgrade script:

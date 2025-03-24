@@ -10,5 +10,6 @@ RUN apt-get update && apt-get install -y \
     && ln -s /usr/bin/python3 /usr/bin/python
 
 COPY ./image/odoo-upgrade/bin/* /usr/local/bin/
+RUN chmod +x /usr/local/bin/upgrade
 
-CMD ["/bin/bash"]
+ENTRYPOINT ["upgrade"]
