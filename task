@@ -122,9 +122,10 @@ function help-table() {
     printf "$COLUMN" "template-docker-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
-    printf "$COLUMN" "test-container" "[clean]" "Test Odoo image."
+    printf "$COLUMN" "test" "[Dockerfile]" "Test Odoo container image."
     printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
+    printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
     printf "$COLUMN" "translate-module" "[db][path][lang]" "Generate translation for Odoo module."
     printf "$COLUMN" "update-app-list" "[db]" "Update app list."
@@ -744,6 +745,24 @@ function container-login() {
     fi
 }
 
+function test() {
+    if [ "$1" == "image/odoo-upgrade/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-upgrade"
+    fi
+
+    echo "Test container image ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
+
+    if [ "$CONTAINER_TAG" == "odoo" ]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
+    fi
+
+    if [ "$CONTAINER_TAG" == "odoo-upgrade" ]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
+    fi
+}
+
+
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
 
@@ -1033,7 +1052,7 @@ function stop() {
     $COMPOSE_COMMAND stop "$1"
 }
 
-function test-container() {
+function test-project() {
     if [ "$1" = "clean" ]; then
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
         drop-db test
@@ -1110,12 +1129,6 @@ function test-container() {
         update-snippet test snippets/base.view_partner_form.show_type.xml
         disable-snippet test snippets/base.view_partner_form.show_type.xml
         remove-snippet test snippets/base.view_partner_form.show_type.xml
-
-        echo -e "\033[38;5;214mTEST\033[0m: Run Odoo scripts."
-        ~/bin/docker-odoo-backup -d test
-        ~/bin/docker-odoo-drop -d test
-        ~/bin/docker-odoo-restore -d test -f /var/tmp/test.zip
-        change-uuid test
 
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
         # CHECKSUM1=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')

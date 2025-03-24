@@ -22,14 +22,12 @@ jobs:
           GIT_AUTHOR_EMAIL: bot@mint-system.ch
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
-      - name: Run task checkout-latest-revision "16.0"
-        run: ./task checkout-latest-revision "16.0"
       - name: Run task build
-        run: ./task build
-      - name: Run task test-container
-        run: ./task test-container
+        run: ./task build image/odoo-upgrade/Dockerfile
+      - name: Run task test
+        run: ./task test image/odoo-upgrade/Dockerfile
       - name: Run task publish
-        run: ./task publish
+        run: ./task publish image/odoo-upgrade/Dockerfile
         env:
           CONTAINER_REGISTRY_USERNAME: ${{ secrets.CONTAINER_REGISTRY_USERNAME }}
           CONTAINER_REGISTRY_PASSWORD: ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}

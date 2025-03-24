@@ -102,7 +102,7 @@
 | template-docker-compose   |                      | Template the Docker compose file.                                                          |
 | template-odoo-rc          |                      | Template the Odoo config file.                                                             |
 | template-repo             | [path]               | Update the repo folder from template.                                                      |
-| test-container            | [clean]              | Test Odoo image.                                                                           |
+| test-project            | [clean]              | Test Odoo image.                                                                           |
 | test-scripts              | [clean]              | Test Odoo Build scripts.                                                                   |
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |

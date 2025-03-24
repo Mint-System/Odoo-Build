@@ -272,7 +272,7 @@ task build
 Test the image.
 
 ```bash
-task test-container
+task test-project
 ```
 
 Publish the Odoo image.
