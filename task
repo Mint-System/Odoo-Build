@@ -122,7 +122,7 @@ function help-table() {
     printf "$COLUMN" "template-docker-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
-    printf "$COLUMN" "test" "[Dockerfile]" "Test Odoo container image."
+    printf "$COLUMN" "test-image" "[Dockerfile]" "Test Odoo container image."
     printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
@@ -745,7 +745,7 @@ function container-login() {
     fi
 }
 
-function test() {
+function test-image() {
     if [ "$1" == "image/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi

@@ -24,8 +24,8 @@ jobs:
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Run task build
         run: ./task build image/odoo-upgrade/Dockerfile
-      - name: Run task test
-        run: ./task test image/odoo-upgrade/Dockerfile
+      - name: Run task test-image
+        run: ./task test-image image/odoo-upgrade/Dockerfile
       - name: Run task publish
         run: ./task publish image/odoo-upgrade/Dockerfile
         env:
