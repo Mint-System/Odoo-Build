@@ -1,7 +1,9 @@
 Mint System Odoo Upgrade
 ===
 
-Image to run the Odoo upgrade script.
+[![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-upgrade)](https://hub.docker.com/r/mintsystem/odoo-upgrade/)
+
+Image to run the Odoo enterprise upgrade script.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoo-upgrade>
 
@@ -37,7 +39,7 @@ docker run -it mintsystem/odoo-upgrade test --help
 
 ## Develop
 
-Update upgrade script:
+Update the upgrade script:
 
 ```bash
 wget https://upgrade.odoo.com/upgrade -O image/odoo-upgrade/bin/upgrade
