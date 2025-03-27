@@ -3090,6 +3090,24 @@ ID: `mint_system.account.report_invoice_document.show_product_name`
 ```
 Source: [snippets/account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_product_name.xml)
 
+### Show Ref External  
+ID: `mint_system.account.report_invoice_document.show_ref_external`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <div id="partner_vat_address_not_same_as_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+    <div id="partner_vat_address_same_as_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+    <div id="partner_vat_no_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.show_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account.report_invoice_document.show_ref_external.xml)
+
 ### Show Sale Line Ids  
 ID: `mint_system.account.report_invoice_document.show_sale_line_ids`  
 ```xml

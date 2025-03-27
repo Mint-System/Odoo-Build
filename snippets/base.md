@@ -1078,10 +1078,9 @@ ID: `mint_system.base.view_res_partner_filter.fuzzy_search`
 ```xml
 <data inherit_id="base.view_res_partner_filter" priority="50">
     <field name="name" position="attributes">
-        <attribute name="filter_domain">['|', '|', '|', '|', ('display_name', '%', self), ('ref', 'ilike', self), ('email', 'ilike', self), ('vat', 'ilike', self), ('company_registry', 'ilike', self)]</attribute>
+        <attribute name="filter_domain">['|', '|', '|', '|', ('name', '%', self), ('ref', 'ilike', self), ('email', 'ilike', self), ('vat', 'ilike', self), ('company_registry', 'ilike', self)]</attribute>
     </field>
 </data>
-
 ```
 Source: [snippets/base.view_res_partner_filter.fuzzy_search.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base.view_res_partner_filter.fuzzy_search.xml)
 

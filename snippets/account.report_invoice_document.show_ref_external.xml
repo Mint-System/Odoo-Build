@@ -1,0 +1,11 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <div id="partner_vat_address_not_same_as_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+    <div id="partner_vat_address_same_as_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+    <div id="partner_vat_no_shipping" position="after">
+        <div t-if="o.partner_id.ref_external">Ref: <span t-field="o.partner_id.ref_external"/></div>
+    </div>
+</data>

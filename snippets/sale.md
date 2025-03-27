@@ -1580,6 +1580,17 @@ ID: `mint_system.sale.report_saleorder_document.add_proforma_note`
 ```
 Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_proforma_note.xml)
 
+### Add Ref External  
+ID: `mint_system.sale.report_saleorder_document.add_ref_external`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//t[@t-set='address']/p[1]" position="after">
+        <p t-if="doc.partner_id.ref_external">Ref: <span t-field="doc.partner_id.ref_external"/></p>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_ref_external.xml)
+
 ### Address Block  
 ID: `mint_system.sale.report_saleorder_document.address_block`  
 ```xml
