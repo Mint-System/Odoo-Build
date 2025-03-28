@@ -1,0 +1,5 @@
+<data inherit_id="product.product_template_only_form_view" priority="50">
+    <field name="categ_id" position="before">
+        <field name="x_purchase_price" widget="float" options="{'currency_field':'currency_id','field_digits':true,'digits':[1,3]}"/>
+    </field>
+</data>
