@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Updated
 
 * Renamed `test-container` to `test-project`.
+* Rename `docker-compose` to `compose`.
 
 ## 2025-03-20
 
@@ -75,7 +76,7 @@ All notable changes to this project will be documented in this file. The format 
 * Init database with selected modules defined in `ODOO_INIT_ADDONS`.
 * Enable mail server configuration from env vars.
 * Support podman as container engine.
-* Docker compose file is now a tempalte `template-docker-compose`.
+* Docker compose file is now a template `template-docker-compose`.
 * Command to update module code with LLMs `llm-update`.
 * Add LLM integration as feature to the README.
 
@@ -171,5 +172,5 @@ There are new commands in the Odoo Build project:
 - Boostrap modules with `task create-module|generate-module-model|generate-module-security`
 - Updated module templates in `templates`
 - Start and deploy to Minikube (Kubernetes) `task start-minikube|init-minikube` see `k8s` folder for details
-- Removed `docker-compose` in favor of `docker compose` plugin
+- Removed `compose` in favor of `docker compose` plugin
 - Updated troubleshooting section

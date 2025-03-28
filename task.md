@@ -99,7 +99,7 @@
 | store-dotenv              |                      | Store content of .env in pass entry.                                                       |
 | switch-git-submodule      | [version]            | Switch branch for all submodules listed in the .gitmodules file.                           |
 | sync-git-submodule        |                      | Switch, stash and pull all submodules.                                                     |
-| template-docker-compose   |                      | Template the Docker compose file.                                                          |
+| template-compose   |                      | Template the Docker compose file.                                                          |
 | template-odoo-rc          |                      | Template the Odoo config file.                                                             |
 | template-repo             | [path]               | Update the repo folder from template.                                                      |
 | test-project            | [clean]              | Test Odoo image.                                                                           |

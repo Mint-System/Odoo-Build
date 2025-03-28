@@ -119,7 +119,7 @@ function help-table() {
     printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
     printf "$COLUMN" "switch-git-submodule" "[version]" "Switch branch for all submodules listed in the .gitmodules file."
     printf "$COLUMN" "sync-git-submodule" "" "Switch, stash and pull all submodules."
-    printf "$COLUMN" "template-docker-compose" "" "Template the Docker compose file."
+    printf "$COLUMN" "template-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
     printf "$COLUMN" "test-image" "[Dockerfile]" "Test Odoo container image."
@@ -622,11 +622,11 @@ function list-modules() {
 
 # Container Commands
 
-function template-docker-compose() {
-    echo "Template docker-compose.yml"
+function template-compose() {
+    echo "Template compose.yml"
 
     # Extract variables and export them
-    # grep -oP '\$\{([^}]+)\}' docker-compose.yml.template | sed 's/${\([^}]\+\)}/export \1/'
+    # grep -oP '\$\{([^}]+)\}' compose.yml.template | sed 's/${\([^}]\+\)}/export \1/'
     export CONTAINER_REGISTRY
     export CONTAINER_TAG
     export POSTGRES_PORT
@@ -675,7 +675,7 @@ function template-docker-compose() {
     export POSTGRES_PORT
     export ODOO_DATABASE
 
-    envsubst < "docker-compose.yml.template" > "docker-compose.yml"
+    envsubst < "compose.yml.template" > "compose.yml"
 }
 
 function ps() {
@@ -931,7 +931,7 @@ function open-url-with-delay(){
 function start() {
     activate-venv
     set-addons-path
-    template-docker-compose
+    template-compose
     
     # Use default database if second param is not given
     DATABASE="$2"
@@ -996,7 +996,7 @@ function run() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     activate-venv
-    template-docker-compose
+    template-compose
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2"
@@ -1005,7 +1005,7 @@ function run() {
 
 function remove() {
     activate-venv
-    template-docker-compose
+    template-compose
 
     if test -z "$1"; then
         $COMPOSE_COMMAND down -v
@@ -1030,7 +1030,7 @@ function remove() {
 
 function restart() {
     activate-venv
-    template-docker-compose
+    template-compose
 
     if test -z "$1"; then
         $COMPOSE_COMMAND restart
@@ -1043,7 +1043,7 @@ function restart() {
 
 function stop() {
     activate-venv
-    template-docker-compose
+    template-compose
 
     if test -z "$1"; then
         $COMPOSE_COMMAND stop

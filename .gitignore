@@ -41,7 +41,7 @@ addons/theme_mint_system
 
 # Container
 
-docker-compose.yml
+compose.yml
 
 # Obsidian
 

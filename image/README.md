@@ -30,7 +30,7 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 ### Base
 
-The following `docker-compose.yml` file is a basic setup:
+The following `compose.yml` file is a basic setup:
 
 ```yml
 services:
@@ -68,7 +68,7 @@ volumes:
 
 ### Customized
 
-This `docker-compose.yml` shows all possible configurations:
+This `compose.yml` shows all possible configurations:
 
 ```yml
 services:
@@ -158,13 +158,13 @@ Before starting the container you can initalize the database with selected scrip
 Run the `git-clone-addons` script to clone module repos:
 
 ```bash
-docker-compose run --rm odoo git-clone-addons
+docker compose run --rm odoo git-clone-addons
 ```
 
 Run the `init-db` script to initalize the Odoo database:
 
 ```bash
-docker-compose run --rm odoo init-db
+docker compose run --rm odoo init-db
 ```
 
 The scripts are configurable with environment variables.
