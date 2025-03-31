@@ -1,17 +1,22 @@
-# podman
+# Container
 podman-compose
-# Odoo testing
+# Testing
 pre-commit
 pyyaml
 coverage
 pylint-odoo
 pytest==7.4.4
 pytest-odoo
-# Module docs
+# Docs
 rst2html5==2.0.1
 docutils==0.21.2
-# Odoo packages
+# Odoo
 setuptools
 wheel
 watchdog
 pdfminer.six
+# Performance
+py-spy
+memray
+# Debug
+debugpy

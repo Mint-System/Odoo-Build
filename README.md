@@ -373,3 +373,49 @@ task all
 ```
 
 Refine the templates based on the linter results.
+
+### Debug Odoo method with VSCode.
+
+In VSCode define a break point for a selected method.
+
+Run Odoo native with a debugger.
+
+```bash
+task debug native
+```
+
+In VSCode run `Python - attach debugger` to attach the debugger.
+
+Open [http://localhost:8069](http://localhost:8069) and run the method that you want to debug.
+
+VSCode should jump to the breakpoint and you can step through the method.
+
+### Profile Odoo memory usage
+
+Run Odoo with memray.
+
+```bash
+task record-with-memray native
+```
+
+Open [http://localhost:8069](http://localhost:8069) and finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
+
+The flamegraph report will be generated an opened.
+
+### Profile Odoo exection time
+
+Run Odoo and get the process id.
+
+```bash
+PID=$(ps -eo pid,comm | grep -m 1 'odoo' | awk '{print $1}')
+```
+
+Record the Odoo process with py-spy.
+
+```bash
+task record-with-py-spy "$PID"
+```
+
+Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
+
+The browser will open [https://www.speedscope.app/](https://www.speedscope.app/). Upload the `tmp/speedscope-profiling.json` file.

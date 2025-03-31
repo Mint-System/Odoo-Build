@@ -35,6 +35,7 @@ function help-table() {
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
     printf "$COLUMN" "commit-git-submodule-all" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
+    printf "$COLUMN" "container-ps" "" "List container processes."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
@@ -43,6 +44,7 @@ function help-table() {
     printf "$COLUMN" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
     printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
     printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
+    printf "$COLUMN" "debug" "[name]" "Debugg application. Options: native."
     printf "$COLUMN" "delete-git-submodule" "" "Delete all submodule folders."
     printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server." 
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
@@ -87,7 +89,6 @@ function help-table() {
     printf "$COLUMN" "ls-git-submodule" "[grep]" "List submodule path space separated."
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
-    printf "$COLUMN" "ps" "" "List container processes."
     printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-submodule" "" "Pull all submodules listed in the .gitmodules file."
     printf "$COLUMN" "push-git-submodule" "" "Push all submodules in path."
@@ -98,6 +99,8 @@ function help-table() {
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
+    printf "$COLUMN" "record-with-memray" "[name]" "Record application memory usage with memray. Options: native."
+    printf "$COLUMN" "record-with-py-spy" "[pid]" "Record and create flamechart for a process."
     printf "$COLUMN" "reset-git-submodule" "" "Abort rebase and reset submodules listed in the .gitmodules file."
     printf "$COLUMN" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
     printf "$COLUMN" "restart" "[name]" "Restart container."
@@ -112,7 +115,7 @@ function help-table() {
     printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "$COLUMN" "source" "" "Source the Python virtual env."
-    printf "$COLUMN" "start" "[name][db]" "Start container. Options: none, db, admin, odoo, native, mail."
+    printf "$COLUMN" "start" "[name][db]" "Start application. Options: db, admin, odoo, native, mail."
     printf "$COLUMN" "start-psql" "[db]" "Start PSQL shell in container container."
     printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder."
     printf "$COLUMN" "stop" "[name]" "Stop containers."
@@ -678,7 +681,7 @@ function template-compose() {
     envsubst < "compose.yml.template" > "compose.yml"
 }
 
-function ps() {
+function container-ps() {
     $CONTAINER_ENGINE ps
 }
 
@@ -991,6 +994,27 @@ function start() {
     fi
 }
 
+function debug() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    activate-venv
+    set-addons-path
+
+    PORT=8069
+
+    if [[ "$1" =~ "native" ]]; then
+        # Disable file validation to avoid frozen modules warning
+        export PYDEVD_DISABLE_FILE_VALIDATION=1
+        
+        echo "Starting Odoo with the debugger on port 5678."
+        echo "Attach a debugpy debugger and open http://localhost:$PORT url in your browser."
+        
+        python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
+            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+    fi
+}
+
+
 function run() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
@@ -1002,6 +1026,41 @@ function run() {
     $COMPOSE_COMMAND run --rm "$1" "$2"
 }
 
+function record-with-py-spy() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    PID="$1"
+    OUTPUT_FILE="tmp/speedscope-profiling.json"
+    SPEEDSCOPE_URL="https://www.speedscope.app/"
+
+    mkdir -p tmp
+    echo "source task source; py-spy record --pid $PID --output $OUTPUT_FILE --format speedscope" | sudo bash --
+
+    $OS_OPEN "$SPEEDSCOPE_URL"
+}
+
+function record-with-memray() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    
+    activate-venv
+    set-addons-path
+    
+    PORT=8069
+    OUTPUT_FILE="tmp/output.bin"
+
+    if [[ "$1" =~ "native" ]]; then
+        
+        echo "Starting Odoo with memray."
+        echo "Open http://localhost:$PORT url in your browser."
+        
+        mkdir -p tmp
+        rm "$OUTPUT_FILE"
+        python3 -m memray run -o "$OUTPUT_FILE" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
+            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        python3 -m memray flamegraph "$OUTPUT_FILE"
+        $OS_OPEN "tmp/memray-flamegraph-output.html"
+    fi
+}
 
 function remove() {
     activate-venv
