@@ -14,5 +14,6 @@ pdfminer.six
 python-slugify
 watchdog
 # Built-in
-manifestoo==1.0
-click-odoo-contrib==1.20
+manifestoo
+click-odoo-contrib
+memray

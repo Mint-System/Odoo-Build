@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* New commands to analyse odoo: `debug`, `record-with-py-spy` and `record-with-memray`.
+* Integrated memray into the Odoo image.
+
 ### Updated
 
 * Renamed `test-container` to `test-project`.

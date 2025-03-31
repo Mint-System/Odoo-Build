@@ -1,8 +1,10 @@
 #!/bin/bash
 
-# Based on: https://github.com/odoo/docker/blob/master/18.0/entrypoint.sh
-
 set -e
+
+entrypoint_log() {
+    echo "$@"
+}
 
 echo "  ___      _               ____        _ _     _ "
 echo " / _ \  __| | ___   ___   | __ ) _   _(_) | __| |"
@@ -22,24 +24,20 @@ if [ -n "$SERVER_WIDE_MODULES" ]; then
 else
     SERVER_WIDE_MODULES="base,web"
 fi
-export SERVER_WIDE_MODULES
 export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
-
 export LIST_DB=${LIST_DB:=True}
 export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
 export DBFILTER=${DBFILTER:=".*"}
-
 export WORKERS=${WORKERS:=0}
 export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
 export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}
 export LIMIT_TIME_REAL=${LIMIT_TIME_REAL:=120}
 
 auto-envsubst
-
 python-install
 
-# set the postgres database host, port, user and password according to the environment
+# Set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
 : ${PGHOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
 : ${PGPORT:=${DB_PORT_5432_TCP_PORT:=5432}}
@@ -65,10 +63,15 @@ entrypoint-log "Waiting for database connection."
 pg_isready -h "$PGHOST" -p "$PGPORT"
 
 setup-mail
-
 odoo-update
 
 case "$1" in
+    memray)
+        shift
+        entrypoint_log "Start Odoo with memray."
+        rm -f /var/lib/odoo/memray-capture.bin
+        exec python3 -m memray run -o /var/lib/odoo/memray-capture.bin $(which odoo) "$@" "${DB_ARGS[@]}"
+        ;;
     -- | odoo)
         shift
         if [[ "$1" == "scaffold" ]] ; then

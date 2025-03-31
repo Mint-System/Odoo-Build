@@ -346,7 +346,7 @@ COPY ./odoo.conf.template /etc/odoo/
 
 See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-container-image) for details.
 
-### Internals
+### Internal paths
 
 The most important image paths are:
 
@@ -356,3 +356,22 @@ The most important image paths are:
 * `/var/lib/odoo/git` The cloned module repos are stored here.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/mnt/extra-addons` Module folders are loaded from this path by default.
+
+### Capture memory profile
+
+With [memray](https://bloomberg.github.io/memray/) you can visualize the memory usage of Odoo.
+
+Run Odoo with memray.
+
+```bash
+docker compose run --rm -p 127.0.0.1:8069:8069 odoo memray
+```
+
+Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
+
+Generate the flamegraph and copy the flamegraph to the host.
+
+```bash
+docker compose run --rm odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
+docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
+```

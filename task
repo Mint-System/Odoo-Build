@@ -1030,7 +1030,7 @@ function record-with-py-spy() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     PID="$1"
-    OUTPUT_FILE="tmp/speedscope-profiling.json"
+    OUTPUT_FILE="tmp/speedscope-capture.json"
     SPEEDSCOPE_URL="https://www.speedscope.app/"
 
     mkdir -p tmp
@@ -1046,7 +1046,7 @@ function record-with-memray() {
     set-addons-path
     
     PORT=8069
-    OUTPUT_FILE="tmp/output.bin"
+    OUTPUT_FILE="tmp/memray-capture.bin"
 
     if [[ "$1" =~ "native" ]]; then
         
