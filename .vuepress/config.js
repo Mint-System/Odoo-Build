@@ -29,6 +29,7 @@ export default defineUserConfig({
             { text: 'Modules', link: '/modules' },
             { text: 'Changelog', link: '/CHANGELOG' },
             { text: 'Mint System', link: 'https://www.mint-system.ch/odoo' }
+            { text: 'Chat', link: 'https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch'}
         ],
         sidebar: {
             '/': [
