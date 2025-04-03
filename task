@@ -185,12 +185,6 @@ if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
     COMPOSE_COMMAND="podman-compose"
 fi
 
-if [ -n "$SERVER_WIDE_MODULES" ]; then
-    SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
-else
-    SERVER_WIDE_MODULES="base,web"
-fi
-
 if [[ "$(uname)" == "Darwin" ]]; then
     OS_RELEASE="Darwin"
     PYTHON_NOTIFY=""
@@ -653,7 +647,6 @@ function template-compose() {
     export ADDONS_GIT_REPOS
     export ODOO_ADDONS_PATH
     export ODOO_DATABASE
-    export ODOO_INIT
     export ODOO_INIT_LANG
     export ODOO_INIT_ADDONS
     export ENVIRONMENT
@@ -754,14 +747,17 @@ function test-image() {
     fi
 
     echo "Test container image ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
 
-    if [ "$CONTAINER_TAG" == "odoo" ]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
+        BROWSER_OPEN=false
+        start db,odoo
+        run odoo init-db
     fi
 
-    if [ "$CONTAINER_TAG" == "odoo-upgrade" ]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
+        start db,odoo
     fi
 }
 

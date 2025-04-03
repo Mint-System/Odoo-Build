@@ -19,11 +19,7 @@ entrypoint-log "Run as user with id: $(id)"
 source set-addons-path
 
 export ENVIRONMENT=${ENVIRONMENT:="development"}
-if [ -n "$SERVER_WIDE_MODULES" ]; then
-    SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
-else
-    SERVER_WIDE_MODULES="base,web"
-fi
+export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
 export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
 export LIST_DB=${LIST_DB:=True}
