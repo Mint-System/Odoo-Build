@@ -8,7 +8,7 @@
             <form>
                 <header>
                 <field name="state" widget="statusbar" select="1" readonly="1" />
-                <!-- <button name="button_confirm" string="Confirm" states="draft" type="object" /> -->
+                <!-- <button name="button_confirm" string="Confirm" type="object" /> -->
                 </header>
                 <sheet>
                     <div class="oe_button_box" name="button_box">
@@ -44,14 +44,14 @@
         </field>
     </record>
 
-    <record id="${MODEL_NAME}_tree_view" model="ir.ui.view">
-        <field name="name">${MODULE_NAME}.${MODEL_NAME}_tree_view</field>
+    <record id="${MODEL_NAME}_list_view" model="ir.ui.view">
+        <field name="name">${MODULE_NAME}.${MODEL_NAME}_list_view</field>
         <field name="model">$MODEL_DOT_NAME</field>
         <field name="arch" type="xml">
-            <tree>
+            <list>
                 <field name="name" />
                 <field name="value" />
-            </tree>
+            </list>
         </field>
     </record>
 
@@ -69,7 +69,7 @@
     <record id="action_${MODEL_NAME}_view" model="ir.actions.act_window">
         <field name="name">${NAME}s</field>
         <field name="res_model">$MODEL_DOT_NAME</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">list,form</field>
         <field name="search_view_id" ref="${MODEL_NAME}_search_view" />
     </record>
 
