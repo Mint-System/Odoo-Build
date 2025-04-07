@@ -15,7 +15,7 @@
     if record['x_calibrated_until']:
         record['x_date_action_required'] = record['x_calibrated_until'] - datetime.timedelta(days=record.x_lead_time_recovery_work)
     else:
-      record['x_date_action_required'] = False
+      record['x_date_action_required'] = datetime.date.today() -  datetime.timedelta(days=record.x_lead_time_recovery_work)
       </field>
     </record>
 </odoo>

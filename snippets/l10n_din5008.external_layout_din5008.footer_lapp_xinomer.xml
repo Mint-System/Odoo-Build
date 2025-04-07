@@ -1,0 +1,81 @@
+<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+    <xpath expr="//div[@class='company_details']/table" position="replace">
+        <style>
+      table#footer {
+        font-family: arial;
+        font-size: 11px;
+        line-height: 1.3;
+      }
+      table#footer tr {
+        border: transparent;
+      }
+        </style>
+
+        <t t-if="company.id == 1">
+            <table id="footer" style="border-top-color:#009ED5; border-top-width: 2px;">
+                <tr>
+                    <td style="padding-top:7px; width: 120px">Lapp Engineering AG</td>
+                    <td style="width: 150px">T +41 41 748 23 23</td>
+                    <td style="width: 40px; text-align: right">EUR</td>
+                    <td style="width: 175px">CH71 0483 5165 9043 4200 0</td>
+                    <td style="width: 75px; text-align: right">CH UID</td>
+                    <td style="width: 115px ">CHE-111.977.684</td>
+                </tr>
+                <tr>
+                    <td>Hinterbergstrasse 15</td>
+                    <td>info@lappengineering.com</td>
+                    <td style="text-align: right">CHF</td>
+                    <td>CH08 0483 5165 9043 4100 0</td>
+                    <td style="text-align: right">EORI - Nr.</td>
+                    <td>DE926469362669179</td>
+                </tr>
+                <tr>
+                    <td>CH-6330 Cham</td>
+                    <td>www.lappengineering.com</td>
+                    <td style="text-align: right">BIC</td>
+                    <td>CRESCHZZ80A</td>
+                    <td style="text-align: right">Clearing-Nr.</td>
+                    <td>4835</td>
+                </tr>
+            </table>
+        </t>
+
+        <t t-else="company.id == 2">
+            <table id="footer" style="border-top-color:#F68113; border-top-width: 2px;">
+                <tr>
+                    <td style="padding-top:7px; width: 120px">XINOMER AG</td>
+                    <td style="width: 150px">T + 41 41 552 48 00</td>
+                    <td style="width: 40px; text-align: right">EUR</td>
+                    <td style="width: 200px">CH09 8080 8003 5829 2832 4</td>
+                    <td style="width: 60px; text-align: right">CH UID</td>
+                    <td style="width: 105px ">CHE-392.238.657</td>
+                </tr>
+                <tr>
+                    <td>Hinterbergstrasse 15</td>
+                    <td>F + 41 41 552 48 01</td>
+                    <td style="text-align: right">CHF</td>
+                    <td>CH64 8080 8009 6920 6988 1</td>
+                    <td style="text-align: right">DE UID</td>
+                    <td>DE353683580</td>
+                </tr>
+                <tr>
+                    <td>6330 Cham</td>
+                    <td>info@xinomer.ch</td>
+                    <td style="text-align: right">BIC</td>
+                    <td>RAIFCH22XXX1</td>
+                    <td style="text-align: right">FR UID</td>
+                    <td>FR03980163075</td>
+                </tr>
+                <tr>
+                    <td>Schweiz</td>
+                    <td>www.xinomer.ch</td>
+                    <td style="text-align: right">BC</td>
+                    <td>80808</td>
+                    <td style="text-align: right">EORI-Nr.</td>
+                    <td>FRCH980163075</td>
+                </tr>
+            </table>
+        </t>
+
+    </xpath>
+</data>

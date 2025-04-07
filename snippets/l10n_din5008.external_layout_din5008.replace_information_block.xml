@@ -37,9 +37,8 @@
                         </td>
                     </tr>
 
-                    <!-- Rechnung -->
+                    <!-- Ausgangsrechnung -->
                     <t t-if="o._name == 'account.move' and o.move_type == 'out_invoice'">
-
                         <tr>
                             <td>
                                 <span>Invoice No.</span>
@@ -143,7 +142,34 @@
                             </td>
                         </tr>
                     </t>
-                    
+
+                    <!-- Lieferschein -->
+                    <t t-if="o._name == 'stock.picking'">
+                        <tr>
+                            <td>
+                                <span>Auftragsnr.</span>
+                            </td>
+                            <td>
+                                <span t-field="o.origin"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Ihr Auftrag</span>
+                            </td>
+                            <td>
+                                <span t-field="o.x_client_order_ref"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Lieferdatum</span>
+                            </td>
+                            <td>
+                                <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
+                            </td>
+                        </tr>
+                    </t>
                 </table>
             </div>
         </td>

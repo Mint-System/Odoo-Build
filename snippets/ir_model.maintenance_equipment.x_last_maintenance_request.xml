@@ -11,7 +11,7 @@
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
         <field name="relation">maintenance.request</field>
-        <field name="depends">name, maintenance_ids.schedule_date</field>
+        <field name="depends">name, maintenance_ids.x_calibrated_until</field>
         <field name="compute">for record in self:
     last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='schedule_date desc', limit=1)
     if last_maintenance and last_maintenance.schedule_date:
