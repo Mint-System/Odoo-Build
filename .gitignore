@@ -27,8 +27,6 @@ default.vim
 upgrade-report.html
 origin.dump
 upgraded.dump
-thirdparty/*
-!thirdparty/.gitkeep
 .env
 tmp
 odoo.conf
@@ -53,3 +51,12 @@ compose.yml
 
 .gitmodules
 .python-version
+
+# Submodules
+
+addons
+odoo
+enterprise
+oca
+thirdparty/*
+!thirdparty/.gitkeep
