@@ -31,12 +31,6 @@ upgraded.dump
 tmp
 odoo.conf
 
-# Deprecated repos
-
-addons/certificate_planer
-addons/company
-addons/theme_mint_system
-
 # Container
 
 compose.yml
@@ -60,3 +54,4 @@ enterprise
 oca
 thirdparty/*
 !thirdparty/.gitkeep
+themes

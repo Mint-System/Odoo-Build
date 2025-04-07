@@ -13,6 +13,12 @@ All notable changes to this project will be documented in this file. The format 
 
 * Renamed `test-container` to `test-project`.
 * Rename `docker-compose` to `compose`.
+* Renamed `init-git-submodule` to `clone-git-submdule`.
+* Updated *-git-subodule commands to clone repos without git submodule.
+
+### Removed
+
+- Removed all git submodules
 
 ## 2025-03-20
 

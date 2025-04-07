@@ -33,6 +33,7 @@ function help-table() {
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
+    printf "$COLUMN" "clone-git-submodule" "" "Clone submodules listed in the .gitmodules file."
     printf "$COLUMN" "commit-git-submodule-all" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
@@ -66,7 +67,6 @@ function help-table() {
     printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "$COLUMN" "info" "" "Show values of project env vars."
     printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database."
-    printf "$COLUMN" "init-git-submodule" "" "Init submodules listed in the .gitmodules file."
     printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module."
     printf "$COLUMN" "init-venv" "" "Initialize python virtual env."
     printf "$COLUMN" "install-native" "" "Install Odoo requirements in source folder."
@@ -2049,7 +2049,10 @@ function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
+    # Add to .gitmodules but not to working tree
     git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
+    rm -rf .git/modules/"$2" || true
+    git rm --cached "$2" || true
 }
 
 function ls-git-submodule() {
@@ -2108,19 +2111,22 @@ function remove-git-submodule() {
     rm -rf .git/modules/"$1"
 }
 
-function init-git-submodule() {
-    echo "Init git submodules."
-
-    # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
+function clone-git-submodule() {
     SUBMODULES=$(ls-git-submodule)
     for SUBMODULE in $SUBMODULES; do
-        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
+
+        SUBMODULE_PATH=$(git config --file .gitmodules --get submodule."$SUBMODULE".path)
+        SUBMODULE_URL=$(git config --file .gitmodules --get submodule."$SUBMODULE".url)
+        SHALLOW=$(git config --file .gitmodules --get submodule."$SUBMODULE".shallow)
+        SUBMODULE_BRANCH=$(git config --file .gitmodules --get submodule."$SUBMODULE".branch)
+
         if [ "$SHALLOW" = "true" ]; then
-            echo "Init git submodule $SUBMODULE (shallow) to $ODOO_VERSION"
-            git submodule update --init --depth 1 --remote --checkout --branch "$ODOO_VERSION" "$SUBMODULE"
+            echo "Clone git submodule $SUBMODULE (shallow) to $ODOO_VERSION"
+            git clone --depth 1 --branch="$SUBMODULE_BRANCH" "$SUBMODULE_URL" "$SUBMODULE_PATH"
         else
-            echo "Init git submodule $SUBMODULE to $ODOO_VERSION"
-            git submodule update --init "$SUBMODULE"
+            echo "Clone git submodule $SUBMODULE to $ODOO_VERSION"
+            git clone --branch="$SUBMODULE_BRANCH" "$SUBMODULE_URL" "$SUBMODULE_PATH"
+            # echo "git clone --branch=$SUBMODULE_BRANCH $SUBMODULE_URL $SUBMODULE_PATH"
         fi
     done
 }
@@ -2260,7 +2266,7 @@ function checkout() {
 
     load-version
 
-    init-git-submodule
+    clone-git-submodule
 
     switch-git-submodule
 }
@@ -2272,7 +2278,7 @@ function save-version() {
     SUBMODULES=$(ls-git-submodule)
     echo "path,rev" > "$SUBMODULES_FILE"
     for SUBMODULE in $SUBMODULES; do
-        COMMIT_HASH=$(git submodule status $SUBMODULE | awk '{print $1}')
+        COMMIT_HASH=$(git -C "$SUBMODULE" rev-parse HEAD)
         echo "$SUBMODULE,$COMMIT_HASH" >> "$SUBMODULES_FILE"
     done
 
