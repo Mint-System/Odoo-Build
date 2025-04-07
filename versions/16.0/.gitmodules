@@ -56,7 +56,7 @@
 	branch = 16.0
 [submodule "oca/website"]
 	path = oca/website
-	url = https://github.com/OCA/website.git
+	url = git@github.com:OCA/website.git
 	branch = 16.0
 [submodule "oca/reporting-engine"]
 	path = oca/reporting-engine
@@ -200,7 +200,7 @@
 	branch = 16.0
 [submodule "oca/sale-reporting"]
 	path = oca/sale-reporting
-	url = https://github.com/OCA/sale-reporting.git
+	url = git@github.com:OCA/sale-reporting.git
 	branch = 16.0
 [submodule "oca/account-reconcile"]
 	path = oca/account-reconcile
