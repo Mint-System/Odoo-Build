@@ -66,3 +66,7 @@
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend.git
 	branch = 18.0
+[submodule "addons/website"]
+	path = addons/website
+	url = git@github.com:Mint-System/Odoo-Apps-Website.git
+	branch = 18.0
