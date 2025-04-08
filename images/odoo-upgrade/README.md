@@ -1,4 +1,4 @@
-Mint System Odoo Upgrade
+[Mint System Odoo Upgrade](https://odoo.build/images/odoo-upgrade/)
 ===
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-upgrade)](https://hub.docker.com/r/mintsystem/odoo-upgrade/)

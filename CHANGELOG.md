@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. The format 
 * Rename `docker-compose` to `compose`.
 * Renamed `init-git-submodule` to `clone-git-submdule`.
 * Updated *-git-subodule commands to clone repos without git submodule.
+* Renamed `image` to `images`.
 
 ### Removed
 

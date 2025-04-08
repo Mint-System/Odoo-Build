@@ -23,7 +23,7 @@ export default defineUserConfig({
         navbar: [
             { text: 'Home', link: '/' },
             { text: 'Help', link: '/task' },
-            { text: 'Image', link: '/image/' },
+            { text: 'Images', link: '/images/' },
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
@@ -46,8 +46,8 @@ export default defineUserConfig({
                             link: '/task',
                         },
                         {
-                            text: 'Image',
-                            link: '/image/',
+                            text: 'Images',
+                            link: '/images/',
                         },
                         {
                             text: 'Snippets',

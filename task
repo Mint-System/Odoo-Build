@@ -679,12 +679,12 @@ function container-ps() {
 }
 
 function build() {
-    MANIFEST_FILE="image/Dockerfile"
+    MANIFEST_FILE="images/odoo/Dockerfile"
     PLATFORM="linux/amd64" # linux/arm64
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
     fi
-    if [ "$MANIFEST_FILE" = "image/odoo-upgrade/Dockerfile" ]; then
+    if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
     if [ -n "$2" ]; then
@@ -742,7 +742,7 @@ function container-login() {
 }
 
 function test-image() {
-    if [ "$1" == "image/odoo-upgrade/Dockerfile" ]; then
+    if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
 
@@ -765,7 +765,7 @@ function test-image() {
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
 
-    if [ "$1" == "image/odoo-upgrade/Dockerfile" ]; then
+    if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
     fi

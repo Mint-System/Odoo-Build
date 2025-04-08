@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && ln -s /usr/bin/python3 /usr/bin/python
 
-COPY ./image/odoo-upgrade/bin/* /usr/local/bin/
+COPY ./images/odoo-upgrade/bin/* /usr/local/bin/
 RUN chmod +x /usr/local/bin/upgrade
 
 ENTRYPOINT ["upgrade"]
