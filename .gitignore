@@ -18,7 +18,6 @@ dist
 default.vim
 .vscode
 .idea
-.obsidian
 *.swp
 
 # Odoo
