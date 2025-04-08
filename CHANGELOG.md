@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file. The format 
 * Renamed `init-git-submodule` to `clone-git-submdule`.
 * Updated *-git-subodule commands to clone repos without git submodule.
 * Renamed `image` to `images`.
+* Renamed `git-submodule` to `git-folder`.
 
 ### Removed
 

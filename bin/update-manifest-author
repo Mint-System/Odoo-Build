@@ -4,13 +4,13 @@
 DIRECTORY="addons"
 
 # Function to update the __manifest__.py file
-update_manifest() {
+function update_manifest() {
     # Update author field in __manifest__.py
     sed -i 's/"author": "Mint System GmbH, Odoo Community Association (OCA)"/"author": "Mint System GmbH"/g' "$1"
 }
 
 # Function to update .pylintrc file
-update_pylintrc() {
+function update_pylintrc() {
     # Update the author field in .pylintrc
     sed -i 's/author = "Mint System GmbH, Odoo Community Association (OCA)"/author = "Mint System GmbH"/g' "$1"
     sed -i 's/manifest-required-authors=Odoo Community Association (OCA)/manifest-required-authors=Mint System GmbH/g' "$1"
