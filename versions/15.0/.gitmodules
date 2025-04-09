@@ -148,7 +148,7 @@
 	branch = 15.0
 [submodule "oca/website"]
 	path = oca/website
-	url = https://github.com/OCA/website.git
+	url = git@github.com:OCA/website.git
 	branch = 15.0
 [submodule "oca/purchase-workflow"]
 	path = oca/purchase-workflow
@@ -228,11 +228,11 @@
 	branch = 15.0
 [submodule "oca/credit-control"]
 	path = oca/credit-control
-	url = https://github.com/OCA/credit-control
+	url = git@github.com:OCA/credit-control
 	branch = 15.0
 [submodule "odoo"]
 	path = odoo
-	url = https://github.com/odoo/odoo.git
+	url = git@github.com:odoo/odoo.git
 	branch = 15.0
 [submodule "oca/maintenance"]
 	path = oca/maintenance
