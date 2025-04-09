@@ -76,7 +76,7 @@
 	branch = 14.0
 [submodule "oca/website"]
 	path = oca/website
-	url = https://github.com/OCA/website.git
+	url = git@github.com:OCA/website.git
 	branch = 14.0
 [submodule "addons/product_attribute"]
 	path = addons/product_attribute
@@ -235,7 +235,7 @@
 	branch = 14.0
 [submodule "oca/credit-control"]
 	path = oca/credit-control
-	url = https://github.com/OCA/credit-control
+	url = git@github.com:OCA/credit-control
 	branch = 14.0
 [submodule "oca/maintenance"]
 	path = oca/maintenance
@@ -247,7 +247,7 @@
 	branch = 14.0
 [submodule "oca/sale-reporting"]
 	path = oca/sale-reporting
-	url = https://github.com/OCA/sale-reporting.git
+	url = git@github.com:OCA/sale-reporting.git
 	branch = 14.0
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
