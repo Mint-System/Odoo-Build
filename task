@@ -78,7 +78,7 @@ function help-table() {
     printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
     printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
     printf "$COLUMN" "list-env" "" "List env files."
-    printf "$COLUMN" "list-git-folder" "" "List path and url of submodules."
+    printf "$COLUMN" "list-git-folder" "[grep]" "List path and url of submodules."
     printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
@@ -2097,7 +2097,7 @@ function list-git-folder() {
     printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
     echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
 
-    SUBMODULES=$(ls-git-folder)
+    SUBMODULES=$(ls-git-folder "$1")
     for SUBMODULE in $SUBMODULES; do
         URL=$(git config --file .gitmodules --get "submodule.$SUBMODULE.url")
         URL=${URL#git@github.com:}
