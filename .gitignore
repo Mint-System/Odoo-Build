@@ -49,6 +49,7 @@ compose.yml
 
 addons
 odoo
+!images/odoo
 enterprise
 oca
 thirdparty/*

@@ -1,0 +1,94 @@
+#!/bin/bash
+
+DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+
+if [ "$DATABASE_INITIALIZED" = "1" ]; then
+
+    export ODOO_MAIL_SMTP_PORT=${ODOO_MAIL_SMTP_PORT:="587"}
+    export ODOO_MAIL_SMTP_ENCRYPTION=${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}
+    export ODOO_MAIL_SMTP_FROM_FILTER=${ODOO_MAIL_SMTP_FROM_FILTER:=""}
+    export ODOO_MAIL_IMAP_PORT=${ODOO_MAIL_IMAP_PORT:="993"}
+    export ODOO_MAIL_IMAP_SSL=${ODOO_MAIL_IMAP_SSL:="True"}
+
+    PYTHON_SCRIPT=$(cat <<EOF
+# Set python vars from env vars
+smtp_host = '$ODOO_MAIL_SMTP_HOST'
+smtp_port = $ODOO_MAIL_SMTP_PORT
+smtp_encryption = '$ODOO_MAIL_SMTP_ENCRYPTION'
+smtp_from_filter = '$ODOO_MAIL_SMTP_FROM_FILTER'
+imap_host = '$ODOO_MAIL_IMAP_HOST'
+imap_port = $ODOO_MAIL_IMAP_PORT
+imap_ssl = $ODOO_MAIL_IMAP_SSL
+mail_user = '$ODOO_MAIL_USER'
+mail_password = '$ODOO_MAIL_PASSWORD'
+mail_catchall_alias = '$ODOO_MAIL_CATCHALL_ALIAS'
+mail_catchall_domain = '$ODOO_MAIL_CATCHALL_DOMAIN'
+mail_default_from = '$ODOO_MAIL_DEFAULT_FROM'
+
+# Setup outgoing mail server
+if smtp_host:
+    ir_mail_server = {
+        'name': smtp_host,
+        'smtp_host': smtp_host,
+        'smtp_port': smtp_port,
+        'smtp_user': mail_user,
+        'smtp_pass': mail_password,
+        'smtp_encryption': smtp_encryption,
+        'from_filter': smtp_from_filter
+    }
+    ir_mail_server_id = env['ir.mail_server'].search([('name', '=', smtp_host)], limit=1)
+    if ir_mail_server_id:
+        ir_mail_server_id.write(ir_mail_server)
+    else:
+        env['ir.mail_server'].create(ir_mail_server)
+    env.cr.commit()
+
+# Setup incoming mail server
+if imap_host:
+    fetchmail_server = {
+        'name': imap_host,
+        'server': imap_host,
+        'port': imap_port,
+        'user': mail_user,
+        'password': mail_password,
+        'is_ssl': imap_ssl,
+        'state': 'done'
+    }
+    fetchmail_server_id = env['fetchmail.server'].search([('name', '=', imap_host)], limit=1)
+    if fetchmail_server_id:
+        fetchmail_server_id.write(fetchmail_server)
+    else:
+        env['fetchmail.server'].create(fetchmail_server)
+    env.cr.commit()
+
+# Setup system parameters
+
+if mail_catchall_alias:
+    mail_catchall_alias_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1)
+    if not mail_catchall_alias_id:
+        env['ir.config_parameter'].create({'key': 'mail.catchall.alias', 'value': mail_catchall_alias})
+    if mail_catchall_alias_id.value != mail_catchall_alias:
+        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1).write({'value': mail_catchall_alias})
+    env.cr.commit()
+
+if mail_catchall_domain:
+    mail_catchall_domain_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1)
+    if not mail_catchall_domain_id:
+        env['ir.config_parameter'].create({'key': 'mail.catchall.domain', 'value': mail_catchall_domain})
+    if mail_catchall_domain_id.value != mail_catchall_domain:
+        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1).write({'value': mail_catchall_domain})
+    env.cr.commit()
+
+if mail_default_from:
+    mail_default_from_id = env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1)
+    if not mail_default_from_id:
+        env['ir.config_parameter'].create({'key': 'mail.default.from', 'value': mail_default_from})
+    if mail_default_from_id.value != mail_default_from:
+        env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1).write({'value': mail_default_from})
+    env.cr.commit()
+EOF
+)
+
+    entrypoint-log "Setup mail server configuation for database $ODOO_DATABASE."
+    (echo "$PYTHON_SCRIPT" | odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http) || true
+fi

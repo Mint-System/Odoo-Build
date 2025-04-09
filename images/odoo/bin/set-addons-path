@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# Add git path to addons path
+if [ -n "$ADDONS_GIT_REPOS" ]; then
+    ODOO_ADDONS_PATH="/var/lib/odoo/git,$ODOO_ADDONS_PATH"
+fi
+
+if [ -n "$ODOO_ADDONS_PATH" ]; then 
+
+    entrypoint-log "Resolve addons path: $ODOO_ADDONS_PATH"
+
+    # Search for module manifest files containing "version.+NN.0" and return list of module paths
+    ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
+    
+    # Set parent folder of module paths as new addons path
+    ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
+
+    # Enterprise modules always have version 1.0
+    if [[ "$ODOO_ADDONS_PATH" =~ "/mnt/enterprise" ]]; then
+        ODOO_ADDONS_PATH="/mnt/enterprise,$ODOO_MODULE_PATH"
+    else
+        ODOO_ADDONS_PATH="$ODOO_MODULE_PATH"
+    fi
+
+    export ODOO_ADDONS_PATH
+fi

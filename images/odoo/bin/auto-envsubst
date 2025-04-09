@@ -1,0 +1,17 @@
+#!/bin/bash
+
+TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
+OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
+FILTER="${ODOO_ENVSUBST_FILTER:-}"
+
+if [ -n "$ODOO_ADDONS_PATH" ]; then
+    entrypoint-log "Addons path: $ODOO_ADDONS_PATH"
+    ADDONS_PATH=$(echo "${ODOO_ADDONS_PATH},${ADDONS_PATH}")
+fi
+
+DEFINED_ENVS=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${FILTER}/ ) ? name : \"\" } }" < /dev/null ))
+
+if [[ -f "$TEMPLATE_FILE" ]]; then
+    entrypoint-log "Running envsubst on $TEMPLATE_FILE to $OUTPUT_FILE."
+    envsubst "$DEFINED_ENVS" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
+fi

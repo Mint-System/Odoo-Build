@@ -1,0 +1,19 @@
+# Replaced from Docker apt install
+num2words
+phonenumbers
+python-ldap
+qrcode
+setuptools
+vobject
+xlrd
+xlwt
+rlPyCairo
+python-magic
+odfpy
+pdfminer.six
+python-slugify
+watchdog
+# Built-in
+manifestoo
+click-odoo-contrib
+memray
