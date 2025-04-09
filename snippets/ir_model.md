@@ -1090,7 +1090,7 @@ ID: `mint_system.ir_model.maintenance_equipment.x_date_action_required`
     if record['x_calibrated_until']:
         record['x_date_action_required'] = record['x_calibrated_until'] - datetime.timedelta(days=record.x_lead_time_recovery_work)
     else:
-      record['x_date_action_required'] = False
+      record['x_date_action_required'] = datetime.date.today() -  datetime.timedelta(days=record.x_lead_time_recovery_work)
       </field>
     </record>
 </odoo>
@@ -1114,7 +1114,7 @@ ID: `mint_system.ir_model.maintenance_equipment.x_last_maintenance_request`
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
         <field name="relation">maintenance.request</field>
-        <field name="depends">name, maintenance_ids.schedule_date</field>
+        <field name="depends">name, maintenance_ids.x_calibrated_until</field>
         <field name="compute">for record in self:
     last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='schedule_date desc', limit=1)
     if last_maintenance and last_maintenance.schedule_date:
@@ -1671,6 +1671,26 @@ ID: `mint_system.ir_model.product_template.x_product_label`
 ```
 Source: [snippets/ir_model.product_template.x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.product_template.x_product_label.xml)
 
+### X Purchase Price  
+ID: `mint_system.ir_model.product_template.x_purchase_price`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_purchase_price" model="ir.model.fields">
+        <field name="field_description">Einkaufspreis</field>
+        <field name="model">product.template</field>
+        <field name="model_id" ref="product.model_product_template"/>
+        <field name="name">x_purchase_price</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.product_template.x_purchase_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.product_template.x_purchase_price.xml)
+
 ### X Storage Temperature  
 ID: `mint_system.ir_model.product_template.x_storage_temperature`  
 ```xml
@@ -2036,6 +2056,26 @@ ID: `mint_system.ir_model.purchase_order.x_group_ids`
 
 ```
 Source: [snippets/ir_model.purchase_order.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.purchase_order.x_group_ids.xml)
+
+### X Is Hidden  
+ID: `mint_system.ir_model.purchase_order.x_is_hidden`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_is_hidden" model="ir.model.fields">
+        <field name="field_description">Ist verborgen</field>
+        <field name="model">purchase.order</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="name">x_is_hidden</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>    
+        <field name="ttype">boolean</field>        
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.purchase_order.x_is_hidden.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.purchase_order.x_is_hidden.xml)
 
 ### X Payment State  
 ID: `mint_system.ir_model.purchase_order.x_payment_state`  
@@ -3823,6 +3863,27 @@ ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`
 
 ```
 Source: [snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_quant.x_last_delivery_partner_id.xml)
+
+### X Package Type  
+ID: `mint_system.ir_model.stock_quant.x_package_type`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_last_delivery_partner_id" model="ir.model.fields">
+        <field name="field_description">Pakettyp</field>
+        <field name="model">stock.quant</field>
+        <field name="model_id" ref="stock.model_stock_quant"/>
+        <field name="name">x_package_type</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>       
+        <field name="related">package_id.package_type_id.display_name</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_quant.x_package_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/ir_model.stock_quant.x_package_type.xml)
 
 ## Stock Valuation Layer  
 ### X Quant Location Id  

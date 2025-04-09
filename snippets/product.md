@@ -517,6 +517,17 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`
 ```
 Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
 
+### X Purchase Price  
+ID: `mint_system.product.product_template_only_form_view.x_purchase_price`  
+```xml
+<data inherit_id="product.product_template_only_form_view" priority="50">
+    <field name="categ_id" position="before">
+        <field name="x_purchase_price" widget="float" options="{'currency_field':'currency_id','field_digits':true,'digits':[1,3]}"/>
+    </field>
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.x_purchase_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_purchase_price.xml)
+
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
 ```xml

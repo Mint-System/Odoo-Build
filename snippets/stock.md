@@ -3816,6 +3816,83 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 ```
 Source: [snippets/stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.style_trimada.xml)
 
+### Summary  
+ID: `mint_system.stock.report_delivery_document.summary`  
+```xml
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//table[@name='stock_move_line_table']" position="after">
+		<div style="margin-top: 30px">
+
+			<t t-set="lines" t-value="o.move_ids.move_line_ids"/>
+			<t t-set="product_weight" t-value="0.0"/>
+			<t t-set="net_weight" t-value="0.0"/>
+			<tr t-foreach="lines" t-as="move">
+				<t t-set="product_weight" t-value="move.product_id.weight * move.quantity"/>
+				<t t-set="net_weight" t-value="net_weight + product_weight"/>
+			</tr>
+
+			<t t-set="lines" t-value="o.package_ids"/>
+			<t t-set="count_packages" t-value="0"/>
+			<t t-set="total_weight" t-value="0.0"/>
+			<t t-set="has_shipping_weight" t-value="False"/>
+
+			<tr t-foreach="lines" t-as="package">
+				<t t-set="count_packages" t-value="count_packages + 1"/>
+				<t t-set="total_weight" t-value="total_weight + package.weight"/>
+				<t t-if="package.shipping_weight">
+					<t t-set="has_shipping_weight" t-value="True"/>
+				</t>
+			</tr>			
+
+			<table style="margin-left: auto; margin-right: 0;">
+
+				<t t-if="count_packages">
+					<tr>
+						<td>
+							<strong>Anzahl Transporteinheiten:</strong>
+						</td>
+						<td style="text-align: right; width: 80px">
+							<strong t-esc="count_packages"/>
+						</td>
+					</tr>
+				</t>
+
+				<t t-if="not has_shipping_weight">
+					<tr>
+						<td>
+							<strong>Gesamtgewicht Netto: </strong>
+						</td>
+						<td style="text-align: right">
+							<strong t-esc="net_weight"/>
+							<strong> kg</strong>
+						</td>
+					</tr>
+
+					<t t-if="total_weight">
+						<tr>
+							<td>
+								<strong>Gesamtgewicht Brutto: </strong>
+							</td>
+							<td style="text-align: right">
+								<t>
+									<strong t-esc="total_weight"/>
+									<strong> kg</strong>
+								</t>
+							</td>
+						</tr>
+					</t>
+				</t>
+			</table>
+
+		</div>
+
+	</xpath>
+
+</data>
+```
+Source: [snippets/stock.report_delivery_document.summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.report_delivery_document.summary.xml)
+
 ### Switch Address Block  
 ID: `mint_system.stock.report_delivery_document.switch_address_block`  
 ```xml

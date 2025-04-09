@@ -8,15 +8,16 @@ All notable changes to this project will be documented in this file. The format 
 
 * New commands to analyse odoo: `debug`, `record-with-py-spy` and `record-with-memray`.
 * Integrated memray into the Odoo image.
+* Added a separate readme file in images folder.
 
 ### Updated
 
 * Renamed `test-container` to `test-project`.
 * Rename `docker-compose` to `compose`.
 * Renamed `init-git-submodule` to `clone-git-submdule`.
-* Updated *-git-subodule commands to clone repos without git submodule.
+* Updated `*-git-subodule` commands to clone repos without git submodule.
 * Renamed `image` to `images`.
-* Renamed `git-submodule` to `git-folder`.
+* Renamed `-git-submodule` to `-git-folder`.
 
 ### Removed
 

@@ -1,19 +1,20 @@
 | Command                   | Option               | Description                                                                                |
 |---------------------------|----------------------|--------------------------------------------------------------------------------------------|
 | activate-venv             |                      | Activate virtualenv.                                                                       |
-| add-git-submodule         | [url] [path]         | Add git submodule.                                                                         |
+| add-git-folder            | [url] [path]         | Add git submodule.                                                                         |
 | build                     | [Dockerfile][platform] | Build Odoo Container image. Optionally define the target platform.                         |
 | build-vuepress            |                      | Create Vuepress build.                                                                     |
 | change-uuid               | [env]                | Change database uuid via xmlrpc.                                                           |
 | checkout                  | [version]            | Checkout Odoo version.                                                                     |
-| checkout-git-submodule    |                      | Checkout submodule commits.                                                                |
+| checkout-git-folder       |                      | Checkout submodule commits.                                                                |
 | checkout-latest-revision  | [version]            | Checkout the latest revision of the Odoo version.                                          |
 | checkout-revision         | [revision]           | Run Odoo revision script or checkout revision set by env var.                              |
 | clear-assets              | [db]                 | Clear all assets of Odoo database.                                                         |
 | clear-filestore           | [db]                 | Clear local filestore folder. No param will clear all filestores.                          |
 | clear-views               | [db]                 | Clear all views of Odoo database.                                                          |
 | clock-odoo                | [db]                 | Count custom line of codes.                                                                |
-| commit-git-submodule-all  | [message][path]      | Commit all changes in path.                                                                |
+| clone-git-folder          |                      | Clone submodules listed in the .gitmodules file.                                           |
+| commit-git-folder         | [message][path]      | Commit all changes in path.                                                                |
 | container-login           | [user][pass]         | Setup container hub login credentials.                                                     |
 | container-ps              |                      | List container processes.                                                                  |
 | create-git-feature-branch | [path]               | Create feature branch for Odoo module.                                                     |
@@ -25,7 +26,7 @@
 | create-revision           | [revision]           | Create new Odoo revision.                                                                  |
 | create-snippet            | [id]                 | Create snippet from template.                                                              |
 | debug                     | [name]               | Debugg application. Options: native.                                                       |
-| delete-git-submodule      |                      | Delete all submodule folders.                                                              |
+| delete-git-folder         |                      | Delete all submodule folders.                                                              |
 | dev-vuepress              |                      | Start Vuepress development server.                                                         |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
 | disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
@@ -40,13 +41,12 @@
 | generate-revision-docs    |                      | Update revisions doc file.                                                                 |
 | generate-snippet-docs     |                      | Update snippets doc file.                                                                  |
 | get-addons-path           |                      | Output addons path.                                                                        |
-| get-git-submodule-status  | [path]               | Show status for submodules in path.                                                        |
+| status-git-folder         | [path]               | Show status for submodules in path.                                                        |
 | get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
 | import-csv                | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.                           |
 | info                      |                      | Show values of project env vars.                                                           |
 | init-db                   | [db]                 | Initialize the Odoo database.                                                              |
-| init-git-submodule        |                      | Init submodules listed in the .gitmodules file.                                            |
 | init-module               | [db][path,module]    | Initialize Odoo module.                                                                    |
 | init-venv                 |                      | Initialize python virtual env.                                                             |
 | install-native            |                      | Install Odoo requirements in source folder.                                                |
@@ -58,7 +58,7 @@
 | lint-module-repo          | [path]               | Run pylint odoo for modules in repo folder.                                                |
 | lint-snippets             |                      | Run checks for all snippets.                                                               |
 | list-env                  |                      | List env files.                                                                            |
-| list-git-submodule        |                      | List path and url of submodules.                                                           |
+| list-git-folder           | [grep]               | List path and url of submodules.                                                           |
 | list-modules              | [path]               | Get modules in path as list.                                                               |
 | list-revision             |                      | List available Odoo revisions.                                                             |
 | list-versions             |                      | List available Odoo versions.                                                              |
@@ -66,22 +66,23 @@
 | load-version              | [version]            | Load submodule refs from  version folder.                                                  |
 | load-ssh-key              |                      | Load SSH private key from env var.                                                         |
 | logs                      |                      | Tail Odoo container logs.                                                                  |
-| ls-git-submodule          | [grep]               | List submodule path space separated.                                                       |
+| ls-module                 | [grep]               | List submodule path space separated.                                                       |
+| ls-git-folder             | [grep]               | List submodule path space separated.                                                       |
 | odooctl                   | [param]              | Execute odooctl cli.                                                                       |
 | patch-database            | [db][path]           | Apply sql file to database.                                                                |
 | publish                   | [Dockerfile]         | Publish Odoo container image.                                                              |
-| pull-git-submodule        |                      | Pull all submodules listed in the .gitmodules file.                                        |
-| push-git-submodule        |                      | Push all submodules in path.                                                               |
+| pull-git-folder           |                      | Pull all submodules listed in the .gitmodules file.                                        |
+| push-git-folder           |                      | Push all submodules in path.                                                               |
 | pytest-module             | [db][name,path]      | Run module tests with pytest.                                                              |
 | release-module            | [path]               | Create GitHub release for a module.                                                        |
 | remove                    | [name]               | Remove containers and volumes. Options: none, db, admin, odoo, mail.                       |
 | remove-env                | [env]                | Remove environment config.                                                                 |
-| remove-git-submodule      | [path]               | Remove a git submodule.                                                                    |
+| remove-git-folder         | [path]               | Remove a git submodule.                                                                    |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
 | remove-snippet            | [env][path]          | Remove snippet definition.                                                                 |
 | record-with-memray        | [name]               | Record application memory usage with memray. Options: native.                              |
 | record-with-py-spy        | [pid]                | Record and create flamechart for a process.                                                |
-| reset-git-submodule       |                      | Abort rebase and reset submodules listed in the .gitmodules file.                          |
+| reset-git-folder          |                      | Abort rebase and reset submodules listed in the .gitmodules file.                          |
 | reset-views               | [db][key]            | Execute hard reset on views matching keys.                                                 |
 | restart                   | [name]               | Restart container.                                                                         |
 | restore-dotenv            |                      | Restore content of .env from pass entry.                                                   |
@@ -95,13 +96,14 @@
 | show-env                  | [env]                | Output content of the env file.                                                            |
 | show-revision             | [revision]           | Show references of Odoo revision.                                                          |
 | source                    |                      | Source the Python virtual env.                                                             |
+| stage-git-folder          | [path]               | Stage all files in git folders in path.                                                    |
 | start                     | [name][db]           | Start application. Options: db, admin, odoo, native, mail.                                 |
 | start-psql                | [db]                 | Start PSQL shell in container container.                                                   |
 | start-shell               | [db]                 | Start Odoo shell from source folder.                                                       |
 | stop                      | [name]               | Stop containers.                                                                           |
 | store-dotenv              |                      | Store content of .env in pass entry.                                                       |
-| switch-git-submodule      | [version]            | Switch branch for all submodules listed in the .gitmodules file.                           |
-| sync-git-submodule        |                      | Switch, stash and pull all submodules.                                                     |
+| switch-git-folder         | [version]            | Switch branch for all submodules listed in the .gitmodules file.                           |
+| sync-git-folder           |                      | Switch, stash and pull all submodules.                                                     |
 | template-compose          |                      | Template the Docker compose file.                                                          |
 | template-odoo-rc          |                      | Template the Odoo config file.                                                             |
 | template-repo             | [path]               | Update the repo folder from template.                                                      |
@@ -115,6 +117,7 @@
 | update-docs               |                      | Update project docs.                                                                       |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |
 | update-module-docs        | [path]               | Update Readme file of the module.                                                          |
+| update-module-license     | [grep]               | Update LICENSE file for each matching module.                                              |
 | update-repo-docs          | [path]               | Update Readme file of the repo.                                                            |
 | update-snippet            | [env][path]          | Update snippet definition.                                                                 |
 | update-with-llm           | [path][prompt]       | Feed module files with prompt to LLM and apply file changes.                               |

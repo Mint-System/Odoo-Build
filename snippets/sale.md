@@ -2729,19 +2729,25 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations2`
                 <t t-if="doc.date_order">
                     <td width="200px">Date</td>
                     <td width="500px">
-
                         <span id="date_order" t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-
                     </td>
                 </t>
             </tr>
+            <t t-if="doc.state != 'sale'">
+                <tr>
+                    <t t-if="doc.validity_date">
+                        <td>Validity Date</td>
+                        <td>
+                            <span id="validity_date" t-field="doc.validity_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                        </td>
+                    </t>
+                </tr>
+            </t>
             <tr>
                 <t t-if="doc.client_order_ref">
                     <td>Your Reference</td>
                     <td>
-
                         <span t-field="doc.client_order_ref"/>
-
                     </td>
                 </t>
             </tr>
@@ -2791,10 +2797,9 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations2`
                     </td>
                 </t>
             </tr>
-        </table>      
+        </table>
     </xpath>
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_informations2.xml)
 
