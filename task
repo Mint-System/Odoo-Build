@@ -237,6 +237,10 @@ function generate-admin-passwd() {
 # Env Commands
 
 function init-venv() {
+
+    echo "Ensure Python version $(cat .python-version) is installed."
+    uv python install
+
     if [ ! -d "venv$ODOO_VERSION" ]; then
         echo "Init venv$ODOO_VERSION with $(uv --version)."
         uv venv "venv$ODOO_VERSION"
