@@ -47,7 +47,7 @@ function help-table() {
     printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
     printf "$COLUMN" "debug" "[name]" "Debugg application. Options: native."
     printf "$COLUMN" "delete-git-folder" "" "Delete all submodule folders."
-    printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server." 
+    printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server."
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
     printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
@@ -396,7 +396,7 @@ function list-versions() {
 
 function generate-help-docs() {
     echo "Pipe help table into task.md."
-    help-table > task.md 
+    help-table > task.md
 }
 
 function update-repo-docs() {
@@ -410,7 +410,7 @@ function update-repo-docs() {
     fi
 
     REPO_PATH=$(dirname "$README_PATH")
-    
+
     MANIFEST_FILES="$REPO_PATH/*/__manifest__.py"
 
     # Find marker in readme and clear content after
@@ -437,7 +437,7 @@ function update-repo-docs() {
 function generate-snippet-docs() {
 
     echo "Update snippets doc file."
-    
+
     echo "# Snippets" > snippets.md
     echo "In Odoo everything is described as an XML document. \
     Snippets are modifications (edits) for these XML documents. \
@@ -459,11 +459,11 @@ function generate-snippet-docs() {
         echo -e "# $TITLE" > "$DOCFILE"
         echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
         SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',\n"
-        
+
         # Get all xml ids
         XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
         for XML_ID in $XML_IDS; do
-        
+
             XML_ID_TITLE=$(echo "$XML_ID" | sed 's/_/ /g') # Replace underline with space
             XML_ID_TITLE=$(echo "$XML_ID_TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
 
@@ -547,7 +547,7 @@ function update-module-docs() {
     MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
 
     MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('name', ''))")
-    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))") 
+    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))")
     MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
     MODULE_WIKI_PATH=$(basename "$MODULE_PATH" | sed 's/_/-/g')
 
@@ -592,7 +592,7 @@ function template-repo(){
     rm "$REPO_PATH/.isort.cfg"
     rm "$REPO_PATH/.pylintrc-mandatory"
 
-    update-repo-docs "$REPO_PATH" 
+    update-repo-docs "$REPO_PATH"
 }
 
 # Module Commands
@@ -622,7 +622,7 @@ function get-module-version() {
         # Get version of module
         VERSION=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
-        
+
         # Set default version
         [ -z "$VERSION" ] && VERSION=0.0
 
@@ -719,7 +719,7 @@ function build() {
         PLATFORM="$1"
     fi
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
-    
+
     echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
 
@@ -840,7 +840,7 @@ function upload-module() {
             # Upload zip file
             curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
             echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
-            
+
             UPLOADS+="  - name: $MODULE\n"
             UPLOADS+="    version: $VERSION\n"
         fi
@@ -885,10 +885,10 @@ function upgrade-odoo() {
 
 # Install Commands
 
-function install-native() {    
+function install-native() {
     init-venv
     activate-venv
-    
+
     if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
@@ -916,7 +916,7 @@ function install-native() {
         echo "Install wkhtmltopdf and some dev libraries"
         echo "This will give a depreciation warning and you need to enter your sudo password."
         brew install gettext wkhtmltopdf libsasl2 openldap openssl libxml2
-        
+
         echo "Install the binary version of psycopg2"
         uv pip install psycopg2-binary --force
 
@@ -926,7 +926,7 @@ function install-native() {
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
 
-    else 
+    else
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
     fi
@@ -959,7 +959,7 @@ function start() {
     activate-venv
     set-addons-path
     template-compose
-    
+
     # Use default database if second param is not given
     DATABASE="$2"
     if [ -z "$2" ]; then
@@ -1029,10 +1029,10 @@ function debug() {
     if [[ "$1" =~ "native" ]]; then
         # Disable file validation to avoid frozen modules warning
         export PYDEVD_DISABLE_FILE_VALIDATION=1
-        
+
         echo "Starting Odoo with the debugger on port 5678."
         echo "Attach a debugpy debugger and open http://localhost:$PORT url in your browser."
-        
+
         python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
             --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
@@ -1065,18 +1065,18 @@ function record-with-py-spy() {
 
 function record-with-memray() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    
+
     activate-venv
     set-addons-path
-    
+
     PORT=8069
     OUTPUT_FILE="tmp/memray-capture.bin"
 
     if [[ "$1" =~ "native" ]]; then
-        
+
         echo "Starting Odoo with memray."
         echo "Open http://localhost:$PORT url in your browser."
-        
+
         mkdir -p tmp
         rm "$OUTPUT_FILE"
         python3 -m memray run -o "$OUTPUT_FILE" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
@@ -1101,7 +1101,7 @@ function remove() {
     if [[ "$1" =~ "admin" ]]; then
         $COMPOSE_COMMAND rm -f -s -v admin
     fi
-    
+
     if [[ "$1" =~ "odoo" ]]; then
         $COMPOSE_COMMAND rm -f -s -v odoo
     fi
@@ -1157,7 +1157,7 @@ function test-project() {
             GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
             GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
         fi
-        
+
         echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
         (git clone -b "$ODOO_VERSION" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
 
@@ -1222,7 +1222,7 @@ function test-project() {
             sleep 3
         done
         docker logs odoo
-        docker logs odoo 2>&1 | grep "Updating addons for their hash changed: partner_firstname,"
+        docker logs odoo 2>&1 | grep "Run click-odoo-update."
         # CHECKSUM2=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
@@ -1264,7 +1264,7 @@ function init-db() {
     activate-venv
     set-addons-path
     template-odoo-rc
-    
+
     echo "Initialize database $DATABASE with $ODOO_INIT_ADDONS."
     if [[ -n "$ODOO_PARAM" ]]; then
         odoo -d "$DATABASE" -i "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
@@ -1279,7 +1279,7 @@ function import-csv() {
     DATABASE="$1"
     FILE_PATH="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
@@ -1389,7 +1389,7 @@ function load-language() {
     DATABASE="$1"
     LANGUAGE="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         LANGUAGE="$1"
@@ -1398,7 +1398,7 @@ function load-language() {
     activate-venv
     set-addons-path
     echo "Setup language $LANGUAGE for database $DATABASE:"
-    odoo -d "$DATABASE" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$LANGUAGE" 
+    odoo -d "$DATABASE" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$LANGUAGE"
 }
 
 function set-admin() {
@@ -1479,7 +1479,7 @@ function patch-database() {
     DATABASE="$1"
     FILENAME="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         FILENAME="$1"
@@ -1506,7 +1506,7 @@ function clock-odoo() {
 function visualize-dependencies() {
 
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    
+
     MODULE_DIR="$1"
     OUTPUT_FILE="tmp/module_dependencies.mmd"
     mkdir -p tmp
@@ -1542,7 +1542,7 @@ function install-requirements() {
     DATABASE="$1"
     FILE_PATH="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         FILE_PATH="$1"
@@ -1568,7 +1568,7 @@ function init-module() {
     DATABASE="$1"
     MODULE_PATH="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_PATH="$1"
@@ -1576,7 +1576,7 @@ function init-module() {
 
     # Check if module path is a module repo
     if [ -f "$MODULE_PATH/README.md" ]; then
-        
+
         # Look for manifest files in repo folder
         # Get parent folder name of manifest files
         # Create a comma separated string of folder names
@@ -1606,7 +1606,7 @@ function update-module() {
     DATABASE="$1"
     MODULE_NAME=$(basename "$2")
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
@@ -1628,7 +1628,7 @@ function translate-module() {
     DATABASE="$1"
     MODULE_PATH="$2"
     MODULE_NAME=$(basename "$2")
-    LANGUAGE="$3"    
+    LANGUAGE="$3"
 
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
@@ -1654,7 +1654,7 @@ function translate-module() {
 function lint-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     activate-venv
-    
+
     echo "Set file and folder permissions on $1"
     find "$1" -type d -exec chmod u=rwx,go=rx {} \;
     find "$1" -type f -exec chmod u=rw,go=r {} \;
@@ -1662,7 +1662,7 @@ function lint-module() {
     echo "Update index.html"
     rst2html5 "$1/README.rst"  "$1/static/description/index.html"
 
-    pushd . 
+    pushd .
     cd "$1"
 
     echo "Run pre-commit in $PWD"
@@ -1679,7 +1679,7 @@ function lint-module-repo() {
 
     MODULE_PATHS=$(get-modules "$MODULE_PATH")
 
-    for MODULE_PATH in ${MODULE_PATHS//,/ }; do 
+    for MODULE_PATH in ${MODULE_PATHS//,/ }; do
         lint-module "$MODULE_PATH"
     done
 }
@@ -1688,7 +1688,7 @@ function test-module() {
     DATABASE="$1"
     MODULE_NAME=$(basename "$2")
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
@@ -1704,7 +1704,7 @@ function test-module-repo() {
     DATABASE="$1"
     MODULE_PATH="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_PATH="$1"
@@ -1712,7 +1712,7 @@ function test-module-repo() {
 
     MODULES=$(get-modules "$MODULE_PATH" basename)
 
-    for MODULE in ${MODULES//,/ }; do 
+    for MODULE in ${MODULES//,/ }; do
         echo "Testing module $MODULE ..."
         test-module "$DATABASE" "$MODULE"
     done
@@ -1722,7 +1722,7 @@ function pytest-module() {
     DATABASE="$1"
     MODULE_PATH="$2"
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_PATH="$1"
@@ -1739,7 +1739,7 @@ function pytest-module() {
     echo "db_host = localhost" >> "$ODOO_CONFIG"
     echo "db_password = odoo" >> "$ODOO_CONFIG"
     echo "db_user = odoo" >> "$ODOO_CONFIG"
-    
+
     pytest -s --odoo-http --odoo-config="$ODOO_CONFIG" --odoo-database="$DATABASE" "$MODULE_PATH"
 }
 
@@ -1749,7 +1749,7 @@ function remove-module() {
     DATABASE="$1"
     MODULE_NAME=$(basename "$2")
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         MODULE_NAME=$(basename "$1")
@@ -1838,7 +1838,7 @@ function generate-module-model() {
     MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
     MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
     export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
-    
+
     echo "Substitute model template"
     envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model.py > "$MODULE_PATH/models/$MODEL_NAME.py"
     echo "from . import $MODEL_NAME" >> "$MODULE_PATH/models/__init__.py"
@@ -1861,8 +1861,8 @@ function generate-module-snippet() {
     MODEL_NAME="crm_lead"
     MODEL_DOT_NAME="crm.lead"
     MODULE_NAME=$(basename "$1")
-    SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1) 
-    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f1) 
+    SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
+    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f1)
     export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME XML_ID
 
     echo "Substitute snippet template"
@@ -1923,7 +1923,7 @@ function reset-views() {
     DATABASE="$1"
     KEY=$(basename "$2")
 
-    # Use default database if second param is not given 
+    # Use default database if second param is not given
     if test -z "$2"; then
         DATABASE="$ODOO_DATABASE"
         KEY=$(basename "$1")
@@ -1968,15 +1968,15 @@ function install-snippet() {
     echo "Search for view with name $MODULE_NAME.$XML_ID"
     INHERIT_ID=$(bin/odooctl --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
     echo "Found view id $INHERIT_ID"
-    
+
     echo "Apply view $NAME"
-    bin/odooctl --method 'create' --model 'ir.ui.view' --value "{ 
+    bin/odooctl --method 'create' --model 'ir.ui.view' --value "{
         'name': '$NAME',
         'type': '$TYPE',
         'model': '$MODEL',
         'mode': 'extension',
-        'priority': $PRIORITY, 
-        'inherit_id': $INHERIT_ID, 
+        'priority': $PRIORITY,
+        'inherit_id': $INHERIT_ID,
         'arch_base': '''$(cat "$2")'''
     }"
 }
@@ -2043,7 +2043,7 @@ function lint-snippets() {
         MODULE_NAME=$(echo "$INHERIT_ID" | cut -d. -f 1 )
         XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
 
-        # Check filename 
+        # Check filename
         COUNT_DOTS=$(echo "$FILENAME" | grep -o "\." | wc -l)
         if [ "$COUNT_DOTS" -ge 4 ]; then
             echo "Linting failed for $FILE"
@@ -2128,7 +2128,7 @@ function remove-git-folder() {
 
     echo "Deinit submodule"
     git submodule deinit -f "$1"
-    
+
     echo "Move submodule to tmp folder"
     mkdir -p tmp/"$1"
     mv "$1" tmp/"$1"
@@ -2373,7 +2373,7 @@ function create-revision() {
     REVISION="$1"
     ODOO_DATE=$(echo "$REVISION" | cut -d'.' -f3-)
     BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
-    
+
     # Get git commit by date
     cd odoo
     REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
@@ -2436,9 +2436,9 @@ function restore-dotenv() {
 # LLM Commands
 
 function update-with-llm() {
-    if test -z "$1"; then 
-        echo "\$1 is empty."; 
-        exit 1; 
+    if test -z "$1"; then
+        echo "\$1 is empty.";
+        exit 1;
     fi
 
     # Get files from path
@@ -2469,8 +2469,8 @@ Look at the code files below and do the following:
 
 $TASK_DESCRIPTION
 
-Output all files that you need to change in full again, including your changes. 
-In the same format as I provide the files below. Under no circumstances output any other text, 
+Output all files that you need to change in full again, including your changes.
+In the same format as I provide the files below. Under no circumstances output any other text,
 no additional infos, no code formatting chars. Only the code in the given format.
 
 Here are the files:
