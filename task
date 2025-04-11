@@ -1193,8 +1193,8 @@ function test-project() {
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
             echo "Waiting for Odoo to be ready ..."
             sleep 3
-            docker logs odoo --tail 100
         done
+        docker logs odoo
 
         echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
         ~/bin/docker-odoo-init -d test -i partner_firstname
@@ -1220,8 +1220,9 @@ function test-project() {
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
             echo "Waiting for Odoo to be ready ..."
             sleep 3
-            docker logs odoo --tail 100
         done
+        docker logs odoo
+        docker logs odoo 2>&1 | grep "Updating addons for their hash changed: partner_firstname,"
         # CHECKSUM2=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
