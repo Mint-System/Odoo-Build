@@ -21,19 +21,20 @@ function help-table() {
     # Print table rows
 
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
-    printf "$COLUMN" "add-git-folder" "[url] [path]" "Add git submodule."
+    printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
     printf "$COLUMN" "checkout" "[version]" "Checkout Odoo version."
-    printf "$COLUMN" "checkout-git-folder" "" "Checkout submodule commits."
+    printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
+    printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
-    printf "$COLUMN" "clone-git-folder" "" "Clone submodules listed in the .gitmodules file."
+    printf "$COLUMN" "clone-git-folder" "" "Clone git folder listed in the .gitmodules file."
     printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
@@ -46,7 +47,7 @@ function help-table() {
     printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
     printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
     printf "$COLUMN" "debug" "[name]" "Debugg application. Options: native."
-    printf "$COLUMN" "delete-git-folder" "" "Delete all submodule folders."
+    printf "$COLUMN" "delete-git-folder" "" "Delete all git folders."
     printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server."
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
@@ -61,7 +62,7 @@ function help-table() {
     printf "$COLUMN" "generate-revision-docs" "" "Update revisions doc file."
     printf "$COLUMN" "generate-snippet-docs" "" "Update snippets doc file."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
-    printf "$COLUMN" "status-git-folder" "[path]" "Show status for submodules in path."
+    printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
     printf "$COLUMN" "get-module-version" "[path]" "Get module version from manifest."
     printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
@@ -78,26 +79,26 @@ function help-table() {
     printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
     printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
     printf "$COLUMN" "list-env" "" "List env files."
-    printf "$COLUMN" "list-git-folder" "[grep]" "List path and url of submodules."
+    printf "$COLUMN" "list-git-folder" "[grep]" "List path and url of git folders."
     printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
-    printf "$COLUMN" "load-version" "[version]" "Load submodule refs from  version folder."
+    printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
     printf "$COLUMN" "logs" "" "Tail Odoo container logs."
-    printf "$COLUMN" "ls-module" "[grep]" "List submodule path space separated."
-    printf "$COLUMN" "ls-git-folder" "[grep]" "List submodule path space separated."
+    printf "$COLUMN" "ls-module" "[grep]" "List Odoo addons path space separated."
+    printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
     printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
-    printf "$COLUMN" "pull-git-folder" "" "Pull all submodules listed in the .gitmodules file."
-    printf "$COLUMN" "push-git-folder" "" "Push all submodules in path."
+    printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
+    printf "$COLUMN" "push-git-folder" "" "Push all git folders in path."
     printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
     printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
     printf "$COLUMN" "remove" "[name]" "Remove containers and volumes. Options: none, db, admin, odoo, mail."
     printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
-    printf "$COLUMN" "remove-git-folder" "[path]" "Remove a git submodule."
+    printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
     printf "$COLUMN" "record-with-memray" "[name]" "Record application memory usage with memray. Options: native."
@@ -107,7 +108,7 @@ function help-table() {
     printf "$COLUMN" "restart" "[name]" "Restart container."
     printf "$COLUMN" "restore-dotenv" "" "Restore content of .env from pass entry."
     printf "$COLUMN" "run" "[name][cmd]" "Run container with command."
-    printf "$COLUMN" "save-version" "" "Save submodule refs to version folder."
+    printf "$COLUMN" "save-version" "" "Save git folder refs to version folder."
     printf "$COLUMN" "serve-vuepress" "" "Serve Vuepress build."
     printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
@@ -122,8 +123,8 @@ function help-table() {
     printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder."
     printf "$COLUMN" "stop" "[name]" "Stop containers."
     printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
-    printf "$COLUMN" "switch-git-folder" "[version]" "Switch branch for all submodules listed in the .gitmodules file."
-    printf "$COLUMN" "sync-git-folder" "" "Switch, stash and pull all submodules."
+    printf "$COLUMN" "switch-git-folder" "[version]" "Switch branch for all git folders listed in the .gitmodules file."
+    printf "$COLUMN" "sync-git-folder" "" "Switch, stash and pull all git folders."
     printf "$COLUMN" "template-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
@@ -284,17 +285,17 @@ function template-odoo-rc() {
 
 function set-addons-path() {
 
-    # Read addons path from git submodules
-    SUBMODULES_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
+    # Read addons path from git module
+    GIT_FOLDERS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
 
     # Remove excluded addons
     EXCLUDES="addons/theme_mint_system addons/company addons/web"
     for EXCLUDE in $EXCLUDES; do
-        SUBMODULES_PATH=$(echo "$SUBMODULES_PATH" | sed "s|${EXCLUDE},||g")
+        GIT_FOLDERS_PATH=$(echo "$GIT_FOLDERS_PATH" | sed "s|${EXCLUDE},||g")
     done
 
     # Check if addons dir exist
-    for ADDON in $SUBMODULES_PATH; do
+    for ADDON in $GIT_FOLDERS_PATH; do
         if [ -d "$ADDON" ]; then
             echo "Path does not exist: $ADDON"
             exit 1
@@ -302,7 +303,7 @@ function set-addons-path() {
     done
 
     # Convert to native paths
-    ADDONS_PATH="$(echo $SUBMODULES_PATH | sed 's|,odoo|,odoo/addons|g')"
+    ADDONS_PATH="$(echo $GIT_FOLDERS_PATH | sed 's|,odoo|,odoo/addons|g')"
 
     # Append paths from config env var
     if [ -n "$ODOO_ADDONS_PATH" ]; then
@@ -572,11 +573,11 @@ function ls-module() {
 
 function update-module-license() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(ls-module "$1")
+    GIT_FOLDERS=$(ls-module "$1")
 
-    for SUBMODULE in $SUBMODULES; do
-       echo "Update license file for $SUBMODULE."
-       cp templates/module/LICENSE "$SUBMODULE/"
+    for GIT_FOLDER in $GIT_FOLDERS; do
+       echo "Update license file for $GIT_FOLDER."
+       cp templates/module/LICENSE "$GIT_FOLDER/"
     done
 }
 
@@ -1158,7 +1159,7 @@ function test-project() {
             GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
         fi
 
-        echo -e "\033[38;5;214mTEST\033[0m: Clone submodule with https"
+        echo -e "\033[38;5;214mTEST\033[0m: Clone module repo with https"
         (git clone -b "$ODOO_VERSION" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
 
         echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
@@ -2074,7 +2075,7 @@ function lint-snippets() {
 
 # Git Commands
 
-function add-git-folder() {
+function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
@@ -2102,28 +2103,25 @@ function list-git-folder() {
     printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
     echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
 
-    SUBMODULES=$(ls-git-folder "$1")
-    for SUBMODULE in $SUBMODULES; do
-        URL=$(git config --file .gitmodules --get "submodule.$SUBMODULE.url")
+    GIT_FOLDERS=$(ls-git-folder "$1")
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        URL=$(git config --file .gitmodules --get "submodule.$GIT_FOLDER.url")
         URL=${URL#git@github.com:}
         URL=${URL%.git}
-        BRANCH=$(git -C "$SUBMODULE" branch --show-current 2>/dev/null || echo "detached")
-        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$SUBMODULE" "$URL" "${BRANCH:-detached}"
+        BRANCH=$(git -C "$GIT_FOLDER" branch --show-current 2>/dev/null || echo "detached")
+        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$GIT_FOLDER" "$URL" "${BRANCH:-detached}"
     done
 }
 
 function delete-git-folder() {
-    echo "Delete git submodules."
-
-    # Using "git submodule update --init --recursive" is not possible as modules are registered from different branches
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
-        echo "Delete submodule: $SUBMODULE"
-        rm -rf "$SUBMODULE"
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Delete git folder $GIT_FOLDER."
+        rm -rf "$GIT_FOLDER"
     done
 }
 
-function remove-git-folder() {
+function remove-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     echo "Deinit submodule"
@@ -2141,61 +2139,68 @@ function remove-git-folder() {
 }
 
 function clone-git-folder() {
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
 
-        SUBMODULE_PATH=$(git config --file .gitmodules --get submodule."$SUBMODULE".path)
-        SUBMODULE_URL=$(git config --file .gitmodules --get submodule."$SUBMODULE".url)
-        SHALLOW=$(git config --file .gitmodules --get submodule."$SUBMODULE".shallow)
-        SUBMODULE_BRANCH=$(git config --file .gitmodules --get submodule."$SUBMODULE".branch)
+        GIT_FOLDER_PATH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".path)
+        GIT_FOLDER_URL=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".url)
+        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
+        GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
 
         if [ "$SHALLOW" = "true" ]; then
-            echo "Clone git submodule $SUBMODULE (shallow) to $ODOO_VERSION"
-            git clone --depth 1 --branch="$SUBMODULE_BRANCH" "$SUBMODULE_URL" "$SUBMODULE_PATH"
+            echo "Clone git folder $GIT_FOLDER (shallow) to $ODOO_VERSION"
+            git clone --depth 1 --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         else
-            echo "Clone git submodule $SUBMODULE to $ODOO_VERSION"
-            git clone --branch="$SUBMODULE_BRANCH" "$SUBMODULE_URL" "$SUBMODULE_PATH"
-            # echo "git clone --branch=$SUBMODULE_BRANCH $SUBMODULE_URL $SUBMODULE_PATH"
+            echo "Clone git folder $GIT_FOLDER to $ODOO_VERSION"
+            git clone --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         fi
     done
 }
 
 function pull-git-folder() {
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
-        echo "Pull git submodule: $SUBMODULE"
-        git -C "$SUBMODULE" stash
-        UPDATE=$(git config submodule."$SUBMODULE".update)
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Pull git folder $GIT_FOLDER."
+        git -C "$GIT_FOLDER" stash
+        UPDATE=$(git config submodule."$GIT_FOLDER".update)
         if [ -z "$UPDATE" ]; then
-            git -C "$SUBMODULE" pull origin "$ODOO_VERSION"
+            git -C "$GIT_FOLDER" pull origin "$ODOO_VERSION"
         fi;
     done
 }
 
 function reset-git-folder() {
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
-        echo "Abort rebase and reset git submodule $SUBMODULE."
-        git -C "$SUBMODULE" rebase --abort
-        git -C "$SUBMODULE" reset --hard
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Abort rebase and reset git folder $GIT_FOLDER."
+        git -C "$GIT_FOLDER" rebase --abort
+        git -C "$GIT_FOLDER" reset --hard
+    done
+}
+
+function clean() {
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Clean git folder $GIT_FOLDER."
+        git -C "$GIT_FOLDER" clean -df
     done
 }
 
 function checkout-git-folder() {
     echo "Checkout submodule commits."
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
-        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$SUBMODULE".shallow | awk '{ print $2 }')
-        COMMIT_HASH=$(grep "$SUBMODULE" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
+        COMMIT_HASH=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
         if [ "$SHALLOW" = "true" ]; then
-            echo "Checkout git submodule $SUBMODULE (shallow) to $COMMIT_HASH"
-            git -C "$SUBMODULE" stash
-            git -C "$SUBMODULE" fetch origin "$COMMIT_HASH"
-            git -C "$SUBMODULE" checkout "$COMMIT_HASH"
+            echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
+            git -C "$GIT_FOLDER" stash
+            git -C "$GIT_FOLDER" fetch origin "$COMMIT_HASH"
+            git -C "$GIT_FOLDER" checkout "$COMMIT_HASH"
         else
-            echo "Checkout git submodule $SUBMODULE to $COMMIT_HASH"
-            git -C "$SUBMODULE" stash
-            git -C "$SUBMODULE" checkout "$COMMIT_HASH"
+            echo "Checkout git folder $GIT_FOLDER to $COMMIT_HASH"
+            git -C "$GIT_FOLDER" stash
+            git -C "$GIT_FOLDER" checkout "$COMMIT_HASH"
         fi
     done
 }
@@ -2205,53 +2210,52 @@ function switch-git-folder() {
         ODOO_VERSION="$1"
     fi
 
-    echo "Switch branch on git submodules."
-    SUBMODULES=$(ls-git-folder)
-    for SUBMODULE in $SUBMODULES; do
-        echo "Switch git submodule branch to $ODOO_VERSION: $SUBMODULE"
-        git -C "$SUBMODULE" stash
-        git -C "$SUBMODULE" switch "$ODOO_VERSION"
+    GIT_FOLDERS=$(ls-git-folder)
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Switch git folder branch to $ODOO_VERSION: $GIT_FOLDER"
+        git -C "$GIT_FOLDER" stash
+        git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
     done
 }
 
 function status-git-folder() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(ls-git-folder "$1")
+    GIT_FOLDERS=$(ls-git-folder "$1")
 
-    echo "Show status git submodules."
-    for SUBMODULE in $SUBMODULES; do
-        git -C "$SUBMODULE" status
+    echo "Show status in git folders."
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        git -C "$GIT_FOLDER" status
     done
 }
 
 function stage-git-folder() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(ls-git-folder "$1")
+    GIT_FOLDERS=$(ls-git-folder "$1")
 
-    for SUBMODULE in $SUBMODULES; do
-        echo "Stage all files in $SUBMODULE."
-        git -C "$SUBMODULE" add --all
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Stage all files in $GIT_FOLDER."
+        git -C "$GIT_FOLDER" add --all
     done
 }
 
 function commit-git-folder() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
-    SUBMODULES=$(ls-git-folder "$1")
+    GIT_FOLDERS=$(ls-git-folder "$1")
 
-    for SUBMODULE in $SUBMODULES; do
-        echo "Commit in $SUBMODULE."
-        git -C "$SUBMODULE" commit --message "$2"
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Commit in $GIT_FOLDER."
+        git -C "$GIT_FOLDER" commit --message "$2"
     done
 }
 
 function push-git-folder() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    SUBMODULES=$(ls-git-folder "$1")
+    GIT_FOLDERS=$(ls-git-folder "$1")
 
-    for SUBMODULE in $SUBMODULES; do
-        echo "Push in $SUBMODULE."
-        git -C "$SUBMODULE" push
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        echo "Push in $GIT_FOLDER."
+        git -C "$GIT_FOLDER" push
     done
 }
 
@@ -2309,14 +2313,14 @@ function checkout() {
 }
 
 function save-version() {
-    SUBMODULES_FILE="versions/$ODOO_VERSION/.gitmodules.csv"
-    echo "Save submodule refs to $SUBMODULES_FILE."
+    GIT_FOLDERS_FILE="versions/$ODOO_VERSION/.gitmodules.csv"
+    echo "Save submodule refs to $GIT_FOLDERS_FILE."
 
-    SUBMODULES=$(ls-git-folder)
-    echo "path,rev" > "$SUBMODULES_FILE"
-    for SUBMODULE in $SUBMODULES; do
-        COMMIT_HASH=$(git -C "$SUBMODULE" rev-parse HEAD)
-        echo "$SUBMODULE,$COMMIT_HASH" >> "$SUBMODULES_FILE"
+    GIT_FOLDERS=$(ls-git-folder)
+    echo "path,rev" > "$GIT_FOLDERS_FILE"
+    for GIT_FOLDER in $GIT_FOLDERS; do
+        COMMIT_HASH=$(git -C "$GIT_FOLDER" rev-parse HEAD)
+        echo "$GIT_FOLDER,$COMMIT_HASH" >> "$GIT_FOLDERS_FILE"
     done
 
     echo "Copy .gitmodules and .python-version to 'versions/$ODOO_VERSION'"
