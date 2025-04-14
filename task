@@ -2178,7 +2178,7 @@ function reset-git-folder() {
     done
 }
 
-function clean() {
+function clean-git-folder() {
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
         echo "Clean git folder $GIT_FOLDER."
