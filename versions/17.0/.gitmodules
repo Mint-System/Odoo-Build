@@ -102,3 +102,7 @@
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 17.0
+[submodule "oca/product-attribute"]
+	path = oca/product-attribute
+	url = git@github.com:OCA/product-attribute.git
+	branch = 17.0
