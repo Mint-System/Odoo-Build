@@ -54,13 +54,10 @@ function help-table() {
     printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
-    printf "$COLUMN" "generate-help-docs" "" "Write help table to task.md file."
+    printf "$COLUMN" "generate-module-docs" "[path]" "Generate Readme file for module."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
-    printf "$COLUMN" "generate-module-overview" "" "Update module overview docs file."
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
     printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
-    printf "$COLUMN" "generate-revision-docs" "" "Update revisions doc file."
-    printf "$COLUMN" "generate-snippet-docs" "" "Update snippets doc file."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
     printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
@@ -134,13 +131,16 @@ function help-table() {
     printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
     printf "$COLUMN" "translate-module" "[db][path][lang]" "Generate translation for Odoo module."
-    printf "$COLUMN" "update-app-list" "[db]" "Update app list."
     printf "$COLUMN" "update-docs" "" "Update project docs."
+    printf "$COLUMN" "update-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
-    printf "$COLUMN" "update-module-docs" "[path]" "Update Readme file of the module."
     printf "$COLUMN" "update-module-license" "[grep]" "Update LICENSE file for each matching module."
+    printf "$COLUMN" "update-module-list" "[db]" "Update module list."
+    printf "$COLUMN" "update-module-docs" "" "Update modules docs file."
     printf "$COLUMN" "update-repo-docs" "[path]" "Update Readme file of the repo."
+    printf "$COLUMN" "update-revision-docs" "" "Update revisions doc file."
     printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
+    printf "$COLUMN" "update-snippet-docs" "" "Update snippets doc file."
     printf "$COLUMN" "update-with-llm" "[path][prompt]" "Feed module files with prompt to LLM and apply file changes."
     printf "$COLUMN" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
     printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
@@ -395,7 +395,7 @@ function list-versions() {
 
 # Docs Commands
 
-function generate-help-docs() {
+function update-help-docs() {
     echo "Pipe help table into task.md."
     help-table > task.md
 }
@@ -435,7 +435,7 @@ function update-repo-docs() {
 }
 
 
-function generate-snippet-docs() {
+function update-snippet-docs() {
 
     echo "Update snippets doc file."
 
@@ -494,7 +494,7 @@ function generate-snippet-docs() {
     echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
 }
 
-function generate-revision-docs() {
+function update-revision-docs() {
 
     echo "Update revisions doc file."
 
@@ -528,39 +528,17 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
-function generate-module-overview() {
-    echo "Update module overview doc file."
+function update-module-docs() {
+    echo "Update module doc file."
     activate-venv
     ./bin/generate-module-overview
 }
 
 function update-docs() {
-    generate-module-overview
-    generate-revision-docs
-    generate-snippet-docs
-    generate-help-docs
-}
-
-function update-module-docs() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    MODULE_PATH="$1"
-    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
-
-    MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('name', ''))")
-    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))")
-    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    MODULE_WIKI_PATH=$(basename "$MODULE_PATH" | sed 's/_/-/g')
-
-    echo "Update $MODULE_PATH/README.rst"
-    export MODULE_TITLE MODULE_UNDERLINE MODULE_SUMMARY MODULE_WIKI_PATH
-    envsubst '$MODULE_TITLE $MODULE_UNDERLINE $MODULE_SUMMARY $MODULE_WIKI_PATH' < templates/README.rst > "$MODULE_PATH/README.rst"
-
-    echo "Copy app icon"
-    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
-
-    echo "Copy license"
-    cp templates/module/LICENSE "$MODULE_PATH/"
+    update-module-docs
+    update-revision-docs
+    update-snippet-docs
+    update-help-docs
 }
 
 function ls-module() {
@@ -1466,7 +1444,7 @@ function change-uuid() {
     bin/odooctl --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
 }
 
-function update-app-list() {
+function update-module-list() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     activate-venv
@@ -1792,6 +1770,28 @@ function create-module-repo() {
 
     echo "Copy template files from templates/$ODOO_VERSION to $REPO_PATH"
     cp "templates/$ODOO_VERSION/*" "$REPO_PATH"
+}
+
+function generate-module-docs() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    MODULE_PATH="$1"
+    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
+
+    MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('name', ''))")
+    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))")
+    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    MODULE_WIKI_PATH=$(basename "$MODULE_PATH" | sed 's/_/-/g')
+
+    echo "Update $MODULE_PATH/README.rst"
+    export MODULE_TITLE MODULE_UNDERLINE MODULE_SUMMARY MODULE_WIKI_PATH
+    envsubst '$MODULE_TITLE $MODULE_UNDERLINE $MODULE_SUMMARY $MODULE_WIKI_PATH' < templates/README.rst > "$MODULE_PATH/README.rst"
+
+    echo "Copy app icon"
+    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
+
+    echo "Copy license"
+    cp templates/module/LICENSE "$MODULE_PATH/"
 }
 
 function generate-module-security() {
