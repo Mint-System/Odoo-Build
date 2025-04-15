@@ -4,9 +4,14 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Added license files to Docker images.
+
 ### Updated
 
 * Distinct between git submodules and git folders.
+* Docker ignore file selects only necessary files. 
 
 ## 2025-03-20
 
