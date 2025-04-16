@@ -270,7 +270,9 @@
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 16.0
+	shallow = true
 [submodule "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 16.0
+	shallow = true

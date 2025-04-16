@@ -268,14 +268,11 @@ function get-addons-path() {
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
-    export SERVER_WIDE_MODULES
-    export MODULE_AUTO_INSTALL_DISABLED
+    export $(grep -vE "^#|^$" .env)
 
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
     fi
-    export GIT_SSH_PRIVATE_KEY
-    export GIT_SSH_PUBLIC_KEY
 
     export MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
     export MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
@@ -758,6 +755,7 @@ function test-image() {
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
         BROWSER_OPEN=false
+
         start db,odoo
         run odoo init-db
     fi
@@ -1147,7 +1145,8 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
-        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
+        SERVER_ENV_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-env/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${SERVER_ENV_GIT_REF},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
         run odoo git-clone-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
