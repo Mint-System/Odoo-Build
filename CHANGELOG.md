@@ -11,7 +11,8 @@ All notable changes to this project will be documented in this file. The format 
 ### Updated
 
 * Distinct between git submodules and git folders.
-* Docker ignore file selects only necessary files. 
+* Docker ignore file selects only necessary files.
+* Mark odoo and entprise git modules as shallow.
 
 ## 2025-03-20
 
