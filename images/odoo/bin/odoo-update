@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ -n "$ODOO_DATABASE" ]; then
-    : "${CLICK_ODOO_UPDATE:=False}"
+    CLICK_ODOO_UPDATE="${CLICK_ODOO_UPDATE:=False}"
 
     if [ "$CLICK_ODOO_UPDATE" = True ] && [ -n "$ODOO_ADDONS_PATH" ]; then
         entrypoint-log "Run click-odoo-update."

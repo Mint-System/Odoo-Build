@@ -750,14 +750,18 @@ function test-image() {
         CONTAINER_TAG="odoo-upgrade"
     fi
 
-    echo "Test container image ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
-        BROWSER_OPEN=false
-
-        start db,odoo
-        run odoo init-db
+        echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
+        prepare-ssh-keys
+        export GIT_SSH_PRIVATE_KEY
+        export GIT_SSH_PUBLIC_KEY
+        export LOCAL_PATH="./tmp"
+        SERVER_TOOLS_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${SERVER_TOOLS_GIT_REF}"
+        mkdir -p "$LOCAL_PATH"
+        export PATH=./images/odoo/bin/:$PATH
+        ./images/odoo/bin/git-clone-addons
+        rm -rf "$LOCAL_PATH/github.com"
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade: ]]; then
@@ -1112,6 +1116,18 @@ function stop() {
     $COMPOSE_COMMAND stop "$1"
 }
 
+function prepare-ssh-keys() {
+    if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
+        echo "PREPARE: Generate SSH private key."
+        mkdir -p tmp
+        if [ ! -f "tmp/ed25519" ]; then
+            ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
+        fi
+        GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
+        GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
+    fi
+}
+
 function test-project() {
     if [ "$1" = "clean" ]; then
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
@@ -1125,16 +1141,6 @@ function test-project() {
         info
         set -e
 
-        if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
-            echo "PREPARE: Generate SSH private key."
-            mkdir -p tmp
-            if [ ! -f "tmp/ed25519" ]; then
-                ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
-            fi
-            GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
-            GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
-        fi
-
         echo -e "\033[38;5;214mTEST\033[0m: Clone module repo with https"
         (git clone -b "$ODOO_VERSION" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
 
@@ -1143,10 +1149,10 @@ function test-project() {
         start db,mail
 
         echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
+        prepare-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
-        SERVER_ENV_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-env/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
-        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${SERVER_ENV_GIT_REF},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
         run odoo git-clone-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
@@ -2338,7 +2344,7 @@ function show-revision() {
         ODOO_REVISION="$1"
     fi
 
-    echo "Odoo revision: $ODOO_REVISION"
+    echo "Odoo Revision: $ODOO_REVISION"
     source "revisions/$ODOO_REVISION"
 
     echo "Odoo Ref: $ODOO_REF"
