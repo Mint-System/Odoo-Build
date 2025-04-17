@@ -254,6 +254,18 @@ ID: `mint_system.purchase.purchase_order_form.x_group_ids`
 ```
 Source: [snippets/purchase.purchase_order_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_group_ids.xml)
 
+### X Is Hidden  
+ID: `mint_system.purchase.purchase_order_form.x_is_hidden`  
+```xml
+<data inherit_id="purchase.purchase_order_form" priority="50">
+    <xpath expr="//field[@name='user_id']" position="after">
+        <field name="x_is_hidden" groups="purchase.group_purchase_executives"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.purchase_order_form.x_is_hidden.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_is_hidden.xml)
+
 ### X Payment State  
 ID: `mint_system.purchase.purchase_order_form.x_payment_state`  
 ```xml

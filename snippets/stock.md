@@ -7389,6 +7389,19 @@ ID: `mint_system.stock.view_move_line_tree.enable_create`
 ```
 Source: [snippets/stock.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_move_line_tree.enable_create.xml)
 
+## View Move Search  
+### Filter Wip  
+ID: `mint_system.stock.view_move_search.filter_wip`  
+```xml
+<data inherit_id="stock.view_move_search" priority="50">
+    <filter name="future" position="after">
+        <filter string="WIP" name="wip" domain="[('location_dest_id', '=', 'Production'), ('state', 'in', ['assigned', 'confirmed', 'waiting']), ('picked', '=', True)]"/>
+    </filter>
+</data>
+
+```
+Source: [snippets/stock.view_move_search.filter_wip.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/stock.view_move_search.filter_wip.xml)
+
 ## View Move Tree  
 ### Add Partner  
 ID: `mint_system.stock.view_move_tree.add_partner`  

@@ -5590,6 +5590,18 @@ ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`
 ```
 Source: [snippets/sale.view_quotation_tree.show_​payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_​payment_term_id.xml)
 
+### Show Stage Category  
+ID: `mint_system.sale.view_quotation_tree.show_stage_category`  
+```xml
+<data inherit_id="sale.view_quotation_tree" priority="50">
+    <field name="state" position="after">
+        <field name="stage_category" optional="show"/>
+    </field>
+</data>
+
+```
+Source: [snippets/sale.view_quotation_tree.show_stage_category.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_stage_category.xml)
+
 ### X Order Number  
 ID: `mint_system.sale.view_quotation_tree.x_order_number`  
 ```xml
