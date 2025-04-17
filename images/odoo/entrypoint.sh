@@ -24,7 +24,7 @@ export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
 export LIST_DB=${LIST_DB:=True}
 export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
-export DBFILTER=${DBFILTER:=".*"}
+export DBFILTER=${DBFILTER:=""}
 export WORKERS=${WORKERS:=0}
 export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
 export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}

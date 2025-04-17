@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 * Distinct between git submodules and git folders.
 * Docker ignore file selects only necessary files.
 * Mark odoo and entprise git modules as shallow.
+* Set empty default for Odoo image db filter
 
 ## 2025-03-20
 
