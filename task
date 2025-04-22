@@ -1991,7 +1991,7 @@ function install-snippet() {
     activate-venv
     load-env "$1"
     echo "Search for view with name $MODULE_NAME.$XML_ID"
-    INHERIT_ID=$( --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
+    INHERIT_ID=$(images/odooctl/bin/odooctl --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
     echo "Found view id $INHERIT_ID"
 
     echo "Apply view $NAME"
