@@ -691,6 +691,9 @@ function build() {
     if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
+        if [ "$MANIFEST_FILE" = "images/odooctl/Dockerfile" ]; then
+        CONTAINER_TAG="odooctl"
+    fi
     if [ -n "$2" ]; then
         PLATFORM="$1"
     fi
@@ -749,6 +752,9 @@ function test-image() {
     if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
+    if [ "$1" == "images/odooctl/Dockerfile" ]; then
+        CONTAINER_TAG="odooctl"
+    fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
@@ -764,12 +770,21 @@ function test-image() {
         rm -rf "$LOCAL_PATH/github.com"
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade: ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
-        start db,odoo
+    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
+        docker run -it mintsystem/odoo-upgrade --help
+    fi
+
+    if [[ "$CONTAINER_TAG" =~ ^odooctl ]]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Show help of odooctl."
+        docker_odooctl() {
+            docker run -it \
+                -e ODOO_URL="$ODOO_URL" -e ODOO_DATABASE="$ODOO_DATABASE" -e ODOO_USERNAME="$ODOO_USERNAME" -e ODOO_PASSWORD="$ODOO_PASSWORD" \
+                mintsystem/odooctl "$@"
+            }
+        docker_odooctl --help
     fi
 }
-
 
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
@@ -777,6 +792,10 @@ function publish() {
     if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
+    fi
+    if [ "$1" == "images/odooctl/Dockerfile" ]; then
+        CONTAINER_TAG="odooctl"
+        LATEST_TAG="odooctl:latest"
     fi
 
     echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
@@ -1198,7 +1217,7 @@ function test-project() {
         remove-snippet test snippets/base.view_partner_form.show_type.xml
 
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
-        # CHECKSUM1=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        # CHECKSUM1=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
@@ -1207,7 +1226,7 @@ function test-project() {
         done
         docker logs odoo
         docker logs odoo 2>&1 | grep "Run click-odoo-update."
-        # CHECKSUM2=$(bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        # CHECKSUM2=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
         # [ "$CHECKSUM1" != "$CHECKSUM2" ]
@@ -1435,8 +1454,8 @@ function disable-mailserver() {
 
     activate-venv
     load-env "$1"
-    bin/odooctl --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
-    bin/odooctl --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
+    images/odooctl/bin/odooctl --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
+    images/odooctl/bin/odooctl --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
 }
 
 function change-uuid() {
@@ -1446,7 +1465,7 @@ function change-uuid() {
     load-env "$1"
     UUID=$(uuidgen)
     echo "Set uuid $UUID for $1."
-    bin/odooctl --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
+     --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
 }
 
 function update-module-list() {
@@ -1972,11 +1991,11 @@ function install-snippet() {
     activate-venv
     load-env "$1"
     echo "Search for view with name $MODULE_NAME.$XML_ID"
-    INHERIT_ID=$(bin/odooctl --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
+    INHERIT_ID=$( --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
     echo "Found view id $INHERIT_ID"
 
     echo "Apply view $NAME"
-    bin/odooctl --method 'create' --model 'ir.ui.view' --value "{
+    images/odooctl/bin/odooctl --method 'create' --model 'ir.ui.view' --value "{
         'name': '$NAME',
         'type': '$TYPE',
         'model': '$MODEL',
@@ -1998,7 +2017,7 @@ function update-snippet() {
     activate-venv
     load-env "$1"
     echo "Update view with name $NAME"
-    bin/odooctl --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    images/odooctl/bin/odooctl --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
 }
 
 function disable-snippet() {
@@ -2012,7 +2031,7 @@ function disable-snippet() {
     activate-venv
     load-env "$1"
     echo "Disable view with name $NAME"
-    bin/odooctl --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
+    images/odooctl/bin/odooctl --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
 }
 
 function remove-snippet() {
@@ -2026,7 +2045,7 @@ function remove-snippet() {
     activate-venv
     load-env "$1"
     echo "Remove view with name $NAME"
-    bin/odooctl --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
+    images/odooctl/bin/odooctl --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
 }
 
 function lint-snippets() {
@@ -2414,12 +2433,12 @@ function test-xmlrpc() {
     activate-venv
     load-env "$1"
 
-    echo "Connect to database and count res.partner records: $(bin/odooctl --model "res.partner" --method "search_count" --domain '[]')"
+    echo "Connect to database and count res.partner records: $(images/odooctl/bin/odooctl --model "res.partner" --method "search_count" --domain '[]')"
 }
 
 function odooctl(){
     activate-venv
-    bin/odooctl "$@"
+    images/odooctl/bin/odooctl "$@"
 }
 
 # Pass Commands
