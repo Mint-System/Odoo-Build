@@ -1,0 +1,107 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="o.invoice_date">
+                    <td width="200px">Invoice Date</td>
+                    <td width="500px">
+
+                        <span id="invoice_date" t-field="o.invoice_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.ref">
+                    <td>Your Reference</td>
+                    <td>
+
+                        <span t-field="o.ref"/>
+
+                    </td>
+                </t>
+            </tr>
+
+            <!-- Get all sale orders without duplicates -->
+            <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>
+            <!-- Store if has sale orders -->
+            <t t-set="has_sale_orders" t-value="len(sale_orders) &gt; 0"/>
+            <!-- Store if has multiple sale orders -->
+            <t t-set="has_multiple_sale_orders" t-value="len(sale_orders) &gt; 1"/>
+            <!-- Store if has lines without sale orders -->
+            <t t-set="has_lines_without_sale_orders" t-value="len(o.invoice_line_ids.filtered(lambda l: not l.sale_line_ids)) &gt; 0"/>
+
+            <t t-foreach="sale_orders" t-as="sale_order">
+                <tr t-if="has_sale_orders and sale_order">
+                    <tr>
+                        <t t-if="o.invoice_date">
+                            <td width="200px">Order Reference</td>
+                            <td width="500px">
+                                <span id="sale_order_name" t-esc="sale_order.name"/>
+                            </td>
+                        </t>
+                    </tr>
+                </tr>
+            </t>
+
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.invoice_incoterm_id">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.invoice_incoterm_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.invoice_payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.invoice_payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>
+    </xpath>
+</data>

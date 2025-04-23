@@ -1,14 +1,18 @@
 <data inherit_id="purchase.purchase_order_form" priority="50">
     <xpath expr="//field[@name='date_order']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//field[@name='date_approve']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//tree/field[@name='date_planned']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//div/field[@name='date_planned']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
 </data>

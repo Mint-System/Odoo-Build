@@ -11,10 +11,10 @@
         <field name="copied" eval="False"/>
         <field name="ttype">many2one</field>
         <field name="relation">maintenance.request</field>
-        <field name="depends">name, maintenance_ids.x_calibrated_until</field>
+        <field name="depends">maintenance_ids.x_calibrated_until, maintenance_ids.close_date</field>
         <field name="compute">for record in self:
-    last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='schedule_date desc', limit=1)
-    if last_maintenance and last_maintenance.schedule_date:
+    last_maintenance = record.maintenance_ids.search([('stage_id.id', 'in', ['3']), ('equipment_id', '=', record.id)], order='close_date desc', limit=1)
+    if last_maintenance and last_maintenance.close_date:
         record['x_last_maintenance_request'] = last_maintenance.id
     else:
         record['x_last_maintenance_request'] = None</field>

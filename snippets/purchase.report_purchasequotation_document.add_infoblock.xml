@@ -2,19 +2,19 @@
     <xpath expr="//h2" position="after">
         <div id="infoblock" class="row mt32 mb32">
             <div t-if="o.user_id" class="col-3 bm-2">
-                <strong>Ansprechperson Einkauf</strong>
+                <strong>Buyer</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
             </div>
             <div class="col-2 bm-2">
-                <strong>Datum</strong>
+                <strong>Date</strong>
                 <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.partner_ref" class="col-3 bm-2">
-                <strong>Ihre Referenz</strong>
+                <strong>Your Order Reference</strong>
                 <p t-field="o.partner_ref" class="m-0"/>
             </div>
             <div t-if="o.date_order" class="col-3 bm-2">
-                <strong>Frist für Angebotsabgabe</strong>
+                <strong>Deadline for submission of offer</strong>
                 <p t-field="o.date_order" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.incoterm_id" class="col-3 bm-2">
