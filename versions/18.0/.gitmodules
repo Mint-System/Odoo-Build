@@ -61,7 +61,7 @@
 	url = git@github.com:OCA/partner-contact.git
 	branch = 18.0
 [submodule "addons/management_system"]
-	path = addons/management-system
+	path = addons/management_system
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
 	branch = 18.0
 [submodule "oca/server-backend"]
