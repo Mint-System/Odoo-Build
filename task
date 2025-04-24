@@ -29,6 +29,7 @@ function help-table() {
     printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
+    printf "$COLUMN" "commit-with-llm" "" "Commit with llm generated commit message."
     printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
@@ -198,6 +199,10 @@ else
     PYTHON_NOTIFY="inotify"
     OS_OPEN="xdg-open"
 fi
+
+# Import commands
+
+source ~/taskfile.build/bin/commit-with-llm
 
 # Help Commands
 
