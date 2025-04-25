@@ -1512,34 +1512,11 @@ function clock-odoo() {
 }
 
 function visualize-dependencies() {
-
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    MODULE_DIR="$1"
-    OUTPUT_FILE="tmp/module_dependencies.mmd"
     mkdir -p tmp
-    echo "graph TD" > "$OUTPUT_FILE"
-
-    for MODULE_PATH in "$MODULE_DIR"/*; do
-        if [[ -d "$MODULE_PATH" ]]; then
-            MODULE_NAME=$(basename "$MODULE_PATH")
-            MANIFEST_FILE="$MODULE_PATH/__manifest__.py"
-            if [[ -f $MANIFEST_FILE ]]; then
-                DEPENDENCIES=$(grep -Po '(?<="depends": \[)[^\]]*' "$MANIFEST_FILE" | tr -d '"[] ')
-                if [[ -n "$DEPENDENCIES" ]]; then
-                    for DEPENDENCY in $(echo "$DEPENDENCIES" | tr ',' '\n'); do
-                        echo "  $MODULE_NAME --> $DEPENDENCY" >> "$OUTPUT_FILE"
-                    done
-                fi
-            fi
-        fi
-    done
-
-    echo "Mermaid output generated: $OUTPUT_FILE"
-    echo "Run mermaid-cli with npx and open png file ..."
-
-    npx @mermaid-js/mermaid-cli -i $OUTPUT_FILE -o tmp/module_dependencies.png --scale 10
-    $OS_OPEN tmp/module_dependencies.png
+    ./bin/odoo-module-dependencies "$1"
+    $OS_OPEN tmp/odoo-module-dependencies.html
 }
 
 # Module Development Commands
@@ -2337,6 +2314,8 @@ function checkout() {
     load-version
 
     clone-git-folder
+
+    checkout-git-folder
 
     switch-git-folder
 }

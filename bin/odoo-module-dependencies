@@ -1,0 +1,163 @@
+#!/usr/bin/env -S uv run --script
+# /// script
+# dependencies = [
+#   "networkx",
+#   "jinja2",
+# ]
+# ///
+
+import os
+import ast
+import sys
+import json
+import networkx as nx
+from jinja2 import Template
+
+def find_manifest_files(base_path):
+    manifest_files = []
+    for root, _, files in os.walk(base_path):
+        if '__manifest__.py' in files:
+            manifest_files.append(os.path.join(root, '__manifest__.py'))
+    print(f"Found {len(manifest_files)} __manifest__.py files")
+    return manifest_files
+
+def extract_dependencies(manifest_path):
+    try:
+        with open(manifest_path, 'r', encoding='utf-8') as f:
+            content = f.read()
+            manifest_dict = ast.literal_eval(content)
+            module_name = os.path.basename(os.path.dirname(manifest_path))
+            depends = manifest_dict.get('depends', [])
+            return module_name, depends
+    except Exception as e:
+        print(f"Error parsing {manifest_path}: {str(e)}")
+        return None, []
+
+def build_graph(module_path):
+    G = nx.DiGraph()
+    manifest_files = find_manifest_files(module_path)
+    
+    if not manifest_files:
+        print("Error: No __manifest__.py files found")
+        sys.exit(1)
+    
+    for manifest_file in manifest_files:
+        module_name, depends = extract_dependencies(manifest_file)
+        if module_name:
+            G.add_node(module_name)
+            for dep in depends:
+                if dep:
+                    G.add_edge(module_name, dep)
+    
+    print(f"Graph built with {len(G.nodes())} modules and {len(G.edges())} dependencies")
+    return G
+
+def generate_visjs_html(G, output_file='tmp/odoo-module-dependencies.html'):
+    """Generate a self-contained HTML with Vis.js visualization."""
+    nodes = []
+    for node in G.nodes():
+        nodes.append({
+            'id': node,
+            'label': node,
+            'color': '#4CAF50' if node.startswith('base') else '#2196F3',
+            'shape': 'box',
+            'margin': 10,
+            'font': {'size': 14}
+        })
+    
+    edges = [{'from': u, 'to': v, 'arrows': 'to'} for u, v in G.edges()]
+
+    template = Template('''<!DOCTYPE html>
+<html>
+<head>
+    <title>Odoo Module Dependencies</title>
+    <script src="https://unpkg.com/vis-network/standalone/umd/vis-network.min.js"></script>
+    <style>
+        #network {
+            width: 100%;
+            height: 100vh;
+            border: 1px solid #eee;
+        }
+        #info-panel {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 100;
+            max-width: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div id="info-panel">
+        <h3>Odoo Module Dependencies</h3>
+        <div id="node-info">Click on any module</div>
+    </div>
+    <div id="network"></div>
+    <script>
+        const nodes = new vis.DataSet({{ nodes|tojson }});
+        const edges = new vis.DataSet({{ edges|tojson }});
+        
+        const container = document.getElementById('network');
+        const data = { nodes, edges };
+        const options = {
+            physics: {
+                stabilization: { iterations: 200 },
+                solver: 'forceAtlas2Based',
+                forceAtlas2Based: {
+                    gravitationalConstant: -50,
+                    centralGravity: 0.01,
+                    springLength: 100
+                }
+            },
+            layout: {
+                improvedLayout: true
+            },
+            nodes: {
+                widthConstraint: { maximum: 150 },
+                shadow: true
+            },
+            edges: {
+                smooth: true,
+                color: '#848484'
+            }
+        };
+        
+        const network = new vis.Network(container, data, options);
+        
+        network.on('click', function(params) {
+            if (params.nodes.length) {
+                const nodeId = params.nodes[0];
+                const node = nodes.get(nodeId);
+                const dependents = network.getConnectedNodes(nodeId, 'to');
+                const dependencies = network.getConnectedNodes(nodeId, 'from');
+                
+                document.getElementById('node-info').innerHTML = `
+                    <strong>${nodeId}</strong><br><br>
+                    <strong>Depends on:</strong> ${dependents.length} modules<br>
+                    ${dependents.join(', ') || 'None'}<br><br>
+                    <strong>Required by:</strong> ${dependencies.length} modules<br>
+                    ${dependencies.join(', ') || 'None'}
+                `;
+            }
+        });
+    </script>
+</body>
+</html>''')
+
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write(template.render(nodes=nodes, edges=edges))
+    print(f"Visualization saved to {os.path.abspath(output_file)}")
+
+def main():
+    module_path = sys.argv[1] if len(sys.argv) > 1 else './odoo/addons'
+    print(f"Analyzing modules in: {module_path}")
+    
+    G = build_graph(module_path)
+    generate_visjs_html(G)
+
+if __name__ == '__main__':
+    main()
