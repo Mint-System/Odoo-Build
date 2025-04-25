@@ -15,6 +15,7 @@ All notable changes to this project will be documented in this file. The format 
 * Docker ignore file selects only necessary files.
 * Mark odoo and entprise git modules as shallow.
 * Set empty default for Odoo image db filter
+* Update `odoo/Dockerifle` with multi stage build
 
 ## 2025-03-20
 

@@ -19,8 +19,8 @@ This container image is an improvement of the official Odoo image:
 - 🖥️ Environment name is retrieved from server configuration.
 - 📋 Database initialization with selected modules.
 - 📜 The image includes built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
-- 🌈 The multiplatform image supports both `amd64` and `arm64` architectures.
 - 🪴 The container runs without requiring root privileges.
+- ✂️ Reduced image size through multi-stage build and file cleanup.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 

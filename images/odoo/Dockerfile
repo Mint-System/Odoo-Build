@@ -1,28 +1,13 @@
-FROM python:3.12-slim-bookworm
-
-LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
-LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
-
-# Generate locale C.UTF-8 for postgres and general locale data
-ENV LANG=C.UTF-8
+# Stage 1: Build environment
+FROM python:3.12-slim-bookworm AS builder
 
 # Retrieve the Odoo version
 ARG ODOO_VERSION
 ARG ODOO_DATE
 
-# Install some deps, lessc and less-plugin-clean-css, and wkhtmltopdf
+# Install build dependencies
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
-        ca-certificates \
-        curl \
-        dirmngr \
-        fonts-noto-cjk \
-        gnupg \
-        libssl-dev \
-        # Custom packages:
-        git \
-        openssh-client \
-        gettext \
         build-essential \
         python3-dev \
         libpq-dev \
@@ -32,13 +17,75 @@ RUN apt-get update && \
         libjpeg-dev \
         libgif-dev \
         gcc \
+        git \
+        wget \
+        curl \
+        gnupg && \
+    rm -rf /var/lib/apt/lists/*
+
+# Install uv for Python package management
+COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/
+
+# Prepare virtual env
+RUN uv venv /opt/odoo-venv
+ENV PATH=/opt/odoo-venv/bin:$PATH
+
+# Install Odoo tools
+COPY ./images/odoo/requirements.txt /opt/odoo-venv/
+RUN uv pip install --no-cache-dir -r /opt/odoo-venv/requirements.txt
+
+# Install Odoo
+COPY ./odoo /opt/odoo
+RUN uv pip install pip
+RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
+
+# Clean up unnecessary files to reduce image size
+RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
+    find /opt/odoo -name "*.md" -name "*.rst" -delete && \
+    find /opt/odoo -name "*.pot" -delete && \
+    find /opt/odoo -path "*/i18n/*" -name "*.po" ! -name "en_US.po" ! -name "de.po" ! -name "fr.po" ! -name "it.po" -delete
+
+# Set release serial
+RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
+
+# Stage 2: Runtime environment
+FROM python:3.12-slim-bookworm
+
+LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
+LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
+
+# Generate locale C.UTF-8 for postgres and general locale data
+ENV LANG=C.UTF-8
+
+# Retrieve the Odoo version again for the runtime environment
+ARG ODOO_VERSION
+ARG ODOO_DATE
+ENV ODOO_VERSION=$ODOO_VERSION
+
+# Install runtime dependencies including wkhtmltopdf dependencies
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends \
+        ca-certificates \
+        curl \
+        fonts-noto-cjk \
+        libssl-dev \
+        git \
+        openssh-client \
+        gettext \
         fontconfig \
         xfonts-75dpi \
         xfonts-base \
-        wget && \
+        wget \
+        gnupg \
+        # wkhtmltopdf dependencies:
+        libjpeg62-turbo \
+        libx11-6 \
+        libxcb1 \
+        libxext6 \
+        libxrender1 && \
     rm -rf /var/lib/apt/lists/*
 
-# Determine architecture for wkhtmltopdf download
+# Install wkhtmltopdf
 RUN if [ -z "${TARGETARCH}" ]; then \
         TARGETARCH="$(dpkg --print-architecture)"; \
     fi; \
@@ -70,28 +117,16 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
 # Install pnpm
 RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
 
-# Install uv https://docs.astral.sh/uv/guides/integration/docker/
+# Install uv for Python package management
 COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/
 
-# Prepare virtual env
-RUN uv venv /opt/odoo-venv
+# Copy the virtual environment and Odoo from the builder stage
+COPY --from=builder /opt/odoo-venv /opt/odoo-venv
+COPY --from=builder /opt/odoo /opt/odoo
+
+# Setup environment path
 ENV PATH=/opt/odoo-venv/bin:$PATH
-
-# Install Odoo tools
-COPY ./images/odoo/requirements.txt /opt/odoo-venv/
-RUN uv pip install --no-cache-dir -r /opt/odoo-venv/requirements.txt
-
-# Install Odoo
-COPY ./odoo /opt/odoo
-RUN uv pip install pip
-RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
 ENV ADDONS_PATH=/opt/odoo/addons
-
-# Set release serial
-RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
-
-# Set env vars
-ENV ODOO_VERSION=$ODOO_VERSION
 
 # Copy entrypoint scripts and Odoo configuration file
 COPY ./images/odoo/bin/* /usr/local/bin/
