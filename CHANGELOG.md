@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Added license files to Docker images.
 * New Docker image `odooctl`.
+* Refactored the `visualize-dependencies` command.
 
 ### Updated
 

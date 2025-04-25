@@ -77,17 +77,9 @@ Decide wether you want to run Odoo in native mode (from source) or as a containe
 
 Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin, Windows with Ubuntu on WSL2.
 
-#### Setup Odoo environment
-
-Sync the submodule branch.
-
-```bash
-task sync-git-folder
-```
-
 #### Setup Python environment
 
-Install packages and Python dependencies.
+Install build and Python dependencies.
 
 ```bash
 task install-native
