@@ -4,6 +4,7 @@ FROM python:3.12-slim-bookworm AS builder
 # Retrieve the Odoo version
 ARG ODOO_VERSION
 ARG ODOO_DATE
+ARG ODOO_ENTERPRISE_REF
 
 # Install build dependencies
 RUN apt-get update && \
@@ -60,7 +61,9 @@ ENV LANG=C.UTF-8
 # Retrieve the Odoo version again for the runtime environment
 ARG ODOO_VERSION
 ARG ODOO_DATE
+ARG ODOO_ENTERPRISE_REF
 ENV ODOO_VERSION=$ODOO_VERSION
+ENV ODOO_ENTERPRISE_REF=$ODOO_ENTERPRISE_REF
 
 # Install runtime dependencies including wkhtmltopdf dependencies
 RUN apt-get update && \

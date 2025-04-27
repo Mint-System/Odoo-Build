@@ -1,5 +1,17 @@
 #!/bin/bash
 
+export ENVIRONMENT=${ENVIRONMENT:="development"}
+export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
+export PROXY_MODE=${PROXY_MODE:=False}
+export LOG_LEVEL=${LOG_LEVEL:="info"}
+export LIST_DB=${LIST_DB:=True}
+export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
+export DBFILTER=${DBFILTER:=""}
+export WORKERS=${WORKERS:=0}
+export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
+export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}
+export LIMIT_TIME_REAL=${LIMIT_TIME_REAL:=120}
+
 TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
 OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
 FILTER="${ODOO_ENVSUBST_FILTER:-}"

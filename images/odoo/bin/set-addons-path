@@ -15,12 +15,21 @@ if [ -n "$ODOO_ADDONS_PATH" ]; then
     # Set parent folder of module paths as new addons path
     ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
 
-    # Enterprise modules always have version 1.0
+    # Enterprise modules always have version 1.0 so they are not resolved
+
+    # Add mounted Odoo Enterprise modules
     if [[ "$ODOO_ADDONS_PATH" =~ "/mnt/enterprise" ]]; then
+        entrypoint-log "Add /mnt/enterprise to addons path"
         ODOO_ADDONS_PATH="/mnt/enterprise,$ODOO_MODULE_PATH"
     else
         ODOO_ADDONS_PATH="$ODOO_MODULE_PATH"
     fi
-
-    export ODOO_ADDONS_PATH
 fi
+
+# Add downloaded Odoo Enterprise modules
+if [ -d "/var/lib/odoo/enterprise" ]; then
+    entrypoint-log "Add /var/lib/odoo/enterprise to addons path"
+    ODOO_ADDONS_PATH="/var/lib/odoo/enterprise,$ODOO_ADDONS_PATH"
+fi
+
+export ODOO_ADDONS_PATH

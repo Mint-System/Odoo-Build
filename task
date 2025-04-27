@@ -163,7 +163,7 @@ function help() {
 
 # Static env vars
 
-PASS_ENTRY=env/Odoo-Build
+PASS_ENTRY="env/${PWD##*/}"
 ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 
@@ -703,6 +703,7 @@ function build() {
         PLATFORM="$1"
     fi
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    source "revisions/$ODOO_REVISION"
 
     echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
@@ -713,6 +714,7 @@ function build() {
             --file "$MANIFEST_FILE" \
             --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
+            --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     fi
 
@@ -722,6 +724,7 @@ function build() {
             --file "$MANIFEST_FILE" \
             --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
+            --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
             --load
     fi

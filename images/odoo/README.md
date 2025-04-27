@@ -99,7 +99,7 @@ services:
       GITHUB_USERNAME: bot-mintsys
       GITHUB_PERSONAL_ACCESS_TOKEN: *****
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
-      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
+      ODOO_ADDONS_PATH: /mnt/addons/
       ODOO_DATABASE: "16.0"
       ODOO_INIT_LANG: de_CH
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter
@@ -146,7 +146,7 @@ The environment variables are explained in detail further down.
 
 The Mint System Odoo image has this container lifecycle in mind:
 
-* **Initialize**: Initialize the database and clone addons.
+* **Initialize**: Clone addons and initialize the database.
 * **Start**: The container starts and updates the execution environment.
 * **Execution**: Actions performed while the container is running.
 * **Analyze**: Analyse the current state of the container.
@@ -154,6 +154,12 @@ The Mint System Odoo image has this container lifecycle in mind:
 ### Initialize
 
 Before starting the container you can initalize the database with selected scripts.
+
+Run the `download-odoo-enterprise` script to download the Odoo Enterprise modules:
+
+```bash
+docker compose run --rm odoo download-odoo-enterprise
+```
 
 Run the `git-clone-addons` script to clone module repos:
 
@@ -167,14 +173,13 @@ Run the `init-db` script to initalize the Odoo database:
 docker compose run --rm odoo init-db
 ```
 
-The scripts are configurable with environment variables.
+The scripts are configured with environment variables.
 
 ### Start
 
 Once you start the container the `entrypoint.sh` script will:
 
 * Run the `set-addons-path` script to assemble the addons path.
-* Apply default values to env variables.
 * Run the `auto-envsubst` script to template the `odoo.conf` file.
 * Run the `python-install` script to install the Python packages.
 * Wait for the database to be ready.
@@ -243,8 +248,8 @@ The image can clone git repositories.
 
 * `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
 * `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
-* `GITHUB_USERNAME` Username for git clone command with https.
-* `GITHUB_PERSONAL_ACCESS_TOKEN` Token for git clone command with https.
+* `GITHUB_USERNAME` Username for https git clone and GitHub download.
+* `GITHUB_PERSONAL_ACCESS_TOKEN` Access token for https git clone and GitHub download.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
@@ -312,7 +317,7 @@ The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-con
 
 ## Build
 
-This image can be customized to any extend.
+This image can be customized by any extend.
 
 ### Install packages
 
@@ -354,6 +359,7 @@ The most important image paths are:
 * `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
+* `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/mnt/extra-addons` Module folders are loaded from this path by default.
 
