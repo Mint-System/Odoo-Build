@@ -1,0 +1,6 @@
+<data>
+    <xpath expr="//field[@name='owner_user_id']" position="after">
+        <filter string="Not calibrated" name="not_calibrated" domain="['|', ('x_calibrated_until', '&lt;', context_today().strftime('%Y-%m-%d')), ('x_calibrated_until', '=', False)]"/>
+        <filter string="Need for action" name="need_for_action" domain="[('x_date_action_required', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>
+    </xpath>
+</data>
