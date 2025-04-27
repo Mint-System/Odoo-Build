@@ -6,31 +6,60 @@
         </t>
         
         <t t-else="">
-        <table style="margin-left: 0px; margin-top: 30px; border: transparent">
-            <tr style="height: 100px;">
-                <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
-                </td>
-                <td style="width: 50px"/>
-                <td style="width: 300px; vertical-align: top">
-                    <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Zahlung: </span>
-                        <span t-field="doc.payment_term_id"/>
-                    </div>
-                    <div>
-                        <t>
-                            <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                            <span>IBAN</span>
-                            <span t-field="doc.company_id.partner_id.bank_ids[0].acc_number"/>
-                            <span>(</span>
-                            <span t-field="doc.company_id.partner_id.bank_ids[0].currency_id"/>
-                            <span>)</span>
-                        </t>
-                    </div>
-                </td>
-            </tr>
-
-        </table>
+            <t t-if="doc.company_id.id == 1">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr style="height: 100px;">
+                        <td style="width: 335px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Lapp Engineering AG</span>
+                        </td>
+                        <td style="width: 50px"/>
+                        <td style="width: 300px; vertical-align: top">
+                            <div style="font-weight: bold; padding-bottom: 15px">
+                                <span>Zahlung: </span>
+                                <span t-field="doc.payment_term_id"/>
+                            </div>
+                            <div>
+                                <t>
+                                    <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                                    IBAN CH71 0483 5165 9043 4200 0 (EUR)
+                                </t>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+            
+           
+                
+             <t t-if="doc.company_id.id == 2">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr style="height: 100px;">
+                        <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
+                        </td>
+                        <td style="width: 50px"/>
+                        <td style="width: 300px; vertical-align: top">
+                            <div style="font-weight: bold; padding-bottom: 15px">
+                                <span>Zahlung: </span>
+                                <span t-field="doc.payment_term_id"/>
+                            </div>
+                            <div>
+                                <t>
+                                    <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                                    <span>IBAN</span>
+                                    <span t-field="doc.company_id.partner_id.bank_ids[0].acc_number"/>
+                                    <span>(</span>
+                                    <span t-field="doc.company_id.partner_id.bank_ids[0].currency_id"/>
+                                    <span>)</span>
+                                </t>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+           
+            
+        
         </t>
 
     </xpath>

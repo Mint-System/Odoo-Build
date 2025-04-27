@@ -1,5 +1,5 @@
-<data inherit_id="base.view_partner_form" priority="50">
-    <xpath expr="//field[@name='vat']" position="after">
+<data inherit_id="base.view_partner_tree" priority="50">
+    <field name="display_name" position="after">
         <field name="x_vat"/>
-    </xpath>
+    </field>
 </data>

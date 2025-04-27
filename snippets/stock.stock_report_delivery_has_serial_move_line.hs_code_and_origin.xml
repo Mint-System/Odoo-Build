@@ -1,0 +1,12 @@
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+<xpath expr="//span[@t-field='move_line.product_id']" position="after">
+    
+      <td id="position">
+            <span t-esc="move_line.move_id.product_id.hs_code"/>
+        </td>
+        <td id="position">
+            <span t-esc="move_line.move_id.product_id.country_of_origin.code"/>
+        </td>
+   
+  </xpath>
+</data>

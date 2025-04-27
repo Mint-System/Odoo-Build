@@ -1,0 +1,13 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th id="header_position" style="padding-left: 0px">
+            <span>Pos.</span>
+        </th>
+    </xpath>
+    <xpath expr="//t[1]/td[1]" position="before">
+        <td id="position" style="vertical-align: top;">
+            <span t-field="line.sequence"/>
+            <span/>
+        </td>
+    </xpath>
+</data>
