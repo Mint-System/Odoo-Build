@@ -2170,7 +2170,7 @@ function clone-git-folder() {
 
         if [ "$SHALLOW" = "true" ]; then
             echo "Clone git folder $GIT_FOLDER (shallow) to $ODOO_VERSION"
-            git clone --depth 1 --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
+            git clone --depth 1 --no-single-branch "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         else
             echo "Clone git folder $GIT_FOLDER to $ODOO_VERSION"
             git clone --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
