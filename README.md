@@ -71,7 +71,7 @@ Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
 task install-odoo-scripts
 ```
 
-Decide wether you want to run Odoo in native mode (from source) or as a container.
+Decide wether you want to run Odoo in native mode (recommended) or as a container.
 
 ### Native
 
