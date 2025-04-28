@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_production_id_state" model="ir.model.fields">
+        <field name="field_description">MO State</field>
+        <field name="model">model_mrp_workcenter_productivity</field>
+        <field name="model_id" ref="mrp_workorder.model_mrp_workcenter_productivity"/>
+        <field name="name">x_production_id_state</field>   
+        <field name="ttype">selection</field>    
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="False"/>             
+        <field name="related">production_id.state</field>
+    </record>
+</odoo>

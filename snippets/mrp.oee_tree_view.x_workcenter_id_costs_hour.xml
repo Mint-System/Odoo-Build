@@ -1,0 +1,5 @@
+<data inherit_id="mrp.oee_tree_view" priority="50">
+    <xpath expr="//field[@name='workcenter_id']" position="after">
+        <field optional="show" name="x_workcenter_id_costs_hour"/>
+    </xpath>
+</data>
