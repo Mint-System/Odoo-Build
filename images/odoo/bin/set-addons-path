@@ -32,4 +32,9 @@ if [ -d "/var/lib/odoo/enterprise" ]; then
     ODOO_ADDONS_PATH="/var/lib/odoo/enterprise,$ODOO_ADDONS_PATH"
 fi
 
-export ODOO_ADDONS_PATH
+# Combine predefined addons path and odoo addons path
+if [ -n "$ODOO_ADDONS_PATH" ]; then
+    ADDONS_PATH=$(echo "${ODOO_ADDONS_PATH},${ADDONS_PATH}")
+fi
+
+export ADDONS_PATH

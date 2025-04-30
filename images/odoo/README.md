@@ -117,7 +117,7 @@ services:
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
-      CLICK_ODOO_UPDATE: True
+      AUTO_UPDATE_MODULES: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -192,10 +192,10 @@ Once you start the container the `entrypoint.sh` script will:
 Once the container is running, you can update modules with this command: 
 
 ```bash
-docker exec odoo bash -c "click-odoo-update \$(grep addons_path /etc/odoo/odoo.conf | sed 's/addons_path = /--addons-path=/') -d odoo
+docker compose run --rm odoo update-modules
 ```
 
-This will start a detached Odoo process and updates only the modules that have a different checksum.
+This will start a detached Odoo process and updates modules that have a different checksum.
 
 ### Analyze
 
@@ -311,9 +311,9 @@ With `module_change_auto_install` module you can disable the auto installation o
 
 ### Module Auto Update
 
-The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The feature is disabled by default.
+The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The auto update is disabled by default.
 
-* `CLICK_ODOO_UPDATE` If enabled click-odoo is used to update modules that have changed. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
+* `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
 
 ## Build
 

@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Undefined
+
+### Updated
+
+* The env var `CLICK_ODOO_UPDATE` has been renamed to `AUTO_UPDATE_MODULES`.
+
 ## 20205-04-28
 
 ### Added

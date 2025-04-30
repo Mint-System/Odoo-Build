@@ -16,8 +16,6 @@ echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
 entrypoint-log "Run as user with id: $(id)"
 
-source set-addons-path
-
 auto-envsubst
 python-install
 
@@ -47,7 +45,10 @@ entrypoint-log "Waiting for database connection."
 pg_isready -h "$PGHOST" -p "$PGPORT"
 
 setup-mail
-odoo-update
+AUTO_UPDATE_MODULES="${AUTO_UPDATE_MODULES:=False}"
+if [ "$AUTO_UPDATE_MODULES" = True ]; then
+    update-modules
+fi
 
 case "$1" in
     memray)

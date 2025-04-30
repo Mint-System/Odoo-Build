@@ -672,7 +672,7 @@ function template-compose() {
     export LIMIT_TIME_CPU
     export LIMIT_TIME_REAL
     export MODULE_AUTO_INSTALL_DISABLED
-    export CLICK_ODOO_UPDATE
+    export AUTO_UPDATE_MODULES
     export ODOO_PORT
     export ODOO_PORT
     export POSTGRES_IMAGE
@@ -1197,7 +1197,7 @@ function test-project() {
         export SERVER_WIDE_MODULES=session_db,module_change_auto_install
         export SESSION_DB_URI=postgres://odoo:odoo@db/test
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
-        export CLICK_ODOO_UPDATE=True
+        export AUTO_UPDATE_MODULES=True
         export MAIL_DEFAULT_FROM="test"
         export BROWSER_OPEN=false
         start odoo
@@ -1233,7 +1233,7 @@ function test-project() {
             sleep 3
         done
         docker logs odoo
-        docker logs odoo 2>&1 | grep "Run click-odoo-update."
+        docker logs odoo 2>&1 | grep "Updating addons for their hash changed: partner_firstname."
         # CHECKSUM2=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
