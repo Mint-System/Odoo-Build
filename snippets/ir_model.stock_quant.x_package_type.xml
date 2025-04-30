@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="x_last_delivery_partner_id" model="ir.model.fields">
+    <record id="x_package_type" model="ir.model.fields">
         <field name="field_description">Pakettyp</field>
         <field name="model">stock.quant</field>
         <field name="model_id" ref="stock.model_stock_quant"/>
-        <field name="name">x_package_type</field>
-        <field name="store" eval="False"/>
+        <field name="name">x_package_type</field> 
         <field name="readonly" eval="True"/>
-        <field name="copied" eval="False"/>
         <field name="ttype">char</field>       
         <field name="related">package_id.package_type_id.display_name</field>
     </record>
