@@ -1233,7 +1233,7 @@ function test-project() {
             sleep 3
         done
         docker logs odoo
-        docker logs odoo 2>&1 | grep "Updating addons for their hash changed: partner_firstname."
+        docker logs odoo 2>&1 | grep "Run click-odoo-update."
         # CHECKSUM2=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
