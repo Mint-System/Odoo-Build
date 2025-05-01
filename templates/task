@@ -24,13 +24,11 @@ function help() {
 
     # Print table rows
     printf "$COLUMN" "all" "" "Run all tasks."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "install" "" "Setup the local environment."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "lint" "" "Run pre-commit."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "docs" "" "Update index.html."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "source" "" "Source the Python virtual env."
-    printf "| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n" "version" "" "Show version of required tools."
-
-    echo
+    printf "$COLUMN" "install" "" "Setup the local environment."
+    printf "$COLUMN" "lint" "" "Run pre-commit."
+    printf "$COLUMN" "docs" "" "Update index.html."
+    printf "$COLUMN" "source" "" "Source the Python virtual env."
+    printf "$COLUMN" "version" "" "Show version of required tools."
 }
 
 function version() {
