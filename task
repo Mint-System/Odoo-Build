@@ -56,9 +56,10 @@ function help-table() {
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "$COLUMN" "generate-module-docs" "[path]" "Generate Readme file for module."
-    printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model files from templates."
-    printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file for a selected model of a module."
-    printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate view snippet from template."
+    printf "$COLUMN" "generate-module-models" "[path][model]" "Generate files in modules folder."
+    printf "$COLUMN" "generate-module-views" "[path][model]" "Generate files in views folder."
+    printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file."
+    printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate snippet for refrefenced view."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
     printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
@@ -1522,7 +1523,7 @@ function visualize-dependencies() {
     $OS_OPEN tmp/odoo-module-dependencies.html
 }
 
-# Module Development Commands
+# Repo Commands
 
 function install-requirements() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -1549,6 +1550,56 @@ function install-requirements() {
         uv pip install -r "$FILE_PATH"
     fi
 }
+
+function create-module-repo() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    REPO_PATH="$1"
+    REPO_NAME=$(basename "$REPO_PATH")
+
+    # If repo already exists, create new branch
+    if [ -d "$REPO_PATH/.git" ]; then
+        echo "Create new branch $REPO_NAME in $REPO_PATH"
+        cd "$REPO_PATH" || exit
+        git switch --orphan -c "$ODOO_VERSION"
+
+        echo "Remove all files from $REPO_PATH"
+        rm -rf "$REPO_PATH/*"
+    fi
+
+    echo "Copy template files from templates/$ODOO_VERSION to $REPO_PATH"
+    cp "templates/$ODOO_VERSION/*" "$REPO_PATH"
+}
+
+function lint-module-repo() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    MODULE_PATHS=$(get-modules "$MODULE_PATH")
+
+    for MODULE_PATH in ${MODULE_PATHS//,/ }; do
+        lint-module "$MODULE_PATH"
+    done
+}
+
+function test-module-repo() {
+    DATABASE="$1"
+    MODULE_PATH="$2"
+
+    # Use default database if second param is not given
+    if test -z "$2"; then
+        DATABASE="$ODOO_DATABASE"
+        MODULE_PATH="$1"
+    fi
+
+    MODULES=$(get-modules "$MODULE_PATH" basename)
+
+    for MODULE in ${MODULES//,/ }; do
+        echo "Testing module $MODULE ..."
+        test-module "$DATABASE" "$MODULE"
+    done
+}
+
+# Module Commands
 
 function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -1674,16 +1725,6 @@ function lint-module() {
     popd
 }
 
-function lint-module-repo() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    MODULE_PATHS=$(get-modules "$MODULE_PATH")
-
-    for MODULE_PATH in ${MODULE_PATHS//,/ }; do
-        lint-module "$MODULE_PATH"
-    done
-}
-
 function test-module() {
     DATABASE="$1"
     MODULE_NAME=$(basename "$2")
@@ -1698,24 +1739,6 @@ function test-module() {
     set-addons-path
     echo "Testing module $MODULE_NAME on $DATABASE ..."
     odoo -d "$DATABASE" -i "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
-}
-
-function test-module-repo() {
-    DATABASE="$1"
-    MODULE_PATH="$2"
-
-    # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_PATH="$1"
-    fi
-
-    MODULES=$(get-modules "$MODULE_PATH" basename)
-
-    for MODULE in ${MODULES//,/ }; do
-        echo "Testing module $MODULE ..."
-        test-module "$DATABASE" "$MODULE"
-    done
 }
 
 function pytest-module() {
@@ -1773,26 +1796,6 @@ function create-module() {
     odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t templates/module
 }
 
-function create-module-repo() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    REPO_PATH="$1"
-    REPO_NAME=$(basename "$REPO_PATH")
-
-    # If repo already exists, create new branch
-    if [ -d "$REPO_PATH/.git" ]; then
-        echo "Create new branch $REPO_NAME in $REPO_PATH"
-        cd "$REPO_PATH" || exit
-        git switch --orphan -c "$ODOO_VERSION"
-
-        echo "Remove all files from $REPO_PATH"
-        rm -rf "$REPO_PATH/*"
-    fi
-
-    echo "Copy template files from templates/$ODOO_VERSION to $REPO_PATH"
-    cp "templates/$ODOO_VERSION/*" "$REPO_PATH"
-}
-
 function generate-module-docs() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
@@ -1846,7 +1849,7 @@ function generate-module-security() {
     echo "access_${MODEL_NAME}_manager,access.$MODEL_DOT_NAME.manager,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
 }
 
-function generate-module-model() {
+function generate-module-models() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
@@ -1864,6 +1867,22 @@ function generate-module-model() {
     echo "Substitute model template"
     envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model.py > "$MODULE_PATH/models/$MODEL_NAME.py"
     echo "from . import $MODEL_NAME" >> "$MODULE_PATH/models/__init__.py"
+}
+
+function generate-module-views() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    MODULE_PATH="$1"
+    MODULE_NAME=$(basename "$1")
+
+    # Generate template values
+    MODEL_DOT_NAME="$2" # res.partner
+    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
 
     echo "Substitute view template"
     mkdir -p "$MODULE_PATH/views"
@@ -1877,18 +1896,19 @@ function generate-module-snippet() {
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
     MODULE_PATH="$1"
-    VIEW_REF="$2"
+    VIEW_REF="$2" # base.ir_cron_view_form
 
     # Generate template values
-    MODEL_NAME="crm_lead"
-    MODEL_DOT_NAME="crm.lead"
+    MODEL_NAME=${VIEW_REF#*.}
+    MODEL_NAME=${MODEL_NAME%%_view_*}
+    MODEL_DOT_NAME=${MODEL_NAME//_/\.}
     MODULE_NAME=$(basename "$1")
     SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
-    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f1)
-    export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME XML_ID
+    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
+    export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME VIEW_REF XML_ID
 
     echo "Substitute snippet template"
-    envsubst '$MODULE_NAME $MODEL_DOT_NAME $SRC_MODULE_NAME $XML_ID' < templates/model_snippet.xml > "$MODULE_PATH/views/$MODEL_NAME_views.xml"
+    envsubst '$MODULE_NAME $MODEL_DOT_NAME $SRC_MODULE_NAME $VIEW_REF $XML_ID' < templates/model_snippet.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with:"
     echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
 }

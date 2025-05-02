@@ -1,3 +1,4 @@
+# License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
     "name": "{{ (name|replace('_',' ')).title() }}",
     "summary": """
@@ -18,7 +19,6 @@
     "auto_install": False,
     "images": ["images/screen.png"],
     "demo": ["demo/demo.xml"],
-    "qweb": ["static/src/xml/board.xml"],
     "assets": {
         "web.assets_backend": [
             "{{ name }}/static/src/css/style.css",
