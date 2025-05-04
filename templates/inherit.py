@@ -8,8 +8,4 @@ _logger = logging.getLogger(__name__)
 
 
 class ${MODEL_CAMEL_NAME}(models.Model):
-    _name = "$MODEL_DOT_NAME"
-    _description = "$MODEL_DESCRIPTION"
-
-    name = fields.Char()
-    value = fields.Integer()
+    _inherit = ["$MODEL_DOT_NAME"]
