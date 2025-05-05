@@ -394,7 +394,7 @@ Open [http://localhost:8069](http://localhost:8069) and finish the recording wit
 
 The flamegraph report will be generated an opened.
 
-### Profile Odoo exection time
+### Profile Odoo execution time
 
 Run Odoo and get the process id.
 
