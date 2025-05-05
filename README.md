@@ -65,7 +65,7 @@ Checkout the Odoo version. Show supported versions with `task list-versions`.
 task checkout "$VERSION"
 ```
 
-Install [Odoo scripts](https://ansible.build/roles/odoo_scripts/).
+Install [Odoo scripts](https://ansible.build/scripts.html#odoo-scripts).
 
 ```bash
 task install-odoo-scripts
@@ -75,7 +75,7 @@ Decide wether you want to run Odoo in native mode (recommended) or as a containe
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!_OS, Darwin, Windows with Ubuntu on WSL2.
+Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!\_OS, Darwin, Windows with Ubuntu on WSL2.
 
 #### Setup Python environment
 

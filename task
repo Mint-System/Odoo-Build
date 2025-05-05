@@ -167,6 +167,7 @@ function help() {
 # Static env vars
 
 PASS_ENTRY="env/${PWD##*/}"
+PASS_ENTRY="${PASS_ENTRY,,}"
 ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 
@@ -185,7 +186,7 @@ CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
-LLM_MODEL=${LLM_MODEL:="deepseek-coder"}
+LLM_MODEL=${LLM_MODEL:="llama"}
 
 # Conditional env vars
 
