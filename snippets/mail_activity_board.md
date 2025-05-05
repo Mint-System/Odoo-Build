@@ -11,7 +11,7 @@ ID: `mint_system.mail_activity_board.mail_activity_view_form_board.enable_edit_a
 </data>
 
 ```
-Source: [snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml)
+Source: [snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail_activity_board.mail_activity_view_form_board.enable_edit_and_create.xml)
 
 ### Show Done Button  
 ID: `mint_system.mail_activity_board.mail_activity_view_form_board.show_done_button`  
@@ -25,7 +25,7 @@ ID: `mint_system.mail_activity_board.mail_activity_view_form_board.show_done_but
 </data>
 
 ```
-Source: [snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml)
+Source: [snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail_activity_board.mail_activity_view_form_board.show_done_button.xml)
 
 ## Mail Activity View Search  
 ### My Activities Filter  
@@ -38,7 +38,7 @@ ID: `mint_system.mail_activity_board.mail_activity_view_search.my_activities_fil
 </data>
 
 ```
-Source: [snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml)
+Source: [snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail_activity_board.mail_activity_view_search.my_activities_filter.xml)
 
 ## Open Boards Activities  
 ### My Activities Filter  
@@ -51,5 +51,5 @@ ID: `mint_system.mail_activity_board.open_boards_activities.my_activities_filter
 </odoo>
 
 ```
-Source: [snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml)
+Source: [snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail_activity_board.open_boards_activities.my_activities_filter.xml)
 

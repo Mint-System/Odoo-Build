@@ -10,5 +10,5 @@ ID: `mint_system.account_journal_items_report.account_move_line_template.call_la
 </data>
 
 ```
-Source: [snippets/account_journal_items_report.account_move_line_template.call_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_journal_items_report.account_move_line_template.call_layout.xml)
+Source: [snippets/account_journal_items_report.account_move_line_template.call_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_journal_items_report.account_move_line_template.call_layout.xml)
 

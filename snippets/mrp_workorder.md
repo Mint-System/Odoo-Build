@@ -13,7 +13,7 @@ ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly`
 </data>
 
 ```
-Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml)
+Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly.xml)
 
 ### Remove Button Action Continue  
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue`  
@@ -26,7 +26,7 @@ ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_acti
 </data>
 
 ```
-Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml)
+Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue.xml)
 
 ### Remove Button Do Finish  
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish`  
@@ -37,5 +37,5 @@ ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_f
 </data>
 
 ```
-Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml)
+Source: [snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish.xml)
 

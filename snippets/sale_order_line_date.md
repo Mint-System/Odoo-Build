@@ -15,5 +15,5 @@ ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_dr
 </data>
 
 ```
-Source: [snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
+Source: [snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
 

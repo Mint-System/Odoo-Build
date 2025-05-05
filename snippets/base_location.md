@@ -8,5 +8,5 @@ ID: `mint_system.base_location.view_partner_form.remove_zip_id`
 </data>
 
 ```
-Source: [snippets/base_location.view_partner_form.remove_zip_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/base_location.view_partner_form.remove_zip_id.xml)
+Source: [snippets/base_location.view_partner_form.remove_zip_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/base_location.view_partner_form.remove_zip_id.xml)
 

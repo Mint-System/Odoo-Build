@@ -10,5 +10,5 @@ ID: `mint_system.timesheet_grid.timesheet_view_form.show_name`
 </data>
 
 ```
-Source: [snippets/timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/timesheet_grid.timesheet_view_form.show_name.xml)
+Source: [snippets/timesheet_grid.timesheet_view_form.show_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/timesheet_grid.timesheet_view_form.show_name.xml)
 

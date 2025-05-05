@@ -17,5 +17,5 @@ ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move
 </data>
 
 ```
-Source: [snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml)
+Source: [snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml)
 

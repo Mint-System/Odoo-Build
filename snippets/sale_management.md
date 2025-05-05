@@ -10,5 +10,5 @@ ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`
 </data>
 
 ```
-Source: [snippets/sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale_management.sale_order_form_quote.hide_optional_products.xml)
+Source: [snippets/sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_management.sale_order_form_quote.hide_optional_products.xml)
 

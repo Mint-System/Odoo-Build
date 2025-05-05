@@ -1,4 +1,5 @@
-export default ['/snippets/account.md',
+export default [
+'/snippets/account.md',
 '/snippets/account_accountant.md',
 '/snippets/account_asset.md',
 '/snippets/account_batch_payment.md',
@@ -77,5 +78,5 @@ export default ['/snippets/account.md',
 '/snippets/web.md',
 '/snippets/website.md',
 '/snippets/website_discount_voucher.md',
-'/snippets/website_sale.md',
+'/snippets/website_sale.md'
 ]

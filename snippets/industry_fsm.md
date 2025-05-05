@@ -10,7 +10,7 @@ ID: `mint_system.industry_fsm.project_task_view_list_fsm.show_id`
 </data>
 
 ```
-Source: [snippets/industry_fsm.project_task_view_list_fsm.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.project_task_view_list_fsm.show_id.xml)
+Source: [snippets/industry_fsm.project_task_view_list_fsm.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.project_task_view_list_fsm.show_id.xml)
 
 ## Worksheet Custom  
 ### Add Info  
@@ -52,7 +52,7 @@ ID: `mint_system.industry_fsm.worksheet_custom.add_info`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom.add_info.xml)
+Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom.add_info.xml)
 
 ### Replace Layout  
 ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`  
@@ -66,7 +66,7 @@ ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom.replace_layout.xml)
+Source: [snippets/industry_fsm.worksheet_custom.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom.replace_layout.xml)
 
 ## Worksheet Custom Page  
 ### Remove Address  
@@ -77,7 +77,7 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.remove_address`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.remove_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom_page.remove_address.xml)
+Source: [snippets/industry_fsm.worksheet_custom_page.remove_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.remove_address.xml)
 
 ### Replace Display Name  
 ID: `mint_system.industry_fsm.worksheet_custom_page.replace_display_name`  
@@ -89,7 +89,7 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.replace_display_name`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml)
+Source: [snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml)
 
 ### Style Moser  
 ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`  
@@ -113,61 +113,5 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom_page.style_moser.xml)
-
-## Worksheet Custom  
-### Add Info  
-ID: `mint_system.industry_fsm.worksheet_custom.add_info`  
-```xml
-<data inherit_id="industry_fsm.worksheet_custom" priority="50">
-    <xpath expr="//div[1]" position="before">
-        <h1>Arbeitsrapport</h1>
-        <span id="title">
-            <strong t-field="doc.name"/>
-        </span>
-        <table>
-            <tr>
-                <td style="width:120px">
-                      Kunde:
-        </td>
-                <td style="width:700px">
-                    <span t-field="doc.partner_id"/>
-                    <t t-if="doc.partner_id.ref">
-                      /
-            <span t-field="doc.partner_id.ref"/>
-          </t>
-                </td>
-            </tr>
-            <tr>
-                <td>Benutzer:</td>
-                <td>
-                    <span t-field="doc.x_user_text"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Systemname:</td>
-                <td>
-                    <span t-field="doc.x_systemname"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
-
-```
-Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom.add_info.xml)
-
-### Replace Layout  
-ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`  
-```xml
-<data inherit_id="industry_fsm.worksheet_custom" priority="50">
-    <xpath expr="//t[@t-call='web.external_layout']" position="replace">
-        <t t-call="web.external_layout_worksheet">
-            <t t-call="industry_fsm.worksheet_custom_page" t-lang="doc.partner_id.lang"/>
-        </t>
-    </xpath>
-</data>
-
-```
-Source: [snippets/industry_fsm.worksheet_custom.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/industry_fsm.worksheet_custom.replace_layout.xml)
+Source: [snippets/industry_fsm.worksheet_custom_page.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.style_moser.xml)
 

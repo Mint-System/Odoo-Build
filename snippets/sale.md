@@ -14,7 +14,7 @@ ID: `mint_system.sale.report_blanketorder_document.add_drawing`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.add_drawing.xml)
+Source: [snippets/sale.report_blanketorder_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.add_drawing.xml)
 
 ### Add Footer  
 ID: `mint_system.sale.report_blanketorder_document.add_footer`  
@@ -78,7 +78,7 @@ ID: `mint_system.sale.report_blanketorder_document.add_footer`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.add_footer.xml)
+Source: [snippets/sale.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.add_footer.xml)
 
 ### Add Infotable  
 ID: `mint_system.sale.report_blanketorder_document.add_infotable`  
@@ -147,7 +147,7 @@ ID: `mint_system.sale.report_blanketorder_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.add_infotable.xml)
+Source: [snippets/sale.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.add_infotable.xml)
 
 ### Add Payment Terms  
 ID: `mint_system.sale.report_blanketorder_document.add_payment_terms`  
@@ -164,7 +164,7 @@ ID: `mint_system.sale.report_blanketorder_document.add_payment_terms`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.add_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.add_payment_terms.xml)
+Source: [snippets/sale.report_blanketorder_document.add_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.add_payment_terms.xml)
 
 ### Address Block  
 ID: `mint_system.sale.report_blanketorder_document.address_block`  
@@ -182,7 +182,7 @@ ID: `mint_system.sale.report_blanketorder_document.address_block`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.address_block.xml)
+Source: [snippets/sale.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.address_block.xml)
 
 ### Change Column Order  
 ID: `mint_system.sale.report_blanketorder_document.change_column_order`  
@@ -222,7 +222,7 @@ ID: `mint_system.sale.report_blanketorder_document.change_column_order`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.change_column_order.xml)
+Source: [snippets/sale.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.change_column_order.xml)
 
 ### Change Font  
 ID: `mint_system.sale.report_blanketorder_document.change_font`  
@@ -237,7 +237,7 @@ ID: `mint_system.sale.report_blanketorder_document.change_font`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.change_font.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.change_font.xml)
+Source: [snippets/sale.report_blanketorder_document.change_font.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.change_font.xml)
 
 ### Format Address Blocks  
 ID: `mint_system.sale.report_blanketorder_document.format_address_blocks`  
@@ -254,7 +254,7 @@ ID: `mint_system.sale.report_blanketorder_document.format_address_blocks`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.format_address_blocks.xml)
+Source: [snippets/sale.report_blanketorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.format_address_blocks.xml)
 
 ### Format Qty  
 ID: `mint_system.sale.report_blanketorder_document.format_qty`  
@@ -271,7 +271,7 @@ ID: `mint_system.sale.report_blanketorder_document.format_qty`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.format_qty.xml)
+Source: [snippets/sale.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.format_qty.xml)
 
 ### Format Title  
 ID: `mint_system.sale.report_blanketorder_document.format_title`  
@@ -283,7 +283,7 @@ ID: `mint_system.sale.report_blanketorder_document.format_title`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.format_title.xml)
+Source: [snippets/sale.report_blanketorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.format_title.xml)
 
 ### Modify Main Table  
 ID: `mint_system.sale.report_blanketorder_document.modify_main_table`  
@@ -407,7 +407,7 @@ ID: `mint_system.sale.report_blanketorder_document.modify_main_table`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.modify_main_table.xml)
+Source: [snippets/sale.report_blanketorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.modify_main_table.xml)
 
 ### Remove Informations  
 ID: `mint_system.sale.report_blanketorder_document.remove_informations`  
@@ -418,7 +418,7 @@ ID: `mint_system.sale.report_blanketorder_document.remove_informations`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.remove_informations.xml)
+Source: [snippets/sale.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.remove_informations.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.sale.report_blanketorder_document.remove_summary_table`  
@@ -429,7 +429,7 @@ ID: `mint_system.sale.report_blanketorder_document.remove_summary_table`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.remove_summary_table.xml)
+Source: [snippets/sale.report_blanketorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.remove_summary_table.xml)
 
 ### Replace Addressblock  
 ID: `mint_system.sale.report_blanketorder_document.replace_addressblock`  
@@ -444,7 +444,7 @@ ID: `mint_system.sale.report_blanketorder_document.replace_addressblock`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.replace_addressblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.replace_addressblock.xml)
+Source: [snippets/sale.report_blanketorder_document.replace_addressblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.replace_addressblock.xml)
 
 ### Replace Infoblock  
 ID: `mint_system.sale.report_blanketorder_document.replace_infoblock`  
@@ -481,7 +481,7 @@ ID: `mint_system.sale.report_blanketorder_document.replace_infoblock`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.replace_infoblock.xml)
+Source: [snippets/sale.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.replace_infoblock.xml)
 
 ### Replace Informations  
 ID: `mint_system.sale.report_blanketorder_document.replace_informations`  
@@ -514,7 +514,7 @@ ID: `mint_system.sale.report_blanketorder_document.replace_informations`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.replace_informations.xml)
+Source: [snippets/sale.report_blanketorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.replace_informations.xml)
 
 ### Replace Table Attribute  
 ID: `mint_system.sale.report_blanketorder_document.replace_table_attribute`  
@@ -526,7 +526,7 @@ ID: `mint_system.sale.report_blanketorder_document.replace_table_attribute`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.replace_table_attribute.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.replace_table_attribute.xml)
+Source: [snippets/sale.report_blanketorder_document.replace_table_attribute.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.replace_table_attribute.xml)
 
 ### Replace Title  
 ID: `mint_system.sale.report_blanketorder_document.replace_title`  
@@ -541,7 +541,7 @@ ID: `mint_system.sale.report_blanketorder_document.replace_title`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.replace_title.xml)
+Source: [snippets/sale.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.replace_title.xml)
 
 ### Sequence In Table  
 ID: `mint_system.sale.report_blanketorder_document.sequence_in_table`  
@@ -564,7 +564,7 @@ ID: `mint_system.sale.report_blanketorder_document.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.sequence_in_table.xml)
+Source: [snippets/sale.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.sequence_in_table.xml)
 
 ### Set Ids  
 ID: `mint_system.sale.report_blanketorder_document.set_ids`  
@@ -576,7 +576,7 @@ ID: `mint_system.sale.report_blanketorder_document.set_ids`
 </data>
 
 ```
-Source: [snippets/sale.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_blanketorder_document.set_ids.xml)
+Source: [snippets/sale.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_blanketorder_document.set_ids.xml)
 
 ## Report Purchaserequisitions  
 ### Add Adressblock  
@@ -597,7 +597,7 @@ ID: `mint_system.sale.report_purchaserequisitions.add_adressblock`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.add_adressblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.add_adressblock.xml)
+Source: [snippets/sale.report_purchaserequisitions.add_adressblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.add_adressblock.xml)
 
 ### Add Description  
 ID: `mint_system.sale.report_purchaserequisitions.add_description`  
@@ -611,7 +611,7 @@ ID: `mint_system.sale.report_purchaserequisitions.add_description`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.add_description.xml)
+Source: [snippets/sale.report_purchaserequisitions.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.add_description.xml)
 
 ### Remove Details  
 ID: `mint_system.sale.report_purchaserequisitions.remove_details`  
@@ -623,7 +623,7 @@ ID: `mint_system.sale.report_purchaserequisitions.remove_details`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.remove_details.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.remove_details.xml)
+Source: [snippets/sale.report_purchaserequisitions.remove_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.remove_details.xml)
 
 ### Replace Infoblock  
 ID: `mint_system.sale.report_purchaserequisitions.replace_infoblock`  
@@ -654,7 +654,7 @@ ID: `mint_system.sale.report_purchaserequisitions.replace_infoblock`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.replace_infoblock.xml)
+Source: [snippets/sale.report_purchaserequisitions.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.replace_infoblock.xml)
 
 ### Replace Product Description  
 ID: `mint_system.sale.report_purchaserequisitions.replace_product_description`  
@@ -674,7 +674,7 @@ ID: `mint_system.sale.report_purchaserequisitions.replace_product_description`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.replace_product_description.xml)
+Source: [snippets/sale.report_purchaserequisitions.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.replace_product_description.xml)
 
 ### Replace Table  
 ID: `mint_system.sale.report_purchaserequisitions.replace_table`  
@@ -724,7 +724,7 @@ ID: `mint_system.sale.report_purchaserequisitions.replace_table`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.replace_table.xml)
+Source: [snippets/sale.report_purchaserequisitions.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.replace_table.xml)
 
 ### Sequence In Table  
 ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`  
@@ -747,7 +747,7 @@ ID: `mint_system.sale.report_purchaserequisitions.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
+Source: [snippets/sale.report_purchaserequisitions.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_purchaserequisitions.sequence_in_table.xml)
 
 ## Report Saleconfirmation  
 ### Base  
@@ -763,25 +763,9 @@ ID: `mint_system.sale.report_saleconfirmation.base`
 </t>
 
 ```
-Source: [snippets/sale.report_saleconfirmation.base.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleconfirmation.base.xml)
+Source: [snippets/sale.report_saleconfirmation.base.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleconfirmation.base.xml)
 
 ## Report Saleorder Document  
-### Add Address Space  
-ID: `mint_system.sale.report_saleorder_document.add_address_space`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <t t-set="address" position="before">
-        <style>
-            div.address {
-                padding-top: 3rem
-            }
-        </style>
-    </t>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_address_space.xml)
-
 ### Add Address  
 ID: `mint_system.sale.report_saleorder_document.add_address`  
 ```xml
@@ -909,7 +893,23 @@ ID: `mint_system.sale.report_saleorder_document.add_address`
     </xpath>
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_address.xml)
+Source: [snippets/sale.report_saleorder_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_address.xml)
+
+### Add Address Space  
+ID: `mint_system.sale.report_saleorder_document.add_address_space`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <t t-set="address" position="before">
+        <style>
+            div.address {
+                padding-top: 3rem
+            }
+        </style>
+    </t>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_address_space.xml)
 
 ### Add Blanket Order Line  
 ID: `mint_system.sale.report_saleorder_document.add_blanket_order_line`  
@@ -923,7 +923,7 @@ ID: `mint_system.sale.report_saleorder_document.add_blanket_order_line`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_blanket_order_line.xml)
+Source: [snippets/sale.report_saleorder_document.add_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_blanket_order_line.xml)
 
 ### Add Commitment Date  
 ID: `mint_system.sale.report_saleorder_document.add_commitment_date`  
@@ -942,7 +942,7 @@ ID: `mint_system.sale.report_saleorder_document.add_commitment_date`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_commitment_date.xml)
+Source: [snippets/sale.report_saleorder_document.add_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_commitment_date.xml)
 
 ### Add Country Of Origin  
 ID: `mint_system.sale.report_saleorder_document.add_country_of_origin`  
@@ -959,7 +959,7 @@ ID: `mint_system.sale.report_saleorder_document.add_country_of_origin`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_country_of_origin.xml)
+Source: [snippets/sale.report_saleorder_document.add_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_country_of_origin.xml)
 
 ### Add Default Code  
 ID: `mint_system.sale.report_saleorder_document.add_default_code`  
@@ -978,24 +978,28 @@ ID: `mint_system.sale.report_saleorder_document.add_default_code`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_default_code.xml)
+Source: [snippets/sale.report_saleorder_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_default_code.xml)
 
-### Add Delivery Dates  
-ID: `mint_system.sale.report_saleorder_document.add_delivery_dates`  
+### Add Delivery  
+ID: `mint_system.sale.report_saleorder_document.add_delivery`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//th[@name='th_priceunit']" position="before">
-        <th name="th_delivery_dates" class="text-right">Delivery Date</th>
+    <xpath expr="//div/table/thead/tr/th[4]" position="after">
+        <th>
+            <span>LS</span>
+        </th>
     </xpath>
-    <xpath expr="//td[@name='td_priceunit']" position="before">
-        <td name="td_delivery_dates" class="text-right">
-            <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
+        <td>
+            <span t-field="line.move_ids.picking_id"/>
+            <br/>
+            <span t-field="line.move_ids.picking_id.date_done"/>
         </td>
     </xpath>
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_delivery_dates.xml)
+Source: [snippets/sale.report_saleorder_document.add_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_delivery.xml)
 
 ### Add Delivery Date  
 ID: `mint_system.sale.report_saleorder_document.add_delivery_date`  
@@ -1036,28 +1040,24 @@ ID: `mint_system.sale.report_saleorder_document.add_delivery_date`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_delivery_date.xml)
+Source: [snippets/sale.report_saleorder_document.add_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_delivery_date.xml)
 
-### Add Delivery  
-ID: `mint_system.sale.report_saleorder_document.add_delivery`  
+### Add Delivery Dates  
+ID: `mint_system.sale.report_saleorder_document.add_delivery_dates`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//div/table/thead/tr/th[4]" position="after">
-        <th>
-            <span>LS</span>
-        </th>
+    <xpath expr="//th[@name='th_priceunit']" position="before">
+        <th name="th_delivery_dates" class="text-right">Delivery Date</th>
     </xpath>
-    <xpath expr="//div/table/tbody/t[2]/tr/t[1]/td[3]" position="after">
-        <td>
-            <span t-field="line.move_ids.picking_id"/>
-            <br/>
-            <span t-field="line.move_ids.picking_id.date_done"/>
+    <xpath expr="//td[@name='td_priceunit']" position="before">
+        <td name="td_delivery_dates" class="text-right">
+            <span t-field="line.delivery_dates" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
         </td>
     </xpath>
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_delivery.xml)
+Source: [snippets/sale.report_saleorder_document.add_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_delivery_dates.xml)
 
 ### Add Drawing  
 ID: `mint_system.sale.report_saleorder_document.add_drawing`  
@@ -1075,7 +1075,7 @@ ID: `mint_system.sale.report_saleorder_document.add_drawing`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_drawing.xml)
+Source: [snippets/sale.report_saleorder_document.add_drawing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_drawing.xml)
 
 ### Add Footer  
 ID: `mint_system.sale.report_saleorder_document.add_footer`  
@@ -1144,7 +1144,7 @@ ID: `mint_system.sale.report_saleorder_document.add_footer`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_footer.xml)
+Source: [snippets/sale.report_saleorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_footer.xml)
 
 ### Add General Information  
 ID: `mint_system.sale.report_saleorder_document.add_general_information`  
@@ -1157,37 +1157,66 @@ ID: `mint_system.sale.report_saleorder_document.add_general_information`
         </t>
         
         <t t-else="">
-        <table style="margin-left: 0px; margin-top: 30px; border: transparent">
-            <tr style="height: 100px;">
-                <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
-                </td>
-                <td style="width: 50px"/>
-                <td style="width: 300px; vertical-align: top">
-                    <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Zahlung: </span>
-                        <span t-field="doc.payment_term_id"/>
-                    </div>
-                    <div>
-                        <t>
-                            <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                            <span>IBAN</span>
-                            <span t-field="doc.company_id.partner_id.bank_ids[0].acc_number"/>
-                            <span>(</span>
-                            <span t-field="doc.company_id.partner_id.bank_ids[0].currency_id"/>
-                            <span>)</span>
-                        </t>
-                    </div>
-                </td>
-            </tr>
-
-        </table>
+            <t t-if="doc.company_id.id == 1">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr style="height: 100px;">
+                        <td style="width: 335px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Lapp Engineering AG</span>
+                        </td>
+                        <td style="width: 50px"/>
+                        <td style="width: 300px; vertical-align: top">
+                            <div style="font-weight: bold; padding-bottom: 15px">
+                                <span>Zahlung: </span>
+                                <span t-field="doc.payment_term_id"/>
+                            </div>
+                            <div>
+                                <t>
+                                    <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                                    IBAN CH71 0483 5165 9043 4200 0 (EUR)
+                                </t>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+            
+           
+                
+             <t t-if="doc.company_id.id == 2">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr style="height: 100px;">
+                        <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
+                        </td>
+                        <td style="width: 50px"/>
+                        <td style="width: 300px; vertical-align: top">
+                            <div style="font-weight: bold; padding-bottom: 15px">
+                                <span>Zahlung: </span>
+                                <span t-field="doc.payment_term_id"/>
+                            </div>
+                            <div>
+                                <t>
+                                    <div t-field="doc.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                                    <span>IBAN</span>
+                                    <span t-field="doc.company_id.partner_id.bank_ids[0].acc_number"/>
+                                    <span>(</span>
+                                    <span t-field="doc.company_id.partner_id.bank_ids[0].currency_id"/>
+                                    <span>)</span>
+                                </t>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+           
+            
+        
         </t>
 
     </xpath>
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_general_information.xml)
+Source: [snippets/sale.report_saleorder_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_general_information.xml)
 
 ### Add Header And Footer Note  
 ID: `mint_system.sale.report_saleorder_document.add_header_and_footer_note`  
@@ -1209,7 +1238,7 @@ ID: `mint_system.sale.report_saleorder_document.add_header_and_footer_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_header_and_footer_note.xml)
+Source: [snippets/sale.report_saleorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_header_and_footer_note.xml)
 
 ### Add Header Space  
 ID: `mint_system.sale.report_saleorder_document.add_header_space`  
@@ -1221,7 +1250,24 @@ ID: `mint_system.sale.report_saleorder_document.add_header_space`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_header_space.xml)
+Source: [snippets/sale.report_saleorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_header_space.xml)
+
+### Add Hs Code  
+ID: `mint_system.sale.report_saleorder_document.add_hs_code`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_quantity']" position="before">
+        <th name="th_hs_code" class="text-start">HS-Code</th>
+    </xpath>
+    <xpath expr="//td[@name='td_quantity']" position="before">
+        <td name="td_hs_code" class="text-start">
+            <span t-field="line.product_id.hs_code"/>
+        </td>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_hs_code.xml)
 
 ### Add Hs Code2  
 ID: `mint_system.sale.report_saleorder_document.add_hs_code2`  
@@ -1251,24 +1297,7 @@ ID: `mint_system.sale.report_saleorder_document.add_hs_code2`
 
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.add_hs_code2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_hs_code2.xml)
-
-### Add Hs Code  
-ID: `mint_system.sale.report_saleorder_document.add_hs_code`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//th[@name='th_quantity']" position="before">
-        <th name="th_hs_code" class="text-start">HS-Code</th>
-    </xpath>
-    <xpath expr="//td[@name='td_quantity']" position="before">
-        <td name="td_hs_code" class="text-start">
-            <span t-field="line.product_id.hs_code"/>
-        </td>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_hs_code.xml)
+Source: [snippets/sale.report_saleorder_document.add_hs_code2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_hs_code2.xml)
 
 ### Add Incoterm Blanket Order  
 ID: `mint_system.sale.report_saleorder_document.add_incoterm_blanket_order`  
@@ -1288,7 +1317,7 @@ ID: `mint_system.sale.report_saleorder_document.add_incoterm_blanket_order`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml)
+Source: [snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_incoterm_blanket_order.xml)
 
 ### Add Informations Space  
 ID: `mint_system.sale.report_saleorder_document.add_informations_space`  
@@ -1305,7 +1334,7 @@ ID: `mint_system.sale.report_saleorder_document.add_informations_space`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_informations_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_informations_space.xml)
+Source: [snippets/sale.report_saleorder_document.add_informations_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_informations_space.xml)
 
 ### Add Infotable  
 ID: `mint_system.sale.report_saleorder_document.add_infotable`  
@@ -1385,7 +1414,7 @@ ID: `mint_system.sale.report_saleorder_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_infotable.xml)
+Source: [snippets/sale.report_saleorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_infotable.xml)
 
 ### Add Intrastat Id  
 ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`  
@@ -1402,57 +1431,7 @@ ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_intrastat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_intrastat_id.xml)
-
-### Add Note Space  
-ID: `mint_system.sale.report_saleorder_document.add_note_space`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <p t-field="doc.note" position="replace">
-        <style>
-            div#note {
-                padding-top: 50px;
-                padding-left: 75px;
-                padding-right: 75px;
-            }
-        </style>
-        <div id="note">
-            <p t-field="doc.note"/>
-        </div>
-    </p>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_note_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_note_space.xml)
-
-### Add Notes  
-ID: `mint_system.sale.report_saleorder_document.add_notes`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="/t/t/div/div[2]" position="after">
-        <t t-if="doc.note_header">
-            <div class="row">
-                <div class="col">
-                    <span t-field="doc.note_header"/>
-                    <br/>
-                </div>
-            </div>
-        </t>
-    </xpath>
-    <xpath expr="/t/t/div/p[2]" position="before">
-        <t t-if="doc.note_footer">
-            <div class="row">
-                <div class="col">
-                    <span t-field="doc.note_footer"/>
-                    <br/>
-                </div>
-            </div>
-        </t>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_notes.xml)
+Source: [snippets/sale.report_saleorder_document.add_intrastat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_intrastat_id.xml)
 
 ### Add Note  
 ID: `mint_system.sale.report_saleorder_document.add_note`  
@@ -1500,7 +1479,57 @@ ID: `mint_system.sale.report_saleorder_document.add_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_note.xml)
+Source: [snippets/sale.report_saleorder_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_note.xml)
+
+### Add Note Space  
+ID: `mint_system.sale.report_saleorder_document.add_note_space`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <p t-field="doc.note" position="replace">
+        <style>
+            div#note {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+        </style>
+        <div id="note">
+            <p t-field="doc.note"/>
+        </div>
+    </p>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_note_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_note_space.xml)
+
+### Add Notes  
+ID: `mint_system.sale.report_saleorder_document.add_notes`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="/t/t/div/div[2]" position="after">
+        <t t-if="doc.note_header">
+            <div class="row">
+                <div class="col">
+                    <span t-field="doc.note_header"/>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </xpath>
+    <xpath expr="/t/t/div/p[2]" position="before">
+        <t t-if="doc.note_footer">
+            <div class="row">
+                <div class="col">
+                    <span t-field="doc.note_footer"/>
+                    <br/>
+                </div>
+            </div>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_notes.xml)
 
 ### Add Partner Contact Id  
 ID: `mint_system.sale.report_saleorder_document.add_partner_contact_id`  
@@ -1515,7 +1544,7 @@ ID: `mint_system.sale.report_saleorder_document.add_partner_contact_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_partner_contact_id.xml)
+Source: [snippets/sale.report_saleorder_document.add_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_partner_contact_id.xml)
 
 ### Add Partner Sale Id  
 ID: `mint_system.sale.report_saleorder_document.add_partner_sale_id`  
@@ -1530,7 +1559,7 @@ ID: `mint_system.sale.report_saleorder_document.add_partner_sale_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_partner_sale_id.xml)
+Source: [snippets/sale.report_saleorder_document.add_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_partner_sale_id.xml)
 
 ### Add Percentage Sign  
 ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`  
@@ -1543,7 +1572,7 @@ ID: `mint_system.sale.report_saleorder_document.add_percentage_sign`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_percentage_sign.xml)
+Source: [snippets/sale.report_saleorder_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_percentage_sign.xml)
 
 ### Add Product Uom  
 ID: `mint_system.sale.report_saleorder_document.add_product_uom`  
@@ -1560,7 +1589,7 @@ ID: `mint_system.sale.report_saleorder_document.add_product_uom`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_product_uom.xml)
+Source: [snippets/sale.report_saleorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_product_uom.xml)
 
 ### Add Proforma Note  
 ID: `mint_system.sale.report_saleorder_document.add_proforma_note`  
@@ -1578,7 +1607,7 @@ ID: `mint_system.sale.report_saleorder_document.add_proforma_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_proforma_note.xml)
+Source: [snippets/sale.report_saleorder_document.add_proforma_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_proforma_note.xml)
 
 ### Add Ref External  
 ID: `mint_system.sale.report_saleorder_document.add_ref_external`  
@@ -1589,7 +1618,125 @@ ID: `mint_system.sale.report_saleorder_document.add_ref_external`
     </xpath>
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.add_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_ref_external.xml)
+Source: [snippets/sale.report_saleorder_document.add_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_ref_external.xml)
+
+### Add Section Subtotal Space  
+ID: `mint_system.sale.report_saleorder_document.add_section_subtotal_space`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//td[@name='td_section_subtotal']/.." position="after">
+        <tr>
+            <td name="td_section_subtotal_space" colspan="99" height="25px"/>
+        </tr>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_section_subtotal_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_section_subtotal_space.xml)
+
+### Add Shipping Address Space  
+ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="55">
+    <xpath expr="//t[@t-set='information_block']/t/strong" position="attributes">
+        <attribute name="class">mt-3 d-block</attribute>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_shipping_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_shipping_address_space.xml)
+
+### Add Signature Note  
+ID: `mint_system.sale.report_saleorder_document.add_signature_note`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <p t-field="doc.note" position="after">
+        <t t-if="doc.state != 'sale'">
+            <style>
+            div#signature {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+            </style>
+            <div id="signature">
+                <p>Hiermit bestelle wir die Produkte/Dienstleistungen gem&#xE4;ss diesem Angebot.<br/>
+                <br/>
+                <br/>
+            Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
+            </div>
+        </t>
+    </p>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_signature_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_signature_note.xml)
+
+### Add Taxes  
+ID: `mint_system.sale.report_saleorder_document.add_taxes`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_subtotal']" position="after">
+        <th id="tax_amount">
+            <span/>
+        </th>
+    </xpath>
+    <xpath expr="//td[@name='td_subtotal']" position="after">
+        <td id="tax_amount">
+            <span t-out="line.tax_id.amount"/>
+        </td>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_taxes.xml)
+
+### Add Validity Date  
+ID: `mint_system.sale.report_saleorder_document.add_validity_date`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//p[@name='order_note']" position="before">
+        <t t-if="doc.state != 'sale'">
+            <p>
+    G&#xFC;ltigkeit der Offerte: <span t-field="doc.validity_date"/>
+      </p>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_validity_date.xml)
+
+### Add Weight  
+ID: `mint_system.sale.report_saleorder_document.add_weight`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_quantity']" position="inside">
+        <br/>
+        <i>Weight</i>
+    </xpath>
+    <xpath expr="//th[@name='th_subtotal']" position="inside">
+        <br/>
+        <i>Weight</i>
+    </xpath>
+    <xpath expr="//td[@name='td_quantity']" position="inside">
+        <br/>
+        <i>
+            <span t-field="line.x_studio_weight"/>
+            <span t-field="line.product_id.weight_uom_name"/>
+        </i>
+    </xpath>
+    <xpath expr="//td[@name='td_subtotal']" position="inside">
+        <br/>
+        <i>
+            <span t-field="line.x_studio_float_field_fBm1P"/>
+            <span t-field="line.product_id.weight_uom_name"/>
+        </i>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_weight.xml)
 
 ### Address Block  
 ID: `mint_system.sale.report_saleorder_document.address_block`  
@@ -1646,125 +1793,7 @@ ID: `mint_system.sale.report_saleorder_document.address_block`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.address_block.xml)
-
-### Add Section Subtotal Space  
-ID: `mint_system.sale.report_saleorder_document.add_section_subtotal_space`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//td[@name='td_section_subtotal']/.." position="after">
-        <tr>
-            <td name="td_section_subtotal_space" colspan="99" height="25px"/>
-        </tr>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_section_subtotal_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_section_subtotal_space.xml)
-
-### Add Shipping Address Space  
-ID: `mint_system.sale.report_saleorder_document.add_shipping_address_space`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="55">
-    <xpath expr="//t[@t-set='information_block']/t/strong" position="attributes">
-        <attribute name="class">mt-3 d-block</attribute>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_shipping_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_shipping_address_space.xml)
-
-### Add Signature Note  
-ID: `mint_system.sale.report_saleorder_document.add_signature_note`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <p t-field="doc.note" position="after">
-        <t t-if="doc.state != 'sale'">
-            <style>
-            div#signature {
-                padding-top: 50px;
-                padding-left: 75px;
-                padding-right: 75px;
-            }
-            </style>
-            <div id="signature">
-                <p>Hiermit bestelle wir die Produkte/Dienstleistungen gem&#xE4;ss diesem Angebot.<br/>
-                <br/>
-                <br/>
-            Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
-            </div>
-        </t>
-    </p>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_signature_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_signature_note.xml)
-
-### Add Taxes  
-ID: `mint_system.sale.report_saleorder_document.add_taxes`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//th[@name='th_subtotal']" position="after">
-        <th id="tax_amount">
-            <span/>
-        </th>
-    </xpath>
-    <xpath expr="//td[@name='td_subtotal']" position="after">
-        <td id="tax_amount">
-            <span t-out="line.tax_id.amount"/>
-        </td>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_taxes.xml)
-
-### Add Validity Date  
-ID: `mint_system.sale.report_saleorder_document.add_validity_date`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//p[@name='order_note']" position="before">
-        <t t-if="doc.state != 'sale'">
-            <p>
-    G&#xFC;ltigkeit der Offerte: <span t-field="doc.validity_date"/>
-      </p>
-        </t>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_validity_date.xml)
-
-### Add Weight  
-ID: `mint_system.sale.report_saleorder_document.add_weight`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//th[@name='th_quantity']" position="inside">
-        <br/>
-        <i>Weight</i>
-    </xpath>
-    <xpath expr="//th[@name='th_subtotal']" position="inside">
-        <br/>
-        <i>Weight</i>
-    </xpath>
-    <xpath expr="//td[@name='td_quantity']" position="inside">
-        <br/>
-        <i>
-            <span t-field="line.x_studio_weight"/>
-            <span t-field="line.product_id.weight_uom_name"/>
-        </i>
-    </xpath>
-    <xpath expr="//td[@name='td_subtotal']" position="inside">
-        <br/>
-        <i>
-            <span t-field="line.x_studio_float_field_fBm1P"/>
-            <span t-field="line.product_id.weight_uom_name"/>
-        </i>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.add_weight.xml)
+Source: [snippets/sale.report_saleorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.address_block.xml)
 
 ### Append Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.append_payment_terms`  
@@ -1786,7 +1815,7 @@ ID: `mint_system.sale.report_saleorder_document.append_payment_terms`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.append_payment_terms.xml)
+Source: [snippets/sale.report_saleorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.append_payment_terms.xml)
 
 ### Confirmation Filter Lines  
 ID: `mint_system.sale.report_saleorder_document.confirmation_filter_lines`  
@@ -1798,7 +1827,7 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_filter_lines`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.confirmation_filter_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.confirmation_filter_lines.xml)
+Source: [snippets/sale.report_saleorder_document.confirmation_filter_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.confirmation_filter_lines.xml)
 
 ### Confirmation Header Quantity  
 ID: `mint_system.sale.report_saleorder_document.confirmation_header_quantity`  
@@ -1815,7 +1844,7 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_header_quantity`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.confirmation_header_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.confirmation_header_quantity.xml)
+Source: [snippets/sale.report_saleorder_document.confirmation_header_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.confirmation_header_quantity.xml)
 
 ### Confirmation Qty To Deliver  
 ID: `mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver`  
@@ -1846,7 +1875,7 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_qty_to_deliver`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml)
+Source: [snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.confirmation_qty_to_deliver.xml)
 
 ### Confirmation Title  
 ID: `mint_system.sale.report_saleorder_document.confirmation_title`  
@@ -1864,7 +1893,7 @@ ID: `mint_system.sale.report_saleorder_document.confirmation_title`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.confirmation_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.confirmation_title.xml)
+Source: [snippets/sale.report_saleorder_document.confirmation_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.confirmation_title.xml)
 
 ### Convert Html Note  
 ID: `mint_system.sale.report_saleorder_document.convert_html_note`  
@@ -1887,7 +1916,7 @@ ID: `mint_system.sale.report_saleorder_document.convert_html_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.convert_html_note.xml)
+Source: [snippets/sale.report_saleorder_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.convert_html_note.xml)
 
 ### Display Shipping And Delivery Address  
 ID: `mint_system.sale.report_saleorder_document.display_shipping_and_delivery_address`  
@@ -1899,7 +1928,7 @@ ID: `mint_system.sale.report_saleorder_document.display_shipping_and_delivery_ad
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml)
+Source: [snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.display_shipping_and_delivery_address.xml)
 
 ### Expand Product Description  
 ID: `mint_system.sale.report_saleorder_document.expand_product_description`  
@@ -1920,7 +1949,7 @@ ID: `mint_system.sale.report_saleorder_document.expand_product_description`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.expand_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.expand_product_description.xml)
+Source: [snippets/sale.report_saleorder_document.expand_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.expand_product_description.xml)
 
 ### Format Address Blocks  
 ID: `mint_system.sale.report_saleorder_document.format_address_blocks`  
@@ -1953,7 +1982,7 @@ ID: `mint_system.sale.report_saleorder_document.format_address_blocks`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_address_blocks.xml)
+Source: [snippets/sale.report_saleorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_address_blocks.xml)
 
 ### Format As Date  
 ID: `mint_system.sale.report_saleorder_document.format_as_date`  
@@ -1965,7 +1994,7 @@ ID: `mint_system.sale.report_saleorder_document.format_as_date`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_as_date.xml)
+Source: [snippets/sale.report_saleorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_as_date.xml)
 
 ### Format Clearfix  
 ID: `mint_system.sale.report_saleorder_document.format_clearfix`  
@@ -1977,7 +2006,7 @@ ID: `mint_system.sale.report_saleorder_document.format_clearfix`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_clearfix.xml)
+Source: [snippets/sale.report_saleorder_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_clearfix.xml)
 
 ### Format Discount  
 ID: `mint_system.sale.report_saleorder_document.format_discount`  
@@ -1989,7 +2018,7 @@ ID: `mint_system.sale.report_saleorder_document.format_discount`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_discount.xml)
+Source: [snippets/sale.report_saleorder_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_discount.xml)
 
 ### Format Line Total  
 ID: `mint_system.sale.report_saleorder_document.format_line_total`  
@@ -2004,7 +2033,7 @@ ID: `mint_system.sale.report_saleorder_document.format_line_total`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_line_total.xml)
+Source: [snippets/sale.report_saleorder_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_line_total.xml)
 
 ### Format Note  
 ID: `mint_system.sale.report_saleorder_document.format_note`  
@@ -2016,7 +2045,22 @@ ID: `mint_system.sale.report_saleorder_document.format_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_note.xml)
+Source: [snippets/sale.report_saleorder_document.format_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_note.xml)
+
+### Format Qty  
+ID: `mint_system.sale.report_saleorder_document.format_qty`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <span t-field="line.product_uom_qty" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span>
+    <!-- <span t-field="line.product_uom_qty_confirmed" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </span> -->
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`  
@@ -2033,22 +2077,7 @@ ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.sale.report_saleorder_document.format_qty`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <span t-field="line.product_uom_qty" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span>
-    <!-- <span t-field="line.product_uom_qty_confirmed" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span> -->
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_qty.xml)
+Source: [snippets/sale.report_saleorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_qty_with_decimal.xml)
 
 ### Format Shipping And Delivery Address  
 ID: `mint_system.sale.report_saleorder_document.format_shipping_and_delivery_address`  
@@ -2063,7 +2092,7 @@ ID: `mint_system.sale.report_saleorder_document.format_shipping_and_delivery_add
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml)
+Source: [snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_shipping_and_delivery_address.xml)
 
 ### Format Table Border  
 ID: `mint_system.sale.report_saleorder_document.format_table_border`  
@@ -2090,7 +2119,7 @@ ID: `mint_system.sale.report_saleorder_document.format_table_border`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_table_border.xml)
+Source: [snippets/sale.report_saleorder_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_table_border.xml)
 
 ### Format Title Trimada  
 ID: `mint_system.sale.report_saleorder_document.format_title_trimada`  
@@ -2102,7 +2131,7 @@ ID: `mint_system.sale.report_saleorder_document.format_title_trimada`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.format_title_trimada.xml)
+Source: [snippets/sale.report_saleorder_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.format_title_trimada.xml)
 
 ### Get Position  
 ID: `mint_system.sale.report_saleorder_document.get_position`  
@@ -2127,7 +2156,26 @@ ID: `mint_system.sale.report_saleorder_document.get_position`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.get_position.xml)
+Source: [snippets/sale.report_saleorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.get_position.xml)
+
+### Get Position2  
+ID: `mint_system.sale.report_saleorder_document.get_position2`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//table/thead/tr/th[1]" position="before">
+        <th id="header_position" style="padding-left: 0px">
+            <span>Pos.</span>
+        </th>
+    </xpath>
+    <xpath expr="//t[1]/td[1]" position="before">
+        <td id="position" style="vertical-align: top;">
+            <span t-field="line.sequence"/>
+            <span/>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.get_position2.xml)
 
 ### Group By Product  
 ID: `mint_system.sale.report_saleorder_document.group_by_product`  
@@ -2333,7 +2381,7 @@ ID: `mint_system.sale.report_saleorder_document.group_by_product`
 </t>
 
 ```
-Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.group_by_product.xml)
+Source: [snippets/sale.report_saleorder_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.group_by_product.xml)
 
 ### Hide Address Proforma  
 ID: `mint_system.sale.report_saleorder_document.hide_address_proforma`  
@@ -2349,7 +2397,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_address_proforma`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_address_proforma.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_address_proforma.xml)
+Source: [snippets/sale.report_saleorder_document.hide_address_proforma.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_address_proforma.xml)
 
 ### Hide H2  
 ID: `mint_system.sale.report_saleorder_document.hide_h2`  
@@ -2359,7 +2407,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_h2`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_h2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_h2.xml)
+Source: [snippets/sale.report_saleorder_document.hide_h2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_h2.xml)
 
 ### Hide Payment Term Id  
 ID: `mint_system.sale.report_saleorder_document.hide_payment_term_id`  
@@ -2369,7 +2417,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_payment_term_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_payment_term_id.xml)
+Source: [snippets/sale.report_saleorder_document.hide_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_payment_term_id.xml)
 
 ### Hide Product Packaging Id  
 ID: `mint_system.sale.report_saleorder_document.hide_product_packaging_id`  
@@ -2379,7 +2427,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_product_packaging_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_product_packaging_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_product_packaging_id.xml)
+Source: [snippets/sale.report_saleorder_document.hide_product_packaging_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_product_packaging_id.xml)
 
 ### Hide Title  
 ID: `mint_system.sale.report_saleorder_document.hide_title`  
@@ -2391,7 +2439,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_title`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_title.xml)
+Source: [snippets/sale.report_saleorder_document.hide_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_title.xml)
 
 ### Hide Vat  
 ID: `mint_system.sale.report_saleorder_document.hide_vat`  
@@ -2401,7 +2449,7 @@ ID: `mint_system.sale.report_saleorder_document.hide_vat`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.hide_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.hide_vat.xml)
+Source: [snippets/sale.report_saleorder_document.hide_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_vat.xml)
 
 ### Move Order Note  
 ID: `mint_system.sale.report_saleorder_document.move_order_note`  
@@ -2421,7 +2469,7 @@ ID: `mint_system.sale.report_saleorder_document.move_order_note`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.move_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.move_order_note.xml)
+Source: [snippets/sale.report_saleorder_document.move_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.move_order_note.xml)
 
 ### Move Payment Term  
 ID: `mint_system.sale.report_saleorder_document.move_payment_term`  
@@ -2433,7 +2481,7 @@ ID: `mint_system.sale.report_saleorder_document.move_payment_term`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.move_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.move_payment_term.xml)
+Source: [snippets/sale.report_saleorder_document.move_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.move_payment_term.xml)
 
 ### Product Hs Code And Country Of Origin  
 ID: `mint_system.sale.report_saleorder_document.product_hs_code_and_country_of_origin`  
@@ -2454,7 +2502,7 @@ ID: `mint_system.sale.report_saleorder_document.product_hs_code_and_country_of_o
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.product_hs_code_and_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.product_hs_code_and_country_of_origin.xml)
+Source: [snippets/sale.report_saleorder_document.product_hs_code_and_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.product_hs_code_and_country_of_origin.xml)
 
 ### Qty Remaining  
 ID: `mint_system.sale.report_saleorder_document.qty_remaining`  
@@ -2481,7 +2529,7 @@ ID: `mint_system.sale.report_saleorder_document.qty_remaining`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.qty_remaining.xml)
+Source: [snippets/sale.report_saleorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.qty_remaining.xml)
 
 ### Remove Commitment Date  
 ID: `mint_system.sale.report_saleorder_document.remove_commitment_date`  
@@ -2496,7 +2544,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_commitment_date`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_commitment_date.xml)
+Source: [snippets/sale.report_saleorder_document.remove_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_commitment_date.xml)
 
 ### Remove Discount Percentage  
 ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`  
@@ -2508,7 +2556,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_discount_percentage`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_discount_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_discount_percentage.xml)
+Source: [snippets/sale.report_saleorder_document.remove_discount_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_discount_percentage.xml)
 
 ### Remove Informations  
 ID: `mint_system.sale.report_saleorder_document.remove_informations`  
@@ -2518,7 +2566,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_informations`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_informations.xml)
+Source: [snippets/sale.report_saleorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_informations.xml)
 
 ### Remove Payment Terms  
 ID: `mint_system.sale.report_saleorder_document.remove_payment_terms`  
@@ -2529,7 +2577,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_payment_terms`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_payment_terms.xml)
+Source: [snippets/sale.report_saleorder_document.remove_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_payment_terms.xml)
 
 ### Remove Product Uom  
 ID: `mint_system.sale.report_saleorder_document.remove_product_uom`  
@@ -2539,7 +2587,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_product_uom`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_product_uom.xml)
+Source: [snippets/sale.report_saleorder_document.remove_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_product_uom.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.sale.report_saleorder_document.remove_summary_table`  
@@ -2550,7 +2598,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_summary_table`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_summary_table.xml)
+Source: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_summary_table.xml)
 
 ### Remove Taxes  
 ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
@@ -2561,7 +2609,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_taxes`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_taxes.xml)
+Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_taxes.xml)
 
 ### Remove User Id  
 ID: `mint_system.sale.report_saleorder_document.remove_user_id`  
@@ -2571,7 +2619,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_user_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_user_id.xml)
+Source: [snippets/sale.report_saleorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_user_id.xml)
 
 ### Remove Vat  
 ID: `mint_system.sale.report_saleorder_document.remove_vat`  
@@ -2581,7 +2629,7 @@ ID: `mint_system.sale.report_saleorder_document.remove_vat`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.remove_vat.xml)
+Source: [snippets/sale.report_saleorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_vat.xml)
 
 ### Rename Order  
 ID: `mint_system.sale.report_saleorder_document.rename_order`  
@@ -2592,7 +2640,7 @@ ID: `mint_system.sale.report_saleorder_document.rename_order`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.rename_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.rename_order.xml)
+Source: [snippets/sale.report_saleorder_document.rename_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.rename_order.xml)
 
 ### Rename Proforma Title  
 ID: `mint_system.sale.report_saleorder_document.rename_proforma_title`  
@@ -2605,7 +2653,7 @@ ID: `mint_system.sale.report_saleorder_document.rename_proforma_title`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.rename_proforma_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.rename_proforma_title.xml)
+Source: [snippets/sale.report_saleorder_document.rename_proforma_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.rename_proforma_title.xml)
 
 ### Rename Table Header  
 ID: `mint_system.sale.report_saleorder_document.rename_table_header`  
@@ -2620,7 +2668,7 @@ ID: `mint_system.sale.report_saleorder_document.rename_table_header`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.rename_table_header.xml)
+Source: [snippets/sale.report_saleorder_document.rename_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.rename_table_header.xml)
 
 ### Repeat Table Header  
 ID: `mint_system.sale.report_saleorder_document.repeat_table_header`  
@@ -2632,7 +2680,7 @@ ID: `mint_system.sale.report_saleorder_document.repeat_table_header`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.repeat_table_header.xml)
+Source: [snippets/sale.report_saleorder_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.repeat_table_header.xml)
 
 ### Replace Address And Information Block  
 ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_block`  
@@ -2697,7 +2745,60 @@ ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_address_and_information_block.xml)
+Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_address_and_information_block.xml)
+
+### Replace Informations  
+ID: `mint_system.sale.report_saleorder_document.replace_informations`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <div id="informations" position="replace">
+        <style>
+            div#informations th {}
+            div#informations td {}
+        </style>
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <strong class="mr-4">Datum:</strong>
+                        <span t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    </td>
+                    <td>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span t-field="doc.payment_term_id"/>
+                    </td>
+                    <td>
+                        <strong t-if="doc.partner_sale_id" class="mr-2">Ihr Kontakt:</strong>
+                        <span t-if="doc.partner_sale_id" t-field="doc.partner_sale_id.name"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">G&#xFC;ltigkeit:</strong>
+                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    </td>
+                    <td>
+                        <strong class="mr-2">Unser Kontakt:</strong>
+                        <span t-field="doc.user_id"/>
+                    </td>
+                    <td>
+                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
+                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <strong class="mr-2" t-if="doc.project_id">Unsere Referenz:</strong>
+                        <span t-field="doc.project_id"/>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_informations.xml)
 
 ### Replace Informations2  
 ID: `mint_system.sale.report_saleorder_document.replace_informations2`  
@@ -2801,60 +2902,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_informations2`
     </xpath>
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_informations2.xml)
-
-### Replace Informations  
-ID: `mint_system.sale.report_saleorder_document.replace_informations`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <div id="informations" position="replace">
-        <style>
-            div#informations th {}
-            div#informations td {}
-        </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <strong class="mr-4">Datum:</strong>
-                        <span t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                    </td>
-                    <td>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
-                        <span t-field="doc.payment_term_id"/>
-                    </td>
-                    <td>
-                        <strong t-if="doc.partner_sale_id" class="mr-2">Ihr Kontakt:</strong>
-                        <span t-if="doc.partner_sale_id" t-field="doc.partner_sale_id.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">G&#xFC;ltigkeit:</strong>
-                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                    </td>
-                    <td>
-                        <strong class="mr-2">Unser Kontakt:</strong>
-                        <span t-field="doc.user_id"/>
-                    </td>
-                    <td>
-                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
-                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <strong class="mr-2" t-if="doc.project_id">Unsere Referenz:</strong>
-                        <span t-field="doc.project_id"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_informations.xml)
+Source: [snippets/sale.report_saleorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_informations2.xml)
 
 ### Replace Infotable Tissa  
 ID: `mint_system.sale.report_saleorder_document.replace_infotable_tissa`  
@@ -2966,7 +3014,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_infotable_tissa`
   </xpath>
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_infotable_tissa.xml)
+Source: [snippets/sale.report_saleorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_infotable_tissa.xml)
 
 ### Replace Partner Id  
 ID: `mint_system.sale.report_saleorder_document.replace_partner_id`  
@@ -2985,7 +3033,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_partner_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_partner_id.xml)
+Source: [snippets/sale.report_saleorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_partner_id.xml)
 
 ### Replace Payment Term  
 ID: `mint_system.sale.report_saleorder_document.replace_payment_term`  
@@ -3003,7 +3051,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_payment_term`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_payment_term.xml)
+Source: [snippets/sale.report_saleorder_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_payment_term.xml)
 
 ### Replace Product Description  
 ID: `mint_system.sale.report_saleorder_document.replace_product_description`  
@@ -3030,7 +3078,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_product_description`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_product_description.xml)
+Source: [snippets/sale.report_saleorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_product_description.xml)
 
 ### Replace Summary  
 ID: `mint_system.sale.report_saleorder_document.replace_summary`  
@@ -3116,7 +3164,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_summary.xml)
+Source: [snippets/sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_summary.xml)
 
 ### Replace Title  
 ID: `mint_system.sale.report_saleorder_document.replace_title`  
@@ -3137,7 +3185,19 @@ ID: `mint_system.sale.report_saleorder_document.replace_title`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.replace_title.xml)
+Source: [snippets/sale.report_saleorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_title.xml)
+
+### Round Price  
+ID: `mint_system.sale.report_saleorder_document.round_price`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//span[@t-field='line.price_unit']" position="replace">
+        <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.round_price.xml)
 
 ### Round Price2  
 ID: `mint_system.sale.report_saleorder_document.round_price2`  
@@ -3152,19 +3212,7 @@ ID: `mint_system.sale.report_saleorder_document.round_price2`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.round_price2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.round_price2.xml)
-
-### Round Price  
-ID: `mint_system.sale.report_saleorder_document.round_price`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//span[@t-field='line.price_unit']" position="replace">
-        <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.report_saleorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.round_price.xml)
+Source: [snippets/sale.report_saleorder_document.round_price2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.round_price2.xml)
 
 ### Round Total Price  
 ID: `mint_system.sale.report_saleorder_document.round_total_price`  
@@ -3176,34 +3224,7 @@ ID: `mint_system.sale.report_saleorder_document.round_total_price`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.round_total_price.xml)
-
-### Second Row2  
-ID: `mint_system.sale.report_saleorder_document.second_row2`  
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
-
-    <xpath expr="//td[@name='td_name']/../.." position="after">
-        <tr style="border-top: solid white !important">
-            <td/>
-            <td colspan="3">
-                <span t-field="line.name"/>
-                <br/>
-                <span>HS-Code</span>
-            </td>
-            <td/>
-        </tr>
-    </xpath>
-
-    <xpath expr="//td[@name='td_name']" position="replace">
-        <td name="td_name">
-            <span t-field="line.product_template_id"/>
-        </td>
-    </xpath>
-
-</data>
-```
-Source: [snippets/sale.report_saleorder_document.second_row2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.second_row2.xml)
+Source: [snippets/sale.report_saleorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.round_total_price.xml)
 
 ### Second Row  
 ID: `mint_system.sale.report_saleorder_document.second_row`  
@@ -3251,7 +3272,34 @@ ID: `mint_system.sale.report_saleorder_document.second_row`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.second_row.xml)
+Source: [snippets/sale.report_saleorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.second_row.xml)
+
+### Second Row2  
+ID: `mint_system.sale.report_saleorder_document.second_row2`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//td[@name='td_name']/../.." position="after">
+        <tr style="border-top: solid white !important">
+            <td/>
+            <td colspan="3">
+                <span t-field="line.name"/>
+                <br/>
+                <span>HS-Code</span>
+            </td>
+            <td/>
+        </tr>
+    </xpath>
+
+    <xpath expr="//td[@name='td_name']" position="replace">
+        <td name="td_name">
+            <span t-field="line.product_template_id"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.second_row2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.second_row2.xml)
 
 ### Sequence In Table  
 ID: `mint_system.sale.report_saleorder_document.sequence_in_table`  
@@ -3274,7 +3322,7 @@ ID: `mint_system.sale.report_saleorder_document.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.sequence_in_table.xml)
+Source: [snippets/sale.report_saleorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.sequence_in_table.xml)
 
 ### Set Address Name  
 ID: `mint_system.sale.report_saleorder_document.set_address_name`  
@@ -3293,7 +3341,7 @@ ID: `mint_system.sale.report_saleorder_document.set_address_name`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.set_address_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.set_address_name.xml)
+Source: [snippets/sale.report_saleorder_document.set_address_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.set_address_name.xml)
 
 ### Set Ids  
 ID: `mint_system.sale.report_saleorder_document.set_ids`  
@@ -3323,7 +3371,7 @@ ID: `mint_system.sale.report_saleorder_document.set_ids`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.set_ids.xml)
+Source: [snippets/sale.report_saleorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.set_ids.xml)
 
 ### Set Page Font Size  
 ID: `mint_system.sale.report_saleorder_document.set_page_font_size`  
@@ -3339,7 +3387,7 @@ ID: `mint_system.sale.report_saleorder_document.set_page_font_size`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.set_page_font_size.xml)
+Source: [snippets/sale.report_saleorder_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.set_page_font_size.xml)
 
 ### Set Table Font Size  
 ID: `mint_system.sale.report_saleorder_document.set_table_font_size`  
@@ -3356,7 +3404,7 @@ ID: `mint_system.sale.report_saleorder_document.set_table_font_size`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.set_table_font_size.xml)
+Source: [snippets/sale.report_saleorder_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.set_table_font_size.xml)
 
 ### Set Title Font Size  
 ID: `mint_system.sale.report_saleorder_document.set_title_font_size`  
@@ -3372,7 +3420,7 @@ ID: `mint_system.sale.report_saleorder_document.set_title_font_size`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.set_title_font_size.xml)
+Source: [snippets/sale.report_saleorder_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.set_title_font_size.xml)
 
 ### Show Categ Id  
 ID: `mint_system.sale.report_saleorder_document.show_categ_id`  
@@ -3386,7 +3434,7 @@ ID: `mint_system.sale.report_saleorder_document.show_categ_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_categ_id.xml)
+Source: [snippets/sale.report_saleorder_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_categ_id.xml)
 
 ### Show Comment  
 ID: `mint_system.sale.report_saleorder_document.show_comment`  
@@ -3407,7 +3455,7 @@ ID: `mint_system.sale.report_saleorder_document.show_comment`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_comment.xml)
+Source: [snippets/sale.report_saleorder_document.show_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_comment.xml)
 
 ### Show Default Code  
 ID: `mint_system.sale.report_saleorder_document.show_default_code`  
@@ -3426,7 +3474,7 @@ ID: `mint_system.sale.report_saleorder_document.show_default_code`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_default_code.xml)
+Source: [snippets/sale.report_saleorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_default_code.xml)
 
 ### Show Partner Contact Id  
 ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`  
@@ -3443,7 +3491,7 @@ ID: `mint_system.sale.report_saleorder_document.show_partner_contact_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
+Source: [snippets/sale.report_saleorder_document.show_partner_contact_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_partner_contact_id.xml)
 
 ### Show Partner Sale Id  
 ID: `mint_system.sale.report_saleorder_document.show_partner_sale_id`  
@@ -3460,7 +3508,7 @@ ID: `mint_system.sale.report_saleorder_document.show_partner_sale_id`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_partner_sale_id.xml)
+Source: [snippets/sale.report_saleorder_document.show_partner_sale_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_partner_sale_id.xml)
 
 ### Show Qty Remaining  
 ID: `mint_system.sale.report_saleorder_document.show_qty_remaining`  
@@ -3487,7 +3535,7 @@ ID: `mint_system.sale.report_saleorder_document.show_qty_remaining`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_qty_remaining.xml)
+Source: [snippets/sale.report_saleorder_document.show_qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_qty_remaining.xml)
 
 ### Show Triple Discount  
 ID: `mint_system.sale.report_saleorder_document.show_triple_discount`  
@@ -3504,7 +3552,7 @@ ID: `mint_system.sale.report_saleorder_document.show_triple_discount`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.show_triple_discount.xml)
+Source: [snippets/sale.report_saleorder_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.show_triple_discount.xml)
 
 ### Style Airwork  
 ID: `mint_system.sale.report_saleorder_document.style_airwork`  
@@ -3515,7 +3563,7 @@ ID: `mint_system.sale.report_saleorder_document.style_airwork`
     </xpath>    
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_airwork.xml)
+Source: [snippets/sale.report_saleorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_airwork.xml)
 
 ### Style Carbo Link  
 ID: `mint_system.sale.report_saleorder_document.style_carbo_link`  
@@ -3535,7 +3583,7 @@ ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_carbo_link.xml)
+Source: [snippets/sale.report_saleorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_carbo_link.xml)
 
 ### Style Gelso  
 ID: `mint_system.sale.report_saleorder_document.style_gelso`  
@@ -3561,7 +3609,7 @@ ID: `mint_system.sale.report_saleorder_document.style_gelso`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_gelso.xml)
+Source: [snippets/sale.report_saleorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_gelso.xml)
 
 ### Style Hygentile  
 ID: `mint_system.sale.report_saleorder_document.style_hygentile`  
@@ -3581,7 +3629,29 @@ ID: `mint_system.sale.report_saleorder_document.style_hygentile`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_hygentile.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_hygentile.xml)
+Source: [snippets/sale.report_saleorder_document.style_hygentile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_hygentile.xml)
+
+### Style Lapp Copy  
+ID: `mint_system.sale.report_saleorder_document.style_lapp copy`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+    </xpath>
+    <xpath expr="//table[1]" position="attributes">
+        <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
+        <attribute name="style">border-top-width: 1px</attribute>
+    </xpath>
+    <xpath expr="//div[@name='total']" position="attributes">
+        <attribute name="style">width: 280px; float: right</attribute>
+    </xpath>
+    <xpath expr="//div[@name='total']/div" position="attributes">
+        <attribute name="t-attf-class"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.style_lapp copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_lapp copy.xml)
 
 ### Style Lapp  
 ID: `mint_system.sale.report_saleorder_document.style_lapp`  
@@ -3603,7 +3673,7 @@ ID: `mint_system.sale.report_saleorder_document.style_lapp`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_lapp.xml)
+Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_lapp.xml)
 
 ### Style Mint System  
 ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
@@ -3651,7 +3721,7 @@ ID: `mint_system.sale.report_saleorder_document.style_mint_system`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_mint_system.xml)
+Source: [snippets/sale.report_saleorder_document.style_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_mint_system.xml)
 
 ### Style Moser  
 ID: `mint_system.sale.report_saleorder_document.style_moser`  
@@ -3685,7 +3755,7 @@ ID: `mint_system.sale.report_saleorder_document.style_moser`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_moser.xml)
+Source: [snippets/sale.report_saleorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_moser.xml)
 
 ### Style Swissfragrance  
 ID: `mint_system.sale.report_saleorder_document.style_swissfragrance`  
@@ -3709,7 +3779,7 @@ ID: `mint_system.sale.report_saleorder_document.style_swissfragrance`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_swissfragrance.xml)
+Source: [snippets/sale.report_saleorder_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_swissfragrance.xml)
 
 ### Style Tissa  
 ID: `mint_system.sale.report_saleorder_document.style_tissa`  
@@ -3751,7 +3821,7 @@ ID: `mint_system.sale.report_saleorder_document.style_tissa`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_tissa.xml)
+Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.sale.report_saleorder_document.style_trimada`  
@@ -3841,7 +3911,7 @@ ID: `mint_system.sale.report_saleorder_document.style_trimada`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_trimada.xml)
+Source: [snippets/sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_trimada.xml)
 
 ### Style Valperca  
 ID: `mint_system.sale.report_saleorder_document.style_valperca`  
@@ -3870,7 +3940,7 @@ ID: `mint_system.sale.report_saleorder_document.style_valperca`
     
 </data>
 ```
-Source: [snippets/sale.report_saleorder_document.style_valperca.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_valperca.xml)
+Source: [snippets/sale.report_saleorder_document.style_valperca.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_valperca.xml)
 
 ### Style Xinomer  
 ID: `mint_system.sale.report_saleorder_document.style_xinomer`  
@@ -3892,7 +3962,7 @@ ID: `mint_system.sale.report_saleorder_document.style_xinomer`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.style_xinomer.xml)
+Source: [snippets/sale.report_saleorder_document.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_xinomer.xml)
 
 ### X Hide On Sale Order  
 ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`  
@@ -3907,7 +3977,28 @@ ID: `mint_system.sale.report_saleorder_document.x_hide_on_sale_order`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml)
+Source: [snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.x_hide_on_sale_order.xml)
+
+### X Payment Term Blanket Order  
+ID: `mint_system.sale.report_saleorder_document.x_payment_term_blanket_order`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//div/span[@t-field='doc.note']/.." position="before">
+        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+            <div class="col">
+                <strong>Zahlungsbedingungen: </strong>
+                <t t-if="doc.x_payment_term_blanket_order">
+                    <span t-field="doc.x_payment_term_blanket_order"/>
+                </t>
+                <t t-if="not doc.x_payment_term_blanket_order">
+                    <span t-field="doc.payment_term_id.name"/>
+                </t>
+            </div>
+        </div>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.x_payment_term_blanket_order.xml)
 
 ### X Warranty  
 ID: `mint_system.sale.report_saleorder_document.x_warranty`  
@@ -3920,7 +4011,7 @@ ID: `mint_system.sale.report_saleorder_document.x_warranty`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_document.x_warranty.xml)
+Source: [snippets/sale.report_saleorder_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.x_warranty.xml)
 
 ## Report Saleorder Pro Forma  
 ### Append Signature  
@@ -3947,7 +4038,7 @@ ID: `mint_system.sale.report_saleorder_pro_forma.append_signature`
 </data>
 
 ```
-Source: [snippets/sale.report_saleorder_pro_forma.append_signature.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_pro_forma.append_signature.xml)
+Source: [snippets/sale.report_saleorder_pro_forma.append_signature.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_pro_forma.append_signature.xml)
 
 ### Consolidated  
 ID: `mint_system.sale.report_saleorder_pro_forma.consolidated`  
@@ -4006,7 +4097,7 @@ ID: `mint_system.sale.report_saleorder_pro_forma.consolidated`
 </t>
 
 ```
-Source: [snippets/sale.report_saleorder_pro_forma.consolidated.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.report_saleorder_pro_forma.consolidated.xml)
+Source: [snippets/sale.report_saleorder_pro_forma.consolidated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_pro_forma.consolidated.xml)
 
 ## Sale Order Line View Form Readonly  
 ### Edit Form  
@@ -4052,7 +4143,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_form`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.edit_form.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.edit_form.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.edit_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.edit_form.xml)
 
 ### Edit Price Unit  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_price_unit`  
@@ -4064,7 +4155,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_price_unit`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.edit_price_unit.xml)
 
 ### Edit Tax Id  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_tax_id`  
@@ -4076,7 +4167,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.edit_tax_id`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.edit_tax_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.edit_tax_id.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.edit_tax_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.edit_tax_id.xml)
 
 ### Show Invoice Lines  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`  
@@ -4088,7 +4179,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_invoice_lines`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.show_invoice_lines.xml)
 
 ### Show Is Downpayment  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment`  
@@ -4100,7 +4191,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)
 
 ### Show Project Id  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`  
@@ -4112,7 +4203,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.show_project_id.xml)
 
 ### Show Subscription Id  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`  
@@ -4124,7 +4215,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_subscription_id`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.show_subscription_id.xml)
 
 ### Show Temporal Type  
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_temporal_type`  
@@ -4136,7 +4227,7 @@ ID: `mint_system.sale.sale_order_line_view_form_readonly.show_temporal_type`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml)
+Source: [snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_line_view_form_readonly.show_temporal_type.xml)
 
 ## Sale Order Portal Content  
 ### Add Header And Footer Note  
@@ -4156,7 +4247,7 @@ ID: `mint_system.sale.sale_order_portal_content.add_header_and_footer_note`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml)
+Source: [snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.add_header_and_footer_note.xml)
 
 ### Convert Html Note  
 ID: `mint_system.sale.sale_order_portal_content.convert_html_note`  
@@ -4177,7 +4268,7 @@ ID: `mint_system.sale.sale_order_portal_content.convert_html_note`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.convert_html_note.xml)
+Source: [snippets/sale.sale_order_portal_content.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.convert_html_note.xml)
 
 ### Format Qty  
 ID: `mint_system.sale.sale_order_portal_content.format_qty`  
@@ -4189,7 +4280,7 @@ ID: `mint_system.sale.sale_order_portal_content.format_qty`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.format_qty.xml)
+Source: [snippets/sale.sale_order_portal_content.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.format_qty.xml)
 
 ### Get Position  
 ID: `mint_system.sale.sale_order_portal_content.get_position`  
@@ -4206,7 +4297,7 @@ ID: `mint_system.sale.sale_order_portal_content.get_position`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.get_position.xml)
+Source: [snippets/sale.sale_order_portal_content.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.get_position.xml)
 
 ### Product Name  
 ID: `mint_system.sale.sale_order_portal_content.product_name`  
@@ -4223,7 +4314,7 @@ ID: `mint_system.sale.sale_order_portal_content.product_name`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.product_name.xml)
+Source: [snippets/sale.sale_order_portal_content.product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.product_name.xml)
 
 ### Remove Calculation  
 ID: `mint_system.sale.sale_order_portal_content.remove_calculation`  
@@ -4248,7 +4339,7 @@ ID: `mint_system.sale.sale_order_portal_content.remove_calculation`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.remove_calculation.xml)
+Source: [snippets/sale.sale_order_portal_content.remove_calculation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.remove_calculation.xml)
 
 ### Remove Discount Percentage  
 ID: `mint_system.sale.sale_order_portal_content.remove_discount_percentage`  
@@ -4260,7 +4351,7 @@ ID: `mint_system.sale.sale_order_portal_content.remove_discount_percentage`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.remove_discount_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.remove_discount_percentage.xml)
+Source: [snippets/sale.sale_order_portal_content.remove_discount_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.remove_discount_percentage.xml)
 
 ### Remove Product Uom  
 ID: `mint_system.sale.sale_order_portal_content.remove_product_uom`  
@@ -4270,7 +4361,7 @@ ID: `mint_system.sale.sale_order_portal_content.remove_product_uom`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.remove_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.remove_product_uom.xml)
+Source: [snippets/sale.sale_order_portal_content.remove_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.remove_product_uom.xml)
 
 ### Show Default Code  
 ID: `mint_system.sale.sale_order_portal_content.show_default_code`  
@@ -4292,7 +4383,7 @@ ID: `mint_system.sale.sale_order_portal_content.show_default_code`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.show_default_code.xml)
+Source: [snippets/sale.sale_order_portal_content.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.show_default_code.xml)
 
 ### Show Triple Discount  
 ID: `mint_system.sale.sale_order_portal_content.show_triple_discount`  
@@ -4309,7 +4400,7 @@ ID: `mint_system.sale.sale_order_portal_content.show_triple_discount`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.show_triple_discount.xml)
+Source: [snippets/sale.sale_order_portal_content.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.show_triple_discount.xml)
 
 ### X Description  
 ID: `mint_system.sale.sale_order_portal_content.x_description`  
@@ -4321,7 +4412,7 @@ ID: `mint_system.sale.sale_order_portal_content.x_description`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.x_description.xml)
+Source: [snippets/sale.sale_order_portal_content.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.x_description.xml)
 
 ### X Hide On Sale Order  
 ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`  
@@ -4333,7 +4424,7 @@ ID: `mint_system.sale.sale_order_portal_content.x_hide_on_sale_order`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml)
+Source: [snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_portal_content.x_hide_on_sale_order.xml)
 
 ## Sale Order Tree  
 ### Carrier Id  
@@ -4346,7 +4437,7 @@ ID: `mint_system.sale.sale_order_tree.carrier_id`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_tree.carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_tree.carrier_id.xml)
+Source: [snippets/sale.sale_order_tree.carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_tree.carrier_id.xml)
 
 ## Sale Order View Search Inherit Quotation  
 ### Add Filter Cancel  
@@ -4359,7 +4450,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_cancel
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_cancel.xml)
 
 ### Add Filter Sent  
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_sent`  
@@ -4371,7 +4462,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_sent`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_sent.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_sent.xml)
 
 ### Add Filter State Draft Or Sent  
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent`  
@@ -4383,7 +4474,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_quotation.add_filter_state_
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_quotation.add_filter_state_draft_or_sent.xml)
 
 ### Remove Filter My Quotation  
 ID: `mint_system.sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation`  
@@ -4393,7 +4484,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_quotation.remove_filter_my_
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_quotation.remove_filter_my_quotation.xml)
 
 ## Sale Order View Search Inherit Sale  
 ### Add Invoice Status Invoiced  
@@ -4406,7 +4497,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_inv
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_invoiced.xml)
 
 ### Add Invoice Status No  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_no`  
@@ -4418,7 +4509,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_no`
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_no.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_no.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_no.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_no.xml)
 
 ### Add Invoice Status To Invoice Or No  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no`  
@@ -4430,7 +4521,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.add_invoice_status_to_
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_sale.add_invoice_status_to_invoice_or_no.xml)
 
 ### Filter Commitment Date  
 ID: `mint_system.sale.sale_order_view_search_inherit_sale.filter_commitment_date`  
@@ -4442,7 +4533,7 @@ ID: `mint_system.sale.sale_order_view_search_inherit_sale.filter_commitment_date
 </data>
 
 ```
-Source: [snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml)
+Source: [snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.sale_order_view_search_inherit_sale.filter_commitment_date.xml)
 
 ## Variants  
 ### Remove Variant Extra Price  
@@ -4459,7 +4550,7 @@ ID: `mint_system.sale.variants.remove_variant_extra_price`
 </data>
 
 ```
-Source: [snippets/sale.variants.remove_variant_extra_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.variants.remove_variant_extra_price.xml)
+Source: [snippets/sale.variants.remove_variant_extra_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.variants.remove_variant_extra_price.xml)
 
 ## View Order Form  
 ### Add Blanket Order Id  
@@ -4472,7 +4563,7 @@ ID: `mint_system.sale.view_order_form.add_blanket_order_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.add_blanket_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.add_blanket_order_id.xml)
+Source: [snippets/sale.view_order_form.add_blanket_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.add_blanket_order_id.xml)
 
 ### Add Picking Policy  
 ID: `mint_system.sale.view_order_form.add_picking_policy`  
@@ -4484,7 +4575,7 @@ ID: `mint_system.sale.view_order_form.add_picking_policy`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.add_picking_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.add_picking_policy.xml)
+Source: [snippets/sale.view_order_form.add_picking_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.add_picking_policy.xml)
 
 ### Add Warehouse Id  
 ID: `mint_system.sale.view_order_form.add_warehouse_id`  
@@ -4497,7 +4588,7 @@ ID: `mint_system.sale.view_order_form.add_warehouse_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.add_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.add_warehouse_id.xml)
+Source: [snippets/sale.view_order_form.add_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.add_warehouse_id.xml)
 
 ### Button Recompute Add Shipping  
 ID: `mint_system.sale.view_order_form.button_recompute_add_shipping`  
@@ -4509,7 +4600,7 @@ ID: `mint_system.sale.view_order_form.button_recompute_add_shipping`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.button_recompute_add_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.button_recompute_add_shipping.xml)
+Source: [snippets/sale.view_order_form.button_recompute_add_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.button_recompute_add_shipping.xml)
 
 ### Domain Partner Type  
 ID: `mint_system.sale.view_order_form.domain_partner_type`  
@@ -4521,7 +4612,7 @@ ID: `mint_system.sale.view_order_form.domain_partner_type`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.domain_partner_type.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.domain_partner_type.xml)
+Source: [snippets/sale.view_order_form.domain_partner_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.domain_partner_type.xml)
 
 ### Edit Name  
 ID: `mint_system.sale.view_order_form.edit_name`  
@@ -4534,7 +4625,7 @@ ID: `mint_system.sale.view_order_form.edit_name`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.edit_name.xml)
+Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.edit_name.xml)
 
 ### Edit Tax Id  
 ID: `mint_system.sale.view_order_form.edit_tax_id`  
@@ -4546,7 +4637,7 @@ ID: `mint_system.sale.view_order_form.edit_tax_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.edit_tax_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.edit_tax_id.xml)
+Source: [snippets/sale.view_order_form.edit_tax_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.edit_tax_id.xml)
 
 ### Filter Customer Is Company  
 ID: `mint_system.sale.view_order_form.filter_customer_is_company`  
@@ -4558,7 +4649,7 @@ ID: `mint_system.sale.view_order_form.filter_customer_is_company`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.filter_customer_is_company.xml)
+Source: [snippets/sale.view_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.filter_customer_is_company.xml)
 
 ### Format Dates  
 ID: `mint_system.sale.view_order_form.format_dates`  
@@ -4568,15 +4659,17 @@ ID: `mint_system.sale.view_order_form.format_dates`
         <attribute name="widget">date</attribute>
     </xpath>
     <xpath expr="//div/field[@name='commitment_date']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//field[@name='order_line']/tree/field[@name='commitment_date']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.format_dates.xml)
+Source: [snippets/sale.view_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.format_dates.xml)
 
 ### Format Delivery Dates  
 ID: `mint_system.sale.view_order_form.format_delivery_dates`  
@@ -4589,7 +4682,7 @@ ID: `mint_system.sale.view_order_form.format_delivery_dates`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.format_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.format_delivery_dates.xml)
+Source: [snippets/sale.view_order_form.format_delivery_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.format_delivery_dates.xml)
 
 ### Header Delivery Date  
 ID: `mint_system.sale.view_order_form.header_delivery_date`  
@@ -4601,7 +4694,7 @@ ID: `mint_system.sale.view_order_form.header_delivery_date`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.header_delivery_date.xml)
+Source: [snippets/sale.view_order_form.header_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.header_delivery_date.xml)
 
 ### Hide Validity Date  
 ID: `mint_system.sale.view_order_form.hide_validity_date`  
@@ -4612,7 +4705,7 @@ ID: `mint_system.sale.view_order_form.hide_validity_date`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.hide_validity_date.xml)
+Source: [snippets/sale.view_order_form.hide_validity_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.hide_validity_date.xml)
 
 ### Location In Name  
 ID: `mint_system.sale.view_order_form.location_in_name`  
@@ -4626,7 +4719,7 @@ ID: `mint_system.sale.view_order_form.location_in_name`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.location_in_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.location_in_name.xml)
+Source: [snippets/sale.view_order_form.location_in_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.location_in_name.xml)
 
 ### Modify Readonly Date Order  
 ID: `mint_system.sale.view_order_form.modify_readonly_date_order`  
@@ -4638,7 +4731,7 @@ ID: `mint_system.sale.view_order_form.modify_readonly_date_order`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.modify_readonly_date_order.xml)
+Source: [snippets/sale.view_order_form.modify_readonly_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.modify_readonly_date_order.xml)
 
 ### Move Client Order Ref  
 ID: `mint_system.sale.view_order_form.move_client_order_ref`  
@@ -4651,7 +4744,7 @@ ID: `mint_system.sale.view_order_form.move_client_order_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_client_order_ref.xml)
+Source: [snippets/sale.view_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_client_order_ref.xml)
 
 ### Move Comment  
 ID: `mint_system.sale.view_order_form.move_comment`  
@@ -4663,7 +4756,7 @@ ID: `mint_system.sale.view_order_form.move_comment`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_comment.xml)
+Source: [snippets/sale.view_order_form.move_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_comment.xml)
 
 ### Move Commitment Date  
 ID: `mint_system.sale.view_order_form.move_commitment_date`  
@@ -4681,7 +4774,7 @@ ID: `mint_system.sale.view_order_form.move_commitment_date`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_commitment_date.xml)
+Source: [snippets/sale.view_order_form.move_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_commitment_date.xml)
 
 ### Move Note  
 ID: `mint_system.sale.view_order_form.move_note`  
@@ -4698,7 +4791,7 @@ ID: `mint_system.sale.view_order_form.move_note`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_note.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_note.xml)
+Source: [snippets/sale.view_order_form.move_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_note.xml)
 
 ### Move Picking Notes  
 ID: `mint_system.sale.view_order_form.move_picking_notes`  
@@ -4715,7 +4808,7 @@ ID: `mint_system.sale.view_order_form.move_picking_notes`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_picking_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_picking_notes.xml)
+Source: [snippets/sale.view_order_form.move_picking_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_picking_notes.xml)
 
 ### Move Warehouse Id  
 ID: `mint_system.sale.view_order_form.move_warehouse_id`  
@@ -4728,7 +4821,7 @@ ID: `mint_system.sale.view_order_form.move_warehouse_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.move_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.move_warehouse_id.xml)
+Source: [snippets/sale.view_order_form.move_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.move_warehouse_id.xml)
 
 ### No Create Edit  
 ID: `mint_system.sale.view_order_form.no_create_edit`  
@@ -4743,7 +4836,7 @@ ID: `mint_system.sale.view_order_form.no_create_edit`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.no_create_edit.xml)
+Source: [snippets/sale.view_order_form.no_create_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.no_create_edit.xml)
 
 ### Product Id No Create  
 ID: `mint_system.sale.view_order_form.product_id_no_create`  
@@ -4755,7 +4848,7 @@ ID: `mint_system.sale.view_order_form.product_id_no_create`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.product_id_no_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.product_id_no_create.xml)
+Source: [snippets/sale.view_order_form.product_id_no_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.product_id_no_create.xml)
 
 ### Project Domain  
 ID: `mint_system.sale.view_order_form.project_domain`  
@@ -4767,7 +4860,7 @@ ID: `mint_system.sale.view_order_form.project_domain`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.project_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.project_domain.xml)
+Source: [snippets/sale.view_order_form.project_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.project_domain.xml)
 
 ### Remove Margin Percent  
 ID: `mint_system.sale.view_order_form.remove_margin_percent`  
@@ -4777,7 +4870,7 @@ ID: `mint_system.sale.view_order_form.remove_margin_percent`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.remove_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.remove_margin_percent.xml)
+Source: [snippets/sale.view_order_form.remove_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.remove_margin_percent.xml)
 
 ### Set Groups Date Order  
 ID: `mint_system.sale.view_order_form.set_groups_date_order`  
@@ -4792,7 +4885,7 @@ ID: `mint_system.sale.view_order_form.set_groups_date_order`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.set_groups_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.set_groups_date_order.xml)
+Source: [snippets/sale.view_order_form.set_groups_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.set_groups_date_order.xml)
 
 ### Set Limit Order Line  
 ID: `mint_system.sale.view_order_form.set_limit_order_line`  
@@ -4804,7 +4897,7 @@ ID: `mint_system.sale.view_order_form.set_limit_order_line`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.set_limit_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.set_limit_order_line.xml)
+Source: [snippets/sale.view_order_form.set_limit_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.set_limit_order_line.xml)
 
 ### Show Carrier Method  
 ID: `mint_system.sale.view_order_form.show_carrier_method`  
@@ -4816,7 +4909,7 @@ ID: `mint_system.sale.view_order_form.show_carrier_method`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_carrier_method.xml)
+Source: [snippets/sale.view_order_form.show_carrier_method.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_carrier_method.xml)
 
 ### Show Commitment Date  
 ID: `mint_system.sale.view_order_form.show_commitment_date`  
@@ -4828,7 +4921,7 @@ ID: `mint_system.sale.view_order_form.show_commitment_date`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_commitment_date.xml)
+Source: [snippets/sale.view_order_form.show_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_commitment_date.xml)
 
 ### Show Invoice Lines  
 ID: `mint_system.sale.view_order_form.show_invoice_lines`  
@@ -4840,7 +4933,7 @@ ID: `mint_system.sale.view_order_form.show_invoice_lines`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_invoice_lines.xml)
+Source: [snippets/sale.view_order_form.show_invoice_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_invoice_lines.xml)
 
 ### Show Order Line Project Id  
 ID: `mint_system.sale.view_order_form.show_order_line_project_id`  
@@ -4852,7 +4945,7 @@ ID: `mint_system.sale.view_order_form.show_order_line_project_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_order_line_project_id.xml)
+Source: [snippets/sale.view_order_form.show_order_line_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_order_line_project_id.xml)
 
 ### Show Order Line State  
 ID: `mint_system.sale.view_order_form.show_order_line_state`  
@@ -4864,7 +4957,7 @@ ID: `mint_system.sale.view_order_form.show_order_line_state`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_order_line_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_order_line_state.xml)
+Source: [snippets/sale.view_order_form.show_order_line_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_order_line_state.xml)
 
 ### Show Order Line Subscription Id  
 ID: `mint_system.sale.view_order_form.show_order_line_subscription_id`  
@@ -4876,7 +4969,7 @@ ID: `mint_system.sale.view_order_form.show_order_line_subscription_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_order_line_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_order_line_subscription_id.xml)
+Source: [snippets/sale.view_order_form.show_order_line_subscription_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_order_line_subscription_id.xml)
 
 ### Show Partner Invoice Id  
 ID: `mint_system.sale.view_order_form.show_partner_invoice_id`  
@@ -4888,7 +4981,7 @@ ID: `mint_system.sale.view_order_form.show_partner_invoice_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_partner_invoice_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_partner_invoice_id.xml)
+Source: [snippets/sale.view_order_form.show_partner_invoice_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_partner_invoice_id.xml)
 
 ### Show Product Template Id  
 ID: `mint_system.sale.view_order_form.show_product_template_id`  
@@ -4900,7 +4993,7 @@ ID: `mint_system.sale.view_order_form.show_product_template_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_product_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_product_template_id.xml)
+Source: [snippets/sale.view_order_form.show_product_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_product_template_id.xml)
 
 ### Show Project  
 ID: `mint_system.sale.view_order_form.show_project`  
@@ -4912,7 +5005,7 @@ ID: `mint_system.sale.view_order_form.show_project`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_project.xml)
+Source: [snippets/sale.view_order_form.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_project.xml)
 
 ### Show Purchase Line Count  
 ID: `mint_system.sale.view_order_form.show_purchase_line_count`  
@@ -4924,7 +5017,7 @@ ID: `mint_system.sale.view_order_form.show_purchase_line_count`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_purchase_line_count.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_purchase_line_count.xml)
+Source: [snippets/sale.view_order_form.show_purchase_line_count.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_purchase_line_count.xml)
 
 ### Show Purchase Line Ids  
 ID: `mint_system.sale.view_order_form.show_purchase_line_ids`  
@@ -4936,7 +5029,7 @@ ID: `mint_system.sale.view_order_form.show_purchase_line_ids`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_purchase_line_ids.xml)
+Source: [snippets/sale.view_order_form.show_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_purchase_line_ids.xml)
 
 ### Show Start Date  
 ID: `mint_system.sale.view_order_form.show_start_date`  
@@ -4948,7 +5041,7 @@ ID: `mint_system.sale.view_order_form.show_start_date`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_start_date.xml)
+Source: [snippets/sale.view_order_form.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_start_date.xml)
 
 ### Show Stock Purchase Line Ids  
 ID: `mint_system.sale.view_order_form.show_stock_purchase_line_ids`  
@@ -4960,7 +5053,7 @@ ID: `mint_system.sale.view_order_form.show_stock_purchase_line_ids`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.show_stock_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.show_stock_purchase_line_ids.xml)
+Source: [snippets/sale.view_order_form.show_stock_purchase_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.show_stock_purchase_line_ids.xml)
 
 ### X As4import  
 ID: `mint_system.sale.view_order_form.x_as4import`  
@@ -4972,7 +5065,7 @@ ID: `mint_system.sale.view_order_form.x_as4import`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_as4import.xml)
+Source: [snippets/sale.view_order_form.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_as4import.xml)
 
 ### X Client Project Ref  
 ID: `mint_system.sale.view_order_form.x_client_project_ref`  
@@ -4984,7 +5077,7 @@ ID: `mint_system.sale.view_order_form.x_client_project_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_client_project_ref.xml)
+Source: [snippets/sale.view_order_form.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_client_project_ref.xml)
 
 ### X Drawing File  
 ID: `mint_system.sale.view_order_form.x_drawing_file`  
@@ -5000,7 +5093,7 @@ ID: `mint_system.sale.view_order_form.x_drawing_file`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_drawing_file.xml)
+Source: [snippets/sale.view_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_drawing_file.xml)
 
 ### X Incoterm Blanket Order  
 ID: `mint_system.sale.view_order_form.x_incoterm_blanket_order`  
@@ -5012,7 +5105,7 @@ ID: `mint_system.sale.view_order_form.x_incoterm_blanket_order`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_incoterm_blanket_order.xml)
+Source: [snippets/sale.view_order_form.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_incoterm_blanket_order.xml)
 
 ### X Margin Percent  
 ID: `mint_system.sale.view_order_form.x_margin_percent`  
@@ -5024,7 +5117,7 @@ ID: `mint_system.sale.view_order_form.x_margin_percent`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_margin_percent.xml)
+Source: [snippets/sale.view_order_form.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_margin_percent.xml)
 
 ### X Order Number  
 ID: `mint_system.sale.view_order_form.x_order_number`  
@@ -5036,7 +5129,7 @@ ID: `mint_system.sale.view_order_form.x_order_number`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_order_number.xml)
+Source: [snippets/sale.view_order_form.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_order_number.xml)
 
 ### X Partner Ref  
 ID: `mint_system.sale.view_order_form.x_partner_ref`  
@@ -5048,7 +5141,7 @@ ID: `mint_system.sale.view_order_form.x_partner_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_partner_ref.xml)
+Source: [snippets/sale.view_order_form.x_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_partner_ref.xml)
 
 ### X Payment State  
 ID: `mint_system.sale.view_order_form.x_payment_state`  
@@ -5060,7 +5153,7 @@ ID: `mint_system.sale.view_order_form.x_payment_state`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_payment_state.xml)
+Source: [snippets/sale.view_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_payment_state.xml)
 
 ### X Payment Term Blanket Order  
 ID: `mint_system.sale.view_order_form.x_payment_term_blanket_order`  
@@ -5072,7 +5165,7 @@ ID: `mint_system.sale.view_order_form.x_payment_term_blanket_order`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_payment_term_blanket_order.xml)
+Source: [snippets/sale.view_order_form.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_payment_term_blanket_order.xml)
 
 ### X Sudio Description  
 ID: `mint_system.sale.view_order_form.x_sudio_description`  
@@ -5092,7 +5185,7 @@ ID: `mint_system.sale.view_order_form.x_sudio_description`
 </data>
 
 ```
-Source: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_form.x_sudio_description.xml)
+Source: [snippets/sale.view_order_form.x_sudio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.x_sudio_description.xml)
 
 ## View Order Line Tree  
 ### Add Is Downpayment  
@@ -5105,7 +5198,7 @@ ID: `mint_system.sale.view_order_line_tree.add_is_downpayment`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.add_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.add_is_downpayment.xml)
+Source: [snippets/sale.view_order_line_tree.add_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.add_is_downpayment.xml)
 
 ### Editable  
 ID: `mint_system.sale.view_order_line_tree.editable`  
@@ -5117,7 +5210,7 @@ ID: `mint_system.sale.view_order_line_tree.editable`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.editable.xml)
+Source: [snippets/sale.view_order_line_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.editable.xml)
 
 ### Enable Create  
 ID: `mint_system.sale.view_order_line_tree.enable_create`  
@@ -5129,7 +5222,7 @@ ID: `mint_system.sale.view_order_line_tree.enable_create`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.enable_create.xml)
+Source: [snippets/sale.view_order_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.enable_create.xml)
 
 ### Fields Optional Hide  
 ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`  
@@ -5174,7 +5267,7 @@ ID: `mint_system.sale.view_order_line_tree.fields_optional_hide`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.fields_optional_hide.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.fields_optional_hide.xml)
+Source: [snippets/sale.view_order_line_tree.fields_optional_hide.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.fields_optional_hide.xml)
 
 ### Qty With Sum  
 ID: `mint_system.sale.view_order_line_tree.qty_with_sum`  
@@ -5195,7 +5288,7 @@ ID: `mint_system.sale.view_order_line_tree.qty_with_sum`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.qty_with_sum.xml)
+Source: [snippets/sale.view_order_line_tree.qty_with_sum.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.qty_with_sum.xml)
 
 ### Reset View  
 ID: `mint_system.sale.view_order_line_tree.reset_view`  
@@ -5223,7 +5316,7 @@ ID: `mint_system.sale.view_order_line_tree.reset_view`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.reset_view.xml)
+Source: [snippets/sale.view_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.reset_view.xml)
 
 ### Show Price Tax  
 ID: `mint_system.sale.view_order_line_tree.show_price_tax`  
@@ -5235,7 +5328,7 @@ ID: `mint_system.sale.view_order_line_tree.show_price_tax`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.show_price_tax.xml)
+Source: [snippets/sale.view_order_line_tree.show_price_tax.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.show_price_tax.xml)
 
 ### Show Price Total  
 ID: `mint_system.sale.view_order_line_tree.show_price_total`  
@@ -5247,7 +5340,7 @@ ID: `mint_system.sale.view_order_line_tree.show_price_total`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.show_price_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.show_price_total.xml)
+Source: [snippets/sale.view_order_line_tree.show_price_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.show_price_total.xml)
 
 ### Show Price Unit  
 ID: `mint_system.sale.view_order_line_tree.show_price_unit`  
@@ -5259,7 +5352,7 @@ ID: `mint_system.sale.view_order_line_tree.show_price_unit`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.show_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.show_price_unit.xml)
+Source: [snippets/sale.view_order_line_tree.show_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.show_price_unit.xml)
 
 ### Show Untaxed Amount Invoiced  
 ID: `mint_system.sale.view_order_line_tree.show_untaxed_amount_invoiced`  
@@ -5271,7 +5364,7 @@ ID: `mint_system.sale.view_order_line_tree.show_untaxed_amount_invoiced`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml)
+Source: [snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.show_untaxed_amount_invoiced.xml)
 
 ### X Categ Id  
 ID: `mint_system.sale.view_order_line_tree.x_categ_id`  
@@ -5283,7 +5376,7 @@ ID: `mint_system.sale.view_order_line_tree.x_categ_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_categ_id.xml)
+Source: [snippets/sale.view_order_line_tree.x_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_categ_id.xml)
 
 ### X Pricelist Id  
 ID: `mint_system.sale.view_order_line_tree.x_pricelist_id`  
@@ -5295,7 +5388,7 @@ ID: `mint_system.sale.view_order_line_tree.x_pricelist_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_pricelist_id.xml)
+Source: [snippets/sale.view_order_line_tree.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_pricelist_id.xml)
 
 ### X Service Policy  
 ID: `mint_system.sale.view_order_line_tree.x_service_policy`  
@@ -5307,19 +5400,7 @@ ID: `mint_system.sale.view_order_line_tree.x_service_policy`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_service_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_service_policy.xml)
-
-### X Taxed Amount Invoiced  
-ID: `mint_system.sale.view_order_line_tree.x_taxed_amount_invoiced`  
-```xml
-<data inherit_id="sale.view_order_line_tree" priority="50">
-    <field name="price_subtotal" position="after">
-        <field name="x_taxed_amount_invoiced" sum="Rechnungsbetrag inkl. MWST" optional="show"/>
-    </field>
-</data>
-
-```
-Source: [snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml)
+Source: [snippets/sale.view_order_line_tree.x_service_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_service_policy.xml)
 
 ### X Taxed Amount  
 ID: `mint_system.sale.view_order_line_tree.x_taxed_amount`  
@@ -5331,7 +5412,19 @@ ID: `mint_system.sale.view_order_line_tree.x_taxed_amount`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_taxed_amount.xml)
+Source: [snippets/sale.view_order_line_tree.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_taxed_amount.xml)
+
+### X Taxed Amount Invoiced  
+ID: `mint_system.sale.view_order_line_tree.x_taxed_amount_invoiced`  
+```xml
+<data inherit_id="sale.view_order_line_tree" priority="50">
+    <field name="price_subtotal" position="after">
+        <field name="x_taxed_amount_invoiced" sum="Rechnungsbetrag inkl. MWST" optional="show"/>
+    </field>
+</data>
+
+```
+Source: [snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_taxed_amount_invoiced.xml)
 
 ### X Untaxed Amount  
 ID: `mint_system.sale.view_order_line_tree.x_untaxed_amount`  
@@ -5343,7 +5436,7 @@ ID: `mint_system.sale.view_order_line_tree.x_untaxed_amount`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_untaxed_amount.xml)
+Source: [snippets/sale.view_order_line_tree.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_untaxed_amount.xml)
 
 ### X Weight Delivered  
 ID: `mint_system.sale.view_order_line_tree.x_weight_delivered`  
@@ -5355,7 +5448,7 @@ ID: `mint_system.sale.view_order_line_tree.x_weight_delivered`
 </data>
 
 ```
-Source: [snippets/sale.view_order_line_tree.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_line_tree.x_weight_delivered.xml)
+Source: [snippets/sale.view_order_line_tree.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_line_tree.x_weight_delivered.xml)
 
 ## View Order Tree  
 ### Add Carrier  
@@ -5368,7 +5461,7 @@ ID: `mint_system.sale.view_order_tree.add_carrier`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.add_carrier.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.add_carrier.xml)
+Source: [snippets/sale.view_order_tree.add_carrier.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.add_carrier.xml)
 
 ### Add Client Order Ref  
 ID: `mint_system.sale.view_order_tree.add_client_order_ref`  
@@ -5380,7 +5473,7 @@ ID: `mint_system.sale.view_order_tree.add_client_order_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.add_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.add_client_order_ref.xml)
+Source: [snippets/sale.view_order_tree.add_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.add_client_order_ref.xml)
 
 ### Add Comment  
 ID: `mint_system.sale.view_order_tree.add_comment`  
@@ -5392,7 +5485,7 @@ ID: `mint_system.sale.view_order_tree.add_comment`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.add_comment.xml)
+Source: [snippets/sale.view_order_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.add_comment.xml)
 
 ### Format Delivery Status  
 ID: `mint_system.sale.view_order_tree.format_delivery_status`  
@@ -5407,7 +5500,7 @@ ID: `mint_system.sale.view_order_tree.format_delivery_status`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.format_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.format_delivery_status.xml)
+Source: [snippets/sale.view_order_tree.format_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.format_delivery_status.xml)
 
 ### Show Client Order Ref  
 ID: `mint_system.sale.view_order_tree.show_client_order_ref`  
@@ -5419,7 +5512,7 @@ ID: `mint_system.sale.view_order_tree.show_client_order_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.show_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_client_order_ref.xml)
+Source: [snippets/sale.view_order_tree.show_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.show_client_order_ref.xml)
 
 ### Show Partner Shipping  
 ID: `mint_system.sale.view_order_tree.show_partner_shipping`  
@@ -5431,7 +5524,7 @@ ID: `mint_system.sale.view_order_tree.show_partner_shipping`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_partner_shipping.xml)
+Source: [snippets/sale.view_order_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.show_partner_shipping.xml)
 
 ### Show Payment Term Id  
 ID: `mint_system.sale.view_order_tree.show_payment_term_id`  
@@ -5443,7 +5536,7 @@ ID: `mint_system.sale.view_order_tree.show_payment_term_id`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.show_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_payment_term_id.xml)
+Source: [snippets/sale.view_order_tree.show_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.show_payment_term_id.xml)
 
 ### Show Project  
 ID: `mint_system.sale.view_order_tree.show_project`  
@@ -5455,7 +5548,7 @@ ID: `mint_system.sale.view_order_tree.show_project`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_project.xml)
+Source: [snippets/sale.view_order_tree.show_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.show_project.xml)
 
 ### Show State  
 ID: `mint_system.sale.view_order_tree.show_state`  
@@ -5467,7 +5560,7 @@ ID: `mint_system.sale.view_order_tree.show_state`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.show_state.xml)
+Source: [snippets/sale.view_order_tree.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.show_state.xml)
 
 ### X Country Id Name  
 ID: `mint_system.sale.view_order_tree.x_country_id_name`  
@@ -5479,7 +5572,7 @@ ID: `mint_system.sale.view_order_tree.x_country_id_name`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_country_id_name.xml)
+Source: [snippets/sale.view_order_tree.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.x_country_id_name.xml)
 
 ### X Payment State  
 ID: `mint_system.sale.view_order_tree.x_payment_state`  
@@ -5491,7 +5584,7 @@ ID: `mint_system.sale.view_order_tree.x_payment_state`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_payment_state.xml)
+Source: [snippets/sale.view_order_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.x_payment_state.xml)
 
 ### X Product Uom Qty  
 ID: `mint_system.sale.view_order_tree.x_product_uom_qty`  
@@ -5503,7 +5596,7 @@ ID: `mint_system.sale.view_order_tree.x_product_uom_qty`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_product_uom_qty.xml)
+Source: [snippets/sale.view_order_tree.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.x_product_uom_qty.xml)
 
 ### X Vst  
 ID: `mint_system.sale.view_order_tree.x_vst`  
@@ -5515,7 +5608,7 @@ ID: `mint_system.sale.view_order_tree.x_vst`
 </data>
 
 ```
-Source: [snippets/sale.view_order_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_order_tree.x_vst.xml)
+Source: [snippets/sale.view_order_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_tree.x_vst.xml)
 
 ## View Quotation Tree  
 ### Add Client Order Ref  
@@ -5528,7 +5621,7 @@ ID: `mint_system.sale.view_quotation_tree.add_client_order_ref`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.add_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.add_client_order_ref.xml)
+Source: [snippets/sale.view_quotation_tree.add_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.add_client_order_ref.xml)
 
 ### Add Comment  
 ID: `mint_system.sale.view_quotation_tree.add_comment`  
@@ -5540,7 +5633,7 @@ ID: `mint_system.sale.view_quotation_tree.add_comment`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.add_comment.xml)
+Source: [snippets/sale.view_quotation_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.add_comment.xml)
 
 ### Replace Create Date  
 ID: `mint_system.sale.view_quotation_tree.replace_create_date`  
@@ -5552,7 +5645,7 @@ ID: `mint_system.sale.view_quotation_tree.replace_create_date`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.replace_create_date.xml)
+Source: [snippets/sale.view_quotation_tree.replace_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.replace_create_date.xml)
 
 ### Show Delivery Status  
 ID: `mint_system.sale.view_quotation_tree.show_delivery_status`  
@@ -5564,7 +5657,7 @@ ID: `mint_system.sale.view_quotation_tree.show_delivery_status`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.show_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_delivery_status.xml)
+Source: [snippets/sale.view_quotation_tree.show_delivery_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.show_delivery_status.xml)
 
 ### Show Order Date  
 ID: `mint_system.sale.view_quotation_tree.show_order_date`  
@@ -5576,19 +5669,7 @@ ID: `mint_system.sale.view_quotation_tree.show_order_date`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.show_order_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_order_date.xml)
-
-### Show ​Payment Term Id  
-ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`  
-```xml
-<data inherit_id="sale.view_quotation_tree" priority="50">
-    <xpath expr="//field[@name='state']" position="before">
-        <field name="payment_term_id" optional="show"/>
-    </xpath>
-</data>
-
-```
-Source: [snippets/sale.view_quotation_tree.show_​payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_​payment_term_id.xml)
+Source: [snippets/sale.view_quotation_tree.show_order_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.show_order_date.xml)
 
 ### Show Stage Category  
 ID: `mint_system.sale.view_quotation_tree.show_stage_category`  
@@ -5600,7 +5681,19 @@ ID: `mint_system.sale.view_quotation_tree.show_stage_category`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.show_stage_category.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.show_stage_category.xml)
+Source: [snippets/sale.view_quotation_tree.show_stage_category.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.show_stage_category.xml)
+
+### Show ​Payment Term Id  
+ID: `mint_system.sale.view_quotation_tree.show_​payment_term_id`  
+```xml
+<data inherit_id="sale.view_quotation_tree" priority="50">
+    <xpath expr="//field[@name='state']" position="before">
+        <field name="payment_term_id" optional="show"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/sale.view_quotation_tree.show_​payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.show_​payment_term_id.xml)
 
 ### X Order Number  
 ID: `mint_system.sale.view_quotation_tree.x_order_number`  
@@ -5612,7 +5705,7 @@ ID: `mint_system.sale.view_quotation_tree.x_order_number`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.x_order_number.xml)
+Source: [snippets/sale.view_quotation_tree.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.x_order_number.xml)
 
 ### X Payment State  
 ID: `mint_system.sale.view_quotation_tree.x_payment_state`  
@@ -5624,7 +5717,7 @@ ID: `mint_system.sale.view_quotation_tree.x_payment_state`
 </data>
 
 ```
-Source: [snippets/sale.view_quotation_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_quotation_tree.x_payment_state.xml)
+Source: [snippets/sale.view_quotation_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_quotation_tree.x_payment_state.xml)
 
 ## View Sales Order Filter  
 ### Add Filter Collective Invoice  
@@ -5638,7 +5731,7 @@ ID: `mint_system.sale.view_sales_order_filter.add_filter_collective_invoice`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml)
+Source: [snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_filter.add_filter_collective_invoice.xml)
 
 ### Add Invoice Status  
 ID: `mint_system.sale.view_sales_order_filter.add_invoice_status`  
@@ -5650,7 +5743,7 @@ ID: `mint_system.sale.view_sales_order_filter.add_invoice_status`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_filter.add_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_filter.add_invoice_status.xml)
+Source: [snippets/sale.view_sales_order_filter.add_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_filter.add_invoice_status.xml)
 
 ### Add State  
 ID: `mint_system.sale.view_sales_order_filter.add_state`  
@@ -5662,7 +5755,7 @@ ID: `mint_system.sale.view_sales_order_filter.add_state`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_filter.add_state.xml)
+Source: [snippets/sale.view_sales_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_filter.add_state.xml)
 
 ### Domain Name Analytic Account  
 ID: `mint_system.sale.view_sales_order_filter.domain_name_analytic_account`  
@@ -5674,7 +5767,7 @@ ID: `mint_system.sale.view_sales_order_filter.domain_name_analytic_account`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml)
+Source: [snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_filter.domain_name_analytic_account.xml)
 
 ### Modify Order Line  
 ID: `mint_system.sale.view_sales_order_filter.modify_order_line`  
@@ -5686,7 +5779,7 @@ ID: `mint_system.sale.view_sales_order_filter.modify_order_line`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_filter.modify_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_filter.modify_order_line.xml)
+Source: [snippets/sale.view_sales_order_filter.modify_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_filter.modify_order_line.xml)
 
 ## View Sales Order Line Filter  
 ### X Commitment Date  
@@ -5699,7 +5792,7 @@ ID: `mint_system.sale.view_sales_order_line_filter.x_commitment_date`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_line_filter.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_line_filter.x_commitment_date.xml)
+Source: [snippets/sale.view_sales_order_line_filter.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_line_filter.x_commitment_date.xml)
 
 ### X Date Order  
 ID: `mint_system.sale.view_sales_order_line_filter.x_date_order`  
@@ -5712,5 +5805,5 @@ ID: `mint_system.sale.view_sales_order_line_filter.x_date_order`
 </data>
 
 ```
-Source: [snippets/sale.view_sales_order_line_filter.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/sale.view_sales_order_line_filter.x_date_order.xml)
+Source: [snippets/sale.view_sales_order_line_filter.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_sales_order_line_filter.x_date_order.xml)
 

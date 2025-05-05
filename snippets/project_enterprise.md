@@ -10,5 +10,5 @@ ID: `mint_system.project_enterprise.project_task_view_form.attributes_planned_da
 </data>
 
 ```
-Source: [snippets/project_enterprise.project_task_view_form.attributes_planned_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/project_enterprise.project_task_view_form.attributes_planned_date.xml)
+Source: [snippets/project_enterprise.project_task_view_form.attributes_planned_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/project_enterprise.project_task_view_form.attributes_planned_date.xml)
 

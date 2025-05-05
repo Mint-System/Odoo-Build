@@ -25,7 +25,7 @@ ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`
 </data>
 
 ```
-Source: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
+Source: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
 ## Purchase Order Form  
 ### Add Qty To Invoice  
@@ -38,7 +38,7 @@ ID: `mint_system.purchase.purchase_order_form.add_qty_to_invoice`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.add_qty_to_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.add_qty_to_invoice.xml)
+Source: [snippets/purchase.purchase_order_form.add_qty_to_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.add_qty_to_invoice.xml)
 
 ### Add X Comment  
 ID: `mint_system.purchase.purchase_order_form.add_x_comment`  
@@ -50,7 +50,7 @@ ID: `mint_system.purchase.purchase_order_form.add_x_comment`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.add_x_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.add_x_comment.xml)
+Source: [snippets/purchase.purchase_order_form.add_x_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.add_x_comment.xml)
 
 ### Date Planned Readonly  
 ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`  
@@ -62,7 +62,7 @@ ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.date_planned_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.date_planned_readonly.xml)
+Source: [snippets/purchase.purchase_order_form.date_planned_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.date_planned_readonly.xml)
 
 ### Filter Customer Is Company  
 ID: `mint_system.purchase.purchase_order_form.filter_customer_is_company`  
@@ -74,28 +74,32 @@ ID: `mint_system.purchase.purchase_order_form.filter_customer_is_company`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.filter_customer_is_company.xml)
+Source: [snippets/purchase.purchase_order_form.filter_customer_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.filter_customer_is_company.xml)
 
 ### Format Dates  
 ID: `mint_system.purchase.purchase_order_form.format_dates`  
 ```xml
 <data inherit_id="purchase.purchase_order_form" priority="50">
     <xpath expr="//field[@name='date_order']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//field[@name='date_approve']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//tree/field[@name='date_planned']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
     <xpath expr="//div/field[@name='date_planned']" position="attributes">
-        <attribute name="widget">date</attribute>
+        <attribute name="options">{"show_time":false}</attribute>
+        <attribute name="widget">datetime</attribute>
     </xpath>
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.format_dates.xml)
+Source: [snippets/purchase.purchase_order_form.format_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.format_dates.xml)
 
 ### Modify Readonly Date Approve  
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_date_approve`  
@@ -107,7 +111,7 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_date_approve`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml)
+Source: [snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.modify_readonly_date_approve.xml)
 
 ### Modify Readonly Invoice Status  
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_invoice_status`  
@@ -119,7 +123,7 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_invoice_status`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml)
+Source: [snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.modify_readonly_invoice_status.xml)
 
 ### Modify Readonly Partner Ref  
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_ref`  
@@ -131,7 +135,7 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_ref`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml)
+Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.modify_readonly_partner_ref.xml)
 
 ### Modify Readonly Partner Shipping Id  
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_id`  
@@ -143,7 +147,7 @@ ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_i
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml)
+Source: [snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml)
 
 ### Modify Visibility Button Confirm Reminder Mail  
 ID: `mint_system.purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail`  
@@ -155,7 +159,7 @@ ID: `mint_system.purchase.purchase_order_form.modify_visibility_button_confirm_r
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail.xml)
+Source: [snippets/purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail.xml)
 
 ### Relocate Product Qty And Uom  
 ID: `mint_system.purchase.purchase_order_form.relocate_product_qty_and_uom`  
@@ -172,7 +176,7 @@ ID: `mint_system.purchase.purchase_order_form.relocate_product_qty_and_uom`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml)
+Source: [snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.relocate_product_qty_and_uom.xml)
 
 ### Remove Optional Qty Received  
 ID: `mint_system.purchase.purchase_order_form.remove_optional_qty_received`  
@@ -184,7 +188,7 @@ ID: `mint_system.purchase.purchase_order_form.remove_optional_qty_received`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.remove_optional_qty_received.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.remove_optional_qty_received.xml)
+Source: [snippets/purchase.purchase_order_form.remove_optional_qty_received.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.remove_optional_qty_received.xml)
 
 ### Show Dest Address Id  
 ID: `mint_system.purchase.purchase_order_form.show_dest_address_id`  
@@ -196,7 +200,7 @@ ID: `mint_system.purchase.purchase_order_form.show_dest_address_id`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.show_dest_address_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.show_dest_address_id.xml)
+Source: [snippets/purchase.purchase_order_form.show_dest_address_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.show_dest_address_id.xml)
 
 ### Show Move Dest  
 ID: `mint_system.purchase.purchase_order_form.show_move_dest`  
@@ -208,7 +212,7 @@ ID: `mint_system.purchase.purchase_order_form.show_move_dest`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.show_move_dest.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.show_move_dest.xml)
+Source: [snippets/purchase.purchase_order_form.show_move_dest.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.show_move_dest.xml)
 
 ### Show Procurement Group  
 ID: `mint_system.purchase.purchase_order_form.show_procurement_group`  
@@ -223,7 +227,7 @@ ID: `mint_system.purchase.purchase_order_form.show_procurement_group`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.show_procurement_group.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.show_procurement_group.xml)
+Source: [snippets/purchase.purchase_order_form.show_procurement_group.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.show_procurement_group.xml)
 
 ### X Drawing File  
 ID: `mint_system.purchase.purchase_order_form.x_drawing_file`  
@@ -240,7 +244,7 @@ ID: `mint_system.purchase.purchase_order_form.x_drawing_file`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_drawing_file.xml)
+Source: [snippets/purchase.purchase_order_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_drawing_file.xml)
 
 ### X Group Ids  
 ID: `mint_system.purchase.purchase_order_form.x_group_ids`  
@@ -252,7 +256,7 @@ ID: `mint_system.purchase.purchase_order_form.x_group_ids`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_group_ids.xml)
+Source: [snippets/purchase.purchase_order_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_group_ids.xml)
 
 ### X Is Hidden  
 ID: `mint_system.purchase.purchase_order_form.x_is_hidden`  
@@ -264,7 +268,7 @@ ID: `mint_system.purchase.purchase_order_form.x_is_hidden`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.x_is_hidden.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_is_hidden.xml)
+Source: [snippets/purchase.purchase_order_form.x_is_hidden.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_is_hidden.xml)
 
 ### X Payment State  
 ID: `mint_system.purchase.purchase_order_form.x_payment_state`  
@@ -276,7 +280,7 @@ ID: `mint_system.purchase.purchase_order_form.x_payment_state`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_payment_state.xml)
+Source: [snippets/purchase.purchase_order_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_payment_state.xml)
 
 ### X Recurring Inverval  
 ID: `mint_system.purchase.purchase_order_form.x_recurring_inverval`  
@@ -288,7 +292,7 @@ ID: `mint_system.purchase.purchase_order_form.x_recurring_inverval`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_form.x_recurring_inverval.xml)
+Source: [snippets/purchase.purchase_order_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_recurring_inverval.xml)
 
 ## Purchase Order Kpis Tree  
 ### Add Comment  
@@ -301,7 +305,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.add_comment.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.add_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.add_comment.xml)
 
 ### Add Date Planned  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_date_planned`  
@@ -313,7 +317,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_date_planned`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.add_date_planned.xml)
 
 ### Add Mail Reception Confirmed  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`  
@@ -325,7 +329,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.add_mail_reception_confirmed.xml)
 
 ### Add Receipt Status  
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_receipt_status`  
@@ -337,7 +341,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.add_receipt_status`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.add_receipt_status.xml)
 
 ### Format Date Order  
 ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`  
@@ -349,7 +353,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.format_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.format_date_order.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.format_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.format_date_order.xml)
 
 ### X Payment State  
 ID: `mint_system.purchase.purchase_order_kpis_tree.x_payment_state`  
@@ -361,7 +365,7 @@ ID: `mint_system.purchase.purchase_order_kpis_tree.x_payment_state`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml)
+Source: [snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_kpis_tree.x_payment_state.xml)
 
 ## Purchase Order Line Tree  
 ### Reset View  
@@ -398,7 +402,7 @@ ID: `mint_system.purchase.purchase_order_line_tree.reset_view`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_line_tree.reset_view.xml)
+Source: [snippets/purchase.purchase_order_line_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_line_tree.reset_view.xml)
 
 ## Purchase Order View Search  
 ### Add Invoice Status  
@@ -411,7 +415,7 @@ ID: `mint_system.purchase.purchase_order_view_search.add_invoice_status`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_view_search.add_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_view_search.add_invoice_status.xml)
+Source: [snippets/purchase.purchase_order_view_search.add_invoice_status.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_search.add_invoice_status.xml)
 
 ### Modify Product Id  
 ID: `mint_system.purchase.purchase_order_view_search.modify_product_id`  
@@ -423,7 +427,7 @@ ID: `mint_system.purchase.purchase_order_view_search.modify_product_id`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_view_search.modify_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_view_search.modify_product_id.xml)
+Source: [snippets/purchase.purchase_order_view_search.modify_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_search.modify_product_id.xml)
 
 ## Purchase Order View Tree  
 ### Add Mail Reception Confirmed  
@@ -436,7 +440,7 @@ ID: `mint_system.purchase.purchase_order_view_tree.add_mail_reception_confirmed`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml)
+Source: [snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_tree.add_mail_reception_confirmed.xml)
 
 ### Format State  
 ID: `mint_system.purchase.purchase_order_view_tree.format_state`  
@@ -452,7 +456,7 @@ ID: `mint_system.purchase.purchase_order_view_tree.format_state`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_view_tree.format_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_view_tree.format_state.xml)
+Source: [snippets/purchase.purchase_order_view_tree.format_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_tree.format_state.xml)
 
 ### X Payment Tree  
 ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`  
@@ -464,7 +468,7 @@ ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`
 </data>
 
 ```
-Source: [snippets/purchase.purchase_order_view_tree.x_payment_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.purchase_order_view_tree.x_payment_tree.xml)
+Source: [snippets/purchase.purchase_order_view_tree.x_payment_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_tree.x_payment_tree.xml)
 
 ## Report Purchaseorder Document  
 ### Add Agreement  
@@ -480,7 +484,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_agreement.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_agreement.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_agreement.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_agreement.xml)
 
 ### Add Date Approve  
 ID: `mint_system.purchase.report_purchaseorder_document.add_date_approve`  
@@ -495,7 +499,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_date_approve`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_date_approve.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_date_approve.xml)
 
 ### Add Date Planned  
 ID: `mint_system.purchase.report_purchaseorder_document.add_date_planned`  
@@ -517,7 +521,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_date_planned`
 
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_date_planned.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_date_planned.xml)
 
 ### Add Discount  
 ID: `mint_system.purchase.report_purchaseorder_document.add_discount`  
@@ -535,7 +539,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_discount`
     </xpath>
 </data>
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_discount.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_discount.xml)
 
 ### Add Email  
 ID: `mint_system.purchase.report_purchaseorder_document.add_email`  
@@ -547,7 +551,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_email`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_email.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_email.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_email.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_email.xml)
 
 ### Add Footer  
 ID: `mint_system.purchase.report_purchaseorder_document.add_footer`  
@@ -586,7 +590,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_footer.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_footer.xml)
 
 ### Add Infotable  
 ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`  
@@ -668,7 +672,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_infotable.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_infotable.xml)
 
 ### Add Taxes  
 ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`  
@@ -687,7 +691,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.add_taxes.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_taxes.xml)
 
 ### Append Incoterm  
 ID: `mint_system.purchase.report_purchaseorder_document.append_incoterm`  
@@ -705,7 +709,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.append_incoterm`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.append_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.append_incoterm.xml)
+Source: [snippets/purchase.report_purchaseorder_document.append_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.append_incoterm.xml)
 
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`  
@@ -724,7 +728,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.append_payment_terms.xml)
+Source: [snippets/purchase.report_purchaseorder_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.append_payment_terms.xml)
 
 ### Date Created  
 ID: `mint_system.purchase.report_purchaseorder_document.date_created`  
@@ -739,7 +743,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.date_created`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.date_created.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.date_created.xml)
+Source: [snippets/purchase.report_purchaseorder_document.date_created.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.date_created.xml)
 
 ### Format Address Blocks  
 ID: `mint_system.purchase.report_purchaseorder_document.format_address_blocks`  
@@ -761,7 +765,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_address_blocks`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_address_blocks.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_address_blocks.xml)
 
 ### Format As Date  
 ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`  
@@ -776,7 +780,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_as_date.xml)
 
 ### Format Date  
 ID: `mint_system.purchase.report_purchaseorder_document.format_date`  
@@ -788,7 +792,21 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_date`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_date.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_date.xml)
+
+### Format Qty  
+ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
+        <t t-if="order_line.product_uom.id == 1">
+            <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`  
@@ -805,21 +823,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.purchase.report_purchaseorder_document.format_qty`  
-```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
-        <t t-if="order_line.product_uom.id == 1">
-            <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
-        </t>
-    </xpath>
-</data>
-
-```
-Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_qty.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml)
 
 ### Format Title  
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`  
@@ -835,7 +839,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_title`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_title.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_title.xml)
 
 ### Format Total  
 ID: `mint_system.purchase.report_purchaseorder_document.format_total`  
@@ -847,7 +851,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_total`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.format_total.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.format_total.xml)
+Source: [snippets/purchase.report_purchaseorder_document.format_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_total.xml)
 
 ### Get Position  
 ID: `mint_system.purchase.report_purchaseorder_document.get_position`  
@@ -866,7 +870,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.get_position`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.get_position.xml)
+Source: [snippets/purchase.report_purchaseorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.get_position.xml)
 
 ### Header Margin  
 ID: `mint_system.purchase.report_purchaseorder_document.header_margin`  
@@ -878,7 +882,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.header_margin`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.header_margin.xml)
+Source: [snippets/purchase.report_purchaseorder_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.header_margin.xml)
 
 ### Modify Main Table  
 ID: `mint_system.purchase.report_purchaseorder_document.modify_main_table`  
@@ -989,7 +993,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.modify_main_table`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.modify_main_table.xml)
+Source: [snippets/purchase.report_purchaseorder_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.modify_main_table.xml)
 
 ### Product Description Replace  
 ID: `mint_system.purchase.report_purchaseorder_document.product_description_replace`  
@@ -1008,7 +1012,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.product_description_repl
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.product_description_replace.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.product_description_replace.xml)
+Source: [snippets/purchase.report_purchaseorder_document.product_description_replace.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.product_description_replace.xml)
 
 ### Product Hide Bracket Description  
 ID: `mint_system.purchase.report_purchaseorder_document.product_hide_bracket_description`  
@@ -1022,7 +1026,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.product_hide_bracket_des
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml)
+Source: [snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.product_hide_bracket_description.xml)
 
 ### Qty Remaining  
 ID: `mint_system.purchase.report_purchaseorder_document.qty_remaining`  
@@ -1038,7 +1042,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.qty_remaining`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.qty_remaining.xml)
+Source: [snippets/purchase.report_purchaseorder_document.qty_remaining.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.qty_remaining.xml)
 
 ### Remove Informations  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_informations`  
@@ -1049,7 +1053,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_informations`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_informations.xml)
+Source: [snippets/purchase.report_purchaseorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.remove_informations.xml)
 
 ### Remove Summary Table  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_summary_table`  
@@ -1060,7 +1064,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_summary_table`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_summary_table.xml)
+Source: [snippets/purchase.report_purchaseorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.remove_summary_table.xml)
 
 ### Remove Taxes  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`  
@@ -1070,7 +1074,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`
     <xpath expr="//td[@name='td_taxes']" position="replace"/>
 </data>
 ```
-Source: [snippets/purchase.report_purchaseorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_taxes.xml)
+Source: [snippets/purchase.report_purchaseorder_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.remove_taxes.xml)
 
 ### Remove User Id  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_user_id`  
@@ -1081,7 +1085,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_user_id`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_user_id.xml)
+Source: [snippets/purchase.report_purchaseorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.remove_user_id.xml)
 
 ### Remove Vat  
 ID: `mint_system.purchase.report_purchaseorder_document.remove_vat`  
@@ -1092,7 +1096,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.remove_vat`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.remove_vat.xml)
+Source: [snippets/purchase.report_purchaseorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.remove_vat.xml)
 
 ### Rename Deadline  
 ID: `mint_system.purchase.report_purchaseorder_document.rename_deadline`  
@@ -1110,7 +1114,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.rename_deadline`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.rename_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.rename_deadline.xml)
+Source: [snippets/purchase.report_purchaseorder_document.rename_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.rename_deadline.xml)
 
 ### Replace Address And Information Block  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_address_and_information_block`  
@@ -1168,102 +1172,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_address_and_info
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml)
-
-### Replace Informations2  
-ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`  
-```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
-
-    <xpath expr="//div[@id='informations']" position="replace">
-
-        <style>
-            table#info {
-            width: 100%;
-            margin-bottom: 25px;
-            border: transparent;            
-            }
-            table#info td {
-            color: black;
-            border: transparent;
-            }
-            table#info td:last-child {
-            background-color: transparent;
-            }
-            table#info tr {
-            text-align: top;
-            } 
-        </style>
-
-        <table id="info" style="width: 700px; margin-bottom: 50px">
-            <tr>
-                <t t-if="o.date_approve">
-                    <td width="200px">Date</td>
-                    <td width="500px">
-                        <span id="date_order" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </td>
-                </t>
-            </tr>
-             <tr>
-                <t t-if="o.date_planned">
-                    <td>Delivery Date</td>
-                    <td>
-                        <span t-field="o.date_planned"/>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <t t-if="o.partner_ref">
-                    <td>Your Reference</td>
-                    <td>
-                        <span t-field="o.partner_ref"/>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <t t-if="o.partner_id.parent_id">
-                    <td>Your Contact</td>
-                    <td>
-                        <span t-field="o.partner_id.name"/>
-                    </td>
-                </t>
-            </tr>
-            
-            <tr>
-                <t t-if="o.incoterm_id">
-                    <td>Incoterm</td>
-                    <td>
-                        <span t-field="o.incoterm_id.name"/>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <t t-if="o.payment_term_id">
-                    <td>Payment terms</td>
-                    <td>
-                        <span t-field="o.payment_term_id"/>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <t t-if="o.user_id">
-                    <td>Our Contact</td>
-                    <td>
-                        <span t-field="o.user_id"/>
-                        <t t-if="o.user_id.email">
-                           ,                            <span t-field="o.user_id.email"/>
-                        </t>
-                        <t t-if="o.user_id.phone">
-                           ,                            <span t-field="o.user_id.phone"/>
-                        </t>
-                    </td>
-                </t>
-            </tr>
-        </table>      
-    </xpath>
-</data>
-```
-Source: [snippets/purchase.report_purchaseorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_informations2.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_address_and_information_block.xml)
 
 ### Replace Informations  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`  
@@ -1379,7 +1288,102 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_informations.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_informations.xml)
+
+### Replace Informations2  
+ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
+        <style>
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="o.date_approve">
+                    <td width="200px">Date</td>
+                    <td width="500px">
+                        <span id="date_order" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+             <tr>
+                <t t-if="o.date_planned">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="o.date_planned"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.partner_ref">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_ref"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            
+            <tr>
+                <t t-if="o.incoterm_id">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.incoterm_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_informations2.xml)
 
 ### Replace Partner Id  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_partner_id`  
@@ -1398,7 +1402,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_partner_id`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_partner_id.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_partner_id.xml)
 
 ### Replace Product Description  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_product_description`  
@@ -1414,7 +1418,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_product_descript
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_product_description.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_product_description.xml)
 
 ### Replace Representative  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`  
@@ -1426,7 +1430,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_representative.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_representative.xml)
 
 ### Replace Taxes Id  
 ID: `mint_system.purchase.report_purchaseorder_document.replace_taxes_id`  
@@ -1447,7 +1451,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.replace_taxes_id`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml)
+Source: [snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.replace_taxes_id.xml)
 
 ### Round Price  
 ID: `mint_system.purchase.report_purchaseorder_document.round_price`  
@@ -1459,7 +1463,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.round_price`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.round_price.xml)
+Source: [snippets/purchase.report_purchaseorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.round_price.xml)
 
 ### Row Date Align Left  
 ID: `mint_system.purchase.report_purchaseorder_document.row_date_align_left`  
@@ -1477,7 +1481,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.row_date_align_left`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.row_date_align_left.xml)
+Source: [snippets/purchase.report_purchaseorder_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.row_date_align_left.xml)
 
 ### Second Row  
 ID: `mint_system.purchase.report_purchaseorder_document.second_row`  
@@ -1509,7 +1513,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.second_row`
 
 </data>
 ```
-Source: [snippets/purchase.report_purchaseorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.second_row.xml)
+Source: [snippets/purchase.report_purchaseorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.second_row.xml)
 
 ### Sequence In Table  
 ID: `mint_system.purchase.report_purchaseorder_document.sequence_in_table`  
@@ -1533,7 +1537,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.sequence_in_table.xml)
+Source: [snippets/purchase.report_purchaseorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.sequence_in_table.xml)
 
 ### Set Ids  
 ID: `mint_system.purchase.report_purchaseorder_document.set_ids`  
@@ -1548,7 +1552,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.set_ids`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.set_ids.xml)
+Source: [snippets/purchase.report_purchaseorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.set_ids.xml)
 
 ### Show Seller Product  
 ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`  
@@ -1564,7 +1568,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
+Source: [snippets/purchase.report_purchaseorder_document.show_seller_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.show_seller_product.xml)
 
 ### Sort By Name  
 ID: `mint_system.purchase.report_purchaseorder_document.sort_by_name`  
@@ -1579,7 +1583,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.sort_by_name`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.sort_by_name.xml)
+Source: [snippets/purchase.report_purchaseorder_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.sort_by_name.xml)
 
 ### Style Airwork  
 ID: `mint_system.purchase.report_purchaseorder_document.style_airwork`  
@@ -1606,7 +1610,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_airwork`
 
 </data>
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_airwork.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_airwork.xml)
 
 ### Style Carbo Link  
 ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`  
@@ -1632,7 +1636,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_carbo_link.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_carbo_link.xml)
 
 ### Style Gelso  
 ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`  
@@ -1649,7 +1653,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_gelso.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_gelso.xml)
 
 ### Style Moser  
 ID: `mint_system.purchase.report_purchaseorder_document.style_moser`  
@@ -1695,7 +1699,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_moser`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_moser.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_moser.xml)
 
 ### Style Tissa  
 ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`  
@@ -1744,7 +1748,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_tissa.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchaseorder_document.style_trimada`  
@@ -1760,7 +1764,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_trimada`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.style_trimada.xml)
+Source: [snippets/purchase.report_purchaseorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_trimada.xml)
 
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`  
@@ -1782,7 +1786,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.terms_and_conditions.xml)
+Source: [snippets/purchase.report_purchaseorder_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.terms_and_conditions.xml)
 
 ### Title Margin  
 ID: `mint_system.purchase.report_purchaseorder_document.title_margin`  
@@ -1794,7 +1798,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.title_margin`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.title_margin.xml)
+Source: [snippets/purchase.report_purchaseorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.title_margin.xml)
 
 ### X Warranty  
 ID: `mint_system.purchase.report_purchaseorder_document.x_warranty`  
@@ -1807,7 +1811,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.x_warranty`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchaseorder_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchaseorder_document.x_warranty.xml)
+Source: [snippets/purchase.report_purchaseorder_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.x_warranty.xml)
 
 ## Report Purchasequotation Document  
 ### Add Default Code  
@@ -1827,7 +1831,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_default_code`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_default_code.xml)
+Source: [snippets/purchase.report_purchasequotation_document.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_default_code.xml)
 
 ### Add Footer  
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`  
@@ -1866,7 +1870,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_footer.xml)
+Source: [snippets/purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_footer.xml)
 
 ### Add Infoblock  
 ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`  
@@ -1875,19 +1879,19 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
     <xpath expr="//h2" position="after">
         <div id="infoblock" class="row mt32 mb32">
             <div t-if="o.user_id" class="col-3 bm-2">
-                <strong>Ansprechperson Einkauf</strong>
+                <strong>Buyer</strong>
                 <p t-field="o.user_id.email" class="m-0"/>
             </div>
             <div class="col-2 bm-2">
-                <strong>Datum</strong>
+                <strong>Date</strong>
                 <p t-field="o.write_date" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.partner_ref" class="col-3 bm-2">
-                <strong>Ihre Referenz</strong>
+                <strong>Your Order Reference</strong>
                 <p t-field="o.partner_ref" class="m-0"/>
             </div>
             <div t-if="o.date_order" class="col-3 bm-2">
-                <strong>Frist für Angebotsabgabe</strong>
+                <strong>Deadline for submission of offer</strong>
                 <p t-field="o.date_order" class="m-0" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
             </div>
             <div t-if="o.incoterm_id" class="col-3 bm-2">
@@ -1899,7 +1903,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.add_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_infoblock.xml)
+Source: [snippets/purchase.report_purchasequotation_document.add_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_infoblock.xml)
 
 ### Add Informations2  
 ID: `mint_system.purchase.report_purchasequotation_document.add_informations2`  
@@ -1975,7 +1979,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_informations2`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.add_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_informations2.xml)
+Source: [snippets/purchase.report_purchasequotation_document.add_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_informations2.xml)
 
 ### Add Infotable  
 ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`  
@@ -2052,7 +2056,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
+Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
 
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`  
@@ -2071,7 +2075,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.append_payment_terms.xml)
+Source: [snippets/purchase.report_purchasequotation_document.append_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.append_payment_terms.xml)
 
 ### Format Address Blocks  
 ID: `mint_system.purchase.report_purchasequotation_document.format_address_blocks`  
@@ -2092,7 +2096,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_address_block
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_address_blocks.xml)
+Source: [snippets/purchase.report_purchasequotation_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_address_blocks.xml)
 
 ### Format As Date  
 ID: `mint_system.purchase.report_purchasequotation_document.format_as_date`  
@@ -2104,7 +2108,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_as_date`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_as_date.xml)
+Source: [snippets/purchase.report_purchasequotation_document.format_as_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_as_date.xml)
 
 ### Format Date  
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`  
@@ -2116,7 +2120,21 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_date`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_date.xml)
+Source: [snippets/purchase.report_purchasequotation_document.format_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_date.xml)
+
+### Format Qty  
+ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
+        <t t-if="order_line.product_uom.id == 1">
+            <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_qty.xml)
 
 ### Format Qty With Decimal  
 ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_decimal`  
@@ -2133,21 +2151,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_deci
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml)
-
-### Format Qty  
-ID: `mint_system.purchase.report_purchasequotation_document.format_qty`  
-```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
-    <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
-        <t t-if="order_line.product_uom.id == 1">
-            <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
-        </t>
-    </xpath>
-</data>
-
-```
-Source: [snippets/purchase.report_purchasequotation_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_qty.xml)
+Source: [snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_qty_with_decimal.xml)
 
 ### Format Title  
 ID: `mint_system.purchase.report_purchasequotation_document.format_title`  
@@ -2160,7 +2164,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.format_title`
 
 </data>
 ```
-Source: [snippets/purchase.report_purchasequotation_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.format_title.xml)
+Source: [snippets/purchase.report_purchasequotation_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.format_title.xml)
 
 ### Get Position  
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`  
@@ -2179,7 +2183,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.get_position`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.get_position.xml)
+Source: [snippets/purchase.report_purchasequotation_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.get_position.xml)
 
 ### Header Margin  
 ID: `mint_system.purchase.report_purchasequotation_document.header_margin`  
@@ -2191,7 +2195,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.header_margin`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.header_margin.xml)
+Source: [snippets/purchase.report_purchasequotation_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.header_margin.xml)
 
 ### Hide Incoterm  
 ID: `mint_system.purchase.report_purchasequotation_document.hide_incoterm`  
@@ -2201,7 +2205,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.hide_incoterm`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.hide_incoterm.xml)
+Source: [snippets/purchase.report_purchasequotation_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.hide_incoterm.xml)
 
 ### Modify Main Table  
 ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`  
@@ -2300,7 +2304,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
+Source: [snippets/purchase.report_purchasequotation_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.modify_main_table.xml)
 
 ### Product Hide Bracket Description  
 ID: `mint_system.purchase.report_purchasequotation_document.product_hide_bracket_description`  
@@ -2314,7 +2318,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.product_hide_bracket
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml)
+Source: [snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.product_hide_bracket_description.xml)
 
 ### Qty With Decimal  
 ID: `mint_system.purchase.report_purchasequotation_document.qty_with_decimal`  
@@ -2331,7 +2335,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.qty_with_decimal`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml)
+Source: [snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.qty_with_decimal.xml)
 
 ### Remove Date Planned  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`  
@@ -2344,7 +2348,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.remove_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.remove_date_planned.xml)
+Source: [snippets/purchase.report_purchasequotation_document.remove_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.remove_date_planned.xml)
 
 ### Remove Incoterms  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`  
@@ -2358,7 +2362,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.remove_incoterms.xml)
+Source: [snippets/purchase.report_purchasequotation_document.remove_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.remove_incoterms.xml)
 
 ### Remove Vat  
 ID: `mint_system.purchase.report_purchasequotation_document.remove_vat`  
@@ -2371,7 +2375,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.remove_vat`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.remove_vat.xml)
+Source: [snippets/purchase.report_purchasequotation_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.remove_vat.xml)
 
 ### Repeat Table Header  
 ID: `mint_system.purchase.report_purchasequotation_document.repeat_table_header`  
@@ -2383,7 +2387,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.repeat_table_header`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.repeat_table_header.xml)
+Source: [snippets/purchase.report_purchasequotation_document.repeat_table_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.repeat_table_header.xml)
 
 ### Replace Informations2  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_informations2`  
@@ -2453,7 +2457,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.replace_informations
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.replace_informations2.xml)
+Source: [snippets/purchase.report_purchasequotation_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.replace_informations2.xml)
 
 ### Replace Partner Id  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`  
@@ -2472,7 +2476,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.replace_partner_id.xml)
+Source: [snippets/purchase.report_purchasequotation_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.replace_partner_id.xml)
 
 ### Replace Product Description  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_product_description`  
@@ -2488,7 +2492,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.replace_product_desc
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.replace_product_description.xml)
+Source: [snippets/purchase.report_purchasequotation_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.replace_product_description.xml)
 
 ### Replace Title  
 ID: `mint_system.purchase.report_purchasequotation_document.replace_title`  
@@ -2506,7 +2510,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.replace_title`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.replace_title.xml)
+Source: [snippets/purchase.report_purchasequotation_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.replace_title.xml)
 
 ### Row Date Align Left  
 ID: `mint_system.purchase.report_purchasequotation_document.row_date_align_left`  
@@ -2521,7 +2525,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.row_date_align_left`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.row_date_align_left.xml)
+Source: [snippets/purchase.report_purchasequotation_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.row_date_align_left.xml)
 
 ### Sequence In Table  
 ID: `mint_system.purchase.report_purchasequotation_document.sequence_in_table`  
@@ -2544,7 +2548,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.sequence_in_table.xml)
+Source: [snippets/purchase.report_purchasequotation_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.sequence_in_table.xml)
 
 ### Set Ids  
 ID: `mint_system.purchase.report_purchasequotation_document.set_ids`  
@@ -2556,7 +2560,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.set_ids.xml)
+Source: [snippets/purchase.report_purchasequotation_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.set_ids.xml)
 
 ### Sort By Name  
 ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`  
@@ -2569,7 +2573,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.sort_by_name.xml)
+Source: [snippets/purchase.report_purchasequotation_document.sort_by_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.sort_by_name.xml)
 
 ### Style Airwork  
 ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`  
@@ -2604,7 +2608,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`
 
 </data>
 ```
-Source: [snippets/purchase.report_purchasequotation_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_airwork.xml)
+Source: [snippets/purchase.report_purchasequotation_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_airwork.xml)
 
 ### Style Gelso  
 ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`  
@@ -2626,7 +2630,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_gelso.xml)
+Source: [snippets/purchase.report_purchasequotation_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_gelso.xml)
 
 ### Style Moser  
 ID: `mint_system.purchase.report_purchasequotation_document.style_moser`  
@@ -2669,7 +2673,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_moser`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_moser.xml)
+Source: [snippets/purchase.report_purchasequotation_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_moser.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  
@@ -2685,7 +2689,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.style_trimada.xml)
+Source: [snippets/purchase.report_purchasequotation_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_trimada.xml)
 
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchasequotation_document.terms_and_conditions`  
@@ -2707,7 +2711,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.terms_and_conditions
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml)
+Source: [snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.terms_and_conditions.xml)
 
 ### Title Margin  
 ID: `mint_system.purchase.report_purchasequotation_document.title_margin`  
@@ -2719,7 +2723,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.title_margin`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.title_margin.xml)
+Source: [snippets/purchase.report_purchasequotation_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.title_margin.xml)
 
 ### X Warranty  
 ID: `mint_system.purchase.report_purchasequotation_document.x_warranty`  
@@ -2732,7 +2736,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.x_warranty`
 </data>
 
 ```
-Source: [snippets/purchase.report_purchasequotation_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.report_purchasequotation_document.x_warranty.xml)
+Source: [snippets/purchase.report_purchasequotation_document.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.x_warranty.xml)
 
 ## View Purchase Order Filter  
 ### Add State  
@@ -2745,7 +2749,7 @@ ID: `mint_system.purchase.view_purchase_order_filter.add_state`
 </data>
 
 ```
-Source: [snippets/purchase.view_purchase_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.view_purchase_order_filter.add_state.xml)
+Source: [snippets/purchase.view_purchase_order_filter.add_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.view_purchase_order_filter.add_state.xml)
 
 ### Modify Product Id  
 ID: `mint_system.purchase.view_purchase_order_filter.modify_product_id`  
@@ -2757,5 +2761,5 @@ ID: `mint_system.purchase.view_purchase_order_filter.modify_product_id`
 </data>
 
 ```
-Source: [snippets/purchase.view_purchase_order_filter.modify_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/purchase.view_purchase_order_filter.modify_product_id.xml)
+Source: [snippets/purchase.view_purchase_order_filter.modify_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.view_purchase_order_filter.modify_product_id.xml)
 

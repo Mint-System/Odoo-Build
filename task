@@ -442,62 +442,7 @@ function update-repo-docs() {
 
 
 function update-snippet-docs() {
-
-    echo "Update snippets doc file."
-
-    echo "# Snippets" > snippets.md
-    echo "In Odoo everything is described as an XML document. \
-    Snippets are modifications (edits) for these XML documents. \
-    With a snippet you can e.g. hide a field on the contact form. \
-    A snippet name is unique and follows the \`\$COMPANY.\$MODULE.\$XML_ID.\$DESCRIPTION\` schema." >> snippets.md
-
-    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/16.0"
-
-    # Get all modules
-    MODULES=$(ls snippets/*.xml | xargs -n 1 basename | cut -d. -f1 | sort | uniq)
-    for MODULE in $MODULES; do
-
-        TITLE="${MODULE^}" # Uppercase first letter
-        TITLE=$(echo "$TITLE" | sed 's/_/ /g') # Replace underline with space
-        TITLE=$(echo "$TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
-
-        # Create doc file for each module
-        DOCFILE="snippets/$MODULE.md"
-        echo -e "# $TITLE" > "$DOCFILE"
-        echo "## [$TITLE](snippets/$MODULE.md)" >> snippets.md
-        SIDEBAR_ENTRIES+="'/snippets/$MODULE.md',\n"
-
-        # Get all xml ids
-        XML_IDS=$(ls snippets/$MODULE.*.xml | xargs -n 1 basename | cut -d. -f2 | uniq)
-        for XML_ID in $XML_IDS; do
-
-            XML_ID_TITLE=$(echo "$XML_ID" | sed 's/_/ /g') # Replace underline with space
-            XML_ID_TITLE=$(echo "$XML_ID_TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
-
-            echo "## $XML_ID_TITLE  " >> "$DOCFILE"
-
-            # Process each file
-            FILES="snippets/$MODULE.$XML_ID.*.xml"
-            for FILE in $FILES; do
-
-                # Get snippet params
-                FILENAME=$(basename "$FILE")
-                EDIT=$(echo "$FILENAME" | cut -d. -f3)
-
-                EDIT_TITLE=$(echo "$EDIT" | sed 's/_/ /g') # Replace underline with space
-                EDIT_TITLE=$(echo "$EDIT_TITLE" | sed -r 's/\<./\U&/g') # Uppercase first letter after space
-
-                # Group by modules
-                echo "### $EDIT_TITLE  " >> "$DOCFILE"
-                echo "ID: \`mint_system.$MODULE.$XML_ID.$EDIT\`  " >> "$DOCFILE"
-                echo -e '```xml' >> "$DOCFILE"
-                cat "$FILE" >> "$DOCFILE"
-                echo -e '\n```' >> "$DOCFILE"
-                echo -e "Source: [$FILE]($PATH_URL/$FILE)\n" >> "$DOCFILE"
-            done
-        done
-    done
-    echo -e "export default [$SIDEBAR_ENTRIES]" > .vuepress/sidebar.js
+    ./bin/update-snippet-docs
 }
 
 function update-revision-docs() {

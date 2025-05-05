@@ -18,7 +18,7 @@ ID: `mint_system.account_batch_payment.print_batch_payment.add_row`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_batch_payment.print_batch_payment.add_row.xml)
+Source: [snippets/account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.add_row.xml)
 
 ### Sort  
 ID: `mint_system.account_batch_payment.print_batch_payment.sort`  
@@ -43,7 +43,7 @@ ID: `mint_system.account_batch_payment.print_batch_payment.sort`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_batch_payment.print_batch_payment.sort.xml)
+Source: [snippets/account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.sort.xml)
 
 ## View Batch Payment Form  
 ### Show Sct Generic  
@@ -56,5 +56,5 @@ ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
+Source: [snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
 

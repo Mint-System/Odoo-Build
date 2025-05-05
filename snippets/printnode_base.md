@@ -10,5 +10,5 @@ ID: `mint_system.printnode_base.printnode_scenario_domain_editor.remove_domain_w
 </data>
 
 ```
-Source: [snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml)
+Source: [snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/printnode_base.printnode_scenario_domain_editor.remove_domain_widget.xml)
 

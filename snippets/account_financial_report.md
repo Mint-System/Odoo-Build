@@ -10,7 +10,7 @@ ID: `mint_system.account_financial_report.general_ledger.replace_layout`
 </data>
 
 ```
-Source: [snippets/account_financial_report.general_ledger.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.general_ledger.replace_layout.xml)
+Source: [snippets/account_financial_report.general_ledger.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.general_ledger.replace_layout.xml)
 
 ## Internal Layout  
 ### Style Trimada  
@@ -137,7 +137,7 @@ ID: `mint_system.account_financial_report.internal_layout.style_trimada`
 </data>
 
 ```
-Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.internal_layout.style_trimada.xml)
+Source: [snippets/account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.internal_layout.style_trimada.xml)
 
 ### Trimada  
 ID: `mint_system.account_financial_report.internal_layout.trimada`  
@@ -304,7 +304,7 @@ ID: `mint_system.account_financial_report.internal_layout.trimada`
 </t>
 
 ```
-Source: [snippets/account_financial_report.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.internal_layout.trimada.xml)
+Source: [snippets/account_financial_report.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.internal_layout.trimada.xml)
 
 ## Report General Ledger Base  
 ### Hide Filters  
@@ -315,7 +315,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.hide_filter
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_base.hide_filters.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_base.hide_filters.xml)
+Source: [snippets/account_financial_report.report_general_ledger_base.hide_filters.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_base.hide_filters.xml)
 
 ### Replace Title  
 ID: `mint_system.account_financial_report.report_general_ledger_base.replace_title`  
@@ -329,7 +329,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_base.replace_tit
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_base.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_base.replace_title.xml)
+Source: [snippets/account_financial_report.report_general_ledger_base.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_base.replace_title.xml)
 
 ## Report General Ledger Ending Cumul  
 ### Hide  
@@ -340,7 +340,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_ending_cumul.hid
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml)
+Source: [snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_ending_cumul.hide.xml)
 
 ## Report General Ledger Lines  
 ### Initial Balance And Cumulated  
@@ -479,7 +479,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_ba
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml)
+Source: [snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml)
 
 ### Replace Header  
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_header`  
@@ -516,7 +516,7 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_he
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_lines.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.replace_header.xml)
+Source: [snippets/account_financial_report.report_general_ledger_lines.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_lines.replace_header.xml)
 
 ### Replace Lines  
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_lines`  
@@ -629,5 +629,5 @@ ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_li
 </data>
 
 ```
-Source: [snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml)
+Source: [snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_financial_report.report_general_ledger_lines.replace_lines.xml)
 

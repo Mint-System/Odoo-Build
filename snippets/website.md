@@ -10,5 +10,5 @@ ID: `mint_system.website.website_search_box_input.hide_search_form`
 </data>
 
 ```
-Source: [snippets/website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website.website_search_box_input.hide_search_form.xml)
+Source: [snippets/website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website.website_search_box_input.hide_search_form.xml)
 

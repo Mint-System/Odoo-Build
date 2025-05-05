@@ -10,7 +10,7 @@ ID: `mint_system.product.product_category_form_view.x_relevant_for_certificate`
 </data>
 
 ```
-Source: [snippets/product.product_category_form_view.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_category_form_view.x_relevant_for_certificate.xml)
+Source: [snippets/product.product_category_form_view.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_category_form_view.x_relevant_for_certificate.xml)
 
 ## Product Normal Form View  
 ### Add Feeder Id  
@@ -23,7 +23,7 @@ ID: `mint_system.product.product_normal_form_view.add_feeder_id`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.add_feeder_id.xml)
+Source: [snippets/product.product_normal_form_view.add_feeder_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.add_feeder_id.xml)
 
 ### Hide Default Code  
 ID: `mint_system.product.product_normal_form_view.hide_default_code`  
@@ -33,7 +33,7 @@ ID: `mint_system.product.product_normal_form_view.hide_default_code`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.hide_default_code.xml)
+Source: [snippets/product.product_normal_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.hide_default_code.xml)
 
 ### Relocate Barcode  
 ID: `mint_system.product.product_normal_form_view.relocate_barcode`  
@@ -46,7 +46,7 @@ ID: `mint_system.product.product_normal_form_view.relocate_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.relocate_barcode.xml)
+Source: [snippets/product.product_normal_form_view.relocate_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.relocate_barcode.xml)
 
 ### Remove Barcode  
 ID: `mint_system.product.product_normal_form_view.remove_barcode`  
@@ -56,7 +56,7 @@ ID: `mint_system.product.product_normal_form_view.remove_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.remove_barcode.xml)
+Source: [snippets/product.product_normal_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.remove_barcode.xml)
 
 ### X Hide On Sale Order  
 ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`  
@@ -68,7 +68,7 @@ ID: `mint_system.product.product_normal_form_view.x_hide_on_sale_order`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
+Source: [snippets/product.product_normal_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.x_hide_on_sale_order.xml)
 
 ### X Warranty  
 ID: `mint_system.product.product_normal_form_view.x_warranty`  
@@ -80,7 +80,7 @@ ID: `mint_system.product.product_normal_form_view.x_warranty`
 </data>
 
 ```
-Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_form_view.x_warranty.xml)
+Source: [snippets/product.product_normal_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_form_view.x_warranty.xml)
 
 ## Product Normal Only Form View  
 ### Add X Product Label  
@@ -93,7 +93,7 @@ ID: `mint_system.product.product_normal_only_form_view.add_x_product_label`
 </data>
 
 ```
-Source: [snippets/product.product_normal_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_normal_only_form_view.add_x_product_label.xml)
+Source: [snippets/product.product_normal_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_normal_only_form_view.add_x_product_label.xml)
 
 ## Product Packaging Form View  
 ### X Description  
@@ -106,7 +106,7 @@ ID: `mint_system.product.product_packaging_form_view.x_description`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_form_view.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_form_view.x_description.xml)
+Source: [snippets/product.product_packaging_form_view.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_form_view.x_description.xml)
 
 ### X Packaging Uom Id  
 ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`  
@@ -118,7 +118,7 @@ ID: `mint_system.product.product_packaging_form_view.x_packaging_uom_id`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
+Source: [snippets/product.product_packaging_form_view.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_form_view.x_packaging_uom_id.xml)
 
 ### X Print Parent Only  
 ID: `mint_system.product.product_packaging_form_view.x_print_parent_only`  
@@ -130,7 +130,7 @@ ID: `mint_system.product.product_packaging_form_view.x_print_parent_only`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_form_view.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_form_view.x_print_parent_only.xml)
+Source: [snippets/product.product_packaging_form_view.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_form_view.x_print_parent_only.xml)
 
 ### X Print Without Parent  
 ID: `mint_system.product.product_packaging_form_view.x_print_without_parent`  
@@ -142,7 +142,7 @@ ID: `mint_system.product.product_packaging_form_view.x_print_without_parent`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_form_view.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_form_view.x_print_without_parent.xml)
+Source: [snippets/product.product_packaging_form_view.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_form_view.x_print_without_parent.xml)
 
 ### X Qty Description  
 ID: `mint_system.product.product_packaging_form_view.x_qty_description`  
@@ -154,7 +154,7 @@ ID: `mint_system.product.product_packaging_form_view.x_qty_description`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_form_view.x_qty_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_form_view.x_qty_description.xml)
+Source: [snippets/product.product_packaging_form_view.x_qty_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_form_view.x_qty_description.xml)
 
 ## Product Packaging Tree View  
 ### Show Barcode  
@@ -167,7 +167,7 @@ ID: `mint_system.product.product_packaging_tree_view.show_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_tree_view.show_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_tree_view.show_barcode.xml)
+Source: [snippets/product.product_packaging_tree_view.show_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_tree_view.show_barcode.xml)
 
 ### X Description  
 ID: `mint_system.product.product_packaging_tree_view.x_description`  
@@ -179,7 +179,7 @@ ID: `mint_system.product.product_packaging_tree_view.x_description`
 </data>
 
 ```
-Source: [snippets/product.product_packaging_tree_view.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_packaging_tree_view.x_description.xml)
+Source: [snippets/product.product_packaging_tree_view.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_packaging_tree_view.x_description.xml)
 
 ## Product Pricelist Item Tree View  
 ### Make Editable  
@@ -195,7 +195,7 @@ ID: `mint_system.product.product_pricelist_item_tree_view.make_editable`
 </data>
 
 ```
-Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_pricelist_item_tree_view.make_editable.xml)
+Source: [snippets/product.product_pricelist_item_tree_view.make_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_pricelist_item_tree_view.make_editable.xml)
 
 ## Product Pricelist View  
 ### Show Product  
@@ -208,7 +208,7 @@ ID: `mint_system.product.product_pricelist_view.show_product`
 </data>
 
 ```
-Source: [snippets/product.product_pricelist_view.show_product.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_pricelist_view.show_product.xml)
+Source: [snippets/product.product_pricelist_view.show_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_pricelist_view.show_product.xml)
 
 ## Product Template Form View  
 ### Add Type Description  
@@ -226,7 +226,7 @@ ID: `mint_system.product.product_template_form_view.add_type_description`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.add_type_description.xml)
+Source: [snippets/product.product_template_form_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.add_type_description.xml)
 
 ### Last Incoming Date  
 ID: `mint_system.product.product_template_form_view.last_incoming_date`  
@@ -238,7 +238,7 @@ ID: `mint_system.product.product_template_form_view.last_incoming_date`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.last_incoming_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_incoming_date.xml)
+Source: [snippets/product.product_template_form_view.last_incoming_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.last_incoming_date.xml)
 
 ### Last Moves  
 ID: `mint_system.product.product_template_form_view.last_moves`  
@@ -253,7 +253,7 @@ ID: `mint_system.product.product_template_form_view.last_moves`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.last_moves.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_moves.xml)
+Source: [snippets/product.product_template_form_view.last_moves.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.last_moves.xml)
 
 ### Last Outgoing Date  
 ID: `mint_system.product.product_template_form_view.last_outgoing_date`  
@@ -265,7 +265,7 @@ ID: `mint_system.product.product_template_form_view.last_outgoing_date`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.last_outgoing_date.xml)
+Source: [snippets/product.product_template_form_view.last_outgoing_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.last_outgoing_date.xml)
 
 ### Remove List Price  
 ID: `mint_system.product.product_template_form_view.remove_list_price`  
@@ -276,7 +276,7 @@ ID: `mint_system.product.product_template_form_view.remove_list_price`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.remove_list_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.remove_list_price.xml)
+Source: [snippets/product.product_template_form_view.remove_list_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.remove_list_price.xml)
 
 ### Remove Standard Price  
 ID: `mint_system.product.product_template_form_view.remove_standard_price`  
@@ -287,7 +287,7 @@ ID: `mint_system.product.product_template_form_view.remove_standard_price`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.remove_standard_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.remove_standard_price.xml)
+Source: [snippets/product.product_template_form_view.remove_standard_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.remove_standard_price.xml)
 
 ### Remove Uom Po Id  
 ID: `mint_system.product.product_template_form_view.remove_uom_po_id`  
@@ -297,7 +297,7 @@ ID: `mint_system.product.product_template_form_view.remove_uom_po_id`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.remove_uom_po_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.remove_uom_po_id.xml)
+Source: [snippets/product.product_template_form_view.remove_uom_po_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.remove_uom_po_id.xml)
 
 ### Replace Title  
 ID: `mint_system.product.product_template_form_view.replace_title`  
@@ -343,7 +343,7 @@ ID: `mint_system.product.product_template_form_view.replace_title`
 </data>
 
 ```
-Source: [snippets/product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_form_view.replace_title.xml)
+Source: [snippets/product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_form_view.replace_title.xml)
 
 ## Product Template Kanban View  
 ### Add Product Info  
@@ -357,7 +357,7 @@ ID: `mint_system.product.product_template_kanban_view.add_product_info`
 </data>
 
 ```
-Source: [snippets/product.product_template_kanban_view.add_product_info.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_kanban_view.add_product_info.xml)
+Source: [snippets/product.product_template_kanban_view.add_product_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_kanban_view.add_product_info.xml)
 
 ## Product Template Only Form View  
 ### Add X Product Label  
@@ -370,7 +370,7 @@ ID: `mint_system.product.product_template_only_form_view.add_x_product_label`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.add_x_product_label.xml)
+Source: [snippets/product.product_template_only_form_view.add_x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.add_x_product_label.xml)
 
 ### Hide Barcode  
 ID: `mint_system.product.product_template_only_form_view.hide_barcode`  
@@ -382,7 +382,7 @@ ID: `mint_system.product.product_template_only_form_view.hide_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.hide_barcode.xml)
+Source: [snippets/product.product_template_only_form_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.hide_barcode.xml)
 
 ### Hide Default Code  
 ID: `mint_system.product.product_template_only_form_view.hide_default_code`  
@@ -392,7 +392,7 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.hide_default_code.xml)
+Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.hide_default_code.xml)
 
 ### Remove Barcode  
 ID: `mint_system.product.product_template_only_form_view.remove_barcode`  
@@ -402,7 +402,7 @@ ID: `mint_system.product.product_template_only_form_view.remove_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.remove_barcode.xml)
+Source: [snippets/product.product_template_only_form_view.remove_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.remove_barcode.xml)
 
 ### Replace Feeder Id  
 ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`  
@@ -416,7 +416,7 @@ ID: `mint_system.product.product_template_only_form_view.replace_feeder_id`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
+Source: [snippets/product.product_template_only_form_view.replace_feeder_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.replace_feeder_id.xml)
 
 ### Show Can Be Expensed  
 ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`  
@@ -431,7 +431,7 @@ ID: `mint_system.product.product_template_only_form_view.show_can_be_expensed`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.show_can_be_expensed.xml)
+Source: [snippets/product.product_template_only_form_view.show_can_be_expensed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.show_can_be_expensed.xml)
 
 ### Show Handle  
 ID: `mint_system.product.product_template_only_form_view.show_handle`  
@@ -451,7 +451,7 @@ ID: `mint_system.product.product_template_only_form_view.show_handle`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.show_handle.xml)
+Source: [snippets/product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.show_handle.xml)
 
 ### X Calibre  
 ID: `mint_system.product.product_template_only_form_view.x_calibre`  
@@ -463,7 +463,7 @@ ID: `mint_system.product.product_template_only_form_view.x_calibre`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_calibre.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_calibre.xml)
+Source: [snippets/product.product_template_only_form_view.x_calibre.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_calibre.xml)
 
 ### X Expiration Days  
 ID: `mint_system.product.product_template_only_form_view.x_expiration_days`  
@@ -475,7 +475,7 @@ ID: `mint_system.product.product_template_only_form_view.x_expiration_days`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_expiration_days.xml)
+Source: [snippets/product.product_template_only_form_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_expiration_days.xml)
 
 ### X Hide On Delivery  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`  
@@ -487,7 +487,7 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_delivery`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
+Source: [snippets/product.product_template_only_form_view.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_hide_on_delivery.xml)
 
 ### X Hide On Invoice  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_invoice`  
@@ -503,7 +503,7 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_invoice`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_hide_on_invoice.xml)
+Source: [snippets/product.product_template_only_form_view.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_hide_on_invoice.xml)
 
 ### X Hide On Sale Order  
 ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`  
@@ -515,7 +515,7 @@ ID: `mint_system.product.product_template_only_form_view.x_hide_on_sale_order`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
+Source: [snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_hide_on_sale_order.xml)
 
 ### X Purchase Price  
 ID: `mint_system.product.product_template_only_form_view.x_purchase_price`  
@@ -526,7 +526,7 @@ ID: `mint_system.product.product_template_only_form_view.x_purchase_price`
     </field>
 </data>
 ```
-Source: [snippets/product.product_template_only_form_view.x_purchase_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_purchase_price.xml)
+Source: [snippets/product.product_template_only_form_view.x_purchase_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_purchase_price.xml)
 
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`  
@@ -538,7 +538,7 @@ ID: `mint_system.product.product_template_only_form_view.x_storage_temperature`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
+Source: [snippets/product.product_template_only_form_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_storage_temperature.xml)
 
 ### X Warranty  
 ID: `mint_system.product.product_template_only_form_view.x_warranty`  
@@ -550,7 +550,7 @@ ID: `mint_system.product.product_template_only_form_view.x_warranty`
 </data>
 
 ```
-Source: [snippets/product.product_template_only_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_only_form_view.x_warranty.xml)
+Source: [snippets/product.product_template_only_form_view.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.x_warranty.xml)
 
 ## Product Template Search View  
 ### Add Type Description  
@@ -564,7 +564,7 @@ ID: `mint_system.product.product_template_search_view.add_type_description`
 </data>
 
 ```
-Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_search_view.add_type_description.xml)
+Source: [snippets/product.product_template_search_view.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_search_view.add_type_description.xml)
 
 ### Modify Name  
 ID: `mint_system.product.product_template_search_view.modify_name`  
@@ -576,7 +576,7 @@ ID: `mint_system.product.product_template_search_view.modify_name`
 </data>
 
 ```
-Source: [snippets/product.product_template_search_view.modify_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_search_view.modify_name.xml)
+Source: [snippets/product.product_template_search_view.modify_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_search_view.modify_name.xml)
 
 ## Product Template Tree View  
 ### Add Default Code And Type Description  
@@ -590,7 +590,7 @@ ID: `mint_system.product.product_template_tree_view.add_default_code_and_type_de
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.add_default_code_and_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.add_default_code_and_type_description.xml)
+Source: [snippets/product.product_template_tree_view.add_default_code_and_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.add_default_code_and_type_description.xml)
 
 ### Add Last Update Create Date And X Xml Id  
 ID: `mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id`  
@@ -604,7 +604,7 @@ ID: `mint_system.product.product_template_tree_view.add_last_update_create_date_
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)
+Source: [snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)
 
 ### Remove Default Code And Responsible  
 ID: `mint_system.product.product_template_tree_view.remove_default_code_and_responsible`  
@@ -619,7 +619,7 @@ ID: `mint_system.product.product_template_tree_view.remove_default_code_and_resp
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml)
+Source: [snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.remove_default_code_and_responsible.xml)
 
 ### Set Default Order  
 ID: `mint_system.product.product_template_tree_view.set_default_order`  
@@ -631,7 +631,7 @@ ID: `mint_system.product.product_template_tree_view.set_default_order`
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.set_default_order.xml)
+Source: [snippets/product.product_template_tree_view.set_default_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.set_default_order.xml)
 
 ### Show Accounts  
 ID: `mint_system.product.product_template_tree_view.show_accounts`  
@@ -644,7 +644,7 @@ ID: `mint_system.product.product_template_tree_view.show_accounts`
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.show_accounts.xml)
+Source: [snippets/product.product_template_tree_view.show_accounts.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.show_accounts.xml)
 
 ### X Expiration Days  
 ID: `mint_system.product.product_template_tree_view.x_expiration_days`  
@@ -656,7 +656,7 @@ ID: `mint_system.product.product_template_tree_view.x_expiration_days`
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.x_expiration_days.xml)
+Source: [snippets/product.product_template_tree_view.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.x_expiration_days.xml)
 
 ### X Storage Temperature  
 ID: `mint_system.product.product_template_tree_view.x_storage_temperature`  
@@ -668,7 +668,7 @@ ID: `mint_system.product.product_template_tree_view.x_storage_temperature`
 </data>
 
 ```
-Source: [snippets/product.product_template_tree_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_template_tree_view.x_storage_temperature.xml)
+Source: [snippets/product.product_template_tree_view.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_tree_view.x_storage_temperature.xml)
 
 ## Product Variant Easy Edit View  
 ### Hide Barcode  
@@ -681,7 +681,7 @@ ID: `mint_system.product.product_variant_easy_edit_view.hide_barcode`
 </data>
 
 ```
-Source: [snippets/product.product_variant_easy_edit_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.product_variant_easy_edit_view.hide_barcode.xml)
+Source: [snippets/product.product_variant_easy_edit_view.hide_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_variant_easy_edit_view.hide_barcode.xml)
 
 ## Report Producttemplatelabel  
 ### Trimada  
@@ -788,5 +788,5 @@ ID: `mint_system.product.report_producttemplatelabel.trimada`
 </t>
 
 ```
-Source: [snippets/product.report_producttemplatelabel.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/product.report_producttemplatelabel.trimada.xml)
+Source: [snippets/product.report_producttemplatelabel.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.report_producttemplatelabel.trimada.xml)
 

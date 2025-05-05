@@ -10,7 +10,7 @@ ID: `mint_system.hr_contract.hr_contract_view_form.x_struct_id`
 </data>
 
 ```
-Source: [snippets/hr_contract.hr_contract_view_form.x_struct_id.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_contract.hr_contract_view_form.x_struct_id.xml)
+Source: [snippets/hr_contract.hr_contract_view_form.x_struct_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_contract.hr_contract_view_form.x_struct_id.xml)
 
 ## Hr Contract View Kanban  
 ### Show Start Date  
@@ -24,5 +24,5 @@ ID: `mint_system.hr_contract.hr_contract_view_kanban.show_start_date`
 </data>
 
 ```
-Source: [snippets/hr_contract.hr_contract_view_kanban.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/hr_contract.hr_contract_view_kanban.show_start_date.xml)
+Source: [snippets/hr_contract.hr_contract_view_kanban.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_contract.hr_contract_view_kanban.show_start_date.xml)
 

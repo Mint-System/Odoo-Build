@@ -10,7 +10,7 @@ ID: `mint_system.website_sale.address.countries_filter`
 </data>
 
 ```
-Source: [snippets/website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.address.countries_filter.xml)
+Source: [snippets/website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.countries_filter.xml)
 
 ### Hide Shipping Use Same  
 ID: `mint_system.website_sale.address.hide_shipping_use_same`  
@@ -22,7 +22,7 @@ ID: `mint_system.website_sale.address.hide_shipping_use_same`
 </data>
 
 ```
-Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.address.hide_shipping_use_same.xml)
+Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.hide_shipping_use_same.xml)
 
 ### Overwrite Required  
 ID: `mint_system.website_sale.address.overwrite_required`  
@@ -49,7 +49,7 @@ ID: `mint_system.website_sale.address.overwrite_required`
 </data>
 
 ```
-Source: [snippets/website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.address.overwrite_required.xml)
+Source: [snippets/website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.overwrite_required.xml)
 
 ### Show Firstname Lastname  
 ID: `mint_system.website_sale.address.show_firstname_lastname`  
@@ -71,7 +71,7 @@ ID: `mint_system.website_sale.address.show_firstname_lastname`
 </data>
 
 ```
-Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.address.show_firstname_lastname.xml)
+Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.show_firstname_lastname.xml)
 
 ## Confirmation  
 ### Show Shipping Name  
@@ -85,7 +85,7 @@ ID: `mint_system.website_sale.confirmation.show_shipping_name`
 </data>
 
 ```
-Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.confirmation.show_shipping_name.xml)
+Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.confirmation.show_shipping_name.xml)
 
 ## Header Cart Link  
 ### Hide Cart  
@@ -98,7 +98,7 @@ ID: `mint_system.website_sale.header_cart_link.hide_cart`
 </data>
 
 ```
-Source: [snippets/website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.header_cart_link.hide_cart.xml)
+Source: [snippets/website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.header_cart_link.hide_cart.xml)
 
 ## Payment Confirmation Status  
 ### Remove Communication  
@@ -109,7 +109,7 @@ ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`
 </data>
 
 ```
-Source: [snippets/website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.payment_confirmation_status.remove_communication.xml)
+Source: [snippets/website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.payment_confirmation_status.remove_communication.xml)
 
 ## Product  
 ### Hide Cart  
@@ -127,7 +127,7 @@ ID: `mint_system.website_sale.product.hide_cart`
 </data>
 
 ```
-Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_cart.xml)
+Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.hide_cart.xml)
 
 ### Hide Price  
 ID: `mint_system.website_sale.product.hide_price`  
@@ -139,7 +139,7 @@ ID: `mint_system.website_sale.product.hide_price`
 </data>
 
 ```
-Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_price.xml)
+Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.hide_price.xml)
 
 ### Show Default Code  
 ID: `mint_system.website_sale.product.show_default_code`  
@@ -154,7 +154,7 @@ ID: `mint_system.website_sale.product.show_default_code`
 </data>
 
 ```
-Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_default_code.xml)
+Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_default_code.xml)
 
 ### Show Product Dimension  
 ID: `mint_system.website_sale.product.show_product_dimension`  
@@ -166,7 +166,7 @@ ID: `mint_system.website_sale.product.show_product_dimension`
 </data>
 
 ```
-Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_dimension.xml)
+Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_product_dimension.xml)
 
 ### Show Product Material  
 ID: `mint_system.website_sale.product.show_product_material`  
@@ -178,7 +178,7 @@ ID: `mint_system.website_sale.product.show_product_material`
 </data>
 
 ```
-Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_material.xml)
+Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_product_material.xml)
 
 ## Products Categories  
 ### Bigger Categories Button  
@@ -194,76 +194,7 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 </data>
 
 ```
-Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_categories.bigger_categories_button.xml)
-
-## Product  
-### Hide Cart  
-ID: `mint_system.website_sale.product.hide_cart`  
-```xml
-<data inherit_id="website_sale.product" priority="50">
-    <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
-        <attribute name="t-if">request.session.uid</attribute>
-    </xpath>
-    <xpath expr="//div[@id='add_to_cart_wrap']" position="before">
-        <style t-if="not request.session.uid">
-        .css_quantity{display: none !important;}
-    </style>
-    </xpath>
-</data>
-
-```
-Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_cart.xml)
-
-### Hide Price  
-ID: `mint_system.website_sale.product.hide_price`  
-```xml
-<data inherit_id="website_sale.product" priority="50">
-    <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
-        <attribute name="t-if">request.session.uid</attribute>
-    </xpath>
-</data>
-
-```
-Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.hide_price.xml)
-
-### Show Default Code  
-ID: `mint_system.website_sale.product.show_default_code`  
-```xml
-<data inherit_id="website_sale.product" priority="50">
-    <p t-field="product.description_sale" position="after">
-        <p t-if="product_variant.default_code">
-            <strong>Artikelnummer:</strong>
-            <span t-field="product_variant.default_code"/>
-        </p>
-    </p>
-</data>
-
-```
-Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_default_code.xml)
-
-### Show Product Dimension  
-ID: `mint_system.website_sale.product.show_product_dimension`  
-```xml
-<data inherit_id="website_sale.product" priority="50">
-    <xpath expr="//div[@id='product_details']" position="inside">
-        <div t-if="product_variant.material_ids" name="material_ids"><strong>Dimensions</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.dimension_ids" t-as="dimension"><li><span t-field="dimension.name"/><t t-if="dimension.value"><span t-field="dimension.value"/></t></li></t></ul></div>
-    </xpath>
-</data>
-
-```
-Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_dimension.xml)
-
-### Show Product Material  
-ID: `mint_system.website_sale.product.show_product_material`  
-```xml
-<data inherit_id="website_sale.product" priority="50">
-    <xpath expr="//div[@id='product_details']" position="inside">
-        <div t-if="product_variant.material_ids" name="material_ids"><strong>Materials</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.material_ids" t-as="material"><li><span t-field="material.name"/><t t-if="material.percent"><span t-field="material.percent"/></t></li></t></ul></div>
-    </xpath>
-</data>
-
-```
-Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.product.show_product_material.xml)
+Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_categories.bigger_categories_button.xml)
 
 ## Products Item  
 ### Hide Price  
@@ -276,7 +207,7 @@ ID: `mint_system.website_sale.products_item.hide_price`
 </data>
 
 ```
-Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.hide_price.xml)
+Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_item.hide_price.xml)
 
 ### Prefix Price  
 ID: `mint_system.website_sale.products_item.prefix_price`  
@@ -288,5 +219,5 @@ ID: `mint_system.website_sale.products_item.prefix_price`
 </data>
 
 ```
-Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/website_sale.products_item.prefix_price.xml)
+Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_item.prefix_price.xml)
 

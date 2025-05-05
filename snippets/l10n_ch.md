@@ -10,7 +10,7 @@ ID: `mint_system.l10n_ch.isr_invoice_form.disable_print_buttons`
 </data>
 
 ```
-Source: [snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml)
+Source: [snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.isr_invoice_form.disable_print_buttons.xml)
 
 ## L10n Ch Swissqr Template  
 ### Add Title Padding  
@@ -27,7 +27,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)
 
 ### Format Country Code  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code`  
@@ -48,7 +48,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.format_country_code.xml)
 
 ### Format Street  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`  
@@ -73,7 +73,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml)
 
 ### Modify Header Style  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`  
@@ -85,7 +85,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)
 
 ### Remove Title Prefix  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`  
@@ -97,7 +97,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)
 
 ### Replace Commercial Partner  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`  
@@ -112,7 +112,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)
 
 ### Replace Title  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`  
@@ -143,7 +143,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.replace_title.xml)
 
 ### Set Additional Information  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information`  
@@ -155,7 +155,7 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)
 
 ### Style Moser  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`  
@@ -177,5 +177,5 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`
 </data>
 
 ```
-Source: [snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/16.0/snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
 
