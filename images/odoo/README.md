@@ -30,7 +30,7 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 ### Base
 
-The following `compose.yml` file is a basic setup:
+The following `compose.yml` is a minimal setup:
 
 ```yml
 services:
@@ -87,6 +87,7 @@ services:
       SMTP_SSL: True
       SMTP_USER: test@mint-system.ch
       SMTP_PASSWORD: *****
+      EMAIL_FROM: test@mint-system.ch
       MAIL_DEFAULT_FROM: test
       MAIL_CATCHALL_DOMAIN: mint-system.ch
       MAIL_CATCHALL_ALIAS: test@mint-system.ch
@@ -228,17 +229,18 @@ Odoo supports the PostgreSQL database only.
 
 ### SMTP Server
 
-This is the mail ocnfiugration of the Odoo server.
+This is the mail configuration of the Odoo server.
 
 * `SMTP_SERVER` Adress of the SMTP server.
 * `SMTP_PORT` Port of the SMTP server.
 * `SMTP_SSL` Use ssl encryption.
 * `SMTP_USER` SMTP username.
 * `SMTP_PASSWORD` SMTP user password.
+* `EMAIL_FROM` Mail adress of the sender.
 
 ### System Parameters
 
-Define company mail parameters. Requires `server_environment_ir_config_parameter` in `ODOO_INIT_ADDONS`.
+Set mail parameters for the company. Requires `server_environment_ir_config_parameter` in `ODOO_INIT_ADDONS`.
 
 * `MAIL_CATCHALL_ALIAS`: Name of the catchall mail adress. Default is `catchall`.
 * `MAIL_CATCHALL_DOMAIN`: Domain name of of the catchall mail addres
@@ -246,7 +248,7 @@ Define company mail parameters. Requires `server_environment_ir_config_parameter
 
 ### Incoming and Outgoing Mail-Server
 
-Define the mail configuration of the database.
+Set mail configuration of the database.
 
 * `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
 * `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.

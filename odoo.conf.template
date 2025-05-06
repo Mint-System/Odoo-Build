@@ -13,6 +13,7 @@ smtp_port = $SMTP_PORT
 smtp_ssl = $SMTP_SSL
 smtp_user = $SMTP_USER
 smtp_password = $SMTP_PASSWORD
+email_from = $EMAIL_FROM
 
 [ir.config_parameter]
 git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
