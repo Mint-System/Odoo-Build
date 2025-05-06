@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Smtp connection vars for server mail.
+
 ### Updated
 
 * The env var `CLICK_ODOO_UPDATE` has been renamed to `AUTO_UPDATE_MODULES`.

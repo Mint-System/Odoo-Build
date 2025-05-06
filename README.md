@@ -281,11 +281,7 @@ Start mail server.
 task start mail
 ```
 
-Setup mail server config for Odoo.
-
-```bash
-task setup-mail
-```
+When you send mails in Odoo they will be shown on <http://localhost:8025/>.
 
 ### Source env file
 

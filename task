@@ -283,6 +283,8 @@ function template-odoo-rc() {
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
     fi
 
+    export SMTP_SERVER=${SMTP_SERVER:="localhost"}
+    export SMTP_PORT=${SMTP_PORT:=1025}
     export MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
     export MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
 
