@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Smtp connection vars for server mail.
+* Add `coding-guidelines.py` to pre-commit for templats 18.0 
 
 ### Updated
 
