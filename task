@@ -87,7 +87,7 @@ function help-table() {
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
-    printf "$COLUMN" "logs" "" "Tail Odoo container logs."
+    printf "$COLUMN" "logs" "[name]" "Tail container logs. Default is 'odoo'."
     printf "$COLUMN" "ls-module" "[grep]" "List Odoo addons path space separated."
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
     printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
@@ -188,6 +188,11 @@ CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
 LLM_MODEL=${LLM_MODEL:="llama"}
 
+export SMTP_SERVER=${SMTP_SERVER:="localhost"}
+export SMTP_PORT=${SMTP_PORT:=1025}
+export MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
+export MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
+
 # Conditional env vars
 
 if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
@@ -282,11 +287,6 @@ function template-odoo-rc() {
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
     fi
-
-    export SMTP_SERVER=${SMTP_SERVER:="localhost"}
-    export SMTP_PORT=${SMTP_PORT:=1025}
-    export MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
-    export MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
 
     envsubst < "odoo.conf.template" > "$ODOO_RC"
 }
@@ -644,10 +644,13 @@ function build() {
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
     fi
+    if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-mailgate"
+    fi
     if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
-        if [ "$MANIFEST_FILE" = "images/odooctl/Dockerfile" ]; then
+    if [ "$MANIFEST_FILE" = "images/odooctl/Dockerfile" ]; then
         CONTAINER_TAG="odooctl"
     fi
     if [ -n "$2" ]; then
@@ -748,6 +751,10 @@ function test-image() {
 function publish() {
     LATEST_TAG="odoo:$ODOO_VERSION"
 
+    if [ "$1" == "images/odoo-mailgate/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-mailgate"
+        LATEST_TAG="odoo-mailgate:latest"
+    fi
     if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
@@ -810,7 +817,9 @@ function upload-module() {
 }
 
 function logs() {
-    $CONTAINER_ENGINE logs --follow odoo
+    CONTAINER="$1"
+    CONTAINER=${CONTAINER:="odoo"}
+    $CONTAINER_ENGINE logs --follow "$CONTAINER"
 }
 
 # Script Commands
@@ -971,9 +980,14 @@ function start() {
         odoo --database="$DATABASE" --config "$ODOO_RC" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
     fi
 
-    if [[ "$1" =~ "mail" ]]; then
+    if [[ "$1" =~ "mailpit" ]]; then
         echo "Open http://localhost:8025 url in your browser."
         open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mail
+    fi
+
+    if [[ "$1" =~ "mailgate" ]]; then
+        echo "Send emails to: smtp://localhost:587"
+        $COMPOSE_COMMAND up -d mailgate
     fi
 }
 
@@ -1065,8 +1079,12 @@ function remove() {
         $COMPOSE_COMMAND rm -f -s -v odoo
     fi
 
-    if [[ "$1" =~ "mail" ]]; then
+    if [[ "$1" =~ "mailpit" ]]; then
         $COMPOSE_COMMAND rm -f -s -v mail
+    fi
+
+    if [[ "$1" =~ "mailgate" ]]; then
+        $COMPOSE_COMMAND rm -f -s -v mailgate
     fi
 }
 

@@ -1,8 +1,7 @@
 #!/bin/bash
-
 set -e
 
-entrypoint_log() {
+entrypoint-log() {
     echo "$@"
 }
 
@@ -53,7 +52,7 @@ fi
 case "$1" in
     memray)
         shift
-        entrypoint_log "Start Odoo with memray."
+        entrypoint-log "Start Odoo with memray."
         rm -f /var/lib/odoo/memray-capture.bin
         exec python3 -m memray run -o /var/lib/odoo/memray-capture.bin $(which odoo) "$@" "${DB_ARGS[@]}"
         ;;

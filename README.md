@@ -144,7 +144,7 @@ The paths will be appended to the Odoo config.
 In your `.env` file define this Odoo parameter env var:
 
 ```bash
-ODOO_PARAM="--without-demo=all"
+ODOO_PARAM=--without-demo=all
 ```
 
 #### Set Odoo database name

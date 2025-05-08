@@ -91,13 +91,22 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
-  mail:
+  mailpit:
     image: docker.io/axllent/mailpit
-    container_name: mail
-    hostname: mail
+    container_name: mailpit
+    hostname: mailpit
     ports:
       - "1025:1025"
       - "8025:8025"
+  mailgate:
+    image: mintsystem/odoo-mailgate
+    container_name: mailgate
+    hostname: mailgate
+    ports:
+      - "25:25"
+      - "587:587"
+    environment:
+      ODOO_DATABASE: "${ODOO_DATABASE}"
 volumes:
   odoo-data:
   db-data:
