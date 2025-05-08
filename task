@@ -187,11 +187,10 @@ BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
 LLM_MODEL=${LLM_MODEL:="llama"}
-
-export SMTP_SERVER=${SMTP_SERVER:="localhost"}
-export SMTP_PORT=${SMTP_PORT:=1025}
-export MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
-export MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
+SMTP_SERVER=${SMTP_SERVER:="localhost"}
+SMTP_PORT=${SMTP_PORT:=1025}
+MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
+MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
 
 # Conditional env vars
 
@@ -588,6 +587,12 @@ function template-compose() {
     export CONTAINER_TAG
     export POSTGRES_PORT
     export POSTGRES_PORT
+    export SMTP_SERVER
+    export SMTP_PORT
+    export SMTP_SSL
+    export SMTP_USER
+    export SMTP_PASSWORD
+    export EMAIL_FROM
     export MAIL_DEFAULT_FROM
     export MAIL_CATCHALL_DOMAIN
     export MAIL_CATCHALL_ALIAS
@@ -607,6 +612,7 @@ function template-compose() {
     export ADDONS_GIT_REPOS
     export ODOO_ADDONS_PATH
     export ODOO_DATABASE
+    export ODOO_INIT
     export ODOO_INIT_LANG
     export ODOO_INIT_ADDONS
     export ENVIRONMENT
@@ -630,6 +636,8 @@ function template-compose() {
     export POSTGRES_PORT
     export POSTGRES_PORT
     export ODOO_DATABASE
+    export ODOO_DATABASE
+    export MAIL_ALIASES
 
     envsubst < "compose.yml.template" > "compose.yml"
 }

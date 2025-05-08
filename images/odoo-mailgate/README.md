@@ -5,7 +5,7 @@
 
 The Odoo Mailgate Docker image integrates a Postfix mail server and the odoo-mailgate script, allowing you to receive and forward emails to Odoo.
 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoo-mailgate>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-mailgate>
 
 ## Usage
 
@@ -17,7 +17,8 @@ export ODOO_USERNAME=2
 export ODOO_PASSWORD="admin"
 export ODOO_HOST="odoo"
 export ODOO_PORT=8069
-export EMAIL_ADDRESS="info@yourcompany.com"
+export MAIL_DOMAIN="yourcompany.com"
+export MAIL_ALIASES="info invoice contact support"
 ```
 
 Run the upgrade script:
@@ -29,7 +30,8 @@ docker run -d --name odoo-mailgate -p 25:25 -p 587:587 \
   -e ODOO_PASSWORD=$ODOO_PASSWORD \
   -e ODOO_HOST=$ODOO_HOST \
   -e ODOO_PORT=$ODOO_PORT \
-  -e EMAIL_ADDRESS=$EMAIL_ADDRESS \
+  -e MAIL_DOMAIN=$MAIL_DOMAN \
+  -e MAIL_ALIASES=$MAIL_ALIASES \
   mintsystem/odoo-mailgate
 ```
 
@@ -43,7 +45,7 @@ task start
 
 Open Odoo and setup the domain `yourcompany.com` for the default company.
 
-Send a test e-mail with swaks:
+Send a test mail with swaks:
 
 ```bash
 swaks --to info@yourcompany.com --from sender@example.com \
@@ -58,4 +60,15 @@ Trace the mailgate log:
 
 ```bash
 docker  exec mailgate tail -f /var/log/mail.log
+```
+
+You can also send a mail with tls encryption:
+
+
+```bash
+swaks --to info@yourcompany.com --from sender@example.com \
+  --server localhost:587 \
+  --tls \
+  --body "This is a test email for the Odoo mailgate system." \
+  --header "Subject: Test Email for Odoo"
 ```

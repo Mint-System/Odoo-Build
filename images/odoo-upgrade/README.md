@@ -5,7 +5,7 @@
 
 Image to run the Odoo enterprise upgrade script.
 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoo-upgrade>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-upgrade>
 
 ## Usage
 

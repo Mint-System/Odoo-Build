@@ -7,11 +7,14 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Smtp connection vars for server mail.
-* Add `coding-guidelines.py` to pre-commit for templats 18.0 
+* Add `coding-guidelines.py` to pre-commit for templats 18.0.
+* New Docker image `odoo-mailgate`.
 
 ### Updated
 
 * The env var `CLICK_ODOO_UPDATE` has been renamed to `AUTO_UPDATE_MODULES`.
+* Support any container name with `logs <name>`.
+* Added the compose vars.
 
 ## 20205-04-28
 

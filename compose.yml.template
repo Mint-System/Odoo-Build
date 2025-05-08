@@ -107,6 +107,7 @@ services:
       - "587:587"
     environment:
       ODOO_DATABASE: "${ODOO_DATABASE}"
+      MAIL_ALIASES: "${MAIL_ALIASES}"
 volumes:
   odoo-data:
   db-data:

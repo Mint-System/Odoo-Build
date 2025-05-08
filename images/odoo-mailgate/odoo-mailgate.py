@@ -1,10 +1,4 @@
 #!/usr/bin/env python3
-# Part of Odoo. See LICENSE file for full copyright and licensing details.
-#
-# odoo-mailgate
-#
-# This program will read an email from stdin and forward it to odoo. Configure
-# a pipe alias in your mail server to use it.
 
 import optparse
 import sys
