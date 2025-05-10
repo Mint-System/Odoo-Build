@@ -51,7 +51,7 @@
 
       <tr>
         <td>
-          VAT-No:
+          VAT:
         </td>
         <td>
           <span t-field="doc.partner_id.vat"/>
@@ -77,7 +77,7 @@
       </tr>
 
       <tr>
-        <td>Ihre Bestellung:</td>
+        <td>Your Order:</td>
         <td>         
           <span t-field="doc.client_order_ref"/>       
         </td>

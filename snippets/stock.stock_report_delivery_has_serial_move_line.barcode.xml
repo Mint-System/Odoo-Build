@@ -1,6 +1,5 @@
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="//span[@t-field='move_line.lot_id.name']" position="after">
-        <t t-set="barcode" t-value="move_line.lot_id.name"/>
-        <img style="padding-left: 20px" t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('EAN13', barcode, 200, 25)" alt="Barcode"/>
+       <span t-field="move_line.lot_id.name" t-options="{&quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>
     </xpath>
 </data>

@@ -1,0 +1,8 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_secondary_uom_id']" position="replace">
+    </xpath>
+    <xpath expr="//td[@name='td_secondary_uom_id']" position="replace">
+    </xpath>
+
+</data>

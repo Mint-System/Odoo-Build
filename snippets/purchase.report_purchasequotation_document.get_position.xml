@@ -1,6 +1,6 @@
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
-        <th>
+        <th class="text-start">
             <strong>Pos</strong>
         </th>
     </xpath>

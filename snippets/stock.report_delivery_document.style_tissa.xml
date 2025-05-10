@@ -1,6 +1,8 @@
 <data inherit_id="stock.report_delivery_document" priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+	  
+		<style>
       table.tissa {
       margin-top: 30px;
       margin-bottom: 30px;
@@ -9,15 +11,45 @@
       text-align: right;
       padding-right: 10px !important;
       }
+      h2 {
+			font-size: 1.2rem;
+			font-weight: bold;
+			margin: 50px 0 30px 0
+			}
     </style>
-    </xpath>
-    <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
-        <attribute name="class">cell_right</attribute>
-    </xpath>
-    <xpath expr="//th[@name='th_sm_quantity']" position="attributes">
-        <attribute name="class" separator=" " add="cell_right"/>
-    </xpath>
-    <xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
-        <attribute name="class" separator=" " add="cell_right"/>
-    </xpath>
+    
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_line_table']//th[@id='position']" position="attributes">
+			 <attribute name="class">text-start</attribute>
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_line_table']//th[@name='th_sml_product']" position="attributes">
+			 <attribute name="class">text-start</attribute>
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_line_table']//t[@name='lot_serial']/th" position="attributes">
+			 <attribute name="class">text-start</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_sml_quantity']" position="attributes">
+			 <attribute name="class">text-end</attribute>
+	</xpath>
+	
+	<xpath expr="//table[@name='move_table']//th[1]" position="attributes">
+			 <attribute name="class">text-start</attribute>
+	</xpath>
+	
+	<xpath expr="//table[@name='move_table']//th[2]" position="attributes">
+			 <attribute name="class">text-start</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
+	<xpath expr="//table[@name='stock_move_table']//td[2]" position="attributes">
+			 <attribute name="class" separator=" " add="cell_right"/>
+	</xpath>
+	
 </data>
