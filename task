@@ -39,6 +39,7 @@ function help-table() {
     printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
+    printf "$COLUMN" "copy-env" "[env][env]" "Copy env file."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
     printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
     printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
@@ -215,6 +216,7 @@ fi
 [ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
 [ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
 [ -f ~/taskfile.build/bin/show-env ] && source ~/taskfile.build/bin/show-env
+[ -f ~/taskfile.build/bin/copy-env ] && source ~/taskfile.build/bin/copy-env
 [ -f ~/taskfile.build/bin/edit-env ] && source ~/taskfile.build/bin/edit-env
 [ -f ~/taskfile.build/bin/load-env ] && source ~/taskfile.build/bin/load-env
 
