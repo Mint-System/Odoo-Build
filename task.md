@@ -64,10 +64,11 @@
 | list-modules              | [path]               | Get modules in path as list.                                                               |
 | list-revision             |                      | List available Odoo revisions.                                                             |
 | list-versions             |                      | List available Odoo versions.                                                              |
+| load-env                  | [env]                | Load and export env file.                                                                  |
 | load-language             | [db][lang]           | Install language package in Odoo db.                                                       |
 | load-version              | [version]            | Load git refs from  version folder.                                                        |
 | load-ssh-key              |                      | Load SSH private key from env var.                                                         |
-| logs                      |                      | Tail Odoo container logs.                                                                  |
+| logs                      | [name]               | Tail container logs. Default is 'odoo'.                                                    |
 | ls-module                 | [grep]               | List Odoo addons path space separated.                                                     |
 | ls-git-folder             | [grep]               | List git folders path space separated.                                                     |
 | odoocli                   | [param]              | Execute odoocli cli.                                                                       |
