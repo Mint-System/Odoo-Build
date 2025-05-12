@@ -84,6 +84,7 @@ function help-table() {
     printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
+    printf "$COLUMN" "load-env" "[env]" "Load and export env file."
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
@@ -170,6 +171,7 @@ PASS_ENTRY="env/${PWD##*/}"
 PASS_ENTRY="${PASS_ENTRY,,}"
 ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
+TASK_CONFIG_DIR="$HOME/.config/odoo-build"
 
 # Dynamic env vars
 
@@ -211,6 +213,10 @@ fi
 # Import commands
 
 [ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
+[ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
+[ -f ~/taskfile.build/bin/show-env ] && source ~/taskfile.build/bin/show-env
+[ -f ~/taskfile.build/bin/edit-env ] && source ~/taskfile.build/bin/edit-env
+[ -f ~/taskfile.build/bin/load-env ] && source ~/taskfile.build/bin/load-env
 
 # Help Commands
 
@@ -265,12 +271,6 @@ function activate-venv() {
     echo "Source virtualenv venv$ODOO_VERSION."
     source "venv$ODOO_VERSION/bin/activate"
     echo "$(python --version) is active."
-}
-
-function load-env() {
-    ENV_FILE="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    echo "Load env file $ENV_FILE"
-    export $(cat "$ENV_FILE" | sed 's/#.*//g' | xargs)
 }
 
 function get-addons-path() {
@@ -360,22 +360,6 @@ function create-nextcloud-env() {
     echo "NEXTCLOUD_PASSWORD=" >> "$ENV_FILEPATH"
 
     echo "Edit with: task edit-env $1"
-}
-
-function list-env() {
-    ls -a1 "$ODOO_BUILD_CONFIG_DIR"
-}
-
-function show-env() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    cat "$ENV_FILEPATH" | sed 's/^/export /'
-}
-
-function edit-env() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    "$EDITOR" "$ENV_FILEPATH"
 }
 
 function remove-env() {
