@@ -2435,9 +2435,7 @@ function create-revision() {
 function test-xmlrpc() {
     activate-venv
 
-    if test -z "$1"; then
-        load-env "$1"
-    fi
+    load-env "$1"
 
     export ODOO_DATABASE
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model "res.partner" --method "search_count" --domain '[]')"
