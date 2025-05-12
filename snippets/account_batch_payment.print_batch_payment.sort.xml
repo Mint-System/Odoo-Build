@@ -1,18 +1,22 @@
 <data inherit_id="account_batch_payment.print_batch_payment" priority="50">
     <xpath expr=" //tr[@t-as='payment']" position="replace">
-        <tr t-foreach="sorted(page['payments'], key=lambda l: l.partner_id.name)" t-as="payment">
-            <td class="text-left">
+      
+      <t t-set="sorted_payments" t-value="sorted(o.payment_ids, key=lambda p: (p.partner_id.name or ''))"/>
+      
+        <tr t-foreach="sorted_payments" t-as="payment">
+            <td class="text-start">
                 <t t-esc="payment.partner_id.name"/>
             </td>
-            <td class="text-left">
+            <td class="text-start">
                 <t t-esc="payment.date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
             </td>
-            <td class="text-left">
+            <td class="text-start">
                 <t t-esc="payment.ref"/>
             </td>
-            <td class="text-right">
+            <td class="text-end">
                 <t t-esc="payment.amount" t-options="{'widget': 'monetary', 'display_currency': payment.currency_id}"/>
             </td>
         </tr>
+       
     </xpath>
 </data>
