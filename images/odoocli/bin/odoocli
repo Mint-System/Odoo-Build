@@ -28,8 +28,8 @@ odoocli --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
 
 # Create the ArgumentParser
 parser = ArgumentParser(
-    prog='odoocli',
-    description='Update Odoo records using the XML-RPC API.',
+    prog="odoocli",
+    description="Update Odoo records using the XML-RPC API.",
     formatter_class=RawTextHelpFormatter,
     epilog=example_text
 )
@@ -50,18 +50,18 @@ if not any(vars(args).values()):
     sys.exit()
 
 # Get environment variables
-url = os.environ.get('ODOO_URL') or 'http://localhost:8069'
-db = os.environ.get('ODOO_DATABASE') or 'odoo'
-username = os.getenv('ODOO_USERNAME') or 'admin'
-password = os.environ.get('ODOO_PASSWORD') or 'admin'
+url = os.environ.get("ODOO_URL") or "http://localhost:8069"
+db = os.environ.get("ODOO_DATABASE") or "odoo"
+username = os.getenv("ODOO_USERNAME") or "admin"
+password = os.environ.get("ODOO_PASSWORD") or "admin"
 
 # Connect to Odoo
-common = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/common')
+common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
 uid = common.authenticate(db, username, password, {})
-models = xmlrpc.client.ServerProxy(f'{url}/xmlrpc/2/object')
+models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object")
 
 # Check if the user has access rights
-models.execute_kw(db, uid, password, args.model, 'check_access_rights', ['read'], {'raise_exception': False})
+models.execute_kw(db, uid, password, args.model, "check_access_rights", ["read"], {"raise_exception": False})
 
 # Parse domain and value
 if args.domain:
@@ -71,26 +71,26 @@ if args.value:
     value = ast.literal_eval(args.value)
 
 # Execute the method based on the user's choice
-if args.method == 'create':
-    models.execute_kw(db, uid, password, args.model, 'create', [value])
+if args.method == "create":
+    models.execute_kw(db, uid, password, args.model, "create", [value])
 
-elif args.method == 'write':
-    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
-    models.execute_kw(db, uid, password, args.model, 'write', [ids, {args.field: value}])
+elif args.method == "write":
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
+    models.execute_kw(db, uid, password, args.model, "write", [ids, {args.field: value}])
 
-elif args.method == 'read':
-    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain], {'limit': 1})
-    res = models.execute_kw(db, uid, password, args.model, 'read', [ids])
+elif args.method == "read":
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {"limit": 1})
+    res = models.execute_kw(db, uid, password, args.model, "read", [ids])
     print(res[0][args.field])
 
-elif args.method == 'search_count':
-    count = models.execute_kw(db, uid, password, args.model, 'search_count', [domain])
+elif args.method == "search_count":
+    count = models.execute_kw(db, uid, password, args.model, "search_count", [domain])
     print(count)
 
-elif args.method == 'search_one':
-    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
+elif args.method == "search_one":
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
     print(ids[0])
 
-elif args.method == 'unlink':
-    ids = models.execute_kw(db, uid, password, args.model, 'search', [domain])
-    models.execute_kw(db, uid, password, args.model, 'unlink', [ids])
+elif args.method == "unlink":
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
+    models.execute_kw(db, uid, password, args.model, "unlink", [ids])

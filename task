@@ -2433,11 +2433,13 @@ function create-revision() {
 # RPC Commands
 
 function test-xmlrpc() {
-    if test -z "$1"; then echo "\$1 is empty."; exit 1; fi
-
     activate-venv
-    load-env "$1"
 
+    if test -z "$1"; then
+        load-env "$1"
+    fi
+
+    export ODOO_DATABASE
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model "res.partner" --method "search_count" --domain '[]')"
 }
 

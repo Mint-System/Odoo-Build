@@ -12,11 +12,10 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-mailgat
 Setup environment vaiables:
 
 ```bash
+export ODOO_URL="http://odoo:8069"
 export ODOO_DATABASE="odoo"
-export ODOO_USERNAME=2
+export ODOO_USERNAME="admin"
 export ODOO_PASSWORD="admin"
-export ODOO_HOST="odoo"
-export ODOO_PORT=8069
 export MAIL_DOMAIN="yourcompany.com"
 export MAIL_ALIASES="info invoice contact support"
 ```
@@ -25,11 +24,10 @@ Run the upgrade script:
 
 ```bash
 docker run -d --name odoo-mailgate -p 25:25 -p 587:587 \
+  -e ODOO_URL=$ODOO_URL \
   -e ODOO_DATABASE=$ODOO_DATABASE \
   -e ODOO_USERNAME=$ODOO_USERNAME \
   -e ODOO_PASSWORD=$ODOO_PASSWORD \
-  -e ODOO_HOST=$ODOO_HOST \
-  -e ODOO_PORT=$ODOO_PORT \
   -e MAIL_DOMAIN=$MAIL_DOMAN \
   -e MAIL_ALIASES=$MAIL_ALIASES \
   mintsystem/odoo-mailgate

@@ -8,11 +8,10 @@ entrypoint-log() {
 syslogd -O /var/log/mail.log
 
 # Set default env vars
+: ${ODOO_URL:=${ODOO_URL:="http://odoo:8069"}}
 : ${ODOO_DATABASE:=${ODOO_DB:="odoo"}}
-: ${ODOO_USERNAME:=${ODOO_USERNAME:=2}}
+: ${ODOO_USERNAME:=${ODOO_USERNAME:="admin"}}
 : ${ODOO_PASSWORD:=${ODOO_PASSWORD:="admin"}}
-: ${ODOO_HOST:=${ODOO_HOST:="odoo"}}
-: ${ODOO_PORT:=${ODOO_PORT:=8069}}
 : ${MAIL_DOMAIN:=${MAIL_DOMAIN:="yourcompany.com"}}
 : ${MAIL_ALIASES:=${MAIL_ALIASES:="info"}}
 
@@ -50,7 +49,7 @@ fi
 
 # Setup aliases
 for MAIL_ALIAS in $MAIL_ALIASES; do
-    echo "$MAIL_ALIAS: \"|/usr/local/bin/odoo-mailgate.py -d ${ODOO_DATABASE} -u ${ODOO_USERNAME} -p ${ODOO_PASSWORD} --host ${ODOO_HOST} --port ${ODOO_PORT}\"" >> /etc/aliases
+    echo "$MAIL_ALIAS: \"|/usr/local/bin/odoo-mailgate.py -l ${ODOO_URL} -d ${ODOO_DATABASE} -u ${ODOO_USERNAME} -p ${ODOO_PASSWORD}\"" >> /etc/aliases
     newaliases
     entrypoint-log "Forward alias $MAIL_ALIAS to Odoo database $ODOO_DATABASE at ${ODOO_HOST}:${ODOO_PORT}."
 done
