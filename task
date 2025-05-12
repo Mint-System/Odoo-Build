@@ -2437,7 +2437,10 @@ function test-xmlrpc() {
 
     load-env "$1"
 
+    export ODOO_URL
     export ODOO_DATABASE
+    export ODOO_USERNAME
+    export ODOO_PASSWORD
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model "res.partner" --method "search_count" --domain '[]')"
 }
 
