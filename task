@@ -90,7 +90,7 @@ function help-table() {
     printf "$COLUMN" "logs" "[name]" "Tail container logs. Default is 'odoo'."
     printf "$COLUMN" "ls-module" "[grep]" "List Odoo addons path space separated."
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
-    printf "$COLUMN" "odooctl" "[param]" "Execute odooctl cli."
+    printf "$COLUMN" "odoocli" "[param]" "Execute odoocli cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
     printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
@@ -282,6 +282,8 @@ function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
     export $(grep -vE "^#|^$" .env)
+    export SMTP_SERVER
+    export SMTP_PORT
 
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
@@ -658,8 +660,8 @@ function build() {
     if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
-    if [ "$MANIFEST_FILE" = "images/odooctl/Dockerfile" ]; then
-        CONTAINER_TAG="odooctl"
+    if [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
+        CONTAINER_TAG="odoocli"
     fi
     if [ -n "$2" ]; then
         PLATFORM="$1"
@@ -722,8 +724,8 @@ function test-image() {
     if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
-    if [ "$1" == "images/odooctl/Dockerfile" ]; then
-        CONTAINER_TAG="odooctl"
+    if [ "$1" == "images/odoocli/Dockerfile" ]; then
+        CONTAINER_TAG="odoocli"
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
@@ -745,14 +747,14 @@ function test-image() {
         docker run -it mintsystem/odoo-upgrade --help
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odooctl ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Show help of odooctl."
-        docker_odooctl() {
+    if [[ "$CONTAINER_TAG" =~ ^odoocli ]]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
+        docker_odoocli() {
             docker run -it \
                 -e ODOO_URL="$ODOO_URL" -e ODOO_DATABASE="$ODOO_DATABASE" -e ODOO_USERNAME="$ODOO_USERNAME" -e ODOO_PASSWORD="$ODOO_PASSWORD" \
-                mintsystem/odooctl "$@"
+                mintsystem/odoocli "$@"
             }
-        docker_odooctl --help
+        docker_odoocli --help
     fi
 }
 
@@ -767,9 +769,9 @@ function publish() {
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
     fi
-    if [ "$1" == "images/odooctl/Dockerfile" ]; then
-        CONTAINER_TAG="odooctl"
-        LATEST_TAG="odooctl:latest"
+    if [ "$1" == "images/odoocli/Dockerfile" ]; then
+        CONTAINER_TAG="odoocli"
+        LATEST_TAG="odoocli:latest"
     fi
 
     echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
@@ -1202,7 +1204,7 @@ function test-project() {
         remove-snippet test snippets/base.view_partner_form.show_type.xml
 
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
-        # CHECKSUM1=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        # CHECKSUM1=$(images/odoocli/bin/odoocli --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
@@ -1211,7 +1213,7 @@ function test-project() {
         done
         docker logs odoo
         docker logs odoo 2>&1 | grep "Run click-odoo-update."
-        # CHECKSUM2=$(images/odooctl/bin/odooctl --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
+        # CHECKSUM2=$(images/odoocli/bin/odoocli --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         # echo "CHECKSUM1: $CHECKSUM1"
         # echo "CHECKSUM2: $CHECKSUM2"
         # [ "$CHECKSUM1" != "$CHECKSUM2" ]
@@ -1439,8 +1441,8 @@ function disable-mailserver() {
 
     activate-venv
     load-env "$1"
-    images/odooctl/bin/odooctl --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
-    images/odooctl/bin/odooctl --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
+    images/odoocli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
 }
 
 function change-uuid() {
@@ -2006,11 +2008,11 @@ function install-snippet() {
     activate-venv
     load-env "$1"
     echo "Search for view with name $MODULE_NAME.$XML_ID"
-    INHERIT_ID=$(images/odooctl/bin/odooctl --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
+    INHERIT_ID=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
     echo "Found view id $INHERIT_ID"
 
     echo "Apply view $NAME"
-    images/odooctl/bin/odooctl --method 'create' --model 'ir.ui.view' --value "{
+    images/odoocli/bin/odoocli --method 'create' --model 'ir.ui.view' --value "{
         'name': '$NAME',
         'type': '$TYPE',
         'model': '$MODEL',
@@ -2032,7 +2034,7 @@ function update-snippet() {
     activate-venv
     load-env "$1"
     echo "Update view with name $NAME"
-    images/odooctl/bin/odooctl --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
 }
 
 function disable-snippet() {
@@ -2046,7 +2048,7 @@ function disable-snippet() {
     activate-venv
     load-env "$1"
     echo "Disable view with name $NAME"
-    images/odooctl/bin/odooctl --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
 }
 
 function remove-snippet() {
@@ -2060,7 +2062,7 @@ function remove-snippet() {
     activate-venv
     load-env "$1"
     echo "Remove view with name $NAME"
-    images/odooctl/bin/odooctl --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
+    images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
 }
 
 function lint-snippets() {
@@ -2450,12 +2452,12 @@ function test-xmlrpc() {
     activate-venv
     load-env "$1"
 
-    echo "Connect to database and count res.partner records: $(images/odooctl/bin/odooctl --model "res.partner" --method "search_count" --domain '[]')"
+    echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model "res.partner" --method "search_count" --domain '[]')"
 }
 
-function odooctl(){
+function odoocli(){
     activate-venv
-    images/odooctl/bin/odooctl "$@"
+    images/odoocli/bin/odoocli "$@"
 }
 
 # Pass Commands

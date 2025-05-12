@@ -8,27 +8,27 @@ from urllib.parse import urlparse
 
 example_text = """
 # Create a new partner with name and email
-odooctl --method 'create' --model 'res.partner' --value "{'name': 'User', 'email': 'user@example.com'}"
+odoocli --method 'create' --model 'res.partner' --value "{'name': 'User', 'email': 'user@example.com'}"
 
 # Update the name of the partner with id 66
-odooctl --method 'write' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name' --value 'New Name'
+odoocli --method 'write' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name' --value 'New Name'
 
 # Read the 'name' field of the partner with id 66
-odooctl --method 'read' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name'
+odoocli --method 'read' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name'
 
 # Count the number of partners with email domain 'example.com'
-odooctl --method 'search_count' --model 'res.partner' --domain "[('email', 'like', '%example.com%')]"
+odoocli --method 'search_count' --model 'res.partner' --domain "[('email', 'like', '%example.com%')]"
 
 # Find the id of the first partner with email 'user@example.com'
-odooctl --method 'search_one' --model 'res.partner' --domain "[('email', '=', 'user@example.com')]"
+odoocli --method 'search_one' --model 'res.partner' --domain "[('email', '=', 'user@example.com')]"
 
 # Delete the partner with id 66
-odooctl --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
+odoocli --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
 """
 
 # Create the ArgumentParser
 parser = ArgumentParser(
-    prog='odooctl',
+    prog='odoocli',
     description='Update Odoo records using the XML-RPC API.',
     formatter_class=RawTextHelpFormatter,
     epilog=example_text

@@ -21,7 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Added license files to Docker images.
-* New Docker image `odooctl`.
+* New Docker image `odoocli`.
 * Refactored the `visualize-dependencies` command.
 * Odoo image script `download-odoo-enterprise`
 
@@ -159,7 +159,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Updated
 
 * Command `test-xmlrpc` renamed to `test-xmlrpc`.
-* Refactored `odooctl` cli.
+* Refactored `odoocli` cli.
 * Added emojies to the README feature list.
 * Rename `build` folder to `image`.
 * Moved selected Python packages to `requirements.txt`.

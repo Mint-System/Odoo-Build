@@ -70,7 +70,7 @@
 | logs                      |                      | Tail Odoo container logs.                                                                  |
 | ls-module                 | [grep]               | List Odoo addons path space separated.                                                     |
 | ls-git-folder             | [grep]               | List git folders path space separated.                                                     |
-| odooctl                   | [param]              | Execute odooctl cli.                                                                       |
+| odoocli                   | [param]              | Execute odoocli cli.                                                                       |
 | patch-database            | [db][path]           | Apply sql file to database.                                                                |
 | publish                   | [Dockerfile]         | Publish Odoo container image.                                                              |
 | pull-git-folder           |                      | Pull all git folders listed in the .gitmodules file.                                       |
