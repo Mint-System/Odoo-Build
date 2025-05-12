@@ -569,6 +569,9 @@ function list-modules() {
 function template-compose() {
     echo "Template compose.yml"
 
+    
+    SMTP_SERVER="mailpit"
+
     # Extract variables and export them
     # grep -oP '\$\{([^}]+)\}' compose.yml.template | sed 's/${\([^}]\+\)}/export \1/'
     export CONTAINER_REGISTRY

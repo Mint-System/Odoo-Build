@@ -12,6 +12,8 @@ syslogd -O /var/log/mail.log
 : ${ODOO_DATABASE:=${ODOO_DB:="odoo"}}
 : ${ODOO_USERNAME:=${ODOO_USERNAME:="admin"}}
 : ${ODOO_PASSWORD:=${ODOO_PASSWORD:="admin"}}
+: ${MAIL_MODEL:=${MAIL_MODEL:=""}}
+: ${MAIL_THREAD_ID:=${MAIL_THREAD_ID:=""}}
 : ${MAIL_DOMAIN:=${MAIL_DOMAIN:="yourcompany.com"}}
 : ${MAIL_ALIASES:=${MAIL_ALIASES:="info"}}
 
@@ -47,9 +49,19 @@ if ! grep -q "^submission" /etc/postfix/master.cf; then
   -o smtpd_tls_wrappermode=no" >> /etc/postfix/master.cf
 fi
 
+
+# Set optional parameters
+if [ $MAIL_MODEL != "" ];then
+  MAIL_MODEL_PARAM=" -m $MAIL_MODEL"
+fi
+
+if [ $MAIL_THREAD_ID != "" ];then
+  MAIL_THREAD_ID_PARAM=" -i $MAIL_THREAD_ID"
+fi
+
 # Setup aliases
 for MAIL_ALIAS in $MAIL_ALIASES; do
-    echo "$MAIL_ALIAS: \"|/usr/local/bin/odoo-mailgate.py -l ${ODOO_URL} -d ${ODOO_DATABASE} -u ${ODOO_USERNAME} -p ${ODOO_PASSWORD}\"" >> /etc/aliases
+    echo "$MAIL_ALIAS: \"|/usr/local/bin/odoo-mailgate.py -l ${ODOO_URL} -d ${ODOO_DATABASE} -u ${ODOO_USERNAME} -p ${ODOO_PASSWORD}${MAIL_MODEL_PARAM}${MAIL_THREAD_ID_PARAM}\"" >> /etc/aliases
     newaliases
     entrypoint-log "Forward alias $MAIL_ALIAS to Odoo database $ODOO_DATABASE at ${ODOO_HOST}:${ODOO_PORT}."
 done
