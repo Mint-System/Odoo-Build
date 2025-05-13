@@ -898,6 +898,9 @@ function install-native() {
         exit 1
     fi
 
+    echo "Setup taskfile repo"
+    [ ! -d "$HOME/taskfile.build" ] && git clone git@github.com:janikvonrotz/taskfile.build.git ~/taskfile.build
+
     echo "Install Odoo development tools"
     uv pip install ${PYTHON_NOTIFY}
     uv pip install -r requirements.txt
