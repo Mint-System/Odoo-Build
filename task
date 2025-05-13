@@ -63,6 +63,7 @@ function help-table() {
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file."
     printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate snippet for referefenced view."
     printf "$COLUMN" "generate-module-wizard" "[path][model]" "Generate wizard for a model in module folder."
+    printf "$COLUMN" "generate-ssh-keys" "" "Generate ssh key pair."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
     printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
@@ -719,7 +720,7 @@ function test-image() {
 
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
-        prepare-ssh-keys
+        generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export LOCAL_PATH="./tmp"
@@ -1114,9 +1115,9 @@ function stop() {
     $COMPOSE_COMMAND stop "$1"
 }
 
-function prepare-ssh-keys() {
+function generate-ssh-keys() {
     if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
-        echo "PREPARE: Generate SSH private key."
+        echo "Generate SSH private and public keys."
         mkdir -p tmp
         if [ ! -f "tmp/ed25519" ]; then
             ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
@@ -1147,7 +1148,7 @@ function test-project() {
         start db,mail
 
         echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
-        prepare-ssh-keys
+        generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
