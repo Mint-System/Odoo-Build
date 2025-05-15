@@ -157,16 +157,6 @@ function help-table() {
     printf "$COLUMN" "zip-module" "[path]" "Create zip file for module."
 }
 
-function help() {
-    echo
-    echo "$1 <command> [options]"
-    echo
-    echo "commands:"
-    echo
-    help-table
-    echo
-}
-
 # Static env vars
 
 PASS_ENTRY="env/${PWD##*/}"
@@ -214,6 +204,7 @@ fi
 
 # Import commands
 
+[ -f ~/taskfile.build/bin/help ] && source ~/taskfile.build/bin/help
 [ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
 [ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
 [ -f ~/taskfile.build/bin/show-env ] && source ~/taskfile.build/bin/show-env
