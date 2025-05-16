@@ -845,7 +845,7 @@ function upgrade-odoo() {
 
 # Install Commands
 
-function install-native() {
+function install() {
     init-venv
     activate-venv
 

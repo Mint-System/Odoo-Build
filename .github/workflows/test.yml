@@ -16,8 +16,8 @@ jobs:
           python-version: '3.12'
       - name: Install uv
         uses: astral-sh/setup-uv@v5
-      - name: Run task install-native
-        run: ./task install-native
+      - name: Run task install
+        run: ./task install
         env:
           ODOO_REVISION: "18.0"
       - name: Run task install-odoo-scripts

@@ -51,7 +51,7 @@
 | init-db                   | [db]                 | Initialize the Odoo database.                                                              |
 | init-module               | [db][path,module]    | Initialize Odoo module.                                                                    |
 | init-venv                 |                      | Initialize python virtual env.                                                             |
-| install-native            |                      | Install Odoo requirements in source folder.                                                |
+| install                   |                      | Install Odoo requirements in source folder.                                                |
 | install-odoo-scripts      |                      | Install Odoo scripts.                                                                      |
 | install-requirements      | [db][path]           | Install python packages from requirements.txt.                                             |
 | install-snippet           | [env][path]          | Install snippet definition.                                                                |
