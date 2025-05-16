@@ -2,19 +2,23 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Undefined
+## 2025-05-16
 
 ### Added
 
 * Smtp connection vars for server mail.
-* Add `coding-guidelines.py` to pre-commit for templats 18.0.
+* Add `coding-guidelines.py` to pre-commit for templates 18.0.
 * New Docker image `odoo-mailgate`.
+* Clone task file repo on install.
 
 ### Updated
 
 * The env var `CLICK_ODOO_UPDATE` has been renamed to `AUTO_UPDATE_MODULES`.
 * Support any container name with `logs <name>`.
 * Added the compose vars.
+* Import selected commands from taskfile repo.
+* The help command supports a grep param.
+* Moved develop instructions of images to main readme.
 
 ## 20205-04-28
 

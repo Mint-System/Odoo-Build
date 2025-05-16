@@ -36,11 +36,3 @@ Show help of upgrade command and arguments:
 docker run -it mintsystem/odoo-upgrade --help
 docker run -it mintsystem/odoo-upgrade test --help
 ```
-
-## Develop
-
-Update the upgrade script:
-
-```bash
-wget https://upgrade.odoo.com/upgrade -O image/odoo-upgrade/bin/upgrade
-```

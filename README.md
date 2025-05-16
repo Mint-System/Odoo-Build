@@ -65,6 +65,12 @@ Checkout the Odoo version. Show supported versions with `task list-versions`.
 task checkout "$VERSION"
 ```
 
+Install build and Python dependencies.
+
+```bash
+task install
+```
+
 Install [Odoo scripts](https://ansible.build/scripts.html#odoo-scripts).
 
 ```bash
@@ -76,14 +82,6 @@ Decide wether you want to run Odoo in native mode (recommended) or as a containe
 ### Native
 
 Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!\_OS, Darwin, Windows with Ubuntu on WSL2.
-
-#### Setup Python environment
-
-Install build and Python dependencies.
-
-```bash
-task install-native
-```
 
 #### Initialize and start Odoo from source
 
@@ -169,14 +167,6 @@ BROWSER_OPEN=false
 
 Run Odoo as container.
 
-#### Set podman as container engine
-
-If you are using podman, set this `.env` var:
-
-```bash
-CONTAINER_ENGINE=podman
-```
-
 #### Start and initialize Odoo
 
 Set the Odoo addons path in your `.env` file:
@@ -201,9 +191,17 @@ docker-odoo-init -d odoo -i web
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
+#### Set podman as container engine
+
+If you are using podman, set this `.env` var:
+
+```bash
+CONTAINER_ENGINE=podman
+```
+
 ### Common
 
-Instructions that are true for container and native usage.
+These instructions are true for container and native usage.
 
 #### Change log level
 
@@ -215,11 +213,17 @@ LOG_LEVEL=debug
 
 #### Manage database with container
 
-Open database manager [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
+Start pgadmin.
+
+```bash
+task pgadmin
+```
+
+Open pgadmin [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
 #### Remove containers
 
-This removes containers and volumes.
+Removes containers and volumes.
 
 ```bash
 task remove
@@ -227,11 +231,15 @@ task remove
 
 #### Stop all containers
 
+Without service name the stop commands stops all containers.
+
 ```bash
 task stop
 ```
 
 #### Drop database
+
+To drop the default database run:
 
 ```bash
 task drop-db
@@ -292,6 +300,52 @@ eval "$(task show-env test)"
 ```
 
 ## Develop
+
+### Update the Odoo Upgrade script
+
+Update the upgrade script:
+
+```bash
+wget https://upgrade.odoo.com/upgrade -O image/odoo-upgrade/bin/upgrade
+```
+
+### Forward mails with Odoo Mailgate
+
+Start all containers.
+
+```bash
+task start
+```
+
+Open Odoo and setup the domain `yourcompany.com` for the default company.
+
+Send a test mail with swaks:
+
+```bash
+swaks --to info@yourcompany.com --from sender@example.com \
+  --server localhost:25 \
+  --body "This is a test email for the Odoo mailgate system." \
+  --header "Subject: Test Email for Odoo"
+```
+
+The mail will be forwarded to Odoo and shown as a discuss channel.
+
+Trace the mailgate log:
+
+```bash
+docker exec mailgate tail -f /var/log/mail.log
+```
+
+You can also send a mail with tls encryption:
+
+
+```bash
+swaks --to info@yourcompany.com --from sender@example.com \
+  --server localhost:587 \
+  --tls \
+  --body "This is a test email for the Odoo mailgate system." \
+  --header "Subject: Test Email for Odoo"
+```
 
 ### Create Odoo revision
 
