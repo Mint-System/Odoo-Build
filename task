@@ -864,6 +864,9 @@ function install() {
             echo "wkhtmltopdf version is already 0.12.4"
         fi
 
+        echo "Update apt repo"
+        sudo apt update
+
         echo "Install python-ldap and psycopg2 build dependencies"
         sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
