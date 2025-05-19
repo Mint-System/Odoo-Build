@@ -1,0 +1,11 @@
+<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+    <xpath expr="//p[@t-field='doc.note']" position="before">
+        <div class="row">
+            <div class="col">
+                <span t-if="doc.payment_term_id.name">
+          Payment Terms: <strong t-field="doc.payment_term_id.name"/>
+                </span>
+            </div>
+        </div>
+    </xpath>
+</data>
