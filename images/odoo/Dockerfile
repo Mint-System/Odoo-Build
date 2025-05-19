@@ -43,8 +43,8 @@ RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
 # Clean up unnecessary files to reduce image size
 RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
     find /opt/odoo -name "*.md" -name "*.rst" -delete && \
-    find /opt/odoo -name "*.pot" -delete && \
-    find /opt/odoo -path "*/i18n/*" -name "*.po" ! -name "en_US.po" ! -name "de.po" ! -name "fr.po" ! -name "it.po" -delete
+    find /opt/odoo -name "*.pot" -delete
+#    find /opt/odoo -path "*/i18n/*" -name "*.po" ! -name "en_US.po" ! -name "de.po" ! -name "fr.po" ! -name "it.po" -delete
 
 # Set release serial
 RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
@@ -118,7 +118,14 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=/bin/bash bash -
+
+# Add pnpm to PATH
+ENV PNPM_HOME="/root/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
+# Install Node.js packages
+RUN pnpm install -g rtlcss
 
 # Install uv for Python package management
 COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/
