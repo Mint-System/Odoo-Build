@@ -9,7 +9,7 @@ readme-template-url="https://github.com/OCA/maintainer-tools/blob/master/templat
 manifest-required-authors=Mint System GmbH
 manifest-required-keys=license
 manifest-deprecated-keys=description,active
-license-allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3
+license-allowed=AGPL-3,GPL-2,GPL-2 or any later version,GPL-3,GPL-3 or any later version,LGPL-3,OPL-1
 valid-odoo-versions=17.0
 
 [MESSAGES CONTROL]
