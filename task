@@ -980,7 +980,7 @@ function start() {
 
     if [[ "$1" =~ "mailpit" ]]; then
         echo "Open http://localhost:8025 url in your browser."
-        open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mail
+        open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mailpit
     fi
 
     if [[ "$1" =~ "mailgate" ]]; then
