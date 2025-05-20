@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Undefined
+
+### Updated
+
+* Rename `start-psql` to `psql` and `start-shell` to `shell`.
+* Added code parameter to `shell` command.
+
 ## 2025-05-16
 
 ### Added

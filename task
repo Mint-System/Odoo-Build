@@ -99,6 +99,7 @@ function help-table() {
     printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
     printf "$COLUMN" "push-git-folder" "" "Push all git folders in path."
+    printf "$COLUMN" "psql" "[db]" "Start interactive psql shell."
     printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
     printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
     printf "$COLUMN" "remove" "[name]" "Remove containers and volumes. Options: none, db, admin, odoo, mail."
@@ -119,13 +120,12 @@ function help-table() {
     printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
     printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
     printf "$COLUMN" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
+    printf "$COLUMN" "shell" "[db][code]" "Start interactive odoo shell or run code."
     printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "$COLUMN" "source" "" "Source the Python virtual env."
     printf "$COLUMN" "stage-git-folder" "[path]" "Stage all files in git folders in path."
     printf "$COLUMN" "start" "[name][db]" "Start application. Options: db, admin, odoo, native, mail."
-    printf "$COLUMN" "start-psql" "[db]" "Start PSQL shell in container container."
-    printf "$COLUMN" "start-shell" "[db]" "Start Odoo shell from source folder."
     printf "$COLUMN" "stop" "[name]" "Stop containers."
     printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
     printf "$COLUMN" "switch-git-folder" "[version]" "Switch branch for all git folders listed in the .gitmodules file."
@@ -1210,18 +1210,23 @@ function test-project() {
 
 # Interactive Shell Commands
 
-function start-shell() {
+function shell() {
     DATABASE="$1"
     if [ -z "$DATABASE" ]; then
         DATABASE="$ODOO_DATABASE"
     fi
+    CODE="$2"
 
     activate-venv
     set-addons-path
-    odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    if [ -n "$CODE" ]; then
+        echo "$CODE" | odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    else
+        odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    fi
 }
 
-function start-psql() {
+function psql() {
     DATABASE="$1"
     if [ -z "$DATABASE" ]; then
         DATABASE="$ODOO_DATABASE"
