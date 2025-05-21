@@ -2413,22 +2413,31 @@ function create-revision() {
     REVISION="$1"
     ODOO_DATE=$(echo "$REVISION" | cut -d'.' -f3-)
     BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
+    echo "Checkout Odoo repos on $BEFORE_DATE."
 
     # Get git commit by date
     cd odoo
+    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
     git checkout "$REF"
     cd ..
+    
     cd enterprise
+    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     ENTERPRISE_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
     git checkout "$ENTERPRISE_REF"
     cd ..
+
     cd themes
+    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     THEME_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
     git checkout "$THEME_REF"
     cd ..
 
-    echo "Create revision: $REVISION"
+    echo -e "\nCreate revision: $REVISION"
     export REVISION REF ENTERPRISE_REF THEME_REF
     envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF' < templates/odoo_revision > "revisions/$REVISION"
     chmod +x "revisions/$REVISION"
