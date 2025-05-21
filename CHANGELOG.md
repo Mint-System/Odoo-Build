@@ -9,6 +9,10 @@ All notable changes to this project will be documented in this file. The format 
 * Rename `start-psql` to `psql` and `start-shell` to `shell`.
 * Added code parameter to `shell` command.
 
+### Fixed
+
+* Wrappend ssh key env vars in `.env.template`.
+
 ## 2025-05-16
 
 ### Added
