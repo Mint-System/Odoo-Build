@@ -19,6 +19,7 @@
 | commit-git-folder         | [message][path]      | Commit all changes in path.                                                                |
 | container-login           | [user][pass]         | Setup container hub login credentials.                                                     |
 | container-ps              |                      | List container processes.                                                                  |
+| copy-env                  | [env][env]           | Copy env file.                                                                             |
 | create-git-feature-branch | [path]               | Create feature branch for Odoo module.                                                     |
 | create-git-mig-branch     | [path]               | Create migration branch for Odoo module.                                                   |
 | create-module             | [path]               | Create new Odoo module from template.                                                      |
@@ -42,10 +43,12 @@
 | generate-module-security  | [path][model]        | Generate model access file.                                                                |
 | generate-module-snippet   | [path][ref]          | Generate snippet for referefenced view.                                                    |
 | generate-module-wizard    | [path][model]        | Generate wizard for a model in module folder.                                              |
+| generate-ssh-keys         |                      | Generate ssh key pair.                                                                     |
 | get-addons-path           |                      | Output addons path.                                                                        |
 | status-git-folder         | [path]               | Show status for git folder in path.                                                        |
 | get-modules               | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                            |
 | get-module-version        | [path]               | Get module version from manifest.                                                          |
+| help                      | [grep]               | Show help for commands.                                                                    |
 | import-csv                | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.                           |
 | info                      |                      | Show values of project env vars.                                                           |
 | init-db                   | [db]                 | Initialize the Odoo database.                                                              |
@@ -76,9 +79,10 @@
 | publish                   | [Dockerfile]         | Publish Odoo container image.                                                              |
 | pull-git-folder           |                      | Pull all git folders listed in the .gitmodules file.                                       |
 | push-git-folder           |                      | Push all git folders in path.                                                              |
+| psql                      | [db]                 | Start interactive psql shell.                                                              |
 | pytest-module             | [db][name,path]      | Run module tests with pytest.                                                              |
 | release-module            | [path]               | Create GitHub release for a module.                                                        |
-| remove                    | [name]               | Remove containers and volumes. Options: none, db, admin, odoo, mail.                       |
+| remove                    | [name]               | Remove containers and volumes.                                                             |
 | remove-env                | [env]                | Remove environment config.                                                                 |
 | remove-git-submodule      | [path]               | Remove a git submodule.                                                                    |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
@@ -96,13 +100,12 @@
 | set-admin                 | [db]                 | Sets the password for the first user in database.                                          |
 | setup-mail                | [db]                 | Setup mail config in Odoo db.                                                              |
 | setup-mail-sql            | [db]                 | Setup mail config in Odoo db with SQL.                                                     |
+| shell                     | [db][code]           | Start interactive odoo shell or run code.                                                  |
 | show-env                  | [env]                | Output content of the env file.                                                            |
 | show-revision             | [revision]           | Show references of Odoo revision.                                                          |
 | source                    |                      | Source the Python virtual env.                                                             |
 | stage-git-folder          | [path]               | Stage all files in git folders in path.                                                    |
-| start                     | [name][db]           | Start application. Options: db, admin, odoo, native, mail.                                 |
-| start-psql                | [db]                 | Start PSQL shell in container container.                                                   |
-| start-shell               | [db]                 | Start Odoo shell from source folder.                                                       |
+| start                     | [name][db]           | Start application. Options: none, admin, db, mailgate, mailpit, native, odoo.              |
 | stop                      | [name]               | Stop containers.                                                                           |
 | store-dotenv              |                      | Store content of .env in pass entry.                                                       |
 | switch-git-folder         | [version]            | Switch branch for all git folders listed in the .gitmodules file.                          |
@@ -110,7 +113,7 @@
 | template-compose          |                      | Template the Docker compose file.                                                          |
 | template-odoo-rc          |                      | Template the Odoo config file.                                                             |
 | template-repo             | [path]               | Update the repo folder from template.                                                      |
-| test-image                | [Dockerfile]         | Test Odoo container image.                                                                 |
+| test-image                | [Dockerfile]         | Test internals of Docker image.                                                            |
 | test-module               | [db][name,path]      | Test target Odoo module.                                                                   |
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | test-project              | [clean]              | Run tests for this project.                                                                |
