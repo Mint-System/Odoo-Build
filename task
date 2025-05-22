@@ -102,7 +102,7 @@ function help-table() {
     printf "$COLUMN" "psql" "[db]" "Start interactive psql shell."
     printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
     printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
-    printf "$COLUMN" "remove" "[name]" "Remove containers and volumes. Options: none, db, admin, odoo, mail."
+    printf "$COLUMN" "remove" "[name]" "Remove containers and volumes."
     printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
@@ -125,7 +125,7 @@ function help-table() {
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "$COLUMN" "source" "" "Source the Python virtual env."
     printf "$COLUMN" "stage-git-folder" "[path]" "Stage all files in git folders in path."
-    printf "$COLUMN" "start" "[name][db]" "Start application. Options: db, admin, odoo, native, mail."
+    printf "$COLUMN" "start" "[name][db]" "Start application. Options: none, admin, db, mailgate, mailpit, native, odoo."
     printf "$COLUMN" "stop" "[name]" "Stop containers."
     printf "$COLUMN" "store-dotenv" "" "Store content of .env in pass entry."
     printf "$COLUMN" "switch-git-folder" "[version]" "Switch branch for all git folders listed in the .gitmodules file."
@@ -938,19 +938,23 @@ function start() {
         $COMPOSE_COMMAND up -d
     fi
 
-    if [[ "$1" =~ "db" ]]; then
-        $COMPOSE_COMMAND up -d db
-    fi
-
     if [[ "$1" =~ "admin" ]]; then
         echo "Open http://localhost:8000 url in your browser."
         open-url-with-delay "http://localhost:8000" & $COMPOSE_COMMAND up -d admin
     fi
 
-    if [[ "$1" =~ "odoo" ]]; then
-        echo "Start Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        echo "Open http://localhost:8069 url in your browser."
-        open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
+    if [[ "$1" =~ "db" ]]; then
+        $COMPOSE_COMMAND up -d db
+    fi
+
+    if [[ "$1" =~ "mailgate" ]]; then
+        echo "Send emails to: smtp://localhost:587"
+        $COMPOSE_COMMAND up -d mailgate
+    fi
+
+    if [[ "$1" =~ "mailpit" ]]; then
+        echo "Open http://localhost:8025 url in your browser."
+        open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mailpit
     fi
 
     if [[ "$1" =~ "native" ]]; then
@@ -970,23 +974,12 @@ function start() {
         odoo --database="$DATABASE" --config "$ODOO_RC" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
-    if [[ "$1" =~ "queue" ]]; then
-        activate-venv
-        PORT=8069
-        echo "Open http://localhost:$PORT url in your browser."
-        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo --database="$DATABASE" --config "$ODOO_RC" --xmlrpc-port="$PORT" --gevent-port=8072 --load=web,queue_job --workers=4 --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL" --log-handler=odoo.addons.queue_job:DEBUG
+    if [[ "$1" =~ "odoo" ]]; then
+        echo "Start Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        echo "Open http://localhost:8069 url in your browser."
+        open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
     fi
 
-    if [[ "$1" =~ "mailpit" ]]; then
-        echo "Open http://localhost:8025 url in your browser."
-        open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mailpit
-    fi
-
-    if [[ "$1" =~ "mailgate" ]]; then
-        echo "Send emails to: smtp://localhost:587"
-        $COMPOSE_COMMAND up -d mailgate
-    fi
 }
 
 function debug() {
