@@ -10,6 +10,7 @@ All notable changes to this project will be documented in this file. The format 
 * Added code parameter to `shell` command.
 * Renamed `install-native` to `install`
 * Removed `start queue`
+* Do not check version in module manifest files.
 
 ### Fixed
 

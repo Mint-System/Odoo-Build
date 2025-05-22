@@ -44,6 +44,7 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -105,7 +106,7 @@ services:
       GITHUB_USERNAME: bot-mintsys
       GITHUB_PERSONAL_ACCESS_TOKEN: *****
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
-      ODOO_ADDONS_PATH: /mnt/addons/
+      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_DATABASE: "16.0"
       ODOO_INIT_LANG: de_CH
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter

@@ -9,27 +9,11 @@ if [ -n "$ODOO_ADDONS_PATH" ]; then
 
     entrypoint-log "Resolve addons path: $ODOO_ADDONS_PATH"
 
-    # Search for module manifest files containing "version.+NN.0" and return list of module paths
-    ODOO_MODULE_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" ",")
+    # Search for module manifest files and return list of module paths
+    ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | sort -u | tr "\n" ",")
     
     # Set parent folder of module paths as new addons path
-    ODOO_MODULE_PATH=$(echo "$ODOO_MODULE_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
-
-    # Enterprise modules always have version 1.0 so they are not resolved
-
-    # Add mounted Odoo Enterprise modules
-    if [[ "$ODOO_ADDONS_PATH" =~ "/mnt/enterprise" ]]; then
-        entrypoint-log "Add /mnt/enterprise to addons path"
-        ODOO_ADDONS_PATH="/mnt/enterprise,$ODOO_MODULE_PATH"
-    else
-        ODOO_ADDONS_PATH="$ODOO_MODULE_PATH"
-    fi
-fi
-
-# Add downloaded Odoo Enterprise modules
-if [ -d "/var/lib/odoo/enterprise" ]; then
-    entrypoint-log "Add /var/lib/odoo/enterprise to addons path"
-    ODOO_ADDONS_PATH="/var/lib/odoo/enterprise,$ODOO_ADDONS_PATH"
+    ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
 fi
 
 # Combine predefined addons path and odoo addons path

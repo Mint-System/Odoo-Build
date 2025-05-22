@@ -518,10 +518,10 @@ function get-modules() {
     fi
 
     if [[ "$OPTION" == "dirname" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     if [[ "$OPTION" == "basename" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l "version.*${ODOO_VERSION}" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     echo "$MODULES"
 }
@@ -2106,10 +2106,17 @@ function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
-    # Add to .gitmodules but not to working tree
+    # Add to .gitmodules
     git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
+
+    # Remove from working tree
     rm -rf .git/modules/"$2" || true
     git rm --cached "$2" || true
+    git restore --staged "$2"
+
+    # Save .gitmodules file
+    git restore --staged .gitmodules
+    save-version
 }
 
 function ls-git-folder() {

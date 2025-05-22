@@ -72,3 +72,7 @@
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website.git
 	branch = 18.0
+[submodule "oca/queue"]
+	path = oca/queue
+	url = git@github.com:OCA/queue.git
+	branch = 18.0
