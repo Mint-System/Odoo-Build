@@ -1,0 +1,5 @@
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//field[@name='company_registry']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>

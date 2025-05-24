@@ -45,6 +45,18 @@
                     </td>
                 </t>
             </tr>
+            
+           
+             <tr>
+                <t t-if="o.sale_id.incoterm">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.sale_id.incoterm.name"/>
+                    </td>
+                </t>
+            </tr>
+           
+            
             <tr>
                 <t t-if="o.partner_id.parent_id">
                     <td>Your Contact</td>
@@ -67,6 +79,6 @@
                     </td>
                 </t>
             </tr>
-        </table>
+        </table>      
     </xpath>
 </data>
