@@ -8,9 +8,10 @@ All notable changes to this project will be documented in this file. The format 
 
 * Rename `start-psql` to `psql` and `start-shell` to `shell`.
 * Added code parameter to `shell` command.
-* Renamed `install-native` to `install`
-* Removed `start queue`
+* Renamed `install-native` to `install`.
+* Removed `start queue`.
 * Do not check version in module manifest files.
+* Updated the `setup-mail` script.
 
 ### Fixed
 

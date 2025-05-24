@@ -86,20 +86,20 @@ services:
       SMTP_SERVER: mail.infomaniak.com
       SMTP_PORT: 587
       SMTP_SSL: True
-      SMTP_USER: test@mint-system.ch
+      SMTP_USER: odoo@yourcompany.com
       SMTP_PASSWORD: *****
-      EMAIL_FROM: test@mint-system.ch
-      MAIL_DEFAULT_FROM: test
-      MAIL_CATCHALL_DOMAIN: mint-system.ch
-      MAIL_CATCHALL_ALIAS: test@mint-system.ch
+      EMAIL_FROM: odoo@yourcompany.com
+      MAIL_DEFAULT_FROM: odoo
+      MAIL_CATCHALL_DOMAIN: yourcompany.com
+      MAIL_CATCHALL_ALIAS: reply@yourcompany.com
       ODOO_MAIL_SMTP_HOST: mail.infomaniak.com
       ODOO_MAIL_SMTP_PORT: 587
       ODOO_MAIL_SMTP_ENCRYPTION: starttls
-      ODOO_MAIL_SMTP_FROM_FILTER: test@mint-system.ch
+      ODOO_MAIL_SMTP_FROM_FILTER: odoo@yourcompany.com
       ODOO_MAIL_IMAP_HOST: mail.infomaniak.com
       ODOO_MAIL_IMAP_PORT: 993
       ODOO_MAIL_IMAP_SSL: True
-      ODOO_MAIL_USERNAME: test@mint-system.ch
+      ODOO_MAIL_USERNAME: odoo@yourcompany.com
       ODOO_MAIL_PASSWORD: *****
       GIT_SSH_PUBLIC_KEY: ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com
       GIT_SSH_PRIVATE_KEY: LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLQpiM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQU13QUFBQXR6YzJndFpXClF5TlRVeE9RQUFBQ0EwZlNHNHRKZ0U0d3NzZFJHSU9mZUtCWkdOSzRJYllLUHFaeFJ6cndITXBnQUFBS2k1WkJhRnVXUVcKaFFBQUFBdHpjMmd0WldReU5UVXhPUUFBQUNBMGZTRzR0SmdFNHdzc2RSR0lPZmVLQlpTks0SWJZS1BxWnhSenJ3SE1wZwowQkFnTT0KLS0tLS1FTkQgT1BFTlNTSCBQUklWQVRFIEtFWS0tLS0tCg==
@@ -243,9 +243,9 @@ This is the mail configuration of the Odoo server.
 
 Set mail parameters for the company. Requires `server_environment_ir_config_parameter` in `ODOO_INIT_ADDONS`.
 
-* `MAIL_CATCHALL_ALIAS`: Name of the catchall mail adress. Default is `catchall`.
-* `MAIL_CATCHALL_DOMAIN`: Domain name of of the catchall mail addres
-* `MAIL_DEFAULT_FROM`: From name for outgoing mails. Default is `notification`.
+* `MAIL_CATCHALL_ALIAS`: Name of the reply-to mail adress.
+* `MAIL_CATCHALL_DOMAIN`: Domain name of the reply-to mail address.
+* `MAIL_DEFAULT_FROM`: From name for outgoing mails.
 
 ### Incoming and Outgoing Mail-Server
 

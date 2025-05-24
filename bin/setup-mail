@@ -5,17 +5,24 @@ smtp_host = '$ODOO_MAIL_SMTP_HOST'
 smtp_port = $ODOO_MAIL_SMTP_PORT
 smtp_encryption = '$ODOO_MAIL_SMTP_ENCRYPTION'
 smtp_from_filter = '$ODOO_MAIL_SMTP_FROM_FILTER'
+
 imap_host = '$ODOO_MAIL_IMAP_HOST'
 imap_port = $ODOO_MAIL_IMAP_PORT
 imap_ssl = $ODOO_MAIL_IMAP_SSL
+
 mail_user = '$ODOO_MAIL_USER'
 mail_password = '$ODOO_MAIL_PASSWORD'
-mail_catchall_alias = '$ODOO_MAIL_CATCHALL_ALIAS'
-mail_catchall_domain = '$ODOO_MAIL_CATCHALL_DOMAIN'
-mail_default_from = '$ODOO_MAIL_DEFAULT_FROM'
+
+mail_domain = '$MAIL_DOMAIN'
+mail_aliases = '$MAIL_ALIASES'
+
+mail_catchall_alias = '$MAIL_CATCHALL_ALIAS'
+mail_catchall_domain = '$MAIL_CATCHALL_DOMAIN'
+mail_default_from = '$MAIL_DEFAULT_FROM'
 
 # Setup outgoing mail server
 if smtp_host:
+    print("Setup outgoing mail server.")
     ir_mail_server = {
         'name': smtp_host,
         'smtp_host': smtp_host,
@@ -34,6 +41,7 @@ if smtp_host:
 
 # Setup incoming mail server
 if imap_host:
+    print("Setup incoming mail server.")
     fetchmail_server = {
         'name': imap_host,
         'server': imap_host,
@@ -50,9 +58,14 @@ if imap_host:
         env['fetchmail.server'].create(fetchmail_server)
     env.cr.commit()
 
+# Setup company mail
+
+
+
 # Setup system parameters
 
 if mail_catchall_alias:
+    print(f"Set mail catchall alias: {mail_catchall_alias}")
     mail_catchall_alias_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1)
     if not mail_catchall_alias_id:
         env['ir.config_parameter'].create({'key': 'mail.catchall.alias', 'value': mail_catchall_alias})
@@ -61,6 +74,7 @@ if mail_catchall_alias:
     env.cr.commit()
 
 if mail_catchall_domain:
+    print(f"Set mail catchall domain: {mail_catchall_domain}")
     mail_catchall_domain_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1)
     if not mail_catchall_domain_id:
         env['ir.config_parameter'].create({'key': 'mail.catchall.domain', 'value': mail_catchall_domain})
@@ -69,6 +83,7 @@ if mail_catchall_domain:
     env.cr.commit()
 
 if mail_default_from:
+    print(f"Set mail default from: {mail_default_from}")
     mail_default_from_id = env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1)
     if not mail_default_from_id:
         env['ir.config_parameter'].create({'key': 'mail.default.from', 'value': mail_default_from})
