@@ -1023,7 +1023,7 @@ function run() {
     template-compose
 
     echo "Run '$1' container with command '$2'."
-    $COMPOSE_COMMAND run --rm "$1" "$2"
+    $COMPOSE_COMMAND run --rm "$1" "$2" "$3"
 }
 
 function record-with-py-spy() {
@@ -1182,7 +1182,7 @@ function test-project() {
         docker logs odoo
 
         echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
-        ~/bin/docker-odoo-init -d test -i partner_firstname
+        run odoo init-module partner_firstname
 
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"

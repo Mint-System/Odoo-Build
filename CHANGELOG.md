@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Odoo image env vars to set initial admin login and password.
+* Added script `init-module` to Odoo image. 
 
 ### Updated
 
@@ -26,6 +27,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Removed
 
 * Command `setup-mail-sql` is gone.
+* Removed Odoo scripts as requirement.
 
 ## 2025-05-16
 

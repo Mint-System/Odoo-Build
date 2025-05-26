@@ -199,7 +199,13 @@ Once you start the container the `entrypoint.sh` script will:
 
 ### Execution
 
-Once the container is running, you can update modules with this command: 
+Once the container is running, install modules with:
+
+```bash
+docker compose run --rm odoo init-module partner_firstname
+```
+
+Or update modules with this command: 
 
 ```bash
 docker compose run --rm odoo update-modules

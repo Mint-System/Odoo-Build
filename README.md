@@ -71,12 +71,6 @@ Install build and Python dependencies.
 task install
 ```
 
-Install [Odoo scripts](https://ansible.build/scripts.html#odoo-scripts).
-
-```bash
-task install-odoo-scripts
-```
-
 Decide wether you want to run Odoo in native mode (recommended) or as a container.
 
 ### Native
@@ -181,12 +175,10 @@ Run container compose.
 task start
 ```
 
-Initialize database with the Odoo script.
-
-Use `docker-odoo-init help` to show all options.
+Initialize database with the image script.
 
 ```bash
-docker-odoo-init -d odoo -i web
+task run odoo init-db
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.

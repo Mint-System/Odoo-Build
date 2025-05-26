@@ -20,8 +20,6 @@ jobs:
         run: ./task install
         env:
           ODOO_REVISION: "18.0"
-      - name: Run task install-odoo-scripts
-        run: ./task install-odoo-scripts
       - name: Run task test-project
         run: ./task test-project
         env:
