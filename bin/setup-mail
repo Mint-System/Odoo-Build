@@ -1,24 +1,20 @@
-#!/usr/bin/env python3
+import os
 
-# Set python vars from env vars
-smtp_host = '$ODOO_MAIL_SMTP_HOST'
-smtp_port = $ODOO_MAIL_SMTP_PORT
-smtp_encryption = '$ODOO_MAIL_SMTP_ENCRYPTION'
-smtp_from_filter = '$ODOO_MAIL_SMTP_FROM_FILTER'
-
-imap_host = '$ODOO_MAIL_IMAP_HOST'
-imap_port = $ODOO_MAIL_IMAP_PORT
-imap_ssl = $ODOO_MAIL_IMAP_SSL
-
-mail_user = '$ODOO_MAIL_USER'
-mail_password = '$ODOO_MAIL_PASSWORD'
-
-mail_domain = '$MAIL_DOMAIN'
-mail_aliases = '$MAIL_ALIASES'
-
-mail_catchall_alias = '$MAIL_CATCHALL_ALIAS'
-mail_catchall_domain = '$MAIL_CATCHALL_DOMAIN'
-mail_default_from = '$MAIL_DEFAULT_FROM'
+# Get environment variables
+smtp_host = os.environ.get('ODOO_MAIL_SMTP_HOST', '')
+smtp_port = int(os.environ.get('ODOO_MAIL_SMTP_PORT', 587))
+smtp_encryption = os.environ.get('ODOO_MAIL_SMTP_ENCRYPTION', 'starttls')
+smtp_from_filter = os.environ.get('ODOO_MAIL_SMTP_FROM_FILTER', '')
+imap_host = os.environ.get('ODOO_MAIL_IMAP_HOST', '')
+imap_port = int(os.environ.get('ODOO_MAIL_IMAP_PORT', 993))
+imap_ssl = os.environ.get('ODOO_MAIL_IMAP_SSL', 'True') == 'True'
+mail_user = os.environ.get('ODOO_MAIL_USER', '')
+mail_password = os.environ.get('ODOO_MAIL_PASSWORD', '')
+mail_bounce_alias = os.environ.get('MAIL_BOUNCE_ALIAS', '')
+mail_catchall_alias = os.environ.get('MAIL_CATCHALL_ALIAS', '')
+mail_catchall_domain = os.environ.get('MAIL_CATCHALL_DOMAIN', '')
+mail_default_from = os.environ.get('MAIL_DEFAULT_FROM', '')
+mail_alias_domain = os.environ.get('MAIL_ALIAS_DOMAIN', '')
 
 # Setup outgoing mail server
 if smtp_host:
@@ -58,19 +54,23 @@ if imap_host:
         env['fetchmail.server'].create(fetchmail_server)
     env.cr.commit()
 
-# Setup company mail
-
-
-
 # Setup system parameters
+if mail_bounce_alias:
+    print(f"Set mail bounce alias: {mail_bounce_alias}")
+    mail_bounce_alias_id = env['ir.config_parameter'].search([('key', '=', 'mail.bounce.alias')], limit=1)
+    if not mail_bounce_alias_id:
+        env['ir.config_parameter'].create({'key': 'mail.bounce.alias', 'value': mail_bounce_alias})
+    elif mail_bounce_alias_id.value != mail_bounce_alias:
+        mail_bounce_alias_id.write({'value': mail_bounce_alias})
+    env.cr.commit()
 
 if mail_catchall_alias:
     print(f"Set mail catchall alias: {mail_catchall_alias}")
     mail_catchall_alias_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1)
     if not mail_catchall_alias_id:
         env['ir.config_parameter'].create({'key': 'mail.catchall.alias', 'value': mail_catchall_alias})
-    if mail_catchall_alias_id.value != mail_catchall_alias:
-        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.alias')], limit=1).write({'value': mail_catchall_alias})
+    elif mail_catchall_alias_id.value != mail_catchall_alias:
+        mail_catchall_alias_id.write({'value': mail_catchall_alias})
     env.cr.commit()
 
 if mail_catchall_domain:
@@ -78,8 +78,8 @@ if mail_catchall_domain:
     mail_catchall_domain_id = env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1)
     if not mail_catchall_domain_id:
         env['ir.config_parameter'].create({'key': 'mail.catchall.domain', 'value': mail_catchall_domain})
-    if mail_catchall_domain_id.value != mail_catchall_domain:
-        env['ir.config_parameter'].search([('key', '=', 'mail.catchall.domain')], limit=1).write({'value': mail_catchall_domain})
+    elif mail_catchall_domain_id.value != mail_catchall_domain:
+        mail_catchall_domain_id.write({'value': mail_catchall_domain})
     env.cr.commit()
 
 if mail_default_from:
@@ -87,6 +87,38 @@ if mail_default_from:
     mail_default_from_id = env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1)
     if not mail_default_from_id:
         env['ir.config_parameter'].create({'key': 'mail.default.from', 'value': mail_default_from})
-    if mail_default_from_id.value != mail_default_from:
-        env['ir.config_parameter'].search([('key', '=', 'mail.default.from')], limit=1).write({'value': mail_default_from})
+    elif mail_default_from_id.value != mail_default_from:
+        mail_default_from_id.write({'value': mail_default_from})
+    env.cr.commit()
+
+# Setup mail alias domain
+if mail_alias_domain:
+    try:
+        env['mail.alias.domain']
+        has_alias_domain_model = True
+    except KeyError:
+        has_alias_domain_model = False
+    
+    if has_alias_domain_model:
+        company = env.user.company_id
+        values = {
+            'name': mail_alias_domain,
+        }
+        if mail_bounce_alias:
+            values['bounce_alias'] = mail_bounce_alias
+        if mail_catchall_alias:
+            values['catchall_alias'] = mail_catchall_alias
+        if mail_default_from:
+            values['default_from'] = mail_default_from
+        
+        domain_id = env['mail.alias.domain'].search([
+            ('name', '=', mail_alias_domain),
+        ], limit=1)
+        
+        if domain_id:
+            print(f"Update existing mail alias domain: {mail_alias_domain}")
+            domain_id.write(values)
+        else:
+            print(f"Create new mail alias domain: {mail_alias_domain}")
+            env['mail.alias.domain'].create(values)    
     env.cr.commit()

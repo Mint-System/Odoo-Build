@@ -19,6 +19,9 @@ def main():
         msg = sys.stdin.buffer.read()
         common = xmlrpclib.ServerProxy(f"{o.url}/xmlrpc/2/common")
         uid = common.authenticate(o.database, o.username, o.password, {})
+        if not uid:
+            print("Authentication with Odoo failed. Check database name, username, or password.")
+            sys.exit(1)
         models = xmlrpclib.ServerProxy(f"{o.url}/xmlrpc/2/object", allow_none=True)
         models.execute_kw(o.database, uid, o.password, "mail.thread", "message_process", [o.model, xmlrpclib.Binary(msg), None, False, False, o.thread_id], {})
     except xmlrpclib.Fault as e:

@@ -23,6 +23,10 @@ All notable changes to this project will be documented in this file. The format 
 * Set default value for smtp_port to 0.
 * Improved regex pattern to match module manifest version.
 
+### Removed
+
+* Command `setup-mail-sql` is gone.
+
 ## 2025-05-16
 
 ### Added

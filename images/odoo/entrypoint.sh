@@ -43,7 +43,6 @@ check_config "db_password" "$PGPASSWORD"
 entrypoint-log "Waiting for database connection."
 pg_isready -h "$PGHOST" -p "$PGPORT"
 
-setup-mail
 AUTO_UPDATE_MODULES="${AUTO_UPDATE_MODULES:=False}"
 if [ "$AUTO_UPDATE_MODULES" = True ]; then
     update-modules

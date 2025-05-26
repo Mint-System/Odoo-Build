@@ -139,6 +139,7 @@ ENV PATH=/opt/odoo-venv/bin:$PATH
 ENV ADDONS_PATH=/opt/odoo/addons
 
 # Copy entrypoint scripts and Odoo configuration file
+COPY ./bin/setup-mail /usr/local/bin/
 COPY ./images/odoo/bin/* /usr/local/bin/
 COPY ./images/odoo/entrypoint.sh /
 COPY ./images/odoo/odoo.conf.template /etc/odoo/

@@ -89,9 +89,11 @@ services:
       SMTP_USER: odoo@yourcompany.com
       SMTP_PASSWORD: *****
       EMAIL_FROM: odoo@yourcompany.com
-      MAIL_DEFAULT_FROM: odoo
+      MAIL_BOUNCE_ALIAS: bounce
+      MAIL_CATCHALL_ALIAS: reply
       MAIL_CATCHALL_DOMAIN: yourcompany.com
-      MAIL_CATCHALL_ALIAS: reply@yourcompany.com
+      MAIL_DEFAULT_FROM: odoo
+      MAIL_ALIAS_DOMAIN: yourcompany.com      
       ODOO_MAIL_SMTP_HOST: mail.infomaniak.com
       ODOO_MAIL_SMTP_PORT: 587
       ODOO_MAIL_SMTP_ENCRYPTION: starttls
@@ -192,7 +194,6 @@ Once you start the container the `entrypoint.sh` script will:
 * Run the `auto-envsubst` script to template the `odoo.conf` file.
 * Run the `python-install` script to install the Python packages.
 * Wait for the database to be ready.
-* Run the `setup-mail` script to update the mail configuration in the database.
 * Run the `odoo-update` script to update modules.
 * Start the Odoo server.
 
@@ -243,15 +244,17 @@ This is the mail configuration of the Odoo server.
 
 ### System Parameters
 
-Set mail parameters for the company. Requires `server_environment_ir_config_parameter` in `ODOO_INIT_ADDONS`.
+Set mail parameters for the company.
 
+* `MAIL_BOUNCE_ALIAS`: Name of the bounce mail adress.
 * `MAIL_CATCHALL_ALIAS`: Name of the reply-to mail adress.
 * `MAIL_CATCHALL_DOMAIN`: Domain name of the reply-to mail address.
-* `MAIL_DEFAULT_FROM`: From name for outgoing mails.
+* `MAIL_DEFAULT_FROM`: From address for outgoing mails.
+* `MAIL_ALIAS_DOMAIN`: Mail domain of the company.
 
 ### Incoming and Outgoing Mail-Server
 
-Set mail configuration of the database.
+Setup mail configuration for the database.
 
 * `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
 * `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.

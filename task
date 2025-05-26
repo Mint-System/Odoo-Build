@@ -119,7 +119,6 @@ function help-table() {
     printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
     printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
     printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
-    printf "$COLUMN" "setup-mail-sql" "[db]" "Setup mail config in Odoo db with SQL."
     printf "$COLUMN" "shell" "[db][code]" "Start interactive odoo shell or run code."
     printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
@@ -184,8 +183,7 @@ COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
 LLM_MODEL=${LLM_MODEL:="llama"}
 SMTP_SERVER=${SMTP_SERVER:="localhost"}
 SMTP_PORT=${SMTP_PORT:=1025}
-MAIL_DEFAULT_FROM=${MAIL_DEFAULT_FROM:="notification"}
-MAIL_CATCHALL_ALIAS=${MAIL_CATCHALL_ALIAS:="catchall"}
+MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:="yourcompany.com"}
 
 # Conditional env vars
 
@@ -577,9 +575,11 @@ function template-compose() {
     export SMTP_USER
     export SMTP_PASSWORD
     export EMAIL_FROM
-    export MAIL_DEFAULT_FROM
-    export MAIL_CATCHALL_DOMAIN
+    export MAIL_BOUNCE_ALIAS
     export MAIL_CATCHALL_ALIAS
+    export MAIL_CATCHALL_DOMAIN
+    export MAIL_DEFAULT_FROM
+    export MAIL_ALIAS_DOMAIN
     export ODOO_MAIL_SMTP_HOST
     export ODOO_MAIL_SMTP_PORT
     export ODOO_MAIL_SMTP_ENCRYPTION
@@ -1300,18 +1300,14 @@ function setup-mail() {
     activate-venv
     set-addons-path
 
-    export ODOO_MAIL_SMTP_HOST="localhost"
-    export ODOO_MAIL_SMTP_PORT="1025"
-    export ODOO_MAIL_SMTP_ENCRYPTION="none"
-    export ODOO_MAIL_IMAP_PORT="993"
-    export ODOO_MAIL_IMAP_SSL="True"
+    export MAIL_BOUNCE_ALIAS
     export MAIL_CATCHALL_ALIAS
     export MAIL_CATCHALL_DOMAIN
     export MAIL_DEFAULT_FROM
-    PYTHON_SCRIPT=$(envsubst < bin/setup-mail)
+    export MAIL_ALIAS_DOMAIN
 
     echo "Setup mail server configuation for database $DATABASE."
-    echo "$PYTHON_SCRIPT" | odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http < bin/setup-mail
 }
 
 function load-language() {

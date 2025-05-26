@@ -6,3 +6,4 @@
 !./odoo/setup
 !./odoo/odoo-bin
 !./images
+!./bin/setup-mail
