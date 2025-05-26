@@ -317,7 +317,13 @@ Start all containers.
 task start
 ```
 
-Open Odoo and setup the domain `yourcompany.com` for the default company.
+Initialize the Odoo database.
+
+```bash
+task run odoo init-db
+```
+
+Log into Odoo and setup an alias for `info@yourcompany.com`.
 
 Send a test mail with swaks:
 
@@ -328,16 +334,15 @@ swaks --to info@yourcompany.com --from sender@example.com \
   --header "Subject: Test Email for Odoo"
 ```
 
-The mail will be forwarded to Odoo and shown as a discuss channel.
+The mail will be forwarded to Odoo.
 
-Trace the mailgate log:
+Trace the mailgate log with:
 
 ```bash
 docker exec mailgate tail -f /var/log/mail.log
 ```
 
 You can also send a mail with tls encryption:
-
 
 ```bash
 swaks --to info@yourcompany.com --from sender@example.com \
