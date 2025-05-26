@@ -518,10 +518,10 @@ function get-modules() {
     fi
 
     if [[ "$OPTION" == "dirname" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     if [[ "$OPTION" == "basename" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     echo "$MODULES"
 }
@@ -597,6 +597,8 @@ function template-compose() {
     export ODOO_ADDONS_PATH
     export ODOO_DATABASE
     export ODOO_INIT
+    export ODOO_INIT_LOGIN
+    export ODOO_INIT_PASSWORD
     export ODOO_INIT_LANG
     export ODOO_INIT_ADDONS
     export ENVIRONMENT
@@ -712,6 +714,7 @@ function test-image() {
 
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
+
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
@@ -722,6 +725,15 @@ function test-image() {
         export PATH=./images/odoo/bin/:$PATH
         ./images/odoo/bin/git-clone-addons
         rm -rf "$LOCAL_PATH/github.com"
+
+        echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with verson: $ODOO_VERSION"
+        echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"  
+        echo "'version': '2.5'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '16.0.1.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "No match"
+        echo "'version': '15.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "No match"
+        echo "'version': '18.0.0.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
@@ -1145,6 +1157,8 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
         export ODOO_ADDONS_PATH="/mnt/oca"
         export ODOO_DATABASE=test
+        export ODOO_INIT_LOGIN=test
+        export ODOO_INIT_PASSWORD=test
         export ODOO_INIT_LANG=de_CH
         export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
         export PYTHON_INSTALL=prometheus-client,manifestoo
@@ -1172,8 +1186,8 @@ function test-project() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
-        export ODOO_USERNAME=admin
-        export ODOO_PASSWORD=admin
+        export ODOO_USERNAME=test
+        export ODOO_PASSWORD=test
         create-odoo-env test
         show-env test
         test-xmlrpc test

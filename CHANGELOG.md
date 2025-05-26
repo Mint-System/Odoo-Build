@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Odoo image env vars to set initial admin login and password.
+
 ### Updated
 
 * Rename `start-psql` to `psql` and `start-shell` to `shell`.
@@ -17,6 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Wrappend ssh key env vars in `.env.template`.
 * Set default value for smtp_port to 0.
+* Improved regex pattern to match module manifest version.
 
 ## 2025-05-16
 

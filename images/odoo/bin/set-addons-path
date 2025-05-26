@@ -10,7 +10,7 @@ if [ -n "$ODOO_ADDONS_PATH" ]; then
     entrypoint-log "Resolve addons path: $ODOO_ADDONS_PATH"
 
     # Search for module manifest files and return list of module paths
-    ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs -r dirname | sort -u | tr "\n" ",")
+    ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     
     # Set parent folder of module paths as new addons path
     ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
