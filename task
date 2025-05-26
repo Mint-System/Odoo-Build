@@ -726,13 +726,13 @@ function test-image() {
         ./images/odoo/bin/git-clone-addons
         rm -rf "$LOCAL_PATH/github.com"
 
-        echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with verson: $ODOO_VERSION"
+        echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with version: $ODOO_VERSION"
         echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"  
         echo "'version': '2.5'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '16.0.1.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "No match"
-        echo "'version': '15.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "No match"
-        echo "'version': '18.0.0.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '13.0.1.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
+        echo "'version': '14.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
+        echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
     fi
 
