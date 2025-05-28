@@ -1,0 +1,9 @@
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
+    <xpath expr="//div[@id='receipt_indication_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
+    
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
+    <xpath expr="//div[@id='indications_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
+    
+</data>
