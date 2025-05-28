@@ -9,11 +9,9 @@
   </xpath>
 
   <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-    <t t-if="line.sale_line_ids or line.purchase_order_id">
-      <td id="position">
-        <span t-esc="line.position"/>
-      </td>
-    </t>
+    <td id="position">
+      <span t-esc="line.position"/>
+    </td>
   </xpath>
 
 </data>

@@ -1,0 +1,5 @@
+<data inherit_id="stock.view_production_lot_form" priority="50">
+    <xpath expr="//group[@name='main_group']//field[@name='company_id']" position="after">
+        <field name="x_weight_uom_name"/>
+    </xpath>
+</data>

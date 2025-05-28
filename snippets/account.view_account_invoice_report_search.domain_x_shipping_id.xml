@@ -1,0 +1,6 @@
+<data inherit_id="account.view_account_invoice_filter" priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="x_shipping_id"/>
+            <filter name="filter_shipping_id" domain="[('x_shipping_id', 'ilike', '%(self)s')]"/>
+    </xpath>
+</data>
