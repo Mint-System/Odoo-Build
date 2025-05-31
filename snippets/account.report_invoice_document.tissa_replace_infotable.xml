@@ -1,6 +1,7 @@
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
     table#info {
       width: 100%;
       margin-bottom: 45px;
@@ -14,70 +15,86 @@
       font-size: 9pt;
     }
     </style>
-        <table id="info">
-            <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
-            <tr>
-                <td>
-          Kontaktnummer:
+    <table id="info">
+
+      <tr>
+        <td>
+          Contact Number:
         </td>
-                <td>
-                    <span t-field="o.partner_id.id"/>
-                </td>
-                <td>
-          Datum:
+        <td>
+          <span t-field="o.partner_id.id"/>
         </td>
-                <td>
-                    <span t-field="o.invoice_date"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-          USt-IdNr:
+        <td>
+          Date:
         </td>
-                <td>
-                    <span t-field="o.partner_id.vat"/>
-                </td>
-                <td>Unser Auftrag:</td>
-                <td>
-                    <t t-if="order_id.origin"><span t-field="order_id.origin"/>
+        <td>
+          <span t-field="o.invoice_date"/>
+        </td>
+      </tr>
+
+      <!-- Get all sale orders without duplicates -->
+      <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>
+
+      <tr>
+        <td>
+          VAT:
+        </td>
+        <td>
+          <span t-field="o.partner_id.vat"/>
+        </td>
+
+        <td>Our Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <t t-if="order.origin">
+              <span t-field="order.origin"/>
  / 
+            </t>
           </t>
-                    <span t-field="o.invoice_origin"/>
-                </td>
-            </tr>
-            <tr>
-                <td width="16%">EORI-Nummer:</td>
-                <td width="44%">
-                    <span t-field="o.partner_id.x_studio_eori_nummer"/>
-                </td>
-                <td>Abruf:</td>
-                <td>
-                    <span t-field="order_id.comment"/>
-                    <t t-if="order_id.x_studio_kommission">
-             /            <span t-field="order_id.x_studio_kommission"/>
-          </t>
-                </td>
-            </tr>
-            <tr>
-                <td>Ihre Bestellung:</td>
-                <td>
-                    <span t-field="order_id.client_order_ref"/>
-                </td>
-                <td>Ansprechpartner/in:</td>
-                <td>
-                    <span t-field="o.partner_id.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td/>
-                <td>
-          MwSt-Nr:
+          <span t-field="o.invoice_origin"/>
         </td>
-                <td>
-                    <span t-field="o.company_id.vat"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
+      </tr>
+
+      <tr>
+        <td width="16%">EORI-Number:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Call-off Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <span t-field="order.comment"/>
+            <t t-if="order.x_studio_kommission">
+             /              <span t-field="ordere.x_studio_kommission"/>
+            </t>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Your Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <span t-field="order.client_order_ref"/>
+          </t>
+        </td>
+        <td>Our Contact:</td>
+        <td>
+          <span t-field="o.partner_id.user_id"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td/>
+        <td/>
+        <td>
+          VAT-No:
+        </td>
+        <td>
+          <span t-field="o.company_id.vat"/>
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
 </data>
