@@ -64,6 +64,7 @@ function help-table() {
     printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate snippet for referefenced view."
     printf "$COLUMN" "generate-module-wizard" "[path][model]" "Generate wizard for a model in module folder."
     printf "$COLUMN" "generate-ssh-keys" "" "Generate ssh key pair."
+    printf "$COLUMN" "generate-pg-ssl-keys" "" "Generate PostgreSQL SSL key material."
     printf "$COLUMN" "get-addons-path" "" "Output addons path."
     printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
     printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
@@ -164,6 +165,8 @@ PASS_ENTRY="${PASS_ENTRY,,}"
 ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
+PGSSLMODE="verify-ca"
+PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
 
 # Dynamic env vars
 
@@ -274,9 +277,15 @@ function get-addons-path() {
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
-    export $(grep -vE "^#|^$" .env)
-    export SMTP_SERVER
-    export SMTP_PORT
+    # Export static env vars 
+    export PGSSLROOTCERT
+
+    # Load and export vars defined in odoo conf template
+    for VAR in $(grep -oP '\$(?:\{([^}]*)\}|([A-Z_][A-Z0-9_]*))' odoo.conf.template); do
+      VAR=${VAR/\$/}
+      VAR=${VAR//\{\//}
+      export $VAR
+    done
 
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
@@ -560,70 +569,16 @@ function list-modules() {
 function template-compose() {
     echo "Template compose.yml"
 
-    
-    SMTP_SERVER="mailpit"
+    # Change default vars
+    SMTP_SERVER=mailpit
+    PGSSLROOTCERT="/mnt/postgres-odoo/ca.crt"
 
-    # Extract variables and export them
-    # grep -oP '\$\{([^}]+)\}' compose.yml.template | sed 's/${\([^}]\+\)}/export \1/'
-    export CONTAINER_REGISTRY
-    export CONTAINER_TAG
-    export POSTGRES_PORT
-    export POSTGRES_PORT
-    export SMTP_SERVER
-    export SMTP_PORT
-    export SMTP_SSL
-    export SMTP_USER
-    export SMTP_PASSWORD
-    export EMAIL_FROM
-    export MAIL_BOUNCE_ALIAS
-    export MAIL_CATCHALL_ALIAS
-    export MAIL_CATCHALL_DOMAIN
-    export MAIL_DEFAULT_FROM
-    export MAIL_ALIAS_DOMAIN
-    export ODOO_MAIL_SMTP_HOST
-    export ODOO_MAIL_SMTP_PORT
-    export ODOO_MAIL_SMTP_ENCRYPTION
-    export ODOO_MAIL_SMTP_FROM_FILTER
-    export ODOO_MAIL_IMAP_HOST
-    export ODOO_MAIL_IMAP_PORT
-    export ODOO_MAIL_IMAP_SSL
-    export ODOO_MAIL_USERNAME
-    export ODOO_MAIL_PASSWORD
-    export GIT_SSH_PUBLIC_KEY
-    export GIT_SSH_PRIVATE_KEY
-    export GITHUB_USERNAME
-    export GITHUB_PERSONAL_ACCESS_TOKEN
-    export ADDONS_GIT_REPOS
-    export ODOO_ADDONS_PATH
-    export ODOO_DATABASE
-    export ODOO_INIT
-    export ODOO_INIT_LOGIN
-    export ODOO_INIT_PASSWORD
-    export ODOO_INIT_LANG
-    export ODOO_INIT_ADDONS
-    export ENVIRONMENT
-    export PYTHON_INSTALL
-    export SERVER_WIDE_MODULES
-    export SESSION_DB_URI
-    export PROXY_MODE
-    export LOG_LEVEL
-    export LIST_DB
-    export ADMIN_PASSWD
-    export DBFILTER
-    export WORKERS
-    export LIMIT_REQUEST
-    export LIMIT_TIME_CPU
-    export LIMIT_TIME_REAL
-    export MODULE_AUTO_INSTALL_DISABLED
-    export AUTO_UPDATE_MODULES
-    export ODOO_PORT
-    export ODOO_PORT
-    export POSTGRES_IMAGE
-    export POSTGRES_PORT
-    export POSTGRES_PORT
-    export ODOO_DATABASE
-    export ODOO_DATABASE
-    export MAIL_ALIASES
+    # Load and export vars defined in compose template
+    for VAR in $(grep -oP '\$\{([^}]+)\}' compose.yml.template); do
+      VAR=${VAR/#\$\{/}
+      VAR=${VAR/%\}/}
+      export $VAR
+    done
 
     envsubst < "compose.yml.template" > "compose.yml"
 }
@@ -936,6 +891,7 @@ function open-url-with-delay(){
 function start() {
     activate-venv
     set-addons-path
+    generate-pg-ssl-keys
     template-compose
 
     # Use default database if second param is not given
@@ -1124,6 +1080,36 @@ function generate-ssh-keys() {
         fi
         GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
         GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
+    fi
+}
+
+function generate-pg-ssl-keys() {
+    KEYMATERIAL_PATH="tmp/postgres-odoo"
+    if [ -z "$PG_SSL_CA_CRT" ] || [ -z "$PG_SSL_SERVER_CRT" ] || [ -z "$PG_SSL_SERVER_KEY" ]; then
+        echo "Generate PostgreSQL SSL/TLS certificates."
+        mkdir -p "$KEYMATERIAL_PATH"
+
+        if [ ! -f "$KEYMATERIAL_PATH/ca.crt" ]; then
+            openssl genrsa -out "$KEYMATERIAL_PATH/ca.key" 4096
+            chmod 600 "$KEYMATERIAL_PATH/ca.key"
+
+            openssl req -x509 -new -nodes -key "$KEYMATERIAL_PATH/ca.key" -sha256 -days 3650 \
+                -out "$KEYMATERIAL_PATH/ca.crt" -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=Root CA"
+        fi
+
+        if [ ! -f "$KEYMATERIAL_PATH/server.crt" ]; then
+            openssl genrsa -out "$KEYMATERIAL_PATH/server.key" 2048
+            openssl req -new -key "$KEYMATERIAL_PATH/server.key" -out "$KEYMATERIAL_PATH/server.csr" \
+                -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=localhost"
+            openssl x509 -req -in "$KEYMATERIAL_PATH/server.csr" -CA "$KEYMATERIAL_PATH/ca.crt" \
+                -CAkey "$KEYMATERIAL_PATH/ca.key" -CAcreateserial -out "$KEYMATERIAL_PATH/server.crt" \
+                -days 365 -sha256
+
+            chmod 600 "$KEYMATERIAL_PATH/server.key"
+            chmod 644 "$KEYMATERIAL_PATH/server.crt"
+            sudo chown 70:70 "$KEYMATERIAL_PATH/server.key"
+            sudo chown 70:70 "$KEYMATERIAL_PATH/server.crt"
+        fi
     fi
 }
 

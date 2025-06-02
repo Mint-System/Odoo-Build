@@ -66,6 +66,7 @@ services:
       - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
     volumes:
       - odoo-data:/var/lib/odoo
+      - ./tmp/postgres-odoo:/mnt/postgres-odoo
       - ./addons:/mnt/addons
       - ./oca:/mnt/oca
       - ./enterprise:/mnt/enterprise
@@ -96,6 +97,15 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
+      - ./tmp/postgres-odoo:/mnt/postgres-odoo/
+    command:
+      [
+        "postgres",
+        "-c", "ssl=on",
+        "-c", "ssl_cert_file=/mnt/postgres-odoo/server.crt",
+        "-c", "ssl_key_file=/mnt/postgres-odoo/server.key",
+        "-c", "ssl_ca_file=/mnt/postgres-odoo/ca.crt"
+      ]
   mailpit:
     image: docker.io/axllent/mailpit
     container_name: mailpit

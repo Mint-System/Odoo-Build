@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Add git path to addons path
-if [ -n "$ADDONS_GIT_REPOS" && -d "/var/lib/odoo/git" ]; then
+if [ -n "$ADDONS_GIT_REPOS" ] && [ -d "/var/lib/odoo/git" ]; then
     ODOO_ADDONS_PATH="/var/lib/odoo/git,$ODOO_ADDONS_PATH"
 fi
 

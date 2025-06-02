@@ -4,6 +4,7 @@ limit_time_real = 600
 db_host = localhost
 db_password = odoo
 db_user = odoo
+db_sslmode = $PGSSLMODE
 environment = development
 running_env = development
 server_wide_modules = $SERVER_WIDE_MODULES

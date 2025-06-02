@@ -18,6 +18,7 @@ All notable changes to this project will be documented in this file. The format 
 * Removed `start queue`.
 * Do not check version in module manifest files.
 * Updated the `setup-mail` script.
+* Make pg ssl mode the default.
 
 ### Fixed
 
