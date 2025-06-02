@@ -14,6 +14,8 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: ${POSTGRES_PORT}
+      PGSSLMODE: ${PGSSLMODE}
+      PGSSLROOTCERT: ${PGSSLROOTCERT}
       SMTP_SERVER: ${SMTP_SERVER}
       SMTP_PORT: ${SMTP_PORT}
       SMTP_SSL: ${SMTP_SSL}

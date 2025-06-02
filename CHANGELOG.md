@@ -7,7 +7,8 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Odoo image env vars to set initial admin login and password.
-* Added script `init-module` to Odoo image. 
+* Added script `init-module` to Odoo image.
+* Odoo image supports verify-ca as postgres ssl mode.
 
 ### Updated
 

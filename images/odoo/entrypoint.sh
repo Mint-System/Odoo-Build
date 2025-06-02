@@ -24,6 +24,7 @@ python-install
 : ${PGPORT:=${DB_PORT_5432_TCP_PORT:=5432}}
 : ${PGUSER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
 : ${PGPASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
+PGSSLMODE="${PGSSLMODE:="prefer"}"
 
 DB_ARGS=()
 function check_config() {
@@ -39,6 +40,7 @@ check_config "db_host" "$PGHOST"
 check_config "db_port" "$PGPORT"
 check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
+check_config "db_sslmode" "$PGSSLMODE"
 
 entrypoint-log "Waiting for database connection."
 pg_isready -h "$PGHOST" -p "$PGPORT"

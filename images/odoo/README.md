@@ -83,6 +83,8 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      PGSSLMODE: verify-ca
+      PGSSLROOTCERT: /mnt/postgres-secret/ca.crt 
       SMTP_SERVER: mail.infomaniak.com
       SMTP_PORT: 587
       SMTP_SSL: True
@@ -235,7 +237,8 @@ Odoo supports the PostgreSQL database only.
 * `PGUSER` Database username.
 * `PGPASSWORD` Database user password.
 * `PGPORT` Postgres server port. Default is `5432`.
-
+* `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
+* `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
 
 ### SMTP Server
 
