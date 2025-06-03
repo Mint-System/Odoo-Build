@@ -1,0 +1,17 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_taxes']" position="replace">
+        <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>
+        <th name="th_taxes" t-if="display_tax">
+            <strong>Taxes</strong>
+        </th>
+    </xpath>
+
+    <xpath expr="//td[@name='td_taxes']" position="replace">
+        <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>
+        <td name="td_taxes" t-if="display_tax" t-attf-class="text-end {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}">
+            <span t-out="taxes">Tax 15%</span>
+        </td>
+    </xpath>
+
+</data>

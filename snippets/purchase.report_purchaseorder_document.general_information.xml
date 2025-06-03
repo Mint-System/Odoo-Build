@@ -1,0 +1,27 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//p[@t-field='o.notes']" position="after">
+       
+            <t t-if="o.company_id.id == 1">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr>
+                        <td style="width: 335px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Lapp Engineering AG</span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+                
+             <t t-if="o.company_id.id == 2">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr>
+                        <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+
+    </xpath>
+	
+</data>

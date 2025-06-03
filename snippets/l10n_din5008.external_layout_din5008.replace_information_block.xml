@@ -36,9 +36,46 @@
                             </span>
                         </td>
                     </tr>
+                    
+                    <!-- Einkauf  -->
+                    <t t-if="o._name == 'purchase.order'">
+                        <tr>
+                            <td>
+                                <span>Purchase No.</span>
+                            </td>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Date</span>
+                            </td>
+                            <td>
+                                <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Your reference</span>
+                            </td>
+                            <td>
+                                <span t-field="o.partner_ref"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>Incoterms</span>
+                            </td>
+                            <td>
+                                <span t-field="o.incoterm_id.code"/>
+                            </td>
+                        </tr>
+                    </t>
 
                     <!-- Ausgangsrechnung -->
                     <t t-if="o._name == 'account.move' and o.move_type == 'out_invoice'">
+
                         <tr>
                             <td>
                                 <span>Invoice No.</span>
@@ -142,34 +179,7 @@
                             </td>
                         </tr>
                     </t>
-
-                    <!-- Lieferschein -->
-                    <t t-if="o._name == 'stock.picking'">
-                        <tr>
-                            <td>
-                                <span>Auftragsnr.</span>
-                            </td>
-                            <td>
-                                <span t-field="o.origin"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Ihr Auftrag</span>
-                            </td>
-                            <td>
-                                <span t-field="o.x_client_order_ref"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Lieferdatum</span>
-                            </td>
-                            <td>
-                                <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
-                            </td>
-                        </tr>
-                    </t>
+                    
                 </table>
             </div>
         </td>
