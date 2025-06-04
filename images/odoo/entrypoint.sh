@@ -25,6 +25,7 @@ PGPORT=${PGPORT:=5432}
 PGUSER=${PGUSER:='odoo'}}
 PGPASSWORD=${PGPASSWORD:='odoo'}
 PGSSLMODE=${PGSSLMODE:="prefer"}
+export PGSSLROOTCERT
 
 DB_ARGS=()
 function check_config() {
