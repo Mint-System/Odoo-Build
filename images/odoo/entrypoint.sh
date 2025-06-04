@@ -27,6 +27,11 @@ PGPASSWORD=${PGPASSWORD:='odoo'}
 PGSSLMODE=${PGSSLMODE:="prefer"}
 export PGSSLROOTCERT
 
+if [ "$PGSSLMODE" = "verify-ca" ] && [ ! -f "$PGSSLROOTCERT" ]; then
+    echo "Error: $PGSSLROOTCERT file not found."
+    exit 1
+fi
+
 DB_ARGS=()
 function check_config() {
     param="$1"
