@@ -8,7 +8,7 @@
     <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
         
         <td id="position">
-            <span t-esc="line.sequence"/>
+            <span t-esc="line.position"/>
         </td>
     </xpath>
 </data>

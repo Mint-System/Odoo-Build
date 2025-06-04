@@ -1,9 +1,7 @@
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
-<xpath expr="//td[1]" position="before">
-    
-      <td id="position">
-            <span t-esc="move_line.move_id.sequence"/>
-        </td>
-   
-  </xpath>
+      <xpath expr="//td[1]" position="before">
+            <td id="position">
+                  <span t-esc="move_line.move_id.position"/>
+            </td>
+      </xpath>
 </data>

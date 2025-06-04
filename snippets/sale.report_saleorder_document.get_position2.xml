@@ -6,7 +6,7 @@
     </xpath>
     <xpath expr="//t[1]/td[1]" position="before">
         <td id="position" style="vertical-align: top;">
-            <span t-field="line.sequence"/>
+            <span t-field="line.position"/>
             <span/>
         </td>
     </xpath>
