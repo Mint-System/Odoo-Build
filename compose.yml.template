@@ -63,7 +63,7 @@ services:
       MODULE_AUTO_INSTALL_DISABLED: ${MODULE_AUTO_INSTALL_DISABLED}
       AUTO_UPDATE_MODULES: "${AUTO_UPDATE_MODULES}"
     ports:
-      - "127.0.0.1:${ODOO_PORT}:${ODOO_PORT}"
+      - "${ODOO_PORT}:${ODOO_PORT}"
     volumes:
       - odoo-data:/var/lib/odoo
       - ./tmp/postgres-odoo:/mnt/postgres-odoo
@@ -78,7 +78,7 @@ services:
     depends_on:
       - db
     ports:
-      - "127.0.0.1:8000:80"
+      - "8000:80"
     environment:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: admin
@@ -89,7 +89,7 @@ services:
     container_name: db
     image: ${POSTGRES_IMAGE}
     ports:
-      - "127.0.0.1:${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo

@@ -165,7 +165,6 @@ PASS_ENTRY="${PASS_ENTRY,,}"
 ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
-PGSSLMODE="verify-ca"
 PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
 
 # Dynamic env vars
@@ -175,7 +174,8 @@ ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
-POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+POSTGRES_PORT=${POSTGRES_PORT:="5432"}\
+PGSSLMODE=${PGSSLMODE:="verify-ca"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
@@ -608,10 +608,10 @@ function build() {
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-    $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
+        echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+
         echo "Run Podman build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) podman build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
@@ -622,6 +622,9 @@ function build() {
     fi
 
     if [ "$CONTAINER_ENGINE" == "docker" ]; then
+        echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+
         echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
