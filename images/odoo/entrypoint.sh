@@ -22,7 +22,7 @@ python-install
 # and pass them as arguments to the odoo process if not present in the config file
 PGHOST=${PGHOST:='db'}
 PGPORT=${PGPORT:=5432}
-PGUSER=${PGUSER:='odoo'}}
+PGUSER=${PGUSER:='odoo'}
 PGPASSWORD=${PGPASSWORD:='odoo'}
 PGSSLMODE=${PGSSLMODE:="prefer"}
 export PGSSLROOTCERT
