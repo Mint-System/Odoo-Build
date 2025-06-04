@@ -72,6 +72,8 @@ services:
       - ./enterprise:/mnt/enterprise
       - ./themes:/mnt/themes
       - ./thirdparty:/mnt/thirdparty
+    networks:
+      - default
   admin:
     container_name: admin
     image: docker.io/dpage/pgadmin4:6
@@ -85,6 +87,8 @@ services:
     volumes:
       - admin-data:/var/lib/pgadmin
       - ./servers.json:/pgadmin4/servers.json
+    networks:
+      - default
   db:
     container_name: db
     image: ${POSTGRES_IMAGE}
@@ -101,11 +105,13 @@ services:
     command:
       [
         "postgres",
-        "-c", "ssl=on",
+        "-c", "ssl=${POSTGRES_SSL}",
         "-c", "ssl_cert_file=/mnt/postgres-odoo/server.crt",
         "-c", "ssl_key_file=/mnt/postgres-odoo/server.key",
         "-c", "ssl_ca_file=/mnt/postgres-odoo/ca.crt"
       ]
+    networks:
+      - default
   mailpit:
     image: docker.io/axllent/mailpit
     container_name: mailpit
@@ -113,6 +119,8 @@ services:
     ports:
       - "1025:1025"
       - "8025:8025"
+    networks:
+      - default
   mailgate:
     image: mintsystem/odoo-mailgate
     container_name: mailgate
@@ -123,8 +131,13 @@ services:
     environment:
       ODOO_DATABASE: "${ODOO_DATABASE}"
       MAIL_ALIASES: "${MAIL_ALIASES}"
+    networks:
+      - default
 volumes:
   odoo-data:
   db-data:
   admin-data:
   mail-data:
+networks:
+  default:
+    name: odoo-build_default

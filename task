@@ -175,6 +175,7 @@ ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
+POSTGRES_SSL=${POSTGRES_SSL:="on"}
 PGSSLMODE=${PGSSLMODE:="verify-ca"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
@@ -894,7 +895,9 @@ function open-url-with-delay(){
 function start() {
     activate-venv
     set-addons-path
-    generate-pg-ssl-keys
+    if [ "$POSTGRES_SSL" = "on" ]; then
+        generate-pg-ssl-keys
+    fi
     template-compose
 
     # Use default database if second param is not given

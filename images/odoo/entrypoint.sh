@@ -20,11 +20,11 @@ python-install
 
 # Set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
-: ${PGHOST:=${DB_PORT_5432_TCP_ADDR:='db'}}
-: ${PGPORT:=${DB_PORT_5432_TCP_PORT:=5432}}
-: ${PGUSER:=${DB_ENV_POSTGRES_USER:=${POSTGRES_USER:='odoo'}}}
-: ${PGPASSWORD:=${DB_ENV_POSTGRES_PASSWORD:=${POSTGRES_PASSWORD:='odoo'}}}
-PGSSLMODE="${PGSSLMODE:="prefer"}"
+PGHOST=${PGHOST:='db'}
+PGPORT=${PGPORT:=5432}
+PGUSER=${PGUSER:='odoo'}}
+PGPASSWORD=${PGPASSWORD:='odoo'}
+PGSSLMODE=${PGSSLMODE:="prefer"}
 
 DB_ARGS=()
 function check_config() {
@@ -41,6 +41,9 @@ check_config "db_port" "$PGPORT"
 check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 check_config "db_sslmode" "$PGSSLMODE"
+
+entrypoint-log "Check database hostname '$PGHOST' resolves."
+getent hosts "$PGHOST"
 
 entrypoint-log "Waiting for database connection."
 pg_isready -h "$PGHOST" -p "$PGPORT"

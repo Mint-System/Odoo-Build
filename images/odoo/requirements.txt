@@ -17,4 +17,3 @@ watchdog
 manifestoo
 click-odoo-contrib
 memray
-git+https://github.com/odoo/upgrade-util@master
