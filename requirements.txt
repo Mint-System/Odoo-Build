@@ -15,7 +15,6 @@ setuptools
 wheel
 watchdog
 pdfminer.six
-odoo_upgrade @ git+https://github.com/odoo/upgrade-util@master
 # Performance
 py-spy
 memray

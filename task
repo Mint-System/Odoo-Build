@@ -139,12 +139,12 @@ function help-table() {
     printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
     printf "$COLUMN" "translate-module" "[db][path][lang]" "Generate translation for Odoo module."
-    printf "$COLUMN" "update-docs" "" "Update project docs."
+    printf "$COLUMN" "update-docs" "" "Update all project docs."
     printf "$COLUMN" "update-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
     printf "$COLUMN" "update-module-license" "[grep]" "Update LICENSE file for each matching module."
-    printf "$COLUMN" "update-module-list" "[db]" "Update module list."
-    printf "$COLUMN" "update-module-docs" "" "Update modules docs file."
+    printf "$COLUMN" "update-module-list" "[db]" "Update module list of Odoo database."
+    printf "$COLUMN" "update-modules-docs" "" "Update modules docs file."
     printf "$COLUMN" "update-repo-docs" "[path]" "Update Readme file of the repo."
     printf "$COLUMN" "update-revision-docs" "" "Update revisions doc file."
     printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
@@ -166,6 +166,7 @@ ODOO_RC="odoo.conf"
 ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
 PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
+export PGSSLROOTCERT
 
 # Dynamic env vars
 
@@ -277,9 +278,6 @@ function get-addons-path() {
 
 function template-odoo-rc() {
     echo "Template $ODOO_RC"
-
-    # Export static env vars 
-    export PGSSLROOTCERT
 
     # Load and export vars defined in odoo conf template
     for VAR in $(grep -oP '\$(?:\{([^}]*)\}|([A-Z_][A-Z0-9_]*))' odoo.conf.template); do
@@ -469,14 +467,14 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
-function update-module-docs() {
+function update-modules-docs() {
     echo "Update module doc file."
     activate-venv
     ./bin/generate-module-overview
 }
 
 function update-docs() {
-    update-module-docs
+    update-modules-docs
     update-revision-docs
     update-snippet-docs
     update-help-docs
@@ -572,7 +570,6 @@ function template-compose() {
 
     # Change default vars
     SMTP_SERVER=mailpit
-    PGSSLROOTCERT="/mnt/postgres-odoo/ca.crt"
 
     # Load and export vars defined in compose template
     for VAR in $(grep -oP '\$\{([^}]+)\}' compose.yml.template); do
