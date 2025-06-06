@@ -22,14 +22,14 @@
 				<t t-if="package.shipping_weight">
 					<t t-set="has_shipping_weight" t-value="True"/>
 				</t>
-			</tr>			
+			</tr>
 
-			<table style="margin-left: auto; margin-right: 0;">
+			<table style="margin-left: auto; margin-right: 0; border: transparent">
 
 				<t t-if="count_packages">
 					<tr>
-						<td>
-							<strong>Anzahl Transporteinheiten:</strong>
+						<td style="padding-right:5px;">
+							<strong>Number of transport units:</strong>
 						</td>
 						<td style="text-align: right; width: 80px">
 							<strong t-esc="count_packages"/>
@@ -39,8 +39,8 @@
 
 				<t t-if="not has_shipping_weight">
 					<tr>
-						<td>
-							<strong>Gesamtgewicht Netto: </strong>
+						<td style="padding-right:5px;">
+							<strong>Total net weight:</strong>
 						</td>
 						<td style="text-align: right">
 							<strong t-esc="net_weight"/>
@@ -50,8 +50,8 @@
 
 					<t t-if="total_weight">
 						<tr>
-							<td>
-								<strong>Gesamtgewicht Brutto: </strong>
+							<td style="padding-right:5px;">
+								<strong>Total gross weight:</strong>
 							</td>
 							<td style="text-align: right">
 								<t>

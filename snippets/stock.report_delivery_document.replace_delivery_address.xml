@@ -3,8 +3,9 @@
     <xpath expr="//div[@name='div_outgoing_address']" position="replace">
         <div name="div_outgoing_address">
             <div name="address">
-                <div t-field="o.sale_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                <div t-field="o.sale_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
             </div>
         </div>
     </xpath>
+    
 </data>

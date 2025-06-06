@@ -1,0 +1,5 @@
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="60">
+ <xpath expr="//td[@name='move_line_lot_quantity']" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+</data>

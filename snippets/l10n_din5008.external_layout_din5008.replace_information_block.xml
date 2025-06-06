@@ -1,5 +1,5 @@
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
-    
+
     <xpath expr="//div[@class='information_block']/.." position="replace">
         <style>
             div.information_block tr {
@@ -23,26 +23,26 @@
                 <t t-if="'l10n_din5008_template_data' in company" t-set="template_data" t-value="company.l10n_din5008_template_data"/>
                 <t t-if="o and 'l10n_din5008_template_data' in o" t-set="template_data" t-value="o.l10n_din5008_template_data"/>
                 <table>
-                    
-                    <t t-if="not o._name == 'sale.order'">
-                    
-                    <tr>
-                        <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
-                            <span t-if="not o and not docs">
-                                <t t-out="company.l10n_din5008_document_title"/>
-                            </span>
-                            <span t-else="">
-                                <t t-set="o" t-value="docs[0]" t-if="not o"/>
-                                <span t-if="'l10n_din5008_document_title' in o">
-                                    <t t-out="o.l10n_din5008_document_title"/>
+
+                    <t t-if="o._name not in ['sale.order', 'stock.picking']">
+
+                        <tr>
+                            <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+                                <span t-if="not o and not docs">
+                                    <t t-out="company.l10n_din5008_document_title"/>
                                 </span>
-                                <span t-elif="'name' in o" t-field="o.name"/>
-                            </span>
-                        </td>
-                    </tr>
-                    
+                                <span t-else="">
+                                    <t t-set="o" t-value="docs[0]" t-if="not o"/>
+                                    <span t-if="'l10n_din5008_document_title' in o">
+                                        <t t-out="o.l10n_din5008_document_title"/>
+                                    </span>
+                                    <span t-elif="'name' in o" t-field="o.name"/>
+                                </span>
+                            </td>
+                        </tr>
+
                     </t>
-                  
+
 
                     <!-- Ausgangsrechnung -->
                     <t t-if="o._name == 'account.move' and o.move_type == 'out_invoice'">
@@ -106,13 +106,13 @@
 
                     <!-- Verkaufsauftrag  -->
                     <t t-if="o._name == 'sale.order'">
-                        
+
                         <tr>
                             <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
-                                 <span>Order Confirmation</span>
+                                <span>Order Confirmation</span>
                             </td>
                         </tr>
-                        
+
                         <tr>
                             <td>
                                 <span>Order No.</span>
@@ -156,7 +156,45 @@
                             </td>
                         </tr>
                     </t>
-                    
+
+
+                    <t t-if="o._name == 'stock.picking'">
+
+                        <tr>
+                            <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+                                <span>Delivery Note</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>No.</span>
+                            </td>
+                            <td>
+                                <span t-field="o.name"/>
+                            </td>
+                        </tr>
+                        <t t-if="o.origin">
+                            <tr>
+                                <td>
+                                    <span>Reference</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.origin"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.date_done">
+                            <tr>
+                                <td>
+                                    <span>Delivery Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
+                        </t>
+                    </t>
+
                 </table>
             </div>
         </td>
