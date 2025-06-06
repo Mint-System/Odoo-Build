@@ -36,7 +36,7 @@ The following `compose.yml` is a minimal setup:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250311
+    image: mintsystem/odoo:18.0.20250520
     depends_on:
       - db
     environment:
@@ -75,7 +75,7 @@ This `compose.yml` shows all possible configurations:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:16.0.20250311
+    image: mintsystem/odoo:18.0.20250520
     depends_on:
       - db
     environment:
@@ -342,7 +342,7 @@ Odoo is executed as a multi-threaded Python process.
 
 ### Module Auto Install
 
-With `module_change_auto_install` module you can disable the auto installation of specific modules.
+With the `module_change_auto_install` module you can disable the auto installation of specific modules.
 
 * `MODULE_AUTO_INSTALL_DISABLED` Comma separated list of modules that should be auto installed. Requires `module_change_auto_install` in `SERVER_WIDE_MODULES`.
 
@@ -361,7 +361,7 @@ This image can be customized by any extend.
 Update the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250311
+FROM mintsystem/odoo:18.0.20250520
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -369,7 +369,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250311
+FROM mintsystem/odoo:18.0.20250520
 
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
 ```
@@ -379,7 +379,7 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract
 Copy custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:16.0.20250311
+FROM mintsystem/odoo:18.0.20250520
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
