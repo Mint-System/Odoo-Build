@@ -108,6 +108,7 @@ function help-table() {
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
+    printf "$COLUMN" "rename-env" "[env][env]" "Rename env file."
     printf "$COLUMN" "record-with-memray" "[name]" "Record application memory usage with memray. Options: native."
     printf "$COLUMN" "record-with-py-spy" "[pid]" "Record and create flamechart for a process."
     printf "$COLUMN" "reset-git-folder" "" "Abort rebase and reset submodules listed in the .gitmodules file."
@@ -215,6 +216,7 @@ fi
 [ -f ~/taskfile.build/bin/copy-env ] && source ~/taskfile.build/bin/copy-env
 [ -f ~/taskfile.build/bin/edit-env ] && source ~/taskfile.build/bin/edit-env
 [ -f ~/taskfile.build/bin/load-env ] && source ~/taskfile.build/bin/load-env
+[ -f ~/taskfile.build/bin/rename-env ] && source ~/taskfile.build/bin/rename-env
 [ -f ~/taskfile.build/bin/update-with-llm ] && source ~/taskfile.build/bin/update-with-llm
 
 # Help Commands
