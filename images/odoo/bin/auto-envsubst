@@ -28,6 +28,6 @@ source set-addons-path
 DEFINED_ENVS=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${FILTER}/ ) ? name : \"\" } }" < /dev/null ))
 
 if [[ -f "$TEMPLATE_FILE" ]]; then
-    entrypoint-log "Running envsubst on $TEMPLATE_FILE to $OUTPUT_FILE."
+    entrypoint-log "Run envsubst on $TEMPLATE_FILE and output: $OUTPUT_FILE"
     envsubst "$DEFINED_ENVS" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
 fi

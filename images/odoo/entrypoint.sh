@@ -48,7 +48,7 @@ check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 check_config "db_sslmode" "$PGSSLMODE"
 
-entrypoint-log "Check database hostname '$PGHOST' resolves."
+entrypoint-log "Resolve database hostname: $PGHOST"
 getent hosts "$PGHOST"
 
 entrypoint-log "Waiting for database connection."
