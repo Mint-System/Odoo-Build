@@ -55,6 +55,7 @@ function help-table() {
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
     printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
+    printf "$COLUMN" "export-website-data" "[env]" "Export website data from Odoo database."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "$COLUMN" "generate-module-docs" "[path]" "Generate readme file for module."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model in module folder."
@@ -71,6 +72,7 @@ function help-table() {
     printf "$COLUMN" "get-module-version" "[path]" "Get module version from manifest."
     printf "$COLUMN" "help" "[grep]" "Show help for commands."
     printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
+    printf "$COLUMN" "import-website-data" "[env]" "Import website data to Odoo database."
     printf "$COLUMN" "info" "" "Show values of project env vars."
     printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database."
     printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module."
@@ -2420,6 +2422,44 @@ function test-xmlrpc() {
 function odoocli(){
     activate-venv
     images/odoocli/bin/odoocli "$@"
+}
+
+function export-website-data() {
+    activate-venv
+    if [ -n "$1"]; then
+        load-env $1
+    fi
+
+    export ODOO_URL
+    export ODOO_DATABASE
+    export ODOO_USERNAME
+    export ODOO_PASSWORD
+    export ODOO_WEBSITE_ID
+
+    echo -e "\nPython Output:\n\n---"
+    python "bin/export-website-data"
+    EXIT_CODE=$?
+    echo -e "---\n"
+    echo -e "Exit code: $EXIT_CODE\n"
+}
+
+function import-website-data() {
+    activate-venv
+    if [ -n "$1"]; then
+        load-env $1
+    fi
+
+    export ODOO_URL
+    export ODOO_DATABASE
+    export ODOO_USERNAME
+    export ODOO_PASSWORD
+    export ODOO_WEBSITE_ID
+
+    echo -e "\nPython Output:\n\n---"
+    python "bin/import-website-data"
+    EXIT_CODE=$?
+    echo -e "---\n"
+    echo -e "Exit code: $EXIT_CODE\n"
 }
 
 # Pass Commands

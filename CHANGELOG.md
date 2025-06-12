@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Export import website data with `export-website-data` and `import-website-data`.
+
 ### Fixed
 
 * Check grep vs ggrep for Mac OS.
