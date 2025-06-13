@@ -9,17 +9,18 @@ url = os.environ.get("ODOO_URL") or "http://localhost:8069"
 db = os.environ.get("ODOO_DATABASE") or "odoo"
 username = os.getenv("ODOO_USERNAME") or "admin"
 password = os.environ.get("ODOO_PASSWORD") or "admin"
-source_website_id = os.environ.get("ODOO_WEBSITE_ID") or 1
+source_website_id = int(os.environ.get("ODOO_WEBSITE_ID") or 1)
 export_folder = "tmp"
 
 # Connect to Odoo
+print(f"Export website data from {url}/{db}")
 common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
 uid = common.authenticate(db, username, password, {})
 models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
 # Get all website menus
 print(f"Export menus from website {source_website_id}.")
-menu_ids = models.execute_kw(db, uid, password, "website.menu", "search", [[("website_id", "=", source_website_id), ("url","not in", ["/default-main-menu", "/", "#", "/contactus"])]])
+menu_ids = models.execute_kw(db, uid, password, "website.menu", "search", [[("website_id", "=", source_website_id), ("url","not in", ["/default-main-menu", "/", "/contactus"])]])
 menu_fields = ["id", "name", "url", "page_id", "parent_id", "sequence", "website_id"]
 menus = models.execute_kw(db, uid, password, "website.menu", "read", [menu_ids], {"fields": menu_fields})
 
@@ -32,7 +33,7 @@ with open(filepath, 'w') as jsonfile:
 # Get all website pages
 print(f"Export pages from website {source_website_id}.")
 page_ids = models.execute_kw(db, uid, password, "website.page", "search", [[("website_id", "=", source_website_id)]])
-page_fields = ["id", "name", "url", "website_url", "key", "is_published", "type", "arch", "website_id"]
+page_fields = ["id", "name", "url", "website_url", "key", "track", "is_published", "type", "arch", "website_id"]
 pages = models.execute_kw(db, uid, password, "website.page", "read", [page_ids], {"fields": page_fields})
 
 # Save pages to website.page.json
