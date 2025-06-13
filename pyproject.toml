@@ -1,0 +1,10 @@
+[tool.ruff]
+line-length = 120
+extend-select = ["I", "F", "UP", "TID", "YTT", "E", "W"]
+exclude = ["venv*", ".venv*"]
+fix = true
+unsafe-fixes = true
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

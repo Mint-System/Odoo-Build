@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!/usr/bin/env python3
 
 import os
 import xmlrpc.client
@@ -44,7 +44,7 @@ with open(filepath, 'w') as jsonfile:
 
 # Get all attachments
 attachment_ids = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("mimetype", "=ilike", "image%"),("website_id", "=", source_website_id)]])
-attachment_fields = ["id", "name", "datas", "url", "mimetype", "website_id"]
+attachment_fields = ["id", "name", "datas", "url", "public", "res_model", "mimetype", "website_id"]
 attachments = models.execute_kw(db, uid, password, "ir.attachment", "read", [attachment_ids], {"fields": attachment_fields})
 
 # Save attachments to ir.attachment.json

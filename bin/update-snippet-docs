@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 
-import os
 import glob
+import os
 import re
+
 
 def uppercase_first_letter(text):
     """
@@ -12,100 +13,105 @@ def uppercase_first_letter(text):
         return text
     return text[0].upper() + text[1:]
 
+
 def title_case(text):
     """
     Convert underscores to spaces and capitalize each word.
     """
     # Replace underscores with spaces
-    text = text.replace('_', ' ')
+    text = text.replace("_", " ")
     # Uppercase first letter of each word
-    return re.sub(r'\b\w', lambda m: m.group(0).upper(), text)
+    return re.sub(r"\b\w", lambda m: m.group(0).upper(), text)
+
 
 def main():
     print("Update snippets doc file.")
-    
+
     # Set constants
     path_url = "https://github.com/Mint-System/Odoo-Build/tree/main"
-    
+
     # Create base snippets.md file
     with open("snippets.md", "w") as main_doc:
         main_doc.write("# Snippets\n")
-        main_doc.write("In Odoo everything is described as an XML document. " +
-                      "Snippets are modifications (edits) for these XML documents. " +
-                      "With a snippet you can e.g. hide a field on the contact form. " +
-                      "A snippet name is unique and follows the `$COMPANY.$MODULE.$XML_ID.$DESCRIPTION` schema.\n\n")
-    
+        main_doc.write(
+            "In Odoo everything is described as an XML document. "
+            + "Snippets are modifications (edits) for these XML documents. "
+            + "With a snippet you can e.g. hide a field on the contact form. "
+            + "A snippet name is unique and follows the `$COMPANY.$MODULE.$XML_ID.$DESCRIPTION` schema.\n\n"
+        )
+
     # Get all module names from XML files
     module_files = glob.glob("snippets/*.xml")
     modules = set()
     for file in module_files:
-        module = os.path.basename(file).split('.')[0]
+        module = os.path.basename(file).split(".")[0]
         modules.add(module)
-    
+
     modules = sorted(modules)
     sidebar_entries = []
-    
+
     # Process each module
     for module in modules:
         # Create title for module
         module_title = title_case(module)
-        
+
         # Create doc file for each module
         doc_file = f"snippets/{module}.md"
         with open(doc_file, "w") as module_doc:
             module_doc.write(f"# {module_title}\n")
-        
+
         # Add entry to main snippets.md file
         with open("snippets.md", "a") as main_doc:
             main_doc.write(f"## [{module_title}](snippets/{module}.md)\n")
-        
+
         # Add to sidebar entries
         sidebar_entries.append(f"'/snippets/{module}.md'")
-        
+
         # Get all XML IDs for this module
         xml_id_files = glob.glob(f"snippets/{module}.*.xml")
         xml_ids = set()
         for file in xml_id_files:
-            xml_id = os.path.basename(file).split('.')[1]
+            xml_id = os.path.basename(file).split(".")[1]
             xml_ids.add(xml_id)
-        
+
         xml_ids = sorted(xml_ids)
-        
+
         # Process each XML ID
         for xml_id in xml_ids:
             xml_id_title = title_case(xml_id)
-            
+
             # Add XML ID section to module doc file
             with open(doc_file, "a") as module_doc:
                 module_doc.write(f"## {xml_id_title}  \n")
-            
+
             # Process each file for this XML ID
             edit_files = glob.glob(f"snippets/{module}.{xml_id}.*.xml")
-            
+
             for file in sorted(edit_files):
                 # Get snippet params
                 filename = os.path.basename(file)
-                parts = filename.split('.')
+                parts = filename.split(".")
                 edit = parts[2]
                 edit_title = title_case(edit)
-                
+
                 # Add edit section to module doc file
                 with open(doc_file, "a") as module_doc:
                     module_doc.write(f"### {edit_title}  \n")
                     module_doc.write(f"ID: `mint_system.{module}.{xml_id}.{edit}`  \n")
                     module_doc.write("```xml\n")
-                    
+
                     # Append file content
-                    with open(file, "r") as xml_file:
+                    with open(file) as xml_file:
                         module_doc.write(xml_file.read())
-                    
+
                     module_doc.write("\n```\n")
                     module_doc.write(f"Source: [{file}]({path_url}/{file})\n\n")
-    
+
     # Create sidebar.js
     with open(".vuepress/sidebar.js", "w") as sidebar_file:
         sidebar_entries_str = ",\n".join(sidebar_entries)
         sidebar_file.write(f"export default [\n{sidebar_entries_str}\n]")
+
 
 if __name__ == "__main__":
     main()

@@ -1,5 +1,5 @@
 repos:
-  - repo: local 
+  - repo: local
     hooks:
       - id: prettier
         name: prettier (with plugin-xml)
@@ -9,8 +9,16 @@ repos:
           - --list-different
           - --ignore-unknown
         types: [text]
-        files: ^snippets/.*\.(xml|yaml|yml)$
+        files: ^((bin|snippets)/).*$
         language: node
         additional_dependencies:
           - "prettier@3.3.3"
           - "@prettier/plugin-xml@3.4.1"
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        name: ruff
+        args: [--fix]
+        types_or: [python]
+        files: ^bin/

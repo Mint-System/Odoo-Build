@@ -1,4 +1,4 @@
-#!venv/bin/python
+#!/usr/bin/env python3
 
 import os
 import xmlrpc.client
@@ -27,7 +27,7 @@ with open(filepath, 'r') as jsonfile:
 
 # For each attachment check if already exists
 for attachment in attachments:
-    attachment_dict = {'name': attachment['name'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
+    attachment_dict = {'name': attachment['name'], 'public': attachment['public'], 'res_model': attachment['res_model'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
     existing_attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("name", "=", attachment['name']), ("website_id","=",target_website_id)]])
     if existing_attachment_id:
         # If it exits update the attachment

@@ -98,7 +98,7 @@ if mail_alias_domain:
         has_alias_domain_model = True
     except KeyError:
         has_alias_domain_model = False
-    
+
     if has_alias_domain_model:
         company = env.user.company_id
         values = {
@@ -110,15 +110,15 @@ if mail_alias_domain:
             values['catchall_alias'] = mail_catchall_alias
         if mail_default_from:
             values['default_from'] = mail_default_from
-        
+
         domain_id = env['mail.alias.domain'].search([
             ('name', '=', mail_alias_domain),
         ], limit=1)
-        
+
         if domain_id:
             print(f"Update existing mail alias domain: {mail_alias_domain}")
             domain_id.write(values)
         else:
             print(f"Create new mail alias domain: {mail_alias_domain}")
-            env['mail.alias.domain'].create(values)    
+            env['mail.alias.domain'].create(values)
     env.cr.commit()

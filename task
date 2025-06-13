@@ -19,7 +19,6 @@ function help-table() {
     echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
 
     # Print table rows
-
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
@@ -82,6 +81,7 @@ function help-table() {
     printf "$COLUMN" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
     printf "$COLUMN" "install-snippet" "[env][path]" "Install snippet definition."
     printf "$COLUMN" "install-vuepress" "" "Install Node build dependencies."
+    printf "$COLUMN" "lint" "" "Run precommit for this project."
     printf "$COLUMN" "lint-module" "[path]" "Run pylint odoo for module."
     printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
     printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
@@ -357,6 +357,13 @@ function list-versions() {
 }
 
 # Docs Commands
+
+function lint() {
+    activate-venv
+
+    echo "Run pre-commit in $PWD"
+    pre-commit run
+}
 
 function update-help-docs() {
     echo "Pipe help table into task.md."
