@@ -22,7 +22,7 @@ export MAIL_DOMAIN="yourcompany.com" # default: "yourcompany.com"
 export MAIL_ALIASES="info invoice contact support" # default: "info"
 ```
 
-Run the upgrade script:
+Run Odoo Mailgate:
 
 ```bash
 docker run -d --name odoo-mailgate -p 25:25 -p 587:587 \
