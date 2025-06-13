@@ -45,7 +45,7 @@ function help-table() {
     printf "$COLUMN" "create-module" "[path]" "Create new Odoo module from template."
     printf "$COLUMN" "create-module-repo" "[path]" "Initialize Odoo module repo from template."
     printf "$COLUMN" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
-    printf "$COLUMN" "create-odoo-env" "[env]" "Create env file for Odoo Instance."
+    printf "$COLUMN" "create-odoo-env" "[env]" "Create env file for Odoo instance."
     printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
     printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
     printf "$COLUMN" "debug" "[name]" "Debugg application. Options: native."
@@ -166,7 +166,6 @@ function help-table() {
 PASS_ENTRY="env/${PWD##*/}"
 PASS_ENTRY="${PASS_ENTRY,,}"
 ODOO_RC="odoo.conf"
-ODOO_BUILD_CONFIG_DIR="$HOME/.config/odoo-build"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
 PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
 export PGSSLROOTCERT
@@ -217,6 +216,7 @@ fi
 
 # Import commands
 
+[ -f ~/taskfile.build/bin/init-config-dir ] && source ~/taskfile.build/bin/init-config-dir
 [ -f ~/taskfile.build/bin/help ] && source ~/taskfile.build/bin/help
 [ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
 [ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
@@ -226,6 +226,9 @@ fi
 [ -f ~/taskfile.build/bin/load-env ] && source ~/taskfile.build/bin/load-env
 [ -f ~/taskfile.build/bin/rename-env ] && source ~/taskfile.build/bin/rename-env
 [ -f ~/taskfile.build/bin/update-with-llm ] && source ~/taskfile.build/bin/update-with-llm
+[ -f ~/taskfile.build/bin/create-odoo-env ] && source ~/taskfile.build/bin/create-odoo-env
+[ -f ~/taskfile.build/bin/create-nextcloud-env ] && source ~/taskfile.build/bin/create-nextcloud-env
+[ -f ~/taskfile.build/bin/remove-env ] && source ~/taskfile.build/bin/remove-env
 
 # Help Commands
 
@@ -331,54 +334,6 @@ function set-addons-path() {
     if [ -n "$ODOO_ADDONS_PATH" ]; then
         ADDONS_PATH="${ODOO_ADDONS_PATH},${ADDONS_PATH}"
     fi
-}
-
-function init-config-dir() {
-    echo "Ensure $ODOO_BUILD_CONFIG_DIR exists"
-    mkdir -p "$ODOO_BUILD_CONFIG_DIR"
-}
-
-function create-odoo-env() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    init-config-dir
-    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    if [ -f "$ENV_FILEPATH" ]; then
-        echo "Env file already exists: $ENV_FILEPATH"
-        exit 1
-    fi
-
-    echo "Init env file: $ENV_FILEPATH"
-    echo "ODOO_URL=$ODOO_URL" > "$ENV_FILEPATH"
-    echo "ODOO_DATABASE=$ODOO_DATABASE" >> "$ENV_FILEPATH"
-    echo "ODOO_USERNAME=$ODOO_USERNAME" >> "$ENV_FILEPATH"
-    echo "ODOO_PASSWORD=$ODOO_PASSWORD" >> "$ENV_FILEPATH"
-
-    echo "Edit with: task edit-env $1"
-}
-
-function create-nextcloud-env() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    init-config-dir
-    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    if [ -f "$ENV_FILEPATH" ]; then
-        echo "Env file already exists: $ENV_FILEPATH"
-        exit 1
-    fi
-
-    echo "Init env file: $ENV_FILEPATH"
-    echo "NEXTCLOUD_URL=" > "$ENV_FILEPATH"
-    echo "NEXTCLOUD_USERNAME=" >> "$ENV_FILEPATH"
-    echo "NEXTCLOUD_PASSWORD=" >> "$ENV_FILEPATH"
-
-    echo "Edit with: task edit-env $1"
-}
-
-function remove-env() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ENV_FILEPATH="$ODOO_BUILD_CONFIG_DIR/.env.$1"
-    rm "$ENV_FILEPATH"
 }
 
 function load-ssh-key() {
@@ -2460,26 +2415,6 @@ function import-website-data() {
     EXIT_CODE=$?
     echo -e "---\n"
     echo -e "Exit code: $EXIT_CODE\n"
-}
-
-# Pass Commands
-
-function store-dotenv() {
-    if [ -f .env ]; then
-        echo "Store .env file in pass: $PASS_ENTRY"
-        cat .env | pass insert -m -f "$PASS_ENTRY"
-    else
-        echo "No .env file found."
-    fi
-}
-
-function restore-dotenv() {
-    if pass find "$PASS_ENTRY" >/dev/null; then
-        echo "Restore .env file from pass: $PASS_ENTRY"
-        pass show "$PASS_ENTRY" > .env
-    else
-        echo "Pass entry not found."
-    fi
 }
 
 # Vuepress Commands
