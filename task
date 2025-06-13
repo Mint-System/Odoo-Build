@@ -2383,7 +2383,7 @@ function odoocli(){
 
 function export-website-data() {
     activate-venv
-    if [ -n "$1"]; then
+    if [ -n "$1" ]; then
         load-env $1
     fi
 
@@ -2402,7 +2402,7 @@ function export-website-data() {
 
 function import-website-data() {
     activate-venv
-    if [ -n "$1"]; then
+    if [ -n "$1" ]; then
         load-env $1
     fi
 

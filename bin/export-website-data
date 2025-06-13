@@ -19,7 +19,7 @@ models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
 # Get all website menus
 print(f"Export menus from website {source_website_id}.")
-menu_ids = models.execute_kw(db, uid, password, "website.menu", "search", [[("website_id", "=", source_website_id), ("url","not in", ["/default-main-menu", "/", "/contactus"])]])
+menu_ids = models.execute_kw(db, uid, password, "website.menu", "search", [[("website_id", "=", source_website_id), ("url","not in", ["/default-main-menu", "/", "#", "/contactus"])]])
 menu_fields = ["id", "name", "url", "page_id", "parent_id", "sequence", "website_id"]
 menus = models.execute_kw(db, uid, password, "website.menu", "read", [menu_ids], {"fields": menu_fields})
 
@@ -43,7 +43,7 @@ with open(filepath, 'w') as jsonfile:
 
 # Get all attachments
 attachment_ids = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("mimetype", "=ilike", "image%"),("website_id", "=", source_website_id)]])
-attachment_fields = ["id", "name", "datas", "mimetype", "website_id"]
+attachment_fields = ["id", "name", "datas", "url", "mimetype", "website_id"]
 attachments = models.execute_kw(db, uid, password, "ir.attachment", "read", [attachment_ids], {"fields": attachment_fields})
 
 # Save attachments to ir.attachment.json
