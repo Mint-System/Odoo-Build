@@ -2106,6 +2106,7 @@ function clone-git-folder() {
 
         if [ "$SHALLOW" = "true" ]; then
             echo "Clone git folder $GIT_FOLDER (shallow) to $ODOO_VERSION"
+            git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             git clone --depth 1 --no-single-branch "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         else
             echo "Clone git folder $GIT_FOLDER to $ODOO_VERSION"
@@ -2152,6 +2153,7 @@ function checkout-git-folder() {
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
             git -C "$GIT_FOLDER" stash
+            git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             git -C "$GIT_FOLDER" fetch origin "$COMMIT_HASH"
             git -C "$GIT_FOLDER" checkout "$COMMIT_HASH"
         else
