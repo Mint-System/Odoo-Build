@@ -1,10 +1,12 @@
 <data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
     <xpath expr="//td[@name='move_line_lot_quantity']" position="before">
-        <td class="text-end">
-            <span t-esc="move_line.move_id.product_packaging_id.name"/>
-        </td>
-        <td class="text-end">
-            <span t-esc="move_line.product_packaging_qty" t-options="{&quot;widget&quot;: &quot;integer&quot;}"/>
-        </td>
+        <t t-if="not valued">
+            <td class="text-end">
+                <span t-esc="move_line.move_id.product_packaging_id.name"/>
+            </td>
+            <td class="text-end">
+                <span t-esc="move_line.product_packaging_qty" t-options="{&quot;widget&quot;: &quot;integer&quot;}"/>
+            </td>
+        </t>
     </xpath>
 </data>

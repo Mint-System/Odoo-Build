@@ -1,0 +1,5 @@
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+
+    <xpath expr="//span[@groups='product.group_stock_packaging']" position="replace"/>   
+      
+</data>

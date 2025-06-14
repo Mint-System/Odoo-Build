@@ -1,4 +1,3 @@
-
 <data inherit_id="stock.report_delivery_document" priority="50">
 
     <xpath expr="//t[@t-set='address']" position="after">
@@ -99,6 +98,26 @@
                     </t>
                 </td>
             </tr>
+            
+            <t t-if="valued">
+                <tr>
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
+                        <t t-if="o.partner_id.x_remarks">
+                            <div t-field="o.partner_id.x_remarks"/>
+                        </t>
+                    </td>
+
+                    <td style="width: 60px"/>
+
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
+                        <t t-if="o.location_id.warehouse_id.partner_id.x_remarks">
+                            <div t-field="o.location_id.warehouse_id.partner_id.x_remarks"/>
+                        </t>
+                    </td>
+                </tr>
+            </t>
+            <t t-if="not valued">
+            </t>
 
             <t t-if="is_pro_forma">
                 <tr>

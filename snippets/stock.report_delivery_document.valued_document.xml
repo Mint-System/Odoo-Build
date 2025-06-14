@@ -1,0 +1,9 @@
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+    <xpath expr="//td[@name='td_sml_taxes']" position="replace">
+
+        <td name="td_taxes" t-if="valued" class="text-end">
+            <span t-out="move_line.move_id.tax_id.name"/>
+        </td>
+
+    </xpath>
+</data>

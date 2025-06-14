@@ -1,0 +1,30 @@
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+    <xpath expr="//table[@name='stock_move_table']/thead/tr/th[6]" position="after">
+        <th id="th_packing" class="text-end">
+            <strong>Packing</strong>
+        </th>
+        <th id="th_ve" class="text-end">
+            <strong>VE</strong>
+        </th>
+
+    </xpath>
+    <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[6]" position="after">
+        <th id="th_line_packing" class="text-end">
+            <strong>Packing</strong>
+        </th>
+        <th id="th_line_ve" class="text-end">
+            <strong>VE</strong>
+        </th>
+
+    </xpath>
+    <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[6]" position="after">
+        <th id="th_packing" class="text-end">
+            <strong>Packing</strong>
+        </th>
+        <th id="th_ve" class="text-end">
+            <strong>VE</strong>
+        </th>
+    </xpath>
+
+</data>
