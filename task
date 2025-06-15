@@ -564,23 +564,35 @@ function container-ps() {
 function build() {
     MANIFEST_FILE="images/odoo/Dockerfile"
     PLATFORM="linux/amd64" # linux/arm64
+    
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
     fi
+    
     if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
         CONTAINER_TAG="odoo-mailgate"
     fi
+    
     if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
+    
     if [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
         CONTAINER_TAG="odoocli"
     fi
+    
     if [ -n "$2" ]; then
         PLATFORM="$1"
     fi
+
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
+
+    if [ "$ODOO_VERSION" == "15.0" ]; then
+        PYTHON_VERSION="3.9"
+    else
+        PYTHON_VERSION="3.12"
+    fi
 
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
         echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
@@ -589,6 +601,7 @@ function build() {
         echo "Run Podman build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) podman build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
+            --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
             --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
             --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
@@ -602,6 +615,7 @@ function build() {
         echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
         SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
             --file "$MANIFEST_FILE" \
+            --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
             --build-arg ODOO_VERSION="$ODOO_VERSION" \
             --build-arg ODOO_DATE="$ODOO_DATE" \
             --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \

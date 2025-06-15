@@ -1,5 +1,6 @@
 # Stage 1: Build environment
-FROM python:3.12-slim-bookworm AS builder
+ARG PYTHON_VERSION=3.12
+FROM python:${PYTHON_VERSION}-slim-bookworm AS builder
 
 # Retrieve the Odoo version
 ARG ODOO_VERSION
@@ -50,7 +51,7 @@ RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
 RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
 
 # Stage 2: Runtime environment
-FROM python:3.12-slim-bookworm
+FROM python:${PYTHON_VERSION}-slim-bookworm
 
 LABEL org.opencontainers.image.source="https://github.com/mint-system/odoo-build"
 LABEL org.opencontainers.image.authors="Mint System GmbH <info@mint-system.ch>"
@@ -128,7 +129,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN pnpm install -g rtlcss
 
 # Install uv for Python package management
-COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.6.14 /uv /uvx /bin/
 
 # Copy the virtual environment and Odoo from the builder stage
 COPY --from=builder /opt/odoo-venv /opt/odoo-venv
