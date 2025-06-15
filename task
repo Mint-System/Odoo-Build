@@ -14,11 +14,8 @@ function help-table() {
     DESC_WIDTH=90
     COLUMN="| %-${CMD_WIDTH}s | %-${OPT_WIDTH}s | %-${DESC_WIDTH}s |\n"
 
-    # Print table header
     printf "$COLUMN" "Command" "Option" "Description"
     echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
-
-    # Print table rows
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
@@ -629,9 +626,10 @@ function build() {
 }
 
 function checkout-latest-revision() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if [ -z "$1" ] ; then
+        ODOO_VERSION="$1"
+    fi
 
-    ODOO_VERSION="$1"
     ODOO_REVISION=$(list-revision | $GREP "$ODOO_VERSION" | tail -n1)
     checkout-revision "$ODOO_REVISION"
 }

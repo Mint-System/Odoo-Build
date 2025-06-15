@@ -252,7 +252,7 @@ Ensure your container setup can build [multi-platform images](https://docs.docke
 Checkout latest revision of the Odoo version.
 
 ```bash
-task checkout-latest-revision "16.0"
+task checkout-latest-revision
 ```
 
 Build the Odoo image.
