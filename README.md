@@ -1,4 +1,4 @@
-Odoo Build
+  Odoo Build
 ===
 
 ![Vercel](https://vercelbadge.vercel.app/api/mint-system/odoo-build) [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/) [![.github/workflows/test.yml](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml/badge.svg)](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml) [![matrix-badge](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch) 
@@ -275,13 +275,15 @@ task publish
 
 #### Setup mail catcher
 
-Start mail server.
+Start mailpit server.
 
 ```bash
-task start mail
+task start mailpit
 ```
 
-When you send mails in Odoo they will be shown on <http://localhost:8025/>.
+When you send mails in Odoo they will be catched and shown on <http://localhost:8025/>.
+
+## Develop
 
 ### Source env file
 
@@ -290,8 +292,6 @@ Assuming the name of the environment is `test`, you source env vars like this:
 ```bash
 eval "$(task show-env test)"
 ```
-
-## Develop
 
 ### Update the Odoo Upgrade script
 
