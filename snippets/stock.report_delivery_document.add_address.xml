@@ -16,7 +16,7 @@
                 <td style="width: 290px; vertical-align: top; padding-left: 5mm;">
 
 
-                    <span style="font-size: 7pt">Warenempfänger</span>
+                    <span style="font-size: 7pt">Recipient of goods</span>
                     <hr class="company_invoice_line"/>
                     <div>
                         <t>
@@ -26,7 +26,7 @@
                 </td>
                 <td style="width: 70px"/>
                 <td style="width: 260px; vertical-align: top">
-                    <span style="font-size: 7pt">Warenversender</span>
+                    <span style="font-size: 7pt">Shipper of goods</span>
                     <hr class="company_invoice_line"/>
                     <div>
                         <t>

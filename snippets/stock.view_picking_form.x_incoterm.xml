@@ -1,0 +1,5 @@
+<data inherit_id="stock.view_picking_form" priority="50">
+    <xpath expr="//field[@name='payment_term_id']" position="after">
+        <field name="x_incoterm"/>
+    </xpath>
+</data>

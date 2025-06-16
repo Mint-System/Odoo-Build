@@ -1,0 +1,9 @@
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//t[@t-call='stock.stock_report_delivery_package_section_line']" position="replace">
+        <t t-if="valued">
+        </t>
+        <t t-if="not valued">
+            <t t-call="stock.stock_report_delivery_package_section_line"/>
+        </t>
+    </xpath>
+</data>

@@ -11,7 +11,7 @@
     <xpath expr="//th[@name='th_sml_product']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    
+
     <xpath expr="//th[@name='lot_serial']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>

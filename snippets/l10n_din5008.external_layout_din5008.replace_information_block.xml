@@ -43,7 +43,6 @@
 
                     </t>
 
-
                     <!-- Ausgangsrechnung -->
                     <t t-if="o._name == 'account.move' and o.move_type == 'out_invoice'">
                         <tr>
@@ -96,7 +95,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Incoterms</span>
+                                <span>Incoterm</span>
                             </td>
                             <td>
                                 <span t-field="o.invoice_incoterm_id.code"/>
@@ -149,7 +148,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Incoterms</span>
+                                <span>Incoterm</span>
                             </td>
                             <td>
                                 <span t-field="o.incoterm.code"/>
@@ -185,14 +184,14 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Incoterms</span>
+                                <span>Incoterm</span>
                             </td>
                             <td>
                                 <span t-field="o.incoterm_id.code"/>
                             </td>
                         </tr>
                     </t>
-                    
+
                     <!-- Lieferschein  -->
                     <t t-if="o._name == 'stock.picking'">
 
@@ -202,52 +201,58 @@
                                     <span>Pro-forma-invoice</span>
                                 </td>
                             </tr>
-                            
-                            
+
+
                             <tr>
-                            <td>
-                                <span>Invoice No.</span>
-                            </td>
-                            <td>
-                                <span t-field="o.name"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Delivery Date</span>
-                            </td>
-                            <td>
-                                <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Source</span>
-                            </td>
-                            <td>
-                                <span t-field="o.origin"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Reference</span>
-                            </td>
-                            <td>
-                                <span t-field="o.sudo().sale_id.client_order_ref"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Incoterms</span>
-                            </td>
-                            <td>
-                                <span t-field="o.sudo().sale_id.incoterm.code"/>
-                            </td>
-                        </tr>
-                        
+                                <td>
+                                    <span>Invoice No.</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Delivery Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_done" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <t t-if="o.origin">
+                                    <td>
+                                        <span>Source</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.origin"/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <t t-if="o.sudo().sale_id.client_order_ref">
+                                    <td>
+                                        <span>Reference</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.sudo().sale_id.client_order_ref"/>
+                                    </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <t t-if="o.x_incoterm">
+                                    <td>
+                                        <span>Incoterm</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.x_incoterm.code"/>
+                                    </td>
+                                </t>
+                            </tr>
+
                         </t>
 
-                        <t t-if="">
+                        <t t-if="not valued">
 
                             <tr>
                                 <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
@@ -282,8 +287,18 @@
                                     </td>
                                 </tr>
                             </t>
+                            <tr>
+                                <t t-if="o.x_incoterm">
+                                    <td>
+                                        <span>Incoterm</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.x_incoterm.code"/>
+                                    </td>
+                                </t>
+                            </tr>
                         </t>
-                        
+
                     </t>
 
                 </table>

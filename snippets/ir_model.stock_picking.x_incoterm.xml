@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_incoterm" model="ir.model.fields">
+        <field name="field_description">Incoterm</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_incoterm</field>
+        <field name="relation">account.incoterms</field>
+        <field name="store" eval="True"/>       
+        <field name="copied" eval="True"/>
+        <field name="ttype">many2one</field>       
+    </record>
+</odoo>
