@@ -867,6 +867,12 @@ function install() {
         uv pip install pip
         pip install -e odoo
     fi
+
+    if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.conf; then
+        sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
+        sudo sysctl -p /etc/sysctl.conf
+        echo "Updated fs.inotify.max_user_watches to 524288"
+    fi
 }
 
 # Process Commands
