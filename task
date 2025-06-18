@@ -8,7 +8,6 @@ if [[ -a ".env" ]]; then
 fi
 
 function help-table() {
-    # Define column widths
     CMD_WIDTH=25
     OPT_WIDTH=20
     DESC_WIDTH=90
