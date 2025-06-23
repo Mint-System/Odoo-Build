@@ -1,0 +1,8 @@
+<data inherit_id="stock.stock_report_delivery_package_section_line" priority="60">
+
+    <xpath expr="//td[@name='package_info']/.." position="attributes">
+        <attribute name="t-att-class"/>
+        <attribute name="style">font-weight: bold</attribute>
+    </xpath>
+
+</data>

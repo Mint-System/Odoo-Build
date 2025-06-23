@@ -105,7 +105,7 @@
 
                     <!-- Angebot/Verkaufsauftrag  -->
                     <t t-if="o._name == 'sale.order'">
-                        
+
                         <t t-if="is_pro_forma">
                             <tr>
                                 <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
@@ -260,17 +260,26 @@
                                     </td>
                                 </t>
                             </tr>
-                            <tr>
-                                <t t-if="o.x_incoterm">
+                            <t t-if="o.sudo().sale_id.incoterm">
+                                <tr>
+                                    <td>
+                                        <span>Incoterm</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.sudo().sale_id.incoterm.code"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-elif="o.x_incoterm">
+                                <tr>
                                     <td>
                                         <span>Incoterm</span>
                                     </td>
                                     <td>
                                         <span t-field="o.x_incoterm.code"/>
                                     </td>
-                                </t>
-                            </tr>
-
+                                </tr>
+                            </t>
                         </t>
 
                         <t t-if="not valued">
@@ -308,7 +317,6 @@
                                     </td>
                                 </tr>
                             </t>
-                            
                             <t t-if="o.sudo().sale_id.client_order_ref">
                                 <tr>
                                     <td>
@@ -319,15 +327,25 @@
                                     </td>
                                 </tr>
                             </t>
-                            <t t-if="o.x_incoterm">
-                            <tr>
-                                <td>
-                                    <span>Incoterm</span>
-                                </td>
-                                <td>
-                                    <span t-field="o.x_incoterm.code"/>
-                                </td>
-                            </tr>
+                            <t t-if="o.sudo().sale_id.incoterm">
+                                <tr>
+                                    <td>
+                                        <span>Incoterm</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.sudo().sale_id.incoterm.code"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-elif="o.x_incoterm">
+                                <tr>
+                                    <td>
+                                        <span>Incoterm</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.x_incoterm.code"/>
+                                    </td>
+                                </tr>
                             </t>
                         </t>
 
