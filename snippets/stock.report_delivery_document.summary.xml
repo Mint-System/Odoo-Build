@@ -33,7 +33,7 @@
 							<td>
 								<strong>Anzahl Transporteinheiten:</strong>
 							</td>
-							<td style="text-align: right; width: 80px">
+							<td style="text-align: right; width: 80px; padding-left: 5px">
 								<strong t-esc="count_packages"/>
 							</td>
 						</tr>
@@ -44,7 +44,7 @@
 							<td>
 								<strong>Gesamtgewicht Netto: </strong>
 							</td>
-							<td style="text-align: right">
+							<td style="text-align: right; padding-left: 5px">
 								<strong t-esc="net_weight"/>
 								<strong> kg</strong>
 							</td>
@@ -55,7 +55,7 @@
 								<td>
 									<strong>Gesamtgewicht Brutto: </strong>
 								</td>
-								<td style="text-align: right">
+								<td style="text-align: right; padding-left: 5px">
 									<t>
 										<strong t-esc="total_weight"/>
 										<strong> kg</strong>

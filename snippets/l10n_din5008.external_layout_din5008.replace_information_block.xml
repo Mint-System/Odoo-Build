@@ -103,15 +103,30 @@
                         </tr>
                     </t>
 
-                    <!-- Verkaufsauftrag  -->
+                    <!-- Angebot/Verkaufsauftrag  -->
                     <t t-if="o._name == 'sale.order'">
-
-                        <tr>
-                            <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
-                                <span>Order Confirmation</span>
-                            </td>
-                        </tr>
-
+                        
+                        <t t-if="is_pro_forma">
+                            <tr>
+                                <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+                                    <span>Proforma-Invoice</span>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.state == 'draft' and not is_pro_forma">
+                            <tr>
+                                <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+                                    <span>Offer</span>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.state in ('sent', 'sale', 'cancel') and not is_pro_forma">
+                            <tr>
+                                <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
+                                    <span>Order Confirmation</span>
+                                </td>
+                            </tr>
+                        </t>
                         <tr>
                             <td>
                                 <span>Order No.</span>
@@ -128,32 +143,36 @@
                                 <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span>Your reference</span>
-                            </td>
-                            <td>
-
-                                <span t-field="o.client_order_ref"/>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Delivery Date</span>
-                            </td>
-                            <td>
-                                <span t-field="o.commitment_date" t-options="{'widget': 'date'}"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Incoterm</span>
-                            </td>
-                            <td>
-                                <span t-field="o.incoterm.code"/>
-                            </td>
-                        </tr>
+                        <t t-if="o.client_order_ref">
+                            <tr>
+                                <td>
+                                    <span>Your reference</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.client_order_ref"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.commitment_date">
+                            <tr>
+                                <td>
+                                    <span>Delivery Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.commitment_date" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.incoterm">
+                            <tr>
+                                <td>
+                                    <span>Incoterm</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.incoterm.code"/>
+                                </td>
+                            </tr>
+                        </t>
                     </t>
 
                     <!-- Bestellung  -->
@@ -174,22 +193,26 @@
                                 <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span>Your reference</span>
-                            </td>
-                            <td>
-                                <span t-field="o.partner_ref"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Incoterm</span>
-                            </td>
-                            <td>
-                                <span t-field="o.incoterm_id.code"/>
-                            </td>
-                        </tr>
+                        <t t-if="o.partner_ref">
+                            <tr>
+                                <td>
+                                    <span>Your reference</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.partner_ref"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.incoterm_id">
+                            <tr>
+                                <td>
+                                    <span>Incoterm</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.incoterm_id.code"/>
+                                </td>
+                            </tr>
+                        </t>
                     </t>
 
                     <!-- Lieferschein  -->
@@ -201,8 +224,6 @@
                                     <span>Pro-forma-invoice</span>
                                 </td>
                             </tr>
-
-
                             <tr>
                                 <td>
                                     <span>Invoice No.</span>
@@ -270,7 +291,7 @@
                             <t t-if="o.origin">
                                 <tr>
                                     <td>
-                                        <span>Reference</span>
+                                        <span>Our order</span>
                                     </td>
                                     <td>
                                         <span t-field="o.origin"/>
@@ -287,16 +308,27 @@
                                     </td>
                                 </tr>
                             </t>
+                            
+                            <t t-if="o.sudo().sale_id.client_order_ref">
+                                <tr>
+                                    <td>
+                                        <span>Your Order</span>
+                                    </td>
+                                    <td>
+                                        <span t-field="o.sudo().sale_id.client_order_ref"/>
+                                    </td>
+                                </tr>
+                            </t>
+                            <t t-if="o.x_incoterm">
                             <tr>
-                                <t t-if="o.x_incoterm">
-                                    <td>
-                                        <span>Incoterm</span>
-                                    </td>
-                                    <td>
-                                        <span t-field="o.x_incoterm.code"/>
-                                    </td>
-                                </t>
+                                <td>
+                                    <span>Incoterm</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.x_incoterm.code"/>
+                                </td>
                             </tr>
+                            </t>
                         </t>
 
                     </t>

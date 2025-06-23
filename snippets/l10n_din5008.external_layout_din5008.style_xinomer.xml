@@ -1,7 +1,10 @@
 <data inherit_id="l10n_din5008.external_layout_din5008" priority="60">
     <xpath expr="//div" position="after">
         <style>
-            .o_company_2_layout {
+            .o_company_1_layout {
+                font-family: arial;
+            }
+             .o_company_2_layout {
                 font-family: arial;
             }
             .address {
