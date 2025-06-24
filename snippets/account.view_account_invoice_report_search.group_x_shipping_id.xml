@@ -1,4 +1,4 @@
-<data inherit_id="account.view_account_invoice_filter" priority="50">
+<data inherit_id="account.view_account_invoice_report_search" priority="50">
     <filter name="partner_id" position="after">
          <filter name="x_shipping_id" context="{'group_by':'x_shipping_id','residual_visible':True}"/>
     </filter>
