@@ -139,7 +139,7 @@ function help-table() {
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
     printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
-    printf "$COLUMN" "translate-module" "[db][path][lang]" "Generate translation for Odoo module."
+    printf "$COLUMN" "translate-module" "[path][lang][db]" "Generate translation for Odoo module."
     printf "$COLUMN" "update-docs" "" "Update all project docs."
     printf "$COLUMN" "update-help-docs" "" "Write help table to task.md file."
     printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
@@ -1584,19 +1584,17 @@ function update-module() {
 function translate-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    DATABASE="$1"
-    MODULE_PATH="$2"
-    MODULE_NAME=$(basename "$2")
-    LANGUAGE="$3"
+    MODULE_PATH="$1"
+    MODULE_NAME=$(basename "$1")
+    LANGUAGE="$2"
+    DATABASE="$3"
 
     if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_PATH="$1"
-        MODULE_NAME=$(basename "$1")
+        LANGUAGE="$ODOO_LANGUAGE"
     fi
 
     if test -z "$3"; then
-        LANGUAGE="$ODOO_LANGUAGE"
+        DATABASE="$ODOO_DATABASE"
     fi
 
     activate-venv
@@ -1604,6 +1602,7 @@ function translate-module() {
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
     odoo -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    
     # If lang is de_CH then rename the file to de.po.
     if [[ "$LANGUAGE" == "de_CH" ]]; then
         mv "$MODULE_PATH/i18n/$LANGUAGE.po" "$MODULE_PATH/i18n/de.po"

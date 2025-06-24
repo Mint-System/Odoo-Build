@@ -124,7 +124,7 @@
 | test-module-repo          | [db][path]           | Test target Odoo modules in repo folder.                                                   |
 | test-project              | [clean]              | Run tests for this project.                                                                |
 | test-xmlrpc               | [env]                | Test json rpc connection.                                                                  |
-| translate-module          | [db][path][lang]     | Generate translation for Odoo module.                                                      |
+| translate-module          | [path][lang][db]     | Generate translation for Odoo module.                                                      |
 | update-docs               |                      | Update all project docs.                                                                   |
 | update-help-docs          |                      | Write help table to task.md file.                                                          |
 | update-module             | [db][name,path]      | Update target Odoo module.                                                                 |
