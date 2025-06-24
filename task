@@ -588,7 +588,7 @@ function build() {
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
-    if [ "$ODOO_VERSION" == "15.0" ]; then
+    if [[ "15.0,16.0" =~ "$ODOO_VERSION" ]]; then
         PYTHON_VERSION="3.9"
     else
         PYTHON_VERSION="3.12"
