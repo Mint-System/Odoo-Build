@@ -602,7 +602,8 @@ function build() {
             PYTHON_VERSION="3.9"
             ;;
         "16.0")
-            PYTHON_VERSION="3.9"
+            # PYTHON_VERSION="3.9"
+            PYTHON_VERSION="3.11"
             ;;
         "17.0")
             PYTHON_VERSION="3.11"
