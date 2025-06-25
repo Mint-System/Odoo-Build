@@ -603,6 +603,12 @@ function build() {
         PYTHON_VERSION="3.12"
     fi
 
+    if [[ "17.0" =~ "$ODOO_VERSION" ]]; then
+        PYTHON_VERSION="3.11"
+    else
+        PYTHON_VERSION="3.12"
+    fi
+
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
         echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
         $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
@@ -634,7 +640,7 @@ function build() {
 }
 
 function checkout-latest-revision() {
-    if [ -z "$1" ] ; then
+    if [ -n "$1" ] ; then
         ODOO_VERSION="$1"
     fi
 
