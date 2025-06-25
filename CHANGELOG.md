@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Fixed
 
 * Check grep vs ggrep for Mac OS.
+* Wrap system param env vars in odoo conf template.
 
 ### Updated
 
