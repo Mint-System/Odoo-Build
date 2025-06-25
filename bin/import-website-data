@@ -13,6 +13,7 @@ username = os.getenv("ODOO_USERNAME") or "admin"
 password = os.environ.get("ODOO_PASSWORD") or "admin"
 target_website_id = int(os.environ.get("ODOO_WEBSITE_ID") or 1)
 import_folder = "tmp"
+lang_codes = ["de_CH"]
 
 # Connect to Odoo
 print(f"Import website data to {url}/{db}")
@@ -20,41 +21,72 @@ common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
 uid = common.authenticate(db, username, password, {})
 models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
-# Load all attachments from json
-filepath=os.path.join(import_folder, 'ir.attachment.json')
-with open(filepath, 'r') as jsonfile:
-    attachments = json.load(jsonfile)
+# # Load all attachments from json
+# filepath=os.path.join(import_folder, 'ir.attachment.json')
+# with open(filepath, 'r') as jsonfile:
+#     attachments = json.load(jsonfile)
 
-# For each attachment check if already exists
-for attachment in attachments:
-    attachment_dict = {'name': attachment['name'], 'public': attachment['public'], 'res_model': attachment['res_model'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
-    existing_attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("name", "=", attachment['name']), ("website_id","=",target_website_id)]])
-    if existing_attachment_id:
-        # If it exits update the attachment
-        print(f"Update attachment: {existing_attachment_id}")
-        models.execute_kw(db, uid, password, "ir.attachment", "write", [existing_attachment_id[0], attachment_dict])
-    else:
-        # Otherwise create the attachment
-        print(f"Create attachment: {attachment_dict['name']}")
-        attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "create", [attachment_dict])
+# # For each attachment check if already exists
+# for attachment in attachments:
+#     attachment_dict = {'name': attachment['name'], 'public': attachment['public'], 'res_model': attachment['res_model'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
+#     attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("name", "=", attachment['name']), ("website_id","=",target_website_id)]])
+#     if attachment_id:
+#         # If it exits update the attachment
+#         print(f"Update attachment: {attachment_id}")
+#         models.execute_kw(db, uid, password, "ir.attachment", "write", [attachment_id[0], attachment_dict])
+#     else:
+#         # Otherwise create the attachment
+#         print(f"Create attachment: {attachment_dict['name']}")
+#         attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "create", [attachment_dict])
+#     attachment["new_id"] = attachment_id[0]
 
-# Load all pages from json
-filepath=os.path.join(import_folder, 'website.page.json')
-with open(filepath, 'r') as jsonfile:
-    pages = json.load(jsonfile)
+# # Save attachments to ir.attachment.json
+# filepath = os.path.join(import_folder, 'ir.attachment.json')
+# with open(filepath, 'w') as jsonfile:
+#     json.dump(attachments, jsonfile, indent=4)
+#     print(f"Saved {len(attachments)} attachments to {filepath}.")
 
-# For each page check if already exists
-for page in pages:
-    page_dict = {'name': page['name'], 'type': page['type'], 'key': page['key'], 'track': page['track'], 'arch_base': page['arch'], 'is_published': page['is_published'], 'url': page['url'], 'website_url': page['website_url'], 'website_id': target_website_id}
-    existing_page_id = models.execute_kw(db, uid, password, "website.page", "search", [[("name", "=", page['name']), ("website_id","=",target_website_id)]])
-    if existing_page_id:
-        # If it exits update the page
-        print(f"Update page: {existing_page_id}")
-        models.execute_kw(db, uid, password, "website.page", "write", [existing_page_id[0], page_dict])
-    else:
-        # Otherwise create the page
-        print(f"Create page: {page_dict['name']}")
-        page_id = models.execute_kw(db, uid, password, "website.page", "create", [page_dict])
+# # Load all pages from json
+# filepath=os.path.join(import_folder, 'website.page.json')
+# with open(filepath, 'r') as jsonfile:
+#     pages = json.load(jsonfile)
+
+# # For each page check if already exists
+# for page in pages:
+#     arch = page['arch']
+    
+#     # Convert image links in arch
+#     # Example: src=\"/web/image/21451-b2422647/alexandra.nogueria-e1723468264606.webp\"
+#     # Pattern: src=\"/web/image/{id}-b2422647/{filename}\"
+
+#     # Find all image links in the form: src="/web/image/{id}-[token]/{filename}"
+#     pattern = r'src="(/web/image/(\d+)-[a-zA-Z0-9]+/([^"]+))"'
+#     links = re.findall(pattern, arch)
+
+#     for full_match, current_id, filename in links:
+#         # Look up new ID by filename
+#         matches = [a for a in attachments if a["name"] == filename]
+#         if not matches:
+#             continue  # Skip if filename not found in attachments
+
+#         new_id = matches[0]["new_id"]
+
+#         # Replace old ID with new ID in the matched URL
+#         print(f"Replace image id {current_id} with id {new_id} in page {page['name']}.")
+#         arch = arch.replace(f"/web/image/{current_id}", f"/web/image/{new_id}")
+
+#     page['arch'] = arch
+
+#     page_dict = {'name': page['name'], 'type': page['type'], 'key': page['key'], 'track': page['track'], 'arch_base': page['arch'], 'is_published': page['is_published'], 'url': page['url'], 'website_url': page['website_url'], 'website_id': target_website_id}
+#     page_id = models.execute_kw(db, uid, password, "website.page", "search", [[("name", "=", page['name']), ("website_id","=",target_website_id)]])
+#     if page_id:
+#         # If it exits update the page
+#         print(f"Update page: {page_id}")
+#         models.execute_kw(db, uid, password, "website.page", "write", [page_id[0], page_dict])
+#     else:
+#         # Otherwise create the page
+#         print(f"Create page: {page_dict['name']}")
+#         page_id = models.execute_kw(db, uid, password, "website.page", "create", [page_dict])
 
 # Load all menus from json
 filepath=os.path.join(import_folder, 'website.menu.json')
@@ -63,12 +95,16 @@ with open(filepath, 'r') as jsonfile:
 
 # For each menu check if already exists
 for menu in menus:
-    menu_dict = {'name': menu['name'], 'url': menu['url'],'page_id': menu['page_id'], 'parent_id': menu['parent_id'] or False, 'sequence': menu['sequence'], 'website_id': target_website_id}
-    existing_menu_id = models.execute_kw(db, uid, password, "website.menu", "search", [[("name", "=", menu['name']), ("website_id","=",target_website_id)]])
-    
+    menu_name = menu['name']['en']
+    menu_dict = {'name': menu_name, 'url': menu['url'],'page_id': menu['page_id'], 'parent_id': menu['parent_id'] or False, 'sequence': menu['sequence'], 'website_id': target_website_id}
+    menu_id = models.execute_kw(db, uid, password, "website.menu", "search", [[("name", "=", menu_name),("url", "=", menu['url']), ("website_id","=",target_website_id)]])
+
     # Lookup parent menu
     if menu_dict['parent_id']:
         parent_menu_name = re.sub(r'\[.+\]', '', menu_dict['parent_id'][1]).strip()
+        # Switch from home menu to top menu
+        if parent_menu_name == "Home":
+            parent_menu_name = f"Top-Menü für Website {target_website_id}"
         print(f"Lookup parent menu: {parent_menu_name}")
         parent_menu_id = models.execute_kw(db, uid, password, "website.menu", "search", [[("display_name", "=", parent_menu_name), ("website_id","=",target_website_id)]], {'limit': 1})
         if not parent_menu_id:
@@ -83,16 +119,29 @@ for menu in menus:
         print(f"Lookup page: {page_name}")
         page_id = models.execute_kw(db, uid, password, "website.page", "search", [[("name", "=", page_name), ("website_id","=",target_website_id)]], {'limit': 1})
         if not page_id:
-            print(f"Parent menu '{page_name}' not found.")
+            print(f"Parent page '{page_name}' not found.")
             del menu_dict['page_id']
         else:
             menu_dict['page_id'] = page_id[0]
 
-    if existing_menu_id:
+    if menu_id:
         # If it exits update the menu
-        print(f"Update menu: {existing_menu_id}")
-        models.execute_kw(db, uid, password, "website.menu", "write", [existing_menu_id[0], menu_dict])
+        print(f"Update menu: {menu_id}")
+        models.execute_kw(db, uid, password, "website.menu", "write", [menu_id[0], menu_dict])
     else:
         # Otherwise create the menu
         print(f"Create menu: {menu_dict['name']}")
         menu_id = models.execute_kw(db, uid, password, "website.menu", "create", [menu_dict])
+
+    # Update translation
+    translated_menu_fields = ["name"]
+    for field in translated_menu_fields:
+        for lang in lang_codes:
+            value = menu[field][lang]
+            print(f"Write menu {menu_id[0]} field {field} {lang} translation: {value}")
+            models.execute_kw(
+                db, uid, password,
+                "website.menu", "write",
+                [[menu_id[0]], {field: value}],
+                {"context": {"lang": lang}}
+            )

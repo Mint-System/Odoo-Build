@@ -12,6 +12,10 @@ All notable changes to this project will be documented in this file. The format 
 
 * Check grep vs ggrep for Mac OS.
 
+### Updated
+
+* Export import website data with translations
+
 ## 2025-05-16
 
 ### Added

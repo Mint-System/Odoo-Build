@@ -11,6 +11,7 @@ username = os.getenv("ODOO_USERNAME") or "admin"
 password = os.environ.get("ODOO_PASSWORD") or "admin"
 source_website_id = int(os.environ.get("ODOO_WEBSITE_ID") or 1)
 export_folder = "tmp"
+lang_codes = ["de_CH"]
 
 # Connect to Odoo
 print(f"Export website data from {url}/{db}")
@@ -23,6 +24,18 @@ print(f"Export menus from website {source_website_id}.")
 menu_ids = models.execute_kw(db, uid, password, "website.menu", "search", [[("website_id", "=", source_website_id), ("url","not in", ["/default-main-menu", "/", "/contactus"])]])
 menu_fields = ["id", "name", "url", "page_id", "parent_id", "sequence", "website_id"]
 menus = models.execute_kw(db, uid, password, "website.menu", "read", [menu_ids], {"fields": menu_fields})
+
+# Get translation for every menu and every translated field
+translated_menu_fields = ["name"]
+for field in translated_menu_fields:
+    for menu in menus:
+        menu[field] = {
+            "en": menu[field]
+        }
+        for lang in lang_codes:
+            print(f"Export menu {menu['id']} {lang} translation for field {field}.")
+            translated_menu = models.execute_kw(db, uid, password, "website.menu", "read", [[menu["id"]]], {"fields": [field], "context": {"lang": lang}})
+            menu[field][lang] = translated_menu[0].get(field)
 
 # Save menus to website.menu.json
 filepath = os.path.join(export_folder, 'website.menu.json')
@@ -52,4 +65,3 @@ filepath = os.path.join(export_folder, 'ir.attachment.json')
 with open(filepath, 'w') as jsonfile:
     json.dump(attachments, jsonfile, indent=4)
     print(f"Saved {len(attachments)} attachments to {filepath}.")
-
