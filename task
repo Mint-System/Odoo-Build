@@ -303,6 +303,15 @@ function template-odoo-rc() {
       export $VAR
     done
 
+    export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = $GIT_SSH_PUBLIC_KEY")
+    export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = $GIT_SSH_PRIVATE_KEY")
+    export UPLOADCARE_PUBLIC_KEY_PARAM=$([ -n "$UPLOADCARE_PUBLIC_KEY" ] && echo "uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY")
+    export UPLOADCARE_SECRET_KEY_PARAM=$([ -n "$UPLOADCARE_SECRET_KEY" ] && echo "uploadcare.secret_key = $UPLOADCARE_SECRET_KEY")
+    export KEYCLOAK_BASE_URL_PARAM=$([ -n "$KEYCLOAK_BASE_URL" ] && echo "keycloak.base_url = $KEYCLOAK_BASE_URL")
+    export KEYCLOAK_CLIENT_ID_PARAM=$([ -n "$KEYCLOAK_CLIENT_ID" ] && echo "keycloak.client_id = $KEYCLOAK_CLIENT_ID")
+    export KEYCLOAK_CLIENT_SECRET_PARAM=$([ -n "$KEYCLOAK_CLIENT_SECRET" ] && echo "keycloak.client_secret = $KEYCLOAK_CLIENT_SECRET")
+    export KEYCLOAK_REALM_PARAM=$([ -n "$KEYCLOAK_REALM" ] && echo "keycloak.realm = $KEYCLOAK_REALM")
+
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
     fi
