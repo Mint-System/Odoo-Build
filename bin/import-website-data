@@ -21,72 +21,72 @@ common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
 uid = common.authenticate(db, username, password, {})
 models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object", allow_none=True)
 
-# # Load all attachments from json
-# filepath=os.path.join(import_folder, 'ir.attachment.json')
-# with open(filepath, 'r') as jsonfile:
-#     attachments = json.load(jsonfile)
+# Load all attachments from json
+filepath=os.path.join(import_folder, 'ir.attachment.json')
+with open(filepath, 'r') as jsonfile:
+    attachments = json.load(jsonfile)
 
-# # For each attachment check if already exists
-# for attachment in attachments:
-#     attachment_dict = {'name': attachment['name'], 'public': attachment['public'], 'res_model': attachment['res_model'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
-#     attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("name", "=", attachment['name']), ("website_id","=",target_website_id)]])
-#     if attachment_id:
-#         # If it exits update the attachment
-#         print(f"Update attachment: {attachment_id}")
-#         models.execute_kw(db, uid, password, "ir.attachment", "write", [attachment_id[0], attachment_dict])
-#     else:
-#         # Otherwise create the attachment
-#         print(f"Create attachment: {attachment_dict['name']}")
-#         attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "create", [attachment_dict])
-#     attachment["new_id"] = attachment_id[0]
+# For each attachment check if already exists
+for attachment in attachments:
+    attachment_dict = {'name': attachment['name'], 'public': attachment['public'], 'res_model': attachment['res_model'], 'datas': attachment['datas'], 'url': attachment['url'], 'mimetype': attachment['mimetype'], 'website_id': target_website_id}
+    attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "search", [[("name", "=", attachment['name']), ("website_id","=",target_website_id)]])
+    if attachment_id:
+        # If it exits update the attachment
+        print(f"Update attachment: {attachment_id}")
+        models.execute_kw(db, uid, password, "ir.attachment", "write", [attachment_id[0], attachment_dict])
+    else:
+        # Otherwise create the attachment
+        print(f"Create attachment: {attachment_dict['name']}")
+        attachment_id = models.execute_kw(db, uid, password, "ir.attachment", "create", [attachment_dict])
+    attachment["new_id"] = attachment_id[0]
 
-# # Save attachments to ir.attachment.json
-# filepath = os.path.join(import_folder, 'ir.attachment.json')
-# with open(filepath, 'w') as jsonfile:
-#     json.dump(attachments, jsonfile, indent=4)
-#     print(f"Saved {len(attachments)} attachments to {filepath}.")
+# Save attachments to ir.attachment.json
+filepath = os.path.join(import_folder, 'ir.attachment.json')
+with open(filepath, 'w') as jsonfile:
+    json.dump(attachments, jsonfile, indent=4)
+    print(f"Saved {len(attachments)} attachments to {filepath}.")
 
-# # Load all pages from json
-# filepath=os.path.join(import_folder, 'website.page.json')
-# with open(filepath, 'r') as jsonfile:
-#     pages = json.load(jsonfile)
+# Load all pages from json
+filepath=os.path.join(import_folder, 'website.page.json')
+with open(filepath, 'r') as jsonfile:
+    pages = json.load(jsonfile)
 
-# # For each page check if already exists
-# for page in pages:
-#     arch = page['arch']
+# For each page check if already exists
+for page in pages:
+    arch = page['arch']
     
-#     # Convert image links in arch
-#     # Example: src=\"/web/image/21451-b2422647/alexandra.nogueria-e1723468264606.webp\"
-#     # Pattern: src=\"/web/image/{id}-b2422647/{filename}\"
+    # Convert image links in arch
+    # Example: src=\"/web/image/21451-b2422647/alexandra.nogueria-e1723468264606.webp\"
+    # Pattern: src=\"/web/image/{id}-b2422647/{filename}\"
 
-#     # Find all image links in the form: src="/web/image/{id}-[token]/{filename}"
-#     pattern = r'src="(/web/image/(\d+)-[a-zA-Z0-9]+/([^"]+))"'
-#     links = re.findall(pattern, arch)
+    # Find all image links in the form: src="/web/image/{id}-[token]/{filename}"
+    pattern = r'src="(/web/image/(\d+)-[a-zA-Z0-9]+/([^"]+))"'
+    links = re.findall(pattern, arch)
 
-#     for full_match, current_id, filename in links:
-#         # Look up new ID by filename
-#         matches = [a for a in attachments if a["name"] == filename]
-#         if not matches:
-#             continue  # Skip if filename not found in attachments
+    for full_match, current_id, filename in links:
+        # Look up new ID by filename
+        matches = [a for a in attachments if a["name"] == filename]
+        if not matches:
+            continue  # Skip if filename not found in attachments
 
-#         new_id = matches[0]["new_id"]
+        new_id = matches[0]["new_id"]
 
-#         # Replace old ID with new ID in the matched URL
-#         print(f"Replace image id {current_id} with id {new_id} in page {page['name']}.")
-#         arch = arch.replace(f"/web/image/{current_id}", f"/web/image/{new_id}")
+        # Replace old ID with new ID in the matched URL
+        print(f"Replace image id {current_id} with id {new_id} in page {page['name']}.")
+        arch = arch.replace(f"/web/image/{current_id}", f"/web/image/{new_id}")
 
-#     page['arch'] = arch
+    page['arch'] = arch
 
-#     page_dict = {'name': page['name'], 'type': page['type'], 'key': page['key'], 'track': page['track'], 'arch_base': page['arch'], 'is_published': page['is_published'], 'url': page['url'], 'website_url': page['website_url'], 'website_id': target_website_id}
-#     page_id = models.execute_kw(db, uid, password, "website.page", "search", [[("name", "=", page['name']), ("website_id","=",target_website_id)]])
-#     if page_id:
-#         # If it exits update the page
-#         print(f"Update page: {page_id}")
-#         models.execute_kw(db, uid, password, "website.page", "write", [page_id[0], page_dict])
-#     else:
-#         # Otherwise create the page
-#         print(f"Create page: {page_dict['name']}")
-#         page_id = models.execute_kw(db, uid, password, "website.page", "create", [page_dict])
+    page_dict = {'name': page['name'], 'type': page['type'], 'key': page['key'], 'track': page['track'], 'arch_base': page['arch'], 'is_published': page['is_published'], 'url': page['url'], 'website_url': page['website_url'], 'website_id': target_website_id}
+    page_id = models.execute_kw(db, uid, password, "website.page", "search", [[("name", "=", page['name']), ("website_id","=",target_website_id)]])
+    if page_id:
+        # If it exits update the page
+        print(f"Update page: {page_id}")
+        models.execute_kw(db, uid, password, "website.page", "write", [page_id[0], page_dict])
+    else:
+        # Otherwise create the page
+        print(f"Create page: {page_dict['name']}")
+        page_id = models.execute_kw(db, uid, password, "website.page", "create", [page_dict])
 
 # Load all menus from json
 filepath=os.path.join(import_folder, 'website.menu.json')
