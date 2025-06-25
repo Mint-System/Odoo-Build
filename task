@@ -597,17 +597,21 @@ function build() {
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
-    if [[ "15.0,16.0" =~ "$ODOO_VERSION" ]]; then
-        PYTHON_VERSION="3.9"
-    else
-        PYTHON_VERSION="3.12"
-    fi
-
-    if [[ "17.0" =~ "$ODOO_VERSION" ]]; then
-        PYTHON_VERSION="3.11"
-    else
-        PYTHON_VERSION="3.12"
-    fi
+    case "$ODOO_VERSION" in
+        "15.0")
+            PYTHON_VERSION="3.9"
+            ;;
+        "16.0")
+            PYTHON_VERSION="3.9"
+            ;;
+        "17.0")
+            PYTHON_VERSION="3.11"
+            ;;
+        *)
+            PYTHON_VERSION="3.12"
+            ;;
+    esac
+    echo "Python version is: $PYTHON_VERSION"
 
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
         echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"

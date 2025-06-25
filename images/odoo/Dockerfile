@@ -1,5 +1,5 @@
 # Stage 1: Build environment
-ARG PYTHON_VERSION=3.12
+ARG PYTHON_VERSION
 FROM python:${PYTHON_VERSION}-slim-bookworm AS builder
 
 # Retrieve the Odoo version
