@@ -159,6 +159,20 @@ function help-table() {
     printf "$COLUMN" "zip-module" "[path]" "Create zip file for module."
 }
 
+function help() {
+    echo
+    if [ -n "$1" ]; then
+        help-table | grep -i "$1" | column -t -s'|'
+    else
+        echo "task <command> [options]"
+        echo
+        echo "commands:"
+        echo
+        help-table
+    fi
+    echo
+}
+
 # Static env vars
 
 PASS_ENTRY="env/${PWD##*/}"
@@ -215,7 +229,6 @@ fi
 # Import commands
 
 [ -f ~/taskfile.build/bin/init-config-dir ] && source ~/taskfile.build/bin/init-config-dir
-[ -f ~/taskfile.build/bin/help ] && source ~/taskfile.build/bin/help
 [ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
 [ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
 [ -f ~/taskfile.build/bin/show-env ] && source ~/taskfile.build/bin/show-env
@@ -2498,16 +2511,12 @@ if declare -f "$1" > /dev/null; then
     "$1" "${@:2}"
 else
     case "$1" in
-        help)
-            help task
-            exit 1
-            ;;
         source)
             activate-venv
             ;;
         *)
             echo "Unknown command: $1"
-            help task
+            help
             exit 1
             ;;
     esac
