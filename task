@@ -303,6 +303,8 @@ function template-odoo-rc() {
       export $VAR
     done
 
+    export BASE_URL_WEBSITE_PARAM=$([ -n "$BASE_URL_WEBSITE" ] && echo "git.ssh.public.key = $BASE_URL_WEBSITE")
+    export BASE_URL_APP_PARAM=$([ -n "$BASE_URL_APP" ] && echo "git.ssh.private.key = $BASE_URL_APP")
     export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = $GIT_SSH_PUBLIC_KEY")
     export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = $GIT_SSH_PRIVATE_KEY")
     export UPLOADCARE_PUBLIC_KEY_PARAM=$([ -n "$UPLOADCARE_PUBLIC_KEY" ] && echo "uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY")
