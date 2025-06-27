@@ -843,13 +843,13 @@ function install() {
             echo "wkhtmltopdf version is already 0.12.4"
         fi
 
-        echo "Update apt repo"
+        echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
         sudo apt update
 
-        echo "Install python-ldap and psycopg2 build dependencies"
+        echo -e "\033[38;5;214mApt\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
-        echo "Install xmllint and gettext"
+        echo -e "\033[38;5;214mApt\033[0m: Install xmllint and gettext"
         sudo apt install -y libxml2-utils gettext
 
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
@@ -859,10 +859,10 @@ function install() {
         echo "This will give a depreciation warning and you need to enter your sudo password."
         brew install gettext wkhtmltopdf libsasl2 openldap openssl libxml2 grep
 
-        echo "Install the binary version of psycopg2"
+        echo -e "\033[38;5;214mPython\033[0m: Install the binary version of psycopg2"
         uv pip install psycopg2-binary --force
 
-        echo "Add LDFLAGS to .env file"
+        echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
         if ! $GREP -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
           echo '' >> .env
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
@@ -873,18 +873,23 @@ function install() {
         exit 1
     fi
 
-    echo "Setup taskfile repo"
-    [ ! -d "$HOME/taskfile.build" ] && git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
+    if [ ! -d "$HOME/taskfile.build" ]; then
+        echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
+        git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
+    else
+        echo -e "\033[38;5;214mGit\033[0m: Pull taskfile repo"
+        git -C ~/taskfile.build pull
+    fi
 
-    echo "Install Odoo development tools"
+    echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
     uv pip install ${PYTHON_NOTIFY}
     uv pip install -r requirements.txt
 
     if [ -f "odoo/requirements.txt" ]; then
-        echo "Install Odoo dependencies"
+        eecho -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
         uv pip install -r odoo/requirements.txt
 
-        echo "Configure Odoo as python package"
+        echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
         uv pip install pip
         pip install -e odoo
     fi
@@ -892,7 +897,7 @@ function install() {
     if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.conf; then
         sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
         sudo sysctl -p /etc/sysctl.conf
-        echo "Updated fs.inotify.max_user_watches to 524288"
+        echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
     fi
 }
 
