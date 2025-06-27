@@ -2208,8 +2208,10 @@ function checkout-git-folder() {
     echo "Checkout submodule commits."
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
+
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
         COMMIT_HASH=$($GREP "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+        
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
             git -C "$GIT_FOLDER" stash
@@ -2231,9 +2233,18 @@ function switch-git-folder() {
 
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Switch git folder branch to $ODOO_VERSION: $GIT_FOLDER"
-        git -C "$GIT_FOLDER" stash
-        git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
+        
+        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
+        
+        if [ "$SHALLOW" = "true" ]; then
+            echo "Fetch branch $ODOO_VERSION from origin and then switch."
+            git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
+            git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
+        else
+            echo "Switch git folder branch to $ODOO_VERSION: $GIT_FOLDER"
+            git -C "$GIT_FOLDER" stash
+            git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
+        fi
     done
 }
 
@@ -2325,11 +2336,8 @@ function checkout() {
     ODOO_VERSION="$1"
 
     load-version
-
     clone-git-folder
-
     checkout-git-folder
-
     switch-git-folder
 }
 
