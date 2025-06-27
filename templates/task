@@ -75,7 +75,7 @@ else
         all)
             install
             lint
-            doc
+            docs
             ;;
         source)
             source env/bin/activate

@@ -76,3 +76,7 @@
 	path = oca/queue
 	url = git@github.com:OCA/queue.git
 	branch = 18.0
+[submodule "addons/sale_workflow"]
+	path = addons/sale_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
+	branch = 18.0
