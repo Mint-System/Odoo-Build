@@ -1161,7 +1161,8 @@ ID: `mint_system.sale.report_saleorder_document.add_general_information`
                 <table style="margin-left: 0px; margin-top: 30px; border: transparent">
                     <tr style="height: 100px;">
                         <td style="width: 335px; font-size: 6pt; padding-bottom: 0px">
-                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Lapp Engineering AG</span>
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Lapp Engineering AG</span><br/>
+                            <span>Aktuelle Version siehe www.lapp.ch</span>
                         </td>
                         <td style="width: 50px"/>
                         <td style="width: 300px; vertical-align: top">
@@ -1186,7 +1187,8 @@ ID: `mint_system.sale.report_saleorder_document.add_general_information`
                 <table style="margin-left: 0px; margin-top: 30px; border: transparent">
                     <tr style="height: 100px;">
                         <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
+                            <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span><br/>
+                            <span>Aktuelle Version siehe www.xinomer.ch</span>
                         </td>
                         <td style="width: 50px"/>
                         <td style="width: 300px; vertical-align: top">
@@ -1298,6 +1300,25 @@ ID: `mint_system.sale.report_saleorder_document.add_hs_code2`
 </data>
 ```
 Source: [snippets/sale.report_saleorder_document.add_hs_code2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_hs_code2.xml)
+
+### Add Incoterm  
+ID: `mint_system.sale.report_saleorder_document.add_incoterm`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+  
+<xpath expr="/t/t/div/div[5]" position="after">
+    <div class="row">
+      <div class="col">
+        <span t-if="doc.incoterm.display_name">
+           Incoterms: <strong t-field="doc.incoterm.display_name"/>
+        </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.add_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.add_incoterm.xml)
 
 ### Add Incoterm Blanket Order  
 ID: `mint_system.sale.report_saleorder_document.add_incoterm_blanket_order`  
@@ -2169,11 +2190,12 @@ ID: `mint_system.sale.report_saleorder_document.get_position2`
     </xpath>
     <xpath expr="//t[1]/td[1]" position="before">
         <td id="position" style="vertical-align: top;">
-            <span t-field="line.sequence"/>
+            <span t-field="line.position"/>
             <span/>
         </td>
     </xpath>
 </data>
+
 ```
 Source: [snippets/sale.report_saleorder_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.get_position2.xml)
 
@@ -2428,6 +2450,20 @@ ID: `mint_system.sale.report_saleorder_document.hide_product_packaging_id`
 
 ```
 Source: [snippets/sale.report_saleorder_document.hide_product_packaging_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_product_packaging_id.xml)
+
+### Hide Secondary Unit  
+ID: `mint_system.sale.report_saleorder_document.hide_secondary_unit`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_secondary_uom_id']" position="replace">
+    </xpath>
+    <xpath expr="//td[@name='td_secondary_uom_id']" position="replace">
+    </xpath>
+
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.hide_secondary_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.hide_secondary_unit.xml)
 
 ### Hide Title  
 ID: `mint_system.sale.report_saleorder_document.hide_title`  
@@ -2960,7 +2996,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_infotable_tissa`
 
       <tr>
         <td>
-          VAT-No:
+          VAT:
         </td>
         <td>
           <span t-field="doc.partner_id.vat"/>
@@ -2986,7 +3022,7 @@ ID: `mint_system.sale.report_saleorder_document.replace_infotable_tissa`
       </tr>
 
       <tr>
-        <td>Ihre Bestellung:</td>
+        <td>Your Order:</td>
         <td>         
           <span t-field="doc.client_order_ref"/>       
         </td>
@@ -3812,6 +3848,14 @@ ID: `mint_system.sale.report_saleorder_document.style_tissa`
 			}
 		</style>
     </xpath>
+    
+    <xpath expr="//th[@name='th_product_uom']" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+    <xpath expr="//td[@name='td_product_uom']" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+    
     <xpath expr="//div[@t-field='doc.partner_invoice_id']" position="attributes">
         <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
     </xpath>
@@ -3819,7 +3863,6 @@ ID: `mint_system.sale.report_saleorder_document.style_tissa`
         <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
     </xpath>
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_tissa.xml)
 

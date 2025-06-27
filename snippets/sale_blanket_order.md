@@ -197,22 +197,22 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
 ```
 Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
-### Add Payment Terms  
-ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_payment_terms`  
+### Add Payment Term  
+ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term`  
 ```xml
 <data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
-    <xpath expr="/t/t/div/div[3]" position="after">
-        <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
+    <xpath expr="//p[@t-field='doc.note']" position="before">
+        <div class="row">
             <div class="col">
-                <span>Payment Terms: </span>
-                <span t-field="doc.payment_term_id.name"/>
+                <span t-if="doc.payment_term_id.name">
+          Payment Terms: <strong t-field="doc.payment_term_id.name"/>
+                </span>
             </div>
         </div>
     </xpath>
 </data>
-
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_payment_terms.xml)
+Source: [snippets/sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_payment_term.xml)
 
 ### Add Product Uom  
 ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom`  

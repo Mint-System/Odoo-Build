@@ -87,6 +87,21 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)
 
+### Remove Country Id Code  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code`  
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
+    <xpath expr="//div[@id='receipt_indication_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
+    
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
+    <xpath expr="//div[@id='indications_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
+    
+</data>
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml)
+
 ### Remove Title Prefix  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`  
 ```xml

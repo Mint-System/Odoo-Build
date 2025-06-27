@@ -32,14 +32,20 @@ ID: `mint_system.base.contact_name.modify_name`
     <xpath expr="//div" position="replace">
         <t t-if="object.parent_name">
             <div t-esc="object.parent_name"/>
+            <!-- 
             <div t-esc="object.parent_id.name2"/>
+            -->
             <span t-field="object.title"/>
             <span t-esc="object.name"/>
+            <!--
             <div t-esc="object.department"/>
+            -->
         </t>
         <t t-if="not object.parent_name">
             <div t-esc="object.name"/>
+            <!--
             <span t-esc="object.name2"/>
+            -->
         </t>
         <t t-if="options.get('country_image') and 'country_id' in fields and object.country_id and object.country_id.image_url">
             <span t-field="object.country_id.image_url" t-options="{&quot;widget&quot;: &quot;image_url&quot;, &quot;class&quot;: &quot;country_flag&quot;}"/>
@@ -401,6 +407,17 @@ ID: `mint_system.base.view_partner_form.attributes_child_ids`
 
 ```
 Source: [snippets/base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/base.view_partner_form.attributes_child_ids.xml)
+
+### Hide Company Registry  
+ID: `mint_system.base.view_partner_form.hide_company_registry`  
+```xml
+<data inherit_id="base.view_partner_form" priority="50">
+  <xpath expr="//field[@name='company_registry']" position="attributes">
+    <attribute name="invisible">1</attribute>
+  </xpath>
+</data>
+```
+Source: [snippets/base.view_partner_form.hide_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/base.view_partner_form.hide_company_registry.xml)
 
 ### Hide Meeting  
 ID: `mint_system.base.view_partner_form.hide_meeting`  

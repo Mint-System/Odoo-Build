@@ -378,8 +378,8 @@ Source: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.c
 ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`  
 ```xml
 <data inherit_id="web.external_layout_standard" priority="50">
-  <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
-
+  <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
+   
     <t t-if="report_type == 'pdf'">
 
       <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
@@ -398,10 +398,9 @@ ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`
       </div>
 
     </t>
-
+  
   </xpath>
 </data>
-
 ```
 Source: [snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml)
 
@@ -432,7 +431,7 @@ ID: `mint_system.web.external_layout_standard.footer_airwork`
             <td>
               <span>Bahnhofweg 1</span>
             </td>
-            <td>E-Mail office@air-work.com</td>
+            <td>E-Mail office@air-work.swiss</td>
             <td>Schulstrasse 1</td>
             <td>IBAN EUR: CH28 8080 8009 7827 3963 0</td>
           </tr>

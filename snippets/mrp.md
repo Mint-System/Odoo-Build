@@ -804,7 +804,7 @@ Source: [snippets/mrp.mrp_production_workorder_tree_view.hide_production_id.xml]
 ### Filter Wip  
 ID: `mint_system.mrp.oee_search_view.filter_wip`  
 ```xml
-<data inherit_id="mrp.oee_tree_view" priority="50">
+<data inherit_id="mrp.oee_search_view" priority="50">
     <xpath expr="//filter[@name='availability']" position="before">
         <filter name="wip" string="WIP" domain="[('x_production_id_state','=','progress')]"/>
     </xpath>

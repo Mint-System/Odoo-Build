@@ -471,6 +471,91 @@ ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`
 Source: [snippets/purchase.purchase_order_view_tree.x_payment_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_tree.x_payment_tree.xml)
 
 ## Report Purchaseorder Document  
+### Add Address Copy  
+ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+	<xpath expr="//t[@t-set='address']" position="after">
+
+		<table name="logistic" style="margin-left: 0px; margin-top: 30px; border: transparent">
+
+			<style>
+    .company_invoice_line {
+    margin-top: 1mm;
+    margin-bottom: 2mm;
+    }
+			</style>
+
+			<tr style="height: 80px;">
+
+				<td style="width: 290px; vertical-align: top; padding-left: 5mm;">
+
+
+					<span style="font-size: 7pt">Lieferadresse</span>
+					<hr class="company_invoice_line"/>
+
+					<div>
+						<t>
+							<div t-field="o.picking_type_id.warehouse_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+						</t>
+					</div>
+
+				</td>
+				<td style="width: 70px"/>
+				<td style="width: 260px; vertical-align: top">
+					<span style="font-size: 7pt">Rechnungsadresse</span>
+					<hr class="company_invoice_line"/>
+					<div>
+						<t>
+							<div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+						</t>
+					</div>
+				</td>
+			</tr>
+		</table>
+
+
+		<table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3">
+
+			<tr>
+				<td style="width: 120px; vertical-align: top; padding-left: 5mm;">
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.vat">
+						<div>USt-IdNr.</div>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_vat">
+						<div>MWST Nr.</div>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_eori">
+						<div>EORI Nr.</div>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_zaz">
+						<div>ZAZ Konto Nr.</div>
+					</t>
+				</td>
+				<td style="width: 180px; vertical-align: top">
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.vat">
+						<div t-field="o.picking_type_id.warehouse_id.partner_id.vat"/>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_vat">
+						<div t-field="o.picking_type_id.warehouse_id.partner_id.x_vat"/>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_eori">
+						<div t-field="o.picking_type_id.warehouse_id.partner_id.x_eori"/>
+					</t>
+					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_zaz">
+						<div t-field="o.picking_type_id.warehouse_id.partner_id.x_zaz"/>
+					</t>
+				</td>
+			</tr>
+
+		</table>
+
+	</xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_address copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_address copy.xml)
+
 ### Add Agreement  
 ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`  
 ```xml
@@ -853,6 +938,41 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_total`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_total.xml)
 
+### General Information  
+ID: `mint_system.purchase.report_purchaseorder_document.general_information`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//p[@t-field='o.notes']" position="after">
+       
+            <t t-if="o.company_id.id == 1">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr>
+                        <td style="width: 335px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Einkaufsbedingungen der Lapp Engineering AG.</span><br/>
+                            <span>Aktuelle Version siehe www.lappengineering.com</span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+                
+             <t t-if="o.company_id.id == 2">
+                <table style="margin-left: 0px; margin-top: 30px; border: transparent">
+                    <tr>
+                        <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
+                            <span>Es gelten die Allgemeinen Einkaufsbedingungen der Xinomer AG.</span><br/>
+                            <span>Aktuelle Version siehe www.xinomer.ch</span>
+                        </td>
+                    </tr>
+                </table>
+            </t>
+
+    </xpath>
+	
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.general_information.xml)
+
 ### Get Position  
 ID: `mint_system.purchase.report_purchaseorder_document.get_position`  
 ```xml
@@ -883,6 +1003,29 @@ ID: `mint_system.purchase.report_purchaseorder_document.header_margin`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.header_margin.xml)
+
+### Hide Taxes  
+ID: `mint_system.purchase.report_purchaseorder_document.hide_taxes`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_taxes']" position="replace">
+        <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>
+        <th name="th_taxes" t-if="display_tax">
+            <strong>Taxes</strong>
+        </th>
+    </xpath>
+
+    <xpath expr="//td[@name='td_taxes']" position="replace">
+        <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>
+        <td name="td_taxes" t-if="display_tax" t-attf-class="text-end {{ 'text-nowrap' if len(taxes) &lt; 10 else '' }}">
+            <span t-out="taxes">Tax 15%</span>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.hide_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.hide_taxes.xml)
 
 ### Modify Main Table  
 ID: `mint_system.purchase.report_purchaseorder_document.modify_main_table`  
@@ -1766,6 +1909,40 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_trimada`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_trimada.xml)
 
+### Style Xinomer  
+ID: `mint_system.purchase.report_purchaseorder_document.style_xinomer`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+
+	<xpath expr="//h2" position="attributes">
+		<attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
+	</xpath>
+
+	<xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="attributes">
+		<attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
+		<attribute name="style">border-top-width: 1px</attribute>
+	</xpath>
+
+	<xpath expr="//th[1]" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="class">text-start</attribute>
+	</xpath>
+
+	<xpath expr="//th[@name='th_taxes']" position="attributes">
+		<attribute name="class">text-end</attribute>
+	</xpath>
+
+	<xpath expr="//tbody//td/span[@t-field='line.date_planned']" position="attributes">
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_xinomer.xml)
+
 ### Terms And Conditions  
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`  
 ```xml
@@ -2171,7 +2348,7 @@ ID: `mint_system.purchase.report_purchasequotation_document.get_position`
 ```xml
 <data inherit_id="purchase.report_purchasequotation_document" priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
-        <th>
+        <th class="text-start">
             <strong>Pos</strong>
         </th>
     </xpath>
@@ -2181,7 +2358,6 @@ ID: `mint_system.purchase.report_purchasequotation_document.get_position`
         </td>
     </xpath>
 </data>
-
 ```
 Source: [snippets/purchase.report_purchasequotation_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.get_position.xml)
 
@@ -2674,6 +2850,43 @@ ID: `mint_system.purchase.report_purchasequotation_document.style_moser`
 
 ```
 Source: [snippets/purchase.report_purchasequotation_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_moser.xml)
+
+### Style Tissa  
+ID: `mint_system.purchase.report_purchasequotation_document.style_tissa`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
+			table#info {
+				font-size: 9pt;
+			}
+			h2 {
+			  font-size: 1.2rem;
+			  font-weight: bold;
+			  margin: 50px 0 30px 0
+			}
+			body {
+				font-size: 11pt;
+			}
+		</style>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.picking_type_id.warehouse_id.partner_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+
+	<xpath expr="//div[@t-field='o.partner_id']" position="attributes">
+		<attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+	</xpath>
+	
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="class">text-start</attribute>&gt;
+	</xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.style_tissa.xml)
 
 ### Style Trimada  
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`  

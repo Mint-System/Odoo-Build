@@ -155,7 +155,7 @@ ID: `mint_system.account.report_invoice_document.add_address`
 
             <tr style="height: 80px;">
                 <td style="width: 290px; vertical-align: top; padding-left: 5mm; ">
-                    <span style="font-size: 7pt">Warenempfänger</span>
+                    <span style="font-size: 7pt">Recipient of goods</span>
                     <hr class="company_invoice_line"/>
                     <div>
                         <t>
@@ -175,7 +175,7 @@ ID: `mint_system.account.report_invoice_document.add_address`
                 </td>
                 <td style="width: 70px"/>
                 <td style="width: 260px; vertical-align: top;">
-                    <span style="font-size: 7pt">Warenversender</span>
+                    <span style="font-size: 7pt">Shipper of goods</span>
                     <hr class="company_invoice_line"/>
                     <t t-if="o.x_sale_order_id">
                         <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/><br/>
@@ -350,7 +350,8 @@ ID: `mint_system.account.report_invoice_document.add_general_information`
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
                 <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span>
+                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span><br/>
+                    <span>Aktuelle Version siehe www.xinomer.ch</span>
                 </td>
                 <td style="width: 50px"/>
                 <td style="width: 300px; vertical-align: top">
@@ -376,7 +377,6 @@ ID: `mint_system.account.report_invoice_document.add_general_information`
 
     </xpath>
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_general_information.xml)
 
@@ -1119,15 +1119,12 @@ ID: `mint_system.account.report_invoice_document.get_position`
   </xpath>
 
   <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-    <t t-if="line.sale_line_ids or line.purchase_order_id">
-      <td id="position">
-        <span t-esc="line.position"/>
-      </td>
-    </t>
+    <td id="position">
+      <span t-esc="line.position"/>
+    </td>
   </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.get_position.xml)
 
@@ -1144,7 +1141,7 @@ ID: `mint_system.account.report_invoice_document.get_position2`
     <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
         
         <td id="position">
-            <span t-esc="line.sequence"/>
+            <span t-esc="line.position"/>
         </td>
     </xpath>
 </data>
@@ -1840,22 +1837,20 @@ ID: `mint_system.account.report_invoice_document.net_value_summary`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='total']//table/t[1]" position="before">
-        <!-- Version 16
-     <xpath expr="//div[@id='total']//table/t[1]" position="before">
-    -->
+
         <t t-set="net_value_of_goods" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type == 'product').mapped('price_subtotal'))"/>
         <t t-set="additional_expenses" t-value="sum(o.invoice_line_ids.filtered(lambda l: l.product_id.type != 'product').mapped('price_subtotal'))"/>
         <tr>
             <!-- de_CH: Nettowarenwert -->
             <td>Net Value of Goods</td>
-            <td class="text-right">
+            <td class="text-end">
                 <span t-esc="net_value_of_goods" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
             </td>
         </tr>
         <tr>
             <!-- de_CH: Zusatzaufwendungen -->
             <td>Additional Expenses</td>
-            <td class="text-right">
+            <td class="text-end">
                 <span t-esc="additional_expenses" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
             </td>
         </tr>
@@ -2660,6 +2655,24 @@ ID: `mint_system.account.report_invoice_document.replace_infotable`
 
 ```
 Source: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_infotable.xml)
+
+### Replace Payment Communication  
+ID: `mint_system.account.report_invoice_document.replace_payment_communication`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//p[@name='payment_communication']" position="replace">
+
+    <p t-if="o.move_type in ('out_invoice', 'in_refund') and o.payment_reference" name="payment_communication" class="mt-4">
+      Please use the following communication for your payment : <b>
+      <span t-field="o.payment_reference"/>
+      </b>
+    </p>
+
+  </xpath>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.replace_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_payment_communication.xml)
 
 ### Replace Product Description  
 ID: `mint_system.account.report_invoice_document.replace_product_description`  
@@ -3521,20 +3534,32 @@ ID: `mint_system.account.report_invoice_document.style_tissa`
             }
         </style>
     </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+        <attribute name="class">table table-sm o_main_table</attribute>
+    </xpath>
+    
+    <xpath expr="//table[@name='invoice_line_table']//th[@id='position']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+    
     <xpath expr="//table[@name='invoice_line_table']/thead/tr/th[5]" position="attributes">
-        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+        <attribute name="t-attf-class">text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']/tbody/t/tr/t/td[5]" position="attributes">
-        <attribute name="t-attf-class">text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
+        <attribute name="t-attf-class">text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}</attribute>
     </xpath>
     <xpath expr="//p[@name='payment_communication']" position="attributes">
         <attribute name="style">margin-bottom: 0px</attribute>
     </xpath>
+    
+    <!--
     <xpath expr="//p[@name='payment_term']" position="attributes">
         <attribute name="style">margin-bottom: 0px</attribute>
     </xpath>
+    -->
+    
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.style_tissa.xml)
 
@@ -3683,8 +3708,9 @@ Source: [snippets/account.report_invoice_document.tissa_rechnungstext.xml](https
 ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
+
+  <xpath expr="//div[@id='informations']" position="replace">
+    <style>
     table#info {
       width: 100%;
       margin-bottom: 45px;
@@ -3698,74 +3724,89 @@ ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`
       font-size: 9pt;
     }
     </style>
-        <table id="info">
-            <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
-            <tr>
-                <td>
-          Kontaktnummer:
-        </td>
-                <td>
-                    <span t-field="o.partner_id.id"/>
-                </td>
-                <td>
-          Datum:
-        </td>
-                <td>
-                    <span t-field="o.invoice_date"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-          USt-IdNr:
-        </td>
-                <td>
-                    <span t-field="o.partner_id.vat"/>
-                </td>
-                <td>Unser Auftrag:</td>
-                <td>
-                    <t t-if="order_id.origin"><span t-field="order_id.origin"/>
- / 
-          </t>
-                    <span t-field="o.invoice_origin"/>
-                </td>
-            </tr>
-            <tr>
-                <td width="16%">EORI-Nummer:</td>
-                <td width="44%">
-                    <span t-field="o.partner_id.x_studio_eori_nummer"/>
-                </td>
-                <td>Abruf:</td>
-                <td>
-                    <span t-field="order_id.comment"/>
-                    <t t-if="order_id.x_studio_kommission">
-             /            <span t-field="order_id.x_studio_kommission"/>
-          </t>
-                </td>
-            </tr>
-            <tr>
-                <td>Ihre Bestellung:</td>
-                <td>
-                    <span t-field="order_id.client_order_ref"/>
-                </td>
-                <td>Ansprechpartner/in:</td>
-                <td>
-                    <span t-field="o.partner_id.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td/>
-                <td>
-          MwSt-Nr:
-        </td>
-                <td>
-                    <span t-field="o.company_id.vat"/>
-                </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
+    <table id="info">
 
+      <tr>
+        <td>
+          Contact Number:
+        </td>
+        <td>
+          <span t-field="o.partner_id.id"/>
+        </td>
+        <td>
+          Date:
+        </td>
+        <td>
+          <span t-field="o.invoice_date"/>
+        </td>
+      </tr>
+
+      <!-- Get all sale orders without duplicates -->
+      <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>
+
+      <tr>
+        <td>
+          VAT:
+        </td>
+        <td>
+          <span t-field="o.partner_id.vat"/>
+        </td>
+
+        <td>Our Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <t t-if="order.origin">
+              <span t-field="order.origin"/>
+ / 
+            </t>
+          </t>
+          <span t-field="o.invoice_origin"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td width="16%">EORI-Number:</td>
+        <td width="44%">
+          <span t-field="o.partner_id.x_studio_eori_nummer"/>
+        </td>
+        <td>Call-off Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <span t-field="order.comment"/>
+            <t t-if="order.x_studio_kommission">
+             /              <span t-field="ordere.x_studio_kommission"/>
+            </t>
+          </t>
+        </td>
+      </tr>
+
+      <tr>
+        <td>Your Order:</td>
+        <td>
+          <t t-foreach="sale_orders" t-as="order">
+            <span t-field="order.client_order_ref"/>
+          </t>
+        </td>
+        <td>Our Contact:</td>
+        <td>
+          <span t-field="o.partner_id.user_id"/>
+        </td>
+      </tr>
+
+      <tr>
+        <td/>
+        <td/>
+        <td>
+          VAT-No:
+        </td>
+        <td>
+          <span t-field="o.company_id.vat"/>
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+</data>
 ```
 Source: [snippets/account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.tissa_replace_infotable.xml)
 
@@ -3950,6 +3991,31 @@ ID: `mint_system.account.view_account_invoice_filter.partner_id`
 
 ```
 Source: [snippets/account.view_account_invoice_filter.partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_account_invoice_filter.partner_id.xml)
+
+## View Account Invoice Report Search  
+### Domain X Shipping Id  
+ID: `mint_system.account.view_account_invoice_report_search.domain_x_shipping_id`  
+```xml
+<data inherit_id="account.view_account_invoice_report_search" priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+            <field name="x_shipping_id"/>
+            <filter name="filter_shipping_id" domain="[('x_shipping_id', 'ilike', '%(self)s')]"/>
+    </xpath>
+</data>
+```
+Source: [snippets/account.view_account_invoice_report_search.domain_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_account_invoice_report_search.domain_x_shipping_id.xml)
+
+### Group X Shipping Id  
+ID: `mint_system.account.view_account_invoice_report_search.group_x_shipping_id`  
+```xml
+<data inherit_id="account.view_account_invoice_report_search" priority="50">
+    <filter name="partner_id" position="after">
+         <filter name="x_shipping_id" context="{'group_by':'x_shipping_id','residual_visible':True}"/>
+    </filter>
+</data>
+
+```
+Source: [snippets/account.view_account_invoice_report_search.group_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_account_invoice_report_search.group_x_shipping_id.xml)
 
 ## View Account Journal Form  
 ### Show Payment Method Code  

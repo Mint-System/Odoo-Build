@@ -157,6 +157,26 @@ ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
 ```
 Source: [snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_bank_statement.x_cashbox_start_ids.xml)
 
+## Account Invoice Report  
+### X Shipping Address  
+ID: `mint_system.ir_model.account_invoice_report.x_shipping_address`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_shipping_address" model="ir.model.fields">
+        <field name="field_description">Lieferadresse</field>
+        <field name="model">account.invoice.report</field>
+        <field name="model_id" ref="account.model_account_invoice_report"/>
+        <field name="name">x_shipping_id</field>
+        <field name="readonly" eval="True"/>
+        <field name="ttype">many2one</field>
+        <field name="related">move_id.partner_shipping_id</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.account_invoice_report.x_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_invoice_report.x_shipping_address.xml)
+
 ## Account Move  
 ### X Account Codes  
 ID: `mint_system.ir_model.account_move.x_account_codes`  
@@ -3179,6 +3199,45 @@ ID: `mint_system.ir_model.stock_location.x_should_be_valued`
 ```
 Source: [snippets/ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_location.x_should_be_valued.xml)
 
+## Stock Lot  
+### X Product Weight  
+ID: `mint_system.ir_model.stock_lot.x_product_weight`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_product_weight" model="ir.model.fields">
+        <field name="field_description">Produktgewicht</field>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="name">x_product_weight</field>        
+        <field name="readonly" eval="True"/>       
+        <field name="ttype">float</field>
+        <field name="related">product_id.product_weight</field>        
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_lot.x_product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_lot.x_product_weight.xml)
+
+### X Weight Uom Name  
+ID: `mint_system.ir_model.stock_lot.x_weight_uom_name`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_weight_uom_name" model="ir.model.fields">
+        <field name="field_description">Produktgewicht Masseinheit</field>
+        <field name="model">stock.lot</field>
+        <field name="model_id" ref="stock.model_stock_lot"/>
+        <field name="name">x_weight_uom_id</field>        
+        <field name="readonly" eval="True"/>       
+        <field name="ttype">char</field>
+        <field name="related">product_id.weight_uom_id.name</field>        
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_lot.x_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_lot.x_weight_uom_name.xml)
+
 ## Stock Move  
 ### X Count Boxes  
 ID: `mint_system.ir_model.stock_move.x_count_boxes`  
@@ -3509,6 +3568,26 @@ ID: `mint_system.ir_model.stock_picking.x_date_order`
 ```
 Source: [snippets/ir_model.stock_picking.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_picking.x_date_order.xml)
 
+### X Incoterm  
+ID: `mint_system.ir_model.stock_picking.x_incoterm`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_incoterm" model="ir.model.fields">
+        <field name="field_description">Incoterm</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_incoterm</field>
+        <field name="relation">account.incoterms</field>
+        <field name="store" eval="True"/>       
+        <field name="copied" eval="True"/>
+        <field name="ttype">many2one</field>       
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_picking.x_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_picking.x_incoterm.xml)
+
 ### X Name  
 ID: `mint_system.ir_model.stock_picking.x_name`  
 ```xml
@@ -3578,6 +3657,27 @@ ID: `mint_system.ir_model.stock_picking.x_origin_and_partner_id`
 
 ```
 Source: [snippets/ir_model.stock_picking.x_origin_and_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_picking.x_origin_and_partner_id.xml)
+
+### X Sale Id Incoterm  
+ID: `mint_system.ir_model.stock_picking.x_sale_id_incoterm`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_sale_id_incoterm" model="ir.model.fields">
+        <field name="field_description">Sale incoterm</field>
+        <field name="model">stock.picking</field>
+        <field name="model_id" ref="stock.model_stock_picking"/>
+        <field name="name">x_sale_id_incoterm</field>
+        <field name="relation">account.incoterms</field>
+        <field name="readonly" eval="True"/>
+        <field name="store" eval="True"/>      
+        <field name="ttype">many2one</field>  
+        <field name="related">sale_id.incoterm</field>  
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.stock_picking.x_sale_id_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.stock_picking.x_sale_id_incoterm.xml)
 
 ### X Vst  
 ID: `mint_system.ir_model.stock_picking.x_vst`  

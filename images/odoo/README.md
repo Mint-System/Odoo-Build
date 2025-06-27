@@ -340,6 +340,8 @@ Odoo is executed as a multi-threaded Python process.
 * `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
 * `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
 
+To calculate the amount of workers multply the amount of cpu cores by 2. To get the cpu core count run `nproc`.
+
 ### Module Auto Install
 
 With the `module_change_auto_install` module you can disable the auto installation of specific modules.
