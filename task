@@ -58,7 +58,7 @@ function help-table() {
     printf "$COLUMN" "generate-module-inherit" "[path][model]" "Generate inherited model in module folder."
     printf "$COLUMN" "generate-module-views" "[path][model]" "Generate model views in module folder."
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file."
-    printf "$COLUMN" "generate-module-snippet" "[path][ref]" "Generate snippet for referefenced view."
+    printf "$COLUMN" "generate-module-snippet" "[path][model][ref]" "Generate snippet for referefenced view."
     printf "$COLUMN" "generate-module-wizard" "[path][model]" "Generate wizard for a model in module folder."
     printf "$COLUMN" "generate-ssh-keys" "" "Generate ssh key pair."
     printf "$COLUMN" "generate-pg-ssl-keys" "" "Generate PostgreSQL SSL key material."
@@ -1863,14 +1863,14 @@ function generate-module-views() {
 function generate-module-snippet() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
 
-    MODULE_PATH="$1"
-    VIEW_REF="$2" # base.ir_cron_view_form
+    MODULE_PATH="$1" # addons/sale_workflow/sale_helm
+    MODEL_DOT_NAME="$2" # sale.order
+    VIEW_REF="$3" # sale.view_order_form
 
     # Generate template values
-    MODEL_NAME=${VIEW_REF#*.}
-    MODEL_NAME=${MODEL_NAME%%_view_*}
-    MODEL_DOT_NAME=${MODEL_NAME//_/\.}
+    MODEL_NAME=${MODEL_DOT_NAME//\./_}
     MODULE_NAME=$(basename "$1")
     SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
     XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
