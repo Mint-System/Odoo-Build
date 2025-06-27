@@ -116,3 +116,7 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 17.0
+[submodule "oca/maintenance"]
+	path = oca/maintenance
+	url = git@github.com:OCA/maintenance.git
+	branch = 17.0
