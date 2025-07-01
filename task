@@ -316,10 +316,10 @@ function template-odoo-rc() {
       export $VAR
     done
 
-    export BASE_URL_WEBSITE_PARAM=$([ -n "$BASE_URL_WEBSITE" ] && echo "git.ssh.public.key = $BASE_URL_WEBSITE")
-    export BASE_URL_APP_PARAM=$([ -n "$BASE_URL_APP" ] && echo "git.ssh.private.key = $BASE_URL_APP")
-    export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = $GIT_SSH_PUBLIC_KEY")
-    export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = $GIT_SSH_PRIVATE_KEY")
+    export BASE_URL_WEBSITE_PARAM=$([ -n "$BASE_URL_WEBSITE" ] && echo "base_url_website = $BASE_URL_WEBSITE")
+    export BASE_URL_APP_PARAM=$([ -n "$BASE_URL_APP" ] && echo "base_url_app = $BASE_URL_APP")
+    export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = \"$GIT_SSH_PUBLIC_KEY\"")
+    export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = \"$GIT_SSH_PRIVATE_KEY\"")
     export UPLOADCARE_PUBLIC_KEY_PARAM=$([ -n "$UPLOADCARE_PUBLIC_KEY" ] && echo "uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY")
     export UPLOADCARE_SECRET_KEY_PARAM=$([ -n "$UPLOADCARE_SECRET_KEY" ] && echo "uploadcare.secret_key = $UPLOADCARE_SECRET_KEY")
     export KEYCLOAK_BASE_URL_PARAM=$([ -n "$KEYCLOAK_BASE_URL" ] && echo "keycloak.base_url = $KEYCLOAK_BASE_URL")
@@ -588,23 +588,23 @@ function container-ps() {
 function build() {
     MANIFEST_FILE="images/odoo/Dockerfile"
     PLATFORM="linux/amd64" # linux/arm64
-    
+
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
     fi
-    
+
     if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
         CONTAINER_TAG="odoo-mailgate"
     fi
-    
+
     if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
-    
+
     if [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
         CONTAINER_TAG="odoocli"
     fi
-    
+
     if [ -n "$2" ]; then
         PLATFORM="$1"
     fi
@@ -710,7 +710,7 @@ function test-image() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with version: $ODOO_VERSION"
         echo "'version': '1.0'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '1.1'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"  
+        echo "'version': '1.1'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '2.5'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '13.0.1.0.0'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
         echo "'version': '14.0.2.1.1'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
@@ -1212,7 +1212,7 @@ function test-project() {
             echo "Waiting for Odoo to be ready ..."
             sleep 3
             ELAPSED=$((ELAPSED + 3))
-        done        
+        done
 
         echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
         run odoo init-module partner_firstname
@@ -1642,7 +1642,7 @@ function translate-module() {
     echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on $DATABASE ..."
     mkdir -p "$MODULE_PATH/i18n/"
     odoo -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
-    
+
     # If lang is de_CH then rename the file to de.po.
     if [[ "$LANGUAGE" == "de_CH" ]]; then
         mv "$MODULE_PATH/i18n/$LANGUAGE.po" "$MODULE_PATH/i18n/de.po"
@@ -2211,7 +2211,7 @@ function checkout-git-folder() {
 
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
         COMMIT_HASH=$($GREP "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
-        
+
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
             git -C "$GIT_FOLDER" stash
@@ -2233,9 +2233,9 @@ function switch-git-folder() {
 
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
-        
+
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
-        
+
         if [ "$SHALLOW" = "true" ]; then
             echo "Fetch branch $ODOO_VERSION from origin and then switch."
             git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
@@ -2415,7 +2415,7 @@ function create-revision() {
     REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
     git checkout "$REF"
     cd ..
-    
+
     cd enterprise
     echo -e "\nShow last 3 commits from $BEFORE_DATE:"
     git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
