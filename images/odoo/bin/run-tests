@@ -17,5 +17,5 @@ unbuffer coverage run --include "${ADDONS_PATH}/*" --branch \
     --workers 0 \
     --test-enable \
     --stop-after-init \
-    --http-port=8070
+    --http-port=8068
 coverage xml

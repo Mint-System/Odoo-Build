@@ -29,4 +29,4 @@ unbuffer /opt/odoo-venv/bin/odoo \
     -i "${TEST_DEPENDS_MODULES:-base}" \
     --load-language=en_US \
     --stop-after-init \
-    --http-port=8070
+    --http-port=8068
