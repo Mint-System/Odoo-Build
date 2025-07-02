@@ -1,0 +1,20 @@
+#!/bin/bash
+set -e
+
+source set-addons-path
+
+if [ -n "$TEST_INCLUDE" ]; then
+    TEST_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
+else
+    TEST_MODULES=$(manifestoo --select-exclude "$TEST_EXCLUDE" list --separator=,)
+fi
+
+entrypoint-log "Run tests for these modules: $TEST_MODULES"
+unbuffer coverage run --include "${ADDONS_PATH}/*" --branch \
+    -m odoo \
+    -d "$ODOO_DATABASE" \
+    -i "$TEST_MODULES" \
+    --test-enable \
+    --stop-after-init \
+    --http-port=8070
+coverage xml

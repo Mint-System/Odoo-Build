@@ -48,7 +48,7 @@ RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
 #    find /opt/odoo -path "*/i18n/*" -name "*.po" ! -name "en_US.po" ! -name "de.po" ! -name "fr.po" ! -name "it.po" -delete
 
 # Set release serial
-RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py 
+RUN sed -i "s/FINAL, 0, '')/FINAL, 0, '.$ODOO_DATE')/" /opt/odoo/odoo/release.py
 
 # Stage 2: Runtime environment
 FROM python:${PYTHON_VERSION}-slim-bookworm
@@ -81,6 +81,7 @@ RUN apt-get update && \
         xfonts-base \
         wget \
         gnupg \
+        expect \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \

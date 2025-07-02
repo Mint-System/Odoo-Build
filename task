@@ -51,6 +51,7 @@ function help-table() {
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
     printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
+    printf "$COLUMN" "exec" "[name][cmd]" "Run command in container."
     printf "$COLUMN" "export-website-data" "[env]" "Export website data from Odoo database."
     printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
     printf "$COLUMN" "generate-module-docs" "[path]" "Generate readme file for module."
@@ -1010,7 +1011,6 @@ function debug() {
     fi
 }
 
-
 function run() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     if test -z "$2"; then echo "\$2 is empty."; exit; fi
@@ -1020,6 +1020,14 @@ function run() {
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2" "$3"
+}
+
+function exec() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+
+    echo "Execute command '$2' with $CONTAINER_EXEC_PARAM in container '$1'."
+    $CONTAINER_ENGINE exec $CONTAINER_EXEC_PARAM "$1" "$2"
 }
 
 function record-with-py-spy() {
@@ -1200,6 +1208,8 @@ function test-project() {
         export AUTO_UPDATE_MODULES=True
         export MAIL_DEFAULT_FROM="test"
         export BROWSER_OPEN=false
+        export TEST_ADDONS_DIR=/mnt/oca/partner-contact
+        export TEST_INCLUDE=partner_firstname
         start odoo
         TIMEOUT=60
         ELAPSED=0
@@ -1241,10 +1251,17 @@ function test-project() {
         done
         docker logs odoo
         docker logs odoo 2>&1 | $GREP "Run click-odoo-update."
-        # CHECKSUM2=$(images/odoocli/bin/odoocli --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
-        # echo "CHECKSUM1: $CHECKSUM1"
-        # echo "CHECKSUM2: $CHECKSUM2"
-        # [ "$CHECKSUM1" != "$CHECKSUM2" ]
+
+        echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
+        drop-db test
+
+        echo -e "\033[38;5;214mTEST\033[0m: Setup container for testing."
+        exec odoo setup-tests
+
+        echo -e "\033[38;5;214mTEST\033[0m: Run module tests ."
+        CONTAINER_EXEC_PARAM="-w /mnt/oca"
+        exec odoo run-tests
+
     fi
 }
 

@@ -7,6 +7,10 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Export import website data with `export-website-data` and `import-website-data`.
+* Odoo image scripts `setup-tests` and `run-tests`.
+* Extended `test-project` with module tests
+* New command `exec` to run commands in containers.
+* New env var to include and exclude modules for tests.
 
 ### Fixed
 

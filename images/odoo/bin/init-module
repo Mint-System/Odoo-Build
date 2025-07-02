@@ -1,10 +1,9 @@
 #!/bin/bash
 
 if [ -n "$ODOO_DATABASE" ]; then
-
     entrypoint-log "Check if database $ODOO_DATABASE is initialized"
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
-    
+
     if [ "$DATABASE_INITIALIZED" = "1" ]; then
         ODOO_INIT_LANG="${ODOO_INIT_LANG:="en_US"}"
 

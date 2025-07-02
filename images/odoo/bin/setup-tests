@@ -1,0 +1,33 @@
+#!/bin/bash
+set -e
+
+source set-addons-path
+
+entrypoint-log "Install python packages required for testing."
+uv pip install --no-cache-dir coverage \
+  websocket-client \
+  pyproject-dependencies
+
+entrypoint-log "Collect python project dependencies from $TEST_ADDONS_DIR"
+pyproject-dependencies \
+      --no-isolation \
+      --ignore-build-errors \
+      ${TEST_ADDONS_DIR}/*/pyproject.toml ${TEST_ADDONS_DIR}/setup/*/setup.py \
+      >> test-requirements.txt
+
+entrypoint-log "Install collected python dependencies."
+uv pip install -r test-requirements.txt
+
+if [ -n "$TEST_INCLUDE" ]; then
+    TEST_DEPENDS_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
+else
+    TEST_DEPENDS_MODULES=$(manifestoo --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
+fi
+
+entrypoint-log "Install depends modules for testing: $TEST_DEPENDS_MODULES"
+unbuffer odoo \
+    -d "$ODOO_DATABASE" \
+    -i "${TEST_DEPENDS_MODULES:-base}" \
+    --load-language=en_US \
+    --stop-after-init \
+    --http-port=8070

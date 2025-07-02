@@ -7,7 +7,6 @@ A better Odoo image.
 
 This container image is an improvement of the official Odoo image:
 
-- 🐍 The image uses Python version 3.12.
 - 📦 Package management is handled with [uv](https://docs.astral.sh/uv/) for Python and [pnpm](https://pnpm.io/) for Node.
 - 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions.html).
 - 💎 The image build process ensures reproducibility.
@@ -21,6 +20,7 @@ This container image is an improvement of the official Odoo image:
 - 📜 The image includes built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
 - 🪴 The container runs without requiring root privileges.
 - ✂️ Reduced image size through multi-stage build and file cleanup.
+- 👀 Use the image to run module tests and create code coverage report.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
@@ -84,7 +84,7 @@ services:
       PGPASSWORD: odoo
       PGPORT: 5432
       PGSSLMODE: verify-ca
-      PGSSLROOTCERT: /mnt/postgres-secret/ca.crt 
+      PGSSLROOTCERT: /mnt/postgres-secret/ca.crt
       SMTP_SERVER: mail.infomaniak.com
       SMTP_PORT: 587
       SMTP_SSL: True
@@ -95,7 +95,7 @@ services:
       MAIL_CATCHALL_ALIAS: reply
       MAIL_CATCHALL_DOMAIN: yourcompany.com
       MAIL_DEFAULT_FROM: odoo
-      MAIL_ALIAS_DOMAIN: yourcompany.com      
+      MAIL_ALIAS_DOMAIN: yourcompany.com
       ODOO_MAIL_SMTP_HOST: mail.infomaniak.com
       ODOO_MAIL_SMTP_PORT: 587
       ODOO_MAIL_SMTP_ENCRYPTION: starttls
@@ -131,6 +131,9 @@ services:
       LIMIT_TIME_REAL: 600
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
       AUTO_UPDATE_MODULES: True
+      TEST_ADDONS_DIR: /mnt/oca/partner-contact
+      TEST_INCLUDE: partner_firstname
+      TEST_EXCLUDE: partner_fax
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -161,8 +164,9 @@ The Mint System Odoo image has this container lifecycle in mind:
 
 * **Initialize**: Clone addons and initialize the database.
 * **Start**: The container starts and updates the execution environment.
-* **Execution**: Actions performed while the container is running.
+* **Execute**: Actions performed while the container is running.
 * **Analyze**: Analyse the current state of the container.
+* **Test**: Test modules in the container.
 
 ### Initialize
 
@@ -199,7 +203,7 @@ Once you start the container the `entrypoint.sh` script will:
 * Run the `odoo-update` script to update modules.
 * Start the Odoo server.
 
-### Execution
+### Execute
 
 Once the container is running, install modules with:
 
@@ -207,7 +211,7 @@ Once the container is running, install modules with:
 docker compose run --rm odoo init-module partner_firstname
 ```
 
-Or update modules with this command: 
+Or update modules with this command:
 
 ```bash
 docker compose run --rm odoo update-modules
@@ -222,7 +226,23 @@ With the [Manifestoo](https://github.com/acsone/manifestoo) cli you can query th
 List all modules:
 
 ```bash
-docker exec odoo manifestoo --select-found list
+docker exec odoo bash -c "manifestoo --select-found list --separator=,"
+```
+
+### Test
+
+The `run-tests` script runs module tests and produces a `coverage.xml` file.
+
+But first the server environment must be prepared to run tests.
+
+```bash
+docker exec odoo setup-tests
+```
+
+Once this command is finished, run the module tests.
+
+```bash
+docker exec odoo run-tests
 ```
 
 ## Environment Variables
@@ -275,7 +295,7 @@ Setup mail configuration for the database.
 * `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
 * `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 
-The configuration will be applied to the `ODOO_DATABASE` database. 
+The configuration will be applied to the `ODOO_DATABASE` database.
 
 ### Module Repos
 
@@ -353,6 +373,14 @@ With the `module_change_auto_install` module you can disable the auto installati
 The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The auto update is disabled by default.
 
 * `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
+
+### Test
+
+With this image you can also run module tests.
+
+* `TEST_ADDONS_DIR`: Provide the directory with the modules that should be tests.
+* `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
+* `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
 
 ## Build
 
