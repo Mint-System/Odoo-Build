@@ -26,7 +26,7 @@ else
 fi
 
 entrypoint-log "Install depends modules for testing: $TEST_DEPENDS_MODULES"
-unbuffer odoo \
+unbuffer /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "${TEST_DEPENDS_MODULES:-base}" \
     --load-language=en_US \

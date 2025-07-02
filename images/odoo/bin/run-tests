@@ -11,7 +11,7 @@ fi
 
 entrypoint-log "Run tests for these modules: $TEST_MODULES"
 unbuffer coverage run --include "${ADDONS_PATH}/*" --branch \
-    -m odoo \
+    /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "$TEST_MODULES" \
     --test-enable \
