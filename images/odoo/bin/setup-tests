@@ -1,8 +1,6 @@
 #!/bin/bash
 set -e
 
-source set-addons-path
-
 entrypoint-log "Install python packages required for testing."
 uv pip install --no-cache-dir coverage \
   websocket-client
@@ -12,7 +10,7 @@ if [ -n "$TEST_INCLUDE" ]; then
     manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
         > test-requirements.txt
 else
-    manifestoo --select-addons-dir "$ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
+    manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
         > test-requirements.txt
 fi
 
@@ -22,7 +20,7 @@ uv pip install -r test-requirements.txt
 if [ -n "$TEST_INCLUDE" ]; then
     TEST_DEPENDS_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
 else
-    TEST_DEPENDS_MODULES=$(manifestoo --select-addons-dir "$ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
+    TEST_DEPENDS_MODULES=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
 fi
 
 entrypoint-log "Install depends modules for testing: $TEST_DEPENDS_MODULES"
