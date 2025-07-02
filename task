@@ -902,7 +902,7 @@ function install() {
     uv pip install -r requirements.txt
 
     if [ -f "odoo/requirements.txt" ]; then
-        eecho -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
+        echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
         uv pip install -r odoo/requirements.txt
 
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"

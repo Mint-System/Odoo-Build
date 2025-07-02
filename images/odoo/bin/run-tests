@@ -6,7 +6,7 @@ source set-addons-path
 if [ -n "$TEST_INCLUDE" ]; then
     TEST_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
 else
-    TEST_MODULES=$(manifestoo --select-exclude "$TEST_EXCLUDE" list --separator=,)
+    TEST_MODULES=$(manifestoo --select-addons-dir "$ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list --separator=,)
 fi
 
 entrypoint-log "Run tests for these modules: $TEST_MODULES"
