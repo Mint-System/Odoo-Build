@@ -45,7 +45,6 @@ function help-table() {
     printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
     printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
     printf "$COLUMN" "debug" "[name]" "Debugg application. Options: native."
-    printf "$COLUMN" "delete-git-folder" "" "Delete all git folders."
     printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server."
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
@@ -105,9 +104,11 @@ function help-table() {
     printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
     printf "$COLUMN" "remove" "[name]" "Remove containers and volumes."
     printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
+    printf "$COLUMN" "remove-git-folder" "" "Delete all git folders."
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
+    printf "$COLUMN" "remove-venv" "" "Remove virtualenv."
     printf "$COLUMN" "rename-env" "[env][env]" "Rename env file."
     printf "$COLUMN" "record-with-memray" "[name]" "Record application memory usage with memray. Options: native."
     printf "$COLUMN" "record-with-py-spy" "[pid]" "Record and create flamechart for a process."
@@ -300,6 +301,11 @@ function activate-venv() {
     echo "Source virtualenv venv$ODOO_VERSION."
     source "venv$ODOO_VERSION/bin/activate"
     echo "$(python --version) is active."
+}
+
+function remove-venv() {
+    echo "Remove virtualenv venv$ODOO_VERSION."
+    rm -rf "venv$ODOO_VERSION"
 }
 
 function get-addons-path() {
@@ -2147,7 +2153,7 @@ function list-git-folder() {
     done
 }
 
-function delete-git-folder() {
+function remove-git-folder() {
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
         echo "Delete git folder $GIT_FOLDER."
