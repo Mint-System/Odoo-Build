@@ -14,6 +14,7 @@ unbuffer coverage run --include "${ADDONS_PATH}/*" --branch \
     /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "$TEST_MODULES" \
+    --workers 0 \
     --test-enable \
     --stop-after-init \
     --http-port=8070
