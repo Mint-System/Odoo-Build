@@ -1199,7 +1199,7 @@ function test-project() {
         run odoo git-clone-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
-        export ODOO_ADDONS_PATH="/mnt/oca"
+        export ODOO_ADDONS_PATH="/mnt/oca/partner-contact"
         export ODOO_DATABASE=test
         export ODOO_INIT_LOGIN=test
         export ODOO_INIT_PASSWORD=test
@@ -1271,11 +1271,11 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
         drop-db test
 
-        echo -e "\033[38;5;214mTEST\033[0m: Setup container for testing."
+        echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
         exec odoo setup-tests
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module tests."
-        CONTAINER_EXEC_PARAM="-w /mnt/oca"
+        CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"
         exec odoo run-tests
 
     fi

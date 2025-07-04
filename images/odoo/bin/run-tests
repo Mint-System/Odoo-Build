@@ -9,8 +9,9 @@ fi
 
 source set-addons-path
 
-entrypoint-log "Run tests for these modules: $TEST_MODULES"
-unbuffer coverage run --include "${ADDONS_PATH}/*" --branch \
+entrypoint-log "Run test for these modules: $TEST_MODULES"
+entrypoint-log "Test coverage includes: $TEST_ADDONS_DIR/*"
+unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "$TEST_MODULES" \
