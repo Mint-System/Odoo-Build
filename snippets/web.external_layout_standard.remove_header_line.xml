@@ -1,3 +1,5 @@
 <data inherit_id="web.external_layout_standard" priority="50">
-    <xpath expr="//div[@class='row zero_min_height'][1]" position="replace" />
+    <div style="border-bottom: 1px solid black;" position="attributes">
+        <attribute name="style"/>
+    </div>
 </data>
