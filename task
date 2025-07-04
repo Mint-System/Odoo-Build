@@ -1212,6 +1212,7 @@ function test-project() {
         export SESSION_DB_URI=postgres://odoo:odoo@db/test
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
         export AUTO_UPDATE_MODULES=True
+        export AUTO_UPDATE_TRANSLATIONS=True
         export MAIL_DEFAULT_FROM="test"
         export BROWSER_OPEN=false
         export TEST_ADDONS_DIR=/mnt/oca/partner-contact
@@ -1237,7 +1238,9 @@ function test-project() {
         export ODOO_URL="http://localhost:8069"
         export ODOO_USERNAME=test
         export ODOO_PASSWORD=test
-        create-odoo-env test
+        if ! show-env test; then
+            create-odoo-env test
+        fi
         show-env test
         test-xmlrpc test
 
@@ -1248,7 +1251,6 @@ function test-project() {
         remove-snippet test snippets/base.view_partner_form.show_type.xml
 
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
-        # CHECKSUM1=$(images/odoocli/bin/odoocli --method 'read' --model 'ir.config_parameter' --domain "[('key', '=', 'module_auto_update.installed_checksums')]" --field 'value' | jq '.partner_firstname')
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
@@ -1257,6 +1259,10 @@ function test-project() {
         done
         docker logs odoo
         docker logs odoo 2>&1 | $GREP "Run click-odoo-update."
+
+        echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
+        sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
+        restart odoo
 
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
         drop-db test

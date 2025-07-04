@@ -28,7 +28,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
 
-### Base
+### Minimal
 
 The following `compose.yml` is a minimal setup:
 
@@ -43,7 +43,6 @@ services:
       PGHOST: db
       PGUSER: odoo
       PGPASSWORD: odoo
-      PGPORT: 5432
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
     ports:
       - "127.0.0.1:8069:8069"
@@ -134,6 +133,7 @@ services:
       TEST_ADDONS_DIR: /mnt/oca/partner-contact
       TEST_INCLUDE: partner_firstname
       TEST_EXCLUDE: partner_fax
+      AUTO_UPDATE_TRANSLATIONS: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -218,6 +218,14 @@ docker compose run --rm odoo update-modules
 ```
 
 This will start a detached Odoo process and updates modules that have a different checksum.
+
+Updating module translations is simple:
+
+```bash
+docker compose run --rm odoo update-translations
+```
+
+Existing translations will be overwritten.
 
 ### Analyze
 
@@ -372,7 +380,10 @@ With the `module_change_auto_install` module you can disable the auto installati
 
 The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The auto update is disabled by default.
 
-* `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started. Requires `ODOO_DATABASE` and `ODOO_ADDONS_PATH`. Default is `False`.
+* `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started.  Default is `False`.
+* `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
+
+Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
 
 ### Test
 
@@ -423,12 +434,14 @@ See [Odoo Build > Build and publish container image](https://odoo.build/#build-a
 The most important image paths are:
 
 * `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+* `/var/lib/odoo ` Odoo data folder.
 * `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
 * `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/mnt/extra-addons` Module folders are loaded from this path by default.
+* `/opt/odoo/addons` Here are the Odoo Community Edition modules.
 
 ### Capture memory profile
 

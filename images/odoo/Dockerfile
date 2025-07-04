@@ -138,7 +138,7 @@ COPY --from=builder /opt/odoo /opt/odoo
 
 # Setup environment path
 ENV PATH=/opt/odoo-venv/bin:$PATH
-ENV ADDONS_PATH=/opt/odoo/addons,/mnt/extra-addons
+ENV ADDONS_PATH=/opt/odoo/addons
 
 # Copy entrypoint scripts and Odoo configuration file
 COPY ./bin/setup-mail /usr/local/bin/

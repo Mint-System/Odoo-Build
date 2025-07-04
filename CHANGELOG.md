@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. The format 
 * New command `exec` to run commands in containers.
 * New env var to include and exclude modules for tests.
 * Command `reset-venv`.
+* Another Odoo image script `update-translations`.
 
 ### Fixed
 
