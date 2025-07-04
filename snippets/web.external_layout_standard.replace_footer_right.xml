@@ -1,0 +1,17 @@
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="//t[1]/div[3]" position="replace">
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-right" style="">
+                <ul class="list-inline mb4">
+                    <div t-field="company.report_footer"/>
+                </ul>
+                <div t-if="report_type == 'pdf' and display_name_in_footer" class="text-muted">
+                    <span t-field="o.name"/>
+                </div>
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</data>

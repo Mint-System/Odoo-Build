@@ -1,30 +1,10 @@
 <data inherit_id="web.external_layout_standard" priority="50">
-    <xpath expr="/t/div[3]" position="replace">
-        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-            <div align="right" style="color:black; font-size:9pt">
-         Page: <span class="page"/>
- /      <span class="topage"/>
-    </div>
-        </div>
-        <!--
-    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div align="right">
-         Seite: <span class="page"/>
- /      <span class="topage"/>
-      </div>
-    </div>
-    -->
-    </xpath>
-</data>
-<!--
-<data inherit_id="web.external_layout_standard" priority="50">
-
 <xpath expr="/t/div[3]" position="replace">
 
   <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
 
     <style>
-        
+
        .footer_table {
             width: 80%;
             font-size: 9pt;
@@ -87,6 +67,4 @@
   </div>
 
 </xpath>
-
 </data>
--->
