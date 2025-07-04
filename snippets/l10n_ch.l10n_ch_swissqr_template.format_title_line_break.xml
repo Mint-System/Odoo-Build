@@ -1,0 +1,5 @@
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <h1 position="attributes">
+        <attribute name="style">white-space: nowrap;</attribute>
+    </h1>
+</data>
