@@ -120,7 +120,3 @@
 	path = oca/maintenance
 	url = git@github.com:OCA/maintenance.git
 	branch = 17.0
-[submodule "oca/server-backend"]
-	path = oca/server-backend
-	url = git@github.com:OCA/server-backend
-	branch = 17.0

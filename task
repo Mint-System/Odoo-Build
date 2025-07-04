@@ -911,6 +911,10 @@ function install() {
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
         uv pip install -r odoo/requirements.txt
 
+        if [ "$ODOO_VERSION" = "17.0" ]; then
+            uv pip install lxml_html_clean Werkzeug==2.2.2
+        fi
+
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
         uv pip install pip
         pip install -e odoo
