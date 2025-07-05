@@ -1,25 +1,24 @@
-  Odoo Build
+Odoo Build
 ===
 
-![Vercel](https://vercelbadge.vercel.app/api/mint-system/odoo-build) [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/) [![.github/workflows/test.yml](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml/badge.svg)](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml) [![matrix-badge](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch) 
-
+![Vercel](https://vercelbadge.vercel.app/api/mint-system/odoo-build) [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/) [![.github/workflows/test.yml](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml/badge.svg)](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml) [![matrix-badge](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch)
 
 This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
 
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
-* 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.  
-* 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.  
-* 💻 **Native**: Start an Odoo server directly from the source.  
-* 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.  
-* 🛠️ **Develop Modules**: Scaffold new modules, develop new Odoo features locally.  
-* 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.  
-* 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.  
-* ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.  
-* 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.  
+* 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
+* 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
+* 💻 **Native**: Start an Odoo server directly from the source.
+* 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.
+* 🛠️ **Develop Modules**: Scaffold new modules, develop new Odoo features locally.
+* 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.
+* 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.
+* ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
+* 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 * 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
-* 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.  
-* ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.  
+* 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
+* ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
 * 🧠 **LLM**: Prompt LLMs with module code and apply changes.
 * 🚀 **And More**: See [task help](./task.md).
 
@@ -75,7 +74,7 @@ Decide wether you want to run Odoo in native mode (recommended) or as a containe
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Ubuntu, Debian, Pop!\_OS, Darwin, Windows with Ubuntu on WSL2.
+Run Odoo from source. Currently supported OS: Fedora, Ubuntu, Debian, Pop!\_OS, Darwin, Windows with Ubuntu on WSL2.
 
 #### Initialize and start Odoo from source
 

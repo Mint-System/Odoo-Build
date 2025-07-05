@@ -21,7 +21,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Updated
 
-* Export import website data with translations
+* Export import website data with translations.
+* Updated install function to support *Fedora Linux*.
 
 ## 2025-05-16
 

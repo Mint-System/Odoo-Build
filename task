@@ -850,13 +850,12 @@ function install() {
     init-venv
     activate-venv
 
-    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS|Fedora Linux|Darwin)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | $GREP -Po '^wkhtmltopdf \K[\d.]+')
         if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
-            echo "Install wkhtmltopdf"
-            sudo apt remove wkhtmltopdf
+            echo -e "\033[38;5;214mWget\033[0m: Install wkhtmltopdf"
             wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
             tar xvf wkhtmltox*.tar.xz
             sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
@@ -864,6 +863,9 @@ function install() {
         else
             echo "wkhtmltopdf version is already 0.12.4"
         fi
+    fi
+
+    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
 
         echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
         sudo apt update
@@ -873,6 +875,20 @@ function install() {
 
         echo -e "\033[38;5;214mApt\033[0m: Install xmllint and gettext"
         sudo apt install -y libxml2-utils gettext
+
+    elif [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
+
+        echo -e "\033[38;5;214mDnf\033[0m: Update dnf repo"
+        sudo dnf update
+
+        echo -e "\033[38;5;214mDnf\033[0m: Install psycopg2 build dependencies"
+        sudo dnf install -y postgresql-devel
+
+        echo -e "\033[38;5;214mPython\033[0m: Install psycopg2-binary"
+        uv pip install psycopg2-binary
+
+        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
+        sed -i '/^psycopg2/d' odoo/requirements.txt
 
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
@@ -908,6 +924,7 @@ function install() {
     uv pip install -r requirements.txt
 
     if [ -f "odoo/requirements.txt" ]; then
+
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
         uv pip install -r odoo/requirements.txt
 
@@ -916,8 +933,12 @@ function install() {
         fi
 
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
-        uv pip install pip
-        pip install -e odoo
+        uv pip install -e odoo --no-deps
+    fi
+
+    if [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
+        echo -e "\033[38;5;214mGit\033[0m: Reset Odoo requirements"
+        git -C odoo checkout requirements.txt
     fi
 
     if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.conf; then
@@ -2532,6 +2553,10 @@ function import-website-data() {
 # Vuepress Commands
 
 function install-vuepress() {
+    echo "Install Node."
+    pnpm env use --global lts
+
+    echo "Install npm packages."
     pnpm install
 }
 
@@ -2545,7 +2570,7 @@ function build-vuepress() {
 
 function serve-vuepress() {
     cd .vuepress/dist
-    pnpm serve
+    pnpx serve
 }
 
 if declare -f "$1" > /dev/null; then
