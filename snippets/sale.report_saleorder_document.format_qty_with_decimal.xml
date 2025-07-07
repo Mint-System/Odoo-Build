@@ -1,6 +1,6 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
-        <t t-if="line.product_uom.id == 1">
+        <t t-if="line.product_uom.id == 12">
             <span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">

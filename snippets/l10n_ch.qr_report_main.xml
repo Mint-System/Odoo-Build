@@ -1,0 +1,21 @@
+<t t-name="l10n_ch.qr_report_main">
+            
+            <t t-call="web.html_container">
+                
+                <t t-foreach="docs" t-as="o">
+                    <t t-set="lang" t-value="o.partner_id.lang"/>
+                    
+                    <t t-if="o.company_id.id in [1, 4, 5]">
+                      <div class="article" t-att-data-oe-model="o._name" t-att-data-oe-id="o.id">
+                       
+                      </div>
+                    </t>
+                   <t t-if="o.company_id.id not in [1, 4, 5]">
+                      <t t-call="l10n_ch.l10n_ch_swissqr_template" t-lang="lang"/>
+                    </t>
+                    
+                </t>
+                
+            </t>
+          
+        </t>

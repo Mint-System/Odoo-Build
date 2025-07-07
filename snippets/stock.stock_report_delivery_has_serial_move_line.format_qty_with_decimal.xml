@@ -1,0 +1,10 @@
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+    <xpath expr="//span[@t-field='move_line.quantity']" position="replace">
+        <t t-if="move_line.product_uom_id.id == 12">
+            <span t-field="move_line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span t-field="move_line.quantity"/>      
+        </t>
+    </xpath>
+</data>

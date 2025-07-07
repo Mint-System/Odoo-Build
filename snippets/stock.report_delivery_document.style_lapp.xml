@@ -1,5 +1,13 @@
 <data inherit_id="stock.report_delivery_document" priority="60">
-    
+
+    <xpath expr="//table[@name='stock_move_table']/tbody" position="after">
+        <style>
+		  td {
+		    vertical-align: top !important;
+		  }
+        </style>
+    </xpath>
+
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
     </xpath>
@@ -7,7 +15,7 @@
     <xpath expr="//th[@id='position']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    
+
     <xpath expr="//th[@name='th_sml_product']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
@@ -15,9 +23,9 @@
     <xpath expr="//th[@name='lot_serial']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    
+
     <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
         <attribute name="class">text-end</attribute>
     </xpath>
-    
+
 </data>
