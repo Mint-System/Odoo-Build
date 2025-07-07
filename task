@@ -2146,14 +2146,15 @@ function add-git-submodule() {
     # Add to .gitmodules
     git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
 
-    # Remove from working tree
-    rm -rf .git/modules/"$2" || true
-    git rm --cached "$2" || true
-    git restore --staged "$2"
-
-    # Save .gitmodules file
-    git restore --staged .gitmodules
+    # Save version
     save-version
+
+    # Restore staged submodule files
+    git restore --staged .gitmodules "$2"
+
+    # Remove from working tree
+    # rm -rf .git/modules/"$2" || true
+    # git rm --cached "$2" || true
 }
 
 function ls-git-folder() {
