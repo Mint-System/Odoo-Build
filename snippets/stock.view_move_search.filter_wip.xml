@@ -1,5 +1,5 @@
 <data inherit_id="stock.view_move_search" priority="50">
     <filter name="future" position="after">
-        <filter string="WIP" name="wip" domain="[('location_dest_id', '=', [15]), ('state', 'in', ['assigned', 'confirmed', 'waiting']), ('picked', '=', True)]"/>
+        <filter string="WIP" name="wip" domain="[('location_dest_id', '=', 15), ('state', 'in', ['assigned', 'confirmed', 'waiting']), ('picked', '=', True)]"/>
     </filter>
 </data>
