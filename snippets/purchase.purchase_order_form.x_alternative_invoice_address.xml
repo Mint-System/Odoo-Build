@@ -1,0 +1,7 @@
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='currency_id']" position="after">
+    <field name="x_alternative_invoice_address"/>
+  </xpath>
+
+</data>

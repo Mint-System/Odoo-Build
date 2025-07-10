@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_alternative_invoice_address" model="ir.model.fields">
+        <field name="field_description">Alternative Rechnungsadresse</field>
+        <field name="model">purchase.order</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="name">x_alternative_invoice_address</field>
+        <field name="store" eval="True"/>           
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+    </record>
+</odoo>
