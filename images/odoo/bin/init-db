@@ -13,16 +13,16 @@ if [ -n "$ODOO_DATABASE" ]; then
 
     entrypoint-log "Check if database $ODOO_DATABASE is initialized"
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
-    
+
     if [ "$DATABASE_INITIALIZED" = "0" ]; then
-        ODOO_INIT_LOGIN="${ODOO_INIT_LOGIN:="admin"}"
-        ODOO_INIT_PASSWORD="${ODOO_INIT_PASSWORD:="admin"}"
-        ODOO_INIT_LANG="${ODOO_INIT_LANG:="en_US"}"
-        ODOO_INIT_ADDONS="${ODOO_INIT_ADDONS:="web"}"
+        ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:="admin"}
+        ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:="admin"}
+        ODOO_INIT_LANG=${ODOO_INIT_LANG:="en_US"}
+        ODOO_INIT_ADDONS=${ODOO_INIT_ADDONS:="web"}
 
         entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS."
         (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
-    
+
         if [ "$ODOO_INIT_LOGIN" != "admin" ] || [ "$ODOO_INIT_PASSWORD" != "admin" ]; then
             entrypoint-log "Updating admin user credentials to login: $ODOO_INIT_LOGIN"
             (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
