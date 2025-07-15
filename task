@@ -202,8 +202,10 @@ BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
 LLM_MODEL=${LLM_MODEL:="llama"}
-SMTP_SERVER=${SMTP_SERVER:="localhost"}
+SMTP_SERVER=${SMTP_SERVER:="mailpit"}
 SMTP_PORT=${SMTP_PORT:=1025}
+SMTP_SSL=${SMTP_SSL:="False"}
+EMAIL_FROM=${EMAIL_FROM:="info@yourcompany.com"}
 MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:="yourcompany.com"}
 
 # Conditional env vars
@@ -574,9 +576,6 @@ function list-modules() {
 
 function template-compose() {
     echo "Template compose.yml"
-
-    # Change default vars
-    SMTP_SERVER=mailpit
 
     # Load and export vars defined in compose template
     for VAR in $($GREP -oP '\$\{([^}]+)\}' compose.yml.template); do
@@ -999,6 +998,7 @@ function start() {
 
     if [[ "$1" =~ "native" ]]; then
         activate-venv
+        export SMTP_SERVER=localhost
         template-odoo-rc
         PORT=8069
         while [ $PORT -le 8079 ]; do
