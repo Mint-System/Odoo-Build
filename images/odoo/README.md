@@ -434,14 +434,15 @@ See [Odoo Build > Build and publish container image](https://odoo.build/#build-a
 The most important image paths are:
 
 * `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+* `/mnt/extra-addons` Nested are loaded from this path by default.
+* `/mnt/test-addons` Recommended mount path for modules to test.
+* `/opt/odoo/addons` Contains the Odoo Community Edition modules.
+* `/opt/odoo-venv` This is where Python packages are installed.
 * `/var/lib/odoo ` Odoo data folder.
 * `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
 * `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
-* `/opt/odoo-venv` This is where Python packages are installed.
-* `/mnt/extra-addons` Module folders are loaded from this path by default.
-* `/opt/odoo/addons` Here are the Odoo Community Edition modules.
 
 ### Capture memory profile
 
