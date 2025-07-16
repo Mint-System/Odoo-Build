@@ -16,7 +16,7 @@
 				<td style="width: 290px; vertical-align: top; padding-left: 5mm;">
 
 
-					<span style="font-size: 7pt">Lieferadresse</span>
+					<span style="font-size: 7pt">Delivery address</span>
 					<hr class="company_invoice_line"/>
 
 					<div>
@@ -28,11 +28,18 @@
 				</td>
 				<td style="width: 70px"/>
 				<td style="width: 260px; vertical-align: top">
-					<span style="font-size: 7pt">Rechnungsadresse</span>
+					<span style="font-size: 7pt">Invoice address</span>
 					<hr class="company_invoice_line"/>
 					<div>
-						<t>
-							<div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+						<t t-if="o.x_alternative_invoice_address">
+							<t>
+								<div t-field="o.x_alternative_invoice_address" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+							</t>
+						</t>
+						<t t-else="">
+							<t>
+								<div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+							</t>
 						</t>
 					</div>
 				</td>
@@ -45,16 +52,16 @@
 			<tr>
 				<td style="width: 120px; vertical-align: top; padding-left: 5mm;">
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.vat">
-						<div>USt-IdNr.</div>
+						<div>VAT Reg. No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_vat">
-						<div>MWST Nr.</div>
+						<div>VAT No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_eori">
-						<div>EORI Nr.</div>
+						<div>EORI No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_zaz">
-						<div>ZAZ Konto Nr.</div>
+						<div>ZAZ Reg. No.</div>
 					</t>
 				</td>
 				<td style="width: 180px; vertical-align: top">
