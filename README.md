@@ -74,7 +74,7 @@ Decide wether you want to run Odoo in native mode (recommended) or as a containe
 
 ### Native
 
-Run Odoo from source. Currently supported OS: Fedora, Ubuntu, Debian, Pop!\_OS, Darwin, Windows with Ubuntu on WSL2.
+Run Odoo from source. Currently supported OS: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, Windows with Ubuntu on WSL2.
 
 #### Initialize and start Odoo from source
 

@@ -849,7 +849,7 @@ function install() {
     init-venv
     activate-venv
 
-    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS|Fedora Linux|Darwin)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | $GREP -Po '^wkhtmltopdf \K[\d.]+')
@@ -864,7 +864,7 @@ function install() {
         fi
     fi
 
-    if [[ "$OS_RELEASE" =~ ^(Ubuntu|Debian|Pop!_OS)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Debian|Ubuntu|Pop!_OS)$ ]]; then
 
         echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
         sudo apt update
@@ -905,6 +905,10 @@ function install() {
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
 
+    elif [[ "$OS_RELEASE" =~ ^(Arch Linux)$ ]]; then
+
+        echo "Arch is the best"
+
     else
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
@@ -940,9 +944,9 @@ function install() {
         git -C odoo checkout requirements.txt
     fi
 
-    if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.conf; then
-        sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.conf'
-        sudo sysctl -p /etc/sysctl.conf
+    if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.d/99-sysctl.conf; then
+        sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.d/99-sysctl.conf'
+        sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
         echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
     fi
 }
