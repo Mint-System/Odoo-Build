@@ -4,27 +4,34 @@
     <!--<span t-esc="docs.move_finished_ids"/>-->
     <!--<span t-esc="docs.move_finished_ids.lot_ids"/>-->
     <!--<span t-esc="docs.finished_lot_id"/>-->
+    
+    
     <t t-set="lot_ids" t-value="docs.move_finished_ids.lot_ids or docs.finished_lot_id"/>
     <t t-foreach="lot_ids" t-as="lot_id">
+     
         <t t-set="doc" t-value=""/>
         <t t-set="docs" t-value="lot_id"/>
         <!--<span t-esc="lot_id.product_id.x_product_label.name"/>-->
-        <t t-if="lot_id.product_id.x_product_label.name == 'St&#xFC;cketikette Spheretex'">
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Spheretex'">
             <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448"/>
         </t>
-        <t t-if="lot_id.product_id.x_product_label.name == 'St&#xFC;cketikette Standard'">
-            <t t-call="studio_customization.studio_report_docume_87f02ec4-1346-4b76-bc5a-41f3abc30448_copy_1"/>
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Standard'">
+            <t t-call="studio_customization.studio_report_docume_c8a7e88e-01a1-4710-a664-6c23a12e5888"/>
         </t>
-        <t t-if="lot_id.product_id.x_product_label.name == 'St&#xFC;cketikette neutral'">
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette neutral'">
             <t t-call="studio_customization.studio_report_docume_cd2541fa-1502-4c50-8f76-bf2ae39698a1"/>
         </t>
-        <t t-if="lot_id.product_id.x_product_label.name == 'St&#xFC;cketikette Sika'">
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette Sika'">
             <t t-call="studio_customization.studio_report_docume_d6a31795-5d6c-4527-9c76-48ad7356e0ae"/>
         </t>
         <t t-if="lot_id.product_id.x_product_label.name == 'Etikette Ketten'">
             <t t-call="studio_customization.studio_report_docume_e9a56ff9-0143-4e41-ad9d-9817a1f10c4b"/>
         </t>
+        <t t-if="lot_id.product_id.x_product_label.name == 'Stücketikette OC'">
+            <t t-call="studio_customization.studio_report_docume_8f83bb80-d187-4a4d-b336-7ea36ed7be42"/>
+        </t>
         <p style="page-break-after: always;"/>
+
     </t>
     <!--</t>-->
 </t>
