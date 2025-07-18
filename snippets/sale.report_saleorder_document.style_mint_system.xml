@@ -1,41 +1,52 @@
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
-        <span t-field="line.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
-        <span t-field="option.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="/t/t/div/div[6]" position="after">
-        <div class="row">
-            <div class="col h2">
-                <span>New Title</span>
-            </div>
-        </div>
-    </xpath>
-    <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
-        <attribute name="class">col h4</attribute>
-    </xpath>
-    <xpath expr="/t/t/div/div[7]/div/span" position="replace">
-        <p style="page-break-before:always;"/>
-        <span>Gesch&#xE4;ftsbedingungen</span>
-    </xpath>
-    <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
-        <attribute name="style" separator=";" add="width:150px"/>
-    </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
+    <span t-field="line.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
+    <span t-field="option.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[6]" position="after">
+    <div class="row">
+      <div class="col h2">
+        <span>New Title</span>
+      </div>
+    </div>
+  </xpath>
+
+  <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
+    <attribute name="class">col h4</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[7]/div/span" position="replace">
+    <p style="page-break-before:always;"/>
+    <span>Terms and conditions</span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
+    <attribute name="style" separator=";" add="width:150px"/>
+  </xpath>
 </data>
