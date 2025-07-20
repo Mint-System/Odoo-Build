@@ -35,12 +35,12 @@ email_from = $EMAIL_FROM
 ; osv_memory_age_limit = 1.0
 ; osv_memory_count_limit = False
 ; xmlrpc = True
-; xmlrpc_interface = 
+; xmlrpc_interface =
 ; xmlrpc_port = 8069
 ; xmlrpcs = True
-; xmlrpcs_interface = 
+; xmlrpcs_interface =
 ; xmlrpcs_port = 8071
 
 [ir.config_parameter]
-git.ssh_public_key = $GIT_SSH_PUBLIC_KEY
-git.ssh_private_key = $GIT_SSH_PRIVATE_KEY
+$GIT_SSH_PUBLIC_KEY_PARAM
+$GIT_SSH_PRIVATE_KEY_PARAM

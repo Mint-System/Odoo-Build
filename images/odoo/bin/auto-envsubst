@@ -19,6 +19,13 @@ export SMTP_USER=${SMTP_USER:=""}
 export SMTP_PASSWORD=${SMTP_PASSWORD:=""}
 export EMAIL_FROM=${EMAIL_FROM:=""}
 
+# Deode SSH private key
+if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+fi
+export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = \"$GIT_SSH_PUBLIC_KEY\"")
+export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = \"$GIT_SSH_PRIVATE_KEY\"")
+
 TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
 OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
 FILTER="${ODOO_ENVSUBST_FILTER:-}"
