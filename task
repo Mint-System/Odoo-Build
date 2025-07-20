@@ -910,7 +910,7 @@ function install() {
         echo "Arch is the best"
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
-        sudo pacman -S base-devel postgresql
+        sudo pacman -S --noconfirm base-devel postgresql
 
     else
         echo "The operating system $OS_RELEASE is not supported."
