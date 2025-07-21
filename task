@@ -232,22 +232,13 @@ fi
 
 # Import commands
 
-[ -f ~/taskfile.build/bin/init-config-dir ] && source ~/taskfile.build/bin/init-config-dir
-[ -f ~/taskfile.build/bin/commit-with-llm ] && source ~/taskfile.build/bin/commit-with-llm
-[ -f ~/taskfile.build/bin/list-env ] && source ~/taskfile.build/bin/list-env
-[ -f ~/taskfile.build/bin/show-env ] && source ~/taskfile.build/bin/show-env
-[ -f ~/taskfile.build/bin/copy-env ] && source ~/taskfile.build/bin/copy-env
-[ -f ~/taskfile.build/bin/edit-env ] && source ~/taskfile.build/bin/edit-env
-[ -f ~/taskfile.build/bin/load-env ] && source ~/taskfile.build/bin/load-env
-[ -f ~/taskfile.build/bin/rename-env ] && source ~/taskfile.build/bin/rename-env
-[ -f ~/taskfile.build/bin/update-with-llm ] && source ~/taskfile.build/bin/update-with-llm
-[ -f ~/taskfile.build/bin/create-odoo-env ] && source ~/taskfile.build/bin/create-odoo-env
-[ -f ~/taskfile.build/bin/create-nextcloud-env ] && source ~/taskfile.build/bin/create-nextcloud-env
-[ -f ~/taskfile.build/bin/remove-env ] && source ~/taskfile.build/bin/remove-env
-[ -f ~/taskfile.build/bin/store-dotenv ] && source ~/taskfile.build/bin/store-dotenv
-[ -f ~/taskfile.build/bin/restore-dotenv ] && source ~/taskfile.build/bin/restore-dotenv
-[ -f ~/taskfile.build/bin/backup-env-files ] && source ~/taskfile.build/bin/backup-env-files
-[ -f ~/taskfile.build/bin/restore-env-files ] && source ~/taskfile.build/bin/restore-env-files
+if [ -d "$HOME/taskfile.build/bin" ]; then
+    for file in "$HOME/taskfile.build/bin/"*; do
+        if [ -f "$file" ]; then
+            source "$file"
+        fi
+    done
+fi
 
 # Help Commands
 
