@@ -64,7 +64,7 @@ Checkout the Odoo version. Show supported versions with `task list-versions`.
 task checkout "$VERSION"
 ```
 
-Install build and Python dependencies.
+Install build and Python dependencies. Currently supported: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, Windows with Ubuntu on WSL2.
 
 ```bash
 task install
@@ -72,11 +72,7 @@ task install
 
 Decide wether you want to run Odoo in native mode (recommended) or as a container.
 
-### Native
-
-Run Odoo from source. Currently supported OS: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, Windows with Ubuntu on WSL2.
-
-#### Initialize and start Odoo from source
+### Run Odoo from source
 
 Start database container only.
 
@@ -98,69 +94,7 @@ task start native
 
 The browser will be opened automatically.
 
-#### Create a new module from source
-
-Create a new module.
-
-```bash
-task create-module addons/project/project_sprint
-```
-
-Add a new model.
-
-```bash
-task generate-module-model addons/project/project_sprint project.sprint
-```
-
-Add model security.
-
-```bash
-task generate-module-security addons/project/project_sprint project.sprint
-```
-
-#### Load modules from thirdparty folder
-
-Clone thirdparty repos into the `thirdparty` folder.
-
-To load modules from a thirdparty folder, set this env var in your `.env` file:
-
-```bash
-ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
-```
-
-The paths will be appended to the Odoo config.
-
-#### Initialize without demo data
-
-In your `.env` file define this Odoo parameter env var:
-
-```bash
-ODOO_PARAM=--without-demo=all
-```
-
-#### Set Odoo database name
-
-The default database name is the checked out Odoo version.
-
-To define another name, set this env var in your `.env` file:
-
-```bash
-ODOO_DATABASE=odoo
-```
-
-#### Disable browser open
-
-To disable the browser open when starting the Odoo server edit the `.env` file:
-
-```bash
-BROWSER_OPEN=false
-```
-
-### Container
-
-Run Odoo as container.
-
-#### Start and initialize Odoo
+### Run Odoo as container
 
 Set the Odoo addons path in your `.env` file:
 
@@ -182,7 +116,67 @@ task run odoo init-db
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
 
-#### Set podman as container engine
+## Development
+
+### Create a new module from source
+
+Create a new module.
+
+```bash
+task create-module addons/project/project_sprint
+```
+
+Add a new model.
+
+```bash
+task generate-module-model addons/project/project_sprint project.sprint
+```
+
+Add model security.
+
+```bash
+task generate-module-security addons/project/project_sprint project.sprint
+```
+
+### Load modules from thirdparty folder
+
+Clone thirdparty repos into the `thirdparty` folder.
+
+To load modules from a thirdparty folder, set this env var in your `.env` file:
+
+```bash
+ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
+```
+
+The paths will be appended to the Odoo config.
+
+### Initialize without demo data
+
+In your `.env` file define this Odoo parameter env var:
+
+```bash
+ODOO_PARAM=--without-demo=all
+```
+
+### Set Odoo database name
+
+The default database name is the checked out Odoo version.
+
+To define another name, set this env var in your `.env` file:
+
+```bash
+ODOO_DATABASE=odoo
+```
+
+### Disable browser open
+
+To disable the browser open when starting the Odoo server edit the `.env` file:
+
+```bash
+BROWSER_OPEN=false
+```
+
+### Set podman as container engine
 
 If you are using podman, set this `.env` var:
 
@@ -190,11 +184,7 @@ If you are using podman, set this `.env` var:
 CONTAINER_ENGINE=podman
 ```
 
-### Common
-
-These instructions are true for container and native usage.
-
-#### Change log level
+### Change log level
 
 To change the log level of Odoo set this env var in your `.env` file:
 
@@ -202,7 +192,7 @@ To change the log level of Odoo set this env var in your `.env` file:
 LOG_LEVEL=debug
 ```
 
-#### Manage database with container
+### Manage database with container
 
 Start pgadmin.
 
@@ -212,7 +202,7 @@ task pgadmin
 
 Open pgadmin [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
-#### Remove containers
+### Remove containers
 
 Removes containers and volumes.
 
@@ -220,7 +210,7 @@ Removes containers and volumes.
 task remove
 ```
 
-#### Stop all containers
+### Stop all containers
 
 Without service name the stop commands stops all containers.
 
@@ -228,7 +218,7 @@ Without service name the stop commands stops all containers.
 task stop
 ```
 
-#### Drop database
+### Drop database
 
 To drop the default database run:
 
@@ -236,7 +226,7 @@ To drop the default database run:
 task drop-db
 ```
 
-#### Define Postgres image version
+### Define Postgres image version
 
 Define the Postgres image in your `.env` file:
 
@@ -244,7 +234,7 @@ Define the Postgres image in your `.env` file:
 POSTGRES_IMAGE=postgres:16-alpine
 ```
 
-#### Build and publish container image
+### Build and publish container image
 
 Ensure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
 
@@ -272,7 +262,7 @@ Publish the Odoo image.
 task publish
 ```
 
-#### Setup mail catcher
+### Setup mail catcher
 
 Start mailpit server.
 
@@ -281,8 +271,6 @@ task start mailpit
 ```
 
 When you send mails in Odoo they will be catched and shown on <http://localhost:8025/>.
-
-## Develop
 
 ### Source env file
 
@@ -412,7 +400,7 @@ task all
 
 Refine the templates based on the linter results.
 
-### Debug Odoo method with VSCode.
+### Debug Odoo with VSCode.
 
 In VSCode define a break point for a selected method.
 
