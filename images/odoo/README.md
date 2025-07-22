@@ -44,15 +44,10 @@ services:
       PGHOST: db
       PGUSER: odoo
       PGPASSWORD: odoo
-      ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
       - odoo-data:/var/lib/odoo
-      - ./addons:/mnt/addons
-      - ./oca:/mnt/oca
-      - ./enterprise:/mnt/enterprise
-      - ./themes:/mnt/themes
   db:
     container_name: db
     image: postgres:14-alpine
@@ -77,7 +72,8 @@ services:
     container_name: odoo
     image: mintsystem/odoo:18.0.20250520
     depends_on:
-      - db
+        db:
+            condition: service_healthy
     environment:
       PGHOST: db
       PGUSER: odoo
@@ -152,6 +148,11 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo -d $ODOO_DATABASE"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
 volumes:
   odoo-data:
   db-data:
