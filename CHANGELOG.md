@@ -8,6 +8,9 @@ All notable changes to this project will be documented in this file. The format 
 
 * Support Arch Linux.
 * Odoo Docker image healthcheck.
+* On install the Odoo upgrade utils are cloned
+* Odoo Docker image ships with upgrade utils
+* Test the upgrade utils
 
 ### Fixed
 

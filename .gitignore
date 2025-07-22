@@ -55,3 +55,4 @@ oca
 thirdparty/*
 !thirdparty/.gitkeep
 themes
+upgrade-util

@@ -920,6 +920,7 @@ function install() {
     echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
     uv pip install ${PYTHON_NOTIFY}
     uv pip install -r requirements.txt
+    git clone https://github.com/odoo/upgrade-util
 
     if [ -f "odoo/requirements.txt" ]; then
 
@@ -1010,7 +1011,8 @@ function start() {
 
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo --database="$DATABASE" --config "$ODOO_RC" --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        odoo --upgrade-path=upgrade-util/src --database="$DATABASE" --config "$ODOO_RC" \
+            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
@@ -1054,10 +1056,12 @@ function run() {
 
 function exec() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+    local container="$1"
+    shift
+    local cmd="$@"
 
-    echo "Execute command '$2' with $CONTAINER_EXEC_PARAM in container '$1'."
-    $CONTAINER_ENGINE exec $CONTAINER_EXEC_PARAM "$1" "$2"
+    echo "Execute command '$cmd' with $CONTAINER_EXEC_PARAM in container '$container'."
+    $CONTAINER_ENGINE exec $CONTAINER_EXEC_PARAM "$container" $cmd
 }
 
 function record-with-py-spy() {
@@ -1196,8 +1200,9 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
         drop-db test
         remove odoo
-        remove-env test
+        git -C oca/partner-contact clean -df
         git -C oca/partner-contact checkout .
+        remove-env test
     else
         activate-venv
         version
@@ -1298,6 +1303,26 @@ function test-project() {
         CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"
         exec odoo run-tests
 
+        echo -e "\033[38;5;214mTEST\033[0m: Run module upgrade."
+        mkdir -p "oca/partner-contact/migrations/16.0.2.0.0"
+        cat << EOF > oca/partner-contact/partner_firstname/migrations/16.0.2.0.0/post-migration.py
+import logging
+from odoo.upgrade import util
+
+_logger = logging.getLogger(__name__)
+
+
+def migrate(cr, version):
+    env = util.env(cr)
+
+    partners = env["res.partner"].search([])
+    for partner in partners:
+        partner.name += "!"
+
+    _logger.info("Updated %s partners", len(partners))
+EOF
+        sed -i 's/16.0.1.0.3/16.0.2.0.0/g' oca/partner-contact/partner_firstname/__manifest__.py
+        exec odoo update-module partner_firstname 2>&1 | $GREP "module partner_firstname: Running migration"
     fi
 }
 
@@ -1628,7 +1653,8 @@ function init-module() {
     activate-venv
     set-addons-path
     echo "Initialize module $MODULES on $DATABASE ..."
-    odoo -d "$DATABASE" -i "$MODULES" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo -d "$DATABASE" -i "$MODULES" --config "$ODOO_RC" \
+        --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 function upgrade-module() {
@@ -1668,9 +1694,11 @@ function update-module() {
     set-addons-path
     echo "Updating module $MODULE_NAME on $DATABASE ..."
     if [[ -n "$ODOO_PARAM" ]] ; then
-        odoo --database "$DATABASE" --update "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
+        odoo --upgrade-path=upgrade-util/src --database "$DATABASE" --update "$MODULE_NAME" \
+            --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
     else
-        odoo --database "$DATABASE" --update "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+        odoo --upgrade-path=upgrade-util/src --database "$DATABASE" --update "$MODULE_NAME" \
+            --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
     fi
 }
 

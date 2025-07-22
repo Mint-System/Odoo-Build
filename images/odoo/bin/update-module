@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -n "$ODOO_DATABASE" ]; then
+    entrypoint-log "Check if database $ODOO_DATABASE is initialized"
+    DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+
+    if [ "$DATABASE_INITIALIZED" = "1" ]; then
+        ODOO_INIT_LANG="${ODOO_INIT_LANG:="en_US"}"
+
+        entrypoint-log "Update module $1 on database $ODOO_DATABASE."
+        (exec odoo "${DB_ARGS[@]}" --upgrade-path=/var/lib/upgrade-util/src --database "$ODOO_DATABASE" --update "$1" --config "$ODOO_RC" \
+            --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
+    fi
+fi
