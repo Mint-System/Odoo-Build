@@ -118,6 +118,7 @@ services:
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
       LOG_LEVEL: debug
+      MAX_CRON_THREADS: 4
       LIST_DB: False
       ADMIN_PASSWD: *****
       DBFILTER: ^%d$
@@ -365,6 +366,7 @@ The Odoo database manager is disabled by default.
 
 Odoo is executed as a multi-threaded Python process.
 
+* `MAX_CRON_THREADS` Maximum count of cron threads. Default is `2`.
 * `WORKERS` Define how many workers should be spawned. Default is `0`.
 * `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
 * `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.

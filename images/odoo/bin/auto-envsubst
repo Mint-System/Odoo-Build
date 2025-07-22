@@ -4,6 +4,7 @@ export ENVIRONMENT=${ENVIRONMENT:="development"}
 export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
 export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
+export MAX_CRON_THREADS=${MAX_CRON_THREADS:=2}
 export LIST_DB=${LIST_DB:=True}
 export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
 export DBFILTER=${DBFILTER:=""}
