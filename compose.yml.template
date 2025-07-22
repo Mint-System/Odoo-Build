@@ -4,7 +4,8 @@ services:
     container_name: odoo
     image: "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
     depends_on:
-      - db
+        db:
+            condition: service_healthy
     environment:
       HOST: db
       USER: odoo
@@ -116,6 +117,11 @@ services:
       ]
     networks:
       - default
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U odoo -d $ODOO_DATABASE"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
   mailpit:
     image: docker.io/axllent/mailpit
     container_name: mailpit

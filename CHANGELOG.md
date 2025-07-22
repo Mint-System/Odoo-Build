@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Support Arch Linux.
+* Odoo Docker image healthcheck.
 
 ### Fixed
 

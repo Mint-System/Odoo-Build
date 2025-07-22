@@ -21,6 +21,7 @@ This container image is an improvement of the official Odoo image:
 - 🪴 The container runs without requiring root privileges.
 - ✂️ Reduced image size through multi-stage build and file cleanup.
 - 👀 Use the image to run module tests and create code coverage report.
+- 🏥 Image has a built-in health check.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 

@@ -175,3 +175,7 @@ ENV ODOO_RC=/etc/odoo/odoo.conf
 
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["odoo"]
+
+# Healthcheck
+HEALTHCHECK --interval=10s --timeout=5s --retries=3 \
+  CMD curl --silent --fail "http://localhost:8069/web/health" || exit 1
