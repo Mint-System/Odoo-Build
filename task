@@ -1304,7 +1304,7 @@ function test-project() {
         exec odoo run-tests
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module upgrade."
-        mkdir -p "oca/partner-contact/migrations/16.0.2.0.0"
+        mkdir -p oca/partner-contact/partner_firstname/migrations/16.0.2.0.0
         cat << EOF > oca/partner-contact/partner_firstname/migrations/16.0.2.0.0/post-migration.py
 import logging
 from odoo.upgrade import util
