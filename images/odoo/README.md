@@ -178,19 +178,19 @@ Before starting the container you can initalize the database with selected scrip
 Run the `download-odoo-enterprise` script to download the Odoo Enterprise modules:
 
 ```bash
-docker compose run --rm odoo download-odoo-enterprise
+docker compose exec odoo download-odoo-enterprise
 ```
 
 Run the `git-clone-addons` script to clone module repos:
 
 ```bash
-docker compose run --rm odoo git-clone-addons
+docker compose exec odoo git-clone-addons
 ```
 
 Run the `init-db` script to initalize the Odoo database:
 
 ```bash
-docker compose run --rm odoo init-db
+docker compose exec odoo init-db
 ```
 
 The scripts are configured with environment variables.
@@ -203,7 +203,7 @@ Once you start the container the `entrypoint.sh` script will:
 * Run the `auto-envsubst` script to template the `odoo.conf` file.
 * Run the `python-install` script to install the Python packages.
 * Wait for the database to be ready.
-* Run the `odoo-update` script to update modules.
+* Run the `update-modules` script to update modules.
 * Start the Odoo server.
 
 ### Execute
@@ -211,24 +211,30 @@ Once you start the container the `entrypoint.sh` script will:
 Once the container is running, install modules with:
 
 ```bash
-docker compose run --rm odoo init-module partner_firstname
+docker compose exec odoo init-module partner_firstname
 ```
 
-Or update modules with this command:
+Or update specific modules with this command:
 
 ```bash
-docker compose run --rm odoo update-modules
+docker compose exec odoo update-module partner_firstname
 ```
 
-This will start a detached Odoo process and updates modules that have a different checksum.
+There is also the possiblity to update all modules:
+
+```bash
+docker compose exec odoo update-modules
+```
+
+For each installed module Odoo computes and stores a checksum in the database. The update modules script compares the checksum and updates all modules that have changed.
 
 Updating module translations is simple:
 
 ```bash
-docker compose run --rm odoo update-translations
+docker compose exec odoo update-translations
 ```
 
-Existing translations will be overwritten.
+Not that existing translations will be overwritten.
 
 ### Analyze
 
@@ -443,7 +449,7 @@ The most important image paths are:
 * `/opt/odoo/addons` Contains the Odoo Community Edition modules.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/var/lib/odoo ` Odoo data folder.
-* `/var/lib/odoo/filestore` For every database name Odoo create a filestore.
+* `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
 * `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
@@ -455,7 +461,7 @@ With [memray](https://bloomberg.github.io/memray/) you can visualize the memory 
 Run Odoo with memray.
 
 ```bash
-docker compose run --rm -p 127.0.0.1:8069:8069 odoo memray
+docker compose exec -p 127.0.0.1:8069:8069 odoo memray
 ```
 
 Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
@@ -463,6 +469,6 @@ Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
 Generate the flamegraph and copy the flamegraph to the host.
 
 ```bash
-docker compose run --rm odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
+docker compose exec odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
 docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 ```
