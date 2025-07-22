@@ -1237,8 +1237,8 @@ function test-project() {
         export ODOO_MAIL_SMTP_HOST=mail
         export ODOO_MAIL_SMTP_PORT=1025
         export ODOO_MAIL_SMTP_ENCRYPTION=none
-        export SERVER_WIDE_MODULES=session_db,module_change_auto_install
-        export SESSION_DB_URI=postgres://odoo:odoo@db/test
+        export SERVER_WIDE_MODULES=module_change_auto_install
+        # export SESSION_DB_URI=postgres://odoo:odoo@db/test
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
         export AUTO_UPDATE_MODULES=True
         export AUTO_UPDATE_TRANSLATIONS=True
@@ -1304,8 +1304,8 @@ function test-project() {
         exec odoo run-tests
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module upgrade."
-        mkdir -p oca/partner-contact/partner_firstname/migrations/16.0.2.0.0
-        cat << EOF > oca/partner-contact/partner_firstname/migrations/16.0.2.0.0/post-migration.py
+        mkdir -p oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0
+        cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0/post-migration.py
 import logging
 from odoo.upgrade import util
 
@@ -1321,7 +1321,7 @@ def migrate(cr, version):
 
     _logger.info("Updated %s partners", len(partners))
 EOF
-        sed -i 's/16.0.1.0.3/16.0.2.0.0/g' oca/partner-contact/partner_firstname/__manifest__.py
+        sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
         exec odoo update-module partner_firstname 2>&1 | $GREP "module partner_firstname: Running migration"
     fi
 }
