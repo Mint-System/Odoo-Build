@@ -30,12 +30,12 @@
 | create-revision           | [revision]           | Create new Odoo revision.                                                                  |
 | create-snippet            | [id]                 | Create snippet from template.                                                              |
 | debug                     | [name]               | Debugg application. Options: native.                                                       |
-| delete-git-folder         |                      | Delete all git folders.                                                                    |
 | dev-vuepress              |                      | Start Vuepress development server.                                                         |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
 | disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
 | drop-db                   | [db]                 | Drop target Odoo database.                                                                 |
 | edit-env                  | [env]                | Open env file in default editor.                                                           |
+| exec                      | [name][cmd]          | Run command in container.                                                                  |
 | export-website-data       | [env]                | Export website data from Odoo database.                                                    |
 | generate-admin-passwd     | [pass]               | Generate hash for Odoo master password.                                                    |
 | generate-module-docs      | [path]               | Generate readme file for module.                                                           |
@@ -43,7 +43,7 @@
 | generate-module-inherit   | [path][model]        | Generate inherited model in module folder.                                                 |
 | generate-module-views     | [path][model]        | Generate model views in module folder.                                                     |
 | generate-module-security  | [path][model]        | Generate model access file.                                                                |
-| generate-module-snippet   | [path][ref]          | Generate snippet for referefenced view.                                                    |
+| generate-module-snippet   | [path][model][ref]   | Generate snippet for referefenced view.                                                    |
 | generate-module-wizard    | [path][model]        | Generate wizard for a model in module folder.                                              |
 | generate-ssh-keys         |                      | Generate ssh key pair.                                                                     |
 | generate-pg-ssl-keys      |                      | Generate PostgreSQL SSL key material.                                                      |
@@ -89,9 +89,11 @@
 | release-module            | [path]               | Create GitHub release for a module.                                                        |
 | remove                    | [name]               | Remove containers and volumes.                                                             |
 | remove-env                | [env]                | Remove environment config.                                                                 |
+| remove-git-folder         |                      | Delete all git folders.                                                                    |
 | remove-git-submodule      | [path]               | Remove a git submodule.                                                                    |
 | remove-module             | [db][name]           | Remove target Odoo module.                                                                 |
 | remove-snippet            | [env][path]          | Remove snippet definition.                                                                 |
+| remove-venv               |                      | Remove virtualenv.                                                                         |
 | rename-env                | [env][env]           | Rename env file.                                                                           |
 | record-with-memray        | [name]               | Record application memory usage with memray. Options: native.                              |
 | record-with-py-spy        | [pid]                | Record and create flamechart for a process.                                                |
@@ -108,6 +110,7 @@
 | setup-mail                | [db]                 | Setup mail config in Odoo db.                                                              |
 | shell                     | [db][code]           | Start interactive odoo shell or run code.                                                  |
 | show-env                  | [env]                | Output content of the env file.                                                            |
+| show-odoo-mcp-config      |                      | Show the Odoo MCP server config.                                                           |
 | show-revision             | [revision]           | Show references of Odoo revision.                                                          |
 | source                    |                      | Source the Python virtual env.                                                             |
 | stage-git-folder          | [path]               | Stage all files in git folders in path.                                                    |
