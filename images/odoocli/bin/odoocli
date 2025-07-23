@@ -24,9 +24,12 @@ odoocli --method 'search_one' --model 'res.partner' --domain "[('email', '=', 'u
 
 # Delete the partner with id 66
 odoocli --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
+
+# List selected model fields
+odoocli --method 'search_read' --model 'ir.model' --domain "[]" --fields "['name','model']"
 """
 
-# Create the ArgumentParser
+# Create the argument parser
 parser = ArgumentParser(
     prog="odoocli",
     description="Update Odoo records using the XML-RPC API.",
@@ -35,10 +38,11 @@ parser = ArgumentParser(
 )
 
 # Define arguments
+parser.add_argument('--method', help='The operation to perform: "create", "write", "read", "search_count", "search_one", or "unlink".')
 parser.add_argument('--model', help='The Odoo model to interact with, e.g., "res.partner".')
 parser.add_argument('--domain', help='The domain filter in the form of [("field", "operator", "value")], used to search for records.')
 parser.add_argument('--field', help='The field name in the model to update or read.')
-parser.add_argument('--method', help='The operation to perform: "create", "write", "read", "search_count", "search_one", or "unlink".')
+parser.add_argument('--fields', help='The fields to read when using the search_read method, e.g., ["name", "email"].')
 parser.add_argument('--value', help='The value to write or create, or the field to read.')
 
 # Parse arguments
@@ -66,11 +70,13 @@ models.execute_kw(db, uid, password, args.model, "check_access_rights", ["read"]
 # Parse domain and value
 if args.domain:
     domain = ast.literal_eval(args.domain)
-
 if args.value:
     value = ast.literal_eval(args.value)
+if args.fields:
+    fields = ast.literal_eval(args.fields)
 
-# Execute the method based on the user's choice
+# Execute the selected method
+
 if args.method == "create":
     models.execute_kw(db, uid, password, args.model, "create", [value])
 
@@ -94,3 +100,7 @@ elif args.method == "search_one":
 elif args.method == "unlink":
     ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
     models.execute_kw(db, uid, password, args.model, "unlink", [ids])
+
+elif args.method == "search_read":
+    res = models.execute_kw(db, uid, password, args.model, "search_read", [domain], {"fields": fields})
+    print(res)
