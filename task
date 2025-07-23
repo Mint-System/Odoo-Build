@@ -2557,6 +2557,10 @@ function test-xmlrpc() {
 
 function odoocli(){
     activate-venv
+    export ODOO_URL
+    export ODOO_DATABASE
+    export ODOO_USERNAME
+    export ODOO_PASSWORD
     images/odoocli/bin/odoocli "$@"
 }
 

@@ -1,14 +1,42 @@
 #!/usr/bin/env python3
+
 import os
-import subprocess
-import sys
-from typing import Any, Dict
-
+import xmlrpc.client
+from typing import Any, Dict, List, Optional, Tuple
 from fastmcp import FastMCP
-
 
 mcp = FastMCP("Odoo MCP Server")
 
+def get_odoo_client():
+    """
+    Get Odoo XML-RPC client connection and authentication details.
+    """
+
+    url = os.environ.get("ODOO_URL", "http://localhost:8069")
+    db = os.environ.get("ODOO_DATABASE", "odoo")
+    username = os.environ.get("ODOO_USERNAME", "admin")
+    password = os.environ.get("ODOO_PASSWORD", "admin")
+
+    common = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/common")
+
+    uid = common.authenticate(db, username, password, {})
+    if not uid:
+        raise Exception(f"Authentication failed for user '{username}' on database '{db}'")
+
+    models = xmlrpc.client.ServerProxy(f"{url}/xmlrpc/2/object")
+
+    return models, db, uid, password
+
+def execute_odoo_method(model: str, method: str, *args, **kwargs) -> Any:
+    """
+    Execute an Odoo method via XML-RPC.
+    """
+    models, db, uid, password = get_odoo_client()
+
+    models.execute_kw(db, uid, password, model, "check_access_rights",
+                     ["read"], {"raise_exception": False})
+
+    return models.execute_kw(db, uid, password, model, method, list(args), kwargs)
 
 @mcp.tool()
 def create_contact(
@@ -21,22 +49,9 @@ def create_contact(
     zip: str = None,
     country_id: int = None,
     is_company: bool = None
-) -> str:
-    """Create a new contact (res.partner) in Odoo.
-
-    Args:
-        name: The name of the contact (required)
-        email: The email address of the contact
-        phone: The phone number of the contact
-        mobile: The mobile phone number of the contact
-        street: The street address
-        city: The city
-        zip: The postal/zip code
-        country_id: The country ID
-        is_company: Whether this contact is a company
-
-    Returns:
-        Success or error message
+):
+    """
+    Create a new contact (res.partner) in Odoo.
     """
     try:
         contact_data = {"name": name}
@@ -51,42 +66,59 @@ def create_contact(
             "is_company": is_company
         }
 
-        # Assign values
         for field, value in optional_fields.items():
             if value is not None:
                 contact_data[field] = value
-        value_str = str(contact_data)
 
-        # Get path tot eh odoocli
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        project_root = os.path.dirname(script_dir)
-        odoocli_path = os.path.join(project_root, "images", "odoocli", "bin", "odoocli")
+        contact_id = execute_odoo_method("res.partner", "create", contact_data)
 
-        # Build and execute command
-        python_executable = sys.executable
-        cmd = [
-            python_executable,
-            odoocli_path,
-            "--method", "create",
-            "--model", "res.partner",
-            "--value", value_str
-        ]
-        print(f"Executing command: {' '.join(cmd)}", file=sys.stderr)
-        result = subprocess.run(
-            cmd,
-            capture_output=True,
-            text=True,
-            check=True
+        return f"Successfully created contact '{name}' with ID {contact_id}"
+
+    except Exception as e:
+        return f"Error creating contact: {str(e)}"
+
+@mcp.tool()
+def get_models():
+    """Retrieve a list of available models in Odoo."""
+    try:
+        models = execute_odoo_method(
+            "ir.model",
+            "search_read",
+            [],
+            fields=["name", "model"]
         )
 
-        return f"Successfully created contact '{name}'"
+        return models
 
-    except subprocess.CalledProcessError as e:
-        error_msg = e.stderr.strip() if e.stderr else str(e)
-        return f"Error executing odoocli: {error_msg}"
     except Exception as e:
-        return f"Unexpected error: {str(e)}"
+        return [{"error": f"Error retrieving models: {str(e)}"}]
 
+@mcp.tool()
+def execute_custom_method(
+    model: str,
+    method: str,
+    args: List = None,
+    kwargs: Dict = None
+):
+    """
+    Execute a custom Odoo method with arbitrary arguments.
+    """
+    try:
+        if args is None:
+            args = []
+        if kwargs is None:
+            kwargs = {}
+
+        result = execute_odoo_method(model, method, *args, **kwargs)
+
+        # Convert result to JSON-serializable format
+        if isinstance(result, (list, dict, str, int, float, bool, type(None))):
+            return result
+        else:
+            return str(result)
+
+    except Exception as e:
+        return {"error": f"Error executing method: {str(e)}"}
 
 if __name__ == "__main__":
     mcp.run()
