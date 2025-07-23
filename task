@@ -125,6 +125,7 @@ function help-table() {
     printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
     printf "$COLUMN" "shell" "[db][code]" "Start interactive odoo shell or run code."
     printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
+    printf "$COLUMN" "show-odoo-mcp-config" "" "Show the Odoo MCP server config."
     printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
     printf "$COLUMN" "source" "" "Source the Python virtual env."
     printf "$COLUMN" "stage-git-folder" "[path]" "Stage all files in git folders in path."
@@ -275,6 +276,26 @@ function generate-admin-passwd() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ODOO_PASSWORD="$1"
     bin/hash_password
+}
+
+function show-odoo-mcp-config() {
+    echo "Add this config to your IDE:  "
+    cat << EOF
+{
+    "mcpServers": {
+        "odoo": {
+            "command": "$PWD/venv$ODOO_VERSION/bin/python",
+            "args": ["$PWD/bin/odoo-mcp"],
+            "env": {
+                "ODOO_URL": "http://localhost:8069",
+                "ODOO_DATABASE": "$ODOO_DATABASE",
+                "ODOO_USERNAME": "admin",
+                "ODOO_PASSWORD": "admin"
+            }
+        }
+    }
+}
+EOF
 }
 
 # Env Commands
@@ -1019,27 +1040,6 @@ function start() {
         echo "Start Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
-    fi
-
-    if [[ "$1" =~ "mcp" ]]; then
-        echo "Add this config:"
-        cat << EOF
-{
-    "mcpServers": {
-        "odoo": {
-            "command": "$PWD/venv$ODOO_VERSION/bin/python",
-            "args": ["$PWD/bin/odoo-mcp"],
-            "env": {
-                "ODOO_URL": "http://localhost:8069",
-                "ODOO_DATABASE": "$ODOO_DATABASE",
-                "ODOO_USERNAME": "admin",
-                "ODOO_PASSWORD": "admin"
-            }
-        }
-    }
-}
-EOF
-        # python3 bin/odoo-mcp
     fi
 }
 

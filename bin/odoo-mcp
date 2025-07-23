@@ -7,7 +7,6 @@ from typing import Any, Dict
 from fastmcp import FastMCP
 
 
-# Create FastMCP server
 mcp = FastMCP("Odoo MCP Server")
 
 
@@ -40,10 +39,7 @@ def create_contact(
         Success or error message
     """
     try:
-        # Build the contact data dictionary
         contact_data = {"name": name}
-
-        # Add optional fields if provided
         optional_fields = {
             "email": email,
             "phone": phone,
@@ -55,18 +51,19 @@ def create_contact(
             "is_company": is_company
         }
 
+        # Assign values
         for field, value in optional_fields.items():
             if value is not None:
                 contact_data[field] = value
+        value_str = str(contact_data)
 
-        # Force the correct project root and build absolute path to odoocli
-        project_root = "/home/janikvonrotz/Odoo-Build"
+        # Get path tot eh odoocli
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(script_dir)
         odoocli_path = os.path.join(project_root, "images", "odoocli", "bin", "odoocli")
 
-        # Use the same Python interpreter that's running this script
+        # Build and execute command
         python_executable = sys.executable
-
-        # Build the odoocli command
         cmd = [
             python_executable,
             odoocli_path,
@@ -74,11 +71,7 @@ def create_contact(
             "--model", "res.partner",
             "--value", value_str
         ]
-
-        # Debug: print the command being executed
         print(f"Executing command: {' '.join(cmd)}", file=sys.stderr)
-
-        # Execute the command
         result = subprocess.run(
             cmd,
             capture_output=True,
