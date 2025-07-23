@@ -1021,6 +1021,26 @@ function start() {
         open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
     fi
 
+    if [[ "$1" =~ "mcp" ]]; then
+        echo "Add this config:"
+        cat << EOF
+{
+    "mcpServers": {
+        "odoo": {
+            "command": "$PWD/venv$ODOO_VERSION/bin/python",
+            "args": ["$PWD/bin/odoo-mcp"],
+            "env": {
+                "ODOO_URL": "http://localhost:8069",
+                "ODOO_DATABASE": "$ODOO_DATABASE",
+                "ODOO_USERNAME": "admin",
+                "ODOO_PASSWORD": "admin"
+            }
+        }
+    }
+}
+EOF
+        # python3 bin/odoo-mcp
+    fi
 }
 
 function debug() {

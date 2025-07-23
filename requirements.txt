@@ -20,3 +20,5 @@ py-spy
 memray
 # Debug
 debugpy
+# LLM
+fastmcp
