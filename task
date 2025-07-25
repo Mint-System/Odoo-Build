@@ -226,8 +226,16 @@ fi
 
 if [[ "$OS_RELEASE" =~ ^(Darwin)$ ]] && command -v ggrep &> /dev/null; then
     GREP=ggrep
+elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
+    echo "Error: On Darwin systems, 'ggrep' must be used instead of 'grep'."
+    exit 1
 else
     GREP=grep
+fi
+
+if ! command -v envsubst &> /dev/null; then
+    echo "Error: 'envsubst' is not available. Install 'gettext' package."
+    exit 1
 fi
 
 # Import commands
@@ -979,7 +987,6 @@ function open-url-with-delay(){
 }
 
 function start() {
-    activate-venv
     set-addons-path
     if [ "$POSTGRES_SSL" = "on" ]; then
         generate-pg-ssl-keys
@@ -1121,7 +1128,6 @@ function record-with-memray() {
 }
 
 function remove() {
-    activate-venv
     template-compose
 
     if test -z "$1"; then
@@ -1150,7 +1156,6 @@ function remove() {
 }
 
 function restart() {
-    activate-venv
     template-compose
 
     if test -z "$1"; then
@@ -1163,7 +1168,6 @@ function restart() {
 }
 
 function stop() {
-    activate-venv
     template-compose
 
     if test -z "$1"; then
@@ -1520,7 +1524,7 @@ function change-uuid() {
     load-env "$1"
     UUID=$(uuidgen)
     echo "Set uuid $UUID for $1."
-     --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
 }
 
 function update-module-list() {
