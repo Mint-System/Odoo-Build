@@ -19,7 +19,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
-* 🧠 **LLM**: Prompt LLMs with module code and apply changes.
+* 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
 * 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
@@ -111,7 +111,7 @@ task start
 Initialize database with the image script.
 
 ```bash
-task run odoo init-db
+task exec odoo init-db
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -299,7 +299,7 @@ task start
 Initialize the Odoo database.
 
 ```bash
-task run odoo init-db
+task exec odoo init-db
 ```
 
 Log into Odoo and setup an alias for `info@yourcompany.com`.

@@ -224,13 +224,11 @@ else
     OS_OPEN="xdg-open"
 fi
 
-if [[ "$OS_RELEASE" =~ ^(Darwin)$ ]] && command -v ggrep &> /dev/null; then
-    GREP=ggrep
-elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
-    echo "Error: On Darwin systems, 'ggrep' must be used instead of 'grep'."
+# Check commands
+
+if ! (command -v grep &> /dev/null && grep --version | grep -q GNU) && [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
+    echo "Error: On Darwin systems, GNU grep must be installed."
     exit 1
-else
-    GREP=grep
 fi
 
 if ! command -v envsubst &> /dev/null; then
@@ -253,7 +251,6 @@ fi
 function info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
-    echo "Grep Command: $GREP"
     echo "Pass entry: $PASS_ENTRY"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Version: $ODOO_VERSION"
@@ -339,7 +336,7 @@ function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
     # Load and export vars defined in odoo conf template
-    for VAR in $($GREP -oP '\$(?:\{([^}]*)\}|([A-Z_][A-Z0-9_]*))' odoo.conf.template); do
+    for VAR in $(grep -oP '\$(?:\{([^}]*)\}|([A-Z_][A-Z0-9_]*))' odoo.conf.template); do
       VAR=${VAR/\$/}
       VAR=${VAR//\{\//}
       export $VAR
@@ -453,7 +450,7 @@ function update-repo-docs() {
         MODULE_DIR=$(dirname "$MANIFEST_FILE")
         MODULE_NAME=$(basename "$MODULE_DIR")
         echo "Add summary of $MODULE_NAME to readme file."
-        SUMMARY=$($GREP 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
+        SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
         echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "$README_PATH"
     done
 }
@@ -512,7 +509,7 @@ function update-docs() {
 
 function ls-module() {
     if [ -n "$1" ]; then
-        find addons -name "__manifest__.py" | xargs -r dirname | $GREP "$1" |sort -u
+        find addons -name "__manifest__.py" | xargs -r dirname | grep "$1" |sort -u
     else
         find addons -name "__manifest__.py" | xargs -r dirname | sort -u
     fi
@@ -554,10 +551,10 @@ function get-modules() {
     fi
 
     if [[ "$OPTION" == "dirname" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs $GREP -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     if [[ "$OPTION" == "basename" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs $GREP -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     echo "$MODULES"
 }
@@ -568,13 +565,13 @@ function get-module-version() {
         echo "\$1 is empty."
     else
         # Get version of module
-        VERSION=$($GREP -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
+        VERSION=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
         VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
         # Set default version
         [ -z "$VERSION" ] && VERSION=0.0
 
-        COUNT_DOTS=$(echo "$VERSION" | $GREP -o "\." | wc -l)
+        COUNT_DOTS=$(echo "$VERSION" | grep -o "\." | wc -l)
 
         # Check if oca version or enterprise version
         if [[ $COUNT_DOTS == 2 ]]; then
@@ -599,7 +596,7 @@ function template-compose() {
     echo "Template compose.yml"
 
     # Load and export vars defined in compose template
-    for VAR in $($GREP -oP '\$\{([^}]+)\}' compose.yml.template); do
+    for VAR in $(grep -oP '\$\{([^}]+)\}' compose.yml.template); do
       VAR=${VAR/#\$\{/}
       VAR=${VAR/%\}/}
       export $VAR
@@ -691,7 +688,7 @@ function checkout-latest-revision() {
         ODOO_VERSION="$1"
     fi
 
-    ODOO_REVISION=$(list-revision | $GREP "$ODOO_VERSION" | tail -n1)
+    ODOO_REVISION=$(list-revision | grep "$ODOO_VERSION" | tail -n1)
     checkout-revision "$ODOO_REVISION"
 }
 
@@ -728,7 +725,7 @@ function test-image() {
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export LOCAL_PATH="./tmp"
-        SERVER_TOOLS_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | $GREP '"sha":' | head -n 1 | awk -F '"' '{print $4}')
+        SERVER_TOOLS_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${SERVER_TOOLS_GIT_REF}"
         mkdir -p "$LOCAL_PATH"
         export PATH=./images/odoo/bin/:$PATH
@@ -736,13 +733,13 @@ function test-image() {
         rm -rf "$LOCAL_PATH/github.com"
 
         echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with version: $ODOO_VERSION"
-        echo "'version': '1.0'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '1.1'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '2.5'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '13.0.1.0.0'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
-        echo "'version': '14.0.2.1.1'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
-        echo "'version': '${ODOO_VERSION}.0.0.0'" | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo '"Version": "1.0"' | $GREP -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '2.5'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '13.0.1.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
+        echo "'version': '14.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
+        echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
@@ -873,7 +870,7 @@ function install() {
     if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | $GREP -Po '^wkhtmltopdf \K[\d.]+')
+        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | grep -Po '^wkhtmltopdf \K[\d.]+')
         if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
             echo -e "\033[38;5;214mWget\033[0m: Install wkhtmltopdf"
             wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
@@ -921,7 +918,7 @@ function install() {
         uv pip install psycopg2-binary --force
 
         echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
-        if ! $GREP -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
+        if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
           echo '' >> .env
           echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
         fi
@@ -1311,7 +1308,7 @@ function test-project() {
             sleep 3
         done
         docker logs odoo
-        docker logs odoo 2>&1 | $GREP "Run click-odoo-update."
+        docker logs odoo 2>&1 | grep "Run click-odoo-update."
 
         echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
@@ -1346,7 +1343,7 @@ def migrate(cr, version):
     _logger.info("Updated %s partners", len(partners))
 EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
-        exec odoo update-module partner_firstname 2>&1 | $GREP "module partner_firstname: Running migration"
+        exec odoo update-module partner_firstname 2>&1 | grep "module partner_firstname: Running migration"
     fi
 }
 
@@ -2023,7 +2020,7 @@ function zip-module() {
     echo "Remove auto install option"
     sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
     echo "Remove pycache and hidden folders"
-    find "$MODULE_PATH" | $GREP -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+    find "$MODULE_PATH" | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
     echo "Zip module $MODULE"
     cd tmp || exit
     rm -f "$MODULE_NAME".zip
@@ -2160,7 +2157,7 @@ function lint-snippets() {
         XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
 
         # Check filename
-        COUNT_DOTS=$(echo "$FILENAME" | $GREP -o "\." | wc -l)
+        COUNT_DOTS=$(echo "$FILENAME" | grep -o "\." | wc -l)
         if [ "$COUNT_DOTS" -ge 4 ]; then
             echo "Linting failed for $FILE"
             echo "Dots count: $COUNT_DOTS"
@@ -2210,7 +2207,7 @@ function add-git-submodule() {
 
 function ls-git-folder() {
     if [ -n "$1" ]; then
-        echo $(git config --file .gitmodules --get-regexp url | $GREP "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
+        echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     else
         echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     fi
@@ -2316,7 +2313,7 @@ function checkout-git-folder() {
     for GIT_FOLDER in $GIT_FOLDERS; do
 
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
-        COMMIT_HASH=$($GREP "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+        COMMIT_HASH=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
 
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
@@ -2488,7 +2485,7 @@ function checkout-revision() {
     fi
 
     echo "Update revision var in .env file."
-    if $GREP -q "ODOO_REVISION" .env; then
+    if grep -q "ODOO_REVISION" .env; then
         sed -i -e "s/^ODOO_REVISION=.*/ODOO_REVISION=${ODOO_REVISION}/" .env
     else
         echo "ODOO_REVISION=${ODOO_REVISION}" >> .env
