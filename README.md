@@ -1,9 +1,9 @@
 Odoo Build
 ===
 
-![Vercel](https://vercelbadge.vercel.app/api/mint-system/odoo-build) [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/) [![.github/workflows/test.yml](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml/badge.svg)](https://github.com/Mint-System/Odoo-Build/actions/workflows/test.yml) [![matrix-badge](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch)
+![Vercel](https://vercelbadge.vercel.app/api/mint-system/odoo-build) [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo)](https://hub.docker.com/r/mintsystem/odoo/) [![.github/workflows/test.yml](https://github.com/Sozialinfo/Odoo-Build/actions/workflows/test.yml/badge.svg)](https://github.com/Sozialinfo/Odoo-Build/actions/workflows/test.yml) [![matrix-badge](https://matrix.to/img/matrix-badge.svg)](https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch)
 
-This is the [Mint System](https://www.mint-system.ch/) Odoo development environment.
+This is the [Sozialinfo](https://www.sozialinfo.ch/) Odoo development environment.
 
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
@@ -48,7 +48,7 @@ The usage section is a set of workflows. See `task help` or [task](./task.md) fo
 Clone this repository.
 
 ```bash
-git clone git@github.com:Mint-System/Odoo-Build.git
+git clone git@github.com:Sozialinfo/Odoo-Build.git
 cd Odoo-Build
 ```
 
