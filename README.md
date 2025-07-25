@@ -138,6 +138,12 @@ Add model security.
 task generate-module-security addons/project/project_sprint project.sprint
 ```
 
+Generate module docs.
+
+```bash
+task generate-module-docs addons/project/project_sprint project.sprint
+```
+
 ### Load modules from thirdparty folder
 
 Clone thirdparty repos into the `thirdparty` folder.
