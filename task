@@ -290,7 +290,7 @@ function show-odoo-mcp-config() {
     "mcpServers": {
         "odoo": {
             "command": "$PWD/venv$ODOO_VERSION/bin/python",
-            "args": ["$PWD/bin/odoo-mcp"],
+            "args": ["$PWD/images/odoo-mcp/bin/server"],
             "env": {
                 "ODOO_URL": "http://localhost:8069",
                 "ODOO_DATABASE": "$ODOO_DATABASE",
@@ -619,14 +619,12 @@ function build() {
 
     if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
         CONTAINER_TAG="odoo-mailgate"
-    fi
-
-    if [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
+    elif [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
-    fi
-
-    if [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
+    elif [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
         CONTAINER_TAG="odoocli"
+    elif [ "$MANIFEST_FILE" = "images/odoo-mcp/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-mcp"
     fi
 
     if [ -n "$2" ]; then
@@ -764,13 +762,14 @@ function publish() {
     if [ "$1" == "images/odoo-mailgate/Dockerfile" ]; then
         CONTAINER_TAG="odoo-mailgate"
         LATEST_TAG="odoo-mailgate:latest"
-    fi
-    if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
+    elif [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
-    fi
-    if [ "$1" == "images/odoocli/Dockerfile" ]; then
+    elif [ "$1" == "images/odoocli/Dockerfile" ]; then
         CONTAINER_TAG="odoocli"
+        LATEST_TAG="odoocli:latest"
+    elif [ "$1" == "images/odoo-mcp/Dockerfile" ]; then
+        CONTAINER_TAG="odoo-mcp"
         LATEST_TAG="odoocli:latest"
     fi
 
