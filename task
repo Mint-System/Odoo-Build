@@ -17,6 +17,7 @@ function help-table() {
     echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
+    printf "$COLUMN" "archive-docker-tags" "" "Archive Docker image tags on hub older than 1 year."
     printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
     printf "$COLUMN" "backup-env-files" "[path]" "Archive and copy env files to target location."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
@@ -591,6 +592,12 @@ function list-modules() {
 }
 
 # Container Commands
+
+function archive-docker-tags() {
+    activate-venv
+    export CONTAINER_CONFIG
+    python bin/archive-docker-tags
+}
 
 function template-compose() {
     echo "Template compose.yml"

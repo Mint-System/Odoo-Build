@@ -1,0 +1,107 @@
+#!/usr/bin/env python3
+
+import requests
+import datetime
+import json
+import os
+import base64
+
+# Load the container config file
+with open(os.environ['CONTAINER_CONFIG'] + '/config.json', 'r') as f:
+    config = json.load(f)
+
+# Extract the auth token from the config file
+auth_token = None
+for key, value in config.get('auths', {}).items():
+    if key.startswith('https://index.docker.io'):
+        auth_token = value['auth']
+        break
+
+# Decode the auth token to get the username and password
+decoded_auth_token = base64.b64decode(auth_token).decode('utf-8')
+DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD = decoded_auth_token.split(':')
+
+# Replace with your own namespace and repository names
+NAMESPACE = "mintsystem"
+REPOSITORY = "odoo"
+
+def get_access_token(username, password):
+    """Get an access token from Docker Hub"""
+    url = "https://hub.docker.com/v2/users/login/"
+    headers = {
+        "Content-Type": "application/json",
+    }
+    payload = {
+        "username": username,
+        "password": password,
+    }
+    response = requests.post(url, headers=headers, json=payload)
+    return response.json()["token"]
+
+def get_tags(namespace, repository, access_token):
+    """Get all tags for a given repository"""
+    url = f"https://registry.hub.docker.com/v2/repositories/{namespace}/{repository}/tags/"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json",
+    }
+    params = {"page_size": 100}
+    tags = []
+    while True:
+        response = requests.get(url, headers=headers, params=params)
+        response_json = response.json()
+        print("Response JSON:", response_json)
+        if "results" in response_json:
+            tags.extend(response_json["results"])
+        elif "tags" in response_json:
+            tags.extend(response_json["tags"])
+        if "next" in response_json and response_json["next"] is not None:
+            next_url = response_json["next"]
+            if "?" in next_url:
+                query_params = next_url.split("?")[-1].split("&")
+                for param in query_params:
+                    key_value = param.split("=")
+                    if len(key_value) == 2 and key_value[0] == "page":
+                        params[key_value[0]] = int(key_value[1])
+            else:
+                break
+        else:
+            break
+    return tags
+
+def delete_tag(namespace, repository, tag_name, access_token):
+    """Delete a single tag"""
+    url = f"https://registry.hub.docker.com/v2/repositories/{namespace}/{repository}/tags/{tag_name}"
+    headers = {
+        "Authorization": f"Bearer {access_token}",
+        "Content-Type": "application/json",
+    }
+    response = requests.delete(url, headers=headers)
+    if response.status_code == 204:
+        print(f"Deleted tag {tag_name}")
+    else:
+        print(f"Failed to delete tag {tag_name}: {response.text}")
+
+def main():
+    # Get access token
+    access_token = get_access_token(DOCKER_HUB_USERNAME, DOCKER_HUB_PASSWORD)
+
+    # Get all tags
+    tags = get_tags(NAMESPACE, REPOSITORY, access_token)
+
+    # Calculate cutoff date (1 year ago)
+    cutoff_date = datetime.datetime.now() - datetime.timedelta(days=365)
+
+    # Delete old tags
+    for tag in tags:
+        if "last_updated" in tag:
+            last_updated = datetime.datetime.strptime(tag["last_updated"], "%Y-%m-%dT%H:%M:%S.%fZ")
+            if last_updated < cutoff_date:
+                delete_tag(NAMESPACE, REPOSITORY, tag["name"], access_token)
+        elif "last_pushed" in tag:
+            last_pushed = datetime.datetime.strptime(tag["last_pushed"], "%Y-%m-%dT%H:%M:%SZ")
+            if last_pushed < cutoff_date:
+                delete_tag(NAMESPACE, REPOSITORY, tag["name"], access_token)
+
+if __name__ == "__main__":
+    main()
