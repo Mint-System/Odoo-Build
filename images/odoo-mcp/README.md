@@ -30,7 +30,7 @@ Add this config to your MCP client configuration:
                 "mintsystem/odoo-mcp"
             ],
             "env": {
-                "ODOO_URL": "http://localhost:8069",
+                "ODOO_URL": "http://odoo:8069",
                 "ODOO_DATABASE": "18.0",
                 "ODOO_USERNAME": "admin",
                 "ODOO_PASSWORD": "admin"
