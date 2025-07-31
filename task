@@ -473,24 +473,22 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     declare -A REVISIONS
     PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/main"
 
-    for FILE in revisions/*; do
-        if [[ -f "$FILE" ]]; then
-            REVISION=$(basename "$FILE")
-            VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+    for FILE in $(ls revisions/ | sort -rV); do
+        REVISION="$FILE"
+        VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
 
-            if [[ -z "${REVISIONS[$VERSION]}" ]]; then
-                REVISIONS[$VERSION]="## $VERSION"
-            fi
-
-            REVISIONS[$VERSION]+=$'\n\n'
-            REVISIONS[$VERSION]+="#### $REVISION"
-            REVISIONS[$VERSION]+=$'\n\n```bash\n'
-            REVISIONS[$VERSION]+=$(cat "$FILE")
-            REVISIONS[$VERSION]+=$'\n```'
+        if [[ -z "${REVISIONS[$VERSION]}" ]]; then
+            REVISIONS[$VERSION]="## $VERSION"
         fi
+
+        REVISIONS[$VERSION]+=$'\n\n'
+        REVISIONS[$VERSION]+="#### $REVISION"
+        REVISIONS[$VERSION]+=$'\n\n```bash\n'
+        REVISIONS[$VERSION]+=$(cat "revisions/$FILE")
+        REVISIONS[$VERSION]+=$'\n```'
     done
 
-    for REVISION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -V); do
+    for REVISION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -rV); do
         echo -e "${REVISIONS[$REVISION]}\n" >> "revisions.md"
     done
 }
