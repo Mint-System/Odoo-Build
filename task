@@ -633,7 +633,7 @@ function build() {
     fi
 
     if [ -n "$2" ]; then
-        PLATFORM="$1"
+        PLATFORM="$2"
     fi
 
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
@@ -650,11 +650,15 @@ function build() {
         "17.0")
             PYTHON_VERSION="3.11"
             ;;
+        "18.0")
+            PYTHON_VERSION="3.12"
+            ;;
         *)
             PYTHON_VERSION="3.12"
             ;;
     esac
     echo "Python version is: $PYTHON_VERSION"
+    echo "Platform is: $PLATFORM"
 
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
         echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
