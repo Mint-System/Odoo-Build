@@ -29,6 +29,14 @@ The Odoo development environment has the following requirements:
 * [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
 * Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
 
+**MacOS**
+
+MacOS has the following additional requirements:
+
+```bash
+brew install grep gettext
+```
+
 **Command Completion (Optional)**
 
 bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#completion).
