@@ -40,7 +40,7 @@ COPY ./upgrade-util /var/lib/upgrade-util
 # Install Odoo
 COPY ./odoo /opt/odoo
 RUN uv pip install pip
-RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
+RUN uv pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
 
 # Clean up unnecessary files to reduce image size
 RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
