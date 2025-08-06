@@ -1,0 +1,5 @@
+<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+    <xpath expr="//div" position="before">
+        <t t-set="skip_headers" t-value="1"/>
+    </xpath>
+</data>

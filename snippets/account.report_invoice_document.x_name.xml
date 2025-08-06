@@ -1,13 +1,11 @@
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
         <tr>
-
-            <t t-set="pickings" t-value="list(set(line.sale_line_ids.move_ids))"/>
+            <t t-set="pickings_unsorted" t-value="list(set(line.sale_line_ids.move_ids))"/>
+            <t t-set="pickings" t-value="sorted(pickings_unsorted, key=lambda p: (p.picking_id.x_date_done or '').isoformat() if p.picking_id.x_date_done else '')"/>
 
             <t t-foreach="pickings" t-as="picking">
                 <t t-if="picking.state == 'done'">
-
                     <tr>
                         <td style="padding: 0px; padding-left: 4px; border-bottom-width: 1px" colspan="6">
                             <t t-if="picking.picking_id.x_date_done">
@@ -30,11 +28,9 @@
                                 </t>
                             </t>
                         </td>
-
                     </tr>
                 </t>
             </t>
-            
         </tr>
     </xpath>
 </data>
