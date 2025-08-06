@@ -357,7 +357,7 @@ task create-revision 18.0.20250520
 
 Replace all image references in the docs.
 
-Commit revision with tag.
+Commit revision with tag:
 
 ```bash
 task commit-revision
