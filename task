@@ -25,7 +25,7 @@ function help-table() {
     printf "$COLUMN" "checkout" "[version]" "Checkout Odoo version."
     printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
-    printf "$COLUMN" "checkout-revision" "[revision]" "Run Odoo revision script or checkout revision set by env var."
+    printf "$COLUMN" "checkout-revision" "[revision]" "Load Odoo revision env var and checkout git folders."
     printf "$COLUMN" "commit-with-llm" "" "Commit with llm generated commit message."
     printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
@@ -49,6 +49,7 @@ function help-table() {
     printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server."
     printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
     printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
+    printf "$COLUMN" "download-git-folder" "[grep]" "Download git folder listed in the .gitmodules file."
     printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
     printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
     printf "$COLUMN" "exec" "[name][cmd]" "Run command in container."
@@ -93,6 +94,8 @@ function help-table() {
     printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
     printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
     printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
+    printf "$COLUMN" "load-latest-revision" "[version]" "Load the latest revision of the Odoo version."
+    printf "$COLUMN" "load-revision" "[revision]" "Load env var from specified revision."
     printf "$COLUMN" "logs" "[name]" "Tail container logs. Default is 'odoo'."
     printf "$COLUMN" "ls-module" "[grep]" "List Odoo addons path space separated."
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
@@ -706,6 +709,15 @@ function build() {
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
             --load
     fi
+}
+
+function load-latest-revision() {
+    if [ -n "$1" ] ; then
+        ODOO_VERSION="$1"
+    fi
+
+    ODOO_REVISION=$(list-revision | grep "$ODOO_VERSION" | tail -n1)
+    load-revision "$ODOO_REVISION"
 }
 
 function checkout-latest-revision() {
@@ -2294,13 +2306,38 @@ function clone-git-folder() {
         GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
 
         if [ "$SHALLOW" = "true" ]; then
-            echo "Clone git folder $GIT_FOLDER (shallow)with $GIT_FOLDER_BRANCH branch"
+            echo "Clone git folder $GIT_FOLDER (shallow) with $GIT_FOLDER_BRANCH branch"
             git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             git clone --depth 1 --no-single-branch "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         else
             echo "Clone git folder $GIT_FOLDER with $GIT_FOLDER_BRANCH branch"
             git clone --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         fi
+    done
+}
+
+function download-git-folder() {
+    GIT_FOLDERS=$(ls-git-folder "$1")
+    for GIT_FOLDER in $GIT_FOLDERS; do
+
+        GIT_FOLDER_PATH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".path)
+        GIT_FOLDER_URL=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".url)
+        GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
+
+        # Convert git url to http url.
+        GIT_FOLDER_URL="$(echo $GIT_FOLDER_URL | sed 's|git@|https://|g' | sed 's|m:|m/|g' | sed 's|\.git||g')"
+
+        # Get commit ref from .gitmodule.csv
+        COMMIT_REF=$(grep "$GIT_FOLDER_PATH" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+
+        echo "Download $GIT_FOLDER_URL to $GIT_FOLDER_PATH."
+        mkdir -p "$GIT_FOLDER_PATH"
+        curl -L -o "$GIT_FOLDER_PATH/archive.tar.gz" \
+            "$GIT_FOLDER_URL/archive/$COMMIT_REF.tar.gz"
+
+        echo "Extract and delete $GIT_FOLDER_PATH/archive.tar.gz"
+        tar -xzf "$GIT_FOLDER_PATH/archive.tar.gz" --strip-components=1 -C "$GIT_FOLDER_PATH"
+        rm "$GIT_FOLDER_PATH/archive.tar.gz"
     done
 }
 
@@ -2339,18 +2376,18 @@ function checkout-git-folder() {
     for GIT_FOLDER in $GIT_FOLDERS; do
 
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
-        COMMIT_HASH=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+        COMMIT_REF=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
 
         if [ "$SHALLOW" = "true" ]; then
-            echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_HASH"
+            echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_REF"
             git -C "$GIT_FOLDER" stash
             git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            git -C "$GIT_FOLDER" fetch origin "$COMMIT_HASH"
-            git -C "$GIT_FOLDER" checkout "$COMMIT_HASH"
+            git -C "$GIT_FOLDER" fetch origin "$COMMIT_REF"
+            git -C "$GIT_FOLDER" checkout "$COMMIT_REF"
         else
-            echo "Checkout git folder $GIT_FOLDER to $COMMIT_HASH"
+            echo "Checkout git folder $GIT_FOLDER to $COMMIT_REF"
             git -C "$GIT_FOLDER" stash
-            git -C "$GIT_FOLDER" checkout "$COMMIT_HASH"
+            git -C "$GIT_FOLDER" checkout "$COMMIT_REF"
         fi
     done
 }
@@ -2475,8 +2512,8 @@ function save-version() {
     GIT_FOLDERS=$(ls-git-folder)
     echo "path,rev" > "$GIT_FOLDERS_FILE"
     for GIT_FOLDER in $GIT_FOLDERS; do
-        COMMIT_HASH=$(git -C "$GIT_FOLDER" rev-parse HEAD)
-        echo "$GIT_FOLDER,$COMMIT_HASH" >> "$GIT_FOLDERS_FILE"
+        COMMIT_REF=$(git -C "$GIT_FOLDER" rev-parse HEAD)
+        echo "$GIT_FOLDER,$COMMIT_REF" >> "$GIT_FOLDERS_FILE"
     done
 
     echo "Copy .gitmodules and .python-version to 'versions/$ODOO_VERSION'"
@@ -2503,11 +2540,7 @@ function show-revision() {
     echo "Odoo Themes Ref: $ODOO_THEME_REF"
 }
 
-function checkout-revision() {
-    if [ -n "$1" ]; then
-        ODOO_REVISION="$1"
-    fi
-
+function load-revision() {
     echo "Update revision var in .env file."
     if grep -q "ODOO_REVISION" .env; then
         sed -i -e "s/^ODOO_REVISION=.*/ODOO_REVISION=${ODOO_REVISION}/" .env
@@ -2517,6 +2550,14 @@ function checkout-revision() {
 
     echo "Load refs for revision: $ODOO_REVISION"
     export $(cat "revisions/$ODOO_REVISION" | sed 's/#.*//g' | xargs)
+}
+
+function checkout-revision() {
+    if [ -n "$1" ]; then
+        ODOO_REVISION="$1"
+    fi
+
+    load-revision "$ODOO_REVISION"
 
     echo "Checkout and tag git repos ..."
     git -C odoo checkout $ODOO_REF

@@ -11,6 +11,12 @@ All notable changes to this project will be documented in this file. The format 
 * On install the Odoo upgrade utils are cloned
 * Odoo Docker image ships with upgrade utils
 * Test the upgrade utils
+* Split the `checkout-version` and `checkout-revision` into `load-`
+* Added `download-git-folder` command
+
+### Updated
+
+* The `build.yml` workflow now builds a Docker image.
 
 ### Fixed
 
