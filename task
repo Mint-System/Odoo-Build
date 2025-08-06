@@ -404,6 +404,7 @@ function load-ssh-key() {
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         echo "Setup SSH key from env vars."
         DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
+        mkdir -p ~/.ssh
         echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         eval "$(ssh-agent -s)"
