@@ -273,7 +273,7 @@ task test-project
 Publish the Odoo image.
 
 ```bash
-task publish
+task push
 ```
 
 ### Setup mail catcher

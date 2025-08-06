@@ -8,11 +8,11 @@ All notable changes to this project will be documented in this file. The format 
 
 * Support Arch Linux.
 * Odoo Docker image healthcheck.
-* On install the Odoo upgrade utils are cloned
-* Odoo Docker image ships with upgrade utils
-* Test the upgrade utils
-* Split the `checkout-version` and `checkout-revision` into `load-`
-* Added `download-git-folder` command
+* On install the Odoo upgrade utils are cloned.
+* Odoo Docker image ships with upgrade utils.
+* Test the upgrade utils.
+* Split `checkout-revision` into `load-revision`.
+* Added `download-git-folder` command.
 
 ### Updated
 

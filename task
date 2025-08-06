@@ -18,7 +18,7 @@ function help-table() {
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "archive-docker-tags" "" "Archive Docker image tags on hub older than 1 year."
-    printf "$COLUMN" "build" "[Dockerfile][platform]" "Build Odoo Container image. Optionally define the target platform."
+    printf "$COLUMN" "build" "[Dockerfile][--push]" "Build Odoo Container image. Optionally define the target platform."
     printf "$COLUMN" "backup-env-files" "[path]" "Archive and copy env files to target location."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
@@ -101,7 +101,7 @@ function help-table() {
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
     printf "$COLUMN" "odoocli" "[param]" "Execute odoocli cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
-    printf "$COLUMN" "publish" "[Dockerfile]" "Publish Odoo container image."
+    printf "$COLUMN" "push" "[Dockerfile]" "Publish Odoo container image."
     printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
     printf "$COLUMN" "push-git-folder" "" "Push all git folders in path."
     printf "$COLUMN" "psql" "[db]" "Start interactive psql shell."
@@ -629,13 +629,14 @@ function container-ps() {
 }
 
 function build() {
+    # Set container tag and platform based on Dockerfile
     MANIFEST_FILE="images/odoo/Dockerfile"
-    PLATFORM="linux/amd64" # ,linux/arm64
-
+    PLATFORM="linux/amd64"
+    # Default is odoo
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
+        PLATFORM="linux/amd64,linux/arm64"
     fi
-
     if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
         CONTAINER_TAG="odoo-mailgate"
     elif [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
@@ -646,13 +647,11 @@ function build() {
         CONTAINER_TAG="odoo-mcp"
     fi
 
-    if [ -n "$2" ]; then
-        PLATFORM="$2"
-    fi
-
+    # Load Odoo revision
     ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
+    # Select Python version
     case "$ODOO_VERSION" in
         "15.0")
             PYTHON_VERSION="3.9"
@@ -671,8 +670,17 @@ function build() {
             PYTHON_VERSION="3.12"
             ;;
     esac
-    echo "Python version is: $PYTHON_VERSION"
-    echo "Platform is: $PLATFORM"
+
+    # Set platform
+    DOCKER_OUTPUT="--load"
+    if [ "$2" = "--push" ]; then
+        DOCKER_OUTPUT="--push"
+    fi
+
+    # Output configuration
+    echo "Python Version: $PYTHON_VERSION"
+    echo "Platform: $PLATFORM"
+    echo "Docker Output: $DOCKER_OUTPUT"
 
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
         echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
@@ -707,7 +715,7 @@ function build() {
             --build-arg ODOO_DATE="$ODOO_DATE" \
             --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
             --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
-            --load
+            "$DOCKER_OUTPUT"
     fi
 }
 
@@ -795,7 +803,7 @@ function test-image() {
     fi
 }
 
-function publish() {
+function push() {
     LATEST_TAG="odoo:$ODOO_VERSION"
 
     if [ "$1" == "images/odoo-mailgate/Dockerfile" ]; then
@@ -2499,9 +2507,15 @@ function checkout() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     ODOO_VERSION="$1"
 
-    load-version
+    # Load .gitmodules and .python-version
+    load-version "$ODOO_VERSION"
+    # Set .env
+    load-revision "$ODOO_VERSION"
+    # Clone the addons
     clone-git-folder
+    # Checkout commit ref
     checkout-git-folder
+    # Upate branch
     switch-git-folder
 }
 
@@ -2541,6 +2555,10 @@ function show-revision() {
 }
 
 function load-revision() {
+    if [ -n "$1" ]; then
+        ODOO_REVISION="$1"
+    fi
+
     echo "Update revision var in .env file."
     if grep -q "ODOO_REVISION" .env; then
         sed -i -e "s/^ODOO_REVISION=.*/ODOO_REVISION=${ODOO_REVISION}/" .env
