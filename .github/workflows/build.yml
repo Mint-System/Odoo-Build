@@ -10,6 +10,13 @@ jobs:
       - uses: actions/checkout@v4
       - name: Clone taskfile
         run: ./task clone-taskfile
+      - name: Load SSH key
+        run: ./task load-ssh-key
+        env:
+          GIT_AUTHOR_NAME: Mint Bot
+          GIT_AUTHOR_EMAIL: bot@mint-system.ch
+          GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
+          GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Load version 18.0
         run: ./task load-version 18.0
       - name: Clone git folder odoo
