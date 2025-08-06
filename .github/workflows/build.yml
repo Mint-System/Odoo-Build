@@ -18,6 +18,8 @@ jobs:
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Load version
+        run: ./task load-version 18.0
+      - name: Load latest revision
         run: ./task load-latest-revision 18.0
       - name: Download git folder odoo
         run: ./task download-git-folder odoo
