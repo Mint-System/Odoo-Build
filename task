@@ -32,9 +32,9 @@ function help-table() {
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
-    printf "$COLUMN" "clone-git-folder" "" "Clone git folder listed in the .gitmodules file."
+    printf "$COLUMN" "clone-git-folder" "[submodule]" "Clone git folder listed in the .gitmodules file."
     printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
-    printf "$COLUMN" "container-login" "[user][pass]" "Setup container hub login credentials."
+    printf "$COLUMN" "container-login" "[user][token]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
     printf "$COLUMN" "copy-env" "[env][env]" "Copy env file."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -2222,7 +2222,7 @@ function add-git-submodule() {
 
 function ls-git-folder() {
     if [ -n "$1" ]; then
-        echo $(git config --file .gitmodules --get-regexp url | grep "$1" | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
+        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | grep "$1" | sort)
     else
         echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     fi
@@ -2274,7 +2274,7 @@ function remove-git-submodule() {
 }
 
 function clone-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder)
+    GIT_FOLDERS=$(ls-git-folder "$1")
     for GIT_FOLDER in $GIT_FOLDERS; do
 
         GIT_FOLDER_PATH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".path)
@@ -2445,8 +2445,6 @@ function load-version() {
     echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
     cp "versions/$ODOO_VERSION/.gitmodules" .
     cp "versions/$ODOO_VERSION/.python-version" .
-
-    checkout-revision "$ODOO_VERSION"
 }
 
 function checkout() {
