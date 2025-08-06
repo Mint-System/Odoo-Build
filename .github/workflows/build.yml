@@ -19,7 +19,7 @@ jobs:
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Load version
         run: ./task load-latest-revision 18.0
-      - name: Clone git folder odoo
+      - name: Download git folder odoo
         run: ./task download-git-folder odoo
       - name: Login docker
         run: ./task container-login ${{ secrets.CONTAINER_REGISTRY_USERNAME }} ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
