@@ -40,6 +40,8 @@ COPY ./upgrade-util /var/lib/upgrade-util
 # Install Odoo
 COPY ./odoo /opt/odoo
 RUN uv pip install pip
+# https://github.com/astral-sh/uv/issues/6105
+ENV UV_CONCURRENT_INSTALLS=1
 RUN uv pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
 
 # Clean up unnecessary files to reduce image size
