@@ -20,7 +20,8 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding`
     <xpath expr="//div[@class='swissqr_page_title']" position="before">
         <style>
           .swissqr_page_title {
-            padding-top: 200px;
+            padding-top: 300px;
+            padding-left: 40px;
           }
           </style>
     </xpath>
@@ -74,6 +75,18 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`
 
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.format_street.xml)
+
+### Format Title Line Break  
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break`  
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <h1 position="attributes">
+        <attribute name="style">white-space: nowrap;</attribute>
+    </h1>
+</data>
+
+```
+Source: [snippets/l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml)
 
 ### Modify Header Style  
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`  
@@ -194,3 +207,4 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`
 ```
 Source: [snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
 
+## Qr Report Main  

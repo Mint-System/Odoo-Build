@@ -2088,7 +2088,7 @@ ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
-        <t t-if="line.product_uom.id == 1">
+        <t t-if="line.product_uom.id == 12">
             <span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
@@ -3316,20 +3316,25 @@ ID: `mint_system.sale.report_saleorder_document.second_row2`
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <xpath expr="//td[@name='td_name']/../.." position="after">
-        <tr style="border-top: solid white !important">
-            <td/>
-            <td colspan="3">
-                <span t-field="line.name"/>
-                <br/>
-                <span>HS-Code</span>
-            </td>
-            <td/>
-        </tr>
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="3">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
     </xpath>
 
     <xpath expr="//td[@name='td_name']" position="replace">
         <td name="td_name">
-            <span t-field="line.product_template_id"/>
+            <strong t-field="line.product_template_id"/>
         </td>
     </xpath>
 
@@ -3714,46 +3719,57 @@ Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.
 ### Style Mint System  
 ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
-        <span t-field="line.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
-        <span t-field="option.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="/t/t/div/div[6]" position="after">
-        <div class="row">
-            <div class="col h2">
-                <span>New Title</span>
-            </div>
-        </div>
-    </xpath>
-    <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
-        <attribute name="class">col h4</attribute>
-    </xpath>
-    <xpath expr="/t/t/div/div[7]/div/span" position="replace">
-        <p style="page-break-before:always;"/>
-        <span>Gesch&#xE4;ftsbedingungen</span>
-    </xpath>
-    <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
-        <attribute name="style" separator=";" add="width:150px"/>
-    </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
+    <span t-field="line.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
+    <span t-field="option.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[6]" position="after">
+    <div class="row">
+      <div class="col h2">
+        <span>New Title</span>
+      </div>
+    </div>
+  </xpath>
+
+  <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
+    <attribute name="class">col h4</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[7]/div/span" position="replace">
+    <p style="page-break-before:always;"/>
+    <span>Terms and conditions</span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
+    <attribute name="style" separator=";" add="width:150px"/>
+  </xpath>
 </data>
 
 ```
@@ -3989,21 +4005,37 @@ Source: [snippets/sale.report_saleorder_document.style_valperca.xml](https://git
 ID: `mint_system.sale.report_saleorder_document.style_xinomer`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="60">
+
+    <xpath expr="//tbody[@class='sale_tbody']" position="after">
+        <style>
+		  td {
+		    vertical-align: top !important;
+		  }
+        </style>
+    </xpath>
+
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
     </xpath>
+
     <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="attributes">
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
     </xpath>
+
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style">width: 110px</attribute>
+    </xpath>
+
     <xpath expr="//div[@name='total']" position="attributes">
         <attribute name="style">width: 280px; float: right</attribute>
     </xpath>
+
     <xpath expr="//div[@name='total']/div" position="attributes">
         <attribute name="t-attf-class"/>
     </xpath>
-</data>
 
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_xinomer.xml)
 
@@ -4763,6 +4795,17 @@ ID: `mint_system.sale.view_order_form.location_in_name`
 
 ```
 Source: [snippets/sale.view_order_form.location_in_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.location_in_name.xml)
+
+### Modify Readonly Analytic Account Id  
+ID: `mint_system.sale.view_order_form.modify_readonly_analytic_account_id`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.view_order_form.modify_readonly_analytic_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.modify_readonly_analytic_account_id.xml)
 
 ### Modify Readonly Date Order  
 ID: `mint_system.sale.view_order_form.modify_readonly_date_order`  

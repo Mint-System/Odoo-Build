@@ -1667,47 +1667,78 @@ Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.
 ID: `mint_system.stock.report_delivery_document.add_summary`  
 ```xml
 <data inherit_id="stock.report_delivery_document" priority="60">
-   
-    <xpath expr="//table[@name='stock_move_line_table']" position="after">
-        <div style="margin-top: 30px">
-        
-        <t t-set="lines" t-value="o.move_ids.move_line_ids"/>
-        <t t-set="net_weight" t-value="0.0"/>
-            <tr t-foreach="lines" t-as="move">
-                <t t-set="net_weight" t-value="net_weight + move.quantity"/>
-                <!--
-                <td>
-                    <span t-field="move.quantity"/><br/>
-                </td>
-                -->
-                
-            </tr>
-         
-         <t t-set="lines" t-value="o.package_ids"/>
-         <t t-set="count_packages" t-value="0"/>
-         <t t-set="total_weight" t-value="0.0"/>
-         
-            <tr t-foreach="lines" t-as="package">
-                <t t-set="count_packages" t-value="count_packages + 1"/>
-                <t t-set="total_weight" t-value="total_weight + package.weight"/>
-                <!--
-                <td>
-                    <span t-field="package.name"/><br/>
-                    <span t-field="package.weight"/><br/>
-                </td>
-                -->
-            </tr>
-        <t t-if="count_packages">
-            <strong>Anzahl Pakete:</strong> <t t-esc="count_packages"/><br/>
-        </t>
-        <t t-if="total_weight">
-            <strong>Gesamtgewicht Brutto:</strong> <t t-esc="total_weight"/><span> kg</span><br/>
-        </t>
-        <strong>Gesamtgewicht Netto:</strong> <t t-esc="net_weight"/><span> kg</span>
-        </div>    
-            
-    </xpath>
-    
+
+	<xpath expr="//table[@name='stock_move_line_table']" position="after">
+		<div style="margin-top: 30px">
+
+			<t t-set="lines" t-value="o.move_ids.move_line_ids"/>
+			<t t-set="product_weight" t-value="0.0"/>
+			<t t-set="net_weight" t-value="0.0"/>
+			<tr t-foreach="lines" t-as="move">
+				<t t-set="product_weight" t-value="move.product_id.weight * move.quantity"/>
+				<t t-set="net_weight" t-value="net_weight + product_weight"/>
+			</tr>
+
+			<t t-set="lines" t-value="o.package_ids"/>
+			<t t-set="count_packages" t-value="0"/>
+			<t t-set="total_weight" t-value="0.0"/>
+			<t t-set="has_shipping_weight" t-value="False"/>
+
+			<tr t-foreach="lines" t-as="package">
+				<t t-set="count_packages" t-value="count_packages + 1"/>
+				<t t-set="total_weight" t-value="total_weight + package.weight"/>
+				<t t-if="package.shipping_weight">
+					<t t-set="has_shipping_weight" t-value="True"/>
+				</t>
+			</tr>
+
+			<t t-if="not valued">
+
+				<table style="margin-left: auto; margin-right: 0; border: transparent;">
+
+					<t t-if="count_packages">
+						<tr>
+							<td style="width: 170px;">
+								<strong>Number of transport units:</strong>
+							</td>
+							<td style="text-align: right; width: 80px; padding-left: 5px">
+								<strong t-esc="count_packages"/>
+							</td>
+						</tr>
+					</t>
+
+					<t t-if="not has_shipping_weight">
+						<tr>
+							<td>
+								<strong>Total net weight:</strong>
+							</td>
+							<td style="text-align: right; padding-left: 5px">
+								<strong t-esc="net_weight" t-options="{'widget': 'integer'}"/>
+								<strong> kg</strong>
+							</td>
+						</tr>
+
+						<t t-if="total_weight">
+							<tr>
+								<td>
+									<strong>Total gross weight:</strong>
+								</td>
+								<td style="text-align: right; padding-left: 5px">
+									<t>
+										<strong t-esc="total_weight" t-options="{'widget': 'integer'}"/>
+										<strong> kg</strong>
+									</t>
+								</td>
+							</tr>
+						</t>
+					</t>
+				</table>
+			</t>
+
+		</div>
+
+	</xpath>
+
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_summary.xml)
@@ -3759,6 +3790,30 @@ ID: `mint_system.stock.report_delivery_document.style_airwork`
         <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True}</attribute>
     </xpath>
 
+    <xpath expr="//th[@name='th_sm_position']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sm_product']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sm_ordered']" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_sm_quantity']" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']//td[3]" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']//td[4]" position="attributes">
+        <attribute name="class">text-end</attribute>
+    </xpath>
+    
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_airwork.xml)
@@ -3818,7 +3873,15 @@ Source: [snippets/stock.report_delivery_document.style_gelso.xml](https://github
 ID: `mint_system.stock.report_delivery_document.style_lapp`  
 ```xml
 <data inherit_id="stock.report_delivery_document" priority="60">
-    
+
+    <xpath expr="//table[@name='stock_move_table']/tbody" position="after">
+        <style>
+		  td {
+		    vertical-align: top !important;
+		  }
+        </style>
+    </xpath>
+
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
     </xpath>
@@ -3826,7 +3889,7 @@ ID: `mint_system.stock.report_delivery_document.style_lapp`
     <xpath expr="//th[@id='position']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    
+
     <xpath expr="//th[@name='th_sml_product']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
@@ -3834,11 +3897,11 @@ ID: `mint_system.stock.report_delivery_document.style_lapp`
     <xpath expr="//th[@name='lot_serial']" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    
+
     <xpath expr="//th[@name='th_sml_quantity']" position="attributes">
         <attribute name="class">text-end</attribute>
     </xpath>
-    
+
 </data>
 ```
 Source: [snippets/stock.report_delivery_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_lapp.xml)
@@ -4049,8 +4112,8 @@ ID: `mint_system.stock.report_delivery_document.summary`
 
 					<t t-if="count_packages">
 						<tr>
-							<td>
-								<strong>Anzahl Transporteinheiten:</strong>
+							<td style="width: 170px;">
+								<strong>Number of transport units:</strong>
 							</td>
 							<td style="text-align: right; width: 80px; padding-left: 5px">
 								<strong t-esc="count_packages"/>
@@ -4061,7 +4124,7 @@ ID: `mint_system.stock.report_delivery_document.summary`
 					<t t-if="not has_shipping_weight">
 						<tr>
 							<td>
-								<strong>Gesamtgewicht Netto: </strong>
+								<strong>Total net weight:</strong>
 							</td>
 							<td style="text-align: right; padding-left: 5px">
 								<strong t-esc="net_weight"/>
@@ -4072,7 +4135,7 @@ ID: `mint_system.stock.report_delivery_document.summary`
 						<t t-if="total_weight">
 							<tr>
 								<td>
-									<strong>Gesamtgewicht Brutto: </strong>
+									<strong>Total gross weight:</strong>
 								</td>
 								<td style="text-align: right; padding-left: 5px">
 									<t>
@@ -5960,6 +6023,22 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sa
 ```
 Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
+### Format Qty With Decimal  
+ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal`  
+```xml
+<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+    <xpath expr="//span[@t-field='move_line.quantity']" position="replace">
+        <t t-if="move_line.product_uom_id.id == 12">
+            <span t-field="move_line.quantity" t-options="{'widget': 'integer'}"/>
+        </t>
+        <t t-else="">
+            <span t-field="move_line.quantity"/>      
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml)
+
 ### Get Position  
 ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`  
 ```xml
@@ -6531,7 +6610,7 @@ ID: `mint_system.stock.view_move_search.filter_wip`
 ```xml
 <data inherit_id="stock.view_move_search" priority="50">
     <filter name="future" position="after">
-        <filter string="WIP" name="wip" domain="[('location_dest_id', '=', [15]), ('state', 'in', ['assigned', 'confirmed', 'waiting']), ('picked', '=', True)]"/>
+        <filter string="WIP" name="wip" domain="[('location_dest_id', '=', 15), ('state', 'in', ['assigned', 'confirmed', 'waiting']), ('picked', '=', True)]"/>
     </filter>
 </data>
 ```

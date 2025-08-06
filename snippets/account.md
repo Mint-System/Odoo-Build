@@ -1098,7 +1098,7 @@ ID: `mint_system.account.report_invoice_document.format_units`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//t[@name='account_invoice_line_accountable']/td[2]" position="attributes">
-        <attribute name="class">text-nowrap</attribute>
+        <attribute name="class">text-nowrap text-end</attribute>
     </xpath>
 </data>
 
@@ -3442,9 +3442,21 @@ ID: `mint_system.account.report_invoice_document.style_lapp`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
 
+    <xpath expr="//tbody[@class='invoice_tbody']" position="after">
+        <style>
+		  td {
+		    vertical-align: top !important;
+		  }
+        </style>
+    </xpath>
+
     <xpath expr="//table[@class='table table-sm o_main_table table-borderless']" position="attributes">
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style">width: 110px</attribute>
     </xpath>
 
     <xpath expr="//div[@id='right-elements']" position="attributes">
@@ -3457,7 +3469,6 @@ ID: `mint_system.account.report_invoice_document.style_lapp`
     </xpath>
 
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.style_lapp.xml)
 

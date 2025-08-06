@@ -229,6 +229,19 @@ ID: `mint_system.purchase.purchase_order_form.show_procurement_group`
 ```
 Source: [snippets/purchase.purchase_order_form.show_procurement_group.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.show_procurement_group.xml)
 
+### X Alternative Invoice Address  
+ID: `mint_system.purchase.purchase_order_form.x_alternative_invoice_address`  
+```xml
+<data inherit_id="purchase.purchase_order_form" priority="50">
+
+  <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='currency_id']" position="after">
+    <field name="x_alternative_invoice_address"/>
+  </xpath>
+
+</data>
+```
+Source: [snippets/purchase.purchase_order_form.x_alternative_invoice_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_form.x_alternative_invoice_address.xml)
+
 ### X Drawing File  
 ID: `mint_system.purchase.purchase_order_form.x_drawing_file`  
 ```xml
@@ -471,8 +484,8 @@ ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`
 Source: [snippets/purchase.purchase_order_view_tree.x_payment_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_order_view_tree.x_payment_tree.xml)
 
 ## Report Purchaseorder Document  
-### Add Address Copy  
-ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`  
+### Add Address  
+ID: `mint_system.purchase.report_purchaseorder_document.add_address`  
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
@@ -492,7 +505,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`
 				<td style="width: 290px; vertical-align: top; padding-left: 5mm;">
 
 
-					<span style="font-size: 7pt">Lieferadresse</span>
+					<span style="font-size: 7pt">Delivery address</span>
 					<hr class="company_invoice_line"/>
 
 					<div>
@@ -504,11 +517,18 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`
 				</td>
 				<td style="width: 70px"/>
 				<td style="width: 260px; vertical-align: top">
-					<span style="font-size: 7pt">Rechnungsadresse</span>
+					<span style="font-size: 7pt">Invoice address</span>
 					<hr class="company_invoice_line"/>
 					<div>
-						<t>
-							<div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+						<t t-if="o.x_alternative_invoice_address">
+							<t>
+								<div t-field="o.x_alternative_invoice_address" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+							</t>
+						</t>
+						<t t-else="">
+							<t>
+								<div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+							</t>
 						</t>
 					</div>
 				</td>
@@ -521,16 +541,16 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`
 			<tr>
 				<td style="width: 120px; vertical-align: top; padding-left: 5mm;">
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.vat">
-						<div>USt-IdNr.</div>
+						<div>VAT Reg. No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_vat">
-						<div>MWST Nr.</div>
+						<div>VAT No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_eori">
-						<div>EORI Nr.</div>
+						<div>EORI No.</div>
 					</t>
 					<t t-if="o.picking_type_id.warehouse_id.partner_id.x_zaz">
-						<div>ZAZ Konto Nr.</div>
+						<div>ZAZ Reg. No.</div>
 					</t>
 				</td>
 				<td style="width: 180px; vertical-align: top">
@@ -554,7 +574,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_address copy`
 	</xpath>
 </data>
 ```
-Source: [snippets/purchase.report_purchaseorder_document.add_address copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_address copy.xml)
+Source: [snippets/purchase.report_purchaseorder_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_address.xml)
 
 ### Add Agreement  
 ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`  
@@ -897,8 +917,8 @@ Source: [snippets/purchase.report_purchaseorder_document.format_qty.xml](https:/
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`  
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
-    <xpath expr="//span[@id='product_qty']" position="replace">
-        <t t-if="line.product_uom.id == 1">
+    <xpath expr="//span[@t-field='line.product_qty']" position="replace">
+        <t t-if="line.product_uom.id == 12">
             <span id="product_qty" t-field="line.product_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
@@ -906,7 +926,6 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`
         </t>
     </xpath>
 </data>
-
 ```
 Source: [snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.format_qty_with_decimal.xml)
 
@@ -1914,6 +1933,14 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_xinomer`
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="60">
 
+	<xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']/tbody" position="after">
+		<style>
+		  td {
+		    vertical-align: top !important;
+		  }
+		</style>
+	</xpath>
+
 	<xpath expr="//h2" position="attributes">
 		<attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
 	</xpath>
@@ -1929,6 +1956,7 @@ ID: `mint_system.purchase.report_purchaseorder_document.style_xinomer`
 
 	<xpath expr="//th[@name='th_description']" position="attributes">
 		<attribute name="class">text-start</attribute>
+		<attribute name="style">width: 110px</attribute>
 	</xpath>
 
 	<xpath expr="//th[@name='th_taxes']" position="attributes">

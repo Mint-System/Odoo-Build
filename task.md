@@ -2,23 +2,26 @@
 |---------------------------|----------------------|--------------------------------------------------------------------------------------------|
 | activate-venv             |                      | Activate virtualenv.                                                                       |
 | add-git-submodule         | [url] [path]         | Add git submodule.                                                                         |
-| build                     | [Dockerfile][platform] | Build Odoo Container image. Optionally define the target platform.                         |
+| archive-docker-tags       |                      | Archive Docker image tags on hub older than 1 year.                                        |
+| build                     | [Dockerfile][--push] | Build Odoo Docker image.                                                                   |
 | backup-env-files          | [path]               | Archive and copy env files to target location.                                             |
 | build-vuepress            |                      | Create Vuepress build.                                                                     |
 | change-uuid               | [env]                | Change database uuid via xmlrpc.                                                           |
 | checkout                  | [version]            | Checkout Odoo version.                                                                     |
 | checkout-git-folder       |                      | Checkout git commit.                                                                       |
 | checkout-latest-revision  | [version]            | Checkout the latest revision of the Odoo version.                                          |
-| checkout-revision         | [revision]           | Run Odoo revision script or checkout revision set by env var.                              |
+| checkout-revision         | [revision]           | Load Odoo revision env var and checkout git folders.                                       |
+| commit-revision           |                      | Commit all changes and tag with current revision                                           |
 | commit-with-llm           |                      | Commit with llm generated commit message.                                                  |
+| commit-git-folder         | [message][path]      | Commit all changes in path.                                                                |
 | clean-git-folder          |                      | Clean git folder.                                                                          |
 | clear-assets              | [db]                 | Clear all assets of Odoo database.                                                         |
 | clear-filestore           | [db]                 | Clear local filestore folder. No param will clear all filestores.                          |
 | clear-views               | [db]                 | Clear all views of Odoo database.                                                          |
 | clock-odoo                | [db]                 | Count custom line of codes.                                                                |
-| clone-git-folder          |                      | Clone git folder listed in the .gitmodules file.                                           |
-| commit-git-folder         | [message][path]      | Commit all changes in path.                                                                |
-| container-login           | [user][pass]         | Setup container hub login credentials.                                                     |
+| clone-git-folder          | [submodule][version] | Clone git folder listed in the .gitmodules file.                                           |
+| login-docker              | [user][token]        | Setup Docker Hub login credentials.                                                        |
+| login-podman              | [user][token]        | Login into registry with podman.                                                           |
 | container-ps              |                      | List container processes.                                                                  |
 | copy-env                  | [env][env]           | Copy env file.                                                                             |
 | create-git-feature-branch | [path]               | Create feature branch for Odoo module.                                                     |
@@ -33,6 +36,7 @@
 | dev-vuepress              |                      | Start Vuepress development server.                                                         |
 | disable-mailserver        | [env]                | Disable mail server settings via xmlrpc.                                                   |
 | disable-snippet           | [env][path]          | Disable snippet definition.                                                                |
+| download-git-folder       | [grep]               | Download git folder listed in the .gitmodules file.                                        |
 | drop-db                   | [db]                 | Drop target Odoo database.                                                                 |
 | edit-env                  | [env]                | Open env file in default editor.                                                           |
 | exec                      | [name][cmd]          | Run command in container.                                                                  |
@@ -72,16 +76,19 @@
 | list-modules              | [path]               | Get modules in path as list.                                                               |
 | list-revision             |                      | List available Odoo revisions.                                                             |
 | list-versions             |                      | List available Odoo versions.                                                              |
+| load-dotenv               |                      | Restore content of .env from pass entry.                                                   |
 | load-env                  | [env]                | Load and export env file.                                                                  |
 | load-language             | [db][lang]           | Install language package in Odoo db.                                                       |
 | load-version              | [version]            | Load git refs from  version folder.                                                        |
 | load-ssh-key              |                      | Load SSH private key from env var.                                                         |
+| load-latest-revision      | [version]            | Load the latest revision of the Odoo version.                                              |
+| load-revision             | [revision]           | Load env var from specified revision.                                                      |
 | logs                      | [name]               | Tail container logs. Default is 'odoo'.                                                    |
 | ls-module                 | [grep]               | List Odoo addons path space separated.                                                     |
 | ls-git-folder             | [grep]               | List git folders path space separated.                                                     |
 | odoocli                   | [param]              | Execute odoocli cli.                                                                       |
 | patch-database            | [db][path]           | Apply sql file to database.                                                                |
-| publish                   | [Dockerfile]         | Publish Odoo container image.                                                              |
+| push                      | [Dockerfile]         | Publish Odoo container image.                                                              |
 | pull-git-folder           |                      | Pull all git folders listed in the .gitmodules file.                                       |
 | push-git-folder           |                      | Push all git folders in path.                                                              |
 | psql                      | [db]                 | Start interactive psql shell.                                                              |
@@ -101,8 +108,8 @@
 | reset-views               | [db][key]            | Execute hard reset on views matching keys.                                                 |
 | restart                   | [name]               | Restart container.                                                                         |
 | restore-env-files         | [path]               | Extract and copy env files from backup file.                                               |
-| restore-dotenv            |                      | Restore content of .env from pass entry.                                                   |
 | run                       | [name][cmd]          | Run container with command.                                                                |
+| save-dotenv               |                      | Store content of .env in pass entry.                                                       |
 | save-version              |                      | Save git folder refs to version folder.                                                    |
 | serve-vuepress            |                      | Serve Vuepress build.                                                                      |
 | set-addons-path           |                      | Set Odoo addons path env variable.                                                         |
@@ -116,7 +123,6 @@
 | stage-git-folder          | [path]               | Stage all files in git folders in path.                                                    |
 | start                     | [name][db]           | Start application. Options: none, admin, db, mailgate, mailpit, native, odoo.              |
 | stop                      | [name]               | Stop containers.                                                                           |
-| store-dotenv              |                      | Store content of .env in pass entry.                                                       |
 | switch-git-folder         | [version]            | Switch branch for all git folders listed in the .gitmodules file.                          |
 | sync-git-folder           |                      | Switch, stash and pull all git folders.                                                    |
 | template-compose          |                      | Template the Docker compose file.                                                          |

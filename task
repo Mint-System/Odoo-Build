@@ -18,7 +18,7 @@ function help-table() {
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "archive-docker-tags" "" "Archive Docker image tags on hub older than 1 year."
-    printf "$COLUMN" "build" "[Dockerfile][--push]" "Build Odoo Container image. Optionally define the target platform."
+    printf "$COLUMN" "build" "[Dockerfile][--push]" "Build Odoo Docker image."
     printf "$COLUMN" "backup-env-files" "[path]" "Archive and copy env files to target location."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
@@ -35,7 +35,8 @@ function help-table() {
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
     printf "$COLUMN" "clone-git-folder" "[submodule][version]" "Clone git folder listed in the .gitmodules file."
-    printf "$COLUMN" "container-login" "[user][token]" "Setup container hub login credentials."
+    printf "$COLUMN" "login-docker" "[user][token]" "Setup Docker Hub login credentials."
+    printf "$COLUMN" "login-podman" "[user][token]" "Login into registry with podman."
     printf "$COLUMN" "container-ps" "" "List container processes."
     printf "$COLUMN" "copy-env" "[env][env]" "Copy env file."
     printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
@@ -684,41 +685,25 @@ function build() {
     echo "Platform: $PLATFORM"
     echo "Docker Output: $DOCKER_OUTPUT"
 
-    if [ "$CONTAINER_ENGINE" == "podman" ]; then
-        echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
 
-        echo "Run Podman build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
-        SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) podman build --platform "$PLATFORM" . \
-            --file "$MANIFEST_FILE" \
-            --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
-            --build-arg ODOO_VERSION="$ODOO_VERSION" \
-            --build-arg ODOO_DATE="$ODOO_DATE" \
-            --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-            --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    if ! docker buildx inspect builder >/dev/null 2>&1; then
+        docker buildx create --name builder --use
+        docker buildx inspect --bootstrap
+    else
+        docker buildx use builder
     fi
 
-    if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        $CONTAINER_ENGINE image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-
-        if ! docker buildx inspect builder >/dev/null 2>&1; then
-            docker buildx create --name builder --use
-            docker buildx inspect --bootstrap
-        else
-            docker buildx use builder
-        fi
-
-        echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
-        SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
-            --file "$MANIFEST_FILE" \
-            --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
-            --build-arg ODOO_VERSION="$ODOO_VERSION" \
-            --build-arg ODOO_DATE="$ODOO_DATE" \
-            --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-            --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
-            "$DOCKER_OUTPUT"
-    fi
+    echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+        --file "$MANIFEST_FILE" \
+        --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
+        --build-arg ODOO_VERSION="$ODOO_VERSION" \
+        --build-arg ODOO_DATE="$ODOO_DATE" \
+        --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
+        --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
+        "$DOCKER_OUTPUT"
 }
 
 function load-latest-revision() {
@@ -747,14 +732,20 @@ function container-login() {
         CONTAINER_REGISTRY_PASSWORD="$2"
     fi
 
-    if [ "$CONTAINER_ENGINE" == "podman" ]; then
-        echo "podman login with username $CONTAINER_REGISTRY_USERNAME."
-        podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
+    echo "Docker login with username $CONTAINER_REGISTRY_USERNAME."
+    echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
+}
+
+function login-podman() {
+    if [ -n "$1" ]; then
+        CONTAINER_REGISTRY_USERNAME="$1"
     fi
-    if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        echo "Docker login with username $CONTAINER_REGISTRY_USERNAME."
-        echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
+    if [ -n "$2" ]; then
+        CONTAINER_REGISTRY_PASSWORD="$2"
     fi
+
+    echo "Podman login with username $CONTAINER_REGISTRY_USERNAME."
+    podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
 }
 
 function test-image() {

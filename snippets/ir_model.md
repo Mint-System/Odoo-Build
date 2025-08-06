@@ -1946,6 +1946,25 @@ ID: `mint_system.ir_model.project_task.x_vehicle_id`
 Source: [snippets/ir_model.project_task.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.project_task.x_vehicle_id.xml)
 
 ## Purchase Order  
+### X Alternative Invoice Address  
+ID: `mint_system.ir_model.purchase_order.x_alternative_invoice_address`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_alternative_invoice_address" model="ir.model.fields">
+        <field name="field_description">Alternative Rechnungsadresse</field>
+        <field name="model">purchase.order</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="name">x_alternative_invoice_address</field>
+        <field name="store" eval="True"/>           
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.purchase_order.x_alternative_invoice_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.purchase_order.x_alternative_invoice_address.xml)
+
 ### X Comment  
 ID: `mint_system.ir_model.purchase_order.x_comment`  
 ```xml
