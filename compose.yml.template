@@ -2,7 +2,7 @@ name: odoo-build
 services:
   odoo:
     container_name: odoo
-    image: "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    image: "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
     depends_on:
         db:
             condition: service_healthy
