@@ -17,12 +17,12 @@ jobs:
           GIT_AUTHOR_EMAIL: bot@mint-system.ch
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
-      - name: Load version 18.0
+      - name: Load version
         run: ./task load-version 18.0
       - name: Clone git folder odoo
         run: ./task clone-git-folder odoo
       - name: Checkout latest revision
-        run: ./task checkout-latest-revision
+        run: ./task checkout-latest-revision 18.0
       - name: Login docker
         run: ./task container-login ${{ secrets.CONTAINER_REGISTRY_USERNAME }} ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
       - name: Build

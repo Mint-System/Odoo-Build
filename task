@@ -32,7 +32,7 @@ function help-table() {
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
-    printf "$COLUMN" "clone-git-folder" "[submodule]" "Clone git folder listed in the .gitmodules file."
+    printf "$COLUMN" "clone-git-folder" "[submodule][version]" "Clone git folder listed in the .gitmodules file."
     printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][token]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
@@ -2294,11 +2294,11 @@ function clone-git-folder() {
         GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
 
         if [ "$SHALLOW" = "true" ]; then
-            echo "Clone git folder $GIT_FOLDER (shallow) to $ODOO_VERSION"
+            echo "Clone git folder $GIT_FOLDER (shallow)with $GIT_FOLDER_BRANCH branch"
             git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
             git clone --depth 1 --no-single-branch "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         else
-            echo "Clone git folder $GIT_FOLDER to $ODOO_VERSION"
+            echo "Clone git folder $GIT_FOLDER with $GIT_FOLDER_BRANCH branch"
             git clone --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
         fi
     done
