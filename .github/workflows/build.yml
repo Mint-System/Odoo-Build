@@ -23,6 +23,10 @@ jobs:
         run: ./task load-latest-revision 18.0
       - name: Download git folder odoo
         run: ./task download-git-folder odoo
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: ./task install
       - name: Login docker
         run: ./task container-login ${{ secrets.CONTAINER_REGISTRY_USERNAME }} ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
       - name: Build
