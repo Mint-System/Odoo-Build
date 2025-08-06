@@ -201,7 +201,7 @@ POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 POSTGRES_SSL=${POSTGRES_SSL:="on"}
 PGSSLMODE=${PGSSLMODE:="prefer"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
-CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem/"}
+CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem"}
 CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
@@ -267,7 +267,7 @@ fi
 function info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
-    echo "Pass entry: $PASS_ENTRY"
+    echo "Pass Entry: $PASS_ENTRY"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Version: $ODOO_VERSION"
     echo "Odoo Port: $ODOO_PORT"
@@ -685,8 +685,8 @@ function build() {
     echo "Platform: $PLATFORM"
     echo "Docker Output: $DOCKER_OUTPUT"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-    docker image rm -f "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
 
     if ! docker buildx inspect builder >/dev/null 2>&1; then
         docker buildx create --name builder --use
@@ -695,14 +695,14 @@ function build() {
         docker buildx use builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}${CONTAINER_TAG} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$MANIFEST_FILE" \
         --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
         --build-arg ODOO_DATE="$ODOO_DATE" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-        --tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
         "$DOCKER_OUTPUT"
 }
 
@@ -813,19 +813,19 @@ function push() {
         LATEST_TAG="odoocli:latest"
     fi
 
-    echo "Tag container image ${CONTAINER_REGISTRY}${CONTAINER_TAG} with ${CONTAINER_REGISTRY}${LATEST_TAG}"
-    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}${CONTAINER_TAG}" "${CONTAINER_REGISTRY}${LATEST_TAG}"
+    echo "Tag container image ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with ${CONTAINER_REGISTRY}/${LATEST_TAG}"
+    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" "${CONTAINER_REGISTRY}/${LATEST_TAG}"
 
     if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}${LATEST_TAG}"
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${LATEST_TAG}"
     fi
 
     if [ "$CONTAINER_ENGINE" == "podman" ]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        podman push "${CONTAINER_REGISTRY}${CONTAINER_TAG}"
-        podman push "${CONTAINER_REGISTRY}${LATEST_TAG}"
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}/${LATEST_TAG}"
     fi
 }
 
@@ -1036,7 +1036,7 @@ function start() {
     fi
 
     if [ -z "$1" ] ; then
-        echo "Start all container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         $COMPOSE_COMMAND up -d
     fi
@@ -1080,7 +1080,7 @@ function start() {
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
-        echo "Start Odoo container ${CONTAINER_REGISTRY}${CONTAINER_TAG}"
+        echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo "Open http://localhost:8069 url in your browser."
         open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
     fi
