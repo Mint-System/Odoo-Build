@@ -239,6 +239,16 @@ fi
 
 # Import commands
 
+function clone-taskfile(){
+    if [ ! -d "$HOME/taskfile.build" ]; then
+        echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
+        git clone https://git.taskfile.build "$HOME/taskfile.build"
+    else
+        echo -e "\033[38;5;214mGit\033[0m: Pull taskfile repo"
+        git -C "$HOME/taskfile.build" pull
+    fi
+}
+
 if [ -d "$HOME/taskfile.build/bin" ]; then
     for file in "$HOME/taskfile.build/bin/"*; do
         if [ -f "$file" ]; then
