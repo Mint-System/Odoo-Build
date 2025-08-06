@@ -631,10 +631,11 @@ function container-ps() {
 function build() {
     # Set container tag and platform based on Dockerfile
     MANIFEST_FILE="images/odoo/Dockerfile"
-    PLATFORM="linux/amd64"
-    # Default is odoo
     if [ -n "$1" ]; then
         MANIFEST_FILE="$1"
+    fi
+    PLATFORM="linux/amd64"
+    if [ "$MANIFEST_FILE" = "images/odoo/Dockerfile" ]; then
         PLATFORM="linux/amd64,linux/arm64"
     fi
     if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
