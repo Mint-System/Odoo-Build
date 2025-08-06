@@ -26,14 +26,15 @@ function help-table() {
     printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Load Odoo revision env var and checkout git folders."
+    printf "$COLUMN" "commit-revision" "" "Commit all changes and tag with current revision"
     printf "$COLUMN" "commit-with-llm" "" "Commit with llm generated commit message."
+    printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
     printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
     printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
     printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
     printf "$COLUMN" "clock-odoo" "[db]" "Count custom line of codes."
     printf "$COLUMN" "clone-git-folder" "[submodule][version]" "Clone git folder listed in the .gitmodules file."
-    printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "container-login" "[user][token]" "Setup container hub login credentials."
     printf "$COLUMN" "container-ps" "" "List container processes."
     printf "$COLUMN" "copy-env" "[env][env]" "Copy env file."
@@ -2624,6 +2625,12 @@ function create-revision() {
 
     echo "Checkout revision: $REVISION"
     checkout-revision "$REVISION"
+}
+
+function commit-revision() {
+    git commit --all --message "feat(revision): release $ODOO_REVISION revision."
+    git tag "$ODOO_REVISION"
+    git push --follow-tags
 }
 
 # RPC Commands

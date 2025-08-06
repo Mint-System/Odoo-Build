@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 * Test the upgrade utils.
 * Split `checkout-revision` into `load-revision`.
 * Added `download-git-folder` command.
+* Docker image supports linux arm64.
 
 ### Updated
 
