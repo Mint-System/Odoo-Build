@@ -1,0 +1,6 @@
+<data
+    inherit_id="sale_subscription.sale_subscription_order_view_form"
+    priority="50"
+>
+    <button name="prepare_upsell_order" position="replace" />
+</data>
