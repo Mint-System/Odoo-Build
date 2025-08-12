@@ -50,9 +50,7 @@ check_config "db_sslmode" "$PGSSLMODE"
 
 entrypoint-log "Resolve database hostname: $PGHOST"
 getent hosts "$PGHOST"
-
-entrypoint-log "Waiting for database connection."
-pg_isready -h "$PGHOST" -p "$PGPORT"
+wait-for-pg
 
 AUTO_UPDATE_MODULES="${AUTO_UPDATE_MODULES:=False}"
 if [ "$AUTO_UPDATE_MODULES" = True ]; then
@@ -76,12 +74,12 @@ case "$1" in
         if [[ "$1" == "scaffold" ]] ; then
             exec odoo "$@"
         else
-            pg_isready -h "$PGHOST" -p "$PGPORT"
+            wait-for-pg
             exec odoo "$@" "${DB_ARGS[@]}"
         fi
         ;;
     -*)
-        pg_isready -h "$PGHOST" -p "$PGPORT"
+        wait-for-pg
         exec odoo "$@" "${DB_ARGS[@]}"
         ;;
     *)
