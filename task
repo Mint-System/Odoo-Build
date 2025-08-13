@@ -542,12 +542,16 @@ function update-module-license() {
 
 function template-repo(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
     REPO_PATH="$1"
 
-    echo "Copy $ODOO_VERSION template files to $REPO_PATH"
+    echo "Copy template files to $REPO_PATH."
     cp "templates/task" "$REPO_PATH"
+    cp "templates/README.md" "$REPO_PATH"
+
+    echo "Copy $ODOO_VERSION template files to $REPO_PATH."
     cp -r "templates/$ODOO_VERSION/." "$REPO_PATH"
+
+    echo "Remove deprecated repo files."
     rm "$REPO_PATH/.flake8"
     rm "$REPO_PATH/.isort.cfg"
     rm "$REPO_PATH/.pylintrc-mandatory"
@@ -1736,6 +1740,9 @@ function upgrade-module() {
         echo "Upgrade code of module $MODULE from $SOURCE_ODOO_VERSION ..."
         odoo upgrade_code --addons-path "$MODULE" --from "$SOURCE_ODOO_VERSION"
     fi
+
+    echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERISON."
+    sed -i -E "s/$SOURCE_ODOO_VERSION/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
 }
 
 function update-module() {
