@@ -80,3 +80,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 18.0
+[submodule "addons/sozialinfo"]
+	path = addons/sozialinfo
+	url = git@github.com:sozialinfo/odoo-apps-sozialinfo.git
+	branch = 18.0
