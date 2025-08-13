@@ -84,3 +84,7 @@
 	path = addons/sozialinfo
 	url = git@github.com:sozialinfo/odoo-apps-sozialinfo.git
 	branch = 18.0
+[submodule "addons/account_invoicing"]
+	path = addons/account_invoicing
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
+	branch = 18.0
