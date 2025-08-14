@@ -1,9 +1,11 @@
 #!/bin/bash
 
 if [ -n "$ADDONS_GIT_REPOS" ]; then
+    GITLAB_URL="${GITLAB_URL:="https://gitlab.com"}"
+    FORGEJO_URL="${FORGEJO_URL:="https://codeberg.org"}"
     LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/git"}"
     GIT_CLONE_DEPTH="${GIT_CLONE_DEPTH:="999"}"
-    
+
     # Setup git ssh key
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
@@ -21,9 +23,9 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
 
     # Clone git repo addons into local path
     entrypoint-log "Cloning git repos: $ADDONS_GIT_REPOS"
-    ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")        
+    ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")
     for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
-        
+
         # Supported urls:
         # ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0
         # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0
@@ -43,10 +45,20 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
 
             # Clone git repo and submodules
             mkdir -p "$GIT_LOCAL_PATH"
-            
+
             # Add GitHub personal access token
             if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "https://github.com" ] && [ -n "$GITHUB_USERNAME" ]; then
-                GIT_URL="${GIT_PROTO}${GITHUB_USERNAME}:${GITHUB_PERSONAL_ACCESS_TOKEN}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+                GIT_URL="${GIT_PROTO}${GITHUB_USERNAME}:${GITHUB_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            fi
+
+            # Add GitLab personal access token
+            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "$GITLAB_URL" ] && [ -n "$GITLAB_USERNAME" ]; then
+                GIT_URL="${GIT_PROTO}${GITLAB_USERNAME}:${GITLAB_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            fi
+
+            # Add Forgejo personal access token
+            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "$FORGEJO_URL" ] && [ -n "$FORGEJO_USERNAME" ]; then
+                GIT_URL="${GIT_PROTO}${FORGEJO_USERNAME}:${FORGEJO_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
             fi
 
             entrypoint-log "Clone ${GIT_PROTO}${GIT_HOSTNAME} branch $GIT_BRANCH."
