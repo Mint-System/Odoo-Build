@@ -7,7 +7,7 @@ fi
 
 LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/enterprise"}"
 
-entrypoint-log "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $LOCAL_PATH."
+log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $LOCAL_PATH."
 mkdir -p "$LOCAL_PATH"
 curl -L -o "$LOCAL_PATH/archive.tar.gz" \
     "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"

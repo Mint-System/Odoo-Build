@@ -771,10 +771,10 @@ function test-image() {
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${SERVER_TOOLS_GIT_REF}"
         mkdir -p "$LOCAL_PATH"
         export PATH=./images/odoo/bin/:$PATH
-        ./images/odoo/bin/git-clone-addons
+        ./images/odoo/bin/clone-git-addons
         rm -rf "$LOCAL_PATH/github.com"
 
-        echo -e "\033[38;5;214mTEST\033[0m: Test set addons path regex with version: $ODOO_VERSION"
+        echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
         echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '2.5'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
@@ -782,6 +782,11 @@ function test-image() {
         echo "'version': '14.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
         echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+
+        echo -e "\033[38;5;214mTEST\033[0m: Install python package."
+        export PYTHON_INSTALL="cowsay"
+        activate-venv
+        ./images/odoo/bin/install-python-packages
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then

@@ -10,19 +10,19 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
     mkdir -p ~/.ssh
     chmod 700 ~/.ssh
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-        entrypoint-log "Setup SSH key from env vars."
+        log-entrypoint "Setup SSH key from env vars."
         DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
         echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519 || (entrypoint-log "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
+        ssh-add ~/.ssh/id_ed25519 || (log-entrypoint "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
     fi
 
     # Make every git directory a safe directory
     git config --global --add safe.directory "*"
 
     # Clone git repo addons into local path
-    entrypoint-log "Cloning git repos: $ADDONS_GIT_REPOS"
+    log-entrypoint "Cloning git repos: $ADDONS_GIT_REPOS"
     ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")
     for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
 
@@ -61,21 +61,21 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
                 GIT_URL="${GIT_PROTO}${FORGEJO_USERNAME}:${FORGEJO_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
             fi
 
-            entrypoint-log "Clone ${GIT_PROTO}${GIT_HOSTNAME} branch $GIT_BRANCH."
+            log-entrypoint "Clone ${GIT_PROTO}${GIT_HOSTNAME} branch $GIT_BRANCH."
             git clone --depth "$GIT_CLONE_DEPTH" --single-branch --branch "$GIT_BRANCH" "$GIT_URL" "$GIT_LOCAL_PATH"
         else
-            entrypoint-log "Pull $GIT_BRANCH branch in $GIT_LOCAL_PATH."
+            log-entrypoint "Pull $GIT_BRANCH branch in $GIT_LOCAL_PATH."
             git -C "$GIT_LOCAL_PATH" switch "$GIT_BRANCH"
             git -C "$GIT_LOCAL_PATH" pull
         fi
 
         if [ -n "$GIT_COMMIT" ];then
-            entrypoint-log "Checkout $GIT_COMMIT commit in $GIT_LOCAL_PATH."
+            log-entrypoint "Checkout $GIT_COMMIT commit in $GIT_LOCAL_PATH."
             git -C "$GIT_LOCAL_PATH" checkout "$GIT_COMMIT"
         fi
 
         if [ -f "$GIT_LOCAL_PATH/.gitmodules" ]; then
-            entrypoint-log "Init and update git submodules in $GIT_LOCAL_PATH."
+            log-entrypoint "Init and update git submodules in $GIT_LOCAL_PATH."
             git -C "$GIT_LOCAL_PATH" submodule update --init --recursive --depth "$GIT_CLONE_DEPTH"
         fi
     done

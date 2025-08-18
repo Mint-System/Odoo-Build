@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-entrypoint-log() {
+log-entrypoint() {
     echo "$@"
 }
 
@@ -13,10 +13,10 @@ echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
 echo
 echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
-entrypoint-log "Run as user with id: $(id)"
+log-entrypoint "Run as user with id: $(id)"
 
-auto-envsubst
-python-install
+template-odoo-rc
+install-python-packages
 
 # Set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
@@ -48,7 +48,7 @@ check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 check_config "db_sslmode" "$PGSSLMODE"
 
-entrypoint-log "Resolve database hostname: $PGHOST"
+log-entrypoint "Resolve database hostname: $PGHOST"
 getent hosts "$PGHOST"
 wait-for-pg
 
@@ -65,7 +65,7 @@ fi
 case "$1" in
     memray)
         shift
-        entrypoint-log "Start Odoo with memray."
+        log-entrypoint "Start Odoo with memray."
         rm -f /var/lib/odoo/memray-capture.bin
         exec python3 -m memray run -o /var/lib/odoo/memray-capture.bin $(which odoo) "$@" "${DB_ARGS[@]}"
         ;;

@@ -206,8 +206,8 @@ The scripts are configured with environment variables.
 Once you start the container the `entrypoint.sh` script will:
 
 * Run the `set-addons-path` script to assemble the addons path.
-* Run the `auto-envsubst` script to template the `odoo.conf` file.
-* Run the `python-install` script to install the Python packages.
+* Run the `template-odoo-rc` script to template the `odoo.conf` file.
+* Run the `install-python-packages` script to install the Python packages.
 * Wait for the database to be ready.
 * Run the `update-modules` script to update modules.
 * Start the Odoo server.

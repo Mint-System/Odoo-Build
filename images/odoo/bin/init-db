@@ -2,16 +2,16 @@
 
 if [ -n "$ODOO_DATABASE" ]; then
 
-    entrypoint-log "Check if database $ODOO_DATABASE exists."
+    log-entrypoint "Check if database $ODOO_DATABASE exists."
     DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
 
     # If it does not exist, create it
     if [ "$DATABASE_EXISTS" = "0" ]; then
-        entrypoint-log "Create database $ODOO_DATABASE."
+        log-entrypoint "Create database $ODOO_DATABASE."
         (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$ODOO_DATABASE\";") || true
     fi
 
-    entrypoint-log "Check if database $ODOO_DATABASE is initialized"
+    log-entrypoint "Check if database $ODOO_DATABASE is initialized"
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
 
     if [ "$DATABASE_INITIALIZED" = "0" ]; then
@@ -20,11 +20,11 @@ if [ -n "$ODOO_DATABASE" ]; then
         ODOO_INIT_LANG=${ODOO_INIT_LANG:="en_US"}
         ODOO_INIT_ADDONS=${ODOO_INIT_ADDONS:="web"}
 
-        entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS."
+        log-entrypoint "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS."
         (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
 
         if [ "$ODOO_INIT_LOGIN" != "admin" ] || [ "$ODOO_INIT_PASSWORD" != "admin" ]; then
-            entrypoint-log "Updating admin user credentials to login: $ODOO_INIT_LOGIN"
+            log-entrypoint "Updating admin user credentials to login: $ODOO_INIT_LOGIN"
             (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
 admin_user = env['res.users'].browse(2)
 admin_user.write({
@@ -47,7 +47,7 @@ EOF
         export ODOO_MAIL_IMAP_PORT=${ODOO_MAIL_IMAP_PORT:="993"}
         export ODOO_MAIL_IMAP_SSL=${ODOO_MAIL_IMAP_SSL:="True"}
 
-        entrypoint-log "Setup mail server configuration for database $ODOO_DATABASE."
+        log-entrypoint "Setup mail server configuration for database $ODOO_DATABASE."
         (odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
     fi
 fi
