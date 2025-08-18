@@ -14,7 +14,19 @@ export default defineUserConfig({
     head: [
         ['link', { rel: 'icon', href: '/icon.png' }]
     ],
-    pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!addons', '!odoo', '!enterprise', '!tmp', '!oca', '!thirdparty', '!venv*'],
+    pagePatterns: [
+      '**/*.md',
+      '!**/node_modules/**',
+      '!**/.vuepress/**',
+      '!**/venv*/**',
+      '!**/addons/**',
+      '!**/odoo/**',
+      '!**/enterprise/**',
+      '!**/tmp/**',
+      '!**/oca/**',
+      '!**/thirdparty/**',
+      '!**/pycache/**',
+    ],
     theme: defaultTheme({
         logo: '/icon.png',
         repo: 'mint-system/odoo-build',
