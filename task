@@ -155,7 +155,6 @@ function help-table() {
     printf "$COLUMN" "update-module-license" "[grep]" "Update LICENSE file for each matching module."
     printf "$COLUMN" "update-module-list" "[db]" "Update module list of Odoo database."
     printf "$COLUMN" "update-modules-docs" "" "Update modules docs file."
-    printf "$COLUMN" "update-repo-docs" "[path]" "Update Readme file of the repo."
     printf "$COLUMN" "update-revision-docs" "" "Update revisions doc file."
     printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
     printf "$COLUMN" "update-snippet-docs" "" "Update snippets doc file."
@@ -322,7 +321,6 @@ EOF
 # Env Commands
 
 function init-venv() {
-
     echo "Ensure Python version $(cat .python-version) is installed."
     uv python install
 
@@ -438,41 +436,6 @@ function update-help-docs() {
     help-table > task.md
 }
 
-function update-repo-docs() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    README_PATH="$1"
-    FILE_NAME=$(basename "$README_PATH")
-
-    if [[ "$FILE_NAME" != "README.md" ]]; then
-        README_PATH="$1/README.md"
-        FILE_NAME="README.md"
-    fi
-
-    REPO_PATH=$(dirname "$README_PATH")
-
-    MANIFEST_FILES="$REPO_PATH/*/__manifest__.py"
-
-    # Find marker in readme and clear content after
-    echo "Clear modules table for $README_PATH."
-    MARKER="## Available modules"
-    sed -i "/$MARKER/Q" "$README_PATH"
-
-    echo "$MARKER" >> "$README_PATH"
-    echo "" >> "$README_PATH"
-    echo "| Module | Summary |" >> "$README_PATH"
-    echo "| --- | --- |" >> "$README_PATH"
-
-    # Clear table after a marker
-    for MANIFEST_FILE in $MANIFEST_FILES; do
-        MODULE_DIR=$(dirname "$MANIFEST_FILE")
-        MODULE_NAME=$(basename "$MODULE_DIR")
-        echo "Add summary of $MODULE_NAME to readme file."
-        SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
-        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "$README_PATH"
-    done
-}
-
-
 function update-snippet-docs() {
     ./bin/update-snippet-docs
 }
@@ -555,8 +518,6 @@ function template-repo(){
     rm "$REPO_PATH/.flake8"
     rm "$REPO_PATH/.isort.cfg"
     rm "$REPO_PATH/.pylintrc-mandatory"
-
-    update-repo-docs "$REPO_PATH"
 }
 
 # Module Commands
