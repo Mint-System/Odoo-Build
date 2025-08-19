@@ -446,7 +446,7 @@ task record-with-memray native
 
 Open [http://localhost:8069](http://localhost:8069) and finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
 
-The flamegraph report will be generated an opened.
+The flamegraph report will be generated and opened.
 
 ### Profile Odoo execution time
 

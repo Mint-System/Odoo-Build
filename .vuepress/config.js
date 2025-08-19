@@ -20,7 +20,6 @@ export default defineUserConfig({
       '!**/.vuepress/**',
       '!**/venv*/**',
       '!**/addons/**',
-      '!**/odoo/**',
       '!**/enterprise/**',
       '!**/tmp/**',
       '!**/oca/**',
