@@ -17,11 +17,12 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Updated
 
-* The `build.yml` workflow now builds a Docker image.
+* The `build.yml` workflow builds the Docker image.
 
 ### Fixed
 
 * Change sysctl conf file.
+* Add submodule will checout branch.
 
 ## 2025-07-15
 

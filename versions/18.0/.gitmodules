@@ -84,3 +84,7 @@
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
 	branch = 18.0
+[submodule "oca/bank-payment"]
+	path = oca/bank-payment
+	url = git@github.com:OCA/bank-payment.git
+	branch = 18.0

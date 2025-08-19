@@ -2245,6 +2245,9 @@ function add-git-submodule() {
     # Add to .gitmodules
     git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
 
+    # Ensure branch is Odoo version
+    git -C "$2" switch "$ODOO_VERSION"
+
     # Save version
     save-version
 
