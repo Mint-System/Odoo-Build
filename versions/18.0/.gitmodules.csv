@@ -15,6 +15,7 @@ oca/partner-contact,5cf894e782de4f9f5978a6bddc6ddb033733fd0c
 oca/project,903a2093f5c55cf0ea00dae86bad694030fb1930
 oca/queue,2e0ed2cc9022eecc517315308ce25c87e0c214ec
 oca/sale-workflow,4c81c2593f19291a80ec108715c797442310df90
+oca/server-auth,0771ec76cd9f593acb3f1260fe4ed374c4c00522
 oca/server-backend,5348f9d3d1d2dceb2ec343d63adf0d5fc40a7832
 oca/server-env,03d8a0310bf2a5a3ab4cec09ff86ffecc26d0e64
 oca/server-tools,4ccbea5cf413717737a3a8aaecf3f4a45f722b68
