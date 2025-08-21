@@ -1446,7 +1446,7 @@ ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`
     </xpath>
     <xpath expr="//td[@name='td_quantity']" position="after">
         <td name="td_hs_code" class="text-right">
-            <span t-field="line.product_id.intrastat_id.code"/>
+            <span t-field="line.product_id.intrastat_code_id.code"/>
         </td>
     </xpath>
 </data>
@@ -2636,6 +2636,17 @@ ID: `mint_system.sale.report_saleorder_document.remove_summary_table`
 ```
 Source: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_summary_table.xml)
 
+### Remove Taxes Copy  
+ID: `mint_system.sale.report_saleorder_document.remove_taxes copy`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_taxes']" position="replace"/>
+    <xpath expr="//td[@name='td_taxes']" position="replace"/>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.remove_taxes copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_taxes copy.xml)
+
 ### Remove Taxes  
 ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
 ```xml
@@ -2651,7 +2662,7 @@ Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.remove_user_id`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//p[@t-field='doc.user_id']/.." position="replace"/>
+    <xpath expr="//span[@t-field='doc.user_id']/.." position="replace"/>
 </data>
 
 ```
@@ -2782,6 +2793,76 @@ ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_
 
 ```
 Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_address_and_information_block.xml)
+
+### Replace Address And Information Block Pro Forma  
+ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_block_pro_forma`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//t[@t-set='address']" position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-set="address">
+                <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-set="address">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+    </xpath>
+
+    <xpath expr="//t[@t-set='information_block']/.." position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block_pro_forma.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_address_and_information_block_pro_forma.xml)
 
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  
@@ -3618,9 +3699,11 @@ ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
             }
         </style>
     </xpath>
-    <xpath expr="//div/div/div[2]/p" position="attributes">
+
+    <xpath expr="//div/div/div[2]/span" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
+    </xpath>   
+
 </data>
 
 ```

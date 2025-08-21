@@ -710,7 +710,7 @@ Source: [snippets/account.report_invoice_document.add_sale_person.xml](https://g
 ID: `mint_system.account.report_invoice_document.add_salesperson`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
+    <xpath expr="//div[@name='invoice_date']" position="after">
         <div class="col-3 bm-2" t-if="o.invoice_user_id" name="invoice_user_id">
             <strong>Contact:</strong>
             <p class="m-0" t-field="o.invoice_user_id.email"/>
@@ -731,7 +731,6 @@ ID: `mint_system.account.report_invoice_document.add_salesperson`
     </div>
   </xpath> -->
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_salesperson.xml)
 
@@ -3866,42 +3865,58 @@ Source: [snippets/account.report_invoice_document.x_hide_partner_name.xml](https
 ID: `mint_system.account.report_invoice_document.x_name`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-
     <xpath expr="//t[@name='account_invoice_line_accountable']/.." position="after">
-        <tr>
 
-            <t t-set="pickings" t-value="list(set(line.sale_line_ids.move_ids))"/>
+        <tr>
+            <t t-set="pickings_unsorted" t-value="list(set(line.sale_line_ids.move_ids))"/>
+            <t t-set="pickings" t-value="sorted(pickings_unsorted, key=lambda p: (p.picking_id.x_date_done or '').isoformat() if p.picking_id.x_date_done else '')"/>
 
             <t t-foreach="pickings" t-as="picking">
                 <t t-if="picking.state == 'done'">
-
                     <tr>
-                        <td style="padding: 0px; padding-left: 4px; border-bottom-width: 1px" colspan="6">
-                            <t t-if="picking.picking_id.x_date_done">
-                                <span>Lieferdatum: </span>
-                                <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
-                            </t>
-                            <span>LS: </span>
-                            <t t-if="picking.picking_id.x_name">
-                                <span t-esc="picking.picking_id.x_name"/>
-                            </t>
-                            <t t-else="">
-                                <span t-esc="picking.picking_id.name"/>
-                            </t>
-                            <span>Menge: </span>
-                            <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
-                            <t t-foreach="move_lines" t-as="move_line">
-                                <t t-if="line.product_id.id == move_line.product_id.id">
-                                    <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
-                                    <span t-esc="move_line.product_uom_id.name"/>
+                        <td style="padding: 0px; padding-left: 20px; border-bottom-width: 1px" colspan="6">
+
+                            <t t-set="all_invoice_dates" t-value="[]"/>
+
+                            <!-- Collect all invoice_date values and calculate penultimate invoice_date -->
+                            <t t-foreach="line.x_sale_order_id" t-as="sale_line">
+                                <t t-foreach="sale_line.invoice_ids" t-as="invoice_line">
+                                    <t t-if="invoice_line.invoice_date">
+                                        <t t-set="all_invoice_dates" t-value="all_invoice_dates + [invoice_line.invoice_date]"/>
+                                    </t>
                                 </t>
                             </t>
-                        </td>
+                            <t t-if="all_invoice_dates and len(all_invoice_dates) &gt; 1">
+                                <t t-set="sorted_dates" t-value="sorted(all_invoice_dates)"/>
+                                <t t-set="second_latest_date" t-value="sorted_dates[-2]"/>
+                            </t>
 
+                            <t t-if="picking.picking_id and second_latest_date and picking.picking_id.x_date_done &gt; second_latest_date">
+                                <span>Lieferdatum: </span>
+                                <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
+
+                                <span>LS: </span>
+                                <t t-if="picking.picking_id.x_name">
+                                    <span t-esc="picking.picking_id.x_name"/>
+                                </t>
+                                <t t-else="">
+                                    <span t-esc="picking.picking_id.name"/>
+                                </t>
+
+                                <span>Menge: </span>
+                                <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
+                                <t t-foreach="move_lines" t-as="move_line">
+                                    <t t-if="line.product_id.id == move_line.product_id.id">
+                                        <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
+                                        <span t-esc="move_line.product_uom_id.name"/>
+                                    </t>
+                                </t>
+                            </t>
+
+                        </td>
                     </tr>
                 </t>
             </t>
-            
         </tr>
     </xpath>
 </data>

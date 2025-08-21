@@ -11,6 +11,19 @@ ID: `mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscripti
 Source: [snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
 
 ## Sale Subscription Order View Form  
+### Remove Upsell Button  
+ID: `mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button`  
+```xml
+<data
+    inherit_id="sale_subscription.sale_subscription_order_view_form"
+    priority="50"
+>
+    <button name="prepare_upsell_order" position="replace" />
+</data>
+
+```
+Source: [snippets/sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)
+
 ### Show End Date  
 ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date`  
 ```xml

@@ -155,22 +155,34 @@ Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-Sys
 ID: `mint_system.web.external_layout_bold.add_bank`  
 ```xml
 <data inherit_id="web.external_layout_bold" priority="50">
+
     <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
         <attribute name="class">col-3</attribute>
     </xpath>
+
     <xpath expr="//span[@t-field='company.report_footer']/../../div[3]" position="replace"/>
-    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
-        <div class="col-4">
-            <div>
-                        IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
-      </div>
-            <div>
-                        BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
-      </div>
+
+    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="replace">
+        <div class="col-3">
+            <div>BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
+            </div>
+            <div>BIC: <span t-field="company.partner_id.bank_ids[1].bank_id.bic"/>
+            </div>
         </div>
     </xpath>
-</data>
 
+    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
+        <div class="col-5">
+            <div>
+                        CHF IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
+            <br/>
+                        EUR IBAN: <span t-field="company.partner_id.bank_ids[1].acc_number"/>
+        </div>
+
+    </div>
+</xpath>
+
+</data>
 ```
 Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_bold.add_bank.xml)
 
