@@ -876,21 +876,6 @@ function install() {
     init-venv
     activate-venv
 
-    if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS)$ ]]; then
-
-        # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | grep -Po '^wkhtmltopdf \K[\d.]+')
-        if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
-            echo -e "\033[38;5;214mWget\033[0m: Install wkhtmltopdf"
-            wget https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
-            tar xvf wkhtmltox*.tar.xz
-            sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin
-            rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.*
-        else
-            echo "wkhtmltopdf version is already 0.12.4"
-        fi
-    fi
-
     if [[ "$OS_RELEASE" =~ ^(Debian|Ubuntu|Pop!_OS)$ ]]; then
 
         echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
@@ -919,12 +904,14 @@ function install() {
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
         echo "Welcome daring Mac user. Let's try our best to get this working."
-        echo "Install wkhtmltopdf and some dev libraries"
-        echo "This will give a depreciation warning and you need to enter your sudo password."
-        brew install gettext wkhtmltopdf libsasl2 openldap openssl libxml2 grep
+        echo -e "\033[38;5;214mBrew\033[0m: Install brew "
+        brew install gettext libsasl2 openldap openssl libxml2 grep
 
         echo -e "\033[38;5;214mPython\033[0m: Install the binary version of psycopg2"
-        uv pip install psycopg2-binary --force
+        uv pip install psycopg2-binary
+
+        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
+        sed -i '/^psycopg2/d' odoo/requirements.txt
 
         echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
         if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
@@ -944,6 +931,21 @@ function install() {
         exit 1
     fi
 
+    if [[ "$OS_RELEASE" =~ ^(Arch\ Linux|Darwin|Debian|Fedora\ Linux|Ubuntu|Pop!_OS)$ ]]; then
+
+        # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
+        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | grep -Po '^wkhtmltopdf \K[\d.]+')
+        if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
+            echo -e "\033[38;5;214mCurl\033[0m: Install wkhtmltopdf"
+            curl -L -O https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+            tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+            sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin/
+            rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
+        else
+            echo "wkhtmltopdf version is already 0.12.4"
+        fi
+    fi
+
     if [ ! -d "$HOME/taskfile.build" ]; then
         echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
         git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
@@ -955,7 +957,9 @@ function install() {
     echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
     uv pip install ${PYTHON_NOTIFY}
     uv pip install -r requirements.txt
-    git clone https://github.com/odoo/upgrade-util
+    if [ ! -d "upgrade-util" ]; then
+        git clone https://github.com/odoo/upgrade-util
+    fi
 
     if [ -f "odoo/requirements.txt" ]; then
 
