@@ -96,3 +96,7 @@
 	path = addons/partner_contact
 	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact
 	branch = 18.0
+[submodule "oca/web-api"]
+	path = oca/web-api
+	url = git@github.com:OCA/web-api.git
+	branch = 18.0
