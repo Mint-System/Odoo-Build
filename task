@@ -159,7 +159,7 @@ function help-table() {
     printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
     printf "$COLUMN" "update-snippet-docs" "" "Update snippets doc file."
     printf "$COLUMN" "update-with-llm" "[glob][prompt]" "Feed module files with prompt to LLM and apply file changes."
-    printf "$COLUMN" "upgrade-module" "[path][version]" "Upgrade code of module from target Odoo version."
+    printf "$COLUMN" "upgrade-module" "[path]" "Upgrade code of module from target Odoo version."
     printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
     printf "$COLUMN" "upload-module" "[env][path]" "Zip and upload Odoo module."
     printf "$COLUMN" "version" "" "Show version of required tools."
@@ -1693,10 +1693,7 @@ function init-module() {
 
 function upgrade-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
     MODULE="$1"
-    SOURCE_ODOO_VERSION="$2"
 
     activate-venv
     set-addons-path
@@ -1705,6 +1702,8 @@ function upgrade-module() {
         echo "Migrate views of module $MODULE to $ODOO_VERSION ..."
         odoo --database "$DATABASE" -i "$MODULE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
     fi
+
+    SOURCE_ODOO_VERSION=$(get-module-version $MODULE | cut -d'.' -f1,2)
 
     if [ "$ODOO_VERSION" = "18.0" ]; then
         echo "Upgrade code of module $MODULE from $SOURCE_ODOO_VERSION ..."
