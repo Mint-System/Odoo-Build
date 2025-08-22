@@ -92,3 +92,7 @@
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
 	branch = 18.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact
+	branch = 18.0

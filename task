@@ -507,9 +507,15 @@ function template-repo(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     REPO_PATH="$1"
 
-    echo "Copy template files to $REPO_PATH."
+    echo "Copy task file to $REPO_PATH."
     cp "templates/task" "$REPO_PATH"
-    cp "templates/README.md" "$REPO_PATH"
+
+    echo "Template README.md to $REPO_PATH."
+    REPO_NAME=$(basename "$REPO_PATH")
+    REPO_MODEL=${REPO_NAME%%_*}
+    REPO_TITLE=$(echo "$REPO_NAME" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
+    export REPO_MODEL REPO_TITLE REPO_NAME
+    envsubst '$REPO_MODEL $REPO_TITLE $REPO_NAME' < templates/README.md > "$REPO_PATH/README.md"
 
     echo "Copy $ODOO_VERSION template files to $REPO_PATH."
     cp -r "templates/$ODOO_VERSION/." "$REPO_PATH"
