@@ -1716,7 +1716,7 @@ function upgrade-module() {
         odoo upgrade_code --addons-path "$MODULE" --from "$SOURCE_ODOO_VERSION"
     fi
 
-    echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERISON."
+    echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERSION."
     sed -i -E "s/$SOURCE_ODOO_VERSION/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
 }
 
