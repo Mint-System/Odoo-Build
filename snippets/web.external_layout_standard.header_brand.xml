@@ -1,0 +1,47 @@
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="/t/div" position="replace">
+
+        <!--
+        <t t-if="report_type == 'pdf'">
+        -->
+
+
+        <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+            <table style="width: 100%; border: transparent; color: rgb(26, 43, 71); font-size: 13px">
+                <tr style="line-height: 1.2;">
+                    <td style="width: 50%; padding-top: 10px; padding-bottom: 17px;">Brand Metallbau AG</td>
+                    <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px;" rowspan="4">
+                        <img t-if="company.logo" t-att-src="'/web/image/2015'" style="height: 80px;" alt="Logo"/>
+                    </td>
+                </tr>
+                <tr style="line-height: 1.2;">
+                    <td>
+                        <span>Rüttistrasse 13</span>
+                        <span style="padding:0 0.3rem">|</span>
+                        <span>CH-6467 Schattdorf</span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span>Telefon +41 (0)41 874 74 00</span>
+                        <span style="padding:0 0.3rem">|</span>
+                        <span>Fax +41 (0)41 874 74 01</span>
+                    </td>
+                </tr>
+                <tr style="line-height: 1.2;">
+                    <td style="padding-bottom: 10px;">
+                        <span>mail@brand.ch</span>
+                        <span style="padding:0 0.3rem">|</span>
+                        <span>www.brand.ch</span>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+
+        <!--
+        </t>
+        -->
+
+    </xpath>
+</data>

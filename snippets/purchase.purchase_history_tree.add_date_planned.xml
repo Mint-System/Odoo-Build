@@ -1,0 +1,5 @@
+<data inherit_id="purchase.purchase_order_form" priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="product_id"/>
+    </xpath>
+</data>

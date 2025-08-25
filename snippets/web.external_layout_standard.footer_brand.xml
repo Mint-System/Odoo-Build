@@ -1,0 +1,24 @@
+<data inherit_id="web.external_layout_standard" priority="50">
+  <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
+   
+    <t t-if="report_type == 'pdf'">
+
+      <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div style="border-top: 1px solid black;">
+          <table style="width: 100%; border: transparent">
+            <tr style="line-height: 1.2; ">
+              <td style="padding-top:7px; width: 33%; text-align: left; ">info@kunststoffsammelsack.ch</td>
+              <td style="width: 33%; text-align: center">wwww.kunststoffsammelsack.ch</td>
+              <td style="width: 33%; text-align: right">+41 41 760 33 36</td>
+            </tr>
+            <tr style="line-height: 1.2;">
+              <td>CHE-411.930.537 MWST</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+
+    </t>
+  
+  </xpath>
+</data>
