@@ -88,7 +88,7 @@ function help-table() {
     printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
     printf "$COLUMN" "list-env" "" "List env files."
     printf "$COLUMN" "list-git-folder" "[grep]" "List path and url of git folders."
-    printf "$COLUMN" "list-modules" "[path]" "Get modules in path as list."
+    printf "$COLUMN" "list-modules" "[path]" "Get modules in path as bash array."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
     printf "$COLUMN" "load-dotenv" "" "Restore content of .env from pass entry."
@@ -99,7 +99,6 @@ function help-table() {
     printf "$COLUMN" "load-latest-revision" "[version]" "Load the latest revision of the Odoo version."
     printf "$COLUMN" "load-revision" "[revision]" "Load env var from specified revision."
     printf "$COLUMN" "logs" "[name]" "Tail container logs. Default is 'odoo'."
-    printf "$COLUMN" "ls-module" "[grep]" "List Odoo addons path space separated."
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
     printf "$COLUMN" "odoocli" "[param]" "Execute odoocli cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
@@ -485,17 +484,9 @@ function update-docs() {
     update-help-docs
 }
 
-function ls-module() {
-    if [ -n "$1" ]; then
-        find addons -name "__manifest__.py" | xargs -r dirname | grep "$1" |sort -u
-    else
-        find addons -name "__manifest__.py" | xargs -r dirname | sort -u
-    fi
-}
-
 function update-module-license() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_FOLDERS=$(ls-module "$1")
+    GIT_FOLDERS=$(list-module "$1")
 
     for GIT_FOLDER in $GIT_FOLDERS; do
        echo "Update license file for $GIT_FOLDER."
@@ -573,7 +564,8 @@ function get-module-version() {
 
 function list-modules() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    echo $(get-modules "$1" basename | tr "," "\n")
+    MODULES=$(get-modules "$1" dirname)
+    echo "$MODULES" | tr ',' '\n'
 }
 
 # Container Commands
