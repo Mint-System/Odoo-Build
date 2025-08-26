@@ -459,12 +459,12 @@ The most important image paths are:
 * `/mnt/extra-addons` Nested are loaded from this path by default.
 * `/mnt/test-addons` Recommended mount path for modules to test.
 * `/opt/odoo/addons` Contains the Odoo Community Edition modules.
+* `/opt/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 * `/opt/odoo-venv` This is where Python packages are installed.
-* `/var/lib/odoo ` Odoo data folder.
+* `/var/lib/odoo` Odoo data folder.
 * `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
-* `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 
 ### Capture memory profile
 
