@@ -114,6 +114,7 @@ services:
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_DATABASE: "16.0"
+      ODOO_INIT_DEMO_DATA: True
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
       ODOO_INIT_LANG: de_CH
@@ -356,6 +357,7 @@ The entrypoint script searches for module folders in the addons path and creates
 Set these environment variables for the database init:
 
 * `ODOO_DATABASE` Name of the Odoo database. No default is set.
+* `ODOO_INIT_DEMO_DATA` If enabled Odoo inits the database with demo data. Default is `false`.
 * `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
 * `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
 * `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.

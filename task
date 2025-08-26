@@ -1258,6 +1258,7 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
         export ODOO_ADDONS_PATH="/mnt/oca/partner-contact"
         export ODOO_DATABASE=test
+        export ODOO_INIT_DEMO_DATA=True
         export ODOO_INIT_LOGIN=test
         export ODOO_INIT_PASSWORD=test
         export ODOO_INIT_LANG=de_CH
