@@ -5,7 +5,7 @@ if [ -z "$GITHUB_PAT" ] || [ -z "$GITHUB_USERNAME" ]; then
     exit 1
 fi
 
-LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/enterprise"}"
+LOCAL_PATH="${LOCAL_PATH:="/opt/odoo/enterprise"}"
 
 log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $LOCAL_PATH."
 mkdir -p "$LOCAL_PATH"
