@@ -22,7 +22,7 @@ if [ -n "$ODOO_DATABASE" ]; then
         ODOO_INIT_ADDONS=${ODOO_INIT_ADDONS:="web"}
 
         ODOO_INIT_PARAM=""
-        if [ "$ODOO_INIT_DEMO_DATA" = False ]; then
+        if [ "$ODOO_INIT_DEMO_DATA" = "False" ]; then
             ODOO_INIT_PARAM="--without-demo=all"
         fi
 

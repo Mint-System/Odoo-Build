@@ -53,12 +53,12 @@ getent hosts "$PGHOST"
 wait-for-pg
 
 AUTO_UPDATE_MODULES="${AUTO_UPDATE_MODULES:=False}"
-if [ "$AUTO_UPDATE_MODULES" = True ]; then
+if [ "$AUTO_UPDATE_MODULES" = "True" ]; then
     update-modules
 fi
 
 AUTO_UPDATE_TRANSLATIONS="${AUTO_UPDATE_TRANSLATIONS:=False}"
-if [ "$AUTO_UPDATE_TRANSLATIONS" = True ]; then
+if [ "$AUTO_UPDATE_TRANSLATIONS" = "True" ]; then
     update-translations
 fi
 
