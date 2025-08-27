@@ -35,6 +35,14 @@ function help() {
     echo
 }
 
+if [ -d "$HOME/taskfile.build/bin" ]; then
+    for file in "$HOME/taskfile.build/bin/"*; do
+        if [ -f "$file" ]; then
+            source "$file"
+        fi
+    done
+fi
+
 function version() {
     uv --version
 }
