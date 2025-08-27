@@ -349,7 +349,7 @@ function template-odoo-rc() {
     echo "Template $ODOO_RC"
 
     # Load and export vars defined in odoo conf template
-    for VAR in $(grep -oP '\$(?:\{([^}]*)\}|([A-Z_][A-Z0-9_]*))' odoo.conf.template); do
+    for VAR in $(grep -oE '\$([A-Z_][A-Z0-9_]*)|\$\{([A-Z_][A-Z0-9_]*)\}' odoo.conf.template); do
       VAR=${VAR/\$/}
       VAR=${VAR//\{\//}
       export $VAR
@@ -375,7 +375,6 @@ function template-odoo-rc() {
 }
 
 function set-addons-path() {
-
     # Read addons path from git module
     GIT_FOLDERS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
 
@@ -580,10 +579,12 @@ function template-compose() {
     echo "Template compose.yml"
 
     # Load and export vars defined in compose template
-    for VAR in $(grep -oP '\$\{([^}]+)\}' compose.yml.template); do
-      VAR=${VAR/#\$\{/}
-      VAR=${VAR/%\}/}
-      export $VAR
+    for VAR in $(grep -oE '\$\{?[A-Z_][A-Z0-9_]*\}?' odoo.conf.template); do
+        # Strip $, ${, }
+        VAR=${VAR#\$\{}    # Remove leading ${
+        VAR=${VAR%\}}      # Remove trailing }
+        VAR=${VAR#\$}      # Remove leading $
+        export "$VAR"
     done
 
     envsubst < "compose.yml.template" > "compose.yml"
@@ -932,7 +933,7 @@ function install() {
     if [[ "$OS_RELEASE" =~ ^(Arch\ Linux|Darwin|Debian|Fedora\ Linux|Ubuntu|Pop!_OS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | grep -Po '^wkhtmltopdf \K[\d.]+')
+        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | sed -E 's/^wkhtmltopdf +([0-9.]+).*/\1/')
         if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
             echo -e "\033[38;5;214mCurl\033[0m: Install wkhtmltopdf"
             curl -L -O https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
@@ -953,12 +954,15 @@ function install() {
     fi
 
     echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
-    uv pip install ${PYTHON_NOTIFY}
+    if [ -n "$PYTHON_NOTIFY" ]; then
+        uv pip install "$PYTHON_NOTIFY"
+    fi
+
     uv pip install -r requirements.txt
     if [ ! -d "upgrade-util" ]; then
         git clone https://github.com/odoo/upgrade-util
     fi
-
+    # uv pip install git+https://github.com/odoo/upgrade-util@master
     if [ -f "odoo/requirements.txt" ]; then
 
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"

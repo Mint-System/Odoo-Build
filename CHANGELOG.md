@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Fixed
 
 * Removed `ls-modules` and updated `list-modules`.
+* Make task script grep `-P` free.
 
 ## 2025-08-22
 
