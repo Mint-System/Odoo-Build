@@ -579,7 +579,7 @@ function template-compose() {
     echo "Template compose.yml"
 
     # Load and export vars defined in compose template
-    for VAR in $(grep -oE '\$\{?[A-Z_][A-Z0-9_]*\}?' odoo.conf.template); do
+    for VAR in $(grep -oE '\$\{?[A-Z_][A-Z0-9_]*\}?' compose.yml.template); do
         # Strip $, ${, }
         VAR=${VAR#\$\{}    # Remove leading ${
         VAR=${VAR%\}}      # Remove trailing }
@@ -912,11 +912,11 @@ function install() {
         echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
         sed -i '/^psycopg2/d' odoo/requirements.txt
 
-        echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
-        if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
-          echo '' >> .env
-          echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
-        fi
+        # echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
+        # if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
+        #   echo '' >> .env
+        #   echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
+        # fi
 
     elif [[ "$OS_RELEASE" =~ ^(Arch Linux)$ ]]; then
 

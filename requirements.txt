@@ -23,3 +23,5 @@ debugpy
 # LLM
 fastmcp
 requests
+# Upgrade
+git+https://github.com/OCA/openupgradelib.git@master
