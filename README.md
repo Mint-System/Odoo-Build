@@ -166,10 +166,10 @@ The paths will be appended to the Odoo config.
 
 ### Initialize without demo data
 
-In your `.env` file define this Odoo parameter env var:
+In your `.env` file set this env var:
 
 ```bash
-ODOO_PARAM=--without-demo=all
+ODOO_INIT_DEMO_DATA=False
 ```
 
 ### Set Odoo database name

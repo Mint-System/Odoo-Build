@@ -85,6 +85,7 @@ RUN apt-get update && \
         wget \
         gnupg \
         expect \
+        libcairo2 \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \

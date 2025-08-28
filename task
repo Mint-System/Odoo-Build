@@ -192,6 +192,7 @@ export PGSSLROOTCERT
 
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
+ODOO_INIT_DEMO_DATA=${ODOO_INIT_DEMO_DATA:="True"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
@@ -226,6 +227,10 @@ else
     OS_RELEASE=$(awk -F= '/^NAME/{print $2}' /etc/os-release | tr -d '"')
     PYTHON_NOTIFY="inotify"
     OS_OPEN="xdg-open"
+fi
+
+if [ "$ODOO_INIT_DEMO_DATA" = "False" ]; then
+    ODOO_PARAM="--without-demo=all"
 fi
 
 # Check commands
@@ -595,11 +600,10 @@ function container-ps() {
 }
 
 function build() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    MANIFEST_FILE="$1"
+
     # Set container tag and platform based on Dockerfile
-    MANIFEST_FILE="images/odoo/Dockerfile"
-    if [ -n "$1" ]; then
-        MANIFEST_FILE="$1"
-    fi
     PLATFORM="linux/amd64"
     if [ "$MANIFEST_FILE" = "images/odoo/Dockerfile" ]; then
         PLATFORM="linux/amd64,linux/arm64"
@@ -624,7 +628,6 @@ function build() {
             PYTHON_VERSION="3.9"
             ;;
         "16.0")
-            # PYTHON_VERSION="3.9"
             PYTHON_VERSION="3.11"
             ;;
         "17.0")
