@@ -915,25 +915,27 @@ function install() {
         echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
         sed -i '/^psycopg2/d' odoo/requirements.txt
 
-        # echo -e "\033[38;5;214mSystem\033[0m: Add LDFLAGS to .env file"
-        # if ! grep -qxF 'LDFLAGS=-L/opt/homebrew/lib/' .env; then
-        #   echo '' >> .env
-        #   echo 'LDFLAGS=-L/opt/homebrew/lib/' >> .env
-        # fi
-
-    elif [[ "$OS_RELEASE" =~ ^(Arch Linux)$ ]]; then
+    elif [[ "$OS_RELEASE" =~ ^(Arch Linux|SteamOS)$ ]]; then
 
         echo "Arch is the best"
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo pacman -S --noconfirm base-devel postgresql
 
+        echo -e "\033[38;5;214mPython\033[0m: Install the binary version of psycopg2"
+        uv pip install psycopg2-binary
+
+        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
+        sed -i '/^psycopg2/d' odoo/requirements.txt
+
+        echo -e "\033[38;5;214mPython\033[0m: Remove python-ldap from Odoo requirements"
+        sed -i '/^python-ldap/d' odoo/requirements.txt
     else
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
     fi
 
-    if [[ "$OS_RELEASE" =~ ^(Arch\ Linux|Darwin|Debian|Fedora\ Linux|Ubuntu|Pop!_OS)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS|SteamOS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | sed -E 's/^wkhtmltopdf +([0-9.]+).*/\1/')

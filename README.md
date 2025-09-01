@@ -72,7 +72,7 @@ Checkout the Odoo version. Show supported versions with `task list-versions`.
 task checkout "$VERSION"
 ```
 
-Install build and Python dependencies. Currently supported: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, Windows with Ubuntu on WSL2.
+Install build and Python dependencies. Currently supported: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, SteamOS, Windows with Ubuntu on WSL2.
 
 ```bash
 task install

@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Support SteamOS.
+
 ### Fixed
 
 * Removed `ls-modules` and updated `list-modules`.
