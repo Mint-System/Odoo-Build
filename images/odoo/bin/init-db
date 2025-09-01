@@ -21,12 +21,14 @@ if [ -n "$ODOO_DATABASE" ]; then
     if [ "$DATABASE_EXISTS" = "0" ]; then
         entrypoint-log "Create database $ODOO_DATABASE."
         (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$ODOO_DATABASE\";") || true
+        entrypoint-log "Database creation completed"
     else
         entrypoint-log "Database $ODOO_DATABASE already exists"
     fi
 
     entrypoint-log "Check if database $ODOO_DATABASE is initialized"
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+    entrypoint-log "Database initialization check result: $DATABASE_INITIALIZED"
 
     if [ "$DATABASE_INITIALIZED" = "0" ]; then
         entrypoint-log "Database not initialized, starting initialization process"
@@ -34,9 +36,20 @@ if [ -n "$ODOO_DATABASE" ]; then
         ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:="admin"}
         ODOO_INIT_LANG=${ODOO_INIT_LANG:="en_US"}
         ODOO_INIT_ADDONS=${ODOO_INIT_ADDONS:="web"}
+        ODOO_INIT_WITH_DEMO=${ODOO_INIT_WITH_DEMO:="false"}
 
-        entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS."
-        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
+        # Set demo data flag based on environment variable
+        if [ "$ODOO_INIT_WITH_DEMO" = "true" ]; then
+            DEMO_FLAG=""
+            entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS (WITH demo data)."
+        else
+            DEMO_FLAG="--without-demo=all"
+            entrypoint-log "Initialize database $ODOO_DATABASE with modules: $ODOO_INIT_ADDONS (WITHOUT demo data)."
+        fi
+
+        entrypoint-log "Running Odoo initialization command..."
+        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" $DEMO_FLAG) || true
+        entrypoint-log "Odoo initialization command completed"
 
         if [ "$ODOO_INIT_LOGIN" != "admin" ] || [ "$ODOO_INIT_PASSWORD" != "admin" ]; then
             entrypoint-log "Updating admin user credentials to login: $ODOO_INIT_LOGIN"
@@ -50,12 +63,19 @@ env.cr.commit()
 print('Admin credentials updated successfully')
 EOF
 ) || true
+            entrypoint-log "Admin credentials update completed"
         fi
+    else
+        entrypoint-log "Database $ODOO_DATABASE is already initialized (DATABASE_INITIALIZED=$DATABASE_INITIALIZED)"
     fi
 
+    # Recheck database initialization status
+    entrypoint-log "Rechecking database initialization status..."
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+    entrypoint-log "Final database initialization status: $DATABASE_INITIALIZED"
 
     if [ "$DATABASE_INITIALIZED" = "1" ]; then
+        entrypoint-log "Setting up mail server configuration..."
         export ODOO_MAIL_SMTP_PORT=${ODOO_MAIL_SMTP_PORT:="587"}
         export ODOO_MAIL_SMTP_ENCRYPTION=${ODOO_MAIL_SMTP_ENCRYPTION:="starttls"}
         export ODOO_MAIL_SMTP_FROM_FILTER=${ODOO_MAIL_SMTP_FROM_FILTER:=""}
@@ -64,5 +84,12 @@ EOF
 
         entrypoint-log "Setup mail server configuration for database $ODOO_DATABASE."
         (odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
+        entrypoint-log "Mail server configuration completed"
+    else
+        entrypoint-log "WARNING: Database initialization may have failed. DATABASE_INITIALIZED=$DATABASE_INITIALIZED"
     fi
+
+    entrypoint-log "Database initialization process completed for $ODOO_DATABASE"
+else
+    entrypoint-log "ODOO_DATABASE environment variable not set, skipping database initialization"
 fi
