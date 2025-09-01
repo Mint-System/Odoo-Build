@@ -2,6 +2,17 @@
 
 if [ -n "$ODOO_DATABASE" ]; then
 
+    entrypoint-log "Starting database initialization for $ODOO_DATABASE"
+    entrypoint-log "Database connection: $PGUSER@$PGHOST:$PGPORT"
+
+    # Wait for database to be ready
+    entrypoint-log "Waiting for database connection..."
+    until psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -c '\q' 2>/dev/null; do
+        entrypoint-log "Database not ready, waiting 2 seconds..."
+        sleep 2
+    done
+    entrypoint-log "Database connection established"
+
     entrypoint-log "Check if database $ODOO_DATABASE exists."
     DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
 
