@@ -100,3 +100,7 @@
 	path = oca/web-api
 	url = git@github.com:OCA/web-api.git
 	branch = 18.0
+[submodule "oca/hr-attendance"]
+	path = oca/hr-attendance
+	url = git@github.com:OCA/hr-attendance.git
+	branch = 18.0
