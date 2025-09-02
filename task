@@ -2391,7 +2391,7 @@ function switch-git-folder() {
         SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
 
         if [ "$SHALLOW" = "true" ]; then
-            echo "Fetch branch $ODOO_VERSION from origin and then switch."
+            echo "Fetch branch $ODOO_VERSION (shallow) from origin and then switch."
             git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
             git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
         else
