@@ -1,0 +1,15 @@
+#!/bin/bash
+
+
+MAX_ATTEMPTS=30
+SLEEP_SECONDS=5
+ATTEMPTS=0
+until pg_isready -h "$PGHOST" -p "$PGPORT"; do
+    ATTEMPTS=$((ATTEMPTS+1))
+    if [ "$ATTEMPTS" -ge $MAX_ATTEMPTS ]; then
+    log-entrypoint "Database is not reachable after 30 attempts."
+    exit 1
+fi
+log-entrypoint "Waiting for database... ($ATTEMPTS)"
+sleep $SLEEP_SECONDS
+done

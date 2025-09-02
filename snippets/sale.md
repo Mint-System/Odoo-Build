@@ -1446,7 +1446,7 @@ ID: `mint_system.sale.report_saleorder_document.add_intrastat_id`
     </xpath>
     <xpath expr="//td[@name='td_quantity']" position="after">
         <td name="td_hs_code" class="text-right">
-            <span t-field="line.product_id.intrastat_id.code"/>
+            <span t-field="line.product_id.intrastat_code_id.code"/>
         </td>
     </xpath>
 </data>
@@ -2088,7 +2088,7 @@ ID: `mint_system.sale.report_saleorder_document.format_qty_with_decimal`
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
     <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
-        <t t-if="line.product_uom.id == 1">
+        <t t-if="line.product_uom.id == 12">
             <span id="product_uom_qty" t-field="line.product_uom_qty" t-options="{'widget': 'integer'}"/>
         </t>
         <t t-else="">
@@ -2636,6 +2636,17 @@ ID: `mint_system.sale.report_saleorder_document.remove_summary_table`
 ```
 Source: [snippets/sale.report_saleorder_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_summary_table.xml)
 
+### Remove Taxes Copy  
+ID: `mint_system.sale.report_saleorder_document.remove_taxes copy`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//th[@name='th_taxes']" position="replace"/>
+    <xpath expr="//td[@name='td_taxes']" position="replace"/>
+</data>
+
+```
+Source: [snippets/sale.report_saleorder_document.remove_taxes copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_taxes copy.xml)
+
 ### Remove Taxes  
 ID: `mint_system.sale.report_saleorder_document.remove_taxes`  
 ```xml
@@ -2651,7 +2662,7 @@ Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.remove_user_id`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//p[@t-field='doc.user_id']/.." position="replace"/>
+    <xpath expr="//span[@t-field='doc.user_id']/.." position="replace"/>
 </data>
 
 ```
@@ -2782,6 +2793,76 @@ ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_
 
 ```
 Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_address_and_information_block.xml)
+
+### Replace Address And Information Block Pro Forma  
+ID: `mint_system.sale.report_saleorder_document.replace_address_and_information_block_pro_forma`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//t[@t-set='address']" position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-set="address">
+                <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-set="address">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+    </xpath>
+
+    <xpath expr="//t[@t-set='information_block']/.." position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.replace_address_and_information_block_pro_forma.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.replace_address_and_information_block_pro_forma.xml)
 
 ### Replace Informations  
 ID: `mint_system.sale.report_saleorder_document.replace_informations`  
@@ -3316,20 +3397,25 @@ ID: `mint_system.sale.report_saleorder_document.second_row2`
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <xpath expr="//td[@name='td_name']/../.." position="after">
-        <tr style="border-top: solid white !important">
-            <td/>
-            <td colspan="3">
-                <span t-field="line.name"/>
-                <br/>
-                <span>HS-Code</span>
-            </td>
-            <td/>
-        </tr>
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="3">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
     </xpath>
 
     <xpath expr="//td[@name='td_name']" position="replace">
         <td name="td_name">
-            <span t-field="line.product_template_id"/>
+            <strong t-field="line.product_template_id"/>
         </td>
     </xpath>
 
@@ -3613,9 +3699,11 @@ ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
             }
         </style>
     </xpath>
-    <xpath expr="//div/div/div[2]/p" position="attributes">
+
+    <xpath expr="//div/div/div[2]/span" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>
+    </xpath>   
+
 </data>
 
 ```
@@ -3714,46 +3802,57 @@ Source: [snippets/sale.report_saleorder_document.style_lapp.xml](https://github.
 ### Style Mint System  
 ID: `mint_system.sale.report_saleorder_document.style_mint_system`  
 ```xml
+<?xml version="1.0"?>
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
-        <span t-field="line.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
-        <attribute name="class" separator=" " add="o_italic"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
-        <span t-field="option.product_id.name"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
-        <span>
-            <br/>
-        </span>
-    </xpath>
-    <xpath expr="/t/t/div/div[6]" position="after">
-        <div class="row">
-            <div class="col h2">
-                <span>New Title</span>
-            </div>
-        </div>
-    </xpath>
-    <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
-        <attribute name="class">col h4</attribute>
-    </xpath>
-    <xpath expr="/t/t/div/div[7]/div/span" position="replace">
-        <p style="page-break-before:always;"/>
-        <span>Gesch&#xE4;ftsbedingungen</span>
-    </xpath>
-    <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
-        <attribute name="style" separator=";" add="width:150px"/>
-    </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span" position="before">
+    <span t-field="line.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[1]" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/t[2]/tr/t[1]/td[1]/span[3]" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="attributes">
+    <attribute name="class" separator=" " add="o_italic"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="before">
+    <span t-field="option.product_id.name"/>
+  </xpath>
+
+  <xpath expr="//tbody[hasclass('sale_tbody')]/tr/td[1]/span" position="after">
+    <span>
+      <br/>
+    </span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[6]" position="after">
+    <div class="row">
+      <div class="col h2">
+        <span>New Title</span>
+      </div>
+    </div>
+  </xpath>
+
+  <xpath expr="/t[1]/t[1]/div[1]/div[7]/div[1]" position="attributes">
+    <attribute name="class">col h4</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[7]/div/span" position="replace">
+    <p style="page-break-before:always;"/>
+    <span>Terms and conditions</span>
+  </xpath>
+
+  <xpath expr="/t/t/div/div[2]/div[5]/p" position="attributes">
+    <attribute name="style" separator=";" add="width:150px"/>
+  </xpath>
 </data>
 
 ```
@@ -3989,21 +4088,37 @@ Source: [snippets/sale.report_saleorder_document.style_valperca.xml](https://git
 ID: `mint_system.sale.report_saleorder_document.style_xinomer`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="60">
+
+    <xpath expr="//tbody[@class='sale_tbody']" position="after">
+        <style>
+		  td {
+		    vertical-align: top !important;
+		  }
+        </style>
+    </xpath>
+
     <xpath expr="//h2" position="attributes">
         <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
     </xpath>
+
     <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="attributes">
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
     </xpath>
+
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style">width: 110px</attribute>
+    </xpath>
+
     <xpath expr="//div[@name='total']" position="attributes">
         <attribute name="style">width: 280px; float: right</attribute>
     </xpath>
+
     <xpath expr="//div[@name='total']/div" position="attributes">
         <attribute name="t-attf-class"/>
     </xpath>
-</data>
 
+</data>
 ```
 Source: [snippets/sale.report_saleorder_document.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_xinomer.xml)
 
@@ -4763,6 +4878,17 @@ ID: `mint_system.sale.view_order_form.location_in_name`
 
 ```
 Source: [snippets/sale.view_order_form.location_in_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.location_in_name.xml)
+
+### Modify Readonly Analytic Account Id  
+ID: `mint_system.sale.view_order_form.modify_readonly_analytic_account_id`  
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='analytic_account_id']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
+```
+Source: [snippets/sale.view_order_form.modify_readonly_analytic_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.modify_readonly_analytic_account_id.xml)
 
 ### Modify Readonly Date Order  
 ID: `mint_system.sale.view_order_form.modify_readonly_date_order`  

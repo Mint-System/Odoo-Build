@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="50">
+    <xpath expr="//span[@class='page']/.." position="replace"/>
+</data>

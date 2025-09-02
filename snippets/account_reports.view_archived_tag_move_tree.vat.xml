@@ -1,0 +1,5 @@
+<data inherit_id="account_reports.view_archived_tag_move_tree" priority="50">
+    <xpath expr="//tree/field[@name='partner_id']" position="after">
+        <field name="partner_vat" string="USt-IdNr"/>
+    </xpath>
+</data>

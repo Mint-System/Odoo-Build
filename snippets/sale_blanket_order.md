@@ -1073,7 +1073,7 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_catego
     <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="before">
         <field name="x_product_uom_category_id" invisible="1"/>
     </xpath>
-    <xpath expr="//page[@name='order_lines']//field[@name='product_uom']" position="attributes">
+    <xpath expr="//page[@name='order_lines']//field[@name='product_uom'][2]" position="attributes">
         <attribute name="domain">[["category_id","=",x_product_uom_category_id]]</attribute>
     </xpath>
 </data>

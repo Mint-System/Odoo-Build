@@ -80,3 +80,23 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 18.0
+[submodule "addons/account_invoicing"]
+	path = addons/account_invoicing
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
+	branch = 18.0
+[submodule "oca/bank-payment"]
+	path = oca/bank-payment
+	url = git@github.com:OCA/bank-payment.git
+	branch = 18.0
+[submodule "oca/server-auth"]
+	path = oca/server-auth
+	url = git@github.com:OCA/server-auth.git
+	branch = 18.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact
+	branch = 18.0
+[submodule "oca/web-api"]
+	path = oca/web-api
+	url = git@github.com:OCA/web-api.git
+	branch = 18.0

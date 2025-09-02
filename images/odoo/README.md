@@ -37,7 +37,7 @@ The following `compose.yml` is a minimal setup:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:18.0.20250520
+    image: mintsystem/odoo:18.0.20250725
     depends_on:
       - db
     environment:
@@ -70,7 +70,7 @@ This `compose.yml` shows all possible configurations:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:18.0.20250520
+    image: mintsystem/odoo:18.0.20250725
     depends_on:
         db:
             condition: service_healthy
@@ -104,10 +104,17 @@ services:
       GIT_SSH_PUBLIC_KEY: "ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com"
       GIT_SSH_PRIVATE_KEY: "LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLQpiM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQU13QUFBQXR6YzJndFpXClF5TlRVeE9RQUFBQ0EwZlNHNHRKZ0U0d3NzZFJHSU9mZUtCWkdOSzRJYllLUHFaeFJ6cndITXBnQUFBS2k1WkJhRnVXUVcKaFFBQUFBdHpjMmd0WldReU5UVXhPUUFBQUNBMGZTRzR0SmdFNHdzc2RSR0lPZmVLQlpTks0SWJZS1BxWnhSenJ3SE1wZwowQkFnTT0KLS0tLS1FTkQgT1BFTlNTSCBQUklWQVRFIEtFWS0tLS0tCg=="
       GITHUB_USERNAME: bot-mintsys
-      GITHUB_PERSONAL_ACCESS_TOKEN: *****
+      GITHUB_PAT: *****
+      GITLAB_URL: https://gitlab.com
+      GITLAB_USERNAME: bot-mintsys
+      GITLAB_PAT: *****
+      FORGEJO_URL: https://codeberg.org
+      FORGEJO_USERNAME: bot-mintsys
+      FORGEJO_PAT: *****
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_DATABASE: "16.0"
+      ODOO_INIT_DEMO_DATA: True
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
       ODOO_INIT_LANG: de_CH
@@ -175,16 +182,16 @@ The Mint System Odoo image has this container lifecycle in mind:
 
 Before starting the container you can initalize the database with selected scripts.
 
-Run the `download-odoo-enterprise` script to download the Odoo Enterprise modules:
+Run the `download-git-archive` script to download the Odoo Enterprise modules:
 
 ```bash
-docker compose exec odoo download-odoo-enterprise
+docker compose exec odoo download-git-archive
 ```
 
-Run the `git-clone-addons` script to clone module repos:
+Run the `clone-git-addons` script to clone module repos:
 
 ```bash
-docker compose exec odoo git-clone-addons
+docker compose exec odoo clone-git-addons
 ```
 
 Run the `init-db` script to initalize the Odoo database:
@@ -200,10 +207,10 @@ The scripts are configured with environment variables.
 Once you start the container the `entrypoint.sh` script will:
 
 * Run the `set-addons-path` script to assemble the addons path.
-* Run the `auto-envsubst` script to template the `odoo.conf` file.
-* Run the `python-install` script to install the Python packages.
+* Run the `template-odoo-rc` script to template the `odoo.conf` file.
+* Run the `install-python-packages` script to install the Python packages 😉.
 * Wait for the database to be ready.
-* Run the `update-modules` script to update modules.
+* Run the `update-modules` script if enabled.
 * Start the Odoo server.
 
 ### Execute
@@ -318,10 +325,16 @@ The configuration will be applied to the `ODOO_DATABASE` database.
 
 The image can clone git repositories.
 
-* `GIT_SSH_PUBLIC_KEY` Public key for SSH connection.
-* `GIT_SSH_PRIVATE_KEY` Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
-* `GITHUB_USERNAME` Username for https git clone and GitHub download.
-* `GITHUB_PERSONAL_ACCESS_TOKEN` Access token for https git clone and GitHub download.
+* `GIT_SSH_PUBLIC_KEY`: Public key for SSH connection.
+* `GIT_SSH_PRIVATE_KEY`: Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
+* `GITHUB_USERNAME` GitHub username for https git clone and archive download.
+* `GITHUB_PAT`: GitHub access token for https git clone and archive download.
+* `GITLAB_URL`: Url of GitLab instance. Default is `https://gitlab.com`.
+* `GITLAB_USERNAME`: GitLab Username for https git clone.
+* `GITLAB_PAT`: GitLab access token for https git clone and archive download.
+* `FORGEJO_URL`: Url of Forgejo instance. Default is `https://codeberg.org`.
+* `FORGEJO_USERNAME`: Forgejo Username for https git clone.
+* `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
 * `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
@@ -344,6 +357,7 @@ The entrypoint script searches for module folders in the addons path and creates
 Set these environment variables for the database init:
 
 * `ODOO_DATABASE` Name of the Odoo database. No default is set.
+* `ODOO_INIT_DEMO_DATA` If enabled Odoo inits the database with demo data. Default is `false`.
 * `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
 * `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
 * `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
@@ -412,7 +426,7 @@ This image can be customized by any extend.
 Update the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250520
+FROM mintsystem/odoo:18.0.20250725
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -420,7 +434,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250520
+FROM mintsystem/odoo:18.0.20250725
 
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
 ```
@@ -430,7 +444,7 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract
 Copy custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250520
+FROM mintsystem/odoo:18.0.20250725
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
@@ -447,12 +461,12 @@ The most important image paths are:
 * `/mnt/extra-addons` Nested are loaded from this path by default.
 * `/mnt/test-addons` Recommended mount path for modules to test.
 * `/opt/odoo/addons` Contains the Odoo Community Edition modules.
+* `/opt/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 * `/opt/odoo-venv` This is where Python packages are installed.
-* `/var/lib/odoo ` Odoo data folder.
+* `/var/lib/odoo` Odoo data folder.
 * `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
 * `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 * `/var/lib/odoo/git` The cloned module repos are stored here.
-* `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder.
 
 ### Capture memory profile
 

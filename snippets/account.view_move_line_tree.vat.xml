@@ -1,0 +1,5 @@
+<data inherit_id="account.view_move_line_tree.vat" priority="50">
+    <xpath expr="//tree/field[@name='partner_id']" position="after">
+        <field name="partner_vat" string="USt-IdNr"/>
+    </xpath>
+</data>

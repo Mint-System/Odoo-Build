@@ -21,6 +21,22 @@ ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`
 Source: [snippets/account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.report_followup_print_all.style_sozialinfo.xml)
 
 ## Template Followup Report  
+### Format Table  
+ID: `mint_system.account_followup.template_followup_report.format_table`  
+```xml
+<data inherit_id="account_followup.template_followup_report" priority="50">
+    <tbody position="before">
+        <style>
+            .o_account_followup th {
+                text-align: left;
+            }
+        </style>
+    </tbody>
+</data>
+
+```
+Source: [snippets/account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.format_table.xml)
+
 ### Padding Before Table  
 ID: `mint_system.account_followup.template_followup_report.padding_before_table`  
 ```xml

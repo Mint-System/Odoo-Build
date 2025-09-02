@@ -155,22 +155,34 @@ Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-Sys
 ID: `mint_system.web.external_layout_bold.add_bank`  
 ```xml
 <data inherit_id="web.external_layout_bold" priority="50">
+
     <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
         <attribute name="class">col-3</attribute>
     </xpath>
+
     <xpath expr="//span[@t-field='company.report_footer']/../../div[3]" position="replace"/>
-    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
-        <div class="col-4">
-            <div>
-                        IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
-      </div>
-            <div>
-                        BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
-      </div>
+
+    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="replace">
+        <div class="col-3">
+            <div>BIC: <span t-field="company.partner_id.bank_ids[0].bank_id.bic"/>
+            </div>
+            <div>BIC: <span t-field="company.partner_id.bank_ids[1].bank_id.bic"/>
+            </div>
         </div>
     </xpath>
-</data>
 
+    <xpath expr="//span[@t-field='company.report_footer']/../../div[2]" position="after">
+        <div class="col-5">
+            <div>
+                        CHF IBAN: <span t-field="company.partner_id.bank_ids[0].acc_number"/>
+            <br/>
+                        EUR IBAN: <span t-field="company.partner_id.bank_ids[1].acc_number"/>
+        </div>
+
+    </div>
+</xpath>
+
+</data>
 ```
 Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_bold.add_bank.xml)
 
@@ -665,6 +677,18 @@ ID: `mint_system.web.external_layout_standard.remove_header_address`
 ```
 Source: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_header_address.xml)
 
+### Remove Header Line  
+ID: `mint_system.web.external_layout_standard.remove_header_line`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+    <div style="border-bottom: 1px solid black;" position="attributes">
+        <attribute name="style"/>
+    </div>
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.remove_header_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_header_line.xml)
+
 ### Remove Header Space  
 ID: `mint_system.web.external_layout_standard.remove_header_space`  
 ```xml
@@ -691,32 +715,12 @@ Source: [snippets/web.external_layout_standard.remove_paging.xml](https://github
 ID: `mint_system.web.external_layout_standard.replace_footer`  
 ```xml
 <data inherit_id="web.external_layout_standard" priority="50">
-    <xpath expr="/t/div[3]" position="replace">
-        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-            <div align="right" style="color:black; font-size:9pt">
-         Page: <span class="page"/>
- /      <span class="topage"/>
-    </div>
-        </div>
-        <!--
-    <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
-      <div align="right">
-         Seite: <span class="page"/>
- /      <span class="topage"/>
-      </div>
-    </div>
-    -->
-    </xpath>
-</data>
-<!--
-<data inherit_id="web.external_layout_standard" priority="50">
-
 <xpath expr="/t/div[3]" position="replace">
 
   <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
 
     <style>
-        
+
        .footer_table {
             width: 80%;
             font-size: 9pt;
@@ -779,12 +783,34 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
   </div>
 
 </xpath>
-
 </data>
--->
 
 ```
 Source: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_footer.xml)
+
+### Replace Footer Right  
+ID: `mint_system.web.external_layout_standard.replace_footer_right`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="//t[1]/div[3]" position="replace">
+        <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+            <div class="text-right" style="">
+                <ul class="list-inline mb4">
+                    <div t-field="company.report_footer"/>
+                </ul>
+                <div t-if="report_type == 'pdf' and display_name_in_footer" class="text-muted">
+                    <span t-field="o.name"/>
+                </div>
+                <div t-if="report_type == 'pdf'" class="text-muted">
+                    Page: <span class="page"/> / <span class="topage"/>
+                </div>
+            </div>
+        </div>
+    </xpath>
+</data>
+
+```
+Source: [snippets/web.external_layout_standard.replace_footer_right.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_footer_right.xml)
 
 ### Replace Header  
 ID: `mint_system.web.external_layout_standard.replace_header`  

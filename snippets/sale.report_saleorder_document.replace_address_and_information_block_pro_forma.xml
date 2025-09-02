@@ -1,0 +1,64 @@
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//t[@t-set='address']" position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-set="address">
+                <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-set="address">
+                <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                <p t-if="doc.partner_id.vat">
+                    <t t-if="doc.company_id.account_fiscal_country_id.vat_label" t-out="doc.company_id.account_fiscal_country_id.vat_label"/>
+                    <t t-else="">Tax ID</t>:                    <span t-field="doc.partner_id.vat"/>
+                </p>
+            </t>
+        </t>
+    </xpath>
+
+    <xpath expr="//t[@t-set='information_block']/.." position="replace">
+        <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_sale_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+        <t t-else="">
+            <t t-if="doc.partner_shipping_id == doc.partner_invoice_id                              and doc.partner_invoice_id != doc.partner_id                              or doc.partner_shipping_id != doc.partner_invoice_id">
+                <t t-set="information_block">
+                    <strong>
+                        <t t-if="doc.partner_shipping_id == doc.partner_invoice_id">
+                        Invoicing and Shipping Address:
+                        </t>
+                        <t t-else="">
+                        Invoicing Address:
+                        </t>
+                    </strong>
+                    <div t-field="doc.partner_invoice_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    <t t-if="doc.partner_shipping_id != doc.partner_invoice_id">
+                        <strong>Shipping Address:</strong>
+                        <div t-field="doc.partner_shipping_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;, &quot;phone&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: True}"/>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+</data>

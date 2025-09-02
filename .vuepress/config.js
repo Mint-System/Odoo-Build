@@ -1,6 +1,6 @@
 import { viteBundler } from '@vuepress/bundler-vite'
 import { defaultTheme } from '@vuepress/theme-default'
-import { searchPlugin } from '@vuepress/plugin-search'
+import { slimsearchPlugin } from '@vuepress/plugin-slimsearch'
 import { shikiPlugin } from '@vuepress/plugin-shiki'
 import { plausiblePlugin } from './plausible'
 import { defineUserConfig } from 'vuepress'
@@ -14,7 +14,18 @@ export default defineUserConfig({
     head: [
         ['link', { rel: 'icon', href: '/icon.png' }]
     ],
-    pagePatterns: ['**/*.md', '!.vuepress', '!node_modules', '!addons', '!odoo', '!enterprise', '!tmp', '!oca', '!thirdparty', '!venv*'],
+    pagePatterns: [
+      '**/*.md',
+      '!**/node_modules/**',
+      '!**/.vuepress/**',
+      '!**/venv*/**',
+      '!**/addons/**',
+      '!**/enterprise/**',
+      '!**/tmp/**',
+      '!**/oca/**',
+      '!**/thirdparty/**',
+      '!**/pycache/**',
+    ],
     theme: defaultTheme({
         logo: '/icon.png',
         repo: 'mint-system/odoo-build',
@@ -78,8 +89,9 @@ export default defineUserConfig({
         }
     }),
     plugins: [
-        searchPlugin({
-            maxSuggestions: 10
+        slimsearchPlugin({
+            indexContent: true,
+            suggestion: false
         }),
         plausiblePlugin({
             'domain': 'odoo.build'

@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$GITHUB_PAT" ] || [ -z "$GITHUB_USERNAME" ]; then
+    echo "Error: GitHub personal access token or username is not set."
+    exit 1
+fi
+
+LOCAL_PATH="${LOCAL_PATH:="/opt/odoo/enterprise"}"
+
+log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $LOCAL_PATH."
+mkdir -p "$LOCAL_PATH"
+curl -L -o "$LOCAL_PATH/archive.tar.gz" \
+    "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
+tar -xzf "$LOCAL_PATH/archive.tar.gz" --strip-components=1 -C "$LOCAL_PATH"
+rm "$LOCAL_PATH/archive.tar.gz"

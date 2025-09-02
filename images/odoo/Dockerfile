@@ -26,7 +26,7 @@ RUN apt-get update && \
     rm -rf /var/lib/apt/lists/*
 
 # Install uv for Python package management
-COPY --from=ghcr.io/astral-sh/uv:0.5.16 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.7.21 /uv /uvx /bin/
 
 # Prepare virtual env
 RUN uv venv /opt/odoo-venv
@@ -40,7 +40,9 @@ COPY ./upgrade-util /var/lib/upgrade-util
 # Install Odoo
 COPY ./odoo /opt/odoo
 RUN uv pip install pip
-RUN pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
+ENV UV_COMPILE_BYTECODE=1
+ENV UV_CONCURRENT_INSTALLS=1
+RUN uv pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
 
 # Clean up unnecessary files to reduce image size
 RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
@@ -83,6 +85,7 @@ RUN apt-get update && \
         wget \
         gnupg \
         expect \
+        libcairo2 \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \
@@ -131,7 +134,7 @@ ENV PATH="$PNPM_HOME:$PATH"
 RUN pnpm install -g rtlcss
 
 # Install uv for Python package management
-COPY --from=ghcr.io/astral-sh/uv:0.6.14 /uv /uvx /bin/
+COPY --from=ghcr.io/astral-sh/uv:0.7.21 /uv /uvx /bin/
 
 # Copy the virtual environment and Odoo from the builder stage
 COPY --from=builder /opt/odoo-venv /opt/odoo-venv

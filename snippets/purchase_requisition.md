@@ -339,7 +339,7 @@ Source: [snippets/purchase_requisition.report_purchaserequisition_document.set_i
 ### Style Gelso  
 ID: `mint_system.purchase_requisition.report_purchaserequisition_document.style_gelso`  
 ```xml
-<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="60">
 
 	<xpath expr="//div[@class='row my-2']/div[1]" position="attributes">
 		<attribute name="class">col-2</attribute>

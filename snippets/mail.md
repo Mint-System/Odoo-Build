@@ -135,6 +135,22 @@ ID: `mint_system.mail.mail_notification_layout.debrand`
 ```
 Source: [snippets/mail.mail_notification_layout.debrand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail.mail_notification_layout.debrand.xml)
 
+### Embed Logo  
+ID: `mint_system.mail.mail_notification_layout.embed_logo`  
+```xml
+<data inherit_id="mail.mail_notification_layout" priority="50">
+    <img position="replace">
+        <img
+            t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))"
+            style="padding: 0px; margin: 0px; height: auto; max-width: 200px; max-height: 36px;"
+            t-att-alt="'%s' % company.name"
+        />
+    </img>
+</data>
+
+```
+Source: [snippets/mail.mail_notification_layout.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail.mail_notification_layout.embed_logo.xml)
+
 ### Remove Access Link  
 ID: `mint_system.mail.mail_notification_layout.remove_access_link`  
 ```xml
@@ -167,6 +183,22 @@ ID: `mint_system.mail.mail_notification_light.debrand`
 
 ```
 Source: [snippets/mail.mail_notification_light.debrand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail.mail_notification_light.debrand.xml)
+
+### Embed Logo  
+ID: `mint_system.mail.mail_notification_light.embed_logo`  
+```xml
+<data inherit_id="mail.mail_notification_light" priority="50">
+    <img position="replace">
+        <img
+            t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))"
+            style="padding: 0px; margin: 0px; height: 48px;"
+            t-att-alt="'%s' % company.name"
+        />
+    </img>
+</data>
+
+```
+Source: [snippets/mail.mail_notification_light.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail.mail_notification_light.embed_logo.xml)
 
 ### Reduce To Content  
 ID: `mint_system.mail.mail_notification_light.reduce_to_content`  

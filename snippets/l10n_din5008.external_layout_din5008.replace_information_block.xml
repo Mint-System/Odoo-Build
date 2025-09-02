@@ -71,7 +71,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Source</span>
+                                <span>Our Order</span>
                             </td>
                             <td>
                                 <span t-field="o.invoice_origin"/>
@@ -79,7 +79,7 @@
                         </tr>
                         <tr>
                             <td>
-                                <span>Reference</span>
+                                <span>Your Order</span>
                             </td>
                             <td>
                                 <span t-field="o.ref"/>
@@ -119,6 +119,22 @@
                                     <span>Offer</span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <span>Offer No.</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Offer Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
                         </t>
                         <t t-if="o.state in ('sent', 'sale', 'cancel') and not is_pro_forma">
                             <tr>
@@ -126,23 +142,42 @@
                                     <span>Order Confirmation</span>
                                 </td>
                             </tr>
+                            <tr>
+                                <td>
+                                    <span>Order No.</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Order Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
                         </t>
-                        <tr>
-                            <td>
-                                <span>Order No.</span>
-                            </td>
-                            <td>
-                                <span t-field="o.name"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Order Date</span>
-                            </td>
-                            <td>
-                                <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
-                            </td>
-                        </tr>
+                        <t t-if="is_pro_forma">
+                            <tr>
+                                <td>
+                                    <span>Order No.</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.name"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <span>Order Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.date_order" t-options="{'widget': 'date'}"/>
+                                </td>
+                            </tr>
+                        </t>
+
                         <t t-if="o.client_order_ref">
                             <tr>
                                 <td>
@@ -300,7 +335,7 @@
                             <t t-if="o.origin">
                                 <tr>
                                     <td>
-                                        <span>Our order</span>
+                                        <span>Our Order</span>
                                     </td>
                                     <td>
                                         <span t-field="o.origin"/>

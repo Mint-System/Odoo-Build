@@ -1946,6 +1946,25 @@ ID: `mint_system.ir_model.project_task.x_vehicle_id`
 Source: [snippets/ir_model.project_task.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.project_task.x_vehicle_id.xml)
 
 ## Purchase Order  
+### X Alternative Invoice Address  
+ID: `mint_system.ir_model.purchase_order.x_alternative_invoice_address`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_alternative_invoice_address" model="ir.model.fields">
+        <field name="field_description">Alternative Rechnungsadresse</field>
+        <field name="model">purchase.order</field>
+        <field name="model_id" ref="purchase.model_purchase_order"/>
+        <field name="name">x_alternative_invoice_address</field>
+        <field name="store" eval="True"/>           
+        <field name="ttype">many2one</field>
+        <field name="relation">res.partner</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.purchase_order.x_alternative_invoice_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.purchase_order.x_alternative_invoice_address.xml)
+
 ### X Comment  
 ID: `mint_system.ir_model.purchase_order.x_comment`  
 ```xml
@@ -2823,6 +2842,30 @@ ID: `mint_system.ir_model.sale_order.x_product_uom_qty`
 
 ```
 Source: [snippets/ir_model.sale_order.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.sale_order.x_product_uom_qty.xml)
+
+### X Project  
+ID: `mint_system.ir_model.sale_order.x_project`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_product_uom_qty" model="ir.model.fields">
+        <field name="field_description">Gesamtmenge</field>
+        <field name="model">sale.order</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_product_uom_qty</field>
+        <field name="store" eval="False"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+        <field name="depends">order_line</field>
+        <field name="compute">for rec in self:
+      lines = rec.order_line.filtered(lambda l: l.product_id.categ_id.name == 'Ware')
+      rec['x_product_uom_qty'] = sum(lines.mapped(lambda l: l.product_id.weight * l.product_uom_qty))</field>
+    </record>
+</odoo>
+
+```
+Source: [snippets/ir_model.sale_order.x_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.sale_order.x_project.xml)
 
 ### X Studio Description  
 ID: `mint_system.ir_model.sale_order.x_studio_description`  

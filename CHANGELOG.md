@@ -6,15 +6,34 @@ All notable changes to this project will be documented in this file. The format 
 
 ### Added
 
+* Support SteamOS.
+
+### Fixed
+
+* Removed `ls-modules` and updated `list-modules`.
+* Make task script grep `-P` free.
+
+## 2025-08-22
+
+### Added
+
 * Support Arch Linux.
 * Odoo Docker image healthcheck.
-* On install the Odoo upgrade utils are cloned
-* Odoo Docker image ships with upgrade utils
-* Test the upgrade utils
+* On install the Odoo upgrade utils are cloned.
+* Odoo Docker image ships with upgrade utils.
+* Test the upgrade utils.
+* Split `checkout-revision` into `load-revision`.
+* Added `download-git-folder` command.
+* Docker image supports linux arm64.
+
+### Updated
+
+* The `build.yml` workflow builds the Docker image.
 
 ### Fixed
 
 * Change sysctl conf file.
+* Add submodule will checout branch.
 
 ## 2025-07-15
 

@@ -19,7 +19,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
 * 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
 * ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
-* 🧠 **LLM**: Prompt LLMs with module code and apply changes.
+* 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
 * 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
@@ -28,6 +28,14 @@ The Odoo development environment has the following requirements:
 
 * [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
 * Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
+
+**MacOS**
+
+MacOS has the following additional requirements:
+
+```bash
+brew install grep gettext
+```
 
 **Command Completion (Optional)**
 
@@ -64,7 +72,7 @@ Checkout the Odoo version. Show supported versions with `task list-versions`.
 task checkout "$VERSION"
 ```
 
-Install build and Python dependencies. Currently supported: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, Windows with Ubuntu on WSL2.
+Install build and Python dependencies. Currently supported: Arch Linux, Darwin, Debian, Fedora, Ubuntu, Pop!\_OS, SteamOS, Windows with Ubuntu on WSL2.
 
 ```bash
 task install
@@ -111,7 +119,7 @@ task start
 Initialize database with the image script.
 
 ```bash
-task run odoo init-db
+task exec odoo init-db
 ```
 
 Open browser to [http://localhost:8069](http://localhost:8069) and login with `admin:admin`.
@@ -138,6 +146,12 @@ Add model security.
 task generate-module-security addons/project/project_sprint project.sprint
 ```
 
+Generate module docs.
+
+```bash
+task generate-module-docs addons/project/project_sprint project.sprint
+```
+
 ### Load modules from thirdparty folder
 
 Clone thirdparty repos into the `thirdparty` folder.
@@ -152,10 +166,10 @@ The paths will be appended to the Odoo config.
 
 ### Initialize without demo data
 
-In your `.env` file define this Odoo parameter env var:
+In your `.env` file set this env var:
 
 ```bash
-ODOO_PARAM=--without-demo=all
+ODOO_INIT_DEMO_DATA=False
 ```
 
 ### Set Odoo database name
@@ -259,7 +273,7 @@ task test-project
 Publish the Odoo image.
 
 ```bash
-task publish
+task push
 ```
 
 ### Setup mail catcher
@@ -299,7 +313,7 @@ task start
 Initialize the Odoo database.
 
 ```bash
-task run odoo init-db
+task exec odoo init-db
 ```
 
 Log into Odoo and setup an alias for `info@yourcompany.com`.
@@ -342,6 +356,12 @@ task create-revision 18.0.20250520
 ```
 
 Replace all image references in the docs.
+
+Commit revision with tag:
+
+```bash
+task commit-revision
+```
 
 ### Update repo template from oca-addons-repo-template
 
@@ -426,7 +446,7 @@ task record-with-memray native
 
 Open [http://localhost:8069](http://localhost:8069) and finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
 
-The flamegraph report will be generated an opened.
+The flamegraph report will be generated and opened.
 
 ### Profile Odoo execution time
 

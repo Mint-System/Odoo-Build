@@ -1,20 +1,25 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
 
     <xpath expr="//td[@name='td_name']/../.." position="after">
-        <tr style="border-top: solid white !important">
-            <td/>
-            <td colspan="3">
-                <span t-field="line.name"/>
-                <br/>
-                <span>HS-Code</span>
-            </td>
-            <td/>
-        </tr>
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="3">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
     </xpath>
 
     <xpath expr="//td[@name='td_name']" position="replace">
         <td name="td_name">
-            <span t-field="line.product_template_id"/>
+            <strong t-field="line.product_template_id"/>
         </td>
     </xpath>
 

@@ -1,0 +1,21 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_discount']" position="replace">
+        <t t-set="display_discount" t-value="any(line.discount &gt; 0 for line in o.order_line)"/>
+        <th name="th_discount" t-if="display_discount">
+            <strong>Rabatt</strong>
+        </th>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.discount']/../.." position="replace">
+        <t t-set="display_discount" t-value="any(line.discount &gt; 0 for line in o.order_line)"/>
+        <t t-if="display_discount">
+            <td class="text-end">
+                <span class="text-align-bottom">
+                    <span t-field="line.discount"/>
+%</span>
+            </td>
+        </t>
+    </xpath>
+
+</data>

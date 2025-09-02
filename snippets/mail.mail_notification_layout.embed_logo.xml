@@ -1,0 +1,9 @@
+<data inherit_id="mail.mail_notification_layout" priority="50">
+    <img position="replace">
+        <img
+            t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))"
+            style="padding: 0px; margin: 0px; height: auto; max-width: 200px; max-height: 36px;"
+            t-att-alt="'%s' % company.name"
+        />
+    </img>
+</data>

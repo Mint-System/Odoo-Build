@@ -1,0 +1,9 @@
+<data inherit_id="account_followup.template_followup_report" priority="50">
+    <tbody position="before">
+        <style>
+            .o_account_followup th {
+                text-align: left;
+            }
+        </style>
+    </tbody>
+</data>
