@@ -13,8 +13,7 @@ if [ -n "$ODOO_DATABASE" ]; then
     done
     entrypoint-log "Database connection established"
 
-    entrypoint-log "Check if database $ODOO_DATABASE exists."
-
+    entrypoint-log "Check if database $ODOO_DATABASE exists..."
     DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
     entrypoint-log "Database exists check result: $DATABASE_EXISTS"
 
@@ -80,7 +79,7 @@ EOF
         export ODOO_MAIL_IMAP_PORT=${ODOO_MAIL_IMAP_PORT:="993"}
         export ODOO_MAIL_IMAP_SSL=${ODOO_MAIL_IMAP_SSL:="True"}
 
-        log-entrypoint "Setup mail server configuration for database $ODOO_DATABASE."
+        log-entrypoint "Setup mail server configuration for database $ODOO_DATABASE"
         (odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
         entrypoint-log "Mail server configuration completed"
     else
