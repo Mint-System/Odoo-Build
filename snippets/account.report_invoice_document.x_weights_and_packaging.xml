@@ -1,21 +1,34 @@
 <data inherit_id="account.report_invoice_document" priority="50">
-    <!-- Remove reference -->
-    <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
+
+    <xpath expr="//p[@name='incoterm']" position="after">
+        <table style="border: white; margin-bottom: 1rem;">
+            <t t-if="o.x_net_weight">
+                <tr>
+                    <td>
+                        <strong>Nettogewicht: </strong>
+                        <span t-field="o.x_net_weight"/>
+					kg
+                    </td>
+                </tr>
+            </t>
+            <t t-if="o.x_gross_weight">
+                <tr>
+                    <td>
+                        <strong>Buttogewicht: </strong>
+                        <span t-field="o.x_gross_weight"/>
+					kg
+                    </td>
+                </tr>
+            </t>
+            <t t-if="o.x_packaging">
+                <tr>
+                    <td>
+                        <strong>Verpackung: </strong>
+                        <span t-field="o.x_packaging"/>
+                    </td>
+                </tr>
+            </t>
+        </table>
     </xpath>
-    <!-- Add sales person -->
-    <xpath expr="/t/t/div/div[1]/div[1]" position="after">
-        <div class="col-auto mw-100 mb-2" t-if="o.invoice_user_id" name="invoice_user_id">
-            <strong>Salesperson:</strong>
-            <p class="m-0" t-field="o.invoice_user_id.name"/>
-        </div>
-    </xpath>
-    <!-- Add referencce to new line -->
-    <xpath expr="//div[@id='informations']" position="after">
-        <div id="informations2" class="row mt32 mb32" t-if="o.ref">
-            <div class="col-auto mw-100 mb-2" name="reference">
-                <strong>Reference:</strong>
-                <p class="m-0" t-field="o.ref"/>
-            </div>
-        </div>
-    </xpath>
+
 </data>
