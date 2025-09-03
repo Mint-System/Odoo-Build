@@ -8,6 +8,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Extract version from tag
+        id: extract_version
+        run: |
+          TAG=${GITHUB_REF##*/}
+          VERSION=$(echo $TAG | cut -d'.' -f1,2)
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          echo "Using version: $VERSION"
       - name: Clone taskfile
         run: ./task clone-taskfile
       - name: Load SSH key
@@ -18,9 +25,9 @@ jobs:
           GIT_SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY_MINTBOT }}
           GIT_SSH_PUBLIC_KEY: ${{ secrets.SSH_PUBLIC_KEY_MINTBOT }}
       - name: Load version
-        run: ./task load-version 18.0
+        run: ./task load-version $VERSION
       - name: Load latest revision
-        run: ./task load-latest-revision 18.0
+        run: ./task load-latest-revision $VERSION
       - name: Download git folder odoo
         run: ./task download-git-folder odoo
       - name: Install uv
