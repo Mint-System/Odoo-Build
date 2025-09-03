@@ -1,0 +1,11 @@
+<data inherit_id="account.view_move_form" priority="50">
+    <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']/group[@name='accounting_info_group']" position="after">
+        <group name="weights" string="Gewichte">
+            <field name="x_net_weight"/>
+            <field name="x_gross_weight"/>
+        </group>
+        <group name="packaging" string="Verpackung">
+            <field name="x_packaging"/>
+        </group>
+    </xpath>
+</data>

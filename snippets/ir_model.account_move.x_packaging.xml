@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_packaging" model="ir.model.fields">
+        <field name="field_description">Verpackung</field>
+        <field name="model">account.move</field>        
+        <field name="name">x_packaging</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
