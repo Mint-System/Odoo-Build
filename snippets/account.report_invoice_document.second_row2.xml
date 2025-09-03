@@ -1,0 +1,26 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//td[@name='account_invoice_line_name']/../.." position="after">
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="3">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
+    </xpath>
+
+    <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_id"/>
+        </td>
+    </xpath>
+
+</data>
