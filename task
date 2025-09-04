@@ -626,6 +626,7 @@ function build() {
     case "$ODOO_VERSION" in
         "15.0")
             PYTHON_VERSION="3.9"
+            PLATFORM="linux/amd64"
             ;;
         "16.0")
             PYTHON_VERSION="3.11"
