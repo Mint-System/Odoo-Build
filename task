@@ -2618,6 +2618,9 @@ function create-revision() {
 }
 
 function commit-revision() {
+    echo "Remove existing tag..."
+    git tag -d "$ODOO_REVISION"
+
     echo "Commit and and push $ODOO_REVISION tag..."
     git commit --all --message "feat(revision): release $ODOO_REVISION"
     git tag "$ODOO_REVISION"
