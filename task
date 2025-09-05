@@ -26,7 +26,7 @@ function help-table() {
     printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Load Odoo revision env var and checkout git folders."
-    printf "$COLUMN" "commit-revision" "" "Commit all changes and tag with current revision"
+    printf "$COLUMN" "commit-and-push-revision" "" "Commit all changes and tag with current revision"
     printf "$COLUMN" "commit-with-llm" "" "Commit with llm generated commit message."
     printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
     printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
@@ -2617,11 +2617,11 @@ function create-revision() {
     checkout-revision "$REVISION"
 }
 
-function commit-revision() {
+function commit-and-push-revision() {
     echo "Remove existing tag..."
     git tag -d "$ODOO_REVISION"
 
-    echo "Commit and and push $ODOO_REVISION tag..."
+    echo "Commit and and force push with $ODOO_REVISION tag..."
     git commit --all --message "feat(revision): release $ODOO_REVISION"
     git tag "$ODOO_REVISION"
     git push -f --tags

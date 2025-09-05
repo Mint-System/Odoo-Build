@@ -345,10 +345,10 @@ task create-revision 18.0.20250520
 
 Replace all image references in the docs.
 
-Commit revision with tag:
+Commit and push revision with tag:
 
 ```bash
-task commit-revision
+task commit-and-push-revision
 ```
 
 ### Update repo template from oca-addons-repo-template

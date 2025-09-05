@@ -37,4 +37,4 @@ jobs:
       - name: Login docker
         run: ./task login-docker ${{ secrets.CONTAINER_REGISTRY_USERNAME }} ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
       - name: Build
-        run: ./task build images/odoo/Dockerfile --push
+        run: ./task build images/odoo --push
