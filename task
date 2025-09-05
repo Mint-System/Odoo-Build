@@ -2624,7 +2624,7 @@ function commit-revision() {
     echo "Commit and and push $ODOO_REVISION tag..."
     git commit --all --message "feat(revision): release $ODOO_REVISION"
     git tag "$ODOO_REVISION"
-    git push --tags
+    git push -f --tags
 }
 
 # RPC Commands
