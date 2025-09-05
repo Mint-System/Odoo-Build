@@ -7,4 +7,3 @@
 !./odoo/odoo-bin
 !./images
 !./bin/setup-mail
-!./upgrade-util

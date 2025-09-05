@@ -17,3 +17,6 @@ rlPyCairo # python3-renderpm
 manifestoo
 click-odoo-contrib
 memray
+# Upgrade
+git+https://github.com/OCA/openupgradelib.git@master
+git+https://github.com/odoo/upgrade-util@master

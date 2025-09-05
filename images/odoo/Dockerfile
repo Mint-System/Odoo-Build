@@ -35,7 +35,6 @@ ENV PATH=/opt/odoo-venv/bin:$PATH
 # Install Odoo tools
 COPY ./images/odoo/requirements.txt /opt/odoo-venv/
 RUN uv pip install --no-cache-dir -r /opt/odoo-venv/requirements.txt
-COPY ./upgrade-util /var/lib/upgrade-util
 
 # Install Odoo
 COPY ./odoo /opt/odoo
@@ -139,11 +138,11 @@ COPY --from=ghcr.io/astral-sh/uv:0.7.21 /uv /uvx /bin/
 # Copy the virtual environment and Odoo from the builder stage
 COPY --from=builder /opt/odoo-venv /opt/odoo-venv
 COPY --from=builder /opt/odoo /opt/odoo
-COPY --from=builder /var/lib/upgrade-util /var/lib/upgrade-util
 
 # Setup environment path
 ENV PATH=/opt/odoo-venv/bin:$PATH
 ENV ADDONS_PATH=/opt/odoo/addons
+ENV PYTHONPATH=/opt/odoo/
 
 # Copy entrypoint scripts and Odoo configuration file
 COPY ./bin/setup-mail /usr/local/bin/

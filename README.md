@@ -250,7 +250,7 @@ POSTGRES_IMAGE=postgres:16-alpine
 
 ### Build and publish container image
 
-Ensure your container setup can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
+Ensure the host machine can build [multi-platform images](https://docs.docker.com/desktop/features/containerd/#build-multi-platform-images).
 
 Checkout latest revision of the Odoo version.
 
@@ -258,22 +258,10 @@ Checkout latest revision of the Odoo version.
 task checkout-latest-revision
 ```
 
-Build the Odoo image.
+Build and publish the Odoo image.
 
 ```bash
-task build
-```
-
-Test the image.
-
-```bash
-task test-project
-```
-
-Publish the Odoo image.
-
-```bash
-task push
+task build images/odoo --push
 ```
 
 ### Setup mail catcher

@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Updated
+
+* Refactored the use upgrade util libraries.
+* Set `PYTHONPATH` env var.
+* Removed any instance `--upgrade-path`.
+* The `build`, `push` and `test-image` require folder param.
+
 ### Added
 
 * Support SteamOS.

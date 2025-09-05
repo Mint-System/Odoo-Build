@@ -18,7 +18,7 @@ function help-table() {
     printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
     printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
     printf "$COLUMN" "archive-docker-tags" "" "Archive Docker image tags on hub older than 1 year."
-    printf "$COLUMN" "build" "[Dockerfile][--push]" "Build Odoo Docker image."
+    printf "$COLUMN" "build" "[folder][--push]" "Build Docker image from target folder."
     printf "$COLUMN" "backup-env-files" "[path]" "Archive and copy env files to target location."
     printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
     printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
@@ -102,7 +102,7 @@ function help-table() {
     printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
     printf "$COLUMN" "odoocli" "[param]" "Execute odoocli cli."
     printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
-    printf "$COLUMN" "push" "[Dockerfile]" "Publish Odoo container image."
+    printf "$COLUMN" "push" "[folder]" "Publish Docker image from target folder."
     printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
     printf "$COLUMN" "push-git-folder" "" "Push all git folders in path."
     printf "$COLUMN" "psql" "[db]" "Start interactive psql shell."
@@ -142,7 +142,7 @@ function help-table() {
     printf "$COLUMN" "template-compose" "" "Template the Docker compose file."
     printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
     printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
-    printf "$COLUMN" "test-image" "[Dockerfile]" "Test internals of Docker image."
+    printf "$COLUMN" "test-image" "[folder]" "Test Docker image from target folder."
     printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
     printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
     printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
@@ -187,6 +187,7 @@ ODOO_RC="odoo.conf"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
 PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
 export PGSSLROOTCERT
+export PYTHONPATH="$PWD/odoo"
 
 # Dynamic env vars
 
@@ -201,7 +202,6 @@ POSTGRES_SSL=${POSTGRES_SSL:="on"}
 PGSSLMODE=${PGSSLMODE:="prefer"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem"}
-CONTAINER_TAG=${CONTAINER_TAG:="odoo:${ODOO_REVISION}"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
@@ -278,7 +278,6 @@ function info() {
     echo "Odoo Language: $ODOO_LANGUAGE"
     echo "Container Registry: $CONTAINER_REGISTRY"
     echo "Container Config: $CONTAINER_CONFIG"
-    echo "Container Tag: $CONTAINER_TAG"
     echo "Addons Path: $ADDONS_PATH"
 }
 
@@ -591,6 +590,7 @@ function template-compose() {
         VAR=${VAR#\$}      # Remove leading $
         export "$VAR"
     done
+    CONTAINER_TAG="odoo:$ODOO_REVISION"
 
     envsubst < "compose.yml.template" > "compose.yml"
 }
@@ -601,20 +601,25 @@ function container-ps() {
 
 function build() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MANIFEST_FILE="$1"
 
     # Set container tag and platform based on Dockerfile
     PLATFORM="linux/amd64"
-    if [ "$MANIFEST_FILE" = "images/odoo/Dockerfile" ]; then
+    if [ "$1" = "images/odoo" ]; then
         PLATFORM="linux/amd64,linux/arm64"
+        MANIFEST_FILE="images/odoo/Dockerfile"
+        CONTAINER_TAG="odoo:$ODOO_REVISION"
     fi
-    if [ "$MANIFEST_FILE" = "images/odoo-mailgate/Dockerfile" ]; then
+    if [ "$1" = "images/odoo-mailgate" ]; then
+        MANIFEST_FILE="images/odoo-mailgate/Dockerfile"
         CONTAINER_TAG="odoo-mailgate"
-    elif [ "$MANIFEST_FILE" = "images/odoo-upgrade/Dockerfile" ]; then
+    elif [ "$1" = "images/odoo-upgrade" ]; then
+        MANIFEST_FILE="images/odoo-upgrade/Dockerfile"
         CONTAINER_TAG="odoo-upgrade"
-    elif [ "$MANIFEST_FILE" = "images/odoocli/Dockerfile" ]; then
+    elif [ "$1" = "images/odoocli" ]; then
+        MANIFEST_FILE="images/odoocli/Dockerfile"
         CONTAINER_TAG="odoocli"
-    elif [ "$MANIFEST_FILE" = "images/odoo-mcp/Dockerfile" ]; then
+    elif [ "$1" = "images/odoo-mcp" ]; then
+        MANIFEST_FILE="images/odoo-mcp/Dockerfile"
         CONTAINER_TAG="odoo-mcp"
     fi
 
@@ -717,10 +722,15 @@ function login-podman() {
 }
 
 function test-image() {
-    if [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+
+    if [ "$1" == "images/odo" ]; then
+        CONTAINER_TAG="odoo:$ODOO_REVISION"
+    fi
+    if [ "$1" == "images/odoo-upgrade" ]; then
         CONTAINER_TAG="odoo-upgrade"
     fi
-    if [ "$1" == "images/odoocli/Dockerfile" ]; then
+    if [ "$1" == "images/odoocli" ]; then
         CONTAINER_TAG="odoocli"
     fi
 
@@ -770,18 +780,21 @@ function test-image() {
 }
 
 function push() {
-    LATEST_TAG="odoo:$ODOO_VERSION"
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    if [ "$1" == "images/odoo-mailgate/Dockerfile" ]; then
+    if [ "$1" == "images/odoo" ]; then
+        CONTAINER_TAG="odoo:$ODOO_REVISION"
+        LATEST_TAG="odoo:$ODOO_VERSION"
+    elif [ "$1" == "images/odoo-mailgate" ]; then
         CONTAINER_TAG="odoo-mailgate"
         LATEST_TAG="odoo-mailgate:latest"
-    elif [ "$1" == "images/odoo-upgrade/Dockerfile" ]; then
+    elif [ "$1" == "images/odoo-upgrade" ]; then
         CONTAINER_TAG="odoo-upgrade"
         LATEST_TAG="odoo-upgrade:latest"
-    elif [ "$1" == "images/odoocli/Dockerfile" ]; then
+    elif [ "$1" == "images/odoocli" ]; then
         CONTAINER_TAG="odoocli"
         LATEST_TAG="odoocli:latest"
-    elif [ "$1" == "images/odoo-mcp/Dockerfile" ]; then
+    elif [ "$1" == "images/odoo-mcp" ]; then
         CONTAINER_TAG="odoo-mcp"
         LATEST_TAG="odoocli:latest"
     fi
@@ -963,12 +976,8 @@ function install() {
     if [ -n "$PYTHON_NOTIFY" ]; then
         uv pip install "$PYTHON_NOTIFY"
     fi
-
     uv pip install -r requirements.txt
-    if [ ! -d "upgrade-util" ]; then
-        git clone https://github.com/odoo/upgrade-util
-    fi
-    # uv pip install git+https://github.com/odoo/upgrade-util@master
+
     if [ -f "odoo/requirements.txt" ]; then
 
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
@@ -979,7 +988,7 @@ function install() {
         fi
 
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
-        uv pip install -e odoo --no-deps
+        uv pip install -e odoo/ --no-deps
     fi
 
     if [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
@@ -1009,6 +1018,7 @@ function start() {
     if [ "$POSTGRES_SSL" = "on" ]; then
         generate-pg-ssl-keys
     fi
+
     template-compose
 
     # Use default database if second param is not given
@@ -1016,6 +1026,7 @@ function start() {
     if [ -z "$2" ]; then
         DATABASE="$ODOO_DATABASE"
     fi
+    CONTAINER_TAG="odoo:$ODOO_REVISION"
 
     if [ -z "$1" ] ; then
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
@@ -1057,7 +1068,7 @@ function start() {
 
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo --upgrade-path=upgrade-util/src --database="$DATABASE" --config "$ODOO_RC" \
+        odoo --database="$DATABASE" --config "$ODOO_RC" \
             --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
@@ -1739,10 +1750,10 @@ function update-module() {
     set-addons-path
     echo "Updating module $MODULE_NAME on ${DATABASE}..."
     if [[ -n "$ODOO_PARAM" ]] ; then
-        odoo --upgrade-path=upgrade-util/src --database "$DATABASE" --update "$MODULE_NAME" \
+        odoo --database "$DATABASE" --update "$MODULE_NAME" \
             --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
     else
-        odoo --upgrade-path=upgrade-util/src --database "$DATABASE" --update "$MODULE_NAME" \
+        odoo --database "$DATABASE" --update "$MODULE_NAME" \
             --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
     fi
 }

@@ -8,7 +8,7 @@ if [ -n "$ODOO_DATABASE" ]; then
         ODOO_INIT_LANG="${ODOO_INIT_LANG:="en_US"}"
 
         log-entrypoint "Update module $1 on database $ODOO_DATABASE."
-        (exec odoo "${DB_ARGS[@]}" --upgrade-path=/var/lib/upgrade-util/src --database "$ODOO_DATABASE" --update "$1" --config "$ODOO_RC" \
+        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --update "$1" --config "$ODOO_RC" \
             --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
     fi
 fi
