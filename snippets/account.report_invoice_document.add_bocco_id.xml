@@ -1,0 +1,8 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@id='informations']/div[@name='invoice_date']" position="before">
+            <div class="col-auto mw-100 mb-2" t-if="o.partner_id.bocco_id" name="bocco_id">
+                <strong>Bocco ID:</strong>
+                <p class="m-0" t-field="o.partner_id.bocco_id" t-options="{&quot;widget&quot;: &quot;char&quot;}"/>
+            </div>
+    </xpath>
+</data>
