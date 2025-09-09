@@ -1,0 +1,7 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[contains(@class, 'page')]/h2" position="after">
+        <h4>
+            <span t-if="o.inv_head_add" t-field="o.inv_head_add"/>
+        </h4>
+    </xpath>
+</data>

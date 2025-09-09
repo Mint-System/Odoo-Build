@@ -1,5 +1,5 @@
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//t[@t-set='address']/address" position="replace">
+    <xpath expr="//t[@t-set='address']//address" position="replace">
         <address>
             <t t-if="o.partner_id.invoice_name">
                 <div>
@@ -34,4 +34,8 @@
             </t>
         </address>
     </xpath>
+
+    <!-- Odoo 17+: Odoo does not replace all matches, 
+    so you have to specify certain match or 
+    find loop solution.  -->
 </data>
