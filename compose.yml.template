@@ -99,7 +99,7 @@ services:
     container_name: db
     image: ${POSTGRES_IMAGE}
     ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${LOCAL_POSTGRES_PORT}:${POSTGRES_PORT}"
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
