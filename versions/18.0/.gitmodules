@@ -104,3 +104,11 @@
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 18.0
+[submodule "oca/social"]
+	path = oca/social
+	url = git@github.com:OCA/social.git
+	branch = 18.0
+[submodule "oca/mail"]
+	path = oca/mail
+	url = git@github.com:OCA/mail.git
+	branch = 18.0
