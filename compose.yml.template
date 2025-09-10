@@ -10,11 +10,11 @@ services:
       HOST: db
       USER: odoo
       PASSWORD: odoo
-      PORT: ${POSTGRES_PORT}
+      PORT: 5432
       PGHOST: db
       PGUSER: odoo
       PGPASSWORD: odoo
-      PGPORT: ${POSTGRES_PORT}
+      PGPORT: 5432
       PGSSLMODE: ${PGSSLMODE}
       PGSSLROOTCERT: "/mnt/postgres-odoo/ca.crt"
       SMTP_SERVER: ${SMTP_SERVER}
@@ -69,7 +69,7 @@ services:
       TEST_EXCLUDE: ${TEST_EXCLUDE}
       AUTO_UPDATE_TRANSLATIONS: ${AUTO_UPDATE_TRANSLATIONS}
     ports:
-      - "${ODOO_PORT}:${ODOO_PORT}"
+      - "${ODOO_PORT}:8069"
     volumes:
       - odoo-data:/var/lib/odoo
       - ./tmp/postgres-odoo:/mnt/postgres-odoo
@@ -99,7 +99,7 @@ services:
     container_name: db
     image: ${POSTGRES_IMAGE}
     ports:
-      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
+      - "${POSTGRES_PORT}:5432"
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
