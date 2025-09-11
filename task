@@ -2389,8 +2389,7 @@ function checkout-git-folder() {
         if [ "$SHALLOW" = "true" ]; then
             echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_REF"
             git -C "$GIT_FOLDER" stash
-            git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            git -C "$GIT_FOLDER" fetch origin "$COMMIT_REF"
+            git -C "$GIT_FOLDER" git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
             git -C "$GIT_FOLDER" checkout "$COMMIT_REF"
         else
             echo "Checkout git folder $GIT_FOLDER to $COMMIT_REF"
@@ -2412,7 +2411,7 @@ function switch-git-folder() {
 
         if [ "$SHALLOW" = "true" ]; then
             echo "Fetch branch $ODOO_VERSION (shallow) from origin and then switch."
-            git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
+            git -C "$GIT_FOLDER" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
             git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
         else
             echo "Switch git folder branch to $ODOO_VERSION: $GIT_FOLDER"
