@@ -2383,7 +2383,7 @@ function checkout-git-folder() {
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
 
-        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
+        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
         COMMIT_REF=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
 
         if [ "$SHALLOW" = "true" ]; then
@@ -2408,7 +2408,7 @@ function switch-git-folder() {
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
 
-        SHALLOW=$(git config --file .gitmodules --get-regexp submodule."$GIT_FOLDER".shallow | awk '{ print $2 }')
+        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
 
         if [ "$SHALLOW" = "true" ]; then
             echo "Fetch branch $ODOO_VERSION (shallow) from origin and then switch."
