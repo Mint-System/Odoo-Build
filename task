@@ -110,7 +110,7 @@ function help-table() {
     printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
     printf "$COLUMN" "remove" "[name]" "Remove containers and volumes."
     printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
-    printf "$COLUMN" "remove-git-folder" "" "Delete all git folders."
+    printf "$COLUMN" "remove-git-folders" "" "Delete all git folders."
     printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
     printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
     printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
@@ -2271,8 +2271,16 @@ function list-git-folder() {
     done
 }
 
-function remove-git-folder() {
+function remove-git-folders() {
     GIT_FOLDERS=$(ls-git-folder)
+
+    echo "Delete: $GIT_FOLDERS"
+    read -p "Are you sure you want to delete these git folders? (yes/N): " CONFIRM
+    if [[ "${CONFIRM,,}" != "yes" ]]; then
+        echo "Aborted."
+        return 1
+    fi
+
     for GIT_FOLDER in $GIT_FOLDERS; do
         echo "Delete git folder $GIT_FOLDER."
         rm -rf "$GIT_FOLDER"
