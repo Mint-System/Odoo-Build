@@ -2628,9 +2628,11 @@ function commit-and-push-revision() {
     echo "Remove existing tag..."
     git tag -d "$ODOO_REVISION"
 
-    echo "Commit and and force push with $ODOO_REVISION tag..."
+    echo "Commit with revision $ODOO_REVISION tag..."
     git commit --all --message "feat(revision): release $ODOO_REVISION"
     git tag "$ODOO_REVISION"
+
+    echo "Force push with tags..."
     git push -f --tags
 }
 
