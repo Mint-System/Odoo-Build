@@ -2,6 +2,17 @@
 A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.
 For each major release there are multiple revisions.
 
+## 19.0
+
+#### 19.0.20250909
+
+```bash
+ODOO_REVISION=19.0.20250909
+ODOO_REF=2bb14ec5c78264c016449e7ebe3d555bc71c824c
+ODOO_ENTERPRISE_REF=ec83cfc1ac4f0be9eacba4b7e9a41438050b8950
+ODOO_THEME_REF=fee5fc75fe86728e4ffa96a4d8f7db863bad5d05
+```
+
 ## 18.0
 
 #### 18.0.20250909

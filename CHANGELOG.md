@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Undefined
+## 2025-09-12
 
 ### Updated
 
@@ -10,10 +10,14 @@ All notable changes to this project will be documented in this file. The format 
 * Set `PYTHONPATH` env var.
 * Removed any instance `--upgrade-path`.
 * The `build`, `push` and `test-image` require folder param.
+* Replace `--xmlrpc-port` with `--htt-port`.
 
 ### Added
 
 * Support SteamOS.
+* Odoo 19.0 version folder.
+* Set `pgvector/pgvector:pg16-trixie` as default postgres image.
+* Added Python version condition to upgrade-util lib.
 
 ### Fixed
 

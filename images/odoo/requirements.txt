@@ -19,4 +19,4 @@ click-odoo-contrib
 memray
 # Upgrade
 git+https://github.com/OCA/openupgradelib.git@master
-git+https://github.com/odoo/upgrade-util@master
+git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'

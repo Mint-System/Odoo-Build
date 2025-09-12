@@ -196,7 +196,7 @@ ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
 ODOO_INIT_DEMO_DATA=${ODOO_INIT_DEMO_DATA:="True"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
-POSTGRES_IMAGE=${POSTGRES_IMAGE:="postgres:14-alpine"}
+POSTGRES_IMAGE=${POSTGRES_IMAGE:="pgvector/pgvector:pg16-trixie"}
 POSTGRES_PORT=${POSTGRES_PORT:="5432"}
 POSTGRES_SSL=${POSTGRES_SSL:="on"}
 PGSSLMODE=${PGSSLMODE:="prefer"}
@@ -642,6 +642,9 @@ function build() {
         "18.0")
             PYTHON_VERSION="3.12"
             ;;
+        "19.0")
+            PYTHON_VERSION="3.13"
+            ;;
         *)
             PYTHON_VERSION="3.12"
             ;;
@@ -1064,12 +1067,11 @@ function start() {
             fi
             PORT=$((PORT + 1))
         done
-        export ODOO_BASE_URL="http://localhost:8069"
 
         echo "Open http://localhost:$PORT url in your browser."
         open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
         odoo --database="$DATABASE" --config "$ODOO_RC" \
-            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
@@ -1095,7 +1097,7 @@ function debug() {
         echo "Attach a debugpy debugger and open http://localhost:$PORT url in your browser."
 
         python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
-            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 }
 
@@ -1150,7 +1152,7 @@ function record-with-memray() {
         mkdir -p tmp
         rm "$OUTPUT_FILE"
         python3 -m memray run -o "$OUTPUT_FILE" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
-            --xmlrpc-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
         python3 -m memray flamegraph "$OUTPUT_FILE"
         $OS_OPEN "tmp/memray-flamegraph-output.html"
     fi
@@ -1242,8 +1244,8 @@ function generate-pg-ssl-keys() {
 
             chmod 600 "$KEYMATERIAL_PATH/server.key"
             chmod 644 "$KEYMATERIAL_PATH/server.crt"
-            sudo chown 70:70 "$KEYMATERIAL_PATH/server.key"
-            sudo chown 70:70 "$KEYMATERIAL_PATH/server.crt"
+            sudo chown 999:999 "$KEYMATERIAL_PATH/server.key"
+            sudo chown 999:999 "$KEYMATERIAL_PATH/server.crt"
         fi
     fi
 }

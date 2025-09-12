@@ -25,4 +25,4 @@ fastmcp ; python_version >= '3.10'
 requests
 # Upgrade
 git+https://github.com/OCA/openupgradelib.git@master
-git+https://github.com/odoo/upgrade-util@master
+git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'
