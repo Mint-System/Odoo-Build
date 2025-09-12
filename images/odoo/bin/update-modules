@@ -3,6 +3,6 @@
 source set-addons-path
 
 if [ -n "$ADDONS_PATH" ] && [ -n "$ODOO_DATABASE" ]; then
-    log-entrypoint "Run click-odoo-update for: $ADDONS_PATH"
+    echo "Run click-odoo-update for: $ADDONS_PATH"
     (exec click-odoo-update --addons-path="$ADDONS_PATH" -d "$ODOO_DATABASE" ) || true
 fi

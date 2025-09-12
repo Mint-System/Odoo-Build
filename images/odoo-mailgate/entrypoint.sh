@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-log-entrypoint() {
+echo() {
     echo "$@"
 }
 
@@ -63,8 +63,8 @@ fi
 for MAIL_ALIAS in $MAIL_ALIASES; do
     echo "$MAIL_ALIAS: \"|/usr/local/bin/odoo-mailgate.py -l ${ODOO_URL} -d ${ODOO_DATABASE} -u ${ODOO_USERNAME} -p ${ODOO_PASSWORD}${MAIL_MODEL_PARAM}${MAIL_THREAD_ID_PARAM}\"" >> /etc/aliases
     newaliases
-    log-entrypoint "Forward alias $MAIL_ALIAS to Odoo database $ODOO_DATABASE at ${ODOO_HOST}:${ODOO_PORT}."
+    echo "Forward alias $MAIL_ALIAS to Odoo database $ODOO_DATABASE at ${ODOO_HOST}:${ODOO_PORT}."
 done
 
-log-entrypoint "Starting Postfix in foreground."
+echo "Starting Postfix in foreground."
 postfix start-fg

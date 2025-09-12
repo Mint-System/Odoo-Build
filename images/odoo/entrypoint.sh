@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-log-entrypoint() {
-    echo "$@"
-}
-
 echo "  ___      _               ____        _ _     _ "
 echo " / _ \  __| | ___   ___   | __ ) _   _(_) | __| |"
 echo "| | | |/ _' |/ _ \ / _ \  |  _ \| | | | | |/ _' |"
@@ -13,7 +9,7 @@ echo " \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|"
 echo
 echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
-log-entrypoint "Run as user with id: $(id)"
+echo "Run as user with id: $(id)"
 
 template-odoo-rc
 install-python-packages
@@ -48,7 +44,7 @@ check_config "db_user" "$PGUSER"
 check_config "db_password" "$PGPASSWORD"
 check_config "db_sslmode" "$PGSSLMODE"
 
-log-entrypoint "Resolve database hostname: $PGHOST"
+echo "Resolve database hostname: $PGHOST"
 getent hosts "$PGHOST"
 wait-for-pg
 
@@ -65,7 +61,7 @@ fi
 case "$1" in
     memray)
         shift
-        log-entrypoint "Start Odoo with memray."
+        echo "Start Odoo with memray."
         rm -f /var/lib/odoo/memray-capture.bin
         exec python3 -m memray run -o /var/lib/odoo/memray-capture.bin $(which odoo) "$@" "${DB_ARGS[@]}"
         ;;
