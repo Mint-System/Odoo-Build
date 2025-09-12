@@ -13,6 +13,7 @@ pdfminer.six # python3-pdfminer
 python-slugify # python3-slugify
 watchdog # python3-watchdog
 rlPyCairo # python3-renderpm
+lxml # python3-lxml
 
 # Built-in
 manifestoo
