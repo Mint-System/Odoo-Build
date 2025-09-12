@@ -608,19 +608,24 @@ function build() {
         PLATFORM="linux/amd64,linux/arm64"
         MANIFEST_FILE="images/odoo/Dockerfile"
         CONTAINER_TAG="odoo:$ODOO_REVISION"
+        LATEST_TAG="odoo:$ODOO_VERSION"
     fi
     if [ "$1" = "images/odoo-mailgate" ]; then
         MANIFEST_FILE="images/odoo-mailgate/Dockerfile"
         CONTAINER_TAG="odoo-mailgate"
+        LATEST_TAG="odoo-mailgate:latest"
     elif [ "$1" = "images/odoo-upgrade" ]; then
         MANIFEST_FILE="images/odoo-upgrade/Dockerfile"
         CONTAINER_TAG="odoo-upgrade"
+        LATEST_TAG="odoo-upgrade:latest"
     elif [ "$1" = "images/odoocli" ]; then
         MANIFEST_FILE="images/odoocli/Dockerfile"
         CONTAINER_TAG="odoocli"
+        LATEST_TAG="odoocli:latest"
     elif [ "$1" = "images/odoo-mcp" ]; then
         MANIFEST_FILE="images/odoo-mcp/Dockerfile"
         CONTAINER_TAG="odoo-mcp"
+        LATEST_TAG="odoo-mcp:latest"
     fi
 
     # Load Odoo revision
@@ -679,6 +684,7 @@ function build() {
         --build-arg ODOO_DATE="$ODOO_DATE" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
         --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${LATEST_TAG}" \
         "$DOCKER_OUTPUT"
 }
 
