@@ -13,10 +13,12 @@ pdfminer.six # python3-pdfminer
 python-slugify # python3-slugify
 watchdog # python3-watchdog
 rlPyCairo # python3-renderpm
+
 # Built-in
 manifestoo
 click-odoo-contrib
 memray
+
 # Upgrade
 git+https://github.com/OCA/openupgradelib.git@master
 git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'

@@ -1,5 +1,6 @@
 # Container
 podman-compose
+
 # Testing
 pre-commit
 pyyaml
@@ -7,22 +8,36 @@ coverage
 pylint-odoo
 pytest==7.4.4
 pytest-odoo
+
 # Docs
 rst2html5==2.0.1
 docutils==0.21.2
+
 # Odoo
 setuptools
 wheel
 watchdog
 pdfminer.six
+
 # Performance
 py-spy
 memray
+
 # Debug
 debugpy
+
 # LLM
 fastmcp ; python_version >= '3.10'
 requests
+
 # Upgrade
 git+https://github.com/OCA/openupgradelib.git@master
 git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'
+
+# Management
+manifestoo
+odoo-module-migrator
+click-odoo-contrib
+
+# Git
+git+https://github.com/acsone/git-aggregator@master
