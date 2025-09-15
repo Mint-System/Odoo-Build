@@ -112,3 +112,7 @@
 	path = oca/mail
 	url = git@github.com:OCA/mail.git
 	branch = 18.0
+[submodule "oca/connector"]
+	path = oca/connector
+	url = git@github.com:OCA/connector.git
+	branch = 18.0
