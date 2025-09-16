@@ -116,3 +116,7 @@
 	path = oca/connector
 	url = git@github.com:OCA/connector.git
 	branch = 18.0
+[submodule "oca/web"]
+	path = oca/web
+	url = git@github.com:OCA/web.git
+	branch = 18.0

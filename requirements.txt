@@ -36,6 +36,7 @@ git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'
 
 # Management
 manifestoo
+oca-port
 odoo-module-migrator
 click-odoo-contrib
 
