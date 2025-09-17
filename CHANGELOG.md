@@ -4,9 +4,13 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Added
+
+* Added OCA maintainer toools repo.
+
 ### Updated
 
-* Grouped the help table entries
+* Grouped the help table entries.
 
 ## 2025-09-12
 

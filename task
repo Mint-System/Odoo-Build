@@ -115,6 +115,7 @@ function help-table() {
     printf "$COLUMN" "import-website-data" "[env]" "Import website data to Odoo database."
     # Scaffold
     printf "$COLUMN" "generate-module-docs" "[path]" "Generate readme file for module."
+    printf "$COLUMN" "generate-oca-module-docs" "[path]" "Generate readme file for module with OCA tools."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model in module folder."
     printf "$COLUMN" "generate-module-inherit" "[path][model]" "Generate inherited model in module folder."
     printf "$COLUMN" "generate-module-views" "[path][model]" "Generate model views in module folder."
@@ -200,6 +201,7 @@ function help() {
 
 # Static env vars
 
+ORG_NAME=Mint-System
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
 ODOO_RC="odoo.conf"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
@@ -470,7 +472,7 @@ A Odoo revision is a snapshot of git references of the Odoo source and modules a
 For each major release there are multiple revisions.\n" > "revisions.md"
 
     declare -A REVISIONS
-    PATH_URL="https://github.com/Mint-System/Odoo-Build/tree/main"
+    PATH_URL="https://github.com/${ORG_NAME}/Odoo-Build/tree/main"
 
     for FILE in $(ls revisions/ | sort -rV); do
         REVISION="$FILE"
@@ -1906,9 +1908,32 @@ function scaffold-module() {
     odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t templates/module
 }
 
+function generate-oca-module-docs() {
+    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+    MODULE_PATH="$1"
+    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
+    activate-venv
+
+    GIT_USER_NAME="$(git config user.name)"
+    GIT_USER_EMAIL="$(git config user.email)"
+    echo "Update CONTRIBUTORS.rst"
+    export GIT_USER_NAME GIT_USER_EMAIL
+    envsubst < templates/module/readme/CONTRIBUTORS.rst > "$MODULE_PATH/readme/CONTRIBUTORS.rst"
+
+    echo "Copy icon.png"
+    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
+
+    echo "Generator OCA readme."
+    REPO_URL=$(git -C "$(dirname $MODULE_PATH)" remote get-url origin)
+    REPO_NAME=$(basename "${REPO_URL%.git}")
+    oca-gen-addon-readme --repo-name=$REPO_NAME --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$MODULE_PATH
+
+    echo "Copy LICENSE"
+    cp templates/module/LICENSE "$MODULE_PATH/"
+}
+
 function generate-module-docs() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
     MODULE_PATH="$1"
     MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
 
@@ -1921,10 +1946,10 @@ function generate-module-docs() {
     export MODULE_TITLE MODULE_UNDERLINE MODULE_SUMMARY MODULE_WIKI_PATH
     envsubst '$MODULE_TITLE $MODULE_UNDERLINE $MODULE_SUMMARY $MODULE_WIKI_PATH' < templates/README.rst > "$MODULE_PATH/README.rst"
 
-    echo "Copy app icon"
+    echo "Copy icon.png"
     cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
 
-    echo "Copy license"
+    echo "Copy LICENSE"
     cp templates/module/LICENSE "$MODULE_PATH/"
 }
 
