@@ -4343,6 +4343,68 @@ ID: `mint_system.stock.report_label.aersolution`
 ```
 Source: [snippets/stock.report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_label.aersolution.xml)
 
+## Report Location Barcode  
+### Label Lapp  
+ID: `mint_system.stock.report_location_barcode.label_lapp`  
+```xml
+<data inherit_id="stock.report_location_barcode" priority="50">
+    <xpath expr="//t[@t-call='stock.report_generic_barcode']" position="replace">
+
+        <style>
+        .container {
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            margin: 0px !important;
+            }
+        </style>
+
+        <t t-foreach="docs" t-as="o">
+            <t t-set="title">Locations</t>
+            <t t-name="stock.report_generic_barcode">
+                <t t-call="web.basic_layout">
+                    <t t-call="web.html_container">
+                        <div>
+                            <table style="width: 100%;">
+                                <tr>
+                                    <td>
+                                        <div>
+                                            <div class="text-center">
+                                                <span>
+                                                    <img t-att-src="'/web/image/673'" style="height: 60px; margin-top: 20px" alt="Logo"/>
+                                                </span>
+                                            </div>
+                                            <t t-set="name_text" t-value="o.name or ''"/>
+                                            <t t-set="name_len" t-value="len(name_text) if name_text else 1"/>
+                                            <t t-set="font_size" t-value="min(160, max(20, int(500 / name_len * 2)))"/>
+                                            <div style="max-width:500px; margin:0 auto; height:240px; text-align:center;">
+                                                <table style="width:100%; height:100%;">
+                                                    <tr>
+                                                        <td style="vertical-align:middle;">
+                                                            <span t-field="o.name" t-att-style="'display:inline-block; white-space:nowrap; font-size: {}px;'.format(font_size)">
+                                                            </span>
+                                                        </td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="text-center">
+                                                <span t-if="o.barcode" t-field="o.barcode" style="margin-bottom: 10px;" t-options="{'widget': 'barcode', 'humanreadable': 0, 'symbology': 'auto', 'img_style': 'width:120mm;height:20mm; margin-bottom: 20px'}">1234567890</span>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </t>
+                </t>
+            </t>
+        </t>
+    </xpath>
+</data>
+
+```
+Source: [snippets/stock.report_location_barcode.label_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_location_barcode.label_lapp.xml)
+
 ## Report Lot Label  
 ### Aersolution  
 ID: `mint_system.stock.report_lot_label.aersolution`  

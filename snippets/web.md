@@ -284,6 +284,16 @@ ID: `mint_system.web.external_layout_boxed.hide_company_details`
 ```
 Source: [snippets/web.external_layout_boxed.hide_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.hide_company_details.xml)
 
+### Hide Page Numbering  
+ID: `mint_system.web.external_layout_boxed.hide_page_numbering`  
+```xml
+<?xml version="1.0"?>
+<data inherit_id="web.external_layout_boxed" priority="50">
+    <xpath expr="//span[@class='page']/.." position="replace"/>
+</data>
+```
+Source: [snippets/web.external_layout_boxed.hide_page_numbering.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.hide_page_numbering.xml)
+
 ### Increase Logo Size  
 ID: `mint_system.web.external_layout_boxed.increase_logo_size`  
 ```xml
@@ -476,6 +486,32 @@ ID: `mint_system.web.external_layout_standard.footer_airwork`
 ```
 Source: [snippets/web.external_layout_standard.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_airwork.xml)
 
+### Footer Brand  
+ID: `mint_system.web.external_layout_standard.footer_brand`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+  <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
+
+    <t t-if="report_type == 'pdf'">
+      <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
+        <div>
+          <table style="width: 100%; border: transparent">
+            <tr style="line-height: 1.2; ">
+              <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px;" rowspan="4">
+                <img t-if="company.logo" t-att-src="'/web/image/2150'" style="height: 60px;" alt="Logo"/>
+              </td>
+            </tr>
+            
+          </table>
+        </div>
+      </div>
+    </t>
+  
+  </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.footer_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_brand.xml)
+
 ### Footer Company Registry  
 ID: `mint_system.web.external_layout_standard.footer_company_registry`  
 ```xml
@@ -508,6 +544,51 @@ ID: `mint_system.web.external_layout_standard.format_header_slogan`
 
 ```
 Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.format_header_slogan.xml)
+
+### Header Brand  
+ID: `mint_system.web.external_layout_standard.header_brand`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="/t/div" position="replace">
+
+        <t t-if="report_type == 'pdf'">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                <table style="width: 100%; border: transparent; color: rgb(26, 43, 71); font-size: 13px">
+                    <tr style="line-height: 1.2;">
+                        <td style="width: 50%; padding-top: 10px; padding-bottom: 17px;">Brand Metallbau AG</td>
+                        <td style="width: 20%; vertical-align: bottom; text-align: right; padding-bottom: 10px;" rowspan="4">
+                            <img t-if="company.logo" t-att-src="'/web/image/2149'" style="height: 80px;" alt="Logo"/>
+                        </td>
+                    </tr>
+                    <tr style="line-height: 1.2;">
+                        <td>
+                            <span>Rüttistrasse 13</span>
+                            <span style="padding:0 0.3rem">|</span>
+                            <span>CH-6467 Schattdorf</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <span>Telefon +41 (0)41 874 74 00</span>
+                            <span style="padding:0 0.3rem">|</span>
+                            <span>Fax +41 (0)41 874 74 01</span>
+                        </td>
+                    </tr>
+                    <tr style="line-height: 1.2;">
+                        <td style="padding-bottom: 10px;">
+                            <span>mail@brand.ch</span>
+                            <span style="padding:0 0.3rem">|</span>
+                            <span>www.brand.ch</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </t>
+
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.header_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_brand.xml)
 
 ### Header Kunststoffsammelsack  
 ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`  

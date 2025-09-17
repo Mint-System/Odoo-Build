@@ -300,6 +300,24 @@ ID: `mint_system.ir_model.account_move.x_duplicate_found`
 ```
 Source: [snippets/ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_move.x_duplicate_found.xml)
 
+### X Gross Weight  
+ID: `mint_system.ir_model.account_move.x_gross_weight`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_gross_weight" model="ir.model.fields">
+        <field name="field_description">Bruttogewicht [kg]</field>
+        <field name="model">account.move</field>        
+        <field name="name">x_gross_weight</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_gross_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_move.x_gross_weight.xml)
+
 ### X Group Ids  
 ID: `mint_system.ir_model.account_move.x_group_ids`  
 ```xml
@@ -434,6 +452,42 @@ ID: `mint_system.ir_model.account_move.x_is_test`
 
 ```
 Source: [snippets/ir_model.account_move.x_is_test.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_move.x_is_test.xml)
+
+### X Net Weight  
+ID: `mint_system.ir_model.account_move.x_net_weight`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_net_weight" model="ir.model.fields">
+        <field name="field_description">Nettogewicht [kg]</field>
+        <field name="model">account.move</field>        
+        <field name="name">x_net_weight</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">float</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_net_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_move.x_net_weight.xml)
+
+### X Packaging  
+ID: `mint_system.ir_model.account_move.x_packaging`  
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_packaging" model="ir.model.fields">
+        <field name="field_description">Verpackung</field>
+        <field name="model">account.move</field>        
+        <field name="name">x_packaging</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+```
+Source: [snippets/ir_model.account_move.x_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_model.account_move.x_packaging.xml)
 
 ### X Picking List  
 ID: `mint_system.ir_model.account_move.x_picking_list`  

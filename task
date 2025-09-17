@@ -8,9 +8,9 @@ if [[ -a ".env" ]]; then
 fi
 
 function help-table() {
-    CMD_WIDTH=25
+    CMD_WIDTH=26
     OPT_WIDTH=20
-    DESC_WIDTH=90
+    DESC_WIDTH=78
     COLUMN="| %-${CMD_WIDTH}s | %-${OPT_WIDTH}s | %-${DESC_WIDTH}s |\n"
 
     printf "$COLUMN" "Command" "Option" "Description"
@@ -175,10 +175,10 @@ function help-table() {
     printf "$COLUMN" "record-with-py-spy" "[pid]" "Record and create flamechart for a process."
     # Docs
     printf "$COLUMN" "update-docs" "" "Update all project docs."
-    printf "$COLUMN" "update-help-docs" "" "Write help table to task.md file."
-    printf "$COLUMN" "update-modules-docs" "" "Update modules docs file."
-    printf "$COLUMN" "update-revision-docs" "" "Update revisions doc file."
-    printf "$COLUMN" "update-snippet-docs" "" "Update snippets doc file."
+    printf "$COLUMN" "update-help-doc" "" "Write help table to task.md file."
+    printf "$COLUMN" "update-modules-doc" "" "Update modules docs file."
+    printf "$COLUMN" "update-revisions-doc" "" "Update revisions doc file."
+    printf "$COLUMN" "update-snippets-doc" "" "Update snippets doc file."
     # Upgrade
     printf "$COLUMN" "upgrade-module" "[path]" "Upgrade code of module from target Odoo version."
     printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
@@ -451,16 +451,16 @@ function lint() {
     pre-commit run
 }
 
-function update-help-docs() {
+function update-help-doc() {
     echo "Pipe help table into task.md."
     help-table > task.md
 }
 
-function update-snippet-docs() {
-    ./bin/update-snippet-docs
+function update-snippets-doc() {
+    ./bin/update-snippets-doc
 }
 
-function update-revision-docs() {
+function update-revisions-doc() {
 
     echo "Update revisions doc file."
 
@@ -492,17 +492,17 @@ For each major release there are multiple revisions.\n" > "revisions.md"
     done
 }
 
-function update-modules-docs() {
+function update-modules-doc() {
     echo "Update module doc file."
     activate-venv
-    ./bin/generate-module-overview
+    ./bin/update-modules-doc
 }
 
 function update-docs() {
-    update-modules-docs
-    update-revision-docs
-    update-snippet-docs
-    update-help-docs
+    update-modules-doc
+    update-revisions-doc
+    update-snippets-doc
+    update-help-doc
 }
 
 function update-module-license() {

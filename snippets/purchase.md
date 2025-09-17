@@ -27,6 +27,31 @@ ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`
 ```
 Source: [snippets/purchase.mail_notification_confirm.modify_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.mail_notification_confirm.modify_buttons.xml)
 
+## Purchase History Tree  
+### Add Date Planned  
+ID: `mint_system.purchase.purchase_history_tree.add_date_planned`  
+```xml
+<data inherit_id="purchase.purchase_history_tree" priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="product_id"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.purchase_history_tree.add_date_planned.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_history_tree.add_date_planned.xml)
+
+### Add Product Id  
+ID: `mint_system.purchase.purchase_history_tree.add_product_id`  
+```xml
+<data inherit_id="purchase.purchase_history_tree" priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="product_id"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/purchase.purchase_history_tree.add_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.purchase_history_tree.add_product_id.xml)
+
 ## Purchase Order Form  
 ### Add Qty To Invoice  
 ID: `mint_system.purchase.purchase_order_form.add_qty_to_invoice`  
@@ -1022,6 +1047,33 @@ ID: `mint_system.purchase.report_purchaseorder_document.header_margin`
 
 ```
 Source: [snippets/purchase.report_purchaseorder_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.header_margin.xml)
+
+### Hide Discount  
+ID: `mint_system.purchase.report_purchaseorder_document.hide_discount`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//th[@name='th_discount']" position="replace">
+        <t t-set="display_discount" t-value="any(line.discount &gt; 0 for line in o.order_line)"/>
+        <th name="th_discount" t-if="display_discount">
+            <strong>Rabatt</strong>
+        </th>
+    </xpath>
+
+    <xpath expr="//span[@t-field='line.discount']/../.." position="replace">
+        <t t-set="display_discount" t-value="any(line.discount &gt; 0 for line in o.order_line)"/>
+        <t t-if="display_discount">
+            <td class="text-end">
+                <span class="text-align-bottom">
+                    <span t-field="line.discount"/>
+%</span>
+            </td>
+        </t>
+    </xpath>
+
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.hide_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.hide_discount.xml)
 
 ### Hide Taxes  
 ID: `mint_system.purchase.report_purchaseorder_document.hide_taxes`  

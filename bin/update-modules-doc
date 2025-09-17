@@ -30,11 +30,10 @@ module_info = {}
 for version in versions:
 
     # Switch to the version
-    subprocess.run(["./task", "load-version", version])
+    subprocess.run(["./task", "checkout", version])
 
     # Pull all submodules
-    subprocess.run(["./task", "switch-git-folder"])
-    subprocess.run(["./task", "pull-git-folder"])
+    subprocess.run(["./task", "sync-git-folder"])
 
     # Get all submodules
     submodules = read_gitmodules(".gitmodules")

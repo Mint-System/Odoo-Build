@@ -7,6 +7,7 @@ export default [
 '/snippets/account_financial_report.md',
 '/snippets/account_followup.md',
 '/snippets/account_journal_items_report.md',
+'/snippets/account_reports.md',
 '/snippets/account_sale_timesheet_report.md',
 '/snippets/agreement.md',
 '/snippets/agreement_legal.md',

@@ -4158,6 +4158,22 @@ ID: `mint_system.sale.report_saleorder_document.x_payment_term_blanket_order`
 ```
 Source: [snippets/sale.report_saleorder_document.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.x_payment_term_blanket_order.xml)
 
+### X Project  
+ID: `mint_system.sale.report_saleorder_document.x_project`  
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
+  <xpath expr="//div[@id='informations']/div[4]" position="after">
+    <div t-if="doc.x_project" class="col-5">
+      <strong>Project:</strong><br/>
+      <span t-field="doc.x_project"/>
+    </div>
+   
+  </xpath>
+</data>
+```
+Source: [snippets/sale.report_saleorder_document.x_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.x_project.xml)
+
 ### X Warranty  
 ID: `mint_system.sale.report_saleorder_document.x_warranty`  
 ```xml

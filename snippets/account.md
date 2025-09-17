@@ -292,6 +292,20 @@ ID: `mint_system.account.report_invoice_document.add_address_space`
 ```
 Source: [snippets/account.report_invoice_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_address_space.xml)
 
+### Add Bocco Id  
+ID: `mint_system.account.report_invoice_document.add_bocco_id`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@id='informations']/div[@name='invoice_date']" position="before">
+            <div class="col-auto mw-100 mb-2" t-if="o.partner_id.bocco_id" name="bocco_id">
+                <strong>Bocco ID:</strong>
+                <p class="m-0" t-field="o.partner_id.bocco_id" t-options="{&quot;widget&quot;: &quot;char&quot;}"/>
+            </div>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_bocco_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_bocco_id.xml)
+
 ### Add Comment Space  
 ID: `mint_system.account.report_invoice_document.add_comment_space`  
 ```xml
@@ -379,6 +393,19 @@ ID: `mint_system.account.report_invoice_document.add_general_information`
 </data>
 ```
 Source: [snippets/account.report_invoice_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_general_information.xml)
+
+### Add Head  
+ID: `mint_system.account.report_invoice_document.add_head`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[contains(@class, 'page')]/h2" position="after">
+        <h4>
+            <span t-if="o.inv_head_add" t-field="o.inv_head_add"/>
+        </h4>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.add_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.add_head.xml)
 
 ### Add Header And Footer Note  
 ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`  
@@ -834,7 +861,7 @@ Source: [snippets/account.report_invoice_document.convert_html_note.xml](https:/
 ID: `mint_system.account.report_invoice_document.custom_address`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-    <xpath expr="//t[@t-set='address']/address" position="replace">
+    <xpath expr="//t[@t-set='address']//address" position="replace">
         <address>
             <t t-if="o.partner_id.invoice_name">
                 <div>
@@ -869,6 +896,10 @@ ID: `mint_system.account.report_invoice_document.custom_address`
             </t>
         </address>
     </xpath>
+
+    <!-- Odoo 17+: Odoo does not replace all matches, 
+    so you have to specify certain match or 
+    find loop solution.  -->
 </data>
 
 ```
@@ -1808,14 +1839,15 @@ Source: [snippets/account.report_invoice_document.modify_main_table.xml](https:/
 ID: `mint_system.account.report_invoice_document.move_incoterm`  
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
-    <xpath expr="//p[@name='incoterm']" position="replace"/>
-    <xpath expr="//p[2]" position="after">
-        <p t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
+
+  <xpath expr="//p[@name='incoterm']" position="replace"/>
+  <xpath expr="//p[2]" position="after">
+    <p style="margin-bottom: 0;" t-if="o.invoice_incoterm_id" name="incoterm">Incoterm: 
       <strong t-field="o.invoice_incoterm_id.display_name"/>
     </p>
-    </xpath>
+  </xpath>
+  
 </data>
-
 ```
 Source: [snippets/account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.move_incoterm.xml)
 
@@ -2937,6 +2969,38 @@ ID: `mint_system.account.report_invoice_document.second_row`
 ```
 Source: [snippets/account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.second_row.xml)
 
+### Second Row2  
+ID: `mint_system.account.report_invoice_document.second_row2`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//td[@name='account_invoice_line_name']/../.." position="after">
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
+                <td/>
+                <td colspan="3">
+                    <span t-field="line.name"/>
+                    <t t-if="line.product_id.hs_code">
+                        <br/>
+                        <span>HS-Code: </span>
+                        <span t-field="line.product_id.hs_code"/>
+                    </t>
+                </td>
+                <td/>
+            </tr>
+        </t>
+    </xpath>
+
+    <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_id"/>
+        </td>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.second_row2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.second_row2.xml)
+
 ### Sequence In Table  
 ID: `mint_system.account.report_invoice_document.sequence_in_table`  
 ```xml
@@ -3672,6 +3736,30 @@ ID: `mint_system.account.report_invoice_document.style_trimada`
 ```
 Source: [snippets/account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.style_trimada.xml)
 
+### Subtotal Or Total  
+ID: `mint_system.account.report_invoice_document.subtotal_or_total`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//th[@name='th_subtotal']" position="replace">
+        <th name="th_subtotal" class="text-end">
+            <span groups="gds_invoice.group_show_line_subtotals_tax_excluded">Amount</span>
+            <span groups="gds_invoice.group_show_line_subtotals_tax_included">Total Amount</span>
+            <!-- 
+            <span groups="gds_invoice.group_show_line_subtotals_tax_excluded">Betrag</span>
+            <span groups="gds_invoice.group_show_line_subtotals_tax_included">Gesamtbetrag</span>
+            -->
+        </th>
+    </xpath>
+    <xpath expr="//td[@name='td_subtotal']" position="replace">
+        <td name="td_subtotal" class="text-end o_price_total">
+            <span t-field="line.price_subtotal" groups="gds_invoice.group_show_line_subtotals_tax_excluded"/>
+            <span t-field="line.price_total" groups="gds_invoice.group_show_line_subtotals_tax_included"/>
+        </td>
+    </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.subtotal_or_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.subtotal_or_total.xml)
+
 ### Switch Address Block  
 ID: `mint_system.account.report_invoice_document.switch_address_block`  
 ```xml
@@ -3961,6 +4049,46 @@ ID: `mint_system.account.report_invoice_document.x_show_bank_details`
 
 ```
 Source: [snippets/account.report_invoice_document.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.x_show_bank_details.xml)
+
+### X Weights And Packaging  
+ID: `mint_system.account.report_invoice_document.x_weights_and_packaging`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//p[@name='incoterm']" position="after">
+        <table style="border: white; margin-bottom: 1rem;">
+            <t t-if="o.x_net_weight">
+                <tr>
+                    <td>
+                        <strong>Nettogewicht: </strong>
+                        <span t-field="o.x_net_weight"/>
+					kg
+                    </td>
+                </tr>
+            </t>
+            <t t-if="o.x_gross_weight">
+                <tr>
+                    <td>
+                        <strong>Buttogewicht: </strong>
+                        <span t-field="o.x_gross_weight"/>
+					kg
+                    </td>
+                </tr>
+            </t>
+            <t t-if="o.x_packaging">
+                <tr>
+                    <td>
+                        <strong>Verpackung: </strong>
+                        <span t-field="o.x_packaging"/>
+                    </td>
+                </tr>
+            </t>
+        </table>
+    </xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.x_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.x_weights_and_packaging.xml)
 
 ## Report Timesheet  
 ### Report  
@@ -4682,6 +4810,23 @@ ID: `mint_system.account.view_move_form.x_group_ids`
 ```
 Source: [snippets/account.view_move_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_form.x_group_ids.xml)
 
+### X Group Weights And Packaging  
+ID: `mint_system.account.view_move_form.x_group_weights_and_packaging`  
+```xml
+<data inherit_id="account.view_move_form" priority="50">
+    <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']/group[@name='accounting_info_group']" position="after">
+        <group name="weights" string="Gewichte">
+            <field name="x_net_weight"/>
+            <field name="x_gross_weight"/>
+        </group>
+        <group name="packaging" string="Verpackung">
+            <field name="x_packaging"/>
+        </group>
+    </xpath>
+</data>
+```
+Source: [snippets/account.view_move_form.x_group_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_form.x_group_weights_and_packaging.xml)
+
 ### X Has Downpayment Warn Msg  
 ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`  
 ```xml
@@ -4810,6 +4955,18 @@ ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`
 
 ```
 Source: [snippets/account.view_move_line_tree.show_cumulated_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_line_tree.show_cumulated_balance.xml)
+
+### Vat  
+ID: `mint_system.account.view_move_line_tree.vat`  
+```xml
+<data inherit_id="account.view_move_line_tree" priority="50">
+    <xpath expr="//tree/field[@name='partner_id']" position="after">
+        <field name="partner_vat" string="USt-IdNr"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/account.view_move_line_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_line_tree.vat.xml)
 
 ## View Move Line Tree Grouped General  
 ### Amount Currency Optional  

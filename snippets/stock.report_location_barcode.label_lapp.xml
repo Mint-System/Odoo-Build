@@ -1,4 +1,4 @@
-<data inherit_id="mint_system.stock.report_location_barcode" priority="50">
+<data inherit_id="stock.report_location_barcode" priority="50">
     <xpath expr="//t[@t-call='stock.report_generic_barcode']" position="replace">
 
         <style>
