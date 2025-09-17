@@ -131,7 +131,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 Create a new module.
 
 ```bash
-task create-module addons/project/project_sprint
+task scaffold-module addons/project/project_sprint
 ```
 
 Add a new model.

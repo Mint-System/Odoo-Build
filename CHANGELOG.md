@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## Undefined
+
+### Updated
+
+* Grouped the help table entries
+
 ## 2025-09-12
 
 ### Updated
