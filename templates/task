@@ -17,8 +17,6 @@ function help-table() {
     printf "$COLUMN" "install" "" "Setup the local environment."
     printf "$COLUMN" "lint" "" "Run pre-commit."
     printf "$COLUMN" "docs" "" "Update index.html."
-    printf "$COLUMN" "source" "" "Source the Python virtual env."
-    printf "$COLUMN" "version" "" "Show version of required tools."
 }
 
 function help() {
@@ -43,15 +41,11 @@ if [ -d "$HOME/taskfile.build/bin" ]; then
     done
 fi
 
-function version() {
-    uv --version
-}
-
 function install() {
     echo "Setup venv and install python dependencies"
     uv venv env
     source env/bin/activate
-    uv pip install pre-commit rst2html5
+    uv pip install pre-commit git+https://github.com/OCA/maintainer-tools
 }
 
 function lint() {
