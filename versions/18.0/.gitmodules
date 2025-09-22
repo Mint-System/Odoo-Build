@@ -124,3 +124,7 @@
 	path = oca/storage
 	url = git@github.com:OCA/storage.git
 	branch = 18.0
+[submodule "oca/rest-framework"]
+	path = oca/rest-framework
+	url = git@github.com:OCA/rest-framework.git
+	branch = 18.0
