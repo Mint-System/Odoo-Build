@@ -120,3 +120,7 @@
 	path = oca/rest-framework
 	url = git@github.com:OCA/rest-framework.git
 	branch = 18.0
+[submodule "addons/vertical_saas"]
+	path = addons/vertical_saas
+	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
+	branch = 18.0
