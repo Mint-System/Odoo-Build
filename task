@@ -2065,9 +2065,9 @@ function generate-module-snippet() {
     export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME VIEW_REF XML_ID
 
     echo "Substitute snippet template"
+    mkdir -p "$MODULE_PATH/views"
     envsubst '$MODULE_NAME $MODEL_DOT_NAME $SRC_MODULE_NAME $VIEW_REF $XML_ID' < templates/model_snippet.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
-    echo "Update file $MODULE_NAME/__manifest__.py with:"
-    echo -e "\t, \"views/${MODEL_NAME}_views.xml\""
+    echo "Update file $MODULE_NAME/__manifest__.py with: \"views/${MODEL_NAME}_views.xml\""
 }
 
 function release-module() {
