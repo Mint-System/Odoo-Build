@@ -2344,15 +2344,16 @@ function remove-git-submodule() {
     echo "Deinit submodule"
     git submodule deinit -f "$1"
 
-    echo "Move submodule to tmp folder"
-    mkdir -p tmp/"$1"
-    mv "$1" tmp/"$1"
-
     echo "Remove submodule from work tree"
     git rm -f "$1"
 
     echo "Remove submodule from .git folder"
-    rm -rf .git/modules/"$1"
+    rm -rf ".git/modules/$1"
+
+    echo "Remove submodule from .gitmodules file"
+    git config --file .gitmodules --remove-section submodule.addons/website
+
+    save-version
 }
 
 function clone-git-folder() {

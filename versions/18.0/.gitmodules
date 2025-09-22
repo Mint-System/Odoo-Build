@@ -68,17 +68,9 @@
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend
 	branch = 18.0
-[submodule "addons/website"]
-	path = addons/website
-	url = git@github.com:Mint-System/Odoo-Apps-Website.git
-	branch = 18.0
 [submodule "oca/queue"]
 	path = oca/queue
 	url = git@github.com:OCA/queue.git
-	branch = 18.0
-[submodule "addons/sale_workflow"]
-	path = addons/sale_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 18.0
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
