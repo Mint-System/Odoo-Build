@@ -11,7 +11,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 * 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
 * 💻 **Native**: Start an Odoo server directly from the source.
 * 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.
-* 🛠️ **Develop Modules**: Scaffold new modules, develop new Odoo features locally.
+* 🛠️ **Develop Modules**: Generate new modules, develop new Odoo features locally.
 * 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.
 * 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.
 * ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
@@ -131,7 +131,7 @@ Open browser to [http://localhost:8069](http://localhost:8069) and login with `a
 Create a new module.
 
 ```bash
-task scaffold-module addons/project/project_sprint
+task generate-module addons/project/project_sprint
 ```
 
 Add a new model.

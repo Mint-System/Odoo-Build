@@ -113,7 +113,7 @@ function help-table() {
     printf "$COLUMN" "export-website-data" "[env]" "Export website data from Odoo database."
     printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
     printf "$COLUMN" "import-website-data" "[env]" "Import website data to Odoo database."
-    # Scaffold
+    # Generate
     printf "$COLUMN" "generate-module-docs" "[path]" "Generate readme file for module."
     printf "$COLUMN" "generate-oca-module-docs" "[path]" "Generate readme file for module with OCA tools."
     printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model in module folder."
@@ -122,8 +122,8 @@ function help-table() {
     printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file."
     printf "$COLUMN" "generate-module-snippet" "[path][model][ref]" "Generate snippet for referefenced view."
     printf "$COLUMN" "generate-module-wizard" "[path][model]" "Generate wizard for a model in module folder."
-    printf "$COLUMN" "scaffold-module" "[path]" "Create new Odoo module from template."
-    printf "$COLUMN" "scaffold-module-repo" "[path]" "Initialize Odoo module repo from template."
+    printf "$COLUMN" "generate-module" "[path]" "Create new Odoo module from template."
+    printf "$COLUMN" "generate-module-repo" "[path]" "Initialize Odoo module repo from template."
     # Module
     printf "$COLUMN" "lint-module" "[path]" "Run pylint odoo for module."
     printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
@@ -1659,7 +1659,7 @@ function install-requirements() {
     fi
 }
 
-function scaffold-module-repo() {
+function generate-module-repo() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     REPO_PATH="$1"
@@ -1897,7 +1897,7 @@ function remove-module() {
     odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-function scaffold-module() {
+function generate-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     MODULE_NAME=$(basename "$1")
