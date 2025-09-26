@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 MAX_ATTEMPTS=30
 SLEEP_SECONDS=5
 ATTEMPTS=0

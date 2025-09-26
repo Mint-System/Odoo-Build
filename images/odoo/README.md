@@ -139,6 +139,7 @@ services:
       TEST_INCLUDE: partner_firstname
       TEST_EXCLUDE: partner_fax
       AUTO_UPDATE_TRANSLATIONS: True
+      AUTO_UPDATE_MODULES_LIST: True
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -231,6 +232,12 @@ There is also the possiblity to update all modules:
 
 ```bash
 docker compose exec odoo update-modules
+```
+
+Or update the modules list (refresh the list of available modules from the addons path):
+
+```bash
+docker compose exec odoo update-modules-list
 ```
 
 For each installed module Odoo computes and stores a checksum in the database. The update modules script compares the checksum and updates all modules that have changed.
@@ -406,6 +413,7 @@ The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-con
 
 * `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started.  Default is `False`.
 * `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
+* `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
 
 Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
 
