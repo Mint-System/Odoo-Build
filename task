@@ -625,7 +625,7 @@ function build() {
     # Set container tag and platform based on Dockerfile
     PLATFORM="linux/amd64"
     if [ "$1" = "images/odoo" ]; then
-        PLATFORM="linux/amd64,linux/arm64"
+        # PLATFORM="linux/amd64,linux/arm64"
         MANIFEST_FILE="images/odoo/Dockerfile"
         CONTAINER_TAG="odoo:$ODOO_REVISION"
         LATEST_TAG="odoo:$ODOO_VERSION"
@@ -1324,6 +1324,7 @@ function test-project() {
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
         export AUTO_UPDATE_MODULES=True
         export AUTO_UPDATE_TRANSLATIONS=True
+        export AUTO_UPDATE_MODULES_LIST=True
         export MAIL_DEFAULT_FROM="test"
         export BROWSER_OPEN=false
         export TEST_ADDONS_DIR=/mnt/oca/partner-contact

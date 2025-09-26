@@ -32,5 +32,5 @@ manifestoo
 oca-port
 odoo-module-migrator
 click-odoo-contrib
-git+https://github.com/acsone/git-aggregator@master
+git-aggregator
 git+https://github.com/OCA/maintainer-tools

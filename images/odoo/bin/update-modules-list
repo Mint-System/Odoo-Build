@@ -1,0 +1,19 @@
+#!/bin/bash
+
+if [ -n "$ODOO_DATABASE" ]; then
+    if check-database-initialized; then
+        echo "Update modules list on database $ODOO_DATABASE."
+        # Execute Odoo shell command to call base.module.update:update_module()
+        (exec odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http << EOF
+updater = env['base.module.update']
+updater.update_module()
+env.cr.commit()
+print('Module list updated successfully.')
+EOF
+) || true
+    else
+        echo "Database $ODOO_DATABASE is not initialized, skipping modules list update."
+    fi
+else
+    echo "ODOO_DATABASE environment variable not set, skipping modules list update."
+fi

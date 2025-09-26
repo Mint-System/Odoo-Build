@@ -3,12 +3,14 @@
 source set-addons-path
 
 if [ -n "$ODOO_DATABASE" ]; then
-    echo "Updating translations for all active languages and installed modules."
-    (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
+    if check-database-initialized; then
+        echo "Updating translations for all active languages and installed modules."
+        (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
 for lang in env['res.lang'].search([]):
     env['ir.module.module'].search([('state', '=', 'installed')])._update_translations(lang.code, overwrite=True)
 env.cr.commit()
 print('Translations updated successfully')
 EOF
 ) || true
+    fi
 fi

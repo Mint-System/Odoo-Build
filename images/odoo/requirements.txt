@@ -15,10 +15,13 @@ watchdog # python3-watchdog
 rlPyCairo # python3-renderpm
 lxml # python3-lxml
 
-# Built-in
+# Performance
+memray
+
+# OCA Tools
 manifestoo
 click-odoo-contrib
-memray
+git-aggregator
 
 # Upgrade
 git+https://github.com/OCA/openupgradelib.git@master
