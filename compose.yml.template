@@ -68,6 +68,7 @@ services:
       TEST_INCLUDE: ${TEST_INCLUDE}
       TEST_EXCLUDE: ${TEST_EXCLUDE}
       AUTO_UPDATE_TRANSLATIONS: ${AUTO_UPDATE_TRANSLATIONS}
+    command: odoo --dev=all
     ports:
       - "${ODOO_PORT}:8069"
     volumes:
