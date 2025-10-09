@@ -1,0 +1,7 @@
+<data inherit_id="account.view_move_form" priority="50">
+  <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']/group[@name='utm_link']" position="after">
+    <group string="Invoice text" name="invoice_text">
+      <field name="x_invoice_text" string="Rechnungstext"/>
+    </group>
+  </xpath>
+</data>

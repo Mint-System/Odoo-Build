@@ -1,0 +1,76 @@
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//span[@t-field='o.name']/../.." position="after">
+        <style>
+      table#info {
+        width: 100%;
+        margin-bottom: 25px;
+        font-size: 9pt;
+        font-family: arial;
+        border-color: white;
+      }
+        table#info tr {
+        line-height: 1.2;
+        text-align: left;
+      }
+      table#info span {
+        line-height: 1.2;
+      }
+        .note {
+        font-size: 9pt;
+      }
+    </style>
+        <table id="info">
+            <tr>
+                <td width="17%">Order Deadline</td>
+                <td width="40%">
+                    <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+                <td width="18%">Our Reference</td>
+                <td width="25%">
+                    <span t-field="o.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_id.ref"/>
+                </td>
+                <td>Incoterm</td>
+                <td>
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td/>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <!--
+                <t t-if="o.requisition_id">
+                    <td>Purchase Contract</td>
+                    <td>
+                        <span t-field="o.requisition_id"/>
+                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
+            </t>
+                    </td>
+                </t>
+                -->
+            </tr>
+            <tr>
+                <td>Reference</td>
+                <!--
+                <td>
+                    <span t-field="o.comment"/>
+                </td>
+                -->
+                <td/>
+                <td/>
+            </tr>
+        </table>
+        <!--
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
+        -->
+    </xpath>
+</data>

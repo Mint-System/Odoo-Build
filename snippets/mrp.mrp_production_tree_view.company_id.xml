@@ -1,0 +1,5 @@
+<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="company_id" string="test" optional="show"/>
+    </xpath>
+</data>

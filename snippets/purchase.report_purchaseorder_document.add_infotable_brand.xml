@@ -1,0 +1,89 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
+        <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 25px;
+      border-color: white;
+    }
+     table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+     table#info span {
+      line-height: 1.2;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+        <table id="info">
+            <tr>
+                <th><strong>Unsere Angaben</strong></th>
+                <td/>
+                <th><strong>Ihre Angaben</strong></th>
+            </tr>
+            <tr>
+                <td width="17%">Datum</td>
+                <td width="40%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="18%">Lieferung</td>
+                <td>
+                    <span t-field="o.picking_type_id.name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Lieferanten Nr.</td>
+                <td>
+                    <span t-field="o.partner_id.ref"/>
+                </td>
+                <td/>
+                <td>
+                    <span t-field="o.picking_type_id.company_id.name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>MWST-Nr.</td>
+                <td>
+                    <span t-field="o.company_id.vat"/><span> MWST</span>
+                </td>
+                <td/>
+                <td>
+                    <span t-field="o.picking_type_id.company_id.zip"/>
+                    <span t-field="o.picking_type_id.company_id.city"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Kommission</td>
+                <td>
+                    <span t-field="o.origin"/>
+                </td>
+                <td/>
+                <td/>
+            </tr>
+            <tr>
+                <td>Kontakt</td>
+                <td>
+                    <span t-field="o.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Projekt-Nr.</td>
+                <td>
+                    <span t-field="o.project_id"/>
+                </td>
+            </tr>
+        </table>
+        <!--
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
+        -->
+    </xpath>
+</data>

@@ -1,0 +1,15 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//div[@name='payment_term']" position="replace">
+
+    <t t-if="o.invoice_payment_term_id.note and o.company_id.id == 8">
+      <br/>
+      <div>
+            Zahlungsbedingungen: <span t-field="o.invoice_payment_term_id.note"/>
+      </div>
+    </t>
+    <t t-else="">
+      <div t-field="o.invoice_payment_term_id.note" name="payment_term"/>
+    </t>
+
+  </xpath>
+</data>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_invoice_text" model="ir.model.fields">
+        <field name="field_description">Rechnungstext</field>
+        <field name="model">account.move</field>
+        <field name="model_id" ref="account.model_account_move"/>
+        <field name="name">x_invoice_text</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">Many2many</field>
+        <field name="relation">x_rechnungstext</field>
+        <field name="relation_table">x_account_move_x_rechnungstext_rel</field>
+        <field name="column1">account_move_id</field>
+        <field name="column2">x_rechnungstext_id</field>
+    </record>
+</odoo>
