@@ -27,7 +27,7 @@
                     </td>
                     <td>
                         <strong>Incoterms</strong>
-                        <p t-field="res_company.incoterm_id.code"/>
+                        <p t-field="o.sale_id.incoterm.code"/>
                     </td>
                     <td>
                         <strong>Carrier</strong>
