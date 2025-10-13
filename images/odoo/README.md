@@ -25,16 +25,16 @@ This container image is an improvement of the official Odoo image:
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
-Supported tags:
-
-* 19.0.20251008, 19.0
-* 18.0.20251008, 18.0
-* 17.0.20251008, 17.0
-* 16.0.20251008, 16.0
-
 ## Usage
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
+
+Supported tags:
+
+* `19.0.20251008`, `19.0`
+* `18.0.20251008`, `18.0`
+* `17.0.20251008`, `17.0`
+* `16.0.20251008`, `16.0`
 
 ### Minimal
 

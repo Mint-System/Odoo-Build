@@ -2648,6 +2648,7 @@ function create-revision() {
 
     # Get git commit by date
     cd odoo
+    git pull
     echo -e "\nShow last 3 commits from $BEFORE_DATE:"
     git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
@@ -2655,6 +2656,7 @@ function create-revision() {
     cd ..
 
     cd enterprise
+    git pull
     echo -e "\nShow last 3 commits from $BEFORE_DATE:"
     git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     ENTERPRISE_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
@@ -2662,6 +2664,7 @@ function create-revision() {
     cd ..
 
     cd themes
+    git pull
     echo -e "\nShow last 3 commits from $BEFORE_DATE:"
     git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
     THEME_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
