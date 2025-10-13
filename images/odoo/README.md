@@ -17,7 +17,7 @@ This container image is an improvement of the official Odoo image:
 - 💾 Session information can be stored in the database.
 - 🖥️ Environment name is retrieved from server configuration.
 - 📋 Database initialization with selected modules.
-- 📜 The image includes built-in [Manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
+- 📜 The image includes built-in [manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
 - 🪴 The container runs without requiring root privileges.
 - ✂️ Reduced image size through multi-stage build and file cleanup.
 - 👀 Use the image to run module tests and create code coverage report.
@@ -259,7 +259,7 @@ Not that existing translations will be overwritten.
 
 ### Analyze
 
-With the [Manifestoo](https://github.com/acsone/manifestoo) cli you can query the module manifest files.
+With the [manifestoo](https://github.com/acsone/manifestoo) cli you can query the module manifest files.
 
 List all modules:
 
