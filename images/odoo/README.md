@@ -25,6 +25,13 @@ This container image is an improvement of the official Odoo image:
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
+Supported tags:
+
+* 19.0.20251008, 19.0
+* 18.0.20251008, 18.0
+* 17.0.20251008, 17.0
+* 16.0.20251008, 16.0
+
 ## Usage
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
@@ -37,7 +44,7 @@ The following `compose.yml` is a minimal setup:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:18.0.20250725
+    image: mintsystem/odoo:18.0.20251008
     depends_on:
       - db
     environment:
@@ -70,7 +77,7 @@ This `compose.yml` shows all possible configurations:
 services:
   odoo:
     container_name: odoo
-    image: mintsystem/odoo:18.0.20250725
+    image: mintsystem/odoo:18.0.20251008
     depends_on:
         db:
             condition: service_healthy
@@ -434,7 +441,7 @@ This image can be customized by any extend.
 Update the image with Python packages.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250725
+FROM mintsystem/odoo:18.0.20251008
 
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
@@ -442,7 +449,7 @@ RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi
 Or with apt packages.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250725
+FROM mintsystem/odoo:18.0.20251008
 
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
 ```
@@ -452,7 +459,7 @@ RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract
 Copy custom Odoo conf file to the image.
 
 ```dockerfile
-FROM mintsystem/odoo:18.0.20250725
+FROM mintsystem/odoo:18.0.20251008
 
 COPY ./odoo.conf.template /etc/odoo/
 ```
