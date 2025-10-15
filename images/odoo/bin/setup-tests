@@ -1,10 +1,6 @@
 #!/bin/bash
 set -e
 
-log-entrypoint "Call the git-aggregator script."
-aggregate-git-repos
-template-odoo-rc
-
 log-entrypoint "Install python packages required for testing."
 uv pip install --no-cache-dir coverage \
   websocket-client

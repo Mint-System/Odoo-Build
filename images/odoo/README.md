@@ -216,11 +216,14 @@ The scripts are configured with environment variables.
 
 Once you start the container the `entrypoint.sh` script will:
 
-* Run the `set-addons-path` script to assemble the addons path.
+* Call the `aggregate-git-repos` script and clone modules.
 * Run the `template-odoo-rc` script to template the `odoo.conf` file.
-* Run the `install-python-packages` script to install the Python packages 😉.
+* While doing so assemble the addons path with `set-addons-path`.
+* Run the `install-python-packages` script to install the Python packages.
 * Wait for the database to be ready.
 * Run the `update-modules` script if enabled.
+* Run the `update-modules-list` script if enabled.
+* Run the `update-translations` script if enabled.
 * Start the Odoo server.
 
 ### Execute
@@ -440,7 +443,7 @@ With this image you can also run module tests.
 
 The image includes [git-aggregator](https://github.com/acsone/git-aggregator). It allows to clone and merge addon repos from different origins and branches.
 
-By mounting your `repos.yml` to `/var/lib/odoo/git/repos.yml` the `setup-tests` will run the `gitaggregate` command in the directory.
+When mounting your `repos.yml` to `/var/lib/odoo/git/repos.yml` the `entrypoint.sh` will run the `gitaggregate` command in the directory.
 
 Here is an example for `repos.yml`:
 

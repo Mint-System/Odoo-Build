@@ -11,6 +11,7 @@ echo "Maintainer: Mint System GmbH <info@mint-system.ch>"
 
 log-entrypoint "Run as user with id: $(id)"
 
+aggregate-git-repos
 template-odoo-rc
 install-python-packages
 

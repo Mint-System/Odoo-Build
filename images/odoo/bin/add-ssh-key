@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
+    mkdir -p ~/.ssh
+    chmod 700 ~/.ssh
+    log-entrypoint "Setup SSH key from env var."
+    DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
+    echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+    chmod 600 ~/.ssh/id_ed25519
+    eval "$(ssh-agent -s)"
+    ssh-add ~/.ssh/id_ed25519 || (echo "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
+fi

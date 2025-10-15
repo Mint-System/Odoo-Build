@@ -6,17 +6,8 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
     LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/git"}"
     GIT_CLONE_DEPTH="${GIT_CLONE_DEPTH:="999"}"
 
-    # Setup git ssh key
-    mkdir -p ~/.ssh
-    chmod 700 ~/.ssh
-    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-        log-entrypoint "Setup SSH key from env vars."
-        DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
-        echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
-        chmod 600 ~/.ssh/id_ed25519
-        eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519 || (echo "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
-    fi
+    # Setup git SSH key
+    add-ssh-key
 
     # Make every git directory a safe directory
     git config --global --add safe.directory "*"
@@ -80,9 +71,6 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
         fi
     done
 
-    # Remove git ssh key
-    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-        ssh-add -d ~/.ssh/id_ed25519
-        rm ~/.ssh/id_ed25519
-    fi
+    # Remove git SSH key
+    remove-ssh-key
 fi
