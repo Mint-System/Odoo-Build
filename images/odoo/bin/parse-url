@@ -69,7 +69,7 @@ else
     # Extract subdomain (if any)
     if [[ "$hostname" == *.* ]]; then
         levels=$(echo $hostname | grep -o "\." | wc -l)
-        if [ $levels -eq "2" ]; then 
+        if [ $levels -eq "2" ]; then
             subdomain=$(echo $hostname | awk -F"." '{print $1}')
         fi
     fi

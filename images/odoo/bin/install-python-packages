@@ -2,11 +2,11 @@
 
 if [ -n "$PYTHON_INSTALL" ]; then
 
-    echo "Check status of PyPi."
+    log-entrypoint "Check status of PyPi."
     HTTP_PYPI_OK=$(curl -s --head --request GET https://pypi.org/simple/ | grep "HTTP/2 200")
 
     if [ -n "$HTTP_PYPI_OK" ]; then
-        echo "Install python packages: $PYTHON_INSTALL"
+        log-entrypoint "Install python packages: $PYTHON_INSTALL"
         uv pip install --no-cache-dir $(echo "$PYTHON_INSTALL" | tr "," " ")
     fi
 fi

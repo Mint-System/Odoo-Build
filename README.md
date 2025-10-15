@@ -340,7 +340,7 @@ Check the latest official Odoo image tag on <https://hub.docker.com/_/odoo/tags>
 Replace the `-` with a `.` in the tag name and create a revision:
 
 ```bash
-task create-revision 18.0.20250520
+task create-revision "$VERSION.YYYYDDMM"
 ```
 
 Replace all image references in the docs.

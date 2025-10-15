@@ -7,10 +7,12 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Added OCA maintainer toools repo.
+* Support `git-aggregator`.
 
 ### Updated
 
 * Grouped the help table entries.
+* Prefix Odoo image entrypoint echos.
 
 ## 2025-09-12
 

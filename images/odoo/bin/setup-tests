@@ -1,11 +1,14 @@
 #!/bin/bash
 set -e
 
-echo "Install python packages required for testing."
+log-entrypoint "Call the git-aggregator script."
+aggregate-git-repos
+
+log-entrypoint "Install python packages required for testing."
 uv pip install --no-cache-dir coverage \
   websocket-client
 
-echo "Collect external python dependencies from modules in $TEST_ADDONS_DIR."
+log-entrypoint "Collect external python dependencies from modules in $TEST_ADDONS_DIR."
 if [ -n "$TEST_INCLUDE" ]; then
     manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
         > test-requirements.txt
@@ -14,7 +17,7 @@ else
         > test-requirements.txt
 fi
 
-echo "Install collected python dependencies."
+log-entrypoint "Install collected python dependencies."
 uv pip install -r test-requirements.txt
 
 if [ -n "$TEST_INCLUDE" ]; then
@@ -23,7 +26,7 @@ else
     TEST_DEPENDS_MODULES=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
 fi
 
-echo "Install depends modules for testing: $TEST_DEPENDS_MODULES"
+log-entrypoint "Install depends modules for testing: $TEST_DEPENDS_MODULES"
 unbuffer /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "${TEST_DEPENDS_MODULES:-base}" \

@@ -1301,7 +1301,7 @@ function test-project() {
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
-        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Connector.git#${ODOO_VERSION}"
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION}"
         run odoo clone-git-addons
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
@@ -1311,7 +1311,7 @@ function test-project() {
         export ODOO_INIT_LOGIN=test
         export ODOO_INIT_PASSWORD=test
         export ODOO_INIT_LANG=de_CH
-        export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,git_base,contacts,web_enterprise
+        export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,contacts,web_enterprise
         export PYTHON_INSTALL=prometheus-client,manifestoo
         run odoo init-db
 
@@ -1380,7 +1380,18 @@ function test-project() {
         drop-db test
 
         echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
+        echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
+        cat << EOF > tmp/repos.yml
+github.com/Mint-System/Odoo-Apps-Connector:
+    remotes:
+        mint_system: https://github.com/Mint-System/Odoo-Apps-Partner-Contact.git
+    merges:
+        - mint_system ${ODOO_VERSION}
+    target: mint_system ${ODOO_VERSION}
+EOF
+        docker cp tmp/repos.yml odoo:/var/lib/odoo/git/repos.yml
         exec odoo setup-tests
+        exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Connector
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module tests."
         CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"

@@ -432,6 +432,25 @@ With this image you can also run module tests.
 * `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
 * `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
 
+## Files
+
+### Git Aggregator
+
+The image includes [git-aggregator](https://github.com/acsone/git-aggregator). It allows to clone and merge addon repos from different origins and branches.
+
+By mounting your `repos.yml` to `/var/lib/odoo/git/repos.yml` the `setup-tests` will run the `gitaggregate` command in the directory.
+
+Here is an example for `repos.yml`:
+
+```yaml
+github/oca/server-tools:
+  remotes:
+    oca: git@github.com:OCA/server-tools.git
+  merges:
+    - oca 18.0
+  target: oca 18.0
+```
+
 ## Build
 
 This image can be customized by any extend.

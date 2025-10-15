@@ -1,0 +1,11 @@
+#!/bin/bash
+
+if [ -f "/var/lib/odoo/git/repos.yml" ]; then
+    cd /var/lib/odoo/git
+    log-entrypoint "Aggregate git repos..."
+    gitaggregate -c repos.yml --expand-env
+elif [ -f "/var/lib/odoo/git/repos.yaml" ]; then
+    cd /var/lib/odoo/git
+    log-entrypoint "Aggregate git repos..."
+    gitaggregate -c repos.yaml --expand-env
+fi

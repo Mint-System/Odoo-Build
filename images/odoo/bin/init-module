@@ -4,7 +4,7 @@ if [ -n "$ODOO_DATABASE" ]; then
     if check-database-initialized; then
         ODOO_INIT_LANG="${ODOO_INIT_LANG:="en_US"}"
 
-        echo "Initialize module $1 on database $ODOO_DATABASE."
+        log-entrypoint "Initialize module $1 on database $ODOO_DATABASE."
         (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$1" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$ODOO_INIT_LANG" --without-demo=all) || true
     fi
 fi
