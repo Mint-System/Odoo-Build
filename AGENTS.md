@@ -1,10 +1,12 @@
-# Agent
+# Agents
 
-This project uses the https://taskfile.build/ standard.
-
-Always try to run a command with the `./task` file script.
+These are instructions and rules for the LLM model when answering a prompt.
 
 ## Taskfile
+
+This project uses the <https://taskfile.build/> standard.
+
+Always try to run a command with the `./task` file script.
 
 The `./task` file is a bash script that provides all functions necessary to work with this project.
 
