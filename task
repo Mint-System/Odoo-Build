@@ -1382,7 +1382,7 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
         echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
         cat << EOF > tmp/repos.yml
-github.com/Mint-System/Odoo-Apps-Connector:
+github.com/Mint-System/Odoo-Apps-Partner-Contact:
     remotes:
         mint_system: https://github.com/Mint-System/Odoo-Apps-Partner-Contact.git
     merges:
@@ -1391,7 +1391,7 @@ github.com/Mint-System/Odoo-Apps-Connector:
 EOF
         docker cp tmp/repos.yml odoo:/var/lib/odoo/git/repos.yml
         exec odoo setup-tests
-        exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Connector
+        exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Partner-Contact
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module tests."
         CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"
