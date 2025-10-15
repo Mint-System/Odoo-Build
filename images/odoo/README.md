@@ -25,6 +25,8 @@ This container image is an improvement of the official Odoo image:
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
+Changelog: <https://odoo.build/images/odoo/CHANGELOG.html>
+
 ## Usage
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
