@@ -6,7 +6,27 @@ if [ -n "$PYTHON_INSTALL" ]; then
     HTTP_PYPI_OK=$(curl -s --head --request GET https://pypi.org/simple/ | grep "HTTP/2 200")
 
     if [ -n "$HTTP_PYPI_OK" ]; then
-        log-entrypoint "Install python packages: $PYTHON_INSTALL"
+        log-entrypoint "Install Python packages: $PYTHON_INSTALL"
         uv pip install --no-cache-dir $(echo "$PYTHON_INSTALL" | tr "," " ")
+    fi
+fi
+
+if [ "$PYTHON_INSTALL_ADDONS_REQUIREMENTS" = "True" ]; then
+
+    # Search for repo requirements.txt files
+    source set-addons-path
+    REQUIREMENTS_FILES=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "requirements.txt")
+
+
+    if [ -z "$REQUIREMENTS_FILES" ]; then
+        log-entrypoint "No requirements.txt files found in addon paths."
+    else
+        for REQUIREMENTS_FILE in $REQUIREMENTS_FILES; do
+            log-entrypoint "Installing Python packages from $REQUIREMENTS_FILE"
+            if ! uv pip install -r "$REQUIREMENTS_FILE"; then
+                log-entrypoint "Failed to install packages from $REQUIREMENTS_FILE"
+                exit 1
+            fi
+        done
     fi
 fi

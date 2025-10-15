@@ -130,6 +130,7 @@ services:
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter
       RUNNING_ENV: production
       PYTHON_INSTALL: prometheus-client
+      PYTHON_INSTALL_ADDONS_REQUIREMENTS: True
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
       PROXY_MODE: True
@@ -388,6 +389,7 @@ The Odoo server can be configured using these env vars:
 
 * `RUNNING_ENV` Provide an environment name. Can be accessed with `config.get("environment")`.
 * `PYTHON_INSTALL` Comma seperated list of python packages.
+* `PYTHON_INSTALL_ADDONS_REQUIREMENTS` Install packages from `requirements.txt` from addon folders. Default is `False`.
 * `SERVER_WIDE_MODULES` Comma separated list of modules to load with server. The variable will be prefixed with `base,web`.
 * `SESSION_DB_URI` Connection string for storing session data in database.
 * `PROXY_MODE` Enable server proxy mode. Default is `False`.

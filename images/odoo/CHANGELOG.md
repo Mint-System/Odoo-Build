@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Support `git-aggregator`.
 * Split SSH key management into `add-ssh-key` and `remove-ssh-key`.
+* Env var `PYTHON_INSTALL_ADDONS_REQUIREMENTS` to enable packages from `requirements.txt`.
 
 ### Updated
 
