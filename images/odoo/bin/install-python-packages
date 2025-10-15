@@ -7,7 +7,7 @@ if [ -n "$PYTHON_INSTALL" ]; then
 
     if [ -n "$HTTP_PYPI_OK" ]; then
         log-entrypoint "Install Python packages: $PYTHON_INSTALL"
-        uv pip install --no-cache-dir $(echo "$PYTHON_INSTALL" | tr "," " ")
+        uv pip install $(echo "$PYTHON_INSTALL" | tr "," " ")
     fi
 fi
 
