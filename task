@@ -2701,7 +2701,7 @@ function commit-and-push-revision() {
 
     echo "Push tags..."
     git push
-    git push --tags
+    git push -f --tags
 }
 
 # RPC Commands
