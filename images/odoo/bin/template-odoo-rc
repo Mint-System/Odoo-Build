@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export ENVIRONMENT=${ENVIRONMENT:="development"}
+export RUNNING_ENV=${RUNNING_ENV:="development"}
 export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
 export PROXY_MODE=${PROXY_MODE:=False}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
