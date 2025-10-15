@@ -1343,6 +1343,17 @@ function test-project() {
             ELAPSED=$((ELAPSED + 3))
         done
 
+        echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
+        cat << EOF > tmp/repos.yml
+github.com/Mint-System/Odoo-Apps-Partner-Contact:
+    remotes:
+        mint_system: https://github.com/Mint-System/Odoo-Apps-Partner-Contact.git
+    merges:
+        - mint_system ${ODOO_VERSION}
+    target: mint_system ${ODOO_VERSION}
+EOF
+        docker cp tmp/repos.yml odoo:/var/lib/odoo/git/repos.yml
+
         echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
         run odoo init-module partner_firstname
 
@@ -1380,16 +1391,6 @@ function test-project() {
         drop-db test
 
         echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
-        echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
-        cat << EOF > tmp/repos.yml
-github.com/Mint-System/Odoo-Apps-Partner-Contact:
-    remotes:
-        mint_system: https://github.com/Mint-System/Odoo-Apps-Partner-Contact.git
-    merges:
-        - mint_system ${ODOO_VERSION}
-    target: mint_system ${ODOO_VERSION}
-EOF
-        docker cp tmp/repos.yml odoo:/var/lib/odoo/git/repos.yml
         exec odoo setup-tests
         exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Partner-Contact
 
