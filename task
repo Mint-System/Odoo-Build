@@ -1753,25 +1753,30 @@ function init-module() {
 
 function upgrade-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MODULE="$1"
+    MODULE_PATH="$1"
 
     activate-venv
     set-addons-path
 
     if [ "$ODOO_VERSION" = "17.0" ]; then
-        echo "Migrate views of module $MODULE to ${ODOO_VERSION}..."
-        odoo --database "$DATABASE" -i "$MODULE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
+        echo "Migrate views of module $MODULE_PATH to ${ODOO_VERSION}..."
+        odoo --database "$DATABASE" -i "$MODULE_PATH" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
     fi
 
-    SOURCE_ODOO_VERSION=$(get-module-version $MODULE | cut -d'.' -f1,2)
+    SOURCE_ODOO_VERSION=$(get-module-version $MODULE_PATH | cut -d'.' -f1,2)
 
-    if [ "$ODOO_VERSION" = "18.0" ]; then
-        echo "Upgrade code of module $MODULE from ${SOURCE_ODOO_VERSION}..."
-        odoo upgrade_code --addons-path "$MODULE" --from "$SOURCE_ODOO_VERSION"
-    fi
+    # if [ "$ODOO_VERSION" = "18.0" ]; then
+    #     echo "Run Odoo upgrade_code command for $MODULE_PATH from ${SOURCE_ODOO_VERSION}..."
+    #     odoo upgrade_code --addons-path "$MODULE_PATH" --from "$SOURCE_ODOO_VERSION"
+    # fi
+    # echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERSION."
+    # sed -i -E "s/$SOURCE_ODOO_VERSION/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
 
-    echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERSION."
-    sed -i -E "s/$SOURCE_ODOO_VERSION/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
+    DIRECTORY=$(dirname "$MODULE_PATH")
+    MODULES=$(basename "$MODULE_PATH")
+    echo "Run odoo-module-migrator for $MODULES with source $SOURCE_ODOO_VERSION and target ${ODOO_VERSION}..."
+    odoo-module-migrate --directory $(dirname "$MODULE_PATH") --modules $(basename "$MODULE_PATH") \
+        --init-version-name $SOURCE_ODOO_VERSION --target-version-name $ODOO_VERSION --no-commit
 }
 
 function update-module() {

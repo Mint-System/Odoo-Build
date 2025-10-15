@@ -124,3 +124,7 @@
 	path = addons/vertical_saas
 	url = git@github.com:Mint-System/Odoo-Apps-Vertical-SaaS.git
 	branch = 18.0
+[submodule "oca/hr-holidays"]
+	path = oca/hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 18.0
