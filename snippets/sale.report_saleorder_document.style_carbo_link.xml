@@ -2,14 +2,23 @@
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         .o_company_1_layout {
-            font-family: Dobra-Book;
+            font-family: Dobra_Book;
             font-size: 80%;
+            }
+        .o_company_3_layout {
+        	font-family: Dobra_Book;
+        	font-size: 80%;
+        	}
+        h2
+            {
+            font-size: 1.4rem;
             }
         </style>
     </xpath>
 
+
     <xpath expr="//div/div/div[2]/span" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>   
+    </xpath>
 
 </data>
