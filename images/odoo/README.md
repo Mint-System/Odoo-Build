@@ -88,6 +88,7 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      DB_MAXCONN: 128
       PGSSLMODE: verify-ca
       PGSSLROOTCERT: /mnt/postgres-secret/ca.crt
       SMTP_SERVER: mail.infomaniak.com
@@ -137,12 +138,19 @@ services:
       LOG_LEVEL: debug
       MAX_CRON_THREADS: 4
       LIST_DB: False
+      LOG_DB: True
+      LOG_HANDLER: [':INFO']
+      LOGFILE: None
       ADMIN_PASSWD: *****
       DBFILTER: ^%d$
       WORKERS: 4
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
       LIMIT_TIME_REAL: 600
+      LIMIT_MEMORY_HARD: 2684354560
+      LIMIT_MEMORY_SOFT: 2147483648
+      LIMIT_MEMORY_HARD_GEVENT: 1048579
+      LIMIT_MEMORY_SOFT_GEVENT: 1048576
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
       AUTO_UPDATE_MODULES: True
       TEST_ADDONS_DIR: /mnt/oca/partner-contact
@@ -303,6 +311,7 @@ Odoo supports the PostgreSQL database only.
 * `PGPORT` Postgres server port. Default is `5432`.
 * `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
 * `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
+* `DB_MAXCONN`: Maximum database connection. default is `64`.
 
 ### SMTP Server
 
@@ -394,6 +403,9 @@ The Odoo server can be configured using these env vars:
 * `SESSION_DB_URI` Connection string for storing session data in database.
 * `PROXY_MODE` Enable server proxy mode. Default is `False`.
 * `LOG_LEVEL` Set the logging level. Default is `info`.
+* `LOG_DB` When enabled the database log is shown in the Odoo log. Default is `False`.
+* `LOG_HANDLER` Define the log handler. Default is `[':INFO']`.
+* `LOGFILE` Set the logging level. Default is `None`.
 
 ### Database Manager
 
@@ -412,6 +424,10 @@ Odoo is executed as a multi-threaded Python process.
 * `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
 * `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
 * `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
+* `LIMIT_MEMORY_HARD` Hard memory limit for the Odoo process. Default is `2560 * 1024 * 1024`.
+* `LIMIT_MEMORY_SOFT` Soft memory limit for the Odoo process. Default is `2048 * 1024 * 1024`.
+* `LIMIT_MEMORY_HARD_GEVENT` Set hard memory limit for the gevent process. Default is `False`.
+* `LIMIT_MEMORY_SOFT_GEVENT` Set soft memory limit for the gevent process. Default is `False`.
 
 To calculate the amount of workers multply the amount of cpu cores by 2. To get the cpu core count run `nproc`.
 
@@ -438,6 +454,12 @@ With this image you can also run module tests.
 * `TEST_ADDONS_DIR`: Provide the directory with the modules that should be tests.
 * `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
 * `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
+
+### Naming
+
+This image tries to stay compatible with other images such as <https://github.com/acsone/odoo-bedrock> or <https://github.com/Tecnativa/doodba>.
+
+Compatibility with other images is mainly achieved by using the same environments variables and offering the same functionality.
 
 ## Files
 

@@ -1,20 +1,19 @@
 [options]
-admin_passwd = odoo
-limit_time_real = 600
 db_host = localhost
 db_password = odoo
 db_user = odoo
 db_sslmode = $PGSSLMODE
-environment = development
-running_env = development
-server_wide_modules = $SERVER_WIDE_MODULES
-modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 smtp_server = $SMTP_SERVER
 smtp_port = $SMTP_PORT
 smtp_ssl = $SMTP_SSL
 smtp_user = $SMTP_USER
 smtp_password = $SMTP_PASSWORD
 email_from = $EMAIL_FROM
+running_env = development
+server_wide_modules = $SERVER_WIDE_MODULES
+admin_passwd = odoo
+limit_time_real = 600
+modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 
 [ir.config_parameter]
 $GIT_SSH_PUBLIC_KEY_PARAM
