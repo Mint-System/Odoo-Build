@@ -1,0 +1,13 @@
+<data inherit_id="stock.report_delivery_document" priority="50">  
+
+<xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <div class="row" style="page-break-inside: avoid;">
+      <div class="col">
+        <span t-if="o.sale_id.incoterm">
+           Incoterms: <strong t-field="o.sale_id.incoterm"/>
+         </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
