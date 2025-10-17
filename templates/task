@@ -16,6 +16,8 @@ function help-table() {
     printf "$COLUMN" "all" "" "Run all tasks."
     printf "$COLUMN" "install" "" "Setup the local environment."
     printf "$COLUMN" "lint" "" "Run pre-commit."
+    printf "$COLUMN" "build" "" "Build python packages with whool."
+    printf "$COLUMN" "publish" "" "Publish python packages to PyPi."
     printf "$COLUMN" "docs" "" "Update index.html."
 }
 
@@ -53,6 +55,73 @@ function lint() {
 
     echo "Run pre-commit"
     pre-commit run --all-files --show-diff-on-failure --color=always
+}
+
+function install() {
+    echo "Setup venv and install OCA maintainer tools"
+    uv venv env
+    source env/bin/activate
+    uv pip install git+https://github.com/OCA/maintainer-tools
+}
+
+build() {
+    source env/bin/activate
+
+    ROOT_DIR="$(pwd)"
+    METAPACKAGE_DIR="$ROOT_DIR/setup/_metapackage"
+    PUBLISH_DIR="$ROOT_DIR/dist"
+    mkdir -p "$PUBLISH_DIR"
+    rm -rf "$PUBLISH_DIR"/*
+
+    SERVER_NAME="$(basename "$ROOT_DIR")"
+    METAPACKAGE_NAME="odoo-apps-$(echo "$SERVER_NAME" | sed 's/_/-/g')"
+    oca-gen-metapackage "$METAPACKAGE_NAME"
+
+    ADDONS=()
+    mapfile -t ADDONS < <(find . -maxdepth 2 -type f -name "pyproject.toml" | xargs dirname | sed 's|^\./||')
+    for ADDON in "${ADDONS[@]}"; do
+        cd "$ROOT_DIR/$ADDON"
+        echo "Building $ADDON"
+        uv build
+        cp dist/*.whl "$PUBLISH_DIR/"
+        cp dist/*.tar.gz "$PUBLISH_DIR/"
+        cd "$ROOT_DIR"
+    done
+
+    echo "Installing local wheels for metapackage resolution..."
+    uv pip install "$PUBLISH_DIR"/*.whl 2>/dev/null || true
+
+    cd "$METAPACKAGE_DIR"
+    echo "Building $METAPACKAGE_NAME"
+    uv build
+    cp dist/*.whl "$PUBLISH_DIR/"
+    cp dist/*.tar.gz "$PUBLISH_DIR/"
+
+    ls "$PUBLISH_DIR/"
+}
+
+publish() {
+    source env/bin/activate
+    ROOT_DIR="$(pwd)"
+    PUBLISH_DIR="$ROOT_DIR/dist"
+
+    set +e
+    echo "Publishing from $PUBLISH_DIR to PyPI..."
+
+    for WHEEL in "$PUBLISH_DIR"/*.whl; do
+        if [ ! -f "$WHEEL" ]; then
+            continue
+        fi
+
+        echo "Publishing: $WHEEL"
+        uv publish "$WHEEL" --username "__token__" --password "$PYPI_TOKEN"
+
+        if [ $? -ne 0 ]; then
+            echo "Failed to publish $WHEEL."
+        fi
+    done
+
+    echo "All wheels published successfully."
 }
 
 function docs() {

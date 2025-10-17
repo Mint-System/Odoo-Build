@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Added
 
 * Added OCA maintainer toools repo.
+* Repo task and workflow templates to build and publish modules as python packages.
 
 ### Updated
 

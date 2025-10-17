@@ -1,0 +1,21 @@
+on:
+  push:
+    branches:
+      - "18.0"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git checkout
+        uses: actions/checkout@v4
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+      - name: Install
+        run: ./task install
+      - name: Build
+        run: ./task build
+      - name: Publish
+        run: ./task publish
+        env:
+          PYPI_TOKEN: ${{ secrets.PYPI_TOKEN }}

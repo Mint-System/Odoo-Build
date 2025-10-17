@@ -7,7 +7,7 @@ Odoo modules extending the `$REPO_MODEL` module.
 Clone this repo into the Odoo addons directory.
 
 ```bash
-git clone git@github.com:Mint-System/Odoo-Apps-${REPO_NAME}.git ./addons/${REPO_NAME}
+git clone git@github.com:Mint-System/Odoo-Apps-${REPO_NAME}.git ./addons/${REPO_FOLDER}
 ```
 
 ## Available modules
