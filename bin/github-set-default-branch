@@ -2,8 +2,8 @@
 
 # Set your GitHub personal access token and organization name
 ACCESS_TOKEN=""
-ORG_NAME=""
-NEW_DEFAULT_BRANCH="16.0"
+ORG_NAME="Mint-System"
+NEW_DEFAULT_BRANCH="17.0"
 
 if [[ -a ".env" && "$(cat .env | sed 's/^#.*//g')" ]]; then
     export $(cat .env | sed 's/^#.*//g' | xargs)
