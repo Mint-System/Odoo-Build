@@ -1,0 +1,4 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+     <xpath expr="//t[@t-call='account.document_tax_totals_company_currency_template']"
+           position="replace"/>
+</data>

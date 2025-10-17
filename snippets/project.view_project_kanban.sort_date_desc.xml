@@ -1,0 +1,5 @@
+<data inherit_id="project.view_project_kanban" priority="50">
+    <xpath expr="//kanban" position="attributes">
+        <attribute name="default_order">date desc</attribute>
+      </xpath>
+</data>
