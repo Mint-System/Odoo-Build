@@ -132,3 +132,7 @@
 	path = addons/social
 	url = git@github.com:Mint-System/Odoo-Apps-Social
 	branch = 18.0
+[submodule "addons/purchase_workflow"]
+	path = addons/purchase_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
+	branch = 18.0
