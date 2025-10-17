@@ -11,11 +11,6 @@ $MODULE_SUMMARY
 
 For a detailed documentation have a look at https://www.odoo-wiki.org/$MODULE_WIKI_PATH.html
 
-Configuration
-~~~~~~~~~~~~~
-
-* No additional configurations needed
-
 Maintainer
 ~~~~~~~~~~
 
