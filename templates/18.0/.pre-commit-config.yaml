@@ -131,11 +131,3 @@ repos:
           - --rcfile=.pylintrc
           - --exit-zero
         verbose: true
-  - repo: local
-    hooks:
-      - id: coding-guidelines
-        name: Check Coding Guidelines
-        entry: ./coding-guidelines.py
-        language: system
-        types: [python]
-        pass_filenames: false
