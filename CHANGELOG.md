@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Grouped the help table entries.
 * Use `odoo-module-migrator` instead of `upgrade_code` command.
+* Renamed `upgrade-module` to `migrate-module`.
 
 ## 2025-09-12
 

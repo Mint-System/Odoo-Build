@@ -181,7 +181,7 @@ function help-table() {
     printf "$COLUMN" "update-revisions-doc" "" "Update revisions doc file."
     printf "$COLUMN" "update-snippets-doc" "" "Update snippets doc file."
     # Upgrade
-    printf "$COLUMN" "upgrade-module" "[path]" "Upgrade code of module from target Odoo version."
+    printf "$COLUMN" "migrate-module" "[path]" "Migrate module code from to target Odoo version."
     printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
 }
 
@@ -1753,7 +1753,7 @@ function init-module() {
         --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-function upgrade-module() {
+function migrate-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     MODULE_PATH="$1"
 
