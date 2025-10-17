@@ -128,3 +128,7 @@
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
 	branch = 18.0
+[submodule "addons/social"]
+	path = addons/social
+	url = git@github.com:Mint-System/Odoo-Apps-Social
+	branch = 18.0

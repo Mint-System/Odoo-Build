@@ -57,13 +57,6 @@ function lint() {
     pre-commit run --all-files --show-diff-on-failure --color=always
 }
 
-function install() {
-    echo "Setup venv and install OCA maintainer tools"
-    uv venv env
-    source env/bin/activate
-    uv pip install git+https://github.com/OCA/maintainer-tools
-}
-
 build() {
     source env/bin/activate
 
