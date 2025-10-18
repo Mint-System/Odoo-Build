@@ -38,11 +38,11 @@
                                 </t>
 
                                 <span>Menge: </span>
-                                <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
+                                <t t-set="move_lines" t-value="list(set(picking.picking_id.move_ids))"/>
                                 <t t-foreach="move_lines" t-as="move_line">
                                     <t t-if="line.product_id.id == move_line.product_id.id">
                                         <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <span t-esc="move_line.product_uom_id.name"/>
+                                        <span t-esc="move_line.product_uom.name"/>
                                     </t>
                                 </t>
                             </t>
