@@ -24,8 +24,8 @@
                                 <t t-set="sorted_dates" t-value="sorted(all_invoice_dates)"/>
                                 <t t-set="second_latest_date" t-value="sorted_dates[-2]"/>
                             </t>
-
-                            <t t-if="picking.picking_id and second_latest_date and picking.picking_id.x_date_done &gt; second_latest_date">
+                           
+                            <t t-if="picking.picking_id and (not second_latest_date or picking.picking_id.x_date_done &gt; second_latest_date)">
                                 <span>Lieferdatum: </span>
                                 <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
 
