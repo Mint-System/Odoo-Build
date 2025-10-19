@@ -5,17 +5,26 @@ log-entrypoint "Install python packages required for testing."
 uv pip install --no-cache-dir coverage \
   websocket-client
 
+log-entrypoint "Collect test-requirements.txt files in $TEST_ADDONS_DIR."
+REQUIREMENTS_FILES=$(echo "$TEST_ADDONS_DIR" | tr "," "\n" | xargs -I {} find {} -type f -name "test-requirements.txt")
+for REQUIREMENTS_FILE in $REQUIREMENTS_FILES; do
+    log-entrypoint "Installing Python packages from $REQUIREMENTS_FILE"
+    if ! uv pip install -r "$REQUIREMENTS_FILE"; then
+        log-entrypoint "Failed to install packages from $REQUIREMENTS_FILE"
+        exit 1
+    fi
+done
+
 log-entrypoint "Collect external python dependencies from modules in $TEST_ADDONS_DIR."
 if [ -n "$TEST_INCLUDE" ]; then
     manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
-        > test-requirements.txt
+        > external-requirements.txt
 else
     manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-external-dependencies python \
-        > test-requirements.txt
+        > external-requirements.txt
 fi
-
-log-entrypoint "Install collected python dependencies."
-uv pip install -r test-requirements.txt
+log-entrypoint "Install external python dependencies from external-requirements.txt."
+uv pip install -r external-requirements.txt
 
 if [ -n "$TEST_INCLUDE" ]; then
     TEST_DEPENDS_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
