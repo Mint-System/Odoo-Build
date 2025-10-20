@@ -1,0 +1,8 @@
+<data
+    inherit_id="sale_subscription.sale_subscription_order_view_form"
+    priority="50"
+>
+    <field name="sale_order_template_id" position="attributes">
+        <attribue name="attrs">{'invisible': [('subscription_management', '=', 'upsell')]}</attribue>
+    </field>
+</data>
