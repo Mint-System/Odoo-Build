@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 MAX_ATTEMPTS=30
 SLEEP_SECONDS=5

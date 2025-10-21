@@ -1,9 +1,9 @@
 #!/bin/bash
+set -e
 
 if [ -n "$ODOO_DATABASE" ]; then
-    log-entrypoint "Check if database $ODOO_DATABASE is initialized."
+    log-entrypoint "Check if database $ODOO_DATABASE is initialized..."
     DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
-    log-entrypoint "Database initialization check result: $DATABASE_INITIALIZED"
 
     if [ "$DATABASE_INITIALIZED" = "1" ]; then
         log-entrypoint "Database $ODOO_DATABASE is initialized."

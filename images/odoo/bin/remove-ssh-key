@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
     ssh-add -d ~/.ssh/id_ed25519

@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 # Add extra addons path to addons path
 if [ -d "/mnt/extra-addons" ]; then

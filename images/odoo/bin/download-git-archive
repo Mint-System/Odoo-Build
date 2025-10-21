@@ -1,4 +1,5 @@
 #!/bin/bash
+set -e
 
 if [ -z "$GITHUB_PAT" ] || [ -z "$GITHUB_USERNAME" ]; then
     log-entrypoint "Error: GitHub personal access token or username is not set."
