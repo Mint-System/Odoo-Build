@@ -1,6 +1,14 @@
 #!/bin/bash
 
+export DB_MAXCONN=${DB_MAXCONN:=64}
+export SMTP_SERVER=${SMTP_SERVER:=""}
+export SMTP_PORT=${SMTP_PORT:=0}
+export SMTP_SSL=${SMTP_SSL:=""}
+export SMTP_USER=${SMTP_USER:=""}
+export SMTP_PASSWORD=${SMTP_PASSWORD:=""}
+export EMAIL_FROM=${EMAIL_FROM:=""}
 export RUNNING_ENV=${RUNNING_ENV:="development"}
+export WITHOUT_DEMO=${WITHOUT_DEMO:=True}
 export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
 export PROXY_MODE=${PROXY_MODE:=True}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
@@ -20,12 +28,6 @@ export LIMIT_MEMORY_SOFT=${LIMIT_TIME_REAL:=""}
 export LIMIT_MEMORY_HARD_GEVENT=${LIMIT_TIME_REAL:=""}
 export LIMIT_MEMORY_SOFT_GEVENT=${LIMIT_TIME_REAL:=""}
 export MODULE_AUTO_INSTALL_DISABLED=${MODULE_AUTO_INSTALL_DISABLED:=""}
-export SMTP_SERVER=${SMTP_SERVER:=""}
-export SMTP_PORT=${SMTP_PORT:=0}
-export SMTP_SSL=${SMTP_SSL:=""}
-export SMTP_USER=${SMTP_USER:=""}
-export SMTP_PASSWORD=${SMTP_PASSWORD:=""}
-export EMAIL_FROM=${EMAIL_FROM:=""}
 
 # Deode SSH private key
 if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
