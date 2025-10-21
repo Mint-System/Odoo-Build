@@ -2,10 +2,10 @@
 
 export RUNNING_ENV=${RUNNING_ENV:="development"}
 export SERVER_WIDE_MODULES="base,web,$SERVER_WIDE_MODULES"
-export PROXY_MODE=${PROXY_MODE:=False}
+export PROXY_MODE=${PROXY_MODE:=True}
 export LOG_LEVEL=${LOG_LEVEL:="info"}
 export MAX_CRON_THREADS=${MAX_CRON_THREADS:=2}
-export LIST_DB=${LIST_DB:=True}
+export LIST_DB=${LIST_DB:=False}
 export LOG_DB=${LOG_DB:=False}
 export LOG_HANDLER=${LIST_DB:="[':INFO']"}
 export LOGFILE=${LIST_DB:="None"}

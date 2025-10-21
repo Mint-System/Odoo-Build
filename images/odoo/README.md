@@ -134,10 +134,10 @@ services:
       PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
-      PROXY_MODE: True
+      PROXY_MODE: False
       LOG_LEVEL: debug
       MAX_CRON_THREADS: 4
-      LIST_DB: False
+      LIST_DB: True
       LOG_DB: True
       LOG_HANDLER: [':INFO']
       LOGFILE: None
@@ -401,7 +401,7 @@ The Odoo server can be configured using these env vars:
 * `PYTHON_INSTALL` Comma seperated list of python packages.
 * `SERVER_WIDE_MODULES` Comma separated list of modules to load with server. The variable will be prefixed with `base,web`.
 * `SESSION_DB_URI` Connection string for storing session data in database.
-* `PROXY_MODE` Enable server proxy mode. Default is `False`.
+* `PROXY_MODE` Enable server proxy mode. Default is `True`.
 * `LOG_LEVEL` Set the logging level. Default is `info`.
 * `LOG_DB` When enabled the database log is shown in the Odoo log. Default is `False`.
 * `LOG_HANDLER` Define the log handler. Default is `[':INFO']`.

@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file. The format 
 * Moved `aggregate-git-repos` to `entrypoint.sh`.
 * Support `test-requirements.txt` for `setup-tests`.
 * **BREAKING**: Replaced `ODOO_INIT_DEMO_DATA` to `WITHOUT_DEMO`.
+* Changed default for `PROXY_MODE` to `True` and `LIST_DB` to `FALSE`.
 
 ### Fixed
 
