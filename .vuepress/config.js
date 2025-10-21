@@ -5,6 +5,7 @@ import { shikiPlugin } from '@vuepress/plugin-shiki'
 import { plausiblePlugin } from './plausible'
 import { defineUserConfig } from 'vuepress'
 import sidebar from './sidebar'
+import { searchPlugin } from '@vuepress/plugin-search'
 
 export default defineUserConfig({
     bundler: viteBundler(),
@@ -89,9 +90,12 @@ export default defineUserConfig({
         }
     }),
     plugins: [
-        slimsearchPlugin({
-            indexContent: true,
-            suggestion: false
+        // slimsearchPlugin({
+        //     indexContent: true,
+        //     suggestion: false
+        // }),
+        searchPlugin({
+          maxSuggestions: 10,
         }),
         plausiblePlugin({
             'domain': 'odoo.build'

@@ -139,7 +139,7 @@ services:
       MAX_CRON_THREADS: 4
       LIST_DB: True
       LOG_DB: True
-      LOG_HANDLER: [':INFO']
+      LOG_HANDLER: ':INFO'
       LOGFILE: None
       ADMIN_PASSWD: *****
       DB_FILTER: ^%d$
