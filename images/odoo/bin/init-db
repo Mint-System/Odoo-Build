@@ -15,7 +15,6 @@ if [ -n "$ODOO_DATABASE" ]; then
 
     log-entrypoint "Check if database $ODOO_DATABASE exists..."
     DATABASE_EXISTS=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
-    log-entrypoint "Database exists check result: $DATABASE_EXISTS"
 
     # If it does not exist, create it
     if [ "$DATABASE_EXISTS" = "0" ]; then
