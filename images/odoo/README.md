@@ -387,7 +387,7 @@ The entrypoint script searches for module folders in the addons path and creates
   * `/opt/odoo/enterprise` Reserved location for Odoo enterprise modules.
   * `/var/lib/odoo/git` Reserved location for git repos.
   * `$TEST_ADDONS_DIR` Variable location for module testing.
-  * `/opt/odoo/addons` Reserved location for Odoo community modules. 
+  * `/opt/odoo/addons` Reserved location for Odoo community modules.
 
 ### Initialize
 
@@ -466,7 +466,7 @@ With this image you can also run module tests.
 
 If you have additional config for Odoo use the vars:
 
-* `ADDITIONAL_ODOO_RC`: Added to the main section of the odoo.conf.
+* `ADDITIONAL_ODOO_RC`: Added to the options section of the odoo.conf.
 * `IR_CONFIG_PARAMETER`: Added to the `ir.config_parameter` section of the odoo.conf.
 
 ### Naming
