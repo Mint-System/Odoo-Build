@@ -28,13 +28,18 @@ export LIMIT_MEMORY_SOFT=${LIMIT_TIME_REAL:=""}
 export LIMIT_MEMORY_HARD_GEVENT=${LIMIT_TIME_REAL:=""}
 export LIMIT_MEMORY_SOFT_GEVENT=${LIMIT_TIME_REAL:=""}
 export MODULE_AUTO_INSTALL_DISABLED=${MODULE_AUTO_INSTALL_DISABLED:=""}
+export ADDITIONAL_ODOO_RC=${ADDITIONAL_ODOO_RC:=""}
+export IR_CONFIG_PARAMETER=${IR_CONFIG_PARAMETER:=""}
 
-# Deode SSH private key
+# Add SSH keys to conf
 if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
     GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    IR_CONFIG_PARAMETER+=$'\n'"git.ssh_private_key = \"$GIT_SSH_PRIVATE_KEY\""
 fi
-export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = \"$GIT_SSH_PUBLIC_KEY\"")
-export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = \"$GIT_SSH_PRIVATE_KEY\"")
+if [ -n "$GIT_SSH_PUBLIC_KEY" ]; then
+    IR_CONFIG_PARAMETER+=$'\n'"git.ssh_public_key = \"$GIT_SSH_PUBLIC_KEY\""
+fi
+export IR_CONFIG_PARAMETER
 
 TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
 OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"

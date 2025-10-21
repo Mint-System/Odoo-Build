@@ -31,6 +31,7 @@ limit_memory_hard_gevent = $LIMIT_MEMORY_HARD_GEVENT
 limit_memory_soft_gevent = $LIMIT_MEMORY_SOFT_GEVENT
 modules_auto_install_disabled = $MODULE_AUTO_INSTALL_DISABLED
 
+$ADDITIONAL_ODOO_RC
+
 [ir.config_parameter]
-$GIT_SSH_PUBLIC_KEY_PARAM
-$GIT_SSH_PRIVATE_KEY_PARAM
+$IR_CONFIG_PARAMETER

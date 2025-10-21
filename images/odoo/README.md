@@ -158,6 +158,8 @@ services:
       TEST_EXCLUDE: partner_fax
       AUTO_UPDATE_TRANSLATIONS: True
       AUTO_UPDATE_MODULES_LIST: True
+      ADDITIONAL_ODOO_RC: "syslog = True"
+      IR_CONFIG_PARAMETER: "web.base.url = https://odoo.example.com"
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -447,13 +449,20 @@ The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-con
 
 Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
 
-### Test
+### Testing
 
 With this image you can also run module tests.
 
 * `TEST_ADDONS_DIR`: Provide the directory with the modules that should be tests.
 * `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
 * `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
+
+### Additional Config
+
+If you have additional config for Odoo use the vars:
+
+* `ADDITIONAL_ODOO_RC`: Added to the main section of the odoo.conf.
+* `IR_CONFIG_PARAMETER`: Added to the `ir.config_parameter` section of the odoo.conf.
 
 ### Naming
 
