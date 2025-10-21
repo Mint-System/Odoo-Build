@@ -15,7 +15,7 @@ export LOG_LEVEL=${LOG_LEVEL:="info"}
 export MAX_CRON_THREADS=${MAX_CRON_THREADS:=2}
 export LIST_DB=${LIST_DB:=False}
 export LOG_DB=${LOG_DB:=False}
-export LOG_HANDLER=${LIST_DB:="[':INFO']"}
+export LOG_HANDLER=${LOG_HANDLER:="[':INFO']"}
 export LOGFILE=${LIST_DB:="None"}
 export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
 export DB_FILTER=${DB_FILTER:=""}
