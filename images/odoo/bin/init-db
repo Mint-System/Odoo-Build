@@ -27,15 +27,14 @@ if [ -n "$ODOO_DATABASE" ]; then
 
     if ! check-database-initialized; then
         log-entrypoint "Database not initialized, starting initialization process"
-        ODOO_INIT_DEMO_DATA=${ODOO_INIT_DEMO_DATA:=False}
+        WITHOUT_DEMO=${WITHOUT_DEMO:=True}
         ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:="admin"}
         ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:="admin"}
         ODOO_INIT_LANG=${ODOO_INIT_LANG:="en_US"}
         ODOO_INIT_ADDONS=${ODOO_INIT_ADDONS:="web"}
-        ODOO_INIT_WITH_DEMO=${ODOO_INIT_WITH_DEMO:="false"}
 
         ODOO_INIT_PARAM=""
-        if [ "$ODOO_INIT_DEMO_DATA" = "False" ]; then
+        if [ "$WITHOUT_DEMO" = "True" ]; then
             ODOO_INIT_PARAM="--without-demo=all"
         fi
 

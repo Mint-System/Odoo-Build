@@ -13,6 +13,11 @@ All notable changes to this project will be documented in this file. The format 
 ### Updated
 
 * Prefix Odoo image entrypoint echos.
-* BREAKING: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
+* **BREAKING**: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
 * Moved `aggregate-git-repos` to `entrypoint.sh`.
 * Support `test-requirements.txt` for `setup-tests`.
+* **BREAKING**: Replaced `ODOO_INIT_DEMO_DATA` to `WITHOUT_DEMO`.
+
+### Fixed
+
+* Inconsistent naming of `DBFILTER` is now `DB_FILTER`.

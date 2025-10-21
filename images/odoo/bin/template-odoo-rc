@@ -10,7 +10,7 @@ export LOG_DB=${LOG_DB:=False}
 export LOG_HANDLER=${LIST_DB:="[':INFO']"}
 export LOGFILE=${LIST_DB:="None"}
 export ADMIN_PASSWD=${ADMIN_PASSWD:="odoo"}
-export DBFILTER=${DBFILTER:=""}
+export DB_FILTER=${DB_FILTER:=""}
 export WORKERS=${WORKERS:=0}
 export LIMIT_REQUEST=${LIMIT_REQUEST:=8192}
 export LIMIT_TIME_CPU=${LIMIT_TIME_CPU:=60}

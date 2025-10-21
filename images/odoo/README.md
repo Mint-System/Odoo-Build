@@ -88,6 +88,7 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      DB_NAME: odoo
       DB_MAXCONN: 128
       PGSSLMODE: verify-ca
       PGSSLROOTCERT: /mnt/postgres-secret/ca.crt
@@ -124,12 +125,12 @@ services:
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_DATABASE: "16.0"
-      ODOO_INIT_DEMO_DATA: True
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
       ODOO_INIT_LANG: de_CH
       ODOO_INIT_ADDONS: server_environment_ir_config_parameter
       RUNNING_ENV: production
+      WITHOUT_DEMO: False
       PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
       SESSION_DB_URI: postgres://odoo:odoo@db/16.0
@@ -141,7 +142,7 @@ services:
       LOG_HANDLER: [':INFO']
       LOGFILE: None
       ADMIN_PASSWD: *****
-      DBFILTER: ^%d$
+      DB_FILTER: ^%d$
       WORKERS: 4
       LIMIT_REQUEST: 16384
       LIMIT_TIME_CPU: 300
@@ -308,9 +309,10 @@ Odoo supports the PostgreSQL database only.
 * `PGUSER` Database username.
 * `PGPASSWORD` Database user password.
 * `PGPORT` Postgres server port. Default is `5432`.
+* `DB_NAME` Fixed database name. Default is ``.
+* `DB_MAXCONN`: Maximum database connection. default is `64`.
 * `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
 * `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
-* `DB_MAXCONN`: Maximum database connection. default is `64`.
 
 ### SMTP Server
 
@@ -384,12 +386,12 @@ The entrypoint script searches for module folders in the addons path and creates
 
 Set these environment variables for the database init:
 
-* `ODOO_DATABASE` Name of the Odoo database. No default is set.
-* `ODOO_INIT_DEMO_DATA` If enabled Odoo inits the database with demo data. Default is `false`.
+* `ODOO_DATABASE` Name of the Odoo database for initialisation.
 * `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
 * `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
 * `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
 * `ODOO_INIT_ADDONS` Provide comma separated list of modules for database init. Default is `web`.
+* `WITHOUT_DEMO` If enabled Odoo inits the database with demo data. Default is `True`.
 
 ### Server Environment
 
