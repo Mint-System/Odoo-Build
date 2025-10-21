@@ -16,6 +16,7 @@ All notable changes to this project will be documented in this file. The format 
 * Renamed `upgrade-module` to `migrate-module`.
 * **BREAKING**: Replaced `ODOO_INIT_DEMO_DATA` to `WITHOUT_DEMO`.
 * Env var `IR_CONFIG_PARAMETER` to append to ir config section.
+* **BREAKING**: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
 
 ## 2025-09-12
 
