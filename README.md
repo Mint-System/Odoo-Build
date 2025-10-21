@@ -169,7 +169,7 @@ The paths will be appended to the Odoo config.
 In your `.env` file set this env var:
 
 ```bash
-ODOO_INIT_DEMO_DATA=False
+WITHOUT_DEMO=True
 ```
 
 ### Set Odoo database name

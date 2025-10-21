@@ -213,7 +213,7 @@ export PYTHONPATH="$PWD/odoo"
 
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
-ODOO_INIT_DEMO_DATA=${ODOO_INIT_DEMO_DATA:="True"}
+WITHOUT_DEMO=${WITHOUT_DEMO:="False"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
 ODOO_PORT=${ODOO_PORT:="8069"}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:="pgvector/pgvector:pg16-trixie"}
@@ -249,7 +249,7 @@ else
     OS_OPEN="xdg-open"
 fi
 
-if [ "$ODOO_INIT_DEMO_DATA" = "False" ]; then
+if [ "$WITHOUT_DEMO" = "True" ]; then
     ODOO_PARAM="--without-demo=all"
 fi
 
@@ -379,21 +379,50 @@ function template-odoo-rc() {
       export $VAR
     done
 
-    # Deode SSH private key
+    IR_CONFIG_PARAMETER=${IR_CONFIG_PARAMETER:-""}
+
     if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
         GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+        IR_CONFIG_PARAMETER+=$'\n'"git.ssh_private_key = \"$GIT_SSH_PRIVATE_KEY\""
     fi
 
-    export BASE_URL_WEBSITE_PARAM=$([ -n "$BASE_URL_WEBSITE" ] && echo "base_url_website = $BASE_URL_WEBSITE")
-    export BASE_URL_APP_PARAM=$([ -n "$BASE_URL_APP" ] && echo "base_url_app = $BASE_URL_APP")
-    export GIT_SSH_PUBLIC_KEY_PARAM=$([ -n "$GIT_SSH_PUBLIC_KEY" ] && echo "git.ssh.public.key = \"$GIT_SSH_PUBLIC_KEY\"")
-    export GIT_SSH_PRIVATE_KEY_PARAM=$([ -n "$GIT_SSH_PRIVATE_KEY" ] && echo "git.ssh.private.key = \"$GIT_SSH_PRIVATE_KEY\"")
-    export UPLOADCARE_PUBLIC_KEY_PARAM=$([ -n "$UPLOADCARE_PUBLIC_KEY" ] && echo "uploadcare.public_key = $UPLOADCARE_PUBLIC_KEY")
-    export UPLOADCARE_SECRET_KEY_PARAM=$([ -n "$UPLOADCARE_SECRET_KEY" ] && echo "uploadcare.secret_key = $UPLOADCARE_SECRET_KEY")
-    export KEYCLOAK_BASE_URL_PARAM=$([ -n "$KEYCLOAK_BASE_URL" ] && echo "keycloak.base_url = $KEYCLOAK_BASE_URL")
-    export KEYCLOAK_CLIENT_ID_PARAM=$([ -n "$KEYCLOAK_CLIENT_ID" ] && echo "keycloak.client_id = $KEYCLOAK_CLIENT_ID")
-    export KEYCLOAK_CLIENT_SECRET_PARAM=$([ -n "$KEYCLOAK_CLIENT_SECRET" ] && echo "keycloak.client_secret = $KEYCLOAK_CLIENT_SECRET")
-    export KEYCLOAK_REALM_PARAM=$([ -n "$KEYCLOAK_REALM" ] && echo "keycloak.realm = $KEYCLOAK_REALM")
+    if [ -n "$GIT_SSH_PUBLIC_KEY" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"git.ssh_public_key = \"$GIT_SSH_PUBLIC_KEY\""
+    fi
+
+    if [ -n "$BASE_URL_WEBSITE" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"base_url_website = \"$BASE_URL_WEBSITE\""
+    fi
+
+    if [ -n "$BASE_URL_APP" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"base_url_app = \"$BASE_URL_APP\""
+    fi
+
+    if [ -n "$UPLOADCARE_PUBLIC_KEY" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"uploadcare.public_key = \"$UPLOADCARE_PUBLIC_KEY\""
+    fi
+
+    if [ -n "$UPLOADCARE_SECRET_KEY" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"uploadcare.secret_key = \"$UPLOADCARE_SECRET_KEY\""
+    fi
+
+    if [ -n "$KEYCLOAK_BASE_URL" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"keycloak.base_url = \"$KEYCLOAK_BASE_URL\""
+    fi
+
+    if [ -n "$KEYCLOAK_CLIENT_ID" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"keycloak.client_id = \"$KEYCLOAK_CLIENT_ID\""
+    fi
+
+    if [ -n "$KEYCLOAK_CLIENT_SECRET" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"keycloak.client_secret = \"$KEYCLOAK_CLIENT_SECRET\""
+    fi
+
+    if [ -n "$KEYCLOAK_REALM" ]; then
+        IR_CONFIG_PARAMETER+=$'\n'"keycloak.realm = \"$KEYCLOAK_REALM\""
+    fi
+
+    export IR_CONFIG_PARAMETER
 
     envsubst < "odoo.conf.template" > "$ODOO_RC"
 }
@@ -1308,7 +1337,7 @@ function test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
         export ODOO_ADDONS_PATH="/mnt/oca/partner-contact"
         export ODOO_DATABASE=test
-        export ODOO_INIT_DEMO_DATA=True
+        export WITHOUT_DEMO=False
         export ODOO_INIT_LOGIN=test
         export ODOO_INIT_PASSWORD=test
         export ODOO_INIT_LANG=de_CH
