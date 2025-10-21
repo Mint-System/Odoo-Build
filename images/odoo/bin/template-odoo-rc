@@ -1,5 +1,6 @@
 #!/bin/bash
 
+export DB_NAME=${DB_NAME:=""}
 export DB_MAXCONN=${DB_MAXCONN:=64}
 export SMTP_SERVER=${SMTP_SERVER:=""}
 export SMTP_PORT=${SMTP_PORT:=0}
