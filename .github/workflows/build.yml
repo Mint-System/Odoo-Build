@@ -36,6 +36,8 @@ jobs:
         run: ./task install
       - name: Login docker
         run: ./task login-docker ${{ secrets.CONTAINER_REGISTRY_USERNAME }} ${{ secrets.CONTAINER_REGISTRY_PASSWORD }}
+      - name: Test Odoo image
+        run: ./task test-image images/odoo
       - name: Build
         run: ./task build images/odoo --push
         env:

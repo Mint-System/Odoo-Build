@@ -2,6 +2,11 @@
 set -e
 
 if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-    ssh-add -d ~/.ssh/id_ed25519
-    rm ~/.ssh/id_ed25519
+    log-entrypoint "Remove SSH key from env var."
+    if pgrep -u "$(id -u)" ssh-agent > /dev/null; then
+        if [ -f ~/.ssh/id_ed25519 ]; then
+            ssh-add -d ~/.ssh/id_ed25519 2>/dev/null || true
+        fi
+    fi
+    rm -f ~/.ssh/id_ed25519
 fi

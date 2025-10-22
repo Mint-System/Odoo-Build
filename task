@@ -782,7 +782,7 @@ function login-podman() {
 function test-image() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    if [ "$1" == "images/odo" ]; then
+    if [ "$1" == "images/odoo" ]; then
         CONTAINER_TAG="odoo:$ODOO_REVISION"
     fi
     if [ "$1" == "images/odoo-upgrade" ]; then
@@ -794,7 +794,6 @@ function test-image() {
 
     if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
-
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
