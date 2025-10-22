@@ -8,6 +8,7 @@ All notable changes to this project will be documented in this file. The format 
 
 * Added OCA maintainer toools repo.
 * Repo task and workflow templates to build and publish modules as python packages.
+* Added `hatch-odoo` and new command option `start hatch`.
 
 ### Updated
 
@@ -17,6 +18,7 @@ All notable changes to this project will be documented in this file. The format 
 * **BREAKING**: Replaced `ODOO_INIT_DEMO_DATA` to `WITHOUT_DEMO`.
 * Env var `IR_CONFIG_PARAMETER` to append to ir config section.
 * **BREAKING**: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
+* **BREAKING**: Renamed `native` to `source`.
 
 ## 2025-09-12
 

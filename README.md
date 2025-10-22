@@ -97,7 +97,7 @@ task init-db
 Start Odoo from source.
 
 ```bash
-task start native
+task start source
 ```
 
 The browser will be opened automatically.

@@ -34,3 +34,4 @@ odoo-module-migrator
 click-odoo-contrib
 git-aggregator
 git+https://github.com/OCA/maintainer-tools
+hatch-odoo

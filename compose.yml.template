@@ -15,6 +15,7 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
+      DB_NAME: ${DB_NAME}
       DB_MAXCONN: ${DB_MAXCONN}
       PGSSLMODE: ${PGSSLMODE}
       PGSSLROOTCERT: "/mnt/postgres-odoo/ca.crt"
@@ -61,7 +62,7 @@ services:
       LOG_HANDLER: ${LOG_HANDLER}
       LOGFILE: ${LOGFILE}
       ADMIN_PASSWD: ${ADMIN_PASSWD}
-      DBFILTER: ${DBFILTER}
+      DB_FILTER: ${DB_FILTER}
       WORKERS: ${WORKERS}
       LIMIT_REQUEST: ${LIMIT_REQUEST}
       LIMIT_TIME_CPU: ${LIMIT_TIME_CPU}
