@@ -1,5 +1,6 @@
 #!/bin/bash
-set -e
+# Commands such as git pull return exit code if there are no changes
+# set -e
 
 if [ -n "$ADDONS_GIT_REPOS" ]; then
     GITLAB_URL="${GITLAB_URL:="https://gitlab.com"}"
@@ -53,7 +54,7 @@ if [ -n "$ADDONS_GIT_REPOS" ]; then
                 GIT_URL="${GIT_PROTO}${FORGEJO_USERNAME}:${FORGEJO_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
             fi
 
-            log-entrypoint "Clone ${GIT_PROTO}${GIT_HOSTNAME} branch $GIT_BRANCH."
+            log-entrypoint "Clone ${GIT_URL} branch $GIT_BRANCH."
             git clone --depth "$GIT_CLONE_DEPTH" --single-branch --branch "$GIT_BRANCH" "$GIT_URL" "$GIT_LOCAL_PATH"
         else
             log-entrypoint "Pull $GIT_BRANCH branch in $GIT_LOCAL_PATH."
