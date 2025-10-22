@@ -1060,8 +1060,8 @@ function install() {
         echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
     fi
 
-    echo "Setup odoo-build with hatch-odoo."
-    UV_NO_CACHE=1 uv pip install -e .
+    # echo "Setup odoo-build with hatch-odoo."
+    # UV_NO_CACHE=1 uv pip install -e .
 }
 
 # Process Commands
