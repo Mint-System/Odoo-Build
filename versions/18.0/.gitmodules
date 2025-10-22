@@ -144,3 +144,7 @@
 	path = addons/account_financial_reporting
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Financial-Reporting.git
 	branch = 18.0
+[submodule "addons/sale_workflow"]
+	path = addons/sale_workflow
+	url = git@github.com:Mint-System/Odoo-Apps-sale_workflow.git
+	branch = 18.0
