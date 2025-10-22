@@ -223,6 +223,7 @@ PGSSLMODE=${PGSSLMODE:="prefer"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem"}
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
+PLATFORM=${PLATFORM:="linux/amd64"}
 BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
@@ -652,10 +653,8 @@ function container-ps() {
 function build() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    # Set container tag and platform based on Dockerfile
-    PLATFORM="linux/amd64"
+    # Set container tag based on Dockerfile
     if [ "$1" = "images/odoo" ]; then
-        PLATFORM="linux/amd64,linux/arm64"
         MANIFEST_FILE="images/odoo/Dockerfile"
         CONTAINER_TAG="odoo:$ODOO_REVISION"
         LATEST_TAG="odoo:$ODOO_VERSION"
