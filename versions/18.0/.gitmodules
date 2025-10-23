@@ -148,3 +148,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-sale_workflow.git
 	branch = 18.0
+[submodule "addons/account_reconcile"]
+	path = addons/account_reconcile
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
+	branch = 18.0
