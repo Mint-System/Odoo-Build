@@ -3,13 +3,13 @@ set -e
 
 # Add extra addons path to addons path
 if [ -d "/mnt/extra-addons" ]; then
-    log-entrypoint "Add /mnt/extra-addons to addons path."
+    log-entrypoint "Prepend /mnt/extra-addons to addons path."
     ODOO_ADDONS_PATH="/mnt/extra-addons,$ODOO_ADDONS_PATH"
 fi
 
 # Add enterprise path to addons path
 if [ -d "/opt/odoo/enterprise" ]; then
-    log-entrypoint "Add /opt/odoo/enterprise to addons path."
+    log-entrypoint "Prepend /opt/odoo/enterprise to addons path."
     ODOO_ADDONS_PATH="/opt/odoo/enterprise,$ODOO_ADDONS_PATH"
 fi
 
@@ -33,11 +33,8 @@ if [ -n "$ODOO_ADDONS_PATH" ]; then
 
     # Set parent folder of module paths as new addons path
     ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} dirname {} | sort -u | tr "\n" "," | sed 's/,$//')
-fi
 
-# Combine predefined addons path and odoo addons path
-if [ -n "$ODOO_ADDONS_PATH" ]; then
-    log-entrypoint "Append $ADDONS_PATH to addons path."
+    # Combine predefined addons path and odoo addons path
     ADDONS_PATH=$(echo "${ODOO_ADDONS_PATH},${ADDONS_PATH}")
 fi
 

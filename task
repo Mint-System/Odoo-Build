@@ -806,6 +806,11 @@ function test-image() {
         ./images/odoo/bin/clone-git-addons
         rm -rf "$LOCAL_PATH/github.com"
 
+        echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
+        export TEST_ADDONS_DIR="./templates"
+        source ./images/odoo/bin/set-addons-path
+        echo $ADDONS_PATH | grep "./templates"
+
         echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
         echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
         echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
