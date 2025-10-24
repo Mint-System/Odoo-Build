@@ -563,3 +563,28 @@ Generate the flamegraph and copy the flamegraph to the host.
 docker compose exec odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
 docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 ```
+
+### Scripts
+
+Under the hood the image uses several scripts to manage Odoo. Make yourself familiar with these scripts:
+
+* `add-ssh-key`
+* `aggregate-git-repos`
+* `check-database-initialized`
+* `clone-git-addons`
+* `download-git-archive`
+* `init-db`
+* `init-module`
+* `install-python-packages`
+* `log-entrypoint`
+* `parse-url`
+* `remove-ssh-key`
+* `run-tests`
+* `set-addons-path`
+* `setup-tests`
+* `template-odoo-rc`
+* `update-module`
+* `update-modules`
+* `update-modules-list`
+* `update-translations`
+* `wait-for-pg`
