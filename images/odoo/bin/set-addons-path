@@ -3,26 +3,30 @@ set -e
 
 # Add extra addons path to addons path
 if [ -d "/mnt/extra-addons" ]; then
+    log-entrypoint "Add /mnt/extra-addons to addons path."
     ODOO_ADDONS_PATH="/mnt/extra-addons,$ODOO_ADDONS_PATH"
 fi
 
 # Add enterprise path to addons path
 if [ -d "/opt/odoo/enterprise" ]; then
+    log-entrypoint "Add /opt/odoo/enterprise to addons path."
     ODOO_ADDONS_PATH="/opt/odoo/enterprise,$ODOO_ADDONS_PATH"
 fi
 
 # Add git path to addons path
 if [ -d "/var/lib/odoo/git" ]; then
+    log-entrypoint "Add /var/lib/odoo/git to addons path."
     ODOO_ADDONS_PATH="/var/lib/odoo/git,$ODOO_ADDONS_PATH"
 fi
 
 # Add test addons dir to addons path
 if [ -n "$TEST_ADDONS_DIR" ]; then
+    log-entrypoint "Append $TEST_ADDONS_DIR to addons path."
     ODOO_ADDONS_PATH=$(echo "${ODOO_ADDONS_PATH},${TEST_ADDONS_DIR}")
 fi
 
 if [ -n "$ODOO_ADDONS_PATH" ]; then
-    log-entrypoint "Resolve addons path: $ODOO_ADDONS_PATH"
+    log-entrypoint "Resolve addons path for Odoo $ODOO_VERSION: $ODOO_ADDONS_PATH"
 
     # Search for module manifest files and return list of module paths
     ODOO_ADDONS_PATH=$(echo "$ODOO_ADDONS_PATH" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
@@ -33,6 +37,7 @@ fi
 
 # Combine predefined addons path and odoo addons path
 if [ -n "$ODOO_ADDONS_PATH" ]; then
+    log-entrypoint "Append $ADDONS_PATH to addons path."
     ADDONS_PATH=$(echo "${ODOO_ADDONS_PATH},${ADDONS_PATH}")
 fi
 
