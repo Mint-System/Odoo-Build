@@ -1987,9 +1987,13 @@ function generate-oca-module-docs() {
     MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
     activate-venv
 
+    echo "Setup readme folder"
+    mkdir -p "$MODULE_PATH/readme"
+    cp -n -r "templates/module/readme" "$MODULE_PATH"
+
+    echo "Update CONTRIBUTORS.rst"
     GIT_USER_NAME="$(git config user.name)"
     GIT_USER_EMAIL="$(git config user.email)"
-    echo "Update CONTRIBUTORS.rst"
     export GIT_USER_NAME GIT_USER_EMAIL
     envsubst < templates/module/readme/CONTRIBUTORS.rst > "$MODULE_PATH/readme/CONTRIBUTORS.rst"
 
