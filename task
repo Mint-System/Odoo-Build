@@ -83,7 +83,7 @@ function help-table() {
     # Revision
     printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
     printf "$COLUMN" "checkout-revision" "[revision]" "Load Odoo revision env var and checkout git folders."
-    printf "$COLUMN" "commit-and-push-revision" "" "Commit all changes and tag with current revision"
+    printf "$COLUMN" "commit-and-push-revision" "[revision]" "Commit all changes and tag with current revision."
     printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
     printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
     printf "$COLUMN" "load-latest-revision" "[version]" "Load the latest revision of the Odoo version."
@@ -2762,6 +2762,10 @@ function create-revision() {
 }
 
 function commit-and-push-revision() {
+    if [ -n "$1" ]; then
+        ODOO_REVISION="$1"
+    fi
+
     echo "Remove existing tag..."
     git tag -d "$ODOO_REVISION"
 
