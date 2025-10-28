@@ -141,6 +141,18 @@ ID: `mint_system.project.view_project_kanban.disable_create`
 ```
 Source: [snippets/project.view_project_kanban.disable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/project.view_project_kanban.disable_create.xml)
 
+### Sort Date Desc  
+ID: `mint_system.project.view_project_kanban.sort_date_desc`  
+```xml
+<data inherit_id="project.view_project_kanban" priority="50">
+    <xpath expr="//kanban" position="attributes">
+        <attribute name="default_order">date desc</attribute>
+      </xpath>
+</data>
+
+```
+Source: [snippets/project.view_project_kanban.sort_date_desc.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/project.view_project_kanban.sort_date_desc.xml)
+
 ## View Task Form2  
 ### Domain Gantt Dates  
 ID: `mint_system.project.view_task_form2.domain_gantt_dates`  

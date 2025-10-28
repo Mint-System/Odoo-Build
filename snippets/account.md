@@ -1996,6 +1996,17 @@ ID: `mint_system.account.report_invoice_document.remove_summary_table`
 ```
 Source: [snippets/account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.remove_summary_table.xml)
 
+### Remove Tax Currency  
+ID: `mint_system.account.report_invoice_document.remove_tax_currency`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+     <xpath expr="//t[@t-call='account.document_tax_totals_company_currency_template']"
+           position="replace"/>
+</data>
+
+```
+Source: [snippets/account.report_invoice_document.remove_tax_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.remove_tax_currency.xml)
+
 ### Remove Taxes  
 ID: `mint_system.account.report_invoice_document.remove_taxes`  
 ```xml
@@ -2704,6 +2715,27 @@ ID: `mint_system.account.report_invoice_document.replace_payment_communication`
 
 ```
 Source: [snippets/account.report_invoice_document.replace_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_payment_communication.xml)
+
+### Replace Payment Term  
+ID: `mint_system.account.report_invoice_document.replace_payment_term`  
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+  <xpath expr="//div[@name='payment_term']" position="replace">
+
+    <t t-if="o.invoice_payment_term_id.note and o.company_id.id == 8">
+      <br/>
+      <div>
+            Zahlungsbedingungen: <span t-field="o.invoice_payment_term_id.note"/>
+      </div>
+    </t>
+    <t t-else="">
+      <div t-field="o.invoice_payment_term_id.note" name="payment_term"/>
+    </t>
+
+  </xpath>
+</data>
+```
+Source: [snippets/account.report_invoice_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_payment_term.xml)
 
 ### Replace Product Description  
 ID: `mint_system.account.report_invoice_document.replace_product_description`  
@@ -3978,8 +4010,8 @@ ID: `mint_system.account.report_invoice_document.x_name`
                                 <t t-set="sorted_dates" t-value="sorted(all_invoice_dates)"/>
                                 <t t-set="second_latest_date" t-value="sorted_dates[-2]"/>
                             </t>
-
-                            <t t-if="picking.picking_id and second_latest_date and picking.picking_id.x_date_done &gt; second_latest_date">
+                           
+                            <t t-if="picking.picking_id and (not second_latest_date or picking.picking_id.x_date_done &gt; second_latest_date)">
                                 <span>Lieferdatum: </span>
                                 <span t-esc="picking.picking_id.x_date_done" t-options="{'widget': 'date'}"/>
 
@@ -3992,11 +4024,11 @@ ID: `mint_system.account.report_invoice_document.x_name`
                                 </t>
 
                                 <span>Menge: </span>
-                                <t t-set="move_lines" t-value="list(set(picking.picking_id.move_line_ids))"/>
+                                <t t-set="move_lines" t-value="list(set(picking.picking_id.move_ids))"/>
                                 <t t-foreach="move_lines" t-as="move_line">
                                     <t t-if="line.product_id.id == move_line.product_id.id">
                                         <span t-esc="move_line.quantity" t-options="{'widget': 'float', 'precision': 2}"/>
-                                        <span t-esc="move_line.product_uom_id.name"/>
+                                        <span t-esc="move_line.product_uom.name"/>
                                     </t>
                                 </t>
                             </t>
@@ -4853,6 +4885,19 @@ ID: `mint_system.account.view_move_form.x_hide_partner_name`
 
 ```
 Source: [snippets/account.view_move_form.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_form.x_hide_partner_name.xml)
+
+### X Invoice Text  
+ID: `mint_system.account.view_move_form.x_invoice_text`  
+```xml
+<data inherit_id="account.view_move_form" priority="50">
+  <xpath expr="//page[@name='other_info']/group[@id='other_tab_group']/group[@name='utm_link']" position="after">
+    <group string="Invoice text" name="invoice_text">
+      <field name="x_invoice_text" string="Rechnungstext"/>
+    </group>
+  </xpath>
+</data>
+```
+Source: [snippets/account.view_move_form.x_invoice_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.view_move_form.x_invoice_text.xml)
 
 ### X Invoice Warn Msg  
 ID: `mint_system.account.view_move_form.x_invoice_warn_msg`  

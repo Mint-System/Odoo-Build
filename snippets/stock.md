@@ -1511,6 +1511,26 @@ ID: `mint_system.stock.report_delivery_document.add_hs_code`
 ```
 Source: [snippets/stock.report_delivery_document.add_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_hs_code.xml)
 
+### Add Incoterm  
+ID: `mint_system.stock.report_delivery_document.add_incoterm`  
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">  
+
+<xpath expr="//table[@name='stock_move_line_table']" position="after">
+    <div class="row" style="page-break-inside: avoid;">
+      <div class="col">
+        <span t-if="o.sale_id.incoterm">
+           Incoterms: <strong t-field="o.sale_id.incoterm"/>
+         </span>
+      </div>
+    </div>
+  </xpath>
+  
+</data>
+
+```
+Source: [snippets/stock.report_delivery_document.add_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_incoterm.xml)
+
 ### Add Incoterms  
 ID: `mint_system.stock.report_delivery_document.add_incoterms`  
 ```xml
@@ -2910,7 +2930,7 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
                     </td>
                     <td>
                         <strong>Incoterms</strong>
-                        <p t-field="res_company.incoterm_id.code"/>
+                        <p t-field="o.sale_id.incoterm.code"/>
                     </td>
                     <td>
                         <strong>Carrier</strong>
@@ -4356,7 +4376,7 @@ ID: `mint_system.stock.report_location_barcode.label_lapp`
             padding-right: 0px !important;
             padding-left: 0px !important;
             margin: 0px !important;
-            }
+        }
         </style>
 
         <t t-foreach="docs" t-as="o">
@@ -4365,34 +4385,63 @@ ID: `mint_system.stock.report_location_barcode.label_lapp`
                 <t t-call="web.basic_layout">
                     <t t-call="web.html_container">
                         <div>
-                            <table style="width: 100%;">
+                            <table style="width: 100%; background-color: white; border-color: white">
+                                <!-- Section 1: Logo -->
                                 <tr>
                                     <td>
-                                        <div>
-                                            <div class="text-center">
-                                                <span>
-                                                    <img t-att-src="'/web/image/673'" style="height: 60px; margin-top: 20px" alt="Logo"/>
-                                                </span>
-                                            </div>
-                                            <t t-set="name_text" t-value="o.name or ''"/>
-                                            <t t-set="name_len" t-value="len(name_text) if name_text else 1"/>
-                                            <t t-set="font_size" t-value="min(160, max(20, int(500 / name_len * 2)))"/>
-                                            <div style="max-width:500px; margin:0 auto; height:240px; text-align:center;">
-                                                <table style="width:100%; height:100%;">
-                                                    <tr>
-                                                        <td style="vertical-align:middle;">
-                                                            <span t-field="o.name" t-att-style="'display:inline-block; white-space:nowrap; font-size: {}px;'.format(font_size)">
-                                                            </span>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </div>
-                                            <div class="text-center">
-                                                <span t-if="o.barcode" t-field="o.barcode" style="margin-bottom: 10px;" t-options="{'widget': 'barcode', 'humanreadable': 0, 'symbology': 'auto', 'img_style': 'width:120mm;height:20mm; margin-bottom: 20px'}">1234567890</span>
-                                            </div>
+                                        <div class="text-center">
+                                            <span>
+                                                <!-- URL according to attachment id -->
+                                                <img t-att-src="'/web/image/673'" style="height: 5mm; margin-top: 10px" alt="Logo"/>
+                                            </span>
                                         </div>
                                     </td>
                                 </tr>
+                                <!-- Section 2: name (font-size in relation to text length) -->                               
+                                <tr>
+                                    <td style="background-color: white">                                        
+                                        <t t-set="name_text" t-value="o.name or ''"/>
+                                        <t t-set="name_len" t-value="len(name_text) if name_text else 1"/>                                       
+                                        <t t-set="max_font_size" t-value="int(30 * 3.78)"/>
+                                        <t t-set="font_size" t-value="min(min(140, max(20, int(450 / name_len * 2))), max_font_size)"/>
+                                        <t t-set="line_height" t-value="int(font_size * 1.1)"/> 
+                                        <!-- Fix height at 38 mm -->                                    
+                                        <div style="margin:0 auto; min-height:38mm; max-height:38mm; height:38mm; text-align:center; overflow:hidden;">
+                                            <table style="width:100%; height:100%; border-collapse:collapse;">
+                                                <tr>
+                                                    <td style="vertical-align:middle; text-align:center;">
+                                                        <span t-out="o.name"
+                                                              t-att-style="'display:inline-block; white-space:nowrap; overflow:hidden; font-size:{}px; line-height:{}px;'.format(font_size, line_height)">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </td>
+                                </tr> 
+
+                                <!-- Show variables for debugging -->
+                                <!-- 
+                                <tr>
+                                    <td>
+                                        <div class="text-center">
+                                            Schriftgröße: <t t-esc="font_size"/> px /
+                                            Zeilenhöhe: <t t-esc="line_height"/> px /                                           
+                                        </div>
+                                    </td>
+                                </tr>
+                                -->                                
+                                <!-- Section 3: Barcode --> 
+                                <tr>
+                                    <td>
+                                        <div class="text-center">
+                                            <span t-if="o.barcode" t-field="o.barcode" style="margin-bottom: 0px;"
+                                                  t-options="{'widget': 'barcode', 'humanreadable': 0, 'symbology': 'auto', 
+                                                              'img_style': 'width:50mm;height:10mm; margin-bottom: 10px'}">1234567890</span>
+                                        </div>
+                                    </td>
+                                </tr>                              
+                                
                             </table>
                         </div>
                     </t>
@@ -4425,6 +4474,94 @@ ID: `mint_system.stock.report_lot_label.aersolution`
 
 ```
 Source: [snippets/stock.report_lot_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_lot_label.aersolution.xml)
+
+### Label Lapp  
+ID: `mint_system.stock.report_lot_label.label_lapp`  
+```xml
+<data inherit_id="report_lot_label" priority="50">
+    <xpath expr="//t[@t-name='stock.report_lot_label']" position="replace">
+
+        <t t-name="stock.report_lot_label">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <t t-call="web.html_container">
+
+                        <table style="border: 1px solid white; height: 50mm; width: 108mm; background-color: white;">
+                            <!-- Section 1: Logo -->
+                            <tr style="height: 8mm">
+                                <td>
+                                    <div class="text-center" style="background-color: white;">
+                                        <span>
+                                            <img t-att-src="'/web/image/673'" style="height: 5mm; margin-top: 10px" alt="Logo"/>
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div style="margin-right: 0px; background-color: white;">
+                                        <t t-set="name_text" t-value="o.product_id.name or ''"/>
+                                        <t t-set="name_len" t-value="len(name_text) + 9 if name_text else 1"/>
+                                        <t t-set="max_font_size" t-value="int(30 * 3.78)"/>
+                                        <t t-set="font_size" t-value="min(min(140, max(20, int(350 / name_len * 2))), max_font_size)"/>
+                                        <t t-set="line_height" t-value="int(font_size * 1.1)"/>
+                                        <!-- Fix height at 18 mm -->
+                                        <div style="margin:0 auto; min-height:18mm; max-height:18mm; height:18mm; text-align:left; overflow:hidden;">
+                                            <table style="width:100%; height:100%; border-collapse:collapse;">
+                                                <tr>
+                                                    <td style="vertical-align:bottom;">
+                                                        <span t-out="'Produkt: %s' % o.product_id.name" t-att-style="'display:inline-block; white-space:nowrap; overflow:hidden; font-size:{}px; line-height:{}px;'.format(font_size, line_height)">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Section 2: Lot -->
+                            <tr>
+                                <td>
+                                    <div style="margin-right: 0px; background-color: white;">
+                                        <t t-set="lot_text" t-value="o.name or ''"/>
+                                        <t t-set="lot_len" t-value="len(lot_text) + 7 if lot_text else 1"/>
+                                        <t t-set="max_font_size_lot" t-value="int(30 * 3.78)"/>
+                                        <t t-set="font_size_lot" t-value="min(min(140, max(20, int(350 / lot_len * 2))), max_font_size_lot)"/>
+                                        <t t-set="line_height_lot" t-value="int(font_size_lot * 1.1)"/>
+                                        <!-- Fix height at 18 mm -->
+                                        <div style="margin:0 auto; min-height:18mm; max-height:18mm; height:18mm; text-align:left; overflow:hidden;">
+                                            <table style="width:100%; height:100%; border-collapse:collapse;">
+                                                <tr>
+                                                    <td style="vertical-align:top;">
+                                                        <span t-out="'Losnr: %s' % o.name" t-att-style="'display:inline-block; white-space:nowrap; overflow:hidden; font-size:{}px; line-height:{}px;'.format(font_size_lot, line_height_lot)">
+                                                        </span>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Section 3: Barcode -->
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <span t-if="o.name" t-field="o.name" style="margin-bottom: 0px;" t-options="{'widget': 'barcode', 'humanreadable': 0, 'symbology': 'auto','img_style': 'width:50mm;height:10mm; '}">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </t>
+
+                </t>
+            </t>
+        </t>
+
+    </xpath>
+</data>
+```
+Source: [snippets/stock.report_lot_label.label_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_lot_label.label_lapp.xml)
 
 ## Report Picking  
 ### Add Address Block  

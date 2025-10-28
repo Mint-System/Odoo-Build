@@ -2662,9 +2662,8 @@ Source: [snippets/sale.report_saleorder_document.remove_taxes.xml](https://githu
 ID: `mint_system.sale.report_saleorder_document.remove_user_id`  
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <xpath expr="//span[@t-field='doc.user_id']/.." position="replace"/>
+    <xpath expr="//div[@id='informations']//span[@t-field='doc.user_id']/.." position="replace"/>
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.remove_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.remove_user_id.xml)
 
@@ -3694,18 +3693,26 @@ ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         .o_company_1_layout {
-            font-family: Dobra-Book;
+            font-family: Dobra_Book;
             font-size: 80%;
+            }
+        .o_company_3_layout {
+        	font-family: Dobra_Book;
+        	font-size: 80%;
+        	}
+        h2
+            {
+            font-size: 1.4rem;
             }
         </style>
     </xpath>
 
+
     <xpath expr="//div/div/div[2]/span" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
-    </xpath>   
+    </xpath>
 
 </data>
-
 ```
 Source: [snippets/sale.report_saleorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.report_saleorder_document.style_carbo_link.xml)
 

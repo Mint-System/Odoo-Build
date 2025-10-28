@@ -545,6 +545,22 @@ ID: `mint_system.web.external_layout_standard.format_header_slogan`
 ```
 Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.format_header_slogan.xml)
 
+### Header Allnet  
+ID: `mint_system.web.external_layout_standard.header_allnet`  
+```xml
+<data inherit_id="web.external_layout_standard" priority="50">
+    <xpath expr="//div/div/img/../.." position="replace">
+        <div t-attf-class="header o_company_#{company.id}_layout">
+            <div class="row">
+                <img t-if="company.logo" style="max-width: 1200px; margin-top: 10px;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                <div t-if="company.report_header" t-field="company.report_header" class="o_company_tagline mw-50 fw-bold">Company tagline</div>
+            </div>
+        </div>
+    </xpath>
+</data>
+```
+Source: [snippets/web.external_layout_standard.header_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_allnet.xml)
+
 ### Header Brand  
 ID: `mint_system.web.external_layout_standard.header_brand`  
 ```xml

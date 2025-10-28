@@ -1,0 +1,5 @@
+<data inherit_id="mail_tracking.view_mail_tracking_email_tree" priority="50">
+    <tree position="attributes">
+        <attribute name="delete">1</attribute>
+    </tree>
+</data>

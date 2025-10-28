@@ -36,6 +36,21 @@ ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_end_da
 ```
 Source: [snippets/sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.show_end_date.xml)
 
+### Show Template Id  
+ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id`  
+```xml
+<data
+    inherit_id="sale_subscription.sale_subscription_order_view_form"
+    priority="50"
+>
+    <field name="sale_order_template_id" position="attributes">
+        <attribue name="attrs">{'invisible': [('subscription_management', '=', 'upsell')]}</attribue>
+    </field>
+</data>
+
+```
+Source: [snippets/sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.show_template_id.xml)
+
 ## Sale Subscription Template View Form  
 ### Journal Id Domain  
 ID: `mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain`  

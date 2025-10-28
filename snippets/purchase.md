@@ -804,6 +804,101 @@ ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
 ```
 Source: [snippets/purchase.report_purchaseorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_infotable.xml)
 
+### Add Infotable Brand  
+ID: `mint_system.purchase.report_purchaseorder_document.add_infotable_brand`  
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+    <xpath expr="//div[@id='informations']" position="replace">
+        <style>
+    table#info {
+      width: 100%;
+      margin-bottom: 25px;
+      border-color: white;
+    }
+     table#info tr {
+      line-height: 1.2;
+      text-align: left;
+    }
+     table#info span {
+      line-height: 1.2;
+    }
+    .note {
+      font-size: 9pt;
+    }
+    </style>
+        <table id="info">
+            <tr>
+                <th><strong>Unsere Angaben</strong></th>
+                <td/>
+                <th><strong>Ihre Angaben</strong></th>
+            </tr>
+            <tr>
+                <td width="17%">Datum</td>
+                <td width="40%">
+                    <t t-if="o.date_approve">
+                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                    <t t-else="">
+                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </t>
+                </td>
+                <td width="18%">Lieferung</td>
+                <td>
+                    <span t-field="o.picking_type_id.name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Lieferanten Nr.</td>
+                <td>
+                    <span t-field="o.partner_id.ref"/>
+                </td>
+                <td/>
+                <td>
+                    <span t-field="o.picking_type_id.company_id.name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>MWST-Nr.</td>
+                <td>
+                    <span t-field="o.company_id.vat"/><span> MWST</span>
+                </td>
+                <td/>
+                <td>
+                    <span t-field="o.picking_type_id.company_id.zip"/>
+                    <span t-field="o.picking_type_id.company_id.city"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Kommission</td>
+                <td>
+                    <span t-field="o.origin"/>
+                </td>
+                <td/>
+                <td/>
+            </tr>
+            <tr>
+                <td>Kontakt</td>
+                <td>
+                    <span t-field="o.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Projekt-Nr.</td>
+                <td>
+                    <span t-field="o.project_id"/>
+                </td>
+            </tr>
+        </table>
+        <!--
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
+        -->
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchaseorder_document.add_infotable_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.add_infotable_brand.xml)
+
 ### Add Taxes  
 ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`  
 ```xml
@@ -1830,25 +1925,36 @@ Source: [snippets/purchase.report_purchaseorder_document.style_airwork.xml](http
 ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`  
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="60">
+
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
-        .o_company_1_layout {
-            font-family: Dobra-Book;
-            font-size: 80%;
-            }
-        h2 {
-               font-size: 1.5rem;
-              }
+		.o_company_1_layout {
+        	font-family: Dobra_Book;
+        	font-size: 80%;
+        	}
+    .o_company_3_layout {
+        	font-family: Dobra_Book;
+        	font-size: 80%;
+        	}
+    	h2 {
+       		font-size: 1.5rem;
+      		}
         </style>
     </xpath>
+
     <xpath expr="//p[@t-field='o.date_order']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
     </xpath>
+
     <xpath expr="//span[@t-field='line.date_planned']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
     </xpath>
-</data>
 
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="class">text-start</attribute>
+    </xpath>
+
+</data>
 ```
 Source: [snippets/purchase.report_purchaseorder_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchaseorder_document.style_carbo_link.xml)
 
@@ -2314,6 +2420,88 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
 
 ```
 Source: [snippets/purchase.report_purchasequotation_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_infotable.xml)
+
+### Add Infotable Brand  
+ID: `mint_system.purchase.report_purchasequotation_document.add_infotable_brand`  
+```xml
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+    <xpath expr="//span[@t-field='o.name']/../.." position="after">
+        <style>
+      table#info {
+        width: 100%;
+        margin-bottom: 25px;
+        font-size: 9pt;
+        font-family: arial;
+        border-color: white;
+      }
+        table#info tr {
+        line-height: 1.2;
+        text-align: left;
+      }
+      table#info span {
+        line-height: 1.2;
+      }
+        .note {
+        font-size: 9pt;
+      }
+    </style>
+        <table id="info">
+            <tr>
+                <td width="17%">Order Deadline</td>
+                <td width="40%">
+                    <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                </td>
+                <td width="18%">Our Reference</td>
+                <td width="25%">
+                    <span t-field="o.user_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Customer No.</td>
+                <td>
+                    <span t-field="o.partner_id.ref"/>
+                </td>
+                <td>Incoterm</td>
+                <td>
+                    <span t-field="o.incoterm_id"/>
+                </td>
+            </tr>
+            <tr>
+                <td/>
+                <td>
+                    <span t-field="o.partner_ref"/>
+                </td>
+                <!--
+                <t t-if="o.requisition_id">
+                    <td>Purchase Contract</td>
+                    <td>
+                        <span t-field="o.requisition_id"/>
+                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
+            </t>
+                    </td>
+                </t>
+                -->
+            </tr>
+            <tr>
+                <td>Reference</td>
+                <!--
+                <td>
+                    <span t-field="o.comment"/>
+                </td>
+                -->
+                <td/>
+                <td/>
+            </tr>
+        </table>
+        <!--
+        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+            <span class="note" t-field="o.note_header"/>
+        </t>
+        -->
+    </xpath>
+</data>
+```
+Source: [snippets/purchase.report_purchasequotation_document.add_infotable_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/purchase.report_purchasequotation_document.add_infotable_brand.xml)
 
 ### Append Payment Terms  
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`  

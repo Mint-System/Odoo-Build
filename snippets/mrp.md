@@ -710,6 +710,18 @@ ID: `mint_system.mrp.mrp_production_form_view.x_note`
 Source: [snippets/mrp.mrp_production_form_view.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mrp.mrp_production_form_view.x_note.xml)
 
 ## Mrp Production Tree View  
+### Company Id  
+ID: `mint_system.mrp.mrp_production_tree_view.company_id`  
+```xml
+<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+    <xpath expr="//field[@name='name']" position="after">
+        <field name="company_id" string="test" optional="show"/>
+    </xpath>
+</data>
+
+```
+Source: [snippets/mrp.mrp_production_tree_view.company_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mrp.mrp_production_tree_view.company_id.xml)
+
 ### Hide Date Deadline  
 ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`  
 ```xml

@@ -1,4 +1,15 @@
 # Account Followup
+## Customer Statements Form View  
+### Remove Blocked  
+ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`  
+```xml
+<data inherit_id="account.view_move_form" priority="50">
+    <field name="blocked" position="replace" />
+</data>
+
+```
+Source: [snippets/account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.customer_statements_form_view.remove_blocked.xml)
+
 ## Report Followup Print All  
 ### Style Sozialinfo  
 ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`  

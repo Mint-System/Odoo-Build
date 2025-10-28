@@ -81,10 +81,9 @@ ID: `mint_system.helpdesk.helpdesk_tickets_view_search.advanced_search`
 ```xml
 <data inherit_id="helpdesk.helpdesk_tickets_view_search" priority="50">
     <field name="name" position="attributes">
-        <attribute name="filter_domain">['|',('name','ilike',self),('description','ilike',self)]</attribute>
+        <attribute name="filter_domain">['|',('name','ilike',self),'|',('ticket_ref','ilike',self),('description','ilike',self)]</attribute>
     </field>
 </data>
-
 ```
 Source: [snippets/helpdesk.helpdesk_tickets_view_search.advanced_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/helpdesk.helpdesk_tickets_view_search.advanced_search.xml)
 
