@@ -684,6 +684,10 @@ function build() {
 
     # Select Python version
     case "$ODOO_VERSION" in
+        "14.0")
+            PYTHON_VERSION="3.8"
+            PLATFORM="linux/amd64"
+            ;;
         "15.0")
             PYTHON_VERSION="3.9"
             PLATFORM="linux/amd64"
@@ -808,6 +812,7 @@ function test-image() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
         export TEST_ADDONS_DIR="./templates"
+        export ODOO_VERSION="18.0"
         source ./images/odoo/bin/set-addons-path
         echo $ADDONS_PATH | grep "./templates"
 
