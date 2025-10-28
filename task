@@ -206,13 +206,12 @@ ORG_NAME=Mint-System
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
 ODOO_RC="odoo.conf"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
-PGSSLROOTCERT="tmp/postgres-odoo/ca.crt"
-export PGSSLROOTCERT
-export PYTHONPATH="$PWD/odoo"
-
-# Dynamic env vars
-
+PYTHONPATH="$PWD/odoo"
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
+CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
+
+# Updateable env vars
+
 ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
 WITHOUT_DEMO=${WITHOUT_DEMO:="False"}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
@@ -223,7 +222,6 @@ POSTGRES_SSL=${POSTGRES_SSL:="on"}
 PGSSLMODE=${PGSSLMODE:="prefer"}
 LOG_LEVEL=${LOG_LEVEL:="info"}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem"}
-CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 PLATFORM=${PLATFORM:="linux/amd64"}
 BROWSER_OPEN=${BROWSER_OPEN:=true}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
@@ -235,6 +233,9 @@ SMTP_SSL=${SMTP_SSL:="False"}
 EMAIL_FROM=${EMAIL_FROM:="info@yourcompany.com"}
 MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:="yourcompany.com"}
 LIST_DB=${LIST_DB:="True"}
+CONTAINER_TAG="odoo:$ODOO_REVISION"
+ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:="admin"}
+ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:="admin"}
 
 # Conditional env vars
 
@@ -639,9 +640,6 @@ function template-compose() {
         VAR=${VAR#\$}      # Remove leading $
         export "$VAR"
     done
-    CONTAINER_TAG="odoo:$ODOO_REVISION"
-    ODOO_INIT_LOGIN=admin
-    ODOO_INIT_PASSWORD=admin
 
     envsubst < "compose.yml.template" > "compose.yml"
 }
@@ -656,7 +654,6 @@ function build() {
     # Set container tag based on Dockerfile
     if [ "$1" = "images/odoo" ]; then
         MANIFEST_FILE="images/odoo/Dockerfile"
-        CONTAINER_TAG="odoo:$ODOO_REVISION"
         LATEST_TAG="odoo:$ODOO_VERSION"
     fi
     if [ "$1" = "images/odoo-mailgate" ]; then
@@ -783,13 +780,9 @@ function login-podman() {
 function test-image() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    if [ "$1" == "images/odoo" ]; then
-        CONTAINER_TAG="odoo:$ODOO_REVISION"
-    fi
     if [ "$1" == "images/odoo-upgrade" ]; then
         CONTAINER_TAG="odoo-upgrade"
-    fi
-    if [ "$1" == "images/odoocli" ]; then
+    elif [ "$1" == "images/odoocli" ]; then
         CONTAINER_TAG="odoocli"
     fi
 
@@ -847,7 +840,6 @@ function push() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
     if [ "$1" == "images/odoo" ]; then
-        CONTAINER_TAG="odoo:$ODOO_REVISION"
         LATEST_TAG="odoo:$ODOO_VERSION"
     elif [ "$1" == "images/odoo-mailgate" ]; then
         CONTAINER_TAG="odoo-mailgate"
@@ -1093,7 +1085,6 @@ function start() {
     if [ -z "$2" ]; then
         DATABASE="$ODOO_DATABASE"
     fi
-    CONTAINER_TAG="odoo:$ODOO_REVISION"
 
     if [ -z "$1" ] ; then
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
