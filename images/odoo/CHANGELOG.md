@@ -24,3 +24,4 @@ All notable changes to this project will be documented in this file. The format 
 ### Fixed
 
 * Inconsistent naming of `DBFILTER` is now `DB_FILTER`.
+* Remove `-e` from Odoo pip install.

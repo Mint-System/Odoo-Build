@@ -20,6 +20,10 @@ All notable changes to this project will be documented in this file. The format 
 * **BREAKING**: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
 * **BREAKING**: Renamed `native` to `source`.
 
+### Fixed
+
+* Remove `-e` from Odoo pip install.
+
 ## 2025-09-12
 
 ### Updated

@@ -43,7 +43,7 @@ COPY ./odoo /opt/odoo
 RUN uv pip install pip
 ENV UV_COMPILE_BYTECODE=1
 ENV UV_CONCURRENT_INSTALLS=1
-RUN uv pip install --no-cache-dir -e /opt/odoo -r /opt/odoo/requirements.txt
+RUN uv pip install --no-cache-dir /opt/odoo -r /opt/odoo/requirements.txt
 
 # Clean up unnecessary files to reduce image size
 RUN find /opt/odoo -path "*/tests/*" -type d -exec rm -rf {} +; exit 0 && \
@@ -87,6 +87,8 @@ RUN apt-get update && \
         gnupg \
         expect \
         libcairo2 \
+        libxml2 \
+        libxslt1.1 \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \

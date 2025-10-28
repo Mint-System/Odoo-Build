@@ -8,9 +8,9 @@ if [ -d "/mnt/extra-addons" ]; then
 fi
 
 # Add enterprise path to addons path
-if [ -d "/opt/odoo/enterprise" ]; then
-    log-entrypoint "Prepend /opt/odoo/enterprise to addons path."
-    ODOO_ADDONS_PATH="/opt/odoo/enterprise,$ODOO_ADDONS_PATH"
+if [ -d "/var/lib/odoo/enterprise" ]; then
+    log-entrypoint "Prepend /var/lib/odoo/enterprise to addons path."
+    ODOO_ADDONS_PATH="/var/lib/odoo/enterprise,$ODOO_ADDONS_PATH"
 fi
 
 # Add git path to addons path

@@ -385,7 +385,7 @@ The entrypoint script searches for module folders in the addons path and creates
 
 * `ODOO_ADDONS_PATH` Comma seperated list of container paths pointing to addon folders. Default is:
   * `/mnt/extra-addons` Default location for custom modules.
-  * `/opt/odoo/enterprise` Reserved location for Odoo enterprise modules.
+  * `/var/lib/odoo/enterprise` Reserved location for Odoo enterprise modules.
   * `/var/lib/odoo/git` Reserved location for git repos.
   * `$TEST_ADDONS_DIR` Variable location for module testing.
   * `/opt/odoo/addons` Reserved location for Odoo community modules.
@@ -539,7 +539,7 @@ The most important image paths are:
 * `/mnt/extra-addons` Nested module are loaded from this path by default.
 * `/mnt/test-addons` Recommended mount path for modules to test.
 * `/opt/odoo/addons` Contains the Odoo community edition modules.
-* `/opt/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
+* `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
 * `/opt/odoo-venv` This is where Python packages are installed.
 * `/var/lib/odoo` Odoo data folder.
 * `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.

@@ -640,6 +640,8 @@ function template-compose() {
         export "$VAR"
     done
     CONTAINER_TAG="odoo:$ODOO_REVISION"
+    ODOO_INIT_LOGIN=admin
+    ODOO_INIT_PASSWORD=admin
 
     envsubst < "compose.yml.template" > "compose.yml"
 }
@@ -1050,7 +1052,7 @@ function install() {
         fi
 
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
-        uv pip install -e odoo/ --no-deps
+        uv pip install odoo/ --no-deps
     fi
 
     if [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
@@ -1065,7 +1067,7 @@ function install() {
     fi
 
     # echo "Setup odoo-build with hatch-odoo."
-    # UV_NO_CACHE=1 uv pip install -e .
+    # UV_NO_CACHE=1 uv pip install .
 }
 
 # Process commands
