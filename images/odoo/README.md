@@ -38,7 +38,6 @@ Supported tags:
 * [`17.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20251008), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
 * [`16.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20251008), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
 * [`15.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20251008), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
-* [`14.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/14.0.20251008), [`14.0`](https://hub.docker.com/layers/mintsystem/odoo/14.0)
 
 ### Minimal
 

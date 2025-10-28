@@ -164,6 +164,7 @@ function help-table() {
     # Project
     printf "$COLUMN" "lint" "" "Run precommit for this project."
     printf "$COLUMN" "list-versions" "" "List available Odoo versions."
+    printf "$COLUMN" "check-version" "" "Check if Odoo source is the correct version."
     printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
     printf "$COLUMN" "save-version" "" "Save git folder refs to version folder."
     printf "$COLUMN" "template-compose" "" "Template the Docker compose file."
@@ -287,7 +288,7 @@ if [ -d "$HOME/taskfile.build/bin" ]; then
     done
 fi
 
-# Help Commands
+# Help commands
 
 function info() {
     set-addons-path
@@ -343,7 +344,7 @@ function show-odoo-mcp-config() {
 EOF
 }
 
-# Env Commands
+# Env commands
 
 function init-venv() {
     echo "Ensure Python version $(cat .python-version) is installed."
@@ -471,11 +472,7 @@ function load-ssh-key() {
     fi
 }
 
-function list-versions() {
-    ls -1 versions
-}
-
-# Docs Commands
+# Docs commands
 
 function lint() {
     activate-venv
@@ -572,7 +569,7 @@ function template-repo(){
     rm "$REPO_PATH/.pylintrc-mandatory"
 }
 
-# Module Commands
+# Module commands
 
 function get-modules() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -623,7 +620,7 @@ function list-modules() {
     echo "$MODULES" | tr ',' '\n'
 }
 
-# Container Commands
+# Container commands
 
 function archive-docker-tags() {
     activate-venv
@@ -684,10 +681,6 @@ function build() {
 
     # Select Python version
     case "$ODOO_VERSION" in
-        "14.0")
-            PYTHON_VERSION="3.8"
-            PLATFORM="linux/amd64"
-            ;;
         "15.0")
             PYTHON_VERSION="3.9"
             PLATFORM="linux/amd64"
@@ -758,6 +751,7 @@ function checkout-latest-revision() {
 
     ODOO_REVISION=$(list-revision | grep "$ODOO_VERSION" | tail -n1)
     checkout-revision "$ODOO_REVISION"
+    check-version
 }
 
 function container-login() {
@@ -925,7 +919,7 @@ function logs() {
     $CONTAINER_ENGINE logs --follow "$CONTAINER"
 }
 
-# Script Commands
+# Script commands
 
 function install-odoo-scripts() {
     echo "Installing Odoo scripts with user flag."
@@ -954,7 +948,7 @@ function upgrade-odoo() {
     echo "Upgrade finished successfully."
 }
 
-# Install Commands
+# Install commands
 
 function install() {
     init-venv
@@ -1074,7 +1068,7 @@ function install() {
     # UV_NO_CACHE=1 uv pip install -e .
 }
 
-# Process Commands
+# Process commands
 
 function open-url-with-delay(){
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -1481,7 +1475,7 @@ EOF
     fi
 }
 
-# Interactive Shell Commands
+# Interactive Shell commands
 
 function shell() {
     DATABASE="$1"
@@ -1508,7 +1502,7 @@ function psql() {
     $CONTAINER_ENGINE exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
 }
 
-# Database Commands
+# Database commands
 
 function init-db() {
     ODOO_INIT_ADDONS="${ODOO_INIT_ADDONS:-"web"}"
@@ -1683,7 +1677,7 @@ function patch-database() {
     echo "Patching database succeeded"
 }
 
-# Report Commands
+# Report commands
 
 function cloc-odoo() {
     DATABASE="$1"
@@ -1704,7 +1698,7 @@ function visualize-dependencies() {
     $OS_OPEN tmp/odoo-module-dependencies.html
 }
 
-# Repo Commands
+# Repo commands
 
 function install-requirements() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -1780,7 +1774,7 @@ function test-module-repo() {
     done
 }
 
-# Module Commands
+# Module commands
 
 function init-module() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -2196,7 +2190,7 @@ function zip-module() {
     cd .. || exit
 }
 
-# Snippet Commands
+# Snippet commands
 
 function reset-views() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -2353,7 +2347,7 @@ function lint-snippets() {
     echo "No problems with snippets found."
 }
 
-# Git Commands
+# Git commands
 
 function add-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
@@ -2626,6 +2620,8 @@ function create-git-mig-branch(){
     git switch -c "$ODOO_VERSION-mig-$MODULE_NAME"
 }
 
+# Project commands
+
 function load-version() {
     if [ -n "$1" ]; then
         ODOO_VERSION="$1"
@@ -2668,7 +2664,18 @@ function save-version() {
     cp ".python-version" "versions/$ODOO_VERSION/"
 }
 
-# Revision Commands
+
+function list-versions() {
+    ls -1 versions
+}
+
+function check-version() {
+    echo "Check if Odoo version matches the release file:"
+    ODOO_VERSION=$(echo "$ODOO_VERSION" | cut -d'.' -f1)
+    grep -E "version_info.+$ODOO_VERSION" odoo/odoo/release.py
+}
+
+# Revision commands
 
 function list-revision() {
     ls -1 revisions
@@ -2778,7 +2785,7 @@ function commit-and-push-revision() {
     git push -f --tags
 }
 
-# RPC Commands
+# RPC commands
 
 function test-xmlrpc() {
     activate-venv
@@ -2830,7 +2837,7 @@ function import-website-data() {
     echo -e "Exit code: $EXIT_CODE\n"
 }
 
-# Vuepress Commands
+# Vuepress commands
 
 function install-vuepress() {
     echo "Install Node."
