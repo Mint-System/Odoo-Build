@@ -123,9 +123,9 @@ services:
       FORGEJO_URL: https://codeberg.org
       FORGEJO_USERNAME: bot-mintsys
       FORGEJO_PAT: *****
-      ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#16.0,git@github.com:OCA/server-tools.git#16.0"
+      ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#18.0,git@github.com:OCA/server-tools.git#18.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
-      ODOO_DATABASE: "16.0"
+      ODOO_DATABASE: "18.0"
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
       ODOO_INIT_LANG: de_CH
@@ -134,7 +134,7 @@ services:
       WITHOUT_DEMO: False
       PYTHON_INSTALL: prometheus-client
       SERVER_WIDE_MODULES: session_db,module_change_auto_install
-      SESSION_DB_URI: postgres://odoo:odoo@db/16.0
+      SESSION_DB_URI: postgres://odoo:odoo@db/18.0
       PROXY_MODE: False
       LOG_LEVEL: debug
       MAX_CRON_THREADS: 4
@@ -373,8 +373,8 @@ The image can clone git repositories.
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
 ```bash
-ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0,git@github.com:Mint-System/Odoo-Apps-Server-Tools.gi#16.0
-ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools.gi#16.0
+ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#18.0,git@github.com:Mint-System/Odoo-Apps-Server-Tools.gi#18.0
+ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#18.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools.gi#18.0
 ```
 
 If you use a git url make sure a valid SSH private/public key is defined.
