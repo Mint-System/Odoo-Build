@@ -1,13 +1,14 @@
 #!/usr/bin/env python3
 
-import requests
+import base64
 import datetime
 import json
 import os
-import base64
+
+import requests
 
 # Load the container config file
-with open(os.environ['CONTAINER_CONFIG'] + '/config.json', 'r') as f:
+with open(os.environ['CONTAINER_CONFIG'] + '/config.json') as f:
     config = json.load(f)
 
 # Extract the auth token from the config file

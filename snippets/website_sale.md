@@ -1,7 +1,11 @@
 # Website Sale
-## Address  
-### Countries Filter  
-ID: `mint_system.website_sale.address.countries_filter`  
+
+## Address
+
+### Countries Filter
+
+ID: `mint_system.website_sale.address.countries_filter`
+
 ```xml
 <data inherit_id="website_sale.address" priority="50">
     <t t-foreach="countries" position="attributes">
@@ -10,10 +14,13 @@ ID: `mint_system.website_sale.address.countries_filter`
 </data>
 
 ```
+
 Source: [snippets/website_sale.address.countries_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.countries_filter.xml)
 
-### Hide Shipping Use Same  
-ID: `mint_system.website_sale.address.hide_shipping_use_same`  
+### Hide Shipping Use Same
+
+ID: `mint_system.website_sale.address.hide_shipping_use_same`
+
 ```xml
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
@@ -22,10 +29,13 @@ ID: `mint_system.website_sale.address.hide_shipping_use_same`
 </data>
 
 ```
+
 Source: [snippets/website_sale.address.hide_shipping_use_same.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.hide_shipping_use_same.xml)
 
-### Overwrite Required  
-ID: `mint_system.website_sale.address.overwrite_required`  
+### Overwrite Required
+
+ID: `mint_system.website_sale.address.overwrite_required`
+
 ```xml
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@name='field_required']" position="replace">
@@ -49,10 +59,13 @@ ID: `mint_system.website_sale.address.overwrite_required`
 </data>
 
 ```
+
 Source: [snippets/website_sale.address.overwrite_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.overwrite_required.xml)
 
-### Show Firstname Lastname  
-ID: `mint_system.website_sale.address.show_firstname_lastname`  
+### Show Firstname Lastname
+
+ID: `mint_system.website_sale.address.show_firstname_lastname`
+
 ```xml
 <data inherit_id="website_sale.address" priority="50">
     <xpath expr="//input[@name='name']/.." position="after">
@@ -71,11 +84,15 @@ ID: `mint_system.website_sale.address.show_firstname_lastname`
 </data>
 
 ```
+
 Source: [snippets/website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.address.show_firstname_lastname.xml)
 
-## Confirmation  
-### Show Shipping Name  
-ID: `mint_system.website_sale.confirmation.show_shipping_name`  
+## Confirmation
+
+### Show Shipping Name
+
+ID: `mint_system.website_sale.confirmation.show_shipping_name`
+
 ```xml
 <data inherit_id="website_sale.confirmation" priority="50">
     <span t-esc="order.partner_invoice_id" position="before"><span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
@@ -85,11 +102,15 @@ ID: `mint_system.website_sale.confirmation.show_shipping_name`
 </data>
 
 ```
+
 Source: [snippets/website_sale.confirmation.show_shipping_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.confirmation.show_shipping_name.xml)
 
-## Header Cart Link  
-### Hide Cart  
-ID: `mint_system.website_sale.header_cart_link.hide_cart`  
+## Header Cart Link
+
+### Hide Cart
+
+ID: `mint_system.website_sale.header_cart_link.hide_cart`
+
 ```xml
 <data inherit_id="website_sale.header_cart_link" priority="50">
     <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
@@ -98,22 +119,30 @@ ID: `mint_system.website_sale.header_cart_link.hide_cart`
 </data>
 
 ```
+
 Source: [snippets/website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.header_cart_link.hide_cart.xml)
 
-## Payment Confirmation Status  
-### Remove Communication  
-ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`  
+## Payment Confirmation Status
+
+### Remove Communication
+
+ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`
+
 ```xml
 <data inherit_id="website_sale.payment_confirmation_status" priority="50">
     <xpath expr="//div[@t-if='order.reference']" position="replace"/>
 </data>
 
 ```
+
 Source: [snippets/website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.payment_confirmation_status.remove_communication.xml)
 
-## Product  
-### Hide Cart  
-ID: `mint_system.website_sale.product.hide_cart`  
+## Product
+
+### Hide Cart
+
+ID: `mint_system.website_sale.product.hide_cart`
+
 ```xml
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
@@ -127,10 +156,13 @@ ID: `mint_system.website_sale.product.hide_cart`
 </data>
 
 ```
+
 Source: [snippets/website_sale.product.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.hide_cart.xml)
 
-### Hide Price  
-ID: `mint_system.website_sale.product.hide_price`  
+### Hide Price
+
+ID: `mint_system.website_sale.product.hide_price`
+
 ```xml
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
@@ -139,10 +171,13 @@ ID: `mint_system.website_sale.product.hide_price`
 </data>
 
 ```
+
 Source: [snippets/website_sale.product.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.hide_price.xml)
 
-### Show Default Code  
-ID: `mint_system.website_sale.product.show_default_code`  
+### Show Default Code
+
+ID: `mint_system.website_sale.product.show_default_code`
+
 ```xml
 <data inherit_id="website_sale.product" priority="50">
     <p t-field="product.description_sale" position="after">
@@ -154,10 +189,13 @@ ID: `mint_system.website_sale.product.show_default_code`
 </data>
 
 ```
+
 Source: [snippets/website_sale.product.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_default_code.xml)
 
-### Show Product Dimension  
-ID: `mint_system.website_sale.product.show_product_dimension`  
+### Show Product Dimension
+
+ID: `mint_system.website_sale.product.show_product_dimension`
+
 ```xml
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
@@ -166,10 +204,13 @@ ID: `mint_system.website_sale.product.show_product_dimension`
 </data>
 
 ```
+
 Source: [snippets/website_sale.product.show_product_dimension.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_product_dimension.xml)
 
-### Show Product Material  
-ID: `mint_system.website_sale.product.show_product_material`  
+### Show Product Material
+
+ID: `mint_system.website_sale.product.show_product_material`
+
 ```xml
 <data inherit_id="website_sale.product" priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
@@ -178,11 +219,15 @@ ID: `mint_system.website_sale.product.show_product_material`
 </data>
 
 ```
+
 Source: [snippets/website_sale.product.show_product_material.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.product.show_product_material.xml)
 
-## Products Categories  
-### Bigger Categories Button  
-ID: `mint_system.website_sale.products_categories.bigger_categories_button`  
+## Products Categories
+
+### Bigger Categories Button
+
+ID: `mint_system.website_sale.products_categories.bigger_categories_button`
+
 ```xml
 <!-- Add class to categories button -->
 <data inherit_id="website_sale.products_categories" priority="50">
@@ -194,11 +239,15 @@ ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 </data>
 
 ```
+
 Source: [snippets/website_sale.products_categories.bigger_categories_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_categories.bigger_categories_button.xml)
 
-## Products Item  
-### Hide Price  
-ID: `mint_system.website_sale.products_item.hide_price`  
+## Products Item
+
+### Hide Price
+
+ID: `mint_system.website_sale.products_item.hide_price`
+
 ```xml
 <data inherit_id="website_sale.products_item" priority="50">
     <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="attributes">
@@ -207,10 +256,13 @@ ID: `mint_system.website_sale.products_item.hide_price`
 </data>
 
 ```
+
 Source: [snippets/website_sale.products_item.hide_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_item.hide_price.xml)
 
-### Prefix Price  
-ID: `mint_system.website_sale.products_item.prefix_price`  
+### Prefix Price
+
+ID: `mint_system.website_sale.products_item.prefix_price`
+
 ```xml
 <data inherit_id="website_sale.products_item" priority="50">
     <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
@@ -219,5 +271,5 @@ ID: `mint_system.website_sale.products_item.prefix_price`
 </data>
 
 ```
-Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_item.prefix_price.xml)
 
+Source: [snippets/website_sale.products_item.prefix_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_sale.products_item.prefix_price.xml)

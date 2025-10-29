@@ -152,3 +152,7 @@
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
 	branch = 18.0
+[submodule "oca/survey"]
+	path = oca/survey
+	url = git@github.com:OCA/survey.git
+	branch = 18.0

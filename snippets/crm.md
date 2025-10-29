@@ -1,7 +1,11 @@
 # Crm
-## Crm Case Calendar View Leads  
-### Enable Create  
-ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`  
+
+## Crm Case Calendar View Leads
+
+### Enable Create
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <calendar position="attributes">
@@ -10,20 +14,26 @@ ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.enable_create.xml)
 
-### Hide Revenue  
-ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`  
+### Hide Revenue
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <field name="expected_revenue" position="replace"/>
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.hide_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.hide_revenue.xml)
 
-### Mode Week  
-ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`  
+### Mode Week
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <calendar position="attributes">
@@ -32,10 +42,13 @@ ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.mode_week.xml)
 
-### Use Date Deadline  
-ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`  
+### Use Date Deadline
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <calendar position="attributes">
@@ -44,10 +57,13 @@ ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.use_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.use_date_deadline.xml)
 
-### Use Date Start  
-ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`  
+### Use Date Start
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <calendar position="attributes">
@@ -56,10 +72,13 @@ ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.use_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.use_date_start.xml)
 
-### X Date Stop  
-ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`  
+### X Date Stop
+
+ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`
+
 ```xml
 <data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
     <calendar position="attributes">
@@ -68,11 +87,15 @@ ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_case_calendar_view_leads.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_case_calendar_view_leads.x_date_stop.xml)
 
-## Crm Lead View Form  
-### Date Deadline Required  
-ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`  
+## Crm Lead View Form
+
+### Date Deadline Required
+
+ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <field name="date_deadline" position="attributes">
@@ -81,10 +104,13 @@ ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.date_deadline_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.date_deadline_required.xml)
 
-### Hide Date Deadline  
-ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`  
+### Hide Date Deadline
+
+ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <field name="date_deadline" position="attributes">
@@ -93,10 +119,13 @@ ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.hide_date_deadline.xml)
 
-### Hide Expected Revenue  
-ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`  
+### Hide Expected Revenue
+
+ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <xpath expr="//label[@for='expected_revenue']/../.." position="attributes">
@@ -105,10 +134,13 @@ ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.hide_expected_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.hide_expected_revenue.xml)
 
-### Hide Lost Won Buttons  
-ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`  
+### Hide Lost Won Buttons
+
+ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <button name="action_set_won_rainbowman" position="replace">
@@ -122,10 +154,13 @@ ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.hide_lost_won_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.hide_lost_won_buttons.xml)
 
-### X Date Start  
-ID: `mint_system.crm.crm_lead_view_form.x_date_start`  
+### X Date Start
+
+ID: `mint_system.crm.crm_lead_view_form.x_date_start`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <field name="date_deadline" position="replace">
@@ -134,10 +169,13 @@ ID: `mint_system.crm.crm_lead_view_form.x_date_start`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.x_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.x_date_start.xml)
 
-### X Date Stop  
-ID: `mint_system.crm.crm_lead_view_form.x_date_stop`  
+### X Date Stop
+
+ID: `mint_system.crm.crm_lead_view_form.x_date_stop`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <field name="x_date_start" position="after">
@@ -146,10 +184,13 @@ ID: `mint_system.crm.crm_lead_view_form.x_date_stop`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.x_date_stop.xml)
 
-### X Mobile  
-ID: `mint_system.crm.crm_lead_view_form.x_mobile`  
+### X Mobile
+
+ID: `mint_system.crm.crm_lead_view_form.x_mobile`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <xpath expr="//field[@name='phone']/.." position="after">
@@ -161,10 +202,13 @@ ID: `mint_system.crm.crm_lead_view_form.x_mobile`
 </data>
 
 ```
+
 Source: [snippets/crm.crm_lead_view_form.x_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.x_mobile.xml)
 
-### X Task Id  
-ID: `mint_system.crm.crm_lead_view_form.x_task_id`  
+### X Task Id
+
+ID: `mint_system.crm.crm_lead_view_form.x_task_id`
+
 ```xml
 <data inherit_id="crm.crm_lead_view_form" priority="50">
     <xpath expr="//field[@name='phone']/.." position="after">
@@ -176,5 +220,5 @@ ID: `mint_system.crm.crm_lead_view_form.x_task_id`
 </data>
 
 ```
-Source: [snippets/crm.crm_lead_view_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.x_task_id.xml)
 
+Source: [snippets/crm.crm_lead_view_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm.crm_lead_view_form.x_task_id.xml)

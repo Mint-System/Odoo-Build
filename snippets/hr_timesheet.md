@@ -1,7 +1,11 @@
 # Hr Timesheet
-## Hr Timesheet Line Search  
-### Filter Project Code  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`  
+
+## Hr Timesheet Line Search
+
+### Filter Project Code
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
     <field name="project_id" position="replace">
@@ -10,10 +14,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_code.xml)
 
-### Filter Project Id  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`  
+### Filter Project Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
     <field name="date" position="before">
@@ -25,10 +32,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_search.filter_project_id.xml)
 
-### Filter Validated  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`  
+### Filter Validated
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
     <filter name="non_billable" position="after">
@@ -37,11 +47,15 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_search.filter_validated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_search.filter_validated.xml)
 
-## Hr Timesheet Line Tree  
-### Always Show So Line  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`  
+## Hr Timesheet Line Tree
+
+### Always Show So Line
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
@@ -50,10 +64,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.always_show_so_line.xml)
 
-### Disable Editable  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`  
+### Disable Editable
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//tree" position="attributes">
@@ -62,10 +79,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
 
-### Filter Partner Is Company  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`  
+### Filter Partner Is Company
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='partner_id']" position="attributes">
@@ -74,10 +94,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company.xml)
 
-### Invoice Details  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`  
+### Invoice Details
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
@@ -87,10 +110,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.invoice_details.xml)
 
-### Options Enable Open  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`  
+### Options Enable Open
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
@@ -99,10 +125,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
 
-### Show Helpdesk Ticket Id  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`  
+### Show Helpdesk Ticket Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="after">
@@ -111,10 +140,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id.xml)
 
-### Show Partner Id  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`  
+### Show Partner Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='project_id']" position="before">
@@ -126,10 +158,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.show_partner_id.xml)
 
-### So Line Domain  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`  
+### So Line Domain
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
@@ -138,10 +173,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_domain.xml)
 
-### So Line Readonly  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`  
+### So Line Readonly
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
@@ -150,10 +188,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.so_line_readonly.xml)
 
-### Task Id Required  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`  
+### Task Id Required
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
@@ -162,10 +203,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.task_id_required.xml)
 
-### X Not Billable  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`  
+### X Not Billable
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
@@ -182,10 +226,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.x_not_billable.xml)
 
-### X Parent Id Display Name  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name`  
+### X Parent Id Display Name
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="before">
@@ -194,10 +241,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name.xml)
 
-### X Phase Id Name  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name`  
+### X Phase Id Name
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='task_id']" position="before">
@@ -206,10 +256,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.x_phase_id_name.xml)
 
-### X Sale Order Id  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`  
+### X Sale Order Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//field[@name='so_line']" position="after">
@@ -218,10 +271,13 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.x_sale_order_id.xml)
 
-### X Vehicle Id  
-ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`  
+### X Vehicle Id
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`
+
 ```xml
 <data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
     <xpath expr="//tree/field[@name='category_id']" position="after">
@@ -230,11 +286,15 @@ ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.xml)
 
-## Portal My Timesheets  
-### Show Billable  
-ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`  
+## Portal My Timesheets
+
+### Show Billable
+
+ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`
+
 ```xml
 <!-- Show billable field for timesheet entries -->
 <data inherit_id="hr_timesheet.portal_my_timesheets" priority="50">
@@ -249,11 +309,15 @@ ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.portal_my_timesheets.show_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.portal_my_timesheets.show_billable.xml)
 
-## Report Timesheet  
-### Group By Invoice Type  
-ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`  
+## Report Timesheet
+
+### Group By Invoice Type
+
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
+
 ```xml
 <data inherit_id="hr_timesheet.report_timesheet" priority="50">
     <xpath expr="//table/tbody/tr[1]" position="replace">
@@ -314,10 +378,13 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
-### Group By X Timesheet Invoice Type  
-ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`  
+### Group By X Timesheet Invoice Type
+
+ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`
+
 ```xml
 <data inherit_id="hr_timesheet.report_timesheet" priority="50">
     <xpath expr="//table/tbody/tr[1]" position="replace">
@@ -378,10 +445,13 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type.xml)
 
-### User Report  
-ID: `mint_system.hr_timesheet.report_timesheet.user_report`  
+### User Report
+
+ID: `mint_system.hr_timesheet.report_timesheet.user_report`
+
 ```xml
 <data inherit_id="hr_timesheet.report_timesheet" priority="50">
     <!-- New title -->
@@ -420,11 +490,15 @@ ID: `mint_system.hr_timesheet.report_timesheet.user_report`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.report_timesheet.user_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.report_timesheet.user_report.xml)
 
-## Timesheet View Tree User  
-### Show Billable Type  
-ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`  
+## Timesheet View Tree User
+
+### Show Billable Type
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
+
 ```xml
 <data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
@@ -434,10 +508,13 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.timesheet_view_tree_user.show_billable_type.xml)
 
-### Show Helpdesk Ticket  
-ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`  
+### Show Helpdesk Ticket
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`
+
 ```xml
 <data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
     <xpath expr="//field[@name='task_id']" position="after">
@@ -446,10 +523,13 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket.xml)
 
-### Show Product Uom Id  
-ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`  
+### Show Product Uom Id
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`
+
 ```xml
 <data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
@@ -459,10 +539,13 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`
 </data>
 
 ```
+
 Source: [snippets/hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)
 
-### X Timesheet Invoice Type  
-ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`  
+### X Timesheet Invoice Type
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`
+
 ```xml
 <data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
     <xpath expr="//field[@name='timesheet_invoice_type']" position="replace">
@@ -471,5 +554,5 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`
 </data>
 
 ```
-Source: [snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)
 
+Source: [snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type.xml)

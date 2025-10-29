@@ -1,7 +1,11 @@
 # Digest
-## Digest Mail Main  
-### Report  
-ID: `mint_system.digest.digest_mail_main.report`  
+
+## Digest Mail Main
+
+### Report
+
+ID: `mint_system.digest.digest_mail_main.report`
+
 ```xml
 <t t-name="digest.digest_mail_main.report">
     <t t-set="body">
@@ -45,5 +49,5 @@ ID: `mint_system.digest.digest_mail_main.report`
 </t>
 
 ```
-Source: [snippets/digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/digest.digest_mail_main.report.xml)
 
+Source: [snippets/digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/digest.digest_mail_main.report.xml)

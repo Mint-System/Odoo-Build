@@ -1,7 +1,11 @@
 # Sale Order Picking Note
-## View Order Form Inherit Sale Stock  
-### Move Note Fields  
-ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields`  
+
+## View Order Form Inherit Sale Stock
+
+### Move Note Fields
+
+ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields`
+
 ```xml
 <data inherit_id="sale_order_picking_note.view_order_form_inherit_sale_stock" priority="50" type="form" model="sale.order">
     <field name="picking_note" position="replace"/>
@@ -17,5 +21,5 @@ ID: `mint_system.sale_order_picking_note.view_order_form_inherit_sale_stock.move
 </data>
 
 ```
-Source: [snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml)
 
+Source: [snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_picking_note.view_order_form_inherit_sale_stock.move_note_fields.xml)

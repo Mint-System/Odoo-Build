@@ -1,7 +1,11 @@
 # Crm Iap Lead Enrich
-## Crm Lead View Form  
-### Hide Enrich Revenue  
-ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`  
+
+## Crm Lead View Form
+
+### Hide Enrich Revenue
+
+ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`
+
 ```xml
 <data inherit_id="crm_iap_lead_enrich.crm_lead_view_form" priority="50">
     <xpath position="replace">
@@ -9,5 +13,5 @@ ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`
 </data>
 
 ```
-Source: [snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)
 
+Source: [snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)

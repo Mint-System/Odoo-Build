@@ -1,7 +1,11 @@
 # Delivery
-## Report Delivery Document2  
-### Remove Hs Code  
-ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`  
+
+## Report Delivery Document2
+
+### Remove Hs Code
+
+ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`
+
 ```xml
 <data inherit_id="delivery.report_delivery_document2" priority="50">
     <xpath expr="//t[@t-set='has_hs_code']" position="replace">
@@ -9,11 +13,15 @@ ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`
 </data>
 
 ```
+
 Source: [snippets/delivery.report_delivery_document2.remove_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/delivery.report_delivery_document2.remove_hs_code.xml)
 
-## View Picking Withcarrier Out Form  
-### Modify Readonly Carrier Id  
-ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`  
+## View Picking Withcarrier Out Form
+
+### Modify Readonly Carrier Id
+
+ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`
+
 ```xml
 <data inherit_id="delivery.view_picking_withcarrier_out_form" priority="50">
     <xpath expr="//field[@name='carrier_id']" position="attributes">
@@ -22,5 +30,5 @@ ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carr
 </data>
 
 ```
-Source: [snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)
 
+Source: [snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id.xml)

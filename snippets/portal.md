@@ -1,7 +1,11 @@
 # Portal
-## Portal My Details Fields  
-### Show Firstname Lastname  
-ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`  
+
+## Portal My Details Fields
+
+### Show Firstname Lastname
+
+ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
+
 ```xml
 <data inherit_id="portal.portal_my_details_fields" priority="50">
     <xpath expr="//input[@name='name']/.." position="replace">
@@ -17,10 +21,13 @@ ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
 </data>
 
 ```
+
 Source: [snippets/portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/portal.portal_my_details_fields.show_firstname_lastname.xml)
 
-### Show Street2  
-ID: `mint_system.portal.portal_my_details_fields.show_street2`  
+### Show Street2
+
+ID: `mint_system.portal.portal_my_details_fields.show_street2`
+
 ```xml
 <data inherit_id="portal.portal_my_details_fields" priority="50">
     <xpath expr="//input[@name='street']/.." position="after">
@@ -32,5 +39,5 @@ ID: `mint_system.portal.portal_my_details_fields.show_street2`
 </data>
 
 ```
-Source: [snippets/portal.portal_my_details_fields.show_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/portal.portal_my_details_fields.show_street2.xml)
 
+Source: [snippets/portal.portal_my_details_fields.show_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/portal.portal_my_details_fields.show_street2.xml)

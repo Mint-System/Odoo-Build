@@ -1,7 +1,11 @@
 # Stock Delivery Note
-## Report Delivery Document  
-### Move Delivery Note  
-ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`  
+
+## Report Delivery Document
+
+### Move Delivery Note
+
+ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`
+
 ```xml
 <data inherit_id="stock_delivery_note.report_delivery_document" priority="50">
     <xpath expr="//p[@t-if='o.delivery_note']" position="replace">
@@ -15,11 +19,15 @@ ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note
 </data>
 
 ```
+
 Source: [snippets/stock_delivery_note.report_delivery_document.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock_delivery_note.report_delivery_document.move_delivery_note.xml)
 
-## Stock Picking Form View  
-### Move Delivery Note  
-ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`  
+## Stock Picking Form View
+
+### Move Delivery Note
+
+ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`
+
 ```xml
 <data inherit_id="stock_delivery_note.stock_picking_form_view" priority="50">
     <field name="delivery_note" position="replace">
@@ -30,5 +38,5 @@ ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`
 </data>
 
 ```
-Source: [snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)
 
+Source: [snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock_delivery_note.stock_picking_form_view.move_delivery_note.xml)

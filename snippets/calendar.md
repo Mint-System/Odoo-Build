@@ -1,7 +1,11 @@
 # Calendar
-## View Calendar Event Calendar  
-### Default Mode Week  
-ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`  
+
+## View Calendar Event Calendar
+
+### Default Mode Week
+
+ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`
+
 ```xml
 <data inherit_id="calendar.view_calendar_event_calendar" priority="50">
     <xpath expr="//calendar[1]" position="attributes">
@@ -10,10 +14,13 @@ ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`
 </data>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_calendar.default_mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.default_mode_week.xml)
 
-### Set Color  
-ID: `mint_system.calendar.view_calendar_event_calendar.set_color`  
+### Set Color
+
+ID: `mint_system.calendar.view_calendar_event_calendar.set_color`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -23,10 +30,13 @@ ID: `mint_system.calendar.view_calendar_event_calendar.set_color`
 </odoo>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_calendar.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.set_color.xml)
 
-### Show Location  
-ID: `mint_system.calendar.view_calendar_event_calendar.show_location`  
+### Show Location
+
+ID: `mint_system.calendar.view_calendar_event_calendar.show_location`
+
 ```xml
 <data inherit_id="calendar.view_calendar_event_calendar" priority="50">
     <xpath expr="//field[@name='attendee_status']" position="after">
@@ -35,10 +45,13 @@ ID: `mint_system.calendar.view_calendar_event_calendar.show_location`
 </data>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_calendar.show_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.show_location.xml)
 
-### X Color  
-ID: `mint_system.calendar.view_calendar_event_calendar.x_color`  
+### X Color
+
+ID: `mint_system.calendar.view_calendar_event_calendar.x_color`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -48,11 +61,15 @@ ID: `mint_system.calendar.view_calendar_event_calendar.x_color`
 </odoo>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_calendar.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.x_color.xml)
 
-## View Calendar Event Calendar Timeline  
-### View  
-ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`  
+## View Calendar Event Calendar Timeline
+
+### View
+
+ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -67,11 +84,15 @@ ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`
 </odoo>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
 
-## View Calendar Event Form  
-### Show Res Model And Id  
-ID: `mint_system.calendar.view_calendar_event_form.show_res_model_and_id`  
+## View Calendar Event Form
+
+### Show Res Model And Id
+
+ID: `mint_system.calendar.view_calendar_event_form.show_res_model_and_id`
+
 ```xml
 <data inherit_id="calendar.view_calendar_event_form" priority="50">
     <xpath expr="//page[@name='page_misc']//field[@name='user_id']" position="after">
@@ -81,10 +102,13 @@ ID: `mint_system.calendar.view_calendar_event_form.show_res_model_and_id`
 </data>
 
 ```
+
 Source: [snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml)
 
-### X Color  
-ID: `mint_system.calendar.view_calendar_event_form.x_color`  
+### X Color
+
+ID: `mint_system.calendar.view_calendar_event_form.x_color`
+
 ```xml
 <data inherit_id="calendar.view_calendar_event_form" priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
@@ -93,5 +117,5 @@ ID: `mint_system.calendar.view_calendar_event_form.x_color`
 </data>
 
 ```
-Source: [snippets/calendar.view_calendar_event_form.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_form.x_color.xml)
 
+Source: [snippets/calendar.view_calendar_event_form.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_form.x_color.xml)

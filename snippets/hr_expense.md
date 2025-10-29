@@ -1,7 +1,11 @@
 # Hr Expense
-## Hr Expense View Form  
-### Hide Payment Mode  
-ID: `mint_system.hr_expense.hr_expense_view_form.hide_payment_mode`  
+
+## Hr Expense View Form
+
+### Hide Payment Mode
+
+ID: `mint_system.hr_expense.hr_expense_view_form.hide_payment_mode`
+
 ```xml
 <data inherit_id="hr_expense.hr_expense_view_form" priority="50">
     <xpath expr="//label[@for='payment_mode']" position="attributes">
@@ -13,10 +17,13 @@ ID: `mint_system.hr_expense.hr_expense_view_form.hide_payment_mode`
 </data>
 
 ```
+
 Source: [snippets/hr_expense.hr_expense_view_form.hide_payment_mode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_expense.hr_expense_view_form.hide_payment_mode.xml)
 
-### Set Group Tax Ids  
-ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`  
+### Set Group Tax Ids
+
+ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`
+
 ```xml
 <data inherit_id="hr_expense.hr_expense_view_form" priority="50">
     <xpath expr="//field[@name='tax_ids']" position="attributes">
@@ -25,10 +32,13 @@ ID: `mint_system.hr_expense.hr_expense_view_form.set_group_tax_ids`
 </data>
 
 ```
+
 Source: [snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_expense.hr_expense_view_form.set_group_tax_ids.xml)
 
-### Show Payment Mode  
-ID: `mint_system.hr_expense.hr_expense_view_form.show_payment_mode`  
+### Show Payment Mode
+
+ID: `mint_system.hr_expense.hr_expense_view_form.show_payment_mode`
+
 ```xml
 <data inherit_id="hr_expense.hr_expense_view_form" priority="50">
     <xpath expr="//label[@for='payment_mode']" position="attributes">
@@ -40,10 +50,13 @@ ID: `mint_system.hr_expense.hr_expense_view_form.show_payment_mode`
 </data>
 
 ```
+
 Source: [snippets/hr_expense.hr_expense_view_form.show_payment_mode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_expense.hr_expense_view_form.show_payment_mode.xml)
 
-### X Partner Id  
-ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`  
+### X Partner Id
+
+ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`
+
 ```xml
 <data inherit_id="hr_expense.hr_expense_view_form" priority="50">
     <xpath expr="//field[@name='sale_order_id']" position="before">
@@ -55,5 +68,5 @@ ID: `mint_system.hr_expense.hr_expense_view_form.x_partner_id`
 </data>
 
 ```
-Source: [snippets/hr_expense.hr_expense_view_form.x_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_expense.hr_expense_view_form.x_partner_id.xml)
 
+Source: [snippets/hr_expense.hr_expense_view_form.x_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_expense.hr_expense_view_form.x_partner_id.xml)

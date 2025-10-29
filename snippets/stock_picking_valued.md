@@ -1,2 +1,3 @@
 # Stock Picking Valued
-## Report Delivery Valued Document  
+
+## Report Delivery Valued Document

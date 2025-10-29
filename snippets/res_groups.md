@@ -1,7 +1,11 @@
 # Res Groups
-## Hr Holidays  
-### Holidays Self Responsible  
-ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`  
+
+## Hr Holidays
+
+### Holidays Self Responsible
+
+ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
@@ -13,5 +17,5 @@ ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`
 </odoo>
 
 ```
-Source: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
 
+Source: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)

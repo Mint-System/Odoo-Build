@@ -1,7 +1,11 @@
 # Sale Order Line Date
-## Report Saleorder Document  
-### Hide In State Draft  
-ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`  
+
+## Report Saleorder Document
+
+### Hide In State Draft
+
+ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`
+
 ```xml
 <data inherit_id="sale_order_line_date.report_saleorder_document" priority="50">
     <xpath expr="//table/thead//tr[1]//th[2]" position="replace">
@@ -15,5 +19,5 @@ ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_dr
 </data>
 
 ```
-Source: [snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
 
+Source: [snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)

@@ -1,7 +1,11 @@
 # Account Batch Payment
-## Print Batch Payment  
-### Add Row  
-ID: `mint_system.account_batch_payment.print_batch_payment.add_row`  
+
+## Print Batch Payment
+
+### Add Row
+
+ID: `mint_system.account_batch_payment.print_batch_payment.add_row`
+
 ```xml
 <data inherit_id="account_batch_payment.print_batch_payment" priority="50">
     <xpath expr="//table/thead/tr/th[3]" position="after">
@@ -18,16 +22,19 @@ ID: `mint_system.account_batch_payment.print_batch_payment.add_row`
 </data>
 
 ```
+
 Source: [snippets/account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.add_row.xml)
 
-### Sort  
-ID: `mint_system.account_batch_payment.print_batch_payment.sort`  
+### Sort
+
+ID: `mint_system.account_batch_payment.print_batch_payment.sort`
+
 ```xml
 <data inherit_id="account_batch_payment.print_batch_payment" priority="50">
     <xpath expr=" //tr[@t-as='payment']" position="replace">
-      
+
       <t t-set="sorted_payments" t-value="sorted(o.payment_ids, key=lambda p: (p.partner_id.name or ''))"/>
-      
+
         <tr t-foreach="sorted_payments" t-as="payment">
             <td class="text-start">
                 <t t-esc="payment.partner_id.name"/>
@@ -42,15 +49,19 @@ ID: `mint_system.account_batch_payment.print_batch_payment.sort`
                 <t t-esc="payment.amount" t-options="{'widget': 'monetary', 'display_currency': payment.currency_id}"/>
             </td>
         </tr>
-       
+
     </xpath>
 </data>
 ```
+
 Source: [snippets/account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.sort.xml)
 
-## View Batch Payment Form  
-### Show Sct Generic  
-ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`  
+## View Batch Payment Form
+
+### Show Sct Generic
+
+ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`
+
 ```xml
 <data inherit_id="account_batch_payment.view_batch_payment_form" priority="50">
     <field name="batch_type" position="after">
@@ -59,5 +70,5 @@ ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
 
+Source: [snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml)

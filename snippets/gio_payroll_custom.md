@@ -1,7 +1,11 @@
 # Gio Payroll Custom
-## Gio View Hr Contract Form  
-### Holiday Wage As Percentage  
-ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`  
+
+## Gio View Hr Contract Form
+
+### Holiday Wage As Percentage
+
+ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`
+
 ```xml
 <data inherit_id="gio_payroll_custom.gio_view_hr_contract_form" priority="50">
     <field name="gio_holiday_rate" position="attributes">
@@ -10,11 +14,15 @@ ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_pe
 </data>
 
 ```
+
 Source: [snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)
 
-## Hr Payroll Report View  
-### New Report  
-ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`  
+## Hr Payroll Report View
+
+### New Report
+
+ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`
+
 ```xml
 <data inherit_id="gio_payroll_custom.hr_payroll_report_view" priority="50">
     <xpath expr="/t" position="replace">
@@ -212,5 +220,5 @@ ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`
 </data>
 
 ```
-Source: [snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml)
 
+Source: [snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/gio_payroll_custom.hr_payroll_report_view.new_report.xml)

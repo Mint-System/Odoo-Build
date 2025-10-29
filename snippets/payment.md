@@ -1,7 +1,11 @@
 # Payment
-## Payment Provider List  
-### Enable Create  
-ID: `mint_system.payment.payment_provider_list.enable_create`  
+
+## Payment Provider List
+
+### Enable Create
+
+ID: `mint_system.payment.payment_provider_list.enable_create`
+
 ```xml
 <data inherit_id="payment.payment_provider_list" priority="50">
     <tree position="attributes">
@@ -10,5 +14,5 @@ ID: `mint_system.payment.payment_provider_list.enable_create`
 </data>
 
 ```
-Source: [snippets/payment.payment_provider_list.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/payment.payment_provider_list.enable_create.xml)
 
+Source: [snippets/payment.payment_provider_list.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/payment.payment_provider_list.enable_create.xml)

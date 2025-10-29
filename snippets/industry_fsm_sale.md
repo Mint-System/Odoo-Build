@@ -1,7 +1,11 @@
 # Industry Fsm Sale
-## Project Task View Search Fsm  
-### Add Description  
-ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description`  
+
+## Project Task View Search Fsm
+
+### Add Description
+
+ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description`
+
 ```xml
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
@@ -10,10 +14,13 @@ ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description`
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.project_task_view_search_fsm.add_description.xml)
 
-### X Systemname  
-ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname`  
+### X Systemname
+
+ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname`
+
 ```xml
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
@@ -22,10 +29,13 @@ ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname`
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml)
 
-### X User Text  
-ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text`  
+### X User Text
+
+ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text`
+
 ```xml
 <data inherit_id="industry_fsm_sale.project_task_view_search_fsm" priority="50">
     <xpath expr="//field[@name='active']" position="after">
@@ -34,11 +44,15 @@ ID: `mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text`
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml)
 
-## Worksheet Time And Material  
-### Add Taxes  
-ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes`  
+## Worksheet Time And Material
+
+### Add Taxes
+
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes`
+
 ```xml
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//th[@class='text-end'][4]" position="after">
@@ -52,10 +66,13 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes`
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.worksheet_time_and_material.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.add_taxes.xml)
 
-### Remove Taxes  
-ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes`  
+### Remove Taxes
+
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes`
+
 ```xml
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//th[@class='text-end'][3]" position="replace"/>
@@ -63,10 +80,13 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes`
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml)
 
-### Replace Product Description  
-ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description`  
+### Replace Product Description
+
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description`
+
 ```xml
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="50">
     <xpath expr="//tr[1]/t[1]/td[1]" position="replace">
@@ -79,10 +99,13 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_d
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml)
 
-### Round Final Total  
-ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total`  
+### Round Final Total
+
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total`
+
 ```xml
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//span[@t-esc='final_total']" position="replace">
@@ -91,10 +114,13 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total
 </data>
 
 ```
+
 Source: [snippets/industry_fsm_sale.worksheet_time_and_material.round_final_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.round_final_total.xml)
 
-### Style Moser  
-ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`  
+### Style Moser
+
+ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`
+
 ```xml
 <data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
     <xpath expr="//div[1]" position="before">
@@ -110,5 +136,5 @@ ID: `mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser`
 </data>
 
 ```
-Source: [snippets/industry_fsm_sale.worksheet_time_and_material.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.style_moser.xml)
 
+Source: [snippets/industry_fsm_sale.worksheet_time_and_material.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm_sale.worksheet_time_and_material.style_moser.xml)

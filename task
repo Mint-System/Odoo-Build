@@ -202,7 +202,6 @@ function help() {
 
 # Static env vars
 
-ORG_NAME=Mint-System
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
 ODOO_RC="odoo.conf"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
@@ -212,30 +211,31 @@ CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 
 # Updateable env vars
 
+ORG_NAME=${ORG_NAME:=Mint-System}
 ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
-WITHOUT_DEMO=${WITHOUT_DEMO:="False"}
-ODOO_LANGUAGE=${ODOO_LANGUAGE:="de_CH"}
-ODOO_PORT=${ODOO_PORT:="8069"}
-POSTGRES_IMAGE=${POSTGRES_IMAGE:="pgvector/pgvector:pg16-trixie"}
-POSTGRES_PORT=${POSTGRES_PORT:="5432"}
-POSTGRES_SSL=${POSTGRES_SSL:="on"}
-PGSSLMODE=${PGSSLMODE:="prefer"}
-LOG_LEVEL=${LOG_LEVEL:="info"}
-CONTAINER_REGISTRY=${CONTAINER_REGISTRY:="mintsystem"}
-PLATFORM=${PLATFORM:="linux/amd64"}
+WITHOUT_DEMO=${WITHOUT_DEMO:=False}
+ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
+ODOO_PORT=${ODOO_PORT:=8069}
+POSTGRES_IMAGE=${POSTGRES_IMAGE:=pgvector/pgvector:pg16-trixie}
+POSTGRES_PORT=${POSTGRES_PORT:=5432}
+POSTGRES_SSL=${POSTGRES_SSL:=on}
+PGSSLMODE=${PGSSLMODE:=prefer}
+LOG_LEVEL=${LOG_LEVEL:=info}
+CONTAINER_REGISTRY=${CONTAINER_REGISTRY:=mintsystem}
+PLATFORM=${PLATFORM:=linux/amd64}
 BROWSER_OPEN=${BROWSER_OPEN:=true}
-CONTAINER_ENGINE=${CONTAINER_ENGINE:="docker"}
-COMPOSE_COMMAND=${COMPOSE_COMMAND:="docker compose"}
-LLM_MODEL=${LLM_MODEL:="llama"}
-SMTP_SERVER=${SMTP_SERVER:="mailpit"}
+CONTAINER_ENGINE=${CONTAINER_ENGINE:=docker}
+COMPOSE_COMMAND=${COMPOSE_COMMAND:=docker compose}
+LLM_MODEL=${LLM_MODEL:=llama}
+SMTP_SERVER=${SMTP_SERVER:=mailpit}
 SMTP_PORT=${SMTP_PORT:=1025}
-SMTP_SSL=${SMTP_SSL:="False"}
-EMAIL_FROM=${EMAIL_FROM:="info@yourcompany.com"}
-MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:="yourcompany.com"}
-LIST_DB=${LIST_DB:="True"}
+SMTP_SSL=${SMTP_SSL:=False}
+EMAIL_FROM=${EMAIL_FROM:=info@yourcompany.com}
+MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:=yourcompany.com}
+LIST_DB=${LIST_DB:=True}
 CONTAINER_TAG="odoo:$ODOO_REVISION"
-ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:="admin"}
-ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:="admin"}
+ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:=admin}
+ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:=admin}
 
 # Conditional env vars
 
@@ -1982,6 +1982,10 @@ function generate-oca-module-docs() {
     echo "Setup readme folder"
     mkdir -p "$MODULE_PATH/readme"
     cp -n -r "templates/module/readme" "$MODULE_PATH"
+
+    echo "Update DESCRIPTION.rst"
+    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    envsubst < templates/module/readme/DESCRIPTION.rst > "$MODULE_PATH/readme/DESCRIPTION.rst"
 
     echo "Update CONTRIBUTORS.rst"
     GIT_USER_NAME="$(git config user.name)"
