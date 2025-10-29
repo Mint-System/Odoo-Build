@@ -43,18 +43,17 @@ if [[ -n "$ODOO_DATABASE" ]]; then
         log-entrypoint 'Odoo initialization command completed.'
 
         if [[ "$odoo_init_login" != "admin" ]] || [[ "$odoo_init_password" != "admin" ]]; then
-            log-entrypoint "Updating admin user credentials to login: $odoo_init_login"
-            (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << 'EOF'
+            log-entrypoint "Updating admin user credentials..."
+            (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
 admin_user = env['res.users'].browse(2)
 admin_user.write({
     'login': '$odoo_init_login',
     'password': '$odoo_init_password'
 })
 env.cr.commit()
-print('Admin credentials updated successfully.')
+print('Credentials for user $odoo_init_login updated successfully.')
 EOF
 ) || true
-            log-entrypoint 'Admin credentials update completed.'
         fi
     fi
 
@@ -73,7 +72,7 @@ EOF
         log-entrypoint 'WARNING: Database initialization may have failed.'
     fi
 
-    log-entrypoint "Database initialization process completed for $ODOO_DATABASE"
+    log-entrypoint "Database initialization process completed for $ODOO_DATABASE."
 else
     log-entrypoint 'ODOO_DATABASE environment variable not set, skipping database initialization.'
 fi

@@ -1361,7 +1361,7 @@ function test-project() {
         export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,contacts,web_enterprise
         export PYTHON_INSTALL=prometheus-client,manifestoo
         run odoo init-db
-
+        
         echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
         export ODOO_MAIL_SMTP_HOST=mail
         export ODOO_MAIL_SMTP_PORT=1025
