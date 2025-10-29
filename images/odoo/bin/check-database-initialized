@@ -1,11 +1,11 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-if [ -n "$ODOO_DATABASE" ]; then
+if [[ -n "$ODOO_DATABASE" ]]; then
     log-entrypoint "Check if database $ODOO_DATABASE is initialized..."
-    DATABASE_INITIALIZED=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+    database_initialized=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$ODOO_DATABASE" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
 
-    if [ "$DATABASE_INITIALIZED" = "1" ]; then
+    if [[ "$database_initialized" = "1" ]]; then
         log-entrypoint "Database $ODOO_DATABASE is initialized."
         exit 0
     else
@@ -13,6 +13,6 @@ if [ -n "$ODOO_DATABASE" ]; then
         exit 1
     fi
 else
-    log-entrypoint "ODOO_DATABASE environment variable not set."
+    log-entrypoint 'ODOO_DATABASE environment variable not set.'
     exit 1
 fi

@@ -1,7 +1,7 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-log-entrypoint "Install python packages required for testing."
+log-entrypoint 'Install python packages required for testing.'
 uv pip install --no-cache-dir coverage websocket-client
 
 log-entrypoint "Collect requirements.txt files in $TEST_ADDONS_DIR."
@@ -10,16 +10,16 @@ find "$TEST_ADDONS_DIR" -type f -name "requirements.txt" -exec uv pip install -r
 log-entrypoint "Collect test-requirements.txt files in $TEST_ADDONS_DIR."
 find "$TEST_ADDONS_DIR" -type f -name "test-requirements.txt" -exec uv pip install -r {} \;
 
-if [ -n "$TEST_INCLUDE" ]; then
-    TEST_DEPENDS_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
+if [[ -n "$TEST_INCLUDE" ]]; then
+    test_depends_modules=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
 else
-    TEST_DEPENDS_MODULES=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
+    test_depends_modules=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list-depends --separator=,)
 fi
 
-log-entrypoint "Install depends modules for testing: $TEST_DEPENDS_MODULES"
+log-entrypoint "Install depends modules for testing: $test_depends_modules"
 unbuffer /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
-    -i "${TEST_DEPENDS_MODULES:-base}" \
+    -i "${test_depends_modules:-base}" \
     --load-language=en_US \
     --stop-after-init \
     --http-port=8068

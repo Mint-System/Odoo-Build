@@ -1,4 +1,4 @@
-# Agents
+# AGENTS.md
 
 These are instructions and rules for the LLM model when answering a prompt.
 

@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-if [ -n "$PYTHON_INSTALL" ]; then
+if [[ -n "$PYTHON_INSTALL" ]]; then
 
-    log-entrypoint "Check status of PyPi."
-    HTTP_PYPI_OK=$(curl -s --head --request GET https://pypi.org/simple/ | grep "HTTP/2 200")
+    log-entrypoint 'Check status of PyPi.'
+    http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ | grep 'HTTP/2 200')
 
-    if [ -n "$HTTP_PYPI_OK" ]; then
+    if [[ -n "$http_pypi_ok" ]]; then
         log-entrypoint "Install Python packages: $PYTHON_INSTALL"
-        uv pip install $(echo "$PYTHON_INSTALL" | tr "," " ")
+        uv pip install $(echo "$PYTHON_INSTALL" | tr ',' ' ')
     fi
 fi

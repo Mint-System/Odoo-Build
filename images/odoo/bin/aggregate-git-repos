@@ -1,12 +1,22 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-if [ -f "/var/lib/odoo/git/repos.yml" ]; then
+if [[ -n "$GIT_AUTHOR_NAME" ]]; then
+    log-entrypoint "Set git config user.name to '$GIT_AUTHOR_NAME'."
+    git config --global user.name "$GIT_AUTHOR_NAME"
+fi
+
+if [[ -n "$GIT_AUTHOR_EMAIL" ]]; then
+    log-entrypoint "Set git config user.email to '$GIT_AUTHOR_EMAIL'."
+    git config --global user.email "$GIT_AUTHOR_EMAIL"
+fi
+
+if [[ -f "/var/lib/odoo/git/repos.yml" ]]; then
     cd /var/lib/odoo/git
-    log-entrypoint "Aggregate git repos..."
+    log-entrypoint 'Aggregate git repos...'
     gitaggregate -c repos.yml --expand-env
-elif [ -f "/var/lib/odoo/git/repos.yaml" ]; then
+elif [[ -f "/var/lib/odoo/git/repos.yaml" ]]; then
     cd /var/lib/odoo/git
-    log-entrypoint "Aggregate git repos..."
+    log-entrypoint 'Aggregate git repos...'
     gitaggregate -c repos.yaml --expand-env
 fi

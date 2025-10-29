@@ -796,7 +796,7 @@ function test-image() {
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${SERVER_TOOLS_GIT_REF}"
         mkdir -p "$LOCAL_PATH"
         export PATH=./images/odoo/bin/:$PATH
-        ./images/odoo/bin/clone-git-addons
+        ./images/odoo/bin/clone-git-addons # This will remove all SSH keys at the end
         rm -rf "$LOCAL_PATH/github.com"
 
         echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"

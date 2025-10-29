@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
 export DB_NAME=${DB_NAME:=""}
@@ -33,25 +33,25 @@ export MODULE_AUTO_INSTALL_DISABLED=${MODULE_AUTO_INSTALL_DISABLED:=""}
 export ADDITIONAL_ODOO_RC=${ADDITIONAL_ODOO_RC:=""}
 export IR_CONFIG_PARAMETER=${IR_CONFIG_PARAMETER:=""}
 
-# Add SSH keys to conf
-if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-    GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
-    IR_CONFIG_PARAMETER+=$'\n'"git.ssh_private_key = \"$GIT_SSH_PRIVATE_KEY\""
+# Append SSH keys to ir config parameters
+if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
+    git_ssh_private_key=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+    IR_CONFIG_PARAMETER+=$'\n'"git.ssh_private_key = \"$git_ssh_private_key\""
 fi
-if [ -n "$GIT_SSH_PUBLIC_KEY" ]; then
+if [[ -n "$GIT_SSH_PUBLIC_KEY" ]]; then
     IR_CONFIG_PARAMETER+=$'\n'"git.ssh_public_key = \"$GIT_SSH_PUBLIC_KEY\""
 fi
 export IR_CONFIG_PARAMETER
 
-TEMPLATE_FILE="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
-OUTPUT_FILE="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
-FILTER="${ODOO_ENVSUBST_FILTER:-}"
+template_file="${ODOO_ENVSUBST_TEMPLATE_FILE:-/etc/odoo/odoo.conf.template}"
+output_file="${ODOO_ENVSUBST_OUTPUT_FILE:-/etc/odoo/odoo.conf}"
+filter="${ODOO_ENVSUBST_FILTER:-}"
 
 source set-addons-path
 
-DEFINED_ENVS=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${FILTER}/ ) ? name : \"\" } }" < /dev/null ))
+defined_envs=$(printf '${%s} ' $(awk "END { for (name in ENVIRON) { print ( name ~ /${filter}/ ) ? name : \"\" } }" < /dev/null ))
 
-if [[ -f "$TEMPLATE_FILE" ]]; then
-    log-entrypoint "Run envsubst on $TEMPLATE_FILE and output: $OUTPUT_FILE"
-    envsubst "$DEFINED_ENVS" < "$TEMPLATE_FILE" > "$OUTPUT_FILE"
+if [[ -f "$template_file" ]]; then
+    log-entrypoint "Run envsubst on $template_file and output: $output_file"
+    envsubst "$defined_envs" < "$template_file" > "$output_file"
 fi

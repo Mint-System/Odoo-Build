@@ -1,75 +1,75 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Commands such as git pull return exit code if there are no changes
 # set -e
 
-if [ -n "$ADDONS_GIT_REPOS" ]; then
-    GITLAB_URL="${GITLAB_URL:="https://gitlab.com"}"
-    FORGEJO_URL="${FORGEJO_URL:="https://codeberg.org"}"
-    LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/git"}"
-    GIT_CLONE_DEPTH="${GIT_CLONE_DEPTH:="999"}"
+if [[ -n "$ADDONS_GIT_REPOS" ]]; then
+    gitlab_url="${GITLAB_URL:="https://gitlab.com"}"
+    forgejo_url="${FORGEJO_URL:="https://codeberg.org"}"
+    local_path="${LOCAL_PATH:="/var/lib/odoo/git"}"
+    git_clone_depth="${GIT_CLONE_DEPTH:="999"}"
 
     # Setup git SSH key
     add-ssh-key
 
     # Make every git directory a safe directory
-    git config --global --add safe.directory "*"
+    git config --global --add safe.directory '*'
 
     # Clone git repo addons into local path
     log-entrypoint "Cloning git repos: $ADDONS_GIT_REPOS"
-    ADDONS_GIT_REPOS=$(echo "$ADDONS_GIT_REPOS" | tr "," "\n")
-    for ADDON_GIT_REPO in $ADDONS_GIT_REPOS; do
+    addons_git_repos=$(echo "$ADDONS_GIT_REPOS" | tr ',' '\n')
+    for addon_git_repo in $addons_git_repos; do
 
         # Supported urls:
         # ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0
         # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0
         # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#18.0#8c5ea468176e8b960a0ae0a52128fc65e985e8a7
 
-        GIT_URL=$(echo "$ADDON_GIT_REPO" | cut -d# -f1)
-        GIT_BRANCH=$(echo "$ADDON_GIT_REPO" | cut -d# -f2)
-        GIT_COMMIT=$(echo "$ADDON_GIT_REPO" | cut -d# -f3)
-        GIT_HOSTNAME=$(parse-url "$GIT_URL" hostname)
-        GIT_PROTO=$(parse-url "$GIT_URL" proto)
-        GIT_PATH=$(parse-url "$GIT_URL" path | sed 's/.git//g')
-        GIT_LOCAL_PATH="$LOCAL_PATH/${GIT_HOSTNAME}/$GIT_PATH"
+        git_url=$(echo "$addon_git_repo" | cut -d'#' -f1)
+        git_branch=$(echo "$addon_git_repo" | cut -d'#' -f2)
+        git_commit=$(echo "$addon_git_repo" | cut -d'#' -f3)
+        git_hostname=$(parse-url "$git_url" hostname)
+        git_proto=$(parse-url "$git_url" proto)
+        git_path=$(parse-url "$git_url" path | sed 's/.git//g')
+        git_local_path="$local_path/${git_hostname}/$git_path"
 
-        ssh-keyscan -t rsa,dsa "$GIT_HOSTNAME" > ~/.ssh/known_hosts 2>/dev/null
+        ssh-keyscan -t rsa,dsa "$git_hostname" > ~/.ssh/known_hosts 2>/dev/null
 
-        if [ ! -d "$GIT_LOCAL_PATH/.git" ]; then
+        if [[ ! -d "$git_local_path/.git" ]]; then
 
             # Clone git repo and submodules
-            mkdir -p "$GIT_LOCAL_PATH"
+            mkdir -p "$git_local_path"
 
             # Add GitHub personal access token
-            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "https://github.com" ] && [ -n "$GITHUB_USERNAME" ]; then
-                GIT_URL="${GIT_PROTO}${GITHUB_USERNAME}:${GITHUB_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            if [[ "${git_proto}${git_hostname}" = 'https://github.com' ]] && [[ -n "$GITHUB_USERNAME" ]]; then
+                git_url="${git_proto}${GITHUB_USERNAME}:${GITHUB_PAT}@${git_hostname}/${git_path}.git"
             fi
 
             # Add GitLab personal access token
-            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "$GITLAB_URL" ] && [ -n "$GITLAB_USERNAME" ]; then
-                GIT_URL="${GIT_PROTO}${GITLAB_USERNAME}:${GITLAB_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            if [[ "${git_proto}${git_hostname}" = "$gitlab_url" ]] && [[ -n "$GITLAB_USERNAME" ]]; then
+                git_url="${git_proto}${GITLAB_USERNAME}:${GITLAB_PAT}@${git_hostname}/${git_path}.git"
             fi
 
             # Add Forgejo personal access token
-            if [ "${GIT_PROTO}${GIT_HOSTNAME}" = "$FORGEJO_URL" ] && [ -n "$FORGEJO_USERNAME" ]; then
-                GIT_URL="${GIT_PROTO}${FORGEJO_USERNAME}:${FORGEJO_PAT}@${GIT_HOSTNAME}/${GIT_PATH}.git"
+            if [[ "${git_proto}${git_hostname}" = "$forgejo_url" ]] && [[ -n "$FORGEJO_USERNAME" ]]; then
+                git_url="${git_proto}${FORGEJO_USERNAME}:${FORGEJO_PAT}@${git_hostname}/${git_path}.git"
             fi
 
-            log-entrypoint "Clone ${GIT_URL} branch $GIT_BRANCH."
-            git clone --depth "$GIT_CLONE_DEPTH" --single-branch --branch "$GIT_BRANCH" "$GIT_URL" "$GIT_LOCAL_PATH"
+            log-entrypoint "Clone ${git_url} branch $git_branch."
+            git clone --depth "$git_clone_depth" --single-branch --branch "$git_branch" "$git_url" "$git_local_path"
         else
-            log-entrypoint "Pull $GIT_BRANCH branch in $GIT_LOCAL_PATH."
-            git -C "$GIT_LOCAL_PATH" switch "$GIT_BRANCH"
-            git -C "$GIT_LOCAL_PATH" pull
+            log-entrypoint "Pull $git_branch branch in $git_local_path."
+            git -C "$git_local_path" switch "$git_branch"
+            git -C "$git_local_path" pull
         fi
 
-        if [ -n "$GIT_COMMIT" ];then
-            log-entrypoint "Checkout $GIT_COMMIT commit in $GIT_LOCAL_PATH."
-            git -C "$GIT_LOCAL_PATH" checkout "$GIT_COMMIT"
+        if [[ -n "$git_commit" ]]; then
+            log-entrypoint "Checkout $git_commit commit in $git_local_path."
+            git -C "$git_local_path" checkout "$git_commit"
         fi
 
-        if [ -f "$GIT_LOCAL_PATH/.gitmodules" ]; then
-            log-entrypoint "Init and update git submodules in $GIT_LOCAL_PATH."
-            git -C "$GIT_LOCAL_PATH" submodule update --init --recursive --depth "$GIT_CLONE_DEPTH"
+        if [[ -f "$git_local_path/.gitmodules" ]]; then
+            log-entrypoint "Init and update git submodules in $git_local_path."
+            git -C "$git_local_path" submodule update --init --recursive --depth "$git_clone_depth"
         fi
     done
 

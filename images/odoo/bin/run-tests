@@ -1,20 +1,20 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-if [ -n "$TEST_INCLUDE" ]; then
-    TEST_MODULES=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
+if [[ -n "$TEST_INCLUDE" ]]; then
+    test_modules=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
 else
-    TEST_MODULES=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list --separator=,)
+    test_modules=$(manifestoo --select-addons-dir "$TEST_ADDONS_DIR" --select-exclude "$TEST_EXCLUDE" list --separator=,)
 fi
 
 source set-addons-path
 
-log-entrypoint "Run test for these modules: $TEST_MODULES"
+log-entrypoint "Run test for these modules: $test_modules"
 log-entrypoint "Test coverage includes: $TEST_ADDONS_DIR/*"
 unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
-    -i "$TEST_MODULES" \
+    -i "$test_modules" \
     --workers 0 \
     --test-enable \
     --stop-after-init \
