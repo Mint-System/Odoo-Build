@@ -206,7 +206,7 @@ ORG_NAME=Mint-System
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
 ODOO_RC="odoo.conf"
 TASK_CONFIG_DIR="$HOME/.config/odoo-build"
-PYTHONPATH="$PWD/odoo"
+export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 
@@ -1044,7 +1044,7 @@ function install() {
         fi
 
         echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
-        uv pip install odoo/ --no-deps
+        uv pip install -e odoo/ --no-deps
     fi
 
     if [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
@@ -1059,7 +1059,7 @@ function install() {
     fi
 
     # echo "Setup odoo-build with hatch-odoo."
-    # UV_NO_CACHE=1 uv pip install .
+    # UV_NO_CACHE=1 uv pip install -e .
 }
 
 # Process commands
