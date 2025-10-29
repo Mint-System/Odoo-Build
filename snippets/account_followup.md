@@ -7,12 +7,11 @@
 ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`
 
 ```xml
-<data inherit_id="account.view_move_form" priority="50">
+<data inherit_id="account_followup.customer_statements_form_view" priority="50">
     <field name="blocked" position="replace" />
 </data>
 
 ```
-
 Source: [snippets/account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.customer_statements_form_view.remove_blocked.xml)
 
 ## Report Followup Print All
@@ -37,7 +36,6 @@ ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`
     </t>
 </data>
 ```
-
 Source: [snippets/account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.report_followup_print_all.style_sozialinfo.xml)
 
 ## Template Followup Report
@@ -58,7 +56,6 @@ ID: `mint_system.account_followup.template_followup_report.format_table`
 </data>
 
 ```
-
 Source: [snippets/account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.format_table.xml)
 
 ### Padding Before Table
@@ -73,7 +70,6 @@ ID: `mint_system.account_followup.template_followup_report.padding_before_table`
 </data>
 
 ```
-
 Source: [snippets/account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.padding_before_table.xml)
 
 ### Remove Summary Placeholder
@@ -86,5 +82,5 @@ ID: `mint_system.account_followup.template_followup_report.remove_summary_placeh
 </data>
 
 ```
-
 Source: [snippets/account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.remove_summary_placeholder.xml)
+

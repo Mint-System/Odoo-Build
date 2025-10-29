@@ -12,7 +12,6 @@ ID: `mint_system.survey.layout.remove_brand_promotion_message`
 </data>
 
 ```
-
 Source: [snippets/survey.layout.remove_brand_promotion_message.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.layout.remove_brand_promotion_message.xml)
 
 ### Set Head Title
@@ -30,7 +29,6 @@ ID: `mint_system.survey.layout.set_head_title`
 </data>
 
 ```
-
 Source: [snippets/survey.layout.set_head_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.layout.set_head_title.xml)
 
 ## Survey Question Form
@@ -47,7 +45,6 @@ ID: `mint_system.survey.survey_question_form.add_button_start_survey`
 </data>
 
 ```
-
 Source: [snippets/survey.survey_question_form.add_button_start_survey.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.survey_question_form.add_button_start_survey.xml)
 
 ### Enable Create
@@ -62,7 +59,6 @@ ID: `mint_system.survey.survey_question_form.enable_create`
 </data>
 
 ```
-
 Source: [snippets/survey.survey_question_form.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.survey_question_form.enable_create.xml)
 
 ## Survey Question Tree
@@ -79,7 +75,6 @@ ID: `mint_system.survey.survey_question_tree.enable_create`
 </data>
 
 ```
-
 Source: [snippets/survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.survey_question_tree.enable_create.xml)
 
 ## Survey User Input View Tree
@@ -96,7 +91,6 @@ ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`
 </data>
 
 ```
-
 Source: [snippets/survey.survey_user_input_view_tree.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.survey_user_input_view_tree.x_department_id.xml)
 
 ### X Manager Id
@@ -111,5 +105,5 @@ ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`
 </data>
 
 ```
-
 Source: [snippets/survey.survey_user_input_view_tree.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/survey.survey_user_input_view_tree.x_manager_id.xml)
+

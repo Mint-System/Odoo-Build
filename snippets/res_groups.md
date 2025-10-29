@@ -17,5 +17,5 @@ ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`
 </odoo>
 
 ```
-
 Source: [snippets/res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/res_groups.hr_holidays.holidays_self_responsible.xml)
+

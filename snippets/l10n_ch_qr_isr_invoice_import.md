@@ -14,5 +14,5 @@ ID: `mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_
 </data>
 
 ```
-
 Source: [snippets/l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml)
+

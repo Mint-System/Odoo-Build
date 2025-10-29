@@ -13,5 +13,5 @@ ID: `mint_system.sale_margin.sale_margin_sale_order.hide_margin`
 </data>
 
 ```
-
 Source: [snippets/sale_margin.sale_margin_sale_order.hide_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_margin.sale_margin_sale_order.hide_margin.xml)
+

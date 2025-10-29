@@ -15,5 +15,5 @@ ID: `mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates`
 </data>
 
 ```
-
 Source: [snippets/account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml)
+

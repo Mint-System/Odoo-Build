@@ -12,5 +12,5 @@ ID: `mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenan
 </data>
 
 ```
-
 Source: [snippets/maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml)
+

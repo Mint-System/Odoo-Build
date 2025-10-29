@@ -58,11 +58,11 @@ def main():
         # Create doc file for each module
         doc_file = f"snippets/{module}.md"
         with open(doc_file, "w") as module_doc:
-            module_doc.write(f"# {module_title}\n")
+            module_doc.write(f"# {module_title}\n\n")
 
         # Add entry to main snippets.md file
         with open("snippets.md", "a") as main_doc:
-            main_doc.write(f"## [{module_title}](snippets/{module}.md)\n")
+            main_doc.write(f"## [{module_title}](snippets/{module}.md)\n\n")
 
         # Add to sidebar entries
         sidebar_entries.append(f"'/snippets/{module}.md'")
@@ -82,7 +82,7 @@ def main():
 
             # Add XML ID section to module doc file
             with open(doc_file, "a") as module_doc:
-                module_doc.write(f"## {xml_id_title}  \n")
+                module_doc.write(f"## {xml_id_title}\n\n")
 
             # Process each file for this XML ID
             edit_files = glob.glob(f"snippets/{module}.{xml_id}.*.xml")
@@ -96,8 +96,8 @@ def main():
 
                 # Add edit section to module doc file
                 with open(doc_file, "a") as module_doc:
-                    module_doc.write(f"### {edit_title}  \n")
-                    module_doc.write(f"ID: `mint_system.{module}.{xml_id}.{edit}`  \n")
+                    module_doc.write(f"### {edit_title}\n\n")
+                    module_doc.write(f"ID: `mint_system.{module}.{xml_id}.{edit}`\n\n")
                     module_doc.write("```xml\n")
 
                     # Append file content

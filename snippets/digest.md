@@ -49,5 +49,5 @@ ID: `mint_system.digest.digest_mail_main.report`
 </t>
 
 ```
-
 Source: [snippets/digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/digest.digest_mail_main.report.xml)
+

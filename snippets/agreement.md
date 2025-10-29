@@ -12,5 +12,5 @@ ID: `mint_system.agreement.agreement_type_form_view.hide_domain`
 </data>
 
 ```
-
 Source: [snippets/agreement.agreement_type_form_view.hide_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement.agreement_type_form_view.hide_domain.xml)
+

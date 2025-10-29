@@ -14,7 +14,6 @@ ID: `mint_system.calendar.view_calendar_event_calendar.default_mode_week`
 </data>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_calendar.default_mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.default_mode_week.xml)
 
 ### Set Color
@@ -30,7 +29,6 @@ ID: `mint_system.calendar.view_calendar_event_calendar.set_color`
 </odoo>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_calendar.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.set_color.xml)
 
 ### Show Location
@@ -45,7 +43,6 @@ ID: `mint_system.calendar.view_calendar_event_calendar.show_location`
 </data>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_calendar.show_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.show_location.xml)
 
 ### X Color
@@ -61,7 +58,6 @@ ID: `mint_system.calendar.view_calendar_event_calendar.x_color`
 </odoo>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_calendar.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar.x_color.xml)
 
 ## View Calendar Event Calendar Timeline
@@ -84,7 +80,6 @@ ID: `mint_system.calendar.view_calendar_event_calendar_timeline.view`
 </odoo>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_calendar_timeline.view.xml)
 
 ## View Calendar Event Form
@@ -102,7 +97,6 @@ ID: `mint_system.calendar.view_calendar_event_form.show_res_model_and_id`
 </data>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_form.show_res_model_and_id.xml)
 
 ### X Color
@@ -117,5 +111,5 @@ ID: `mint_system.calendar.view_calendar_event_form.x_color`
 </data>
 
 ```
-
 Source: [snippets/calendar.view_calendar_event_form.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/calendar.view_calendar_event_form.x_color.xml)
+

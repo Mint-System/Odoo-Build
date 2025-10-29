@@ -14,7 +14,6 @@ ID: `mint_system.certificate_planer.document_form.hide_view_report_button`
 </data>
 
 ```
-
 Source: [snippets/certificate_planer.document_form.hide_view_report_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/certificate_planer.document_form.hide_view_report_button.xml)
 
 ## Mcr Report View
@@ -32,5 +31,5 @@ ID: `mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns`
 </data>
 
 ```
-
 Source: [snippets/certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/certificate_planer.mcr_report_view.hide_mcr_planning_columns.xml)
+

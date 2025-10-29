@@ -8,12 +8,11 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
 
 ```xml
 <data inherit_id="account_accountant.view_bank_statement_line_kanban_bank_rec_widget" priority="50">
-    <xpath expr="//div[@id='payment_ref']/.." position="replace">
+    <xpath expr="//div[@id='payment_ref']/.." position="replace">        
     </xpath>
 </data>
 
 ```
-
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_payment_ref.xml)
 
 ### Hide Statement Id
@@ -22,12 +21,11 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
 
 ```xml
 <data inherit_id="account_accountant.view_bank_statement_line_kanban_bank_rec_widget" priority="50">
-    <xpath expr="//templates//field[@name='statement_id']/.." position="replace">
+    <xpath expr="//templates//field[@name='statement_id']/.." position="replace">        
     </xpath>
 </data>
 
 ```
-
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.hide_statement_id.xml)
 
 ### Show Narration
@@ -47,7 +45,6 @@ ID: `mint_system.account_accountant.view_bank_statement_line_kanban_bank_rec_wid
 </data>
 
 ```
-
 Source: [snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_accountant.view_bank_statement_line_kanban_bank_rec_widget.show_narration.xml)
 
 ## View Bank Statement Line Tree Bank Rec Widget
@@ -64,5 +61,5 @@ ID: `mint_system.account_accountant.view_bank_statement_line_tree_bank_rec_widge
 </data>
 
 ```
-
 Source: [snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_accountant.view_bank_statement_line_tree_bank_rec_widget.show_partner_name.xml)
+

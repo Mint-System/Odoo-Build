@@ -76,7 +76,6 @@ export default [
 '/snippets/stock.md',
 '/snippets/stock_account.md',
 '/snippets/stock_delivery_note.md',
-'/snippets/stock_picking_valued.md',
 '/snippets/survey.md',
 '/snippets/timesheet_grid.md',
 '/snippets/web.md',
