@@ -14,11 +14,6 @@ This section outlines the universal rules and expectations for any LLM agent wor
 
 ## Coding conventions
 
-### Python
-
-When working with python files are python command apply these rules:
-
-**Interpreter:** Use `uv` to run `python`, `pip` or `pyenv`.
 ### Bash
 
 The following guideline is heavily based on the [Bash Style Guide | ysap.sh](https://style.ysap.sh/), which should be considered the primary reference for style. Adhere to the following principles to ensure scripts are safe, predictable, and maintainable.
