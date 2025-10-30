@@ -2,15 +2,27 @@
 set -e
 
 if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
-    log-entrypoint 'Error: GitHub personal access token or username is not set.'
+    log_entrypoint 'Error: GitHub personal access token or username is not set.'
     exit 1
 fi
 
-LOCAL_PATH="${LOCAL_PATH:="/var/lib/odoo/enterprise"}"
+local_path="${LOCAL_PATH:="/var/lib/odoo/enterprise"}"
+ref_file="$local_path/.last_ref"
 
-log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $LOCAL_PATH."
-mkdir -p "$LOCAL_PATH"
-curl -L -o "$LOCAL_PATH/archive.tar.gz" \
-    "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
-tar -xzf "$LOCAL_PATH/archive.tar.gz" --strip-components=1 -C "$LOCAL_PATH"
-rm "$LOCAL_PATH/archive.tar.gz"
+mkdir -p "$local_path"
+last_ref=""
+if [[ -f "$ref_file" ]]; then
+    last_ref="$(cat "$ref_file")"
+fi
+
+if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
+    log_entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $local_path."
+    find "$local_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
+    curl -L -o "$local_path/archive.tar.gz" \
+        "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
+    tar -xzf "$local_path/archive.tar.gz" --strip-components=1 -C "$local_path"
+    rm "$local_path/archive.tar.gz"
+    echo "$ODOO_ENTERPRISE_REF" > "$ref_file"
+else
+    log_entrypoint "Odoo Enterprise $ODOO_ENTERPRISE_REF already downloaded. Skipping download."
+fi
