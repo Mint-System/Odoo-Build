@@ -660,7 +660,6 @@ build() {
     # Set container tag based on Dockerfile
     local manifest_file
     local latest_tag
-    local container_tag
     
     if [[ "$1" == "images/odoo" ]]; then
         manifest_file="images/odoo/Dockerfile"
@@ -668,19 +667,19 @@ build() {
     fi
     if [[ "$1" == "images/odoo-mailgate" ]]; then
         manifest_file="images/odoo-mailgate/Dockerfile"
-        container_tag="odoo-mailgate"
+        CONTAINER_TAG="odoo-mailgate"
         latest_tag="odoo-mailgate:latest"
     elif [[ "$1" == "images/odoo-upgrade" ]]; then
         manifest_file="images/odoo-upgrade/Dockerfile"
-        container_tag="odoo-upgrade"
+        CONTAINER_TAG="odoo-upgrade"
         latest_tag="odoo-upgrade:latest"
     elif [[ "$1" == "images/odoocli" ]]; then
         manifest_file="images/odoocli/Dockerfile"
-        container_tag="odoocli"
+        CONTAINER_TAG="odoocli"
         latest_tag="odoocli:latest"
     elif [[ "$1" == "images/odoo-mcp" ]]; then
         manifest_file="images/odoo-mcp/Dockerfile"
-        container_tag="odoo-mcp"
+        CONTAINER_TAG="odoo-mcp"
         latest_tag="odoo-mcp:latest"
     fi
 
@@ -722,8 +721,8 @@ build() {
     echo "Platform: $platform"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -732,14 +731,14 @@ build() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${platform}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${platform}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$platform" . \
         --file "$manifest_file" \
         --build-arg PYTHON_VERSION="$python_version" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
         --build-arg ODOO_DATE="$odoo_date" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
+        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
         --tag "${CONTAINER_REGISTRY}/${latest_tag}" \
         "$docker_output"
 }
@@ -792,27 +791,27 @@ test-image() {
         echo '$1 is empty.'
         exit
     fi
-
-    local container_tag
     
     if [[ "$1" == "images/odoo-upgrade" ]]; then
-        container_tag="odoo-upgrade"
+        CONTAINER_TAG="odoo-upgrade"
     elif [[ "$1" == "images/odoocli" ]]; then
-        container_tag="odoocli"
+        CONTAINER_TAG="odoocli"
     fi
 
-    if [[ "$container_tag" =~ ^odoo: ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
+    if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
+        export PATH=./images/odoo/bin/:$PATH
         export LOCAL_PATH="./tmp"
+        mkdir -p "$LOCAL_PATH"
+
+        echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
         local server_tools_git_ref=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${server_tools_git_ref}"
-        mkdir -p "$LOCAL_PATH"
-        export PATH=./images/odoo/bin/:$PATH
-        ./images/odoo/bin/clone-git-addons # This will remove all SSH keys at the end
-        rm -rf "$LOCAL_PATH/github.com"
+        # This will remove all SSH keys at the end
+        ./images/odoo/bin/clone-git-addons
+        rm -rf "$LOCAL_PATH/github.com" # Cleanup for next run
 
         echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
         echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
@@ -828,6 +827,31 @@ test-image() {
         activate-venv
         ./images/odoo/bin/install-python-packages
 
+        echo -e "\033[38;5;214mTEST\033[0m: Sync python project."
+        cat > tmp/pyproject.toml << 'EOF'
+[project]
+name = "test-project"
+version = "0.1.0"
+description = "Test project for uv sync"
+dependencies = [
+    "requests>=2.28.0",
+    "click>=8.0.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=7.0.0",
+    "black>=23.0.0",
+]
+EOF
+        activate-venv
+        ./images/odoo/bin/sync-python-project
+        uv pip list
+
         echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
         export TEST_ADDONS_DIR="./templates"
         export ODOO_VERSION="18.0"
@@ -835,12 +859,12 @@ test-image() {
         echo $ADDONS_PATH | grep "./templates"
     fi
 
-    if [[ "$container_tag" =~ ^odoo-upgrade ]]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
         docker run -it mintsystem/odoo-upgrade --help
     fi
 
-    if [[ "$container_tag" =~ ^odoocli ]]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoocli ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
@@ -856,38 +880,36 @@ push() {
         echo '$1 is empty.'
         exit
     fi
-
     local latest_tag
-    local container_tag
     
     if [[ "$1" == "images/odoo" ]]; then
         latest_tag="odoo:$ODOO_VERSION"
     elif [[ "$1" == "images/odoo-mailgate" ]]; then
-        container_tag="odoo-mailgate"
+        CONTAINER_TAG="odoo-mailgate"
         latest_tag="odoo-mailgate:latest"
     elif [[ "$1" == "images/odoo-upgrade" ]]; then
-        container_tag="odoo-upgrade"
+        CONTAINER_TAG="odoo-upgrade"
         latest_tag="odoo-upgrade:latest"
     elif [[ "$1" == "images/odoocli" ]]; then
-        container_tag="odoocli"
+        CONTAINER_TAG="odoocli"
         latest_tag="odoocli:latest"
     elif [[ "$1" == "images/odoo-mcp" ]]; then
-        container_tag="odoo-mcp"
+        CONTAINER_TAG="odoo-mcp"
         latest_tag="odoocli:latest"
     fi
 
-    echo "Tag container image ${CONTAINER_REGISTRY}/${container_tag} with ${CONTAINER_REGISTRY}/${latest_tag}"
-    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${container_tag}" "${CONTAINER_REGISTRY}/${latest_tag}"
+    echo "Tag container image ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with ${CONTAINER_REGISTRY}/${latest_tag}"
+    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" "${CONTAINER_REGISTRY}/${latest_tag}"
 
     if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}/${container_tag}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${container_tag}"
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${latest_tag}"
     fi
 
     if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}/${container_tag}"
-        podman push "${CONTAINER_REGISTRY}/${container_tag}"
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         podman push "${CONTAINER_REGISTRY}/${latest_tag}"
     fi
 }
@@ -1065,7 +1087,7 @@ install() {
     if [[ -n "$PYTHON_NOTIFY" ]]; then
         uv pip install "$PYTHON_NOTIFY"
     fi
-    uv pip install -r requirements.txt
+    uv sync --active
 
     if [[ -f "odoo/requirements.txt" ]]; then
 

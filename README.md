@@ -7,27 +7,27 @@ This is the [Mint System](https://www.mint-system.ch/) Odoo development environm
 
 This projects provides a highly opinionated way to manage and develop Odoo. It features:
 
-* 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
-* 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
-* 💻 **Native**: Start an Odoo server directly from the source.
-* 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.
-* 🛠️ **Develop Modules**: Generate new modules, develop new Odoo features locally.
-* 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.
-* 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.
-* ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
-* 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
-* 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
-* 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
-* ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
-* 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
-* 🚀 **And More**: See [task help](./task.md).
+- 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
+- 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
+- 💻 **Native**: Start an Odoo server directly from the source.
+- 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.
+- 🛠️ **Develop Modules**: Generate new modules, develop new Odoo features locally.
+- 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.
+- 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.
+- ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
+- 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
+- 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
+- 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
+- ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
+- 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
+- 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
 
 The Odoo development environment has the following requirements:
 
-* [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
-* Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
+- [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
+- Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
 
 **MacOS**
 
@@ -351,30 +351,33 @@ task commit-and-push-revision
 
 ### Update repo template from oca-addons-repo-template
 
-Install copier.
+Run copier to copy the OCA template fiels
 
 ```bash
 source task source
-uv pip install copier
-```
-
-Run copier and select ruff as linter.
-
-```bash
 copier copy --UNSAFE https://github.com/OCA/oca-addons-repo-template.git "templates/$VERSION"
 ```
+
+Answer with:
+
+-` $VERSION`
+- `Mint-System`
+- `Mint System GmbH`
+- `server-tools`
+- `Enter` for all remaining questions.
 
 Remove unnecessary linter files.
 
 ```bash
 cd "templates/$VERSION"
-rm -rf .github
 rm .copier-answers.yml
 rm .flake8
 rm .isort.cfg
 rm .pylintrc-mandatory
 rm README.md
 ```
+
+Restore the folder `templates/$VERSION/.github` and add `tmp` to `templates/$VERSION/.gitignore`
 
 In `.pre-commit-config.yaml` remove mandatory pylint odoo:
 
@@ -384,13 +387,7 @@ In `.pre-commit-config.yaml` remove mandatory pylint odoo:
       - --rcfile=.pylintrc-mandatory
 ```
 
-In `.pylintrc` remove these rules:
-
-* missing-return
-* duplicate-xml-record-id
-* redefined-builtin
-
-In the `.ruff.toml` set this option:
+In the `.ruff.toml` set this option at the top:
 
 ```toml
 line-length = 120

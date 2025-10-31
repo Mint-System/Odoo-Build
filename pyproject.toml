@@ -1,31 +1,39 @@
-[build-system]
-requires = ["hatchling", "hatch-odoo"]
-build-backend = "hatchling.build"
-
 [project]
 name = "odoo-build"
-version = "1.0"
+version = "0.1.0"
+description = "This is the Mint System Odoo development environment."
 readme = "README.md"
-requires-python = ">=3.8"
-dynamic = ["dependencies"]
-
-[tool.hatch.metadata.hooks.odoo-addons-dependencies]
-[tool.hatch.build.hooks.odoo-addons-dirs]
-[tool.hatch-odoo]
-odoo_version_override = "18.0"
-dependencies = ["odoo-apps-Odoo-Apps-Server-Tools"]
-addons_dirs = ["."]
-
-[tool.hatch.build.targets.wheel]
-packages = ["."]
-
-[tool.ruff]
-line-length = 120
-extend-select = ["I", "F", "UP", "TID", "YTT", "E", "W"]
-exclude = ["venv*", ".venv*"]
-fix = true
-unsafe-fixes = true
-
-[tool.ruff.format]
-quote-style = "double"
-indent-style = "space"
+dependencies = [
+    # Container
+    "podman-compose",
+    # Testing
+    "pre-commit",
+    "pyyaml",
+    "coverage",
+    "pylint-odoo",
+    "pytest-odoo",
+    # Setup
+    "setuptools",
+    "wheel",
+    "watchdog",
+    "pdfminer.six",
+    "debugpy",
+    # Performance
+    "py-spy",
+    "memray",
+    # LLM
+    "fastmcp; python_version >= '3.10'",
+    "requests",
+    # Upgrade
+    "openupgradelib @ git+https://github.com/OCA/openupgradelib.git@master",
+    "odoo-upgrade @ git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'",
+    # OCA Tools
+    "manifestoo",
+    "oca-port",
+    "odoo-module-migrator",
+    "click-odoo-contrib",
+    "git-aggregator",
+    "oca-maintainers-tools @ git+https://github.com/OCA/maintainer-tools",
+    "hatch-odoo",
+    "copier",
+]

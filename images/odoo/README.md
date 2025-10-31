@@ -12,7 +12,7 @@ This container image is an improvement of the official Odoo image:
 - 💎 The image build process ensures reproducibility.
 - ⚙️ Configuration of `odoo.conf` is managed through environment variables.
 - 🌱 Addons are cloned from git repositories.
-- 🛠️ Python packages can be installed without rebuilding the image.
+- 🛠️ Python packages are installed at runtime.
 - 📂 The system detects addons in nested module folders.
 - 💾 Session information can be stored in the database.
 - 🖥️ Environment name is retrieved from server configuration.
@@ -20,7 +20,7 @@ This container image is an improvement of the official Odoo image:
 - 📜 The image includes built-in [manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
 - 🪴 The container runs without requiring root privileges.
 - ✂️ Reduced image size through multi-stage build and file cleanup.
-- 👀 Use the image to run module tests and create code coverage report.
+- 👀 Use the image to run module tests and create code coverage reports.
 - 🏥 Image has a built-in health check.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
@@ -33,11 +33,11 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 Supported tags:
 
-* [`19.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20251008), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
-* [`18.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20251008), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
-* [`17.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20251008), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
-* [`16.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20251008), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
-* [`15.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20251008), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
+- [`19.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20251008), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
+- [`18.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20251008), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
+- [`17.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20251008), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
+- [`16.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20251008), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
+- [`15.0.20251008`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20251008), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
 
 ### Minimal
 
@@ -196,11 +196,11 @@ The environment variables are explained in detail further down.
 
 The Mint System Odoo image has this container lifecycle in mind:
 
-* **Initialize**: Clone addons and initialize the database.
-* **Start**: The container starts and updates the execution environment.
-* **Execute**: Actions performed while the container is running.
-* **Analyze**: Analyse the current state of the container.
-* **Test**: Test modules in the container.
+- **Initialize**: Clone addons and initialize the database.
+- **Start**: The container starts and updates the execution environment.
+- **Execute**: Actions performed while the container is running.
+- **Analyze**: Analyse the current state of the container.
+- **Test**: Test modules in the container.
 
 ### Initialize
 
@@ -230,15 +230,15 @@ The scripts are configured with environment variables.
 
 Once you start the container the `entrypoint.sh` script will:
 
-* Call the `aggregate-git-repos` script and clone modules.
-* Run the `template-odoo-rc` script to template the `odoo.conf` file.
-* While doing so assemble the addons path with `set-addons-path`.
-* Run the `install-python-packages` script to install the Python packages.
-* Wait for the database to be ready.
-* Run the `update-modules` script if enabled.
-* Run the `update-modules-list` script if enabled.
-* Run the `update-translations` script if enabled.
-* Start the Odoo server.
+- Call the `aggregate-git-repos` script and clone modules.
+- Run the `template-odoo-rc` script to template the `odoo.conf` file.
+- While doing so assemble the addons path with `set-addons-path`.
+- Run the `install-python-packages` script to install the Python packages.
+- Wait for the database to be ready.
+- Run the `update-modules` script if enabled.
+- Run the `update-modules-list` script if enabled.
+- Run the `update-translations` script if enabled.
+- Start the Odoo server.
 
 ### Execute
 
@@ -310,49 +310,49 @@ The container can be configured with environment variables. This section shows a
 
 Odoo supports the PostgreSQL database only.
 
-* `PGHOST` Name of the database container.
-* `PGUSER` Database username.
-* `PGPASSWORD` Database user password.
-* `PGPORT` Postgres server port. Default is `5432`.
-* `DB_NAME` Fixed database name. Default is ``.
-* `DB_MAXCONN`: Maximum database connection. default is `64`.
-* `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
-* `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
+- `PGHOST` Name of the database container.
+- `PGUSER` Database username.
+- `PGPASSWORD` Database user password.
+- `PGPORT` Postgres server port. Default is `5432`.
+- `DB_NAME` Fixed database name. Default is ``.
+- `DB_MAXCONN`: Maximum database connection. default is `64`.
+- `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
+- `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
 
 ### SMTP Server
 
 This is the mail configuration of the Odoo server.
 
-* `SMTP_SERVER` Adress of the SMTP server.
-* `SMTP_PORT` Port of the SMTP server.
-* `SMTP_SSL` Use ssl encryption.
-* `SMTP_USER` SMTP username.
-* `SMTP_PASSWORD` SMTP user password.
-* `EMAIL_FROM` Mail adress of the sender.
+- `SMTP_SERVER` Adress of the SMTP server.
+- `SMTP_PORT` Port of the SMTP server.
+- `SMTP_SSL` Use ssl encryption.
+- `SMTP_USER` SMTP username.
+- `SMTP_PASSWORD` SMTP user password.
+- `EMAIL_FROM` Mail adress of the sender.
 
 ### System Parameters
 
 Set mail parameters for the company.
 
-* `MAIL_BOUNCE_ALIAS`: Name of the bounce mail adress.
-* `MAIL_CATCHALL_ALIAS`: Name of the reply-to mail adress.
-* `MAIL_CATCHALL_DOMAIN`: Domain name of the reply-to mail address.
-* `MAIL_DEFAULT_FROM`: From address for outgoing mails.
-* `MAIL_ALIAS_DOMAIN`: Mail domain of the company.
+- `MAIL_BOUNCE_ALIAS`: Name of the bounce mail adress.
+- `MAIL_CATCHALL_ALIAS`: Name of the reply-to mail adress.
+- `MAIL_CATCHALL_DOMAIN`: Domain name of the reply-to mail address.
+- `MAIL_DEFAULT_FROM`: From address for outgoing mails.
+- `MAIL_ALIAS_DOMAIN`: Mail domain of the company.
 
 ### Incoming and Outgoing Mail-Server
 
 Setup mail configuration for the database.
 
-* `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
-* `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
-* `ODOO_MAIL_SMTP_ENCRYPTION`: SMTP encryption type. Default is `starttls`.
-* `ODOO_MAIL_SMTP_FROM_FILTER`: Send mails from this address only. Default is `""`.
-* `ODOO_MAIL_IMAP_HOST`: If set Odoo fetches mails from this host.
-* `ODOO_MAIL_IMAP_PORT`: IMAP port. Default is `993`.
-* `ODOO_MAIL_IMAP_SSL`: Enable IMAP SSL. Default is `True`.
-* `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
-* `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
+- `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
+- `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
+- `ODOO_MAIL_SMTP_ENCRYPTION`: SMTP encryption type. Default is `starttls`.
+- `ODOO_MAIL_SMTP_FROM_FILTER`: Send mails from this address only. Default is `""`.
+- `ODOO_MAIL_IMAP_HOST`: If set Odoo fetches mails from this host.
+- `ODOO_MAIL_IMAP_PORT`: IMAP port. Default is `993`.
+- `ODOO_MAIL_IMAP_SSL`: Enable IMAP SSL. Default is `True`.
+- `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
+- `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 
 The configuration will be applied to the `ODOO_DATABASE` database.
 
@@ -360,19 +360,19 @@ The configuration will be applied to the `ODOO_DATABASE` database.
 
 The image can clone git repositories.
 
-* `GIT_AUTHOR_NAME: Set user name global git config.
-* `GIT_AUTHOR_EMAIL: Set user email global git config.
-* `GIT_SSH_PUBLIC_KEY`: Public key for SSH connection.
-* `GIT_SSH_PRIVATE_KEY`: Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
-* `GITHUB_USERNAME` GitHub username for https git clone and archive download.
-* `GITHUB_PAT`: GitHub access token for https git clone and archive download.
-* `GITLAB_URL`: Url of GitLab instance. Default is `https://gitlab.com`.
-* `GITLAB_USERNAME`: GitLab Username for https git clone.
-* `GITLAB_PAT`: GitLab access token for https git clone and archive download.
-* `FORGEJO_URL`: Url of Forgejo instance. Default is `https://codeberg.org`.
-* `FORGEJO_USERNAME`: Forgejo Username for https git clone.
-* `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
-* `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
+- `GIT_AUTHOR_NAME: Set user name global git config.
+- `GIT_AUTHOR_EMAIL: Set user email global git config.
+- `GIT_SSH_PUBLIC_KEY`: Public key for SSH connection.
+- `GIT_SSH_PRIVATE_KEY`: Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
+- `GITHUB_USERNAME` GitHub username for https git clone and archive download.
+- `GITHUB_PAT`: GitHub access token for https git clone and archive download.
+- `GITLAB_URL`: Url of GitLab instance. Default is `https://gitlab.com`.
+- `GITLAB_USERNAME`: GitLab Username for https git clone.
+- `GITLAB_PAT`: GitLab access token for https git clone and archive download.
+- `FORGEJO_URL`: Url of Forgejo instance. Default is `https://codeberg.org`.
+- `FORGEJO_USERNAME`: Forgejo Username for https git clone.
+- `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
+- `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
@@ -387,59 +387,59 @@ If you use a git url make sure a valid SSH private/public key is defined.
 
 The entrypoint script searches for module folders in the addons path and creates a new addons path.
 
-* `ODOO_ADDONS_PATH` Comma seperated list of container paths pointing to addon folders. Default is:
-  * `/mnt/extra-addons` Default location for custom modules.
-  * `/var/lib/odoo/enterprise` Reserved location for Odoo enterprise modules.
-  * `/var/lib/odoo/git` Reserved location for git repos.
-  * `$TEST_ADDONS_DIR` Variable location for module testing.
-  * `/opt/odoo/addons` Reserved location for Odoo community modules.
+- `ODOO_ADDONS_PATH` Comma seperated list of container paths pointing to addon folders. Default is:
+  - `/mnt/extra-addons` Default location for custom modules.
+  - `/var/lib/odoo/enterprise` Reserved location for Odoo enterprise modules.
+  - `/var/lib/odoo/git` Reserved location for git repos.
+  - `$TEST_ADDONS_DIR` Variable location for module testing.
+  - `/opt/odoo/addons` Reserved location for Odoo community modules.
 
 ### Initialize
 
 Set these environment variables for the database init:
 
-* `ODOO_DATABASE` Name of the Odoo database for initialisation.
-* `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
-* `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
-* `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
-* `ODOO_INIT_ADDONS` Provide comma separated list of modules for database init. Default is `web`.
-* `WITHOUT_DEMO` If enabled Odoo inits the database with demo data. Default is `True`.
+- `ODOO_DATABASE` Name of the Odoo database for initialisation.
+- `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
+- `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
+- `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
+- `ODOO_INIT_ADDONS` Provide comma separated list of modules for database init. Default is `web`.
+- `WITHOUT_DEMO` If enabled Odoo inits the database with demo data. Default is `True`.
 
 ### Server Environment
 
 The Odoo server can be configured using these env vars:
 
-* `RUNNING_ENV` Provide an environment name. Can be accessed with `config.get("environment")`.
-* `PYTHON_INSTALL` Comma seperated list of python packages.
-* `SERVER_WIDE_MODULES` Comma separated list of modules to load with server. The variable will be prefixed with `base,web`.
-* `SESSION_DB_URI` Connection string for storing session data in database.
-* `PROXY_MODE` Enable server proxy mode. Default is `True`.
-* `LOG_LEVEL` Set the logging level. Default is `info`.
-* `LOG_DB` When enabled the database log is shown in the Odoo log. Default is `False`.
-* `LOG_HANDLER` Define the log handler. Default is `[':INFO']`.
-* `LOGFILE` Set the logging level. Default is `None`.
+- `RUNNING_ENV` Provide an environment name. Can be accessed with `config.get("environment")`.
+- `PYTHON_INSTALL` Comma seperated list of python packages.
+- `SERVER_WIDE_MODULES` Comma separated list of modules to load with server. The variable will be prefixed with `base,web`.
+- `SESSION_DB_URI` Connection string for storing session data in database.
+- `PROXY_MODE` Enable server proxy mode. Default is `True`.
+- `LOG_LEVEL` Set the logging level. Default is `info`.
+- `LOG_DB` When enabled the database log is shown in the Odoo log. Default is `False`.
+- `LOG_HANDLER` Define the log handler. Default is `[':INFO']`.
+- `LOGFILE` Set the logging level. Default is `None`.
 
 ### Database Manager
 
 The Odoo database manager is disabled by default.
 
-* `LIST_DB` Enable the database manager. Default is `False`.
-* `ADMIN_PASSWD` Master password for database manager. Default is `odoo`.
-* `DB_FILTER` Set filter for database name. Default is `.*`.
+- `LIST_DB` Enable the database manager. Default is `False`.
+- `ADMIN_PASSWD` Master password for database manager. Default is `odoo`.
+- `DB_FILTER` Set filter for database name. Default is `.*`.
 
 ### Process Limits
 
 Odoo is executed as a multi-threaded Python process.
 
-* `MAX_CRON_THREADS` Maximum count of cron threads. Default is `2`.
-* `WORKERS` Define how many workers should be spawned. Default is `0`.
-* `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
-* `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
-* `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
-* `LIMIT_MEMORY_HARD` Hard memory limit for the Odoo process. Default is `2560 * 1024 * 1024`.
-* `LIMIT_MEMORY_SOFT` Soft memory limit for the Odoo process. Default is `2048 * 1024 * 1024`.
-* `LIMIT_MEMORY_HARD_GEVENT` Set hard memory limit for the gevent process. Default is `False`.
-* `LIMIT_MEMORY_SOFT_GEVENT` Set soft memory limit for the gevent process. Default is `False`.
+- `MAX_CRON_THREADS` Maximum count of cron threads. Default is `2`.
+- `WORKERS` Define how many workers should be spawned. Default is `0`.
+- `LIMIT_REQUEST` Maximum number of requests per worker. Default is `65536`.
+- `LIMIT_TIME_CPU` Maximum cpu time per request. Default is `60`.
+- `LIMIT_TIME_REAL` Maximum real time per request. Default is `120`.
+- `LIMIT_MEMORY_HARD` Hard memory limit for the Odoo process. Default is `2560 * 1024 * 1024`.
+- `LIMIT_MEMORY_SOFT` Soft memory limit for the Odoo process. Default is `2048 * 1024 * 1024`.
+- `LIMIT_MEMORY_HARD_GEVENT` Set hard memory limit for the gevent process. Default is `False`.
+- `LIMIT_MEMORY_SOFT_GEVENT` Set soft memory limit for the gevent process. Default is `False`.
 
 To calculate the amount of workers multply the amount of cpu cores by 2. To get the cpu core count run `nproc`.
 
@@ -447,15 +447,15 @@ To calculate the amount of workers multply the amount of cpu cores by 2. To get 
 
 With the `module_change_auto_install` module you can disable the auto installation of specific modules.
 
-* `MODULE_AUTO_INSTALL_DISABLED` Comma separated list of modules that should be auto installed. Requires `module_change_auto_install` in `SERVER_WIDE_MODULES`.
+- `MODULE_AUTO_INSTALL_DISABLED` Comma separated list of modules that should be auto installed. Requires `module_change_auto_install` in `SERVER_WIDE_MODULES`.
 
 ### Module Auto Update
 
 The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The auto update is disabled by default.
 
-* `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started.  Default is `False`.
-* `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
-* `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
+- `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started.  Default is `False`.
+- `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
+- `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
 
 Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
 
@@ -463,16 +463,16 @@ Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
 
 With this image you can also run module tests.
 
-* `TEST_ADDONS_DIR`: Provide the directory with the modules that should be tests.
-* `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
-* `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
+- `TEST_ADDONS_DIR`: Provide the directory with the modules that should be tests.
+- `TEST_INCLUDE` Comma separated list of modules that should be test exlusively.
+- `TEST_EXCLUDE`: Comma separated list of modules that should not be tested.
 
 ### Additional Config
 
 If you have additional config for Odoo use the vars:
 
-* `ADDITIONAL_ODOO_RC`: Added to the options section of the odoo.conf.
-* `IR_CONFIG_PARAMETER`: Added to the `ir.config_parameter` section of the odoo.conf.
+- `ADDITIONAL_ODOO_RC`: Added to the options section of the odoo.conf.
+- `IR_CONFIG_PARAMETER`: Added to the `ir.config_parameter` section of the odoo.conf.
 
 ### Naming
 
@@ -482,11 +482,15 @@ Compatibility with other images is mainly achieved by using the same environment
 
 ## Files
 
+### Pyproject
+
+When mounting your `pyproject.toml` to `/var/lib/odoo/pyproject.toml` the `sync-python-project` script will run `uv sync --active` in the directory.
+
 ### Git Aggregator
 
 The image includes [git-aggregator](https://github.com/acsone/git-aggregator). It allows to clone and merge addon repos from different origins and branches.
 
-When mounting your `repos.yml` to `/var/lib/odoo/git/repos.yml` the `entrypoint.sh` will run the `gitaggregate` command in the directory.
+When mounting the `repos.yml` to `/var/lib/odoo/git/repos.yml` the `aggregate-git-repos` script will run the `gitaggregate` command in the directory.
 
 Here is an example for `repos.yml`:
 
@@ -505,7 +509,7 @@ This image can be customized by any extend.
 
 ### Install packages
 
-Update the image with Python packages.
+Update the image with Python packages:
 
 ```dockerfile
 FROM mintsystem/odoo:18.0.20251008
@@ -513,7 +517,7 @@ FROM mintsystem/odoo:18.0.20251008
 RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
 ```
 
-Or with apt packages.
+Or with apt packages:
 
 ```dockerfile
 FROM mintsystem/odoo:18.0.20251008
@@ -539,16 +543,16 @@ See [Odoo Build > Build and publish container image](https://odoo.build/#build-a
 
 The most important image paths are:
 
-* `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
-* `/mnt/extra-addons` Nested module are loaded from this path by default.
-* `/mnt/test-addons` Recommended mount path for modules to test.
-* `/opt/odoo/addons` Contains the Odoo community edition modules.
-* `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
-* `/opt/odoo-venv` This is where Python packages are installed.
-* `/var/lib/odoo` Odoo data folder.
-* `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
-* `/var/lib/odoo/sessions` Location where werkzeug stores session information.
-* `/var/lib/odoo/git` The cloned module repos are stored here.
+- `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
+- `/mnt/extra-addons` Nested module are loaded from this path by default.
+- `/mnt/test-addons` Recommended mount path for modules to test.
+- `/opt/odoo/addons` Contains the Odoo community edition modules.
+- `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
+- `/opt/odoo-venv` This is where Python packages are installed.
+- `/var/lib/odoo` Odoo data folder.
+- `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
+- `/var/lib/odoo/sessions` Location where werkzeug stores session information.
+- `/var/lib/odoo/git` The cloned module repos are stored here.
 
 ### Capture memory profile
 
@@ -573,23 +577,24 @@ docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 
 Under the hood the image uses several scripts to manage Odoo. Make yourself familiar with these scripts:
 
-* `add-ssh-key`
-* `aggregate-git-repos`
-* `check-database-initialized`
-* `clone-git-addons`
-* `download-git-archive`
-* `init-db`
-* `init-module`
-* `install-python-packages`
-* `log-entrypoint`
-* `parse-url`
-* `remove-ssh-key`
-* `run-tests`
-* `set-addons-path`
-* `setup-tests`
-* `template-odoo-rc`
-* `update-module`
-* `update-modules`
-* `update-modules-list`
-* `update-translations`
-* `wait-for-pg`
+- `add-ssh-key`
+- `aggregate-git-repos`
+- `check-database-initialized`
+- `clone-git-addons`
+- `download-git-archive`
+- `init-db`
+- `init-module`
+- `install-python-packages`
+- `log-entrypoint`
+- `parse-url`
+- `remove-ssh-key`
+- `run-tests`
+- `set-addons-path`
+- `setup-tests`
+- `sync-python-project`
+- `template-odoo-rc`
+- `update-module`
+- `update-modules`
+- `update-modules-list`
+- `update-translations`
+- `wait-for-pg`

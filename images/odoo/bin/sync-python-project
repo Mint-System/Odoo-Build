@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+set -e
+
+local_path="${LOCAL_PATH:="/var/lib/odoo"}"
+
+if [[ -f "$local_path/pyproject.toml" ]]; then
+    log-entrypoint "Run uv sync in $local_path ..."
+    cd "$local_path"
+    uv sync --active
+fi
