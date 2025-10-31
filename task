@@ -557,11 +557,10 @@ template-repo(){
     cp "templates/task" "$repo_path"
 
     echo "Template README.md to $repo_path."
-    local repo_folder=$(basename "$repo_path")
-    local repo_model=${repo_folder%%_*}
-    local repo_title=$(echo "$repo_folder" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
-    local repo_name=$(echo "$repo_folder" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
-    export REPO_FOLDER="$repo_folder" REPO_MODEL="$repo_model" REPO_TITLE="$repo_title" REPO_NAME="$repo_name"
+    export REPO_FOLDER=$(basename "$repo_path")
+    export REPO_MODEL=${REPO_FOLDER%%_*}
+    export REPO_TITLE=$(echo "$REPO_FOLDER" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
+    export REPO_NAME=$(echo "$REPO_FOLDER" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
     envsubst < "templates/README.md" > "$repo_path/README.md"
 
     echo "Copy $ODOO_VERSION template files to $repo_path."
@@ -2096,14 +2095,12 @@ generate-oca-module-docs() {
     cp -n -r "templates/module/readme" "$module_path"
 
     echo 'Update DESCRIPTION.rst'
-    local module_summary=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    export module_summary
+    export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
     envsubst < templates/module/readme/DESCRIPTION.rst > "$module_path/readme/DESCRIPTION.rst"
 
     echo 'Update CONTRIBUTORS.rst'
-    local git_user_name="$(git config user.name)"
-    local git_user_email="$(git config user.email)"
-    export git_user_name git_user_email
+    export GIT_USER_NAME="$(git config user.name)"
+    export GIT_USER_EMAIL="$(git config user.email)"
     envsubst < templates/module/readme/CONTRIBUTORS.rst > "$module_path/readme/CONTRIBUTORS.rst"
 
     echo 'Copy icon.png'
@@ -2126,14 +2123,12 @@ generate-module-docs() {
     local module_path="$1"
     local manifest_path="$module_path/__manifest__.py"
 
-    local module_title=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('name', ''))")
-    local module_underline=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print('=' * len(d.get('name', '')))")
-    local module_summary=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    local module_wiki_path=$(basename "$module_path" | sed 's/_/-/g')
-
     echo "Update $module_path/README.rst"
-    export module_title module_underline module_summary module_wiki_path
-    envsubst '$module_title $module_underline $module_summary $module_wiki_path' < templates/README.rst > "$module_path/README.rst"
+    export MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('name', ''))")
+    export MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print('=' * len(d.get('name', '')))")
+    export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    export MODULE_WIKI_PATH=$(basename "$module_path" | sed 's/_/-/g')
+    envsubst < templates/README.rst > "$module_path/README.rst"
 
     echo 'Copy icon.png'
     cp templates/module/static/description/icon.png "$module_path/static/description/icon.png"
@@ -2188,22 +2183,18 @@ generate-module-model() {
         echo '$2 is empty.'
         exit
     fi
-
     local module_path="$1"
     local module_name=$(basename "$1")
 
-    # Generate template values
-    local model_dot_name="$2" # res.partner
-    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
-    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
-    export name module_name model_dot_name model_name model_description model_camel_name
-
     echo 'Substitute model template'
-    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/model.py > "$module_path/models/$model_name.py"
+    export MODEL_DOT_NAME="$2" # res.partner
+    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    envsubst < templates/model.py > "$module_path/models/$MODEL_NAME.py"
     echo "from . import $model_name" >> "$module_path/models/__init__.py"
-    echo "File "$module_path/models/$model_name.py created.
+    echo "File "$module_path/models/$MODEL_NAME.py created.
 }
 
 generate-module-inherit() {
@@ -2215,22 +2206,18 @@ generate-module-inherit() {
         echo '$2 is empty.'
         exit
     fi
-
     local module_path="$1"
     local module_name=$(basename "$1")
 
-    # Generate template values
-    local model_dot_name="$2" # res.partner
-    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
-    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
-    export name module_name model_dot_name model_name model_description model_camel_name
-
     echo 'Substitute model template'
-    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/inherit.py > "$module_path/models/$model_name.py"
-    echo "from . import $model_name" >> "$module_path/models/__init__.py"
-    echo "File "$module_path/models/$model_name.py created.
+    export MODEL_DOT_NAME="$2" # res.partner
+    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    envsubst < templates/inherit.py > "$module_path/models/$MODEL_NAME.py"
+    echo "from . import $MODEL_NAME" >> "$module_path/models/__init__.py"
+    echo "File "$module_path/models/$MODEL_NAME.py created.
 }
 
 generate-module-views() {
@@ -2242,21 +2229,17 @@ generate-module-views() {
         echo '$2 is empty.'
         exit
     fi
-
     local module_path="$1"
     local module_name=$(basename "$1")
 
-    # Generate template values
-    local model_dot_name="$2" # res.partner
-    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
-    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
-    export name module_name model_dot_name model_name model_description model_camel_name
-
     echo 'Substitute view template'
     mkdir -p "$module_path/views"
-    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/model_views.xml > "$module_path/views/${model_name}_views.xml"
+    export MODEL_DOT_NAME="$2" # res.partner
+    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    envsubst < templates/model_views.xml > "$module_path/views/${model_name}_views.xml"
     echo "Update file $module_name/__manifest__.py with:"
     echo -e "\t\"views/${model_name}_views.xml\","
 }
@@ -2274,22 +2257,18 @@ generate-module-snippet() {
         echo '$2 is empty.'
         exit
     fi
-
     local module_path="$1" # addons/sale_workflow/sale_helm
-    local model_dot_name="$2" # sale.order
-    local view_ref="$3" # sale.view_order_form
-
-    # Generate template values
-    local model_name=${model_dot_name//\./_}
-    local module_name=$(basename "$1")
-    local src_module_name=$(echo "$view_ref" | cut -d"." -f1)
-    local xml_id=$(echo "$view_ref" | cut -d"." -f2)
-    export module_name model_dot_name src_module_name view_ref xml_id
 
     echo 'Substitute snippet template'
+    export MODEL_DOT_NAME="$2" # sale.order
+    export VIEW_REF="$3" # sale.view_order_form
+    export MODEL_NAME=${MODEL_DOT_NAME//\./_}
+    export MODULE_NAME=$(basename "$1")
+    export SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
+    export XML_ID=$(echo "$view_ref" | cut -d"." -f2)
     mkdir -p "$module_path/views"
-    envsubst '$module_name $model_dot_name $src_module_name $view_ref $xml_id' < templates/model_snippet.xml > "$module_path/views/${model_name}_views.xml"
-    echo "Update file $module_name/__manifest__.py with: \"views/${model_name}_views.xml\""
+    envsubst < templates/model_snippet.xml > "$module_path/views/${MODEL_NAME}_views.xml"
+    echo "Update file $MODULE_NAME/__manifest__.py with: \"views/${MODEL_NAME}_views.xml\""
 }
 
 release-module() {
