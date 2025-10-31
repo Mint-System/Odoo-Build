@@ -152,14 +152,12 @@ Generate module docs.
 task generate-module-docs addons/project/project_sprint project.sprint
 ```
 
-### Load modules from thirdparty folder
+### Load modules from external folder
 
-Clone thirdparty repos into the `thirdparty` folder.
-
-To load modules from a thirdparty folder, set this env var in your `.env` file:
+To load modules from a external folder, set this env var in your `.env` file:
 
 ```bash
-ODOO_ADDONS_PATH=thirdparty/odoo-apps-partner-contact,../odoo-cd/untracked-odoo-apps
+ODOO_ADDONS_PATH=/path/to/your/module-repo,../odoo-project/odoo-apps
 ```
 
 The paths will be appended to the Odoo config.

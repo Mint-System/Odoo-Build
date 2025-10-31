@@ -88,7 +88,6 @@ services:
       - ./oca:/mnt/oca
       - ./enterprise:/mnt/enterprise
       - ./themes:/mnt/themes
-      - ./thirdparty:/mnt/thirdparty
     networks:
       - default
   admin:

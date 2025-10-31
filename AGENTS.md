@@ -25,7 +25,6 @@ This section outlines the universal rules and expectations for any LLM agent wor
 - `snippets/`: Big folder with XML-edit files. Ignore.
 - `templates/`: Templates for Odoo modules and git repos.
 - `themes/`: Official Odoo website themes.
-- `thirdparty/`: Thirdparty Odoo modules.
 
 ## Environment & tooling
 
