@@ -1,0 +1,10 @@
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <xpath expr="//label[@for='intrastat_supplementary_unit_amount']" position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+    <xpath expr="//div/field[@name='intrastat_supplementary_unit_amount']/.." position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+
+</data>
