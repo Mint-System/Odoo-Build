@@ -41,10 +41,6 @@ brew install grep gettext
 
 bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#completion).
 
-**Nix (Optional)**
-
-You can use [Nix](https://nixos.org/) to setup the requirements.
-
 **LLM (Optional)**
 
 Install the [llm](https://datasette.io/tools/llm) cli to make use of the LLM features.
@@ -58,12 +54,6 @@ Clone this repository.
 ```bash
 git clone git@github.com:Mint-System/Odoo-Build.git
 cd Odoo-Build
-```
-
-When working with Nix, run the nix-shell.
-
-```bash
-nix-shell
 ```
 
 Checkout the Odoo version. Show supported versions with `task list-versions`.

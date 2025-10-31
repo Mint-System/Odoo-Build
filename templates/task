@@ -44,21 +44,21 @@ if [ -d "$HOME/taskfile.build/bin" ]; then
 fi
 
 function install() {
-    echo "Setup venv and install python dependencies"
-    uv venv env
-    source env/bin/activate
+    echo "Setup .venv and install python dependencies"
+    uv venv
+    source .venv/bin/activate
     uv pip install pre-commit git+https://github.com/OCA/maintainer-tools
 }
 
 function lint() {
-    source env/bin/activate
+    source .venv/bin/activate
 
     echo "Run pre-commit"
     pre-commit run --all-files --show-diff-on-failure --color=always
 }
 
 build() {
-    source env/bin/activate
+    source .venv/bin/activate
 
     ROOT_DIR="$(pwd)"
     METAPACKAGE_DIR="$ROOT_DIR/setup/_metapackage"
@@ -94,7 +94,7 @@ build() {
 }
 
 publish() {
-    source env/bin/activate
+    source .venv/bin/activate
     ROOT_DIR="$(pwd)"
     PUBLISH_DIR="$ROOT_DIR/dist"
 
@@ -118,7 +118,7 @@ publish() {
 }
 
 function docs() {
-    source env/bin/activate
+    source .venv/bin/activate
 
     echo "Update index.html for all modules"
     for MODULE in ./*; do

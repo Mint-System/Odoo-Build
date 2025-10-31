@@ -1,0 +1,37 @@
+# Container
+podman-compose
+
+# Testing
+pre-commit
+pyyaml
+coverage
+pylint-odoo
+pytest-odoo
+
+# Setup
+setuptools
+wheel
+watchdog
+pdfminer.six
+debugpy
+
+# Performance
+py-spy
+memray
+
+# LLM
+fastmcp ; python_version >= '3.10'
+requests
+
+# Upgrade
+git+https://github.com/OCA/openupgradelib.git@master
+git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'
+
+# OCA Tools
+manifestoo
+oca-port
+odoo-module-migrator
+click-odoo-contrib
+git-aggregator
+git+https://github.com/OCA/maintainer-tools
+hatch-odoo

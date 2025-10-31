@@ -351,15 +351,15 @@ init-venv() {
     echo "Ensure Python version $(cat .python-version) is installed."
     uv python install
 
-    if [[ ! -d "venv$ODOO_VERSION" ]]; then
-        echo "Init venv$ODOO_VERSION with $(uv --version)."
-        uv venv "venv$ODOO_VERSION"
+    if [[ ! -d ".venv$ODOO_VERSION" ]]; then
+        echo "Init .venv$ODOO_VERSION with $(uv --version)."
+        uv venv ".venv$ODOO_VERSION"
     fi
 }
 
 activate-venv() {
-    echo "Source virtualenv venv$ODOO_VERSION."
-    source "venv$ODOO_VERSION/bin/activate"
+    echo "Source virtualenv .venv$ODOO_VERSION."
+    source ".venv$ODOO_VERSION/bin/activate"
     echo "$(python --version) is active."
 }
 
@@ -1087,7 +1087,8 @@ install() {
     if [[ -n "$PYTHON_NOTIFY" ]]; then
         uv pip install "$PYTHON_NOTIFY"
     fi
-    uv sync --active
+    uv pip install -r requirements.txt
+    # uv sync --active
 
     if [[ -f "odoo/requirements.txt" ]]; then
 
@@ -1112,9 +1113,6 @@ install() {
         sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
         echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
     fi
-
-    # echo "Setup odoo-build with hatch-odoo."
-    # UV_NO_CACHE=1 uv pip install -e .
 }
 
 # Process commands
