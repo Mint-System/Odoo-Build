@@ -5,6 +5,7 @@ on:
 
 jobs:
   build:
+    name: Build and Publish
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout

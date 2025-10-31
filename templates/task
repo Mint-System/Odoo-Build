@@ -156,6 +156,7 @@ else
             install
             lint
             docs
+            build
             ;;
         *)
             echo "Unknown command: $1"

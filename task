@@ -7,193 +7,193 @@ if [[ -a ".env" ]]; then
     source .env
 fi
 
-function help-table() {
-    CMD_WIDTH=26
-    OPT_WIDTH=20
-    DESC_WIDTH=78
-    COLUMN="| %-${CMD_WIDTH}s | %-${OPT_WIDTH}s | %-${DESC_WIDTH}s |\n"
+help-table() {
+    local cmd_width=26
+    local opt_width=20
+    local desc_width=78
+    local column="| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n"
 
-    printf "$COLUMN" "Command" "Option" "Description"
-    echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
+    printf "$column" 'Command' 'Option' 'Description'
+    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
     # Env
-    printf "$COLUMN" "backup-env-files" "[path]" "Archive and copy env files to target location."
-    printf "$COLUMN" "copy-env" "[env][env]" "Copy env file."
-    printf "$COLUMN" "create-nextcloud-env" "[env]" "Create env file for Nextcloud instance."
-    printf "$COLUMN" "create-odoo-env" "[env]" "Create env file for Odoo instance."
-    printf "$COLUMN" "edit-env" "[env]" "Open env file in default editor."
-    printf "$COLUMN" "list-env" "" "List env files."
-    printf "$COLUMN" "load-dotenv" "" "Restore content of .env from pass entry."
-    printf "$COLUMN" "load-env" "[env]" "Load and export env file."
-    printf "$COLUMN" "remove-env" "[env]" "Remove environment config."
-    printf "$COLUMN" "remove-venv" "" "Remove virtualenv."
-    printf "$COLUMN" "rename-env" "[env][env]" "Rename env file."
-    printf "$COLUMN" "restore-env-files" "[path]" "Extract and copy env files from backup file."
-    printf "$COLUMN" "save-dotenv" "" "Store content of .env in pass entry."
-    printf "$COLUMN" "show-env" "[env]" "Output content of the env file."
+    printf "$column" 'backup-env-files' '[path]' 'Archive and copy env files to target location.'
+    printf "$column" 'copy-env' '[env][env]' 'Copy env file.'
+    printf "$column" 'create-nextcloud-env' '[env]' 'Create env file for Nextcloud instance.'
+    printf "$column" 'create-odoo-env' '[env]' 'Create env file for Odoo instance.'
+    printf "$column" 'edit-env' '[env]' 'Open env file in default editor.'
+    printf "$column" 'list-env' '' 'List env files.'
+    printf "$column" 'load-dotenv' '' 'Restore content of .env from pass entry.'
+    printf "$column" 'load-env' '[env]' 'Load and export env file.'
+    printf "$column" 'remove-env' '[env]' 'Remove environment config.'
+    printf "$column" 'remove-venv' '' 'Remove virtualenv.'
+    printf "$column" 'rename-env' '[env][env]' 'Rename env file.'
+    printf "$column" 'restore-env-files' '[path]' 'Extract and copy env files from backup file.'
+    printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
+    printf "$column" 'show-env' '[env]' 'Output content of the env file.'
     # Git
-    printf "$COLUMN" "add-git-submodule" "[url] [path]" "Add git submodule."
-    printf "$COLUMN" "checkout" "[version]" "Checkout Odoo version."
-    printf "$COLUMN" "checkout-git-folder" "" "Checkout git commit."
-    printf "$COLUMN" "commit-git-folder" "[message][path]" "Commit all changes in path."
-    printf "$COLUMN" "clean-git-folder" "" "Clean git folder."
-    printf "$COLUMN" "clone-git-folder" "[submodule][version]" "Clone git folder listed in the .gitmodules file."
-    printf "$COLUMN" "create-git-feature-branch" "[path]" "Create feature branch for Odoo module."
-    printf "$COLUMN" "create-git-mig-branch" "[path]" "Create migration branch for Odoo module."
-    printf "$COLUMN" "download-git-folder" "[grep]" "Download git folder listed in the .gitmodules file."
-    printf "$COLUMN" "status-git-folder" "[path]" "Show status for git folder in path."
-    printf "$COLUMN" "list-git-folder" "[grep]" "List path and url of git folders."
-    printf "$COLUMN" "pull-git-folder" "" "Pull all git folders listed in the .gitmodules file."
-    printf "$COLUMN" "push-git-folder" "" "Push all git folders in path."
-    printf "$COLUMN" "remove-git-folders" "" "Delete all git folders."
-    printf "$COLUMN" "remove-git-submodule" "[path]" "Remove a git submodule."
-    printf "$COLUMN" "ls-git-folder" "[grep]" "List git folders path space separated."
-    printf "$COLUMN" "reset-git-folder" "" "Abort rebase and reset submodules listed in the .gitmodules file."
-    printf "$COLUMN" "stage-git-folder" "[path]" "Stage all files in git folders in path."
-    printf "$COLUMN" "switch-git-folder" "[version]" "Switch branch for all git folders listed in the .gitmodules file."
-    printf "$COLUMN" "sync-git-folder" "" "Switch, stash and pull all git folders."
+    printf "$column" 'add-git-submodule' '[url] [path]' 'Add git submodule.'
+    printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
+    printf "$column" 'checkout-git-folder' '' 'Checkout git commit.'
+    printf "$column" 'commit-git-folder' '[message][path]' 'Commit all changes in path.'
+    printf "$column" 'clean-git-folder' '' 'Clean git folder.'
+    printf "$column" 'clone-git-folder' '[submodule][version]' 'Clone git folder listed in the .gitmodules file.'
+    printf "$column" 'create-git-feature-branch' '[path]' 'Create feature branch for Odoo module.'
+    printf "$column" 'create-git-mig-branch' '[path]' 'Create migration branch for Odoo module.'
+    printf "$column" 'download-git-folder' '[grep]' 'Download git folder listed in the .gitmodules file.'
+    printf "$column" 'status-git-folder' '[path]' 'Show status for git folder in path.'
+    printf "$column" 'list-git-folder' '[grep]' 'List path and url of git folders.'
+    printf "$column" 'pull-git-folder' '' 'Pull all git folders listed in the .gitmodules file.'
+    printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
+    printf "$column" 'remove-git-folders' '' 'Delete all git folders.'
+    printf "$column" 'remove-git-submodule' '[path]' 'Remove a git submodule.'
+    printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
+    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset submodules listed in the .gitmodules file.'
+    printf "$column" 'stage-git-folder' '[path]' 'Stage all files in git folders in path.'
+    printf "$column" 'switch-git-folder' '[version]' 'Switch branch for all git folders listed in the .gitmodules file.'
+    printf "$column" 'sync-git-folder' '' 'Switch, stash and pull all git folders.'
     # Docker
-    printf "$COLUMN" "archive-docker-tags" "" "Archive Docker image tags on hub older than 1 year."
-    printf "$COLUMN" "build" "[folder][--push]" "Build Docker image from target folder."
-    printf "$COLUMN" "login-docker" "[user][token]" "Setup Docker Hub login credentials."
-    printf "$COLUMN" "login-podman" "[user][token]" "Login into registry with podman."
-    printf "$COLUMN" "container-ps" "" "List container processes."
-    printf "$COLUMN" "push" "[folder]" "Publish Docker image from target folder."
-    printf "$COLUMN" "remove" "[name]" "Remove containers and volumes."
-    printf "$COLUMN" "test-image" "[folder]" "Test Docker image from target folder."
+    printf "$column" 'archive-docker-tags' '' 'Archive Docker image tags on hub older than 1 year.'
+    printf "$column" 'build' '[folder][--push]' 'Build Docker image from target folder.'
+    printf "$column" 'login-docker' '[user][token]' 'Setup Docker Hub login credentials.'
+    printf "$column" 'login-podman' '[user][token]' 'Login into registry with podman.'
+    printf "$column" 'container-ps' '' 'List container processes.'
+    printf "$column" 'push' '[folder]' 'Publish Docker image from target folder.'
+    printf "$column" 'remove' '[name]' 'Remove containers and volumes.'
+    printf "$column" 'test-image' '[folder]' 'Test Docker image from target folder.'
     # Vuepress
-    printf "$COLUMN" "build-vuepress" "" "Create Vuepress build."
-    printf "$COLUMN" "install-vuepress" "" "Install Node build dependencies."
-    printf "$COLUMN" "dev-vuepress" "" "Start Vuepress development server."
-    printf "$COLUMN" "serve-vuepress" "" "Serve Vuepress build."
+    printf "$column" 'build-vuepress' '' 'Create Vuepress build.'
+    printf "$column" 'install-vuepress' '' 'Install Node build dependencies.'
+    printf "$column" 'dev-vuepress' '' 'Start Vuepress development server.'
+    printf "$column" 'serve-vuepress' '' 'Serve Vuepress build.'
     # Database
-    printf "$COLUMN" "change-uuid" "[env]" "Change database uuid via xmlrpc."
-    printf "$COLUMN" "clear-assets" "[db]" "Clear all assets of Odoo database."
-    printf "$COLUMN" "clear-filestore" "[db]" "Clear local filestore folder. No param will clear all filestores."
-    printf "$COLUMN" "clear-views" "[db]" "Clear all views of Odoo database."
-    printf "$COLUMN" "cloc-odoo" "[db]" "Count custom line of codes."
-    printf "$COLUMN" "drop-db" "[db]" "Drop target Odoo database."
-    printf "$COLUMN" "init-db" "[db]" "Initialize the Odoo database."
-    printf "$COLUMN" "load-language" "[db][lang]" "Install language package in Odoo db."
-    printf "$COLUMN" "patch-database" "[db][path]" "Apply sql file to database."
-    printf "$COLUMN" "reset-views" "[db][key]" "Execute hard reset on views matching keys."
-    printf "$COLUMN" "set-admin" "[db]" "Sets the password for the first user in database."
-    printf "$COLUMN" "setup-mail" "[db]" "Setup mail config in Odoo db."
-    printf "$COLUMN" "update-module" "[db][name,path]" "Update target Odoo module."
-    printf "$COLUMN" "update-module-list" "[db]" "Update module list of Odoo database."
+    printf "$column" 'change-uuid' '[env]' 'Change database uuid via xmlrpc.'
+    printf "$column" 'clear-assets' '[db]' 'Clear all assets of Odoo database.'
+    printf "$column" 'clear-filestore' '[db]' 'Clear local filestore folder. No param will clear all filestores.'
+    printf "$column" 'clear-views' '[db]' 'Clear all views of Odoo database.'
+    printf "$column" 'cloc-odoo' '[db]' 'Count custom line of codes.'
+    printf "$column" 'drop-db' '[db]' 'Drop target Odoo database.'
+    printf "$column" 'init-db' '[db]' 'Initialize the Odoo database.'
+    printf "$column" 'load-language' '[db][lang]' 'Install language package in Odoo db.'
+    printf "$column" 'patch-database' '[db][path]' 'Apply sql file to database.'
+    printf "$column" 'reset-views' '[db][key]' 'Execute hard reset on views matching keys.'
+    printf "$column" 'set-admin' '[db]' 'Sets the password for the first user in database.'
+    printf "$column" 'setup-mail' '[db]' 'Setup mail config in Odoo db.'
+    printf "$column" 'update-module' '[db][name,path]' 'Update target Odoo module.'
+    printf "$column" 'update-module-list' '[db]' 'Update module list of Odoo database.'
     # Revision
-    printf "$COLUMN" "checkout-latest-revision" "[version]" "Checkout the latest revision of the Odoo version."
-    printf "$COLUMN" "checkout-revision" "[revision]" "Load Odoo revision env var and checkout git folders."
-    printf "$COLUMN" "commit-and-push-revision" "[revision]" "Commit all changes and tag with current revision."
-    printf "$COLUMN" "create-revision" "[revision]" "Create new Odoo revision."
-    printf "$COLUMN" "list-revision" "" "List available Odoo revisions."
-    printf "$COLUMN" "load-latest-revision" "[version]" "Load the latest revision of the Odoo version."
-    printf "$COLUMN" "load-revision" "[revision]" "Load env var from specified revision."
-    printf "$COLUMN" "show-revision" "[revision]" "Show references of Odoo revision."
+    printf "$column" 'checkout-latest-revision' '[version]' 'Checkout the latest revision of the Odoo version.'
+    printf "$column" 'checkout-revision' '[revision]' 'Load Odoo revision env var and checkout git folders.'
+    printf "$column" 'commit-and-push-revision' '[revision]' 'Commit all changes and tag with current revision.'
+    printf "$column" 'create-revision' '[revision]' 'Create new Odoo revision.'
+    printf "$column" 'list-revision' '' 'List available Odoo revisions.'
+    printf "$column" 'load-latest-revision' '[version]' 'Load the latest revision of the Odoo version.'
+    printf "$column" 'load-revision' '[revision]' 'Load env var from specified revision.'
+    printf "$column" 'show-revision' '[revision]' 'Show references of Odoo revision.'
     # LLM
-    printf "$COLUMN" "commit-with-llm" "" "Commit with llm generated commit message."
-    printf "$COLUMN" "show-odoo-mcp-config" "" "Show the Odoo MCP server config."
-    printf "$COLUMN" "update-with-llm" "[glob][prompt]" "Feed module files with prompt to LLM and apply file changes."
+    printf "$column" 'commit-with-llm' '' 'Commit with llm generated commit message.'
+    printf "$column" 'show-odoo-mcp-config' '' 'Show the Odoo MCP server config.'
+    printf "$column" 'update-with-llm' '[glob][prompt]' 'Feed module files with prompt to LLM and apply file changes.'
     # Snippets
-    printf "$COLUMN" "create-snippet" "[id]" "Create snippet from template."
-    printf "$COLUMN" "install-snippet" "[env][path]" "Install snippet definition."
-    printf "$COLUMN" "disable-snippet" "[env][path]" "Disable snippet definition."
-    printf "$COLUMN" "lint-snippets" "" "Run checks for all snippets."
-    printf "$COLUMN" "remove-snippet" "[env][path]" "Remove snippet definition."
-    printf "$COLUMN" "update-snippet" "[env][path]" "Update snippet definition."
+    printf "$column" 'create-snippet' '[id]' 'Create snippet from template.'
+    printf "$column" 'install-snippet' '[env][path]' 'Install snippet definition.'
+    printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet definition.'
+    printf "$column" 'lint-snippets' '' 'Run checks for all snippets.'
+    printf "$column" 'remove-snippet' '[env][path]' 'Remove snippet definition.'
+    printf "$column" 'update-snippet' '[env][path]' 'Update snippet definition.'
     # Setup
-    printf "$COLUMN" "activate-venv" "" "Activate virtualenv."
-    printf "$COLUMN" "init-venv" "" "Initialize python virtual env."
-    printf "$COLUMN" "disable-mailserver" "[env]" "Disable mail server settings via xmlrpc."
-    printf "$COLUMN" "install" "" "Install Odoo requirements in source folder."
-    printf "$COLUMN" "install-odoo-scripts" "" "Install Odoo scripts."
-    printf "$COLUMN" "install-requirements" "[db][path]" "Install python packages from requirements.txt."
-    printf "$COLUMN" "init-module" "[db][path,module]" "Initialize Odoo module."
-    printf "$COLUMN" "set-addons-path" "" "Set Odoo addons path env variable."
+    printf "$column" 'activate-venv' '' 'Activate virtualenv.'
+    printf "$column" 'init-venv' '' 'Initialize python virtual env.'
+    printf "$column" 'disable-mailserver' '[env]' 'Disable mail server settings via xmlrpc.'
+    printf "$column" 'install' '' 'Install Odoo requirements in source folder.'
+    printf "$column" 'install-odoo-scripts' '' 'Install Odoo scripts.'
+    printf "$column" 'install-requirements' '[db][path]' 'Install python packages from requirements.txt.'
+    printf "$column" 'init-module' '[db][path,module]' 'Initialize Odoo module.'
+    printf "$column" 'set-addons-path' '' 'Set Odoo addons path env variable.'
     # Migration
-    printf "$COLUMN" "export-website-data" "[env]" "Export website data from Odoo database."
-    printf "$COLUMN" "import-csv" "[db][path]" "Import data from csv. Filename must match PostgreSQL table name."
-    printf "$COLUMN" "import-website-data" "[env]" "Import website data to Odoo database."
+    printf "$column" 'export-website-data' '[env]' 'Export website data from Odoo database.'
+    printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename must match PostgreSQL table name.'
+    printf "$column" 'import-website-data' '[env]' 'Import website data to Odoo database.'
     # Generate
-    printf "$COLUMN" "generate-module-docs" "[path]" "Generate readme file for module."
-    printf "$COLUMN" "generate-oca-module-docs" "[path]" "Generate readme file for module with OCA tools."
-    printf "$COLUMN" "generate-module-model" "[path][model]" "Generate model in module folder."
-    printf "$COLUMN" "generate-module-inherit" "[path][model]" "Generate inherited model in module folder."
-    printf "$COLUMN" "generate-module-views" "[path][model]" "Generate model views in module folder."
-    printf "$COLUMN" "generate-module-security" "[path][model]" "Generate model access file."
-    printf "$COLUMN" "generate-module-snippet" "[path][model][ref]" "Generate snippet for referefenced view."
-    printf "$COLUMN" "generate-module-wizard" "[path][model]" "Generate wizard for a model in module folder."
-    printf "$COLUMN" "generate-module" "[path]" "Create new Odoo module from template."
-    printf "$COLUMN" "generate-module-repo" "[path]" "Initialize Odoo module repo from template."
+    printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module.'
+    printf "$column" 'generate-oca-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
+    printf "$column" 'generate-module-model' '[path][model]' 'Generate model in module folder.'
+    printf "$column" 'generate-module-inherit' '[path][model]' 'Generate inherited model in module folder.'
+    printf "$column" 'generate-module-views' '[path][model]' 'Generate model views in module folder.'
+    printf "$column" 'generate-module-security' '[path][model]' 'Generate model access file.'
+    printf "$column" 'generate-module-snippet' '[path][model][ref]' 'Generate snippet for referefenced view.'
+    printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
+    printf "$column" 'generate-module' '[path]' 'Create new Odoo module from template.'
+    printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
     # Module
-    printf "$COLUMN" "lint-module" "[path]" "Run pylint odoo for module."
-    printf "$COLUMN" "lint-module-repo" "[path]" "Run pylint odoo for modules in repo folder."
-    printf "$COLUMN" "list-modules" "[path]" "Get modules in path as bash array."
-    printf "$COLUMN" "pytest-module" "[db][name,path]" "Run module tests with pytest."
-    printf "$COLUMN" "release-module" "[path]" "Create GitHub release for a module."
-    printf "$COLUMN" "remove-module" "[db][name]" "Remove target Odoo module."
-    printf "$COLUMN" "test-module" "[db][name,path]" "Test target Odoo module."
-    printf "$COLUMN" "test-module-repo" "[db][path]" "Test target Odoo modules in repo folder."
-    printf "$COLUMN" "translate-module" "[path][lang][db]" "Generate translation for Odoo module."
-    printf "$COLUMN" "upload-module" "[env][path]" "Zip and upload Odoo module."
-    printf "$COLUMN" "visualize-dependencies" "[path]" "Generate visualizations of module dependencies."
-    printf "$COLUMN" "zip-module" "[path]" "Create zip file for module."
+    printf "$column" 'lint-module' '[path]' 'Run pylint odoo for module.'
+    printf "$column" 'lint-module-repo' '[path]' 'Run pylint odoo for modules in repo folder.'
+    printf "$column" 'list-modules' '[path]' 'Get modules in path as bash array.'
+    printf "$column" 'pytest-module' '[db][name,path]' 'Run module tests with pytest.'
+    printf "$column" 'release-module' '[path]' 'Create GitHub release for a module.'
+    printf "$column" 'remove-module' '[db][name]' 'Remove target Odoo module.'
+    printf "$column" 'test-module' '[db][name,path]' 'Test target Odoo module.'
+    printf "$column" 'test-module-repo' '[db][path]' 'Test target Odoo modules in repo folder.'
+    printf "$column" 'translate-module' '[path][lang][db]' 'Generate translation for Odoo module.'
+    printf "$column" 'upload-module' '[env][path]' 'Zip and upload Odoo module.'
+    printf "$column" 'visualize-dependencies' '[path]' 'Generate visualizations of module dependencies.'
+    printf "$column" 'zip-module' '[path]' 'Create zip file for module.'
     # Helper
-    printf "$COLUMN" "generate-admin-passwd" "[pass]" "Generate hash for Odoo master password."
-    printf "$COLUMN" "generate-ssh-keys" "" "Generate ssh key pair."
-    printf "$COLUMN" "generate-pg-ssl-keys" "" "Generate PostgreSQL SSL key material."
-    printf "$COLUMN" "get-addons-path" "" "Output addons path."
-    printf "$COLUMN" "get-modules" "[path][option]" "Get list of modules in path. Option is 'basename' or 'dirname'."
-    printf "$COLUMN" "get-module-version" "[path]" "Get module version from manifest."
-    printf "$COLUMN" "help" "[grep]" "Show help for commands."
-    printf "$COLUMN" "info" "" "Show values of project env vars."
-    printf "$COLUMN" "load-ssh-key" "" "Load SSH private key from env var."
-    printf "$COLUMN" "update-module-license" "[grep]" "Update LICENSE file for each matching module."
+    printf "$column" 'generate-admin-passwd' '[pass]' 'Generate hash for Odoo master password.'
+    printf "$column" 'generate-ssh-keys' '' 'Generate ssh key pair.'
+    printf "$column" 'generate-pg-ssl-keys' '' 'Generate PostgreSQL SSL key material.'
+    printf "$column" 'get-addons-path' '' 'Output addons path.'
+    printf "$column" 'get-modules' '[path][option]' 'Get list of modules in path. Option is '\''basename'\'' or '\''dirname'\''.'
+    printf "$column" 'get-module-version' '[path]' 'Get module version from manifest.'
+    printf "$column" 'help' '[grep]' 'Show help for commands.'
+    printf "$column" 'info' '' 'Show values of project env vars.'
+    printf "$column" 'load-ssh-key' '' 'Load SSH private key from env var.'
+    printf "$column" 'update-module-license' '[grep]' 'Update LICENSE file for each matching module.'
     # Run
-    printf "$COLUMN" "debug" "[name]" "Debugg application. Options: source."
-    printf "$COLUMN" "exec" "[name][cmd]" "Run command in container."
-    printf "$COLUMN" "logs" "[name]" "Tail container logs. Default is 'odoo'."
-    printf "$COLUMN" "odoocli" "[param]" "Execute odoocli cli."
-    printf "$COLUMN" "psql" "[db]" "Start interactive psql shell."
-    printf "$COLUMN" "restart" "[name]" "Restart container."
-    printf "$COLUMN" "run" "[name][cmd]" "Run container with command."
-    printf "$COLUMN" "shell" "[db][code]" "Start interactive odoo shell or run code."
-    printf "$COLUMN" "source" "" "Source the Python virtual env."
-    printf "$COLUMN" "start" "[name][db]" "Start application. Options: none, admin, db, mailgate, mailpit, source, odoo, hatch."
-    printf "$COLUMN" "stop" "[name]" "Stop containers."
-    printf "$COLUMN" "test-xmlrpc" "[env]" "Test json rpc connection."
+    printf "$column" 'debug' '[name]' 'Debugg application. Options: source.'
+    printf "$column" 'exec' '[name][cmd]' 'Run command in container.'
+    printf "$column" 'logs' '[name]' 'Tail container logs. Default is '\''odoo'\''.'
+    printf "$column" 'odoocli' '[param]' 'Execute odoocli cli.'
+    printf "$column" 'psql' '[db]' 'Start interactive psql shell.'
+    printf "$column" 'restart' '[name]' 'Restart container.'
+    printf "$column" 'run' '[name][cmd]' 'Run container with command.'
+    printf "$column" 'shell' '[db][code]' 'Start interactive odoo shell or run code.'
+    printf "$column" 'source' '' 'Source the Python virtual env.'
+    printf "$column" 'start' '[name][db]' 'Start application. Options: none, admin, db, mailgate, mailpit, source, odoo, hatch.'
+    printf "$column" 'stop' '[name]' 'Stop containers.'
+    printf "$column" 'test-xmlrpc' '[env]' 'Test json rpc connection.'
     # Project
-    printf "$COLUMN" "lint" "" "Run precommit for this project."
-    printf "$COLUMN" "list-versions" "" "List available Odoo versions."
-    printf "$COLUMN" "check-version" "" "Check if Odoo source is the correct version."
-    printf "$COLUMN" "load-version" "[version]" "Load git refs from  version folder."
-    printf "$COLUMN" "save-version" "" "Save git folder refs to version folder."
-    printf "$COLUMN" "template-compose" "" "Template the Docker compose file."
-    printf "$COLUMN" "template-odoo-rc" "" "Template the Odoo config file."
-    printf "$COLUMN" "template-repo" "[path]" "Update the repo folder from template."
-    printf "$COLUMN" "test-project" "[clean]" "Run tests for this project."
-    printf "$COLUMN" "version" "" "Show version of required tools."
+    printf "$column" 'lint' '' 'Run precommit for this project.'
+    printf "$column" 'list-versions' '' 'List available Odoo versions.'
+    printf "$column" 'check-version' '' 'Check if Odoo source is the correct version.'
+    printf "$column" 'load-version' '[version]' 'Load git refs from  version folder.'
+    printf "$column" 'save-version' '' 'Save git folder refs to version folder.'
+    printf "$column" 'template-compose' '' 'Template the Docker compose file.'
+    printf "$column" 'template-odoo-rc' '' 'Template the Odoo config file.'
+    printf "$column" 'template-repo' '[path]' 'Update the repo folder from template.'
+    printf "$column" 'test-project' '[clean]' 'Run tests for this project.'
+    printf "$column" 'version' '' 'Show version of required tools.'
     # Performance
-    printf "$COLUMN" "record-with-memray" "[name]" "Record application memory usage with memray. Options: source."
-    printf "$COLUMN" "record-with-py-spy" "[pid]" "Record and create flamechart for a process."
+    printf "$column" 'record-with-memray' '[name]' 'Record application memory usage with memray. Options: source.'
+    printf "$column" 'record-with-py-spy' '[pid]' 'Record and create flamechart for a process.'
     # Docs
-    printf "$COLUMN" "update-docs" "" "Update all project docs."
-    printf "$COLUMN" "update-help-doc" "" "Write help table to task.md file."
-    printf "$COLUMN" "update-modules-doc" "" "Update modules docs file."
-    printf "$COLUMN" "update-revisions-doc" "" "Update revisions doc file."
-    printf "$COLUMN" "update-snippets-doc" "" "Update snippets doc file."
+    printf "$column" 'update-docs' '' 'Update all project docs.'
+    printf "$column" 'update-help-doc' '' 'Write help table to task.md file.'
+    printf "$column" 'update-modules-doc' '' 'Update modules docs file.'
+    printf "$column" 'update-revisions-doc' '' 'Update revisions doc file.'
+    printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
     # Upgrade
-    printf "$COLUMN" "migrate-module" "[path]" "Migrate module code from to target Odoo version."
-    printf "$COLUMN" "upgrade-odoo" "[db][version][mode]" "Run the Odoo upgrade scripts. Default mode ist 'test'."
+    printf "$column" 'migrate-module' '[path]' 'Migrate module code from to target Odoo version.'
+    printf "$column" 'upgrade-odoo' '[db][version][mode]' 'Run the Odoo upgrade scripts. Default mode ist '\''test'\''.'
 }
 
-function help() {
+help() {
     echo
-    if [ -n "$1" ]; then
+    if [[ -n "$1" ]]; then
         help-table | grep -i "$1" | column -t -s'|'
     else
-        echo "task <command> [options]"
+        echo 'task <command> [options]'
         echo
-        echo "commands:"
+        echo 'commands:'
         echo
         help-table
     fi
@@ -260,30 +260,30 @@ fi
 # Check commands
 
 if ! (command -v grep &> /dev/null && grep --version | grep -q GNU) && [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
-    echo "Error: On Darwin systems, GNU grep must be installed."
+    echo 'Error: On Darwin systems, GNU grep must be installed.'
     exit 1
 fi
 
 if ! command -v envsubst &> /dev/null; then
-    echo "Error: 'envsubst' is not available. Install 'gettext' package."
+    echo 'Error: '\''envsubst'\'' is not available. Install '\''gettext'\'' package.'
     exit 1
 fi
 
 # Import commands
 
-function clone-taskfile(){
-    if [ ! -d "$HOME/taskfile.build" ]; then
-        echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
+clone-taskfile(){
+    if [[ ! -d "$HOME/taskfile.build" ]]; then
+        echo -e '\033[38;5;214mGit\033[0m: Clone taskfile repo'
         git clone https://git.taskfile.build "$HOME/taskfile.build"
     else
-        echo -e "\033[38;5;214mGit\033[0m: Pull taskfile repo"
+        echo -e '\033[38;5;214mGit\033[0m: Pull taskfile repo'
         git -C "$HOME/taskfile.build" pull
     fi
 }
 
-if [ -d "$HOME/taskfile.build/bin" ]; then
+if [[ -d "$HOME/taskfile.build/bin" ]]; then
     for file in "$HOME/taskfile.build/bin/"*; do
-        if [ -f "$file" ]; then
+        if [[ -f "$file" ]]; then
             source "$file"
         fi
     done
@@ -291,7 +291,7 @@ fi
 
 # Help commands
 
-function info() {
+info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
     echo "Pass Entry: $PASS_ENTRY"
@@ -305,11 +305,11 @@ function info() {
     echo "Addons Path: $ADDONS_PATH"
 }
 
-function version() {
+version() {
     activate-venv
     uv --version
     wkhtmltopdf -V
-    if [ "$CONTAINER_ENGINE" == "docker" ]; then
+    if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
         docker -v
         docker compose version
     else
@@ -318,15 +318,15 @@ function version() {
     fi
 }
 
-function generate-admin-passwd() {
+generate-admin-passwd() {
     activate-venv
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    ODOO_PASSWORD="$1"
+    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    local odoo_password="$1"
     bin/hash_password
 }
 
-function show-odoo-mcp-config() {
-    echo "Add this config to your IDE:  "
+show-odoo-mcp-config() {
+    echo 'Add this config to your IDE:  '
     cat << EOF
 {
     "mcpServers": {
@@ -347,373 +347,384 @@ EOF
 
 # Env commands
 
-function init-venv() {
+init-venv() {
     echo "Ensure Python version $(cat .python-version) is installed."
     uv python install
 
-    if [ ! -d "venv$ODOO_VERSION" ]; then
+    if [[ ! -d "venv$ODOO_VERSION" ]]; then
         echo "Init venv$ODOO_VERSION with $(uv --version)."
         uv venv "venv$ODOO_VERSION"
     fi
 }
 
-function activate-venv() {
+activate-venv() {
     echo "Source virtualenv venv$ODOO_VERSION."
     source "venv$ODOO_VERSION/bin/activate"
     echo "$(python --version) is active."
 }
 
-function remove-venv() {
+remove-venv() {
     echo "Remove virtualenv venv$ODOO_VERSION."
     rm -rf "venv$ODOO_VERSION"
 }
 
-function get-addons-path() {
+get-addons-path() {
     set-addons-path
     echo "$ADDONS_PATH"
 }
 
-function template-odoo-rc() {
+template-odoo-rc() {
     echo "Template $ODOO_RC"
 
     # Load and export vars defined in odoo conf template
-    for VAR in $(grep -oE '\$([A-Z_][A-Z0-9_]*)|\$\{([A-Z_][A-Z0-9_]*)\}' odoo.conf.template); do
-      VAR=${VAR/\$/}
-      VAR=${VAR//\{\//}
-      export $VAR
+    for var in $(grep -oE '\$([A-Z_][A-Z0-9_]*)|\$\{([A-Z_][A-Z0-9_]*)\}' odoo.conf.template); do
+      var=${var/\$/}
+      var=${var//\{\//}
+      export $var
     done
 
-    IR_CONFIG_PARAMETER=${IR_CONFIG_PARAMETER:-""}
+    local ir_config_parameter=${IR_CONFIG_PARAMETER:-""}
 
-    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-        GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
-        IR_CONFIG_PARAMETER+=$'\n'"git.ssh_private_key = \"$GIT_SSH_PRIVATE_KEY\""
+    if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
+        local git_ssh_private_key=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -w0)
+        ir_config_parameter+=$'\n'"git.ssh_private_key = \"$git_ssh_private_key\""
     fi
 
-    if [ -n "$GIT_SSH_PUBLIC_KEY" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"git.ssh_public_key = \"$GIT_SSH_PUBLIC_KEY\""
+    if [[ -n "$GIT_SSH_PUBLIC_KEY" ]]; then
+        ir_config_parameter+=$'\n'"git.ssh_public_key = \"$GIT_SSH_PUBLIC_KEY\""
     fi
 
-    if [ -n "$BASE_URL_WEBSITE" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"base_url_website = \"$BASE_URL_WEBSITE\""
+    if [[ -n "$BASE_URL_WEBSITE" ]]; then
+        ir_config_parameter+=$'\n'"base_url_website = \"$BASE_URL_WEBSITE\""
     fi
 
-    if [ -n "$BASE_URL_APP" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"base_url_app = \"$BASE_URL_APP\""
+    if [[ -n "$BASE_URL_APP" ]]; then
+        ir_config_parameter+=$'\n'"base_url_app = \"$BASE_URL_APP\""
     fi
 
-    if [ -n "$UPLOADCARE_PUBLIC_KEY" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"uploadcare.public_key = \"$UPLOADCARE_PUBLIC_KEY\""
+    if [[ -n "$UPLOADCARE_PUBLIC_KEY" ]]; then
+        ir_config_parameter+=$'\n'"uploadcare.public_key = \"$UPLOADCARE_PUBLIC_KEY\""
     fi
 
-    if [ -n "$UPLOADCARE_SECRET_KEY" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"uploadcare.secret_key = \"$UPLOADCARE_SECRET_KEY\""
+    if [[ -n "$UPLOADCARE_SECRET_KEY" ]]; then
+        ir_config_parameter+=$'\n'"uploadcare.secret_key = \"$UPLOADCARE_SECRET_KEY\""
     fi
 
-    if [ -n "$KEYCLOAK_BASE_URL" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"keycloak.base_url = \"$KEYCLOAK_BASE_URL\""
+    if [[ -n "$KEYCLOAK_BASE_URL" ]]; then
+        ir_config_parameter+=$'\n'"keycloak.base_url = \"$KEYCLOAK_BASE_URL\""
     fi
 
-    if [ -n "$KEYCLOAK_CLIENT_ID" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"keycloak.client_id = \"$KEYCLOAK_CLIENT_ID\""
+    if [[ -n "$KEYCLOAK_CLIENT_ID" ]]; then
+        ir_config_parameter+=$'\n'"keycloak.client_id = \"$KEYCLOAK_CLIENT_ID\""
     fi
 
-    if [ -n "$KEYCLOAK_CLIENT_SECRET" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"keycloak.client_secret = \"$KEYCLOAK_CLIENT_SECRET\""
+    if [[ -n "$KEYCLOAK_CLIENT_SECRET" ]]; then
+        ir_config_parameter+=$'\n'"keycloak.client_secret = \"$KEYCLOAK_CLIENT_SECRET\""
     fi
 
-    if [ -n "$KEYCLOAK_REALM" ]; then
-        IR_CONFIG_PARAMETER+=$'\n'"keycloak.realm = \"$KEYCLOAK_REALM\""
+    if [[ -n "$KEYCLOAK_REALM" ]]; then
+        ir_config_parameter+=$'\n'"keycloak.realm = \"$KEYCLOAK_REALM\""
     fi
 
-    export IR_CONFIG_PARAMETER
+    export IR_CONFIG_PARAMETER="$ir_config_parameter"
 
     envsubst < "odoo.conf.template" > "$ODOO_RC"
 }
 
-function set-addons-path() {
+set-addons-path() {
     # Read addons path from git module
-    GIT_FOLDERS_PATH="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
+    local git_folders_path="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
 
     # Remove excluded addons
-    EXCLUDES="addons/theme_mint_system addons/company addons/web"
-    for EXCLUDE in $EXCLUDES; do
-        GIT_FOLDERS_PATH=$(echo "$GIT_FOLDERS_PATH" | sed "s|${EXCLUDE},||g")
+    local excludes="addons/theme_mint_system addons/company addons/web"
+    for exclude in $excludes; do
+        git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g")
     done
 
     # Check if addons dir exist
-    for ADDON in $GIT_FOLDERS_PATH; do
-        if [ -d "$ADDON" ]; then
-            echo "Path does not exist: $ADDON"
+    for addon in $git_folders_path; do
+        if [[ -d "$addon" ]]; then
+            echo "Path does not exist: $addon"
             exit 1
         fi
     done
 
     # Convert to source paths
-    ADDONS_PATH="$(echo $GIT_FOLDERS_PATH | sed 's|,odoo|,odoo/addons|g')"
+    local addons_path="$(echo $git_folders_path | sed 's|,odoo|,odoo/addons|g')"
 
     # Append paths from config env var
-    if [ -n "$ODOO_ADDONS_PATH" ]; then
-        ADDONS_PATH="${ODOO_ADDONS_PATH},${ADDONS_PATH}"
+    if [[ -n "$ODOO_ADDONS_PATH" ]]; then
+        addons_path="${ODOO_ADDONS_PATH},${addons_path}"
     fi
+    
+    # Export the addons path to make it available to other functions
+    export ADDONS_PATH="$addons_path"
 }
 
-function load-ssh-key() {
-    if [ -n "$GIT_SSH_PRIVATE_KEY" ]; then
-        echo "Setup SSH key from env var."
-        DECODED_GIT_SSH_PRIVATE_KEY=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
+load-ssh-key() {
+    if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
+        echo 'Setup SSH key from env var.'
+        local decoded_git_ssh_private_key=$(echo -e "$GIT_SSH_PRIVATE_KEY" | base64 -d)
         mkdir -p ~/.ssh
-        echo "$DECODED_GIT_SSH_PRIVATE_KEY" > ~/.ssh/id_ed25519
+        echo "$decoded_git_ssh_private_key" > ~/.ssh/id_ed25519
         chmod 600 ~/.ssh/id_ed25519
         eval "$(ssh-agent -s)"
-        ssh-add ~/.ssh/id_ed25519 || (echo "Dumping ~/.ssh/id_ed25519 content:" && cat ~/.ssh/id_ed25519)
+        ssh-add ~/.ssh/id_ed25519 || (echo 'Dumping ~/.ssh/id_ed25519 content:' && cat ~/.ssh/id_ed25519)
     else
-        echo "The SSH key env var is empty."
+        echo 'The SSH key env var is empty.'
         exit 1
     fi
 }
 
 # Docs commands
 
-function lint() {
+lint() {
     activate-venv
 
     echo "Run pre-commit in $PWD"
     pre-commit run
 }
 
-function update-help-doc() {
-    echo "Pipe help table into task.md."
+update-help-doc() {
+    echo 'Pipe help table into task.md.'
     help-table > task.md
 }
 
-function update-snippets-doc() {
+update-snippets-doc() {
     ./bin/update-snippets-doc
 }
 
-function update-revisions-doc() {
+update-revisions-doc() {
 
-    echo "Update revisions doc file."
+    echo 'Update revisions doc file.'
 
     rm -f "revisions.md"
     echo -e "# Odoo Revisions \n\
 A Odoo revision is a snapshot of git references of the Odoo source and modules at a specific date.\n\
 For each major release there are multiple revisions.\n" > "revisions.md"
 
-    declare -A REVISIONS
-    PATH_URL="https://github.com/${ORG_NAME}/Odoo-Build/tree/main"
+    declare -A revisions
+    local path_url="https://github.com/${ORG_NAME}/Odoo-Build/tree/main"
 
-    for FILE in $(ls revisions/ | sort -rV); do
-        REVISION="$FILE"
-        VERSION=$(echo "$REVISION" | cut -d'.' -f1-2)
+    for file in $(ls revisions/ | sort -rV); do
+        local revision="$file"
+        local version=$(echo "$revision" | cut -d'.' -f1-2)
 
-        if [[ -z "${REVISIONS[$VERSION]}" ]]; then
-            REVISIONS[$VERSION]="## $VERSION"
+        if [[ -z "${revisions[$version]}" ]]; then
+            revisions[$version]="## $version"
         fi
 
-        REVISIONS[$VERSION]+=$'\n\n'
-        REVISIONS[$VERSION]+="#### $REVISION"
-        REVISIONS[$VERSION]+=$'\n\n```bash\n'
-        REVISIONS[$VERSION]+=$(cat "revisions/$FILE")
-        REVISIONS[$VERSION]+=$'\n```'
+        revisions[$version]+=$'\n\n'
+        revisions[$version]+="#### $revision"
+        revisions[$version]+=$'\n\n```bash\n'
+        revisions[$version]+=$(cat "revisions/$file")
+        revisions[$version]+=$'\n```'
     done
 
-    for REVISION in $(echo "${!REVISIONS[@]}" | tr ' ' '\n' | sort -rV); do
-        echo -e "${REVISIONS[$REVISION]}\n" >> "revisions.md"
+    for revision in $(echo "${!revisions[@]}" | tr ' ' '\n' | sort -rV); do
+        echo -e "${revisions[$revision]}\n" >> "revisions.md"
     done
 }
 
-function update-modules-doc() {
-    echo "Update module doc file."
+update-modules-doc() {
+    echo 'Update module doc file.'
     activate-venv
     ./bin/update-modules-doc
 }
 
-function update-docs() {
+update-docs() {
     update-modules-doc
     update-revisions-doc
     update-snippets-doc
     update-help-doc
 }
 
-function update-module-license() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_FOLDERS=$(list-module "$1")
+update-module-license() {
+    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    local git_folders=$(list-module "$1")
 
-    for GIT_FOLDER in $GIT_FOLDERS; do
-       echo "Update license file for $GIT_FOLDER."
-       cp templates/module/LICENSE "$GIT_FOLDER/"
+    for git_folder in $git_folders; do
+       echo "Update license file for $git_folder."
+       cp templates/module/LICENSE "$git_folder/"
     done
 }
 
-function template-repo(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    REPO_PATH="$1"
+template-repo(){
+    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    local repo_path="$1"
 
-    echo "Copy task file to $REPO_PATH."
-    cp "templates/task" "$REPO_PATH"
+    echo "Copy task file to $repo_path."
+    cp "templates/task" "$repo_path"
 
-    echo "Template README.md to $REPO_PATH."
-    REPO_FOLDER=$(basename "$REPO_PATH")
-    REPO_MODEL=${REPO_FOLDER%%_*}
-    REPO_TITLE=$(echo "$REPO_FOLDER" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
-    REPO_NAME=$(echo "$REPO_FOLDER" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
-    export REPO_FOLDER REPO_MODEL REPO_TITLE REPO_NAME
-    envsubst < "templates/README.md" > "$REPO_PATH/README.md"
+    echo "Template README.md to $repo_path."
+    local repo_folder=$(basename "$repo_path")
+    local repo_model=${repo_folder%%_*}
+    local repo_title=$(echo "$repo_folder" | sed 's/_/ /g' | sed 's/\b\(.\)/\u\1/g')
+    local repo_name=$(echo "$repo_folder" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
+    export REPO_FOLDER="$repo_folder" REPO_MODEL="$repo_model" REPO_TITLE="$repo_title" REPO_NAME="$repo_name"
+    envsubst < "templates/README.md" > "$repo_path/README.md"
 
-    echo "Copy $ODOO_VERSION template files to $REPO_PATH."
-    cp -r "templates/$ODOO_VERSION/." "$REPO_PATH"
+    echo "Copy $ODOO_VERSION template files to $repo_path."
+    cp -r "templates/$ODOO_VERSION/." "$repo_path"
 
-    echo "Remove deprecated repo files."
-    rm "$REPO_PATH/.flake8"
-    rm "$REPO_PATH/.isort.cfg"
-    rm "$REPO_PATH/.pylintrc-mandatory"
+    echo 'Remove deprecated repo files.'
+    rm "$repo_path/.flake8"
+    rm "$repo_path/.isort.cfg"
+    rm "$repo_path/.pylintrc-mandatory"
 }
 
 # Module commands
 
-function get-modules() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+get-modules() {
+    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
 
-    OPTION="$2"
-    if [ -z "$OPTION" ]; then
-        OPTION="dirname"
+    local option="$2"
+    if [[ -z "$option" ]]; then
+        option="dirname"
     fi
 
-    if [[ "$OPTION" == "dirname" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+    local modules
+    if [[ "$option" == "dirname" ]]; then
+        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
-    if [[ "$OPTION" == "basename" ]]; then
-        MODULES=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+    if [[ "$option" == "basename" ]]; then
+        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
-    echo "$MODULES"
+    echo "$modules"
 }
 
-function get-module-version() {
-    if test -z "$1"
+get-module-version() {
+    if [[ -z "$1" ]]
     then
-        echo "\$1 is empty."
+        echo '\$1 is empty.'
     else
         # Get version of module
-        VERSION=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
-        VERSION=$(echo "{ $VERSION }" | jq .version | sed 's/"//g' | sed 's/null//g')
+        local version=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
+        version=$(echo "{ $version }" | jq .version | sed 's/"//g' | sed 's/null//g')
 
         # Set default version
-        [ -z "$VERSION" ] && VERSION=0.0
+        [[ -z "$version" ]] && version=0.0
 
-        COUNT_DOTS=$(echo "$VERSION" | grep -o "\." | wc -l)
+        local count_dots=$(echo "$version" | grep -o "\." | wc -l)
 
         # Check if oca version or enterprise version
-        if [[ $COUNT_DOTS == 2 ]]; then
-            VERSION="$ODOO_VERSION.$VERSION"
+        if [[ $count_dots == 2 ]]; then
+            version="$ODOO_VERSION.$version"
         fi
-        if [[ $COUNT_DOTS == 1 ]]; then
-            VERSION="$ODOO_VERSION.$VERSION"
+        if [[ $count_dots == 1 ]]; then
+            version="$ODOO_VERSION.$version"
         fi
 
-        echo "$VERSION"
+        echo "$version"
     fi
 }
 
-function list-modules() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MODULES=$(get-modules "$1" dirname)
-    echo "$MODULES" | tr ',' '\n'
+list-modules() {
+    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    local modules=$(get-modules "$1" dirname)
+    echo "$modules" | tr ',' '\n'
 }
 
 # Container commands
 
-function archive-docker-tags() {
+archive-docker-tags() {
     activate-venv
     export CONTAINER_CONFIG
     python bin/archive-docker-tags
 }
 
-function template-compose() {
-    echo "Template compose.yml"
+template-compose() {
+    echo 'Template compose.yml'
 
     # Load and export vars defined in compose template
-    for VAR in $(grep -oE '\$\{?[A-Z_][A-Z0-9_]*\}?' compose.yml.template); do
+    for var in $(grep -oE '\$\{?[A-Z_][A-Z0-9_]*\}?' compose.yml.template); do
         # Strip $, ${, }
-        VAR=${VAR#\$\{}    # Remove leading ${
-        VAR=${VAR%\}}      # Remove trailing }
-        VAR=${VAR#\$}      # Remove leading $
-        export "$VAR"
+        var=${var#\$\{}    # Remove leading ${
+        var=${var%\}}      # Remove trailing }
+        var=${var#\$}      # Remove leading $
+        export "$var"
     done
 
     envsubst < "compose.yml.template" > "compose.yml"
 }
 
-function container-ps() {
+container-ps() {
     $CONTAINER_ENGINE ps
 }
 
-function build() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+build() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     # Set container tag based on Dockerfile
-    if [ "$1" = "images/odoo" ]; then
-        MANIFEST_FILE="images/odoo/Dockerfile"
-        LATEST_TAG="odoo:$ODOO_VERSION"
+    local manifest_file
+    local latest_tag
+    local container_tag
+    
+    if [[ "$1" == "images/odoo" ]]; then
+        manifest_file="images/odoo/Dockerfile"
+        latest_tag="odoo:$ODOO_VERSION"
     fi
-    if [ "$1" = "images/odoo-mailgate" ]; then
-        MANIFEST_FILE="images/odoo-mailgate/Dockerfile"
-        CONTAINER_TAG="odoo-mailgate"
-        LATEST_TAG="odoo-mailgate:latest"
-    elif [ "$1" = "images/odoo-upgrade" ]; then
-        MANIFEST_FILE="images/odoo-upgrade/Dockerfile"
-        CONTAINER_TAG="odoo-upgrade"
-        LATEST_TAG="odoo-upgrade:latest"
-    elif [ "$1" = "images/odoocli" ]; then
-        MANIFEST_FILE="images/odoocli/Dockerfile"
-        CONTAINER_TAG="odoocli"
-        LATEST_TAG="odoocli:latest"
-    elif [ "$1" = "images/odoo-mcp" ]; then
-        MANIFEST_FILE="images/odoo-mcp/Dockerfile"
-        CONTAINER_TAG="odoo-mcp"
-        LATEST_TAG="odoo-mcp:latest"
+    if [[ "$1" == "images/odoo-mailgate" ]]; then
+        manifest_file="images/odoo-mailgate/Dockerfile"
+        container_tag="odoo-mailgate"
+        latest_tag="odoo-mailgate:latest"
+    elif [[ "$1" == "images/odoo-upgrade" ]]; then
+        manifest_file="images/odoo-upgrade/Dockerfile"
+        container_tag="odoo-upgrade"
+        latest_tag="odoo-upgrade:latest"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        manifest_file="images/odoocli/Dockerfile"
+        container_tag="odoocli"
+        latest_tag="odoocli:latest"
+    elif [[ "$1" == "images/odoo-mcp" ]]; then
+        manifest_file="images/odoo-mcp/Dockerfile"
+        container_tag="odoo-mcp"
+        latest_tag="odoo-mcp:latest"
     fi
 
     # Load Odoo revision
-    ODOO_DATE=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    local odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
     # Select Python version
     case "$ODOO_VERSION" in
         "15.0")
-            PYTHON_VERSION="3.9"
-            PLATFORM="linux/amd64"
+            local python_version="3.9"
+            local platform="linux/amd64"
             ;;
         "16.0")
-            PYTHON_VERSION="3.11"
+            local python_version="3.11"
             ;;
         "17.0")
-            PYTHON_VERSION="3.11"
+            local python_version="3.11"
             ;;
         "18.0")
-            PYTHON_VERSION="3.12"
+            local python_version="3.12"
             ;;
         "19.0")
-            PYTHON_VERSION="3.13"
+            local python_version="3.13"
             ;;
         *)
-            PYTHON_VERSION="3.12"
+            local python_version="3.12"
             ;;
     esac
 
     # Set platform
-    DOCKER_OUTPUT="--load"
-    if [ "$2" = "--push" ]; then
-        DOCKER_OUTPUT="--push"
+    local docker_output="--load"
+    if [[ "$2" == "--push" ]]; then
+        docker_output="--push"
     fi
 
     # Output configuration
-    echo "Python Version: $PYTHON_VERSION"
-    echo "Platform: $PLATFORM"
-    echo "Docker Output: $DOCKER_OUTPUT"
+    echo "Python Version: $python_version"
+    echo "Platform: $platform"
+    echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -722,20 +733,20 @@ function build() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
-        --file "$MANIFEST_FILE" \
-        --build-arg PYTHON_VERSION="$PYTHON_VERSION" \
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${platform}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$platform" . \
+        --file "$manifest_file" \
+        --build-arg PYTHON_VERSION="$python_version" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
-        --build-arg ODOO_DATE="$ODOO_DATE" \
+        --build-arg ODOO_DATE="$odoo_date" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
-        --tag "${CONTAINER_REGISTRY}/${LATEST_TAG}" \
-        "$DOCKER_OUTPUT"
+        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
+        --tag "${CONTAINER_REGISTRY}/${latest_tag}" \
+        "$docker_output"
 }
 
-function load-latest-revision() {
-    if [ -n "$1" ] ; then
+load-latest-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_VERSION="$1"
     fi
 
@@ -743,8 +754,8 @@ function load-latest-revision() {
     load-revision "$ODOO_REVISION"
 }
 
-function checkout-latest-revision() {
-    if [ -n "$1" ] ; then
+checkout-latest-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_VERSION="$1"
     fi
 
@@ -753,11 +764,11 @@ function checkout-latest-revision() {
     check-version
 }
 
-function container-login() {
-    if [ -n "$1" ]; then
+container-login() {
+    if [[ -n "$1" ]]; then
         CONTAINER_REGISTRY_USERNAME="$1"
     fi
-    if [ -n "$2" ]; then
+    if [[ -n "$2" ]]; then
         CONTAINER_REGISTRY_PASSWORD="$2"
     fi
 
@@ -765,11 +776,11 @@ function container-login() {
     echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
 }
 
-function login-podman() {
-    if [ -n "$1" ]; then
+login-podman() {
+    if [[ -n "$1" ]]; then
         CONTAINER_REGISTRY_USERNAME="$1"
     fi
-    if [ -n "$2" ]; then
+    if [[ -n "$2" ]]; then
         CONTAINER_REGISTRY_PASSWORD="$2"
     fi
 
@@ -777,23 +788,28 @@ function login-podman() {
     podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
 }
 
-function test-image() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    if [ "$1" == "images/odoo-upgrade" ]; then
-        CONTAINER_TAG="odoo-upgrade"
-    elif [ "$1" == "images/odoocli" ]; then
-        CONTAINER_TAG="odoocli"
+test-image() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
+    local container_tag
+    
+    if [[ "$1" == "images/odoo-upgrade" ]]; then
+        container_tag="odoo-upgrade"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        container_tag="odoocli"
+    fi
+
+    if [[ "$container_tag" =~ ^odoo: ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Run git clone addons"
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export LOCAL_PATH="./tmp"
-        SERVER_TOOLS_GIT_REF=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
-        export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${SERVER_TOOLS_GIT_REF}"
+        local server_tools_git_ref=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
+        export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${server_tools_git_ref}"
         mkdir -p "$LOCAL_PATH"
         export PATH=./images/odoo/bin/:$PATH
         ./images/odoo/bin/clone-git-addons # This will remove all SSH keys at the end
@@ -820,12 +836,12 @@ function test-image() {
         echo $ADDONS_PATH | grep "./templates"
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
+    if [[ "$container_tag" =~ ^odoo-upgrade ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
         docker run -it mintsystem/odoo-upgrade --help
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoocli ]]; then
+    if [[ "$container_tag" =~ ^odoocli ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
@@ -836,115 +852,133 @@ function test-image() {
     fi
 }
 
-function push() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    if [ "$1" == "images/odoo" ]; then
-        LATEST_TAG="odoo:$ODOO_VERSION"
-    elif [ "$1" == "images/odoo-mailgate" ]; then
-        CONTAINER_TAG="odoo-mailgate"
-        LATEST_TAG="odoo-mailgate:latest"
-    elif [ "$1" == "images/odoo-upgrade" ]; then
-        CONTAINER_TAG="odoo-upgrade"
-        LATEST_TAG="odoo-upgrade:latest"
-    elif [ "$1" == "images/odoocli" ]; then
-        CONTAINER_TAG="odoocli"
-        LATEST_TAG="odoocli:latest"
-    elif [ "$1" == "images/odoo-mcp" ]; then
-        CONTAINER_TAG="odoo-mcp"
-        LATEST_TAG="odoocli:latest"
+push() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
 
-    echo "Tag container image ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with ${CONTAINER_REGISTRY}/${LATEST_TAG}"
-    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" "${CONTAINER_REGISTRY}/${LATEST_TAG}"
-
-    if [ "$CONTAINER_ENGINE" == "docker" ]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${LATEST_TAG}"
+    local latest_tag
+    local container_tag
+    
+    if [[ "$1" == "images/odoo" ]]; then
+        latest_tag="odoo:$ODOO_VERSION"
+    elif [[ "$1" == "images/odoo-mailgate" ]]; then
+        container_tag="odoo-mailgate"
+        latest_tag="odoo-mailgate:latest"
+    elif [[ "$1" == "images/odoo-upgrade" ]]; then
+        container_tag="odoo-upgrade"
+        latest_tag="odoo-upgrade:latest"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        container_tag="odoocli"
+        latest_tag="odoocli:latest"
+    elif [[ "$1" == "images/odoo-mcp" ]]; then
+        container_tag="odoo-mcp"
+        latest_tag="odoocli:latest"
     fi
 
-    if [ "$CONTAINER_ENGINE" == "podman" ]; then
-        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        podman push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        podman push "${CONTAINER_REGISTRY}/${LATEST_TAG}"
+    echo "Tag container image ${CONTAINER_REGISTRY}/${container_tag} with ${CONTAINER_REGISTRY}/${latest_tag}"
+    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${container_tag}" "${CONTAINER_REGISTRY}/${latest_tag}"
+
+    if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
+        echo "Push container image to ${CONTAINER_REGISTRY}/${container_tag}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${container_tag}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${latest_tag}"
+    fi
+
+    if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
+        echo "Push container image to ${CONTAINER_REGISTRY}/${container_tag}"
+        podman push "${CONTAINER_REGISTRY}/${container_tag}"
+        podman push "${CONTAINER_REGISTRY}/${latest_tag}"
     fi
 }
 
-function upload-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-
-    # Check if path is root folder
-    MODULES="$2"
-    if [ ! -f "$2/__manifest__.py" ]; then
-        echo "Identified as root folder"
-        MODULES="$MODULES/*"
+upload-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
     fi
 
-    for MODULE in $MODULES; do
+    # Check if path is root folder
+    local modules="$2"
+    if [[ ! -f "$2/__manifest__.py" ]]; then
+        echo 'Identified as root folder'
+        modules="$modules/*"
+    fi
 
-        if [ -f "$MODULE/__manifest__.py" ]; then
+    for module in $modules; do
+
+        if [[ -f "$module/__manifest__.py" ]]; then
 
             # Create module zip
-            zip-module "$MODULE"
+            zip-module "$module"
 
             # Get path to zip file and upload url
-            FILE_PATH="tmp/$MODULE_NAME.zip"
+            local file_path="tmp/$MODULE_NAME.zip"
             load-env "$1"
-            NEXTCLOUD_UPLOAD_URL="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
+            local nextcloud_upload_url="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
             # Upload zip file
-            curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$FILE_PATH" "$NEXTCLOUD_UPLOAD_URL"
-            echo "File $FILE_PATH uploaded to $NEXTCLOUD_UPLOAD_URL."
+            curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$file_path" "$nextcloud_upload_url"
+            echo "File $file_path uploaded to $nextcloud_upload_url."
 
-            UPLOADS+="  - name: $MODULE\n"
+            UPLOADS+="  - name: $module\n"
             UPLOADS+="    version: $VERSION\n"
         fi
     done
 
-    echo "odoo_apps:"
+    echo 'odoo_apps:'
     echo -e "$UPLOADS"
 }
 
-function logs() {
-    CONTAINER="$1"
-    CONTAINER=${CONTAINER:="odoo"}
-    $CONTAINER_ENGINE logs --follow "$CONTAINER"
+logs() {
+    local container="$1"
+    container=${container:="odoo"}
+    $CONTAINER_ENGINE logs --follow "$container"
 }
 
 # Script commands
 
-function install-odoo-scripts() {
-    echo "Installing Odoo scripts with user flag."
+install-odoo-scripts() {
+    echo 'Installing Odoo scripts with user flag.'
     curl -L https://ansible.build/odoo_scripts/install | bash -s -- --user
 }
 
-function upgrade-odoo() {
-    if test -z "$1"; then echo "\$1/database is empty."; exit; fi
-    if test -z "$2"; then echo "\$2/version is empty."; exit; fi
-
-    DATABASE="$1"
-    ODOO_TARGET_VERSION="$2"
-    MODE="test"
-    if [ -n "$3" ]; then
-        # Options: test, production
-        MODE="$3"
+upgrade-odoo() {
+    if [[ -z "$1" ]]; then
+        echo '$1/database is empty.'
+        exit
     fi
-    NEW_DATABASE="${DATABASE}_${ODOO_TARGET_VERSION}"
+    if [[ -z "$2" ]]; then
+        echo '$2/version is empty.'
+        exit
+    fi
 
-    echo "Execute Odoo upgrade script in $MODE mode for $DATABASE with version $ODOO_TARGET_VERSION."
-    echo "The database will be restored as $NEW_DATABASE."
+    local database="$1"
+    local odoo_target_version="$2"
+    local mode="test"
+    if [[ -n "$3" ]]; then
+        # Options: test, production
+        mode="$3"
+    fi
+    local new_database="${database}_${odoo_target_version}"
+
+    echo "Execute Odoo upgrade script in $mode mode for $database with version $odoo_target_version."
+    echo "The database will be restored as $new_database."
     export PGHOST=localhost
     export PGUSER=odoo
     export PGPASSWORD=odoo
-    python <(curl -s https://upgrade.odoo.com/upgrade) "$MODE" -d "$DATABASE" -t "$ODOO_TARGET_VERSION" -r "$NEW_DATABASE"
-    echo "Upgrade finished successfully."
+    python <(curl -s https://upgrade.odoo.com/upgrade) "$mode" -d "$database" -t "$odoo_target_version" -r "$new_database"
+    echo 'Upgrade finished successfully.'
 }
 
 # Install commands
 
-function install() {
+install() {
     init-venv
     activate-venv
 
@@ -975,7 +1009,7 @@ function install() {
 
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
-        echo "Welcome daring Mac user. Let's try our best to get this working."
+        echo 'Welcome daring Mac user. Let'\''s try our best to get this working.'
         echo -e "\033[38;5;214mBrew\033[0m: Install brew "
         brew install gettext libsasl2 openldap openssl libxml2 grep
 
@@ -987,7 +1021,7 @@ function install() {
 
     elif [[ "$OS_RELEASE" =~ ^(Arch Linux|SteamOS)$ ]]; then
 
-        echo "Arch is the best"
+        echo 'Arch is the best'
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo pacman -S --noconfirm base-devel postgresql
@@ -1008,19 +1042,19 @@ function install() {
     if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS|SteamOS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
-        INSTALLED_VERSION=$(wkhtmltopdf --version 2>&1 | sed -E 's/^wkhtmltopdf +([0-9.]+).*/\1/')
-        if [ "$INSTALLED_VERSION" != "0.12.4" ]; then
+        local installed_version=$(wkhtmltopdf --version 2>&1 | sed -E 's/^wkhtmltopdf +([0-9.]+).*/\1/')
+        if [[ "$installed_version" != "0.12.4" ]]; then
             echo -e "\033[38;5;214mCurl\033[0m: Install wkhtmltopdf"
             curl -L -O https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
             tar xvf wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
             sudo mv wkhtmltox/bin/wkhtmlto* /usr/bin/
             rm -rf wkhtmltox wkhtmltox-0.12.4_linux-generic-amd64.tar.xz
         else
-            echo "wkhtmltopdf version is already 0.12.4"
+            echo 'wkhtmltopdf version is already 0.12.4'
         fi
     fi
 
-    if [ ! -d "$HOME/taskfile.build" ]; then
+    if [[ ! -d "$HOME/taskfile.build" ]]; then
         echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
         git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
     else
@@ -1029,17 +1063,17 @@ function install() {
     fi
 
     echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
-    if [ -n "$PYTHON_NOTIFY" ]; then
+    if [[ -n "$PYTHON_NOTIFY" ]]; then
         uv pip install "$PYTHON_NOTIFY"
     fi
     uv pip install -r requirements.txt
 
-    if [ -f "odoo/requirements.txt" ]; then
+    if [[ -f "odoo/requirements.txt" ]]; then
 
         echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
         uv pip install -r odoo/requirements.txt
 
-        if [ "$ODOO_VERSION" = "17.0" ]; then
+        if [[ "$ODOO_VERSION" == "17.0" ]]; then
             uv pip install lxml_html_clean Werkzeug==2.2.2
         fi
 
@@ -1052,7 +1086,7 @@ function install() {
         git -C odoo checkout requirements.txt
     fi
 
-    if [ "$PYTHON_NOTIFY" == "inotify" ] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.d/99-sysctl.conf; then
+    if [[ "$PYTHON_NOTIFY" == "inotify" ]] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.d/99-sysctl.conf; then
         sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.d/99-sysctl.conf'
         sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
         echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
@@ -1064,36 +1098,39 @@ function install() {
 
 # Process commands
 
-function open-url-with-delay(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+open-url-with-delay() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
     if $BROWSER_OPEN; then
         sleep 2
         $OS_OPEN "$1"
     fi
 }
 
-function start() {
+start() {
     set-addons-path
-    if [ "$POSTGRES_SSL" = "on" ]; then
+    if [[ "$POSTGRES_SSL" == "on" ]]; then
         generate-pg-ssl-keys
     fi
 
     template-compose
 
     # Use default database if second param is not given
-    DATABASE="$2"
-    if [ -z "$2" ]; then
-        DATABASE="$ODOO_DATABASE"
+    local database="$2"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    if [ -z "$1" ] ; then
+    if [[ -z "$1" ]]; then
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        echo "Open http://localhost:8069 url in your browser."
+        echo 'Open http://localhost:8069 url in your browser.'
         $COMPOSE_COMMAND up -d
     fi
 
     if [[ "$1" =~ "admin" ]]; then
-        echo "Open http://localhost:8000 url in your browser."
+        echo 'Open http://localhost:8000 url in your browser.'
         open-url-with-delay "http://localhost:8000" & $COMPOSE_COMMAND up -d admin
     fi
 
@@ -1102,12 +1139,12 @@ function start() {
     fi
 
     if [[ "$1" =~ "mailgate" ]]; then
-        echo "Send emails to: smtp://localhost:587"
+        echo 'Send emails to: smtp://localhost:587'
         $COMPOSE_COMMAND up -d mailgate
     fi
 
     if [[ "$1" =~ "mailpit" ]]; then
-        echo "Open http://localhost:8025 url in your browser."
+        echo 'Open http://localhost:8025 url in your browser.'
         open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mailpit
     fi
 
@@ -1115,68 +1152,77 @@ function start() {
         activate-venv
         export SMTP_SERVER=localhost
         template-odoo-rc
-        PORT=8069
-        while [ $PORT -le 8079 ]; do
-            if ! lsof -i:$PORT >/dev/null 2>&1; then
+        local port=8069
+        while [[ $port -le 8079 ]]; do
+            if ! lsof -i:$port >/dev/null 2>&1; then
                 break
             fi
-            PORT=$((PORT + 1))
+            port=$((port + 1))
         done
 
-        echo "Open http://localhost:$PORT url in your browser."
-        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo --database="$DATABASE" --config "$ODOO_RC" \
-            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        echo "Open http://localhost:$port url in your browser."
+        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" &
+        odoo --database="$database" --config "$ODOO_RC" \
+            --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "hatch" ]]; then
         activate-venv
         export SMTP_SERVER=localhost
         template-odoo-rc
-        PORT=8069
-        while [ $PORT -le 8079 ]; do
-            if ! lsof -i:$PORT >/dev/null 2>&1; then
+        local port=8069
+        while [[ $port -le 8079 ]]; do
+            if ! lsof -i:$port >/dev/null 2>&1; then
                 break
             fi
-            PORT=$((PORT + 1))
+            port=$((port + 1))
         done
 
-        echo "Open http://localhost:$PORT url in your browser."
-        open-url-with-delay "http://localhost:$PORT/web?debug=1&db=$DATABASE" &
-        odoo --database="$DATABASE" --config "$ODOO_RC" \
-            --http-port="$PORT" --dev=all --log-level="$LOG_LEVEL"
+        echo "Open http://localhost:$port url in your browser."
+        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" &
+        odoo --database="$database" --config "$ODOO_RC" \
+            --http-port="$port" --dev=all --log-level="$LOG_LEVEL"
     fi
 
     if [[ "$1" =~ "odoo" ]]; then
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-        echo "Open http://localhost:8069 url in your browser."
+        echo 'Open http://localhost:8069 url in your browser.'
         open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
     fi
 }
 
-function debug() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+debug() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     activate-venv
     set-addons-path
 
-    PORT=8069
+    local port=8069
 
     if [[ "$1" =~ "source" ]]; then
         # Disable file validation to avoid frozen modules warning
         export PYDEVD_DISABLE_FILE_VALIDATION=1
 
-        echo "Starting Odoo with the debugger on port 5678."
-        echo "Attach a debugpy debugger and open http://localhost:$PORT url in your browser."
+        echo 'Starting Odoo with the debugger on port 5678.'
+        echo "Attach a debugpy debugger and open http://localhost:$port url in your browser."
 
         python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
-            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+            --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 }
 
-function run() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+run() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     activate-venv
     template-compose
@@ -1185,8 +1231,11 @@ function run() {
     $COMPOSE_COMMAND run --rm "$1" "$2" "$3"
 }
 
-function exec() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+exec() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
     local container="$1"
     shift
     local cmd="$@"
@@ -1195,46 +1244,52 @@ function exec() {
     $CONTAINER_ENGINE exec $CONTAINER_EXEC_PARAM "$container" $cmd
 }
 
-function record-with-py-spy() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+record-with-py-spy() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    PID="$1"
-    OUTPUT_FILE="tmp/speedscope-capture.json"
-    SPEEDSCOPE_URL="https://www.speedscope.app/"
+    local pid="$1"
+    local output_file="tmp/speedscope-capture.json"
+    local speedscope_url="https://www.speedscope.app/"
 
     mkdir -p tmp
-    echo "source task source; py-spy record --pid $PID --output $OUTPUT_FILE --format speedscope" | sudo bash --
+    echo "source task source; py-spy record --pid $pid --output $output_file --format speedscope" | sudo bash --
 
-    $OS_OPEN "$SPEEDSCOPE_URL"
+    $OS_OPEN "$speedscope_url"
 }
 
-function record-with-memray() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+record-with-memray() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     activate-venv
     set-addons-path
 
-    PORT=8069
-    OUTPUT_FILE="tmp/memray-capture.bin"
+    local port=8069
+    local output_file="tmp/memray-capture.bin"
 
     if [[ "$1" =~ "source" ]]; then
 
-        echo "Starting Odoo with memray."
-        echo "Open http://localhost:$PORT url in your browser."
+        echo 'Starting Odoo with memray.'
+        echo "Open http://localhost:$port url in your browser."
 
         mkdir -p tmp
-        rm "$OUTPUT_FILE"
-        python3 -m memray run -o "$OUTPUT_FILE" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
-            --http-port="$PORT" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
-        python3 -m memray flamegraph "$OUTPUT_FILE"
+        rm "$output_file"
+        python3 -m memray run -o "$output_file" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
+            --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
+        python3 -m memray flamegraph "$output_file"
         $OS_OPEN "tmp/memray-flamegraph-output.html"
     fi
 }
 
-function remove() {
+remove() {
     template-compose
 
-    if test -z "$1"; then
+    if [[ -z "$1" ]]; then
         $COMPOSE_COMMAND down -v
     fi
 
@@ -1259,10 +1314,10 @@ function remove() {
     fi
 }
 
-function restart() {
+restart() {
     template-compose
 
-    if test -z "$1"; then
+    if [[ -z "$1" ]]; then
         $COMPOSE_COMMAND restart
     fi
 
@@ -1271,60 +1326,60 @@ function restart() {
     fi
 }
 
-function stop() {
+stop() {
     template-compose
 
-    if test -z "$1"; then
+    if [[ -z "$1" ]]; then
         $COMPOSE_COMMAND stop
     fi
 
     $COMPOSE_COMMAND stop "$1"
 }
 
-function generate-ssh-keys() {
-    if [ -z "$GIT_SSH_PRIVATE_KEY" ]; then
-        echo "Generate SSH private and public keys."
+generate-ssh-keys() {
+    if [[ -z "$GIT_SSH_PRIVATE_KEY" ]]; then
+        echo 'Generate SSH private and public keys.'
         mkdir -p tmp
-        if [ ! -f "tmp/ed25519" ]; then
-            ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ""
+        if [[ ! -f "tmp/ed25519" ]]; then
+            ssh-keygen -t ed25519 -C admin@example.com -f tmp/ed25519 -N ''
         fi
         GIT_SSH_PRIVATE_KEY=$(cat tmp/ed25519 | base64 -w0)
         GIT_SSH_PUBLIC_KEY=$(cat tmp/ed25519.pub)
     fi
 }
 
-function generate-pg-ssl-keys() {
-    KEYMATERIAL_PATH="tmp/postgres-odoo"
-    if [ -z "$PG_SSL_CA_CRT" ] || [ -z "$PG_SSL_SERVER_CRT" ] || [ -z "$PG_SSL_SERVER_KEY" ]; then
-        echo "Generate PostgreSQL SSL/TLS certificates."
-        mkdir -p "$KEYMATERIAL_PATH"
+generate-pg-ssl-keys() {
+    local keymaterial_path="tmp/postgres-odoo"
+    if [[ -z "$PG_SSL_CA_CRT" ]] || [[ -z "$PG_SSL_SERVER_CRT" ]] || [[ -z "$PG_SSL_SERVER_KEY" ]]; then
+        echo 'Generate PostgreSQL SSL/TLS certificates.'
+        mkdir -p "$keymaterial_path"
 
-        if [ ! -f "$KEYMATERIAL_PATH/ca.crt" ]; then
-            openssl genrsa -out "$KEYMATERIAL_PATH/ca.key" 4096
-            chmod 600 "$KEYMATERIAL_PATH/ca.key"
+        if [[ ! -f "$keymaterial_path/ca.crt" ]]; then
+            openssl genrsa -out "$keymaterial_path/ca.key" 4096
+            chmod 600 "$keymaterial_path/ca.key"
 
-            openssl req -x509 -new -nodes -key "$KEYMATERIAL_PATH/ca.key" -sha256 -days 3650 \
-                -out "$KEYMATERIAL_PATH/ca.crt" -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=Root CA"
+            openssl req -x509 -new -nodes -key "$keymaterial_path/ca.key" -sha256 -days 3650 \
+                -out "$keymaterial_path/ca.crt" -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=Root CA"
         fi
 
-        if [ ! -f "$KEYMATERIAL_PATH/server.crt" ]; then
-            openssl genrsa -out "$KEYMATERIAL_PATH/server.key" 2048
-            openssl req -new -key "$KEYMATERIAL_PATH/server.key" -out "$KEYMATERIAL_PATH/server.csr" \
+        if [[ ! -f "$keymaterial_path/server.crt" ]]; then
+            openssl genrsa -out "$keymaterial_path/server.key" 2048
+            openssl req -new -key "$keymaterial_path/server.key" -out "$keymaterial_path/server.csr" \
                 -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=localhost"
-            openssl x509 -req -in "$KEYMATERIAL_PATH/server.csr" -CA "$KEYMATERIAL_PATH/ca.crt" \
-                -CAkey "$KEYMATERIAL_PATH/ca.key" -CAcreateserial -out "$KEYMATERIAL_PATH/server.crt" \
+            openssl x509 -req -in "$keymaterial_path/server.csr" -CA "$keymaterial_path/ca.crt" \
+                -CAkey "$keymaterial_path/ca.key" -CAcreateserial -out "$keymaterial_path/server.crt" \
                 -days 365 -sha256
 
-            chmod 600 "$KEYMATERIAL_PATH/server.key"
-            chmod 644 "$KEYMATERIAL_PATH/server.crt"
-            sudo chown 999:999 "$KEYMATERIAL_PATH/server.key"
-            sudo chown 999:999 "$KEYMATERIAL_PATH/server.crt"
+            chmod 600 "$keymaterial_path/server.key"
+            chmod 644 "$keymaterial_path/server.crt"
+            sudo chown 999:999 "$keymaterial_path/server.key"
+            sudo chown 999:999 "$keymaterial_path/server.crt"
         fi
     fi
 }
 
-function test-project() {
-    if [ "$1" = "clean" ]; then
+test-project() {
+    if [[ "$1" == "clean" ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
         drop-db test
         remove odoo
@@ -1385,7 +1440,7 @@ function test-project() {
                 docker logs odoo
                 exit 1
             fi
-            echo "Waiting for Odoo to be ready..."
+            echo 'Waiting for Odoo to be ready...'
             sleep 3
             ELAPSED=$((ELAPSED + 3))
         done
@@ -1424,7 +1479,7 @@ EOF
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         restart odoo
         until curl --silent --fail "http://localhost:8069/web/login" &> /dev/null; do
-            echo "Waiting for Odoo to be ready..."
+            echo 'Waiting for Odoo to be ready...'
             sleep 3
         done
         docker logs odoo
@@ -1470,84 +1525,87 @@ EOF
 
 # Interactive Shell commands
 
-function shell() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+shell() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
-    CODE="$2"
+    local code="$2"
 
     activate-venv
     set-addons-path
-    if [ -n "$CODE" ]; then
-        echo "$CODE" | odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    if [[ -n "$code" ]]; then
+        echo "$code" | odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
     else
-        odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+        odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
     fi
 }
 
-function psql() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+psql() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    $CONTAINER_ENGINE exec -it db psql "postgres://odoo:odoo@localhost:5432/$DATABASE"
+    $CONTAINER_ENGINE exec -it db psql "postgres://odoo:odoo@localhost:5432/$database"
 }
 
 # Database commands
 
-function init-db() {
-    ODOO_INIT_ADDONS="${ODOO_INIT_ADDONS:-"web"}"
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+init-db() {
+    local odoo_init_addons="${ODOO_INIT_ADDONS:-"web"}"
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
     activate-venv
     set-addons-path
     template-odoo-rc
 
-    echo "Initialize database $DATABASE with $ODOO_INIT_ADDONS."
+    echo "Initialize database $database with $odoo_init_addons."
     if [[ -n "$ODOO_PARAM" ]]; then
-        odoo -d "$DATABASE" -i "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+        odoo -d "$database" -i "$odoo_init_addons" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
     else
-        odoo -d "$DATABASE" -i "$ODOO_INIT_ADDONS" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+        odoo -d "$database" -i "$odoo_init_addons" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
     fi
 }
 
-function import-csv() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+import-csv() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    FILE_PATH="$2"
+    local database="$1"
+    local file_path="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        FILE_PATH="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        file_path="$1"
     fi
 
-    FILE_NAME=$(basename "$FILE_PATH")
-    echo "Importing $FILE_NAME to ${DATABASE}..."
-    $CONTAINER_ENGINE cp "$FILE_PATH" db:/tmp/
-    $CONTAINER_ENGINE exec db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "\copy $FILE_NAME FROM '/tmp/$FILE_NAME' DELIMITER ',' CSV HEADER;"
+    local file_name=$(basename "$file_path")
+    echo "Importing $file_name to ${database}..."
+    $CONTAINER_ENGINE cp "$file_path" db:/tmp/
+    $CONTAINER_ENGINE exec db psql "postgres://odoo:odoo@localhost:5432/$database" -c "\copy $file_name FROM '/tmp/$file_name' DELIMITER ',' CSV HEADER;"
 }
 
-function drop-db() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+drop-db() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$DATABASE';"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$DATABASE\";"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$database';"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$database\";"
 }
 
-function setup-mail() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+setup-mail() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
     activate-venv
@@ -1559,66 +1617,69 @@ function setup-mail() {
     export MAIL_DEFAULT_FROM
     export MAIL_ALIAS_DOMAIN
 
-    echo "Setup mail server configuation for database $DATABASE."
-    odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http < bin/setup-mail
+    echo "Setup mail server configuation for database $database."
+    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http < bin/setup-mail
 }
 
-function load-language() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+load-language() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    LANGUAGE="$2"
+    local database="$1"
+    local language="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        LANGUAGE="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        language="$1"
     fi
 
     activate-venv
     set-addons-path
-    echo "Setup language $LANGUAGE for database $DATABASE:"
-    odoo -d "$DATABASE" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$LANGUAGE"
+    echo "Setup language $language for database $database:"
+    odoo -d "$database" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$language"
 }
 
-function set-admin() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+set-admin() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/$DATABASE" -c "SELECT login, password FROM res_users WHERE id=2;"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/$database" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/$database" -c "SELECT login, password FROM res_users WHERE id=2;"
 }
 
-function clear-assets() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+clear-assets() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    echo "Delete these assets for $DATABASE:"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    echo "Delete these assets for $database:"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c "select id,name from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c "delete from ir_attachment where res_model='ir.ui.view' and name like '%assets_%';"
 }
 
-function clear-views() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+clear-views() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
-    echo "Archive views with prefix 'mint_system'."
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "SELECT id,name from ir_ui_view WHERE name like '%mint_system%';"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%mint_system%';"
+    echo 'Archive views with prefix '\''mint_system'\''.'
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "SELECT id,name from ir_ui_view WHERE name like '%mint_system%';"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%mint_system%';"
 
-    echo "Archive views with prefix 'Odoo Studio:'."
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "SELECT id,name from ir_ui_view WHERE name like '%Odoo Studio:%';"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%Odoo Studio:%';"
+    echo 'Archive views with prefix '\''Odoo Studio:'\''.'
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "SELECT id,name from ir_ui_view WHERE name like '%Odoo Studio:%';"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%Odoo Studio:%';"
 
-    echo "Delete all active views for $DATABASE in $CONTAINER :"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "DELETE FROM report_layout WHERE view_id IN (SELECT id FROM ir_ui_view WHERE active = TRUE);"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$DATABASE" -c  "WITH RECURSIVE views_to_delete AS (SELECT id, inherit_id FROM ir_ui_view WHERE active = TRUE AND inherit_id IS NULL UNION ALL SELECT v.id, v.inherit_id FROM ir_ui_view v JOIN views_to_delete p ON v.inherit_id = p.id) DELETE FROM ir_ui_view WHERE id IN (SELECT id FROM views_to_delete);"
+    echo "Delete all active views for $database in $CONTAINER :"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "DELETE FROM report_layout WHERE view_id IN (SELECT id FROM ir_ui_view WHERE active = TRUE);"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "WITH RECURSIVE views_to_delete AS (SELECT id, inherit_id FROM ir_ui_view WHERE active = TRUE AND inherit_id IS NULL UNION ALL SELECT v.id, v.inherit_id FROM ir_ui_view v JOIN views_to_delete p ON v.inherit_id = p.id) DELETE FROM ir_ui_view WHERE id IN (SELECT id FROM views_to_delete);"
 }
 
 function clear-filestore() {
@@ -1626,8 +1687,11 @@ function clear-filestore() {
     rm -rf "$HOME/.local/share/Odoo/filestore/$1"
 }
 
-function disable-mailserver() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+disable-mailserver() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     activate-venv
     load-env "$1"
@@ -1635,56 +1699,68 @@ function disable-mailserver() {
     images/odoocli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
 }
 
-function change-uuid() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+change-uuid() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     activate-venv
     load-env "$1"
-    UUID=$(uuidgen)
-    echo "Set uuid $UUID for $1."
-    images/odoocli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$UUID'"
+    local uuid=$(uuidgen)
+    echo "Set uuid $uuid for $1."
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$uuid'"
 }
 
-function update-module-list() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+update-module-list() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     activate-venv
     set-addons-path
     echo "env['ir.module.module'].update_list()" | odoo shell --database "$1" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-function patch-database() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    DATABASE="$1"
-    FILENAME="$2"
-
-    # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        FILENAME="$1"
+patch-database() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
 
-    echo "Apply patch $FILENAME to Database $DATABASE."
-    cat "$FILENAME" | $CONTAINER_ENGINE exec -i db psql "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$DATABASE"
-    echo "Patching database succeeded"
+    local database="$1"
+    local filename="$2"
+
+    # Use default database if second param is not given
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        filename="$1"
+    fi
+
+    echo "Apply patch $filename to Database $database."
+    cat "$filename" | $CONTAINER_ENGINE exec -i db psql "postgres://$POSTGRES_USER:$POSTGRES_PASSWORD@localhost/$database"
+    echo 'Patching database succeeded'
 }
 
 # Report commands
 
-function cloc-odoo() {
-    DATABASE="$1"
-    if [ -z "$DATABASE" ]; then
-        DATABASE="$ODOO_DATABASE"
+cloc-odoo() {
+    local database="$1"
+    if [[ -z "$database" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
     activate-venv
     set-addons-path
-    odoo cloc -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo cloc -d "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-function visualize-dependencies() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+visualize-dependencies() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     mkdir -p tmp
     ./bin/odoo-module-dependencies "$1"
@@ -1693,201 +1769,228 @@ function visualize-dependencies() {
 
 # Repo commands
 
-function install-requirements() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+install-requirements() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    FILE_PATH="$2"
+    local database="$1"
+    local file_path="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        FILE_PATH="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        file_path="$1"
     fi
 
-    FILE_NAME=$(basename "$FILE_PATH")
-    if [[ "$FILE_NAME" != "requirements.txt" ]]; then echo "\$1 must point to requirements.txt file."; exit; fi
+    local file_name=$(basename "$file_path")
+    if [[ "$file_name" != "requirements.txt" ]]; then
+        echo '$1 must point to requirements.txt file.'
+        exit
+    fi
 
-    CONTAINER_RUNNING=$($CONTAINER_ENGINE container inspect -f '{{.State.Running}}' odoo)
-    if [ "$CONTAINER_RUNNING" == "true" ]; then
-        echo "Installing python packages in container..."
-        $CONTAINER_ENGINE exec -u root odoo python -m pip install -r "/mnt/$FILE_PATH"
+    local container_running=$($CONTAINER_ENGINE container inspect -f '{{.State.Running}}' odoo)
+    if [[ "$container_running" == "true" ]]; then
+        echo 'Installing python packages in container...'
+        $CONTAINER_ENGINE exec -u root odoo python -m pip install -r "/mnt/$file_path"
     else
         activate-venv
-        echo "Installing python packages in virutal env..."
-        uv pip install -r "$FILE_PATH"
+        echo 'Installing python packages in virutal env...'
+        uv pip install -r "$file_path"
     fi
 }
 
-function generate-module-repo() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+generate-module-repo() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    REPO_PATH="$1"
-    REPO_NAME=$(basename "$REPO_PATH")
+    local repo_path="$1"
+    local repo_name=$(basename "$repo_path")
 
     # If repo already exists, create new branch
-    if [ -d "$REPO_PATH/.git" ]; then
-        echo "Create new branch $REPO_NAME in $REPO_PATH"
-        cd "$REPO_PATH" || exit
+    if [[ -d "$repo_path/.git" ]]; then
+        echo "Create new branch $repo_name in $repo_path"
+        cd "$repo_path" || exit
         git switch --orphan -c "$ODOO_VERSION"
 
-        echo "Remove all files from $REPO_PATH"
-        rm -rf "$REPO_PATH/*"
+        echo "Remove all files from $repo_path"
+        rm -rf "$repo_path/*"
     fi
 
-    echo "Copy template files from templates/$ODOO_VERSION to $REPO_PATH"
-    cp "templates/$ODOO_VERSION/*" "$REPO_PATH"
+    echo "Copy template files from templates/$ODOO_VERSION to $repo_path"
+    cp "templates/$ODOO_VERSION/*" "$repo_path"
 }
 
-function lint-module-repo() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+lint-module-repo() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    MODULE_PATHS=$(get-modules "$MODULE_PATH")
+    local module_paths=$(get-modules "$MODULE_PATH")
 
-    for MODULE_PATH in ${MODULE_PATHS//,/ }; do
-        lint-module "$MODULE_PATH"
+    for module_path in ${module_paths//,/ }; do
+        lint-module "$module_path"
     done
 }
 
-function test-module-repo() {
-    DATABASE="$1"
-    MODULE_PATH="$2"
+test-module-repo() {
+    local database="$1"
+    local module_path="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_PATH="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_path="$1"
     fi
 
-    MODULES=$(get-modules "$MODULE_PATH" basename)
+    local modules=$(get-modules "$module_path" basename)
 
-    for MODULE in ${MODULES//,/ }; do
-        echo "Testing module ${MODULE}..."
-        test-module "$DATABASE" "$MODULE"
+    for module in ${modules//,/ }; do
+        echo "Testing module ${module}..."
+        test-module "$database" "$module"
     done
 }
 
 # Module commands
 
-function init-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+init-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    MODULE_PATH="$2"
+    local database="$1"
+    local module_path="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_PATH="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_path="$1"
     fi
 
     # Check if module path is a module repo
-    if [ -f "$MODULE_PATH/README.md" ]; then
+    if [[ -f "$module_path/README.md" ]]; then
 
         # Look for manifest files in repo folder
         # Get parent folder name of manifest files
         # Create a comma separated string of folder names
-        MODULES=$(get-modules "$MODULE_PATH" basename)
+        local modules=$(get-modules "$module_path" basename)
     else
-        MODULES=$(basename "$MODULE_PATH")
+        local modules=$(basename "$module_path")
     fi
 
     activate-venv
     set-addons-path
-    echo "Initialize module $MODULES on ${DATABASE}..."
-    odoo -d "$DATABASE" -i "$MODULES" --config "$ODOO_RC" \
+    echo "Initialize module $modules on ${database}..."
+    odoo -d "$database" -i "$modules" --config "$ODOO_RC" \
         --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-function migrate-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MODULE_PATH="$1"
+migrate-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
 
     activate-venv
     set-addons-path
 
-    if [ "$ODOO_VERSION" = "17.0" ]; then
-        echo "Migrate views of module $MODULE_PATH to ${ODOO_VERSION}..."
-        odoo --database "$DATABASE" -i "$MODULE_PATH" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
+    if [[ "$ODOO_VERSION" == "17.0" ]]; then
+        echo "Migrate views of module $module_path to ${ODOO_VERSION}..."
+        odoo --database "$DATABASE" -i "$module_path" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
     fi
 
-    SOURCE_ODOO_VERSION=$(get-module-version $MODULE_PATH | cut -d'.' -f1,2)
+    local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
 
-    # if [ "$ODOO_VERSION" = "18.0" ]; then
-    #     echo "Run Odoo upgrade_code command for $MODULE_PATH from ${SOURCE_ODOO_VERSION}..."
-    #     odoo upgrade_code --addons-path "$MODULE_PATH" --from "$SOURCE_ODOO_VERSION"
+    # if [[ "$ODOO_VERSION" == "18.0" ]]; then
+    #     echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
+    #     odoo upgrade_code --addons-path "$module_path" --from "$source_odoo_version"
     # fi
-    # echo "Replace manifest version $SOURCE_ODOO_VERSION with $ODOO_VERSION."
-    # sed -i -E "s/$SOURCE_ODOO_VERSION/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
+    # echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
+    # sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
 
-    DIRECTORY=$(dirname "$MODULE_PATH")
-    MODULES=$(basename "$MODULE_PATH")
-    echo "Run odoo-module-migrator for $MODULES with source $SOURCE_ODOO_VERSION and target ${ODOO_VERSION}..."
-    odoo-module-migrate --directory $(dirname "$MODULE_PATH") --modules $(basename "$MODULE_PATH") \
-        --init-version-name $SOURCE_ODOO_VERSION --target-version-name $ODOO_VERSION --no-commit
+    local directory=$(dirname "$module_path")
+    local modules=$(basename "$module_path")
+    echo "Run odoo-module-migrator for $modules with source $source_odoo_version and target ${ODOO_VERSION}..."
+    odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
+        --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
 }
 
-function update-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+update-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
+    local database="$1"
+    local module_name=$(basename "$2")
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_NAME=$(basename "$1")
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_name=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
-    echo "Updating module $MODULE_NAME on ${DATABASE}..."
-    if [[ -n "$ODOO_PARAM" ]] ; then
-        odoo --database "$DATABASE" --update "$MODULE_NAME" \
+    echo "Updating module $module_name on ${database}..."
+    if [[ -n "$ODOO_PARAM" ]]; then
+        odoo --database "$database" --update "$module_name" \
             --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
     else
-        odoo --database "$DATABASE" --update "$MODULE_NAME" \
+        odoo --database "$database" --update "$module_name" \
             --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
     fi
 }
 
-function translate-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-
-    MODULE_PATH="$1"
-    MODULE_NAME=$(basename "$1")
-    LANGUAGE="$2"
-    DATABASE="$3"
-
-    if test -z "$2"; then
-        LANGUAGE="$ODOO_LANGUAGE"
+translate-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
 
-    if test -z "$3"; then
-        DATABASE="$ODOO_DATABASE"
+    local module_path="$1"
+    local module_name=$(basename "$1")
+    local language="$2"
+    local database="$3"
+
+    if [[ -z "$2" ]]; then
+        language="$ODOO_LANGUAGE"
+    fi
+
+    if [[ -z "$3" ]]; then
+        database="$ODOO_DATABASE"
     fi
 
     activate-venv
     set-addons-path
-    echo "Generate $LANGUAGE tranlsation file for $MODULE_NAME on ${DATABASE}..."
-    mkdir -p "$MODULE_PATH/i18n/"
-    odoo -d "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$MODULE_NAME" -l "$LANGUAGE" --i18n-export "$MODULE_PATH/i18n/$LANGUAGE.po"
+    echo "Generate $language tranlsation file for $module_name on ${database}..."
+    mkdir -p "$module_path/i18n/"
+    odoo -d "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$module_name" -l "$language" --i18n-export "$module_path/i18n/$language.po"
 
     # If lang is de_CH then rename the file to de.po.
-    if [[ "$LANGUAGE" == "de_CH" ]]; then
-        mv "$MODULE_PATH/i18n/$LANGUAGE.po" "$MODULE_PATH/i18n/de.po"
+    if [[ "$language" == "de_CH" ]]; then
+        mv "$module_path/i18n/$language.po" "$module_path/i18n/de.po"
     fi
 }
 
-function lint-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+lint-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
     activate-venv
 
     echo "Set file and folder permissions on $1"
     find "$1" -type d -exec chmod u=rwx,go=rx {} \;
     find "$1" -type f -exec chmod u=rw,go=r {} \;
 
-    echo "Update index.html"
+    echo 'Update index.html'
     rst2html5 "$1/README.rst"  "$1/static/description/index.html"
 
     pushd .
@@ -1896,152 +1999,170 @@ function lint-module() {
     echo "Run pre-commit in $PWD"
     pre-commit run --all-files # --show-diff-on-failure --color=always
 
-    echo "Stage changes"
+    echo 'Stage changes'
     git  add .
 
     popd
 }
 
-function test-module() {
-    DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
+test-module() {
+    local database="$1"
+    local module_name=$(basename "$2")
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_NAME=$(basename "$1")
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_name=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
-    echo "Testing module $MODULE_NAME on ${DATABASE}..."
-    odoo -d "$DATABASE" -i "$MODULE_NAME" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$MODULE_NAME"
+    echo "Testing module $module_name on ${database}..."
+    odoo -d "$database" -i "$module_name" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
 }
 
-function pytest-module() {
-    DATABASE="$1"
-    MODULE_PATH="$2"
+pytest-module() {
+    local database="$1"
+    local module_path="$2"
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_PATH="$1"
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_path="$1"
     fi
 
     activate-venv
     set-addons-path
 
-    ODOO_CONFIG="tmp/odoo.conf"
-    echo "Write $ODOO_CONFIG"
+    local odoo_config="tmp/odoo.conf"
+    echo "Write $odoo_config"
 
-    echo "[options]" > "$ODOO_CONFIG"
-    echo "addons_path=$ADDONS_PATH" >> "$ODOO_CONFIG"
-    echo "db_host = localhost" >> "$ODOO_CONFIG"
-    echo "db_password = odoo" >> "$ODOO_CONFIG"
-    echo "db_user = odoo" >> "$ODOO_CONFIG"
+    echo "[options]" > "$odoo_config"
+    echo "addons_path=$ADDONS_PATH" >> "$odoo_config"
+    echo "db_host = localhost" >> "$odoo_config"
+    echo "db_password = odoo" >> "$odoo_config"
+    echo "db_user = odoo" >> "$odoo_config"
 
-    pytest -s --odoo-http --odoo-config="$ODOO_CONFIG" --odoo-database="$DATABASE" "$MODULE_PATH"
+    pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$database" "$module_path"
 }
 
-function remove-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+remove-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    MODULE_NAME=$(basename "$2")
+    local database="$1"
+    local module_name=$(basename "$2")
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        MODULE_NAME=$(basename "$1")
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        module_name=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
-    echo "Remove module $MODULE_NAME"
-    echo "self.env['ir.module.module'].search([('name', '=', '$MODULE_NAME')]).button_immediate_uninstall()" |
-    odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    echo "Remove module $module_name"
+    echo "self.env['ir.module.module'].search([('name', '=', '$module_name')]).button_immediate_uninstall()" |
+    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-function generate-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+generate-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    MODULE_NAME=$(basename "$1")
-    PARENT_DIR=$(dirname "$1")
+    local module_name=$(basename "$1")
+    local parent_dir=$(dirname "$1")
 
     activate-venv
-    echo "Scaffolding module $MODULE_NAME in ${PARENT_DIR}..."
-    odoo scaffold "$MODULE_NAME" "$PARENT_DIR" -t templates/module
+    echo "Scaffolding module $module_name in ${parent_dir}..."
+    odoo scaffold "$module_name" "$parent_dir" -t templates/module
 }
 
-function generate-oca-module-docs() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MODULE_PATH="$1"
-    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
+generate-oca-module-docs() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local manifest_path="$module_path/__manifest__.py"
     activate-venv
 
-    echo "Setup readme folder"
-    mkdir -p "$MODULE_PATH/readme"
-    cp -n -r "templates/module/readme" "$MODULE_PATH"
+    echo 'Setup readme folder'
+    mkdir -p "$module_path/readme"
+    cp -n -r "templates/module/readme" "$module_path"
 
-    echo "Update DESCRIPTION.rst"
-    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    export MODULE_SUMMARY
-    envsubst < templates/module/readme/DESCRIPTION.rst > "$MODULE_PATH/readme/DESCRIPTION.rst"
+    echo 'Update DESCRIPTION.rst'
+    local module_summary=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    export module_summary
+    envsubst < templates/module/readme/DESCRIPTION.rst > "$module_path/readme/DESCRIPTION.rst"
 
-    echo "Update CONTRIBUTORS.rst"
-    GIT_USER_NAME="$(git config user.name)"
-    GIT_USER_EMAIL="$(git config user.email)"
-    export GIT_USER_NAME GIT_USER_EMAIL
-    envsubst < templates/module/readme/CONTRIBUTORS.rst > "$MODULE_PATH/readme/CONTRIBUTORS.rst"
+    echo 'Update CONTRIBUTORS.rst'
+    local git_user_name="$(git config user.name)"
+    local git_user_email="$(git config user.email)"
+    export git_user_name git_user_email
+    envsubst < templates/module/readme/CONTRIBUTORS.rst > "$module_path/readme/CONTRIBUTORS.rst"
 
-    echo "Copy icon.png"
-    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
+    echo 'Copy icon.png'
+    cp templates/module/static/description/icon.png "$module_path/static/description/icon.png"
 
     echo "Generator OCA readme for $ORG_NAME org."
-    REPO_URL=$(git -C "$(dirname $MODULE_PATH)" remote get-url origin)
-    REPO_NAME=$(basename "${REPO_URL%.git}")
-    oca-gen-addon-readme --repo-name=$REPO_NAME --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$MODULE_PATH
+    local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
+    local repo_name=$(basename "${repo_url%.git}")
+    oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
 
-    echo "Copy LICENSE"
-    cp templates/module/LICENSE "$MODULE_PATH/"
+    echo 'Copy LICENSE'
+    cp templates/module/LICENSE "$module_path/"
 }
 
-function generate-module-docs() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    MODULE_PATH="$1"
-    MANIFEST_PATH="$MODULE_PATH/__manifest__.py"
+generate-module-docs() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local manifest_path="$module_path/__manifest__.py"
 
-    MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('name', ''))")
-    MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print('=' * len(d.get('name', '')))")
-    MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$MANIFEST_PATH').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    MODULE_WIKI_PATH=$(basename "$MODULE_PATH" | sed 's/_/-/g')
+    local module_title=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('name', ''))")
+    local module_underline=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print('=' * len(d.get('name', '')))")
+    local module_summary=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
+    local module_wiki_path=$(basename "$module_path" | sed 's/_/-/g')
 
-    echo "Update $MODULE_PATH/README.rst"
-    export MODULE_TITLE MODULE_UNDERLINE MODULE_SUMMARY MODULE_WIKI_PATH
-    envsubst '$MODULE_TITLE $MODULE_UNDERLINE $MODULE_SUMMARY $MODULE_WIKI_PATH' < templates/README.rst > "$MODULE_PATH/README.rst"
+    echo "Update $module_path/README.rst"
+    export module_title module_underline module_summary module_wiki_path
+    envsubst '$module_title $module_underline $module_summary $module_wiki_path' < templates/README.rst > "$module_path/README.rst"
 
-    echo "Copy icon.png"
-    cp templates/module/static/description/icon.png "$MODULE_PATH/static/description/icon.png"
+    echo 'Copy icon.png'
+    cp templates/module/static/description/icon.png "$module_path/static/description/icon.png"
 
-    echo "Copy LICENSE"
-    cp templates/module/LICENSE "$MODULE_PATH/"
+    echo 'Copy LICENSE'
+    cp templates/module/LICENSE "$module_path/"
 }
 
-function generate-module-security() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+generate-module-security() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
-    MODULE_NAME=$(basename "$1")
-    PARENT_DIR=$(dirname "$1")
-    MODEL_DOT_NAME="$2"
-    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_')
+    local module_name=$(basename "$1")
+    local parent_dir=$(dirname "$1")
+    local model_dot_name="$2"
+    local model_name=$(echo "$model_dot_name" | tr '.' '_')
 
-    ACCESS_FILE="$PARENT_DIR/$MODULE_NAME/security/ir.model.access.csv"
-    mkdir -p "$PARENT_DIR/$MODULE_NAME/security"
+    local access_file="$parent_dir/$module_name/security/ir.model.access.csv"
+    mkdir -p "$parent_dir/$module_name/security"
 
-    if [ ! -f "$ACCESS_FILE" ]; then
-        echo "Init security file: $ACCESS_FILE"
-        echo "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink" > "$ACCESS_FILE"
+    if [[ ! -f "$access_file" ]]; then
+        echo "Init security file: $access_file"
+        echo "id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink" > "$access_file"
     fi
 
     # id
@@ -2053,303 +2174,372 @@ function generate-module-security() {
     # perm_create
     # perm_unlink
 
-    echo "Add model access to $ACCESS_FILE"
-    echo "access_${MODEL_NAME}_user,access.$MODEL_DOT_NAME.user,model_${MODEL_NAME},base.group_user,1,0,0,0" >> "$ACCESS_FILE"
-    echo "access_${MODEL_NAME}_manager,access.$MODEL_DOT_NAME.manager,model_${MODEL_NAME},base.group_erp_manager,1,1,1,1" >> "$ACCESS_FILE"
+    echo "Add model access to $access_file"
+    echo "access_${model_name}_user,access.$model_dot_name.user,model_${model_name},base.group_user,1,0,0,0" >> "$access_file"
+    echo "access_${model_name}_manager,access.$model_dot_name.manager,model_${model_name},base.group_erp_manager,1,1,1,1" >> "$access_file"
 }
 
-function generate-module-model() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+generate-module-model() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
-    MODULE_PATH="$1"
-    MODULE_NAME=$(basename "$1")
+    local module_path="$1"
+    local module_name=$(basename "$1")
 
     # Generate template values
-    MODEL_DOT_NAME="$2" # res.partner
-    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
-    export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
+    local model_dot_name="$2" # res.partner
+    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
+    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
+    export name module_name model_dot_name model_name model_description model_camel_name
 
-    echo "Substitute model template"
-    envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model.py > "$MODULE_PATH/models/$MODEL_NAME.py"
-    echo "from . import $MODEL_NAME" >> "$MODULE_PATH/models/__init__.py"
-    echo "File "$MODULE_PATH/models/$MODEL_NAME.py created.
+    echo 'Substitute model template'
+    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/model.py > "$module_path/models/$model_name.py"
+    echo "from . import $model_name" >> "$module_path/models/__init__.py"
+    echo "File "$module_path/models/$model_name.py created.
 }
 
-function generate-module-inherit() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+generate-module-inherit() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
-    MODULE_PATH="$1"
-    MODULE_NAME=$(basename "$1")
+    local module_path="$1"
+    local module_name=$(basename "$1")
 
     # Generate template values
-    MODEL_DOT_NAME="$2" # res.partner
-    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
-    export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
+    local model_dot_name="$2" # res.partner
+    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
+    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
+    export name module_name model_dot_name model_name model_description model_camel_name
 
-    echo "Substitute model template"
-    envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/inherit.py > "$MODULE_PATH/models/$MODEL_NAME.py"
-    echo "from . import $MODEL_NAME" >> "$MODULE_PATH/models/__init__.py"
-    echo "File "$MODULE_PATH/models/$MODEL_NAME.py created.
+    echo 'Substitute model template'
+    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/inherit.py > "$module_path/models/$model_name.py"
+    echo "from . import $model_name" >> "$module_path/models/__init__.py"
+    echo "File "$module_path/models/$model_name.py created.
 }
 
-function generate-module-views() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+generate-module-views() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
-    MODULE_PATH="$1"
-    MODULE_NAME=$(basename "$1")
+    local module_path="$1"
+    local module_name=$(basename "$1")
 
     # Generate template values
-    MODEL_DOT_NAME="$2" # res.partner
-    MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
-    export NAME MODULE_NAME MODEL_DOT_NAME MODEL_NAME MODEL_DESCRIPTION MODEL_CAMEL_NAME
+    local model_dot_name="$2" # res.partner
+    local model_name=$(echo "$model_dot_name" | tr '.' '_') # res_partner
+    local name=$(echo "$model_dot_name" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    local model_description=$(echo "$model_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    local model_camel_name=$(echo "$model_description" | sed 's/ //g') # ResPartner
+    export name module_name model_dot_name model_name model_description model_camel_name
 
-    echo "Substitute view template"
-    mkdir -p "$MODULE_PATH/views"
-    envsubst '$NAME $MODULE_NAME $MODEL_DOT_NAME $MODEL_NAME $MODEL_DESCRIPTION $MODEL_CAMEL_NAME' < templates/model_views.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
-    echo "Update file $MODULE_NAME/__manifest__.py with:"
-    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
+    echo 'Substitute view template'
+    mkdir -p "$module_path/views"
+    envsubst '$name $module_name $model_dot_name $model_name $model_description $model_camel_name' < templates/model_views.xml > "$module_path/views/${model_name}_views.xml"
+    echo "Update file $module_name/__manifest__.py with:"
+    echo -e "\t\"views/${model_name}_views.xml\","
 }
 
-function generate-module-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+generate-module-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
-    MODULE_PATH="$1" # addons/sale_workflow/sale_helm
-    MODEL_DOT_NAME="$2" # sale.order
-    VIEW_REF="$3" # sale.view_order_form
+    local module_path="$1" # addons/sale_workflow/sale_helm
+    local model_dot_name="$2" # sale.order
+    local view_ref="$3" # sale.view_order_form
 
     # Generate template values
-    MODEL_NAME=${MODEL_DOT_NAME//\./_}
-    MODULE_NAME=$(basename "$1")
-    SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
-    XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
-    export MODULE_NAME MODEL_DOT_NAME SRC_MODULE_NAME VIEW_REF XML_ID
+    local model_name=${model_dot_name//\./_}
+    local module_name=$(basename "$1")
+    local src_module_name=$(echo "$view_ref" | cut -d"." -f1)
+    local xml_id=$(echo "$view_ref" | cut -d"." -f2)
+    export module_name model_dot_name src_module_name view_ref xml_id
 
-    echo "Substitute snippet template"
-    mkdir -p "$MODULE_PATH/views"
-    envsubst '$MODULE_NAME $MODEL_DOT_NAME $SRC_MODULE_NAME $VIEW_REF $XML_ID' < templates/model_snippet.xml > "$MODULE_PATH/views/${MODEL_NAME}_views.xml"
-    echo "Update file $MODULE_NAME/__manifest__.py with: \"views/${MODEL_NAME}_views.xml\""
+    echo 'Substitute snippet template'
+    mkdir -p "$module_path/views"
+    envsubst '$module_name $model_dot_name $src_module_name $view_ref $xml_id' < templates/model_snippet.xml > "$module_path/views/${model_name}_views.xml"
+    echo "Update file $module_name/__manifest__.py with: \"views/${model_name}_views.xml\""
 }
 
-function release-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+release-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    VERSION=$(get-module-version "$1")
+    local version=$(get-module-version "$1")
     cd "$1" || exit
-    LAST_TAG=$(git describe --tags)
-    RELEASE_NOTES=$(git log "$LAST_TAG"..HEAD --oneline)
+    local last_tag=$(git describe --tags)
+    local release_notes=$(git log "$last_tag"..HEAD --oneline)
 
-    echo "Tag with v${VERSION}..."
-    git tag -a "v$VERSION" -m "v$VERSION"
+    echo "Tag with v${version}..."
+    git tag -a "v$version" -m "v$version"
 
-    echo "Release notes:"
-    echo "$RELEASE_NOTES"
+    echo 'Release notes:'
+    echo "$release_notes"
 }
 
-function zip-module() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+zip-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     # Get version and module name
-    VERSION=$(get-module-version "$1")
-    MODULE=$(basename "$1")
+    local version=$(get-module-version "$1")
+    local module=$(basename "$1")
 
     # Copy module to tmp folder
-    echo "Copy module $MODULE version $VERSION to tmp folder"
-    MODULE_NAME="$MODULE-$VERSION"
-    MODULE_PATH="tmp/$MODULE_NAME"
-    rm -rf "$MODULE_PATH"
-    mkdir -p "$MODULE_PATH"
-    cp -r "$1/." "$MODULE_PATH"
-    find "$MODULE_PATH" -type d -exec chmod u=rwx,go=rx {} \;
-    find "$MODULE_PATH" -type f -exec chmod u=rw,go=r {} \;
+    echo "Copy module $module version $version to tmp folder"
+    local module_name="$module-$version"
+    local module_path="tmp/$module_name"
+    rm -rf "$module_path"
+    mkdir -p "$module_path"
+    cp -r "$1/." "$module_path"
+    find "$module_path" -type d -exec chmod u=rwx,go=rx {} \;
+    find "$module_path" -type f -exec chmod u=rw,go=r {} \;
 
     # Configure and zip module
-    echo "Remove auto install option"
-    sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$MODULE_PATH/__manifest__.py"
-    echo "Remove pycache and hidden folders"
-    find "$MODULE_PATH" | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
-    echo "Zip module $MODULE"
+    echo 'Remove auto install option'
+    sed -i'' -e "s/'auto_install': True,/'auto_install': False,/" "$module_path/__manifest__.py"
+    echo 'Remove pycache and hidden folders'
+    find "$module_path" | grep -E "(\.git|__pycache__|\.pyc|\.pyo$)" | xargs rm -rf
+    echo "Zip module $module"
     cd tmp || exit
-    rm -f "$MODULE_NAME".zip
-    zip -q -r "$MODULE_NAME".zip "$MODULE_NAME"
+    rm -f "$module_name".zip
+    zip -q -r "$module_name".zip "$module_name"
     cd .. || exit
 }
 
 # Snippet commands
 
-function reset-views() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+reset-views() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
-    DATABASE="$1"
-    KEY=$(basename "$2")
+    local database="$1"
+    local key=$(basename "$2")
 
     # Use default database if second param is not given
-    if test -z "$2"; then
-        DATABASE="$ODOO_DATABASE"
-        KEY=$(basename "$1")
+    if [[ -z "$2" ]]; then
+        database="$ODOO_DATABASE"
+        key=$(basename "$1")
     fi
 
     activate-venv
     set-addons-path
-    echo "Reset views for key $KEY"
-    echo "self.env['ir.ui.view'].search([('key', 'ilike', '$KEY')]).reset_arch(mode='hard')" |
-    odoo shell --database "$DATABASE" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    echo "Reset views for key $key"
+    echo "self.env['ir.ui.view'].search([('key', 'ilike', '$key')]).reset_arch(mode='hard')" |
+    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-function create-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+create-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
     export INHERIT_ID=$(echo "$1" | cut -d. -f1-2)
-    FILE="snippets/$1.xml"
+    local file="snippets/$1.xml"
 
-    echo "Create snippet from template: $FILE"
-    envsubst '$INHERIT_ID' < templates/snippet.xml > "$FILE"
+    echo "Create snippet from template: $file"
+    envsubst '$INHERIT_ID' < templates/snippet.xml > "$file"
 }
 
-function install-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+install-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     # Generate view name from filename
-    FILE=$(basename "$2")
-    NAME="mint_system.${FILE%.xml}"
-    INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
-    TYPE=$(echo 'cat //data/@type' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
-    MODEL=$(echo 'cat //data/@model' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
-    PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
-    MODULE_NAME=$(echo "$INHERIT_ID" | cut -d. -f 1 )
-    XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
+    local file=$(basename "$2")
+    local name="mint_system.${file%.xml}"
+    local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    local type=$(echo 'cat //data/@type' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    local model=$(echo 'cat //data/@model' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    local priority=$(echo 'cat //data/@priority' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    local module_name=$(echo "$inherit_id" | cut -d. -f 1 )
+    local xml_id=$(echo "$inherit_id" | cut -d. -f 2 )
 
     # Set default values
-    : ${TYPE:='qweb'}
+    : ${type:='qweb'}
 
     activate-venv
     load-env "$1"
-    echo "Search for view with name $MODULE_NAME.$XML_ID"
-    INHERIT_ID=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$XML_ID'), ('module', '=', '$MODULE_NAME')]")
-    echo "Found view id $INHERIT_ID"
+    echo "Search for view with name $module_name.$xml_id"
+    inherit_id=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$xml_id'), ('module', '=', '$module_name')]")
+    echo "Found view id $inherit_id"
 
-    echo "Apply view $NAME"
+    echo "Apply view $name"
     images/odoocli/bin/odoocli --method 'create' --model 'ir.ui.view' --value "{
-        'name': '$NAME',
-        'type': '$TYPE',
-        'model': '$MODEL',
+        'name': '$name',
+        'type': '$type',
+        'model': '$model',
         'mode': 'extension',
-        'priority': $PRIORITY,
-        'inherit_id': $INHERIT_ID,
+        'priority': $priority,
+        'inherit_id': $inherit_id,
         'arch_base': '''$(cat "$2")'''
     }"
 }
 
-function update-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+update-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     # Generate view name from filename
-    FILE=$(basename "$2")
-    NAME="mint_system.${FILE%.xml}"
+    local file=$(basename "$2")
+    local name="mint_system.${file%.xml}"
 
     activate-venv
     load-env "$1"
-    echo "Update view with name $NAME"
-    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$NAME')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    echo "Update view with name $name"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
 }
 
-function disable-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+disable-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     # Generate view name from filename
-    FILE=$(basename "$2")
-    NAME="mint_system.${FILE%.xml}"
+    local file=$(basename "$2")
+    local name="mint_system.${file%.xml}"
 
     activate-venv
     load-env "$1"
-    echo "Disable view with name $NAME"
-    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$NAME')]" --field "active" --value "False"
+    echo "Disable view with name $name"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
 }
 
-function remove-snippet() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+remove-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     # Generate view name from filename
-    FILE=$(basename "$2")
-    NAME="mint_system.${FILE%.xml}"
+    local file=$(basename "$2")
+    local name="mint_system.${file%.xml}"
 
     activate-venv
     load-env "$1"
-    echo "Remove view with name $NAME"
-    images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$NAME')]"
+    echo "Remove view with name $name"
+    images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$name')]"
 }
 
-function lint-snippets() {
+lint-snippets() {
 
-    echo "Lint snippets files..."
+    echo 'Lint snippets files...'
 
-    FILES="snippets/*.xml"
+    local files="snippets/*.xml"
 
-    for FILE in $FILES; do
+    for file in $files; do
 
         # Access various snippet parameters
-        FILENAME=$(basename "$FILE")
-        SNIPPET_MODULE=$(echo "$FILENAME" | cut -d. -f1)
-        REPORT=$(echo "$FILENAME" | cut -d. -f2)
-        EDIT=$(echo "$FILENAME" | cut -d. -f3)
-        INHERIT_ID=$(echo 'cat //data/@inherit_id' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        TYPE=$(echo 'cat //data/@type' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        MODEL=$(echo 'cat //data/@model' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        PRIORITY=$(echo 'cat //data/@priority' | xmllint --shell "$FILE" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        MODULE_NAME=$(echo "$INHERIT_ID" | cut -d. -f 1 )
-        XML_ID=$(echo "$INHERIT_ID" | cut -d. -f 2 )
+        local filename=$(basename "$file")
+        local snippet_module=$(echo "$filename" | cut -d. -f1)
+        local report=$(echo "$filename" | cut -d. -f2)
+        local edit=$(echo "$filename" | cut -d. -f3)
+        local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        local type=$(echo 'cat //data/@type' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        local model=$(echo 'cat //data/@model' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        local priority=$(echo 'cat //data/@priority' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
+        local module_name=$(echo "$inherit_id" | cut -d. -f 1 )
+        local xml_id=$(echo "$inherit_id" | cut -d. -f 2 )
 
         # Check filename
-        COUNT_DOTS=$(echo "$FILENAME" | grep -o "\." | wc -l)
-        if [ "$COUNT_DOTS" -ge 4 ]; then
-            echo "Linting failed for $FILE"
-            echo "Dots count: $COUNT_DOTS"
-            echo "  Filename: $SNIPPET_MODULE.$REPORT"
+        local count_dots=$(echo "$filename" | grep -o "\." | wc -l)
+        if [[ "$count_dots" -ge 4 ]]; then
+            echo "Linting failed for $file"
+            echo "Dots count: $count_dots"
+            echo "  Filename: $snippet_module.$report"
             exit 1
         fi
 
         # Check if inherit id matches the filename
-        if [ -n "$INHERIT_ID" ]; then
-            if [[ "$INHERIT_ID" != "$SNIPPET_MODULE.$REPORT" ]]; then
-                echo "Linting failed for $FILE"
-                echo " Inherit: $INHERIT_ID"
-                echo "Filename: $SNIPPET_MODULE.$REPORT"
+        if [[ -n "$inherit_id" ]]; then
+            if [[ "$inherit_id" != "$snippet_module.$report" ]]; then
+                echo "Linting failed for $file"
+                echo " Inherit: $inherit_id"
+                echo "Filename: $snippet_module.$report"
                 exit 1
             fi
         fi
 
         # Check if priority is set
-        if [ -z "$PRIORITY" ] && [ -n "$INHERIT_ID" ]; then
-            echo "Linting failed for $FILE"
-            echo "No priority is set."
+        if [[ -z "$priority" ]] && [[ -n "$inherit_id" ]]; then
+            echo "Linting failed for $file"
+            echo 'No priority is set.'
             exit 1
         fi
     done
-    echo "No problems with snippets found."
+    echo 'No problems with snippets found.'
 }
 
 # Git commands
 
-function add-git-submodule() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
+add-git-submodule() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
 
     # Add to .gitmodules
     git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
@@ -2368,31 +2558,31 @@ function add-git-submodule() {
     # git rm --cached "$2" || true
 }
 
-function ls-git-folder() {
-    if [ -n "$1" ]; then
+ls-git-folder() {
+    if [[ -n "$1" ]]; then
         echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | grep "$1" | sort)
     else
         echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
     fi
 }
 
-function list-git-folder() {
+list-git-folder() {
     # Define column widths
-    path_width=35
-    url_width=50
-    branch_width=8
+    local path_width=35
+    local url_width=50
+    local branch_width=8
 
     # Print table header
     printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
     echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
 
-    GIT_FOLDERS=$(ls-git-folder "$1")
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        URL=$(git config --file .gitmodules --get "submodule.$GIT_FOLDER.url")
-        URL=${URL#git@github.com:}
-        URL=${URL%.git}
-        BRANCH=$(git -C "$GIT_FOLDER" branch --show-current 2>/dev/null || echo "detached")
-        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$GIT_FOLDER" "$URL" "${BRANCH:-detached}"
+    local git_folders=$(ls-git-folder "$1")
+    for git_folder in $git_folders; do
+        local url=$(git config --file .gitmodules --get "submodule.$git_folder.url")
+        url=${url#git@github.com:}
+        url=${url%.git}
+        local branch=$(git -C "$git_folder" branch --show-current 2>/dev/null || echo "detached")
+        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$git_folder" "$url" "${branch:-detached}"
     done
 }
 
@@ -2402,7 +2592,7 @@ function remove-git-folders() {
     echo "Delete: $GIT_FOLDERS"
     read -p "Are you sure you want to delete these git folders? (yes/N): " CONFIRM
     if [[ "${CONFIRM,,}" != "yes" ]]; then
-        echo "Aborted."
+        echo 'Aborted.'
         return 1
     fi
 
@@ -2415,16 +2605,16 @@ function remove-git-folders() {
 function remove-git-submodule() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
 
-    echo "Deinit submodule"
+    echo 'Deinit submodule'
     git submodule deinit -f "$1"
 
-    echo "Remove submodule from work tree"
+    echo 'Remove submodule from work tree'
     git rm -f "$1"
 
-    echo "Remove submodule from .git folder"
+    echo 'Remove submodule from .git folder'
     rm -rf ".git/modules/$1"
 
-    echo "Remove submodule from .gitmodules file"
+    echo 'Remove submodule from .gitmodules file'
     git config --file .gitmodules --remove-section submodule.addons/website
 
     save-version
@@ -2505,7 +2695,7 @@ function clean-git-folder() {
 }
 
 function checkout-git-folder() {
-    echo "Checkout submodule commits."
+    echo 'Checkout submodule commits.'
     GIT_FOLDERS=$(ls-git-folder)
     for GIT_FOLDER in $GIT_FOLDERS; do
 
@@ -2551,7 +2741,7 @@ function status-git-folder() {
     if test -z "$1"; then echo "\$1 is empty."; exit; fi
     GIT_FOLDERS=$(ls-git-folder "$1")
 
-    echo "Show status in git folders."
+    echo 'Show status in git folders.'
     for GIT_FOLDER in $GIT_FOLDERS; do
         git -C "$GIT_FOLDER" status
     done
@@ -2589,7 +2779,7 @@ function push-git-folder() {
 }
 
 function sync-git-folder() {
-    echo "Switch and pull submodules."
+    echo 'Switch and pull submodules.'
     switch-git-folder
     pull-git-folder
 }
@@ -2668,7 +2858,7 @@ function list-versions() {
 }
 
 function check-version() {
-    echo "Check if Odoo version matches the release file:"
+    echo 'Check if Odoo version matches the release file:'
     ODOO_VERSION=$(echo "$ODOO_VERSION" | cut -d'.' -f1)
     grep -E "version_info.+$ODOO_VERSION" odoo/odoo/release.py
 }
@@ -2697,7 +2887,7 @@ function load-revision() {
         ODOO_REVISION="$1"
     fi
 
-    echo "Update revision var in .env file."
+    echo 'Update revision var in .env file.'
     if grep -q "ODOO_REVISION" .env; then
         sed -i -e "s/^ODOO_REVISION=.*/ODOO_REVISION=${ODOO_REVISION}/" .env
     else
@@ -2715,7 +2905,7 @@ function checkout-revision() {
 
     load-revision "$ODOO_REVISION"
 
-    echo "Checkout and tag git repos..."
+    echo 'Checkout and tag git repos...'
     git -C odoo checkout $ODOO_REF
     git -C odoo tag -a $ODOO_REVISION -m "$ODOO_REVISION"
     git -C enterprise checkout $ODOO_ENTERPRISE_REF
@@ -2771,14 +2961,14 @@ function commit-and-push-revision() {
         ODOO_REVISION="$1"
     fi
 
-    echo "Remove existing tag..."
+    echo 'Remove existing tag...'
     git tag -d "$ODOO_REVISION"
 
     echo "Commit with revision $ODOO_REVISION tag..."
     git commit --all --message "feat(revision): release $ODOO_REVISION"
     git tag "$ODOO_REVISION"
 
-    echo "Push tags..."
+    echo 'Push tags...'
     git push
     git push -f --tags
 }
@@ -2838,10 +3028,10 @@ function import-website-data() {
 # Vuepress commands
 
 function install-vuepress() {
-    echo "Install Node."
+    echo 'Install Node.'
     pnpm env use --global lts
 
-    echo "Install npm packages."
+    echo 'Install npm packages.'
     pnpm install
 }
 
