@@ -10,16 +10,15 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 - 🔍 **Odoo Source**: Checkout the Odoo Community and Enterprise Edition and start editing the source code.
 - 🐳 **Container Compose**: Spin up an Odoo, Postgres, and pgAdmin container and experiment locally.
 - 💻 **Native**: Start an Odoo server directly from the source.
-- 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 18.0.
+- 🔄 **Multiple Versions**: With Odoo Build, you can switch between Odoo versions starting from 13.0 up to 19.0.
 - 🛠️ **Develop Modules**: Generate new modules, develop new Odoo features locally.
-- 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment. Investigate issues and deploy the database with ease.
+- 📥 **Import and Export Database**: Use Odoo scripts to copy and restore a customer database to the local environment.
 - 🤝 **Community Repos**: The most common community repos are checked out when setting up the project.
 - ✂️ **Customizing Snippets**: Create [snippets](./snippets.md) and push them to an Odoo database.
 - 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
-- 📦 **Container Image**: Build and publish a custom Odoo images. See [README](./images/README.md) for details.
-- 🔑 **Credentials**: Manage login credentials for Odoo and Nextcloud.
+- 📦 **Container Image**: Build and publish custom Odoo images. See [README](./images/README.md) for details.
+- 🔑 **Credentials**: Manage login credentials for Odoo and other applications.
 - ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
-- 🧠 **LLM**: Start an MCP server and interact with Odoo through an LLM.
 - 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
@@ -361,13 +360,16 @@ Remove unnecessary linter files.
 ```bash
 cd "templates/$VERSION"
 rm .copier-answers.yml
-rm .flake8
-rm .isort.cfg
 rm .pylintrc-mandatory
 rm README.md
 ```
 
-Restore the folder `templates/$VERSION/.github` and add `tmp` to `templates/$VERSION/.gitignore`
+Restore the folder `templates/$VERSION/.github` and update `templates/$VERSION/.gitignore` with:
+
+```txt
+# Odoo Build
+tmp
+```
 
 In `.pre-commit-config.yaml` remove mandatory pylint odoo:
 
@@ -376,6 +378,8 @@ In `.pre-commit-config.yaml` remove mandatory pylint odoo:
     args:
       - --rcfile=.pylintrc-mandatory
 ```
+
+And set `https://www.mint-system.ch/` as args for the mainainter-tools.
 
 In the `.ruff.toml` set this option at the top:
 

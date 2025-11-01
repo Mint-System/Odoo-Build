@@ -12,3 +12,7 @@
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 19.0
+[submodule "addons/server_tools"]
+	path = addons/server_tools
+	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
+	branch = 19.0

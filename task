@@ -456,7 +456,7 @@ set-addons-path() {
     if [[ -n "$ODOO_ADDONS_PATH" ]]; then
         addons_path="${ODOO_ADDONS_PATH},${addons_path}"
     fi
-    
+
     # Export the addons path to make it available to other functions
     export ADDONS_PATH="$addons_path"
 }
@@ -567,9 +567,9 @@ template-repo(){
     cp -r "templates/$ODOO_VERSION/." "$repo_path"
 
     echo 'Remove deprecated repo files.'
-    rm "$repo_path/.flake8"
-    rm "$repo_path/.isort.cfg"
-    rm "$repo_path/.pylintrc-mandatory"
+    rm -f "$repo_path/.flake8"
+    rm -f "$repo_path/.isort.cfg"
+    rm -f "$repo_path/.pylintrc-mandatory"
 }
 
 # Module commands
@@ -660,7 +660,7 @@ build() {
     # Set container tag based on Dockerfile
     local manifest_file
     local latest_tag
-    
+
     if [[ "$1" == "images/odoo" ]]; then
         manifest_file="images/odoo/Dockerfile"
         latest_tag="odoo:$ODOO_VERSION"
@@ -791,7 +791,7 @@ test-image() {
         echo '$1 is empty.'
         exit
     fi
-    
+
     if [[ "$1" == "images/odoo-upgrade" ]]; then
         CONTAINER_TAG="odoo-upgrade"
     elif [[ "$1" == "images/odoocli" ]]; then
@@ -881,7 +881,7 @@ push() {
         exit
     fi
     local latest_tag
-    
+
     if [[ "$1" == "images/odoo" ]]; then
         latest_tag="odoo:$ODOO_VERSION"
     elif [[ "$1" == "images/odoo-mailgate" ]]; then
@@ -1003,6 +1003,15 @@ install() {
     init-venv
     activate-venv
 
+    if [[ ! -d "$HOME/taskfile.build" ]]; then
+        echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
+        git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
+    else
+        echo -e "\033[38;5;214mGit\033[0m: Pull taskfile repo"
+        git -C ~/taskfile.build pull
+    fi
+
+    # OS specific installations
     if [[ "$OS_RELEASE" =~ ^(Debian|Ubuntu|Pop!_OS)$ ]]; then
 
         echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
@@ -1022,23 +1031,11 @@ install() {
         echo -e "\033[38;5;214mDnf\033[0m: Install psycopg2 build dependencies"
         sudo dnf install -y postgresql-devel
 
-        echo -e "\033[38;5;214mPython\033[0m: Install psycopg2-binary"
-        uv pip install psycopg2-binary
-
-        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
-        sed -i '/^psycopg2/d' odoo/requirements.txt
-
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
         echo 'Welcome daring Mac user. Let'\''s try our best to get this working.'
-        echo -e "\033[38;5;214mBrew\033[0m: Install brew "
+        echo -e "\033[38;5;214mBrew\033[0m: Install packages with brew."
         brew install gettext libsasl2 openldap openssl libxml2 grep
-
-        echo -e "\033[38;5;214mPython\033[0m: Install the binary version of psycopg2"
-        uv pip install psycopg2-binary
-
-        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
-        sed -i '/^psycopg2/d' odoo/requirements.txt
 
     elif [[ "$OS_RELEASE" =~ ^(Arch Linux|SteamOS)$ ]]; then
 
@@ -1046,20 +1043,12 @@ install() {
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo pacman -S --noconfirm base-devel postgresql
-
-        echo -e "\033[38;5;214mPython\033[0m: Install the binary version of psycopg2"
-        uv pip install psycopg2-binary
-
-        echo -e "\033[38;5;214mPython\033[0m: Remove psycopg2 from Odoo requirements"
-        sed -i '/^psycopg2/d' odoo/requirements.txt
-
-        echo -e "\033[38;5;214mPython\033[0m: Remove python-ldap from Odoo requirements"
-        sed -i '/^python-ldap/d' odoo/requirements.txt
     else
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
     fi
 
+    # Install wkhtmltopdf
     if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS|SteamOS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
@@ -1075,39 +1064,20 @@ install() {
         fi
     fi
 
-    if [[ ! -d "$HOME/taskfile.build" ]]; then
-        echo -e "\033[38;5;214mGit\033[0m: Clone taskfile repo"
-        git clone https://github.com/janikvonrotz/taskfile.build.git ~/taskfile.build
-    else
-        echo -e "\033[38;5;214mGit\033[0m: Pull taskfile repo"
-        git -C ~/taskfile.build pull
-    fi
+    # Odoo Build requirements
+    echo -e "\033[38;5;214mPython\033[0m: Install Odoo Build development tools"
+    uv pip install -r requirements.txt
 
-    echo -e "\033[38;5;214mPython\033[0m: Install Odoo development tools"
+    # Odoo requirements
+    echo -e "\033[38;5;214mPython\033[0m: Install Odoo and dependencies."
+    cd odoo
+    uv pip install -e .
+
+    # Install inotify
+    echo -e "\033[38;5;214mPython\033[0m: Install $PYTHON_NOTIFY."
     if [[ -n "$PYTHON_NOTIFY" ]]; then
         uv pip install "$PYTHON_NOTIFY"
     fi
-    uv pip install -r requirements.txt
-    # uv sync --active
-
-    if [[ -f "odoo/requirements.txt" ]]; then
-
-        echo -e "\033[38;5;214mPython\033[0m: Install Odoo dependencies"
-        uv pip install -r odoo/requirements.txt
-
-        if [[ "$ODOO_VERSION" == "17.0" ]]; then
-            uv pip install lxml_html_clean Werkzeug==2.2.2
-        fi
-
-        echo -e "\033[38;5;214mPython\033[0m: Configure Odoo as python package"
-        uv pip install -e odoo/ --no-deps
-    fi
-
-    if [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
-        echo -e "\033[38;5;214mGit\033[0m: Reset Odoo requirements"
-        git -C odoo checkout requirements.txt
-    fi
-
     if [[ "$PYTHON_NOTIFY" == "inotify" ]] && ! sudo grep -q "fs.inotify.max_user_watches=524288" /etc/sysctl.d/99-sysctl.conf; then
         sudo bash -c 'echo "fs.inotify.max_user_watches=524288" >> /etc/sysctl.d/99-sysctl.conf'
         sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
@@ -1435,7 +1405,7 @@ test-project() {
         export ODOO_INIT_ADDONS=server_environment_ir_config_parameter,module_auto_update,prometheus_exporter,mail_server_filter,contacts,web_enterprise
         export PYTHON_INSTALL=prometheus-client,manifestoo
         run odoo init-db
-        
+
         echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
         export ODOO_MAIL_SMTP_HOST=mail
         export ODOO_MAIL_SMTP_PORT=1025
