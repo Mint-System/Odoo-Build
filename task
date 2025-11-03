@@ -938,7 +938,9 @@ upload-module() {
             zip-module "$module"
 
             # Get path to zip file and upload url
-            local file_path="tmp/$MODULE_NAME.zip"
+            local version=$(get-module-version "$module")
+            local module_name=$(basename "$module")
+            local file_path="tmp/$module_name-$version.zip"
             load-env "$1"
             local nextcloud_upload_url="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
@@ -946,8 +948,8 @@ upload-module() {
             curl -u "$NEXTCLOUD_USERNAME:$NEXTCLOUD_PASSWORD" -T "$file_path" "$nextcloud_upload_url"
             echo "File $file_path uploaded to $nextcloud_upload_url."
 
-            UPLOADS+="  - name: $module\n"
-            UPLOADS+="    version: $VERSION\n"
+            UPLOADS+="  - name: $module_name\n"
+            UPLOADS+="    version: $version\n"
         fi
     done
 
