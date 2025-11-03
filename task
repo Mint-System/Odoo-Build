@@ -53,7 +53,7 @@ help-table() {
     printf "$column" 'sync-git-folder' '' 'Switch, stash and pull all git folders.'
     # Docker
     printf "$column" 'archive-docker-tags' '' 'Archive Docker image tags on hub older than 1 year.'
-    printf "$column" 'build' '[folder][--push]' 'Build Docker image from target folder.'
+    printf "$column" 'build' '[folder][output]' 'Build Docker image from target folder.'
     printf "$column" 'login-docker' '[user][token]' 'Setup Docker Hub login credentials.'
     printf "$column" 'login-podman' '[user][token]' 'Login into registry with podman.'
     printf "$column" 'container-ps' '' 'List container processes.'
@@ -691,7 +691,7 @@ build() {
     case "$ODOO_VERSION" in
         "15.0")
             local python_version="3.9"
-            local platform="linux/amd64"
+            PLATFORM="linux/amd64"
             ;;
         "16.0")
             local python_version="3.11"
@@ -710,15 +710,14 @@ build() {
             ;;
     esac
 
-    # Set platform
     local docker_output="--load"
-    if [[ "$2" == "--push" ]]; then
-        docker_output="--push"
+    if [[ -n "$2" ]]; then
+        docker_output="$2"
     fi
 
     # Output configuration
     echo "Python Version: $python_version"
-    echo "Platform: $platform"
+    echo "Platform: $PLATFORM"
     echo "Docker Output: $docker_output"
 
     echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
@@ -731,8 +730,8 @@ build() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${platform}"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$platform" . \
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
         --build-arg PYTHON_VERSION="$python_version" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
