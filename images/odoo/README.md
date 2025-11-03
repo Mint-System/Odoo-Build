@@ -547,12 +547,12 @@ The most important image paths are:
 - `/mnt/extra-addons` Nested module are loaded from this path by default.
 - `/mnt/test-addons` Recommended mount path for modules to test.
 - `/opt/odoo/addons` Contains the Odoo community edition modules.
-- `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
 - `/opt/odoo-venv` This is where Python packages are installed.
 - `/var/lib/odoo` Odoo data folder.
+- `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
 - `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
-- `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 - `/var/lib/odoo/git` The cloned module repos are stored here.
+- `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 
 ### Capture memory profile
 
@@ -577,24 +577,24 @@ docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 
 Under the hood the image uses several scripts to manage Odoo. Make yourself familiar with these scripts:
 
-- `add-ssh-key`
-- `aggregate-git-repos`
-- `check-database-initialized`
-- `clone-git-addons`
-- `download-git-archive`
-- `init-db`
-- `init-module`
-- `install-python-packages`
-- `log-entrypoint`
-- `parse-url`
-- `remove-ssh-key`
-- `run-tests`
-- `set-addons-path`
-- `setup-tests`
-- `sync-python-project`
-- `template-odoo-rc`
-- `update-module`
-- `update-modules`
-- `update-modules-list`
-- `update-translations`
-- `wait-for-pg`
+- [`add-ssh-key`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/add-ssh-key)
+- [`aggregate-git-repos`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/aggregate-git-repos)
+- [`check-database-initialized`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/check-database-initialized)
+- [`clone-git-addons`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/clone-git-addons)
+- [`download-git-archive`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-git-archive)
+- [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
+- [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
+- [`install-python-packages`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/install-python-packages)
+- [`log-entrypoint`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/log-entrypoint)
+- [`parse-url`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/parse-url)
+- [`remove-ssh-key`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/remove-ssh-key)
+- [`run-tests`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/run-tests)
+- [`set-addons-path`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/set-addons-path)
+- [`setup-tests`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/setup-tests)
+- [`sync-python-project`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/sync-python-project)
+- [`template-odoo-rc`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/template-odoo-rc)
+- [`update-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/update-module)
+- [`update-modules`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/update-modules)
+- [`update-modules-list`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/update-modules-list)
+- [`update-translations`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/update-translations)
+- [`wait-for-pg`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/wait-for-pg)
