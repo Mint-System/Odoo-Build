@@ -1,0 +1,7 @@
+<data inherit_id="web.address_layout" priority="50">
+
+    <xpath expr="//t[@t-set='colclass']" position="replace">
+        <t t-set="colclass" t-value="'col-sm-5' if report_type == 'html' else 'col-5'"/>
+    </xpath>
+    
+</data>
