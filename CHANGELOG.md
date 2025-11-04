@@ -21,6 +21,7 @@ All notable changes to this project will be documented in this file. The format 
 * **BREAKING**: Renamed `ENVIRONMENT` to `RUNNING_ENV`.
 * **BREAKING**: Renamed `native` to `source`.
 * Simplified the install command.
+* Replace `generate-module-docs` with `generate-oca-module-docs`.
 
 ## 2025-09-12
 

@@ -115,8 +115,7 @@ help-table() {
     printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename must match PostgreSQL table name.'
     printf "$column" 'import-website-data' '[env]' 'Import website data to Odoo database.'
     # Generate
-    printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module.'
-    printf "$column" 'generate-oca-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
+    printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
     printf "$column" 'generate-module-model' '[path][model]' 'Generate model in module folder.'
     printf "$column" 'generate-module-inherit' '[path][model]' 'Generate inherited model in module folder.'
     printf "$column" 'generate-module-views' '[path][model]' 'Generate model views in module folder.'
@@ -2079,7 +2078,7 @@ generate-module() {
     odoo scaffold "$module_name" "$parent_dir" -t templates/module
 }
 
-generate-oca-module-docs() {
+generate-module-docs() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2113,7 +2112,7 @@ generate-oca-module-docs() {
     cp templates/module/LICENSE "$module_path/"
 }
 
-generate-module-docs() {
+template-module-readme() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2127,12 +2126,6 @@ generate-module-docs() {
     export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
     export MODULE_WIKI_PATH=$(basename "$module_path" | sed 's/_/-/g')
     envsubst < templates/README.rst > "$module_path/README.rst"
-
-    echo 'Copy icon.png'
-    cp templates/module/static/description/icon.png "$module_path/static/description/icon.png"
-
-    echo 'Copy LICENSE'
-    cp templates/module/LICENSE "$module_path/"
 }
 
 generate-module-security() {
