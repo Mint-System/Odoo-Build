@@ -2093,23 +2093,23 @@ generate-module-docs() {
 
     echo 'Update DESCRIPTION.rst'
     export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    envsubst < templates/module/readme/DESCRIPTION.rst > "$module_path/readme/DESCRIPTION.rst"
+    envsubst < templates/module/readme/DESCRIPTION.md > "$module_path/readme/DESCRIPTION.md"
 
     echo 'Update CONTRIBUTORS.rst'
     export GIT_USER_NAME="$(git config user.name)"
     export GIT_USER_EMAIL="$(git config user.email)"
-    envsubst < templates/module/readme/CONTRIBUTORS.rst > "$module_path/readme/CONTRIBUTORS.rst"
+    envsubst < templates/module/readme/CONTRIBUTORS.md > "$module_path/readme/CONTRIBUTORS.md"
 
     echo 'Copy icon.png'
     cp templates/module/static/description/icon.png "$module_path/static/description/icon.png"
+
+    echo 'Copy LICENSE'
+    cp templates/module/LICENSE "$module_path/"
 
     echo "Generator OCA readme for $ORG_NAME org."
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
     oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
-
-    echo 'Copy LICENSE'
-    cp templates/module/LICENSE "$module_path/"
 }
 
 template-module-readme() {
