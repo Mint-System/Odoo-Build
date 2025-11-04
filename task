@@ -107,6 +107,7 @@ help-table() {
     printf "$column" 'install' '' 'Install Odoo requirements in source folder.'
     printf "$column" 'install-odoo-scripts' '' 'Install Odoo scripts.'
     printf "$column" 'install-requirements' '[db][path]' 'Install python packages from requirements.txt.'
+    printf "$column" 'list-packages' '' 'List installed python packages.'
     printf "$column" 'init-module' '[db][path,module]' 'Initialize Odoo module.'
     printf "$column" 'set-addons-path' '' 'Set Odoo addons path env variable.'
     # Migration
@@ -1073,6 +1074,7 @@ install() {
     echo -e "\033[38;5;214mPython\033[0m: Install Odoo and dependencies."
     cd odoo
     uv pip install -e .
+    grep -v "python-ldap" requirements.txt | uv pip install -r -
 
     # Install inotify
     echo -e "\033[38;5;214mPython\033[0m: Install $PYTHON_NOTIFY."
@@ -1757,7 +1759,7 @@ visualize-dependencies() {
     $OS_OPEN tmp/odoo-module-dependencies.html
 }
 
-# Repo commands
+# Setup commands
 
 install-requirements() {
     if [[ -z "$1" ]]; then
@@ -1789,6 +1791,11 @@ install-requirements() {
         echo 'Installing python packages in virutal env...'
         uv pip install -r "$file_path"
     fi
+}
+
+list-packages() {
+    activate-venv
+    uv pip list
 }
 
 generate-module-repo() {
