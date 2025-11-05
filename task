@@ -1662,7 +1662,7 @@ clear-views() {
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "WITH RECURSIVE views_to_delete AS (SELECT id, inherit_id FROM ir_ui_view WHERE active = TRUE AND inherit_id IS NULL UNION ALL SELECT v.id, v.inherit_id FROM ir_ui_view v JOIN views_to_delete p ON v.inherit_id = p.id) DELETE FROM ir_ui_view WHERE id IN (SELECT id FROM views_to_delete);"
 }
 
-function clear-filestore() {
+clear-filestore() {
     echo "Remove directory $HOME/.local/share/Odoo/filestore/$1"
     rm -rf "$HOME/.local/share/Odoo/filestore/$1"
 }
@@ -2545,24 +2545,24 @@ list-git-folder() {
     done
 }
 
-function remove-git-folders() {
-    GIT_FOLDERS=$(ls-git-folder)
+remove-git-folders() {
+    local git_folders=$(ls-git-folder)
 
-    echo "Delete: $GIT_FOLDERS"
-    read -p "Are you sure you want to delete these git folders? (yes/N): " CONFIRM
-    if [[ "${CONFIRM,,}" != "yes" ]]; then
+    echo "Delete: $git_folders"
+    read -p "Are you sure you want to delete these git folders? (yes/N): " confirm
+    if [[ "${confirm,,}" != "yes" ]]; then
         echo 'Aborted.'
         return 1
     fi
 
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Delete git folder $GIT_FOLDER."
-        rm -rf "$GIT_FOLDER"
+    for git_folder in $git_folders; do
+        echo "Delete git folder $git_folder."
+        rm -rf "$git_folder"
     done
 }
 
-function remove-git-submodule() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+remove-git-submodule() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
 
     echo 'Deinit submodule'
     git submodule deinit -f "$1"
@@ -2579,198 +2579,198 @@ function remove-git-submodule() {
     save-version
 }
 
-function clone-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder "$1")
-    for GIT_FOLDER in $GIT_FOLDERS; do
+clone-git-folder() {
+    local git_folders=$(ls-git-folder "$1")
+    for git_folder in $git_folders; do
 
-        GIT_FOLDER_PATH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".path)
-        GIT_FOLDER_URL=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".url)
-        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
-        GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
+        local git_folder_path=$(git config --file .gitmodules --get submodule."$git_folder".path)
+        local git_folder_url=$(git config --file .gitmodules --get submodule."$git_folder".url)
+        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
+        local git_folder_branch=$(git config --file .gitmodules --get submodule."$git_folder".branch)
 
-        if [ "$SHALLOW" = "true" ]; then
-            echo "Clone git folder $GIT_FOLDER (shallow) with $GIT_FOLDER_BRANCH branch"
-            git -C "$GIT_FOLDER" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            git clone --depth 1 --no-single-branch "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
+        if [[ "$shallow" = "true" ]]; then
+            echo "Clone git folder $git_folder (shallow) with $git_folder_branch branch"
+            git -C "$git_folder" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+            git clone --depth 1 --no-single-branch "$git_folder_url" "$git_folder_path"
         else
-            echo "Clone git folder $GIT_FOLDER with $GIT_FOLDER_BRANCH branch"
-            git clone --branch="$GIT_FOLDER_BRANCH" "$GIT_FOLDER_URL" "$GIT_FOLDER_PATH"
+            echo "Clone git folder $git_folder with $git_folder_branch branch"
+            git clone --branch="$git_folder_branch" "$git_folder_url" "$git_folder_path"
         fi
     done
 }
 
-function download-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder "$1")
-    for GIT_FOLDER in $GIT_FOLDERS; do
+download-git-folder() {
+    local git_folders=$(ls-git-folder "$1")
+    for git_folder in $git_folders; do
 
-        GIT_FOLDER_PATH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".path)
-        GIT_FOLDER_URL=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".url)
-        GIT_FOLDER_BRANCH=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".branch)
+        local git_folder_path=$(git config --file .gitmodules --get submodule."$git_folder".path)
+        local git_folder_url=$(git config --file .gitmodules --get submodule."$git_folder".url)
+        local git_folder_branch=$(git config --file .gitmodules --get submodule."$git_folder".branch)
 
         # Convert git url to http url.
-        GIT_FOLDER_URL="$(echo $GIT_FOLDER_URL | sed 's|git@|https://|g' | sed 's|m:|m/|g' | sed 's|\.git||g')"
+        git_folder_url="$(echo $git_folder_url | sed 's|git@|https://|g' | sed 's|m:|m/|g' | sed 's|\.git||g')"
 
         # Get commit ref from .gitmodule.csv
-        COMMIT_REF=$(grep "$GIT_FOLDER_PATH" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+        local commit_ref=$(grep "$git_folder_path" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
 
-        echo "Download $GIT_FOLDER_URL to $GIT_FOLDER_PATH."
-        mkdir -p "$GIT_FOLDER_PATH"
-        curl -L -o "$GIT_FOLDER_PATH/archive.tar.gz" \
-            "$GIT_FOLDER_URL/archive/$COMMIT_REF.tar.gz"
+        echo "Download $git_folder_url to $git_folder_path."
+        mkdir -p "$git_folder_path"
+        curl -L -o "$git_folder_path/archive.tar.gz" \
+            "$git_folder_url/archive/$commit_ref.tar.gz"
 
-        echo "Extract and delete $GIT_FOLDER_PATH/archive.tar.gz"
-        tar -xzf "$GIT_FOLDER_PATH/archive.tar.gz" --strip-components=1 -C "$GIT_FOLDER_PATH"
-        rm "$GIT_FOLDER_PATH/archive.tar.gz"
+        echo "Extract and delete $git_folder_path/archive.tar.gz"
+        tar -xzf "$git_folder_path/archive.tar.gz" --strip-components=1 -C "$git_folder_path"
+        rm "$git_folder_path/archive.tar.gz"
     done
 }
 
-function pull-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder)
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Pull git folder $GIT_FOLDER."
-        git -C "$GIT_FOLDER" stash
-        UPDATE=$(git config submodule."$GIT_FOLDER".update)
-        if [ -z "$UPDATE" ]; then
-            git -C "$GIT_FOLDER" pull origin "$ODOO_VERSION"
+pull-git-folder() {
+    local git_folders=$(ls-git-folder)
+    for git_folder in $git_folders; do
+        echo "Pull git folder $git_folder."
+        git -C "$git_folder" stash
+        local update=$(git config submodule."$git_folder".update)
+        if [[ -z "$update" ]]; then
+            git -C "$git_folder" pull origin "$ODOO_VERSION"
         fi;
     done
 }
 
-function reset-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder)
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Abort rebase and reset git folder $GIT_FOLDER."
-        git -C "$GIT_FOLDER" rebase --abort
-        git -C "$GIT_FOLDER" reset --hard
+reset-git-folder() {
+    local git_folders=$(ls-git-folder)
+    for git_folder in $git_folders; do
+        echo "Abort rebase and reset git folder $git_folder."
+        git -C "$git_folder" rebase --abort
+        git -C "$git_folder" reset --hard
     done
 }
 
-function clean-git-folder() {
-    GIT_FOLDERS=$(ls-git-folder)
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Clean git folder $GIT_FOLDER."
-        git -C "$GIT_FOLDER" clean -df
+clean-git-folder() {
+    local git_folders=$(ls-git-folder)
+    for git_folder in $git_folders; do
+        echo "Clean git folder $git_folder."
+        git -C "$git_folder" clean -df
     done
 }
 
-function checkout-git-folder() {
+checkout-git-folder() {
     echo 'Checkout submodule commits.'
-    GIT_FOLDERS=$(ls-git-folder)
-    for GIT_FOLDER in $GIT_FOLDERS; do
+    local git_folders=$(ls-git-folder)
+    for git_folder in $git_folders; do
 
-        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
-        COMMIT_REF=$(grep "$GIT_FOLDER" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
+        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
+        local commit_ref=$(grep "$git_folder" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
 
-        if [ "$SHALLOW" = "true" ]; then
-            echo "Checkout git folder $GIT_FOLDER (shallow) to $COMMIT_REF"
-            git -C "$GIT_FOLDER" stash
-            git -C "$GIT_FOLDER" git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
-            git -C "$GIT_FOLDER" checkout "$COMMIT_REF"
+        if [[ "$shallow" = "true" ]]; then
+            echo "Checkout git folder $git_folder (shallow) to $commit_ref"
+            git -C "$git_folder" stash
+            git -C "$git_folder" git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
+            git -C "$git_folder" checkout "$commit_ref"
         else
-            echo "Checkout git folder $GIT_FOLDER to $COMMIT_REF"
-            git -C "$GIT_FOLDER" stash
-            git -C "$GIT_FOLDER" checkout "$COMMIT_REF"
+            echo "Checkout git folder $git_folder to $commit_ref"
+            git -C "$git_folder" stash
+            git -C "$git_folder" checkout "$commit_ref"
         fi
     done
 }
 
-function switch-git-folder() {
-    if [ -n "$1" ]; then
+switch-git-folder() {
+    if [[ -n "$1" ]]; then
         ODOO_VERSION="$1"
     fi
 
-    GIT_FOLDERS=$(ls-git-folder)
-    for GIT_FOLDER in $GIT_FOLDERS; do
+    local git_folders=$(ls-git-folder)
+    for git_folder in $git_folders; do
 
-        SHALLOW=$(git config --file .gitmodules --get submodule."$GIT_FOLDER".shallow)
+        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
 
-        if [ "$SHALLOW" = "true" ]; then
+        if [[ "$shallow" = "true" ]]; then
             echo "Fetch branch $ODOO_VERSION (shallow) from origin and then switch."
-            git -C "$GIT_FOLDER" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
-            git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
+            git -C "$git_folder" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
+            git -C "$git_folder" switch "$ODOO_VERSION"
         else
-            echo "Switch git folder branch to $ODOO_VERSION: $GIT_FOLDER"
-            git -C "$GIT_FOLDER" stash
-            git -C "$GIT_FOLDER" switch "$ODOO_VERSION"
+            echo "Switch git folder branch to $ODOO_VERSION: $git_folder"
+            git -C "$git_folder" stash
+            git -C "$git_folder" switch "$ODOO_VERSION"
         fi
     done
 }
 
-function status-git-folder() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_FOLDERS=$(ls-git-folder "$1")
+status-git-folder() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    local git_folders=$(ls-git-folder "$1")
 
     echo 'Show status in git folders.'
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        git -C "$GIT_FOLDER" status
+    for git_folder in $git_folders; do
+        git -C "$git_folder" status
     done
 }
 
-function stage-git-folder() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_FOLDERS=$(ls-git-folder "$1")
+stage-git-folder() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    local git_folders=$(ls-git-folder "$1")
 
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Stage all files in $GIT_FOLDER."
-        git -C "$GIT_FOLDER" add --all
+    for git_folder in $git_folders; do
+        echo "Stage all files in $git_folder."
+        git -C "$git_folder" add --all
     done
 }
 
-function commit-git-folder() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    if test -z "$2"; then echo "\$2 is empty."; exit; fi
-    GIT_FOLDERS=$(ls-git-folder "$1")
+commit-git-folder() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    if [[ -z "$2" ]]; then echo "\$2 is empty."; exit; fi
+    local git_folders=$(ls-git-folder "$1")
 
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Commit in $GIT_FOLDER."
-        git -C "$GIT_FOLDER" commit --message "$2"
+    for git_folder in $git_folders; do
+        echo "Commit in $git_folder."
+        git -C "$git_folder" commit --message "$2"
     done
 }
 
-function push-git-folder() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
-    GIT_FOLDERS=$(ls-git-folder "$1")
+push-git-folder() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    local git_folders=$(ls-git-folder "$1")
 
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        echo "Push in $GIT_FOLDER."
-        git -C "$GIT_FOLDER" push
+    for git_folder in $git_folders; do
+        echo "Push in $git_folder."
+        git -C "$git_folder" push
     done
 }
 
-function sync-git-folder() {
+sync-git-folder() {
     echo 'Switch and pull submodules.'
     switch-git-folder
     pull-git-folder
 }
 
-function create-git-feature-branch(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+create-git-feature-branch(){
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
 
-    MODULE_NAME=$(basename "$1")
-    MODULE_PATH=$(dirname "$1")
+    local module_name=$(basename "$1")
+    local module_path=$(dirname "$1")
 
-    echo "Create feature branch for $MODULE_NAME in ${MODULE_PATH}..."
-    cd ./"$MODULE_PATH" || exit
+    echo "Create feature branch for $module_name in ${module_path}..."
+    cd ./"$module_path" || exit
     pwd
-    git switch -c "feature-$MODULE_NAME"
+    git switch -c "feature-$module_name"
 }
 
-function create-git-mig-branch(){
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+create-git-mig-branch(){
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
 
-    MODULE_NAME=$(basename "$1")
-    MODULE_PATH=$(dirname "$1")
+    local module_name=$(basename "$1")
+    local module_path=$(dirname "$1")
 
-    echo "Create mig branch for $MODULE_NAME in ${MODULE_PATH}..."
-    cd ./"$MODULE_PATH" || exit
+    echo "Create mig branch for $module_name in ${module_path}..."
+    cd ./"$module_path" || exit
     pwd
-    git switch -c "$ODOO_VERSION-mig-$MODULE_NAME"
+    git switch -c "$ODOO_VERSION-mig-$module_name"
 }
 
 # Project commands
 
-function load-version() {
-    if [ -n "$1" ]; then
+load-version() {
+    if [[ -n "$1" ]]; then
         ODOO_VERSION="$1"
     fi
 
@@ -2779,8 +2779,8 @@ function load-version() {
     cp "versions/$ODOO_VERSION/.python-version" .
 }
 
-function checkout() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+checkout() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
     ODOO_VERSION="$1"
 
     # Load .gitmodules and .python-version
@@ -2795,15 +2795,15 @@ function checkout() {
     switch-git-folder
 }
 
-function save-version() {
-    GIT_FOLDERS_FILE="versions/$ODOO_VERSION/.gitmodules.csv"
-    echo "Save submodule refs to $GIT_FOLDERS_FILE."
+save-version() {
+    local git_folders_file="versions/$ODOO_VERSION/.gitmodules.csv"
+    echo "Save submodule refs to $git_folders_file."
 
-    GIT_FOLDERS=$(ls-git-folder)
-    echo "path,rev" > "$GIT_FOLDERS_FILE"
-    for GIT_FOLDER in $GIT_FOLDERS; do
-        COMMIT_REF=$(git -C "$GIT_FOLDER" rev-parse HEAD)
-        echo "$GIT_FOLDER,$COMMIT_REF" >> "$GIT_FOLDERS_FILE"
+    local git_folders=$(ls-git-folder)
+    echo "path,rev" > "$git_folders_file"
+    for git_folder in $git_folders; do
+        local commit_ref=$(git -C "$git_folder" rev-parse HEAD)
+        echo "$git_folder,$commit_ref" >> "$git_folders_file"
     done
 
     echo "Copy .gitmodules and .python-version to 'versions/$ODOO_VERSION'"
@@ -2812,24 +2812,24 @@ function save-version() {
 }
 
 
-function list-versions() {
+list-versions() {
     ls -1 versions
 }
 
-function check-version() {
+check-version() {
     echo 'Check if Odoo version matches the release file:'
-    ODOO_VERSION=$(echo "$ODOO_VERSION" | cut -d'.' -f1)
-    grep -E "version_info.+$ODOO_VERSION" odoo/odoo/release.py
+    local odoo_version=$(echo "$ODOO_VERSION" | cut -d'.' -f1)
+    grep -E "version_info.+$odoo_version" odoo/odoo/release.py
 }
 
 # Revision commands
 
-function list-revision() {
+list-revision() {
     ls -1 revisions
 }
 
-function show-revision() {
-    if [ -n "$1" ]; then
+show-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_REVISION="$1"
     fi
 
@@ -2841,8 +2841,8 @@ function show-revision() {
     echo "Odoo Themes Ref: $ODOO_THEME_REF"
 }
 
-function load-revision() {
-    if [ -n "$1" ]; then
+load-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_REVISION="$1"
     fi
 
@@ -2857,8 +2857,8 @@ function load-revision() {
     export $(cat "revisions/$ODOO_REVISION" | sed 's/#.*//g' | xargs)
 }
 
-function checkout-revision() {
-    if [ -n "$1" ]; then
+checkout-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_REVISION="$1"
     fi
 
@@ -2873,50 +2873,53 @@ function checkout-revision() {
     git -C themes tag -a $ODOO_REVISION -m "$ODOO_REVISION"
 }
 
-function create-revision() {
-    if test -z "$1"; then echo "\$1 is empty."; exit; fi
+create-revision() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
 
-    REVISION="$1"
-    ODOO_DATE=$(echo "$REVISION" | cut -d'.' -f3-)
-    BEFORE_DATE=$(date -d "$ODOO_DATE -1 day" +"%Y-%m-%d")
-    echo "Checkout Odoo repos on $BEFORE_DATE."
+    local revision="$1"
+    local odoo_date=$(echo "$revision" | cut -d'.' -f3-)
+    local before_date=$(date -d "$odoo_date -1 day" +"%Y-%m-%d")
+    echo "Checkout Odoo repos on $before_date."
 
     # Get git commit by date
     cd odoo
     git fetch
-    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
-    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
-    REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
-    git checkout "$REF"
+    echo -e "\nShow last 3 commits from $before_date:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$before_date" origin/$ODOO_VERSION
+    local ref=$(git rev-list -n 1 --before="$before_date" origin/$ODOO_VERSION)
+    git checkout "$ref"
     cd ..
 
     cd enterprise
     git fetch
-    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
-    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
-    ENTERPRISE_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
-    git checkout "$ENTERPRISE_REF"
+    echo -e "\nShow last 3 commits from $before_date:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$before_date" origin/$ODOO_VERSION
+    local enterprise_ref=$(git rev-list -n 1 --before="$before_date" origin/$ODOO_VERSION)
+    git checkout "$enterprise_ref"
     cd ..
 
     cd themes
     git fetch
-    echo -e "\nShow last 3 commits from $BEFORE_DATE:"
-    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$BEFORE_DATE" origin/$ODOO_VERSION
-    THEME_REF=$(git rev-list -n 1 --before="$BEFORE_DATE" origin/$ODOO_VERSION)
-    git checkout "$THEME_REF"
+    echo -e "\nShow last 3 commits from $before_date:"
+    git --no-pager log -n 3 --pretty=format:"%h %ad %s" --date=short --before="$before_date" origin/$ODOO_VERSION
+    local theme_ref=$(git rev-list -n 1 --before="$before_date" origin/$ODOO_VERSION)
+    git checkout "$theme_ref"
     cd ..
 
-    echo -e "\nCreate revision: $REVISION"
-    export REVISION REF ENTERPRISE_REF THEME_REF
-    envsubst '$REVISION $REF $ENTERPRISE_REF $THEME_REF' < templates/odoo_revision > "revisions/$REVISION"
-    chmod +x "revisions/$REVISION"
+    echo -e "\nCreate revision: $revision"
+    export ODOO_REVISION=$revision
+    export ODOO_REF=$ref
+    export ODOO_ENTERPRISE_REF=$enterprise_ref
+    export ODOO_THEME_REF=$theme_ref
+    envsubst < templates/odoo_revision > "revisions/$revision"
+    chmod +x "revisions/$revision"
 
-    echo "Checkout revision: $REVISION"
-    checkout-revision "$REVISION"
+    echo "Checkout revision: $revision"
+    checkout-revision "$revision"
 }
 
-function commit-and-push-revision() {
-    if [ -n "$1" ]; then
+commit-and-push-revision() {
+    if [[ -n "$1" ]]; then
         ODOO_REVISION="$1"
     fi
 
@@ -2934,21 +2937,21 @@ function commit-and-push-revision() {
 
 # RPC commands
 
-function test-xmlrpc() {
+test-xmlrpc() {
     activate-venv
 
     load-env "$1"
-    echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model "res.partner" --method "search_count" --domain '[]')"
+    echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
 }
 
-function odoocli(){
+odoocli(){
     activate-venv
     images/odoocli/bin/odoocli "$@"
 }
 
-function export-website-data() {
+export-website-data() {
     activate-venv
-    if [ -n "$1" ]; then
+    if [[ -n "$1" ]]; then
         load-env $1
     fi
 
@@ -2960,14 +2963,14 @@ function export-website-data() {
 
     echo -e "\nPython Output:\n\n---"
     python "bin/export-website-data"
-    EXIT_CODE=$?
+    local exit_code=$?
     echo -e "---\n"
-    echo -e "Exit code: $EXIT_CODE\n"
+    echo -e "Exit code: $exit_code\n"
 }
 
-function import-website-data() {
+import-website-data() {
     activate-venv
-    if [ -n "$1" ]; then
+    if [[ -n "$1" ]]; then
         load-env $1
     fi
 
@@ -2979,14 +2982,14 @@ function import-website-data() {
 
     echo -e "\nPython Output:\n\n---"
     python "bin/import-website-data"
-    EXIT_CODE=$?
+    local exit_code=$?
     echo -e "---\n"
-    echo -e "Exit code: $EXIT_CODE\n"
+    echo -e "Exit code: $exit_code\n"
 }
 
 # Vuepress commands
 
-function install-vuepress() {
+install-vuepress() {
     echo 'Install Node.'
     pnpm env use --global lts
 
@@ -2994,15 +2997,15 @@ function install-vuepress() {
     pnpm install
 }
 
-function dev-vuepress() {
+dev-vuepress() {
     pnpm run dev
 }
 
-function build-vuepress() {
+build-vuepress() {
     pnpm run build
 }
 
-function serve-vuepress() {
+serve-vuepress() {
     cd .vuepress/dist
     pnpx serve
 }
