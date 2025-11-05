@@ -199,20 +199,20 @@ task pgadmin
 
 Open pgadmin [http://localhost:8000/](http://localhost:8000/) and login with `admin@example.com:admin`.
 
-### Remove containers
-
-Removes containers and volumes.
-
-```bash
-task remove
-```
-
 ### Stop all containers
 
 Without service name the stop commands stops all containers.
 
 ```bash
 task stop
+```
+
+### Remove containers
+
+Removes containers and volumes.
+
+```bash
+task remove
 ```
 
 ### Drop database
@@ -389,10 +389,10 @@ Refine the templates based on the linter results.
 
 In VSCode define a break point for a selected method.
 
-Run Odoo native with a debugger.
+Run Odoo source with a debugger.
 
 ```bash
-task debug native
+task debug source
 ```
 
 In VSCode run `Python - attach debugger` to attach the debugger.

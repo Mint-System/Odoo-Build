@@ -35,7 +35,7 @@
 | switch-git-folder          | [version]            | Switch branch for all git folders listed in the .gitmodules file.              |
 | sync-git-folder            |                      | Switch, stash and pull all git folders.                                        |
 | archive-docker-tags        |                      | Archive Docker image tags on hub older than 1 year.                            |
-| build                      | [folder][--push]     | Build Docker image from target folder.                                         |
+| build                      | [folder][output]     | Build Docker image from target folder.                                         |
 | login-docker               | [user][token]        | Setup Docker Hub login credentials.                                            |
 | login-podman               | [user][token]        | Login into registry with podman.                                               |
 | container-ps               |                      | List container processes.                                                      |
@@ -57,12 +57,11 @@
 | patch-database             | [db][path]           | Apply sql file to database.                                                    |
 | reset-views                | [db][key]            | Execute hard reset on views matching keys.                                     |
 | set-admin                  | [db]                 | Sets the password for the first user in database.                              |
-| setup-mail                 | [db]                 | Setup mail config in Odoo db.                                                  |
 | update-module              | [db][name,path]      | Update target Odoo module.                                                     |
 | update-module-list         | [db]                 | Update module list of Odoo database.                                           |
 | checkout-latest-revision   | [version]            | Checkout the latest revision of the Odoo version.                              |
 | checkout-revision          | [revision]           | Load Odoo revision env var and checkout git folders.                           |
-| commit-and-push-revision   |                      | Commit all changes and tag with current revision                               |
+| commit-and-push-revision   | [revision]           | Commit all changes and tag with current revision.                              |
 | create-revision            | [revision]           | Create new Odoo revision.                                                      |
 | list-revision              |                      | List available Odoo revisions.                                                 |
 | load-latest-revision       | [version]            | Load the latest revision of the Odoo version.                                  |
@@ -83,20 +82,21 @@
 | install                    |                      | Install Odoo requirements in source folder.                                    |
 | install-odoo-scripts       |                      | Install Odoo scripts.                                                          |
 | install-requirements       | [db][path]           | Install python packages from requirements.txt.                                 |
+| list-packages              |                      | List installed python packages.                                                |
 | init-module                | [db][path,module]    | Initialize Odoo module.                                                        |
 | set-addons-path            |                      | Set Odoo addons path env variable.                                             |
 | export-website-data        | [env]                | Export website data from Odoo database.                                        |
 | import-csv                 | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.               |
 | import-website-data        | [env]                | Import website data to Odoo database.                                          |
-| generate-module-docs       | [path]               | Generate readme file for module.                                               |
+| generate-module-docs       | [path]               | Generate readme file for module with OCA tools.                                |
 | generate-module-model      | [path][model]        | Generate model in module folder.                                               |
 | generate-module-inherit    | [path][model]        | Generate inherited model in module folder.                                     |
 | generate-module-views      | [path][model]        | Generate model views in module folder.                                         |
 | generate-module-security   | [path][model]        | Generate model access file.                                                    |
 | generate-module-snippet    | [path][model][ref]   | Generate snippet for referefenced view.                                        |
 | generate-module-wizard     | [path][model]        | Generate wizard for a model in module folder.                                  |
-| scaffold-module            | [path]               | Create new Odoo module from template.                                          |
-| scaffold-module-repo       | [path]               | Initialize Odoo module repo from template.                                     |
+| generate-module            | [path]               | Create new Odoo module from template.                                          |
+| generate-module-repo       | [path]               | Initialize Odoo module repo from template.                                     |
 | lint-module                | [path]               | Run pylint odoo for module.                                                    |
 | lint-module-repo           | [path]               | Run pylint odoo for modules in repo folder.                                    |
 | list-modules               | [path]               | Get modules in path as bash array.                                             |
@@ -119,7 +119,7 @@
 | info                       |                      | Show values of project env vars.                                               |
 | load-ssh-key               |                      | Load SSH private key from env var.                                             |
 | update-module-license      | [grep]               | Update LICENSE file for each matching module.                                  |
-| debug                      | [name]               | Debugg application. Options: native.                                           |
+| debug                      | [name]               | Debugg application. Options: source.                                           |
 | exec                       | [name][cmd]          | Run command in container.                                                      |
 | logs                       | [name]               | Tail container logs. Default is 'odoo'.                                        |
 | odoocli                    | [param]              | Execute odoocli cli.                                                           |
@@ -128,11 +128,12 @@
 | run                        | [name][cmd]          | Run container with command.                                                    |
 | shell                      | [db][code]           | Start interactive odoo shell or run code.                                      |
 | source                     |                      | Source the Python virtual env.                                                 |
-| start                      | [name][db]           | Start application. Options: none, admin, db, mailgate, mailpit, native, odoo.  |
+| start                      | [name][db]           | Start application. Options: none, admin, db, mailgate, mailpit, source, odoo, hatch. |
 | stop                       | [name]               | Stop containers.                                                               |
 | test-xmlrpc                | [env]                | Test json rpc connection.                                                      |
 | lint                       |                      | Run precommit for this project.                                                |
 | list-versions              |                      | List available Odoo versions.                                                  |
+| check-version              |                      | Check if Odoo source is the correct version.                                   |
 | load-version               | [version]            | Load git refs from  version folder.                                            |
 | save-version               |                      | Save git folder refs to version folder.                                        |
 | template-compose           |                      | Template the Docker compose file.                                              |
@@ -140,12 +141,12 @@
 | template-repo              | [path]               | Update the repo folder from template.                                          |
 | test-project               | [clean]              | Run tests for this project.                                                    |
 | version                    |                      | Show version of required tools.                                                |
-| record-with-memray         | [name]               | Record application memory usage with memray. Options: native.                  |
+| record-with-memray         | [name]               | Record application memory usage with memray. Options: source.                  |
 | record-with-py-spy         | [pid]                | Record and create flamechart for a process.                                    |
 | update-docs                |                      | Update all project docs.                                                       |
 | update-help-doc            |                      | Write help table to task.md file.                                              |
 | update-modules-doc         |                      | Update modules docs file.                                                      |
 | update-revisions-doc       |                      | Update revisions doc file.                                                     |
 | update-snippets-doc        |                      | Update snippets doc file.                                                      |
-| upgrade-module             | [path]               | Upgrade code of module from target Odoo version.                               |
+| migrate-module             | [path]               | Migrate module code from to target Odoo version.                               |
 | upgrade-odoo               | [db][version][mode]  | Run the Odoo upgrade scripts. Default mode ist 'test'.                         |
