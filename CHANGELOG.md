@@ -14,6 +14,7 @@ All notable changes to this project will be documented in this file. The format 
 - Repo task and workflow templates to build and publish modules as python packages.
 - Added `hatch-odoo` and new command option `start hatch`.
 - Repo templates for Odoo 19.0.
+- Generate module checksum with `get-module-checksum`.
 
 ### Changed
 

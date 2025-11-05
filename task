@@ -137,12 +137,13 @@ help-table() {
     printf "$column" 'visualize-dependencies' '[path]' 'Generate visualizations of module dependencies.'
     printf "$column" 'zip-module' '[path]' 'Create zip file for module.'
     # Helper
-    printf "$column" 'generate-admin-passwd' '[pass]' 'Generate hash for Odoo master password.'
+    printf "$column" 'generate-admin-password' '[pass]' 'Generate hash for Odoo master password.'
     printf "$column" 'generate-ssh-keys' '' 'Generate ssh key pair.'
     printf "$column" 'generate-pg-ssl-keys' '' 'Generate PostgreSQL SSL key material.'
     printf "$column" 'get-addons-path' '' 'Output addons path.'
     printf "$column" 'get-modules' '[path][option]' 'Get list of modules in path. Option is '\''basename'\'' or '\''dirname'\''.'
     printf "$column" 'get-module-version' '[path]' 'Get module version from manifest.'
+    printf "$column" 'get-module-checksum' '[path]' 'Get module checksum.'
     printf "$column" 'help' '[grep]' 'Show help for commands.'
     printf "$column" 'info' '' 'Show values of project env vars.'
     printf "$column" 'load-ssh-key' '' 'Load SSH private key from env var.'
@@ -317,11 +318,11 @@ version() {
     fi
 }
 
-generate-admin-passwd() {
+generate-admin-password() {
     activate-venv
     if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
-    local odoo_password="$1"
-    bin/hash_password
+    export ODOO_PASSWORD="$1"
+    bin/hash-password
 }
 
 show-odoo-mcp-config() {
@@ -592,8 +593,7 @@ get-modules() {
 }
 
 get-module-version() {
-    if [[ -z "$1" ]]
-    then
+    if [[ -z "$1" ]]; then
         echo '\$1 is empty.'
     else
         # Get version of module
@@ -614,6 +614,15 @@ get-module-version() {
         fi
 
         echo "$version"
+    fi
+}
+
+get-module-checksum() {
+    if [[ -z "$1" ]]; then
+        echo '\$1 is empty.'
+    else
+        activate-venv >/dev/null 2>&1
+        bin/get-module-checksum "$1"
     fi
 }
 

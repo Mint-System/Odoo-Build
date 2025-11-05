@@ -37,3 +37,4 @@ git-aggregator
 git+https://github.com/OCA/maintainer-tools
 hatch-odoo
 copier
+odoo-addon-module-auto-update

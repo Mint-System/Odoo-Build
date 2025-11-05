@@ -1,0 +1,56 @@
+#!/usr/bin/env python3
+
+import sys
+import os
+import warnings
+
+warnings.filterwarnings("ignore")
+
+# Add current working directory to sys.path so we can import addon_hash
+sys.path.insert(0, os.getcwd())
+
+try:
+    # Try different import paths for addon_hash
+    try:
+        from module_auto_update.addon_hash import addon_hash
+    except ImportError:
+        try:
+            from odoo.addons.module_auto_update.addon_hash import addon_hash
+        except ImportError:
+            from odoo_addons.module_auto_update.addon_hash import addon_hash
+except ImportError:
+    print("Error: Could not import 'addon_hash' from 'module_auto_update'.")
+    print("Ensure this script is run inside an environment where Odoo and module_auto_update are available.")
+    sys.exit(1)
+
+DEFAULT_EXCLUDE_PATTERNS = [
+    "*.pyc", "*.pyo", "i18n/*.pot", "i18n_extra/*.pot", "static/*"
+]
+
+def main():
+    if len(sys.argv) != 2:
+        print("Usage: python get_module_checksum.py <path_to_module>")
+        sys.exit(1)
+
+    module_path = sys.argv[1]
+
+    if not os.path.isdir(module_path):
+        print(f"Error: {module_path} is not a valid directory.")
+        sys.exit(1)
+
+    # Dummy language codes; in real usage these come from res.lang
+    keep_langs = ["en_US"]  # You could expand this if needed
+
+    try:
+        checksum = addon_hash(
+            module_path,
+            DEFAULT_EXCLUDE_PATTERNS,
+            keep_langs
+        )
+        print(checksum)
+    except Exception as e:
+        print(f"Error computing checksum: {e}")
+        sys.exit(1)
+
+if __name__ == "__main__":
+    main()

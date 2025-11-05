@@ -109,12 +109,13 @@
 | upload-module              | [env][path]          | Zip and upload Odoo module.                                                    |
 | visualize-dependencies     | [path]               | Generate visualizations of module dependencies.                                |
 | zip-module                 | [path]               | Create zip file for module.                                                    |
-| generate-admin-passwd      | [pass]               | Generate hash for Odoo master password.                                        |
+| generate-admin-password    | [pass]               | Generate hash for Odoo master password.                                        |
 | generate-ssh-keys          |                      | Generate ssh key pair.                                                         |
 | generate-pg-ssl-keys       |                      | Generate PostgreSQL SSL key material.                                          |
 | get-addons-path            |                      | Output addons path.                                                            |
 | get-modules                | [path][option]       | Get list of modules in path. Option is 'basename' or 'dirname'.                |
 | get-module-version         | [path]               | Get module version from manifest.                                              |
+| get-module-checksum        | [path]               | Get module checksum.                                                           |
 | help                       | [grep]               | Show help for commands.                                                        |
 | info                       |                      | Show values of project env vars.                                               |
 | load-ssh-key               |                      | Load SSH private key from env var.                                             |
