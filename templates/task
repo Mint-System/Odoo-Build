@@ -1,150 +1,150 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -e
 
-if [[ -a ".env" ]]; then
+if [[ -a '.env' ]]; then
     source .env
 fi
 
-function help-table() {
-    CMD_WIDTH=10
-    OPT_WIDTH=6
-    DESC_WIDTH=40
-    COLUMN="| %-${CMD_WIDTH}s | %-${OPT_WIDTH}s | %-${DESC_WIDTH}s |\n"
+help-table() {
+    local cmd_width=10
+    local opt_width=6
+    local desc_width=40
+    local column="| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n"
 
-    printf "$COLUMN" "Command" "Option" "Description"
-    echo "|$(printf '%*s' $((CMD_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((OPT_WIDTH + 2)) '' | tr ' ' '-')|$(printf '%*s' $((DESC_WIDTH + 2)) '' | tr ' ' '-')|"
-    printf "$COLUMN" "all" "" "Run all tasks."
-    printf "$COLUMN" "install" "" "Setup the local environment."
-    printf "$COLUMN" "lint" "" "Run pre-commit."
-    printf "$COLUMN" "build" "" "Build python packages with whool."
-    printf "$COLUMN" "publish" "" "Publish python packages to PyPi."
-    printf "$COLUMN" "docs" "" "Update index.html."
+    printf "$column" 'Command' 'Option' 'Description'
+    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
+    printf "$column" 'all' '' 'Run all tasks.'
+    printf "$column" 'install' '' 'Setup the local environment.'
+    printf "$column" 'lint' '' 'Run pre-commit.'
+    printf "$column" 'build' '' 'Build python packages with whool.'
+    printf "$column" 'publish' '' 'Publish python packages to PyPi.'
+    printf "$column" 'docs' '' 'Update index.html.'
 }
 
-function help() {
+help() {
     echo
-    if [ -n "$1" ]; then
+    if [[ -n "$1" ]]; then
         help-table | grep -i "$1" | column -t -s'|'
     else
-        echo "task <command> [options]"
+        echo 'task <command> [options]'
         echo
-        echo "commands:"
+        echo 'commands:'
         echo
         help-table
     fi
     echo
 }
 
-if [ -d "$HOME/taskfile.build/bin" ]; then
+if [[ -d "$HOME/taskfile.build/bin" ]]; then
     for file in "$HOME/taskfile.build/bin/"*; do
-        if [ -f "$file" ]; then
+        if [[ -f "$file" ]]; then
             source "$file"
         fi
     done
 fi
 
-function install() {
-    echo "Setup .venv and install python dependencies"
+install() {
+    echo 'Setup .venv and install python dependencies'
     uv venv
     source .venv/bin/activate
     uv pip install pre-commit git+https://github.com/OCA/maintainer-tools
 }
 
-function lint() {
+lint() {
     source .venv/bin/activate
 
-    echo "Run pre-commit"
+    echo 'Run pre-commit'
     pre-commit run --all-files --show-diff-on-failure --color=always
 }
 
 build() {
     source .venv/bin/activate
 
-    ROOT_DIR="$(pwd)"
-    METAPACKAGE_DIR="$ROOT_DIR/setup/_metapackage"
-    PUBLISH_DIR="$ROOT_DIR/dist"
-    mkdir -p "$PUBLISH_DIR"
-    rm -rf "$PUBLISH_DIR"/*
+    local root_dir="$(pwd)"
+    local metapackage_dir="$root_dir/setup/_metapackage"
+    local publish_dir="$root_dir/dist"
+    mkdir -p "$publish_dir"
+    rm -rf "$publish_dir"/*
 
-    SERVER_NAME="$(basename "$ROOT_DIR")"
-    METAPACKAGE_NAME="odoo-apps-$(echo "$SERVER_NAME" | sed 's/_/-/g')"
-    oca-gen-metapackage "$METAPACKAGE_NAME"
+    local server_name="$(basename "$root_dir")"
+    local metapackage_name="odoo-apps-$(echo "$server_name" | sed 's/_/-/g')"
+    oca-gen-metapackage "$metapackage_name"
 
-    ADDONS=()
-    mapfile -t ADDONS < <(find . -maxdepth 2 -type f -name "pyproject.toml" | xargs dirname | sed 's|^\./||')
-    for ADDON in "${ADDONS[@]}"; do
-        cd "$ROOT_DIR/$ADDON"
-        echo "Building $ADDON"
+    local addons=()
+    mapfile -t addons < <(find . -maxdepth 2 -type f -name 'pyproject.toml' | xargs dirname | sed 's|^\./||')
+    for addon in "${addons[@]}"; do
+        cd "$root_dir/$addon"
+        echo "Building $addon"
         uv build
-        cp dist/*.whl "$PUBLISH_DIR/"
-        cp dist/*.tar.gz "$PUBLISH_DIR/"
-        cd "$ROOT_DIR"
+        cp dist/*.whl "$publish_dir/"
+        cp dist/*.tar.gz "$publish_dir/"
+        cd "$root_dir"
     done
 
-    echo "Installing local wheels for metapackage resolution..."
-    uv pip install "$PUBLISH_DIR"/*.whl 2>/dev/null || true
+    echo 'Installing local wheels for metapackage resolution...'
+    uv pip install "$publish_dir"/*.whl 2>/dev/null || true
 
-    cd "$METAPACKAGE_DIR"
-    echo "Building $METAPACKAGE_NAME"
+    cd "$metapackage_dir"
+    echo "Building $metapackage_name"
     uv build
-    cp dist/*.whl "$PUBLISH_DIR/"
-    cp dist/*.tar.gz "$PUBLISH_DIR/"
+    cp dist/*.whl "$publish_dir/"
+    cp dist/*.tar.gz "$publish_dir/"
 
-    ls "$PUBLISH_DIR/"
+    ls "$publish_dir/"
 }
 
 publish() {
     source .venv/bin/activate
-    ROOT_DIR="$(pwd)"
-    PUBLISH_DIR="$ROOT_DIR/dist"
+    local root_dir="$(pwd)"
+    local publish_dir="$root_dir/dist"
 
     set +e
-    echo "Publishing from $PUBLISH_DIR to PyPI..."
+    echo "Publishing from $publish_dir to PyPI..."
 
-    for WHEEL in "$PUBLISH_DIR"/*.whl; do
-        if [ ! -f "$WHEEL" ]; then
+    for wheel in "$publish_dir"/*.whl; do
+        if [[ ! -f "$wheel" ]]; then
             continue
         fi
 
-        echo "Publishing: $WHEEL"
-        uv publish "$WHEEL" --username "__token__" --password "$PYPI_TOKEN"
+        echo "Publishing: $wheel"
+        uv publish "$wheel" --username '__token__' --password "$PYPI_TOKEN"
 
-        if [ $? -ne 0 ]; then
-            echo "Failed to publish $WHEEL."
+        if (( $? != 0 )); then
+            echo "Failed to publish $wheel."
         fi
     done
 
-    echo "All wheels published successfully."
+    echo 'All wheels published successfully.'
 }
 
-function docs() {
+docs() {
     source .venv/bin/activate
 
-    echo "Update index.html for all modules"
-    for MODULE in ./*; do
-        if [ -f "$MODULE/README.rst" ]; then
-            cd "$MODULE" || exit
+    echo 'Update index.html for all modules'
+    for module in ./*; do
+        if [[ -f "$module/README.rst" ]]; then
+            cd "$module" || exit
             rst2html5 README.rst static/description/index.html
             cd .. || exit
         fi
     done
 
     # Find marker in readme and clear content after
-    echo "Clear modules table in README.md"
-    MARKER="## Available modules"
-    sed -i "/$MARKER/Q" "README.md"
-    echo "$MARKER" >> "README.md"
-    echo "" >> "README.md"
-    echo "| Module | Summary |" >> "README.md"
-    echo "| --- | --- |" >> "README.md"
+    echo 'Clear modules table in README.md'
+    local marker='## Available modules'
+    sed -i "/$marker/Q" 'README.md'
+    echo "$marker" >> 'README.md'
+    echo '' >> 'README.md'
+    echo '| Module | Summary |' >> 'README.md'
+    echo '| --- | --- |' >> 'README.md'
 
-    MANIFEST_FILES="./*/__manifest__.py"
-    for MANIFEST_FILE in $MANIFEST_FILES; do
-        MODULE_DIR=$(dirname "$MANIFEST_FILE")
-        MODULE_NAME=$(basename "$MODULE_DIR")
-        echo "Add summary of $MODULE_NAME to readme file."
-        SUMMARY=$(grep 'summary' "$MANIFEST_FILE" -A 1 | tail -1)
-        echo "| [$MODULE_NAME]($MODULE_NAME) | $SUMMARY |" >> "README.md"
+    local manifest_files='./*/__manifest__.py'
+    for manifest_file in $manifest_files; do
+        local module_dir=$(dirname "$manifest_file")
+        local module_name=$(basename "$module_dir")
+        echo "Add summary of $module_name to readme file."
+        local summary=$(grep 'summary' "$manifest_file" -A 1 | tail -1)
+        echo "| [$module_name]($module_name) | $summary |" >> 'README.md'
     done
 }
 
