@@ -590,6 +590,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`remove-ssh-key`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/remove-ssh-key)
 - [`run-tests`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/run-tests)
 - [`set-addons-path`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/set-addons-path)
+- [`setup-mail`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/setup-mail)
 - [`setup-tests`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/setup-tests)
 - [`sync-python-project`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/sync-python-project)
 - [`template-odoo-rc`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/template-odoo-rc)

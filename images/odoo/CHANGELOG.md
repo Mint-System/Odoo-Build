@@ -30,3 +30,4 @@ All notable changes to this project will be documented in this file. The format 
 - Updated function declarations to remove the `function` keyword and use `name() { }` syntax.
 - Standardized conditional syntax to use `[[...]]` instead of `[...]` in all scripts.
 - Ensured proper quoting with single quotes where variable expansion is not needed.
+- Moved the `setup-mail` script from Odoo Build to this project.

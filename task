@@ -77,7 +77,6 @@ help-table() {
     printf "$column" 'patch-database' '[db][path]' 'Apply sql file to database.'
     printf "$column" 'reset-views' '[db][key]' 'Execute hard reset on views matching keys.'
     printf "$column" 'set-admin' '[db]' 'Sets the password for the first user in database.'
-    printf "$column" 'setup-mail' '[db]' 'Setup mail config in Odoo db.'
     printf "$column" 'update-module' '[db][name,path]' 'Update target Odoo module.'
     printf "$column" 'update-module-list' '[db]' 'Update module list of Odoo database.'
     # Revision
@@ -1591,25 +1590,6 @@ drop-db() {
 
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$database';"
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "DROP DATABASE \"$database\";"
-}
-
-setup-mail() {
-    local database="$1"
-    if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
-    fi
-
-    activate-venv
-    set-addons-path
-
-    export MAIL_BOUNCE_ALIAS
-    export MAIL_CATCHALL_ALIAS
-    export MAIL_CATCHALL_DOMAIN
-    export MAIL_DEFAULT_FROM
-    export MAIL_ALIAS_DOMAIN
-
-    echo "Setup mail server configuation for database $database."
-    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http < bin/setup-mail
 }
 
 load-language() {
