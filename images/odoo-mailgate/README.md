@@ -3,7 +3,9 @@
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-mailgate)](https://hub.docker.com/r/mintsystem/odoo-mailgate/)
 
-The Odoo Mailgate Docker image integrates a Postfix mail server and the odoo-mailgate script, allowing you to receive and forward emails to Odoo.
+Receive and forward emails to Odoo.
+
+The Odoo Mailgate Docker image integrates a Postfix mail server and the odoo-mailgate script.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-mailgate>
 

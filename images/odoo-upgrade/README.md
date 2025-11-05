@@ -3,7 +3,7 @@
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-upgrade)](https://hub.docker.com/r/mintsystem/odoo-upgrade/)
 
-Image to run the Odoo enterprise upgrade script.
+Image to run the Odoo Enterprise upgrade script.
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-upgrade>
 
@@ -35,4 +35,14 @@ Show help of upgrade command and arguments:
 ```bash
 docker run -it mintsystem/odoo-upgrade --help
 docker run -it mintsystem/odoo-upgrade test --help
+```
+
+## Development
+
+### Update the Odoo upgrade script
+
+Update the upgrade script:
+
+```bash
+wget https://upgrade.odoo.com/upgrade -O images/odoo-upgrade/bin/upgrade
 ```

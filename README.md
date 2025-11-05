@@ -26,7 +26,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 The Odoo development environment has the following requirements:
 
 - [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
-- Install Python 3.12+ with [uv](https://docs.astral.sh/uv/): `uv python install`
+- [uv](https://docs.astral.sh/uv/)
 
 **MacOS**
 
@@ -39,10 +39,6 @@ brew install grep gettext
 **Command Completion (Optional)**
 
 bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#completion).
-
-**LLM (Optional)**
-
-Install the [llm](https://datasette.io/tools/llm) cli to make use of the LLM features.
 
 ## Usage
 
@@ -267,14 +263,6 @@ Assuming the name of the environment is `test`, you source env vars like this:
 
 ```bash
 eval "$(task show-env test)"
-```
-
-### Update the Odoo Upgrade script
-
-Update the upgrade script:
-
-```bash
-wget https://upgrade.odoo.com/upgrade -O image/odoo-upgrade/bin/upgrade
 ```
 
 ### Forward mails with Odoo Mailgate

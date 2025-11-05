@@ -2,27 +2,26 @@
 import argparse
 import getpass
 import gzip
+import hashlib
 import json
 import logging
+import os
 import re
+import shutil
 import socket
 import ssl
 import subprocess
 import sys
 import tempfile
+import time
 import zipfile
+from datetime import datetime, timedelta
+from operator import itemgetter
 
 try:
     import urllib.request as urlrequest
 except ImportError:
     import urllib2 as urlrequest
-
-import hashlib
-import os
-import shutil
-import time
-from datetime import datetime, timedelta
-from operator import itemgetter
 
 try:
     from shutil import which
@@ -39,6 +38,7 @@ COMMAND_DEPENDENCIES = {
     "restore": {"ssh-keygen", "rsync", "createdb", "pg_restore"},
     "test": {"ssh-keygen", "rsync", "psql", "createdb", "pg_restore", "pg_dump"},
     "production": {"ssh-keygen", "rsync", "psql", "createdb", "pg_restore", "pg_dump"},
+    "wipe": {"ssh-keygen"},
 }
 
 # Mapping subcommand arguments to the dependencies they make unnecessary
@@ -47,12 +47,11 @@ EXCLUDED_DEPENDENCIES = {
     "dump": {"pg_dump"},
 }
 
-UID = os.getuid()
-DEFAULT_SSH_KEY_NAME = os.path.join(tempfile.gettempdir(), "%s_upgrade_ssh_key" % UID)
-KNOWN_HOSTS_NAME = os.path.join(tempfile.gettempdir(), "%s_upgrade_known_hosts" % UID)
+UID = os.getuid() if hasattr(os, "getuid") else getpass.getuser()
+DEFAULT_SSH_KEY_NAME = os.path.join(tempfile.gettempdir(), "{}_upgrade_ssh_key".format(UID))
+KNOWN_HOSTS_NAME = os.path.join(tempfile.gettempdir(), "{}_upgrade_known_hosts".format(UID))
 
 UPGRADE_SERVER_NAME = os.environ.get("UPGRADE_SERVER_NAME", "https://upgrade.odoo.com")
-DATA_SERVER_NAME = os.environ.get("DATA_SERVER_NAME", "upgrade.odoo.com")
 DATA_SERVER_USER = "odoo"
 DATA_SERVER_PATH = "/data"
 SSH_KEY_NAME = os.environ.get("SSH_KEY_NAME", DEFAULT_SSH_KEY_NAME)
@@ -85,65 +84,200 @@ class UpgradeError(Exception):
 
 class StateMachine:
     """
-    Simple state machine with states and handlers.
-    * A state machine has a specific context (internal data) which may be updated with `update_context`.
-    Each handler may access to the context using the `get_context_data` method.
-    * States are defined using the `set_states` method, with a name and a handler.
-    * A handler executes all the processing for a specific state and returns the next state to execute or "terminal" if
-    it's a terminal state.
-    * The `run` method starts the state machine execution from a specific state with an optional additional context,
-    until a terminal state.
+    Simple state machine, with:
+    * `run` method that will start executing handlers methods from a starting state.
+    * `<state>_handler` methods corresponding to each non terminal state. Each state
+      handler must return the next state.
+    * `context` (internal data) which may be updated by the state handlers.
+    * `get_context_data` method that must be used to get data from the context in the
+      handlers. It verifies that the data is present in the context and raises an error
+      on missing data.
     """
 
     class Error(Exception):
         pass
 
     def __init__(self):
-        self.handlers = {}
-        self.current_state = None
         self.context = {}
+        self.state = None
 
-    def update_context(self, data):
-        self.context.update(data)
-
-    def get_context_data(self, keys):
-        """
-        check if all `keys` identify a data in the FSM context and return them
-        """
-        if any(k not in self.context for k in keys):
-            raise StateMachine.Error(
-                "The following data are missing for the state '%s': %s"
-                % (
-                    self.current_state,
-                    ", ".join([k for k in keys if k not in self.context]),
-                )
-            )
-
+    def get_context_data(self, *keys):
+        missing = [key for key in keys if key not in self.context]
+        if missing:
+            raise StateMachine.Error("State %r: missing data in context %s", self.state, missing)
         return itemgetter(*keys)(self.context)
-
-    def set_states(self, handlers):
-        """
-        Define the states of the state machine
-        Each `handler` shall return the next state.
-        """
-        self.handlers = handlers
 
     def run(self, from_state, additional_context=None):
         """
         Execute the state machine from `from_state` with an optional additional context.
         If an additional context is specified, the current context will be updated.
         """
-        if from_state not in self.handlers:
-            raise StateMachine.Error("The state '%s' is not a valid state." % from_state)
+        if not hasattr(self, from_state + "_handler"):
+            raise StateMachine.Error("The state {!r} is not a valid state.".format(from_state))
 
         if additional_context is not None:
-            self.update_context(additional_context)
+            self.context.update(additional_context)
 
-        self.current_state = from_state
+        self.state = from_state
+        while hasattr(self, self.state + "_handler"):
+            self.state = getattr(self, self.state + "_handler")()
 
-        while self.current_state in self.handlers:
-            handler = self.handlers[self.current_state]
-            self.current_state = handler(self)
+    def init_handler(self):
+        input_source, target, aim, core_count, env_vars, ssh_key, token_name, contract = self.get_context_data(
+            "input_source", "target", "aim", "core_count", "env_vars", "ssh_key", "token_name", "contract"
+        )
+
+        if input_source == "db":
+            dbname = self.get_context_data("dbname")
+            db_contract = get_db_contract(dbname, contract)  # never returns an empty contract
+            if contract and contract != db_contract:
+                logging.warning(
+                    "The subscription code found in the database %s differs from the one provided as `--contract` parameter %s. "
+                    "Continuing with the contract found in the database: %s.",
+                    db_contract,
+                    contract,
+                    db_contract,
+                )
+            contract = db_contract
+            self.context["contract"] = contract
+
+        if ssh_key == DEFAULT_SSH_KEY_NAME:
+            generate_default_ssh_keys()
+
+        response = create_upgrade_request(contract, target, aim, env_vars, ssh_key + ".pub")
+
+        if input_source == "db":
+            dump_database(dbname, ORIGIN_DUMP_NAME, core_count)
+
+        # store the token in a file to be able to resume the request in case of interruption
+        save_token(token_name, target, aim, response["token"])
+
+        # make sure that the request is resumed from the correct node
+        set_servers_info(response["assigned_host_uri"])
+        self.context.update(response)
+
+        return "new"
+
+    def new_handler(self):
+        input_source, token, ssh_key, data_server_name, data_server_user, data_server_path = self.get_context_data(
+            "input_source", "token", "ssh_key", "data_server_name", "data_server_user", "data_server_path"
+        )
+        restore_db = not self.get_context_data("no_restore")
+
+        if input_source == "db":
+            dump_path = ORIGIN_DUMP_NAME
+            dest_dump_name = ORIGIN_DUMP_NAME
+        else:
+            dump_path, dump_ext = self.get_context_data("host_dump_upload_path", "dump_ext")
+            dest_dump_name = ORIGIN_DUMP_BASE_NAME + dump_ext
+
+        info = start_transfer(token, ssh_key + ".pub", "upload")
+        store_known_hosts(info["known_hosts"])
+        upload_dump(
+            dump_path,
+            data_server_name,
+            info["ssh_port"],
+            data_server_user,
+            data_server_path,
+            ssh_key,
+            dest_dump_name,
+        )
+        stop_transfer(token)
+
+        # if the postgres version used for the upgrade is not compatible with the client postgres
+        # version used to dump the database, deactivate the upgraded database restoring.
+        if not process_upgrade_request(token):
+            logging.warning(
+                "Your postgres version is lower than the minimal required version to restore your upgraded database."
+            )
+            if restore_db:
+                logging.warning("The upgraded dump will be downloaded but not restored.")
+            self.context["no_restore"] = True
+
+        return "pending"
+
+    def pending_handler(self):
+        return "progress"
+
+    def progress_handler(self):
+        token = self.get_context_data("token")
+        status, reason = monitor_request_processing(token)
+        self.context["reason"] = reason
+
+        return status
+
+    def failed_handler(self):
+        reason = self.get_context_data("reason")
+        logging.error("The upgrade request has failed%s", (": " + reason) if reason else "")
+
+        return "terminal"
+
+    def cancelled_handler(self):
+        logging.info("The upgrade request has been cancelled")
+
+        return "terminal"
+
+    def done_handler(self):
+        (
+            input_source,
+            token,
+            ssh_key,
+            core_count,
+            aim,
+            data_server_name,
+            data_server_user,
+            data_server_path,
+            no_restore,
+            dump_dest_path,
+        ) = self.get_context_data(
+            "input_source",
+            "token",
+            "ssh_key",
+            "core_count",
+            "aim",
+            "data_server_name",
+            "data_server_user",
+            "data_server_path",
+            "no_restore",
+            "host_dump_download_path",
+        )
+
+        info = start_transfer(token, ssh_key + ".pub", "download")
+        store_known_hosts(info["known_hosts"])
+        download_dump(
+            data_server_name,
+            info["ssh_port"],
+            data_server_user,
+            data_server_path,
+            info["dump_name"],
+            ssh_key,
+            dump_dest_path,
+        )
+        stop_transfer(token)
+
+        if no_restore:
+            logging.info(
+                "The upgraded database and filestore have been downloaded as %s.\n"
+                "Skipping the restore of the upgraded dump and the merge of the filestore.",
+                info["dump_name"],
+            )
+        else:
+            upgraded_db_name = self.get_context_data("upgraded_db_name")
+            db_name = self.get_context_data("dbname") if input_source == "db" else None
+
+            restore_database(upgraded_db_name, info["dump_name"], core_count)
+            restore_filestore(db_name, upgraded_db_name)
+            clean_dump(info["dump_name"])
+
+        return "terminal"
+
+
+STATE_MACHINE = StateMachine()
+
+
+def set_servers_info(host_uri):
+    STATE_MACHINE.context["upgrade_server_name"] = "https://" + host_uri
+    STATE_MACHINE.context["data_server_name"] = host_uri
 
 
 # ---------------------------------------------------------------------------------
@@ -175,30 +309,20 @@ def check_binaries_exist(args):
 
 def run_command(command, stream_output=False):
     """
-    Run a Linux command.
-    Here, check_output is used to retrieve the command output when
-    an exception is raised.
+    Run a Linux command. Any error from the command will be raised as an exception.
     """
     try:
-        if stream_output:
-            subprocess.check_call(command, stderr=subprocess.STDOUT)
-        else:
-            subprocess.check_output(command, stderr=subprocess.STDOUT)
-        return
+        return (subprocess.check_call if stream_output else subprocess.check_output)(command, stderr=subprocess.STDOUT)
     except subprocess.CalledProcessError as e:
-        error_msg = "The '%s' command has failed" % e.cmd[0]
+        error_msg = "The {!r} command has failed".format(e.cmd[0])
         if not stream_output:
-            error_msg += " with the following output:\n %s" % e.output.decode("utf-8", "replace").rstrip("\n")
+            error_msg += " with the following output:\n {}".format(e.output.decode("utf-8", "replace").rstrip("\n"))
     raise UpgradeError(error_msg)
 
 
 # This is an advanced version of os.path.basename in python 2, which can get both dir and file basename from path
 def get_path_basename(path):
     return os.path.basename(path if not path.endswith(os.sep) else path[:-1])
-
-
-def get_path_nth_parent(path, n=1):
-    return os.path.abspath(path + n * "/..")
 
 
 # ---------------------------------------------------------------------------------
@@ -218,7 +342,7 @@ def generate_default_ssh_keys():
     """
     Generate public/private SSH key pair in the current working directory
     """
-    if not os.path.isfile(DEFAULT_SSH_KEY_NAME) or not os.path.isfile("%s.pub" % DEFAULT_SSH_KEY_NAME):
+    if not os.path.isfile(DEFAULT_SSH_KEY_NAME) or not os.path.isfile(DEFAULT_SSH_KEY_NAME + ".pub"):
         logging.info("Generating temporary public/private SSH key pair")
         clean_default_ssh_keys()
         run_command(["ssh-keygen", "-t", "rsa", "-N", "", "-f", DEFAULT_SSH_KEY_NAME])
@@ -228,16 +352,18 @@ def upload_dump(dump_path, server, port, user, path, ssh_key, dest_dump_name=Non
     """
     Upload the database dump to the server through SSH.
     """
-    server_string = "%s@%s:%s" % (
+    server_string = "{}@{}:{}".format(
         user,
         server,
-        "%s/%s" % (path, dest_dump_name) if dest_dump_name else path,
+        "{}/{}".format(path, dest_dump_name) if dest_dump_name else path,
     )
-    ssh = "ssh -p %s -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=%s -i %s" % (
+    ssh = "ssh -p {} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile={} -i {}".format(
         port,
         KNOWN_HOSTS_NAME,
         ssh_key,
     )
+    # windows: rsync would interpret a full path (C:\...) as a remote path, because it contains ':'
+    dump_path = os.path.relpath(dump_path)
     # if the --dump dir is passed, then transfer only the content of the dir, and not the directory itself
     if os.path.isdir(dump_path) and not dump_path.endswith(os.sep):
         dump_path += os.sep
@@ -259,21 +385,25 @@ def upload_dump(dump_path, server, port, user, path, ssh_key, dest_dump_name=Non
         )
     except Exception:
         logging.error(
-            "The connection may have been been closed because you reached the 5 minutes timeout. Please, re-run the script and resume."
+            "The upload failed. If you see a message like 'ssh: [..]: Connection refused/timed out' above,\n"
+            "this is most commonly caused by a restrictive firewall. Please check if your firewall is configured to\n"
+            "block outgoing connections to TCP ports in the range between 32768 and 60999. If so, please add an\n"
+            "exception for the target host %s. Then, please re-run the script and when prompted, choose to resume.",
+            server,
         )
-        raise
+        sys.exit(1)
 
 
 def download_dump(server, port, user, dump_path, dump_name, ssh_key, dump_dest_path="."):
     """
     Download a database dump and its filestore from the server through SSH
     """
-    ssh = "ssh -p %s -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile=%s -i %s" % (
+    ssh = "ssh -p {} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile={} -i {}".format(
         port,
         KNOWN_HOSTS_NAME,
         ssh_key,
     )
-    server = "%s@%s:%s" % (user, server, dump_path)
+    server = "{}@{}:{}".format(user, server, dump_path)
     server_dump_path = os.path.join(server, dump_name)
     server_fs_path = os.path.join(server, FILESTORE_NAME)
     reports_path = os.path.join(server, "upgrade-report.html")
@@ -311,17 +441,13 @@ def download_dump(server, port, user, dump_path, dump_name, ssh_key, dump_dest_p
 # ---------------------------------------------------------------------------------
 
 
-def get_dump_name(dbname):
-    return ORIGIN_DUMP_NAME
-
-
 def get_upgraded_db_name(dbname, target, aim):
     timestamp = datetime.now().strftime(DB_TIMESTAMP_FORMAT)
 
     if aim == "production":
-        return "%s_backup_%s" % (dbname, timestamp)
+        return "{}_backup_{}".format(dbname, timestamp)
 
-    return "%s_test_%s_%s" % (dbname, target, timestamp)
+    return "{}_test_{}_{}".format(dbname, target, timestamp)
 
 
 def dump_database(db_name, dump_name, core_count):
@@ -460,7 +586,9 @@ def get_db_contract(dbname, fallback_contract=None):
         pass
 
     if fallback_contract:
-        logging.info("No subscription code found in the database. Fallback to the one given on CLI")
+        logging.info(
+            "No subscription code found in the database. Fallback to the one given as parameter: %s", fallback_contract
+        )
         return fallback_contract
 
     raise UpgradeError(
@@ -487,7 +615,7 @@ def is_zip_dump_valid(dump_file):
     def check_zip_integrity(f):
         try:
             if f.testzip() is not None:
-                raise Exception
+                return False
         except Exception:
             return False
 
@@ -518,11 +646,12 @@ def is_gz_dump_valid(dump_path):
 # ---------------------------------------------------------------------------------
 
 
-def send_json_request(request, params):
+def send_json_request(endpoint, params):
     """
     Send a JSONRPC request to the upgrade server and return its response as a dictionary
     """
-    request_url = "%s/%s" % (UPGRADE_SERVER_NAME, request)
+
+    request_url = "{}/{}".format(STATE_MACHINE.context["upgrade_server_name"], endpoint)
 
     # build the JSONRPC request
     jsonrpc_payload = {
@@ -556,7 +685,7 @@ def send_json_request(request, params):
                 else:
                     error = resp_payload.get("error", {}).get("data", {}).get("message")
                     error = error or "Upgrade server bad JSONRPC response"
-                    raise UpgradeError("Error: %s" % error)
+                    raise UpgradeError("Error: {}".format(error))
 
             # static file response
             if "text/html" in info["Content-Type"]:
@@ -576,10 +705,12 @@ def check_response_format(response, keys):
     """
     Check that a response follows the expected format (keys)
     """
-    if any(k not in response for k in keys):
+    missing = [k for k in keys if k not in response]
+    if missing:
         raise UpgradeError(
-            "The response received from the upgrade server has not the expected format (missing data: %s)"
-            % ",".join([k for k in keys if k not in response])
+            "The response received from the upgrade server does not have the expected format (missing data: {})".format(
+                missing
+            )
         )
 
 
@@ -614,6 +745,8 @@ def create_upgrade_request(contract, target, aim, env_vars, ssh_key):
 def process_upgrade_request(token):
     """
     Start the upgrade request processing using the upgrade API
+
+    Return whether the original DB PG version is compatible with the minimum PG for the Odoo target version
     """
     logging.info("Processing the upgrade request")
     response = send_json_request("upgrade/request/process", {"token": token})
@@ -625,7 +758,7 @@ def process_upgrade_request(token):
 
 def start_transfer(token, ssh_key, transfer_type):
     if not os.path.isfile(ssh_key):
-        raise UpgradeError("The SSH key '%s' does not exist." % ssh_key)
+        raise UpgradeError("The SSH key {!r} does not exist.".format(ssh_key))
 
     response = send_json_request(
         "upgrade/request/transfer/start",
@@ -667,14 +800,13 @@ def get_logs(token, from_byte=0):
     """
     Request the actual log file
     """
-    request_url = "%s/%s?token=%s" % (
-        UPGRADE_SERVER_NAME,
+    request_url = "{}/{}?token={}".format(
+        STATE_MACHINE.context["upgrade_server_name"],
         "upgrade/request/logs",
         token,
     )
-    req = urlrequest.Request(request_url, headers={"Range": "bytes=%d-" % from_byte})
-    response = urlrequest.urlopen(req, timeout=REQUEST_TIMEOUT, context=ssl_context).read().decode("utf-8", "replace")
-    return response
+    req = urlrequest.Request(request_url, headers={"Range": "bytes={:d}-".format(from_byte)})
+    return urlrequest.urlopen(req, timeout=REQUEST_TIMEOUT, context=ssl_context).read().decode("utf-8", "replace")
 
 
 def get_request_status(token):
@@ -682,202 +814,25 @@ def get_request_status(token):
     Request the request processing status and an optional reason
     """
     response = send_json_request("upgrade/request/status", {"token": token})
-    check_response_format(
-        response,
-        (
-            "status",
-            "host_uri",
-        ),
-    )
+    check_response_format(response, ("status", "host_uri"))
 
     return response["status"], response["host_uri"], response.get("reason"), response.get("archived")
 
 
-# ---------------------------------------------------------------------------------
-# State machine handlers
-# ---------------------------------------------------------------------------------
-
-
-def init_handler(fsm):
+def request_data_wipe(contract, token):
     """
-    Processing done in the 'init' state.
+    Wipe the request data related to a contract
     """
-    input_source, target, aim, core_count, env_vars, ssh_key = fsm.get_context_data(
-        ("input_source", "target", "aim", "core_count", "env_vars", "ssh_key")
-    )
+    response = send_json_request("upgrade/request/wipe", {"contract": contract, "token": token})
 
-    if input_source == "db":
-        dbname, token_name, cli_contract = fsm.get_context_data(("dbname", "token_name", "contract"))
-        contract = get_db_contract(dbname, cli_contract)
-        if cli_contract and contract != cli_contract:
-            logging.warning(
-                "The subscription code found in the database differs from the one provided as `--contract` parameter. "
-                "Continuing with the contract found in the database."
-            )
-    else:
-        contract, token_name = fsm.get_context_data(("contract", "token_name"))
-
-    if ssh_key == DEFAULT_SSH_KEY_NAME:
-        generate_default_ssh_keys()
-
-    response = create_upgrade_request(contract, target, aim, env_vars, "%s.pub" % ssh_key)
-
-    if input_source == "db":
-        dump_database(dbname, get_dump_name(dbname), core_count)
-
-    # store the token in a file to be able to resume the request in case of interruption
-    save_token(token_name, target, aim, response["token"])
-
-    # make sure that the request is resumed from the correct node
-    set_upgrade_and_data_server_names(response["assigned_host_uri"])
-    fsm.update_context({"data_server_name": DATA_SERVER_NAME})
-
-    fsm.update_context(response)
-    return "new"
-
-
-def new_handler(fsm):
-    """
-    Processing done in the 'new' state.
-    """
-    input_source, token, ssh_key = fsm.get_context_data(("input_source", "token", "ssh_key"))
-    data_server_name, data_server_user, data_server_path = fsm.get_context_data(
-        ("data_server_name", "data_server_user", "data_server_path")
-    )
-
-    if input_source == "db":
-        dbname = fsm.get_context_data(("dbname",))
-        dump_path = get_dump_name(dbname)
-        dest_dump_name = ORIGIN_DUMP_NAME
-    else:
-        dump_path, dump_ext = fsm.get_context_data(("host_dump_upload_path", "dump_ext"))
-        dest_dump_name = "%s%s" % (ORIGIN_DUMP_BASE_NAME, dump_ext)
-
-    info = start_transfer(token, "%s.pub" % ssh_key, "upload")
-    store_known_hosts(info["known_hosts"])
-    upload_dump(
-        dump_path,
-        data_server_name,
-        info["ssh_port"],
-        data_server_user,
-        data_server_path,
-        ssh_key,
-        dest_dump_name,
-    )
-    stop_transfer(token)
-
-    return "pending"
-
-
-def pending_handler(fsm):
-    """
-    Processing done in the 'pending' state.
-    """
-    token = fsm.get_context_data(("token",))
-    restore_db = not fsm.get_context_data(("no_restore",))
-    is_pg_version_compatible = process_upgrade_request(token)
-
-    # if the postgres version used for the upgrade is not compatible with the client postgres
-    # version used to dump the database, deactivate the upgraded database restoring.
-    if not is_pg_version_compatible:
-        log_message = (
-            "Your postgres version is lower than the minimal required version to restore your upgraded database."
-        )
-
-        if restore_db:
-            log_message += " The upgraded dump will be downloaded but not restored."
-
-        logging.warning(log_message)
-
-        fsm.update_context({"no_restore": True})
-
-    return "progress"
-
-
-def progress_handler(fsm):
-    """
-    Processing done in the 'progress' state.
-    """
-    token = fsm.get_context_data(("token",))
-
-    status, reason = monitor_request_processing(token)
-
-    fsm.update_context({"reason": reason})
+    wiped = response["wiped"]
+    failed = response["failed"]
+    if wiped:
+        logging.info("The data for requests %s was successfully deleted", wiped)
+    if failed:
+        logging.info("The data for requests %s could not be deleted", failed)
+    status = "success" if not failed else "partial" if wiped and failed else "failed"
     return status
-
-
-def failed_handler(fsm):
-    input_source, reason = fsm.get_context_data(("input_source", "reason"))
-
-    if input_source == "db":
-        dbname = fsm.get_context_data(("dbname",))
-        clean_dump(get_dump_name(dbname))
-
-    logging.error("The upgrade request has failed%s", ": %s" % reason if reason else "")
-
-    return "terminal"
-
-
-def cancelled_handler(fsm):
-    logging.info("The upgrade request has been cancelled")
-    return "terminal"
-
-
-def done_handler(fsm):
-    (
-        input_source,
-        token,
-        ssh_key,
-        core_count,
-        aim,
-        data_server_name,
-        data_server_user,
-        data_server_path,
-        no_restore,
-        dump_dest_path,
-    ) = fsm.get_context_data(
-        (
-            "input_source",
-            "token",
-            "ssh_key",
-            "core_count",
-            "aim",
-            "data_server_name",
-            "data_server_user",
-            "data_server_path",
-            "no_restore",
-            "host_dump_download_path",
-        )
-    )
-
-    info = start_transfer(token, "%s.pub" % ssh_key, "download")
-    store_known_hosts(info["known_hosts"])
-    download_dump(
-        data_server_name,
-        info["ssh_port"],
-        data_server_user,
-        data_server_path,
-        info["dump_name"],
-        ssh_key,
-        dump_dest_path,
-    )
-    stop_transfer(token)
-
-    if no_restore:
-        logging.info(
-            "The upgraded database and filestore have been downloaded as %s.\n"
-            "Skipping the restore of the upgraded dump and the merge of the filestore.",
-            info["dump_name"],
-        )
-    else:
-        upgraded_db_name = fsm.get_context_data(("upgraded_db_name",))
-        db_name = fsm.get_context_data(("dbname",)) if input_source == "db" else None
-
-        restore_database(upgraded_db_name, info["dump_name"], core_count)
-        restore_filestore(db_name, upgraded_db_name)
-        clean_dump(info["dump_name"])
-
-    return "terminal"
 
 
 # ---------------------------------------------------------------------------------
@@ -886,10 +841,7 @@ def done_handler(fsm):
 
 
 def get_token_file(token_name, target, aim):
-    return os.path.join(
-        tempfile.gettempdir(),
-        "odoo-upgrade-%s-%s-%s" % (aim, token_name, target),
-    )
+    return os.path.join(tempfile.gettempdir(), "odoo-upgrade-{}-{}-{}".format(aim, token_name, target))
 
 
 def save_token(token_name, target, aim, token):
@@ -910,8 +862,7 @@ def get_saved_token(token_name, target, aim):
 
     try:
         with open(filename, "r") as f:
-            token = f.readline()
-            return token
+            return f.readline()
     except Exception:
         return None
 
@@ -925,8 +876,6 @@ def remove_saved_token(token_name, target, aim):
 # ---------------------------------------------------------------------------------
 # Main functions
 # ---------------------------------------------------------------------------------
-
-fsm = StateMachine()
 
 
 def monitor_request_processing(token):
@@ -970,8 +919,9 @@ def parse_command_line():
         dbname_or_dump.add_argument(
             "-i",
             "--dump",
-            help="The database dump to upgrade (.sql, .dump, .sql.gz, .zip or a psql dump directory with %s file)"
-            % POSTGRES_TABLE_OF_CONTENTS,
+            help="The database dump to upgrade (.sql, .dump, .sql.gz, .zip or a psql dump directory with {} file)".format(
+                POSTGRES_TABLE_OF_CONTENTS
+            ),
         )
 
         subparser.add_argument(
@@ -1021,8 +971,7 @@ def parse_command_line():
         subparser.add_argument(
             "-n",
             "--data-server-name",
-            help="The server name where to download/upload dumps (default: %(default)s)",
-            default=DATA_SERVER_NAME,
+            help=argparse.SUPPRESS,  # Deprecated: not used anymore, ignored
         )
         subparser.add_argument(
             "-u",
@@ -1038,7 +987,15 @@ def parse_command_line():
         )
 
     def add_token_argument(subparser):
-        subparser.add_argument("-t", "--token", required=True, help="The token ID of the request")
+        subparser.add_argument(
+            "-t",
+            "--token",
+            required=True,
+            help=(
+                "The token ID of the request. It can be found in the output of the "
+                " `test` and `production` commands or in the file `upgrade.log`."
+            ),
+        )
 
     prog = "python <(curl -s https://upgrade.odoo.com/upgrade)" if not os.path.isfile(sys.argv[0]) else None
 
@@ -1105,6 +1062,29 @@ def parse_command_line():
         help="From which line start retrieving the log (0=from the beginning)",
     )
 
+    # sub-parser for the 'wipe' command
+    parser_wipe = subparsers.add_parser(
+        "wipe",
+        help="Remove all database dumps for the upgrade requests on the platform related to your Odoo contract number.",
+        epilog=(
+            "Since this command is a destructive action both a token and the associated contract are mandatory. "
+            "All associated requests of the contract will be wiped out. Use the token of the last request."
+        ),
+    )
+    add_token_argument(parser_wipe)
+    parser_wipe.add_argument(
+        "-c",
+        "--contract",
+        required=True,
+        help="The contract number related to the data you wish to remove.",
+    )
+    parser_wipe.add_argument(
+        "-y",
+        "--yes",
+        action="store_true",
+        help="Pre-approve the data removal",
+    )
+
     args = parser.parse_args()
 
     if args.command in ("test", "production") and args.dump and not args.contract:
@@ -1122,14 +1102,8 @@ def get_env_vars(env_vars, env_file):
     # Check that args are correctly formatted in the form VAR=VAL
     for var in env_vars:
         if not re.match(r"^\w+=", var):
-            raise ValueError("The following environment variable option is badly formatted: %s" % var)
+            raise ValueError("The following environment variable option is badly formatted: " + var)
     return env_vars
-
-
-def set_upgrade_and_data_server_names(host_uri):
-    global UPGRADE_SERVER_NAME, DATA_SERVER_NAME  # noqa: PLW0603
-    UPGRADE_SERVER_NAME = "https://" + host_uri
-    DATA_SERVER_NAME = host_uri
 
 
 def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, aim, env_vars):
@@ -1143,7 +1117,7 @@ def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, ai
 
     # update the context when a database is upgraded
     if dbname:
-        token_name = "db_%s" % dbname
+        token_name = "db_" + dbname
         additional_context.update(
             {
                 "input_source": "db",
@@ -1156,7 +1130,7 @@ def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, ai
     # update the context when a dump is upgraded
     if dump:
         if not os.path.exists(dump):
-            raise UpgradeError("Dump %r not found." % dump)
+            raise UpgradeError("Dump {!r} not found.".format(dump))
 
         dump_absolute_path = os.path.abspath(dump)
         dump_basename, dump_ext = get_dump_basename_and_format(dump)
@@ -1165,9 +1139,10 @@ def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, ai
             and not os.path.isfile(os.path.join(dump_absolute_path, POSTGRES_TABLE_OF_CONTENTS))
         ):
             raise UpgradeError(
-                "The database dump must be in one of the following formats: %s. "
-                "It can also be a directory dump (containing the file %s)."
-                % (", ".join(EXPECTED_DUMP_EXTENSIONS), POSTGRES_TABLE_OF_CONTENTS)
+                (
+                    "The database dump must be in one of the following formats: {}. "
+                    "It can also be a directory dump (containing the file {})."
+                ).format(", ".join(EXPECTED_DUMP_EXTENSIONS), POSTGRES_TABLE_OF_CONTENTS)
             )
 
         if dump_ext == ".zip" and not is_zip_dump_valid(dump):
@@ -1175,7 +1150,7 @@ def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, ai
                 "The zip dump archive is not valid (either corrupted or does not contain, at least, a dump.sql file)"
             )
         if dump_ext == ".sql.gz" and not is_gz_dump_valid(dump):
-            raise UpgradeError("The dump %r is not valid (either corrupted or has the wrong extension)" % dump)
+            raise UpgradeError("The dump {!r} is not valid (either corrupted or has the wrong extension)".format(dump))
 
         token_name = get_token_name(dump_absolute_path)
         additional_context.update(
@@ -1202,17 +1177,16 @@ def process_upgrade_command(dbname, upgraded_db_name, dump, contract, target, ai
                 additional_context.update({"token": saved_token, "reason": reason})
 
                 # make sure that the request is resumed from the correct node
-                set_upgrade_and_data_server_names(host_uri)
-                fsm.update_context({"data_server_name": DATA_SERVER_NAME})
+                set_servers_info(host_uri)
             else:
                 logging.info("Restarting the upgrade request from the beginning")
 
     # run the upgrade
-    fsm.run(start_state, additional_context)
+    STATE_MACHINE.run(start_state, additional_context)
 
     # cleaning
     if dbname:
-        clean_dump(get_dump_name(dbname))
+        clean_dump(ORIGIN_DUMP_NAME)
     remove_saved_token(token_name, target, aim)
 
 
@@ -1237,15 +1211,14 @@ def get_token_name(dump_absolute_path):
     sha = hashlib.sha256()
     for heuristic in heuristics:
         sha.update(str(heuristic).encode() + b"\x1e")
-    return "dump_%s" % sha.hexdigest()
+    return "dump_" + sha.hexdigest()
 
 
 def process_restore_command(token, dbname, aim, restored_name):
     status, host_uri = get_request_status(token)[:2]
-    set_upgrade_and_data_server_names(host_uri)
-    fsm.update_context({"data_server_name": DATA_SERVER_NAME})
+    set_servers_info(host_uri)
     if status == "done":
-        fsm.run(
+        STATE_MACHINE.run(
             "done",
             {
                 "token": token,
@@ -1259,31 +1232,40 @@ def process_restore_command(token, dbname, aim, restored_name):
 
 def process_status_command(token):
     status, _, reason = get_request_status(token)[:3]
-    logging.info("Request status: %s%s", status.upper(), " (%s)" % reason if reason else "")
+    logging.info("Request status: %s%s", status.upper(), " ({})".format(reason) if reason else "")
 
 
 def process_log_command(token, from_byte):
     host_uri = get_request_status(token)[1]
-    set_upgrade_and_data_server_names(host_uri)
-    fsm.update_context({"data_server_name": DATA_SERVER_NAME})
+    set_servers_info(host_uri)
     logs = get_logs(token, from_byte)
     for log in logs.split("\n")[:-1]:
         logging.info(log)
 
 
-def main():
-    args = parse_command_line()
-
-    # configure loggers
-    log_level = logging.DEBUG if args.debug else logging.INFO
-    logging.basicConfig(
-        format="%(asctime)s %(levelname)s: %(message)s",
-        datefmt="%Y-%m-%d %I:%M:%S",
-        level=log_level,
+def process_wipe_command(contract, token, confirmed):
+    logging.info(
+        "This command will remove all dumps, original or upgraded, in our platform for the contract '%s'. "
+        "This will make it impossible to get any support for what happened during the upgrade.",
+        contract,
     )
+    if not confirmed:
+        logging.info("Type 'yes' to confirm")
+        confirmed = input().lower().lstrip() == "yes"
+    if confirmed:
+        logging.info("Wipe process starting")
+        status = request_data_wipe(contract, token)
+        result_message = (
+            "were successfully" if status == "success" else "were partially" if status == "partial" else "failed to be"
+        )
+        logging.info("The dumps associated to the contract '%s' %s wiped out", contract, result_message)
+        if status != "success":
+            logging.info("You can try to run the command again or contact support.")
+    else:
+        logging.info("Wipe process aborted")
 
-    check_binaries_exist(args)
 
+def check_restore(args):
     if "restore_name" in args and args.restore_name:
         output = subprocess.check_output(
             [
@@ -1305,6 +1287,8 @@ def main():
             )
             sys.exit(1)
 
+
+def set_download_paths(args):
     if "dump" in args and args.dump:
         dump_absolute_path = os.path.abspath(args.dump)
 
@@ -1313,57 +1297,70 @@ def main():
         contents so that rsync can send the whole directory without any issues
         """
         if get_path_basename(dump_absolute_path) == POSTGRES_TABLE_OF_CONTENTS:
-            host_dump_upload_path = get_path_nth_parent(dump_absolute_path, 1)
-            host_dump_download_path = get_path_nth_parent(dump_absolute_path, 2)
+            host_dump_upload_path = os.path.abspath(os.path.realpath(dump_absolute_path) + "/..")
+            host_dump_download_path = os.path.abspath(os.path.realpath(dump_absolute_path) + "/../..")
             args.dump = host_dump_upload_path
         else:
             host_dump_upload_path = dump_absolute_path
-            host_dump_download_path = get_path_nth_parent(dump_absolute_path, 1)
+            host_dump_download_path = os.path.abspath(os.path.realpath(dump_absolute_path) + "/..")
     else:
         host_dump_upload_path = "."
         host_dump_download_path = "."
 
-    # define state machine and internal context
-    fsm.set_states(
+    STATE_MACHINE.context.update(
         {
-            "init": init_handler,
-            "new": new_handler,
-            "pending": pending_handler,
-            "progress": progress_handler,
-            "done": done_handler,
-            "failed": failed_handler,
-            "cancelled": cancelled_handler,
+            "host_dump_upload_path": host_dump_upload_path,
+            "host_dump_download_path": host_dump_download_path,
         }
     )
 
-    # handle parameters specific to some commands
-    if args.command in ("test", "production", "restore"):
-        if os.path.isfile(args.ssh_key):
-            try:
-                run_command(["ssh-keygen", "-y", "-f", args.ssh_key])
-            except UpgradeError as e:
-                logging.error(
-                    "The current user is not able to use the SSH key file '%s'.\nError: %s\n"
-                    "Hint: each upgrade request is associated with a SSH key. If the key is lost, this\n"
-                    "script will create another one, but you will have to request a new upgrade.\n"
-                    "In such case, if asked to resume the upgrade, answer 'n'.",
-                    args.ssh_key,
-                    e,
-                )
-                sys.exit(1)
 
-        fsm.update_context(
-            {
-                "ssh_key": args.ssh_key,
-                "core_count": args.core_count,
-                "data_server_name": args.data_server_name,
-                "data_server_user": args.data_server_user,
-                "data_server_path": args.data_server_path,
-                "host_dump_upload_path": host_dump_upload_path,
-                "host_dump_download_path": host_dump_download_path,
-                "no_restore": args.no_restore,
-            }
-        )
+def set_common_context(args):
+    if args.command not in ("test", "production", "restore"):
+        return
+
+    if os.path.isfile(args.ssh_key):
+        try:
+            run_command(["ssh-keygen", "-y", "-f", args.ssh_key])
+        except UpgradeError as e:
+            logging.error(
+                "The current user is not able to use the SSH key file '%s'.\nError: %s\n"
+                "Hint: each upgrade request is associated with a SSH key. If the key is lost, this\n"
+                "script will create another one, but you will have to request a new upgrade.\n"
+                "In such case, if asked to resume the upgrade, answer 'n'.",
+                args.ssh_key,
+                e,
+            )
+            sys.exit(1)
+
+    STATE_MACHINE.context.update(
+        {
+            "ssh_key": args.ssh_key,
+            "core_count": args.core_count,
+            "data_server_user": args.data_server_user,
+            "data_server_path": args.data_server_path,
+            "no_restore": args.no_restore,
+        }
+    )
+
+
+def main():
+    args = parse_command_line()
+    logging.basicConfig(
+        format="%(asctime)s %(levelname)s: %(message)s",
+        datefmt="%Y-%m-%d %I:%M:%S",
+        level=logging.DEBUG if args.debug else logging.INFO,
+    )
+
+    if not UPGRADE_SERVER_NAME.startswith("https://"):
+        logging.error("Must use https for the upgrade platform.")
+        sys.exit(1)
+    STATE_MACHINE.context["upgrade_server_name"] = UPGRADE_SERVER_NAME
+
+    check_binaries_exist(args)
+    check_restore(args)
+    set_download_paths(args)
+    set_common_context(args)
 
     try:
         if args.command in ("test", "production"):
@@ -1387,6 +1384,9 @@ def main():
 
         elif args.command == "log":
             process_log_command(args.token, args.from_byte)
+
+        elif args.command == "wipe":
+            process_wipe_command(args.contract, args.token, args.yes)
 
     except (UpgradeError, StateMachine.Error) as e:
         logging.error("Error: %s", e)
