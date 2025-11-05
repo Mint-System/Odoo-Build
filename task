@@ -830,7 +830,7 @@ test-image() {
         echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
 
         echo -e "\033[38;5;214mTEST\033[0m: Install python package."
-        export PYTHON_INSTALL="cowsay"
+        export PYTHON_INSTALL="prometheus-client,pyjwt"
         activate-venv
         ./images/odoo/bin/install-python-packages
 

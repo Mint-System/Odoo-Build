@@ -7,7 +7,13 @@ if [[ -n "$PYTHON_INSTALL" ]]; then
     http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ | grep 'HTTP/2 200')
 
     if [[ -n "$http_pypi_ok" ]]; then
-        log-entrypoint "Install Python packages: $PYTHON_INSTALL"
-        uv pip install $(echo "$PYTHON_INSTALL" | tr ',' ' ')
+        # Handle both newline and comma-separated formats
+        if [[ "$PYTHON_INSTALL" == *","* ]]; then
+            # Comma-separated format
+            uv pip install $(echo "$PYTHON_INSTALL" | tr ',' ' ')
+        else
+            # Newline-separated or space-separated format
+            uv pip install $PYTHON_INSTALL
+        fi
     fi
 fi
