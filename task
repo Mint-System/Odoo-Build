@@ -1881,27 +1881,25 @@ migrate-module() {
         exit
     fi
     local module_path="$1"
-
-    activate-venv
-    set-addons-path
-
-    if [[ "$ODOO_VERSION" == "17.0" ]]; then
-        echo "Migrate views of module $module_path to ${ODOO_VERSION}..."
-        odoo --database "$DATABASE" -i "$module_path" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
-    fi
-
     local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
+    local directory=$(dirname "$module_path")
+    local module=$(basename "$module_path")
+
+    # if [[ "$ODOO_VERSION" == "17.0" ]]; then
+    #     echo "Migrate views of module $module_path to ${ODOO_VERSION}..."
+    #     odoo --database "$DATABASE" -i "$module_path" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
+    # fi
 
     # if [[ "$ODOO_VERSION" == "18.0" ]]; then
     #     echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
-    #     odoo upgrade_code --addons-path "$module_path" --from "$source_odoo_version"
-    # fi
-    # echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
-    # sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$MODULE/__manifest__.py"
+    #     odoo upgrade_code --addons-path "$MODULE" --from "$source_odoo_version"
+    
+    #     echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
+    #     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
+    # else
 
-    local directory=$(dirname "$module_path")
-    local modules=$(basename "$module_path")
-    echo "Run odoo-module-migrator for $modules with source $source_odoo_version and target ${ODOO_VERSION}..."
+    activate-venv
+    echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
     odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
         --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
 }
