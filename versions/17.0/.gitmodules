@@ -120,3 +120,7 @@
 	path = oca/maintenance
 	url = git@github.com:OCA/maintenance.git
 	branch = 17.0
+[submodule "addons/account_reconcile"]
+	path = addons/account_reconcile
+	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
+	branch = 17.0
