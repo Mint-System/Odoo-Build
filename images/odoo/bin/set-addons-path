@@ -30,11 +30,16 @@ fi
 if [[ -n "$odoo_addons_path" ]]; then
     log-entrypoint "Resolve addons path for Odoo ${ODOO_VERSION}..."
 
-    # Search for module manifest files and return list of module paths
-    odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | xargs -I {} find {} -type f -name '__manifest__.py' | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr '\n' ',' | sed 's/,$//')
-
-    # Set parent folder of module paths as new addons path
-    odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | xargs -I {} dirname {} | sort -u | tr '\n' ',' | sed 's/,$//')
+    # Search for module manifest files, get module paths, then parent directories
+    odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | sort -u | while read -r dir; do
+        if [[ -d "$dir" ]]; then
+            find "$dir" -type f -name '__manifest__.py' -exec rg -l -i "version.+\"${ODOO_VERSION}" {} +
+        fi    
+    done | while read -r manifest; do
+        dirname "$manifest"
+    done | sort -u | uniq | while read -r module_dir; do
+        dirname "$module_dir"
+    done | sort -u | uniq | tr '\n' ',' | sed 's/,$//')
 
     # Combine predefined addons path and odoo addons path
     addons_path=$(echo "${odoo_addons_path},${ADDONS_PATH}")
