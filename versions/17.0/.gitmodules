@@ -124,3 +124,7 @@
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
 	branch = 17.0
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
+	branch = 17.0
