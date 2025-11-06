@@ -1,0 +1,11 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//p[@name='payment_communication']/t" position="replace">
+        <t t-if="o.partner_bank_id.l10n_ch_qr_iban">
+            <br/>
+ on this account: <span t-field="o.partner_bank_id.l10n_ch_qr_iban" class="fw-bold"/>
+ -        <span t-field="o.partner_bank_id.bank_id.name" class="fw-bold"/>
+    </t>
+</xpath>
+
+</data>
