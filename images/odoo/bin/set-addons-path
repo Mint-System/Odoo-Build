@@ -33,8 +33,8 @@ if [[ -n "$odoo_addons_path" ]]; then
     # Search for module manifest files, get module paths, then parent directories
     odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | sort -u | while read -r dir; do
         if [[ -d "$dir" ]]; then
-            find "$dir" -type f -name '__manifest__.py' -exec rg -l -i "version.+\"${ODOO_VERSION}" {} +
-        fi    
+            rg -l -i --files-with-matches "version.+\"${ODOO_VERSION}" --glob="*__manifest__.py" "$dir"
+        fi
     done | while read -r manifest; do
         dirname "$manifest"
     done | sort -u | uniq | while read -r module_dir; do
