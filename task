@@ -815,7 +815,7 @@ test-image() {
         local server_tools_git_ref=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${server_tools_git_ref}"
         # This will remove all SSH keys at the end
-        ./images/odoo/bin/clone-git-addons
+        # ./images/odoo/bin/clone-git-addons
         rm -rf "$LOCAL_PATH/github.com" # Cleanup for next run
 
         echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
@@ -1059,7 +1059,7 @@ install() {
         sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
         echo -e "\033[38;5;214mApt\033[0m: Install xmllint, ripgrep and gettext"
-        sudo apt install -y libxml2-utils gettext
+        sudo apt install -y libxml2-utils ripgrep gettext
 
     elif [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
 
