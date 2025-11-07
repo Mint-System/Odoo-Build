@@ -11,6 +11,11 @@ source set-addons-path
 
 log-entrypoint "Run test for these modules: $test_modules"
 log-entrypoint "Test coverage includes: $TEST_ADDONS_DIR/*"
+without_demo=${WITHOUT_DEMO:=True}
+odoo_init_param=""
+if [[ "$without_demo" = "True" ]]; then
+    odoo_init_param="--without-demo=all"
+fi
 unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
@@ -19,5 +24,6 @@ unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     --test-enable \
     --stop-after-init \
     --http-port=8068 \
-    --gevent-port=8071
+    --gevent-port=8071 \
+    $odoo_init_param
 coverage xml
