@@ -1058,7 +1058,7 @@ install() {
         echo -e "\033[38;5;214mApt\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
-        echo -e "\033[38;5;214mApt\033[0m: Install xmllint and gettext"
+        echo -e "\033[38;5;214mApt\033[0m: Install xmllint, ripgrep and gettext"
         sudo apt install -y libxml2-utils gettext
 
     elif [[ "$OS_RELEASE" =~ ^(Fedora Linux)$ ]]; then
@@ -1069,11 +1069,14 @@ install() {
         echo -e "\033[38;5;214mDnf\033[0m: Install psycopg2 build dependencies"
         sudo dnf install -y postgresql-devel
 
+        echo -e "\033[38;5;214mApt\033[0m: Install ripgrep and gettext"
+        sudo dnf install -y ripgrep gettext
+
     elif [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
 
         echo 'Welcome daring Mac user. Let'\''s try our best to get this working.'
-        echo -e "\033[38;5;214mBrew\033[0m: Install packages with brew."
-        brew install gettext libsasl2 openldap openssl libxml2 grep
+        echo -e "\033[38;5;214mBrew\033[0m: Install required packages with brew."
+        brew install gettext libsasl2 openldap openssl libxml2 grep ripgrep
 
     elif [[ "$OS_RELEASE" =~ ^(Arch Linux|SteamOS)$ ]]; then
 
@@ -1081,6 +1084,10 @@ install() {
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
         sudo pacman -S --noconfirm base-devel postgresql
+
+        echo -e "\033[38;5;214mApt\033[0m: Install ripgrep"
+        sudo pacman -S --noconfirm ripgrep
+
     else
         echo "The operating system $OS_RELEASE is not supported."
         exit 1
