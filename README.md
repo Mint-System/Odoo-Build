@@ -329,7 +329,7 @@ copier copy --UNSAFE https://github.com/OCA/oca-addons-repo-template.git "templa
 
 Answer with:
 
--` $VERSION`
+- `$VERSION`
 - `Mint-System`
 - `Mint System GmbH`
 - `server-tools`

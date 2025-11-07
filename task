@@ -128,11 +128,11 @@ help-table() {
     printf "$column" 'lint-module' '[path]' 'Run pylint odoo for module.'
     printf "$column" 'lint-module-repo' '[path]' 'Run pylint odoo for modules in repo folder.'
     printf "$column" 'list-modules' '[path]' 'Get modules in path as bash array.'
-    printf "$column" 'pytest-module' '[db][name,path]' 'Run module tests with pytest.'
+    printf "$column" 'pytest-module' '[path]' 'Run module tests with pytest.'
     printf "$column" 'release-module' '[path]' 'Create GitHub release for a module.'
     printf "$column" 'remove-module' '[db][name]' 'Remove target Odoo module.'
-    printf "$column" 'test-module' '[db][name,path]' 'Test target Odoo module.'
-    printf "$column" 'test-module-repo' '[db][path]' 'Test target Odoo modules in repo folder.'
+    printf "$column" 'test-module' '[path]' 'Test target Odoo module.'
+    printf "$column" 'test-modules' '[path]' 'Test target Odoo modules in repo folder.'
     printf "$column" 'translate-module' '[path][lang][db]' 'Generate translation for Odoo module.'
     printf "$column" 'upload-module' '[env][path]' 'Zip and upload Odoo module.'
     printf "$column" 'visualize-dependencies' '[path]' 'Generate visualizations of module dependencies.'
@@ -1849,24 +1849,6 @@ lint-module-repo() {
     done
 }
 
-test-module-repo() {
-    local database="$1"
-    local module_path="$2"
-
-    # Use default database if second param is not given
-    if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
-        module_path="$1"
-    fi
-
-    local modules=$(get-modules "$module_path" basename)
-
-    for module in ${modules//,/ }; do
-        echo "Testing module ${module}..."
-        test-module "$database" "$module"
-    done
-}
-
 # Module commands
 
 init-module() {
@@ -2011,42 +1993,57 @@ lint-module() {
 }
 
 test-module() {
-    local database="$1"
-    local module_name=$(basename "$2")
-
-    # Use default database if second param is not given
-    if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
-        module_name=$(basename "$1")
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
+    local module=$(basename "$1")
 
     set-addons-path
-    echo "Testing module $module_name on ${database}..."
-    odoo -d "$database" -i "$module_name" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
+    echo "Testing module $module..."
+    odoo -d "$ODOO_DATABASE" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
+}
+
+test-modules() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local modules=$(get-modules "$1" basename)
+    set-addons-path
+
+    echo "Collect requirements.txt files in $1."
+    find "$1" -type f -name "requirements.txt" -exec uv pip install -r {} \;
+
+    echo "Collect test-requirements.txt files in $1."
+    find "$1" -type f -name "test-requirements.txt" -exec uv pip install -r {} \;
+
+    depends_modules=$(manifestoo --select-addons-dir "$1" list-depends --separator=,)
+    echo "Setup test database with depends modules: $depends_modules"
+    odoo -d "$ODOO_DATABASE" -i "$depends_modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+
+    echo "Testing modules: $modules"
+    odoo -d "$ODOO_DATABASE" -i "$modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 pytest-module() {
-    local database="$1"
-    local module_path="$2"
-
-    # Use default database if second param is not given
-    if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
-        module_path="$1"
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
     fi
+    local module_path="$1"
 
+    echo "Setup custom tmp/odoo.conf for pytest."
     set-addons-path
-
     local odoo_config="tmp/odoo.conf"
-    echo "Write $odoo_config"
-
     echo "[options]" > "$odoo_config"
     echo "addons_path=$ADDONS_PATH" >> "$odoo_config"
     echo "db_host = localhost" >> "$odoo_config"
     echo "db_password = odoo" >> "$odoo_config"
     echo "db_user = odoo" >> "$odoo_config"
 
-    pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$database" "$module_path"
+    echo "Run pytest with odoo-http option..."
+    pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$ODOO_DATABASE" "$module_path"
 }
 
 remove-module() {
