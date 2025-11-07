@@ -15,6 +15,8 @@ All notable changes to this project will be documented in this file. The format 
 - Added `hatch-odoo` and new command option `start hatch`.
 - Repo templates for Odoo 19.0.
 - Generate module checksum with `get-module-checksum`.
+- New command `run-open-upgrade`.
+- Added `OpenUpgrade` as submodule.
 
 ### Changed
 
@@ -27,6 +29,7 @@ All notable changes to this project will be documented in this file. The format 
 - **BREAKING**: Renamed `native` to `source`.
 - Simplified the install command.
 - Replace `generate-module-docs` with `generate-oca-module-docs`.
+- Renamed `upgrade-odoo` to `run-enterprise-upgrade`.
 
 ## 2025-09-12
 

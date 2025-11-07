@@ -252,3 +252,7 @@
 	path = oca/web-api
 	url = git@github.com:OCA/web-api.git
 	branch = 15.0
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = git@github.com:OCA/OpenUpgrade.git
+	branch = 15.0

@@ -183,7 +183,8 @@ help-table() {
     printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
     # Upgrade
     printf "$column" 'migrate-module' '[path]' 'Migrate module code from to target Odoo version.'
-    printf "$column" 'upgrade-odoo' '[db][version][mode]' 'Run the Odoo upgrade scripts. Default mode ist '\''test'\''.'
+    printf "$column" 'run-enterprise-upgrade' '[db][version][mode]' 'Run the Odoo Enterprise upgrade scripts. Default mode ist '\''test'\''.'
+    printf "$column" 'run-open-upgrade' '[db][version]' 'Run the Odoo OpenUpgrade scripts.'
 }
 
 help() {
@@ -978,7 +979,7 @@ install-odoo-scripts() {
     curl -L https://ansible.build/odoo_scripts/install | bash -s -- --user
 }
 
-upgrade-odoo() {
+run-enterprise-upgrade() {
     if [[ -z "$1" ]]; then
         echo '$1/database is empty.'
         exit
@@ -1004,6 +1005,39 @@ upgrade-odoo() {
     export PGPASSWORD=odoo
     python <(curl -s https://upgrade.odoo.com/upgrade) "$mode" -d "$database" -t "$odoo_target_version" -r "$new_database"
     echo 'Upgrade finished successfully.'
+}
+
+run-open-upgrade() {
+    if [[ -z "$1" ]]; then
+        echo '$1/database is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2/version is empty.'
+        exit
+    fi
+
+    local database="$1"
+    local odoo_target_version="$2"
+    local new_database="${database}_${odoo_target_version}"
+
+    echo "Get the current version of the database."
+
+    echo "Checkout the Odoo version 15.0..."
+
+    echo "Run the upgrade script for 15.0..."
+
+    echo "Checkout the Odoo version 16.0..."
+
+    echo "Run the upgrade script for 16.0..."
+
+    echo "Checkout the Odoo version 17.0..."
+
+    echo "Run the upgrade script for 17.0..."
+
+    echo "Checkout the Odoo version 18.0..."
+
+    echo "Run the upgrade script for 18.0..."
 }
 
 # Install commands
@@ -1082,6 +1116,7 @@ install() {
     cd odoo
     uv pip install -e .
     grep -v "python-ldap" requirements.txt | uv pip install -r -
+    cd ..
 
     # Install inotify
     echo -e "\033[38;5;214mPython\033[0m: Install $PYTHON_NOTIFY."
@@ -1093,6 +1128,13 @@ install() {
         sudo sysctl -p /etc/sysctl.d/99-sysctl.conf
         echo -e "\033[38;5;214mSystem\033[0m: Updated fs.inotify.max_user_watches to 524288"
     fi
+
+    # Fixes for Odoo versions
+    if [[ "$ODOO_VERSION" == "14.0" ]] ; then
+        echo -e "\033[38;5;214mPython\033[0m: Fix shebang for odoo binary."
+        sed -i '1s|.*|#!'"$PWD"'/.venv14.0/bin/python|' .venv14.0/bin/odoo
+    fi
+
 }
 
 # Process commands
@@ -1893,7 +1935,7 @@ migrate-module() {
     # if [[ "$ODOO_VERSION" == "18.0" ]]; then
     #     echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
     #     odoo upgrade_code --addons-path "$MODULE" --from "$source_odoo_version"
-    
+
     #     echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
     #     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
     # else

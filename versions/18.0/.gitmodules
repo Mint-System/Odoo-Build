@@ -156,3 +156,7 @@
 	path = oca/survey
 	url = git@github.com:OCA/survey.git
 	branch = 18.0
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = git@github.com:OCA/OpenUpgrade.git
+	branch = 18.0

@@ -276,3 +276,7 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 16.0
 	shallow = true
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = git@github.com:OCA/OpenUpgrade.git
+	branch = 16.0

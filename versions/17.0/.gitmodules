@@ -128,3 +128,7 @@
 	path = addons/partner_contact
 	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
 	branch = 17.0
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = git@github.com:OCA/OpenUpgrade.git
+    branch = 17.0
