@@ -7,6 +7,7 @@ All notable changes to this project will be documented in this file. The format 
 ### Removed
 
 - Removed command `setup-mail`.
+- Removed `activate-venv` call from all functions.
 
 ### Added
 
@@ -17,6 +18,8 @@ All notable changes to this project will be documented in this file. The format 
 - Generate module checksum with `get-module-checksum`.
 - New command `run-open-upgrade`.
 - Added `OpenUpgrade` as submodule.
+- Added `activate-venv` as default call for all commands.
+- New commadn `aggregate-git-repos`.
 
 ### Changed
 

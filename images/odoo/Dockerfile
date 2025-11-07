@@ -89,6 +89,7 @@ RUN apt-get update && \
         libcairo2 \
         libxml2 \
         libxslt1.1 \
+        ripgrep
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \

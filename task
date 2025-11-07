@@ -31,6 +31,7 @@ help-table() {
     printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
     printf "$column" 'show-env' '[env]' 'Output content of the env file.'
     # Git
+    printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the provide repos.yaml.'
     printf "$column" 'add-git-submodule' '[url] [path]' 'Add git submodule.'
     printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
     printf "$column" 'checkout-git-folder' '' 'Checkout git commit.'
@@ -201,6 +202,7 @@ help() {
     echo
 }
 
+
 # Static env vars
 
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
@@ -307,7 +309,6 @@ info() {
 }
 
 version() {
-    activate-venv
     uv --version
     wkhtmltopdf -V
     if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
@@ -320,7 +321,6 @@ version() {
 }
 
 generate-admin-password() {
-    activate-venv
     if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
     export ODOO_PASSWORD="$1"
     bin/hash-password
@@ -359,9 +359,11 @@ init-venv() {
 }
 
 activate-venv() {
-    echo "Source virtualenv .venv$ODOO_VERSION."
-    source ".venv$ODOO_VERSION/bin/activate"
-    echo "$(python --version) is active."
+    if [[ -f  ".venv$ODOO_VERSION/bin/activate" ]]; then
+        source ".venv$ODOO_VERSION/bin/activate"
+    else
+        echo "Could not find .venv$ODOO_VERSION/bin/active. Use init-venv to initalize."
+    fi
 }
 
 remove-venv() {
@@ -480,8 +482,6 @@ load-ssh-key() {
 # Docs commands
 
 lint() {
-    activate-venv
-
     echo "Run pre-commit in $PWD"
     pre-commit run
 }
@@ -529,7 +529,6 @@ For each major release there are multiple revisions.\n" > "revisions.md"
 
 update-modules-doc() {
     echo 'Update module doc file.'
-    activate-venv
     ./bin/update-modules-doc
 }
 
@@ -622,7 +621,6 @@ get-module-checksum() {
     if [[ -z "$1" ]]; then
         echo '\$1 is empty.'
     else
-        activate-venv >/dev/null 2>&1
         bin/get-module-checksum "$1"
     fi
 }
@@ -636,7 +634,6 @@ list-modules() {
 # Container commands
 
 archive-docker-tags() {
-    activate-venv
     export CONTAINER_CONFIG
     python bin/archive-docker-tags
 }
@@ -832,7 +829,6 @@ test-image() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Install python package."
         export PYTHON_INSTALL="prometheus-client,pyjwt"
-        activate-venv
         ./images/odoo/bin/install-python-packages
 
         echo -e "\033[38;5;214mTEST\033[0m: Sync python project."
@@ -856,7 +852,6 @@ dev-dependencies = [
     "black>=23.0.0",
 ]
 EOF
-        activate-venv
         ./images/odoo/bin/sync-python-project
         uv pip list
 
@@ -1190,7 +1185,6 @@ start() {
     fi
 
     if [[ "$1" =~ "source" ]]; then
-        activate-venv
         export SMTP_SERVER=localhost
         template-odoo-rc
         local port=8069
@@ -1208,7 +1202,6 @@ start() {
     fi
 
     if [[ "$1" =~ "hatch" ]]; then
-        activate-venv
         export SMTP_SERVER=localhost
         template-odoo-rc
         local port=8069
@@ -1237,8 +1230,6 @@ debug() {
         echo '$1 is empty.'
         exit
     fi
-
-    activate-venv
     set-addons-path
 
     local port=8069
@@ -1265,7 +1256,6 @@ run() {
         exit
     fi
 
-    activate-venv
     template-compose
 
     echo "Run '$1' container with command '$2'."
@@ -1306,8 +1296,6 @@ record-with-memray() {
         echo '$1 is empty.'
         exit
     fi
-
-    activate-venv
     set-addons-path
 
     local port=8069
@@ -1428,7 +1416,6 @@ test-project() {
         git -C oca/partner-contact checkout .
         remove-env test
     else
-        activate-venv
         version
         info
         set -e
@@ -1573,7 +1560,6 @@ shell() {
     fi
     local code="$2"
 
-    activate-venv
     set-addons-path
     if [[ -n "$code" ]]; then
         echo "$code" | odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
@@ -1600,7 +1586,6 @@ init-db() {
         database="$ODOO_DATABASE"
     fi
 
-    activate-venv
     set-addons-path
     template-odoo-rc
 
@@ -1657,9 +1642,8 @@ load-language() {
         database="$ODOO_DATABASE"
         language="$1"
     fi
-
-    activate-venv
     set-addons-path
+
     echo "Setup language $language for database $database:"
     odoo -d "$database" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$language"
 }
@@ -1715,7 +1699,6 @@ disable-mailserver() {
         exit
     fi
 
-    activate-venv
     load-env "$1"
     images/odoocli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
     images/odoocli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
@@ -1727,7 +1710,6 @@ change-uuid() {
         exit
     fi
 
-    activate-venv
     load-env "$1"
     local uuid=$(uuidgen)
     echo "Set uuid $uuid for $1."
@@ -1740,7 +1722,6 @@ update-module-list() {
         exit
     fi
 
-    activate-venv
     set-addons-path
     echo "env['ir.module.module'].update_list()" | odoo shell --database "$1" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
@@ -1773,7 +1754,6 @@ cloc-odoo() {
         database="$ODOO_DATABASE"
     fi
 
-    activate-venv
     set-addons-path
     odoo cloc -d "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
@@ -1807,7 +1787,7 @@ install-requirements() {
     fi
 
     local file_name=$(basename "$file_path")
-    if [[ "$file_name" != "requirements.txt" ]]; then
+    if ! [[ "$file_name" =~ .*requirements\.txt$ ]]; then
         echo '$1 must point to requirements.txt file.'
         exit
     fi
@@ -1817,14 +1797,12 @@ install-requirements() {
         echo 'Installing python packages in container...'
         $CONTAINER_ENGINE exec -u root odoo python -m pip install -r "/mnt/$file_path"
     else
-        activate-venv
         echo 'Installing python packages in virutal env...'
         uv pip install -r "$file_path"
     fi
 }
 
 list-packages() {
-    activate-venv
     uv pip list
 }
 
@@ -1910,7 +1888,6 @@ init-module() {
         local modules=$(basename "$module_path")
     fi
 
-    activate-venv
     set-addons-path
     echo "Initialize module $modules on ${database}..."
     odoo -d "$database" -i "$modules" --config "$ODOO_RC" \
@@ -1940,7 +1917,6 @@ migrate-module() {
     #     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
     # else
 
-    activate-venv
     echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
     odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
         --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
@@ -1961,7 +1937,6 @@ update-module() {
         module_name=$(basename "$1")
     fi
 
-    activate-venv
     set-addons-path
     echo "Updating module $module_name on ${database}..."
     if [[ -n "$ODOO_PARAM" ]]; then
@@ -1992,7 +1967,6 @@ translate-module() {
         database="$ODOO_DATABASE"
     fi
 
-    activate-venv
     set-addons-path
     echo "Generate $language tranlsation file for $module_name on ${database}..."
     mkdir -p "$module_path/i18n/"
@@ -2009,7 +1983,6 @@ lint-module() {
         echo '$1 is empty.'
         exit
     fi
-    activate-venv
 
     echo "Set file and folder permissions on $1"
     find "$1" -type d -exec chmod u=rwx,go=rx {} \;
@@ -2040,7 +2013,6 @@ test-module() {
         module_name=$(basename "$1")
     fi
 
-    activate-venv
     set-addons-path
     echo "Testing module $module_name on ${database}..."
     odoo -d "$database" -i "$module_name" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
@@ -2056,7 +2028,6 @@ pytest-module() {
         module_path="$1"
     fi
 
-    activate-venv
     set-addons-path
 
     local odoo_config="tmp/odoo.conf"
@@ -2086,7 +2057,6 @@ remove-module() {
         module_name=$(basename "$1")
     fi
 
-    activate-venv
     set-addons-path
     echo "Remove module $module_name"
     echo "self.env['ir.module.module'].search([('name', '=', '$module_name')]).button_immediate_uninstall()" |
@@ -2102,7 +2072,6 @@ generate-module() {
     local module_name=$(basename "$1")
     local parent_dir=$(dirname "$1")
 
-    activate-venv
     echo "Scaffolding module $module_name in ${parent_dir}..."
     odoo scaffold "$module_name" "$parent_dir" -t templates/module
 }
@@ -2114,7 +2083,6 @@ generate-module-docs() {
     fi
     local module_path="$1"
     local manifest_path="$module_path/__manifest__.py"
-    activate-venv
 
     echo 'Setup readme folder'
     mkdir -p "$module_path/readme"
@@ -2358,7 +2326,6 @@ reset-views() {
         key=$(basename "$1")
     fi
 
-    activate-venv
     set-addons-path
     echo "Reset views for key $key"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$key')]).reset_arch(mode='hard')" |
@@ -2401,7 +2368,6 @@ install-snippet() {
     # Set default values
     : ${type:='qweb'}
 
-    activate-venv
     load-env "$1"
     echo "Search for view with name $module_name.$xml_id"
     inherit_id=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$xml_id'), ('module', '=', '$module_name')]")
@@ -2433,7 +2399,6 @@ update-snippet() {
     local file=$(basename "$2")
     local name="mint_system.${file%.xml}"
 
-    activate-venv
     load-env "$1"
     echo "Update view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
@@ -2453,7 +2418,6 @@ disable-snippet() {
     local file=$(basename "$2")
     local name="mint_system.${file%.xml}"
 
-    activate-venv
     load-env "$1"
     echo "Disable view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
@@ -2473,7 +2437,6 @@ remove-snippet() {
     local file=$(basename "$2")
     local name="mint_system.${file%.xml}"
 
-    activate-venv
     load-env "$1"
     echo "Remove view with name $name"
     images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$name')]"
@@ -2555,6 +2518,15 @@ add-git-submodule() {
     # Remove from working tree
     # rm -rf .git/modules/"$2" || true
     # git rm --cached "$2" || true
+}
+
+aggregate-git-folders() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+
+    gitaggregate -c "$1" --expand-env
 }
 
 ls-git-folder() {
@@ -2978,19 +2950,15 @@ commit-and-push-revision() {
 # RPC commands
 
 test-xmlrpc() {
-    activate-venv
-
     load-env "$1"
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
 }
 
 odoocli(){
-    activate-venv
     images/odoocli/bin/odoocli "$@"
 }
 
 export-website-data() {
-    activate-venv
     if [[ -n "$1" ]]; then
         load-env $1
     fi
@@ -3009,7 +2977,6 @@ export-website-data() {
 }
 
 import-website-data() {
-    activate-venv
     if [[ -n "$1" ]]; then
         load-env $1
     fi
@@ -3051,6 +3018,7 @@ serve-vuepress() {
 }
 
 if declare -f "$1" > /dev/null; then
+    activate-venv
     "$1" "${@:2}"
 else
     case "$1" in

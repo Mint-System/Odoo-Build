@@ -17,9 +17,10 @@ else
 fi
 
 log-entrypoint "Install depends modules for testing: $test_depends_modules"
+odoo_init_lang=${ODOO_INIT_LANG:="en_US"}
 unbuffer /opt/odoo-venv/bin/odoo \
     -d "$ODOO_DATABASE" \
     -i "${test_depends_modules:-base}" \
-    --load-language=en_US \
+    --load-language=$odoo_init_lang \
     --stop-after-init \
     --http-port=8068
