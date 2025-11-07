@@ -2883,13 +2883,10 @@ checkout-revision() {
 
     load-revision "$ODOO_REVISION"
 
-    echo 'Checkout and tag git repos...'
+    echo 'Checkout Odoo git repos...'
     git -C odoo checkout $ODOO_REF
-    git -C odoo tag -a $ODOO_REVISION -m "$ODOO_REVISION"
     git -C enterprise checkout $ODOO_ENTERPRISE_REF
-    git -C enterprise tag -a $ODOO_REVISION -m "$ODOO_REVISION"
     git -C themes checkout $ODOO_THEME_REF
-    git -C themes tag -a $ODOO_REVISION -m "$ODOO_REVISION"
 }
 
 create-revision() {
