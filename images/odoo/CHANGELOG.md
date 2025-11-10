@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. The format 
 - Add new env vars: `DB_MAXCONN`, `LOG_DB`, `LOG_HANDLER`, `LOGFILE`, `LIMIT_MEMORY_HARD`, `LIMIT_MEMORY_SOFT`, `LIMIT_MEMORY_HARD_GEVENT`, `LIMIT_MEMORY_SOFT_GEVENT`.
 - Env var `ADDITIONAL_ODOO_RC` to append custom config to main section.
 - Env var `IR_CONFIG_PARAMETER` to append to ir config section.
+- Env var `ODOO_ENTERPRISE_PATH` to set path to Odoo Enterprise modules.
 
 ### Fixed
 

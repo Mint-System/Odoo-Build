@@ -6,22 +6,22 @@ if [[ -z "$GITHUB_PAT" ]] || [[ -z "$GITHUB_USERNAME" ]]; then
     exit 1
 fi
 
-local_path="${LOCAL_PATH:="/var/lib/odoo/enterprise"}"
-ref_file="$local_path/.last_ref"
+odoo_enterprise_path="${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}"
+ref_file="$odoo_enterprise_path/.last_ref"
 
-mkdir -p "$local_path"
+mkdir -p "$odoo_enterprise_path"
 last_ref=""
 if [[ -f "$ref_file" ]]; then
     last_ref="$(cat "$ref_file")"
 fi
 
 if [[ -z "$last_ref" ]] || [[ "$last_ref" != "$ODOO_ENTERPRISE_REF" ]]; then
-    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $local_path."
-    find "$local_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
-    curl -L -o "$local_path/archive.tar.gz" \
+    log-entrypoint "Downloading Odoo Enterprise $ODOO_ENTERPRISE_REF to $odoo_enterprise_path."
+    find "$odoo_enterprise_path" -mindepth 1 -maxdepth 1 ! -name '.last_ref' -exec rm -rf {} +
+    curl -L -o "$odoo_enterprise_path/archive.tar.gz" \
         "https://${GITHUB_USERNAME}:${GITHUB_PAT}@github.com/odoo/enterprise/archive/$ODOO_ENTERPRISE_REF.tar.gz"
-    tar -xzf "$local_path/archive.tar.gz" --strip-components=1 -C "$local_path"
-    rm "$local_path/archive.tar.gz"
+    tar -xzf "$odoo_enterprise_path/archive.tar.gz" --strip-components=1 -C "$odoo_enterprise_path"
+    rm "$odoo_enterprise_path/archive.tar.gz"
     echo "$ODOO_ENTERPRISE_REF" > "$ref_file"
 else
     log-entrypoint "Odoo Enterprise $ODOO_ENTERPRISE_REF already downloaded. Skipping download."
