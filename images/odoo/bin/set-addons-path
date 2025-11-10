@@ -9,12 +9,6 @@ if [[ -d '/mnt/extra-addons' ]]; then
     odoo_addons_path="/mnt/extra-addons,$ODOO_ADDONS_PATH"
 fi
 
-# Add enterprise path to addons path
-if [[ -d '/var/lib/odoo/enterprise' ]]; then
-    log-entrypoint 'Prepend /var/lib/odoo/enterprise to addons path.'
-    odoo_addons_path="/var/lib/odoo/enterprise,$odoo_addons_path"
-fi
-
 # Add git path to addons path
 if [[ -d '/var/lib/odoo/git' ]]; then
     log-entrypoint 'Prepend /var/lib/odoo/git to addons path.'
@@ -43,6 +37,13 @@ if [[ -n "$odoo_addons_path" ]]; then
 
     # Combine predefined addons path and odoo addons path
     addons_path=$(echo "${odoo_addons_path},${ADDONS_PATH}")
+fi
+
+# Add enterprise path to addons path
+odoo_enterprise_path=${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}
+if [[ -d "$odoo_enterprise_path" ]]; then
+    log-entrypoint "Prepend $odoo_enterprise_path to addons path."
+    addons_path="$odoo_enterprise_path,$addons_path"
 fi
 
 export ADDONS_PATH="$addons_path"

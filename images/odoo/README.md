@@ -127,6 +127,7 @@ services:
       FORGEJO_PAT: *****
       ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#18.0,git@github.com:OCA/server-tools.git#18.0"
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
+      ODOO_ENTERPRISE_PATH: /mnt/enterprise
       ODOO_DATABASE: "18.0"
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
@@ -395,6 +396,7 @@ The entrypoint script searches for module folders in the addons path and creates
   - `/var/lib/odoo/git` Reserved location for git repos.
   - `$TEST_ADDONS_DIR` Variable location for module testing.
   - `/opt/odoo/addons` Reserved location for Odoo community modules.
+- `ODOO_ENTERPRISE_PATH` Path to Odoo Enterprise modules. Default is `/var/lib/odoo/enterprise`.
 
 ### Initialize
 
