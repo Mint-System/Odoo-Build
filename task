@@ -2107,7 +2107,7 @@ generate-module-docs() {
     echo 'Copy LICENSE'
     cp templates/module/LICENSE "$module_path/"
 
-    echo "Generator OCA readme for $ORG_NAME org."
+    echo "Generate OCA readme for $ORG_NAME org."
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
     oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
