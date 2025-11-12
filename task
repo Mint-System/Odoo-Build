@@ -2019,7 +2019,7 @@ test-modules() {
     find "$1" -type f -name "test-requirements.txt" -exec uv pip install -r {} \;
 
     depends_modules=$(manifestoo --select-addons-dir "$1" list-depends --separator=,)
-    echo "Setup test database with depends modules: $depends_modules"
+    echo "Setup test database with "$ODOO_LANGUAGE" lang and depends modules: $depends_modules"
     odoo -d "$ODOO_DATABASE" -i "$depends_modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 
     echo "Testing modules: $modules"

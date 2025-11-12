@@ -25,6 +25,7 @@ Run the upgrade script:
 
 ```bash
 docker run -it \
+    --name odoo-upgrade \
     -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" \
     --network="$NETWORK" mintsystem/odoo-upgrade \
     test -d "$DATABASE" -t "$TARGET_VERSION" -r "$TARGET_DATABASE"
@@ -46,3 +47,23 @@ Update the upgrade script:
 ```bash
 wget https://upgrade.odoo.com/upgrade -O images/odoo-upgrade/bin/upgrade
 ```
+
+## Troubleshooting
+
+### Server version mismatch
+
+**Problem**
+
+The generating dump step failed with this message:
+
+```bash
+2025-11-12 09:54:54 ERROR: Generating the dump of your database has failed. The 'pg_dump' command has failed with the following output:
+ pg_dump: error: aborting because of server version mismatch
+pg_dump: detail: server version: 16.9; pg_dump version: 15.12 (Debian 15.12-0+deb12u2)
+```
+
+**Solution**
+
+Ensure that the local postgres server does not have a never version than the remote server.
+
+If necessary downgrade the local postgres server.
