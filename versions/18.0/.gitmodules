@@ -160,3 +160,7 @@
 	path = oca/openupgrade
 	url = git@github.com:OCA/OpenUpgrade.git
 	branch = 18.0
+[submodule "oca/account-invoicing"]
+	path = oca/account-invoicing
+	url = git@github.com:OCA/account-invoicing.git
+	branch = 18.0
