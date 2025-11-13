@@ -9,7 +9,10 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
     git_clone_depth="${GIT_CLONE_DEPTH:="999"}"
 
     # Setup git SSH key
+    mkdir -p "$HOME/.ssh"
+    chmod 700 "$HOME/.ssh"
     add-ssh-key
+
 
     # Make every git directory a safe directory
     git config --global --add safe.directory '*'
@@ -32,7 +35,7 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
         git_path=$(parse-url "$git_url" path | sed 's/.git//g')
         git_local_path="$local_path/${git_hostname}/$git_path"
 
-        ssh-keyscan -t rsa,dsa "$git_hostname" > ~/.ssh/known_hosts 2>/dev/null
+        ssh-keyscan -t rsa,dsa "$git_hostname" > "$HOME/.ssh/known_hosts" 2>/dev/null
 
         if [[ ! -d "$git_local_path/.git" ]]; then
 
