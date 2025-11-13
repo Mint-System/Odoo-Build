@@ -2877,6 +2877,25 @@ ID: `mint_system.account.report_invoice_document.replace_infotable`
 ```
 Source: [snippets/account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_infotable.xml)
 
+### Replace Partner Bank Id
+
+ID: `mint_system.account.report_invoice_document.replace_partner_bank_id`
+
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//p[@name='payment_communication']/t" position="replace">
+        <t t-if="o.partner_bank_id.l10n_ch_qr_iban">
+            <br/>
+ on this account: <span t-field="o.partner_bank_id.l10n_ch_qr_iban" class="fw-bold"/>
+ -        <span t-field="o.partner_bank_id.bank_id.name" class="fw-bold"/>
+    </t>
+</xpath>
+
+</data>
+```
+Source: [snippets/account.report_invoice_document.replace_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.report_invoice_document.replace_partner_bank_id.xml)
+
 ### Replace Payment Communication
 
 ID: `mint_system.account.report_invoice_document.replace_payment_communication`

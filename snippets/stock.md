@@ -7875,6 +7875,20 @@ Source: [snippets/stock.view_quant_package_form.x_note.xml](https://github.com/M
 
 ## View Stock Move Line Detailed Operation Tree
 
+### Add Lot Id
+
+ID: `mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id`
+
+```xml
+<data inherit_id="stock.view_stock_move_line_detailed_operation_tree" priority="50">
+    <field name="quant_id" position="after">
+        <field name="lot_id"/>
+    </field>
+</data>
+
+```
+Source: [snippets/stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml)
+
 ### Lot Id Domain Positive Qty
 
 ID: `mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty`

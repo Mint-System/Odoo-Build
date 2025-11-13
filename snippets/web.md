@@ -2,6 +2,22 @@
 
 ## Address Layout
 
+### Colclass Value
+
+ID: `mint_system.web.address_layout.colclass_value`
+
+```xml
+<data inherit_id="web.address_layout" priority="50">
+
+    <xpath expr="//t[@t-set='colclass']" position="replace">
+        <t t-set="colclass" t-value="'col-sm-5' if report_type == 'html' else 'col-5'"/>
+    </xpath>
+    
+</data>
+
+```
+Source: [snippets/web.address_layout.colclass_value.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.address_layout.colclass_value.xml)
+
 ### Format Address Block
 
 ID: `mint_system.web.address_layout.format_address_block`

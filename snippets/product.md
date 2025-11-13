@@ -463,6 +463,24 @@ ID: `mint_system.product.product_template_only_form_view.hide_default_code`
 ```
 Source: [snippets/product.product_template_only_form_view.hide_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.hide_default_code.xml)
 
+### Hide Intrastat Supplementary
+
+ID: `mint_system.product.product_template_only_form_view.hide_intrastat_supplementary`
+
+```xml
+<data inherit_id="product.product_template_only_form_view" priority="50">
+
+    <xpath expr="//label[@for='intrastat_supplementary_unit_amount']" position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+    <xpath expr="//div/field[@name='intrastat_supplementary_unit_amount']/.." position="attributes">
+        <attribute name="invisible">True</attribute>
+    </xpath>
+
+</data>
+```
+Source: [snippets/product.product_template_only_form_view.hide_intrastat_supplementary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/product.product_template_only_form_view.hide_intrastat_supplementary.xml)
+
 ### Remove Barcode
 
 ID: `mint_system.product.product_template_only_form_view.remove_barcode`

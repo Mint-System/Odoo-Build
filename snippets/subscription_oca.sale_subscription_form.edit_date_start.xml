@@ -1,0 +1,5 @@
+<data inherit_id="subscription_oca.sale_subscription_form" priority="50">
+    <field name="date_start" position="attributes">
+        <attribute name="attrs">{'readonly':[('active','=',False)]}</attribute>
+    </field>
+</data>
