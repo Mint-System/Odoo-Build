@@ -28,6 +28,7 @@ docker run -it \
     --name odoo-upgrade \
     -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" \
     --network="$NETWORK" mintsystem/odoo-upgrade \
+    -v "$PWD":/root
     test -d "$DATABASE" -t "$TARGET_VERSION" -r "$TARGET_DATABASE"
 ```
 
