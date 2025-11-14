@@ -2257,7 +2257,7 @@ generate-module-snippet() {
     export MODEL_NAME=${MODEL_DOT_NAME//\./_}
     export MODULE_NAME=$(basename "$1")
     export SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
-    export XML_ID=$(echo "$view_ref" | cut -d"." -f2)
+    export XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
     mkdir -p "$module_path/views"
     envsubst < templates/model_snippet.xml > "$module_path/views/${MODEL_NAME}_views.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with: \"views/${MODEL_NAME}_views.xml\""
