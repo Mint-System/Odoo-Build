@@ -126,7 +126,9 @@ services:
       FORGEJO_URL: https://codeberg.org
       FORGEJO_USERNAME: bot-mintsys
       FORGEJO_PAT: *****
-      ADDONS_GIT_REPOS: "git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#18.0,git@github.com:OCA/server-tools.git#18.0"
+      ADDONS_GIT_REPOS: |
+        git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#18.0
+        git@github.com:OCA/server-tools.git#18.0
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_ENTERPRISE_PATH: /mnt/enterprise
       ODOO_DATABASE: "18.0"
@@ -377,7 +379,7 @@ The image can clone git repositories.
 - `FORGEJO_URL`: Url of Forgejo instance. Default is `https://codeberg.org`.
 - `FORGEJO_USERNAME`: Forgejo Username for https git clone.
 - `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
-- `ADDONS_GIT_REPOS` Comma seperated list of git clone urls appended with `#` and branch name.
+- `ADDONS_GIT_REPOS` Comma or line-break seperated list of git clone urls appended with `#` and branch name.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
