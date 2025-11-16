@@ -1281,7 +1281,7 @@ record-with-py-spy() {
     mkdir -p tmp
     echo "source task source; py-spy record --pid $pid --output $output_file --format speedscope" | sudo bash --
 
-    $OS_OPEN "$speedscope_url"
+    open-with-os "$speedscope_url"
 }
 
 record-with-memray() {
@@ -1304,7 +1304,7 @@ record-with-memray() {
         python3 -m memray run -o "$output_file" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
         python3 -m memray flamegraph "$output_file"
-        $OS_OPEN "tmp/memray-flamegraph-output.html"
+        open-with-os "tmp/memray-flamegraph-output.html"
     fi
 }
 
@@ -1759,7 +1759,7 @@ visualize-dependencies() {
 
     mkdir -p tmp
     ./bin/odoo-module-dependencies "$1"
-    $OS_OPEN tmp/odoo-module-dependencies.html
+    open-with-os tmp/odoo-module-dependencies.html
 }
 
 # Setup commands
