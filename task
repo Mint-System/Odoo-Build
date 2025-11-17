@@ -1160,7 +1160,7 @@ start() {
 
     if [[ "$1" =~ "admin" ]]; then
         echo 'Open http://localhost:8000 url in your browser.'
-        open-url-with-delay "http://localhost:8000" & $COMPOSE_COMMAND up -d admin
+        open-url-with-delay "http://localhost:8000" 2 & $COMPOSE_COMMAND up -d admin
     fi
 
     if [[ "$1" =~ "db" ]]; then
@@ -1174,7 +1174,7 @@ start() {
 
     if [[ "$1" =~ "mailpit" ]]; then
         echo 'Open http://localhost:8025 url in your browser.'
-        open-url-with-delay "http://localhost:8025" & $COMPOSE_COMMAND up -d mailpit
+        open-url-with-delay "http://localhost:8025" 2 & $COMPOSE_COMMAND up -d mailpit
     fi
 
     if [[ "$1" =~ "source" ]]; then
@@ -1189,7 +1189,7 @@ start() {
         done
 
         echo "Open http://localhost:$port url in your browser."
-        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" &
+        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
         odoo --database="$database" --config "$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
@@ -1206,7 +1206,7 @@ start() {
         done
 
         echo "Open http://localhost:$port url in your browser."
-        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" &
+        open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
         odoo --database="$database" --config "$ODOO_RC" \
             --http-port="$port" --dev=all --log-level="$LOG_LEVEL"
     fi
@@ -1214,7 +1214,7 @@ start() {
     if [[ "$1" =~ "odoo" ]]; then
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
-        open-url-with-delay "http://localhost:8069" & $COMPOSE_COMMAND up -d odoo
+        open-url-with-delay "http://localhost:8069" 2 & $COMPOSE_COMMAND up -d odoo
     fi
 }
 
