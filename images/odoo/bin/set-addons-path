@@ -15,6 +15,13 @@ if [[ -d '/var/lib/odoo/git' ]]; then
     odoo_addons_path="/var/lib/odoo/git,$odoo_addons_path"
 fi
 
+# Add enterprise path to addons path
+odoo_enterprise_path=${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}
+if [[ -d "$odoo_enterprise_path" ]]; then
+    log-entrypoint "Prepend $odoo_enterprise_path to addons path."
+    odoo_addons_path=$(echo "${odoo_enterprise_path},${odoo_addons_path}")
+fi
+
 # Add test addons dir to addons path
 if [[ -n "$TEST_ADDONS_DIR" ]]; then
     log-entrypoint "Append $TEST_ADDONS_DIR to addons path."
