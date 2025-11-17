@@ -117,7 +117,7 @@ services:
       GIT_AUTHOR_EMAIL: you@example.com
       GIT_SSH_PUBLIC_KEY: "ssh-ed25519 BBBBC3NzaC1lZDI1NTE5BBBBIDR9Ibi0mATjCyx1EYg594oFkY0rghtgo+pnFHOvAcym Mint-System-Project-MCC@github.com"
       GIT_SSH_PRIVATE_KEY: "LS0tLS1CRUdJTiBPUEVOU1NIIFBSSVZBVEUgS0VZLS0tLQpiM0JsYm5OemFDMXJaWGt0ZGpFQUFBQUFCRzV2Ym1VQUFBQUVibTl1WlFBQUFBQUFBQUFCQUFBQU13QUFBQXR6YzJndFpXClF5TlRVeE9RQUFBQ0EwZlNHNHRKZ0U0d3NzZFJHSU9mZUtCWkdOSzRJYllLUHFaeFJ6cndITXBnQUFBS2k1WkJhRnVXUVcKaFFBQUFBdHpjMmd0WldReU5UVXhPUUFBQUNBMGZTRzR0SmdFNHdzc2RSR0lPZmVLQlpTks0SWJZS1BxWnhSenJ3SE1wZwowQkFnTT0KLS0tLS1FTkQgT1BFTlNTSCBQUklWQVRFIEtFWS0tLS0tCg=="
-      SSH_ID_ALGORITHM: id_ed25519 
+      SSH_ID_ALGORITHM: id_ed25519
       GITHUB_USERNAME: bot-mintsys
       GITHUB_PAT: *****
       GITLAB_URL: https://gitlab.com
@@ -400,7 +400,7 @@ The entrypoint script searches for module folders in the addons path and creates
   - `/var/lib/odoo/git` Reserved location for git repos.
   - `$TEST_ADDONS_DIR` Variable location for module testing.
   - `/opt/odoo/addons` Reserved location for Odoo community modules.
-- `ODOO_ENTERPRISE_PATH` Path to Odoo Enterprise modules. Default is `/var/lib/odoo/enterprise`.
+- `ODOO_ENTERPRISE_PATH` Odoo Enterprise is cloned to this folder. Default is `/var/lib/odoo/enterprise`.
 
 ### Initialize
 

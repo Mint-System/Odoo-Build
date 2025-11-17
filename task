@@ -581,10 +581,10 @@ get-modules() {
 
     local modules
     if [[ "$option" == "dirname" ]]; then
-        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
+        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*([0-9]+\.[0-9]+(\.[0-9]+)?|${ODOO_VERSION}(\.[0-9]+)*)" |  xargs -r dirname | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     if [[ "$option" == "basename" ]]; then
-        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
+        modules=$(echo "$1" | tr "," "\n" | xargs -I {} find {} -type f -name "__manifest__.py" | xargs grep -l -iE "version.*([0-9]+\.[0-9]+(\.[0-9]+)?|${ODOO_VERSION}(\.[0-9]+)*)" | xargs -r dirname | xargs -r -I {} basename {} | sort -u | tr "\n" "," | sed 's/,$//')
     fi
     echo "$modules"
 }
@@ -812,17 +812,20 @@ test-image() {
         local server_tools_git_ref=$(curl -s "https://api.github.com/repos/OCA/server-tools/branches/$ODOO_VERSION" | grep '"sha":' | head -n 1 | awk -F '"' '{print $4}')
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-tools.git#${ODOO_VERSION}#${server_tools_git_ref}"
         # This will remove all SSH keys at the end
-        # ./images/odoo/bin/clone-git-addons
+        ./images/odoo/bin/clone-git-addons
         rm -rf "$LOCAL_PATH/github.com" # Cleanup for next run
 
+        ODOO_VERSION="18.0"  # Example value
+
         echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
-        echo "'version': '1.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '2.5'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo "'version': '13.0.1.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
-        echo "'version': '14.0.2.1.1'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})" || echo "Must not match"
-        echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
-        echo '"Version": "1.0"' | grep -iE "version.*['\"]([0-9]+\.[0-9]+['\"]|${ODOO_VERSION})"
+        echo "'version': '1.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
+        echo "'version': '1.1'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
+        echo "'version': '2.5'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
+        echo "'version': '2.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
+        echo "'version': '13.0.1.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✗ No match (expected)" || echo "✓ No match is ok"
+        echo "'version': '14.0.2.1.1'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✗ No match (expected)" || echo "✓ No match is ok"
+        echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
+        echo '"Version": "1.0"' | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Must match" || echo "✗ Match missing"
 
         echo -e "\033[38;5;214mTEST\033[0m: Install python package."
         export PYTHON_INSTALL="prometheus-client,pyjwt"
@@ -853,7 +856,7 @@ EOF
         uv pip list
 
         echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
-        export TEST_ADDONS_DIR="./templates"
+        export TEST_ADDONS_DIR="./templates,./themes,./enterprise,/gugus"
         export ODOO_VERSION="18.0"
         source ./images/odoo/bin/set-addons-path
         echo $ADDONS_PATH | grep "./templates"

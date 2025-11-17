@@ -27,7 +27,7 @@ if [[ -n "$odoo_addons_path" ]]; then
     # Search for module manifest files, get module paths, then parent directories
     odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | sort -u | while read -r dir; do
         if [[ -d "$dir" ]]; then
-            rg -l -i --files-with-matches "version.+\"${ODOO_VERSION}" --glob="*__manifest__.py" "$dir"
+            rg -l -i --files-with-matches "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" --glob="*__manifest__.py" "$dir"
         fi
     done | while read -r manifest; do
         dirname "$manifest"
@@ -37,13 +37,6 @@ if [[ -n "$odoo_addons_path" ]]; then
 
     # Combine predefined addons path and odoo addons path
     addons_path=$(echo "${odoo_addons_path},${ADDONS_PATH}")
-fi
-
-# Add enterprise path to addons path
-odoo_enterprise_path=${ODOO_ENTERPRISE_PATH:="/var/lib/odoo/enterprise"}
-if [[ -d "$odoo_enterprise_path" ]]; then
-    log-entrypoint "Prepend $odoo_enterprise_path to addons path."
-    addons_path="$odoo_enterprise_path,$addons_path"
 fi
 
 export ADDONS_PATH="$addons_path"
