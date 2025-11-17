@@ -168,3 +168,15 @@
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
 	branch = 18.0
+[submodule "oca/website"]
+	path = oca/website
+	url = git@github.com:OCA/website.git
+	branch = 18.0
+[submodule "oca/e-commerce"]
+	path = oca/e-commerce
+	url = git@github.com:OCA/e-commerce.git
+	branch = 18.0
+[submodule "addons/website"]
+	path = addons/website
+	url = git@github.com:Mint-System/Odoo-Apps-Website.git
+	branch = 18.0
