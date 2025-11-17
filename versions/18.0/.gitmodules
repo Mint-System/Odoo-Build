@@ -180,3 +180,7 @@
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website.git
 	branch = 18.0
+[submodule "addons/kubernetes"]
+	path = addons/kubernetes
+	url = git@github.com:Mint-System/Odoo-Apps-Kubernetes.git
+	branch = 18.0
