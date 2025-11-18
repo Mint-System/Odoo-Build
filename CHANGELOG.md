@@ -20,6 +20,7 @@ All notable changes to this project will be documented in this file. The format 
 - Added `OpenUpgrade` as submodule.
 - Added `activate-venv` as default call for all commands.
 - New command `aggregate-git-repos`.
+- Template migration scripts with `generate-module-migration`
 
 ### Changed
 
@@ -33,8 +34,9 @@ All notable changes to this project will be documented in this file. The format 
 - Simplified the install command.
 - Replace `generate-module-docs` with `generate-oca-module-docs`.
 - Renamed `upgrade-odoo` to `run-enterprise-upgrade`.
-- Renamed `test-module-repo` to `test-modules`
+- Renamed `test-module-repo` to `test-modules`.
 - Refactored `test-modules` function.
+- Renamed `generate-module` to `create-module`.
 
 ## 2025-09-12
 

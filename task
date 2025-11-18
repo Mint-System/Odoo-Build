@@ -115,14 +115,15 @@ help-table() {
     printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename must match PostgreSQL table name.'
     printf "$column" 'import-website-data' '[env]' 'Import website data to Odoo database.'
     # Generate
+    printf "$column" 'create-module' '[path]' 'Create new Odoo module from template.'
     printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
     printf "$column" 'generate-module-model' '[path][model]' 'Generate model in module folder.'
     printf "$column" 'generate-module-inherit' '[path][model]' 'Generate inherited model in module folder.'
     printf "$column" 'generate-module-views' '[path][model]' 'Generate model views in module folder.'
     printf "$column" 'generate-module-security' '[path][model]' 'Generate model access file.'
+    printf "$column" 'generate-module-migration' '[path]' 'Generate .'
     printf "$column" 'generate-module-snippet' '[path][model][ref]' 'Generate snippet for referefenced view.'
     printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
-    printf "$column" 'generate-module' '[path]' 'Create new Odoo module from template.'
     printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
     # Module
     printf "$column" 'lint-module' '[path]' 'Run pylint odoo for module.'
@@ -2056,7 +2057,7 @@ remove-module() {
     odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
-generate-module() {
+create-module() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2102,20 +2103,19 @@ generate-module-docs() {
     oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
 }
 
-template-module-readme() {
+generate-module-migration() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
     fi
     local module_path="$1"
-    local manifest_path="$module_path/__manifest__.py"
+    local module_version=$(get-module-version $module_path)
 
-    echo "Update $module_path/README.rst"
-    export MODULE_TITLE=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('name', ''))")
-    export MODULE_UNDERLINE=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print('=' * len(d.get('name', '')))")
-    export MODULE_SUMMARY=$(python3 -c "import ast; d=ast.literal_eval(open('$manifest_path').read()); print(d.get('summary', '').replace('\n', ' ').strip())")
-    export MODULE_WIKI_PATH=$(basename "$module_path" | sed 's/_/-/g')
-    envsubst < templates/README.rst > "$module_path/README.rst"
+    echo "Create migrations folder for version $module_version."
+    mkdir -p "$module_path/migrations/$module_version"
+
+    echo "Copy pre-migrate template."
+    cp "templates/migrations/pre-migrate.py" "$module_path/migrations/$module_version" 
 }
 
 generate-module-security() {
