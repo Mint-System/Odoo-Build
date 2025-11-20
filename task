@@ -122,7 +122,7 @@ help-table() {
     printf "$column" 'generate-module-views' '[path][model]' 'Generate model views in module folder.'
     printf "$column" 'generate-module-security' '[path][model]' 'Generate model access file.'
     printf "$column" 'generate-module-migration' '[path]' 'Generate .'
-    printf "$column" 'generate-module-snippet' '[path][model][ref]' 'Generate snippet for referefenced view.'
+    printf "$column" 'generate-module-snippet' '[path][ref][model]' 'Generate snippet for referefenced view.'
     printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
     printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
     # Module
@@ -1764,6 +1764,7 @@ visualize-dependencies() {
     mkdir -p tmp
     ./bin/odoo-module-dependencies "$1"
     open-with-os tmp/odoo-module-dependencies.html
+    cat tmp/odoo-module-dependencies.mmd
 }
 
 # Setup commands
@@ -2234,15 +2235,15 @@ generate-module-snippet() {
         echo '$2 is empty.'
         exit
     fi
-    if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+    if [[ -z "$3" ]]; then
+        echo '$3 is empty.'
         exit
     fi
     local module_path="$1" # addons/sale_workflow/sale_helm
 
     echo 'Substitute snippet template'
-    export MODEL_DOT_NAME="$2" # sale.order
-    export VIEW_REF="$3" # sale.view_order_form
+    export MODEL_DOT_NAME="$3" # sale.order
+    export VIEW_REF="$2" # sale.view_order_form
     export MODEL_NAME=${MODEL_DOT_NAME//\./_}
     export MODULE_NAME=$(basename "$1")
     export SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)

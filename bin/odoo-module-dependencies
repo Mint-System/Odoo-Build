@@ -152,12 +152,22 @@ def generate_visjs_html(G, output_file='tmp/odoo-module-dependencies.html'):
         f.write(template.render(nodes=nodes, edges=edges))
     print(f"Visualization saved to {os.path.abspath(output_file)}")
 
+def generate_mermaid_file(G, output_file='tmp/odoo-module-dependencies.mmd'):
+    """Generate a Mermaid file from the dependency graph."""
+    lines = ["graph TD"]
+    for u, v in G.edges():
+        lines.append(f"    {u} --> {v}")
+    with open(output_file, 'w', encoding='utf-8') as f:
+        f.write('\n'.join(lines))
+    print(f"Mermaid diagram saved to {os.path.abspath(output_file)}")
+
 def main():
     module_path = sys.argv[1] if len(sys.argv) > 1 else './odoo/addons'
     print(f"Analyzing modules in: {module_path}")
     
     G = build_graph(module_path)
     generate_visjs_html(G)
+    generate_mermaid_file(G)
 
 if __name__ == '__main__':
     main()
