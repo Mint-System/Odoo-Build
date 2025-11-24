@@ -14,6 +14,7 @@
 | restore-env-files          | [path]               | Extract and copy env files from backup file.                                   |
 | save-dotenv                |                      | Store content of .env in pass entry.                                           |
 | show-env                   | [env]                | Output content of the env file.                                                |
+| aggregate-git-folders      | [path]               | Run gitaggregate for the provide repos.yaml.                                   |
 | add-git-submodule          | [url] [path]         | Add git submodule.                                                             |
 | checkout                   | [version]            | Checkout Odoo version.                                                         |
 | checkout-git-folder        |                      | Checkout git commit.                                                           |
@@ -70,7 +71,7 @@
 | commit-with-llm            |                      | Commit with llm generated commit message.                                      |
 | show-odoo-mcp-config       |                      | Show the Odoo MCP server config.                                               |
 | update-with-llm            | [glob][prompt]       | Feed module files with prompt to LLM and apply file changes.                   |
-| create-snippet             | [id]                 | Create snippet from template.                                                  |
+| create-snippet             | [name]               | Create snippet from template.                                                  |
 | install-snippet            | [env][path]          | Install snippet definition.                                                    |
 | disable-snippet            | [env][path]          | Disable snippet definition.                                                    |
 | lint-snippets              |                      | Run checks for all snippets.                                                   |
@@ -88,23 +89,24 @@
 | export-website-data        | [env]                | Export website data from Odoo database.                                        |
 | import-csv                 | [db][path]           | Import data from csv. Filename must match PostgreSQL table name.               |
 | import-website-data        | [env]                | Import website data to Odoo database.                                          |
+| create-module              | [path]               | Create new Odoo module from template.                                          |
 | generate-module-docs       | [path]               | Generate readme file for module with OCA tools.                                |
 | generate-module-model      | [path][model]        | Generate model in module folder.                                               |
 | generate-module-inherit    | [path][model]        | Generate inherited model in module folder.                                     |
 | generate-module-views      | [path][model]        | Generate model views in module folder.                                         |
 | generate-module-security   | [path][model]        | Generate model access file.                                                    |
-| generate-module-snippet    | [path][model][ref]   | Generate snippet for referefenced view.                                        |
+| generate-module-migration  | [path]               | Generate .                                                                     |
+| generate-module-snippet    | [path][ref][model]   | Generate snippet for referefenced view.                                        |
 | generate-module-wizard     | [path][model]        | Generate wizard for a model in module folder.                                  |
-| generate-module            | [path]               | Create new Odoo module from template.                                          |
 | generate-module-repo       | [path]               | Initialize Odoo module repo from template.                                     |
 | lint-module                | [path]               | Run pylint odoo for module.                                                    |
 | lint-module-repo           | [path]               | Run pylint odoo for modules in repo folder.                                    |
 | list-modules               | [path]               | Get modules in path as bash array.                                             |
-| pytest-module              | [db][name,path]      | Run module tests with pytest.                                                  |
+| pytest-module              | [path]               | Run module tests with pytest.                                                  |
 | release-module             | [path]               | Create GitHub release for a module.                                            |
 | remove-module              | [db][name]           | Remove target Odoo module.                                                     |
-| test-module                | [db][name,path]      | Test target Odoo module.                                                       |
-| test-module-repo           | [db][path]           | Test target Odoo modules in repo folder.                                       |
+| test-module                | [path]               | Test target Odoo module.                                                       |
+| test-modules               | [path]               | Test target Odoo modules in repo folder.                                       |
 | translate-module           | [path][lang][db]     | Generate translation for Odoo module.                                          |
 | upload-module              | [env][path]          | Zip and upload Odoo module.                                                    |
 | visualize-dependencies     | [path]               | Generate visualizations of module dependencies.                                |
@@ -150,4 +152,5 @@
 | update-revisions-doc       |                      | Update revisions doc file.                                                     |
 | update-snippets-doc        |                      | Update snippets doc file.                                                      |
 | migrate-module             | [path]               | Migrate module code from to target Odoo version.                               |
-| upgrade-odoo               | [db][version][mode]  | Run the Odoo upgrade scripts. Default mode ist 'test'.                         |
+| run-enterprise-upgrade     | [db][version][mode]  | Run the Odoo Enterprise upgrade scripts. Default mode ist 'test'.              |
+| run-open-upgrade           | [db][version]        | Run the Odoo OpenUpgrade scripts.                                              |

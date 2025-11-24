@@ -5211,6 +5211,19 @@ ID: `mint_system.sale.view_order_form.edit_name`
 ```
 Source: [snippets/sale.view_order_form.edit_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.edit_name.xml)
 
+### Edit Project
+
+ID: `mint_system.sale.view_order_form.edit_project`
+
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <field name="project_id" position="attributes">
+        <attribute name="attrs">{}</attribute>
+    </field>
+</data>
+```
+Source: [snippets/sale.view_order_form.edit_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale.view_order_form.edit_project.xml)
+
 ### Edit Tax Id
 
 ID: `mint_system.sale.view_order_form.edit_tax_id`
