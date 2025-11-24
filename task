@@ -1544,7 +1544,7 @@ def migrate(cr, version):
     _logger.info("Updated %s partners", len(partners))
 EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
-        exec odoo update-module partner_firstname 2>&1 | grep "module partner_firstname: Running migration"
+        odoo update-module partner_firstname 2>&1 | grep "module partner_firstname: Running migration" || true
     fi
 }
 

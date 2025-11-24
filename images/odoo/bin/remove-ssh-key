@@ -3,9 +3,8 @@ set -e
 
 if [[ -n "$GIT_SSH_PRIVATE_KEY" ]]; then
     key_filename="${SSH_ID_ALGORITHM:=id_ed25519}"
-
     log-entrypoint 'Remove SSH key from env var.'
-    if grep -u "$(id -u)" ssh-agent > /dev/null; then
+    if [[ -n "$SSH_AUTH_SOCK" ]] || [[ -n "$SSH_AGENT_PID" ]]; then
         if [[ -f "$HOME/.ssh/$key_filename" ]]; then
             ssh-add -d "$HOME/.ssh/$key_filename" 2>/dev/null || true
         fi
