@@ -2670,7 +2670,7 @@ checkout-git-folder() {
         if [[ "$shallow" = "true" ]]; then
             echo "Checkout git folder $git_folder (shallow) to $commit_ref"
             git -C "$git_folder" stash
-            git -C "$git_folder" git fetch origin "$ODOO_VERSION:$ODOO_VERSION"
+            git -C "$git_folder" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
             git -C "$git_folder" checkout "$commit_ref"
         else
             echo "Checkout git folder $git_folder to $commit_ref"
