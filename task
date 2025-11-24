@@ -94,7 +94,7 @@ help-table() {
     printf "$column" 'show-odoo-mcp-config' '' 'Show the Odoo MCP server config.'
     printf "$column" 'update-with-llm' '[glob][prompt]' 'Feed module files with prompt to LLM and apply file changes.'
     # Snippets
-    printf "$column" 'create-snippet' '[id]' 'Create snippet from template.'
+    printf "$column" 'create-snippet' '[name]' 'Create snippet from template.'
     printf "$column" 'install-snippet' '[env][path]' 'Install snippet definition.'
     printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet definition.'
     printf "$column" 'lint-snippets' '' 'Run checks for all snippets.'

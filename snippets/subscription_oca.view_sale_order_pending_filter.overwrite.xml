@@ -1,0 +1,37 @@
+<data inherit_id="subscription_oca.view_sale_order_pending_filter" priority="50">
+    <search position="replace">
+      
+        <search>
+            <field name="name" string="Subscription" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]"/>
+            <field name="partner_id" operator="child_of"/>
+            <field name="user_id"/>
+            <field name="template_id"/>
+            
+            <filter name="my_subscriptions" string="My Subscriptions" domain="[('user_id','=',uid)]"/>
+            <filter string="Unassigned" name="contracts_not_assigned" help="Subscriptions that are not assigned to an account manager." domain="[('user_id', '=', False)]"/>
+            <separator/>
+            <filter name="open" string="Open" domain="[('stage_id.type','=','pre')]" help="Open Subscriptions"/>
+            <filter name="in_progress" string="Running"  domain="[('stage_id.type','=','in_progress')]" help="Running subscriptions"/>
+            <filter name="closed" string="Closed" domain="[('stage_id.type','=','post')]" help="Closed subscriptions"/>
+            <separator/>
+            <filter name="filter_date_start" date="date_start"/>
+            <filter name="filter_recurring_next_date" date="recurring_next_date"/>
+            <filter invisible="1" string="Late Activities" name="activities_overdue" domain="[('my_activity_date_deadline', '&lt;', context_today().strftime('%Y-%m-%d'))]" help="Show all records which has next action date is before today"/>
+            <filter invisible="1" string="Today Activities" name="activities_today" domain="[('my_activity_date_deadline', '=', context_today().strftime('%Y-%m-%d'))]"/>
+            <filter invisible="1" string="Future Activities" name="activities_upcoming_all" domain="[('my_activity_date_deadline', '&gt;', context_today().strftime('%Y-%m-%d'))                         ]"/>
+            <separator/>
+            <field name="to_renew"/>
+            <filter string="Pending subscriptions" name="pendingsubs" domain="[('to_renew','=', True)]"/>
+            <separator/>
+            <group expand="0" string="Group By">
+                <filter string="Salesperson" name="sales_person" domain="[]" context="{'group_by':'user_id'}"/>
+                <filter string="Customer" name="customer" domain="[]" context="{'group_by':'partner_id'}"/>
+                <filter string="Template" name="template" domain="[]" context="{'group_by':'template_id'}"/>
+                <filter string="Stage" name="stage" domain="[]" context="{'group_by':'stage_id'}"/>
+                <filter string="Start Date" name="start_month" domain="[]" context="{'group_by' : 'date_start'}"/>
+                <filter string="End Date" name="end_month" domain="[]" context="{'group_by' : 'date'}"/>
+            </group>
+        </search>
+        
+    </search>
+</data>

@@ -1,0 +1,5 @@
+<data inherit_id="$INHERIT_ID" priority="50">
+    <field name="partner_id" position="after">
+        <field name="value"/>
+    </field>
+</data>
