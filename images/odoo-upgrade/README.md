@@ -81,4 +81,5 @@ pg_restore: error: could not execute query: ERROR:  unrecognized configuration p
 
 **Solution**
 
-The database has been restored. But it is recommended to use postgres version higher than 14.
+The database has been restored despite the error.
+But it is recommended to use postgres version 17.
