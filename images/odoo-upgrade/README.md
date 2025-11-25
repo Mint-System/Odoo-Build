@@ -68,3 +68,17 @@ pg_dump: detail: server version: 16.9; pg_dump version: 15.12 (Debian 15.12-0+de
 Ensure that the local postgres server does not have a never version than the remote server.
 
 If necessary downgrade the local postgres server.
+
+### Unrecognized parameter transaction_timeout
+
+**Problem**
+
+The restore step fails with:
+
+```
+pg_restore: error: could not execute query: ERROR:  unrecognized configuration parameter "transaction_timeout"
+```
+
+**Solution**
+
+The database has been restored. But it is recommended to use postgres version higher than 14.
