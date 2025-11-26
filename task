@@ -1084,7 +1084,7 @@ install() {
         echo 'Arch is the best'
 
         echo -e "\033[38;5;214mPacman\033[0m: Install python-ldap and psycopg2 build dependencies"
-        sudo pacman -S --noconfirm base-devel postgresql
+        sudo pacman -S --noconfirm base-devel postgresql-devel
 
         echo -e "\033[38;5;214mApt\033[0m: Install ripgrep"
         sudo pacman -S --noconfirm ripgrep
