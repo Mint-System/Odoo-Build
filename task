@@ -230,7 +230,7 @@ PLATFORM=${PLATFORM:=linux/amd64}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:=docker}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:=docker compose}
 LLM_MODEL=${LLM_MODEL:=llama}
-SMTP_SERVER=${SMTP_SERVER:=mailpit}
+SMTP_SERVER=${SMTP_SERVER:=localhost}
 SMTP_PORT=${SMTP_PORT:=1025}
 SMTP_SSL=${SMTP_SSL:=False}
 EMAIL_FROM=${EMAIL_FROM:=info@yourcompany.com}
@@ -1182,7 +1182,6 @@ start() {
     fi
 
     if [[ "$1" =~ "source" ]]; then
-        export SMTP_SERVER=localhost
         template-odoo-rc
         local port=8069
         while [[ $port -le 8079 ]]; do
@@ -1199,7 +1198,6 @@ start() {
     fi
 
     if [[ "$1" =~ "hatch" ]]; then
-        export SMTP_SERVER=localhost
         template-odoo-rc
         local port=8069
         while [[ $port -le 8079 ]]; do
