@@ -10,8 +10,8 @@ Setting up a Odoo upgrade project requires the creation of a dotenv file. This g
 
 - Our customer is `Acme Corporation`
 - There is a server called `host.example.com`
-- Odoo 16.0 production instance is runnging at `https://odoo.example.com`
-- Odoo 18.0 upgrade environment is runnging at `https://upgrade.odoo.example.com`
+- Odoo 16.0 production instance is running at `https://odoo.example.com`
+- Odoo 18.0 upgrade environment is running at `https://upgrade.odoo.example.com`
 - The Odoo setup is docker based. The Postgres containers have a different version
 - Name of Odoo databases depends on the subdomain of the url
 
@@ -68,6 +68,16 @@ TARGET_DATABASE='upgrade'
 ```
 
 Note that the `HOST` is reference to another dotfile.
+
+## Helper Scripts
+
+<https://ansible.build/scripts.html#odoo-scripts>
+
+<https://ansible.build/scripts.html#postgres>
+
+Three layers of scripting:
+
+taskfile.build -> odoo.build -> ansible.build
 
 ## Test Run
 
