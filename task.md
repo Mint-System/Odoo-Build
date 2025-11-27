@@ -2,8 +2,7 @@
 |----------------------------|----------------------|--------------------------------------------------------------------------------|
 | backup-env-files           | [path]               | Archive and copy env files to target location.                                 |
 | copy-env                   | [env][env]           | Copy env file.                                                                 |
-| create-nextcloud-env       | [env]                | Create env file for Nextcloud instance.                                        |
-| create-odoo-env            | [env]                | Create env file for Odoo instance.                                             |
+| create-env                 | [env][type]          | Create env file of type nextcloud, odoo, upgrade.                              |
 | edit-env                   | [env]                | Open env file in default editor.                                               |
 | list-env                   |                      | List env files.                                                                |
 | load-dotenv                |                      | Restore content of .env from pass entry.                                       |

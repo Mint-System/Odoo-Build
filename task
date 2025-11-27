@@ -18,14 +18,12 @@ help-table() {
     # Env
     printf "$column" 'backup-env-files' '[path]' 'Archive and copy env files to target location.'
     printf "$column" 'copy-env' '[env][env]' 'Copy env file.'
-    printf "$column" 'create-nextcloud-env' '[env]' 'Create env file for Nextcloud instance.'
-    printf "$column" 'create-odoo-env' '[env]' 'Create env file for Odoo instance.'
+    printf "$column" 'create-env' '[env][type]' 'Create env file of type nextcloud, odoo, upgrade.'
     printf "$column" 'edit-env' '[env]' 'Open env file in default editor.'
     printf "$column" 'list-env' '' 'List env files.'
     printf "$column" 'load-dotenv' '' 'Restore content of .env from pass entry.'
     printf "$column" 'load-env' '[env]' 'Load and export env file.'
     printf "$column" 'remove-env' '[env]' 'Remove environment config.'
-    printf "$column" 'remove-venv' '' 'Remove virtualenv.'
     printf "$column" 'rename-env' '[env][env]' 'Rename env file.'
     printf "$column" 'restore-env-files' '[path]' 'Extract and copy env files from backup file.'
     printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
@@ -208,7 +206,7 @@ help() {
 
 PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
 ODOO_RC="odoo.conf"
-TASK_CONFIG_DIR="$HOME/.config/odoo-build"
+TASK_DOTENV_DIR="$PWD/vault"
 export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
@@ -362,11 +360,6 @@ activate-venv() {
     else
         echo "Could not find .venv$ODOO_VERSION/bin/active. Use init-venv to initalize."
     fi
-}
-
-remove-venv() {
-    echo "Remove virtualenv venv$ODOO_VERSION."
-    rm -rf "venv$ODOO_VERSION"
 }
 
 get-addons-path() {
@@ -1051,7 +1044,7 @@ install() {
     fi
 
     # OS specific installations
-    if [[ "$OS_RELEASE" =~ ^(Debian|Ubuntu|Pop!_OS)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Debian|Debian GNU/Linux|Ubuntu|Pop!_OS)$ ]]; then
 
         echo -e "\033[38;5;214mApt\033[0m: Update apt repo"
         sudo apt update
@@ -1095,7 +1088,7 @@ install() {
     fi
 
     # Install wkhtmltopdf
-    if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Fedora Linux|Ubuntu|Pop!_OS|SteamOS)$ ]]; then
+    if [[ "$OS_RELEASE" =~ ^(Arch Linux|Darwin|Debian|Debian GNU/Linux|Fedora Linux|Ubuntu|Pop!_OS|SteamOS)$ ]]; then
 
         # Source: https://gist.github.com/faniska/37f896d5e9de5fee925925d7caf3cb9e
         local installed_version=$(wkhtmltopdf --version 2>&1 | sed -E 's/^wkhtmltopdf +([0-9.]+).*/\1/')
@@ -1487,7 +1480,7 @@ EOF
         export ODOO_USERNAME=test
         export ODOO_PASSWORD=test
         if ! show-env test; then
-            create-odoo-env test
+            create-env test
         fi
         show-env test
         test-xmlrpc test

@@ -18,7 +18,7 @@ This projects provides a highly opinionated way to manage and develop Odoo. It f
 - 🕰️ **Odoo Revisions**: Snapshot the Odoo source at a specific date. See [revisions](./revisions.md) for details.
 - 📦 **Container Image**: Build and publish custom Odoo images. See [README](./images/README.md) for details.
 - 🔑 **Credentials**: Manage login credentials for Odoo and other applications.
-- ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo upgrade process.
+- ⬆️ **Odoo Upgrade**: Helper commands to ease the Odoo [upgrade](./upgrade.md) process.
 - 🚀 **And More**: See [task help](./task.md).
 
 ## Requirements
