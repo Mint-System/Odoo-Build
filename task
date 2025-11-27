@@ -436,12 +436,21 @@ set-addons-path() {
     done
 
     # Check if addons dir exist
-    for addon in $git_folders_path; do
-        if [[ -d "$addon" ]]; then
-            echo "Path does not exist: $addon"
+    while read -r addon; do
+        # Trim whitespace
+        addon=$(echo "$addon" | xargs)
+        
+        # Skip empty lines
+        if [[ -z "$addon" ]]; then
+            continue
+        fi
+        
+        # Check if directory exists
+        if [[ ! -d "$addon" ]]; then
+            echo "Error: Path does not exist: $addon"
             exit 1
         fi
-    done
+    done < <(echo "$git_folders_path" | tr ',' '\n')
 
     # Convert to source paths
     local addons_path="$(echo $git_folders_path | sed 's|,odoo|,odoo/addons|g')"
