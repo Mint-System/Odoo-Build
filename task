@@ -1489,7 +1489,7 @@ EOF
         export ODOO_USERNAME=test
         export ODOO_PASSWORD=test
         if ! show-env test; then
-            create-env test
+            create-env test odoo
         fi
         show-env test
         test-xmlrpc test
