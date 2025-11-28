@@ -183,8 +183,7 @@ help-table() {
     printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
     # Upgrade
     printf "$column" 'migrate-module' '[path]' 'Migrate module code from to target Odoo version.'
-    printf "$column" 'run-enterprise-upgrade' '[db][version][mode]' 'Run the Odoo Enterprise upgrade scripts. Default mode ist '\''test'\''.'
-    printf "$column" 'run-open-upgrade' '[db][version]' 'Run the Odoo OpenUpgrade scripts.'
+    printf "$column" 'upgrade-odoo' '[env][step]' 'Run the Odoo upgrade for a target environment.'
 }
 
 help() {
@@ -975,67 +974,6 @@ logs() {
 install-odoo-scripts() {
     echo 'Installing Odoo scripts with user flag.'
     curl -L https://ansible.build/odoo_scripts/install | bash -s -- --user
-}
-
-run-enterprise-upgrade() {
-    if [[ -z "$1" ]]; then
-        echo '$1/database is empty.'
-        exit
-    fi
-    if [[ -z "$2" ]]; then
-        echo '$2/version is empty.'
-        exit
-    fi
-
-    local database="$1"
-    local odoo_target_version="$2"
-    local mode="test"
-    if [[ -n "$3" ]]; then
-        # Options: test, production
-        mode="$3"
-    fi
-    local new_database="${database}_${odoo_target_version}"
-
-    echo "Execute Odoo upgrade script in $mode mode for $database with version $odoo_target_version."
-    echo "The database will be restored as $new_database."
-    export PGHOST=localhost
-    export PGUSER=odoo
-    export PGPASSWORD=odoo
-    python <(curl -s https://upgrade.odoo.com/upgrade) "$mode" -d "$database" -t "$odoo_target_version" -r "$new_database"
-    echo 'Upgrade finished successfully.'
-}
-
-run-open-upgrade() {
-    if [[ -z "$1" ]]; then
-        echo '$1/database is empty.'
-        exit
-    fi
-    if [[ -z "$2" ]]; then
-        echo '$2/version is empty.'
-        exit
-    fi
-
-    local database="$1"
-    local odoo_target_version="$2"
-    local new_database="${database}_${odoo_target_version}"
-
-    echo "Get the current version of the database."
-
-    echo "Checkout the Odoo version 15.0..."
-
-    echo "Run the upgrade script for 15.0..."
-
-    echo "Checkout the Odoo version 16.0..."
-
-    echo "Run the upgrade script for 16.0..."
-
-    echo "Checkout the Odoo version 17.0..."
-
-    echo "Run the upgrade script for 17.0..."
-
-    echo "Checkout the Odoo version 18.0..."
-
-    echo "Run the upgrade script for 18.0..."
 }
 
 # Install commands
@@ -1874,34 +1812,6 @@ init-module() {
         --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
-migrate-module() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-    local module_path="$1"
-    local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
-    local directory=$(dirname "$module_path")
-    local module=$(basename "$module_path")
-
-    # if [[ "$ODOO_VERSION" == "17.0" ]]; then
-    #     echo "Migrate views of module $module_path to ${ODOO_VERSION}..."
-    #     odoo --database "$DATABASE" -i "$module_path" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
-    # fi
-
-    # if [[ "$ODOO_VERSION" == "18.0" ]]; then
-    #     echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
-    #     odoo upgrade_code --addons-path "$MODULE" --from "$source_odoo_version"
-
-    #     echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
-    #     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
-    # else
-
-    echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
-    odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
-        --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
-}
-
 update-module() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
@@ -2301,6 +2211,82 @@ zip-module() {
     rm -f "$module_name".zip
     zip -q -r "$module_name".zip "$module_name"
     cd .. || exit
+}
+
+# Upgrade commands
+
+migrate-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
+    local directory=$(dirname "$module_path")
+    local module=$(basename "$module_path")
+
+    # if [[ "$ODOO_VERSION" == "17.0" ]]; then
+    #     echo "Migrate views of module $module_path to ${ODOO_VERSION}..."
+    #     odoo --database "$DATABASE" -i "$module_path" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --load=base,web,views_migration_17 --stop-after-init
+    # fi
+
+    # if [[ "$ODOO_VERSION" == "18.0" ]]; then
+    #     echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
+    #     odoo upgrade_code --addons-path "$MODULE" --from "$source_odoo_version"
+
+    #     echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
+    #     sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
+    # else
+
+    echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
+    odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
+        --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
+}
+
+upgrade-odoo() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
+    load-env "$1"
+    temp_folder="/var/tmp"
+    
+    if [[ "$2" =~ "list" ]]; then
+        echo 'Available steps:'
+        echo "dump"
+        echo "filestore"
+    fi
+
+    if [[ "$2" =~ "dump" ]]; then
+        echo "Run step dump on $SERVER."
+
+        ssh -p $PORT "$SERVER" docker-postgres-backup -c "$POSTRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
+
+        if [[ "$HOST" != "$TARGET_HOST" ]]; then
+            echo "Source and target host are different."
+            echo "Copy dump from $HOST to $TARGET_HOST..."
+            scp "$HOST:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_HOST:$temp_folder/$TARGET_POSTGRES_CONTAINER/$TARGET_DATABASE.sql"
+        fi
+
+        ssh -p $PORT "$TARGET_SERVER" docker-postgres-restore -c "$TARGET_POSTRES_CONTAINER" -d "$TARGET_DATABASE" -o "$temp_folder/$TARGET_DATABASE.sql"
+    fi
+
+    if [[ "$2" =~ "filestore" ]]; then
+        echo "Run step filestore on $SERVER."
+
+        ssh -p $PORT "$SERVER" docker-export -c "$ODOO_CONTAINER" -p "var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
+
+        if [[ "$HOST" != "$TARGET_HOST" ]]; then
+            echo "Source and target host are different."
+            echo "Copy dump from $HOST to $TARGET_HOST..."
+        fi
+
+        ssh -p $PORT "$SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "var/lib/odoo/filestore/$TARGET_DATABASE" -o "$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+    fi
 }
 
 # Snippet commands

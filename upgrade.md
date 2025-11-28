@@ -73,15 +73,15 @@ Note that the `HOST` and `TARGET_HOST` is a reference to a dotfile.
 
 ## Helper Scripts
 
-In order to run upgrade there need to be two sets of command avaialble on the server.
+In order to run upgrade there need to be two sets of commands avaialble on the server.
 
-<https://ansible.build/scripts.html#odoo-scripts>
+The first set are the Odoo scripts <https://ansible.build/scripts.html#odoo-scripts>. They help to manage everything about the Odoo container. The second set is <https://ansible.build/scripts.html#postgres>. These scripts help managing the Postgres container.
 
-<https://ansible.build/scripts.html#postgres>
+The upgrade process uses scripts from different projects.
 
-Three layers of scripting:
-
-taskfile.build -> odoo.build -> ansible.build
+1. https://taskfile.build provides the basic command to manage the dotfiles
+2. https://odoo.build which is this project provides the scripts to run the upgrade steps
+3. https://ansible.build provides scripts to manage containers on the server
 
 ## Test Run
 
