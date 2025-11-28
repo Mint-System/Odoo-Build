@@ -103,7 +103,7 @@ help-table() {
     printf "$column" 'init-venv' '' 'Initialize python virtual env.'
     printf "$column" 'disable-mailserver' '[env]' 'Disable mail server settings via xmlrpc.'
     printf "$column" 'install' '' 'Install Odoo requirements in source folder.'
-    printf "$column" 'install-odoo-scripts' '' 'Install Odoo scripts.'
+    printf "$column" 'install-ansible-build-scripts' '[role]' 'Install scripts of the specified Ansbile role.'
     printf "$column" 'install-requirements' '[db][path]' 'Install python packages from requirements.txt.'
     printf "$column" 'list-packages' '' 'List installed python packages.'
     printf "$column" 'init-module' '[db][path,module]' 'Initialize Odoo module.'
@@ -967,13 +967,6 @@ logs() {
     local container="$1"
     container=${container:="odoo"}
     $CONTAINER_ENGINE logs --follow "$container"
-}
-
-# Script commands
-
-install-odoo-scripts() {
-    echo 'Installing Odoo scripts with user flag.'
-    curl -L https://ansible.build/odoo_scripts/install | bash -s -- --user
 }
 
 # Install commands

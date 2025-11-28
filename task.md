@@ -8,7 +8,6 @@
 | load-dotenv                |                      | Restore content of .env from pass entry.                                       |
 | load-env                   | [env]                | Load and export env file.                                                      |
 | remove-env                 | [env]                | Remove environment config.                                                     |
-| remove-venv                |                      | Remove virtualenv.                                                             |
 | rename-env                 | [env][env]           | Rename env file.                                                               |
 | restore-env-files          | [path]               | Extract and copy env files from backup file.                                   |
 | save-dotenv                |                      | Store content of .env in pass entry.                                           |
@@ -80,7 +79,7 @@
 | init-venv                  |                      | Initialize python virtual env.                                                 |
 | disable-mailserver         | [env]                | Disable mail server settings via xmlrpc.                                       |
 | install                    |                      | Install Odoo requirements in source folder.                                    |
-| install-odoo-scripts       |                      | Install Odoo scripts.                                                          |
+| install-ansible-build-scripts | [role]               | Install scripts of the specified Ansbile role.                                 |
 | install-requirements       | [db][path]           | Install python packages from requirements.txt.                                 |
 | list-packages              |                      | List installed python packages.                                                |
 | init-module                | [db][path,module]    | Initialize Odoo module.                                                        |
@@ -151,5 +150,4 @@
 | update-revisions-doc       |                      | Update revisions doc file.                                                     |
 | update-snippets-doc        |                      | Update snippets doc file.                                                      |
 | migrate-module             | [path]               | Migrate module code from to target Odoo version.                               |
-| run-enterprise-upgrade     | [db][version][mode]  | Run the Odoo Enterprise upgrade scripts. Default mode ist 'test'.              |
-| run-open-upgrade           | [db][version]        | Run the Odoo OpenUpgrade scripts.                                              |
+| upgrade-odoo               | [env][step]          | Run the Odoo upgrade for a target environment.                                 |
