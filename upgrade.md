@@ -4,12 +4,12 @@ The Odoo Build project assists you in running upgrades for any Odoo project. Thi
 
 ## Setup
 
-There are `task` script commands that take `env` as an argument. The `env` references a dotfile `./vault/.env.$NAME`. These files are managed with with the `*-env` commands.
+There are task file commands that take `env` as an argument. The `env` references a dotfile `./vault/.env.$NAME`. These files are managed with with the `*-env` commands.
 
 Setting up a Odoo upgrade project requires the creation of a dotenv file. This guide assumes that we have the following setup:
 
 - Our customer is `Acme Corporation`
-- There is a server called `host.example.com`
+- The production server is `host1.example.com` and the upgrade server is `host2.example.com`
 - Odoo 16.0 production instance is running at `https://odoo.example.com`
 - Odoo 18.0 upgrade environment is running at `https://upgrade.odoo.example.com`
 - The Odoo setup is docker based. The Postgres containers have a different version
@@ -35,15 +35,16 @@ task edit-env acme
 
 Update the configs with the definition of your enviroment.
 
-- **HOST**: Hostname of the Odoo instance.
-- **SERVER**: SSH url to access the server
-- **PORT**: SSH port
-
+- **HOST**: Hostname of the Odoo pruction instance
+- **SERVER**: SSH url to access the pruction server
+- **PORT**: SSH port of server
 - **ODOO_CONTAINER**: Name of production Odoo Docker container
 - **ODOO_VERSION**: Version of Odoo production
 - **POSTGRES_CONTAINER**: Name of production Postgres Docker container
 - **DATABASE**: Name of production database
-
+- **TARGET_HOST**: Hostname of the Odoo upgrade instance.
+- **TARGET_SERVER**: SSH url to access the upgrade server
+- **TARGET_PORT**: SSH port of server
 - **TARGET_ODOO_CONTAINER**: Name of upgrade Odoo Docker container
 - **TARGET_ODOO_VERSION**: Version of Odoo upgrade
 - **TARGET_POSTGRES_CONTAINER**: Name of upgrade Postgres Docker container
@@ -52,24 +53,27 @@ Update the configs with the definition of your enviroment.
 In our case the definition is:
 
 ```bash
-HOST='upgrade.odoo.example.com'
-SERVER='host.example.com'
+HOST='odoo.example.com'
+SERVER='host1.example.com'
 PORT=22
-
 ODOO_CONTAINER='odoo01'
 ODOO_VERSION='16.0'
 POSTGRES_CONTAINER='postgres01'
 DATABASE='odoo'
-
+TARGET_HOST='upgrade.odoo.example.com'
+TARGET_SERVER='host2.example.com'
+TARGET_PORT=22
 TARGET_ODOO_CONTAINER='odoo02'
 TARGET_ODOO_VERSION='18.0'
 TARGET_POSTGRES_CONTAINER='postgres02'
 TARGET_DATABASE='upgrade'
 ```
 
-Note that the `HOST` is reference to another dotfile.
+Note that the `HOST` and `TARGET_HOST` is a reference to a dotfile.
 
 ## Helper Scripts
+
+In order to run upgrade there need to be two sets of command avaialble on the server.
 
 <https://ansible.build/scripts.html#odoo-scripts>
 
@@ -89,31 +93,41 @@ All the steps required to provide an upgrades database can be run with: `task up
 
 The `all-test` parameter will execute these tasks:
 
-- **dump**: Dump and restore the production database on the Postgres container
+**dump**
+
+Dump and restore the production database on the Postgres container
 
 ```bash
 task upgrade-odoo acme dump
 ```
 
-- **filestore**: Export and import the Odoo filestore
+**filestore**
+
+Export and import the Odoo filestore
 
 ```bash
-task upgrade-odoo acme dump
+task upgrade-odoo acme filestore
 ```
 
-- **drop**: Drop the existing upgrade database
+**drop**
+
+Drop the existing upgrade database
 
 ```bash
 task upgrade-odoo acme drop
 ```
 
-- **test**: Run the Odoo upgrade scripts in test mode
+**test**
+
+Run the Odoo upgrade scripts in test mode
 
 ```bash
 task upgrade-odoo acme test
 ```
 
-- **uninstall**: Uninstall modules on the upgraded database
+**uninstall**
+
+Uninstall modules on the upgraded database
 
 This step requires an env var:
 
@@ -125,7 +139,9 @@ ODOO_ADDONS_UNINSTALL=board_user_acl,l10n_din5008_expense
 task upgrade-odoo acme uninstall
 ```
 
-- **init**: Init modules on the upgraded database
+**init**
+
+Init modules on the upgraded database
 
 This step requires an env var:
 
@@ -137,7 +153,9 @@ ODOO_ADDONS_INIT=web_environment_ribbon
 task upgrade-odoo acme init
 ```
 
-- **update**: Update all modules and clear assets
+**update**
+
+Update all modules and clear assets
 
 ```bash
 task upgrade-odoo acme upgrade
