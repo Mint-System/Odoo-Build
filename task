@@ -1393,7 +1393,6 @@ test-project() {
         export SERVER_WIDE_MODULES=module_change_auto_install
         # export SESSION_DB_URI=postgres://odoo:odoo@db/test
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
-        export AUTO_UPDATE_MODULES=True
         export AUTO_UPDATE_TRANSLATIONS=True
         export AUTO_UPDATE_MODULES_LIST=True
         export MAIL_DEFAULT_FROM="test"

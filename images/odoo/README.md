@@ -162,7 +162,6 @@ services:
       LIMIT_MEMORY_HARD_GEVENT: 1048579
       LIMIT_MEMORY_SOFT_GEVENT: 1048576
       MODULE_AUTO_INSTALL_DISABLED: odoo_test_xmlrunner
-      AUTO_UPDATE_MODULES: True
       TEST_ADDONS_DIR: /mnt/oca/partner-contact
       TEST_INCLUDE: partner_firstname
       TEST_EXCLUDE: partner_fax
@@ -460,9 +459,8 @@ With the `module_change_auto_install` module you can disable the auto installati
 
 ### Module Auto Update
 
-The container uses [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. The auto update is disabled by default.
+The container provides [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. Other updates such as the update of translations, can be automated.
 
-- `AUTO_UPDATE_MODULES` If enabled modules will updated when the container is started.  Default is `False`.
 - `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
 - `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
 

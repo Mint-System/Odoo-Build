@@ -49,11 +49,6 @@ log-entrypoint "Resolve database hostname: $PGHOST"
 getent hosts "$PGHOST"
 wait-for-pg
 
-AUTO_UPDATE_MODULES="${AUTO_UPDATE_MODULES:=False}"
-if [[ "$AUTO_UPDATE_MODULES" = "True" ]]; then
-    update-modules
-fi
-
 AUTO_UPDATE_MODULES_LIST="${AUTO_UPDATE_MODULES_LIST:=False}"
 if [[ "$AUTO_UPDATE_MODULES_LIST" = "True" ]]; then
     update-modules-list

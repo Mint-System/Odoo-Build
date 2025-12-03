@@ -19,6 +19,10 @@ All notable changes to this project will be documented in this file. The format 
 - Inconsistent naming of `DBFILTER` is now `DB_FILTER`.
 - Remove `-e` from Odoo pip install.
 
+## Removed
+
+- Removed the `AUTO_UPDATE_MODULES` env var.
+
 ### Changed
 
 - Prefix Odoo image entrypoint echos.
