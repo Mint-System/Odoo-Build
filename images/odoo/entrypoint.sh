@@ -65,7 +65,7 @@ if [[ "$AUTO_UPDATE_TRANSLATIONS" = "True" ]]; then
 fi
 
 case "$1" in
-    memray)
+    -- | memray)
         shift
         log-entrypoint 'Start Odoo with memray.'
         rm -f /var/lib/odoo/memray-capture.bin
@@ -79,6 +79,13 @@ case "$1" in
             wait-for-pg
             exec odoo "$@" "${DB_ARGS[@]}"
         fi
+        ;;
+    -- | odoo-nginx)
+        shift
+        log-entrypoint 'Start Odoo with nginx.'
+        wait-for-pg
+        nginx -c /etc/nginx/nginx.conf &
+        exec odoo "$@" "${DB_ARGS[@]}"
         ;;
     -*)
         wait-for-pg

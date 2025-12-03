@@ -22,6 +22,7 @@ This container image is an improvement of the official Odoo image:
 - ✂️ Reduced image size through multi-stage build and file cleanup.
 - 👀 Use the image to run module tests and create code coverage reports.
 - 🏥 Image has a built-in health check.
+- 🌐 Built-in nginx reverse proxy. 
 
 Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
@@ -541,6 +542,12 @@ github/oca/server-tools:
   target: oca 18.0
 ```
 
+### nginx.conf
+
+The image includes the [nginx web server](https://nginx.org/). If the container is started with `odoo-nginx` in addition to the Odoo process a nginx proxy is started. The nginx config file is loaded from `/etc/nginx/nginx.conf`.
+
+Make sure to set `WORKERS` to `1` or more, otherwise the real-time connection of Odoo will not work. Having one or more workers will start the gevent listener on port `8072`.
+
 ## Build
 
 This image can be customized by any extend.
@@ -610,6 +617,10 @@ Generate the flamegraph and copy the flamegraph to the host.
 docker compose exec odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
 docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 ```
+
+### Start Odoo with nginx proxy
+
+If you start the container with `odoo-nginx` instead of the default `odoo`, a nginx proxy will be started as well. The nginx process is listening on port `8080`.
 
 ### Scripts
 

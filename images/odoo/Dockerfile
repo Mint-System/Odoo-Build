@@ -90,6 +90,7 @@ RUN apt-get update && \
         libxml2 \
         libxslt1.1 \
         ripgrep \
+        nginx \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \
@@ -171,12 +172,18 @@ RUN chmod -R 775 /etc/odoo \
     /opt/odoo-venv \
     /mnt/extra-addons
 
+# Nginx configuration
+RUN mkdir -p /var/cache/nginx/odoo
+RUN mkdir -p /var/run/nginx/
+COPY ./images/odoo/nginx.conf /etc/nginx/nginx.conf
+
 # Define volumes
 VOLUME ["/var/lib/odoo", "/mnt/extra-addons"]
 
 # Expose Odoo services
 # Port 8068 and 8071 is used for testing
-EXPOSE 8068 8069 8071 8072
+# Port 8080 is the nginx proxy
+EXPOSE 8068 8069 8071 8072 8080
 
 # Set the default config file
 ENV ODOO_RC=/etc/odoo/odoo.conf

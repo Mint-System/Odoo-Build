@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file. The format 
 - Env var `ADDITIONAL_ODOO_RC` to append custom config to main section.
 - Env var `IR_CONFIG_PARAMETER` to append to ir config section.
 - Env var `ODOO_ENTERPRISE_PATH` to set path to Odoo Enterprise modules.
+- Add support to start a nginx proxy next to Odoo.
 
 ### Fixed
 

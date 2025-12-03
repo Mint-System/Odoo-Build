@@ -4,8 +4,8 @@ services:
     container_name: odoo
     image: "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
     depends_on:
-        db:
-            condition: service_healthy
+      db:
+        condition: service_healthy
     environment:
       HOST: db
       USER: odoo
@@ -78,9 +78,10 @@ services:
       TEST_EXCLUDE: ${TEST_EXCLUDE}
       AUTO_UPDATE_TRANSLATIONS: "${AUTO_UPDATE_TRANSLATIONS}"
       AUTO_UPDATE_MODULES_LIST: "${AUTO_UPDATE_MODULES_LIST}"
-    command: odoo --dev=all
+    command: ${ODOO_COMMAND}
     ports:
       - "${ODOO_PORT}:8069"
+      - "${NGINX_PORT}:8080"
     volumes:
       - odoo-data:/var/lib/odoo
       - ./tmp/postgres-odoo:/mnt/postgres-odoo

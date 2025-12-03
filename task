@@ -217,6 +217,8 @@ ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
 WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
+NGINX_PORT=${NGINX_PORT:=8080}
+WORKERS=${WORKERS:=1}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:=pgvector/pgvector:pg16-trixie}
 POSTGRES_PORT=${POSTGRES_PORT:=5432}
 POSTGRES_SSL=${POSTGRES_SSL:=on}
@@ -232,7 +234,7 @@ SMTP_PORT=${SMTP_PORT:=1025}
 SMTP_SSL=${SMTP_SSL:=False}
 EMAIL_FROM=${EMAIL_FROM:=info@yourcompany.com}
 MAIL_ALIAS_DOMAIN=${MAIL_ALIAS_DOMAIN:=yourcompany.com}
-LIST_DB=${LIST_DB:=True}
+LIST_DB=${LIST_DB:=False}
 CONTAINER_TAG="odoo:$ODOO_REVISION"
 ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:=admin}
 ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:=admin}
@@ -648,7 +650,7 @@ template-compose() {
         var=${var#\$}      # Remove leading $
         export "$var"
     done
-
+    
     envsubst < "compose.yml.template" > "compose.yml"
 }
 
@@ -1080,6 +1082,11 @@ start() {
     if [[ "$POSTGRES_SSL" == "on" ]]; then
         generate-pg-ssl-keys
     fi
+    ODOO_COMMAND="odoo --dev=all"
+    if [[ "$1" =~ "odoo-nginx" ]]; then
+        ODOO_COMMAND="odoo-nginx --dev=all"
+    fi
+    export ODOO_COMMAND
 
     template-compose
 
@@ -1150,6 +1157,12 @@ start() {
         echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
         open-url-with-delay "http://localhost:8069" 2 & $COMPOSE_COMMAND up -d odoo
+    fi
+
+    if [[ "$1" =~ "odoo-nginx" ]]; then
+        echo "Start Odoo container ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with nginx proxy."
+        echo 'Open http://localhost:8080 url in your browser.'
+        open-url-with-delay "http://localhost:8080" 2 & $COMPOSE_COMMAND up -d odoo
     fi
 }
 
