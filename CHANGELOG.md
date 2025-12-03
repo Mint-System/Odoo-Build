@@ -8,6 +8,13 @@ All notable changes to this project will be documented in this file. The format 
 
 - Removed command `setup-mail`.
 - Removed `activate-venv` call from all functions.
+- Remove command definitions:
+	- clean-git-folder
+	- commit-git-folder
+	- push-git-folder
+	- reset-git-folder
+	- stage-git-folder
+	- status-git-folder
 
 ### Added
 

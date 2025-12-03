@@ -2609,35 +2609,6 @@ download-git-folder() {
     done
 }
 
-pull-git-folder() {
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-        echo "Pull git folder $git_folder."
-        git -C "$git_folder" stash
-        local update=$(git config submodule."$git_folder".update)
-        if [[ -z "$update" ]]; then
-            git -C "$git_folder" pull origin "$ODOO_VERSION"
-        fi;
-    done
-}
-
-reset-git-folder() {
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-        echo "Abort rebase and reset git folder $git_folder."
-        git -C "$git_folder" rebase --abort
-        git -C "$git_folder" reset --hard
-    done
-}
-
-clean-git-folder() {
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-        echo "Clean git folder $git_folder."
-        git -C "$git_folder" clean -df
-    done
-}
-
 checkout-git-folder() {
     echo 'Checkout submodule commits.'
     local git_folders=$(ls-git-folder)
@@ -2681,44 +2652,15 @@ switch-git-folder() {
     done
 }
 
-status-git-folder() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-    local git_folders=$(ls-git-folder "$1")
-
-    echo 'Show status in git folders.'
+pull-git-folder() {
+    local git_folders=$(ls-git-folder)
     for git_folder in $git_folders; do
-        git -C "$git_folder" status
-    done
-}
-
-stage-git-folder() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-    local git_folders=$(ls-git-folder "$1")
-
-    for git_folder in $git_folders; do
-        echo "Stage all files in $git_folder."
-        git -C "$git_folder" add --all
-    done
-}
-
-commit-git-folder() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-    if [[ -z "$2" ]]; then echo "\$2 is empty."; exit; fi
-    local git_folders=$(ls-git-folder "$1")
-
-    for git_folder in $git_folders; do
-        echo "Commit in $git_folder."
-        git -C "$git_folder" commit --message "$2"
-    done
-}
-
-push-git-folder() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-    local git_folders=$(ls-git-folder "$1")
-
-    for git_folder in $git_folders; do
-        echo "Push in $git_folder."
-        git -C "$git_folder" push
+        echo "Pull git folder $git_folder."
+        git -C "$git_folder" stash
+        local update=$(git config submodule."$git_folder".update)
+        if [[ -z "$update" ]]; then
+            git -C "$git_folder" pull origin "$ODOO_VERSION"
+        fi;
     done
 }
 
