@@ -5,7 +5,7 @@ export DB_NAME=${DB_NAME:=""}
 export DB_MAXCONN=${DB_MAXCONN:=64}
 export SMTP_SERVER=${SMTP_SERVER:=""}
 export SMTP_PORT=${SMTP_PORT:=0}
-export SMTP_SSL=${SMTP_SSL:=""}
+export SMTP_SSL=${SMTP_SSL:=False}
 export SMTP_USER=${SMTP_USER:=""}
 export SMTP_PASSWORD=${SMTP_PASSWORD:=""}
 export EMAIL_FROM=${EMAIL_FROM:=""}

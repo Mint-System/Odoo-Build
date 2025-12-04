@@ -331,7 +331,7 @@ This is the mail configuration of the Odoo server.
 
 - `SMTP_SERVER` Adress of the SMTP server.
 - `SMTP_PORT` Port of the SMTP server.
-- `SMTP_SSL` Use ssl encryption.
+- `SMTP_SSL` Use ssl encryption. Default is `False`.
 - `SMTP_USER` SMTP username.
 - `SMTP_PASSWORD` SMTP user password.
 - `EMAIL_FROM` Mail adress of the sender.
@@ -366,8 +366,8 @@ The configuration will be applied to the `ODOO_DATABASE` database.
 
 The image can clone git repositories.
 
-- `GIT_AUTHOR_NAME: Set user name global git config.
-- `GIT_AUTHOR_EMAIL: Set user email global git config.
+- `GIT_AUTHOR_NAME`: Set user name global git config.
+- `GIT_AUTHOR_EMAIL`: Set user email global git config.
 - `GIT_SSH_PUBLIC_KEY`: Public key for SSH connection.
 - `GIT_SSH_PRIVATE_KEY`: Base64 encoded private key for SSH connection: `cat ~/.ssh/id_ed2551 | base64 -w0`
 - `SSH_ID_ALGORITHM`: Filename and algorithm of the SSH key file. Default is `id_ed25519`
