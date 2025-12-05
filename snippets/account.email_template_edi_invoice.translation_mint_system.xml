@@ -4,7 +4,7 @@
         Geschätzter
         <t t-out="object.partner_id.firstname or object.partner_id.name or ''">Brandon</t>
         
-        <br><br>
+        <br/><br/>
         <t t-if="object.timesheet_ids">
             <t t-set="min_date" t-value="min(object.timesheet_ids.mapped('date'))" />
             <t t-set="max_date" t-value="max(object.timesheet_ids.mapped('date'))" />
@@ -13,7 +13,7 @@
         <t t-else="">
             Gerne möchten wir unsere Aufwände verrechnen.
         </t>
-        <br><br>
+        <br/><br/>
         Anbei findest du die 
         <t t-if="object.name">
             Rechnung <strong t-out="object.name or ''">INV/2021/05/0005</strong>
@@ -27,11 +27,11 @@
         im Betrag von <strong t-out="format_amount(object.amount_total, object.currency_id) or ''">EUR 143.750,00</strong>
         von der <t t-out="object.company_id.name or ''">YourCompany</t>.
         Wir danken für eine fristgerechte Bezahlung.
-        <br><br>
+        <br/><br/>
         Zögere nicht uns bei Fragen zu kontaktieren.
-        <br><br>
+        <br/><br/>
         Liebe Grüsse
-        <br><br>
+        <br/><br/>
         <t t-out="user.partner_id.firstname or user.name"></t>
         </p>
     </div>
