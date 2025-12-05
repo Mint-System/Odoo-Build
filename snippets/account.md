@@ -102,6 +102,55 @@ ID: `mint_system.account.document_tax_totals.replace_summary`
 ```
 Source: [snippets/account.document_tax_totals.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.document_tax_totals.replace_summary.xml)
 
+## Email Template Edi Invoice
+
+### Translation Mint System
+
+ID: `mint_system.account.email_template_edi_invoice.translation_mint_system`
+
+```xml
+<data inherit_id="account.email_template_edi_invoice" priority="50">
+    <div style="margin: 0px; padding: 0px;">
+        <p style="margin: 0px; padding: 0px; font-size: 13px;">
+        Geschätzter
+        <t t-out="object.partner_id.firstname or object.partner_id.name or ''">Brandon</t>
+        
+        <br/><br/>
+        <t t-if="object.timesheet_ids">
+            <t t-set="min_date" t-value="min(object.timesheet_ids.mapped('date'))" />
+            <t t-set="max_date" t-value="max(object.timesheet_ids.mapped('date'))" />
+            Gerne möchten wir unsere Aufwände vom <strong><t t-out="format_date(min_date) or ''">MM</t></strong> bis <strong><t t-out="format_date(max_date) or ''">MM</t></strong> verrechnen.
+        </t>
+        <t t-else="">
+            Gerne möchten wir unsere Aufwände verrechnen.
+        </t>
+        <br/><br/>
+        Anbei findest du die 
+        <t t-if="object.name">
+            Rechnung <strong t-out="object.name or ''">INV/2021/05/0005</strong>
+        </t>
+        <t t-else="">
+           Rechnung
+        </t>
+        <t t-if="object.invoice_origin">
+            (Referenz: <t t-out="object.invoice_origin or ''">SUB003</t>)
+        </t>
+        im Betrag von <strong t-out="format_amount(object.amount_total, object.currency_id) or ''">EUR 143.750,00</strong>
+        von der <t t-out="object.company_id.name or ''">YourCompany</t>.
+        Wir danken für eine fristgerechte Bezahlung.
+        <br/><br/>
+        Zögere nicht uns bei Fragen zu kontaktieren.
+        <br/><br/>
+        Liebe Grüsse
+        <br/><br/>
+        <t t-out="user.partner_id.firstname or user.name"></t>
+        </p>
+    </div>
+</data>
+
+```
+Source: [snippets/account.email_template_edi_invoice.translation_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account.email_template_edi_invoice.translation_mint_system.xml)
+
 ## Portal Invoice Page
 
 ### Convert Html Note
