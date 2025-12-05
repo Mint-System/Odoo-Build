@@ -2387,7 +2387,8 @@ update-snippet() {
 
     load-env "$1"
     echo "Update view with name $name"
-    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --include-archived --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    enable-snippet "$1" "$2"
 }
 
 disable-snippet() {
@@ -2433,7 +2434,7 @@ enable-snippet() {
 
     load-env "$1"
     echo "Enable view with name $name"
-    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "True"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --include-archived --domain "[('name', '=', '$name')]" --field "active" --value "True"
 }
 
 remove-snippet() {

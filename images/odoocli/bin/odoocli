@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
-
 import sys, os, ast
-
 import xmlrpc.client
 from argparse import ArgumentParser, RawTextHelpFormatter
 from urllib.parse import urlparse
@@ -9,24 +7,20 @@ from urllib.parse import urlparse
 example_text = """
 # Create a new partner with name and email
 odoocli --method 'create' --model 'res.partner' --value "{'name': 'User', 'email': 'user@example.com'}"
-
 # Update the name of the partner with id 66
 odoocli --method 'write' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name' --value 'New Name'
-
 # Read the 'name' field of the partner with id 66
 odoocli --method 'read' --model 'res.partner' --domain "[('id', '=', 66)]" --field 'name'
-
 # Count the number of partners with email domain 'example.com'
 odoocli --method 'search_count' --model 'res.partner' --domain "[('email', 'like', '%example.com%')]"
-
 # Find the id of the first partner with email 'user@example.com'
 odoocli --method 'search_one' --model 'res.partner' --domain "[('email', '=', 'user@example.com')]"
-
 # Delete the partner with id 66
 odoocli --method 'unlink' --model 'res.partner' --domain "[('id', '=', 66)]"
-
 # List selected model fields
 odoocli --method 'search_read' --model 'ir.model' --domain "[]" --fields "['name','model']"
+# Include archived records in search
+odoocli --method 'search_read' --model 'res.partner' --domain "[('name', 'ilike', 'John')]" --fields "['name','active']" --include-archived
 """
 
 # Create the argument parser
@@ -44,6 +38,7 @@ parser.add_argument('--domain', help='The domain filter in the form of [("field"
 parser.add_argument('--field', help='The field name in the model to update or read.')
 parser.add_argument('--fields', help='The fields to read when using the search_read method, e.g., ["name", "email"].')
 parser.add_argument('--value', help='The value to write or create, or the field to read.')
+parser.add_argument('--include-archived', action='store_true', help='Include archived (non-active) records in search operations.')
 
 # Parse arguments
 args = parser.parse_args()
@@ -75,32 +70,32 @@ if args.value:
 if args.fields:
     fields = ast.literal_eval(args.fields)
 
-# Execute the selected method
+# Build context for archived records
+context = {}
+if args.include_archived:
+    context['active_test'] = False
 
+# Execute the selected method
 if args.method == "create":
     models.execute_kw(db, uid, password, args.model, "create", [value])
-
 elif args.method == "write":
-    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
+    # Pass context inside 'context' key
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {'context': context})
     models.execute_kw(db, uid, password, args.model, "write", [ids, {args.field: value}])
-
 elif args.method == "read":
-    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {"limit": 1})
+    # Pass context + limit inside 'context' key
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {'context': {**context, 'limit': 1}})
     res = models.execute_kw(db, uid, password, args.model, "read", [ids])
     print(res[0][args.field])
-
 elif args.method == "search_count":
-    count = models.execute_kw(db, uid, password, args.model, "search_count", [domain])
+    count = models.execute_kw(db, uid, password, args.model, "search_count", [domain], {'context': context})
     print(count)
-
 elif args.method == "search_one":
-    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {'context': context})
     print(ids[0])
-
 elif args.method == "unlink":
-    ids = models.execute_kw(db, uid, password, args.model, "search", [domain])
+    ids = models.execute_kw(db, uid, password, args.model, "search", [domain], {'context': context})
     models.execute_kw(db, uid, password, args.model, "unlink", [ids])
-
 elif args.method == "search_read":
-    res = models.execute_kw(db, uid, password, args.model, "search_read", [domain], {"fields": fields})
+    res = models.execute_kw(db, uid, password, args.model, "search_read", [domain], {'context': context, 'fields': fields})
     print(res)

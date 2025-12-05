@@ -1,5 +1,5 @@
 <data inherit_id="base.view_partner_tree" priority="50">
-    <field name="display_name" position="before">
+    <field name="complete_name" position="before">
         <field name="type" optional="show"/>
     </field>
 </data>
