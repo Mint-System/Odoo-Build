@@ -69,11 +69,12 @@
 | commit-with-llm            |                      | Commit with llm generated commit message.                                      |
 | show-odoo-mcp-config       |                      | Show the Odoo MCP server config.                                               |
 | update-with-llm            | [glob][prompt]       | Feed module files with prompt to LLM and apply file changes.                   |
-| create-snippet             | [name]               | Create snippet from template.                                                  |
+| create-snippet             | [xml-id]             | Create snippet from template.                                                  |
 | install-snippet            | [env][path]          | Install snippet definition.                                                    |
-| disable-snippet            | [env][path]          | Disable snippet definition.                                                    |
+| disable-snippet            | [env][path]          | Disable snippet by path or xml-id.                                             |
+| enable-snippet             | [env][path]          | Enable snippet by path or xml-id.                                              |
 | lint-snippets              |                      | Run checks for all snippets.                                                   |
-| remove-snippet             | [env][path]          | Remove snippet definition.                                                     |
+| remove-snippet             | [env][path]          | Remove snippet by path or xml-id.                                              |
 | update-snippet             | [env][path]          | Update snippet definition.                                                     |
 | activate-venv              |                      | Activate virtualenv.                                                           |
 | init-venv                  |                      | Initialize python virtual env.                                                 |

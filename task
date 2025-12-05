@@ -92,11 +92,12 @@ help-table() {
     printf "$column" 'show-odoo-mcp-config' '' 'Show the Odoo MCP server config.'
     printf "$column" 'update-with-llm' '[glob][prompt]' 'Feed module files with prompt to LLM and apply file changes.'
     # Snippets
-    printf "$column" 'create-snippet' '[name]' 'Create snippet from template.'
+    printf "$column" 'create-snippet' '[xml-id]' 'Create snippet from template.'
     printf "$column" 'install-snippet' '[env][path]' 'Install snippet definition.'
-    printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet definition.'
+    printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet by path or xml-id.'
+    printf "$column" 'enable-snippet' '[env][path]' 'Enable snippet by path or xml-id.'
     printf "$column" 'lint-snippets' '' 'Run checks for all snippets.'
-    printf "$column" 'remove-snippet' '[env][path]' 'Remove snippet definition.'
+    printf "$column" 'remove-snippet' '[env][path]' 'Remove snippet by path or xml-id.'
     printf "$column" 'update-snippet' '[env][path]' 'Update snippet definition.'
     # Setup
     printf "$column" 'activate-venv' '' 'Activate virtualenv.'
@@ -2399,13 +2400,40 @@ disable-snippet() {
         exit
     fi
 
-    # Generate view name from filename
-    local file=$(basename "$2")
-    local name="mint_system.${file%.xml}"
+    # Get name from path
+    # path: snippets/base.view_partner_tree.show_type.xml
+    # name: mint_system.base.view_partner_tree.show_type
+    local name="$2"
+    if [[ "$2" == *.xml ]]; then
+        local file=$(basename "$2")
+        name="mint_system.${file%.xml}"
+    fi
 
     load-env "$1"
     echo "Disable view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
+}
+
+enable-snippet() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
+
+    # Get name from path
+    local name="$2"
+    if [[ "$2" == *.xml ]]; then
+        local file=$(basename "$2")
+        name="mint_system.${file%.xml}"
+    fi
+
+    load-env "$1"
+    echo "Enable view with name $name"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "True"
 }
 
 remove-snippet() {
@@ -2418,9 +2446,12 @@ remove-snippet() {
         exit
     fi
 
-    # Generate view name from filename
-    local file=$(basename "$2")
-    local name="mint_system.${file%.xml}"
+    # Get name from path
+    local name="$2"
+    if [[ "$2" == *.xml ]]; then
+        local file=$(basename "$2")
+        name="mint_system.${file%.xml}"
+    fi
 
     load-env "$1"
     echo "Remove view with name $name"
@@ -2428,7 +2459,6 @@ remove-snippet() {
 }
 
 lint-snippets() {
-
     echo 'Lint snippets files...'
 
     local files="snippets/*.xml"
