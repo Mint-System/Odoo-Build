@@ -61,7 +61,7 @@ services:
       - odoo-data:/var/lib/odoo
   db:
     container_name: db
-    image: postgres:14-alpine
+    image: postgres:16-alpine
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
@@ -179,7 +179,7 @@ services:
       - ./themes:/mnt/themes
   db:
     container_name: db
-    image: postgres:14-alpine
+    image: postgres:16-alpine
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
@@ -260,27 +260,13 @@ Or update specific modules with this command:
 docker compose exec odoo update-module partner_firstname
 ```
 
-There is also the possiblity to update all modules:
+There is also the option to update all modules:
 
 ```bash
 docker compose exec odoo update-modules
 ```
 
-Or update the modules list (refresh the list of available modules from the addons path):
-
-```bash
-docker compose exec odoo update-modules-list
-```
-
 For each installed module Odoo computes and stores a checksum in the database. The update modules script compares the checksum and updates all modules that have changed.
-
-Updating module translations is simple:
-
-```bash
-docker compose exec odoo update-translations
-```
-
-Note that existing translations will be overwritten.
 
 ### Analyze
 
@@ -493,56 +479,15 @@ Compatibility with other images is mainly achieved by using the same environment
 
 When mounting your `pyproject.toml` to `/var/lib/odoo/pyproject.toml` the `sync-python-project` script will run `uv sync --active` in the directory.
 
-Here is an example for `pyproject.toml`:
-
-```toml
-# Use the hatchling build backend, with the hatch-odoo plugin.
-[build-system]
-requires = ["hatchling", "hatch-odoo"]
-build-backend = "hatchling.build"
-
-[project]
-name = "MyAwesomeProject"
-version = "1.0"
-readme = "README.md"
-requires-python = ">=3.8"
-# Dependencies are dynamic because they will be generated from Odoo addons manifests.
-dynamic = ["dependencies"]
-
-# Enable the hatch-odoo metadata hook to generate dependencies from addons manifests.
-[tool.hatch.metadata.hooks.odoo-addons-dependencies]
-# Enable the hatch-odoo build hook to package the Odoo addons into odoo/addons.
-[tool.hatch.build.hooks.odoo-addons-dirs]
-
-[tool.hatch-odoo]
-# If our addons have non standard version numbers, let's help hatch-odoo discover the Odoo version.
-odoo_version_override = "18.0"
-# Let's add additional dependencies that are not declared in addons manifests.
-dependencies = ["click-odoo-contrib"]
-# Our addons are in the project root directory.
-addons_dirs = ["."]
-```
-
 ### repos.yml
 
 The image includes [git-aggregator](https://github.com/acsone/git-aggregator). It allows to clone and merge addon repos from different origins and branches.
 
 When mounting the `repos.yml` to `/var/lib/odoo/git/repos.yml` the `aggregate-git-repos` script will run the `gitaggregate` command in the directory.
 
-Here is an example for `repos.yml`:
-
-```yaml
-github/oca/server-tools:
-  remotes:
-    oca: git@github.com:OCA/server-tools.git
-  merges:
-    - oca 18.0
-  target: oca 18.0
-```
-
 ### nginx.conf
 
-The image includes the [nginx web server](https://nginx.org/). If the container is started with `odoo-nginx` in addition to the Odoo process a nginx proxy is started. The nginx config file is loaded from `/etc/nginx/nginx.conf`.
+The image includes the [nginx web server](https://nginx.org/). If the container is started with `odoo-nginx` in addition to the Odoo process a nginx reverese proxy is started. The nginx config file is loaded from `/etc/nginx/nginx.conf` and the process is listening on port `8080`.
 
 Make sure to set `WORKERS` to `1` or more, otherwise the real-time connection of Odoo will not work. Having one or more workers will start the gevent listener on port `8072`.
 
@@ -566,16 +511,6 @@ Or with apt packages:
 FROM mintsystem/odoo:18.0
 
 RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
-```
-
-### Add custom Odoo conf
-
-Copy custom Odoo conf file to the image.
-
-```dockerfile
-FROM mintsystem/odoo:18.0
-
-COPY ./odoo.conf.template /etc/odoo/
 ```
 
 ## Develop
@@ -615,10 +550,6 @@ Generate the flamegraph and copy the flamegraph to the host.
 docker compose exec odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
 docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
 ```
-
-### Start Odoo with nginx proxy
-
-If you start the container with `odoo-nginx` instead of the default `odoo`, a nginx proxy will be started as well. The nginx process is listening on port `8080`.
 
 ### Scripts
 
