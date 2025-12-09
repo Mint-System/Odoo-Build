@@ -171,7 +171,7 @@ help-table() {
     printf "$column" 'template-compose' '' 'Template the Docker compose file.'
     printf "$column" 'template-odoo-rc' '' 'Template the Odoo config file.'
     printf "$column" 'template-repo' '[path]' 'Update the repo folder from template.'
-    printf "$column" 'test-project' '[clean]' 'Run tests for this project.'
+    printf "$column" 'test-project' '[cleanup]' 'Run tests for this project.'
     printf "$column" 'version' '' 'Show version of required tools.'
     # Performance
     printf "$column" 'record-with-memray' '[name]' 'Record application memory usage with memray. Options: source.'
@@ -1350,7 +1350,7 @@ generate-pg-ssl-keys() {
 }
 
 test-project() {
-    if [[ "$1" == "clean" ]]; then
+    if [[ "$1" == "cleanup" ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
         drop-db test
         remove odoo
@@ -1392,7 +1392,6 @@ test-project() {
         export ODOO_MAIL_SMTP_PORT=1025
         export ODOO_MAIL_SMTP_ENCRYPTION=none
         export SERVER_WIDE_MODULES=module_change_auto_install
-        # export SESSION_DB_URI=postgres://odoo:odoo@db/test
         export MODULE_AUTO_INSTALL_DISABLED=odoo_test_xmlrunner
         export AUTO_UPDATE_TRANSLATIONS=True
         export AUTO_UPDATE_MODULES_LIST=True
@@ -1447,13 +1446,13 @@ EOF
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         run odoo update-modules
-        # FIXME: Check if module is updated
+        #FIXME: Check if module is auto updated
         # docker logs odoo 2>&1 | grep "Run click-odoo-update."
 
         echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
         restart odoo
-        # FIXME: Check if translations updated
+        #FIXME: Check if translations updated
         # docker logs odoo 2>&1 | grep "Updating translations for all active languages and installed modules."
 
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
@@ -1467,9 +1466,10 @@ EOF
         CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"
         exec odoo run-tests
 
-        echo -e "\033[38;5;214mTEST\033[0m: Run module upgrade."
+        echo -e "\033[38;5;214mTEST\033[0m: Run module migration."
+        echo "Setup pre migration script for partner_firstname..."
         mkdir -p oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0
-        cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0/post-migration.py
+        cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0/pre-migrate.py
 import logging
 from odoo.upgrade import util
 
@@ -1486,7 +1486,10 @@ def migrate(cr, version):
     _logger.info("Updated %s partners", len(partners))
 EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
-        exec odoo update-module partner_firstname 2>&1 | grep "module partner_firstname: Running migration"
+        echo "Run the module upgrade."
+        exec odoo update-module partner_firstname
+        #FIXME: Check if module is migrated
+        # docker logs odoo 2>&1 | grep "module partner_firstname: Running migration"
     fi
 }
 
