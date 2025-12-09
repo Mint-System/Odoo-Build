@@ -1448,14 +1448,13 @@ EOF
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         run odoo update-modules
         # FIXME: Check if module is updated
-
-        docker logs odoo
-        docker logs odoo 2>&1 | grep "Run click-odoo-update."
+        # docker logs odoo 2>&1 | grep "Run click-odoo-update."
 
         echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
         restart odoo
         # FIXME: Check if translations updated
+        # docker logs odoo 2>&1 | grep "Updating translations for all active languages and installed modules."
 
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
         drop-db test
