@@ -184,3 +184,7 @@
 	path = addons/kubernetes
 	url = git@github.com:Mint-System/Odoo-Apps-Kubernetes.git
 	branch = 18.0
+[submodule "oca/repair"]
+	path = oca/repair
+	url = git@github.com:OCA/repair.git
+	branch = 18.0
