@@ -1349,10 +1349,14 @@ generate-pg-ssl-keys() {
                 -days 365 -sha256
         fi
         
-        chmod 600 "$keymaterial_path/server.key"
-        chmod 644 "$keymaterial_path/server.crt"
-        chmod 644 "$keymaterial_path/ca.crt"
-        sudo chown "$postgres_uid:$postgres_gid" "$keymaterial_path/server.key" "$keymaterial_path/server.crt" "$keymaterial_path/ca.crt"
+        local current_uid=$(stat -c '%u' "$keymaterial_path/server.key" 2>/dev/null || stat -f '%u' "$keymaterial_path/server.key" 2>/dev/null)
+        
+        if [[ "$current_uid" != "$postgres_uid" ]]; then
+            chmod 600 "$keymaterial_path/server.key"
+            chmod 644 "$keymaterial_path/server.crt"
+            chmod 644 "$keymaterial_path/ca.crt"
+            sudo chown "$postgres_uid:$postgres_gid" "$keymaterial_path/server.key" "$keymaterial_path/server.crt" "$keymaterial_path/ca.crt"
+        fi
     fi
 }
 
@@ -1823,7 +1827,8 @@ init-module() {
     set-addons-path
     echo "Initialize module $modules on ${database}..."
     odoo -d "$database" -i "$modules" --config "$ODOO_RC" \
-        --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+        --addons-path="$ADDONS_PATH" --stop-after-init --no-http \
+        --log-level="$LOG_LEVEL"
 }
 
 update-module() {

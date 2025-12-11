@@ -124,7 +124,9 @@ services:
         "-c", "ssl=${POSTGRES_SSL}",
         "-c", "ssl_cert_file=/mnt/postgres-odoo/server.crt",
         "-c", "ssl_key_file=/mnt/postgres-odoo/server.key",
-        "-c", "ssl_ca_file=/mnt/postgres-odoo/ca.crt"
+        "-c", "ssl_ca_file=/mnt/postgres-odoo/ca.crt",
+        "-c", "autovacuum=off",
+        "-c", "track_counts=off"
       ]
     networks:
       - default
