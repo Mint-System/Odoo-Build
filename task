@@ -220,7 +220,7 @@ ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
 NGINX_PORT=${NGINX_PORT:=8080}
 WORKERS=${WORKERS:=1}
-POSTGRES_IMAGE=${POSTGRES_IMAGE:=pgvector/pgvector:pg16-trixie}
+POSTGRES_IMAGE=${POSTGRES_IMAGE:=postgres:16-alpine}
 POSTGRES_PORT=${POSTGRES_PORT:=5432}
 POSTGRES_SSL=${POSTGRES_SSL:=on}
 PGSSLMODE=${PGSSLMODE:=prefer}
@@ -1321,18 +1321,25 @@ generate-ssh-keys() {
 
 generate-pg-ssl-keys() {
     local keymaterial_path="tmp/postgres-odoo"
+    local postgres_uid=70
+    local postgres_gid=70
+    
+    if [[ "$POSTGRES_IMAGE" == "pgvector/pgvector"* ]]; then
+        postgres_uid=999
+        postgres_gid=999
+    fi
+    
     if [[ -z "$PG_SSL_CA_CRT" ]] || [[ -z "$PG_SSL_SERVER_CRT" ]] || [[ -z "$PG_SSL_SERVER_KEY" ]]; then
         echo 'Generate PostgreSQL SSL/TLS certificates.'
         mkdir -p "$keymaterial_path"
-
+        
         if [[ ! -f "$keymaterial_path/ca.crt" ]]; then
             openssl genrsa -out "$keymaterial_path/ca.key" 4096
             chmod 600 "$keymaterial_path/ca.key"
-
             openssl req -x509 -new -nodes -key "$keymaterial_path/ca.key" -sha256 -days 3650 \
                 -out "$keymaterial_path/ca.crt" -subj "/C=CH/ST=State/L=Locality/O=Organization/CN=Root CA"
         fi
-
+        
         if [[ ! -f "$keymaterial_path/server.crt" ]]; then
             openssl genrsa -out "$keymaterial_path/server.key" 2048
             openssl req -new -key "$keymaterial_path/server.key" -out "$keymaterial_path/server.csr" \
@@ -1340,12 +1347,12 @@ generate-pg-ssl-keys() {
             openssl x509 -req -in "$keymaterial_path/server.csr" -CA "$keymaterial_path/ca.crt" \
                 -CAkey "$keymaterial_path/ca.key" -CAcreateserial -out "$keymaterial_path/server.crt" \
                 -days 365 -sha256
-
-            chmod 600 "$keymaterial_path/server.key"
-            chmod 644 "$keymaterial_path/server.crt"
-            sudo chown 999:999 "$keymaterial_path/server.key"
-            sudo chown 999:999 "$keymaterial_path/server.crt"
         fi
+        
+        chmod 600 "$keymaterial_path/server.key"
+        chmod 644 "$keymaterial_path/server.crt"
+        chmod 644 "$keymaterial_path/ca.crt"
+        sudo chown "$postgres_uid:$postgres_gid" "$keymaterial_path/server.key" "$keymaterial_path/server.crt" "$keymaterial_path/ca.crt"
     fi
 }
 
