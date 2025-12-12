@@ -146,7 +146,7 @@
 	branch = 18.0
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-sale_workflow.git
+	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 18.0
 [submodule "addons/account_reconcile"]
 	path = addons/account_reconcile
@@ -175,10 +175,6 @@
 [submodule "oca/e-commerce"]
 	path = oca/e-commerce
 	url = git@github.com:OCA/e-commerce.git
-	branch = 18.0
-[submodule "addons/website"]
-	path = addons/website
-	url = git@github.com:Mint-System/Odoo-Apps-Website.git
 	branch = 18.0
 [submodule "addons/kubernetes"]
 	path = addons/kubernetes
