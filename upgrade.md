@@ -160,7 +160,7 @@ task upgrade-odoo acme init
 Update all modules and clear assets
 
 ```bash
-task upgrade-odoo acme upgrade
+task upgrade-odoo acme update
 ```
 
 ### Configure

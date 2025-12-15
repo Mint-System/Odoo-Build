@@ -2281,30 +2281,42 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" =~ "dump" ]]; then
-        echo "Run step dump on $SERVER."
+        log-warning "Run step 'dump' on $SERVER."
 
-        ssh -p $PORT "$SERVER" docker-postgres-backup -c "$POSTRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
+        ssh -p $PORT "$SERVER" sudo docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
 
-        if [[ "$HOST" != "$TARGET_HOST" ]]; then
+        if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
             echo "Source and target host are different."
-            echo "Copy dump from $HOST to $TARGET_HOST..."
-            scp "$HOST:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_HOST:$temp_folder/$TARGET_POSTGRES_CONTAINER/$TARGET_DATABASE.sql"
+            echo "Copy dump from $SERVER to $TARGET_SERVER..."
+            ssh -p $PORT "$TARGET_SERVER" mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
+            scp "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
         fi
 
-        ssh -p $PORT "$TARGET_SERVER" docker-postgres-restore -c "$TARGET_POSTRES_CONTAINER" -d "$TARGET_DATABASE" -o "$temp_folder/$TARGET_DATABASE.sql"
+        ssh -p $PORT "$TARGET_SERVER" sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
     fi
 
     if [[ "$2" =~ "filestore" ]]; then
-        echo "Run step filestore on $SERVER."
+        log-warning "Run step 'filestore' on $SERVER."
 
-        ssh -p $PORT "$SERVER" docker-export -c "$ODOO_CONTAINER" -p "var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
+        ssh -p $PORT "$SERVER" docker-export -c "$ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
 
-        if [[ "$HOST" != "$TARGET_HOST" ]]; then
+        if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
             echo "Source and target host are different."
-            echo "Copy dump from $HOST to $TARGET_HOST..."
+            echo "Copy filestore from $SERVER to $TARGET_SERVER..."
+            scp "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
         fi
 
-        ssh -p $PORT "$SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "var/lib/odoo/filestore/$TARGET_DATABASE" -o "$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+        ssh -p $PORT "$TARGET_SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r
+    fi
+
+    if [[ "$2" =~ "drop" ]]; then
+        log-warning "Run step 'drop' on $TARGET_SERVER."
+        ssh -p $PORT "$TARGET_SERVER" docker-odoo-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
+    fi
+
+    if [[ "$2" =~ "test" ]]; then
+        log-warning "Run step 'test' on $SERVER."
+        ssh -p $PORT "$SERVER" docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
     fi
 }
 
