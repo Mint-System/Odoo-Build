@@ -94,7 +94,7 @@ Before going live with an upgraded Odoo database, the new enviroments needs to b
 
 All the steps required to provide an upgraded database can be run with: `task upgrade-odoo acme all-test`
 
-The `all-test` parameter will execute these tasks:
+This command executes several steps. List the steps with `task upgrade-odoo acme list`. Here are the details of each step:
 
 **dump**
 
@@ -146,6 +146,14 @@ This step requires an env var: `ODOO_ADDONS_INIT=web_environment_ribbon`
 
 ```bash
 task upgrade-odoo acme init
+```
+
+**auto-update**
+
+Calls the `upgrade_changed_checksum` method.
+
+```bash
+task upgrade-odoo acme auto-update
 ```
 
 **update**

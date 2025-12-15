@@ -2275,7 +2275,6 @@ upgrade-odoo() {
     temp_folder="/var/tmp"
     
     if [[ "$2" =~ "list" ]]; then
-        echo 'Available steps:'
         echo "all-test"
         echo "all-production"
         echo "dump"
@@ -2285,6 +2284,7 @@ upgrade-odoo() {
         echo "production"
         echo "init"
         echo "uninstall"
+        echo "auto-update"
         echo "update"
         echo "restart"
         echo "logs"
@@ -2342,6 +2342,11 @@ upgrade-odoo() {
     if [[ "$2" =~ "uninstall" ]]; then
         log-warning "Run step 'uninstall' on $TARGET_SERVER."
         ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
+    fi
+
+    if [[ "$2" =~ "auto-update" ]]; then
+        log-warning "Run step 'auto-update' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "env['ir.module.module'].upgrade_changed_checksum()"
     fi
 
     if [[ "$2" =~ "update" ]]; then
