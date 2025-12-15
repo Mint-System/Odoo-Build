@@ -56,7 +56,6 @@ In our case the definition is:
 HOST='odoo.example.com'
 SERVER='host1.example.com'
 PORT=22
-
 ODOO_CONTAINER='odoo01'
 ODOO_VERSION='16.0'
 POSTGRES_CONTAINER='postgres01'
@@ -65,7 +64,6 @@ DATABASE='odoo'
 TARGET_HOST='upgrade.odoo.example.com'
 TARGET_SERVER='host2.example.com'
 TARGET_PORT=22
-
 TARGET_ODOO_CONTAINER='odoo02'
 TARGET_ODOO_VERSION='18.0'
 TARGET_POSTGRES_CONTAINER='postgres02'
@@ -100,7 +98,7 @@ The `all-test` parameter will execute these tasks:
 
 **dump**
 
-Dump and restore the production database on the Postgres container
+Dump and restore the production database on the Postgres container.
 
 ```bash
 task upgrade-odoo acme dump
@@ -108,7 +106,7 @@ task upgrade-odoo acme dump
 
 **filestore**
 
-Export and import the Odoo filestore
+Export and import the Odoo filestore.
 
 ```bash
 task upgrade-odoo acme filestore
@@ -116,7 +114,7 @@ task upgrade-odoo acme filestore
 
 **drop**
 
-Drop the existing upgrade database
+Drop the existing upgrade database.
 
 ```bash
 task upgrade-odoo acme drop
@@ -124,7 +122,7 @@ task upgrade-odoo acme drop
 
 **test**
 
-Run the Odoo upgrade scripts in test mode
+Run the Odoo upgrade scripts in test mode.
 
 ```bash
 task upgrade-odoo acme test
@@ -132,7 +130,7 @@ task upgrade-odoo acme test
 
 **uninstall**
 
-Uninstall modules on the upgraded database
+Uninstall modules on the upgraded database.
 
 This step requires an env var:
 
@@ -146,7 +144,7 @@ task upgrade-odoo acme uninstall
 
 **init**
 
-Init modules on the upgraded database
+Init modules on the upgraded database.
 
 This step requires an env var:
 
@@ -160,10 +158,30 @@ task upgrade-odoo acme init
 
 **update**
 
-Update all modules and clear assets
+Update all modules and clear assets.
 
 ```bash
 task upgrade-odoo acme update
+```
+
+**restart**
+
+Restart target Odoo and Postgres container.
+
+```bash
+task upgrade-odoo acme restart
+```
+
+### Troubleshooting
+
+There are additional commands for troubleshooting:
+
+**logs**
+
+Show log of target Odoo container.
+
+```bash
+task upgrade-odoo acme logs
 ```
 
 ### Configure
@@ -172,7 +190,7 @@ With heavily customized Odoo databases and new features you have to make configu
 
 ### Testing
 
-### Troubleshooting
+
 
 ## Production Run
 
@@ -195,8 +213,6 @@ task upgrade-odoo acme production
 ```
 
 ### Configure
-
-
 
 ### Testing
 

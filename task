@@ -2286,6 +2286,8 @@ upgrade-odoo() {
         echo "init"
         echo "uninstall"
         echo "update"
+        echo "restart"
+        echo "logs"
     fi
 
     if [[ "$2" =~ "dump" ]]; then
@@ -2345,6 +2347,16 @@ upgrade-odoo() {
         log-warning "Run step 'update' on $TARGET_SERVER."
         ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
         ssh -p "$TARGET_PORT" "$TARGET_SERVER" docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
+    fi
+
+    if [[ "$2" =~ "restart" ]]; then
+        log-warning "Run step 'restart' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker restart "$TARGET_ODOO_CONTAINER" "$TARGET_POSTGRES_CONTAINER"
+    fi
+
+    if [[ "$2" =~ "logs" ]]; then
+        log-warning "Run step 'logs' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker logs -f "$TARGET_ODOO_CONTAINER" --tail 10
     fi
 }
 
