@@ -35,20 +35,20 @@ task edit-env acme
 
 Update the configs with the definition of your enviroment.
 
-- **HOST**: Hostname of the Odoo pruction instance
-- **SERVER**: SSH url to access the pruction server
-- **PORT**: SSH port of server
-- **ODOO_CONTAINER**: Name of production Odoo Docker container
-- **ODOO_VERSION**: Version of Odoo production
-- **POSTGRES_CONTAINER**: Name of production Postgres Docker container
-- **DATABASE**: Name of production database
-- **TARGET_HOST**: Hostname of the Odoo upgrade instance.
-- **TARGET_SERVER**: SSH url to access the upgrade server
-- **TARGET_PORT**: SSH port of server
-- **TARGET_ODOO_CONTAINER**: Name of upgrade Odoo Docker container
-- **TARGET_ODOO_VERSION**: Version of Odoo upgrade
-- **TARGET_POSTGRES_CONTAINER**: Name of upgrade Postgres Docker container
-- **TARGET_DATABASE**: Name of upgrade database
+- `HOST`: Hostname of the Odoo pruction instance
+- `SERVER`: SSH url to access the pruction server
+- `PORT`: SSH port of server
+- `ODOO_CONTAINER`: Name of production Odoo Docker container
+- `ODOO_VERSION`: Version of Odoo production
+- `POSTGRES_CONTAINER`: Name of production Postgres Docker container
+- `DATABASE`: Name of production database
+- `TARGET_HOST`: Hostname of the Odoo upgrade instance.
+- `TARGET_SERVER`: SSH url to access the upgrade server
+- `TARGET_PORT`: SSH port of server
+- `TARGET_ODOO_CONTAINER`: Name of upgrade Odoo Docker container
+- `TARGET_ODOO_VERSION`: Version of Odoo upgrade
+- `TARGET_POSTGRES_CONTAINER`: Name of upgrade Postgres Docker container
+- `TARGET_DATABASE`: Name of upgrade database
 
 In our case the definition is:
 
@@ -204,7 +204,7 @@ In order to run the production upgrade execute `task upgrade-odoo acme all-produ
 
 Similar to `all-test` this command runs all comands, but instead of **test** in runs this command:
 
-**production**:
+**production**
 
 Run the Odoo upgrade scripts in test mode
 
