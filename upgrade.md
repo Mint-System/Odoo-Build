@@ -132,11 +132,7 @@ task upgrade-odoo acme test
 
 Uninstall modules on the upgraded database.
 
-This step requires an env var:
-
-```bash
-ODOO_ADDONS_UNINSTALL=board_user_acl,l10n_din5008_expense
-```
+This step requires an env var: `ODOO_ADDONS_UNINSTALL=board_user_acl,l10n_din5008_expense`
 
 ```bash
 task upgrade-odoo acme uninstall
@@ -146,11 +142,7 @@ task upgrade-odoo acme uninstall
 
 Init modules on the upgraded database.
 
-This step requires an env var:
-
-```bash
-ODOO_ADDONS_INIT=web_environment_ribbon
-```
+This step requires an env var: `ODOO_ADDONS_INIT=web_environment_ribbon`
 
 ```bash
 task upgrade-odoo acme init
@@ -184,13 +176,21 @@ Show log of target Odoo container.
 task upgrade-odoo acme logs
 ```
 
+**shell**
+
+Start shell in target Odoo container.
+
+```bash
+task upgrade-odoo acme shell
+```
+
 ### Configure
 
 With heavily customized Odoo databases and new features you have to make configurations that cannot be automated for an upgrade project and need to be done manually.
 
 ### Testing
 
-
+The testing of an upgraded Odoo database is done in collaboration between the Odoo partner and customer. Define test cases that verify the customer's workflows. Collect feedback and establish a loop of testing, feedback, fixing, upgrading and testing.
 
 ## Production Run
 
@@ -214,8 +214,35 @@ task upgrade-odoo acme production
 
 ### Configure
 
+The configuration work as done for the test upgrade applies to the production mode.
+
 ### Testing
+
+Run smoke-tests on the upgraded database.
 
 ### Rename
 
+Until here you can still abort the go-live. To go live we flip the switch, which means we rename the target database to the original name and ensure that `https://odoo.example.com` points to the right database.
+
+**rename-production**
+
+Rename target database to source database.
+
+```bash
+task upgrade-odoo acme rename-production
+```
+
+As the final step you have to ensure that `https://odoo.example.com` points to `host2.example.com`. This requires updating the DNS and proxy configuration on the target server.
+
+### Recovery
+
+If something goes wrong, you can fallback to the original database at any time. Simply revert DNS update.
+
 ### Cleanup
+
+After a week of sucessful working with the upgraded database, it is safe to sunset the original server and/or database.
+
+Shut down the `odoo01` container the `host1.example.com` server.
+
+Ensure that `https://upgrade.odoo.example.com` no longer resolves.
+

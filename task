@@ -2288,6 +2288,7 @@ upgrade-odoo() {
         echo "update"
         echo "restart"
         echo "logs"
+        echo "shell"
     fi
 
     if [[ "$2" =~ "dump" ]]; then
@@ -2357,6 +2358,13 @@ upgrade-odoo() {
     if [[ "$2" =~ "logs" ]]; then
         log-warning "Run step 'logs' on $TARGET_SERVER."
         ssh -p $TARGET_PORT "$TARGET_SERVER" docker logs -f "$TARGET_ODOO_CONTAINER" --tail 10
+    fi
+
+    if [[ "$2" =~ "shell" ]]; then
+        log-warning "Run step 'shell' on $TARGET_SERVER."
+        #FIXME: Command fails with "the input device is not a TTY"
+        echo "ssh -p $TARGET_PORT \"$TARGET_SERVER\"" 
+        echo docker-odoo-shell -c \"$TARGET_ODOO_CONTAINER\" -d \"$TARGET_DATABASE\"
     fi
 }
 
