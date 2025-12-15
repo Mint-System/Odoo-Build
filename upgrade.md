@@ -76,15 +76,15 @@ Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
 
 Running the upgrade requires scripts on the servers. Ensure that the following scripts are installed on the server:
 
-- https://ansible.build/scripts.html#docker provides generic Docker container commands
-- https://ansible.build/scripts.html#odoo helps managing the Odoo container
-- https://ansible.build/scripts.html#postgres supports managing the Postgres container
+- <https://ansible.build/scripts.html#docker> provides generic Docker container commands
+- <https://ansible.build/scripts.html#odoo> helps managing the Odoo container
+- <https://ansible.build/scripts.html#postgres> supports managing the Postgres container
 
 You probably have become aware thats project and the upgrade process uses scripts and containers from different projects. Here is a list of projects involved to run the upgrade:
 
-- https://taskfile.build provides the basic commands to manage the dotfiles
-- https://odoo.build which is this project, provides the commands to run the upgrade steps
-- https://ansible.build as mentioned this repo has the scripts to manage containers on the server
+- <https://taskfile.build> provides the basic commands to manage the dotfiles
+- <https://odoo.build> which is this project, provides the commands to run the upgrade steps
+- <https://ansible.build> as mentioned this repo has the scripts to manage containers on the server
 
 ## Test Run
 
