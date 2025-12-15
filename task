@@ -2276,8 +2276,16 @@ upgrade-odoo() {
     
     if [[ "$2" =~ "list" ]]; then
         echo 'Available steps:'
+        echo "all-test"
+        echo "all-production"
         echo "dump"
         echo "filestore"
+        echo "drop"
+        echo "test"
+        echo "production"
+        echo "init"
+        echo "uninstall"
+        echo "update"
     fi
 
     if [[ "$2" =~ "dump" ]]; then
@@ -2286,13 +2294,15 @@ upgrade-odoo() {
         ssh -p $PORT "$SERVER" sudo docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
 
         if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
-            echo "Source and target host are different."
-            echo "Copy dump from $SERVER to $TARGET_SERVER..."
-            ssh -p $PORT "$TARGET_SERVER" mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
-            scp "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
-        fi
+            log-warning "Source and target host are different."
 
-        ssh -p $PORT "$TARGET_SERVER" sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
+            echo "Copy dump from $SERVER to $TARGET_SERVER..."
+            ssh -p $TARGET_PORT "$TARGET_SERVER" mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
+            scp "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
+            ssh -p $TARGET_PORT "$TARGET_SERVER" sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
+        else
+            ssh -p $TARGET_PORT "$TARGET_SERVER" sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
+        fi
     fi
 
     if [[ "$2" =~ "filestore" ]]; then
@@ -2301,22 +2311,40 @@ upgrade-odoo() {
         ssh -p $PORT "$SERVER" docker-export -c "$ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
 
         if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
-            echo "Source and target host are different."
+            log-warning "Source and target host are different."
+
             echo "Copy filestore from $SERVER to $TARGET_SERVER..."
             scp "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+            ssh -p $TARGET_PORT "$TARGET_SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r     
+        else
+            ssh -p $TARGET_PORT "$TARGET_SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
         fi
-
-        ssh -p $PORT "$TARGET_SERVER" docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r
     fi
 
     if [[ "$2" =~ "drop" ]]; then
         log-warning "Run step 'drop' on $TARGET_SERVER."
-        ssh -p $PORT "$TARGET_SERVER" docker-odoo-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-postgres-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
     if [[ "$2" =~ "test" ]]; then
-        log-warning "Run step 'test' on $SERVER."
-        ssh -p $PORT "$SERVER" docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
+        log-warning "Run step 'test' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
+    fi
+
+    if [[ "$2" =~ "init" ]]; then
+        log-warning "Run step 'init' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
+    fi
+
+    if [[ "$2" =~ "uninstall" ]]; then
+        log-warning "Run step 'uninstall' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
+    fi
+
+    if [[ "$2" =~ "update" ]]; then
+        log-warning "Run step 'update' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
+        ssh -p "$TARGET_PORT" "$TARGET_SERVER" docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 }
 

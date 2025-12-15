@@ -1,10 +1,10 @@
 # Upgrade
 
-The Odoo Build project assists you in running upgrades for any Odoo project. This document helps understanding how to connect Odoo Build with an Odoo enviroment and how to run and upgrade.
+The Odoo Build project assists you in running upgrades for any Odoo project. This document provides a highly opinionated way to connect Odoo Build with an existing Odoo enviroment and execute the upgrade.
 
 ## Setup
 
-There are task file commands that take `env` as an argument. The `env` references a dotfile `./vault/.env.$NAME`. These files are managed with with the `*-env` commands.
+Odoo Build provies task file commands that take `env` as an argument. The `env` is reference to the name of a dotfile (`vault/.env.$NAME`). These files are managed with with the `*-env` commands.
 
 Setting up a Odoo upgrade project requires the creation of a dotenv file. This guide assumes that we have the following setup:
 
@@ -56,42 +56,45 @@ In our case the definition is:
 HOST='odoo.example.com'
 SERVER='host1.example.com'
 PORT=22
+
 ODOO_CONTAINER='odoo01'
 ODOO_VERSION='16.0'
 POSTGRES_CONTAINER='postgres01'
 DATABASE='odoo'
+
 TARGET_HOST='upgrade.odoo.example.com'
 TARGET_SERVER='host2.example.com'
 TARGET_PORT=22
+
 TARGET_ODOO_CONTAINER='odoo02'
 TARGET_ODOO_VERSION='18.0'
 TARGET_POSTGRES_CONTAINER='postgres02'
 TARGET_DATABASE='upgrade'
 ```
 
-Note that the `HOST` and `TARGET_HOST` is a reference to a dotfile.
+Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
 
 ## Helper Scripts
 
-In order to run upgrade there need to be three sets of commands avaialble on the server.
+Running the upgrade requires scripts on the servers. Ensure that the following scripts are installed on the server:
 
-1. https://ansible.build/scripts.html#docker provides generic Docker container commands
-2. https://ansible.build/scripts.html#odoo helps managing the Odoo container
-3. https://ansible.build/scripts.html#postgres supports managing the Postgres container
+- https://ansible.build/scripts.html#docker provides generic Docker container commands
+- https://ansible.build/scripts.html#odoo helps managing the Odoo container
+- https://ansible.build/scripts.html#postgres supports managing the Postgres container
 
-The entire upgrade process uses scripts from different projects.
+You probably have become aware thats project and the upgrade process uses scripts and containers from different projects. Here is a list of projects involved to run the upgrade:
 
-1. https://taskfile.build provides the basic command to manage the dotfiles
-2. https://odoo.build which is this project provides the scripts to run the upgrade steps
-3. https://ansible.build provides scripts to manage containers on the server
+- https://taskfile.build provides the basic commands to manage the dotfiles
+- https://odoo.build which is this project, provides the commands to run the upgrade steps
+- https://ansible.build as mentioned this repo has the scripts to manage containers on the server
 
 ## Test Run
 
-Before going live with an upgraded Odoo database, the new enviroments needs to be tested thouroughly. An upgrade run copies production database and runs upgrade scripts in test mode. This will return a neutralized and upgraded database ready for testing.
+Before going live with an upgraded Odoo database, the new enviroments needs to be tested thoroughly . An upgrade run copies the production database and runs the Odoo Enterprise upgrade script in test mode. On sucess a neutralized and upgraded database will be ready for testing.
 
 ### Execute
 
-All the steps required to provide an upgrades database can be run with: `task upgrade-odoo acme all-test`
+All the steps required to provide an upgraded database can be run with: `task upgrade-odoo acme all-test`
 
 The `all-test` parameter will execute these tasks:
 
@@ -171,27 +174,29 @@ With heavily customized Odoo databases and new features you have to make configu
 
 ### Troubleshooting
 
-
-
 ## Production Run
 
 Once the testing phase of the upgrade project has finished and a date for the go-live has been chosen, run the upgrade in production mode.
 
-In this scenario we ensure that the url `https://odoo.example.com` points to the new container after upgrade.
+In this scenario we ensure that the url `https://odoo.example.com` points to the new container after the upgrade.
 
 ### Execute
 
 In order to run the production upgrade execute `task upgrade-odoo acme all-production`.
 
-Compare to `all-test` this command runs the upgrade in production mode:
+Similar to `all-test` this command runs all comands, but instead of **test** in runs this command:
 
-- **production**: Run the Odoo upgrade scripts in test mode
+**production**:
+
+Run the Odoo upgrade scripts in test mode
 
 ```bash
 task upgrade-odoo acme production
 ```
 
 ### Configure
+
+
 
 ### Testing
 
