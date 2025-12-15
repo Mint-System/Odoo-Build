@@ -58,3 +58,4 @@ thirdparty/*
 !thirdparty/.gitkeep
 themes
 upgrade-util
+odoo-build-vault
