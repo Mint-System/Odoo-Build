@@ -13,6 +13,8 @@ log-entrypoint "Run as user with id: $(id)"
 
 aggregate-git-repos
 template-odoo-rc
+unset ODOO_ADDONS_PATH
+unset ADDONS_PATH
 install-python-packages
 
 # Set the postgres database host, port, user and password according to the environment
