@@ -62,23 +62,23 @@ export default defineUserConfig({
                             link: '/images/',
                             children: [
                                 {
-                                    text: 'Mint System Odoo',
+                                    text: 'Odoo',
                                     link: '/images/odoo/',
                                 },
                                 {
-                                    text: 'Mint System Odoo Mailgate',
+                                    text: 'Odoo Mailgate',
                                     link: '/images/odoo-mailgate/',
                                 },
                                 {
-                                    text: 'Mint System Odoo MCP',
+                                    text: 'Odoo MCP',
                                     link: '/images/odoo-mcp/',
                                 },
                                 {
-                                    text: 'Mint System Odoo Upgrade',
+                                    text: 'Odoo Upgrade',
                                     link: '/images/odoo-mcp/',
                                 },
                                 {
-                                    text: 'Mint System Odoo CLI',
+                                    text: 'Odoo CLI',
                                     link: '/images/odoocli/',
                                 }
                             ],
