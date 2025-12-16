@@ -797,14 +797,14 @@ login-podman() {
 test-odoo-version-regex() {
 
         # If ODOO_VERSION=19.0 then
-        # 1.0 Matched
-        # 1.1 Matched
-        # 2.5 Matched
-        # 2.0.0 Matched
+        # 1.0 Match
+        # 1.1 Match
+        # 2.5 Match
+        # 2.0.0 Match
         # 13.0.1.0.0 No match
         # 14.0.2.1.1 No match
         # 13.0.1.0.0 No match
-        # 19.0.0.0.0 Matched
+        # 19.0.0.0.0 Match
 
         # Variations of the version key:
         # 'version': '19.0.x',
