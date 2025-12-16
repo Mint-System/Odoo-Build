@@ -309,6 +309,8 @@ info() {
 
 version() {
     uv --version
+    activate-venv
+    python -V
     wkhtmltopdf -V
     if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
         docker -v
