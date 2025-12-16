@@ -59,6 +59,7 @@ help-table() {
     printf "$column" 'push' '[folder]' 'Publish Docker image from target folder.'
     printf "$column" 'remove' '[name]' 'Remove containers and volumes.'
     printf "$column" 'test-image' '[folder]' 'Test Docker image from target folder.'
+    printf "$column" 'test-odoo-version-regex' '' 'Test the Odoo module version regex filter.'
     # Vuepress
     printf "$column" 'build-vuepress' '' 'Create Vuepress build.'
     printf "$column" 'install-vuepress' '' 'Install Node build dependencies.'
@@ -793,6 +794,52 @@ login-podman() {
     podman login --username "$CONTAINER_REGISTRY_USERNAME" --password "$CONTAINER_REGISTRY_PASSWORD" docker.io
 }
 
+test-odoo-version-regex() {
+
+        # If ODOO_VERSION=19.0 then
+        # 1.0 Matched
+        # 1.1 Matched
+        # 2.5 Matched
+        # 2.0.0 Matched
+        # 13.0.1.0.0 No match
+        # 14.0.2.1.1 No match
+        # 13.0.1.0.0 No match
+        # 19.0.0.0.0 Matched
+
+        # Variations of the version key:
+        # 'version': '19.0.x',
+        # "version": "1.0",
+        # 'version': '19.0.1.0.0',
+
+        echo -e "\033[38;5;214mTEST\033[0m: Find and check versions in module"
+
+        versions=$(grep -r --include="__manifest__.py" '[\"'\'']version[\"'\'']:.[\"'\'']' addons enterprise oca odoo |
+          sed -E 's/.+[\"'\'']version[\"'\'']:.[\"'\'']([0-9].+)[\"'\''].+/\1/g' |
+          sort -u)
+
+        ODOO_VERSION="19.0"
+        for version in $versions; do
+            echo -n "Check version $version: "
+            # 1. regex: version.[0-9]\.[0-9]$
+            # 2. regex: version.[0-9]\.[0-9]\.[0-9]$
+            # 3. regex: version.${ODOO_VERSION}\.[0-9]\.[0-9]\.[0-9]$
+            if [[ $version =~ ^[0-9]+\.[0-9]+$ ||
+                  $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ||
+                  $version =~ ^${ODOO_VERSION}\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                echo "✓ Match"
+            else
+                echo "✗ No match"
+            fi
+        done
+
+        echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
+        export PATH=./images/odoo/bin/:$PATH
+        export TEST_ADDONS_DIR="./templates,./themes,./enterprise,/gugus,./oca,./addons"
+        export ODOO_VERSION="19.0"
+        source ./images/odoo/bin/set-addons-path
+        echo "ADDONS_PATH: $ADDONS_PATH"
+}
+
 test-image() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
@@ -819,18 +866,6 @@ test-image() {
         # This will remove all SSH keys at the end
         ./images/odoo/bin/clone-git-addons
         rm -rf "$LOCAL_PATH/github.com" # Cleanup for next run
-
-        ODOO_VERSION="18.0"  # Example value
-
-        echo -e "\033[38;5;214mTEST\033[0m: Check addons path regex with version: $ODOO_VERSION"
-        echo "'version': '1.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
-        echo "'version': '1.1'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
-        echo "'version': '2.5'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
-        echo "'version': '2.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
-        echo "'version': '13.0.1.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✗ No match (expected)" || echo "✓ No match is ok"
-        echo "'version': '14.0.2.1.1'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✗ No match (expected)" || echo "✓ No match is ok"
-        echo "'version': '${ODOO_VERSION}.0.0.0'" | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Matched" || echo "✗ Match missing"
-        echo '"Version": "1.0"' | grep -iE "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" && echo "✓ Must match" || echo "✗ Match missing"
 
         echo -e "\033[38;5;214mTEST\033[0m: Install python package."
         export PYTHON_INSTALL="prometheus-client,pyjwt"
@@ -859,12 +894,6 @@ dev-dependencies = [
 EOF
         ./images/odoo/bin/sync-python-project
         uv pip list
-
-        echo -e "\033[38;5;214mTEST\033[0m: Run set-addons-path"
-        export TEST_ADDONS_DIR="./templates,./themes,./enterprise,/gugus"
-        export ODOO_VERSION="18.0"
-        source ./images/odoo/bin/set-addons-path
-        echo $ADDONS_PATH | grep "./templates"
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then

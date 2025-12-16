@@ -31,16 +31,19 @@ fi
 if [[ -n "$odoo_addons_path" ]]; then
     log-entrypoint "Resolve addons path for Odoo ${ODOO_VERSION}..."
 
-    # Search for module manifest files, get module paths, then parent directories
     odoo_addons_path=$(echo "$odoo_addons_path" | tr ',' '\n' | sort -u | while read -r dir; do
         if [[ -d "$dir" ]]; then
-            rg -l -i --files-with-matches "version.*([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.[0-9]+|${ODOO_VERSION}(\.[0-9]+)+)" --glob="*__manifest__.py" "$dir"
+            find "$dir" -name "__manifest__.py" -type f 2>/dev/null | while read -r manifest; do
+                version=$(grep '[\"'\'']version[\"'\'']:.[\"'\'']' "$manifest" | sed -E 's/.+[\"'\'']version[\"'\'']:.[\"'\'']([0-9].+)[\"'\''].+/\1/g')
+
+                if [[ $version =~ ^[0-9]+\.[0-9]+$ ||
+                      $version =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ||
+                      $version =~ ^${ODOO_VERSION}\.[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+                    echo $(dirname $(dirname "$manifest"))
+                fi
+            done
         fi
-    done | while read -r manifest; do
-        dirname "$manifest"
-    done | sort -u | uniq | while read -r module_dir; do
-        dirname "$module_dir"
-    done | sort -u | uniq | tr '\n' ',' | sed 's/,$//')
+    done | sort -u | paste -sd, )
 
     # Combine predefined addons path and odoo addons path
     addons_path=$(echo "${odoo_addons_path},${ADDONS_PATH}")
