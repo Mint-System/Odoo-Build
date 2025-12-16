@@ -72,7 +72,7 @@ TARGET_DATABASE='upgrade'
 
 Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
 
-## Helper Scripts
+### Helper Scripts
 
 Running the upgrade requires scripts on the servers. Ensure that the following scripts are installed on the server:
 
