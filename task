@@ -260,18 +260,6 @@ if [ "$WITHOUT_DEMO" = "True" ]; then
     ODOO_PARAM="--without-demo=all"
 fi
 
-# Check commands
-
-if ! (command -v grep &> /dev/null && grep --version | grep -q GNU) && [[ "$OS_RELEASE" =~ ^(Darwin)$ ]]; then
-    echo 'Error: On Darwin systems, GNU grep must be installed.'
-    exit 1
-fi
-
-if ! command -v envsubst &> /dev/null; then
-    echo 'Error: '\''envsubst'\'' is not available. Install '\''gettext'\'' package.'
-    exit 1
-fi
-
 # Import commands
 
 clone-taskfile(){
