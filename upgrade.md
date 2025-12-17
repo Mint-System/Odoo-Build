@@ -164,6 +164,18 @@ Update all modules and clear assets.
 task upgrade-odoo acme update
 ```
 
+**configure-test**
+
+Run custom Python code in Odoo shell.
+
+This step requires an env var: `ODOO_CONFIGURE_TEST="env.ref('mail.ir_cron_module_update_notification').write({'active': False})"`
+
+```bash
+task upgrade-odoo acme configure-test
+```
+
+For production use `ODOO_CONFIGURE_PRODUCTION`.
+
 **restart**
 
 Restart target Odoo and Postgres container.
@@ -194,11 +206,15 @@ task upgrade-odoo acme shell
 
 ### Configure
 
-With heavily customized Odoo databases and new features you have to make configurations that cannot be automated for an upgrade project and need to be done manually.
+With heavily customized Odoo databases and new features you have to make configurations that cannot be automated for an upgrade project. These configurations need to be done manually.
+
+Once the test enviroment is ready, log in and execute the manual configuration.
 
 ### Testing
 
-The testing of an upgraded Odoo database is done in collaboration between the Odoo partner and customer. Define test cases that verify the customer's workflows. Collect feedback and establish a loop of testing, feedback, fixing, upgrading and testing.
+The testing of an upgraded Odoo database is done in collaboration between the Odoo partner and customer. Define test cases that verify the customer's workflows. Collect feedback and establish a feedback loop of testing, documenting issues, bugfixing and redo the upgrade process.
+
+Repeat this feedback loop until you are confident that the upgraded works well. Do not aim for 100% test coverage. Minor issues can be resolved in the post production upgrade phase.
 
 ## Production Run
 
@@ -210,9 +226,7 @@ In this scenario we ensure that the url `https://odoo.example.com` points to the
 
 In order to run the production upgrade execute `task upgrade-odoo acme all-production`.
 
-Similar to `all-test` this command runs all comands, but instead of **test** in runs this command:
-
-**production**
+Similar to `all-test` this command runs all comands, but instead of **test** it runs **production**.
 
 Run the Odoo upgrade scripts in test mode
 
@@ -220,17 +234,19 @@ Run the Odoo upgrade scripts in test mode
 task upgrade-odoo acme production
 ```
 
+And instead of **configure-test** the command runs **configure-production**.
+
 ### Configure
 
-The configuration work as done for the test upgrade applies to the production mode.
+Once the production enviroment is ready, execute the the manual configuration steps as you did in the test enviroment.
 
 ### Testing
 
-Run smoke-tests on the upgraded database.
+Run simple smoke tests. Ensure that the upgrade wenn well. There is no need to execute the test cases.
 
 ### Rename
 
-Until here you can still abort the go-live. To go live we flip the switch, which means we rename the target database to the original name and ensure that `https://odoo.example.com` points to the right database.
+Until here it is still possible to abort the go-live. To go-live means to rename the target database to the original database name and ensure that `https://odoo.example.com` points to the target environment. Use this command to rename the databse:
 
 **rename-production**
 
@@ -240,17 +256,16 @@ Rename target database to source database.
 task upgrade-odoo acme rename-production
 ```
 
-As the final step you have to ensure that `https://odoo.example.com` points to `host2.example.com`. This requires updating the DNS and proxy configuration on the target server.
+As the final step, update DNS records and/or proxy configuration so that `https://odoo.example.com` points to `host2.example.com`.
 
 ### Recovery
 
-If something goes wrong, you can fallback to the original database at any time. Simply revert DNS update.
+If something goes wrong after the go-live, fallback to the old envirment. Simply revert the DNS update and/or the proxy configuration.
 
 ### Cleanup
 
-After a week of sucessful working with the upgraded database, it is safe to sunset the original server and/or database.
+After a week of working successfully with the upgraded database, it is safe to sunset the original server and/or Odoo enviroment.
 
-Shut down the `odoo01` container the `host1.example.com` server.
+In our example this means shutting down the `odoo01` container and the `host1.example.com` server.
 
 Ensure that `https://upgrade.odoo.example.com` no longer resolves.
-

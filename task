@@ -2317,6 +2317,8 @@ upgrade-odoo() {
         echo "uninstall"
         echo "auto-update"
         echo "update"
+        echo "configure-test"
+        echo "configure-production"
         echo "restart"
         echo "logs"
         echo "shell"
@@ -2386,6 +2388,16 @@ upgrade-odoo() {
         ssh -p "$TARGET_PORT" "$TARGET_SERVER" docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
+    if [[ "$2" =~ "configure-test" ]]; then
+        log-warning "Run step 'configure' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER"  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
+    fi
+
+    if [[ "$2" =~ "configure-production" ]]; then
+        log-warning "Run step 'configure' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER"  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
+    fi
+
     if [[ "$2" =~ "restart" ]]; then
         log-warning "Run step 'restart' on $TARGET_SERVER."
         ssh -p $TARGET_PORT "$TARGET_SERVER" docker restart "$TARGET_ODOO_CONTAINER" "$TARGET_POSTGRES_CONTAINER"
@@ -2393,7 +2405,8 @@ upgrade-odoo() {
 
     if [[ "$2" =~ "logs" ]]; then
         log-warning "Run step 'logs' on $TARGET_SERVER."
-        ssh -p $TARGET_PORT "$TARGET_SERVER" docker logs -f "$TARGET_ODOO_CONTAINER" --tail 10
+        containe_id=$(ssh -p $TARGET_PORT "$TARGET_SERVER" docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker logs -f "$containe_id" --tail 10
     fi
 
     if [[ "$2" =~ "shell" ]]; then
