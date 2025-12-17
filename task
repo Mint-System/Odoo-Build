@@ -2018,6 +2018,10 @@ create-module() {
 
     echo "Scaffolding module $module_name in ${parent_dir}..."
     odoo scaffold "$module_name" "$parent_dir" -t templates/module
+
+    echo "Update the 'readme/DESCRIPTION.md'."
+    echo "Update summary and license in the '__manifest__.py'."
+    echo "Remove the 'security/security.xml' if not required."
 }
 
 generate-module-docs() {

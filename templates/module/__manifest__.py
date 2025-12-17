@@ -20,9 +20,4 @@
     "auto_install": False,
     "images": ["images/screen.png"],
     "demo": ["demo/demo.xml"],
-    "assets": {
-        "web.assets_backend": [
-            "{{ name }}/static/src/css/style.css",
-        ]
-    },
 }
