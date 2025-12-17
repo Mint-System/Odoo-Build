@@ -28,8 +28,10 @@ def main():
     print("Update snippets doc file.")
 
     # Set constants
-    path_url = "https://github.com/Mint-System/Odoo-Build/tree/main"
-
+    edit_url = "https://github.com/Mint-System/Odoo-Build/tree/main"
+    source_url = "https://odoo.build"
+    snippet_prefix = "mint_system"
+    
     # Create base snippets.md file
     with open("snippets.md", "w") as main_doc:
         main_doc.write("# Snippets\n")
@@ -44,8 +46,15 @@ def main():
     module_files = glob.glob("snippets/*.xml")
     modules = set()
     for file in module_files:
-        module = os.path.basename(file).split(".")[0]
-        modules.add(module)
+        parts = os.path.basename(file).split(".")
+        # Skip files that don't start with mint_system
+        if parts[0] == snippet_prefix:
+            module = parts[1]
+            modules.add(module)
+        else:
+            # For backward compatibility, if there are files without mint_system prefix
+            module = parts[0]
+            modules.add(module)
 
     modules = sorted(modules)
     sidebar_entries = []
@@ -68,10 +77,10 @@ def main():
         sidebar_entries.append(f"'/snippets/{module}.md'")
 
         # Get all XML IDs for this module
-        xml_id_files = glob.glob(f"snippets/{module}.*.xml")
+        xml_id_files = glob.glob(f"snippets/{snippet_prefix}.{module}.*.xml")
         xml_ids = set()
         for file in xml_id_files:
-            xml_id = os.path.basename(file).split(".")[1]
+            xml_id = os.path.basename(file).split(".")[2]
             xml_ids.add(xml_id)
 
         xml_ids = sorted(xml_ids)
@@ -85,19 +94,19 @@ def main():
                 module_doc.write(f"## {xml_id_title}\n\n")
 
             # Process each file for this XML ID
-            edit_files = glob.glob(f"snippets/{module}.{xml_id}.*.xml")
+            edit_files = glob.glob(f"snippets/{snippet_prefix}.{module}.{xml_id}.*.xml")
 
             for file in sorted(edit_files):
                 # Get snippet params
                 filename = os.path.basename(file)
                 parts = filename.split(".")
-                edit = parts[2]
+                edit = parts[3]
                 edit_title = title_case(edit)
 
                 # Add edit section to module doc file
                 with open(doc_file, "a") as module_doc:
                     module_doc.write(f"### {edit_title}\n\n")
-                    module_doc.write(f"ID: `mint_system.{module}.{xml_id}.{edit}`\n\n")
+                    module_doc.write(f"ID: `{snippet_prefix}.{module}.{xml_id}.{edit}`\n\n")
                     module_doc.write("```xml\n")
 
                     # Append file content
@@ -105,7 +114,8 @@ def main():
                         module_doc.write(xml_file.read())
 
                     module_doc.write("\n```\n")
-                    module_doc.write(f"Source: [{file}]({path_url}/{file})\n\n")
+                    module_doc.write(f"Edit: [{file}]({edit_url}/{file})\n\n")
+                    module_doc.write(f"Source: [{file}]({source_url}/{file})\n\n")
 
     # Create sidebar.js
     with open(".vuepress/sidebar.js", "w") as sidebar_file:

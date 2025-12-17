@@ -22,7 +22,9 @@ ID: `mint_system.account_batch_payment.print_batch_payment.add_row`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.add_row.xml)
+Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)
+
+Source: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)
 
 ### Sort
 
@@ -52,7 +54,9 @@ ID: `mint_system.account_batch_payment.print_batch_payment.sort`
     </xpath>
 </data>
 ```
-Source: [snippets/account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.print_batch_payment.sort.xml)
+Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)
+
+Source: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)
 
 ## View Batch Payment Form
 
@@ -68,5 +72,7 @@ ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`
 </data>
 
 ```
-Source: [snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
+Edit: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
+
+Source: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://odoo.build/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
 

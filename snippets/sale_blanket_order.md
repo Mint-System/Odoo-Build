@@ -22,7 +22,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_discount`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_discount.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml)
 
 ### Add Footer
 
@@ -89,7 +91,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_footer`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_footer.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml)
 
 ### Add Header And Footer Note
 
@@ -123,7 +127,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
 
 ### Add Header Space
 
@@ -137,7 +143,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_header_spac
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_header_space.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml)
 
 ### Add Infotable
 
@@ -207,7 +215,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_infotable.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
 ### Add Payment Term
 
@@ -226,7 +236,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_payment_ter
     </xpath>
 </data>
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_payment_term.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml)
 
 ### Add Product Uom
 
@@ -245,7 +257,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_product_uom.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml)
 
 ### Add Vat
 
@@ -261,7 +275,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.add_vat`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.add_vat.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml)
 
 ### Address Block
 
@@ -281,7 +297,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.address_block`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.address_block.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml)
 
 ### Change Column Order
 
@@ -325,7 +343,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.change_column_o
 
 </data>
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.change_column_order.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml)
 
 ### Extend Title
 
@@ -343,7 +363,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.extend_title`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.extend_title.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml)
 
 ### Format Qty
 
@@ -362,7 +384,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.format_qty.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml)
 
 ### Format Qty With Decimal
 
@@ -381,7 +405,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
 
 ### Get Position
 
@@ -402,7 +428,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.get_position`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.get_position.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml)
 
 ### Hide Date Schedule
 
@@ -415,7 +443,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.hide_date_sched
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
 
 ### Modify Information Block
 
@@ -438,7 +468,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.modify_informat
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.modify_information_block.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml)
 
 ### Relocate Price Unit
 
@@ -461,7 +493,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
 
 ### Remove Date Schedule
 
@@ -474,7 +508,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_date_sch
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)
 
 ### Remove Informations
 
@@ -487,7 +523,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_informat
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.remove_informations.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml)
 
 ### Remove Vat
 
@@ -499,7 +537,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.remove_vat`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.remove_vat.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml)
 
 ### Replace Address Block
 
@@ -516,7 +556,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_address
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_address_block.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml)
 
 ### Replace Infoblock
 
@@ -555,7 +597,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblo
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
 
 ### Replace Infotable Tissa
 
@@ -641,7 +685,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_infotab
   </xpath>
 </data>
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)
 
 ### Replace Partner Id
 
@@ -655,7 +701,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_partner
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)
 
 ### Replace Product Description
 
@@ -669,7 +717,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
 
 ### Replace Product Id
 
@@ -683,7 +733,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_product
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_product_id.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml)
 
 ### Replace Summary
 
@@ -718,7 +770,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_summary
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_summary.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml)
 
 ### Replace Title
 
@@ -735,7 +789,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.replace_title`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.replace_title.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml)
 
 ### Round Price
 
@@ -749,7 +805,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_price`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.round_price.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml)
 
 ### Round Total Price
 
@@ -763,7 +821,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.round_total_pri
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.round_total_price.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml)
 
 ### Second Row
 
@@ -811,7 +871,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.second_row`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.second_row.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml)
 
 ### Sequence In Table
 
@@ -839,7 +901,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_tab
 
 </data>
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)
 
 ### Set Ids
 
@@ -898,7 +962,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.set_ids.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml)
 
 ### Set Ids Tissa
 
@@ -916,7 +982,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
 
 ### Show Default Code
 
@@ -937,7 +1005,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_default_co
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.show_default_code.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml)
 
 ### Show Description
 
@@ -958,7 +1028,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.show_descriptio
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.show_description.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml)
 
 ### Style Gelso
 
@@ -977,7 +1049,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_gelso`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.style_gelso.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml)
 
 ### Style Tissa
 
@@ -1030,7 +1104,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_tissa`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.style_tissa.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
 ### Style Trimada
 
@@ -1095,7 +1171,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.style_trimada`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.style_trimada.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml)
 
 ### Title Margin
 
@@ -1109,7 +1187,9 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.title_margin`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.report_blanketorder_document.title_margin.xml)
+Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
 ## View Blanket Order Form
 
@@ -1125,7 +1205,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
 
 ### Modify Attributes Date Confirmed
 
@@ -1139,7 +1221,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_da
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
 ### Move Client Order Ref
 
@@ -1153,7 +1237,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_re
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
 
 ### X Product Uom Category Id
 
@@ -1170,7 +1256,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_catego
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
 
 ### X State
 
@@ -1184,7 +1272,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_form.x_state`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_form.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_form.x_state.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml)
 
 ## View Blanket Order Search
 
@@ -1227,7 +1317,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_search.replace_filter`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_search.replace_filter.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml)
 
 ## View Blanket Order Tree
 
@@ -1246,7 +1338,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.activities`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_tree.activities.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_tree.activities.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml)
 
 ### Reset View
 
@@ -1275,7 +1369,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.reset_view`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_tree.reset_view.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml)
 
 ### State
 
@@ -1289,7 +1385,9 @@ ID: `mint_system.sale_blanket_order.view_blanket_order_tree.state`
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_blanket_order_tree.state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_blanket_order_tree.state.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml)
 
 ## View Order Form
 
@@ -1308,5 +1406,7 @@ ID: `mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_or
 </data>
 
 ```
-Source: [snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
+Edit: [snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
 

@@ -16,7 +16,9 @@ ID: `mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit`
 </data>
 
 ```
-Source: [snippets/hr_attendance.view_attendance_overtime_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_attendance.view_attendance_overtime_tree.enable_edit.xml)
+Edit: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit.xml)
+
+Source: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit.xml](https://odoo.build/snippets/mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit.xml)
 
 ### Remove Float Time Widget
 
@@ -30,7 +32,9 @@ ID: `mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_w
 </data>
 
 ```
-Source: [snippets/hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml)
+Edit: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml)
+
+Source: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml](https://odoo.build/snippets/mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_widget.xml)
 
 ## View Attendance Tree
 
@@ -46,5 +50,7 @@ ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`
 </data>
 
 ```
-Source: [snippets/hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_attendance.view_attendance_tree.enable_edit.xml)
+Edit: [snippets/mint_system.hr_attendance.view_attendance_tree.enable_edit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_attendance.view_attendance_tree.enable_edit.xml)
+
+Source: [snippets/mint_system.hr_attendance.view_attendance_tree.enable_edit.xml](https://odoo.build/snippets/mint_system.hr_attendance.view_attendance_tree.enable_edit.xml)
 

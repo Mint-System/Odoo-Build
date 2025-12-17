@@ -14,5 +14,7 @@ ID: `mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_gro
 </data>
 
 ```
-Source: [snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
+Edit: [snippets/mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
+
+Source: [snippets/mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml](https://odoo.build/snippets/mint_system.hr_holidays_delegations.hr_leave_view_form_inherit.delegate_groups.xml)
 

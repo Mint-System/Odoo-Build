@@ -14,7 +14,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_d
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain.xml)
 
 ### Description Optional
 
@@ -29,7 +31,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.description_optiona
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.description_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.description_optional.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.description_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.description_optional.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.description_optional.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.description_optional.xml)
 
 ### Hide Description
 
@@ -41,7 +45,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_description`
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.hide_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.hide_description.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_description.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_description.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_description.xml)
 
 ### Hide Parties
 
@@ -58,7 +64,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_parties`
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.hide_parties.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.hide_parties.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_parties.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_parties.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_parties.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_parties.xml)
 
 ### Hide Special Terms
 
@@ -81,7 +89,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms`
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.hide_special_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.hide_special_terms.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms.xml)
 
 ### X Group Ids And X User Ids
 
@@ -96,7 +106,9 @@ ID: `mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_u
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids.xml)
 
 ## Partner Agreement List View
 
@@ -123,7 +135,9 @@ ID: `mint_system.agreement_legal.partner_agreement_list_view.replace_tree`
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_list_view.replace_tree.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_list_view.replace_tree.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_list_view.replace_tree.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_list_view.replace_tree.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_list_view.replace_tree.xml)
 
 ## Partner Agreement Search View
 
@@ -144,5 +158,7 @@ ID: `mint_system.agreement_legal.partner_agreement_search_view.partner_first`
 </data>
 
 ```
-Source: [snippets/agreement_legal.partner_agreement_search_view.partner_first.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/agreement_legal.partner_agreement_search_view.partner_first.xml)
+Edit: [snippets/mint_system.agreement_legal.partner_agreement_search_view.partner_first.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.agreement_legal.partner_agreement_search_view.partner_first.xml)
+
+Source: [snippets/mint_system.agreement_legal.partner_agreement_search_view.partner_first.xml](https://odoo.build/snippets/mint_system.agreement_legal.partner_agreement_search_view.partner_first.xml)
 

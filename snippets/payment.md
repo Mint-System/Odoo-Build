@@ -14,5 +14,7 @@ ID: `mint_system.payment.payment_provider_list.enable_create`
 </data>
 
 ```
-Source: [snippets/payment.payment_provider_list.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/payment.payment_provider_list.enable_create.xml)
+Edit: [snippets/mint_system.payment.payment_provider_list.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.payment.payment_provider_list.enable_create.xml)
+
+Source: [snippets/mint_system.payment.payment_provider_list.enable_create.xml](https://odoo.build/snippets/mint_system.payment.payment_provider_list.enable_create.xml)
 

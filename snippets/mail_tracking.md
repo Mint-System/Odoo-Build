@@ -14,5 +14,7 @@ ID: `mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete`
 </data>
 
 ```
-Source: [snippets/mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)
+Edit: [snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)
+
+Source: [snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml](https://odoo.build/snippets/mint_system.mail_tracking.view_mail_tracking_email_tree.enable_delete.xml)
 

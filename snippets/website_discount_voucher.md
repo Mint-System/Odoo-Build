@@ -14,5 +14,7 @@ ID: `mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode
 </data>
 
 ```
-Source: [snippets/website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml)
+Edit: [snippets/mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml)
+
+Source: [snippets/mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml](https://odoo.build/snippets/mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable.xml)
 

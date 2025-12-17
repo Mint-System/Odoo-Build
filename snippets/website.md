@@ -13,7 +13,9 @@ ID: `mint_system.website.option_header_brand_logo.hygentile_url`
     </xpath>
 </data>
 ```
-Source: [snippets/website.option_header_brand_logo.hygentile_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website.option_header_brand_logo.hygentile_url.xml)
+Edit: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)
+
+Source: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://odoo.build/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)
 
 ## Website Search Box Input
 
@@ -29,5 +31,7 @@ ID: `mint_system.website.website_search_box_input.hide_search_form`
 </data>
 
 ```
-Source: [snippets/website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/website.website_search_box_input.hide_search_form.xml)
+Edit: [snippets/mint_system.website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.website_search_box_input.hide_search_form.xml)
+
+Source: [snippets/mint_system.website.website_search_box_input.hide_search_form.xml](https://odoo.build/snippets/mint_system.website.website_search_box_input.hide_search_form.xml)
 

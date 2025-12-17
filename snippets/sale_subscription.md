@@ -12,7 +12,9 @@ ID: `mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscripti
 </data>
 
 ```
-Source: [snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
+Edit: [snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
+
+Source: [snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://odoo.build/snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
 
 ## Sale Subscription Order View Form
 
@@ -29,7 +31,9 @@ ID: `mint_system.sale_subscription.sale_subscription_order_view_form.remove_upse
 </data>
 
 ```
-Source: [snippets/sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)
+Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)
+
+Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)
 
 ### Show End Date
 
@@ -43,7 +47,9 @@ ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_end_da
 </data>
 
 ```
-Source: [snippets/sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.show_end_date.xml)
+Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml)
+
+Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml)
 
 ### Show Template Id
 
@@ -60,7 +66,9 @@ ID: `mint_system.sale_subscription.sale_subscription_order_view_form.show_templa
 </data>
 
 ```
-Source: [snippets/sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_order_view_form.show_template_id.xml)
+Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml)
+
+Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml)
 
 ## Sale Subscription Template View Form
 
@@ -76,5 +84,7 @@ ID: `mint_system.sale_subscription.sale_subscription_template_view_form.journal_
 </data>
 
 ```
-Source: [snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
+Edit: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
+
+Source: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
 

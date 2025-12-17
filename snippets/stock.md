@@ -250,7 +250,9 @@ ID: `mint_system.stock.label_transfer_template_view.basis57`
 </t>
 
 ```
-Source: [snippets/stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.label_transfer_template_view.basis57.xml)
+Edit: [snippets/mint_system.stock.label_transfer_template_view.basis57.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.label_transfer_template_view.basis57.xml)
+
+Source: [snippets/mint_system.stock.label_transfer_template_view.basis57.xml](https://odoo.build/snippets/mint_system.stock.label_transfer_template_view.basis57.xml)
 
 ### Trimada
 
@@ -372,7 +374,9 @@ ID: `mint_system.stock.label_transfer_template_view.trimada`
 </t>
 
 ```
-Source: [snippets/stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.label_transfer_template_view.trimada.xml)
+Edit: [snippets/mint_system.stock.label_transfer_template_view.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.label_transfer_template_view.trimada.xml)
+
+Source: [snippets/mint_system.stock.label_transfer_template_view.trimada.xml](https://odoo.build/snippets/mint_system.stock.label_transfer_template_view.trimada.xml)
 
 ## Product Template Search Form View Stock
 
@@ -387,7 +391,9 @@ ID: `mint_system.stock.product_template_search_form_view_stock.hide_location_id`
 </data>
 
 ```
-Source: [snippets/stock.product_template_search_form_view_stock.hide_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.product_template_search_form_view_stock.hide_location_id.xml)
+Edit: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.product_template_search_form_view_stock.hide_location_id.xml)
+
+Source: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_location_id.xml](https://odoo.build/snippets/mint_system.stock.product_template_search_form_view_stock.hide_location_id.xml)
 
 ### Hide Pricelist Id
 
@@ -400,7 +406,9 @@ ID: `mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id
 </data>
 
 ```
-Source: [snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.product_template_search_form_view_stock.hide_pricelist_id.xml)
+Edit: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id.xml)
+
+Source: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id.xml](https://odoo.build/snippets/mint_system.stock.product_template_search_form_view_stock.hide_pricelist_id.xml)
 
 ### Hide Warehouse Id
 
@@ -413,7 +421,9 @@ ID: `mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id
 </data>
 
 ```
-Source: [snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.product_template_search_form_view_stock.hide_warehouse_id.xml)
+Edit: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id.xml)
+
+Source: [snippets/mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id.xml](https://odoo.build/snippets/mint_system.stock.product_template_search_form_view_stock.hide_warehouse_id.xml)
 
 ## Report Bordero
 
@@ -511,7 +521,9 @@ ID: `mint_system.stock.report_bordero.basis57`
 </t>
 
 ```
-Source: [snippets/stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_bordero.basis57.xml)
+Edit: [snippets/mint_system.stock.report_bordero.basis57.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_bordero.basis57.xml)
+
+Source: [snippets/mint_system.stock.report_bordero.basis57.xml](https://odoo.build/snippets/mint_system.stock.report_bordero.basis57.xml)
 
 ## Report Certificatecofc
 
@@ -840,7 +852,9 @@ ID: `mint_system.stock.report_certificatecofc.tissa`
 </t>
 
 ```
-Source: [snippets/stock.report_certificatecofc.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_certificatecofc.tissa.xml)
+Edit: [snippets/mint_system.stock.report_certificatecofc.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_certificatecofc.tissa.xml)
+
+Source: [snippets/mint_system.stock.report_certificatecofc.tissa.xml](https://odoo.build/snippets/mint_system.stock.report_certificatecofc.tissa.xml)
 
 ## Report Certificatecofc Simplified
 
@@ -1160,7 +1174,9 @@ ID: `mint_system.stock.report_certificatecofc_simplified.tissa`
 </t>
 
 ```
-Source: [snippets/stock.report_certificatecofc_simplified.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_certificatecofc_simplified.tissa.xml)
+Edit: [snippets/mint_system.stock.report_certificatecofc_simplified.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_certificatecofc_simplified.tissa.xml)
+
+Source: [snippets/mint_system.stock.report_certificatecofc_simplified.tissa.xml](https://odoo.build/snippets/mint_system.stock.report_certificatecofc_simplified.tissa.xml)
 
 ## Report Delivery Document
 
@@ -1316,7 +1332,9 @@ ID: `mint_system.stock.report_delivery_document.add_address`
     
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_address.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_address.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_address.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_address.xml)
 
 ### Add Address Space
 
@@ -1334,7 +1352,9 @@ ID: `mint_system.stock.report_delivery_document.add_address_space`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_address_space.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_address_space.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_address_space.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_address_space.xml)
 
 ### Add Date
 
@@ -1355,7 +1375,9 @@ ID: `mint_system.stock.report_delivery_document.add_date`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_date.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_date.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_date.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_date.xml)
 
 ### Add Drawing File
 
@@ -1375,7 +1397,9 @@ ID: `mint_system.stock.report_delivery_document.add_drawing_file`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_drawing_file.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_drawing_file.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_drawing_file.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_drawing_file.xml)
 
 ### Add Header And Footer Note
 
@@ -1396,7 +1420,9 @@ ID: `mint_system.stock.report_delivery_document.add_header_and_footer_note`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_header_and_footer_note.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_header_and_footer_note.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_header_and_footer_note.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_header_and_footer_note.xml)
 
 ### Add Header Space
 
@@ -1410,7 +1436,9 @@ ID: `mint_system.stock.report_delivery_document.add_header_space`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_header_space.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_header_space.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_header_space.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_header_space.xml)
 
 ### Add Hs Code
 
@@ -1546,7 +1574,9 @@ ID: `mint_system.stock.report_delivery_document.add_hs_code`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_hs_code.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_hs_code.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_hs_code.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_hs_code.xml)
 
 ### Add Incoterm
 
@@ -1568,7 +1598,9 @@ ID: `mint_system.stock.report_delivery_document.add_incoterm`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_incoterm.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_incoterm.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_incoterm.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_incoterm.xml)
 
 ### Add Incoterms
 
@@ -1587,7 +1619,9 @@ ID: `mint_system.stock.report_delivery_document.add_incoterms`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_incoterms.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_incoterms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_incoterms.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_incoterms.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_incoterms.xml)
 
 ### Add Infotable
 
@@ -1654,7 +1688,9 @@ ID: `mint_system.stock.report_delivery_document.add_infotable`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_infotable.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_infotable.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_infotable.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_infotable.xml)
 
 ### Add Note
 
@@ -1708,7 +1744,9 @@ ID: `mint_system.stock.report_delivery_document.add_note`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_note.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_note.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_note.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_note.xml)
 
 ### Add Open Quantity In Backorder
 
@@ -1728,7 +1766,9 @@ ID: `mint_system.stock.report_delivery_document.add_open_quantity_in_backorder`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_open_quantity_in_backorder.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_open_quantity_in_backorder.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_open_quantity_in_backorder.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_open_quantity_in_backorder.xml)
 
 ### Add Summary
 
@@ -1810,7 +1850,9 @@ ID: `mint_system.stock.report_delivery_document.add_summary`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_summary.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_summary.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_summary.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_summary.xml)
 
 ### Add Table Margin
 
@@ -1827,7 +1869,9 @@ ID: `mint_system.stock.report_delivery_document.add_table_margin`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_table_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_table_margin.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_table_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_table_margin.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_table_margin.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_table_margin.xml)
 
 ### Add Title
 
@@ -1843,7 +1887,9 @@ ID: `mint_system.stock.report_delivery_document.add_title`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_title.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_title.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_title.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_title.xml)
 
 ### Add Weight
 
@@ -1865,7 +1911,9 @@ ID: `mint_system.stock.report_delivery_document.add_weight`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.add_weight.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.add_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.add_weight.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.add_weight.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.add_weight.xml)
 
 ### Append Signature Text
 
@@ -1914,7 +1962,9 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.append_signature_text.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
 
 ### Backorder Signature Section
 
@@ -1932,7 +1982,9 @@ ID: `mint_system.stock.report_delivery_document.backorder_signature_section`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.backorder_signature_section.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.backorder_signature_section.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.backorder_signature_section.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.backorder_signature_section.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.backorder_signature_section.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.backorder_signature_section.xml)
 
 ### Barcode Customer Reference
 
@@ -1948,7 +2000,9 @@ ID: `mint_system.stock.report_delivery_document.barcode_customer_reference`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.barcode_customer_reference.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.barcode_customer_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.barcode_customer_reference.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.barcode_customer_reference.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.barcode_customer_reference.xml)
 
 ### Disable Stock Move Line Table
 
@@ -1965,7 +2019,9 @@ ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.disable_stock_move_line_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
 
 ### Filter Qty Done
 
@@ -1985,7 +2041,9 @@ ID: `mint_system.stock.report_delivery_document.filter_qty_done`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.filter_qty_done.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
 
 ### Format Address
 
@@ -1999,7 +2057,9 @@ ID: `mint_system.stock.report_delivery_document.format_address`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_address.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_address.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_address.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_address.xml)
 
 ### Format Address Blocks
 
@@ -2027,7 +2087,9 @@ ID: `mint_system.stock.report_delivery_document.format_address_blocks`
 -->
 
 ```
-Source: [snippets/stock.report_delivery_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_address_blocks.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_address_blocks.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_address_blocks.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_address_blocks.xml)
 
 ### Format Date Short
 
@@ -2050,7 +2112,9 @@ ID: `mint_system.stock.report_delivery_document.format_date_short`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_date_short.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_date_short.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_date_short.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_date_short.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_date_short.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_date_short.xml)
 
 ### Format Main Table
 
@@ -2073,7 +2137,9 @@ ID: `mint_system.stock.report_delivery_document.format_main_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_main_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_main_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_main_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_main_table.xml)
 
 ### Format Pos
 
@@ -2087,7 +2153,9 @@ ID: `mint_system.stock.report_delivery_document.format_pos`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_pos.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_pos.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_pos.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_pos.xml)
 
 ### Format Qty
 
@@ -2104,7 +2172,9 @@ ID: `mint_system.stock.report_delivery_document.format_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_qty.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_qty.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_qty.xml)
 
 ### Format Table Border
 
@@ -2135,7 +2205,9 @@ ID: `mint_system.stock.report_delivery_document.format_table_border`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_table_border.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
 
 ### Format Title
 
@@ -2151,7 +2223,9 @@ ID: `mint_system.stock.report_delivery_document.format_title`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_title.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_title.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_title.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_title.xml)
 
 ### Format Title Trimada
 
@@ -2165,7 +2239,9 @@ ID: `mint_system.stock.report_delivery_document.format_title_trimada`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.format_title_trimada.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_title_trimada.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_title_trimada.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_title_trimada.xml)
 
 ### Get Position
 
@@ -2211,7 +2287,9 @@ ID: `mint_system.stock.report_delivery_document.get_position`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.get_position.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.get_position.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.get_position.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.get_position.xml)
 
 ### Get Position2
 
@@ -2233,7 +2311,9 @@ ID: `mint_system.stock.report_delivery_document.get_position2`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.get_position2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.get_position2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.get_position2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.get_position2.xml)
 
 ### Header Margin
 
@@ -2250,7 +2330,9 @@ ID: `mint_system.stock.report_delivery_document.header_margin`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.header_margin.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.header_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.header_margin.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.header_margin.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.header_margin.xml)
 
 ### Header Packing
 
@@ -2284,7 +2366,9 @@ ID: `mint_system.stock.report_delivery_document.header_packing`
     </xpath>   
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.header_packing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.header_packing.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.header_packing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.header_packing.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.header_packing.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.header_packing.xml)
 
 ### Header Picking
 
@@ -2322,7 +2406,9 @@ ID: `mint_system.stock.report_delivery_document.header_picking`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.header_picking.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.header_picking.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.header_picking.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.header_picking.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.header_picking.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.header_picking.xml)
 
 ### Hide Address
 
@@ -2335,7 +2421,9 @@ ID: `mint_system.stock.report_delivery_document.hide_address`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_address.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_address.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_address.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_address.xml)
 
 ### Hide Backorder Quantity
 
@@ -2349,7 +2437,9 @@ ID: `mint_system.stock.report_delivery_document.hide_backorder_quantity`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_backorder_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_backorder_quantity.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_backorder_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_backorder_quantity.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_backorder_quantity.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_backorder_quantity.xml)
 
 ### Hide If Not In State Done
 
@@ -2368,7 +2458,9 @@ ID: `mint_system.stock.report_delivery_document.hide_if_not_in_state_done`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_if_not_in_state_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_if_not_in_state_done.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_if_not_in_state_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_if_not_in_state_done.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_if_not_in_state_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_if_not_in_state_done.xml)
 
 ### Hide Information Block
 
@@ -2380,7 +2472,9 @@ ID: `mint_system.stock.report_delivery_document.hide_information_block`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_information_block.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_information_block.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_information_block.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_information_block.xml)
 
 ### Hide Name
 
@@ -2393,7 +2487,9 @@ ID: `mint_system.stock.report_delivery_document.hide_name`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_name.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_name.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_name.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_name.xml)
 
 ### Hide Ordered
 
@@ -2406,7 +2502,9 @@ ID: `mint_system.stock.report_delivery_document.hide_ordered`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_ordered.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_ordered.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_ordered.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_ordered.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_ordered.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_ordered.xml)
 
 ### Hide Package Section
 
@@ -2423,7 +2521,9 @@ ID: `mint_system.stock.report_delivery_document.hide_package_section`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.hide_package_section.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_package_section.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_package_section.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_package_section.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_package_section.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_package_section.xml)
 
 ### Hide Product Uom Qty
 
@@ -2436,7 +2536,9 @@ ID: `mint_system.stock.report_delivery_document.hide_product_uom_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hide_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hide_product_uom_qty.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hide_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hide_product_uom_qty.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hide_product_uom_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hide_product_uom_qty.xml)
 
 ### Hs Code
 
@@ -2465,7 +2567,9 @@ ID: `mint_system.stock.report_delivery_document.hs_code`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hs_code.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hs_code.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hs_code.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hs_code.xml)
 
 ### Hs Code And Origin
 
@@ -2492,7 +2596,9 @@ ID: `mint_system.stock.report_delivery_document.hs_code_and_origin`
    
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hs_code_and_origin.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hs_code_and_origin.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hs_code_and_origin.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hs_code_and_origin.xml)
 
 ### Hs Code Origin And Weight
 
@@ -2521,7 +2627,9 @@ ID: `mint_system.stock.report_delivery_document.hs_code_origin_and_weight`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.hs_code_origin_and_weight.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.hs_code_origin_and_weight.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.hs_code_origin_and_weight.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.hs_code_origin_and_weight.xml)
 
 ### Margin After Title
 
@@ -2535,7 +2643,9 @@ ID: `mint_system.stock.report_delivery_document.margin_after_title`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.margin_after_title.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.margin_after_title.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.margin_after_title.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.margin_after_title.xml)
 
 ### Margin Before Title
 
@@ -2549,7 +2659,9 @@ ID: `mint_system.stock.report_delivery_document.margin_before_title`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.margin_before_title.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.margin_before_title.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.margin_before_title.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.margin_before_title.xml)
 
 ### Modify Main Table
 
@@ -2639,7 +2751,9 @@ ID: `mint_system.stock.report_delivery_document.modify_main_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.modify_main_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.modify_main_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.modify_main_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.modify_main_table.xml)
 
 ### Move Lines
 
@@ -2686,7 +2800,9 @@ ID: `mint_system.stock.report_delivery_document.move_lines`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.move_lines.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.move_lines.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.move_lines.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.move_lines.xml)
 
 ### Package Info Tissa
 
@@ -2730,7 +2846,9 @@ ____________________________________________________________</span>
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.package_info_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.package_info_tissa.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.package_info_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.package_info_tissa.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.package_info_tissa.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.package_info_tissa.xml)
 
 ### Pos In Table
 
@@ -2766,7 +2884,9 @@ ID: `mint_system.stock.report_delivery_document.pos_in_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.pos_in_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.pos_in_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.pos_in_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.pos_in_table.xml)
 
 ### Remove Informations
 
@@ -2779,7 +2899,9 @@ ID: `mint_system.stock.report_delivery_document.remove_informations`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.remove_informations.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.remove_informations.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.remove_informations.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.remove_informations.xml)
 
 ### Replace Address And Information Block
 
@@ -2847,7 +2969,9 @@ ID: `mint_system.stock.report_delivery_document.replace_address_and_information_
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_address_and_information_block.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_address_and_information_block.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_address_and_information_block.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_address_and_information_block.xml)
 
 ### Replace Delivery Address
 
@@ -2870,7 +2994,9 @@ ID: `mint_system.stock.report_delivery_document.replace_delivery_address`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.replace_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_delivery_address.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_delivery_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_delivery_address.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_delivery_address.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_delivery_address.xml)
 
 ### Replace Description Sale
 
@@ -2889,7 +3015,9 @@ ID: `mint_system.stock.report_delivery_document.replace_description_sale`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_description_sale.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_description_sale.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_description_sale.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_description_sale.xml)
 
 ### Replace Header
 
@@ -2926,7 +3054,9 @@ ID: `mint_system.stock.report_delivery_document.replace_header`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_header.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_header.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_header.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_header.xml)
 
 ### Replace Information Table
 
@@ -3035,7 +3165,9 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_information_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
 
 ### Replace Information Table2
 
@@ -3095,7 +3227,9 @@ ID: `mint_system.stock.report_delivery_document.replace_information_table2`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_information_table2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml)
 
 ### Replace Informations
 
@@ -3150,7 +3284,9 @@ ID: `mint_system.stock.report_delivery_document.replace_informations`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_informations.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
 
 ### Replace Informations2
 
@@ -3242,7 +3378,9 @@ ID: `mint_system.stock.report_delivery_document.replace_informations2`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_informations2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_informations2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_informations2.xml)
 
 ### Replace Infotable
 
@@ -3288,7 +3426,9 @@ ID: `mint_system.stock.report_delivery_document.replace_infotable`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_infotable.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_infotable.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_infotable.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_infotable.xml)
 
 ### Replace Infotable Tissa
 
@@ -3384,7 +3524,9 @@ ID: `mint_system.stock.report_delivery_document.replace_infotable_tissa`
   </xpath>
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_infotable_tissa.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_infotable_tissa.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_infotable_tissa.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_infotable_tissa.xml)
 
 ### Replace Name
 
@@ -3400,7 +3542,9 @@ ID: `mint_system.stock.report_delivery_document.replace_name`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_name.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_name.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_name.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_name.xml)
 
 ### Replace Order Definition
 
@@ -3442,7 +3586,9 @@ ID: `mint_system.stock.report_delivery_document.replace_order_definition`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_order_definition.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_order_definition.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_order_definition.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_order_definition.xml)
 
 ### Replace Product Description
 
@@ -3473,7 +3619,9 @@ ID: `mint_system.stock.report_delivery_document.replace_product_description`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_product_description.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_product_description.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_product_description.xml)
 
 ### Replace Product Description On Backorder
 
@@ -3507,7 +3655,9 @@ ID: `mint_system.stock.report_delivery_document.replace_product_description_on_b
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_product_description_on_backorder.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_product_description_on_backorder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_product_description_on_backorder.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_product_description_on_backorder.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_product_description_on_backorder.xml)
 
 ### Replace Product Uom Qty
 
@@ -3521,7 +3671,9 @@ ID: `mint_system.stock.report_delivery_document.replace_product_uom_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_product_uom_qty.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_product_uom_qty.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_product_uom_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_product_uom_qty.xml)
 
 ### Replace Sale Line Name
 
@@ -3540,7 +3692,9 @@ ID: `mint_system.stock.report_delivery_document.replace_sale_line_name`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_sale_line_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_sale_line_name.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_sale_line_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_sale_line_name.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_sale_line_name.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_sale_line_name.xml)
 
 ### Replace Table
 
@@ -3595,7 +3749,9 @@ ID: `mint_system.stock.report_delivery_document.replace_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.replace_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.replace_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_table.xml)
 
 ### Round Qty
 
@@ -3618,7 +3774,9 @@ ID: `mint_system.stock.report_delivery_document.round_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.round_qty.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
 
 ### Round Qty2
 
@@ -3641,7 +3799,9 @@ ID: `mint_system.stock.report_delivery_document.round_qty2`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.round_qty2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.round_qty2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.round_qty2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.round_qty2.xml)
 
 ### Sale Order Note
 
@@ -3655,7 +3815,9 @@ ID: `mint_system.stock.report_delivery_document.sale_order_note`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.sale_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.sale_order_note.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.sale_order_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.sale_order_note.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.sale_order_note.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.sale_order_note.xml)
 
 ### Sale Stock Picking Note
 
@@ -3671,7 +3833,9 @@ ID: `mint_system.stock.report_delivery_document.sale_stock_picking_note`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.sale_stock_picking_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.sale_stock_picking_note.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.sale_stock_picking_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.sale_stock_picking_note.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.sale_stock_picking_note.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.sale_stock_picking_note.xml)
 
 ### Second Row
 
@@ -3703,7 +3867,9 @@ ID: `mint_system.stock.report_delivery_document.second_row`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.second_row.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.second_row.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.second_row.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.second_row.xml)
 
 ### Sequence In Table
 
@@ -3724,7 +3890,9 @@ ID: `mint_system.stock.report_delivery_document.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.sequence_in_table.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.sequence_in_table.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.sequence_in_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.sequence_in_table.xml)
 
 ### Set Customer Reference
 
@@ -3745,7 +3913,9 @@ ID: `mint_system.stock.report_delivery_document.set_customer_reference`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_customer_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_customer_reference.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_customer_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_customer_reference.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_customer_reference.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_customer_reference.xml)
 
 ### Set Ids
 
@@ -3789,7 +3959,9 @@ ID: `mint_system.stock.report_delivery_document.set_ids`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_ids.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_ids.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_ids.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_ids.xml)
 
 ### Set Name
 
@@ -3809,7 +3981,9 @@ ID: `mint_system.stock.report_delivery_document.set_name`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_name.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_name.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_name.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_name.xml)
 
 ### Set Page Font Size
 
@@ -3827,7 +4001,9 @@ ID: `mint_system.stock.report_delivery_document.set_page_font_size`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_page_font_size.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_page_font_size.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_page_font_size.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_page_font_size.xml)
 
 ### Set Table Font Size
 
@@ -3846,7 +4022,9 @@ ID: `mint_system.stock.report_delivery_document.set_table_font_size`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_table_font_size.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_table_font_size.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_table_font_size.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_table_font_size.xml)
 
 ### Set Title Font Size
 
@@ -3864,7 +4042,9 @@ ID: `mint_system.stock.report_delivery_document.set_title_font_size`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.set_title_font_size.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.set_title_font_size.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.set_title_font_size.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.set_title_font_size.xml)
 
 ### Show Customer Info Product Code
 
@@ -3881,7 +4061,9 @@ ID: `mint_system.stock.report_delivery_document.show_customer_info_product_code`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.show_customer_info_product_code.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.show_customer_info_product_code.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.show_customer_info_product_code.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.show_customer_info_product_code.xml)
 
 ### Show Default Code
 
@@ -3915,7 +4097,9 @@ ID: `mint_system.stock.report_delivery_document.show_default_code`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.show_default_code.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.show_default_code.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.show_default_code.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.show_default_code.xml)
 
 ### Show Lot Ids
 
@@ -3946,7 +4130,9 @@ ID: `mint_system.stock.report_delivery_document.show_lot_ids`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.show_lot_ids.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.show_lot_ids.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.show_lot_ids.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.show_lot_ids.xml)
 
 ### Show Quantity Done
 
@@ -3960,7 +4146,9 @@ ID: `mint_system.stock.report_delivery_document.show_quantity_done`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.show_quantity_done.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.show_quantity_done.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.show_quantity_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.show_quantity_done.xml)
 
 ### Sort By Position
 
@@ -3980,7 +4168,9 @@ ID: `mint_system.stock.report_delivery_document.sort_by_position`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.sort_by_position.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.sort_by_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.sort_by_position.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.sort_by_position.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.sort_by_position.xml)
 
 ### Style Airwork
 
@@ -4035,7 +4225,9 @@ ID: `mint_system.stock.report_delivery_document.style_airwork`
     
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_airwork.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_airwork.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_airwork.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_airwork.xml)
 
 ### Style Carbo Link
 
@@ -4060,7 +4252,9 @@ ID: `mint_system.stock.report_delivery_document.style_carbo_link`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_carbo_link.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_carbo_link.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_carbo_link.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_carbo_link.xml)
 
 ### Style Gelso
 
@@ -4090,7 +4284,9 @@ ID: `mint_system.stock.report_delivery_document.style_gelso`
     
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_gelso.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_gelso.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_gelso.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_gelso.xml)
 
 ### Style Lapp
 
@@ -4129,7 +4325,9 @@ ID: `mint_system.stock.report_delivery_document.style_lapp`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_lapp.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_lapp.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_lapp.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_lapp.xml)
 
 ### Style Swissfragrance
 
@@ -4155,7 +4353,9 @@ ID: `mint_system.stock.report_delivery_document.style_swissfragrance`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_swissfragrance.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_swissfragrance.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_swissfragrance.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_swissfragrance.xml)
 
 ### Style Tissa
 
@@ -4218,7 +4418,9 @@ ID: `mint_system.stock.report_delivery_document.style_tissa`
 	
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_tissa.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_tissa.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_tissa.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_tissa.xml)
 
 ### Style Trimada
 
@@ -4306,7 +4508,9 @@ ID: `mint_system.stock.report_delivery_document.style_trimada`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.style_trimada.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_trimada.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_trimada.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_trimada.xml)
 
 ### Summary
 
@@ -4388,7 +4592,9 @@ ID: `mint_system.stock.report_delivery_document.summary`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.summary.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.summary.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.summary.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.summary.xml)
 
 ### Switch Address Block
 
@@ -4408,7 +4614,9 @@ ID: `mint_system.stock.report_delivery_document.switch_address_block`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.switch_address_block.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.switch_address_block.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.switch_address_block.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.switch_address_block.xml)
 
 ### Tissa Move Lines
 
@@ -4469,7 +4677,9 @@ ID: `mint_system.stock.report_delivery_document.tissa_move_lines`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.tissa_move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.tissa_move_lines.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.tissa_move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.tissa_move_lines.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.tissa_move_lines.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.tissa_move_lines.xml)
 
 ### Title Supplement
 
@@ -4483,7 +4693,9 @@ ID: `mint_system.stock.report_delivery_document.title_supplement`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.title_supplement.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.title_supplement.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.title_supplement.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.title_supplement.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.title_supplement.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.title_supplement.xml)
 
 ### Valued Document
 
@@ -4530,7 +4742,9 @@ ID: `mint_system.stock.report_delivery_document.valued_document`
 
 </data>
 ```
-Source: [snippets/stock.report_delivery_document.valued_document.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.valued_document.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.valued_document.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.valued_document.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.valued_document.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.valued_document.xml)
 
 ### X Hide On Delivery
 
@@ -4550,7 +4764,9 @@ ID: `mint_system.stock.report_delivery_document.x_hide_on_delivery`
 </data>
 
 ```
-Source: [snippets/stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_delivery_document.x_hide_on_delivery.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.x_hide_on_delivery.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.x_hide_on_delivery.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.x_hide_on_delivery.xml)
 
 ## Report Label
 
@@ -4587,7 +4803,9 @@ ID: `mint_system.stock.report_label.aersolution`
     </t>
 </t>
 ```
-Source: [snippets/stock.report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_label.aersolution.xml)
+Edit: [snippets/mint_system.stock.report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_label.aersolution.xml)
+
+Source: [snippets/mint_system.stock.report_label.aersolution.xml](https://odoo.build/snippets/mint_system.stock.report_label.aersolution.xml)
 
 ## Report Location Barcode
 
@@ -4681,7 +4899,9 @@ ID: `mint_system.stock.report_location_barcode.label_lapp`
 </data>
 
 ```
-Source: [snippets/stock.report_location_barcode.label_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_location_barcode.label_lapp.xml)
+Edit: [snippets/mint_system.stock.report_location_barcode.label_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_location_barcode.label_lapp.xml)
+
+Source: [snippets/mint_system.stock.report_location_barcode.label_lapp.xml](https://odoo.build/snippets/mint_system.stock.report_location_barcode.label_lapp.xml)
 
 ## Report Lot Label
 
@@ -4705,7 +4925,9 @@ ID: `mint_system.stock.report_lot_label.aersolution`
 </t>
 
 ```
-Source: [snippets/stock.report_lot_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_lot_label.aersolution.xml)
+Edit: [snippets/mint_system.stock.report_lot_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_lot_label.aersolution.xml)
+
+Source: [snippets/mint_system.stock.report_lot_label.aersolution.xml](https://odoo.build/snippets/mint_system.stock.report_lot_label.aersolution.xml)
 
 ## Report Picking
 
@@ -4727,7 +4949,9 @@ ID: `mint_system.stock.report_picking.add_address_block`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.add_address_block.xml)
+Edit: [snippets/mint_system.stock.report_picking.add_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.add_address_block.xml)
+
+Source: [snippets/mint_system.stock.report_picking.add_address_block.xml](https://odoo.build/snippets/mint_system.stock.report_picking.add_address_block.xml)
 
 ### Add Delivery Note
 
@@ -4741,7 +4965,9 @@ ID: `mint_system.stock.report_picking.add_delivery_note`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.add_delivery_note.xml)
+Edit: [snippets/mint_system.stock.report_picking.add_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.add_delivery_note.xml)
+
+Source: [snippets/mint_system.stock.report_picking.add_delivery_note.xml](https://odoo.build/snippets/mint_system.stock.report_picking.add_delivery_note.xml)
 
 ### Add Drawing File
 
@@ -4761,7 +4987,9 @@ ID: `mint_system.stock.report_picking.add_drawing_file`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.add_drawing_file.xml)
+Edit: [snippets/mint_system.stock.report_picking.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.add_drawing_file.xml)
+
+Source: [snippets/mint_system.stock.report_picking.add_drawing_file.xml](https://odoo.build/snippets/mint_system.stock.report_picking.add_drawing_file.xml)
 
 ### Add Mrp Production X Note
 
@@ -4780,7 +5008,9 @@ ID: `mint_system.stock.report_picking.add_mrp_production_x_note`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.add_mrp_production_x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.add_mrp_production_x_note.xml)
+Edit: [snippets/mint_system.stock.report_picking.add_mrp_production_x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.add_mrp_production_x_note.xml)
+
+Source: [snippets/mint_system.stock.report_picking.add_mrp_production_x_note.xml](https://odoo.build/snippets/mint_system.stock.report_picking.add_mrp_production_x_note.xml)
 
 ### Barcode Label
 
@@ -4794,7 +5024,9 @@ ID: `mint_system.stock.report_picking.barcode_label`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.barcode_label.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.barcode_label.xml)
+Edit: [snippets/mint_system.stock.report_picking.barcode_label.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.barcode_label.xml)
+
+Source: [snippets/mint_system.stock.report_picking.barcode_label.xml](https://odoo.build/snippets/mint_system.stock.report_picking.barcode_label.xml)
 
 ### Format Delivery Date
 
@@ -4808,7 +5040,9 @@ ID: `mint_system.stock.report_picking.format_delivery_date`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.format_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.format_delivery_date.xml)
+Edit: [snippets/mint_system.stock.report_picking.format_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.format_delivery_date.xml)
+
+Source: [snippets/mint_system.stock.report_picking.format_delivery_date.xml](https://odoo.build/snippets/mint_system.stock.report_picking.format_delivery_date.xml)
 
 ### Format Qty
 
@@ -4835,7 +5069,9 @@ ID: `mint_system.stock.report_picking.format_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.format_qty.xml)
+Edit: [snippets/mint_system.stock.report_picking.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.format_qty.xml)
+
+Source: [snippets/mint_system.stock.report_picking.format_qty.xml](https://odoo.build/snippets/mint_system.stock.report_picking.format_qty.xml)
 
 ### Format Qty Available
 
@@ -4849,7 +5085,9 @@ ID: `mint_system.stock.report_picking.format_qty_available`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.format_qty_available.xml)
+Edit: [snippets/mint_system.stock.report_picking.format_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.format_qty_available.xml)
+
+Source: [snippets/mint_system.stock.report_picking.format_qty_available.xml](https://odoo.build/snippets/mint_system.stock.report_picking.format_qty_available.xml)
 
 ### Format Title
 
@@ -4863,7 +5101,9 @@ ID: `mint_system.stock.report_picking.format_title`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.format_title.xml)
+Edit: [snippets/mint_system.stock.report_picking.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.format_title.xml)
+
+Source: [snippets/mint_system.stock.report_picking.format_title.xml](https://odoo.build/snippets/mint_system.stock.report_picking.format_title.xml)
 
 ### Get Position
 
@@ -4890,7 +5130,9 @@ ID: `mint_system.stock.report_picking.get_position`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.get_position.xml)
+Edit: [snippets/mint_system.stock.report_picking.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.get_position.xml)
+
+Source: [snippets/mint_system.stock.report_picking.get_position.xml](https://odoo.build/snippets/mint_system.stock.report_picking.get_position.xml)
 
 ### Group By Date
 
@@ -4972,7 +5214,9 @@ ID: `mint_system.stock.report_picking.group_by_date`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.group_by_date.xml)
+Edit: [snippets/mint_system.stock.report_picking.group_by_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.group_by_date.xml)
+
+Source: [snippets/mint_system.stock.report_picking.group_by_date.xml](https://odoo.build/snippets/mint_system.stock.report_picking.group_by_date.xml)
 
 ### Header Box
 
@@ -4996,7 +5240,9 @@ ID: `mint_system.stock.report_picking.header_box`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.header_box.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.header_box.xml)
+Edit: [snippets/mint_system.stock.report_picking.header_box.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.header_box.xml)
+
+Source: [snippets/mint_system.stock.report_picking.header_box.xml](https://odoo.build/snippets/mint_system.stock.report_picking.header_box.xml)
 
 ### Hide Address
 
@@ -5008,7 +5254,9 @@ ID: `mint_system.stock.report_picking.hide_address`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.hide_address.xml)
+Edit: [snippets/mint_system.stock.report_picking.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.hide_address.xml)
+
+Source: [snippets/mint_system.stock.report_picking.hide_address.xml](https://odoo.build/snippets/mint_system.stock.report_picking.hide_address.xml)
 
 ### Hide Location Dest
 
@@ -5029,7 +5277,9 @@ ID: `mint_system.stock.report_picking.hide_location_dest`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.hide_location_dest.xml)
+Edit: [snippets/mint_system.stock.report_picking.hide_location_dest.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.hide_location_dest.xml)
+
+Source: [snippets/mint_system.stock.report_picking.hide_location_dest.xml](https://odoo.build/snippets/mint_system.stock.report_picking.hide_location_dest.xml)
 
 ### Hide Name
 
@@ -5041,7 +5291,9 @@ ID: `mint_system.stock.report_picking.hide_name`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.hide_name.xml)
+Edit: [snippets/mint_system.stock.report_picking.hide_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.hide_name.xml)
+
+Source: [snippets/mint_system.stock.report_picking.hide_name.xml](https://odoo.build/snippets/mint_system.stock.report_picking.hide_name.xml)
 
 ### Margin Barcode
 
@@ -5055,7 +5307,9 @@ ID: `mint_system.stock.report_picking.margin_barcode`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.margin_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.margin_barcode.xml)
+Edit: [snippets/mint_system.stock.report_picking.margin_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.margin_barcode.xml)
+
+Source: [snippets/mint_system.stock.report_picking.margin_barcode.xml](https://odoo.build/snippets/mint_system.stock.report_picking.margin_barcode.xml)
 
 ### Margin Before Table
 
@@ -5069,7 +5323,9 @@ ID: `mint_system.stock.report_picking.margin_before_table`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.margin_before_table.xml)
+Edit: [snippets/mint_system.stock.report_picking.margin_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.margin_before_table.xml)
+
+Source: [snippets/mint_system.stock.report_picking.margin_before_table.xml](https://odoo.build/snippets/mint_system.stock.report_picking.margin_before_table.xml)
 
 ### Modify No Reserved Product
 
@@ -5083,7 +5339,9 @@ ID: `mint_system.stock.report_picking.modify_no_reserved_product`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.modify_no_reserved_product.xml)
+Edit: [snippets/mint_system.stock.report_picking.modify_no_reserved_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.modify_no_reserved_product.xml)
+
+Source: [snippets/mint_system.stock.report_picking.modify_no_reserved_product.xml](https://odoo.build/snippets/mint_system.stock.report_picking.modify_no_reserved_product.xml)
 
 ### Move State
 
@@ -5097,7 +5355,9 @@ ID: `mint_system.stock.report_picking.move_state`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.move_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.move_state.xml)
+Edit: [snippets/mint_system.stock.report_picking.move_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.move_state.xml)
+
+Source: [snippets/mint_system.stock.report_picking.move_state.xml](https://odoo.build/snippets/mint_system.stock.report_picking.move_state.xml)
 
 ### Partner Ref
 
@@ -5116,7 +5376,9 @@ ID: `mint_system.stock.report_picking.partner_ref`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.partner_ref.xml)
+Edit: [snippets/mint_system.stock.report_picking.partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.partner_ref.xml)
+
+Source: [snippets/mint_system.stock.report_picking.partner_ref.xml](https://odoo.build/snippets/mint_system.stock.report_picking.partner_ref.xml)
 
 ### Pos In Table
 
@@ -5141,7 +5403,9 @@ ID: `mint_system.stock.report_picking.pos_in_table`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.pos_in_table.xml)
+Edit: [snippets/mint_system.stock.report_picking.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.pos_in_table.xml)
+
+Source: [snippets/mint_system.stock.report_picking.pos_in_table.xml](https://odoo.build/snippets/mint_system.stock.report_picking.pos_in_table.xml)
 
 ### Pricelist Below Address
 
@@ -5155,7 +5419,9 @@ ID: `mint_system.stock.report_picking.pricelist_below_address`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.pricelist_below_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.pricelist_below_address.xml)
+Edit: [snippets/mint_system.stock.report_picking.pricelist_below_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.pricelist_below_address.xml)
+
+Source: [snippets/mint_system.stock.report_picking.pricelist_below_address.xml](https://odoo.build/snippets/mint_system.stock.report_picking.pricelist_below_address.xml)
 
 ### Product Description
 
@@ -5183,7 +5449,9 @@ ID: `mint_system.stock.report_picking.product_description`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.product_description.xml)
+Edit: [snippets/mint_system.stock.report_picking.product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.product_description.xml)
+
+Source: [snippets/mint_system.stock.report_picking.product_description.xml](https://odoo.build/snippets/mint_system.stock.report_picking.product_description.xml)
 
 ### Relocate Quantity
 
@@ -5219,7 +5487,9 @@ ID: `mint_system.stock.report_picking.relocate_quantity`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.relocate_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.relocate_quantity.xml)
+Edit: [snippets/mint_system.stock.report_picking.relocate_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.relocate_quantity.xml)
+
+Source: [snippets/mint_system.stock.report_picking.relocate_quantity.xml](https://odoo.build/snippets/mint_system.stock.report_picking.relocate_quantity.xml)
 
 ### Remove From And To
 
@@ -5236,7 +5506,9 @@ ID: `mint_system.stock.report_picking.remove_from_and_to`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.remove_from_and_to.xml)
+Edit: [snippets/mint_system.stock.report_picking.remove_from_and_to.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.remove_from_and_to.xml)
+
+Source: [snippets/mint_system.stock.report_picking.remove_from_and_to.xml](https://odoo.build/snippets/mint_system.stock.report_picking.remove_from_and_to.xml)
 
 ### Remove Reservation Notice
 
@@ -5248,7 +5520,9 @@ ID: `mint_system.stock.report_picking.remove_reservation_notice`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.remove_reservation_notice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.remove_reservation_notice.xml)
+Edit: [snippets/mint_system.stock.report_picking.remove_reservation_notice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.remove_reservation_notice.xml)
+
+Source: [snippets/mint_system.stock.report_picking.remove_reservation_notice.xml](https://odoo.build/snippets/mint_system.stock.report_picking.remove_reservation_notice.xml)
 
 ### Remove Serial Number
 
@@ -5263,7 +5537,9 @@ ID: `mint_system.stock.report_picking.remove_serial_number`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.remove_serial_number.xml)
+Edit: [snippets/mint_system.stock.report_picking.remove_serial_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.remove_serial_number.xml)
+
+Source: [snippets/mint_system.stock.report_picking.remove_serial_number.xml](https://odoo.build/snippets/mint_system.stock.report_picking.remove_serial_number.xml)
 
 ### Remove To
 
@@ -5289,7 +5565,9 @@ ID: `mint_system.stock.report_picking.remove_to`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.remove_to.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.remove_to.xml)
+Edit: [snippets/mint_system.stock.report_picking.remove_to.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.remove_to.xml)
+
+Source: [snippets/mint_system.stock.report_picking.remove_to.xml](https://odoo.build/snippets/mint_system.stock.report_picking.remove_to.xml)
 
 ### Replace Barcode
 
@@ -5312,7 +5590,9 @@ ID: `mint_system.stock.report_picking.replace_barcode`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.replace_barcode.xml)
+Edit: [snippets/mint_system.stock.report_picking.replace_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.replace_barcode.xml)
+
+Source: [snippets/mint_system.stock.report_picking.replace_barcode.xml](https://odoo.build/snippets/mint_system.stock.report_picking.replace_barcode.xml)
 
 ### Replace Header
 
@@ -5350,7 +5630,9 @@ ID: `mint_system.stock.report_picking.replace_header`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.replace_header.xml)
+Edit: [snippets/mint_system.stock.report_picking.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.replace_header.xml)
+
+Source: [snippets/mint_system.stock.report_picking.replace_header.xml](https://odoo.build/snippets/mint_system.stock.report_picking.replace_header.xml)
 
 ### Replace Infotable
 
@@ -5440,7 +5722,9 @@ ID: `mint_system.stock.report_picking.replace_infotable`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.replace_infotable.xml)
+Edit: [snippets/mint_system.stock.report_picking.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.replace_infotable.xml)
+
+Source: [snippets/mint_system.stock.report_picking.replace_infotable.xml](https://odoo.build/snippets/mint_system.stock.report_picking.replace_infotable.xml)
 
 ### Replace Order Definition
 
@@ -5527,7 +5811,9 @@ ID: `mint_system.stock.report_picking.replace_order_definition`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.replace_order_definition.xml)
+Edit: [snippets/mint_system.stock.report_picking.replace_order_definition.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.replace_order_definition.xml)
+
+Source: [snippets/mint_system.stock.report_picking.replace_order_definition.xml](https://odoo.build/snippets/mint_system.stock.report_picking.replace_order_definition.xml)
 
 ### Replace Table
 
@@ -5621,7 +5907,9 @@ ID: `mint_system.stock.report_picking.replace_table`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.replace_table.xml)
+Edit: [snippets/mint_system.stock.report_picking.replace_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.replace_table.xml)
+
+Source: [snippets/mint_system.stock.report_picking.replace_table.xml](https://odoo.build/snippets/mint_system.stock.report_picking.replace_table.xml)
 
 ### Round Qty
 
@@ -5644,7 +5932,9 @@ ID: `mint_system.stock.report_picking.round_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.round_qty.xml)
+Edit: [snippets/mint_system.stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.round_qty.xml)
+
+Source: [snippets/mint_system.stock.report_picking.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_picking.round_qty.xml)
 
 ### Round Qty2
 
@@ -5667,7 +5957,9 @@ ID: `mint_system.stock.report_picking.round_qty2`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.round_qty2.xml)
+Edit: [snippets/mint_system.stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.round_qty2.xml)
+
+Source: [snippets/mint_system.stock.report_picking.round_qty2.xml](https://odoo.build/snippets/mint_system.stock.report_picking.round_qty2.xml)
 
 ### Set Ids
 
@@ -5693,7 +5985,9 @@ ID: `mint_system.stock.report_picking.set_ids`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.set_ids.xml)
+Edit: [snippets/mint_system.stock.report_picking.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.set_ids.xml)
+
+Source: [snippets/mint_system.stock.report_picking.set_ids.xml](https://odoo.build/snippets/mint_system.stock.report_picking.set_ids.xml)
 
 ### Show Default Code
 
@@ -5714,7 +6008,9 @@ ID: `mint_system.stock.report_picking.show_default_code`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_default_code.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_default_code.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_default_code.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_default_code.xml)
 
 ### Show Full Address
 
@@ -5728,7 +6024,9 @@ ID: `mint_system.stock.report_picking.show_full_address`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_full_address.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_full_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_full_address.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_full_address.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_full_address.xml)
 
 ### Show Lot
 
@@ -5749,7 +6047,9 @@ ID: `mint_system.stock.report_picking.show_lot`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_lot.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_lot.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_lot.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_lot.xml)
 
 ### Show Move Not Lines
 
@@ -5796,7 +6096,9 @@ ID: `mint_system.stock.report_picking.show_move_not_lines`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_move_not_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_move_not_lines.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_move_not_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_move_not_lines.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_move_not_lines.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_move_not_lines.xml)
 
 ### Show Move Qty
 
@@ -5810,7 +6112,9 @@ ID: `mint_system.stock.report_picking.show_move_qty`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_move_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_move_qty.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_move_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_move_qty.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_move_qty.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_move_qty.xml)
 
 ### Show Order Date
 
@@ -5827,7 +6131,9 @@ ID: `mint_system.stock.report_picking.show_order_date`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_order_date.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_order_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_order_date.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_order_date.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_order_date.xml)
 
 ### Show Packaging
 
@@ -5848,7 +6154,9 @@ ID: `mint_system.stock.report_picking.show_packaging`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_packaging.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_packaging.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_packaging.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_packaging.xml)
 
 ### Show Qty Available
 
@@ -5870,7 +6178,9 @@ ID: `mint_system.stock.report_picking.show_qty_available`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.show_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.show_qty_available.xml)
+Edit: [snippets/mint_system.stock.report_picking.show_qty_available.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.show_qty_available.xml)
+
+Source: [snippets/mint_system.stock.report_picking.show_qty_available.xml](https://odoo.build/snippets/mint_system.stock.report_picking.show_qty_available.xml)
 
 ### Stock Delivery Note
 
@@ -5888,7 +6198,9 @@ ID: `mint_system.stock.report_picking.stock_delivery_note`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.stock_delivery_note.xml)
+Edit: [snippets/mint_system.stock.report_picking.stock_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.stock_delivery_note.xml)
+
+Source: [snippets/mint_system.stock.report_picking.stock_delivery_note.xml](https://odoo.build/snippets/mint_system.stock.report_picking.stock_delivery_note.xml)
 
 ### Style Trimada
 
@@ -5995,7 +6307,9 @@ ID: `mint_system.stock.report_picking.style_trimada`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.style_trimada.xml)
+Edit: [snippets/mint_system.stock.report_picking.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.style_trimada.xml)
+
+Source: [snippets/mint_system.stock.report_picking.style_trimada.xml](https://odoo.build/snippets/mint_system.stock.report_picking.style_trimada.xml)
 
 ### X Count Packaging
 
@@ -6016,7 +6330,9 @@ ID: `mint_system.stock.report_picking.x_count_packaging`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.x_count_packaging.xml)
+Edit: [snippets/mint_system.stock.report_picking.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.x_count_packaging.xml)
+
+Source: [snippets/mint_system.stock.report_picking.x_count_packaging.xml](https://odoo.build/snippets/mint_system.stock.report_picking.x_count_packaging.xml)
 
 ### X Packaging Uom Id
 
@@ -6031,7 +6347,9 @@ ID: `mint_system.stock.report_picking.x_packaging_uom_id`
 </data>
 
 ```
-Source: [snippets/stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking.x_packaging_uom_id.xml)
+Edit: [snippets/mint_system.stock.report_picking.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.x_packaging_uom_id.xml)
+
+Source: [snippets/mint_system.stock.report_picking.x_packaging_uom_id.xml](https://odoo.build/snippets/mint_system.stock.report_picking.x_packaging_uom_id.xml)
 
 ## Report Picking Document
 
@@ -6152,7 +6470,9 @@ ID: `mint_system.stock.report_picking_document.tissa`
 </t>
 
 ```
-Source: [snippets/stock.report_picking_document.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_picking_document.tissa.xml)
+Edit: [snippets/mint_system.stock.report_picking_document.tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking_document.tissa.xml)
+
+Source: [snippets/mint_system.stock.report_picking_document.tissa.xml](https://odoo.build/snippets/mint_system.stock.report_picking_document.tissa.xml)
 
 ## Report Reception Report Label
 
@@ -6178,7 +6498,9 @@ ID: `mint_system.stock.report_reception_report_label.aersolution`
 </t>
 
 ```
-Source: [snippets/stock.report_reception_report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.report_reception_report_label.aersolution.xml)
+Edit: [snippets/mint_system.stock.report_reception_report_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_reception_report_label.aersolution.xml)
+
+Source: [snippets/mint_system.stock.report_reception_report_label.aersolution.xml](https://odoo.build/snippets/mint_system.stock.report_reception_report_label.aersolution.xml)
 
 ## Search Product Lot Filter
 
@@ -6194,7 +6516,9 @@ ID: `mint_system.stock.search_product_lot_filter.filter_active`
 </data>
 
 ```
-Source: [snippets/stock.search_product_lot_filter.filter_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.search_product_lot_filter.filter_active.xml)
+Edit: [snippets/mint_system.stock.search_product_lot_filter.filter_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.search_product_lot_filter.filter_active.xml)
+
+Source: [snippets/mint_system.stock.search_product_lot_filter.filter_active.xml](https://odoo.build/snippets/mint_system.stock.search_product_lot_filter.filter_active.xml)
 
 ## Stock Report Delivery Aggregated Move Lines
 
@@ -6221,7 +6545,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_o
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_country_of_origin_and_hs_code.xml)
 
 ### Add Default Code
 
@@ -6242,7 +6568,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_c
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_default_code.xml)
 
 ### Add Drawing File
 
@@ -6262,7 +6590,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_f
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.add_drawing_file.xml)
 
 ### Format Pos
 
@@ -6279,7 +6609,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.format_pos.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_pos.xml)
 
 ### Format Qty With Decimal
 
@@ -6309,7 +6641,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_qty_wi
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_qty_with_decimal.xml)
 
 ### Format Table
 
@@ -6330,7 +6664,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
 
 ### Get Position
 
@@ -6350,7 +6686,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.get_position.xml)
 
 ### Hs Code Origin And Weight
 
@@ -6380,7 +6718,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origi
 
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.hs_code_origin_and_weight.xml)
 
 ### Pos In Table
 
@@ -6397,7 +6737,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.pos_in_table.xml)
 
 ### Replace Description
 
@@ -6428,7 +6770,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_descr
 -->
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_description.xml)
 
 ### Replace Name
 
@@ -6444,7 +6788,9 @@ ID: `mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_aggregated_move_lines.replace_name.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.replace_name.xml)
 
 ## Stock Report Delivery Has Serial Move Line
 
@@ -6466,7 +6812,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.add_packing`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.add_packing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.add_packing.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.add_packing.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.add_packing.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.add_packing.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.add_packing.xml)
 
 ### Barcode
 
@@ -6479,7 +6827,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.barcode`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.barcode.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.barcode.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.barcode.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.barcode.xml)
 
 ### Description Sale
 
@@ -6500,7 +6850,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.description_sa
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.description_sale.xml)
 
 ### Format Qty With Decimal
 
@@ -6518,7 +6870,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_wit
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.format_qty_with_decimal.xml)
 
 ### Get Position
 
@@ -6536,7 +6890,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.get_position.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
 
 ### Get Position2
 
@@ -6551,7 +6907,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2`
       </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.get_position2.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml)
 
 ### Hide Lot
 
@@ -6573,7 +6931,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.hide_lot`
 
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.hide_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.hide_lot.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_lot.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_lot.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_lot.xml)
 
 ### Hide Packaging
 
@@ -6586,7 +6946,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.hide_packaging
       
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hide_packaging.xml)
 
 ### Hs Code And Origin
 
@@ -6606,7 +6968,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.hs_code_and_or
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.hs_code_and_origin.xml)
 
 ### Pos In Table
 
@@ -6623,7 +6987,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.pos_in_table.xml)
 
 ### Show Customer Info Product Code
 
@@ -6640,7 +7006,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.show_customer_info_product_code.xml)
 
 ### Style Tissa
 
@@ -6662,7 +7030,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.style_tissa.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_tissa.xml)
 
 ### Style Xinomer
 
@@ -6675,7 +7045,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.style_xinomer`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.style_xinomer.xml)
 
 ### Valued Document
 
@@ -6701,7 +7073,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.valued_documen
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.valued_document.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.valued_document.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.valued_document.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.valued_document.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.valued_document.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.valued_document.xml)
 
 ### X Hide On Delivery
 
@@ -6739,7 +7113,9 @@ ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_deli
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.x_hide_on_delivery.xml)
 
 ## Stock Report Delivery Kit Sections
 
@@ -6755,7 +7131,9 @@ ID: `mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_kit_sections.sequence_in_table.xml)
 
 ## Stock Report Delivery Package Section Line
 
@@ -6780,7 +7158,9 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_in
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_package_section_line.add_package_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_package_section_line.add_package_info.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
 
 ### Add Package Info2
 
@@ -6797,7 +7177,9 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_in
     </xpath>
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_package_section_line.add_package_info2.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml)
 
 ### Add Type
 
@@ -6820,7 +7202,9 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.add_type`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_package_section_line.add_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_package_section_line.add_type.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_type.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_type.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_type.xml)
 
 ### Set Color
 
@@ -6834,7 +7218,9 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.set_color`
 </data>
 
 ```
-Source: [snippets/stock.stock_report_delivery_package_section_line.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_package_section_line.set_color.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.set_color.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.set_color.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.set_color.xml)
 
 ### Style Lapp
 
@@ -6850,7 +7236,9 @@ ID: `mint_system.stock.stock_report_delivery_package_section_line.style_lapp`
 
 </data>
 ```
-Source: [snippets/stock.stock_report_delivery_package_section_line.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.stock_report_delivery_package_section_line.style_lapp.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.style_lapp.xml)
+
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.style_lapp.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.style_lapp.xml)
 
 ## View Location Form
 
@@ -6866,7 +7254,9 @@ ID: `mint_system.stock.view_location_form.show_barcode`
 </data>
 
 ```
-Source: [snippets/stock.view_location_form.show_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_location_form.show_barcode.xml)
+Edit: [snippets/mint_system.stock.view_location_form.show_barcode.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_location_form.show_barcode.xml)
+
+Source: [snippets/mint_system.stock.view_location_form.show_barcode.xml](https://odoo.build/snippets/mint_system.stock.view_location_form.show_barcode.xml)
 
 ### Show Id
 
@@ -6880,7 +7270,9 @@ ID: `mint_system.stock.view_location_form.show_id`
 </data>
 
 ```
-Source: [snippets/stock.view_location_form.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_location_form.show_id.xml)
+Edit: [snippets/mint_system.stock.view_location_form.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_location_form.show_id.xml)
+
+Source: [snippets/mint_system.stock.view_location_form.show_id.xml](https://odoo.build/snippets/mint_system.stock.view_location_form.show_id.xml)
 
 ## View Move Form
 
@@ -6897,7 +7289,9 @@ ID: `mint_system.stock.view_move_form.enable_edit_and_create`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.enable_edit_and_create.xml)
+Edit: [snippets/mint_system.stock.view_move_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.enable_edit_and_create.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.enable_edit_and_create.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.enable_edit_and_create.xml)
 
 ### Show Immediate Transfer
 
@@ -6911,7 +7305,9 @@ ID: `mint_system.stock.view_move_form.show_immediate_transfer`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_immediate_transfer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_immediate_transfer.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_immediate_transfer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_immediate_transfer.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_immediate_transfer.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_immediate_transfer.xml)
 
 ### Show Locations
 
@@ -6926,7 +7322,9 @@ ID: `mint_system.stock.view_move_form.show_locations`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_locations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_locations.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_locations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_locations.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_locations.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_locations.xml)
 
 ### Show Lot Ids
 
@@ -6940,7 +7338,9 @@ ID: `mint_system.stock.view_move_form.show_lot_ids`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_lot_ids.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_lot_ids.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_lot_ids.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_lot_ids.xml)
 
 ### Show Move Finished Ids
 
@@ -6954,7 +7354,9 @@ ID: `mint_system.stock.view_move_form.show_move_finished_ids`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_move_finished_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_move_finished_ids.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_move_finished_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_move_finished_ids.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_move_finished_ids.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_move_finished_ids.xml)
 
 ### Show Move Lines
 
@@ -6978,7 +7380,9 @@ ID: `mint_system.stock.view_move_form.show_move_lines`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_move_lines.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_move_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_move_lines.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_move_lines.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_move_lines.xml)
 
 ### Show Order Finished Lot Ids
 
@@ -6992,7 +7396,9 @@ ID: `mint_system.stock.view_move_form.show_order_finished_lot_ids`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_order_finished_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_order_finished_lot_ids.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_order_finished_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_order_finished_lot_ids.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_order_finished_lot_ids.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_order_finished_lot_ids.xml)
 
 ### Show Packaging
 
@@ -7006,7 +7412,9 @@ ID: `mint_system.stock.view_move_form.show_packaging`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_packaging.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_packaging.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_packaging.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_packaging.xml)
 
 ### Show Partner
 
@@ -7020,7 +7428,9 @@ ID: `mint_system.stock.view_move_form.show_partner`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_partner.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_partner.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_partner.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_partner.xml)
 
 ### Show Picking Code
 
@@ -7034,7 +7444,9 @@ ID: `mint_system.stock.view_move_form.show_picking_code`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_picking_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_picking_code.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_picking_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_picking_code.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_picking_code.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_picking_code.xml)
 
 ### Show Picking Id
 
@@ -7048,7 +7460,9 @@ ID: `mint_system.stock.view_move_form.show_picking_id`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_picking_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_picking_id.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_picking_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_picking_id.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_picking_id.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_picking_id.xml)
 
 ### Show Production
 
@@ -7062,7 +7476,9 @@ ID: `mint_system.stock.view_move_form.show_production`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_production.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_production.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_production.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_production.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_production.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_production.xml)
 
 ### Show Quantity Done
 
@@ -7076,7 +7492,9 @@ ID: `mint_system.stock.view_move_form.show_quantity_done`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_quantity_done.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_quantity_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_quantity_done.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_quantity_done.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_quantity_done.xml)
 
 ### Show Reservation Date
 
@@ -7090,7 +7508,9 @@ ID: `mint_system.stock.view_move_form.show_reservation_date`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_reservation_date.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_reservation_date.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_reservation_date.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_reservation_date.xml)
 
 ### Show Stock Valuation Layer Ids
 
@@ -7104,7 +7524,9 @@ ID: `mint_system.stock.view_move_form.show_stock_valuation_layer_ids`
 </data>
 
 ```
-Source: [snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_form.show_stock_valuation_layer_ids.xml)
+Edit: [snippets/mint_system.stock.view_move_form.show_stock_valuation_layer_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_form.show_stock_valuation_layer_ids.xml)
+
+Source: [snippets/mint_system.stock.view_move_form.show_stock_valuation_layer_ids.xml](https://odoo.build/snippets/mint_system.stock.view_move_form.show_stock_valuation_layer_ids.xml)
 
 ## View Move Line Form
 
@@ -7121,7 +7543,9 @@ ID: `mint_system.stock.view_move_line_form.enable_edit_and_create`
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_line_form.enable_edit_and_create.xml)
+Edit: [snippets/mint_system.stock.view_move_line_form.enable_edit_and_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_line_form.enable_edit_and_create.xml)
+
+Source: [snippets/mint_system.stock.view_move_line_form.enable_edit_and_create.xml](https://odoo.build/snippets/mint_system.stock.view_move_line_form.enable_edit_and_create.xml)
 
 ### Show Move Id
 
@@ -7135,7 +7559,9 @@ ID: `mint_system.stock.view_move_line_form.show_move_id`
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_line_form.show_move_id.xml)
+Edit: [snippets/mint_system.stock.view_move_line_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_line_form.show_move_id.xml)
+
+Source: [snippets/mint_system.stock.view_move_line_form.show_move_id.xml](https://odoo.build/snippets/mint_system.stock.view_move_line_form.show_move_id.xml)
 
 ### Show Product Qty
 
@@ -7149,7 +7575,9 @@ ID: `mint_system.stock.view_move_line_form.show_product_qty`
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_form.show_product_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_line_form.show_product_qty.xml)
+Edit: [snippets/mint_system.stock.view_move_line_form.show_product_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_line_form.show_product_qty.xml)
+
+Source: [snippets/mint_system.stock.view_move_line_form.show_product_qty.xml](https://odoo.build/snippets/mint_system.stock.view_move_line_form.show_product_qty.xml)
 
 ## View Move Line Tree
 
@@ -7165,7 +7593,9 @@ ID: `mint_system.stock.view_move_line_tree.enable_create`
 </data>
 
 ```
-Source: [snippets/stock.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_line_tree.enable_create.xml)
+Edit: [snippets/mint_system.stock.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_line_tree.enable_create.xml)
+
+Source: [snippets/mint_system.stock.view_move_line_tree.enable_create.xml](https://odoo.build/snippets/mint_system.stock.view_move_line_tree.enable_create.xml)
 
 ## View Move Search
 
@@ -7180,7 +7610,9 @@ ID: `mint_system.stock.view_move_search.filter_wip`
     </filter>
 </data>
 ```
-Source: [snippets/stock.view_move_search.filter_wip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_search.filter_wip.xml)
+Edit: [snippets/mint_system.stock.view_move_search.filter_wip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_search.filter_wip.xml)
+
+Source: [snippets/mint_system.stock.view_move_search.filter_wip.xml](https://odoo.build/snippets/mint_system.stock.view_move_search.filter_wip.xml)
 
 ## View Move Tree
 
@@ -7196,7 +7628,9 @@ ID: `mint_system.stock.view_move_tree.add_partner`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.add_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.add_partner.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.add_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.add_partner.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.add_partner.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.add_partner.xml)
 
 ### Add Picking Partner
 
@@ -7210,7 +7644,9 @@ ID: `mint_system.stock.view_move_tree.add_picking_partner`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.add_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.add_picking_partner.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.add_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.add_picking_partner.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.add_picking_partner.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.add_picking_partner.xml)
 
 ### Enable Create
 
@@ -7224,7 +7660,9 @@ ID: `mint_system.stock.view_move_tree.enable_create`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.enable_create.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.enable_create.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.enable_create.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.enable_create.xml)
 
 ### Show Create Details
 
@@ -7238,7 +7676,9 @@ ID: `mint_system.stock.view_move_tree.show_create_details`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.show_create_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.show_create_details.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.show_create_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.show_create_details.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.show_create_details.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.show_create_details.xml)
 
 ### Show Date
 
@@ -7252,7 +7692,9 @@ ID: `mint_system.stock.view_move_tree.show_date`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.show_date.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.show_date.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.show_date.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.show_date.xml)
 
 ### Show Optional
 
@@ -7266,7 +7708,9 @@ ID: `mint_system.stock.view_move_tree.show_optional`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.show_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.show_optional.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.show_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.show_optional.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.show_optional.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.show_optional.xml)
 
 ### Show Reservation Date
 
@@ -7280,7 +7724,9 @@ ID: `mint_system.stock.view_move_tree.show_reservation_date`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.show_reservation_date.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.show_reservation_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.show_reservation_date.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.show_reservation_date.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.show_reservation_date.xml)
 
 ### Sort Date
 
@@ -7294,7 +7740,9 @@ ID: `mint_system.stock.view_move_tree.sort_date`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.sort_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.sort_date.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.sort_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.sort_date.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.sort_date.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.sort_date.xml)
 
 ### X Operation Qty
 
@@ -7308,7 +7756,9 @@ ID: `mint_system.stock.view_move_tree.x_operation_qty`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.x_operation_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.x_operation_qty.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.x_operation_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.x_operation_qty.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.x_operation_qty.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.x_operation_qty.xml)
 
 ### X Picking Partner
 
@@ -7322,7 +7772,9 @@ ID: `mint_system.stock.view_move_tree.x_picking_partner`
 </data>
 
 ```
-Source: [snippets/stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_move_tree.x_picking_partner.xml)
+Edit: [snippets/mint_system.stock.view_move_tree.x_picking_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_move_tree.x_picking_partner.xml)
+
+Source: [snippets/mint_system.stock.view_move_tree.x_picking_partner.xml](https://odoo.build/snippets/mint_system.stock.view_move_tree.x_picking_partner.xml)
 
 ## View Picking Form
 
@@ -7338,7 +7790,9 @@ ID: `mint_system.stock.view_picking_form.hide_fields`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.hide_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.hide_fields.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.hide_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.hide_fields.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.hide_fields.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.hide_fields.xml)
 
 ### Modify Invisible Button Validate
 
@@ -7352,7 +7806,9 @@ ID: `mint_system.stock.view_picking_form.modify_invisible_button_validate`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.modify_invisible_button_validate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.modify_invisible_button_validate.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.modify_invisible_button_validate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.modify_invisible_button_validate.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.modify_invisible_button_validate.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.modify_invisible_button_validate.xml)
 
 ### Modify Readonly Date Done
 
@@ -7366,7 +7822,9 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_date_done`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.modify_readonly_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.modify_readonly_date_done.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.modify_readonly_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.modify_readonly_date_done.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.modify_readonly_date_done.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.modify_readonly_date_done.xml)
 
 ### Modify Readonly Partner Id
 
@@ -7380,7 +7838,9 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_partner_id`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.modify_readonly_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.modify_readonly_partner_id.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.modify_readonly_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.modify_readonly_partner_id.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.modify_readonly_partner_id.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.modify_readonly_partner_id.xml)
 
 ### Modify Readonly User Id
 
@@ -7394,7 +7854,9 @@ ID: `mint_system.stock.view_picking_form.modify_readonly_user_id`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.modify_readonly_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.modify_readonly_user_id.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.modify_readonly_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.modify_readonly_user_id.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.modify_readonly_user_id.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.modify_readonly_user_id.xml)
 
 ### Move Detailed Operations Page
 
@@ -7408,7 +7870,9 @@ ID: `mint_system.stock.view_picking_form.move_detailed_operations_page`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.move_detailed_operations_page.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.move_detailed_operations_page.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.move_detailed_operations_page.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.move_detailed_operations_page.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.move_detailed_operations_page.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.move_detailed_operations_page.xml)
 
 ### Scheduled Date Readonly
 
@@ -7422,7 +7886,9 @@ ID: `mint_system.stock.view_picking_form.scheduled_date_readonly`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.scheduled_date_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.scheduled_date_readonly.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.scheduled_date_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.scheduled_date_readonly.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.scheduled_date_readonly.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.scheduled_date_readonly.xml)
 
 ### Sequence Handle
 
@@ -7436,7 +7902,9 @@ ID: `mint_system.stock.view_picking_form.sequence_handle`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.sequence_handle.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.sequence_handle.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.sequence_handle.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.sequence_handle.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.sequence_handle.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.sequence_handle.xml)
 
 ### Show Date
 
@@ -7450,7 +7918,9 @@ ID: `mint_system.stock.view_picking_form.show_date`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.show_date.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.show_date.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.show_date.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.show_date.xml)
 
 ### Show Details Visible
 
@@ -7464,7 +7934,9 @@ ID: `mint_system.stock.view_picking_form.show_details_visible`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.show_details_visible.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.show_details_visible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.show_details_visible.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.show_details_visible.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.show_details_visible.xml)
 
 ### Show Move Line Ids
 
@@ -7478,7 +7950,9 @@ ID: `mint_system.stock.view_picking_form.show_move_line_ids`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.show_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.show_move_line_ids.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.show_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.show_move_line_ids.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.show_move_line_ids.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.show_move_line_ids.xml)
 
 ### Show Weight
 
@@ -7492,7 +7966,9 @@ ID: `mint_system.stock.view_picking_form.show_weight`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.show_weight.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.show_weight.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.show_weight.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.show_weight.xml)
 
 ### X As4 Import
 
@@ -7506,7 +7982,9 @@ ID: `mint_system.stock.view_picking_form.x_as4_import`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_as4_import.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_as4_import.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_as4_import.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_as4_import.xml)
 
 ### X Autocomplete
 
@@ -7520,7 +7998,9 @@ ID: `mint_system.stock.view_picking_form.x_autocomplete`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_autocomplete.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_autocomplete.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_autocomplete.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_autocomplete.xml)
 
 ### X Client Order Ref
 
@@ -7534,7 +8014,9 @@ ID: `mint_system.stock.view_picking_form.x_client_order_ref`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_client_order_ref.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_client_order_ref.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_client_order_ref.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_client_order_ref.xml)
 
 ### X Count Boxes
 
@@ -7548,7 +8030,9 @@ ID: `mint_system.stock.view_picking_form.x_count_boxes`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_count_boxes.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_count_boxes.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_count_boxes.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_count_boxes.xml)
 
 ### X Date Done
 
@@ -7561,7 +8045,9 @@ ID: `mint_system.stock.view_picking_form.x_date_done`
     </field>
 </data>
 ```
-Source: [snippets/stock.view_picking_form.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_date_done.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_date_done.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_date_done.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_date_done.xml)
 
 ### X Date Order
 
@@ -7575,7 +8061,9 @@ ID: `mint_system.stock.view_picking_form.x_date_order`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_date_order.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_date_order.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_date_order.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_date_order.xml)
 
 ### X Incoterm
 
@@ -7589,7 +8077,9 @@ ID: `mint_system.stock.view_picking_form.x_incoterm`
     </xpath>
 </data>
 ```
-Source: [snippets/stock.view_picking_form.x_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_incoterm.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_incoterm.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_incoterm.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_incoterm.xml)
 
 ### X Label Qty
 
@@ -7603,7 +8093,9 @@ ID: `mint_system.stock.view_picking_form.x_label_qty`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_label_qty.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_label_qty.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_label_qty.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_label_qty.xml)
 
 ### X Name
 
@@ -7617,7 +8109,9 @@ ID: `mint_system.stock.view_picking_form.x_name`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_name.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_name.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_name.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_name.xml)
 
 ### X Vst
 
@@ -7631,7 +8125,9 @@ ID: `mint_system.stock.view_picking_form.x_vst`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_form.x_vst.xml)
+Edit: [snippets/mint_system.stock.view_picking_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_vst.xml)
+
+Source: [snippets/mint_system.stock.view_picking_form.x_vst.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_vst.xml)
 
 ## View Picking Internal Search
 
@@ -7647,7 +8143,9 @@ ID: `mint_system.stock.view_picking_internal_search.filter_groupby_expected_date
 </data>
 
 ```
-Source: [snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_internal_search.filter_groupby_expected_date.xml)
+Edit: [snippets/mint_system.stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_internal_search.filter_groupby_expected_date.xml)
+
+Source: [snippets/mint_system.stock.view_picking_internal_search.filter_groupby_expected_date.xml](https://odoo.build/snippets/mint_system.stock.view_picking_internal_search.filter_groupby_expected_date.xml)
 
 ### Filter X Client Order Ref
 
@@ -7661,7 +8159,9 @@ ID: `mint_system.stock.view_picking_internal_search.filter_x_client_order_ref`
 </data>
 
 ```
-Source: [snippets/stock.view_picking_internal_search.filter_x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_picking_internal_search.filter_x_client_order_ref.xml)
+Edit: [snippets/mint_system.stock.view_picking_internal_search.filter_x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_internal_search.filter_x_client_order_ref.xml)
+
+Source: [snippets/mint_system.stock.view_picking_internal_search.filter_x_client_order_ref.xml](https://odoo.build/snippets/mint_system.stock.view_picking_internal_search.filter_x_client_order_ref.xml)
 
 ## View Production Lot Form
 
@@ -7677,7 +8177,9 @@ ID: `mint_system.stock.view_production_lot_form.x_autoremove`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_autoremove.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_autoremove.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_autoremove.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_autoremove.xml)
 
 ### X Device Name
 
@@ -7692,7 +8194,9 @@ ID: `mint_system.stock.view_production_lot_form.x_device_name`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_device_name.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_device_name.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_device_name.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_device_name.xml)
 
 ### X Forcepoint
 
@@ -7707,7 +8211,9 @@ ID: `mint_system.stock.view_production_lot_form.x_forcepoint`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_forcepoint.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_forcepoint.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_forcepoint.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_forcepoint.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_forcepoint.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_forcepoint.xml)
 
 ### X Hostname
 
@@ -7722,7 +8228,9 @@ ID: `mint_system.stock.view_production_lot_form.x_hostname`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_hostname.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_hostname.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_hostname.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_hostname.xml)
 
 ### X Ip Address
 
@@ -7737,7 +8245,9 @@ ID: `mint_system.stock.view_production_lot_form.x_ip_address`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_ip_address.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_ip_address.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_ip_address.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_ip_address.xml)
 
 ### X Location
 
@@ -7752,7 +8262,9 @@ ID: `mint_system.stock.view_production_lot_form.x_location`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_location.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_location.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_location.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_location.xml)
 
 ### X Managed Service
 
@@ -7767,7 +8279,9 @@ ID: `mint_system.stock.view_production_lot_form.x_managed_service`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_managed_service.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_managed_service.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_managed_service.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_managed_service.xml)
 
 ### X Product Weight
 
@@ -7781,7 +8295,9 @@ ID: `mint_system.stock.view_production_lot_form.x_product_weight`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_product_weight.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_product_weight.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_product_weight.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_product_weight.xml)
 
 ### X Production Id
 
@@ -7795,7 +8311,9 @@ ID: `mint_system.stock.view_production_lot_form.x_production_id`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_production_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_production_id.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_production_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_production_id.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_production_id.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_production_id.xml)
 
 ### X Units On Lot
 
@@ -7811,7 +8329,9 @@ ID: `mint_system.stock.view_production_lot_form.x_units_on_lot`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_units_on_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_units_on_lot.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_units_on_lot.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_units_on_lot.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_units_on_lot.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_units_on_lot.xml)
 
 ### X Weight Uom
 
@@ -7825,7 +8345,9 @@ ID: `mint_system.stock.view_production_lot_form.x_weight_uom`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_weight_uom.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_weight_uom.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_weight_uom.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_weight_uom.xml)
 
 ### X Weight Uom Name
 
@@ -7839,7 +8361,9 @@ ID: `mint_system.stock.view_production_lot_form.x_weight_uom_name`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_form.x_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_form.x_weight_uom_name.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_form.x_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_form.x_weight_uom_name.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_form.x_weight_uom_name.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_form.x_weight_uom_name.xml)
 
 ## View Production Lot Tree
 
@@ -7855,7 +8379,9 @@ ID: `mint_system.stock.view_production_lot_tree.show_qty`
 </data>
 
 ```
-Source: [snippets/stock.view_production_lot_tree.show_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_production_lot_tree.show_qty.xml)
+Edit: [snippets/mint_system.stock.view_production_lot_tree.show_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_production_lot_tree.show_qty.xml)
+
+Source: [snippets/mint_system.stock.view_production_lot_tree.show_qty.xml](https://odoo.build/snippets/mint_system.stock.view_production_lot_tree.show_qty.xml)
 
 ## View Quant Package Form
 
@@ -7871,7 +8397,9 @@ ID: `mint_system.stock.view_quant_package_form.x_note`
 </data>
 
 ```
-Source: [snippets/stock.view_quant_package_form.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_quant_package_form.x_note.xml)
+Edit: [snippets/mint_system.stock.view_quant_package_form.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_quant_package_form.x_note.xml)
+
+Source: [snippets/mint_system.stock.view_quant_package_form.x_note.xml](https://odoo.build/snippets/mint_system.stock.view_quant_package_form.x_note.xml)
 
 ## View Stock Move Line Detailed Operation Tree
 
@@ -7887,7 +8415,9 @@ ID: `mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml)
+Edit: [snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml)
+
+Source: [snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml](https://odoo.build/snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.add_lot_id.xml)
 
 ### Lot Id Domain Positive Qty
 
@@ -7901,7 +8431,9 @@ ID: `mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domai
 </data>
 
 ```
-Source: [snippets/stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml)
+Edit: [snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml)
+
+Source: [snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml](https://odoo.build/snippets/mint_system.stock.view_stock_move_line_detailed_operation_tree.lot_id_domain_positive_qty.xml)
 
 ## View Stock Move Line Operation Tree
 
@@ -7917,7 +8449,9 @@ ID: `mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
+Edit: [snippets/mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
+
+Source: [snippets/mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml](https://odoo.build/snippets/mint_system.stock.view_stock_move_line_operation_tree.edit_reserved_qty.xml)
 
 ### Lot Id Domain Positive Qty
 
@@ -7931,7 +8465,9 @@ ID: `mint_system.stock.view_stock_move_line_operation_tree.lot_id_domain_positiv
 </data>
 
 ```
-Source: [snippets/stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml)
+Edit: [snippets/mint_system.stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml)
+
+Source: [snippets/mint_system.stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml](https://odoo.build/snippets/mint_system.stock.view_stock_move_line_operation_tree.lot_id_domain_positive_qty.xml)
 
 ## View Stock Quant Form Editable
 
@@ -7947,7 +8483,9 @@ ID: `mint_system.stock.view_stock_quant_form_editable.edit_enable`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_form_editable.edit_enable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_form_editable.edit_enable.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_form_editable.edit_enable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_form_editable.edit_enable.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_form_editable.edit_enable.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_form_editable.edit_enable.xml)
 
 ## View Stock Quant Package Form
 
@@ -7964,7 +8502,9 @@ ID: `mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_k
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_package_form.add_estimated_pack_weight_kg.xml)
 
 ## View Stock Quant Tree
 
@@ -7980,7 +8520,9 @@ ID: `mint_system.stock.view_stock_quant_tree.enable_delete`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_tree.enable_delete.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_tree.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_tree.enable_delete.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_tree.enable_delete.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_tree.enable_delete.xml)
 
 ### Show Reserved Quantity
 
@@ -7994,7 +8536,9 @@ ID: `mint_system.stock.view_stock_quant_tree.show_reserved_quantity`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_tree.show_reserved_quantity.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_tree.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_tree.show_reserved_quantity.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_tree.show_reserved_quantity.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_tree.show_reserved_quantity.xml)
 
 ## View Stock Quant Tree Editable
 
@@ -8010,7 +8554,9 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.enable_delete`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_tree_editable.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_tree_editable.enable_delete.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_tree_editable.enable_delete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_tree_editable.enable_delete.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_tree_editable.enable_delete.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_tree_editable.enable_delete.xml)
 
 ### Show Reserved Quantity
 
@@ -8024,7 +8570,9 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_tree_editable.show_reserved_quantity.xml)
 
 ### X Expiration Date
 
@@ -8038,7 +8586,9 @@ ID: `mint_system.stock.view_stock_quant_tree_editable.x_expiration_date`
 </data>
 
 ```
-Source: [snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_stock_quant_tree_editable.x_expiration_date.xml)
+Edit: [snippets/mint_system.stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_stock_quant_tree_editable.x_expiration_date.xml)
+
+Source: [snippets/mint_system.stock.view_stock_quant_tree_editable.x_expiration_date.xml](https://odoo.build/snippets/mint_system.stock.view_stock_quant_tree_editable.x_expiration_date.xml)
 
 ## View Warehouse Orderpoint Tree Editable
 
@@ -8054,7 +8604,9 @@ ID: `mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_da
 </data>
 
 ```
-Source: [snippets/stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml)
+Edit: [snippets/mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml)
+
+Source: [snippets/mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml](https://odoo.build/snippets/mint_system.stock.view_warehouse_orderpoint_tree_editable.show_lead_days_date.xml)
 
 ## Vpicktree
 
@@ -8071,7 +8623,9 @@ ID: `mint_system.stock.vpicktree.add_weight_uom_name`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.add_weight_uom_name.xml)
+Edit: [snippets/mint_system.stock.vpicktree.add_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.add_weight_uom_name.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.add_weight_uom_name.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.add_weight_uom_name.xml)
 
 ### Default Order Name
 
@@ -8085,7 +8639,9 @@ ID: `mint_system.stock.vpicktree.default_order_name`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.default_order_name.xml)
+Edit: [snippets/mint_system.stock.vpicktree.default_order_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.default_order_name.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.default_order_name.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.default_order_name.xml)
 
 ### Format Date Deadline
 
@@ -8099,7 +8655,9 @@ ID: `mint_system.stock.vpicktree.format_date_deadline`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.format_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.format_date_deadline.xml)
+Edit: [snippets/mint_system.stock.vpicktree.format_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.format_date_deadline.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.format_date_deadline.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.format_date_deadline.xml)
 
 ### Format Scheduled Date
 
@@ -8113,7 +8671,9 @@ ID: `mint_system.stock.vpicktree.format_scheduled_date`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.format_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.format_scheduled_date.xml)
+Edit: [snippets/mint_system.stock.vpicktree.format_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.format_scheduled_date.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.format_scheduled_date.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.format_scheduled_date.xml)
 
 ### Modify Invisible Scheduled Date
 
@@ -8127,7 +8687,9 @@ ID: `mint_system.stock.vpicktree.modify_invisible_scheduled_date`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.modify_invisible_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.modify_invisible_scheduled_date.xml)
+Edit: [snippets/mint_system.stock.vpicktree.modify_invisible_scheduled_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.modify_invisible_scheduled_date.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.modify_invisible_scheduled_date.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.modify_invisible_scheduled_date.xml)
 
 ### Show Delivery Note
 
@@ -8141,7 +8703,9 @@ ID: `mint_system.stock.vpicktree.show_delivery_note`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.show_delivery_note.xml)
+Edit: [snippets/mint_system.stock.vpicktree.show_delivery_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.show_delivery_note.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.show_delivery_note.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.show_delivery_note.xml)
 
 ### Started
 
@@ -8155,7 +8719,9 @@ ID: `mint_system.stock.vpicktree.started`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.started.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.started.xml)
+Edit: [snippets/mint_system.stock.vpicktree.started.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.started.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.started.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.started.xml)
 
 ### Weight Sum
 
@@ -8169,7 +8735,9 @@ ID: `mint_system.stock.vpicktree.weight_sum`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.weight_sum.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.weight_sum.xml)
+Edit: [snippets/mint_system.stock.vpicktree.weight_sum.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.weight_sum.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.weight_sum.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.weight_sum.xml)
 
 ### X Client Order Ref
 
@@ -8183,7 +8751,9 @@ ID: `mint_system.stock.vpicktree.x_client_order_ref`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.x_client_order_ref.xml)
+Edit: [snippets/mint_system.stock.vpicktree.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.x_client_order_ref.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.x_client_order_ref.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.x_client_order_ref.xml)
 
 ### X Date Done
 
@@ -8197,7 +8767,9 @@ ID: `mint_system.stock.vpicktree.x_date_done`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.x_date_done.xml)
+Edit: [snippets/mint_system.stock.vpicktree.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.x_date_done.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.x_date_done.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.x_date_done.xml)
 
 ### X Date Order
 
@@ -8211,7 +8783,9 @@ ID: `mint_system.stock.vpicktree.x_date_order`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.x_date_order.xml)
+Edit: [snippets/mint_system.stock.vpicktree.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.x_date_order.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.x_date_order.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.x_date_order.xml)
 
 ### X Origin
 
@@ -8225,7 +8799,9 @@ ID: `mint_system.stock.vpicktree.x_origin`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.x_origin.xml)
+Edit: [snippets/mint_system.stock.vpicktree.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.x_origin.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.x_origin.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.x_origin.xml)
 
 ### X Vst
 
@@ -8239,5 +8815,7 @@ ID: `mint_system.stock.vpicktree.x_vst`
 </data>
 
 ```
-Source: [snippets/stock.vpicktree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/stock.vpicktree.x_vst.xml)
+Edit: [snippets/mint_system.stock.vpicktree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.vpicktree.x_vst.xml)
+
+Source: [snippets/mint_system.stock.vpicktree.x_vst.xml](https://odoo.build/snippets/mint_system.stock.vpicktree.x_vst.xml)
 

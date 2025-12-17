@@ -20,7 +20,9 @@ ID: `mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline`
 </odoo>
 
 ```
-Source: [snippets/ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml)
+Edit: [snippets/mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml)
+
+Source: [snippets/mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml](https://odoo.build/snippets/mint_system.ir_ui_view.calendar.view_calendar_event_calendar_timeline.xml)
 
 ## Hr Holidays Calendar
 
@@ -70,5 +72,7 @@ ID: `mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeli
 </odoo>
 
 ```
-Source: [snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
+Edit: [snippets/mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
+
+Source: [snippets/mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml](https://odoo.build/snippets/mint_system.ir_ui_view.hr_holidays_calendar.hr_leave_report_calendar_timeline.xml)
 

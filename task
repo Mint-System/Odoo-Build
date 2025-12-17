@@ -240,6 +240,7 @@ LIST_DB=${LIST_DB:=False}
 CONTAINER_TAG="odoo:$ODOO_REVISION"
 ODOO_INIT_LOGIN=${ODOO_INIT_LOGIN:=admin}
 ODOO_INIT_PASSWORD=${ODOO_INIT_PASSWORD:=admin}
+SNIPPET_PREFIX=${SNIPPET_PREFIX:=mint_system}
 
 # Conditional env vars
 
@@ -1480,10 +1481,10 @@ EOF
         test-xmlrpc test
 
         echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet."
-        install-snippet test snippets/base.view_partner_form.show_type.xml
-        update-snippet test snippets/base.view_partner_form.show_type.xml
-        disable-snippet test snippets/base.view_partner_form.show_type.xml
-        remove-snippet test snippets/base.view_partner_form.show_type.xml
+        install-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
+        update-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
+        disable-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
+        remove-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
 
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
@@ -1659,9 +1660,9 @@ clear-views() {
         database="$ODOO_DATABASE"
     fi
 
-    echo 'Archive views with prefix '\''mint_system'\''.'
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "SELECT id,name from ir_ui_view WHERE name like '%mint_system%';"
-    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%mint_system%';"
+    echo "Archive views with prefix '$SNIPPET_PREFIX."
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "SELECT id,name from ir_ui_view WHERE name like '%$SNIPPET_PREFIX%';"
+    $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "UPDATE ir_ui_view SET active=false WHERE name like '%$SNIPPET_PREFIX%';"
 
     echo 'Archive views with prefix '\''Odoo Studio:'\''.'
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost/$database" -c  "SELECT id,name from ir_ui_view WHERE name like '%Odoo Studio:%';"
@@ -2447,7 +2448,7 @@ create-snippet() {
     fi
 
     export INHERIT_ID=$(echo "$1" | cut -d. -f1-2)
-    local file="snippets/$1.xml"
+    local file="snippets/$SNIPPET_PREFIX.$1.xml"
 
     echo "Create snippet from template: $file"
     envsubst '$INHERIT_ID' < templates/snippet.xml > "$file"
@@ -2465,7 +2466,7 @@ install-snippet() {
 
     # Generate view name from filename
     local file=$(basename "$2")
-    local name="mint_system.${file%.xml}"
+    local name="${file%.xml}"
     local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
     local type=$(echo 'cat //data/@type' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
     local model=$(echo 'cat //data/@model' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
@@ -2505,7 +2506,7 @@ update-snippet() {
 
     # Generate view name from filename
     local file=$(basename "$2")
-    local name="mint_system.${file%.xml}"
+    local name="${file%.xml}"
 
     load-env "$1"
     echo "Update view with name $name"
@@ -2524,12 +2525,12 @@ disable-snippet() {
     fi
 
     # Get name from path
-    # path: snippets/base.view_partner_tree.show_type.xml
+    # path: snippets/mint_system.base.view_partner_tree.show_type.xml
     # name: mint_system.base.view_partner_tree.show_type
     local name="$2"
     if [[ "$2" == *.xml ]]; then
         local file=$(basename "$2")
-        name="mint_system.${file%.xml}"
+        name="${file%.xml}"
     fi
 
     load-env "$1"
@@ -2551,7 +2552,7 @@ enable-snippet() {
     local name="$2"
     if [[ "$2" == *.xml ]]; then
         local file=$(basename "$2")
-        name="mint_system.${file%.xml}"
+        name="${file%.xml}"
     fi
 
     load-env "$1"
@@ -2573,7 +2574,7 @@ remove-snippet() {
     local name="$2"
     if [[ "$2" == *.xml ]]; then
         local file=$(basename "$2")
-        name="mint_system.${file%.xml}"
+        name="${file%.xml}"
     fi
 
     load-env "$1"
@@ -2590,9 +2591,9 @@ lint-snippets() {
 
         # Access various snippet parameters
         local filename=$(basename "$file")
-        local snippet_module=$(echo "$filename" | cut -d. -f1)
-        local report=$(echo "$filename" | cut -d. -f2)
-        local edit=$(echo "$filename" | cut -d. -f3)
+        local snippet_module=$(echo "$filename" | cut -d. -f2)
+        local report=$(echo "$filename" | cut -d. -f3)
+        local edit=$(echo "$filename" | cut -d. -f4)
         local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
         local type=$(echo 'cat //data/@type' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
         local model=$(echo 'cat //data/@model' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
@@ -2602,7 +2603,7 @@ lint-snippets() {
 
         # Check filename
         local count_dots=$(echo "$filename" | grep -o "\." | wc -l)
-        if [[ "$count_dots" -ge 4 ]]; then
+        if [[ "$count_dots" -ge 5 ]]; then
             echo "Linting failed for $file"
             echo "Dots count: $count_dots"
             echo "  Filename: $snippet_module.$report"
@@ -3087,6 +3088,12 @@ dev-vuepress() {
 
 build-vuepress() {
     pnpm run build
+
+    echo "Create vuepress snippets folders."
+    mkdir -p .vuepress/dist/snippets
+
+    echo "Copy snippet files to snippets folder."
+    cp snippets/*.xml .vuepress/dist/snippets
 }
 
 serve-vuepress() {

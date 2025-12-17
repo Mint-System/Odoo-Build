@@ -16,7 +16,9 @@ ID: `mint_system.web.address_layout.colclass_value`
 </data>
 
 ```
-Source: [snippets/web.address_layout.colclass_value.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.address_layout.colclass_value.xml)
+Edit: [snippets/mint_system.web.address_layout.colclass_value.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.address_layout.colclass_value.xml)
+
+Source: [snippets/mint_system.web.address_layout.colclass_value.xml](https://odoo.build/snippets/mint_system.web.address_layout.colclass_value.xml)
 
 ### Format Address Block
 
@@ -44,7 +46,9 @@ ID: `mint_system.web.address_layout.format_address_block`
 </data>
 
 ```
-Source: [snippets/web.address_layout.format_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.address_layout.format_address_block.xml)
+Edit: [snippets/mint_system.web.address_layout.format_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.address_layout.format_address_block.xml)
+
+Source: [snippets/mint_system.web.address_layout.format_address_block.xml](https://odoo.build/snippets/mint_system.web.address_layout.format_address_block.xml)
 
 ### Repositioning Address Blocks
 
@@ -70,7 +74,9 @@ ID: `mint_system.web.address_layout.repositioning_address_blocks`
 </data>
 
 ```
-Source: [snippets/web.address_layout.repositioning_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.address_layout.repositioning_address_blocks.xml)
+Edit: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.address_layout.repositioning_address_blocks.xml)
+
+Source: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xml](https://odoo.build/snippets/mint_system.web.address_layout.repositioning_address_blocks.xml)
 
 ## Assets Common
 
@@ -90,7 +96,9 @@ ID: `mint_system.web.assets_common.pivot_measure_white_space`
 </data>
 
 ```
-Source: [snippets/web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.assets_common.pivot_measure_white_space.xml)
+Edit: [snippets/mint_system.web.assets_common.pivot_measure_white_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.assets_common.pivot_measure_white_space.xml)
+
+Source: [snippets/mint_system.web.assets_common.pivot_measure_white_space.xml](https://odoo.build/snippets/mint_system.web.assets_common.pivot_measure_white_space.xml)
 
 ### Set Chatter Width
 
@@ -110,7 +118,9 @@ ID: `mint_system.web.assets_common.set_chatter_width`
 </data>
 
 ```
-Source: [snippets/web.assets_common.set_chatter_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.assets_common.set_chatter_width.xml)
+Edit: [snippets/mint_system.web.assets_common.set_chatter_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.assets_common.set_chatter_width.xml)
+
+Source: [snippets/mint_system.web.assets_common.set_chatter_width.xml](https://odoo.build/snippets/mint_system.web.assets_common.set_chatter_width.xml)
 
 ### Set Form Width
 
@@ -130,7 +140,9 @@ ID: `mint_system.web.assets_common.set_form_width`
 </data>
 
 ```
-Source: [snippets/web.assets_common.set_form_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.assets_common.set_form_width.xml)
+Edit: [snippets/mint_system.web.assets_common.set_form_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.assets_common.set_form_width.xml)
+
+Source: [snippets/mint_system.web.assets_common.set_form_width.xml](https://odoo.build/snippets/mint_system.web.assets_common.set_form_width.xml)
 
 ## Brand Promotion Message
 
@@ -146,7 +158,9 @@ ID: `mint_system.web.brand_promotion_message.remove`
 </data>
 
 ```
-Source: [snippets/web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.brand_promotion_message.remove.xml)
+Edit: [snippets/mint_system.web.brand_promotion_message.remove.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.brand_promotion_message.remove.xml)
+
+Source: [snippets/mint_system.web.brand_promotion_message.remove.xml](https://odoo.build/snippets/mint_system.web.brand_promotion_message.remove.xml)
 
 ## External Layout
 
@@ -183,7 +197,9 @@ ID: `mint_system.web.external_layout.worksheet`
 </data>
 
 ```
-Source: [snippets/web.external_layout.worksheet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout.worksheet.xml)
+Edit: [snippets/mint_system.web.external_layout.worksheet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout.worksheet.xml)
+
+Source: [snippets/mint_system.web.external_layout.worksheet.xml](https://odoo.build/snippets/mint_system.web.external_layout.worksheet.xml)
 
 ## External Layout Bold
 
@@ -222,7 +238,9 @@ ID: `mint_system.web.external_layout_bold.add_bank`
 
 </data>
 ```
-Source: [snippets/web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_bold.add_bank.xml)
+Edit: [snippets/mint_system.web.external_layout_bold.add_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_bold.add_bank.xml)
+
+Source: [snippets/mint_system.web.external_layout_bold.add_bank.xml](https://odoo.build/snippets/mint_system.web.external_layout_bold.add_bank.xml)
 
 ### Remove Background Image
 
@@ -239,7 +257,9 @@ ID: `mint_system.web.external_layout_bold.remove_background_image`
 </data>
 
 ```
-Source: [snippets/web.external_layout_bold.remove_background_image.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_bold.remove_background_image.xml)
+Edit: [snippets/mint_system.web.external_layout_bold.remove_background_image.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_bold.remove_background_image.xml)
+
+Source: [snippets/mint_system.web.external_layout_bold.remove_background_image.xml](https://odoo.build/snippets/mint_system.web.external_layout_bold.remove_background_image.xml)
 
 ### Set Header Footer Font Size
 
@@ -258,7 +278,9 @@ ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`
 </data>
 
 ```
-Source: [snippets/web.external_layout_bold.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_bold.set_header_footer_font_size.xml)
+Edit: [snippets/mint_system.web.external_layout_bold.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_bold.set_header_footer_font_size.xml)
+
+Source: [snippets/mint_system.web.external_layout_bold.set_header_footer_font_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_bold.set_header_footer_font_size.xml)
 
 ## External Layout Boxed
 
@@ -302,7 +324,9 @@ ID: `mint_system.web.external_layout_boxed.footer_airwork`
     </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_boxed.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.footer_airwork.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.footer_airwork.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.footer_airwork.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.footer_airwork.xml)
 
 ### Footer Company Registry
 
@@ -319,7 +343,9 @@ ID: `mint_system.web.external_layout_boxed.footer_company_registry`
 </data>
 
 ```
-Source: [snippets/web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.footer_company_registry.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.footer_company_registry.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.footer_company_registry.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.footer_company_registry.xml)
 
 ### Hide Company Details
 
@@ -331,7 +357,9 @@ ID: `mint_system.web.external_layout_boxed.hide_company_details`
 </data>
 
 ```
-Source: [snippets/web.external_layout_boxed.hide_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.hide_company_details.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.hide_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.hide_company_details.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.hide_company_details.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.hide_company_details.xml)
 
 ### Hide Page Numbering
 
@@ -343,7 +371,9 @@ ID: `mint_system.web.external_layout_boxed.hide_page_numbering`
     <xpath expr="//span[@class='page']/.." position="replace"/>
 </data>
 ```
-Source: [snippets/web.external_layout_boxed.hide_page_numbering.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.hide_page_numbering.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.hide_page_numbering.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.hide_page_numbering.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.hide_page_numbering.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.hide_page_numbering.xml)
 
 ### Increase Logo Size
 
@@ -357,7 +387,9 @@ ID: `mint_system.web.external_layout_boxed.increase_logo_size`
 </data>
 
 ```
-Source: [snippets/web.external_layout_boxed.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.increase_logo_size.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml)
 
 ### Style Carbo Link
 
@@ -371,7 +403,9 @@ ID: `mint_system.web.external_layout_boxed.style_carbo_link`
 </data>
 
 ```
-Source: [snippets/web.external_layout_boxed.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.style_carbo_link.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.style_carbo_link.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.style_carbo_link.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.style_carbo_link.xml)
 
 ### Style Gelso
 
@@ -399,7 +433,9 @@ ID: `mint_system.web.external_layout_boxed.style_gelso`
     </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_boxed.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_boxed.style_gelso.xml)
+Edit: [snippets/mint_system.web.external_layout_boxed.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.style_gelso.xml)
+
+Source: [snippets/mint_system.web.external_layout_boxed.style_gelso.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.style_gelso.xml)
 
 ## External Layout Standard
 
@@ -454,7 +490,9 @@ ID: `mint_system.web.external_layout_standard.eksb_layout`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.eksb_layout.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.eksb_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.eksb_layout.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.eksb_layout.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.eksb_layout.xml)
 
 ### Footer Kunststoffsammelsack
 
@@ -486,7 +524,9 @@ ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`
   </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_Kunststoffsammelsack.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.footer_Kunststoffsammelsack.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.footer_Kunststoffsammelsack.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_Kunststoffsammelsack.xml)
 
 ### Footer Airwork
 
@@ -548,7 +588,9 @@ ID: `mint_system.web.external_layout_standard.footer_airwork`
 </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_airwork.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.footer_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.footer_airwork.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.footer_airwork.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_airwork.xml)
 
 ### Footer Brand
 
@@ -576,7 +618,9 @@ ID: `mint_system.web.external_layout_standard.footer_brand`
   </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.footer_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_brand.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.footer_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.footer_brand.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.footer_brand.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_brand.xml)
 
 ### Footer Company Registry
 
@@ -593,7 +637,9 @@ ID: `mint_system.web.external_layout_standard.footer_company_registry`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.footer_company_registry.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.footer_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.footer_company_registry.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.footer_company_registry.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_company_registry.xml)
 
 ### Format Header Slogan
 
@@ -613,7 +659,9 @@ ID: `mint_system.web.external_layout_standard.format_header_slogan`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.format_header_slogan.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.format_header_slogan.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.format_header_slogan.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.format_header_slogan.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.format_header_slogan.xml)
 
 ### Header Allnet
 
@@ -631,7 +679,9 @@ ID: `mint_system.web.external_layout_standard.header_allnet`
     </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.header_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_allnet.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.header_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.header_allnet.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.header_allnet.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.header_allnet.xml)
 
 ### Header Brand
 
@@ -678,7 +728,9 @@ ID: `mint_system.web.external_layout_standard.header_brand`
     </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.header_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_brand.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.header_brand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.header_brand.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.header_brand.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.header_brand.xml)
 
 ### Header Kunststoffsammelsack
 
@@ -724,7 +776,9 @@ ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.header_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_kunststoffsammelsack.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.header_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.header_kunststoffsammelsack.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.header_kunststoffsammelsack.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.header_kunststoffsammelsack.xml)
 
 ### Header Styles
 
@@ -742,7 +796,9 @@ ID: `mint_system.web.external_layout_standard.header_styles`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.header_styles.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.header_styles.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.header_styles.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.header_styles.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.header_styles.xml)
 
 ### Hide Address
 
@@ -754,7 +810,9 @@ ID: `mint_system.web.external_layout_standard.hide_address`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.hide_address.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.hide_address.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.hide_address.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.hide_address.xml)
 
 ### Hide Header
 
@@ -766,7 +824,9 @@ ID: `mint_system.web.external_layout_standard.hide_header`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.hide_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.hide_header.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.hide_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.hide_header.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.hide_header.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.hide_header.xml)
 
 ### Hide Moto
 
@@ -778,7 +838,9 @@ ID: `mint_system.web.external_layout_standard.hide_moto`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.hide_moto.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.hide_moto.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.hide_moto.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.hide_moto.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.hide_moto.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.hide_moto.xml)
 
 ### Increase Logo Size
 
@@ -793,7 +855,9 @@ ID: `mint_system.web.external_layout_standard.increase_logo_size`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.increase_logo_size.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.increase_logo_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.increase_logo_size.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.increase_logo_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.increase_logo_size.xml)
 
 ### Move Company Details
 
@@ -811,7 +875,9 @@ ID: `mint_system.web.external_layout_standard.move_company_details`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.move_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.move_company_details.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.move_company_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.move_company_details.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.move_company_details.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.move_company_details.xml)
 
 ### Remove Company Info Footer
 
@@ -824,7 +890,9 @@ ID: `mint_system.web.external_layout_standard.remove_company_info_footer`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_company_info_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_company_info_footer.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_company_info_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_company_info_footer.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_company_info_footer.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_company_info_footer.xml)
 
 ### Remove Contact
 
@@ -841,7 +909,9 @@ ID: `mint_system.web.external_layout_standard.remove_contact`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_contact.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_contact.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_contact.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_contact.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_contact.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_contact.xml)
 
 ### Remove Footer Line
 
@@ -855,7 +925,9 @@ ID: `mint_system.web.external_layout_standard.remove_footer_line`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_footer_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_footer_line.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_footer_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_footer_line.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_footer_line.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_footer_line.xml)
 
 ### Remove Header Address
 
@@ -868,7 +940,9 @@ ID: `mint_system.web.external_layout_standard.remove_header_address`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_header_address.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_header_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_header_address.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_header_address.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_header_address.xml)
 
 ### Remove Header Line
 
@@ -882,7 +956,9 @@ ID: `mint_system.web.external_layout_standard.remove_header_line`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_header_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_header_line.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_header_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_header_line.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_header_line.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_header_line.xml)
 
 ### Remove Header Space
 
@@ -896,7 +972,9 @@ ID: `mint_system.web.external_layout_standard.remove_header_space`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_header_space.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_header_space.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_header_space.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_header_space.xml)
 
 ### Remove Paging
 
@@ -908,7 +986,9 @@ ID: `mint_system.web.external_layout_standard.remove_paging`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.remove_paging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.remove_paging.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.remove_paging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.remove_paging.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.remove_paging.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.remove_paging.xml)
 
 ### Replace Footer
 
@@ -987,7 +1067,9 @@ ID: `mint_system.web.external_layout_standard.replace_footer`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_footer.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_footer.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.replace_footer.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.replace_footer.xml)
 
 ### Replace Footer Right
 
@@ -1013,7 +1095,9 @@ ID: `mint_system.web.external_layout_standard.replace_footer_right`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.replace_footer_right.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_footer_right.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.replace_footer_right.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_footer_right.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.replace_footer_right.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.replace_footer_right.xml)
 
 ### Replace Header
 
@@ -1061,7 +1145,9 @@ ID: `mint_system.web.external_layout_standard.replace_header`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_header.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_header.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.replace_header.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.replace_header.xml)
 
 ### Replace Header With Image
 
@@ -1087,7 +1173,9 @@ ID: `mint_system.web.external_layout_standard.replace_header_with_image`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.replace_header_with_image.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_header_with_image.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml)
 
 ### Replace Url
 
@@ -1103,7 +1191,9 @@ ID: `mint_system.web.external_layout_standard.replace_url`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.replace_url.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.replace_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_url.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.replace_url.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.replace_url.xml)
 
 ### Set Header Footer Font Size
 
@@ -1133,7 +1223,9 @@ ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.set_header_footer_font_size.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.set_header_footer_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.set_header_footer_font_size.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.set_header_footer_font_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.set_header_footer_font_size.xml)
 
 ### Show Sale Order In Footer
 
@@ -1147,7 +1239,9 @@ ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.show_sale_order_in_footer.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.show_sale_order_in_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.show_sale_order_in_footer.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.show_sale_order_in_footer.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.show_sale_order_in_footer.xml)
 
 ### Style Airwork
 
@@ -1167,7 +1261,9 @@ ID: `mint_system.web.external_layout_standard.style_airwork`
     </xpath>
 </data>
 ```
-Source: [snippets/web.external_layout_standard.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.style_airwork.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.style_airwork.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.style_airwork.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.style_airwork.xml)
 
 ### Style Header
 
@@ -1181,7 +1277,9 @@ ID: `mint_system.web.external_layout_standard.style_header`
 </data>
 
 ```
-Source: [snippets/web.external_layout_standard.style_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.style_header.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.style_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.style_header.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.style_header.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.style_header.xml)
 
 ### Tissa Layout
 
@@ -1241,7 +1339,9 @@ ID: `mint_system.web.external_layout_standard.tissa_layout`
 </t>
 
 ```
-Source: [snippets/web.external_layout_standard.tissa_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.external_layout_standard.tissa_layout.xml)
+Edit: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.tissa_layout.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.tissa_layout.xml)
 
 ## Internal Layout
 
@@ -1261,7 +1361,9 @@ ID: `mint_system.web.internal_layout.header_styles`
 </data>
 
 ```
-Source: [snippets/web.internal_layout.header_styles.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.internal_layout.header_styles.xml)
+Edit: [snippets/mint_system.web.internal_layout.header_styles.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.internal_layout.header_styles.xml)
+
+Source: [snippets/mint_system.web.internal_layout.header_styles.xml](https://odoo.build/snippets/mint_system.web.internal_layout.header_styles.xml)
 
 ### Replace Header
 
@@ -1285,7 +1387,9 @@ ID: `mint_system.web.internal_layout.replace_header`
 </data>
 
 ```
-Source: [snippets/web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.internal_layout.replace_header.xml)
+Edit: [snippets/mint_system.web.internal_layout.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.internal_layout.replace_header.xml)
+
+Source: [snippets/mint_system.web.internal_layout.replace_header.xml](https://odoo.build/snippets/mint_system.web.internal_layout.replace_header.xml)
 
 ### Trimada
 
@@ -1335,7 +1439,9 @@ ID: `mint_system.web.internal_layout.trimada`
 </data>
 
 ```
-Source: [snippets/web.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.internal_layout.trimada.xml)
+Edit: [snippets/mint_system.web.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.internal_layout.trimada.xml)
+
+Source: [snippets/mint_system.web.internal_layout.trimada.xml](https://odoo.build/snippets/mint_system.web.internal_layout.trimada.xml)
 
 ## Layout
 
@@ -1357,7 +1463,9 @@ ID: `mint_system.web.layout.color_navbar`
 </data>
 
 ```
-Source: [snippets/web.layout.color_navbar.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.layout.color_navbar.xml)
+Edit: [snippets/mint_system.web.layout.color_navbar.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.layout.color_navbar.xml)
+
+Source: [snippets/mint_system.web.layout.color_navbar.xml](https://odoo.build/snippets/mint_system.web.layout.color_navbar.xml)
 
 ## Login
 
@@ -1393,7 +1501,9 @@ ID: `mint_system.web.login.remove_login_form`
 </data>
 
 ```
-Source: [snippets/web.login.remove_login_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.login.remove_login_form.xml)
+Edit: [snippets/mint_system.web.login.remove_login_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.login.remove_login_form.xml)
+
+Source: [snippets/mint_system.web.login.remove_login_form.xml](https://odoo.build/snippets/mint_system.web.login.remove_login_form.xml)
 
 ## Login Layout
 
@@ -1409,7 +1519,9 @@ ID: `mint_system.web.login_layout.disable_footer`
 </data>
 
 ```
-Source: [snippets/web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.login_layout.disable_footer.xml)
+Edit: [snippets/mint_system.web.login_layout.disable_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.login_layout.disable_footer.xml)
+
+Source: [snippets/mint_system.web.login_layout.disable_footer.xml](https://odoo.build/snippets/mint_system.web.login_layout.disable_footer.xml)
 
 ## Styles Company Report
 
@@ -1425,5 +1537,7 @@ ID: `mint_system.web.styles_company_report.set_font`
 </data>
 
 ```
-Source: [snippets/web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/web.styles_company_report.set_font.xml)
+Edit: [snippets/mint_system.web.styles_company_report.set_font.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.styles_company_report.set_font.xml)
+
+Source: [snippets/mint_system.web.styles_company_report.set_font.xml](https://odoo.build/snippets/mint_system.web.styles_company_report.set_font.xml)
 

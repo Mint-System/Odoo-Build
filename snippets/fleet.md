@@ -21,5 +21,7 @@ ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`
 </data>
 
 ```
-Source: [snippets/fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/fleet.fleet_vehicle_view_form.show_reservation.xml)
+Edit: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)
+
+Source: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://odoo.build/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)
 

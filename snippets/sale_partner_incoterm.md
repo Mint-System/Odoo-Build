@@ -16,5 +16,7 @@ ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`
 </data>
 
 ```
-Source: [snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/sale_partner_incoterm.view_partner_property_form.show_field.xml)
+Edit: [snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml)
+
+Source: [snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml](https://odoo.build/snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml)
 

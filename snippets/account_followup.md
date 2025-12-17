@@ -12,7 +12,9 @@ ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`
 </data>
 
 ```
-Source: [snippets/account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.customer_statements_form_view.remove_blocked.xml)
+Edit: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)
+
+Source: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://odoo.build/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)
 
 ## Report Followup Print All
 
@@ -36,7 +38,9 @@ ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`
     </t>
 </data>
 ```
-Source: [snippets/account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.report_followup_print_all.style_sozialinfo.xml)
+Edit: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)
+
+Source: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://odoo.build/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)
 
 ## Template Followup Report
 
@@ -56,7 +60,9 @@ ID: `mint_system.account_followup.template_followup_report.format_table`
 </data>
 
 ```
-Source: [snippets/account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.format_table.xml)
+Edit: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.format_table.xml)
+
+Source: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.format_table.xml)
 
 ### Padding Before Table
 
@@ -70,7 +76,9 @@ ID: `mint_system.account_followup.template_followup_report.padding_before_table`
 </data>
 
 ```
-Source: [snippets/account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.padding_before_table.xml)
+Edit: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)
+
+Source: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)
 
 ### Remove Summary Placeholder
 
@@ -82,5 +90,7 @@ ID: `mint_system.account_followup.template_followup_report.remove_summary_placeh
 </data>
 
 ```
-Source: [snippets/account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_followup.template_followup_report.remove_summary_placeholder.xml)
+Edit: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)
+
+Source: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)
 

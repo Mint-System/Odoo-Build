@@ -14,5 +14,7 @@ ID: `mint_system.base_install_request.ir_module_module_view_kanban.group_erp_sys
 </data>
 
 ```
-Source: [snippets/base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/base_install_request.ir_module_module_view_kanban.group_erp_system.xml)
+Edit: [snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml)
+
+Source: [snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml](https://odoo.build/snippets/mint_system.base_install_request.ir_module_module_view_kanban.group_erp_system.xml)
 

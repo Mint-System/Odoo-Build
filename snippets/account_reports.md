@@ -14,5 +14,7 @@ ID: `mint_system.account_reports.view_archived_tag_move_tree.vat`
 </data>
 
 ```
-Source: [snippets/account_reports.view_archived_tag_move_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/account_reports.view_archived_tag_move_tree.vat.xml)
+Edit: [snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml)
+
+Source: [snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml](https://odoo.build/snippets/mint_system.account_reports.view_archived_tag_move_tree.vat.xml)
 

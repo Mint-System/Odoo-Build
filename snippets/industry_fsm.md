@@ -14,7 +14,9 @@ ID: `mint_system.industry_fsm.project_task_view_list_fsm.show_id`
 </data>
 
 ```
-Source: [snippets/industry_fsm.project_task_view_list_fsm.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.project_task_view_list_fsm.show_id.xml)
+Edit: [snippets/mint_system.industry_fsm.project_task_view_list_fsm.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.project_task_view_list_fsm.show_id.xml)
+
+Source: [snippets/mint_system.industry_fsm.project_task_view_list_fsm.show_id.xml](https://odoo.build/snippets/mint_system.industry_fsm.project_task_view_list_fsm.show_id.xml)
 
 ## Worksheet Custom
 
@@ -59,7 +61,9 @@ ID: `mint_system.industry_fsm.worksheet_custom.add_info`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom.add_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom.add_info.xml)
+Edit: [snippets/mint_system.industry_fsm.worksheet_custom.add_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.worksheet_custom.add_info.xml)
+
+Source: [snippets/mint_system.industry_fsm.worksheet_custom.add_info.xml](https://odoo.build/snippets/mint_system.industry_fsm.worksheet_custom.add_info.xml)
 
 ### Replace Layout
 
@@ -75,7 +79,9 @@ ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom.replace_layout.xml)
+Edit: [snippets/mint_system.industry_fsm.worksheet_custom.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.worksheet_custom.replace_layout.xml)
+
+Source: [snippets/mint_system.industry_fsm.worksheet_custom.replace_layout.xml](https://odoo.build/snippets/mint_system.industry_fsm.worksheet_custom.replace_layout.xml)
 
 ## Worksheet Custom Page
 
@@ -89,7 +95,9 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.remove_address`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.remove_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.remove_address.xml)
+Edit: [snippets/mint_system.industry_fsm.worksheet_custom_page.remove_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.worksheet_custom_page.remove_address.xml)
+
+Source: [snippets/mint_system.industry_fsm.worksheet_custom_page.remove_address.xml](https://odoo.build/snippets/mint_system.industry_fsm.worksheet_custom_page.remove_address.xml)
 
 ### Replace Display Name
 
@@ -103,7 +111,9 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.replace_display_name`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.replace_display_name.xml)
+Edit: [snippets/mint_system.industry_fsm.worksheet_custom_page.replace_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.worksheet_custom_page.replace_display_name.xml)
+
+Source: [snippets/mint_system.industry_fsm.worksheet_custom_page.replace_display_name.xml](https://odoo.build/snippets/mint_system.industry_fsm.worksheet_custom_page.replace_display_name.xml)
 
 ### Style Moser
 
@@ -129,5 +139,7 @@ ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`
 </data>
 
 ```
-Source: [snippets/industry_fsm.worksheet_custom_page.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/industry_fsm.worksheet_custom_page.style_moser.xml)
+Edit: [snippets/mint_system.industry_fsm.worksheet_custom_page.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm.worksheet_custom_page.style_moser.xml)
+
+Source: [snippets/mint_system.industry_fsm.worksheet_custom_page.style_moser.xml](https://odoo.build/snippets/mint_system.industry_fsm.worksheet_custom_page.style_moser.xml)
 
