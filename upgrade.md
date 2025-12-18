@@ -128,6 +128,14 @@ Run the Odoo upgrade scripts in test mode.
 task upgrade-odoo acme test
 ```
 
+**clear-assets**
+
+Clear Odoo assets.
+
+```bash
+task upgrade-odoo acme clear-assets
+```
+
 **uninstall**
 
 Uninstall modules on the upgraded database.
