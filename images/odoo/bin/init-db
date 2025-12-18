@@ -1,75 +1,72 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -n "$ODOO_DATABASE" ]]; then
+odoo_database=${1:=$ODOO_DATABASE}
 
-    log-entrypoint "Starting database initialization for $ODOO_DATABASE."
-    log-entrypoint "Database connection: $PGUSER@$PGHOST:$PGPORT"
+log-entrypoint "Starting database initialization for $odoo_database."
+log-entrypoint "Database connection: $PGUSER@$PGHOST:$PGPORT"
 
-    log-entrypoint 'Waiting for database connection...'
-    until psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -c '\q' 2>/dev/null; do
-        log-entrypoint 'Database not ready, waiting 2 seconds...'
-        sleep 2
-    done
-    log-entrypoint 'Database connection established.'
+log-entrypoint 'Waiting for database connection...'
+until psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -c '\q' 2>/dev/null; do
+    log-entrypoint 'Database not ready, waiting 2 seconds...'
+    sleep 2
+done
+log-entrypoint 'Database connection established.'
 
-    log-entrypoint "Check if database $ODOO_DATABASE exists..."
-    database_exists=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$ODOO_DATABASE'")
+log-entrypoint "Check if database $odoo_database exists..."
+database_exists=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$odoo_database'")
 
-    # If it does not exist, create it
-    if [[ "$database_exists" = "0" ]]; then
-        log-entrypoint "Create database $ODOO_DATABASE..."
-        (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$ODOO_DATABASE\";") || true
-        log-entrypoint 'Database creation completed.'
-    else
-        log-entrypoint "Database $ODOO_DATABASE already exists."
+# If it does not exist, create it
+if [[ "$database_exists" = "0" ]]; then
+    log-entrypoint "Create database $odoo_database..."
+    (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$odoo_database\";") || true
+    log-entrypoint 'Database creation completed.'
+else
+    log-entrypoint "Database $odoo_database already exists."
+fi
+
+if ! check-database-initialized "$odoo_database"; then
+    log-entrypoint 'Database not initialized, starting initialization process'
+    without_demo=${WITHOUT_DEMO:=True}
+    odoo_init_login=${ODOO_INIT_LOGIN:="admin"}
+    odoo_init_password=${ODOO_INIT_PASSWORD:="admin"}
+    odoo_init_lang=${ODOO_INIT_LANG:="en_US"}
+    odoo_init_addons=${ODOO_INIT_ADDONS:="web"}
+
+    odoo_init_param=""
+    if [[ "$without_demo" = "True" ]]; then
+        odoo_init_param="--without-demo=all"
     fi
 
-    if ! check-database-initialized; then
-        log-entrypoint 'Database not initialized, starting initialization process'
-        without_demo=${WITHOUT_DEMO:=True}
-        odoo_init_login=${ODOO_INIT_LOGIN:="admin"}
-        odoo_init_password=${ODOO_INIT_PASSWORD:="admin"}
-        odoo_init_lang=${ODOO_INIT_LANG:="en_US"}
-        odoo_init_addons=${ODOO_INIT_ADDONS:="web"}
+    log-entrypoint "Initialize database $odoo_database with modules: $odoo_init_addons."
+    (exec odoo "${DB_ARGS[@]}" --database "$odoo_database" --init "$odoo_init_addons" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" $odoo_init_param) || true
+    log-entrypoint 'Odoo initialization command completed.'
 
-        odoo_init_param=""
-        if [[ "$without_demo" = "True" ]]; then
-            odoo_init_param="--without-demo=all"
-        fi
-
-        log-entrypoint "Initialize database $ODOO_DATABASE with modules: $odoo_init_addons."
-        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$odoo_init_addons" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" $odoo_init_param) || true
-        log-entrypoint 'Odoo initialization command completed.'
-
-        if [[ "$odoo_init_login" != "admin" ]] || [[ "$odoo_init_password" != "admin" ]]; then
-            log-entrypoint "Updating admin user credentials..."
-            (exec odoo shell --database "$ODOO_DATABASE" --config "$ODOO_RC" << EOF
+    if [[ "$odoo_init_login" != "admin" ]] || [[ "$odoo_init_password" != "admin" ]]; then
+        log-entrypoint "Updating admin user credentials..."
+        (exec odoo shell --database "$odoo_database" --config "$ODOO_RC" << EOF
 admin_user = env['res.users'].browse(2)
 admin_user.write({
-    'login': '$odoo_init_login',
-    'password': '$odoo_init_password'
+'login': '$odoo_init_login',
+'password': '$odoo_init_password'
 })
 env.cr.commit()
 print('Credentials for user $odoo_init_login updated successfully.')
 EOF
 ) || true
-        fi
     fi
-
-    if [[ -n "$ODOO_MAIL_SMTP_HOST" ]] || [[ -n "$ODOO_MAIL_IMAP_HOST" ]]; then
-        if check-database-initialized; then
-            log-entrypoint 'Setting up mail server configuration...'
-
-            log-entrypoint "Setup mail server configuration for database $ODOO_DATABASE."
-            (odoo shell "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
-            log-entrypoint 'Mail server configuration completed.'
-        else
-            log-entrypoint 'Database not initialized, cannot setup mail server configuration.'
-        fi
-    fi
-
-    log-entrypoint "Database initialization process completed for $ODOO_DATABASE."
-else
-    log-entrypoint 'ODOO_DATABASE environment variable not set, skipping database initialization.'
 fi
+
+if [[ -n "$ODOO_MAIL_SMTP_HOST" ]] || [[ -n "$ODOO_MAIL_IMAP_HOST" ]]; then
+    if check-database-initialized "$odoo_database"; then
+        log-entrypoint 'Setting up mail server configuration...'
+
+        log-entrypoint "Setup mail server configuration for database $odoo_database."
+        (odoo shell "${DB_ARGS[@]}" --database "$odoo_database" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
+        log-entrypoint 'Mail server configuration completed.'
+    else
+        log-entrypoint 'Database not initialized, cannot setup mail server configuration.'
+    fi
+fi
+
+log-entrypoint "Database initialization process completed for $odoo_database."

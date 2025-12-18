@@ -2378,6 +2378,7 @@ upgrade-odoo() {
 
     if [[ "$2" =~ "update" ]]; then
         log-warning "Run step 'update' on $TARGET_SERVER."
+        ssh -p $TARGET_PORT "$TARGET_SERVER" docker exec "$TARGET_ODOO_CONTAINER" update-modules-list
         ssh -p $TARGET_PORT "$TARGET_SERVER" docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
         ssh -p "$TARGET_PORT" "$TARGET_SERVER" docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi

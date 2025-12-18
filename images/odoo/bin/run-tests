@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+odoo_database=${1:=$ODOO_DATABASE}
+
 if [[ -n "$TEST_INCLUDE" ]]; then
     test_modules=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
 else
@@ -18,7 +20,7 @@ if [[ "$without_demo" = "True" ]]; then
 fi
 unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     /opt/odoo-venv/bin/odoo \
-    -d "$ODOO_DATABASE" \
+    -d "$odoo_database" \
     -i "$test_modules" \
     --workers 0 \
     --test-enable \

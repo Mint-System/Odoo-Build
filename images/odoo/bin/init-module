@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -n "$ODOO_DATABASE" ]]; then
-    if check-database-initialized; then
-        odoo_init_lang="${ODOO_INIT_LANG:="en_US"}"
+odoo_database=${1:=$ODOO_DATABASE}
 
-        log-entrypoint "Initialize module $1 on database $ODOO_DATABASE."
-        (exec odoo "${DB_ARGS[@]}" --database "$ODOO_DATABASE" --init "$1" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" --without-demo=all) || true
-    fi
+if check-database-initialized "$odoo_database"; then
+    odoo_init_lang="${ODOO_INIT_LANG:="en_US"}"
+
+    log-entrypoint "Initialize module $1 on database $odoo_database."
+    (exec odoo "${DB_ARGS[@]}" --database "$odoo_database" --init "$1" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" --without-demo=all) || true
 fi

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
+odoo_database=${1:=$ODOO_DATABASE}
+
 log-entrypoint 'Install python packages required for testing.'
 uv pip install --no-cache-dir coverage websocket-client
 
@@ -24,7 +26,7 @@ if [[ "$without_demo" = "True" ]]; then
     odoo_init_param="--without-demo=all"
 fi
 unbuffer /opt/odoo-venv/bin/odoo \
-    -d "$ODOO_DATABASE" \
+    -d "$odoo_database" \
     -i "${test_depends_modules:-base}" \
     --load-language=$odoo_init_lang \
     --stop-after-init \

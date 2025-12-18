@@ -266,7 +266,7 @@ There is also the option to update all modules:
 docker compose exec odoo update-modules
 ```
 
-For each installed module Odoo computes and stores a checksum in the database. The update modules script compares the checksum and updates all modules that have changed.
+The container use [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. For each installed module a checksum is computed and stored in the database. Whenever an update of module is triggered, the checksum is computed and compared. Only modules with a different checksum are updated.
 
 ### Analyze
 
@@ -334,7 +334,7 @@ Set mail parameters for the company.
 
 ### Incoming and Outgoing Mail-Server
 
-Setup mail configuration for the database.
+Setup mail configuration for the default database.
 
 - `ODOO_MAIL_SMTP_HOST`: If set Odoo sends mails to this host.
 - `ODOO_MAIL_SMTP_PORT`: SMTP port. Default is `587`.
@@ -392,7 +392,7 @@ The entrypoint script searches for module folders in the addons path and creates
 
 Set these environment variables for the database init:
 
-- `ODOO_DATABASE` Name of the Odoo database for initialisation.
+- `ODOO_DATABASE` Name of the Odoo default database.
 - `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
 - `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
 - `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
@@ -445,12 +445,12 @@ With the `module_change_auto_install` module you can disable the auto installati
 
 ### Module Auto Update
 
-The container provides [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. Other updates such as the update of translations, can be automated.
+Updating translations and the module list can be automated.
 
-- `AUTO_UPDATE_TRANSLATIONS` If enabled translatiosn will be updated when the container starts. Default is `False`.
+- `AUTO_UPDATE_TRANSLATIONS` If enabled, translatiosn will be updated when the container starts. Default is `False`.
 - `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
 
-Both options require `ODOO_DATABASE` and `ODOO_ADDONS_PATH`.
+If `ODOO_DATABASE` is set, only this database will be updated.
 
 ### Testing
 
@@ -563,6 +563,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
 - [`install-python-packages`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/install-python-packages)
+- [`list-database`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/list-database)
 - [`log-entrypoint`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/log-entrypoint)
 - [`parse-url`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/parse-url)
 - [`remove-ssh-key`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/remove-ssh-key)
