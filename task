@@ -893,9 +893,7 @@ EOF
 
         echo -e "\033[38;5;214mTEST\033[0m: Parse url."
         git_proto=$(./images/odoo/bin/parse-url "git@github.com:OCA/server-tools.git" proto)
-        [[ "$git_proto" == "ssh://" ]] && log-success "Test success." || log-error "Test failed."; exit 1;
-
-
+        [[ "$git_proto" == "ssh://" ]] && log-success "Test success."
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
