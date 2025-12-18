@@ -771,6 +771,7 @@ container-login() {
 
     echo "Docker login with username $CONTAINER_REGISTRY_USERNAME."
     echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
+    echo "$CONTAINER_REGISTRY_PASSWORD" | docker --config "$CONTAINER_CONFIG" login dhi.io --username "$CONTAINER_REGISTRY_USERNAME" --password-stdin
 }
 
 login-podman() {
