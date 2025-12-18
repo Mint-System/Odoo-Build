@@ -833,6 +833,9 @@ test-odoo-version-regex() {
 }
 
 test-image() {
+    # Test the scripts of the Docker images without starting the enviroment.
+    set -e
+
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -886,6 +889,13 @@ dev-dependencies = [
 EOF
         ./images/odoo/bin/sync-python-project
         uv pip list
+
+
+        echo -e "\033[38;5;214mTEST\033[0m: Parse url."
+        git_proto=$(./images/odoo/bin/parse-url "git@github.com:OCA/server-tools.git" proto)
+        [[ "$git_proto" == "ssh://" ]] && log-success "Test success." || log-error "Test failed."; exit 1;
+
+
     fi
 
     if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
