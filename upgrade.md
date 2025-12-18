@@ -72,6 +72,8 @@ TARGET_DATABASE='upgrade'
 
 Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
 
+There is also `JUMP_HOST` and `TARGET_JUMP_HOST` to define the SSH jump host.
+
 ### Helper Scripts
 
 Running the upgrade requires scripts on the servers. Ensure that the following scripts are installed on the server:
