@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database=${1:=$ODOO_DATABASE}
+odoo_database=${1:-$ODOO_DATABASE}
+odoo_database=${1:-$ODOO_DATABASE}
 
 if check-database-initialized "$odoo_database"; then
     odoo_init_lang="${ODOO_INIT_LANG:="en_US"}"

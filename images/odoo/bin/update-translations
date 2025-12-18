@@ -4,7 +4,8 @@ set -e
 source set-addons-path
 
 if [[ -n "$ODOO_DATABASE" ]]; then
-    odoo_database=${1:=$ODOO_DATABASE}
+    odoo_database=${1:-$ODOO_DATABASE}
+odoo_database=${1:-$ODOO_DATABASE}
 else
     IFS=$'\n' read -rd '' -a odoo_databases <<< "$(list-databases)"
 fi

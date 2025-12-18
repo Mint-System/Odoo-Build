@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database=${1:=$ODOO_DATABASE}
+odoo_database=${1:-$ODOO_DATABASE}
+odoo_database=${1:-$ODOO_DATABASE}
 
 source set-addons-path
 
