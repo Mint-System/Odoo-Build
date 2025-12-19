@@ -184,3 +184,7 @@
 	path = oca/repair
 	url = git@github.com:OCA/repair.git
 	branch = 18.0
+[submodule "addons/oca-account-closing"]
+	path = addons/oca-account-closing
+	url = git@github.com:OCA/account-closing.git
+	branch = 18.0
