@@ -85,6 +85,7 @@ RUN apt-get update && \
         xfonts-base \
         wget \
         gnupg \
+        zip \
         expect \
         libcairo2 \
         libxml2 \
