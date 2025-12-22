@@ -128,8 +128,8 @@ services:
       FORGEJO_USERNAME: bot-mintsys
       FORGEJO_PAT: *****
       ADDONS_GIT_REPOS: |
-        git@github.com:Mint-System/Odoo-Apps-Server-Tools.git#18.0
-        git@github.com:OCA/server-tools.git#18.0
+        git@github.com:Mint-System/Odoo-Apps-Server-Tools#18.0
+        git@github.com:OCA/server-tools#18.0
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_ENTERPRISE_PATH: /mnt/enterprise
       ODOO_DATABASE: "18.0"
@@ -370,11 +370,11 @@ The image can clone git repositories.
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
 ```bash
-ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#18.0,git@github.com:Mint-System/Odoo-Apps-Server-Tools.gi#18.0
-ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#18.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools.gi#18.0
+ADDONS_GIT_REPOS=git@github.com:OCA/server-tools#18.0,git@github.com:Mint-System/Odoo-Apps-Server-Tools
+ADDONS_GIT_REPOS=https://github.com/OCA/server-tools#18.0,https://github.com/Mint-System/Odoo-Apps-Server-Tools
 ```
 
-If you use a git url make sure a valid SSH private/public key is defined.
+If you use a git url, make sure a valid SSH private/public key is defined. Branch name fallback is the Odoo version.
 
 ### Addons Path
 

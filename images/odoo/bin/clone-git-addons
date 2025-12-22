@@ -23,17 +23,23 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
     for addon_git_repo in $addons_git_repos; do
 
         # Supported urls:
-        # ADDON_GIT_REPO=git@github.com:OCA/server-tools.git#16.0
-        # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#16.0
-        # ADDON_GIT_REPO=https://github.com/OCA/server-tools.git#18.0#8c5ea468176e8b960a0ae0a52128fc65e985e8a7
+        # addon_git_repo=git@github.com:OCA/server-tools
+        # addon_git_repo=git@github.com:OCA/server-tools#16.0
+        # addon_git_repo=https://github.com/OCA/server-tools#16.0
+        # addon_git_repo=https://github.com/OCA/server-tools#18.0#8c5ea468176e8b960a0ae0a52128fc65e985e8a7
 
-        git_url=$(echo "$addon_git_repo" | cut -d'#' -f1)
-        git_branch=$(echo "$addon_git_repo" | cut -d'#' -f2)
-        git_commit=$(echo "$addon_git_repo" | cut -d'#' -f3)
+        git_url=$(echo "$addon_git_repo" | awk -F'#' '{print $1}')
+        git_branch=$(echo "$addon_git_repo" | awk -F'#' '{print $2}')
+        git_commit=$(echo "$addon_git_repo" | awk -F'#' '{print $3}')
         git_hostname=$(parse-url "$git_url" hostname)
         git_proto=$(parse-url "$git_url" proto)
         git_path=$(parse-url "$git_url" path | sed 's/.git//g')
         git_local_path="$local_path/${git_hostname}/$git_path"
+
+        # Fallback git branch to Odoo version
+        if [[ -z "$git_branch" ]]; then
+            git_branch="$ODOO_VERSION"
+        fi
 
         ssh-keyscan -t rsa,dsa "$git_hostname" > "$HOME/.ssh/known_hosts" 2>/dev/null
 
