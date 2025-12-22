@@ -3,10 +3,11 @@
 # set -e
 
 if [[ -n "$ADDONS_GIT_REPOS" ]]; then
-    gitlab_url="${GITLAB_URL:="https://gitlab.com"}"
-    forgejo_url="${FORGEJO_URL:="https://codeberg.org"}"
-    local_path="${LOCAL_PATH:="/var/lib/odoo/git"}"
-    git_clone_depth="${GIT_CLONE_DEPTH:="999"}"
+    github_url="${GITLAB_URL:=https://github.com}"
+    gitlab_url="${GITLAB_URL:=https://gitlab.com}"
+    forgejo_url="${FORGEJO_URL:=https://codeberg.org}"
+    local_path="${LOCAL_PATH:=/var/lib/odoo/git}"
+    git_clone_depth="${GIT_CLONE_DEPTH:=999}"
 
     # Setup git SSH key
     mkdir -p "$HOME/.ssh"
@@ -49,7 +50,7 @@ if [[ -n "$ADDONS_GIT_REPOS" ]]; then
             mkdir -p "$git_local_path"
 
             # Add GitHub personal access token
-            if [[ "${git_proto}${git_hostname}" = 'https://github.com' ]] && [[ -n "$GITHUB_USERNAME" ]]; then
+            if [[ "${git_proto}${git_hostname}" = "$github_url" ]] && [[ -n "$GITHUB_USERNAME" ]]; then
                 git_url="${git_proto}${GITHUB_USERNAME}:${GITHUB_PAT}@${git_hostname}/${git_path}.git"
             fi
 
