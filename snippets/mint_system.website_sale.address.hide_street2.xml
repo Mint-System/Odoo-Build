@@ -1,0 +1,4 @@
+<data inherit_id="website_sale.address" priority="50">
+    <xpath expr="//div[@id='div_street2']" position="replace">    
+    </xpath>    
+</data>
