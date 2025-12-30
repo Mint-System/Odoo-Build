@@ -1,0 +1,5 @@
+<data inherit_id="account.view_account_list" priority="50">
+    <xpath expr="//field[@name='reconcile']" position="after">
+        <field name="deprecated" widget="boolean_toggle"/>
+    </xpath>
+</data>
