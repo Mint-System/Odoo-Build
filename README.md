@@ -422,3 +422,18 @@ task record-with-py-spy "$PID"
 Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
 
 The browser will open [https://www.speedscope.app/](https://www.speedscope.app/). Upload the `tmp/speedscope-profiling.json` file.
+
+
+### Show module depdency tree
+
+Use the `manifestoo` command to reason about module dependencies. The `--addons-path` will be provided.
+
+Here is an example output:
+
+```bash
+[main][~/Odoo-Build]$ task manifestoo --select partner_firstname tree
+partner_firstname (19.0.1.0.0)
+└── base_setup (19.0+c)
+    └── web (19.0+c)
+
+```

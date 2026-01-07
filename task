@@ -154,6 +154,7 @@ help-table() {
     printf "$column" 'debug' '[name]' 'Debugg application. Options: source.'
     printf "$column" 'exec' '[name][cmd]' 'Run command in container.'
     printf "$column" 'logs' '[name]' 'Tail container logs. Default is '\''odoo'\''.'
+    printf "$column" 'manifestoo' '[param]' 'Execute manifestoo cli.'
     printf "$column" 'odoocli' '[param]' 'Execute odoocli cli.'
     printf "$column" 'psql' '[db]' 'Start interactive psql shell.'
     printf "$column" 'restart' '[name]' 'Restart container.'
@@ -3050,6 +3051,11 @@ test-xmlrpc() {
 
 odoocli(){
     images/odoocli/bin/odoocli "$@"
+}
+
+manifestoo(){
+    set-addons-path
+    ./.venv$ODOO_VERSION/bin/manifestoo --addons-path="$ADDONS_PATH" "$@"
 }
 
 export-website-data() {
