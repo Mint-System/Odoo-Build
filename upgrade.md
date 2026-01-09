@@ -89,11 +89,11 @@ Running the upgrade requires scripts on the servers. Ensure that the following s
 - <https://ansible.build/scripts.html#odoo> helps managing the Odoo container
 - <https://ansible.build/scripts.html#postgres> supports managing the Postgres container
 
-You probably have become aware thats project and the upgrade process uses scripts and containers from different projects. Here is a list of projects involved to run the upgrade:
+You probably have become aware that this project and especially the upgrade process uses scripts from different projects. Here is a list of the projects involved:
 
-- <https://taskfile.build> provides the basic commands to manage the dotfiles
-- <https://odoo.build> which is this project, provides the commands to run the upgrade steps
-- <https://ansible.build> as mentioned this repo has the scripts to manage containers on the server
+- <https://taskfile.build> provides the basic commands to manage dotfiles
+- <https://odoo.build> is this project and provides the commands to run the upgrade steps
+- <https://ansible.build> this repo has the scripts to manage containers on the server
 
 ## Test Run
 
