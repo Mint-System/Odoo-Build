@@ -38,6 +38,7 @@ Update the configs with the definition of your enviroment.
 - `HOST`: Hostname of the Odoo pruction instance
 - `SERVER`: SSH url to access the pruction server
 - `PORT`: SSH port of server
+- `JUMP_HOST`: SSH jump host
 - `ODOO_CONTAINER`: Name of production Odoo Docker container
 - `ODOO_VERSION`: Version of Odoo production
 - `POSTGRES_CONTAINER`: Name of production Postgres Docker container
@@ -45,6 +46,7 @@ Update the configs with the definition of your enviroment.
 - `TARGET_HOST`: Hostname of the Odoo upgrade instance.
 - `TARGET_SERVER`: SSH url to access the upgrade server
 - `TARGET_PORT`: SSH port of server
+- `TARGET_JUMP_HOST`: SSH jump host
 - `TARGET_ODOO_CONTAINER`: Name of upgrade Odoo Docker container
 - `TARGET_ODOO_VERSION`: Version of Odoo upgrade
 - `TARGET_POSTGRES_CONTAINER`: Name of upgrade Postgres Docker container
@@ -71,8 +73,6 @@ TARGET_DATABASE='upgrade'
 ```
 
 Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
-
-There is also `JUMP_HOST` and `TARGET_JUMP_HOST` to define the SSH jump host.
 
 ### Helper Scripts
 

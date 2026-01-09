@@ -2309,6 +2309,7 @@ upgrade-odoo() {
     temp_folder="/var/tmp"
     
     if [[ "$2" =~ "list" ]]; then
+        echo "info"
         echo "all-test"
         echo "all-production"
         echo "dump"
@@ -2336,6 +2337,37 @@ upgrade-odoo() {
     fi
     if [[ -n "$TARGET_JUMP_HOST" ]]; then
         ssh_target_server="ssh -p $TARGET_PORT -J $TARGET_JUMP_HOST $TARGET_SERVER"
+    fi
+
+    if [[ "$2" =~ "info" ]]; then
+        echo ""
+        echo "Source Enviroment"
+        echo "-----------------"
+        echo "Host: $HOST"
+        echo "Server: $SERVER:$PORT"
+        echo "Jump Host: $JUMP_HOST"
+        echo "Odoo Container: $ODOO_CONTAINER"
+        echo "Odoo Version: $ODOO_VERSION"
+        echo "Postgres Container: $POSTGRES_CONTAINER"
+        echo "Database: $DATABASE"
+        echo ""
+        echo "Target Enviroment"
+        echo "-----------------"
+        echo "Host: $TARGET_HOST"
+        echo "Server: $TARGET_SERVER:$TARGET_PORT"
+        echo "Jump Host: $TARGET_JUMP_HOST"
+        echo "Odoo Container: $TARGET_ODOO_CONTAINER"
+        echo "Odoo Version: $TARGET_ODOO_VERSION"
+        echo "Postgres Container: $TARGET_POSTGRES_CONTAINER"
+        echo "Database: $TARGET_DATABASE"
+        echo ""
+        echo "Upgrade Configuration"
+        echo "---------------------"
+        echo "Init Addons: $ODOO_ADDONS_INIT"
+        echo "Uninstall Addons: $ODOO_ADDONS_UNINSTALL"
+        echo "Test Config: $ODOO_CONFIGURE_TEST"
+        echo "Production Config: $ODOO_CONFIGURE_PRODUCTION"
+        echo ""
     fi
 
     if [[ "$2" =~ "dump" ]]; then
