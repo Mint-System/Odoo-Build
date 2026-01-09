@@ -1,0 +1,5 @@
+<data inherit_id="website.option_header_brand_logo" priority="50">
+    <xpath expr="//a" position="attributes">
+        <attribute name="href">https://www.korporation.ch/</attribute>
+    </xpath>
+</data>
