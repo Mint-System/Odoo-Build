@@ -6,7 +6,7 @@ The Odoo Build project assists you in running upgrades for any Odoo project. Thi
 
 Odoo Build provies task file commands that take `env` as an argument. The `env` is reference to the name of a dotfile (`vault/.env.$NAME`). These files are managed with with the `*-env` commands.
 
-Setting up a Odoo upgrade project requires the creation of a dotenv file. This guide assumes that we have the following setup:
+Setting up a Odoo upgrade project requires the creation of a dotenv file. This guide assumes that we have the following case:
 
 - Our customer is `Acme Corporation`
 - The production server is `host1.example.com` and the upgrade server is `host2.example.com`
@@ -35,6 +35,8 @@ task edit-env acme
 
 Update the configs with the definition of your enviroment.
 
+First we have the source environment:
+
 - `HOST`: Hostname of the Odoo pruction instance
 - `SERVER`: SSH url to access the pruction server
 - `PORT`: SSH port of server
@@ -43,6 +45,9 @@ Update the configs with the definition of your enviroment.
 - `ODOO_VERSION`: Version of Odoo production
 - `POSTGRES_CONTAINER`: Name of production Postgres Docker container
 - `DATABASE`: Name of production database
+
+Then we have the target enviroment:
+
 - `TARGET_HOST`: Hostname of the Odoo upgrade instance.
 - `TARGET_SERVER`: SSH url to access the upgrade server
 - `TARGET_PORT`: SSH port of server
@@ -72,7 +77,9 @@ TARGET_POSTGRES_CONTAINER='postgres02'
 TARGET_DATABASE='upgrade'
 ```
 
-Note that the `HOST` and `TARGET_HOST` is a reference to another dotfile.
+Note that the `HOST` and `TARGET_HOST` is a reference to another dotenv file.
+
+You can show the upgrade information with `task upgrade-odoo amce info`.
 
 ### Helper Scripts
 
@@ -94,9 +101,7 @@ Before going live with an upgraded Odoo database, the new enviroments needs to b
 
 ### Execute
 
-All the steps required to provide an upgraded database can be run with: `task upgrade-odoo acme all-test`
-
-This command executes several steps. List the steps with `task upgrade-odoo acme list`. Here are the details of each step:
+You can run the entire test upgrade process with `task upgrade-odoo acme all-test`. This command executes all steps required to get the test enviroment. List the steps with `task upgrade-odoo acme list`. Here are the details for each step:
 
 **dump**
 
@@ -124,7 +129,7 @@ task upgrade-odoo acme drop
 
 **test**
 
-Run the Odoo upgrade scripts in test mode.
+Run the Odoo upgrade scripts in test mode. This will neutralize the database after an upgrade.
 
 ```bash
 task upgrade-odoo acme test
@@ -184,8 +189,6 @@ This step requires an env var: `ODOO_CONFIGURE_TEST="env.ref('mail.ir_cron_modul
 task upgrade-odoo acme configure-test
 ```
 
-For production use `ODOO_CONFIGURE_PRODUCTION`.
-
 **restart**
 
 Restart target Odoo and Postgres container.
@@ -196,7 +199,7 @@ task upgrade-odoo acme restart
 
 ### Troubleshooting
 
-There are additional commands for troubleshooting:
+At any point the upgrade process can fail and requires investigating. There are additional commands that help troubleshooting the issues:
 
 **logs**
 
@@ -216,39 +219,47 @@ task upgrade-odoo acme shell
 
 ### Configure
 
-With heavily customized Odoo databases and new features you have to make configurations that cannot be automated for an upgrade project. These configurations need to be done manually.
+With every Odoo release Odoo introduces new features and enhancements, but also deprecates features and ways of doing. If you have a heavily customized Odoo database and many features enabled, more things are bound to break in the upgrade process.
 
-Once the test enviroment is ready, log in and execute the manual configuration.
+In the configuration of the upgrade process you are fixing Odoo features that cannot be automated with code. Create a list of steps to make configurations in Odoo.
 
 ### Testing
 
-The testing of an upgraded Odoo database is done in collaboration between the Odoo partner and customer. Define test cases that verify the customer's workflows. Collect feedback and establish a feedback loop of testing, documenting issues, bugfixing and redo the upgrade process.
+The testing of an upgraded Odoo database is done in collaboration of the Odoo partner and the customer. The partner defines test cases that verify the customer's workflows. Feedback is collected and feedback loop for testing, documenting, bugfixing and restarting the upgrade process is established.
 
-Repeat this feedback loop until you are confident that the upgraded works well. Do not aim for 100% test coverage. Minor issues can be resolved in the post production upgrade phase.
+Repeat the feedback loop until you are confident that the upgraded works well. Do not aim for 100% test coverage. Minor issues can be resolved in the post-production-upgrade-phase.
 
 ## Production Run
 
-Once the testing phase of the upgrade project has finished and a date for the go-live has been chosen, run the upgrade in production mode.
+Once the testing phase of the upgrade project has finished and a date for the go-live has been chosen, you are reay for the production upgrade. This basically mans to execute the upgrade in production mode on the date of the go-live.
 
-In this scenario we ensure that the url `https://odoo.example.com` points to the new container after the upgrade.
+The goals is that production url `https://odoo.example.com` points to the container with upgraded Odoo database.
 
 ### Execute
 
-In order to run the production upgrade execute `task upgrade-odoo acme all-production`.
+In order to run the production upgrade execute `task upgrade-odoo acme all-production`. Similar to `all-test` this command runs all comands to get an upgraded Odoo enviroment. Only difference is that it runs in production mode.
 
-Similar to `all-test` this command runs all comands, but instead of **test** it runs **production**.
+**production**
 
-Run the Odoo upgrade scripts in test mode
+Run the Odoo upgrade scripts in production mode. This will **not** neutralize the database after an upgrade.
 
 ```bash
 task upgrade-odoo acme production
 ```
 
-And instead of **configure-test** the command runs **configure-production**.
+**configure-production**
+
+Run custom Python code in Odoo shell.
+
+This step requires an env var: `ODOO_CONFIGURE_PRODUCTION="env.ref('mail.ir_cron_module_update_notification').write({'active': True})"`
+
+```bash
+task upgrade-odoo acme configure-production
+```
 
 ### Configure
 
-Once the production enviroment is ready, execute the the manual configuration steps as you did in the test enviroment.
+Once the production enviroment is ready, execute the the manual configuration steps as you did for the test enviroment.
 
 ### Testing
 
@@ -256,7 +267,7 @@ Run simple smoke tests. Ensure that the upgrade wenn well. There is no need to e
 
 ### Rename
 
-Until here it is still possible to abort the go-live. To go-live means to rename the target database to the original database name and ensure that `https://odoo.example.com` points to the target environment. Use this command to rename the databse:
+Until here it is still possible to abort the go-live. To go-live means to rename the target database to the original database name and ensure that `https://odoo.example.com` points to the target environment. Use this command to rename the database:
 
 **rename-production**
 
