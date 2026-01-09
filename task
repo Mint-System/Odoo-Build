@@ -2301,14 +2301,7 @@ upgrade-odoo() {
         echo '$1 is empty.'
         exit
     fi
-    if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
-        exit
-    fi
-    load-env "$1"
-    temp_folder="/var/tmp"
-    
-    if [[ "$2" =~ "list" ]]; then
+    if [[ "$1" =~ "list" ]]; then
         echo "info"
         echo "all-test"
         echo "all-production"
@@ -2327,8 +2320,15 @@ upgrade-odoo() {
         echo "restart"
         echo "logs"
         echo "shell"
+        exit
     fi
-
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
+    load-env "$1"
+    temp_folder="/var/tmp"
+    
     # Setup ssh aliases
     ssh_server="ssh -p $PORT $SERVER"
     ssh_target_server="ssh -p $TARGET_PORT $TARGET_SERVER"

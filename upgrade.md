@@ -101,7 +101,7 @@ Before going live with an upgraded Odoo database, the new enviroments needs to b
 
 ### Execute
 
-You can run the entire test upgrade process with `task upgrade-odoo acme all-test`. This command executes all steps required to get the test enviroment. List the steps with `task upgrade-odoo acme list`. Here are the details for each step:
+You can run the entire test upgrade process with `task upgrade-odoo acme all-test`. This command executes all steps required to get the test enviroment. List the steps with `task upgrade-odoo list`. Here are the details for each step:
 
 **dump**
 
