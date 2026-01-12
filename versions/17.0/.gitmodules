@@ -149,3 +149,7 @@
 	path = addons/oca-server-ux
 	url = git@github.com:OCA/server-ux.git
 	branch = 17.0
+[submodule "addons/oca-account-reconcile"]
+	path = addons/oca-account-reconcile
+	url = git@github.com:OCA/account-reconcile.git
+	branch = 17.0
