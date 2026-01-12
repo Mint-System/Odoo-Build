@@ -2333,9 +2333,11 @@ upgrade-odoo() {
     ssh_server="ssh -p $PORT $SERVER"
     ssh_target_server="ssh -p $TARGET_PORT $TARGET_SERVER"
     if [[ -n "$JUMP_HOST" ]]; then
+        log-warning "Source connection uses jump host: $JUMP_HOST"
         ssh_server="ssh -p $PORT -J $JUMP_HOST $SERVER"
     fi
     if [[ -n "$TARGET_JUMP_HOST" ]]; then
+        log-warning "Target connection uses jump host: $JUMP_HOST"
         ssh_target_server="ssh -p $TARGET_PORT -J $TARGET_JUMP_HOST $TARGET_SERVER"
     fi
 
