@@ -384,7 +384,7 @@ The entrypoint script searches for module folders in the addons path and creates
   - `/mnt/extra-addons` Default location for custom modules.
   - `/var/lib/odoo/enterprise` Reserved location for Odoo enterprise modules.
   - `/var/lib/odoo/git` Reserved location for git repos.
-  - `$TEST_ADDONS_DIR` Variable location for module testing.
+  - `TEST_ADDONS_DIR` Variable location for module testing.
   - `/opt/odoo/addons` Reserved location for Odoo community modules.
 - `ODOO_ENTERPRISE_PATH` Odoo Enterprise is cloned to this folder. Default is `/var/lib/odoo/enterprise`.
 
