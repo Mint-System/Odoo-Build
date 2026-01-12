@@ -143,16 +143,6 @@ Clear Odoo assets.
 task upgrade-odoo acme clear-assets
 ```
 
-**uninstall**
-
-Uninstall modules on the upgraded database.
-
-This step requires an env var: `ODOO_ADDONS_UNINSTALL=board_user_acl,l10n_din5008_expense`
-
-```bash
-task upgrade-odoo acme uninstall
-```
-
 **init**
 
 Init modules on the upgraded database.
@@ -161,6 +151,16 @@ This step requires an env var: `ODOO_ADDONS_INIT=web_environment_ribbon`
 
 ```bash
 task upgrade-odoo acme init
+```
+
+**uninstall**
+
+Uninstall modules on the upgraded database.
+
+This step requires an env var: `ODOO_ADDONS_UNINSTALL=board_user_acl,l10n_din5008_expense`
+
+```bash
+task upgrade-odoo acme uninstall
 ```
 
 **auto-update**
