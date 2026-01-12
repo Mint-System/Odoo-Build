@@ -2417,7 +2417,7 @@ upgrade-odoo() {
 
     if [[ "$2" =~ "clear-assets" ]]; then
         log-warning "Run step 'update' on $TARGET_SERVER."
-        ssh -p "$TARGET_PORT" "$TARGET_SERVER" docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
+        $ssh_target_server docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
     if [[ "$2" =~ "init" ]]; then
