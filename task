@@ -2334,9 +2334,11 @@ upgrade-odoo() {
     # Setup ssh aliases
     ssh_server="ssh -p $PORT $SERVER"
     ssh_target_server="ssh -t -p $TARGET_PORT $TARGET_SERVER"
+    scp_exec="scp"
     if [[ -n "$JUMP_HOST" ]]; then
         log-warning "Source connection uses jump host: $JUMP_HOST"
         ssh_server="ssh -p $PORT -J $JUMP_HOST $SERVER"
+        scp_exec="scp -o ProxyJump=$JUMP_HOST"
     fi
     if [[ -n "$TARGET_JUMP_HOST" ]]; then
         log-warning "Target connection uses jump host: $JUMP_HOST"
@@ -2384,7 +2386,7 @@ upgrade-odoo() {
 
             echo "Copy dump from $SERVER to $TARGET_SERVER..."
             $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
-            scp "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
+            $scp_exec "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
             $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
         else
             $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
@@ -2400,7 +2402,7 @@ upgrade-odoo() {
             log-warning "Source and target host are different."
 
             echo "Copy filestore from $SERVER to $TARGET_SERVER..."
-            scp "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+            $scp_exec "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
             $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r     
         else
             $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
@@ -2475,7 +2477,7 @@ upgrade-odoo() {
 
     if [[ "$2" =~ "rename-production" ]]; then
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
-        
+
         # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
         # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         # ssh -p "$PORT" "$SERVER" docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
