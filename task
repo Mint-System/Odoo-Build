@@ -2321,6 +2321,7 @@ upgrade-odoo() {
         echo "logs"
         echo "shell"
         echo "psql"
+        echo "rename-production"
         exit
     fi
     if [[ -z "$2" ]]; then
@@ -2468,9 +2469,20 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" =~ "psql" ]]; then
-        log-warning "Run step 'shell' on $TARGET_SERVER."
+        log-warning "Run step 'psql' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
+
+    if [[ "$2" =~ "rename-production" ]]; then
+        log-warning "Run step 'rename-production' on $TARGET_SERVER."
+        
+        # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
+        # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
+        # ssh -p "$PORT" "$SERVER" docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
+
+        # ssh -p "$PORT" "$SERVER" docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
+    fi
+    
 }
 
 # Snippet commands
