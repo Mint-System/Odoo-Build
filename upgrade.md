@@ -211,10 +211,18 @@ task upgrade-odoo acme logs
 
 **shell**
 
-Start shell in target Odoo container.
+Start Odoo shell in target container.
 
 ```bash
 task upgrade-odoo acme shell
+```
+
+**psql**
+
+Start psql shell in target Postgres container.
+
+```bash
+task upgrade-odoo acme psql
 ```
 
 ### Configure

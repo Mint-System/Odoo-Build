@@ -2320,6 +2320,7 @@ upgrade-odoo() {
         echo "restart"
         echo "logs"
         echo "shell"
+        echo "psql"
         exit
     fi
     if [[ -z "$2" ]]; then
@@ -2331,14 +2332,14 @@ upgrade-odoo() {
     
     # Setup ssh aliases
     ssh_server="ssh -p $PORT $SERVER"
-    ssh_target_server="ssh -p $TARGET_PORT $TARGET_SERVER"
+    ssh_target_server="ssh -t -p $TARGET_PORT $TARGET_SERVER"
     if [[ -n "$JUMP_HOST" ]]; then
         log-warning "Source connection uses jump host: $JUMP_HOST"
         ssh_server="ssh -p $PORT -J $JUMP_HOST $SERVER"
     fi
     if [[ -n "$TARGET_JUMP_HOST" ]]; then
         log-warning "Target connection uses jump host: $JUMP_HOST"
-        ssh_target_server="ssh -p $TARGET_PORT -J $TARGET_JUMP_HOST $TARGET_SERVER"
+        ssh_target_server="ssh -t -p $TARGET_PORT -J $TARGET_JUMP_HOST $TARGET_SERVER"
     fi
 
     if [[ "$2" =~ "info" ]]; then
@@ -2463,9 +2464,12 @@ upgrade-odoo() {
 
     if [[ "$2" =~ "shell" ]]; then
         log-warning "Run step 'shell' on $TARGET_SERVER."
-        #FIXME: Command fails with "the input device is not a TTY"
-        echo "ssh -p $TARGET_PORT \"$TARGET_SERVER\"" 
-        echo docker-odoo-shell -c \"$TARGET_ODOO_CONTAINER\" -d \"$TARGET_DATABASE\"
+        $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
+    fi
+
+    if [[ "$2" =~ "psql" ]]; then
+        log-warning "Run step 'shell' on $TARGET_SERVER."
+        $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 }
 
