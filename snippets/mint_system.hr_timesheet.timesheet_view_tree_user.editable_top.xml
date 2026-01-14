@@ -1,0 +1,5 @@
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+    <tree position="attributes">
+        <attribute name="editable">top</attribute>
+    </tree>
+</data>
