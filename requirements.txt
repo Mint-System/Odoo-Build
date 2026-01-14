@@ -38,3 +38,6 @@ git+https://github.com/OCA/maintainer-tools
 hatch-odoo
 copier
 odoo-addon-module-auto-update; python_version >= '3.10'
+
+# Odoo Compatibility
+python-ldap ; python_version <= '3.8'
