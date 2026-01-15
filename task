@@ -8,14 +8,27 @@ if [[ -a ".env" ]]; then
 fi
 
 help-table() {
-    local cmd_width=26
+    local cmd_width=30
     local opt_width=20
-    local desc_width=78
+    local desc_width=60
     local column="| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n"
+    print_separator() {
+        echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
+    }
+    print_group_header() {
+        local group="$1"
+        local group_len=${#group}
+        local padding=$((cmd_width - group_len))
+        local bold=$(tput bold 2>/dev/null || echo -e "\033[1m")
+        local reset=$(tput sgr0 2>/dev/null || echo -e "\033[0m")
+        local dashes=$(printf '%*s' $padding '')
+        print_separator
+        printf "| %s%s%s%s | %-${opt_width}s | %-${desc_width}s |\n" "$bold" "$group" "$reset" "$dashes" "" ""
+        print_separator
+    }
 
     printf "$column" 'Command' 'Option' 'Description'
-    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
-    # Env
+    print_group_header 'Env'
     printf "$column" 'backup-env-files' '[path]' 'Archive and copy env files to target location.'
     printf "$column" 'copy-env' '[env][env]' 'Copy env file.'
     printf "$column" 'create-env' '[env][type]' 'Create env file of type nextcloud, odoo, upgrade.'
@@ -28,7 +41,7 @@ help-table() {
     printf "$column" 'restore-env-files' '[path]' 'Extract and copy env files from backup file.'
     printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
     printf "$column" 'show-env' '[env]' 'Output content of the env file.'
-    # Git
+    print_group_header 'Git'
     printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the provide repos.yaml.'
     printf "$column" 'add-git-submodule' '[url] [path]' 'Add git submodule.'
     printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
@@ -46,11 +59,11 @@ help-table() {
     printf "$column" 'remove-git-folders' '' 'Delete all git folders.'
     printf "$column" 'remove-git-submodule' '[path]' 'Remove a git submodule.'
     printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
-    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset submodules listed in the .gitmodules file.'
+    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset submodules from the .gitmodules file.'
     printf "$column" 'stage-git-folder' '[path]' 'Stage all files in git folders in path.'
-    printf "$column" 'switch-git-folder' '[version]' 'Switch branch for all git folders listed in the .gitmodules file.'
+    printf "$column" 'switch-git-folder' '[version]' 'Switch branch for all git folders from the .gitmodules file.'
     printf "$column" 'sync-git-folder' '' 'Switch, stash and pull all git folders.'
-    # Docker
+    print_group_header 'Docker'
     printf "$column" 'archive-docker-tags' '' 'Archive Docker image tags on hub older than 1 year.'
     printf "$column" 'build' '[folder][output]' 'Build Docker image from target folder.'
     printf "$column" 'login-docker' '[user][token]' 'Setup Docker Hub login credentials.'
@@ -60,15 +73,15 @@ help-table() {
     printf "$column" 'remove' '[name]' 'Remove containers and volumes.'
     printf "$column" 'test-image' '[folder]' 'Test Docker image from target folder.'
     printf "$column" 'test-odoo-version-regex' '' 'Test the Odoo module version regex filter.'
-    # Vuepress
+    print_group_header 'Vuepress'
     printf "$column" 'build-vuepress' '' 'Create Vuepress build.'
     printf "$column" 'install-vuepress' '' 'Install Node build dependencies.'
     printf "$column" 'dev-vuepress' '' 'Start Vuepress development server.'
     printf "$column" 'serve-vuepress' '' 'Serve Vuepress build.'
-    # Database
+    print_group_header 'Database'
     printf "$column" 'change-uuid' '[env]' 'Change database uuid via xmlrpc.'
     printf "$column" 'clear-assets' '[db]' 'Clear all assets of Odoo database.'
-    printf "$column" 'clear-filestore' '[db]' 'Clear local filestore folder. No param will clear all filestores.'
+    printf "$column" 'clear-filestore' '[db]' 'Clear local filestore folder.'
     printf "$column" 'clear-views' '[db]' 'Clear all views of Odoo database.'
     printf "$column" 'cloc-odoo' '[db]' 'Count custom line of codes.'
     printf "$column" 'drop-db' '[db]' 'Drop target Odoo database.'
@@ -79,7 +92,7 @@ help-table() {
     printf "$column" 'set-admin' '[db]' 'Sets the password for the first user in database.'
     printf "$column" 'update-module' '[db][name,path]' 'Update target Odoo module.'
     printf "$column" 'update-module-list' '[db]' 'Update module list of Odoo database.'
-    # Revision
+    print_group_header 'Revision'
     printf "$column" 'checkout-latest-revision' '[version]' 'Checkout the latest revision of the Odoo version.'
     printf "$column" 'checkout-revision' '[revision]' 'Load Odoo revision env var and checkout git folders.'
     printf "$column" 'commit-and-push-revision' '[revision]' 'Commit all changes and tag with current revision.'
@@ -88,11 +101,11 @@ help-table() {
     printf "$column" 'load-latest-revision' '[version]' 'Load the latest revision of the Odoo version.'
     printf "$column" 'load-revision' '[revision]' 'Load env var from specified revision.'
     printf "$column" 'show-revision' '[revision]' 'Show references of Odoo revision.'
-    # LLM
+    print_group_header 'LLM'
     printf "$column" 'commit-with-llm' '' 'Commit with llm generated commit message.'
     printf "$column" 'show-odoo-mcp-config' '' 'Show the Odoo MCP server config.'
     printf "$column" 'update-with-llm' '[glob][prompt]' 'Feed module files with prompt to LLM and apply file changes.'
-    # Snippets
+    print_group_header 'Snippets'
     printf "$column" 'create-snippet' '[xml-id]' 'Create snippet from template.'
     printf "$column" 'install-snippet' '[env][path]' 'Install snippet definition.'
     printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet by path or xml-id.'
@@ -100,7 +113,7 @@ help-table() {
     printf "$column" 'lint-snippets' '' 'Run checks for all snippets.'
     printf "$column" 'remove-snippet' '[env][path]' 'Remove snippet by path or xml-id.'
     printf "$column" 'update-snippet' '[env][path]' 'Update snippet definition.'
-    # Setup
+    print_group_header 'Install'
     printf "$column" 'activate-venv' '' 'Activate virtualenv.'
     printf "$column" 'init-venv' '' 'Initialize python virtual env.'
     printf "$column" 'disable-mailserver' '[env]' 'Disable mail server settings via xmlrpc.'
@@ -110,11 +123,11 @@ help-table() {
     printf "$column" 'list-packages' '' 'List installed python packages.'
     printf "$column" 'init-module' '[db][path,module]' 'Initialize Odoo module.'
     printf "$column" 'set-addons-path' '' 'Set Odoo addons path env variable.'
-    # Migration
+    print_group_header 'Migration'
     printf "$column" 'export-website-data' '[env]' 'Export website data from Odoo database.'
-    printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename must match PostgreSQL table name.'
+    printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename is PostgreSQL table name.'
     printf "$column" 'import-website-data' '[env]' 'Import website data to Odoo database.'
-    # Generate
+    print_group_header 'Generate'
     printf "$column" 'create-module' '[path]' 'Create new Odoo module from template.'
     printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
     printf "$column" 'generate-module-model' '[path][model]' 'Generate model in module folder.'
@@ -125,7 +138,7 @@ help-table() {
     printf "$column" 'generate-module-snippet' '[path][ref][model]' 'Generate snippet for referefenced view.'
     printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
     printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
-    # Module
+    print_group_header 'Module'
     printf "$column" 'lint-module' '[path]' 'Run pylint odoo for module.'
     printf "$column" 'lint-module-repo' '[path]' 'Run pylint odoo for modules in repo folder.'
     printf "$column" 'list-modules' '[path]' 'Get modules in path as bash array.'
@@ -138,20 +151,20 @@ help-table() {
     printf "$column" 'upload-module' '[env][path]' 'Zip and upload Odoo module.'
     printf "$column" 'visualize-dependencies' '[path]' 'Generate visualizations of module dependencies.'
     printf "$column" 'zip-module' '[path]' 'Create zip file for module.'
-    # Helper
+    print_group_header 'Helper'
     printf "$column" 'generate-admin-password' '[pass]' 'Generate hash for Odoo master password.'
     printf "$column" 'generate-ssh-keys' '' 'Generate ssh key pair.'
     printf "$column" 'generate-pg-ssl-keys' '' 'Generate PostgreSQL SSL key material.'
     printf "$column" 'get-addons-path' '' 'Output addons path.'
-    printf "$column" 'get-modules' '[path][option]' 'Get list of modules in path. Option is '\''basename'\'' or '\''dirname'\''.'
+    printf "$column" 'get-modules' '[path][option]' 'Get list of modules in path. '\''basename'\'' or '\''dirname'\''.'
     printf "$column" 'get-module-version' '[path]' 'Get module version from manifest.'
     printf "$column" 'get-module-checksum' '[path]' 'Get module checksum.'
     printf "$column" 'help' '[grep]' 'Show help for commands.'
     printf "$column" 'info' '' 'Show values of project env vars.'
     printf "$column" 'load-ssh-key' '' 'Load SSH private key from env var.'
     printf "$column" 'update-module-license' '[grep]' 'Update LICENSE file for each matching module.'
-    # Run
-    printf "$column" 'debug' '[name]' 'Debugg application. Options: source.'
+    print_group_header 'Run'
+    printf "$column" 'debug' '[name]' 'Debugg application.'
     printf "$column" 'exec' '[name][cmd]' 'Run command in container.'
     printf "$column" 'logs' '[name]' 'Tail container logs. Default is '\''odoo'\''.'
     printf "$column" 'manifestoo' '[param]' 'Execute manifestoo cli.'
@@ -161,10 +174,10 @@ help-table() {
     printf "$column" 'run' '[name][cmd]' 'Run container with command.'
     printf "$column" 'shell' '[db][code]' 'Start interactive odoo shell or run code.'
     printf "$column" 'source' '' 'Source the Python virtual env.'
-    printf "$column" 'start' '[name][db]' 'Start application. Options: none, admin, db, mailgate, mailpit, source, odoo, hatch.'
+    printf "$column" 'start' '[name][db]' 'Start service. Use list to show services.'
     printf "$column" 'stop' '[name]' 'Stop containers.'
     printf "$column" 'test-xmlrpc' '[env]' 'Test json rpc connection.'
-    # Project
+    print_group_header 'Project'
     printf "$column" 'lint' '' 'Run precommit for this project.'
     printf "$column" 'list-versions' '' 'List available Odoo versions.'
     printf "$column" 'check-version' '' 'Check if Odoo source is the correct version.'
@@ -175,16 +188,16 @@ help-table() {
     printf "$column" 'template-repo' '[path]' 'Update the repo folder from template.'
     printf "$column" 'test-project' '[cleanup]' 'Run tests for this project.'
     printf "$column" 'version' '' 'Show version of required tools.'
-    # Performance
-    printf "$column" 'record-with-memray' '[name]' 'Record application memory usage with memray. Options: source.'
+    print_group_header 'Performance'
+    printf "$column" 'record-with-memray' '[name]' 'Record application memory usage with memray.'
     printf "$column" 'record-with-py-spy' '[pid]' 'Record and create flamechart for a process.'
-    # Docs
+    print_group_header 'Docs'
     printf "$column" 'update-docs' '' 'Update all project docs.'
     printf "$column" 'update-help-doc' '' 'Write help table to task.md file.'
     printf "$column" 'update-modules-doc' '' 'Update modules docs file.'
     printf "$column" 'update-revisions-doc' '' 'Update revisions doc file.'
     printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
-    # Upgrade
+    print_group_header 'Upgrade'
     printf "$column" 'migrate-module' '[path]' 'Migrate module code from to target Odoo version.'
     printf "$column" 'upgrade-odoo' '[env][step]' 'Run the Odoo upgrade for a target environment.'
 }
@@ -1131,6 +1144,18 @@ start() {
         echo "Start all container ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
         echo 'Open http://localhost:8069 url in your browser.'
         $COMPOSE_COMMAND up -d
+    fi
+
+    if [[ "$1" = "list" ]]; then
+        echo "Options:"
+        echo "admin"
+        echo "db"
+        echo "mailgate"
+        echo "mailpit"
+        echo "source"
+        echo "hatch"
+        echo "odoo"
+        echo "odoo-nginx"
     fi
 
     if [[ "$1" =~ "admin" ]]; then
