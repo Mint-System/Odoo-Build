@@ -19,4 +19,6 @@ elif [[ -f "/var/lib/odoo/git/repos.yaml" ]]; then
     cd /var/lib/odoo/git
     log-entrypoint 'Aggregate git repos...'
     gitaggregate -c repos.yaml --expand-env
+else
+    log-entrypoint 'File /var/lib/odoo/git/repos.y(a)ml not found.'
 fi
