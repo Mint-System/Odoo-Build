@@ -218,10 +218,11 @@ Run the `download-git-archive` script to download the Odoo Enterprise modules:
 docker compose exec odoo download-git-archive
 ```
 
-Run the `clone-git-addons` script to clone module repos:
+Run the `clone-git-addons` or `aggregate-git-repos` script to clone module repos:
 
 ```bash
 docker compose exec odoo clone-git-addons
+docker compose exec odoo aggregate-git-repos
 ```
 
 Run the `init-db` script to initalize the Odoo database:
@@ -236,12 +237,10 @@ The scripts are configured with environment variables.
 
 Once you start the container the `entrypoint.sh` script will:
 
-- Call the `aggregate-git-repos` script and clone modules.
 - Run the `template-odoo-rc` script to template the `odoo.conf` file.
 - While doing so assemble the addons path with `set-addons-path`.
 - Run the `install-python-packages` script to install the Python packages.
 - Wait for the database to be ready.
-- Run the `update-modules` script if enabled.
 - Run the `update-modules-list` script if enabled.
 - Run the `update-translations` script if enabled.
 - Start the Odoo server.

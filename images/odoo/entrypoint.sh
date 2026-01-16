@@ -3,7 +3,7 @@ set -e
 
 echo '  ___      _               ____        _ _     _ '
 echo ' / _ \  __| | ___   ___   | __ ) _   _(_) | __| |'
-echo '| | | |/ _'"'"' |/ _ \ / _ \  |  _ \| | | | | |/ _'"'"' |'
+echo '| | | |/ _| |/ _ \ / _ \  |  _ \| | | | | |/ _| |'
 echo '| |_| | (_| | (_) | (_) | | |_) | |_| | | | (_| |'
 echo ' \___/ \__,_|\___/ \___/  |____/ \__,_|_|_|\__,_|'
 echo
@@ -11,7 +11,6 @@ echo 'Maintainer: Mint System GmbH <info@mint-system.ch>'
 
 log-entrypoint "Run as user with id: $(id)"
 
-aggregate-git-repos
 template-odoo-rc
 unset ODOO_ADDONS_PATH
 unset ADDONS_PATH
