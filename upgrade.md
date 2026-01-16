@@ -289,7 +289,7 @@ As the final step, update DNS records and/or proxy configuration so that `https:
 
 ### Recovery
 
-If something goes wrong after the go-live, fallback to the old envirment. Simply revert the DNS update and/or the proxy configuration.
+If something goes wrong after the go-live, fallback to the old environment. Simply revert the DNS update and/or the proxy configuration.
 
 ### Cleanup
 
