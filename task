@@ -22,8 +22,8 @@ help-table() {
         local bold=$(tput bold 2>/dev/null || echo -e "\033[1m")
         local reset=$(tput sgr0 2>/dev/null || echo -e "\033[0m")
         local dashes=$(printf '%*s' $padding '')
-        # print_separator
-        printf "| %s%s%s%s | %-${opt_width}s | %-${desc_width}s |\n" "$bold" "$group" "$reset" "$dashes" "" ""
+        print_separator
+        # printf "| %s%s%s%s | %-${opt_width}s | %-${desc_width}s |\n" "$bold" "$group" "$reset" "$dashes" "" ""
         # print_separator
     }
 
