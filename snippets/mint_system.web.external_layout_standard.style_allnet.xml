@@ -1,0 +1,15 @@
+<data inherit_id="web.external_layout_standard" priority="60">
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">font-size:18pt;</attribute>
+    </xpath>
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">font-size:18pt;</attribute>
+    </xpath>
+
+    <xpath expr="//div[3]" position="attributes">
+        <attribute name="class">o_footer_content d-flex pt-2</attribute>
+    </xpath>
+
+</data>

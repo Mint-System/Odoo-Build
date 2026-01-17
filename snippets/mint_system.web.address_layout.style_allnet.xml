@@ -1,0 +1,5 @@
+<data inherit_id="sale.report_saleorder_document" priority="60">   
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt;</attribute>
+    </xpath>
+</data>
