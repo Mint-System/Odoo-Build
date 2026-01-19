@@ -192,3 +192,11 @@
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website.git
 	branch = 18.0
+[submodule "addons/oca-hr-holidays"]
+	path = addons/oca-hr-holidays
+	url = git@github.com:OCA/hr-holidays.git
+	branch = 18.0
+[submodule "addons/oca-calendar"]
+	path = addons/oca-calendar
+	url = git@github.com:OCA/calendar.git
+	branch = 18.0
