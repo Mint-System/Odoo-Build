@@ -436,40 +436,36 @@ template-odoo-rc() {
 
 set-addons-path() {
     # Read addons path from git module
-    local git_folders_path="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort |  tr '\n' ',' |  sed 's/,*$//g')"
+    local git_folders_path="$(git config --file .gitmodules --get-regexp path | awk '{ print $2 }' | sort | tr '\n' ',' | sed 's/,*$//')"
 
     # Remove excluded addons
     local excludes="addons/theme_mint_system addons/company addons/web"
     for exclude in $excludes; do
-        git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g")
+        git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g; s|^${exclude}$||")
     done
 
-    # Check if addons dir exist
-    while read -r addon; do
-        # Trim whitespace
+    # Filter valid directories
+    local valid_paths=""
+    while IFS= read -r addon; do
         addon=$(echo "$addon" | xargs)
-        
-        # Skip empty lines
-        if [[ -z "$addon" ]]; then
-            continue
-        fi
-        
-        # Check if directory exists
-        if [[ ! -d "$addon" ]]; then
-            echo "Error: Path does not exist: $addon"
-            exit 1
+        [[ -z "$addon" ]] && continue
+        if [[ -d "$addon" ]]; then
+            valid_paths="${valid_paths:+$valid_paths,}$addon"
+        else
+            echo "Set Addons Path: Path '$addon' does not exist." >&2
         fi
     done < <(echo "$git_folders_path" | tr ',' '\n')
+    git_folders_path="$valid_paths"
 
-    # Convert to source paths
-    local addons_path="$(echo $git_folders_path | sed 's|,odoo|,odoo/addons|g')"
+    # Convert to source paths (add /addons where needed)
+    local addons_path="$(echo "$git_folders_path" | sed 's|,odoo|,odoo/addons|g')"
 
     # Append paths from config env var
     if [[ -n "$ODOO_ADDONS_PATH" ]]; then
         addons_path="${ODOO_ADDONS_PATH},${addons_path}"
     fi
 
-    # Export the addons path to make it available to other functions
+    # Export the addons path
     export ADDONS_PATH="$addons_path"
 }
 
@@ -658,6 +654,26 @@ template-compose() {
         var=${var#\$}      # Remove leading $
         export "$var"
     done
+
+    # Add volume mounts
+    VOLUME_MOUNTS=""
+    if [[ -d "./tmp/postgres-odoo" ]]; then
+        VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./tmp/postgres-odoo:/mnt/postgres-odoo"$'\n'
+    fi
+    if [[ -d "./addons" ]]; then
+        VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./addons:/mnt/addons"$'\n'
+    fi
+    if [[ -d "./oca" ]]; then
+        VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./oca:/mnt/oca"$'\n'
+    fi
+    if [[ -d "./enterprise" ]]; then
+        VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./enterprise:/mnt/enterprise"$'\n'
+    fi
+    if [[ -d "./themes" ]]; then
+        VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./themes:/mnt/themes"$'\n'
+    fi
+    VOLUME_MOUNTS="${VOLUME_MOUNTS%$'\n'}"
+    export VOLUME_MOUNTS
     
     envsubst < "compose.yml.template" > "compose.yml"
 }

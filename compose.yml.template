@@ -83,11 +83,7 @@ services:
       - "${NGINX_PORT}:8080"
     volumes:
       - odoo-data:/var/lib/odoo
-      - ./tmp/postgres-odoo:/mnt/postgres-odoo
-      - ./addons:/mnt/addons
-      - ./oca:/mnt/oca
-      - ./enterprise:/mnt/enterprise
-      - ./themes:/mnt/themes
+${VOLUME_MOUNTS}
     networks:
       - default
   admin:
