@@ -57,7 +57,7 @@ help-table() {
     printf "$column" 'list-git-folder' '[grep]' 'List path and url of git folders.'
     printf "$column" 'pull-git-folder' '' 'Pull all git folders listed in the .gitmodules file.'
     printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
-    printf "$column" 'remove-git-folders' '' 'Delete all git folders.'
+    printf "$column" 'remove-git-folder' '[path]' 'Remove git folders in path.'
     printf "$column" 'remove-git-submodule' '[path]' 'Remove a git submodule.'
     printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
     printf "$column" 'reset-git-folder' '' 'Abort rebase and reset submodules from the .gitmodules file.'
@@ -2808,17 +2808,20 @@ list-git-folder() {
     done
 }
 
-remove-git-folders() {
-    local git_folders=$(ls-git-folder)
+remove-git-folder() {
+    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
+    local git_folders=$(ls-git-folder "$1")
 
     echo "Delete: $git_folders"
-    read -p "Are you sure you want to delete these git folders? (yes/N): " confirm
+    read -p "Are you sure to delete these git folder(s)? (yes/N): " confirm
     if [[ "${confirm,,}" != "yes" ]]; then
         echo 'Aborted.'
         return 1
     fi
-
     for git_folder in $git_folders; do
+        echo "Remove $git_folder from .gitmodules file."
+        git config --file .gitmodules --remove-section "submodule.$git_folder"
+
         echo "Delete git folder $git_folder."
         rm -rf "$git_folder"
     done

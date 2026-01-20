@@ -128,7 +128,6 @@
 	path = addons/partner_contact
 	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
 	branch = 17.0
-
 [submodule "addons/contract"]
 	path = addons/contract
 	url = git@github.com:Mint-System/Odoo-Apps-Contract.git
@@ -136,20 +135,4 @@
 [submodule "oca/account-invoicing"]
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
-	branch = 17.0
-[submodule "addons/oca-account-financial-reporting"]
-	path = addons/oca-account-financial-reporting
-	url = git@github.com:OCA/account-financial-reporting.git
-	branch = 17.0
-[submodule "addons/oca-reporting-engine"]
-	path = addons/oca-reporting-engine
-	url = git@github.com:OCA/reporting-engine.git
-	branch = 17.0
-[submodule "addons/oca-server-ux"]
-	path = addons/oca-server-ux
-	url = git@github.com:OCA/server-ux.git
-	branch = 17.0
-[submodule "addons/oca-account-reconcile"]
-	path = addons/oca-account-reconcile
-	url = git@github.com:OCA/account-reconcile.git
 	branch = 17.0
