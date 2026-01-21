@@ -184,3 +184,7 @@
 	path = oca/repair
 	url = git@github.com:OCA/repair.git
 	branch = 18.0
+[submodule "oca/calendar"]
+	path = oca/calendar
+	url = git@github.com:OCA/calendar.git
+	branch = 18.0
