@@ -2,4 +2,11 @@
     <span t-field="line.discount" position="replace">
         <span class="text-nowrap" t-esc="'{0:.2f}'.format(line.discount)"/>
     </span>
+
+     <xpath expr="//th[@name='th_discount']"
+           position="attributes">
+        <attribute name="t-attf-class">
+            text-end text-nowrap {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}
+        </attribute>
+    </xpath>
 </data>

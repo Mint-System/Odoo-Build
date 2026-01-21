@@ -1,16 +1,34 @@
 <data inherit_id="account.report_invoice_document" priority="50">
+    <!-- <xpath expr="//table[@name='invoice_line_table']"
+           position="attributes">
+        <attribute name="class">
+            table table-sm o_main_table table-borderless
+        </attribute>
+    </xpath> -->
     <xpath expr="//table[@name='invoice_line_table']" position="before">
         <style>
-        .border-solid-black td {
-          border-top: 1px solid black !important;
+        .o_main_table td {
+          border-top: 1px solid #dee2e6 !important;
           border-bottom: none !important;
         }
-        thead th {
+        .o_main_table th {
+          border-top: 1px solid black !important;
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+        o_main_table thead th {
           color: #5c516e;
         }
+        .o_main_table tbody {
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+        .is-subtotal td {
+           border-top: 1px solid black !important;
+        }
+
+
       </style>
     </xpath>
-    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
+    <xpath expr="//span[@t-out='current_subtotal']/../.." position="attributes">
         <attribute name="class" separator=" " add="border-solid-black"/>
     </xpath>
 </data>
