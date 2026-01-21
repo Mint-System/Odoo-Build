@@ -188,3 +188,7 @@
 	path = oca/calendar
 	url = git@github.com:OCA/calendar.git
 	branch = 18.0
+[submodule "oca/account-closing"]
+	path = oca/account-closing
+	url = git@github.com:OCA/account-closing.git
+	branch = 18.0
