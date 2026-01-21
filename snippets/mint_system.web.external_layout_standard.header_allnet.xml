@@ -1,10 +1,21 @@
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div/div/img/../.." position="replace">
-        <div t-attf-class="header o_company_#{company.id}_layout">
-            <div class="row">
-                <img t-if="company.logo" style="max-width: 1200px; margin-top: 10px;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
-                <div t-if="company.report_header" t-field="company.report_header" class="o_company_tagline mw-50 fw-bold">Company tagline</div>
+        
+        <t t-if="report_type == 'pdf'">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                <table style="width: 100%; border: transparent; color: rgb(26, 43, 71); font-size: 13px">
+                    <tr>
+                        <td style="width: 20%; vertical-align: bottom; text-align: left; padding-bottom: 10px;" rowspan="4">
+                            <img t-if="company.logo" style="max-width: 180px; margin-top: 0px;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                        </td>
+                        <td style="width: 38%;"/>
+                        <td style="width: 42%; vertical-align: middle; text-align: left; padding-bottom: 10px;" rowspan="4">
+                            <img t-att-src="'/web/image/107864'" style="height: 45px;" alt="Logo"/>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
+        </t>
+      
     </xpath>
 </data>

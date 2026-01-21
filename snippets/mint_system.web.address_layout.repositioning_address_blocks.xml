@@ -1,17 +1,26 @@
 <data inherit_id="web.address_layout" priority="50">
-    <xpath expr="//t[@t-if='address']" position="replace">
-        <t t-if="address">
-            <div class="address row">
-                <t t-if="address">
-                    <t t-set="colclass" t-value="'col-5 offset-1'"/>
-                    <div name="address" class="col-6">
-                        <t t-raw="address"/>
+    <xpath expr="//div" position="replace">
+        <div t-if="address" class="address row mb-4" title="This block is not always present depending on the printed document.">            
+            <!-- ADRESSE LINKS -->
+            <div name="address" class="col-6">
+                <t t-esc="address or None">
+                    <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                        <strong>Address block</strong>
+                        <div>Usually contains the address of the document's recipient.</div>
                     </div>
                 </t>
-                <div name="information_block" t-att-class="colclass">
-                    <t t-raw="information_block"/>
-                </div>
             </div>
-        </t>
+            <!-- INFORMATIONEN RECHTS -->
+            <t t-if="information_block">
+                <div name="information_block" class="col-5 offset-1">
+                    <t t-out="information_block or None">
+                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                            <strong>Information block</strong>
+                            <div>Usually contains a source address or a complementary address.</div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
     </xpath>
 </data>

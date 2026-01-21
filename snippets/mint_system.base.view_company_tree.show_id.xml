@@ -1,0 +1,5 @@
+<data inherit_id="base.view_company_tree" priority="50">
+    <field name="sequence" position="before">
+        <field name="id"/>
+    </field>
+</data>
