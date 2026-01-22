@@ -30,7 +30,7 @@ The Odoo development environment has the following requirements:
 
 **Command Completion (Optional)**
 
-bash/zsh alias `task='./task'` with [completion](https://taskfile.build/#completion).
+bash/zsh `alias task='./task'` with [completion](https://taskfile.build/#completion).
 
 ## Usage
 
@@ -44,6 +44,8 @@ cd Odoo-Build
 ```
 
 Checkout the Odoo version. Show supported versions with `task list-versions`.
+
+NOTE: checkout downloads >1 GB when a version is downloaded for the first time. This may take some time depending on bandwidth.
 
 ```bash
 task checkout "$VERSION"
