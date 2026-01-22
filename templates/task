@@ -45,7 +45,7 @@ fi
 
 install() {
     echo 'Setup .venv and install python dependencies'
-    uv venv
+    uv venv --clear
     source .venv/bin/activate
     uv pip install pre-commit git+https://github.com/OCA/maintainer-tools
 }
