@@ -17,6 +17,21 @@ Edit: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](
 
 Source: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://odoo.build/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)
 
+### Korporation Url
+
+ID: `mint_system.website.option_header_brand_logo.korporation_url`
+
+```xml
+<data inherit_id="website.option_header_brand_logo" priority="50">
+    <xpath expr="//a" position="attributes">
+        <attribute name="href">https://www.korporation.ch/</attribute>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.website.option_header_brand_logo.korporation_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.korporation_url.xml)
+
+Source: [snippets/mint_system.website.option_header_brand_logo.korporation_url.xml](https://odoo.build/snippets/mint_system.website.option_header_brand_logo.korporation_url.xml)
+
 ## Website Search Box Input
 
 ### Hide Search Form

@@ -56,27 +56,50 @@ ID: `mint_system.web.address_layout.repositioning_address_blocks`
 
 ```xml
 <data inherit_id="web.address_layout" priority="50">
-    <xpath expr="//t[@t-if='address']" position="replace">
-        <t t-if="address">
-            <div class="address row">
-                <t t-if="address">
-                    <t t-set="colclass" t-value="'col-5 offset-1'"/>
-                    <div name="address" class="col-6">
-                        <t t-raw="address"/>
+    <xpath expr="//div" position="replace">
+        <div t-if="address" class="address row mb-4" title="This block is not always present depending on the printed document.">            
+            <!-- ADRESSE LINKS -->
+            <div name="address" class="col-6">
+                <t t-esc="address or None">
+                    <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                        <strong>Address block</strong>
+                        <div>Usually contains the address of the document's recipient.</div>
                     </div>
                 </t>
-                <div name="information_block" t-att-class="colclass">
-                    <t t-raw="information_block"/>
-                </div>
             </div>
-        </t>
+            <!-- INFORMATIONEN RECHTS -->
+            <t t-if="information_block">
+                <div name="information_block" class="col-5 offset-1">
+                    <t t-out="information_block or None">
+                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 opacity-75 text-muted text-center">
+                            <strong>Information block</strong>
+                            <div>Usually contains a source address or a complementary address.</div>
+                        </div>
+                    </t>
+                </div>
+            </t>
+        </div>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.address_layout.repositioning_address_blocks.xml)
 
 Source: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xml](https://odoo.build/snippets/mint_system.web.address_layout.repositioning_address_blocks.xml)
+
+### Style Allnet
+
+ID: `mint_system.web.address_layout.style_allnet`
+
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="60">   
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt;</attribute>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.web.address_layout.style_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.address_layout.style_allnet.xml)
+
+Source: [snippets/mint_system.web.address_layout.style_allnet.xml](https://odoo.build/snippets/mint_system.web.address_layout.style_allnet.xml)
 
 ## Assets Common
 
@@ -670,12 +693,23 @@ ID: `mint_system.web.external_layout_standard.header_allnet`
 ```xml
 <data inherit_id="web.external_layout_standard" priority="50">
     <xpath expr="//div/div/img/../.." position="replace">
-        <div t-attf-class="header o_company_#{company.id}_layout">
-            <div class="row">
-                <img t-if="company.logo" style="max-width: 1200px; margin-top: 10px;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
-                <div t-if="company.report_header" t-field="company.report_header" class="o_company_tagline mw-50 fw-bold">Company tagline</div>
+        
+        <t t-if="report_type == 'pdf'">
+            <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
+                <table style="width: 100%; border: transparent; color: rgb(26, 43, 71); font-size: 13px">
+                    <tr>
+                        <td style="width: 20%; vertical-align: bottom; text-align: left; padding-bottom: 10px;" rowspan="4">
+                            <img t-if="company.logo" style="max-width: 180px; margin-top: 0px;" t-att-src="image_data_uri(company.logo)" alt="Logo"/>
+                        </td>
+                        <td style="width: 38%;"/>
+                        <td style="width: 42%; vertical-align: middle; text-align: left; padding-bottom: 10px;" rowspan="4">
+                            <img t-att-src="'/web/image/107864'" style="height: 45px;" alt="Logo"/>
+                        </td>
+                    </tr>
+                </table>
             </div>
-        </div>
+        </t>
+      
     </xpath>
 </data>
 ```
@@ -1264,6 +1298,31 @@ ID: `mint_system.web.external_layout_standard.style_airwork`
 Edit: [snippets/mint_system.web.external_layout_standard.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.style_airwork.xml)
 
 Source: [snippets/mint_system.web.external_layout_standard.style_airwork.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.style_airwork.xml)
+
+### Style Allnet
+
+ID: `mint_system.web.external_layout_standard.style_allnet`
+
+```xml
+<data inherit_id="web.external_layout_standard" priority="60">
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">font-size:18pt;</attribute>
+    </xpath>
+
+    <xpath expr="//h2" position="attributes">
+        <attribute name="style">font-size:18pt;</attribute>
+    </xpath>
+
+    <xpath expr="//div[3]" position="attributes">
+        <attribute name="class">o_footer_content d-flex pt-2</attribute>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.web.external_layout_standard.style_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.style_allnet.xml)
+
+Source: [snippets/mint_system.web.external_layout_standard.style_allnet.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.style_allnet.xml)
 
 ### Style Header
 

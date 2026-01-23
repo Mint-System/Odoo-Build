@@ -4255,6 +4255,89 @@ Edit: [snippets/mint_system.sale.report_saleorder_document.style_airwork.xml](ht
 
 Source: [snippets/mint_system.sale.report_saleorder_document.style_airwork.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.style_airwork.xml)
 
+### Style Allnet
+
+ID: `mint_system.sale.report_saleorder_document.style_allnet`
+
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="60">
+
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            
+        .o_table_standard th {
+            border-bottom: 1px solid rgba(51, 51, 147, 0.05);
+            }  
+            
+        h2 {
+           font-size:23px; 
+           margin-bottom: 30px;
+            }  
+            
+       h4 {
+           font-size:16px; 
+           font-weight: bold;
+            }   
+        
+        p {
+           font-size: 75%;
+            }
+
+        .table th {
+            border-top: 1px solid #dee2e6;
+            color: #29438e;
+            font-weight: bold;
+            padding: 2px;
+            font-size: 13px;
+            }    
+
+        .table td {
+            border-top: 1px solid rgba(51, 51, 147, 0.05);
+            padding: 2px;
+            font-size: 75%;
+            }         
+       
+        </style>
+    </xpath>
+
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt;</attribute>
+    </xpath>
+
+    <xpath expr="//div[@t-field='doc.partner_shipping_id']" position="attributes">
+        <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+    </xpath>
+
+    <xpath expr="//td[@name='td_section_subtotal']" position="attributes">
+        <attribute name="style">padding: 2px</attribute>
+    </xpath>
+
+    <xpath expr="//td[@name='td_section_line']" position="attributes">
+        <attribute name="style">padding: 3px; font-size:16px; background-color:rgba(51, 51, 147, 0.05)</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_discount']" position="attributes">
+        <attribute name="style">width: 60px</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='table_optional_products']" position="attributes">
+        <attribute name="style">border: 1px solid white</attribute>
+    </xpath>
+
+    <xpath expr="//thead/tr/td[@name='th_option_name']" position="attributes">
+        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+    </xpath>
+
+    <xpath expr="//thead/tr/td[@name='th_option_price_unit']" position="attributes">
+        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.sale.report_saleorder_document.style_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.style_allnet.xml)
+
+Source: [snippets/mint_system.sale.report_saleorder_document.style_allnet.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.style_allnet.xml)
+
 ### Style Carbo Link
 
 ID: `mint_system.sale.report_saleorder_document.style_carbo_link`
@@ -4342,32 +4425,6 @@ ID: `mint_system.sale.report_saleorder_document.style_hygentile`
 Edit: [snippets/mint_system.sale.report_saleorder_document.style_hygentile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.style_hygentile.xml)
 
 Source: [snippets/mint_system.sale.report_saleorder_document.style_hygentile.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.style_hygentile.xml)
-
-### Style Lapp Copy
-
-ID: `mint_system.sale.report_saleorder_document.style_lapp copy`
-
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="60">
-    <xpath expr="//h2" position="attributes">
-        <attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute>
-    </xpath>
-    <xpath expr="//table[1]" position="attributes">
-        <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
-        <attribute name="style">border-top-width: 1px</attribute>
-    </xpath>
-    <xpath expr="//div[@name='total']" position="attributes">
-        <attribute name="style">width: 280px; float: right</attribute>
-    </xpath>
-    <xpath expr="//div[@name='total']/div" position="attributes">
-        <attribute name="t-attf-class"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.sale.report_saleorder_document.style_lapp copy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.style_lapp copy.xml)
-
-Source: [snippets/mint_system.sale.report_saleorder_document.style_lapp copy.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.style_lapp copy.xml)
 
 ### Style Lapp
 

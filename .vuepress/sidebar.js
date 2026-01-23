@@ -37,6 +37,7 @@ export default [
 '/snippets/hr_holidays_delegations.md',
 '/snippets/hr_payroll.md',
 '/snippets/hr_recruitment.md',
+'/snippets/hr_skills.md',
 '/snippets/hr_timesheet.md',
 '/snippets/industry_fsm.md',
 '/snippets/industry_fsm_sale.md',

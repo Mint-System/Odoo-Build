@@ -34,6 +34,36 @@ Edit: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](htt
 
 Source: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_shipping_use_same.xml)
 
+### Hide State
+
+ID: `mint_system.website_sale.address.hide_state`
+
+```xml
+<data inherit_id="website_sale.address" priority="50">
+    <xpath expr="//div[@id='div_state']" position="replace">    
+    </xpath>    
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.hide_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_state.xml)
+
+Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_state.xml)
+
+### Hide Street2
+
+ID: `mint_system.website_sale.address.hide_street2`
+
+```xml
+<data inherit_id="website_sale.address" priority="50">
+    <xpath expr="//div[@id='div_street2']" position="replace">    
+    </xpath>    
+</data>
+
+```
+Edit: [snippets/mint_system.website_sale.address.hide_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street2.xml)
+
+Source: [snippets/mint_system.website_sale.address.hide_street2.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_street2.xml)
+
 ### Overwrite Required
 
 ID: `mint_system.website_sale.address.overwrite_required`

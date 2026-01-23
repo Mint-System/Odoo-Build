@@ -1231,6 +1231,13 @@ ID: `mint_system.account.report_invoice_document.format_discount`
     <span t-field="line.discount" position="replace">
         <span class="text-nowrap" t-esc="'{0:.2f}'.format(line.discount)"/>
     </span>
+
+     <xpath expr="//th[@name='th_discount']"
+           position="attributes">
+        <attribute name="t-attf-class">
+            text-end text-nowrap {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}
+        </attribute>
+    </xpath>
 </data>
 
 ```
@@ -1322,18 +1329,36 @@ ID: `mint_system.account.report_invoice_document.format_table_border`
 
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
+    <!-- <xpath expr="//table[@name='invoice_line_table']"
+           position="attributes">
+        <attribute name="class">
+            table table-sm o_main_table table-borderless
+        </attribute>
+    </xpath> -->
     <xpath expr="//table[@name='invoice_line_table']" position="before">
         <style>
-        .border-solid-black td {
-          border-top: 1px solid black !important;
+        .o_main_table td {
+          border-top: 1px solid #dee2e6 !important;
           border-bottom: none !important;
         }
-        thead th {
+        .o_main_table th {
+          border-top: 1px solid black !important;
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+        o_main_table thead th {
           color: #5c516e;
         }
+        .o_main_table tbody {
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+        .is-subtotal td {
+           border-top: 1px solid black !important;
+        }
+
+
       </style>
     </xpath>
-    <xpath expr="//span[@t-esc='current_subtotal']/../.." position="attributes">
+    <xpath expr="//span[@t-out='current_subtotal']/../.." position="attributes">
         <attribute name="class" separator=" " add="border-solid-black"/>
     </xpath>
 </data>
@@ -2902,7 +2927,7 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
                     <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
                     <td t-if="order_id" colspan="2">
                         <strong class="mr-2">&#xA0;Unsere Referenz:</strong>
-                        <span t-if="order_id.project_id.code" t-esc="'[' + order_id.project_id.code + '] ' + order_id.name"/>
+                        <span t-if="order_id.project_id.key" t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"/>
                         <span t-else="" t-field="order_id.name"/>
                     </td>
                 </tr>
@@ -4887,6 +4912,22 @@ Edit: [snippets/mint_system.account.view_account_journal_form.show_payment_metho
 Source: [snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml](https://odoo.build/snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml)
 
 ## View Account List
+
+### Show Active
+
+ID: `mint_system.account.view_account_list.show_active`
+
+```xml
+<data inherit_id="account.view_account_list" priority="50">
+    <xpath expr="//field[@name='reconcile']" position="after">
+        <field name="active" widget="boolean_toggle"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account.view_account_list.show_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_list.show_active.xml)
+
+Source: [snippets/mint_system.account.view_account_list.show_active.xml](https://odoo.build/snippets/mint_system.account.view_account_list.show_active.xml)
 
 ### Show Deprecated
 

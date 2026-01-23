@@ -407,6 +407,24 @@ Edit: [snippets/mint_system.base.view_company_form.show_font.xml](https://github
 
 Source: [snippets/mint_system.base.view_company_form.show_font.xml](https://odoo.build/snippets/mint_system.base.view_company_form.show_font.xml)
 
+## View Company Tree
+
+### Show Id
+
+ID: `mint_system.base.view_company_tree.show_id`
+
+```xml
+<data inherit_id="base.view_company_tree" priority="50">
+    <field name="sequence" position="before">
+        <field name="id"/>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.base.view_company_tree.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_company_tree.show_id.xml)
+
+Source: [snippets/mint_system.base.view_company_tree.show_id.xml](https://odoo.build/snippets/mint_system.base.view_company_tree.show_id.xml)
+
 ## View Country Tree
 
 ### Set Limit

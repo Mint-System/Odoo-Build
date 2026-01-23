@@ -517,6 +517,22 @@ Source: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](htt
 
 ## Timesheet View Tree User
 
+### Editable Top
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.editable_top`
+
+```xml
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+    <tree position="attributes">
+        <attribute name="editable">top</attribute>
+    </tree>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml)
+
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top.xml)
+
 ### Show Billable Type
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
