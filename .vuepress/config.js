@@ -35,7 +35,7 @@ export default defineUserConfig({
         navbar: [
             { text: 'Home', link: '/' },
             { text: 'Upgrade', link: '/upgrade' },
-            { text: 'Images', link: '/images' },
+            { text: 'Images', link: '/images/' },
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
