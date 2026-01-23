@@ -2511,6 +2511,18 @@ upgrade-odoo() {
         $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
+    if [[ "$2" =~ "env" ]]; then
+        log-warning "Run step 'env' on $TARGET_SERVER."
+        containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
+        $ssh_target_server docker exec "$containe_id" env
+    fi
+
+    if [[ "$2" =~ "conf" ]]; then
+        log-warning "Run step 'conf' on $TARGET_SERVER."
+        containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
+        $ssh_target_server docker exec "$containe_id" cat /etc/odoo/odoo.conf
+    fi
+
     if [[ "$2" =~ "rename-production" ]]; then
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
 

@@ -225,6 +225,22 @@ Start psql shell in target Postgres container.
 task upgrade-odoo acme psql
 ```
 
+**env**
+
+Show env vars of the target Odoo container.
+
+```bash
+task upgrade-odoo acme env
+```
+
+**conf**
+
+Show odoo.conf of the target Odoo container.
+
+```bash
+task upgrade-odoo acme conf
+```
+
 ### Configure
 
 With every Odoo release Odoo introduces new features and enhancements, but also deprecates features and ways of doing. If you have a heavily customized Odoo database and many features enabled, more things are bound to break in the upgrade process.
