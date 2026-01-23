@@ -194,7 +194,6 @@ help-table() {
     printf "$column" 'record-with-py-spy' '[pid]' 'Record and create flamechart for a process.'
     print_group_header 'Docs'
     printf "$column" 'update-docs' '' 'Update all project docs.'
-    printf "$column" 'update-help-doc' '' 'Write help table to task.md file.'
     printf "$column" 'update-modules-doc' '' 'Update modules docs file.'
     printf "$column" 'update-revisions-doc' '' 'Update revisions doc file.'
     printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
@@ -491,11 +490,6 @@ lint() {
     pre-commit run
 }
 
-update-help-doc() {
-    echo 'Pipe help table into task.md.'
-    help-table > task.md
-}
-
 update-snippets-doc() {
     ./bin/update-snippets-doc
 }
@@ -541,7 +535,6 @@ update-docs() {
     update-modules-doc
     update-revisions-doc
     update-snippets-doc
-    update-help-doc
 }
 
 update-module-license() {

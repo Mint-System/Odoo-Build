@@ -34,8 +34,8 @@ export default defineUserConfig({
         editLink: true,
         navbar: [
             { text: 'Home', link: '/' },
-            { text: 'Help', link: '/task' },
-            { text: 'Images', link: '/images/' },
+            { text: 'Upgrade', link: '/upgrade' },
+            { text: 'Images', link: '/images' },
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
@@ -54,8 +54,8 @@ export default defineUserConfig({
                             link: '/',
                         },
                         {
-                            text: 'Help',
-                            link: '/task',
+                            text: 'Upgrade',
+                            link: '/upgrade',
                         },
                         {
                             text: 'Images',
