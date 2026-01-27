@@ -30,18 +30,18 @@ help-table() {
     printf "$column" 'Command' 'Option' 'Description'
     print_separator
     print_group_header 'Env'
-    printf "$column" 'backup-env-files' '[path]' 'Archive and copy env files to target location.'
-    printf "$column" 'copy-env' '[env][env]' 'Copy env file.'
-    printf "$column" 'create-env' '[env][type]' 'Create env file of type nextcloud, odoo, upgrade.'
-    printf "$column" 'edit-env' '[env]' 'Open env file in default editor.'
-    printf "$column" 'list-env' '' 'List env files.'
+    printf "$column" 'backup-env-files' '[path]' 'Archive and copy ,env files to target location.'
+    printf "$column" 'copy-dotenv' '[env][env]' 'Copy .env file.'
+    printf "$column" 'create-dotenv' '[env][type]' 'Create .env file of type nextcloud, odoo, upgrade.'
+    printf "$column" 'edit-dotenv' '[env]' 'Open .env file in default editor.'
+    printf "$column" 'list-dotenv' '' 'List .env files.'
     printf "$column" 'load-dotenv' '' 'Restore content of .env from pass entry.'
-    printf "$column" 'load-env' '[env]' 'Load and export env file.'
-    printf "$column" 'remove-env' '[env]' 'Remove environment config.'
-    printf "$column" 'rename-env' '[env][env]' 'Rename env file.'
-    printf "$column" 'restore-env-files' '[path]' 'Extract and copy env files from backup file.'
+    printf "$column" 'load-dotenv' '[env]' 'Load and export .env file.'
+    printf "$column" 'remove-dotenv' '[env]' 'Remove environment config.'
+    printf "$column" 'rename-dotenv' '[env][env]' 'Rename .env file.'
+    printf "$column" 'restore-dotenv-files' '[path]' 'Extract and copy .env files from backup file.'
     printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
-    printf "$column" 'show-env' '[env]' 'Output content of the env file.'
+    printf "$column" 'show-dotenv' '[env]' 'Output content of the .env file.'
     print_group_header 'Git'
     printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the provide repos.yaml.'
     printf "$column" 'add-git-submodule' '[url] [path]' 'Add git submodule.'
@@ -234,7 +234,7 @@ WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
 NGINX_PORT=${NGINX_PORT:=8080}
-WORKERS=${WORKERS:=1}
+WORKERS=${WORKERS:=0}
 POSTGRES_IMAGE=${POSTGRES_IMAGE:=postgres:16-alpine}
 POSTGRES_PORT=${POSTGRES_PORT:=5432}
 POSTGRES_SSL=${POSTGRES_SSL:=on}
@@ -1003,7 +1003,7 @@ upload-module() {
             local version=$(get-module-version "$module")
             local module_name=$(basename "$module")
             local file_path="tmp/$module_name-$version.zip"
-            load-env "$1"
+            load-dotenv "$1"
             local nextcloud_upload_url="$NEXTCLOUD_URL/remote.php/dav/files/$NEXTCLOUD_USERNAME/Odoo-Apps/"
 
             # Upload zip file
@@ -1141,6 +1141,9 @@ start() {
         ODOO_COMMAND="odoo-nginx --dev=all"
     fi
     export ODOO_COMMAND
+    if [[ "$1" =~ "odoo" && -a ".env.odoo" ]]; then
+        source .env.odoo
+    fi
 
     template-compose
 
@@ -1432,7 +1435,7 @@ test-project() {
         remove odoo
         git -C oca/partner-contact clean -df
         git -C oca/partner-contact checkout .
-        remove-env test
+        remove-dotenv test
     else
         version
         info
@@ -1508,10 +1511,10 @@ EOF
         export ODOO_URL="http://localhost:8069"
         export ODOO_USERNAME=test
         export ODOO_PASSWORD=test
-        if ! show-env test; then
-            create-env test odoo
+        if ! show-dotenv test; then
+            create-dotenv test odoo
         fi
-        show-env test
+        show-dotenv test
         test-xmlrpc test
 
         echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet."
@@ -1718,7 +1721,7 @@ disable-mailserver() {
         exit
     fi
 
-    load-env "$1"
+    load-dotenv "$1"
     images/odoocli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
     images/odoocli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
 }
@@ -1729,7 +1732,7 @@ change-uuid() {
         exit
     fi
 
-    load-env "$1"
+    load-dotenv "$1"
     local uuid=$(uuidgen)
     echo "Set uuid $uuid for $1."
     images/odoocli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$uuid'"
@@ -2364,7 +2367,7 @@ upgrade-odoo() {
         echo '$2 is empty.'
         exit
     fi
-    load-env "$1"
+    load-dotenv "$1"
     temp_folder="/var/tmp"
     
     # Setup ssh aliases
@@ -2594,7 +2597,7 @@ install-snippet() {
     # Set default values
     : ${type:='qweb'}
 
-    load-env "$1"
+    load-dotenv "$1"
     echo "Search for view with name $module_name.$xml_id"
     inherit_id=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$xml_id'), ('module', '=', '$module_name')]")
     echo "Found view id $inherit_id"
@@ -2625,7 +2628,7 @@ update-snippet() {
     local file=$(basename "$2")
     local name="${file%.xml}"
 
-    load-env "$1"
+    load-dotenv "$1"
     echo "Update view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --include-archived --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
     enable-snippet "$1" "$2"
@@ -2650,7 +2653,7 @@ disable-snippet() {
         name="${file%.xml}"
     fi
 
-    load-env "$1"
+    load-dotenv "$1"
     echo "Disable view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
 }
@@ -2672,7 +2675,7 @@ enable-snippet() {
         name="${file%.xml}"
     fi
 
-    load-env "$1"
+    load-dotenv "$1"
     echo "Enable view with name $name"
     images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --include-archived --domain "[('name', '=', '$name')]" --field "active" --value "True"
 }
@@ -2694,7 +2697,7 @@ remove-snippet() {
         name="${file%.xml}"
     fi
 
-    load-env "$1"
+    load-dotenv "$1"
     echo "Remove view with name $name"
     images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$name')]"
 }
@@ -3148,7 +3151,7 @@ commit-and-push-revision() {
 # RPC commands
 
 test-xmlrpc() {
-    load-env "$1"
+    load-dotenv "$1"
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
 }
 
@@ -3163,7 +3166,7 @@ manifestoo(){
 
 export-website-data() {
     if [[ -n "$1" ]]; then
-        load-env $1
+        load-dotenv $1
     fi
 
     export ODOO_URL
@@ -3181,7 +3184,7 @@ export-website-data() {
 
 import-website-data() {
     if [[ -n "$1" ]]; then
-        load-env $1
+        load-dotenv $1
     fi
 
     export ODOO_URL
