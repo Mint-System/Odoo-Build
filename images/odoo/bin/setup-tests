@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database=${1:-$ODOO_DATABASE}
-odoo_database=${1:-$ODOO_DATABASE}
+odoo_database="$ODOO_DATABASE"
 
 log-entrypoint 'Install python packages required for testing.'
 uv pip install --no-cache-dir coverage websocket-client

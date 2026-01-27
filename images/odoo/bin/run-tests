@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database=${1:-$ODOO_DATABASE}
-odoo_database=${1:-$ODOO_DATABASE}
+odoo_database="$ODOO_DATABASE"
 
 if [[ -n "$TEST_INCLUDE" ]]; then
     test_modules=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)

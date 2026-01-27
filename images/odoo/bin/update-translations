@@ -1,23 +1,23 @@
 #!/usr/bin/env bash
 set -e
 
-source set-addons-path
-
 if [[ -n "$ODOO_DATABASE" ]]; then
-    odoo_database=${1:-$ODOO_DATABASE}
-odoo_database=${1:-$ODOO_DATABASE}
+    odoo_database="$ODOO_DATABASE"
 else
     IFS=$'\n' read -rd '' -a odoo_databases <<< "$(list-databases)"
 fi
-    for odoo_database in "${odoo_databases[@]}"; do
+
+for odoo_database in "${odoo_databases[@]}"; do
     if check-database-initialized "$odoo_database"; then
         log-entrypoint 'Updating translations for all active languages and installed modules.'
-        (exec odoo shell --database "$odoo_database" --config "$ODOO_RC" << EOF
+        (exec odoo shell "${DB_ARGS[@]}" --database "$odoo_database" --config "$ODOO_RC" --stop-after-init --no-http << EOF
 for lang in env['res.lang'].search([]):
 env['ir.module.module'].search([('state', '=', 'installed')])._update_translations(lang.code, overwrite=True)
 env.cr.commit()
 print('Translations updated successfully')
 EOF
     ) || true
-fi
+    else
+        log-entrypoint "Database $odoo_database is not initialized, skipping module translation update."
+    fi
 done
