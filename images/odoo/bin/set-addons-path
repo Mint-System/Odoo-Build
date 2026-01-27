@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -e
 
-log-entrypoint "Assemble addons path from ${ODOO_ADDONS_PATH}..."
+log-entrypoint "Assemble addons path ${ODOO_ADDONS_PATH}..."
 
 # Add extra addons path to addons path
 if [[ -d '/mnt/extra-addons' ]]; then
