@@ -439,3 +439,25 @@ partner_firstname (19.0.1.0.0)
     └── web (19.0+c)
 
 ```
+
+### Troubleshooting
+
+Known issue with:
+
+```bash
+task start db
+```
+
+If you get an error containing:
+
+```bash
+Permission denied while trying to connect to the Docker daemon socket
+```
+
+This can be solved by adding your user to the 'docker group' with:
+
+```bash
+sudo usermod -aG docker $USER
+```
+
+Logout and login for this to have an effect.
