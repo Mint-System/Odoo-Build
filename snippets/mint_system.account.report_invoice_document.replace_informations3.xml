@@ -50,9 +50,7 @@
                     <td
                         t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
                     >
-                        <strong
-                            class="mr-2"
-                        >&#xA0;F&#xE4;lligkeitsdatum:</strong>
+                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
                         <span
                             class="ms-2"
                             t-field="o.invoice_date_due"
@@ -77,7 +75,7 @@
                         t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
                     />
                     <td t-if="order_id" colspan="2">
-                        <strong class="mr-2">&#xA0;Unsere Referenz:</strong>
+                        <strong class="mr-2">Unsere Referenz:</strong>
                         <span
                             class="ms-2"
                             t-if="order_id.project_id.key"
