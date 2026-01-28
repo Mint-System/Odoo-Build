@@ -27,6 +27,7 @@ The Odoo development environment has the following requirements:
 
 - [Docker](https://docs.docker.com/engine/install/) or [podman](https://podman.io/docs/installation)
 - [uv](https://docs.astral.sh/uv/)
+- [curl](https://curl.se/docs/)
 
 **Command Completion (Optional)**
 
