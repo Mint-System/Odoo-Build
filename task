@@ -364,7 +364,7 @@ init-venv() {
 
 activate-venv() {
     if [[ -f  ".venv$ODOO_VERSION/bin/activate" ]]; then
-        echo ".venv$ODOO_VERSION/bin/activate"
+        source ".venv$ODOO_VERSION/bin/activate"
     else
         echo "Could not find .venv$ODOO_VERSION/bin/active. Use init-venv to initalize."
     fi
@@ -2448,85 +2448,85 @@ upgrade-odoo() {
         fi
     fi
 
-    if [[ "$2" =~ "drop" ]]; then
+    if [[ "$2" = "drop" ]]; then
         log-warning "Run step 'drop' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
-    if [[ "$2" =~ "test" ]]; then
+    if [[ "$2" = "upgrade-test" ]]; then
         log-warning "Run step 'test' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
     fi
 
-    if [[ "$2" =~ "clear-assets" ]]; then
+    if [[ "$2" = "clear-assets" ]]; then
         log-warning "Run step 'update' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
-    if [[ "$2" =~ "init" ]]; then
+    if [[ "$2" = "init" ]]; then
         log-warning "Run step 'init' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
     fi
 
-    if [[ "$2" =~ "uninstall" ]]; then
+    if [[ "$2" = "uninstall" ]]; then
         log-warning "Run step 'uninstall' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
     fi
 
-    if [[ "$2" =~ "auto-update" ]]; then
+    if [[ "$2" = "auto-update" ]]; then
         log-warning "Run step 'auto-update' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "env['ir.module.module'].upgrade_changed_checksum()"
     fi
 
-    if [[ "$2" =~ "update" ]]; then
+    if [[ "$2" = "update" ]]; then
         log-warning "Run step 'update' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
     fi
 
-    if [[ "$2" =~ "configure-test" ]]; then
+    if [[ "$2" = "configure-test" ]]; then
         log-warning "Run step 'configure' on $TARGET_SERVER."
         $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
     fi
 
-    if [[ "$2" =~ "configure-production" ]]; then
+    if [[ "$2" = "configure-production" ]]; then
         log-warning "Run step 'configure' on $TARGET_SERVER."
         $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
     fi
 
-    if [[ "$2" =~ "restart" ]]; then
+    if [[ "$2" = "restart" ]]; then
         log-warning "Run step 'restart' on $TARGET_SERVER."
         $ssh_target_server docker restart "$TARGET_ODOO_CONTAINER" "$TARGET_POSTGRES_CONTAINER"
     fi
 
-    if [[ "$2" =~ "logs" ]]; then
+    if [[ "$2" = "logs" ]]; then
         log-warning "Run step 'logs' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker logs -f "$containe_id" --tail 10
     fi
 
-    if [[ "$2" =~ "shell" ]]; then
+    if [[ "$2" = "shell" ]]; then
         log-warning "Run step 'shell' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
-    if [[ "$2" =~ "psql" ]]; then
+    if [[ "$2" = "psql" ]]; then
         log-warning "Run step 'psql' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
-    if [[ "$2" =~ "env" ]]; then
+    if [[ "$2" = "env" ]]; then
         log-warning "Run step 'env' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker exec "$containe_id" env
     fi
 
-    if [[ "$2" =~ "conf" ]]; then
+    if [[ "$2" = "conf" ]]; then
         log-warning "Run step 'conf' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker exec "$containe_id" cat /etc/odoo/odoo.conf
     fi
 
-    if [[ "$2" =~ "rename-production" ]]; then
+    if [[ "$2" = "rename-production" ]]; then
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
 
         # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
