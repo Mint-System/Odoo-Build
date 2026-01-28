@@ -219,7 +219,7 @@ help() {
 
 # Static env vars
 
-PASS_ENTRY=$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')
+PASS_ENTRY="$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')"
 ODOO_RC="odoo.conf"
 TASK_DOTENV_DIR="$PWD/vault"
 export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
@@ -364,7 +364,7 @@ init-venv() {
 
 activate-venv() {
     if [[ -f  ".venv$ODOO_VERSION/bin/activate" ]]; then
-        source ".venv$ODOO_VERSION/bin/activate"
+        echo ".venv$ODOO_VERSION/bin/activate"
     else
         echo "Could not find .venv$ODOO_VERSION/bin/active. Use init-venv to initalize."
     fi
@@ -3229,14 +3229,25 @@ serve-vuepress() {
     pnpx serve
 }
 
-if declare -f "$1" > /dev/null; then
+if [[ "$1" == *","* ]]; then
+    # Split comma-separated commands
+    IFS=',' read -ra COMMANDS <<< "$1"
+    for cmd in "${COMMANDS[@]}"; do
+        # Trim whitespace
+        cmd=$(echo "$cmd" | xargs)
+        if declare -f "$cmd" > /dev/null; then
+            "$cmd"
+        else
+            echo "Unknown command: $cmd"
+            help
+            exit 1
+        fi
+    done
+elif declare -f "$1" > /dev/null; then
     activate-venv
     "$1" "${@:2}"
 else
     case "$1" in
-        source)
-            activate-venv
-            ;;
         *)
             echo "Unknown command: $1"
             help
