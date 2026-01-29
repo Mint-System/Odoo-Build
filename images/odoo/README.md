@@ -264,7 +264,9 @@ There is also the option to update all modules:
 docker compose exec odoo update-modules
 ```
 
-The container use [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update Odoo modules. For each installed module a checksum is computed and stored in the database. Whenever an update of module is triggered, the checksum is computed and compared. Only modules with a different checksum are updated.
+All of these commands use the `DB_NAME` as target database.
+
+The `update-modules` command uses[click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update all Odoo modules. On the first run each installed module is updated and a checksum is computed and stored in the database. On subsequent executions the update is only performed for modules with a different checksum.
 
 ### Analyze
 
