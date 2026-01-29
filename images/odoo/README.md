@@ -132,7 +132,6 @@ services:
         git@github.com:OCA/server-tools#18.0
       ODOO_ADDONS_PATH: /mnt/addons/,/mnt/enterprise/,/mnt/oca/,/mnt/themes/
       ODOO_ENTERPRISE_PATH: /mnt/enterprise
-      ODOO_DATABASE: "18.0"
       ODOO_INIT_LOGIN: odoo
       ODOO_INIT_PASSWORD: *****
       ODOO_INIT_LANG: de_CH
@@ -187,7 +186,7 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U odoo -d $ODOO_DATABASE"]
+      test: ["CMD-SHELL", "pg_isready -U odoo -d $DB_NAME"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -305,7 +304,7 @@ Odoo supports the PostgreSQL database only.
 - `PGUSER` Database username.
 - `PGPASSWORD` Database user password.
 - `PGPORT` Postgres server port. Default is `5432`.
-- `DB_NAME` Fixed database name. Default is ``.
+- `DB_NAME` Fixed database name. Default is `""`.
 - `DB_MAXCONN`: Maximum database connection. default is `64`.
 - `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
 - `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
@@ -345,7 +344,7 @@ Setup mail configuration for the default database.
 - `ODOO_MAIL_USERNAME`: Username of the Odoo mailbox.
 - `ODOO_MAIL_PASSWORD`: Password of the Odoo mailbox.
 
-The configuration will be applied to the `ODOO_DATABASE` database.
+The configuration will be applied to the `DB_NAME` database.
 
 ### Module Repos
 
@@ -391,7 +390,6 @@ The entrypoint script searches for module folders in the addons path and creates
 
 Set these environment variables for the database init:
 
-- `ODOO_DATABASE` Name of the Odoo default database.
 - `ODOO_INIT_LOGIN` Username of the admin user. Default is `admin`.
 - `ODOO_INIT_PASSWORD` Password of the admin user. Default is `admin`.
 - `ODOO_INIT_LANG` Language used for database init. Default is `en_US`.
@@ -448,8 +446,6 @@ Updating translations and the module list can be automated.
 
 - `AUTO_UPDATE_TRANSLATIONS` If enabled, translatiosn will be updated when the container starts. Default is `False`.
 - `AUTO_UPDATE_MODULES_LIST` If enabled, the modules list will be updated when the container starts. Default is `False`.
-
-If `ODOO_DATABASE` is set, only this database will be updated.
 
 ### Testing
 

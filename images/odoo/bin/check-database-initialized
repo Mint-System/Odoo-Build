@@ -1,15 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database="$ODOO_DATABASE"
+# Usage: check-database-initialized [database]
+
+database="$DB_NAME"
+if [[ -n "$1" ]]; then
+    database="$1"
+fi
 
 log-entrypoint "Check if database $odoo_database is initialized..."
-database_initialized=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$odoo_database" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
+database_initialized=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$database" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
 
 if [[ "$database_initialized" = "1" ]]; then
-    log-entrypoint "Database $odoo_database is initialized."
+    log-entrypoint "Database $database is initialized."
     exit 0
 else
-    log-entrypoint "Database $odoo_database is not initialized."
+    log-entrypoint "Database $database is not initialized."
     exit 1
 fi

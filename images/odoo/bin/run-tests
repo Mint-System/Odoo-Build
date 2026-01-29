@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database="$ODOO_DATABASE"
+# Usage: run-tests [database]
+
+database="$DB_NAME"
+if [[ -n "$1" ]]; then
+    database="$1"
+fi
 
 if [[ -n "$TEST_INCLUDE" ]]; then
     test_modules=$(manifestoo --select-include "$TEST_INCLUDE" --select-exclude "$TEST_EXCLUDE" list --separator=,)
@@ -20,7 +25,7 @@ if [[ "$without_demo" = "True" ]]; then
 fi
 unbuffer coverage run --include "$TEST_ADDONS_DIR/*" --branch \
     /opt/odoo-venv/bin/odoo \
-    -d "$odoo_database" \
+    -d "$database" \
     -i "$test_modules" \
     --workers 0 \
     --test-enable \

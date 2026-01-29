@@ -1,11 +1,20 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database="$ODOO_DATABASE"
+if [[ -z "$1" ]]; then
+    echo "Error: <module> is required." >&2
+    echo "Usage: init-module <module> [database]" >&2
+    exit 1
+fi
 
-if check-database-initialized "$odoo_database"; then
+database="$DB_NAME"
+if [[ -n "$2" ]]; then
+    database="$2"
+fi
+
+if check-database-initialized "$database"; then
     odoo_init_lang="${ODOO_INIT_LANG:="en_US"}"
 
-    log-entrypoint "Initialize module $1 on database $odoo_database."
-    (exec odoo "${DB_ARGS[@]}" --database "$odoo_database" --init "$1" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" --without-demo=all) || true
+    log-entrypoint "Initialize module $1 on database $database."
+    (exec odoo "${DB_ARGS[@]}" --database "$database" --init "$1" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" --without-demo=all) || true
 fi

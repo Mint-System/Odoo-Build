@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## Undefined
+## 2026-01-29
 
 ### Added
 
@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file. The format 
 ## Removed
 
 - Removed the `AUTO_UPDATE_MODULES` env var.
+- Removed the `ODOO_DATABASE` env var.
 
 ### Changed
 

@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database="$ODOO_DATABASE"
+# Usage: init-db [database]
 
-log-entrypoint "Starting database initialization for $odoo_database."
+database="$DB_NAME"
+if [[ -n "$1" ]]; then
+    database="$1"
+fi
+
+log-entrypoint "Starting database initialization for $database."
 log-entrypoint "Database connection: $PGUSER@$PGHOST:$PGPORT"
 
 log-entrypoint 'Waiting for database connection...'
@@ -13,19 +18,19 @@ until psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -c '\q' 2>/
 done
 log-entrypoint 'Database connection established.'
 
-log-entrypoint "Check if database $odoo_database exists..."
-database_exists=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$odoo_database'")
+log-entrypoint "Check if database $database exists..."
+database_exists=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$database'")
 
 # If it does not exist, create it
 if [[ "$database_exists" = "0" ]]; then
-    log-entrypoint "Create database $odoo_database..."
-    (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$odoo_database\";") || true
+    log-entrypoint "Create database $database..."
+    (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$database\";") || true
     log-entrypoint 'Database creation completed.'
 else
-    log-entrypoint "Database $odoo_database already exists."
+    log-entrypoint "Database $database already exists."
 fi
 
-if ! check-database-initialized "$odoo_database"; then
+if ! check-database-initialized "$database"; then
     log-entrypoint 'Database not initialized, starting initialization process'
     without_demo=${WITHOUT_DEMO:=True}
     odoo_init_login=${ODOO_INIT_LOGIN:="admin"}
@@ -38,13 +43,13 @@ if ! check-database-initialized "$odoo_database"; then
         odoo_init_param="--without-demo=all"
     fi
 
-    log-entrypoint "Initialize database $odoo_database with modules: $odoo_init_addons."
-    (exec odoo "${DB_ARGS[@]}" --database "$odoo_database" --init "$odoo_init_addons" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" $odoo_init_param) || true
+    log-entrypoint "Initialize database $database with modules: $odoo_init_addons."
+    (exec odoo "${DB_ARGS[@]}" --database "$database" --init "$odoo_init_addons" --config "$ODOO_RC" --stop-after-init --no-http --load-language "$odoo_init_lang" $odoo_init_param) || true
     log-entrypoint 'Odoo initialization command completed.'
 
     if [[ "$odoo_init_login" != "admin" ]] || [[ "$odoo_init_password" != "admin" ]]; then
         log-entrypoint "Updating admin user credentials..."
-        (exec odoo shell --database "$odoo_database" --config "$ODOO_RC" << EOF
+        (exec odoo shell --database "$database" --config "$ODOO_RC" << EOF
 admin_user = env['res.users'].browse(2)
 admin_user.write({
 'login': '$odoo_init_login',
@@ -58,15 +63,15 @@ EOF
 fi
 
 if [[ -n "$ODOO_MAIL_SMTP_HOST" ]] || [[ -n "$ODOO_MAIL_IMAP_HOST" ]]; then
-    if check-database-initialized "$odoo_database"; then
+    if check-database-initialized "$database"; then
         log-entrypoint 'Setting up mail server configuration...'
 
-        log-entrypoint "Setup mail server configuration for database $odoo_database."
-        (odoo shell "${DB_ARGS[@]}" --database "$odoo_database" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
+        log-entrypoint "Setup mail server configuration for database $database."
+        (odoo shell "${DB_ARGS[@]}" --database "$database" --config "$ODOO_RC" --stop-after-init --no-http < /usr/local/bin/setup-mail) || true
         log-entrypoint 'Mail server configuration completed.'
     else
         log-entrypoint 'Database not initialized, cannot setup mail server configuration.'
     fi
 fi
 
-log-entrypoint "Database initialization process completed for $odoo_database."
+log-entrypoint "Database initialization process completed for $database."

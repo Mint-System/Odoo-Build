@@ -1,25 +1,24 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -n "$ODOO_DATABASE" ]]; then
-    odoo_database="$ODOO_DATABASE"
-else
-    IFS=$'\n' read -rd '' -a odoo_databases <<< "$(list-databases)"
+# Usage: update-modules-list [database]
+
+database="$DB_NAME"
+if [[ -n "$1" ]]; then
+    database="$1"
 fi
 
-for odoo_database in "${odoo_databases[@]}"; do
-    if check-database-initialized "$odoo_database"; then
-        log-entrypoint "Update modules list on database $odoo_database."
+if check-database-initialized "$database"; then
+    log-entrypoint "Update modules list on database $database."
 
-        # Execute Odoo shell command to call base.module.update:update_module()
-        (exec odoo shell "${DB_ARGS[@]}" --database "$odoo_database" --config "$ODOO_RC" --stop-after-init --no-http << 'EOF'
+    # Execute Odoo shell command to call base.module.update:update_module()
+    (exec odoo shell "${DB_ARGS[@]}" --database "$database" --config "$ODOO_RC" --stop-after-init --no-http << 'EOF'
 updater = env['base.module.update']
 updater.update_module()
 env.cr.commit()
 print('Module list updated successfully.')
 EOF
 ) || true
-    else
-        log-entrypoint "Database $odoo_database is not initialized, skipping modules list update."
-    fi
-done
+else
+    log-entrypoint "Database $database is not initialized, skipping modules list update."
+fi

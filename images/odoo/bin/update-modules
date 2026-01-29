@@ -1,11 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
-odoo_database="$ODOO_DATABASE"
+# Usage: update-modules [database]
+
+database="$DB_NAME"
+if [[ -n "$1" ]]; then
+    database="$1"
+fi
 
 source set-addons-path
 
 if [[ -n "$ADDONS_PATH" ]]; then
     log-entrypoint "Run click-odoo-update for: $ADDONS_PATH"
-    (exec click-odoo-update --addons-path="$ADDONS_PATH" -d "$odoo_database" ) || true
+    (exec click-odoo-update --addons-path="$ADDONS_PATH" -d "$database" ) || true
 fi
