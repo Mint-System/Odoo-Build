@@ -44,12 +44,12 @@ help-table() {
     printf "$column" 'show-dotenv' '[env]' 'Output content of the .env file.'
     print_group_header 'Git'
     printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the provide repos.yaml.'
-    printf "$column" 'add-git-submodule' '[url] [path]' 'Add git submodule.'
+    printf "$column" 'add-git-folder' '[url] [path]' 'Add git folder.'
     printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
     printf "$column" 'checkout-git-folder' '' 'Checkout git commit.'
     printf "$column" 'commit-git-folder' '[message][path]' 'Commit all changes in path.'
     printf "$column" 'clean-git-folder' '' 'Clean git folder.'
-    printf "$column" 'clone-git-folder' '[submodule][version]' 'Clone git folder listed in the .gitmodules file.'
+    printf "$column" 'clone-git-folder' '[path][version]' 'Clone git folder listed in the .gitmodules file.'
     printf "$column" 'create-git-feature-branch' '[path]' 'Create feature branch for Odoo module.'
     printf "$column" 'create-git-mig-branch' '[path]' 'Create migration branch for Odoo module.'
     printf "$column" 'download-git-folder' '[grep]' 'Download git folder listed in the .gitmodules file.'
@@ -58,9 +58,8 @@ help-table() {
     printf "$column" 'pull-git-folder' '' 'Pull all git folders listed in the .gitmodules file.'
     printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
     printf "$column" 'remove-git-folder' '[path]' 'Remove git folders in path.'
-    printf "$column" 'remove-git-submodule' '[path]' 'Remove a git submodule.'
     printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
-    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset submodules from the .gitmodules file.'
+    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset git folder.'
     printf "$column" 'stage-git-folder' '[path]' 'Stage all files in git folders in path.'
     printf "$column" 'switch-git-folder' '[version]' 'Switch branch for all git folders from the .gitmodules file.'
     printf "$column" 'sync-git-folder' '' 'Switch, stash and pull all git folders.'
@@ -2751,7 +2750,7 @@ lint-snippets() {
 
 # Git commands
 
-add-git-submodule() {
+add-git-folder() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2832,22 +2831,6 @@ remove-git-folder() {
         echo "Delete git folder $git_folder."
         rm -rf "$git_folder"
     done
-}
-
-remove-git-submodule() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-
-    echo 'Deinit submodule'
-    git submodule deinit -f "$1"
-
-    echo 'Remove submodule from work tree'
-    git rm -f "$1"
-
-    echo 'Remove submodule from .git folder'
-    rm -rf ".git/modules/$1"
-
-    echo 'Remove submodule from .gitmodules file'
-    git config --file .gitmodules --remove-section submodule.addons/website
 
     save-version
 }
@@ -2898,7 +2881,6 @@ download-git-folder() {
 }
 
 checkout-git-folder() {
-    echo 'Checkout submodule commits.'
     local git_folders=$(ls-git-folder)
     for git_folder in $git_folders; do
 
@@ -2953,7 +2935,7 @@ pull-git-folder() {
 }
 
 sync-git-folder() {
-    echo 'Switch and pull submodules.'
+    echo 'Switch and pull git folders.'
     switch-git-folder
     pull-git-folder
 }
@@ -3012,7 +2994,7 @@ checkout() {
 
 save-version() {
     local git_folders_file="versions/$ODOO_VERSION/.gitmodules.csv"
-    echo "Save submodule refs to $git_folders_file."
+    echo "Save git refs to $git_folders_file."
 
     local git_folders=$(ls-git-folder)
     echo "path,rev" > "$git_folders_file"
