@@ -12,10 +12,12 @@
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
     </xpath>
-
+    
+    <!--
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="style">width: 110px</attribute>
     </xpath>
+    -->
 
     <xpath expr="//div[@id='right-elements']" position="attributes">
         <attribute name="t-attf-class">float-end</attribute>
