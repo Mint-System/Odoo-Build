@@ -1,5 +1,5 @@
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <span t-field="doc.note" position="after">
+    <xpath expr="//div/span[@t-field='doc.note']" position="after">
         <t t-if="doc.state != 'sale'">
             <style>
             div#signature {
@@ -10,12 +10,12 @@
             </style>
             <div id="signature">
                 <p
-                >Hiermit bestelle wir die Produkte/Dienstleistungen gem&#xE4;ss diesem Angebot.<br
+                >Hiermit bestellen wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br
                     />
                 <br />
                 <br />
             Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
             </div>
         </t>
-    </span>
+    </xpath>
 </data>
