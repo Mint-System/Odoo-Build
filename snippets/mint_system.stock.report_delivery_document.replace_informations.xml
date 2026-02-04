@@ -15,29 +15,35 @@
                     <td>
                         <strong>Versanddatum:</strong>
                         <t t-if="o.state == 'done'">
-                            <span t-field="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                            <span
+                                t-field="o.date_done"
+                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                            />
                         </t>
                         <t t-if="o.state != 'done'">
-                            <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                            <span
+                                t-field="o.scheduled_date"
+                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                            />
                         </t>
                     </td>
                     <td>
                         <strong>Unser Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.user_id"/>
+                        <span t-field="o.sudo().sale_id.user_id" />
                     </td>
                     <td>
                         <strong>Ihr Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.partner_sale_id.name"/>
+                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <strong>&#xA0;Unsere Referenz:</strong>
-                        <span t-field="o.origin"/>
+                        <strong>Unsere Referenz:</strong>
+                        <span t-field="o.origin" />
                     </td>
                     <td t-if="o.sudo().sale_id.client_order_ref">
                         <strong>Ihre Referenz:</strong>
-                        <span t-field="o.sudo().sale_id.client_order_ref"/>
+                        <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
                 </tr>
             </table>
