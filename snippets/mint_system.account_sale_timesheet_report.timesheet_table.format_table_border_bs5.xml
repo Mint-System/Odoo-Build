@@ -5,7 +5,7 @@
         position="before"
     >
         <style>
-        /* Base: remove all borders first */
+        /* remove all borders first */
         .table-timesheet-entries > :not(caption) > * > * {
             border: 0 !important;
         }
