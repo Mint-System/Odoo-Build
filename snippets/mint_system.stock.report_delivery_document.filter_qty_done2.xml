@@ -1,0 +1,20 @@
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
+        <t
+            t-set="lines"
+            t-value="lines.filtered(lambda l: l.quantity &gt; 0)"
+        />
+    </xpath>
+    <xpath expr="//t[@name='no_package_move_lines']" position="before">
+        <t
+            t-set="move_lines"
+            t-value="move_lines.filtered(lambda l: l.qty_done &gt; 0)"
+        />
+    </xpath>
+    <xpath expr="//t[@t-set='package_move_lines']" position="after">
+        <t
+            t-set="package_move_lines"
+            t-value="package_move_lines.filtered(lambda l: l.qty_done &gt; 0)"
+        />
+    </xpath>
+</data>

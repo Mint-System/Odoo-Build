@@ -8,15 +8,17 @@
       }
     </style>
         <div id="signature">
-            <p>Hiermit best&#xE4;tigen wir den Erhalt der Ware gem&#xE4;ss Lieferung.</p>
-            <br/>
-            <br/>
+            <p
+            >Hiermit best&#xE4;tigen wir den Erhalt der Ware gem&#xE4;ss Lieferung.</p>
+            <br />
+            <br />
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <p>Ort/Datum: __________________________________</p>
                 </div>
-                <div class="col-6">
-                    <p>Unterschrift Kunde: __________________________________</p>
+                <div class="col-7">
+                    <p
+                    >Unterschrift Kunde: _____________________________________________________________</p>
                 </div>
             </div>
         </div>
@@ -26,13 +28,13 @@
             <div class="col-5">
                 <p>Gebinde geliefert: _____</p>
                 <p>Gebinde zur&#xFC;ck: _____</p>
-                <br/>
+                <br />
                 <p>Unterschrift Transport: _______________</p>
             </div>
-            <div class="col-2"/>
+            <div class="col-2" />
             <div class="col-5">
                 <p>Produkte einwandfrei erhalten.</p>
-                <br/>
+                <br />
                 <p>Unterschrift Kunde: _______________</p>
             </div>
         </div>
