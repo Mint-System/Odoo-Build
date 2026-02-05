@@ -132,3 +132,7 @@
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 17.0
+[submodule "addons/management_system"]
+	path = addons/management_system
+	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
+	branch = 17.0
