@@ -1,0 +1,66 @@
+<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+
+    <xpath
+        expr="//table[hasclass('table-timesheet-entries')]"
+        position="before"
+    >
+        <style>
+        /* Base: remove all borders first */
+        .table-timesheet-entries > :not(caption) > * > * {
+            border: 0 !important;
+        }
+        .table-timesheet-entries > :not(:first-child) {
+            border-top: 0 !important;
+        }
+
+        /* 1px line between all body rows */
+        .table-timesheet-entries tbody tr > td {
+            border-top: 1px solid #dee2e6 !important;
+        }
+
+        /* 1px top border above the header */
+        .table-timesheet-entries thead tr > th {
+            border-top: 1px solid black !important;
+            color: #5c516e;
+        }
+
+        /* tr.border-black must have black top border */
+        .table-timesheet-entries tr.border-black > th,
+        .table-timesheet-entries tr.border-black > td {
+            border-top: 1px solid #000 !important;
+        }
+
+        .table-timesheet-entries tr.border-black > th {
+          border-bottom: 1px solid #dee2e6 !important;
+        }
+
+        /* no border below last body row */
+        .table-timesheet-entries tbody tr:last-child > td {
+            border-bottom: 0 !important;
+        }
+
+        /* summary table */
+
+        .table-order-summary > :not(:first-child) {
+            border-top: 0 !important;
+        }
+
+        .table-order-summary thead tr > th {
+            border-top: 1px solid #dee2e6 !important;
+            border-bottom: 1px solid #dee2e6 !important;
+            color: #5c516e;
+        }
+
+
+        </style>
+    </xpath>
+
+    <!-- <xpath expr="//thead[1]/tr[1]" position="attributes">
+        <attribute name="class" separator=" " add="border-black" />
+    </xpath> -->
+
+    <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
+        <attribute name="class" separator=" " add="border-black" />
+    </xpath>
+
+</data>

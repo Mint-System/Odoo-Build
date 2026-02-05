@@ -2,7 +2,7 @@
 
     <xpath expr="//table[@name='stock_move_table']" position="before">
         <style>
-            .table &gt; :not(:first-child) {
+            .table > :not(:first-child) {
             border-top: none;
             }
             thead tr.border-solid-black {
