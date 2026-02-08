@@ -1,0 +1,15 @@
+<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+
+   <xpath expr="//thead//tr/th[3]" position="replace">
+      <th class="text-start align-middle">
+         <span>Hourly Rate</span>
+      </th>
+   </xpath>
+
+   <xpath expr="//tbody//tr/td[3]" position="replace">
+      <td class="align-middle">
+         <span t-esc="line.task_id.sale_line_id.price_unit"/>
+      </td>
+   </xpath>
+
+</data>

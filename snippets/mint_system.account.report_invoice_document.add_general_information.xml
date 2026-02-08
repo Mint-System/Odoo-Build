@@ -1,17 +1,21 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//div[@id='total']/../.." position="after">
-    
+
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
-                <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span><br/>
-                    <span>Aktuelle Version siehe www.xinomer.ch</span>
+                <td style="width: 335px; font-size: 6pt; line-height: 1.3; padding-bottom: 0px">               
+                        The General Terms and Conditions of
+                    <t t-out="o.company_id.name"/>apply.                    
+                    <t t-if="o.company_id.website">
+                        For current version see
+                        <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
+                    </t>
                 </td>
-                <td style="width: 50px"/>
+                <td style="width: 40px"/>
                 <td style="width: 300px; vertical-align: top">
                     <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Zahlbar bis: </span>
+                        <span>Payable until: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
                     <div>
@@ -28,7 +32,5 @@
             </tr>
 
         </table>
-       
-
     </xpath>
 </data>

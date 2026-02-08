@@ -1,0 +1,16 @@
+<data inherit_id="hr_timesheet.report_timesheet" priority="60">
+
+    <xpath expr="//div[1]" position="before">
+        <style> 
+            h2 {
+                
+                font-size: 16px;
+            }            
+            table {
+                
+                font-size: 12px;
+            }
+        </style>
+    </xpath>
+
+</data>

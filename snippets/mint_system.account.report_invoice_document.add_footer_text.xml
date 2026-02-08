@@ -1,0 +1,7 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@id='payment_term']" position="after">
+        <t t-if="o.partner_shipping_id.country_id.id == 57">
+       Verlagerung der Steuerschuld auf den Leistungs- und Rechnungsempfänger (Empfängerortprinzip gem. Art. 8 MWST).
+        </t>
+    </xpath>
+</data>
