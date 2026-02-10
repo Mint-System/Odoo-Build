@@ -1,0 +1,8 @@
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <xpath
+        expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']"
+        position="replace"
+    >
+        <span t-field="o.partner_id.commercial_partner_id.invoice_name" />
+    </xpath>
+</data>
