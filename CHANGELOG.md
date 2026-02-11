@@ -44,6 +44,7 @@ All notable changes to this project will be documented in this file. The format 
 - Renamed `test-module-repo` to `test-modules`.
 - Refactored `test-modules` function.
 - Renamed `generate-module` to `create-module`.
+- **BREAKING**: Renamed `ODOO_DATABASE` to `DB_NAME` across all scripts, templates, and documentation.
 
 ## 2025-09-12
 

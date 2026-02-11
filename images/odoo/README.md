@@ -55,6 +55,7 @@ services:
       PGHOST: db
       PGUSER: odoo
       PGPASSWORD: odoo
+      DB_NAME: odoo
     ports:
       - "127.0.0.1:8069:8069"
     volumes:

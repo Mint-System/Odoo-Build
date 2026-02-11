@@ -228,7 +228,7 @@ CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 # Updateable env vars
 
 ORG_NAME=${ORG_NAME:=Mint-System}
-ODOO_DATABASE=${ODOO_DATABASE:="$ODOO_VERSION"}
+DB_NAME=${DB_NAME:="$ODOO_VERSION"}
 WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
 ODOO_PORT=${ODOO_PORT:=8069}
@@ -339,7 +339,7 @@ show-odoo-mcp-config() {
             "args": ["$PWD/images/odoo-mcp/bin/server"],
             "env": {
                 "ODOO_URL": "http://localhost:8069",
-                "ODOO_DATABASE": "$ODOO_DATABASE",
+                "DB_NAME": "$DB_NAME",
                 "ODOO_USERNAME": "admin",
                 "ODOO_PASSWORD": "admin"
             }
@@ -928,7 +928,7 @@ EOF
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
-                -e ODOO_URL="$ODOO_URL" -e ODOO_DATABASE="$ODOO_DATABASE" -e ODOO_USERNAME="$ODOO_USERNAME" -e ODOO_PASSWORD="$ODOO_PASSWORD" \
+                -e ODOO_URL="$ODOO_URL" -e DB_NAME="$DB_NAME" -e ODOO_USERNAME="$ODOO_USERNAME" -e ODOO_PASSWORD="$ODOO_PASSWORD" \
                 mintsystem/odoocli "$@"
             }
         docker_odoocli --help
@@ -1149,7 +1149,7 @@ start() {
     # Use default database if second param is not given
     local database="$2"
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     if [[ -z "$1" ]]; then
@@ -1456,7 +1456,7 @@ test-project() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
         export ODOO_ADDONS_PATH="/mnt/oca/partner-contact"
-        export ODOO_DATABASE=test
+        export DB_NAME=test
         export WITHOUT_DEMO=False
         export ODOO_INIT_LOGIN=test
         export ODOO_INIT_PASSWORD=test
@@ -1577,7 +1577,7 @@ EOF
 shell() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
     local code="$2"
 
@@ -1592,7 +1592,7 @@ shell() {
 psql() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     $CONTAINER_ENGINE exec -it db psql "postgres://odoo:odoo@localhost:5432/$database"
@@ -1604,7 +1604,7 @@ init-db() {
     local odoo_init_addons="${ODOO_INIT_ADDONS:-"web"}"
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     set-addons-path
@@ -1629,7 +1629,7 @@ import-csv() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         file_path="$1"
     fi
 
@@ -1642,7 +1642,7 @@ import-csv() {
 drop-db() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/postgres" -c "SELECT pg_terminate_backend(pid) FROM pg_stat_activity WHERE datname = '$database';"
@@ -1660,7 +1660,7 @@ load-language() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         language="$1"
     fi
     set-addons-path
@@ -1672,7 +1672,7 @@ load-language() {
 set-admin() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     $CONTAINER_ENGINE exec -i db psql "postgres://odoo:odoo@localhost:5432/$database" -c "UPDATE res_users SET active=true,password='\$pbkdf2-sha512\$25000\$JuScEwIg5JzTGqNUivFeqw\$yWTOcix2Afr3XGP2NPY7w4w49e9vpsu14NRndDYXAkbtMF4zkrmx6inVsoLl0zZY30xI/0GzhwonWsK9TUmjWA' WHERE id=2;"
@@ -1682,7 +1682,7 @@ set-admin() {
 clear-assets() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     echo "Delete these assets for $database:"
@@ -1693,7 +1693,7 @@ clear-assets() {
 clear-views() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     echo "Archive views with prefix '$SNIPPET_PREFIX."
@@ -1758,7 +1758,7 @@ patch-database() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         filename="$1"
     fi
 
@@ -1772,7 +1772,7 @@ patch-database() {
 cloc-odoo() {
     local database="$1"
     if [[ -z "$database" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     set-addons-path
@@ -1804,7 +1804,7 @@ install-requirements() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         file_path="$1"
     fi
 
@@ -1877,7 +1877,7 @@ init-module() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         module_path="$1"
     fi
 
@@ -1910,7 +1910,7 @@ update-module() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         module_name=$(basename "$1")
     fi
 
@@ -1941,7 +1941,7 @@ translate-module() {
     fi
 
     if [[ -z "$3" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
     fi
 
     set-addons-path
@@ -1989,7 +1989,7 @@ test-module() {
 
     set-addons-path
     echo "Testing module $module..."
-    odoo -d "$ODOO_DATABASE" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
+    odoo -d "$DB_NAME" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
 }
 
 test-modules() {
@@ -2008,10 +2008,10 @@ test-modules() {
 
     depends_modules=$(manifestoo --select-addons-dir "$1" list-depends --separator=,)
     echo "Setup test database with "$ODOO_LANGUAGE" lang and depends modules: $depends_modules"
-    odoo -d "$ODOO_DATABASE" -i "$depends_modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo -d "$DB_NAME" -i "$depends_modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 
     echo "Testing modules: $modules"
-    odoo -d "$ODOO_DATABASE" -i "$modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
+    odoo -d "$DB_NAME" -i "$modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 pytest-module() {
@@ -2031,7 +2031,7 @@ pytest-module() {
     echo "db_user = odoo" >> "$odoo_config"
 
     echo "Run pytest with odoo-http option..."
-    pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$ODOO_DATABASE" "$module_path"
+    pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$DB_NAME" "$module_path"
 }
 
 remove-module() {
@@ -2045,7 +2045,7 @@ remove-module() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         module_name=$(basename "$1")
     fi
 
@@ -2549,7 +2549,7 @@ reset-views() {
 
     # Use default database if second param is not given
     if [[ -z "$2" ]]; then
-        database="$ODOO_DATABASE"
+        database="$DB_NAME"
         key=$(basename "$1")
     fi
 
@@ -3151,7 +3151,7 @@ export-website-data() {
     fi
 
     export ODOO_URL
-    export ODOO_DATABASE
+    export DB_NAME
     export ODOO_USERNAME
     export ODOO_PASSWORD
     export ODOO_WEBSITE_ID
@@ -3169,7 +3169,7 @@ import-website-data() {
     fi
 
     export ODOO_URL
-    export ODOO_DATABASE
+    export DB_NAME
     export ODOO_USERNAME
     export ODOO_PASSWORD
     export ODOO_WEBSITE_ID

@@ -45,7 +45,6 @@ services:
       GITHUB_PERSONAL_ACCESS_TOKEN: ${GITHUB_PERSONAL_ACCESS_TOKEN}
       ADDONS_GIT_REPOS: ${ADDONS_GIT_REPOS}
       ODOO_ADDONS_PATH: ${ODOO_ADDONS_PATH}
-      ODOO_DATABASE: "${ODOO_DATABASE}"
       ODOO_INIT_LOGIN: ${ODOO_INIT_LOGIN}
       ODOO_INIT_PASSWORD: ${ODOO_INIT_PASSWORD}
       ODOO_INIT_LANG: ${ODOO_INIT_LANG}
@@ -109,7 +108,7 @@ ${VOLUME_MOUNTS}
     environment:
       POSTGRES_USER: odoo
       POSTGRES_PASSWORD: odoo
-      POSTGRES_DB: "${ODOO_DATABASE}"
+      POSTGRES_DB: "${DB_NAME}"
       PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - db-data:/var/lib/postgresql/data/pgdata
@@ -127,7 +126,7 @@ ${VOLUME_MOUNTS}
     networks:
       - default
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U odoo -d $ODOO_DATABASE"]
+      test: ["CMD-SHELL", "pg_isready -U odoo -d $DB_NAME"]
       interval: 5s
       timeout: 5s
       retries: 5
@@ -148,7 +147,7 @@ ${VOLUME_MOUNTS}
       - "25:25"
       - "587:587"
     environment:
-      ODOO_DATABASE: "${ODOO_DATABASE}"
+      ODOO_DATABASE: "${DB_NAME}"
       MAIL_ALIASES: "${MAIL_ALIASES}"
     networks:
       - default

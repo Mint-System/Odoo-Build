@@ -156,7 +156,7 @@ The default database name is the checked out Odoo version.
 To define another name, set this env var in your `.env` file:
 
 ```bash
-ODOO_DATABASE=odoo
+DB_NAME=odoo
 ```
 
 ### Disable browser open
