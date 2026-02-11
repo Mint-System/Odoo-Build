@@ -1508,6 +1508,7 @@ EOF
 
         echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
         export ODOO_URL="http://localhost:8069"
+        export ODOO_DATABASE=test
         export ODOO_USERNAME=test
         export ODOO_PASSWORD=test
         if ! show-dotenv test; then
