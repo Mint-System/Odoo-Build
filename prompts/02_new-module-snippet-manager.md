@@ -1,3 +1,7 @@
+---
+title: New module snippet manager
+---
+
 Read the `AGENTS.md` to get an understanding of the project.
 
 Your task is create new module: `snippet_manager`.

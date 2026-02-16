@@ -1,10 +1,6 @@
 #!/usr/bin/env bash
 set -e
 
-if [[ -a '.env' ]]; then
-    source .env
-fi
-
 help-table() {
     local cmd_width=10
     local opt_width=6
