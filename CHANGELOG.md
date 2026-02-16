@@ -4,6 +4,10 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Fixed
+
+- Removed unnecessary `local` keyword in `list-databases` script to avoid scoping issues.
+
 ### Removed
 
 - Removed command `setup-mail`.

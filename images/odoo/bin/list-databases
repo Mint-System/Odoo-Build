@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 set -e
 
-local conn_str="postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres"
+conn_str="postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres"
 psql "$conn_str" -t -c "SELECT datname FROM pg_database WHERE datistemplate = false AND datname NOT IN ('postgres', 'template0', 'template1');"
