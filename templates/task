@@ -2,29 +2,53 @@
 set -e
 
 help-table() {
-    local cmd_width=10
-    local opt_width=6
-    local desc_width=40
-    local column="| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n"
+    local -a rows
+    local max_cmd=0 max_opt=0 max_desc=0
 
-    printf "$column" 'Command' 'Option' 'Description'
-    echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
-    printf "$column" 'all' '' 'Run all tasks.'
-    printf "$column" 'install' '' 'Setup the local environment.'
-    printf "$column" 'lint' '' 'Run pre-commit.'
-    printf "$column" 'build' '' 'Build python packages with whool.'
-    printf "$column" 'publish' '' 'Publish python packages to PyPi.'
-    printf "$column" 'docs' '' 'Update index.html.'
+    rows+=("Command|Option|Description")
+    rows+=("all||Run all tasks.")
+    rows+=("install||Setup the local environment.")
+    rows+=("lint||Run pre-commit.")
+    rows+=("build||Build python packages with whool.")
+    rows+=("publish||Publish python packages to PyPi.")
+    rows+=("docs||Update index.html.")
+
+    for row in "${rows[@]}"; do
+        IFS='|' read -r cmd opt desc <<< "$row"
+        (( ${#cmd} > max_cmd )) && max_cmd=${#cmd}
+        (( ${#opt} > max_opt )) && max_opt=${#opt}
+        (( ${#desc} > max_desc )) && max_desc=${#desc}
+    done
+
+    printf '| %-*s | %-*s | %-*s |\n' \
+        "$max_cmd" "Command" \
+        "$max_opt" "Option" \
+        "$max_desc" "Description"
+
+    printf '|-%*s-|-%*s-|-%*s-|\n' \
+        "$max_cmd" "$(printf '%*s' "$max_cmd" '' | tr ' ' '-')" \
+        "$max_opt" "$(printf '%*s' "$max_opt" '' | tr ' ' '-')" \
+        "$max_desc" "$(printf '%*s' "$max_desc" '' | tr ' ' '-')"
+
+    for row in "${rows[@]:1}"; do
+        IFS='|' read -r cmd opt desc <<< "$row"
+        printf '| %-*s | %-*s | %-*s |\n' \
+            "$max_cmd" "$cmd" \
+            "$max_opt" "$opt" \
+            "$max_desc" "$desc"
+    done
 }
 
 help() {
+    local grep_pattern
     echo
     if [[ -n "$1" ]]; then
-        help-table | grep -i "$1" | column -t -s'|'
+        grep_pattern="$1"
+        help-table | grep -i "$grep_pattern" | column -t -s'|'
     else
-        echo 'task <command> [options]'
+        echo "task <command> [options]"
         echo
-        echo 'commands:'
+        echo "commands:"
         echo
         help-table
     fi

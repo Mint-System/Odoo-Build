@@ -10,7 +10,7 @@ This section outlines the universal rules and expectations for any LLM agent wor
 
 **Maintain Context:** Before making any changes, an agent must read and understand the relevant files, including the project's main documentation and existing code structure.
 
-**Clear Contributions:** All contributions must be submitted via a pull request with a clear, concise commit message and a brief description of the changes.
+**Be Sparse:** Only introduce new code if needed. Comment only what is worth commenting. When testing focus on the business use case. 
 
 ## Project structure
 
