@@ -8,7 +8,7 @@ if [[ -n "$1" ]]; then
     database="$1"
 fi
 
-log-entrypoint "Check if database $odoo_database is initialized..."
+log-entrypoint "Check if database $database is initialized..."
 database_initialized=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/$database" -tAc "SELECT COUNT(*) FROM information_schema.tables WHERE table_name = 'ir_module_module'")
 
 if [[ "$database_initialized" = "1" ]]; then

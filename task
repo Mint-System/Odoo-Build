@@ -1428,6 +1428,8 @@ generate-pg-ssl-keys() {
 }
 
 test-project() {
+    # This starts the Docker environment and uses internal and external tools to run commands.
+
     if [[ "$1" == "cleanup" ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
         drop-db test
