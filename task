@@ -1540,6 +1540,7 @@ EOF
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
         drop-db test
 
+        #FIXME: These tests do not work in GitHub Runner env.
         # echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
         # exec odoo setup-tests
         # exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Partner-Contact

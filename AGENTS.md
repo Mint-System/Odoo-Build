@@ -34,7 +34,39 @@ This project uses the <https://taskfile.build/> standard.
 
 The `./task` file is a bash script that provides all functions necessary to work with this project.
 
-**Execute**: Always try to run a command with the `./task` file script.
+Always try to run a command with the `./task` file script.
+
+## Common tasks
+
+### Install
+
+Install project dependencies.
+
+```bash
+task install
+```
+
+### Develop module
+
+To create module code use the `task generate-module-*` commands.
+
+```bash
+task generate-module-views addons/project/project_sprint project.sprint
+```
+
+If the database is running (`task start db`) then install the module like this:
+
+```bash
+task init-module addons/project/project_sprint
+```
+
+Use `lint-module` to lint the module code. You can also run the `task lint` in the module repo folder.
+
+You can also uninstall a module.
+
+```bash
+task uninstall-module addons/project/project_sprint
+```
 
 ## Coding conventions
 
