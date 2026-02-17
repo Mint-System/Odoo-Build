@@ -94,7 +94,8 @@ Successfully implemented the password generation feature for Helm values:
 - Created `tests/__init__.py` to make tests a Python package
 - Created `test_helm_release.py` with `test_value_eval` test
 - **FINAL IMPROVEMENT**: Uses `self.ref("helm.chart_odoo")` to access existing Odoo chart from data.xml
-- **FINAL IMPROVEMENT**: Uses `self.ref("helm.ingress_nginx")` to access existing cluster from data.xml
+ - **FINAL IMPROVEMENT**: Uses `self.ref("kubectl.kubectl_cluster_kind_demo")` to access existing cluster from data.xml
+ - **FIXED**: Corrected cluster reference from non-existent "helm.ingress_nginx" to actual "kubectl.kubectl_cluster_kind_demo"
 - Test verifies:
   - Password generation works correctly
   - Expression evaluation works
