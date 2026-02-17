@@ -39,6 +39,7 @@ Removing a secret from a release should delete the secret. Also when a chart is 
 Successfully implemented secret creation and deletion for Helm chart installations following Helm best practices:
 
 ### Secret Creation (Before Install)
+
 - Extended `action_install()` to call `_create_secrets()` BEFORE helm install command
 - **CRITICAL FIX**: Secrets use exact Odoo secret name (e.g., "odoo-creds") as required by Helm charts
 - Secret data supports dynamic evaluation using Python expressions
@@ -46,14 +47,17 @@ Successfully implemented secret creation and deletion for Helm chart installatio
 - Follows the pattern from Helm Chart README example exactly
 
 ### Secret Updates
+
 - Extended `action_upgrade()` to recreate secrets (delete old, create new)
 - Ensures secrets match the current configuration after upgrade
 
 ### Secret Deletion
+
 - Extended `action_uninstall()` to call `_delete_secrets()` before chart uninstallation
 - Uses `--ignore-not-found=true` flag to prevent failures if secret doesn't exist
 
 ### Implementation Details
+
 - Uses kubectl context's `run()` method to execute kubectl commands
 - Supports dynamic secret values using Python expressions
 - Proper error handling and logging
@@ -68,6 +72,7 @@ Successfully implemented secret creation and deletion for Helm chart installatio
   ```
 
 The implementation ensures that:
+
 - Secrets are automatically created BEFORE charts are installed (Helm best practice)
 - **Secrets have exact names as defined in Odoo** so Helm charts can find them
 - Secrets are updated when charts are upgraded

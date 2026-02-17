@@ -29,7 +29,7 @@ Create a todo for every field and start by bootstrapping the controller to valid
 
 ## Worklog
 
-==Agent: Fill this in as you work on the task==
+==Fill this in as you work on the task==
 
 ## Summary
 

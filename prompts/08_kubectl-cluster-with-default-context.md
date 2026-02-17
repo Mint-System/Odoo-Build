@@ -47,12 +47,14 @@ Add a smart button "Context" to the cluster form view.
 Successfully implemented default context support for kubectl clusters:
 
 ### Core Implementation
+
 - Added `context_id` field to kubectl.cluster model
 - Field has domain that filters to only contexts belonging to the cluster
 - Replaced all `context_ids[0]` references with direct `context_id` calls
 - More efficient and cleaner code
 
 ### User Interface
+
 - Added `context_id` field to cluster form view
 - Added smart button "Contexts (N)" with list icon showing count of contexts
 - Button opens filtered list view showing only this cluster's contexts
@@ -61,18 +63,21 @@ Successfully implemented default context support for kubectl clusters:
 - BONUS: Namespaces button shows count and filters to context's cluster namespaces
 
 ### Note on Domain Filtering
+
 - Initial domain implementation caused "invalid input syntax for type integer" error
 - Domain filtering removed to fix immediate issue
 - Validation can be added in write method if needed
 - Alternative: use computed field for dynamic domain filtering
 
 ### Data Updates
+
 - Updated demo data to set default contexts for existing clusters
 - Kind cluster uses "Admin" context
 - APPUiO cluster uses "Admin" context
 - Manually verified and corrected context assignments
 
 ### Benefits
+
 - Simpler code - no need to use `context_ids[0]`
 - More explicit - default context is clearly defined
 - Better user experience - easy to see and change default context
