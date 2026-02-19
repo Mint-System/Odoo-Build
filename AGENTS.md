@@ -46,7 +46,7 @@ Install project dependencies.
 task install
 ```
 
-### Develop module
+### Module Development
 
 To create module code use the `task generate-module-*` commands.
 
@@ -67,6 +67,13 @@ You can also uninstall a module.
 ```bash
 task uninstall-module addons/project/project_sprint
 ```
+
+When creating new controllers in Odoo modules, ensure to:
+
+1. Import the controller in the module's `__init__.py` file (e.g., `from . import controllers`)
+2. Inherit from appropriate parent classes (e.g., `WebsiteForm` for website form controllers)
+3. Use proper route decorations and ensure routes don't conflict with existing ones
+4. Test the controller by checking that the route is properly registered and accessible
 
 ## Coding conventions
 
