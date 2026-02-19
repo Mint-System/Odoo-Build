@@ -40,13 +40,17 @@ It has the following content:
 ```txt
 Hello {doc.partner_id.firstname},
 
-Thank you for ordering **{doc.order_line[0].product_id.name}**. The service is being deployed right now.
+Thank you for your order.
+{for line in doc.order_line}
 
-Check the status for the your service on the [release]({'/my/releases/' + doc.release_id.id}) page. Once it is deployed, login with the following info:
+The service **{line.product_id.name}** is being deployed right now.
+Check the status for the service on the [release]({'/my/releases/' + line.release_id.id}) page. Once it is ready, proceed with this info:
 
 {release_id.user_notice}
+---
+{endfor}
 
-If you have any problems, create a ticket on the [support](https://erp.mint-system.ch/helpdesk) page. 
+If you have any problems, create a ticket on our [support](https://erp.mint-system.ch/helpdesk) page. 
 
 Kind regards,
 
