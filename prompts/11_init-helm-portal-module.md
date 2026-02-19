@@ -12,7 +12,7 @@ Read the `AGENTS.md` and `README.md` to get understanding of the project.
 
 ## Task
 
-Create a new module `addons/kuberentes/helm_portal`. It depends on `helm` and `portal`. Use the `task create-module` to boostrap the module.
+Create a new module `addons/kuberentes/helm_portal`. It depends on `helm` and `portal`. Use the `task create-module` to boostrap the module. Further use the `task generate-module=*` commands to create new module files.
 
 Add the portal mixin and a view for `helm.release`. The portal url is `my/releases` for a list and `my/release/<id>` for details.
 
