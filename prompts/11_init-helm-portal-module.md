@@ -14,13 +14,11 @@ Read the `AGENTS.md` and `README.md` to get understanding of the project.
 
 Create a new module `addons/kuberentes/helm_portal`. It depends on `helm` and `portal`. Use the `task create-module` to boostrap the module. Further use the `task generate-module=*` commands to create new module files.
 
-Add the portal mixin and a view for `helm.release`. The portal url is `my/releases` for a list and `my/release/<id>` for details.
+Add the portal mixin and a view for `helm.release`. The portal url is `my/releases` for a list and `my/release/<id>` for details. 
 
-The releases are filtered by `helm.release:partner_id`.
+When opening `/my/home` the user can see an entry "Your Releases" with description "Show and update your Helm releases.". As icons use `https://github.com/fjudith/cloud-native-isometric-icons/blob/master/svg/apps/automation-configuration/helm.svg`.
 
-The portal list view shows the name, link (ingress_url) and state of the relase.
-
-Going into the details the customer can see the following informations
+The releases are filtered by `helm.release:partner_id`. The portal list view shows the name, link (ingress_url) and state of the relase. Going into the details the customer can see the following informations:
 
 ```
 <h1>{release.name}</h1>
