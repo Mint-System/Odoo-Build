@@ -12,38 +12,38 @@ Read the `AGENTS.md` and `README.md` to get understanding of the project.
 
 ## Task
 
-Create a new module `addons/kuberentes/helm_portal`. Use the `task create-module` command to do so.
+Create a new module `addons/kuberentes/helm_portal`. It depends on `helm` and `portal`. Use the `task create-module` to boostrap the module.
 
-Add a portal view for `helm.release` unter `/releases` and `release/<id>`.
+Add the portal mixin and a view for `helm.release`. The portal url is `my/releases` for a list and `my/release/<id>` for details.
 
-The customer `helm.release:partner_id` can see his releases.
+The releases are filtered by `helm.release:partner_id`.
 
 The portal list view shows the name, link (ingress_url) and state of the relase.
 
-Going into the details the customer can see the following:
+Going into the details the customer can see the following informations
 
 ```
-# Name
+<h1>{release.name}</h1>
 
-Link: {release_id.ingress_url}
-State: {ingress_url.state}
+Link: <a href="{release.ingress_url}">{release.ingress_url}</a>
+State: {release.state}
 
-Updateable config:
+Release Configuration:
 
-{for value in release_id.value_ids}
+{for value in release.value_ids}
 {value.path}: {value.value or value.options_id.value}
 {endfor}
 
-[Update Release]
+<button>Update Release</button>
 
 Last Output:
 
-{release_id.output}
+{release.output}
 ```
 
-The user can update the value or select from options. With the "Update Release" button the new values are written to the release. Odoo then runs the `action_upgrade` method.
+The user can update the value or select from the options. With the "Update Release" button the new values are written to the release. Odoo then runs the `action_upgrade` method. The page is refereshed and the user can see under `Last Output:` the last response. Format the output with terminal-screen css.
 
-These options are only available if the release is in state `installed`.
+Not that the Configuration options are only available if the release is in state `installed`.
 
 ## Worklog
 
