@@ -4,27 +4,41 @@
 
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
-                <td style="width: 335px; font-size: 6pt; line-height: 1.3; padding-bottom: 0px">               
-                        The General Terms and Conditions of
-                    <t t-out="o.company_id.name"/>apply.                    
+                <td style="width: 335px; line-height: 1.3; padding-bottom: 0px">               
+                    <!--    The General Terms and Conditions of
+                    <t t-out="o.company_id.name"/>
+apply.                    
                     <t t-if="o.company_id.website">
                         For current version see
                         <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
-                    </t>
-                </td>
-                <td style="width: 40px"/>
-                <td style="width: 300px; vertical-align: top">
+                    </t> -->
+                    <div style="font-weight: bold; padding-bottom: 15px">
+                        <span>Payment Instructions - Use SEPA payment if possible!</span>
+                    </div>
                     <div style="font-weight: bold; padding-bottom: 15px">
                         <span>Payable until: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
+                </td>
+                <td style="width: 40px"/>
+                <td style="width: 300px; vertical-align: top">
                     <div>
                         <t>
-                            <div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
-                            <span>IBAN</span>
-                            <span t-field="o.company_id.partner_id.bank_ids[0].acc_number"/>
+                            <div t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.name"/>
+                            <div>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.street"/>,
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.country.code"/> -
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.zip"/>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.city"/>
+                            </div>
+                            <div>
+                            <span>BIC / SWIFT:</span>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.bic"/>
+                            </div>
+                            <span>IBAN:</span>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].acc_number"/>
                             <span>(</span>
-                            <span t-field="o.company_id.partner_id.bank_ids[0].currency_id"/>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].currency_id"/>
                             <span>)</span>
                         </t>
                     </div>
