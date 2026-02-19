@@ -33,7 +33,7 @@ Update the template so it can be evaluated given `release` as context.
 
 Then add a new computed html field `user_notice` to `helm.release`. This field evaluates the `release_id.chart_id.user_notice_template` in the context of the release. Show the field in the release form.
 
-Now you can add a `sale.order` mail template with subject `{doc.order_line[0].product_id.name} - Access Information`:
+Now you can add a `sale.order` mail template with subject `{doc.order_line[0].product_id.name} - Access Information` to the `sale_helm` module:
 
 It has the following content:
 
