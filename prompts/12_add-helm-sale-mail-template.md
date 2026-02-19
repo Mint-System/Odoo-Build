@@ -53,7 +53,7 @@ Kind regards,
 Mint System
 ```
 
-Adapt to the Odoo mail template xml. Ensure this mail is sent when a release is installed.
+Adapt to the Odoo mail template xml. Ensure this mail is sent when a release is installed successfully.
 
 ## Worklog
 
