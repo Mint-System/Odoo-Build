@@ -1,0 +1,9 @@
+<data inherit_id="account.report_invoice_document" priority="50">
+
+    <xpath expr="//table/tr/td/div/div[2]" position="after">
+        <div>
+            Customer Referenz: <span t-field="o.partner_shipping_id.ref"/>
+        </div>
+    </xpath>
+
+</data>

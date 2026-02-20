@@ -85,22 +85,26 @@
                                 <span t-field="o.ref"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span>Delivery Date</span>
-                            </td>
-                            <td>
-                                <span t-field="o.delivery_date"/>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <span>Incoterm</span>
-                            </td>
-                            <td>
-                                <span t-field="o.invoice_incoterm_id.code"/>
-                            </td>
-                        </tr>
+                        <t t-if="o.delivery_date">
+                            <tr>
+                                <td>
+                                    <span>Delivery Date</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.delivery_date"/>
+                                </td>
+                            </tr>
+                        </t>
+                        <t t-if="o.invoice_incoterm_id.code">
+                            <tr>
+                                <td>
+                                    <span>Incoterm</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.invoice_incoterm_id.code"/>
+                                </td>
+                            </tr>
+                        </t>
                     </t>
 
                     <!-- Angebot/Verkaufsauftrag  -->
