@@ -139,8 +139,6 @@ help-table() {
     printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
     printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
     print_group_header 'Module'
-    printf "$column" 'lint-module' '[path]' 'Run pylint odoo for module.'
-    printf "$column" 'lint-module-repo' '[path]' 'Run pylint odoo for modules in repo folder.'
     printf "$column" 'list-modules' '[path]' 'Get modules in path as bash array.'
     printf "$column" 'pytest-module' '[path]' 'Run module tests with pytest.'
     printf "$column" 'release-module' '[path]' 'Create GitHub release for a module.'
@@ -1855,19 +1853,6 @@ generate-module-repo() {
     cp "templates/$ODOO_VERSION/*" "$repo_path"
 }
 
-lint-module-repo() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    local module_paths=$(get-modules "$MODULE_PATH")
-
-    for module_path in ${module_paths//,/ }; do
-        lint-module "$module_path"
-    done
-}
-
 # Module commands
 
 init-module() {
@@ -1957,31 +1942,6 @@ translate-module() {
     if [[ "$language" == "de_CH" ]]; then
         mv "$module_path/i18n/$language.po" "$module_path/i18n/de.po"
     fi
-}
-
-lint-module() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    echo "Set file and folder permissions on $1"
-    find "$1" -type d -exec chmod u=rwx,go=rx {} \;
-    find "$1" -type f -exec chmod u=rw,go=r {} \;
-
-    echo 'Update index.html'
-    rst2html5 "$1/README.rst"  "$1/static/description/index.html"
-
-    pushd .
-    cd "$1"
-
-    echo "Run pre-commit in $PWD"
-    pre-commit run --all-files # --show-diff-on-failure --color=always
-
-    echo 'Stage changes'
-    git  add .
-
-    popd
 }
 
 test-module() {
