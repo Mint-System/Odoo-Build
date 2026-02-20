@@ -2377,6 +2377,15 @@ upgrade-odoo() {
         echo ""
     fi
 
+    if [[ "$2" =~ "all-test" ]]; then
+        echo "#FIXME: implement this command."
+    fi
+
+
+    if [[ "$2" =~ "all-production" ]]; then
+        echo "#FIXME: implement this command."
+    fi
+
     if [[ "$2" =~ "dump" ]]; then
         log-warning "Run step 'dump' on $SERVER."
 
@@ -2495,6 +2504,8 @@ upgrade-odoo() {
 
     if [[ "$2" = "rename-production" ]]; then
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
+
+        echo "#FIXME: implement this command."
 
         # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
         # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
