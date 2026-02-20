@@ -15,7 +15,7 @@ export default defineUserConfig({
     head: [
         ['link', { rel: 'icon', href: '/icon.png' }]
     ],
-    pagePatterns: [
+     pagePatterns: [
       '**/*.md',
       '!**/node_modules/**',
       '!**/.vuepress/**',
@@ -26,6 +26,7 @@ export default defineUserConfig({
       '!**/oca/**',
       '!**/thirdparty/**',
       '!**/pycache/**',
+      '!**/prompts/**',
     ],
     theme: defaultTheme({
         logo: '/icon.png',
