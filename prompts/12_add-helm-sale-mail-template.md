@@ -59,7 +59,9 @@ Kind regards,
 Mint System
 ```
 
-Adapt to the Odoo mail template xml. Ensure this mail is sent when a release is installed successfully.
+Adapt to the Odoo mail template xml. Here is a template `addons/vertical_saas/license_ocad_mail/data/mail_templates.xml`. 
+
+If the release is installed and is linked with a `sale_order_line_id`, then send this email in the context of the sale order. Here is an example: `addons/vertical_saas/license_ocad_mail/models/sale_order.py`.
 
 ## Worklog
 
