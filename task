@@ -826,7 +826,7 @@ test-odoo-version-regex() {
 
         echo -e "\033[38;5;214mTEST\033[0m: Find and check versions in module"
 
-        versions=$(grep -r --include="__manifest__.py" '[\"'\'']version[\"'\'']:.[\"'\'']' addons enterprise oca odoo |
+        versions=$(grep -r --include="__manifest__.py" '[\"'\'']version[\"'\'']:.[\"'\'']' addons enterprise oca odoo themes |
           sed -E 's/.+[\"'\'']version[\"'\'']:.[\"'\'']([0-9].+)[\"'\''].+/\1/g' |
           sort -u)
 
