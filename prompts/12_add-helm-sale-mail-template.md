@@ -12,11 +12,11 @@ Read the `AGENTS.md` and `README.md` to get understanding of the project.
 
 ## Task
 
-And a new html field `user_notice_template` to `helm.chart` in `addons/kubernetes/helm`.
+And a new html field `customer_notice_template` to `helm.chart` in `addons/kubernetes/helm`.
 
-Then add a new method `get_value(self, path)` that returns a value from path. The `release_id.chart_id.value_ids` and the `release_id.value_ids` are checked.
+Then add a new method `get_value(self, path)` to `helm.release` that returns a value from path. The `release_id.chart_id.value_ids` and the `release_id.value_ids` are checked.
 
-In the `data.xml` add this `user_notice_template` to `product_odoo_community_edition` and `product_odoo_enterprise_edition`:
+In the `data.xml` add this `customer_notice_template` to the odoo chart. Here is the pseudo markup:
 
 ```
 <p>
@@ -29,9 +29,11 @@ Anleitung: <a ref="https://wiki.mint-system.ch/mint-cloud-odoo-erste-schritte.ht
 <ul>
 ```
 
-Update the template so it can be evaluated given `release` as context.
+Convert this markup into a proper mail template. See `odoo/addons/sale/data/mail_template_data.xml` for references.
 
-Then add a new computed html field `user_notice` to `helm.release`. This field evaluates the `release_id.chart_id.user_notice_template` in the context of the release. Show the field in the release form.
+Then add a new computed html field `customer_notice` to `helm.release`. This field evaluates the `release_id.chart_id.customer_notice_template`. See `odoo/addons/mail/models/mail_mail.py` on how to render the body.
+
+Show the field in the release form.
 
 Now you can add a `sale.order` mail template with subject `{doc.order_line[0].product_id.name} - Access Information` to the `sale_helm` module:
 
@@ -46,7 +48,7 @@ Thank you for your order.
 The service **{line.product_id.name}** is being deployed right now.
 Check the status for the service on the [release]({'/my/releases/' + line.release_id.id}) page. Once it is ready, proceed with this info:
 
-{release_id.user_notice}
+{release_id.customer_notice}
 ---
 {endfor}
 
@@ -61,8 +63,15 @@ Adapt to the Odoo mail template xml. Ensure this mail is sent when a release is 
 
 ## Worklog
 
-==Fill this in as you work on the task==
+- Added `customer_notice_template` HTML field to `helm.chart` model in `addons/kubernetes/helm/models/helm_chart.py`
+- Added `get_value(self, path)` method to `helm.release` model to retrieve values from chart and release
+- Added `customer_notice` computed HTML field to `helm.release` model in `addons/kubernetes/helm/models/helm_release.py`
+- Implemented `_compute_customer_notice` method to render the template using Odoo's mail rendering mechanism
+- Updated `addons/kubernetes/helm/data/data.xml` to add `customer_notice_template` to the odoo chart with proper markup
+- Added new mail template `email_template_sale_order_helm_release` to `addons/kubernetes/sale_helm/data/data.xml`
+- Updated `addons/kubernetes/helm/views/helm_release_views.xml` to show the `customer_notice` field in the release form
+- Ensured all templates use proper Odoo mail template formatting with QWeb expressions
 
 ## Summary
 
-==Fill this once you completed the task==
+Successfully implemented the Helm sale mail template feature. Added a customer notice template field to helm charts and a computed customer notice field to helm releases. Created a mail template in the sale_helm module that sends access information to customers when their Helm releases are installed. The template includes links to the release page and displays the customer-specific access information.
