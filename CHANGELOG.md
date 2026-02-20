@@ -19,6 +19,7 @@ All notable changes to this project will be documented in this file. The format 
 	- reset-git-folder
 	- stage-git-folder
 	- status-git-folder
+- Removed `lint-module` and `lint-module-repo` commands from help table and implementation.
 
 ### Added
 
