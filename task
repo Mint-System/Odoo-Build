@@ -2309,8 +2309,8 @@ upgrade-odoo() {
         echo "dump"
         echo "filestore"
         echo "drop"
-        echo "test"
-        echo "production"
+        echo "upgrade-test"
+        echo "upgrade-production"
         echo "clear-assets"
         echo "init"
         echo "uninstall"
@@ -2416,8 +2416,13 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" = "upgrade-test" ]]; then
-        log-warning "Run step 'test' on $TARGET_SERVER."
+        log-warning "Run step 'upgrade-test' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
+    fi
+
+    if [[ "$2" = "upgrade-production" ]]; then
+        log-warning "Run step 'upgrade-production' on $TARGET_SERVER."
+        $ssh_target_server docker-odoo-upgrade -m production -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
     fi
 
     if [[ "$2" = "clear-assets" ]]; then

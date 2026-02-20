@@ -127,12 +127,12 @@ Drop the existing upgrade database.
 task upgrade-odoo acme drop
 ```
 
-**test**
+**upgrade-test**
 
 Run the Odoo upgrade scripts in test mode. This will neutralize the database after an upgrade.
 
 ```bash
-task upgrade-odoo acme test
+task upgrade-odoo acme upgrade-test
 ```
 
 **clear-assets**
@@ -268,7 +268,7 @@ In order to run the production upgrade execute `task upgrade-odoo acme all-produ
 Run the Odoo upgrade scripts in production mode. This will **not** neutralize the database after an upgrade.
 
 ```bash
-task upgrade-odoo acme production
+task upgrade-odoo acme upgrade-production
 ```
 
 **configure-production**
