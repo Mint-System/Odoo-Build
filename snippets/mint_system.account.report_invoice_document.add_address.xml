@@ -14,123 +14,138 @@
     }
             </style>
 
-            <tr style="height: 80px;">
-                <td style="width: 290px; vertical-align: top; padding-left: 5mm; ">
-                    <span style="font-size: 7pt">Recipient of goods</span>
-                    <hr class="company_invoice_line"/>
-                    <div>
-                        <t>
-                            <span t-field="o.partner_shipping_id.parent_id"/>
-                            <t t-if="not o.partner_shipping_id.parent_id">
-                                <span t-field="o.partner_shipping_id.name"/><br/>
-                            </t>
-                            <span t-field="o.partner_shipping_id.street"/><br/>
-                            <span t-field="o.partner_shipping_id.street2"/>
-                            <div>
-                                <span t-field="o.partner_shipping_id.zip"/>
-                                <span t-field="o.partner_shipping_id.city"/>
-                            </div>
-                            <span t-field="o.partner_shipping_id.country_id"/>
-                        </t>
-                    </div>
-                </td>
-                <td style="width: 70px"/>
-                <td style="width: 260px; vertical-align: top;">
-                    <span style="font-size: 7pt">Shipper of goods</span>
-                    <hr class="company_invoice_line"/>
-                    <t t-if="o.x_sale_order_id">
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/><br/>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street"/><br/>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street2"/>
+            <t t-set="has_product" t-value="any(l.product_id and l.product_id.type == 'product' for l in o.invoice_line_ids)"/>
+
+            <t t-if="has_product">
+
+                <tr style="height: 80px;">
+                    <td style="width: 290px; vertical-align: top; padding-left: 5mm; ">
+                        <span style="font-size: 7pt">Recipient of goods</span>
+                        <hr class="company_invoice_line"/>
                         <div>
-                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.zip"/>
-                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.city"/>
+                            <t>
+                                <span t-field="o.partner_shipping_id.parent_id"/>
+                                <t t-if="not o.partner_shipping_id.parent_id">
+                                    <span t-field="o.partner_shipping_id.name"/>
+                                    <br/>
+                                </t>
+                                <span t-field="o.partner_shipping_id.street"/>
+                                <br/>
+                                <span t-field="o.partner_shipping_id.street2"/>
+                                <div>
+                                    <span t-field="o.partner_shipping_id.zip"/>
+                                    <span t-field="o.partner_shipping_id.city"/>
+                                </div>
+                                <span t-field="o.partner_shipping_id.country_id"/>
+                            </t>
                         </div>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.country_id"/>
-                    </t>
-                </td>
-            </tr>
-        </table>       
-        
-        <table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3;">
+                    </td>
+                    <td style="width: 70px"/>
+                    <td style="width: 260px; vertical-align: top;">
+                        <span style="font-size: 7pt">Shipper of goods</span>
+                        <hr class="company_invoice_line"/>
+                        <t t-if="o.x_sale_order_id">
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/>
+                            <br/>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street"/>
+                            <br/>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street2"/>
+                            <div>
+                                <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.zip"/>
+                                <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.city"/>
+                            </div>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.country_id"/>
+                        </t>
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="width: 120px; vertical-align: top; padding-left: 5mm;">
-                    <t t-if="o.partner_shipping_id.vat">
-                        <div>USt-IdNr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_vat">
-                        <div>MWST Nr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_eori">
-                        <div>EORI Nr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_zaz">
-                        <div>ZAZ Konto Nr.</div>
-                    </t>
-                </td>
-                <td style="width: 180px; vertical-align: top">
-                    <t t-if="o.partner_shipping_id.vat">
-                        <div t-field="o.partner_shipping_id.vat"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_vat">
-                        <div t-field="o.partner_shipping_id.x_vat"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_eori">
-                        <div t-field="o.partner_shipping_id.x_eori"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_zaz">
-                        <div t-field="o.partner_shipping_id.x_zaz"/>
-                    </t>
-                </td>
-                <td style="width: 60px"/>       
-                <td style="width: 100px; vertical-align: top">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
-                        <div>USt-IdNr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
-                        <div>MWST Nr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
-                        <div>EORI Nr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
-                        <div>ZAZ Konto Nr.</div>
-                    </t>                 
-                </td>
-                <td style="width: 180px; vertical-align: top">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz"/>
-                    </t>                  
-                </td>                
-            </tr>
-           
-            <tr>
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
-                    <t t-if="o.partner_shipping_id.x_remarks">
-                        <div t-field="o.partner_shipping_id.x_remarks"/>
-                    </t>
-                </td>
-
-                <td style="width: 60px"/>
-
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks"/>
-                    </t>
-                </td>
-            </tr>           
+            </t>
 
         </table>
+
+        <t t-if="has_product">
+
+            <table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3;">
+
+                <tr>
+                    <td style="width: 120px; vertical-align: top; padding-left: 5mm;">
+                        <t t-if="o.partner_shipping_id.vat">
+                            <div>VAT Reg. No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_vat">
+                            <div>VAT No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_eori">
+                            <div>EORI No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_zaz">
+                            <div>ZAZ Reg. No.</div>
+                        </t>
+                    </td>
+                    <td style="width: 180px; vertical-align: top">
+                        <t t-if="o.partner_shipping_id.vat">
+                            <div t-field="o.partner_shipping_id.vat"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_vat">
+                            <div t-field="o.partner_shipping_id.x_vat"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_eori">
+                            <div t-field="o.partner_shipping_id.x_eori"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_zaz">
+                            <div t-field="o.partner_shipping_id.x_zaz"/>
+                        </t>
+                    </td>
+                    <td style="width: 60px"/>
+                    <td style="width: 100px; vertical-align: top">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
+                            <div>VAT Reg. No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
+                            <div>VAT No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
+                            <div>EORI No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
+                            <div>ZAZ Reg. No.</div>
+                        </t>
+                    </td>
+                    <td style="width: 180px; vertical-align: top">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz"/>
+                        </t>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
+                        <t t-if="o.partner_shipping_id.x_remarks">
+                            <div t-field="o.partner_shipping_id.x_remarks"/>
+                        </t>
+                    </td>
+
+                    <td style="width: 60px"/>
+
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks"/>
+                        </t>
+                    </td>
+                </tr>
+
+            </table>
+
+        </t>
 
     </xpath>
 </data>

@@ -52,7 +52,7 @@
               <td t-if="show_project"/>
               <td t-if="show_task"/>
               <td class="text-end"><strong>Zwischensumme</strong></td>
-              <td class="text-end"><strong t-esc="sum(docs.filtered(lambda l: type==l.x_timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
+              <td class="text-end"><strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
             </tr>
         </t>
     </xpath>
