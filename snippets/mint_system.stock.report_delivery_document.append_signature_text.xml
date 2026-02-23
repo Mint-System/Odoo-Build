@@ -23,20 +23,4 @@
             </div>
         </div>
     </xpath>
-    <xpath expr="//table[@name='stock_move_line_table']" position="after">
-        <div class="row" style="margin-top: 3rem;">
-            <div class="col-5">
-                <p>Gebinde geliefert: _____</p>
-                <p>Gebinde zur&#xFC;ck: _____</p>
-                <br />
-                <p>Unterschrift Transport: _______________</p>
-            </div>
-            <div class="col-2" />
-            <div class="col-5">
-                <p>Produkte einwandfrei erhalten.</p>
-                <br />
-                <p>Unterschrift Kunde: _______________</p>
-            </div>
-        </div>
-    </xpath>
 </data>
