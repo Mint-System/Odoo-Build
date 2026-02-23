@@ -146,6 +146,38 @@ Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_c
 
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml)
 
+### Remove Country Id Code Hyphen Zip
+
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip`
+
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='company.country_id.code']" position="replace">
+        <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='company.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span t-esc="o.partner_id.country_id.code and o.partner_id.zip and (o.partner_id.country_id.code + '-' + o.partner_id.zip) or o.partner_id.country_id.code or o.partner_id.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='company.country_id.code']" position="replace">
+        <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='company.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span t-esc="o.partner_id.country_id.code and o.partner_id.zip and (o.partner_id.country_id.code + '-' + o.partner_id.zip) or o.partner_id.country_id.code or o.partner_id.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.zip']" position="replace">
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml)
+
+Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml)
+
 ### Remove Title Prefix
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`
@@ -257,6 +289,25 @@ ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
 
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
+
+### Use Invoice Name
+
+ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name`
+
+```xml
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <xpath
+        expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']"
+        position="replace"
+    >
+        <span t-field="o.partner_id.commercial_partner_id.invoice_name" />
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml)
+
+Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml)
 
 ## Qr Report Main
 

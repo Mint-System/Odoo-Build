@@ -1209,6 +1209,38 @@ Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_po
 
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
 
+### Modify Attributes Carrier Id
+
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id`
+
+```xml
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+    <xpath expr="//field[@name='carrier_id']" position="attributes">       
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml)
+
+### Modify Attributes Currency Id
+
+ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id`
+
+```xml
+<data inherit_id="sale_blanket_order.view_blanket_order_form" priority="50">
+    <xpath expr="//field[@name='currency_id']" position="attributes">       
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml)
+
+Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml)
+
 ### Modify Attributes Date Confirmed
 
 ID: `mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed`

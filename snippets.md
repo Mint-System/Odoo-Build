@@ -151,6 +151,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Sale Subscription](snippets/sale_subscription.md)
 
+## [Sale Timesheet](snippets/sale_timesheet.md)
+
 ## [Stock](snippets/stock.md)
 
 ## [Stock Account](snippets/stock_account.md)

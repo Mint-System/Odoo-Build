@@ -2386,6 +2386,27 @@ Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_moser.x
 
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_moser.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_moser.xml)
 
+### Style Swift-Link
+
+ID: `mint_system.purchase.report_purchaseorder_document.style_swift-link`
+
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+
+	<xpath expr="//table[contains(@class,'o_main_table')]/tbody/t/tr" position="attributes">
+		<attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>
+	</xpath>
+
+	<xpath expr="//div[@id='total']/div" position="attributes">
+		<attribute name="style">padding-top:30px;</attribute>
+	</xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml)
+
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml)
+
 ### Style Tissa
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`

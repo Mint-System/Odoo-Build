@@ -1942,6 +1942,38 @@ Edit: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xm
 
 Source: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml)
 
+### Add Signature Note2
+
+ID: `mint_system.sale.report_saleorder_document.add_signature_note2`
+
+```xml
+<data inherit_id="sale.report_saleorder_document" priority="50">
+    <xpath expr="//div/span[@t-field='doc.note']" position="after">
+        <t t-if="doc.state != 'sale'">
+            <style>
+            div#signature {
+                padding-top: 50px;
+                padding-left: 75px;
+                padding-right: 75px;
+            }
+            </style>
+            <div id="signature">
+                <p
+                >Hiermit bestellen wir die Produkte/Dienstleistungen gemäss diesem Angebot.<br
+                    />
+                <br />
+                <br />
+            Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
+            </div>
+        </t>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml)
+
+Source: [snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml)
+
 ### Add Taxes
 
 ID: `mint_system.sale.report_saleorder_document.add_taxes`
@@ -5810,6 +5842,21 @@ Edit: [snippets/mint_system.sale.view_order_form.modify_readonly_analytic_accoun
 
 Source: [snippets/mint_system.sale.view_order_form.modify_readonly_analytic_account_id.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.modify_readonly_analytic_account_id.xml)
 
+### Modify Readonly Carrier Id
+
+ID: `mint_system.sale.view_order_form.modify_readonly_carrier_id`
+
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='carrier_id']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml)
+
+Source: [snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml)
+
 ### Modify Readonly Date Order
 
 ID: `mint_system.sale.view_order_form.modify_readonly_date_order`
@@ -6004,6 +6051,22 @@ ID: `mint_system.sale.view_order_form.remove_margin_percent`
 Edit: [snippets/mint_system.sale.view_order_form.remove_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.remove_margin_percent.xml)
 
 Source: [snippets/mint_system.sale.view_order_form.remove_margin_percent.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.remove_margin_percent.xml)
+
+### Replace Confirm Button
+
+ID: `mint_system.sale.view_order_form.replace_confirm_button`
+
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="(//button[@name='action_confirm'])[2]" position="attributes">
+        <attribute name="name">action_confirm_save_only</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.view_order_form.replace_confirm_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.replace_confirm_button.xml)
+
+Source: [snippets/mint_system.sale.view_order_form.replace_confirm_button.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.replace_confirm_button.xml)
 
 ### Set Groups Date Order
 
@@ -6263,6 +6326,21 @@ ID: `mint_system.sale.view_order_form.x_as4import`
 Edit: [snippets/mint_system.sale.view_order_form.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.x_as4import.xml)
 
 Source: [snippets/mint_system.sale.view_order_form.x_as4import.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.x_as4import.xml)
+
+### X Blanket Order
+
+ID: `mint_system.sale.view_order_form.x_blanket_order`
+
+```xml
+<data inherit_id="sale.view_order_form" priority="50">
+    <xpath expr="//field[@name='client_order_ref']" position="after">
+        <field name="x_blanket_order"/>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.sale.view_order_form.x_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.x_blanket_order.xml)
+
+Source: [snippets/mint_system.sale.view_order_form.x_blanket_order.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.x_blanket_order.xml)
 
 ### X Client Project Ref
 

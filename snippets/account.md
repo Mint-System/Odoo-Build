@@ -223,123 +223,138 @@ ID: `mint_system.account.report_invoice_document.add_address`
     }
             </style>
 
-            <tr style="height: 80px;">
-                <td style="width: 290px; vertical-align: top; padding-left: 5mm; ">
-                    <span style="font-size: 7pt">Recipient of goods</span>
-                    <hr class="company_invoice_line"/>
-                    <div>
-                        <t>
-                            <span t-field="o.partner_shipping_id.parent_id"/>
-                            <t t-if="not o.partner_shipping_id.parent_id">
-                                <span t-field="o.partner_shipping_id.name"/><br/>
-                            </t>
-                            <span t-field="o.partner_shipping_id.street"/><br/>
-                            <span t-field="o.partner_shipping_id.street2"/>
-                            <div>
-                                <span t-field="o.partner_shipping_id.zip"/>
-                                <span t-field="o.partner_shipping_id.city"/>
-                            </div>
-                            <span t-field="o.partner_shipping_id.country_id"/>
-                        </t>
-                    </div>
-                </td>
-                <td style="width: 70px"/>
-                <td style="width: 260px; vertical-align: top;">
-                    <span style="font-size: 7pt">Shipper of goods</span>
-                    <hr class="company_invoice_line"/>
-                    <t t-if="o.x_sale_order_id">
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/><br/>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street"/><br/>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street2"/>
+            <t t-set="has_product" t-value="any(l.product_id and l.product_id.type == 'product' for l in o.invoice_line_ids)"/>
+
+            <t t-if="has_product">
+
+                <tr style="height: 80px;">
+                    <td style="width: 290px; vertical-align: top; padding-left: 5mm; ">
+                        <span style="font-size: 7pt">Recipient of goods</span>
+                        <hr class="company_invoice_line"/>
                         <div>
-                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.zip"/>
-                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.city"/>
+                            <t>
+                                <span t-field="o.partner_shipping_id.parent_id"/>
+                                <t t-if="not o.partner_shipping_id.parent_id">
+                                    <span t-field="o.partner_shipping_id.name"/>
+                                    <br/>
+                                </t>
+                                <span t-field="o.partner_shipping_id.street"/>
+                                <br/>
+                                <span t-field="o.partner_shipping_id.street2"/>
+                                <div>
+                                    <span t-field="o.partner_shipping_id.zip"/>
+                                    <span t-field="o.partner_shipping_id.city"/>
+                                </div>
+                                <span t-field="o.partner_shipping_id.country_id"/>
+                            </t>
                         </div>
-                        <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.country_id"/>
-                    </t>
-                </td>
-            </tr>
-        </table>       
-        
-        <table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3;">
+                    </td>
+                    <td style="width: 70px"/>
+                    <td style="width: 260px; vertical-align: top;">
+                        <span style="font-size: 7pt">Shipper of goods</span>
+                        <hr class="company_invoice_line"/>
+                        <t t-if="o.x_sale_order_id">
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.name"/>
+                            <br/>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street"/>
+                            <br/>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.street2"/>
+                            <div>
+                                <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.zip"/>
+                                <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.city"/>
+                            </div>
+                            <span t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.country_id"/>
+                        </t>
+                    </td>
+                </tr>
 
-            <tr>
-                <td style="width: 120px; vertical-align: top; padding-left: 5mm;">
-                    <t t-if="o.partner_shipping_id.vat">
-                        <div>USt-IdNr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_vat">
-                        <div>MWST Nr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_eori">
-                        <div>EORI Nr.</div>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_zaz">
-                        <div>ZAZ Konto Nr.</div>
-                    </t>
-                </td>
-                <td style="width: 180px; vertical-align: top">
-                    <t t-if="o.partner_shipping_id.vat">
-                        <div t-field="o.partner_shipping_id.vat"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_vat">
-                        <div t-field="o.partner_shipping_id.x_vat"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_eori">
-                        <div t-field="o.partner_shipping_id.x_eori"/>
-                    </t>
-                    <t t-if="o.partner_shipping_id.x_zaz">
-                        <div t-field="o.partner_shipping_id.x_zaz"/>
-                    </t>
-                </td>
-                <td style="width: 60px"/>       
-                <td style="width: 100px; vertical-align: top">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
-                        <div>USt-IdNr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
-                        <div>MWST Nr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
-                        <div>EORI Nr.</div>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
-                        <div>ZAZ Konto Nr.</div>
-                    </t>                 
-                </td>
-                <td style="width: 180px; vertical-align: top">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori"/>
-                    </t>
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz"/>
-                    </t>                  
-                </td>                
-            </tr>
-           
-            <tr>
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
-                    <t t-if="o.partner_shipping_id.x_remarks">
-                        <div t-field="o.partner_shipping_id.x_remarks"/>
-                    </t>
-                </td>
-
-                <td style="width: 60px"/>
-
-                <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
-                    <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks">
-                        <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks"/>
-                    </t>
-                </td>
-            </tr>           
+            </t>
 
         </table>
+
+        <t t-if="has_product">
+
+            <table name="detailed_information" style="margin-left: 0px; margin-top: 20px; margin-bottom: 50px; border: transparent; line-height: 1.3;">
+
+                <tr>
+                    <td style="width: 120px; vertical-align: top; padding-left: 5mm;">
+                        <t t-if="o.partner_shipping_id.vat">
+                            <div>VAT Reg. No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_vat">
+                            <div>VAT No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_eori">
+                            <div>EORI No.</div>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_zaz">
+                            <div>ZAZ Reg. No.</div>
+                        </t>
+                    </td>
+                    <td style="width: 180px; vertical-align: top">
+                        <t t-if="o.partner_shipping_id.vat">
+                            <div t-field="o.partner_shipping_id.vat"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_vat">
+                            <div t-field="o.partner_shipping_id.x_vat"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_eori">
+                            <div t-field="o.partner_shipping_id.x_eori"/>
+                        </t>
+                        <t t-if="o.partner_shipping_id.x_zaz">
+                            <div t-field="o.partner_shipping_id.x_zaz"/>
+                        </t>
+                    </td>
+                    <td style="width: 60px"/>
+                    <td style="width: 100px; vertical-align: top">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
+                            <div>VAT Reg. No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
+                            <div>VAT No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
+                            <div>EORI No.</div>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
+                            <div>ZAZ Reg. No.</div>
+                        </t>
+                    </td>
+                    <td style="width: 180px; vertical-align: top">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.vat"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_vat"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_eori"/>
+                        </t>
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_zaz"/>
+                        </t>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 5mm;" colspan="2">
+                        <t t-if="o.partner_shipping_id.x_remarks">
+                            <div t-field="o.partner_shipping_id.x_remarks"/>
+                        </t>
+                    </td>
+
+                    <td style="width: 60px"/>
+
+                    <td style="width: 280px; padding-top: 20px; vertical-align: top; padding-left: 0;" colspan="2">
+                        <t t-if="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks">
+                            <div t-field="o.x_sale_order_id and o.env['sale.order'].browse(o.x_sale_order_id).warehouse_id.partner_id.x_remarks"/>
+                        </t>
+                    </td>
+                </tr>
+
+            </table>
+
+        </t>
 
     </xpath>
 </data>
@@ -446,6 +461,23 @@ Edit: [snippets/mint_system.account.report_invoice_document.add_current_subtotal
 
 Source: [snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml)
 
+### Add Footer Text
+
+ID: `mint_system.account.report_invoice_document.add_footer_text`
+
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//div[@id='payment_term']" position="after">
+        <t t-if="o.partner_shipping_id.country_id.id == 57">
+       Verlagerung der Steuerschuld auf den Leistungs- und Rechnungsempfänger (Empfängerortprinzip gem. Art. 8 MWST).
+        </t>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.add_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_footer_text.xml)
+
+Source: [snippets/mint_system.account.report_invoice_document.add_footer_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_footer_text.xml)
+
 ### Add General Information
 
 ID: `mint_system.account.report_invoice_document.add_general_information`
@@ -454,17 +486,21 @@ ID: `mint_system.account.report_invoice_document.add_general_information`
 <data inherit_id="account.report_invoice_document" priority="50">
 
     <xpath expr="//div[@id='total']/../.." position="after">
-    
+
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
-                <td style="width: 325px; font-size: 6pt; padding-bottom: 0px">
-                    <span>Es gelten die Allgemeinen Verkaufs- und Lieferbedingungen der Xinomer AG</span><br/>
-                    <span>Aktuelle Version siehe www.xinomer.ch</span>
+                <td style="width: 335px; font-size: 6pt; line-height: 1.3; padding-bottom: 0px">               
+                        The General Terms and Conditions of
+                    <t t-out="o.company_id.name"/>apply.                    
+                    <t t-if="o.company_id.website">
+                        For current version see
+                        <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
+                    </t>
                 </td>
-                <td style="width: 50px"/>
+                <td style="width: 40px"/>
                 <td style="width: 300px; vertical-align: top">
                     <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Zahlbar bis: </span>
+                        <span>Payable until: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
                     <div>
@@ -481,8 +517,6 @@ ID: `mint_system.account.report_invoice_document.add_general_information`
             </tr>
 
         </table>
-       
-
     </xpath>
 </data>
 ```
@@ -561,6 +595,26 @@ ID: `mint_system.account.report_invoice_document.add_header_space`
 Edit: [snippets/mint_system.account.report_invoice_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_space.xml)
 
 Source: [snippets/mint_system.account.report_invoice_document.add_header_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_space.xml)
+
+### Add Header Text
+
+ID: `mint_system.account.report_invoice_document.add_header_text`
+
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//table[@name='invoice_line_table']" position="before">
+    <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])" >
+            
+        Gemäss Rahmen-Dienstleistungsvertrag <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])" />
+ erlauben wir uns, für unsere augeführten IPR-Leistungen folgende Rechnung zu stellen:
+
+        </t>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_text.xml)
+
+Source: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_text.xml)
 
 ### Add Iban
 
@@ -3044,6 +3098,107 @@ Edit: [snippets/mint_system.account.report_invoice_document.replace_informations
 
 Source: [snippets/mint_system.account.report_invoice_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations2.xml)
 
+### Replace Informations3
+
+ID: `mint_system.account.report_invoice_document.replace_informations3`
+
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <div id="informations" position="replace">
+        <style>
+      div#informations p {
+        margin-bottom: 0rem;
+      }
+      div#informations div {
+        display: inline-block;
+        vertical-align: top;
+      }
+    </style>
+        <div id="informations">
+            <table class="table table-borderless table-sm">
+                <tr>
+                    <td>
+                        <t t-if="o.move_type == 'out_invoice'">
+                            <strong class="mr-2">Rechnungsdatum:</strong>
+                        </t>
+                        <t t-elif="o.move_type == 'out_refund'">
+                            <strong class="mr-2">Gutschriftdatum:</strong>
+                        </t>
+                        <t t-elif="o.move_type == 'out_receipt'">
+                            <strong class="mr-2">Quittungsdatum:</strong>
+                        </t>
+                        <t t-else="">
+                            <strong>Datum:</strong>
+                        </t>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
+                    </td>
+                    <td>
+                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_payment_term_id"
+                        />
+                    </td>
+                    <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
+                    <td t-if="o.partner_sale_id">
+                        <strong
+                            class="mr-2"
+                        >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
+                        <span class="ms-2" t-field="o.partner_sale_id.name" />
+                    </td>
+                </tr>
+                <tr>
+                    <td
+                        t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                    >
+                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date_due"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
+                    </td>
+                    <td t-else="" />
+                    <td>
+                        <strong class="mr-2">Unser Kontakt:</strong>
+                        <span class="ms-2" t-field="o.invoice_user_id.name" />
+                    </td>
+                    <td t-if="o.ref" rowspan="2">
+                        <div>
+                            <strong class="mr-2">Ihre Referenz:</strong>
+                        </div>
+                        <div class="ms-2" t-field="o.ref" />
+                    </td>
+                </tr>
+                <tr>
+                    <t
+                        t-set="order_id"
+                        t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
+                    />
+                    <td t-if="order_id" colspan="2">
+                        <strong class="mr-2">Unsere Referenz:</strong>
+                        <span
+                            class="ms-2"
+                            t-if="order_id.project_id.key"
+                            t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"
+                        />
+                        <span class="ms-2" t-else="" t-field="order_id.name" />
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</data>
+
+```
+Edit: [snippets/mint_system.account.report_invoice_document.replace_informations3.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations3.xml)
+
+Source: [snippets/mint_system.account.report_invoice_document.replace_informations3.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations3.xml)
+
 ### Replace Infotable
 
 ID: `mint_system.account.report_invoice_document.replace_infotable`
@@ -3668,13 +3823,15 @@ ID: `mint_system.account.report_invoice_document.show_country_of_origin`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
-        <th name="th_country_of_origin" class="text-right">
+        <t t-set="display_country_of_origin" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
+        <th name="th_country_of_origin" class="text-start" t-if="display_country_of_origin">
             <span>Origin</span>
         </th>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="before">
-        <td name="td_country_of_origin" class="text-right">
-            <span t-esc="line.product_id.country_of_origin"/>
+        <t t-set="display_country_of_origin" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
+        <td name="td_country_of_origin" class="text-right" t-if="display_country_of_origin">
+            <span t-esc="line.product_id.country_of_origin.code"/>
         </td>
     </xpath>
 </data>
@@ -3790,12 +3947,14 @@ ID: `mint_system.account.report_invoice_document.show_hs_code2`
 ```xml
 <data inherit_id="account.report_invoice_document" priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
-        <th name="th_hs_code" class="text-start">
+        <t t-set="display_hs_code" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
+        <th name="th_hs_code" class="text-start" t-if="display_hs_code">
             <span>HS-Code</span>
         </th>
     </xpath>
     <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="before">
-        <td name="td_hs_code" class="text-right">
+        <t t-set="display_hs_code" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
+        <td name="td_hs_code" class="text-right" t-if="display_hs_code">
             <span t-esc="line.product_id.hs_code"/>
         </td>
     </xpath>
@@ -4149,10 +4308,12 @@ ID: `mint_system.account.report_invoice_document.style_lapp`
         <attribute name="class">table table-sm o_main_table mt-4 custom-border</attribute>
         <attribute name="style">border-top-width: 1px</attribute>
     </xpath>
-
+    
+    <!--
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="style">width: 110px</attribute>
     </xpath>
+    -->
 
     <xpath expr="//div[@id='right-elements']" position="attributes">
         <attribute name="t-attf-class">float-end</attribute>
