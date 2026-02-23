@@ -1,0 +1,22 @@
+<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='company.country_id.code']" position="replace">
+        <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='company.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span t-esc="o.partner_id.country_id.code and o.partner_id.zip and (o.partner_id.country_id.code + '-' + o.partner_id.zip) or o.partner_id.country_id.code or o.partner_id.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='company.country_id.code']" position="replace">
+        <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='company.zip']" position="replace">
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.country_id.code']" position="replace">
+        <span t-esc="o.partner_id.country_id.code and o.partner_id.zip and (o.partner_id.country_id.code + '-' + o.partner_id.zip) or o.partner_id.country_id.code or o.partner_id.zip"/>
+    </xpath>
+    <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.zip']" position="replace">
+    </xpath>
+</data>
