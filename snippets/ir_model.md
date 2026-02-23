@@ -3207,6 +3207,29 @@ Edit: [snippets/mint_system.ir_model.sale_order.x_bexioid.xml](https://github.co
 
 Source: [snippets/mint_system.ir_model.sale_order.x_bexioid.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_bexioid.xml)
 
+### X Blanket Order
+
+ID: `mint_system.ir_model.sale_order.x_blanket_order`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_blanket_order" model="ir.model.fields">
+        <field name="field_description">Rahmenauftrag</field>
+        <field name="model">sale.order</field>
+        <field name="model_id" ref="sale.model_sale_order"/>
+        <field name="name">x_blanket_order</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+```
+Edit: [snippets/mint_system.ir_model.sale_order.x_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_blanket_order.xml)
+
+Source: [snippets/mint_system.ir_model.sale_order.x_blanket_order.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_blanket_order.xml)
+
 ### X Client Project Ref
 
 ID: `mint_system.ir_model.sale_order.x_client_project_ref`

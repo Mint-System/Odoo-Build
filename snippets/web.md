@@ -91,7 +91,7 @@ Source: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xm
 ID: `mint_system.web.address_layout.style_allnet`
 
 ```xml
-<data inherit_id="sale.report_saleorder_document" priority="60">   
+<data inherit_id="web.address_layout" priority="60">   
     <xpath expr="//div[@id='informations']" position="attributes">
         <attribute name="style">font-size:10pt;</attribute>
     </xpath>

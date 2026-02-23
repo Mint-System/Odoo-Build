@@ -74,6 +74,7 @@ export default [
 '/snippets/sale_partner_incoterm.md',
 '/snippets/sale_product_set.md',
 '/snippets/sale_subscription.md',
+'/snippets/sale_timesheet.md',
 '/snippets/stock.md',
 '/snippets/stock_account.md',
 '/snippets/stock_delivery.md',

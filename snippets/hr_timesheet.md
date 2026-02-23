@@ -339,31 +339,35 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
 
 ```xml
 <data inherit_id="hr_timesheet.report_timesheet" priority="50">
+
     <xpath expr="//table/tbody/tr[1]" position="replace">
-        <!-- Get all invoice types -->
+
+        <!-- Create list of all invoice types -->
         <t t-set="timesheet_invoice_type" t-value="[]"/>
-        <t t-foreach="docs" t-as="l">
-            <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[l.timesheet_invoice_type]"/>
+        <t t-foreach="docs" t-as="doc">
+            <t t-set="timesheet_invoice_type" t-value="timesheet_invoice_type+[doc.timesheet_invoice_type]"/>
         </t>
+        <t t-set="unique_types" t-value="sorted(set(timesheet_invoice_type))"/>
+        
         <style>
           td#date {
             white-space: nowrap;
           }
         </style>
+
         <!-- Foreach timesheet type list entries -->
-        <t t-foreach="set(timesheet_invoice_type)" t-as="type">
+        <t t-foreach="unique_types" t-as="type">
             <tr>
                 <td colspan="5">
                     <br/>
-                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufw&#xE4;nde', 'billable_time': 'Abrechenbare Aufw&#xE4;nde'}[type]"/>:</p>
+                    <p class="lead"><span t-esc="{False: False, 'non_billable': 'Nicht abrechenbare Aufwände', 'billable_time': 'Abrechenbare Aufwände'}[type]"/>:</p>
                 </td>
             </tr>
             <tr t-foreach="docs" t-as="l">
                 <t t-if="type==l.timesheet_invoice_type">
+
                     <td id="date">
-                        <span t-field="l.date"/>
-                        <br/>
-                        <span t-field="l.employee_id.name"/>
+                        <span t-field="l.date"/><br/><span t-field="l.employee_id.name"/>
                     </td>
                     <td>
                         <span t-field="l.name" t-options="{'widget': 'text'}"/>
@@ -376,26 +380,24 @@ ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
                             <span t-field="l.task_id.name"/>
                         </t>
                     </td>
-                    <td class="text-right">
+                    <td class="text-end">
                         <span t-field="l.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
                     </td>
+
                 </t>
             </tr>
+            
             <tr>
-                <td/>
-                <td t-if="show_project"/>
-                <td t-if="show_task"/>
-                <td class="text-right">
-                    <strong>Zwischensumme</strong>
-                </td>
-                <td class="text-right">
-                    <strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
-                </td>
+              <td/>
+              <td t-if="show_project"/>
+              <td t-if="show_task"/>
+              <td class="text-end"><strong>Zwischensumme</strong></td>
+              <td class="text-end"><strong t-esc="sum(docs.filtered(lambda l: type==l.timesheet_invoice_type).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/></td>
             </tr>
         </t>
     </xpath>
-</data>
 
+</data>
 ```
 Edit: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_type.xml)
 
@@ -515,6 +517,59 @@ Edit: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](https
 
 Source: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](https://odoo.build/snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml)
 
+## Timesheet Table
+
+### Add Sale Price Unit
+
+ID: `mint_system.hr_timesheet.timesheet_table.add_sale_price_unit`
+
+```xml
+<data inherit_id="hr_timesheet.timesheet_table" priority="50">
+
+   <xpath expr="//thead//tr/th[3]" position="replace">
+      <th class="text-start align-middle">
+         <span>Hourly Rate</span>
+      </th>
+   </xpath>
+
+   <xpath expr="//tbody//tr/td[3]" position="replace">
+      <td class="align-middle">
+         <span t-esc="line.task_id.sale_line_id.price_unit"/>
+      </td>
+   </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)
+
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)
+
+### Style Lapp
+
+ID: `mint_system.hr_timesheet.timesheet_table.style_lapp`
+
+```xml
+<data inherit_id="hr_timesheet.timesheet_table" priority="60">
+
+    <xpath expr="//div[1]" position="before">
+        <style> 
+            h2 {
+                
+                font-size: 16px;
+            }            
+            table {
+                
+                font-size: 12px;
+            }
+        </style>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml)
+
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml)
+
 ## Timesheet View Tree User
 
 ### Editable Top
@@ -582,6 +637,21 @@ ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`
 Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)
 
 Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id.xml)
+
+### X Phase Id Name
+
+ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name`
+
+```xml
+<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+     <xpath expr="//field[@name='task_id']" position="after">
+        <field name="x_phase_id_name" optional="show"/>       
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml)
+
+Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name.xml)
 
 ### X Timesheet Invoice Type
 

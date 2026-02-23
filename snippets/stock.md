@@ -1930,15 +1930,17 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
       }
     </style>
         <div id="signature">
-            <p>Hiermit best&#xE4;tigen wir den Erhalt der Ware gem&#xE4;ss Lieferung.</p>
-            <br/>
-            <br/>
+            <p
+            >Hiermit best&#xE4;tigen wir den Erhalt der Ware gem&#xE4;ss Lieferung.</p>
+            <br />
+            <br />
             <div class="row">
-                <div class="col-6">
+                <div class="col-5">
                     <p>Ort/Datum: __________________________________</p>
                 </div>
-                <div class="col-6">
-                    <p>Unterschrift Kunde: __________________________________</p>
+                <div class="col-7">
+                    <p
+                    >Unterschrift Kunde: _____________________________________________________________</p>
                 </div>
             </div>
         </div>
@@ -1948,13 +1950,13 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
             <div class="col-5">
                 <p>Gebinde geliefert: _____</p>
                 <p>Gebinde zur&#xFC;ck: _____</p>
-                <br/>
+                <br />
                 <p>Unterschrift Transport: _______________</p>
             </div>
-            <div class="col-2"/>
+            <div class="col-2" />
             <div class="col-5">
                 <p>Produkte einwandfrei erhalten.</p>
-                <br/>
+                <br />
                 <p>Unterschrift Kunde: _______________</p>
             </div>
         </div>
@@ -2023,6 +2025,28 @@ Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_li
 
 Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
 
+### Disable Stock Move Line Table2
+
+ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table2`
+
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+  <table name="stock_move_table" position="attributes">
+    <attribute name="t-if" />
+  </table>
+
+  <table name="stock_move_line_table" position="attributes">
+    <attribute name="t-elif" />
+    <attribute name="t-if">False</attribute>
+  </table>
+
+</data>
+
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml)
+
 ### Filter Qty Done
 
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`
@@ -2044,6 +2068,37 @@ ID: `mint_system.stock.report_delivery_document.filter_qty_done`
 Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
 
 Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
+
+### Filter Qty Done2
+
+ID: `mint_system.stock.report_delivery_document.filter_qty_done2`
+
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
+        <t
+            t-set="lines"
+            t-value="lines.filtered(lambda l: l.quantity &gt; 0)"
+        />
+    </xpath>
+    <xpath expr="//t[@name='no_package_move_lines']" position="before">
+        <t
+            t-set="move_lines"
+            t-value="move_lines.filtered(lambda l: l.qty_done &gt; 0)"
+        />
+    </xpath>
+    <xpath expr="//t[@t-set='package_move_lines']" position="after">
+        <t
+            t-set="package_move_lines"
+            t-value="package_move_lines.filtered(lambda l: l.qty_done &gt; 0)"
+        />
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml)
 
 ### Format Address
 
@@ -2208,6 +2263,54 @@ ID: `mint_system.stock.report_delivery_document.format_table_border`
 Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
 
 Source: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
+
+### Format Table Border2
+
+ID: `mint_system.stock.report_delivery_document.format_table_border2`
+
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+
+    <xpath expr="//table[@name='stock_move_table']" position="before">
+        <style>
+            .table > :not(:first-child) {
+            border-top: none;
+            }
+            thead tr.border-solid-black {
+                border-top: 1px solid black !important;
+                color: #5c516e;
+            }
+            table thead tr.border-solid-black {
+                border-top: 1px solid black !important;
+                border-bottom: 1px solid #dee2e6 !important;
+                color: #5c516e;
+            }
+            tbody tr.border-solid-black:last-child {
+                border-bottom: 1px solid black !important;
+            }
+        </style>
+    </xpath>
+
+    <xpath
+        expr="//table[@name='stock_move_table']/thead/tr"
+        position="attributes"
+    >
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+    <xpath
+        expr="(//table[@name='stock_move_table']//tr)[last()]"
+        position="attributes"
+    >
+        <attribute name="class" separator=" " add="border-solid-black" />
+    </xpath>
+
+</data>
+
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border2.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_table_border2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border2.xml)
 
 ### Format Title
 
@@ -3253,29 +3356,35 @@ ID: `mint_system.stock.report_delivery_document.replace_informations`
                     <td>
                         <strong>Versanddatum:</strong>
                         <t t-if="o.state == 'done'">
-                            <span t-field="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                            <span
+                                t-field="o.date_done"
+                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                            />
                         </t>
                         <t t-if="o.state != 'done'">
-                            <span t-field="o.scheduled_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                            <span
+                                t-field="o.scheduled_date"
+                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                            />
                         </t>
                     </td>
                     <td>
                         <strong>Unser Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.user_id"/>
+                        <span t-field="o.sudo().sale_id.user_id" />
                     </td>
                     <td>
                         <strong>Ihr Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.partner_sale_id.name"/>
+                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
                     <td colspan="2">
-                        <strong>&#xA0;Unsere Referenz:</strong>
-                        <span t-field="o.origin"/>
+                        <strong>Unsere Referenz:</strong>
+                        <span t-field="o.origin" />
                     </td>
                     <td t-if="o.sudo().sale_id.client_order_ref">
                         <strong>Ihre Referenz:</strong>
-                        <span t-field="o.sudo().sale_id.client_order_ref"/>
+                        <span t-field="o.sudo().sale_id.client_order_ref" />
                     </td>
                 </tr>
             </table>
