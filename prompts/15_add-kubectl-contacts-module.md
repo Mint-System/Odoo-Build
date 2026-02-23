@@ -24,11 +24,3 @@ Add two filters:
 
 - Cluster Provider: Shows partners that have `cluster_ids`. 
 - Consulting Partner: Show partners that have `helm_product_ids`.
-
-## Worklog
-
-==Fill this in as you work on the task==
-
-## Summary
-
-==Fill this once you completed the task==
