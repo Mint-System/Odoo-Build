@@ -2323,6 +2323,7 @@ upgrade-odoo() {
         echo "shell"
         echo "psql"
         echo "rename-production"
+        echo "stop-container"
         exit
     fi
     if [[ -z "$2" ]]; then
@@ -2372,6 +2373,7 @@ upgrade-odoo() {
         echo "---------------------"
         echo "Init Addons: $ODOO_ADDONS_INIT"
         echo "Uninstall Addons: $ODOO_ADDONS_UNINSTALL"
+        echo ""
         echo "Test Config: $ODOO_CONFIGURE_TEST"
         echo "Production Config: $ODOO_CONFIGURE_PRODUCTION"
         echo ""
@@ -2502,16 +2504,20 @@ upgrade-odoo() {
         $ssh_target_server docker exec "$containe_id" cat /etc/odoo/odoo.conf
     fi
 
+    if [[ "$2" = "stop-container" ]]; then
+        log-warning "Run step 'stop-container' on $TARGET_SERVER."
+        $ssh_server docker stop "$ODOO_CONTAINER"
+    fi
+
     if [[ "$2" = "rename-production" ]]; then
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
-
-        echo "#FIXME: implement this command."
-
-        # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
-        # ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
-        # ssh -p "$PORT" "$SERVER" docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
-
-        # ssh -p "$PORT" "$SERVER" docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
+        if [[ "$POSTGRES_CONTAINER" != "$TARGET_POSTGRES_CONTAINER" ]]; then
+            ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
+        else
+            ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
+            ssh -p "$PORT" "$SERVER" docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
+        fi
+        ssh -p "$PORT" "$SERVER" docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
     fi
     
 }
