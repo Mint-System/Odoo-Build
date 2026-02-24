@@ -7,7 +7,8 @@
       border-bottom: none !important;
       }
       thead th {
-      color: #5c516e;
+        color: #5c516e;
+        text-align: left;
       }
     </style>
     </xpath>

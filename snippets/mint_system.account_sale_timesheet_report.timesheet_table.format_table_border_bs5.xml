@@ -22,6 +22,7 @@
         .table-timesheet-entries thead tr > th {
             border-top: 1px solid black !important;
             color: #5c516e;
+            text-align: left;
         }
 
         /* tr.border-black must have black top border */
