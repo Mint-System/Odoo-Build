@@ -2463,12 +2463,20 @@ upgrade-odoo() {
 
     if [[ "$2" = "configure-test" ]]; then
         log-warning "Run step 'configure' on $TARGET_SERVER."
-        $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
+        if [[ -n "$ODOO_CONFIGURE_TEST" ]]; then
+            $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
+        else
+            echo "Nothing to do."
+        fi
     fi
 
     if [[ "$2" = "configure-production" ]]; then
         log-warning "Run step 'configure' on $TARGET_SERVER."
-        $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
+        if [[ -n "$ODOO_CONFIGURE_PRODUCTION" ]]; then
+            $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
+        else
+            echo "Nothing to do."
+        fi
     fi
 
     if [[ "$2" = "restart" ]]; then
