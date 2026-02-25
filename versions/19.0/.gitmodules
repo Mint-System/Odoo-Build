@@ -26,5 +26,5 @@
 	branch = 19.0
 [submodule "addons/sale_workflow"]
 	path = addons/sale_workflow
-	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow
+	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 19.0
