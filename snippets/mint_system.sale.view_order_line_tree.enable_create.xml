@@ -1,5 +1,5 @@
 <data inherit_id="sale.view_order_line_tree" priority="50">
-    <tree position="attributes">
+    <list position="attributes">
         <attribute name="create">true</attribute>
-    </tree>
+    </list>
 </data>
