@@ -40,7 +40,7 @@
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
 	branch = 19.0
-[submodule "addons/product_attribute"]
-	path = addons/product_attribute
-	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+[submodule "oca/sale-workflow"]
+	path = oca/sale-workflow
+	url = git@github.com:OCA/sale-workflow
 	branch = 19.0
