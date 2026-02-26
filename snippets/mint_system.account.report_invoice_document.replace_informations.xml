@@ -25,41 +25,63 @@
                         <t t-else="">
                             <strong>Datum:</strong>
                         </t>
-                        <span t-field="o.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
                     </td>
                     <td>
                         <strong class="mr-2">Zahlungsbedingungen:</strong>
-                        <span t-field="o.invoice_payment_term_id"/>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_payment_term_id"
+                        />
                     </td>
                     <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
                     <td t-if="o.partner_sale_id">
-                        <strong class="mr-2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
-                        <span t-field="o.partner_sale_id.name"/>
+                        <strong
+                            class="mr-2"
+                        >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
+                        <span class="ms-2" t-field="o.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
-                    <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-                        <strong class="mr-2">&#xA0;F&#xE4;lligkeitsdatum:</strong>
-                        <span t-field="o.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    <td
+                        t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                    >
+                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date_due"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
                     </td>
-                    <td t-else=""/>
+                    <td t-else="" />
                     <td>
                         <strong class="mr-2">Unser Kontakt:</strong>
-                        <span t-field="o.invoice_user_id.name"/>
+                        <span class="ms-2" t-field="o.invoice_user_id.name" />
                     </td>
                     <td t-if="o.ref" rowspan="2">
                         <div>
                             <strong class="mr-2">Ihre Referenz:</strong>
                         </div>
-                        <div t-field="o.ref"/>
+                        <div class="ms-2" t-field="o.ref" />
                     </td>
                 </tr>
                 <tr>
-                    <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
+                    <t
+                        t-set="order_id"
+                        t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
+                    />
                     <td t-if="order_id" colspan="2">
-                        <strong class="mr-2">&#xA0;Unsere Referenz:</strong>
-                        <span t-if="order_id.project_id.key" t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"/>
-                        <span t-else="" t-field="order_id.name"/>
+                        <strong class="mr-2">Unsere Referenz:</strong>
+                        <span
+                            class="ms-2"
+                            t-if="order_id.project_id.key"
+                            t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"
+                        />
+                        <span class="ms-2" t-else="" t-field="order_id.name" />
                     </td>
                 </tr>
             </table>
