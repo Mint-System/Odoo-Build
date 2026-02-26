@@ -2443,7 +2443,11 @@ upgrade-odoo() {
 
     if [[ "$2" = "init" ]]; then
         log-warning "Run step 'init' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
+        if [[ -n "$ODOO_ADDONS_INIT" ]]; then
+            $ssh_target_server docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
+        else
+            echo "Nothing to do."
+        fi
     fi
 
     if [[ "$2" = "uninstall" ]]; then

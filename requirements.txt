@@ -15,6 +15,7 @@ watchdog
 pdfminer.six
 debugpy
 lxml_html_clean
+phonenumbers
 
 # Performance
 py-spy
@@ -41,3 +42,4 @@ odoo-addon-module-auto-update; python_version >= '3.10'
 
 # Odoo Compatibility
 python-ldap ; python_version <= '3.8'
+rl-renderPM
