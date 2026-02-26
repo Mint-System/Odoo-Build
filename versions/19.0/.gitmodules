@@ -48,3 +48,7 @@
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 	branch = 19.0
+[submodule "addons/spreadsheet"]
+	path = addons/spreadsheet
+	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
+	branch = 19.0
