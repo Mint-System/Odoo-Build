@@ -242,10 +242,6 @@
 	path = addons/connector
 	url = git@github.com:Mint-System/Odoo-Apps-Connector.git
 	branch = 16.0
-[submodule "addons/management-system"]
-	path = addons/management-system
-	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
-	branch = 16.0
 [submodule "addons/account_reconcile"]
 	path = addons/account_reconcile
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Reconcile.git
