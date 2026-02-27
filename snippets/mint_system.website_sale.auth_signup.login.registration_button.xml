@@ -1,0 +1,5 @@
+<data inherit_id="auth_signup.login" priority="50">
+    <xpath expr="//p[@class='mt-2 text-center']/a[@class='btn btn-link btn-sm']" position="replace">
+        <a t-if="signup_enabled" class="btn btn-link" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a>
+    </xpath>
+</data>
