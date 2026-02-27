@@ -1918,36 +1918,6 @@ ID: `mint_system.sale.report_saleorder_document.add_signature_note`
 
 ```xml
 <data inherit_id="sale.report_saleorder_document" priority="50">
-    <p t-field="doc.note" position="after">
-        <t t-if="doc.state != 'sale'">
-            <style>
-            div#signature {
-                padding-top: 50px;
-                padding-left: 75px;
-                padding-right: 75px;
-            }
-            </style>
-            <div id="signature">
-                <p>Hiermit bestelle wir die Produkte/Dienstleistungen gem&#xE4;ss diesem Angebot.<br/>
-                <br/>
-                <br/>
-            Ort/Datum: _________________ Unterschrift Kunde: __________________________________ </p>
-            </div>
-        </t>
-    </p>
-</data>
-
-```
-Edit: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml)
-
-Source: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml)
-
-### Add Signature Note2
-
-ID: `mint_system.sale.report_saleorder_document.add_signature_note2`
-
-```xml
-<data inherit_id="sale.report_saleorder_document" priority="50">
     <xpath expr="//div/span[@t-field='doc.note']" position="after">
         <t t-if="doc.state != 'sale'">
             <style>
@@ -1970,9 +1940,9 @@ ID: `mint_system.sale.report_saleorder_document.add_signature_note2`
 </data>
 
 ```
-Edit: [snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml)
+Edit: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml)
 
-Source: [snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_signature_note2.xml)
+Source: [snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.add_signature_note.xml)
 
 ### Add Taxes
 
@@ -2494,7 +2464,8 @@ ID: `mint_system.sale.report_saleorder_document.format_table_border`
       border-bottom: none !important;
       }
       thead th {
-      color: #5c516e;
+        color: #5c516e;
+        text-align: left;
       }
     </style>
     </xpath>
@@ -6538,9 +6509,9 @@ ID: `mint_system.sale.view_order_line_tree.enable_create`
 
 ```xml
 <data inherit_id="sale.view_order_line_tree" priority="50">
-    <tree position="attributes">
+    <list position="attributes">
         <attribute name="create">true</attribute>
-    </tree>
+    </list>
 </data>
 
 ```

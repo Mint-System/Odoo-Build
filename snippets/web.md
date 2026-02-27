@@ -1193,7 +1193,10 @@ ID: `mint_system.web.external_layout_standard.replace_header_with_image`
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <div class="row">
                 <div class="col-12">
+                    <!-- 
                     <img t-if="company.logo" t-att-src="'/web/image/1107'" style="width: 100%;" alt="Logo"/>
+                    -->
+                    <img t-if="company.logo" t-att-src="image_data_uri(env['ir.attachment'].sudo().browse(1107).datas)" style="width: 100%;" alt="Logo"/>
                 </div>
                 <div class="col-9 text-end" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
             </div>
@@ -1205,7 +1208,6 @@ ID: `mint_system.web.external_layout_standard.replace_header_with_image`
         </div>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.replace_header_with_image.xml)
 

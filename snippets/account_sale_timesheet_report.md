@@ -189,36 +189,6 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_bord
 
 ```xml
 <data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
-    <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
-        <style>
-      .border-solid-black td {
-      border-top: 1px solid black !important;
-      border-bottom: 1px solid black !important;
-      }
-      thead th {
-      color: #5c516e;
-      }
-    </style>
-    </xpath>
-    <xpath expr="//thead[1]/tr[1]" position="attributes">
-        <attribute name="class" separator=" " add="border-black"/>
-    </xpath>
-    <xpath expr="//td[@id='line_sum_amount']/.." position="attributes">
-        <attribute name="class" separator=" " add="border-solid-black"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
-
-Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
-
-### Format Table Border Bs5
-
-ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border_bs5`
-
-```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
 
     <xpath
         expr="//table[hasclass('table-timesheet-entries')]"
@@ -242,6 +212,7 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_bord
         .table-timesheet-entries thead tr > th {
             border-top: 1px solid black !important;
             color: #5c516e;
+            text-align: left;
         }
 
         /* tr.border-black must have black top border */
@@ -286,9 +257,9 @@ ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_bord
 </data>
 
 ```
-Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border_bs5.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border_bs5.xml)
+Edit: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
 
-Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border_bs5.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border_bs5.xml)
+Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml](https://odoo.build/snippets/mint_system.account_sale_timesheet_report.timesheet_table.format_table_border.xml)
 
 ### Set Table Font Size
 
