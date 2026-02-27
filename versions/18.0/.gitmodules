@@ -14,7 +14,7 @@
 	branch = 18.0
 [submodule "oca/sale-workflow"]
 	path = oca/sale-workflow
-	url = git@github.com:OCA/sale-workflow.git
+	url = git@github.com:bosd/sale-workflow.git
 	branch = 18.0
 [submodule "addons/server_tools"]
 	path = addons/server_tools
