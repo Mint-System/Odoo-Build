@@ -15,7 +15,7 @@ services:
       PGUSER: odoo
       PGPASSWORD: odoo
       PGPORT: 5432
-      DB_NAME: ${DB_NAME}
+      DB_NAME: "${DB_NAME}"
       DB_MAXCONN: ${DB_MAXCONN}
       PGSSLMODE: ${PGSSLMODE}
       PGSSLROOTCERT: "/mnt/postgres-odoo/ca.crt"
