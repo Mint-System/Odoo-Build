@@ -1945,6 +1945,20 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
             </div>
         </div>
     </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
+
+### Append Transport Text
+
+ID: `mint_system.stock.report_delivery_document.append_transport_text`
+
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+    
     <xpath expr="//table[@name='stock_move_line_table']" position="after">
         <div class="row" style="margin-top: 3rem;">
             <div class="col-5">
@@ -1964,9 +1978,9 @@ ID: `mint_system.stock.report_delivery_document.append_signature_text`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.append_transport_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.append_transport_text.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.append_signature_text.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.append_signature_text.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.append_transport_text.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.append_transport_text.xml)
 
 ### Backorder Signature Section
 
@@ -2012,25 +2026,6 @@ ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table`
 
 ```xml
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <table name="stock_move_table" position="attributes">
-        <attribute name="t-if"/>
-    </table>
-    <table name="stock_move_line_table" position="attributes">
-        <attribute name="t-if">False</attribute>
-    </table>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
-
-### Disable Stock Move Line Table2
-
-ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table2`
-
-```xml
-<data inherit_id="stock.report_delivery_document" priority="50">
   <table name="stock_move_table" position="attributes">
     <attribute name="t-if" />
   </table>
@@ -2043,35 +2038,13 @@ ID: `mint_system.stock.report_delivery_document.disable_stock_move_line_table2`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.disable_stock_move_line_table.xml)
 
 ### Filter Qty Done
 
 ID: `mint_system.stock.report_delivery_document.filter_qty_done`
-
-```xml
-<data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//table[@name='stock_move_table']/tbody/t" position="after">
-        <t t-set="lines" t-value="lines.filtered(lambda l: l.quantity_done &gt; 0)"/>
-    </xpath>
-    <xpath expr="//t[@name='no_package_move_lines']" position="before">
-        <t t-set="move_lines" t-value="move_lines.filtered(lambda l: l.qty_done &gt; 0)"/>
-    </xpath>
-    <xpath expr="//t[@t-set='package_move_lines']" position="after">
-        <t t-set="package_move_lines" t-value="package_move_lines.filtered(lambda l: l.qty_done &gt; 0)"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
-
-### Filter Qty Done2
-
-ID: `mint_system.stock.report_delivery_document.filter_qty_done2`
 
 ```xml
 <data inherit_id="stock.report_delivery_document" priority="50">
@@ -2096,9 +2069,9 @@ ID: `mint_system.stock.report_delivery_document.filter_qty_done2`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.filter_qty_done.xml)
 
 ### Format Address
 
@@ -2237,39 +2210,6 @@ ID: `mint_system.stock.report_delivery_document.format_table_border`
 
 ```xml
 <data inherit_id="stock.report_delivery_document" priority="50">
-    <xpath expr="//table[@name='stock_move_table']" position="before">
-        <style>
-            thead tr.border-solid-black {
-                border-top: 1px solid black !important;
-                color: #5c516e;
-            }
-            thead th {
-                 border-top: none !important;
-            }
-            tbody tr.border-solid-black {
-                border-bottom: 1px solid black !important;
-            }
-        </style>
-    </xpath>
-    <xpath expr="//table[@name='stock_move_table']/thead/tr" position="attributes">
-        <attribute name="class" separator=" " add="border-solid-black"/>
-    </xpath>
-    <xpath expr="(//table[@name='stock_move_table']//tr)[last()]" position="attributes">
-        <attribute name="class" separator=" " add="border-solid-black"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
-
-### Format Table Border2
-
-ID: `mint_system.stock.report_delivery_document.format_table_border2`
-
-```xml
-<data inherit_id="stock.report_delivery_document" priority="50">
 
     <xpath expr="//table[@name='stock_move_table']" position="before">
         <style>
@@ -2306,11 +2246,31 @@ ID: `mint_system.stock.report_delivery_document.format_table_border2`
     </xpath>
 
 </data>
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.format_table_border.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border.xml)
+
+### Format Table Head
+
+ID: `mint_system.stock.report_delivery_document.format_table_head`
+
+```xml
+<data inherit_id="stock.report_delivery_document" priority="50">
+    <xpath expr="//table[@name='stock_move_table']" position="before">
+        <style>
+            table[name="stock_move_table"] thead th {
+                text-align: left;
+            }
+        </style>
+    </xpath>
+</data>
+
 
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.format_table_border2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_border2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.format_table_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.format_table_head.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.format_table_border2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_border2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.format_table_head.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.format_table_head.xml)
 
 ### Format Title
 

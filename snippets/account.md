@@ -1398,8 +1398,9 @@ ID: `mint_system.account.report_invoice_document.format_table_border`
         .o_main_table th {
           border-top: 1px solid black !important;
           border-bottom: 1px solid #dee2e6 !important;
+          text-align: left;
         }
-        o_main_table thead th {
+        .o_main_table thead th {
           color: #5c516e;
         }
         .o_main_table tbody {
@@ -1421,6 +1422,26 @@ ID: `mint_system.account.report_invoice_document.format_table_border`
 Edit: [snippets/mint_system.account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_border.xml)
 
 Source: [snippets/mint_system.account.report_invoice_document.format_table_border.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_table_border.xml)
+
+### Format Table Head
+
+ID: `mint_system.account.report_invoice_document.format_table_head`
+
+```xml
+<data inherit_id="account.report_invoice_document" priority="50">
+    <xpath expr="//table[@name='invoice_line_table']" position="before">
+        <style>
+            table[name="invoice_line_table"] thead th {
+                text-align: left;
+            }
+        </style>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account.report_invoice_document.format_table_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_head.xml)
+
+Source: [snippets/mint_system.account.report_invoice_document.format_table_head.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_table_head.xml)
 
 ### Format Title
 
@@ -2013,25 +2034,12 @@ ID: `mint_system.account.report_invoice_document.hide_payment_term`
 
 ```xml
 <data inherit_id="account.report_invoice_document" priority="50">
-  <xpath expr="//p[@name='payment_term']" position="replace"/>
+  <xpath expr="//span[@id='payment_terms_note_id']" position="replace"/>
 </data>
 ```
 Edit: [snippets/mint_system.account.report_invoice_document.hide_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_payment_term.xml)
 
 Source: [snippets/mint_system.account.report_invoice_document.hide_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_payment_term.xml)
-
-### Hide Payment Term2
-
-ID: `mint_system.account.report_invoice_document.hide_payment_term2`
-
-```xml
-<data inherit_id="account.report_invoice_document" priority="50">
-  <xpath expr="//span[@id='payment_terms_note_id']" position="replace"/>
-</data>
-```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_payment_term2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_payment_term2.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.hide_payment_term2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_payment_term2.xml)
 
 ### Hide Totals Company Currency
 
@@ -2948,41 +2956,63 @@ ID: `mint_system.account.report_invoice_document.replace_informations`
                         <t t-else="">
                             <strong>Datum:</strong>
                         </t>
-                        <span t-field="o.invoice_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
                     </td>
                     <td>
                         <strong class="mr-2">Zahlungsbedingungen:</strong>
-                        <span t-field="o.invoice_payment_term_id"/>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_payment_term_id"
+                        />
                     </td>
                     <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
                     <td t-if="o.partner_sale_id">
-                        <strong class="mr-2">&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
-                        <span t-field="o.partner_sale_id.name"/>
+                        <strong
+                            class="mr-2"
+                        >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
+                        <span class="ms-2" t-field="o.partner_sale_id.name" />
                     </td>
                 </tr>
                 <tr>
-                    <td t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'">
-                        <strong class="mr-2">&#xA0;F&#xE4;lligkeitsdatum:</strong>
-                        <span t-field="o.invoice_date_due" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                    <td
+                        t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
+                    >
+                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
+                        <span
+                            class="ms-2"
+                            t-field="o.invoice_date_due"
+                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
+                        />
                     </td>
-                    <td t-else=""/>
+                    <td t-else="" />
                     <td>
                         <strong class="mr-2">Unser Kontakt:</strong>
-                        <span t-field="o.invoice_user_id.name"/>
+                        <span class="ms-2" t-field="o.invoice_user_id.name" />
                     </td>
                     <td t-if="o.ref" rowspan="2">
                         <div>
                             <strong class="mr-2">Ihre Referenz:</strong>
                         </div>
-                        <div t-field="o.ref"/>
+                        <div class="ms-2" t-field="o.ref" />
                     </td>
                 </tr>
                 <tr>
-                    <t t-set="order_id" t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"/>
+                    <t
+                        t-set="order_id"
+                        t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
+                    />
                     <td t-if="order_id" colspan="2">
-                        <strong class="mr-2">&#xA0;Unsere Referenz:</strong>
-                        <span t-if="order_id.project_id.key" t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"/>
-                        <span t-else="" t-field="order_id.name"/>
+                        <strong class="mr-2">Unsere Referenz:</strong>
+                        <span
+                            class="ms-2"
+                            t-if="order_id.project_id.key"
+                            t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"
+                        />
+                        <span class="ms-2" t-else="" t-field="order_id.name" />
                     </td>
                 </tr>
             </table>
@@ -3097,107 +3127,6 @@ ID: `mint_system.account.report_invoice_document.replace_informations2`
 Edit: [snippets/mint_system.account.report_invoice_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations2.xml)
 
 Source: [snippets/mint_system.account.report_invoice_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations2.xml)
-
-### Replace Informations3
-
-ID: `mint_system.account.report_invoice_document.replace_informations3`
-
-```xml
-<data inherit_id="account.report_invoice_document" priority="50">
-    <div id="informations" position="replace">
-        <style>
-      div#informations p {
-        margin-bottom: 0rem;
-      }
-      div#informations div {
-        display: inline-block;
-        vertical-align: top;
-      }
-    </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <t t-if="o.move_type == 'out_invoice'">
-                            <strong class="mr-2">Rechnungsdatum:</strong>
-                        </t>
-                        <t t-elif="o.move_type == 'out_refund'">
-                            <strong class="mr-2">Gutschriftdatum:</strong>
-                        </t>
-                        <t t-elif="o.move_type == 'out_receipt'">
-                            <strong class="mr-2">Quittungsdatum:</strong>
-                        </t>
-                        <t t-else="">
-                            <strong>Datum:</strong>
-                        </t>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_date"
-                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                        />
-                    </td>
-                    <td>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_payment_term_id"
-                        />
-                    </td>
-                    <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
-                    <td t-if="o.partner_sale_id">
-                        <strong
-                            class="mr-2"
-                        >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
-                        <span class="ms-2" t-field="o.partner_sale_id.name" />
-                    </td>
-                </tr>
-                <tr>
-                    <td
-                        t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
-                    >
-                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_date_due"
-                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                        />
-                    </td>
-                    <td t-else="" />
-                    <td>
-                        <strong class="mr-2">Unser Kontakt:</strong>
-                        <span class="ms-2" t-field="o.invoice_user_id.name" />
-                    </td>
-                    <td t-if="o.ref" rowspan="2">
-                        <div>
-                            <strong class="mr-2">Ihre Referenz:</strong>
-                        </div>
-                        <div class="ms-2" t-field="o.ref" />
-                    </td>
-                </tr>
-                <tr>
-                    <t
-                        t-set="order_id"
-                        t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
-                    />
-                    <td t-if="order_id" colspan="2">
-                        <strong class="mr-2">Unsere Referenz:</strong>
-                        <span
-                            class="ms-2"
-                            t-if="order_id.project_id.key"
-                            t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"
-                        />
-                        <span class="ms-2" t-else="" t-field="order_id.name" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</data>
-
-```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_informations3.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations3.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.replace_informations3.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations3.xml)
 
 ### Replace Infotable
 

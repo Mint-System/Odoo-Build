@@ -87,6 +87,22 @@ Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable
 
 Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable.xml)
 
+### Editable Top
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top`
+
+```xml
+<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+    <xpath expr="//tree" position="attributes">
+        <attribute name="editable">top</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml)
+
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.xml)
+
 ### Filter Partner Is Company
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`
