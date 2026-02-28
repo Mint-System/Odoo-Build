@@ -1,0 +1,9 @@
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+    <xpath expr="//td[@id='product']" position="inside">
+        <t t-if="line.product_id.type_description">
+            <span t-field="line.product_id.description"/>
+        </t>
+    </xpath>
+
+</data>
