@@ -9,8 +9,10 @@ pylint-odoo
 pytest-odoo
 
 # Setup
-setuptools
-wheel
+wheel<0.40 ; python_version <= '3.11'
+wheel ; python_version >= '3.12'
+setuptools<82 ; python_version <= '3.11'
+setuptools ; python_version >= '3.12'
 watchdog
 pdfminer.six
 debugpy
