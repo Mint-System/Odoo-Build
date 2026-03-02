@@ -3,7 +3,6 @@ num2words # python3-num2words
 phonenumbers # python3-phonenumbers
 python-ldap # python3-pyldap
 qrcode # python3-qrcode
-setuptools # python3-setuptools
 vobject # python3-vobject
 xlrd # python3-xlrd
 xlwt # python3-xlwt
@@ -14,6 +13,8 @@ python-slugify # python3-slugify
 watchdog # python3-watchdog
 rlPyCairo # python3-renderpm
 lxml # python3-lxml
+setuptools<82 ; python_version <= '3.11' # python3-setuptools
+setuptools ; python_version >= '3.12' # python3-setuptools
 
 # Performance
 memray
