@@ -2062,6 +2062,9 @@ generate-module-docs() {
     echo 'Copy LICENSE'
     cp templates/module/LICENSE "$module_path/"
 
+    echo 'Touch __init__.py'
+    touch "$module_path/__init__.py"
+
     echo "Generate OCA readme for $ORG_NAME org."
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
