@@ -46,7 +46,7 @@ if [[ -n "$odoo_addons_path" ]]; then
     done | sort -u | paste -sd, )
 
     # Combine predefined addons path and odoo addons path
-    addons_path=$(echo "${odoo_addons_path},${ADDONS_PATH}")
+    addons_path=$(echo "${ADDONS_PATH},${odoo_addons_path}")
 fi
 
 export ADDONS_PATH="$addons_path"
