@@ -1,0 +1,10 @@
+<data inherit_id="hr_employee_attendance_report.hr_employee_template">
+    <xpath expr="//th[@name='th_leave_hours']" position="before">
+       <xpath expr="//th[@name='th_worked_hours']" position="move"/>
+   </xpath>
+
+   <!-- move worked_hours td before leave_hours td -->
+   <xpath expr="//td[@id='leave_hours']" position="before">
+       <xpath expr="//td[@id='worked_hours']" position="move"/>
+   </xpath>
+</data>

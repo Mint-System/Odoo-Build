@@ -1,0 +1,21 @@
+<data inherit_id="hr_employee_attendance_report.hr_employee_template">
+    <xpath expr="//div[@name='report_head']" position="replace">
+         <div name="report_head">
+             <h5 class="attendance-report">Attendance Report</h5>
+             <p><span class="light-text">Employee:</span> <span
+                     t-out="doc.name"
+                 />
+             </p>
+             <p><span class="light-text">From:</span> <span
+                     t-out="dates[doc.id]['start_date']"
+                     t-options="{'widget': 'date'}"
+                 />
+                 <span class="light-text">Until: </span><span
+                     t-out="dates[doc.id]['end_date']"
+                     t-options="{'widget': 'date'}"
+                 />
+             </p>
+
+         </div>           
+     </xpath> 
+</data>
