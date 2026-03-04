@@ -1,4 +1,4 @@
-<data inherit_id="hr.hr_employee_attendance_report">
+<data inherit_id="hr.hr_employee_attendance_report" priority="50">
     <xpath expr="//table[@name='table_attendance']" position="attributes">
          <attribute name="class">table table-sm attendances-table</attribute>
          <attribute name="style">width: 100%; font-size: 7pt</attribute>
