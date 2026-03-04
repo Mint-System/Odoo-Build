@@ -2764,7 +2764,7 @@ load-version() {
         ODOO_VERSION="$1"
     fi
 
-    echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
+    echo "Copy .gitmodules, .gitmodules.csv and .python-version from 'versions/$ODOO_VERSION'."
     cp "versions/$ODOO_VERSION/.gitmodules" .
     cp "versions/$ODOO_VERSION/.gitmodules.csv" .
     cp "versions/$ODOO_VERSION/.python-version" .
