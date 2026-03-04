@@ -2029,7 +2029,7 @@ create-module() {
     echo "Scaffolding module $module_name in ${parent_dir}..."
     odoo scaffold "$module_name" "$parent_dir" -t templates/module
 
-    echo "Update summary and license in the '__manifest__.py'."
+    echo "Update title, summary, version, license, depends and data in the '__manifest__.py'."
     echo "Remove the 'security' folder if not required."
 }
 
