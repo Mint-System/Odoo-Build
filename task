@@ -2188,7 +2188,7 @@ generate-module-views() {
     export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
     envsubst < templates/model_views.xml > "$module_path/views/${model_name}_views.xml"
     echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"views/${model_name}_views.xml\","
+    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
 }
 
 generate-module-snippet() {
