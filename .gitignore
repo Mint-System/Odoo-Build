@@ -44,6 +44,7 @@ compose.yml
 # taskfile
 
 .gitmodules
+.gitmodules.csv
 .python-version
 !versions
 vault

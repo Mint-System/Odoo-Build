@@ -43,26 +43,24 @@ help-table() {
     printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
     printf "$column" 'show-dotenv' '[env]' 'Output content of the .env file.'
     print_group_header 'Git'
-    printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the provide repos.yaml.'
-    printf "$column" 'add-git-folder' '[url] [path]' 'Add git folder.'
+    printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the repos.yaml.'
+    printf "$column" 'add-git-folder' '[branch][url][path]' 'Add git folder to .gitmodules and .gitmodule.csv.'
     printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
-    printf "$column" 'checkout-git-folder' '' 'Checkout git commit.'
+    printf "$column" 'checkout-git-folder' '[branch][path]' 'Checkout git commit from .gitmodules.csv.'
     printf "$column" 'commit-git-folder' '[message][path]' 'Commit all changes in path.'
-    printf "$column" 'clean-git-folder' '' 'Clean git folder.'
+    printf "$column" 'clean-git-folder' '[path]' 'Clean git folder.'
     printf "$column" 'clone-git-folder' '[path][version]' 'Clone git folder listed in the .gitmodules file.'
-    printf "$column" 'create-git-feature-branch' '[path]' 'Create feature branch for Odoo module.'
-    printf "$column" 'create-git-mig-branch' '[path]' 'Create migration branch for Odoo module.'
     printf "$column" 'download-git-folder' '[grep]' 'Download git folder listed in the .gitmodules file.'
     printf "$column" 'status-git-folder' '[path]' 'Show status for git folder in path.'
     printf "$column" 'list-git-folder' '[grep]' 'List path and url of git folders.'
-    printf "$column" 'pull-git-folder' '' 'Pull all git folders listed in the .gitmodules file.'
+    printf "$column" 'pull-git-folder' '[branch][path]' 'Pull all git folders listed in the .gitmodules file.'
     printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
     printf "$column" 'remove-git-folder' '[path]' 'Remove git folders in path.'
     printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
-    printf "$column" 'reset-git-folder' '' 'Abort rebase and reset git folder.'
+    printf "$column" 'reset-git-folder' '[path]' 'Abort rebase and reset git folder.'
     printf "$column" 'stage-git-folder' '[path]' 'Stage all files in git folders in path.'
-    printf "$column" 'switch-git-folder' '[version]' 'Switch branch for all git folders from the .gitmodules file.'
-    printf "$column" 'sync-git-folder' '' 'Switch, stash and pull all git folders.'
+    printf "$column" 'switch-git-folder' '[branch][path]' 'Switch branch for all git folders from the .gitmodules file.'
+    printf "$column" 'sync-git-folder' '[branch][path]' 'Switch, stash and pull all git folders.'
     print_group_header 'Docker'
     printf "$column" 'archive-docker-tags' '' 'Archive Docker image tags on hub older than 1 year.'
     printf "$column" 'build' '[folder][output]' 'Build Docker image from target folder.'
@@ -2759,222 +2757,6 @@ lint-snippets() {
     echo 'No problems with snippets found.'
 }
 
-# Git commands
-
-add-git-folder() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-    if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
-        exit
-    fi
-
-    # Add to .gitmodules
-    git submodule add -f -b "$ODOO_VERSION" "$1" "$2"
-
-    # Ensure branch is Odoo version
-    git -C "$2" switch "$ODOO_VERSION"
-
-    # Save version
-    save-version
-
-    # Restore staged submodule files
-    git restore --staged .gitmodules "$2"
-
-    # Remove from working tree
-    # rm -rf .git/modules/"$2" || true
-    # git rm --cached "$2" || true
-}
-
-aggregate-git-folders() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    gitaggregate -c "$1" --expand-env
-}
-
-ls-git-folder() {
-    if [[ -n "$1" ]]; then
-        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | grep "$1" | sort)
-    else
-        echo $(git config --file .gitmodules --get-regexp url | sed -e 's/submodule.//g' -e 's/.url.*//g' | sort)
-    fi
-}
-
-list-git-folder() {
-    # Define column widths
-    local path_width=35
-    local url_width=50
-    local branch_width=8
-
-    # Print table header
-    printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "PATH" "URL" "BRANCH"
-    echo "|$(printf '%*s' $((path_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((url_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((branch_width + 2)) '' | tr ' ' '-')|"
-
-    local git_folders=$(ls-git-folder "$1")
-    for git_folder in $git_folders; do
-        local url=$(git config --file .gitmodules --get "submodule.$git_folder.url")
-        url=${url#git@github.com:}
-        url=${url%.git}
-        local branch=$(git -C "$git_folder" branch --show-current 2>/dev/null || echo "detached")
-        printf "| %-${path_width}s | %-${url_width}s | %-${branch_width}s |\n" "$git_folder" "$url" "${branch:-detached}"
-    done
-}
-
-remove-git-folder() {
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-    local git_folders=$(ls-git-folder "$1")
-
-    echo "Delete: $git_folders"
-    read -p "Are you sure to delete these git folder(s)? (yes/N): " confirm
-    if [[ "${confirm,,}" != "yes" ]]; then
-        echo 'Aborted.'
-        return 1
-    fi
-    for git_folder in $git_folders; do
-        echo "Remove $git_folder from .gitmodules file."
-        git config --file .gitmodules --remove-section "submodule.$git_folder"
-
-        echo "Delete git folder $git_folder."
-        rm -rf "$git_folder"
-    done
-
-    save-version
-}
-
-clone-git-folder() {
-    local git_folders=$(ls-git-folder "$1")
-    for git_folder in $git_folders; do
-
-        local git_folder_path=$(git config --file .gitmodules --get submodule."$git_folder".path)
-        local git_folder_url=$(git config --file .gitmodules --get submodule."$git_folder".url)
-        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
-        local git_folder_branch=$(git config --file .gitmodules --get submodule."$git_folder".branch)
-
-        if [[ "$shallow" = "true" ]]; then
-            echo "Clone git folder $git_folder (shallow) with $git_folder_branch branch"
-            git -C "$git_folder" config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
-            git clone --depth 1 --no-single-branch "$git_folder_url" "$git_folder_path"
-        else
-            echo "Clone git folder $git_folder with $git_folder_branch branch"
-            git clone --branch="$git_folder_branch" "$git_folder_url" "$git_folder_path"
-        fi
-    done
-}
-
-download-git-folder() {
-    local git_folders=$(ls-git-folder "$1")
-    for git_folder in $git_folders; do
-
-        local git_folder_path=$(git config --file .gitmodules --get submodule."$git_folder".path)
-        local git_folder_url=$(git config --file .gitmodules --get submodule."$git_folder".url)
-        local git_folder_branch=$(git config --file .gitmodules --get submodule."$git_folder".branch)
-
-        # Convert git url to http url.
-        git_folder_url="$(echo $git_folder_url | sed 's|git@|https://|g' | sed 's|m:|m/|g' | sed 's|\.git||g')"
-
-        # Get commit ref from .gitmodule.csv
-        local commit_ref=$(grep "$git_folder_path" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
-
-        echo "Download $git_folder_url to $git_folder_path."
-        mkdir -p "$git_folder_path"
-        curl -L -o "$git_folder_path/archive.tar.gz" \
-            "$git_folder_url/archive/$commit_ref.tar.gz"
-
-        echo "Extract and delete $git_folder_path/archive.tar.gz"
-        tar -xzf "$git_folder_path/archive.tar.gz" --strip-components=1 -C "$git_folder_path"
-        rm "$git_folder_path/archive.tar.gz"
-    done
-}
-
-checkout-git-folder() {
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-
-        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
-        local commit_ref=$(grep "$git_folder" "versions/$ODOO_VERSION/.gitmodules.csv" | cut -d',' -f2)
-
-        if [[ "$shallow" = "true" ]]; then
-            echo "Checkout git folder $git_folder (shallow) to $commit_ref"
-            git -C "$git_folder" stash
-            git -C "$git_folder" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
-            git -C "$git_folder" checkout "$commit_ref"
-        else
-            echo "Checkout git folder $git_folder to $commit_ref"
-            git -C "$git_folder" stash
-            git -C "$git_folder" checkout "$commit_ref"
-        fi
-    done
-}
-
-switch-git-folder() {
-    if [[ -n "$1" ]]; then
-        ODOO_VERSION="$1"
-    fi
-
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-
-        local shallow=$(git config --file .gitmodules --get submodule."$git_folder".shallow)
-
-        if [[ "$shallow" = "true" ]]; then
-            echo "Fetch branch $ODOO_VERSION (shallow) from origin and then switch."
-            git -C "$git_folder" fetch origin "$ODOO_VERSION:$ODOO_VERSION"
-            git -C "$git_folder" switch "$ODOO_VERSION"
-        else
-            echo "Switch git folder branch to $ODOO_VERSION: $git_folder"
-            git -C "$git_folder" stash
-            git -C "$git_folder" switch "$ODOO_VERSION"
-        fi
-    done
-}
-
-pull-git-folder() {
-    local git_folders=$(ls-git-folder)
-    for git_folder in $git_folders; do
-        echo "Pull git folder $git_folder."
-        git -C "$git_folder" stash
-        local update=$(git config submodule."$git_folder".update)
-        if [[ -z "$update" ]]; then
-            git -C "$git_folder" pull origin "$ODOO_VERSION"
-        fi;
-    done
-}
-
-sync-git-folder() {
-    echo 'Switch and pull git folders.'
-    switch-git-folder
-    pull-git-folder
-}
-
-create-git-feature-branch(){
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-
-    local module_name=$(basename "$1")
-    local module_path=$(dirname "$1")
-
-    echo "Create feature branch for $module_name in ${module_path}..."
-    cd ./"$module_path" || exit
-    pwd
-    git switch -c "feature-$module_name"
-}
-
-create-git-mig-branch(){
-    if [[ -z "$1" ]]; then echo "\$1 is empty."; exit; fi
-
-    local module_name=$(basename "$1")
-    local module_path=$(dirname "$1")
-
-    echo "Create mig branch for $module_name in ${module_path}..."
-    cd ./"$module_path" || exit
-    pwd
-    git switch -c "$ODOO_VERSION-mig-$module_name"
-}
-
 # Project commands
 
 load-version() {
@@ -2984,6 +2766,7 @@ load-version() {
 
     echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
     cp "versions/$ODOO_VERSION/.gitmodules" .
+    cp "versions/$ODOO_VERSION/.gitmodules.csv" .
     cp "versions/$ODOO_VERSION/.python-version" .
 }
 
@@ -2996,11 +2779,11 @@ checkout() {
     # Set .env
     load-revision "$ODOO_VERSION"
     # Clone the addons
-    clone-git-folder
+    clone-git-folder .
     # Checkout commit ref
-    checkout-git-folder
+    checkout-git-folder "$ODOO_VERSION" .
     # Upate branch
-    switch-git-folder
+    switch-git-folder "$ODOO_VERSION" .
 }
 
 save-version() {
