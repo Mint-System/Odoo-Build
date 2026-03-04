@@ -3012,6 +3012,7 @@ if [[ "$1" == *","* ]]; then
         # Trim whitespace
         cmd=$(echo "$cmd" | xargs)
         if declare -f "$cmd" > /dev/null; then
+            activate-venv
             "$cmd"
         else
             echo "Unknown command: $cmd"
