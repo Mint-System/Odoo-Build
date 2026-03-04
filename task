@@ -52,7 +52,7 @@ help-table() {
     printf "$column" 'clone-git-folder' '[path][version]' 'Clone git folder listed in the .gitmodules file.'
     printf "$column" 'download-git-folder' '[grep]' 'Download git folder listed in the .gitmodules file.'
     printf "$column" 'status-git-folder' '[path]' 'Show status for git folder in path.'
-    printf "$column" 'list-git-folder' '[grep]' 'List path and url of git folders.'
+    printf "$column" 'list-git-folder' '[path]' 'List path and url of git folders.'
     printf "$column" 'pull-git-folder' '[branch][path]' 'Pull all git folders listed in the .gitmodules file.'
     printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
     printf "$column" 'remove-git-folder' '[path]' 'Remove git folders in path.'
