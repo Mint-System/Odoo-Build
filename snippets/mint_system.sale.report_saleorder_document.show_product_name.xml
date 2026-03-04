@@ -1,0 +1,11 @@
+<data inherit_id="sale.report_saleorder_document" priority="60">
+    <td name="td_name" position="replace">
+        <td name="td_name">
+            <t t-if="line.product_id">
+                <span t-field="line.product_id.name"/>
+                <br/>
+            </t>
+            <span class="o_italic" t-field="line.name" t-options="{'widget': 'text'}"/>
+        </td>
+    </td>
+</data>
