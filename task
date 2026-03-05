@@ -8,193 +8,230 @@ if [[ -a ".env" ]]; then
 fi
 
 help-table() {
-    local cmd_width=30
-    local opt_width=20
-    local desc_width=60
-    local column="| %-${cmd_width}s | %-${opt_width}s | %-${desc_width}s |\n"
-    print_separator() {
-        echo "|$(printf '%*s' $((cmd_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((opt_width + 2)) '' | tr ' ' '-')|$(printf '%*s' $((desc_width + 2)) '' | tr ' ' '-')|"
-    }
-    print_group_header() {
-        local group="$1"
-        local group_len=${#group}
-        local padding=$((cmd_width - group_len))
-        local bold=$(tput bold 2>/dev/null || echo -e "\033[1m")
-        local reset=$(tput sgr0 2>/dev/null || echo -e "\033[0m")
-        local dashes=$(printf '%*s' $padding '')
-        print_separator
-        # printf "| %s%s%s%s | %-${opt_width}s | %-${desc_width}s |\n" "$bold" "$group" "$reset" "$dashes" "" ""
-        # print_separator
-    }
+    local -a rows
+    local max_cmd=7 max_opt=6 max_desc=11
 
-    printf "$column" 'Command' 'Option' 'Description'
-    print_separator
-    print_group_header 'Env'
-    printf "$column" 'backup-env-files' '[path]' 'Archive and copy ,env files to target location.'
-    printf "$column" 'copy-dotenv' '[env][env]' 'Copy .env file.'
-    printf "$column" 'create-dotenv' '[env][type]' 'Create .env file of type nextcloud, odoo, upgrade.'
-    printf "$column" 'edit-dotenv' '[env]' 'Open .env file in default editor.'
-    printf "$column" 'list-dotenv' '' 'List .env files.'
-    printf "$column" 'load-dotenv' '' 'Restore content of .env from pass entry.'
-    printf "$column" 'load-dotenv' '[env]' 'Load and export .env file.'
-    printf "$column" 'remove-dotenv' '[env]' 'Remove environment config.'
-    printf "$column" 'rename-dotenv' '[env][env]' 'Rename .env file.'
-    printf "$column" 'restore-dotenv-files' '[path]' 'Extract and copy .env files from backup file.'
-    printf "$column" 'save-dotenv' '' 'Store content of .env in pass entry.'
-    printf "$column" 'show-dotenv' '[env]' 'Output content of the .env file.'
-    print_group_header 'Git'
-    printf "$column" 'aggregate-git-folders' '[path]' 'Run gitaggregate for the repos.yaml.'
-    printf "$column" 'add-git-folder' '[branch][url][path]' 'Add git folder to .gitmodules and .gitmodule.csv.'
-    printf "$column" 'checkout' '[version]' 'Checkout Odoo version.'
-    printf "$column" 'checkout-git-folder' '[branch][path]' 'Checkout git commit from .gitmodules.csv.'
-    printf "$column" 'commit-git-folder' '[message][path]' 'Commit all changes in path.'
-    printf "$column" 'clean-git-folder' '[path]' 'Clean git folder.'
-    printf "$column" 'clone-git-folder' '[path][version]' 'Clone git folder listed in the .gitmodules file.'
-    printf "$column" 'download-git-folder' '[grep]' 'Download git folder listed in the .gitmodules file.'
-    printf "$column" 'status-git-folder' '[path]' 'Show status for git folder in path.'
-    printf "$column" 'list-git-folder' '[path]' 'List path and url of git folders.'
-    printf "$column" 'pull-git-folder' '[branch][path]' 'Pull all git folders listed in the .gitmodules file.'
-    printf "$column" 'push-git-folder' '' 'Push all git folders in path.'
-    printf "$column" 'remove-git-folder' '[path]' 'Remove git folders in path.'
-    printf "$column" 'ls-git-folder' '[grep]' 'List git folders path space separated.'
-    printf "$column" 'reset-git-folder' '[path]' 'Abort rebase and reset git folder.'
-    printf "$column" 'stage-git-folder' '[path]' 'Stage all files in git folders in path.'
-    printf "$column" 'switch-git-folder' '[branch][path]' 'Switch branch for all git folders from the .gitmodules file.'
-    printf "$column" 'sync-git-folder' '[branch][path]' 'Switch, stash and pull all git folders.'
-    print_group_header 'Docker'
-    printf "$column" 'archive-docker-tags' '' 'Archive Docker image tags on hub older than 1 year.'
-    printf "$column" 'build' '[folder][output]' 'Build Docker image from target folder.'
-    printf "$column" 'login-docker' '[user][token]' 'Setup Docker Hub login credentials.'
-    printf "$column" 'login-podman' '[user][token]' 'Login into registry with podman.'
-    printf "$column" 'container-ps' '' 'List container processes.'
-    printf "$column" 'push' '[folder]' 'Publish Docker image from target folder.'
-    printf "$column" 'remove' '[name]' 'Remove containers and volumes.'
-    printf "$column" 'test-image' '[folder]' 'Test Docker image from target folder.'
-    printf "$column" 'test-odoo-version-regex' '' 'Test the Odoo module version regex filter.'
-    print_group_header 'Vuepress'
-    printf "$column" 'build-vuepress' '' 'Create Vuepress build.'
-    printf "$column" 'install-vuepress' '' 'Install Node build dependencies.'
-    printf "$column" 'dev-vuepress' '' 'Start Vuepress development server.'
-    printf "$column" 'serve-vuepress' '' 'Serve Vuepress build.'
-    print_group_header 'Database'
-    printf "$column" 'change-uuid' '[env]' 'Change database uuid via xmlrpc.'
-    printf "$column" 'clear-assets' '[db]' 'Clear all assets of Odoo database.'
-    printf "$column" 'clear-filestore' '[db]' 'Clear local filestore folder.'
-    printf "$column" 'clear-views' '[db]' 'Clear all views of Odoo database.'
-    printf "$column" 'cloc-odoo' '[db]' 'Count custom line of codes.'
-    printf "$column" 'drop-db' '[db]' 'Drop target Odoo database.'
-    printf "$column" 'init-db' '[db]' 'Initialize the Odoo database.'
-    printf "$column" 'load-language' '[db][lang]' 'Install language package in Odoo db.'
-    printf "$column" 'patch-database' '[db][path]' 'Apply sql file to database.'
-    printf "$column" 'reset-views' '[db][key]' 'Execute hard reset on views matching keys.'
-    printf "$column" 'set-admin' '[db]' 'Sets the password for the first user in database.'
-    printf "$column" 'update-module' '[db][name,path]' 'Update target Odoo module.'
-    printf "$column" 'update-module-list' '[db]' 'Update module list of Odoo database.'
-    print_group_header 'Revision'
-    printf "$column" 'checkout-latest-revision' '[version]' 'Checkout the latest revision of the Odoo version.'
-    printf "$column" 'checkout-revision' '[revision]' 'Load Odoo revision env var and checkout git folders.'
-    printf "$column" 'commit-and-push-revision' '[revision]' 'Commit all changes and tag with current revision.'
-    printf "$column" 'create-revision' '[revision]' 'Create new Odoo revision.'
-    printf "$column" 'list-revision' '' 'List available Odoo revisions.'
-    printf "$column" 'load-latest-revision' '[version]' 'Load the latest revision of the Odoo version.'
-    printf "$column" 'load-revision' '[revision]' 'Load env var from specified revision.'
-    printf "$column" 'show-revision' '[revision]' 'Show references of Odoo revision.'
-    print_group_header 'LLM'
-    printf "$column" 'commit-with-llm' '' 'Commit with llm generated commit message.'
-    printf "$column" 'show-odoo-mcp-config' '' 'Show the Odoo MCP server config.'
-    printf "$column" 'update-with-llm' '[glob][prompt]' 'Feed module files with prompt to LLM and apply file changes.'
-    print_group_header 'Snippets'
-    printf "$column" 'create-snippet' '[xml-id]' 'Create snippet from template.'
-    printf "$column" 'install-snippet' '[env][path]' 'Install snippet definition.'
-    printf "$column" 'disable-snippet' '[env][path]' 'Disable snippet by path or xml-id.'
-    printf "$column" 'enable-snippet' '[env][path]' 'Enable snippet by path or xml-id.'
-    printf "$column" 'lint-snippets' '' 'Run checks for all snippets.'
-    printf "$column" 'remove-snippet' '[env][path]' 'Remove snippet by path or xml-id.'
-    printf "$column" 'update-snippet' '[env][path]' 'Update snippet definition.'
-    print_group_header 'Install'
-    printf "$column" 'activate-venv' '' 'Activate virtualenv.'
-    printf "$column" 'init-venv' '' 'Initialize python virtual env.'
-    printf "$column" 'disable-mailserver' '[env]' 'Disable mail server settings via xmlrpc.'
-    printf "$column" 'install' '' 'Install Odoo requirements in source folder.'
-    printf "$column" 'install-ansible-build-scripts' '[role]' 'Install scripts of the specified Ansbile role.'
-    printf "$column" 'install-requirements' '[db][path]' 'Install python packages from requirements.txt.'
-    printf "$column" 'list-packages' '' 'List installed python packages.'
-    printf "$column" 'init-module' '[db][path,module]' 'Initialize Odoo module.'
-    printf "$column" 'set-addons-path' '' 'Set Odoo addons path env variable.'
-    print_group_header 'Migration'
-    printf "$column" 'export-website-data' '[env]' 'Export website data from Odoo database.'
-    printf "$column" 'import-csv' '[db][path]' 'Import data from csv. Filename is PostgreSQL table name.'
-    printf "$column" 'import-website-data' '[env]' 'Import website data to Odoo database.'
-    print_group_header 'Generate'
-    printf "$column" 'create-module' '[path]' 'Create new Odoo module from template.'
-    printf "$column" 'generate-module-docs' '[path]' 'Generate readme file for module with OCA tools.'
-    printf "$column" 'generate-module-model' '[path][model]' 'Generate model in module folder.'
-    printf "$column" 'generate-module-inherit' '[path][model]' 'Generate inherited model in module folder.'
-    printf "$column" 'generate-module-views' '[path][model]' 'Generate model views in module folder.'
-    printf "$column" 'generate-module-security' '[path][model]' 'Generate model access file.'
-    printf "$column" 'generate-module-migration' '[path]' 'Generate .'
-    printf "$column" 'generate-module-snippet' '[path][ref][model]' 'Generate snippet for referefenced view.'
-    printf "$column" 'generate-module-wizard' '[path][model]' 'Generate wizard for a model in module folder.'
-    printf "$column" 'generate-module-repo' '[path]' 'Initialize Odoo module repo from template.'
-    print_group_header 'Module'
-    printf "$column" 'list-modules' '[path]' 'Get modules in path as bash array.'
-    printf "$column" 'pytest-module' '[path]' 'Run module tests with pytest.'
-    printf "$column" 'release-module' '[path]' 'Create GitHub release for a module.'
-    printf "$column" 'remove-module' '[db][name]' 'Remove target Odoo module.'
-    printf "$column" 'test-module' '[path]' 'Test target Odoo module.'
-    printf "$column" 'test-modules' '[path]' 'Test target Odoo modules in repo folder.'
-    printf "$column" 'translate-module' '[path][lang][db]' 'Generate translation for Odoo module.'
-    printf "$column" 'upload-module' '[env][path]' 'Zip and upload Odoo module.'
-    printf "$column" 'visualize-dependencies' '[path]' 'Generate visualizations of module dependencies.'
-    printf "$column" 'zip-module' '[path]' 'Create zip file for module.'
-    print_group_header 'Helper'
-    printf "$column" 'generate-admin-password' '[pass]' 'Generate hash for Odoo master password.'
-    printf "$column" 'generate-ssh-keys' '' 'Generate ssh key pair.'
-    printf "$column" 'generate-pg-ssl-keys' '' 'Generate PostgreSQL SSL key material.'
-    printf "$column" 'get-addons-path' '' 'Output addons path.'
-    printf "$column" 'get-modules' '[path][option]' 'Get list of modules in path. '\''basename'\'' or '\''dirname'\''.'
-    printf "$column" 'get-module-version' '[path]' 'Get module version from manifest.'
-    printf "$column" 'get-module-checksum' '[path]' 'Get module checksum.'
-    printf "$column" 'help' '[grep]' 'Show help for commands.'
-    printf "$column" 'info' '' 'Show values of project env vars.'
-    printf "$column" 'load-ssh-key' '' 'Load SSH private key from env var.'
-    printf "$column" 'update-module-license' '[grep]' 'Update LICENSE file for each matching module.'
-    print_group_header 'Run'
-    printf "$column" 'debug' '[name]' 'Debugg application.'
-    printf "$column" 'exec' '[name][cmd]' 'Run command in container.'
-    printf "$column" 'logs' '[name]' 'Tail container logs. Default is '\''odoo'\''.'
-    printf "$column" 'manifestoo' '[param]' 'Execute manifestoo cli.'
-    printf "$column" 'odoocli' '[param]' 'Execute odoocli cli.'
-    printf "$column" 'psql' '[db]' 'Start interactive psql shell.'
-    printf "$column" 'restart' '[name]' 'Restart container.'
-    printf "$column" 'run' '[name][cmd]' 'Run container with command.'
-    printf "$column" 'shell' '[db][code]' 'Start interactive odoo shell or run code.'
-    printf "$column" 'source' '' 'Source the Python virtual env.'
-    printf "$column" 'start' '[name][db]' 'Start service. Use list to show services.'
-    printf "$column" 'stop' '[name]' 'Stop containers.'
-    printf "$column" 'test-xmlrpc' '[env]' 'Test json rpc connection.'
-    print_group_header 'Project'
-    printf "$column" 'lint' '' 'Run precommit for this project.'
-    printf "$column" 'list-versions' '' 'List available Odoo versions.'
-    printf "$column" 'check-version' '' 'Check if Odoo source is the correct version.'
-    printf "$column" 'load-version' '[version]' 'Load git refs from  version folder.'
-    printf "$column" 'save-version' '' 'Save git folder refs to version folder.'
-    printf "$column" 'template-compose' '' 'Template the Docker compose file.'
-    printf "$column" 'template-odoo-rc' '' 'Template the Odoo config file.'
-    printf "$column" 'template-repo' '[path]' 'Update the repo folder from template.'
-    printf "$column" 'test-project' '[cleanup]' 'Run tests for this project.'
-    printf "$column" 'version' '' 'Show version of required tools.'
-    print_group_header 'Performance'
-    printf "$column" 'record-with-memray' '[name]' 'Record application memory usage with memray.'
-    printf "$column" 'record-with-py-spy' '[pid]' 'Record and create flamechart for a process.'
-    print_group_header 'Docs'
-    printf "$column" 'update-docs' '' 'Update all project docs.'
-    printf "$column" 'update-modules-doc' '' 'Update modules docs file.'
-    printf "$column" 'update-revisions-doc' '' 'Update revisions doc file.'
-    printf "$column" 'update-snippets-doc' '' 'Update snippets doc file.'
-    print_group_header 'Upgrade'
-    printf "$column" 'migrate-module' '[path]' 'Migrate module code from to target Odoo version.'
-    printf "$column" 'upgrade-odoo' '[env][step]' 'Run the Odoo upgrade for a target environment.'
+    rows+=("Command|Option|Description")
+    rows+=("<<<ENV>>>| | ")
+    rows+=("backup-env-files|[path]|Archive and copy ,env files to target location.")
+    rows+=("copy-dotenv|[env][env]|Copy .env file.")
+    rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
+    rows+=("edit-dotenv|[env]|Open .env file in default editor.")
+    rows+=("list-dotenv||List .env files.")
+    rows+=("load-dotenv||Restore content of .env from pass entry.")
+    rows+=("load-dotenv|[env]|Load and export .env file.")
+    rows+=("remove-dotenv|[env]|Remove environment config.")
+    rows+=("rename-dotenv|[env][env]|Rename .env file.")
+    rows+=("restore-dotenv-files|[path]|Extract and copy .env files from backup file.")
+    rows+=("save-dotenv||Store content of .env in pass entry.")
+    rows+=("show-dotenv|[env]|Output content of the .env file.")
+    rows+=("<<<GIT>>>| | ")
+    rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
+    rows+=("add-git-folder|[branch][url][path]|Add git folder to .gitmodules and .gitmodule.csv.")
+    rows+=("checkout|[version]|Checkout Odoo version.")
+    rows+=("checkout-git-folder|[branch][path]|Checkout git commit from .gitmodules.csv.")
+    rows+=("commit-git-folder|[message][path]|Commit all changes in path.")
+    rows+=("clean-git-folder|[path]|Clean git folder.")
+    rows+=("clone-git-folder|[branch][path][version]|Clone git folder listed in the .gitmodules file.")
+    rows+=("download-git-folder|[grep]|Download git folder listed in the .gitmodules file.")
+    rows+=("status-git-folder|[path]|Show status for git folder in path.")
+    rows+=("list-git-folder|[path]|List path and url of git folders.")
+    rows+=("pull-git-folder|[branch][path]|Pull all git folders listed in the .gitmodules file.")
+    rows+=("push-git-folder||Push all git folders in path.")
+    rows+=("remove-git-folder|[path]|Remove git folders in path.")
+    rows+=("ls-git-folder|[grep]|List git folders path space separated.")
+    rows+=("reset-git-folder|[path]|Abort rebase and reset git folder.")
+    rows+=("stage-git-folder|[path]|Stage all files in git folders in path.")
+    rows+=("switch-git-folder|[branch][path]|Switch branch for all git folders from the .gitmodules file.")
+    rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
+    rows+=("<<<DOCKER>>>| | ")
+    rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
+    rows+=("build|[folder][output]|Build Docker image from target folder.")
+    rows+=("login-docker|[user][token]|Setup Docker Hub login credentials.")
+    rows+=("login-podman|[user][token]|Login into registry with podman.")
+    rows+=("container-ps||List container processes.")
+    rows+=("push|[folder]|Publish Docker image from target folder.")
+    rows+=("remove|[name]|Remove containers and volumes.")
+    rows+=("test-image|[folder]|Test Docker image from target folder.")
+    rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
+    rows+=("<<<VUEPRESS>>>| | ")
+    rows+=("build-vuepress||Create Vuepress build.")
+    rows+=("install-vuepress||Install Node build dependencies.")
+    rows+=("dev-vuepress||Start Vuepress development server.")
+    rows+=("serve-vuepress||Serve Vuepress build.")
+    rows+=("<<<DATABASE>>>| | ")
+    rows+=("change-uuid|[env]|Change database uuid via xmlrpc.")
+    rows+=("clear-assets|[db]|Clear all assets of Odoo database.")
+    rows+=("clear-filestore|[db]|Clear local filestore folder.")
+    rows+=("clear-views|[db]|Clear all views of Odoo database.")
+    rows+=("cloc-odoo|[db]|Count custom line of codes.")
+    rows+=("drop-db|[db]|Drop target Odoo database.")
+    rows+=("init-db|[db]|Initialize the Odoo database.")
+    rows+=("load-language|[db][lang]|Install language package in Odoo db.")
+    rows+=("patch-database|[db][path]|Apply sql file to database.")
+    rows+=("reset-views|[db][key]|Execute hard reset on views matching keys.")
+    rows+=("set-admin|[db]|Sets the password for the first user in database.")
+    rows+=("update-module|[db][name,path]|Update target Odoo module.")
+    rows+=("update-module-list|[db]|Update module list of Odoo database.")
+    rows+=("<<<REVISION>>>| | ")
+    rows+=("checkout-latest-revision|[version]|Checkout the latest revision of the Odoo version.")
+    rows+=("checkout-revision|[revision]|Load Odoo revision env var and checkout git folders.")
+    rows+=("commit-and-push-revision|[revision]|Commit all changes and tag with current revision.")
+    rows+=("create-revision|[revision]|Create new Odoo revision.")
+    rows+=("list-revision||List available Odoo revisions.")
+    rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
+    rows+=("load-revision|[revision]|Load env var from specified revision.")
+    rows+=("show-revision|[revision]|Show references of Odoo revision.")
+    rows+=("<<<LLM>>>| | ")
+    rows+=("commit-with-llm||Commit with llm generated commit message.")
+    rows+=("update-with-llm|[glob][prompt]|Feed module files with prompt to LLM and apply file changes.")
+    rows+=("<<<SNIPPETS>>>| | ")
+    rows+=("create-snippet|[xml-id]|Create snippet from template.")
+    rows+=("install-snippet|[env][path]|Install snippet definition.")
+    rows+=("disable-snippet|[env][path]|Disable snippet by path or xml-id.")
+    rows+=("enable-snippet|[env][path]|Enable snippet by path or xml-id.")
+    rows+=("lint-snippets||Run checks for all snippets.")
+    rows+=("remove-snippet|[env][path]|Remove snippet by path or xml-id.")
+    rows+=("update-snippet|[env][path]|Update snippet definition.")
+    rows+=("<<<INSTALL>>>| | ")
+    rows+=("activate-venv||Activate virtualenv.")
+    rows+=("init-venv||Initialize python virtual env.")
+    rows+=("disable-mailserver|[env]|Disable mail server settings via xmlrpc.")
+    rows+=("install||Install Odoo requirements in source folder.")
+    rows+=("install-ansible-build-scripts|[role]|Install scripts of the specified Ansbile role.")
+    rows+=("install-requirements|[db][path]|Install python packages from requirements.txt.")
+    rows+=("list-packages||List installed python packages.")
+    rows+=("init-module|[db][path,module]|Initialize Odoo module.")
+    rows+=("set-addons-path||Set Odoo addons path env variable.")
+    rows+=("<<<MIGRATION>>>| | ")
+    rows+=("export-website-data|[env]|Export website data from Odoo database.")
+    rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
+    rows+=("import-website-data|[env]|Import website data to Odoo database.")
+    rows+=("<<<GENERATE>>>| | ")
+    rows+=("create-module|[path]|Create new Odoo module from template.")
+    rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
+    rows+=("generate-module-model|[path][model]|Generate model in module folder.")
+    rows+=("generate-module-inherit|[path][model]|Generate inherited model in module folder.")
+    rows+=("generate-module-views|[path][model]|Generate model views in module folder.")
+    rows+=("generate-module-security|[path][model]|Generate model access file.")
+    rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
+    rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
+    rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
+    rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
+    rows+=("<<<MODULE>>>| | ")
+    rows+=("list-modules|[path]|Get modules in path as bash array.")
+    rows+=("pytest-module|[path]|Run module tests with pytest.")
+    rows+=("release-module|[path]|Create GitHub release for a module.")
+    rows+=("remove-module|[db][name]|Remove target Odoo module.")
+    rows+=("test-module|[path]|Test target Odoo module.")
+    rows+=("test-modules|[path]|Test target Odoo modules in repo folder.")
+    rows+=("translate-module|[path][lang][db]|Generate translation for Odoo module.")
+    rows+=("upload-module|[env][path]|Zip and upload Odoo module.")
+    rows+=("visualize-dependencies|[path]|Generate visualizations of module dependencies.")
+    rows+=("zip-module|[path]|Create zip file for module.")
+    rows+=("<<<HELPER>>>| | ")
+    rows+=("generate-admin-password|[pass]|Generate hash for Odoo master password.")
+    rows+=("generate-ssh-keys||Generate ssh key pair.")
+    rows+=("generate-pg-ssl-keys||Generate PostgreSQL SSL key material.")
+    rows+=("get-addons-path||Output addons path.")
+    rows+=("get-modules|[path][option]|Get list of modules in path. 'basename' or 'dirname'.")
+    rows+=("get-module-version|[path]|Get module version from manifest.")
+    rows+=("get-module-checksum|[path]|Get module checksum.")
+    rows+=("help|[grep]|Show help for commands.")
+    rows+=("info||Show values of project env vars.")
+    rows+=("load-ssh-key||Load SSH private key from env var.")
+    rows+=("update-module-license|[grep]|Update LICENSE file for each matching module.")
+    rows+=("<<<RUN>>>| | ")
+    rows+=("debug|[name]|Debugg application.")
+    rows+=("exec|[name][cmd]|Run command in container.")
+    rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
+    rows+=("manifestoo|[param]|Execute manifestoo cli.")
+    rows+=("odoocli|[param]|Execute odoocli cli.")
+    rows+=("psql|[db]|Start interactive psql shell.")
+    rows+=("restart|[name]|Restart container.")
+    rows+=("run|[name][cmd]|Run container with command.")
+    rows+=("shell|[db][code]|Start interactive odoo shell or run code.")
+    rows+=("source||Source the Python virtual env.")
+    rows+=("start|[name][db]|Start service. Use list to show services.")
+    rows+=("stop|[name]|Stop containers.")
+    rows+=("test-xmlrpc|[env]|Test json rpc connection.")
+    rows+=("<<<PROJECT>>>| | ")
+    rows+=("lint||Run precommit for this project.")
+    rows+=("list-versions||List available Odoo versions.")
+    rows+=("check-version||Check if Odoo source is the correct version.")
+    rows+=("load-version|[version]|Load git refs from  version folder.")
+    rows+=("save-version||Save git folder refs to version folder.")
+    rows+=("template-compose||Template the Docker compose file.")
+    rows+=("template-odoo-rc||Template the Odoo config file.")
+    rows+=("template-repo|[path]|Update the repo folder from template.")
+    rows+=("test-project|[cleanup]|Run tests for this project.")
+    rows+=("version||Show version of required tools.")
+    rows+=("<<<PERFORMANCE>>>| | ")
+    rows+=("record-with-memray|[name]|Record application memory usage with memray.")
+    rows+=("record-with-py-spy|[pid]|Record and create flamechart for a process.")
+    rows+=("<<<DOCS>>>| | ")
+    rows+=("update-docs||Update all project docs.")
+    rows+=("update-modules-doc||Update modules docs file.")
+    rows+=("update-revisions-doc||Update revisions doc file.")
+    rows+=("update-snippets-doc||Update snippets doc file.")
+    rows+=("<<<UPGRADE>>>| | ")
+    rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
+    rows+=("upgrade-odoo|[env][step]|Run the Odoo upgrade for a target environment.")
+
+    for row in "${rows[@]}"; do
+        IFS='|' read -r cmd opt desc <<< "$row"
+        (( ${#cmd} > max_cmd )) && max_cmd=${#cmd}
+        (( ${#opt} > max_opt )) && max_opt=${#opt}
+        (( ${#desc} > max_desc )) && max_desc=${#desc}
+    done
+
+    printf '| %-*s | %-*s | %-*s |\n' \
+        "$max_cmd" "Command" \
+        "$max_opt" "Option" \
+        "$max_desc" "Description"
+
+    printf '|-%*s-|-%*s-|-%*s-|\n' \
+        "$max_cmd" "$(printf '%*s' "$max_cmd" '' | tr ' ' '-')" \
+        "$max_opt" "$(printf '%*s' "$max_opt" '' | tr ' ' '-')" \
+        "$max_desc" "$(printf '%*s' "$max_desc" '' | tr ' ' '-')"
+
+    local first_row=true
+    for row in "${rows[@]:1}"; do
+        IFS='|' read -r cmd opt desc <<< "$row"
+        if [[ "$cmd" =~ ^\<\<\<.*\>\>\>$ ]]; then
+            group_name="${cmd/\<\<\</}"
+            group_name="${group_name/\>\>\>/}"
+            
+            if [ "$first_row" = true ]; then
+                first_row=false
+            else
+                printf '|-%*s-|-%*s-|-%*s-|\n' \
+                    "$max_cmd" "$(printf '%*s' "$max_cmd" '' | tr ' ' '-')" \
+                    "$max_opt" "$(printf '%*s' "$max_opt" '' | tr ' ' '-')" \
+                    "$max_desc" "$(printf '%*s' "$max_desc" '' | tr ' ' '-')"
+            fi
+            
+            local left_pad=$(( (max_cmd - ${#group_name}) / 2 ))
+            local right_pad=$(( max_cmd - left_pad - ${#group_name} ))
+            printf '| %*s%s%*s | %*s | %*s |\n' \
+                "$left_pad" "" \
+                "$group_name" \
+                "$right_pad" "" \
+                "$max_opt" "" \
+                "$max_desc" ""
+            
+            printf '|-%*s-|-%*s-|-%*s-|\n' \
+                "$max_cmd" "$(printf '%*s' "$max_cmd" '' | tr ' ' '-')" \
+                "$max_opt" "$(printf '%*s' "$max_opt" '' | tr ' ' '-')" \
+                "$max_desc" "$(printf '%*s' "$max_desc" '' | tr ' ' '-')"
+        else
+            first_row=false
+            printf '| %-*s | %-*s | %-*s |\n' \
+                "$max_cmd" "$cmd" \
+                "$max_opt" "$opt" \
+                "$max_desc" "$desc"
+        fi
+    done
 }
 
 help() {
@@ -323,26 +360,6 @@ generate-admin-password() {
     if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
     export ODOO_PASSWORD="$1"
     bin/hash-password
-}
-
-show-odoo-mcp-config() {
-    echo 'Add this config to your IDE:  '
-    cat << EOF
-{
-    "mcpServers": {
-        "odoo": {
-            "command": "$PWD/venv$ODOO_VERSION/bin/python",
-            "args": ["$PWD/images/odoo-mcp/bin/server"],
-            "env": {
-                "ODOO_URL": "http://localhost:8069",
-                "DB_NAME": "$DB_NAME",
-                "ODOO_USERNAME": "admin",
-                "ODOO_PASSWORD": "admin"
-            }
-        }
-    }
-}
-EOF
 }
 
 # Env commands
@@ -696,10 +713,6 @@ build() {
         manifest_file="images/odoocli/Dockerfile"
         CONTAINER_TAG="odoocli"
         latest_tag="odoocli:latest"
-    elif [[ "$1" == "images/odoo-mcp" ]]; then
-        manifest_file="images/odoo-mcp/Dockerfile"
-        CONTAINER_TAG="odoo-mcp"
-        latest_tag="odoo-mcp:latest"
     fi
 
     # Load Odoo revision
@@ -948,9 +961,6 @@ push() {
         latest_tag="odoo-upgrade:latest"
     elif [[ "$1" == "images/odoocli" ]]; then
         CONTAINER_TAG="odoocli"
-        latest_tag="odoocli:latest"
-    elif [[ "$1" == "images/odoo-mcp" ]]; then
-        CONTAINER_TAG="odoo-mcp"
         latest_tag="odoocli:latest"
     fi
 

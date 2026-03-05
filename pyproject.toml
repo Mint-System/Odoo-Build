@@ -21,9 +21,6 @@ dependencies = [
     # Performance
     "py-spy",
     "memray",
-    # LLM
-    "fastmcp; python_version >= '3.10'",
-    "requests",
     # Upgrade
     "openupgradelib @ git+https://github.com/OCA/openupgradelib.git@master",
     "odoo-upgrade @ git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'",
