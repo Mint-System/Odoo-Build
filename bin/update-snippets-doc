@@ -107,6 +107,7 @@ def main():
                 with open(doc_file, "a") as module_doc:
                     module_doc.write(f"### {edit_title}\n\n")
                     module_doc.write(f"ID: `{snippet_prefix}.{module}.{xml_id}.{edit}`\n\n")
+                    module_doc.write(f"Inherit ID: `{module}.{xml_id}`\n\n")
                     module_doc.write("```xml\n")
 
                     # Append file content

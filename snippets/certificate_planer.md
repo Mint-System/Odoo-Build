@@ -6,8 +6,10 @@
 
 ID: `mint_system.certificate_planer.document_form.hide_view_report_button`
 
+Inherit ID: `certificate_planer.document_form`
+
 ```xml
-<data inherit_id="certificate_planer.document_form" priority="50">
+<data priority="50">
     <button name="view_document_report" position="attributes">
         <attribute name="invisible">1</attribute>
     </button>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.certificate_planer.document_form.hide_view_report_
 
 ID: `mint_system.certificate_planer.mcr_report_view.hide_mcr_planning_columns`
 
+Inherit ID: `certificate_planer.mcr_report_view`
+
 ```xml
-<data inherit_id="certificate_planer.mcr_report_view" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='mcr_planning']//th[2]" position="replace"/>
     <xpath expr="//table[@name='mcr_planning']//th[3]" position="replace"/>
     <xpath expr="//table[@name='mcr_planning']//td[2]" position="replace"/>

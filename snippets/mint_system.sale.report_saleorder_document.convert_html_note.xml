@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='td_note_line']/.." position="replace">
         <t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
             <td name="td_note_line" colspan="99">

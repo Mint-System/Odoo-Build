@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="60">
+<data priority="60">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
             <strong>Pos</strong>

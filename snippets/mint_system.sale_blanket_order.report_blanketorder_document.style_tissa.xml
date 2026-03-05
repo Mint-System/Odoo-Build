@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
 			table#info {

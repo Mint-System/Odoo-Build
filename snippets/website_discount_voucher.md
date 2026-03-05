@@ -6,8 +6,10 @@
 
 ID: `mint_system.website_discount_voucher.view_web_gift_coupan_form_view.barcode_editable`
 
+Inherit ID: `website_discount_voucher.view_web_gift_coupan_form_view`
+
 ```xml
-<data inherit_id="website_discount_voucher.view_web_gift_coupan_form_view" priority="50">
+<data priority="50">
     <field name="c_barcode" position="attributes">
         <attribute name="readonly">0</attribute>
     </field>

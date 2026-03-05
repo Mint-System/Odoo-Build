@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="attributes">
         <attribute name="class" separator=" " add="first"/>
     </xpath>

@@ -6,8 +6,10 @@
 
 ID: `mint_system.hr_attendance.view_attendance_overtime_tree.enable_edit`
 
+Inherit ID: `hr_attendance.view_attendance_overtime_tree`
+
 ```xml
-<data inherit_id="hr_attendance.view_attendance_overtime_tree" priority="50" groups="hr_attendance.group_hr_attendance_manager">
+<data priority="50" groups="hr_attendance.group_hr_attendance_manager">
     <tree position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.enable
 
 ID: `mint_system.hr_attendance.view_attendance_overtime_tree.remove_float_time_widget`
 
+Inherit ID: `hr_attendance.view_attendance_overtime_tree`
+
 ```xml
-<data inherit_id="hr_attendance.view_attendance_overtime_tree" priority="50">
+<data priority="50">
     <field name="duration" position="attributes">
         <attribute name="widget"/>
     </field>
@@ -42,8 +46,10 @@ Source: [snippets/mint_system.hr_attendance.view_attendance_overtime_tree.remove
 
 ID: `mint_system.hr_attendance.view_attendance_tree.enable_edit`
 
+Inherit ID: `hr_attendance.view_attendance_tree`
+
 ```xml
-<data inherit_id="hr_attendance.view_attendance_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="edit">1</attribute>
     </tree>

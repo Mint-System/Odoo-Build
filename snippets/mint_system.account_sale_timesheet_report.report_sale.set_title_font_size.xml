@@ -1,4 +1,4 @@
-<data inherit_id="account_sale_timesheet_report.report_sale" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             h2 {

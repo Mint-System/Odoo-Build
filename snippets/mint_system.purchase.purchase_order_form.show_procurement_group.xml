@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="group_id"/>
     </xpath>

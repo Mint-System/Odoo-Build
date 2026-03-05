@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="60">
+<data priority="60">
     <td name="td_name" position="replace">
         <td name="td_name">
             <t t-if="line.product_id">

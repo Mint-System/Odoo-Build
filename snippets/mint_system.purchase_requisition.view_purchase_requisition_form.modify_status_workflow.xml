@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='493']" position="after">
         <button name="action_order_send" states="draft,sent,open" string="Send by Email" type="object" class="btn-primary"/>
         <button name="action_open" states="sent" string="Validate" type="object" class="btn-primary"/>

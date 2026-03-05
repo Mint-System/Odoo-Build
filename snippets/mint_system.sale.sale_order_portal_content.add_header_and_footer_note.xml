@@ -1,4 +1,4 @@
-<data inherit_id="sale.sale_order_portal_content" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="after">
         <t t-if="sale_order.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
             <span class="note" t-field="sale_order.note_header"/>

@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='city']" position="replace"/>
     <xpath expr="//field[@name='state_id']" position="replace"/>
     <xpath expr="//field[@name='zip']" position="replace"/>

@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_location_form" priority="50">
+<data priority="50">
     <xpath expr="//group[@name='additional_info']//field[@name='replenish_location']" position="after">
         <field name="barcode"/>
     </xpath>

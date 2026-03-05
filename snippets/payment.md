@@ -6,8 +6,10 @@
 
 ID: `mint_system.payment.payment_provider_list.enable_create`
 
+Inherit ID: `payment.payment_provider_list`
+
 ```xml
-<data inherit_id="payment.payment_provider_list" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
     </tree>

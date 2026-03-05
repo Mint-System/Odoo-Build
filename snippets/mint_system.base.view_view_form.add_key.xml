@@ -1,4 +1,4 @@
-<data inherit_id="base.view_view_form" priority="50">
+<data priority="50">
     <xpath expr="//group[1]/field[@name='name']" position="before">
         <field name="key"/>
     </xpath>

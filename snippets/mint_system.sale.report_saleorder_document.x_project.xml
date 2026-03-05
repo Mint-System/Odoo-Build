@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
 
   <xpath expr="//div[@id='informations']/div[4]" position="after">
     <div t-if="doc.x_project" class="col-5">

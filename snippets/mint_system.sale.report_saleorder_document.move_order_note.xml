@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@name='order_note']" position="replace">
     </xpath>
     <xpath expr="/t/t/div/div[6]" position="after">

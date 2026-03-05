@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="55">
+<data priority="55">
     <xpath expr="//t[@t-set='information_block']/.." position="attributes">
         <attribute name="t-if"/>
     </xpath>

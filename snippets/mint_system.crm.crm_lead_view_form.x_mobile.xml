@@ -1,4 +1,4 @@
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='phone']/.." position="after">
         <label for="x_mobile" class="oe_inline"/>
         <div class="o_row">

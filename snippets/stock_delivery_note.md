@@ -6,8 +6,10 @@
 
 ID: `mint_system.stock_delivery_note.report_delivery_document.move_delivery_note`
 
+Inherit ID: `stock_delivery_note.report_delivery_document`
+
 ```xml
-<data inherit_id="stock_delivery_note.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-if='o.delivery_note']" position="replace">
     </xpath>
     <xpath expr="//h2" position="after">
@@ -29,8 +31,10 @@ Source: [snippets/mint_system.stock_delivery_note.report_delivery_document.move_
 
 ID: `mint_system.stock_delivery_note.stock_picking_form_view.move_delivery_note`
 
+Inherit ID: `stock_delivery_note.stock_picking_form_view`
+
 ```xml
-<data inherit_id="stock_delivery_note.stock_picking_form_view" priority="50">
+<data priority="50">
     <field name="delivery_note" position="replace">
     </field>
     <field name="partner_id" position="after">

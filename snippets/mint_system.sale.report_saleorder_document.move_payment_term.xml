@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='vat_eori']" position="after">
         <xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="move"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/table/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>

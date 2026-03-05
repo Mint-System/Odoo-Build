@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="60">
+<data priority="60">
     <xpath expr="//th[@name='th_product']" position="attributes">
         <attribute name="id">th_product</attribute>
     </xpath>

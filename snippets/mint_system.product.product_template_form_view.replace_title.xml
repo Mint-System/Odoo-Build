@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_form_view" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='oe_title']" position="replace">
         <div class="oe_title">
             <table style="width:100%">

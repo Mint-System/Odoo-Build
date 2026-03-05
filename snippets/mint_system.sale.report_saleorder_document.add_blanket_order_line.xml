@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='td_product_uom_qty']" position="inside">
         <t t-if="doc.x_incoterm_blanket_order">
             <p t-field="doc.x_incoterm_blanket_order.code"/>

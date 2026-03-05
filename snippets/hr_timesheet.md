@@ -6,8 +6,10 @@
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_code`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+<data priority="50">
     <field name="project_id" position="replace">
         <field name="project_id" filter_domain="['|', ('project_id', 'ilike', self), ('project_id.code', 'ilike', self)]"/>
     </field>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_proje
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_project_id`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+<data priority="50">
     <field name="date" position="before">
         <field name="project_id" position="move"/>
     </field>
@@ -41,8 +45,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_proje
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_search.filter_validated`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_search`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+<data priority="50">
     <filter name="non_billable" position="after">
         <filter string="Validiert" name="validated"/>
     </filter>
@@ -59,8 +65,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_search.filter_valid
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so_line`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
         <attribute name="optional">show</attribute>
     </xpath>
@@ -75,8 +83,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.always_show_so
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editable`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="editable"/>
     </xpath>
@@ -91,8 +101,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.disable_editab
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="editable">top</attribute>
     </xpath>
@@ -107,8 +119,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.editable_top.x
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner_is_company`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="attributes">
         <attribute name="domain">[('is_company', '=', True)]</attribute>
     </xpath>
@@ -123,8 +137,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.filter_partner
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_details`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
         <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
         <field name="timesheet_invoice_id" string="Rechnung"/>
@@ -140,8 +156,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.invoice_detail
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
         <attribute name="options">{'no_create_edit': True}</attribute>
     </xpath>
@@ -152,12 +170,32 @@ Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_o
 
 Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.options_enable_open.xml)
 
+### Project Id Domain
+
+ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain`
+
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='project_id']" position="attributes">
+        <attribute name="domain">[('allow_timesheets', '=', True), ('partner_id', '=', partner_id)]</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml)
+
+Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml](https://odoo.build/snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.project_id_domain.xml)
+
 ### Show Helpdesk Ticket Id
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_ticket_id`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="after">
         <field name="helpdesk_ticket_id" optional="hide"/>
     </xpath>
@@ -172,13 +210,12 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_helpdesk_
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_id`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='project_id']" position="before">
         <field name="partner_id"/>
-    </xpath>
-    <xpath expr="//field[@name='project_id']" position="attributes">
-        <attribute name="domain">[('partner_id', '=', partner_id)]</attribute>
     </xpath>
 </data>
 
@@ -191,8 +228,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.show_partner_i
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
         <attribute name="domain">[('order_id', '=', x_sale_order_id), ('is_service', '=', True), ('is_expense', '=', False)]</attribute>
     </xpath>
@@ -207,8 +246,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_domain
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readonly`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='so_line']" position="attributes">
         <attribute name="readonly">True</attribute>
     </xpath>
@@ -223,8 +264,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.so_line_readon
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_required`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
         <attribute name="required">1</attribute>
     </xpath>
@@ -239,8 +282,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.task_id_requir
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="attributes">
         <attribute name="domain">[
       '&amp;',
@@ -263,8 +308,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_not_billable
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_display_name`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="before">
         <field name="x_parent_id_display_name" optional="hide"/>
     </xpath>
@@ -279,8 +326,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_parent_id_di
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_name`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="before">
         <field name="x_phase_id_name" optional="hide"/>
     </xpath>
@@ -295,8 +344,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_phase_id_nam
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_id`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='so_line']" position="after">
         <field name="x_sale_order_id" optional="hide"/>
     </xpath>
@@ -311,8 +362,10 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_sale_order_i
 
 ID: `mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id`
 
+Inherit ID: `hr_timesheet.hr_timesheet_line_tree`
+
 ```xml
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//tree/field[@name='category_id']" position="after">
         <field name="x_vehicle_id" optional="hide"/>
     </xpath>
@@ -329,9 +382,11 @@ Source: [snippets/mint_system.hr_timesheet.hr_timesheet_line_tree.x_vehicle_id.x
 
 ID: `mint_system.hr_timesheet.portal_my_timesheets.show_billable`
 
+Inherit ID: `hr_timesheet.portal_my_timesheets`
+
 ```xml
 <!-- Show billable field for timesheet entries -->
-<data inherit_id="hr_timesheet.portal_my_timesheets" priority="50">
+<data priority="50">
     <xpath expr="//thead/tr/th[4]" position="after">
         <th>Invoice Type</th>
     </xpath>
@@ -353,8 +408,10 @@ Source: [snippets/mint_system.hr_timesheet.portal_my_timesheets.show_billable.xm
 
 ID: `mint_system.hr_timesheet.report_timesheet.group_by_invoice_type`
 
+Inherit ID: `hr_timesheet.report_timesheet`
+
 ```xml
-<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+<data priority="50">
 
     <xpath expr="//table/tbody/tr[1]" position="replace">
 
@@ -423,8 +480,10 @@ Source: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_invoice_typ
 
 ID: `mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet_invoice_type`
 
+Inherit ID: `hr_timesheet.report_timesheet`
+
 ```xml
-<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+<data priority="50">
     <xpath expr="//table/tbody/tr[1]" position="replace">
         <!-- Get all invoice types -->
         <t t-set="x_timesheet_invoice_type" t-value="[]"/>
@@ -491,8 +550,10 @@ Source: [snippets/mint_system.hr_timesheet.report_timesheet.group_by_x_timesheet
 
 ID: `mint_system.hr_timesheet.report_timesheet.user_report`
 
+Inherit ID: `hr_timesheet.report_timesheet`
+
 ```xml
-<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+<data priority="50">
     <!-- New title -->
     <xpath expr="/t/t/t/div/div[2]" position="after">
         <t t-set="min_date" t-value="min(docs.mapped('date'))"/>
@@ -539,8 +600,10 @@ Source: [snippets/mint_system.hr_timesheet.report_timesheet.user_report.xml](htt
 
 ID: `mint_system.hr_timesheet.timesheet_table.add_sale_price_unit`
 
+Inherit ID: `hr_timesheet.timesheet_table`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_table" priority="50">
+<data priority="50">
 
    <xpath expr="//thead//tr/th[3]" position="replace">
       <th class="text-start align-middle">
@@ -564,8 +627,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.x
 
 ID: `mint_system.hr_timesheet.timesheet_table.style_lapp`
 
+Inherit ID: `hr_timesheet.timesheet_table`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_table" priority="60">
+<data priority="60">
 
     <xpath expr="//div[1]" position="before">
         <style> 
@@ -592,8 +657,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_table.style_lapp.xml](https
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.editable_top`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="editable">top</attribute>
     </tree>
@@ -608,8 +675,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.editable_top
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_billable_type`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
         <field name="timesheet_invoice_type" string="Verrechnungstyp"/>
         <field name="timesheet_invoice_id" string="Rechnung"/>
@@ -625,8 +694,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_billabl
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdesk_ticket`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='task_id']" position="after">
         <field name="helpdesk_ticket_id" optional="show"/>
     </xpath>
@@ -641,8 +712,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_helpdes
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.show_product_uom_id`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='unit_amount']" position="after">
         <field name="product_uom_category_id" invisible="1"/>
         <field name="product_uom_id" optional="show"/>
@@ -658,8 +731,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.show_product
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_name`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
      <xpath expr="//field[@name='task_id']" position="after">
         <field name="x_phase_id_name" optional="show"/>       
     </xpath>
@@ -673,8 +748,10 @@ Source: [snippets/mint_system.hr_timesheet.timesheet_view_tree_user.x_phase_id_n
 
 ID: `mint_system.hr_timesheet.timesheet_view_tree_user.x_timesheet_invoice_type`
 
+Inherit ID: `hr_timesheet.timesheet_view_tree_user`
+
 ```xml
-<data inherit_id="hr_timesheet.timesheet_view_tree_user" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='timesheet_invoice_type']" position="replace">
         <field name="x_timesheet_invoice_type"/>
     </xpath>

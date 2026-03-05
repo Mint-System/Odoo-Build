@@ -1,4 +1,4 @@
-<data inherit_id="helpdesk.helpdesk_ticket_view_kanban" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='commercial_partner_id']/.." position="after">
         <div>
             <field name="x_date_deadline" widget="date"/>

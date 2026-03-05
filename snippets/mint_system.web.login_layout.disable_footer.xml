@@ -1,4 +1,4 @@
-<data inherit_id="web.login_layout" priority="50">
+<data priority="50">
     <xpath expr="//t/div" position="before">
         <t t-set="disable_footer" t-value="True"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
+<data priority="49">
     <xpath expr="///tr/td[1]/p/span[1]" position="after">
         <br/>
         <t t-if="aggregated_lines[line]['product']['country_of_origin_id']['code'] and aggregated_lines[line]['hs_code']">

@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='product_qty']" position="after">
         <t t-if="o.state_blanket_order != 'draft'">
             <th id="price_unit" class="text-right">

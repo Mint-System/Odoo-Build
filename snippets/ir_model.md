@@ -6,6 +6,8 @@
 
 ID: `mint_system.ir_model.account_analytic_line.x_parent_id_display_name`
 
+Inherit ID: `ir_model.account_analytic_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -30,6 +32,8 @@ Source: [snippets/mint_system.ir_model.account_analytic_line.x_parent_id_display
 ### X Phase Id Name
 
 ID: `mint_system.ir_model.account_analytic_line.x_phase_id_name`
+
+Inherit ID: `ir_model.account_analytic_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -56,6 +60,8 @@ Source: [snippets/mint_system.ir_model.account_analytic_line.x_phase_id_name.xml
 
 ID: `mint_system.ir_model.account_analytic_line.x_sale_order_id`
 
+Inherit ID: `ir_model.account_analytic_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -81,6 +87,8 @@ Source: [snippets/mint_system.ir_model.account_analytic_line.x_sale_order_id.xml
 ### X Timesheet Invoice Type
 
 ID: `mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type`
+
+Inherit ID: `ir_model.account_analytic_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -110,6 +118,8 @@ Source: [snippets/mint_system.ir_model.account_analytic_line.x_timesheet_invoice
 
 ID: `mint_system.ir_model.account_analytic_line.x_vehicle_id`
 
+Inherit ID: `ir_model.account_analytic_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -138,6 +148,8 @@ Source: [snippets/mint_system.ir_model.account_analytic_line.x_vehicle_id.xml](h
 
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_end_ids`
 
+Inherit ID: `ir_model.account_bank_statement`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -164,6 +176,8 @@ Source: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_end_ids.
 ### X Cashbox Start Ids
 
 ID: `mint_system.ir_model.account_bank_statement.x_cashbox_start_ids`
+
+Inherit ID: `ir_model.account_bank_statement`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -194,6 +208,8 @@ Source: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_id
 
 ID: `mint_system.ir_model.account_invoice_report.x_shipping_address`
 
+Inherit ID: `ir_model.account_invoice_report`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -218,6 +234,8 @@ Source: [snippets/mint_system.ir_model.account_invoice_report.x_shipping_address
 ### X Account Codes
 
 ID: `mint_system.ir_model.account_move.x_account_codes`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -249,6 +267,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_account_codes.xml](https:/
 
 ID: `mint_system.ir_model.account_move.x_bexio_name`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -272,6 +292,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_bexio_name.xml](https://od
 ### X Country Id
 
 ID: `mint_system.ir_model.account_move.x_country_id`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -298,6 +320,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_country_id.xml](https://od
 
 ID: `mint_system.ir_model.account_move.x_date_done`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -322,6 +346,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_date_done.xml](https://odo
 ### X Duplicate Found
 
 ID: `mint_system.ir_model.account_move.x_duplicate_found`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -361,6 +387,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_duplicate_found.xml](https
 
 ID: `mint_system.ir_model.account_move.x_gross_weight`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -382,6 +410,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_gross_weight.xml](https://
 ### X Group Ids
 
 ID: `mint_system.ir_model.account_move.x_group_ids`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -413,6 +443,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_group_ids.xml](https://odo
 
 ID: `mint_system.ir_model.account_move.x_has_downpayment`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -443,6 +475,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_has_downpayment.xml](https
 
 ID: `mint_system.ir_model.account_move.x_hide_partner_name`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -466,6 +500,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_hide_partner_name.xml](htt
 ### X Hr Expense Sheet Ids
 
 ID: `mint_system.ir_model.account_move.x_hr_expense_sheet_ids`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -492,6 +528,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_hr_expense_sheet_ids.xml](
 ### X Invoice Text
 
 ID: `mint_system.ir_model.account_move.x_invoice_text`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -521,6 +559,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_invoice_text.xml](https://
 
 ID: `mint_system.ir_model.account_move.x_invoice_warn_msg`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -546,6 +586,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_invoice_warn_msg.xml](http
 
 ID: `mint_system.ir_model.account_move.x_is_test`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -570,6 +612,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_is_test.xml](https://odoo.
 
 ID: `mint_system.ir_model.account_move.x_net_weight`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -592,6 +636,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_net_weight.xml](https://od
 
 ID: `mint_system.ir_model.account_move.x_packaging`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -613,6 +659,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_packaging.xml](https://odo
 ### X Picking List
 
 ID: `mint_system.ir_model.account_move.x_picking_list`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -645,6 +693,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_picking_list.xml](https://
 
 ID: `mint_system.ir_model.account_move.x_recurring_inverval`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -675,6 +725,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_recurring_inverval.xml](ht
 
 ID: `mint_system.ir_model.account_move.x_show_bank_details`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -699,6 +751,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_show_bank_details.xml](htt
 
 ID: `mint_system.ir_model.account_move.x_studio_description`
 
+Inherit ID: `ir_model.account_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -721,6 +775,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_studio_description.xml](ht
 ### X Total Credit
 
 ID: `mint_system.ir_model.account_move.x_total_credit`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -752,6 +808,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_total_credit.xml](https://
 ### X Total Debit
 
 ID: `mint_system.ir_model.account_move.x_total_debit`
+
+Inherit ID: `ir_model.account_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -786,6 +844,8 @@ Source: [snippets/mint_system.ir_model.account_move.x_total_debit.xml](https://o
 
 ID: `mint_system.ir_model.account_move_line.x_drawing_file`
 
+Inherit ID: `ir_model.account_move_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -810,6 +870,8 @@ Source: [snippets/mint_system.ir_model.account_move_line.x_drawing_file.xml](htt
 ### X Sale Order Id
 
 ID: `mint_system.ir_model.account_move_line.x_sale_order_id`
+
+Inherit ID: `ir_model.account_move_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -840,6 +902,8 @@ Source: [snippets/mint_system.ir_model.account_move_line.x_sale_order_id.xml](ht
 
 ID: `mint_system.ir_model.account_move_line.x_tax_group_id`
 
+Inherit ID: `ir_model.account_move_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -869,6 +933,8 @@ Source: [snippets/mint_system.ir_model.account_move_line.x_tax_group_id.xml](htt
 
 ID: `mint_system.ir_model.agreement_agreement.x_group_ids`
 
+Inherit ID: `ir_model.agreement_agreement`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -893,6 +959,8 @@ Source: [snippets/mint_system.ir_model.agreement_agreement.x_group_ids.xml](http
 ### X User Ids
 
 ID: `mint_system.ir_model.agreement_agreement.x_user_ids`
+
+Inherit ID: `ir_model.agreement_agreement`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -921,6 +989,8 @@ Source: [snippets/mint_system.ir_model.agreement_agreement.x_user_ids.xml](https
 
 ID: `mint_system.ir_model.business_requirement.x_estimated_cost`
 
+Inherit ID: `ir_model.business_requirement`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -944,6 +1014,8 @@ Source: [snippets/mint_system.ir_model.business_requirement.x_estimated_cost.xml
 ### X Planned Hours
 
 ID: `mint_system.ir_model.business_requirement.x_planned_hours`
+
+Inherit ID: `ir_model.business_requirement`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -969,6 +1041,8 @@ Source: [snippets/mint_system.ir_model.business_requirement.x_planned_hours.xml]
 
 ID: `mint_system.ir_model.business_requirement.x_project_id`
 
+Inherit ID: `ir_model.business_requirement`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -993,6 +1067,8 @@ Source: [snippets/mint_system.ir_model.business_requirement.x_project_id.xml](ht
 ### X Task Id
 
 ID: `mint_system.ir_model.business_requirement.x_task_id`
+
+Inherit ID: `ir_model.business_requirement`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1025,6 +1101,8 @@ Source: [snippets/mint_system.ir_model.business_requirement.x_task_id.xml](https
 
 ID: `mint_system.ir_model.calendar_event.x_color`
 
+Inherit ID: `ir_model.calendar_event`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1051,6 +1129,8 @@ Source: [snippets/mint_system.ir_model.calendar_event.x_color.xml](https://odoo.
 
 ID: `mint_system.ir_model.crm_lead.x_date_start`
 
+Inherit ID: `ir_model.crm_lead`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1074,6 +1154,8 @@ Source: [snippets/mint_system.ir_model.crm_lead.x_date_start.xml](https://odoo.b
 ### X Date Stop
 
 ID: `mint_system.ir_model.crm_lead.x_date_stop`
+
+Inherit ID: `ir_model.crm_lead`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1103,6 +1185,8 @@ Source: [snippets/mint_system.ir_model.crm_lead.x_date_stop.xml](https://odoo.bu
 
 ID: `mint_system.ir_model.crm_lead.x_mobile`
 
+Inherit ID: `ir_model.crm_lead`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1128,6 +1212,8 @@ Source: [snippets/mint_system.ir_model.crm_lead.x_mobile.xml](https://odoo.build
 ### X Task Id
 
 ID: `mint_system.ir_model.crm_lead.x_task_id`
+
+Inherit ID: `ir_model.crm_lead`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1156,6 +1242,8 @@ Source: [snippets/mint_system.ir_model.crm_lead.x_task_id.xml](https://odoo.buil
 
 ID: `mint_system.ir_model.helpdesk_ticket.x_date_deadline`
 
+Inherit ID: `ir_model.helpdesk_ticket`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1179,6 +1267,8 @@ Source: [snippets/mint_system.ir_model.helpdesk_ticket.x_date_deadline.xml](http
 ### X Link With Ids
 
 ID: `mint_system.ir_model.helpdesk_ticket.x_link_with_ids`
+
+Inherit ID: `ir_model.helpdesk_ticket`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1207,6 +1297,8 @@ Source: [snippets/mint_system.ir_model.helpdesk_ticket.x_link_with_ids.xml](http
 
 ID: `mint_system.ir_model.hr_applicant.x_gdpr`
 
+Inherit ID: `ir_model.hr_applicant`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1233,6 +1325,8 @@ Source: [snippets/mint_system.ir_model.hr_applicant.x_gdpr.xml](https://odoo.bui
 ### X Struct Id
 
 ID: `mint_system.ir_model.hr_contract.x_struct_id`
+
+Inherit ID: `ir_model.hr_contract`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1261,6 +1355,8 @@ Source: [snippets/mint_system.ir_model.hr_contract.x_struct_id.xml](https://odoo
 
 ID: `mint_system.ir_model.hr_expense.x_partner_id`
 
+Inherit ID: `ir_model.hr_expense`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1287,6 +1383,8 @@ Source: [snippets/mint_system.ir_model.hr_expense.x_partner_id.xml](https://odoo
 ### X Number Of Hours
 
 ID: `mint_system.ir_model.hr_leave.x_number_of_hours`
+
+Inherit ID: `ir_model.hr_leave`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1315,6 +1413,8 @@ Source: [snippets/mint_system.ir_model.hr_leave.x_number_of_hours.xml](https://o
 
 ID: `mint_system.ir_model.hr_leave.x_requires_allocation`
 
+Inherit ID: `ir_model.hr_leave`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1341,6 +1441,8 @@ Source: [snippets/mint_system.ir_model.hr_leave.x_requires_allocation.xml](https
 ### X Code Name
 
 ID: `mint_system.ir_model.hr_payslip_line.x_code_name`
+
+Inherit ID: `ir_model.hr_payslip_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1371,6 +1473,8 @@ Source: [snippets/mint_system.ir_model.hr_payslip_line.x_code_name.xml](https://
 
 ID: `mint_system.ir_model.maintenance_equipment.x_calibrated_until`
 
+Inherit ID: `ir_model.maintenance_equipment`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1396,6 +1500,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_calibrated_until.
 ### X Date Action Required
 
 ID: `mint_system.ir_model.maintenance_equipment.x_date_action_required`
+
+Inherit ID: `ir_model.maintenance_equipment`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1428,6 +1534,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_date_action_requi
 ### X Last Maintenance Request
 
 ID: `mint_system.ir_model.maintenance_equipment.x_last_maintenance_request`
+
+Inherit ID: `ir_model.maintenance_equipment`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1462,6 +1570,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_last_maintenance_
 
 ID: `mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work`
 
+Inherit ID: `ir_model.maintenance_equipment`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1486,6 +1596,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recover
 ### X Maintenance Kind Id
 
 ID: `mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id`
+
+Inherit ID: `ir_model.maintenance_equipment`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1513,6 +1625,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_maintenance_kind_
 ### X Next Maintenance Request
 
 ID: `mint_system.ir_model.maintenance_equipment.x_next_maintenance_request`
+
+Inherit ID: `ir_model.maintenance_equipment`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1547,6 +1661,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_next_maintenance_
 
 ID: `mint_system.ir_model.maintenance_equipment.x_schedule_date`
 
+Inherit ID: `ir_model.maintenance_equipment`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1572,6 +1688,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_schedule_date.xml
 ### X Stage Id
 
 ID: `mint_system.ir_model.maintenance_equipment.x_stage_id`
+
+Inherit ID: `ir_model.maintenance_equipment`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1602,6 +1720,8 @@ Source: [snippets/mint_system.ir_model.maintenance_equipment.x_stage_id.xml](htt
 
 ID: `mint_system.ir_model.maintenance_request.x_calibrated_until`
 
+Inherit ID: `ir_model.maintenance_request`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1629,6 +1749,8 @@ Source: [snippets/mint_system.ir_model.maintenance_request.x_calibrated_until.xm
 
 ID: `mint_system.ir_model.mrp_bom.x_note`
 
+Inherit ID: `ir_model.mrp_bom`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1652,6 +1774,8 @@ Source: [snippets/mint_system.ir_model.mrp_bom.x_note.xml](https://odoo.build/sn
 ### X Type Description
 
 ID: `mint_system.ir_model.mrp_bom.x_type_description`
+
+Inherit ID: `ir_model.mrp_bom`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1681,6 +1805,8 @@ Source: [snippets/mint_system.ir_model.mrp_bom.x_type_description.xml](https://o
 
 ID: `mint_system.ir_model.mrp_production.x_date_deadline`
 
+Inherit ID: `ir_model.mrp_production`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1704,6 +1830,8 @@ Source: [snippets/mint_system.ir_model.mrp_production.x_date_deadline.xml](https
 ### X Note
 
 ID: `mint_system.ir_model.mrp_production.x_note`
+
+Inherit ID: `ir_model.mrp_production`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1734,6 +1862,8 @@ Source: [snippets/mint_system.ir_model.mrp_production.x_note.xml](https://odoo.b
 
 ID: `mint_system.ir_model.mrp_production.x_quality_check_ids`
 
+Inherit ID: `ir_model.mrp_production`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1762,6 +1892,8 @@ Source: [snippets/mint_system.ir_model.mrp_production.x_quality_check_ids.xml](h
 
 ID: `mint_system.ir_model.mrp_workcenter_productivity.x_production_id_state`
 
+Inherit ID: `ir_model.mrp_workcenter_productivity`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1784,6 +1916,8 @@ Source: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_production_
 ### X Workcenter Id Costs Hour
 
 ID: `mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_id_costs_hour`
+
+Inherit ID: `ir_model.mrp_workcenter_productivity`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1810,6 +1944,8 @@ Source: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_
 
 ID: `mint_system.ir_model.mrp_workorder.x_finished_lot_id`
 
+Inherit ID: `ir_model.mrp_workorder`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1834,6 +1970,8 @@ Source: [snippets/mint_system.ir_model.mrp_workorder.x_finished_lot_id.xml](http
 ### X Reservation State
 
 ID: `mint_system.ir_model.mrp_workorder.x_reservation_state`
+
+Inherit ID: `ir_model.mrp_workorder`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1860,6 +1998,8 @@ Source: [snippets/mint_system.ir_model.mrp_workorder.x_reservation_state.xml](ht
 
 ID: `mint_system.ir_model.mrp_workorder.x_type_description`
 
+Inherit ID: `ir_model.mrp_workorder`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1883,6 +2023,8 @@ Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](htt
 ### X Type Description2
 
 ID: `mint_system.ir_model.mrp_workorder.x_type_description2`
+
+Inherit ID: `ir_model.mrp_workorder`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1910,6 +2052,8 @@ Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description2.xml](ht
 
 ID: `mint_system.ir_model.product_category.x_relevant_for_certificate`
 
+Inherit ID: `ir_model.product_category`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1936,6 +2080,8 @@ Source: [snippets/mint_system.ir_model.product_category.x_relevant_for_certifica
 
 ID: `mint_system.ir_model.product_packaging.x_description`
 
+Inherit ID: `ir_model.product_packaging`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -1959,6 +2105,8 @@ Source: [snippets/mint_system.ir_model.product_packaging.x_description.xml](http
 ### X Qty Description
 
 ID: `mint_system.ir_model.product_packaging.x_qty_description`
+
+Inherit ID: `ir_model.product_packaging`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -1985,6 +2133,8 @@ Source: [snippets/mint_system.ir_model.product_packaging.x_qty_description.xml](
 ### X Categ Id
 
 ID: `mint_system.ir_model.product_set_line.x_categ_id`
+
+Inherit ID: `ir_model.product_set_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2014,6 +2164,8 @@ Source: [snippets/mint_system.ir_model.product_set_line.x_categ_id.xml](https://
 
 ID: `mint_system.ir_model.product_template.x_calibre`
 
+Inherit ID: `ir_model.product_template`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2037,6 +2189,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_calibre.xml](https://o
 ### X Expiration Days
 
 ID: `mint_system.ir_model.product_template.x_expiration_days`
+
+Inherit ID: `ir_model.product_template`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2062,6 +2216,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_expiration_days.xml](h
 
 ID: `mint_system.ir_model.product_template.x_hide_on_delivery`
 
+Inherit ID: `ir_model.product_template`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2085,6 +2241,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_hide_on_delivery.xml](
 ### X Hide On Invoice
 
 ID: `mint_system.ir_model.product_template.x_hide_on_invoice`
+
+Inherit ID: `ir_model.product_template`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2110,6 +2268,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_hide_on_invoice.xml](h
 
 ID: `mint_system.ir_model.product_template.x_hide_on_sale_order`
 
+Inherit ID: `ir_model.product_template`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2133,6 +2293,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_hide_on_sale_order.xml
 ### X Product Label
 
 ID: `mint_system.ir_model.product_template.x_product_label`
+
+Inherit ID: `ir_model.product_template`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2162,6 +2324,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_product_label.xml](htt
 
 ID: `mint_system.ir_model.product_template.x_purchase_price`
 
+Inherit ID: `ir_model.product_template`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2185,6 +2349,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_purchase_price.xml](ht
 ### X Storage Temperature
 
 ID: `mint_system.ir_model.product_template.x_storage_temperature`
+
+Inherit ID: `ir_model.product_template`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2210,6 +2376,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_storage_temperature.xm
 
 ID: `mint_system.ir_model.product_template.x_warranty`
 
+Inherit ID: `ir_model.product_template`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2233,6 +2401,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_warranty.xml](https://
 ### X Xml Id
 
 ID: `mint_system.ir_model.product_template.x_xml_id`
+
+Inherit ID: `ir_model.product_template`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2265,6 +2435,8 @@ Source: [snippets/mint_system.ir_model.product_template.x_xml_id.xml](https://od
 
 ID: `mint_system.ir_model.project_task.x_business_requirement_id`
 
+Inherit ID: `ir_model.project_task`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2292,6 +2464,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_business_requirement_id.xm
 ### X Lead Id
 
 ID: `mint_system.ir_model.project_task.x_lead_id`
+
+Inherit ID: `ir_model.project_task`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2321,6 +2495,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_lead_id.xml](https://odoo.
 
 ID: `mint_system.ir_model.project_task.x_not_billable`
 
+Inherit ID: `ir_model.project_task`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2344,6 +2520,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_not_billable.xml](https://
 ### X Systemname
 
 ID: `mint_system.ir_model.project_task.x_systemname`
+
+Inherit ID: `ir_model.project_task`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2369,6 +2547,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_systemname.xml](https://od
 
 ID: `mint_system.ir_model.project_task.x_user_text`
 
+Inherit ID: `ir_model.project_task`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2392,6 +2572,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_user_text.xml](https://odo
 ### X Vehicle Id
 
 ID: `mint_system.ir_model.project_task.x_vehicle_id`
+
+Inherit ID: `ir_model.project_task`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2420,6 +2602,8 @@ Source: [snippets/mint_system.ir_model.project_task.x_vehicle_id.xml](https://od
 
 ID: `mint_system.ir_model.purchase_order.x_alternative_invoice_address`
 
+Inherit ID: `ir_model.purchase_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2442,6 +2626,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_alternative_invoice_addr
 ### X Comment
 
 ID: `mint_system.ir_model.purchase_order.x_comment`
+
+Inherit ID: `ir_model.purchase_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2466,6 +2652,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_comment.xml](https://odo
 ### X Group Ids
 
 ID: `mint_system.ir_model.purchase_order.x_group_ids`
+
+Inherit ID: `ir_model.purchase_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2493,6 +2681,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_group_ids.xml](https://o
 
 ID: `mint_system.ir_model.purchase_order.x_is_hidden`
 
+Inherit ID: `ir_model.purchase_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2516,6 +2706,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_is_hidden.xml](https://o
 ### X Payment State
 
 ID: `mint_system.ir_model.purchase_order.x_payment_state`
+
+Inherit ID: `ir_model.purchase_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2561,6 +2753,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_payment_state.xml](https
 
 ID: `mint_system.ir_model.purchase_order.x_recurring_inverval`
 
+Inherit ID: `ir_model.purchase_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2593,6 +2787,8 @@ Source: [snippets/mint_system.ir_model.purchase_order.x_recurring_inverval.xml](
 
 ID: `mint_system.ir_model.purchase_order_line.x_date_approve`
 
+Inherit ID: `ir_model.purchase_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2617,6 +2813,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_date_approve.xml](h
 ### X Drawing File
 
 ID: `mint_system.ir_model.purchase_order_line.x_drawing_file`
+
+Inherit ID: `ir_model.purchase_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2643,6 +2841,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_drawing_file.xml](h
 
 ID: `mint_system.ir_model.purchase_order_line.x_origin`
 
+Inherit ID: `ir_model.purchase_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2667,6 +2867,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_origin.xml](https:/
 ### X Partner Ref
 
 ID: `mint_system.ir_model.purchase_order_line.x_partner_ref`
+
+Inherit ID: `ir_model.purchase_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2693,6 +2895,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_partner_ref.xml](ht
 
 ID: `mint_system.ir_model.purchase_order_line.x_state`
 
+Inherit ID: `ir_model.purchase_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2717,6 +2921,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_state.xml](https://
 ### X User Id
 
 ID: `mint_system.ir_model.purchase_order_line.x_user_id`
+
+Inherit ID: `ir_model.purchase_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2745,6 +2951,8 @@ Source: [snippets/mint_system.ir_model.purchase_order_line.x_user_id.xml](https:
 ### X Active
 
 ID: `mint_system.ir_model.quality_check.x_active`
+
+Inherit ID: `ir_model.quality_check`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2778,6 +2986,8 @@ Source: [snippets/mint_system.ir_model.quality_check.x_active.xml](https://odoo.
 
 ID: `mint_system.ir_model.res_partner.x_birthdate`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2802,6 +3012,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_birthdate.xml](https://odoo
 
 ID: `mint_system.ir_model.res_partner.x_created_on`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2825,6 +3037,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_created_on.xml](https://odo
 ### X Department Id
 
 ID: `mint_system.ir_model.res_partner.x_department_id`
+
+Inherit ID: `ir_model.res_partner`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2852,6 +3066,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_department_id.xml](https://
 
 ID: `mint_system.ir_model.res_partner.x_eori`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2877,6 +3093,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_eori.xml](https://odoo.buil
 
 ID: `mint_system.ir_model.res_partner.x_external_ref`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2900,6 +3118,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_external_ref.xml](https://o
 ### X First Sale Date
 
 ID: `mint_system.ir_model.res_partner.x_first_sale_date`
+
+Inherit ID: `ir_model.res_partner`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -2933,6 +3153,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_first_sale_date.xml](https:
 
 ID: `mint_system.ir_model.res_partner.x_global_location_number`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2958,6 +3180,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_global_location_number.xml]
 
 ID: `mint_system.ir_model.res_partner.x_packaging_ref`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -2981,6 +3205,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_packaging_ref.xml](https://
 ### X Privacy Visibility
 
 ID: `mint_system.ir_model.res_partner.x_privacy_visibility`
+
+Inherit ID: `ir_model.res_partner`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3007,6 +3233,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_privacy_visibility.xml](htt
 
 ID: `mint_system.ir_model.res_partner.x_schema`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3031,6 +3259,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_schema.xml](https://odoo.bu
 ### X Stock Move Ids
 
 ID: `mint_system.ir_model.res_partner.x_stock_move_ids`
+
+Inherit ID: `ir_model.res_partner`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3058,6 +3288,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_stock_move_ids.xml](https:/
 
 ID: `mint_system.ir_model.res_partner.x_vat`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3083,6 +3315,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_vat.xml](https://odoo.build
 
 ID: `mint_system.ir_model.res_partner.x_vst`
 
+Inherit ID: `ir_model.res_partner`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3107,6 +3341,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_vst.xml](https://odoo.build
 ### X Zaz
 
 ID: `mint_system.ir_model.res_partner.x_zaz`
+
+Inherit ID: `ir_model.res_partner`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3134,6 +3370,8 @@ Source: [snippets/mint_system.ir_model.res_partner.x_zaz.xml](https://odoo.build
 ### X Product Uom Category Id
 
 ID: `mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id`
+
+Inherit ID: `ir_model.sale_blanket_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3163,6 +3401,8 @@ Source: [snippets/mint_system.ir_model.sale_blanket_order_line.x_product_uom_cat
 
 ID: `mint_system.ir_model.sale_order.x_as4import`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3186,6 +3426,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_as4import.xml](https://odoo.
 ### X Bexioid
 
 ID: `mint_system.ir_model.sale_order.x_bexioid`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3211,6 +3453,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_bexioid.xml](https://odoo.bu
 
 ID: `mint_system.ir_model.sale_order.x_blanket_order`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3233,6 +3477,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_blanket_order.xml](https://o
 ### X Client Project Ref
 
 ID: `mint_system.ir_model.sale_order.x_client_project_ref`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3258,6 +3504,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_client_project_ref.xml](http
 
 ID: `mint_system.ir_model.sale_order.x_country_id_name`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3282,6 +3530,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_country_id_name.xml](https:/
 ### X Incoterm Blanket Order
 
 ID: `mint_system.ir_model.sale_order.x_incoterm_blanket_order`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3309,6 +3559,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_incoterm_blanket_order.xml](
 
 ID: `mint_system.ir_model.sale_order.x_industry_id`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3334,6 +3586,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_industry_id.xml](https://odo
 
 ID: `mint_system.ir_model.sale_order.x_is_test`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3357,6 +3611,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_is_test.xml](https://odoo.bu
 ### X Order Number
 
 ID: `mint_system.ir_model.sale_order.x_order_number`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3382,6 +3638,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_order_number.xml](https://od
 
 ID: `mint_system.ir_model.sale_order.x_partner_ref`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3406,6 +3664,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_partner_ref.xml](https://odo
 ### X Payment State
 
 ID: `mint_system.ir_model.sale_order.x_payment_state`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3451,6 +3711,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_payment_state.xml](https://o
 
 ID: `mint_system.ir_model.sale_order.x_payment_term_blanket_order`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3476,6 +3738,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_payment_term_blanket_order.x
 ### X Product Uom Qty
 
 ID: `mint_system.ir_model.sale_order.x_product_uom_qty`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3505,6 +3769,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_product_uom_qty.xml](https:/
 
 ID: `mint_system.ir_model.sale_order.x_project`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3533,6 +3799,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_project.xml](https://odoo.bu
 
 ID: `mint_system.ir_model.sale_order.x_studio_description`
 
+Inherit ID: `ir_model.sale_order`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3555,6 +3823,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_studio_description.xml](http
 ### X Vst
 
 ID: `mint_system.ir_model.sale_order.x_vst`
+
+Inherit ID: `ir_model.sale_order`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3583,6 +3853,8 @@ Source: [snippets/mint_system.ir_model.sale_order.x_vst.xml](https://odoo.build/
 
 ID: `mint_system.ir_model.sale_order_line.x_client_order_ref`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3607,6 +3879,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_client_order_ref.xml](h
 ### X Commitment Date
 
 ID: `mint_system.ir_model.sale_order_line.x_commitment_date`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3633,6 +3907,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_commitment_date.xml](ht
 
 ID: `mint_system.ir_model.sale_order_line.x_date_order`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3657,6 +3933,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_date_order.xml](https:/
 ### X Drawing File
 
 ID: `mint_system.ir_model.sale_order_line.x_drawing_file`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3683,6 +3961,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_drawing_file.xml](https
 
 ID: `mint_system.ir_model.sale_order_line.x_industry_id`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3707,6 +3987,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_industry_id.xml](https:
 ### X Margin Percent
 
 ID: `mint_system.ir_model.sale_order_line.x_margin_percent`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3740,6 +4022,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_margin_percent.xml](htt
 
 ID: `mint_system.ir_model.sale_order_line.x_pricelist_id`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3764,6 +4048,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_pricelist_id.xml](https
 ### X Service Policy
 
 ID: `mint_system.ir_model.sale_order_line.x_service_policy`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3790,6 +4076,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_service_policy.xml](htt
 
 ID: `mint_system.ir_model.sale_order_line.x_service_tracking`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3815,6 +4103,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_service_tracking.xml](h
 
 ID: `mint_system.ir_model.sale_order_line.x_state`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3839,6 +4129,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_state.xml](https://odoo
 ### X Taxed Amount
 
 ID: `mint_system.ir_model.sale_order_line.x_taxed_amount`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3867,6 +4159,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount.xml](https
 
 ID: `mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3894,6 +4188,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced.x
 
 ID: `mint_system.ir_model.sale_order_line.x_untaxed_amount`
 
+Inherit ID: `ir_model.sale_order_line`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -3920,6 +4216,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_untaxed_amount.xml](htt
 ### X Weight Delivered
 
 ID: `mint_system.ir_model.sale_order_line.x_weight_delivered`
+
+Inherit ID: `ir_model.sale_order_line`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3949,6 +4247,8 @@ Source: [snippets/mint_system.ir_model.sale_order_line.x_weight_delivered.xml](h
 ### X Should Be Valued
 
 ID: `mint_system.ir_model.stock_location.x_should_be_valued`
+
+Inherit ID: `ir_model.stock_location`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -3980,6 +4280,8 @@ Source: [snippets/mint_system.ir_model.stock_location.x_should_be_valued.xml](ht
 
 ID: `mint_system.ir_model.stock_lot.x_product_weight`
 
+Inherit ID: `ir_model.stock_lot`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4002,6 +4304,8 @@ Source: [snippets/mint_system.ir_model.stock_lot.x_product_weight.xml](https://o
 ### X Weight Uom Name
 
 ID: `mint_system.ir_model.stock_lot.x_weight_uom_name`
+
+Inherit ID: `ir_model.stock_lot`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4027,6 +4331,8 @@ Source: [snippets/mint_system.ir_model.stock_lot.x_weight_uom_name.xml](https://
 ### X Count Boxes
 
 ID: `mint_system.ir_model.stock_move.x_count_boxes`
+
+Inherit ID: `ir_model.stock_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4068,6 +4374,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_count_boxes.xml](https://odo
 
 ID: `mint_system.ir_model.stock_move.x_count_packaging`
 
+Inherit ID: `ir_model.stock_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4097,6 +4405,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_count_packaging.xml](https:/
 
 ID: `mint_system.ir_model.stock_move.x_label_qty`
 
+Inherit ID: `ir_model.stock_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4124,6 +4434,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_label_qty.xml](https://odoo.
 ### X Operation Qty
 
 ID: `mint_system.ir_model.stock_move.x_operation_qty`
+
+Inherit ID: `ir_model.stock_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4156,6 +4468,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_operation_qty.xml](https://o
 
 ID: `mint_system.ir_model.stock_move.x_packaging_uom_id`
 
+Inherit ID: `ir_model.stock_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4180,6 +4494,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml](https:
 ### X Picking Partner Id
 
 ID: `mint_system.ir_model.stock_move.x_picking_partner_id`
+
+Inherit ID: `ir_model.stock_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4207,6 +4523,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_picking_partner_id.xml](http
 
 ID: `mint_system.ir_model.stock_move.x_print_parent_only`
 
+Inherit ID: `ir_model.stock_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4231,6 +4549,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_print_parent_only.xml](https
 
 ID: `mint_system.ir_model.stock_move.x_print_without_parent`
 
+Inherit ID: `ir_model.stock_move`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4254,6 +4574,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_print_without_parent.xml](ht
 ### X Scrap Id
 
 ID: `mint_system.ir_model.stock_move.x_scrap_id`
+
+Inherit ID: `ir_model.stock_move`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4291,6 +4613,8 @@ Source: [snippets/mint_system.ir_model.stock_move.x_scrap_id.xml](https://odoo.b
 
 ID: `mint_system.ir_model.stock_picking.x_as4_import`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4316,6 +4640,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_as4_import.xml](https://o
 
 ID: `mint_system.ir_model.stock_picking.x_autocomplete`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4339,6 +4665,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_autocomplete.xml](https:/
 ### X Client Order Ref
 
 ID: `mint_system.ir_model.stock_picking.x_client_order_ref`
+
+Inherit ID: `ir_model.stock_picking`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4365,6 +4693,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_client_order_ref.xml](htt
 
 ID: `mint_system.ir_model.stock_picking.x_date_done`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4388,6 +4718,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_date_done.xml](https://od
 ### X Date Order
 
 ID: `mint_system.ir_model.stock_picking.x_date_order`
+
+Inherit ID: `ir_model.stock_picking`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4414,6 +4746,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_date_order.xml](https://o
 
 ID: `mint_system.ir_model.stock_picking.x_incoterm`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4438,6 +4772,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_incoterm.xml](https://odo
 
 ID: `mint_system.ir_model.stock_picking.x_name`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4461,6 +4797,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_name.xml](https://odoo.bu
 ### X Origin
 
 ID: `mint_system.ir_model.stock_picking.x_origin`
+
+Inherit ID: `ir_model.stock_picking`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4495,6 +4833,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_origin.xml](https://odoo.
 
 ID: `mint_system.ir_model.stock_picking.x_origin_and_partner_id`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4520,6 +4860,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_origin_and_partner_id.xml
 
 ID: `mint_system.ir_model.stock_picking.x_sale_id_incoterm`
 
+Inherit ID: `ir_model.stock_picking`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4544,6 +4886,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_sale_id_incoterm.xml](htt
 ### X Vst
 
 ID: `mint_system.ir_model.stock_picking.x_vst`
+
+Inherit ID: `ir_model.stock_picking`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4572,6 +4916,8 @@ Source: [snippets/mint_system.ir_model.stock_picking.x_vst.xml](https://odoo.bui
 
 ID: `mint_system.ir_model.stock_production_lot.x_autoremove`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4596,6 +4942,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_autoremove.xml](ht
 
 ID: `mint_system.ir_model.stock_production_lot.x_default_code`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
@@ -4618,6 +4966,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_default_code.xml](
 ### X Device Name
 
 ID: `mint_system.ir_model.stock_production_lot.x_device_name`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -4643,6 +4993,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_device_name.xml](h
 
 ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pol`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
@@ -4665,6 +5017,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pol.xml
 ### X Forcepoint Pos
 
 ID: `mint_system.ir_model.stock_production_lot.x_forcepoint_pos`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -4689,6 +5043,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pos.xml
 
 ID: `mint_system.ir_model.stock_production_lot.x_hostname`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
@@ -4712,6 +5068,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_hostname.xml](http
 ### X Ip Address
 
 ID: `mint_system.ir_model.stock_production_lot.x_ip_address`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -4738,6 +5096,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_ip_address.xml](ht
 
 ID: `mint_system.ir_model.stock_production_lot.x_location`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
@@ -4761,6 +5121,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_location.xml](http
 ### X Managed Service
 
 ID: `mint_system.ir_model.stock_production_lot.x_managed_service`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -4791,6 +5153,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_managed_service.xm
 ### X Production Id
 
 ID: `mint_system.ir_model.stock_production_lot.x_production_id`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4823,6 +5187,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_production_id.xml]
 
 ID: `mint_system.ir_model.stock_production_lot.x_production_ids`
 
+Inherit ID: `ir_model.stock_production_lot`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4848,6 +5214,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_production_ids.xml
 ### X Weight Uom
 
 ID: `mint_system.ir_model.stock_production_lot.x_weight_uom`
+
+Inherit ID: `ir_model.stock_production_lot`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4879,6 +5247,8 @@ Source: [snippets/mint_system.ir_model.stock_production_lot.x_weight_uom.xml](ht
 
 ID: `mint_system.ir_model.stock_quant.x_expiration_date`
 
+Inherit ID: `ir_model.stock_quant`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4904,6 +5274,8 @@ Source: [snippets/mint_system.ir_model.stock_quant.x_expiration_date.xml](https:
 ### X Last Delivery Partner Id
 
 ID: `mint_system.ir_model.stock_quant.x_last_delivery_partner_id`
+
+Inherit ID: `ir_model.stock_quant`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4931,6 +5303,8 @@ Source: [snippets/mint_system.ir_model.stock_quant.x_last_delivery_partner_id.xm
 
 ID: `mint_system.ir_model.stock_quant.x_package_type`
 
+Inherit ID: `ir_model.stock_quant`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -4955,6 +5329,8 @@ Source: [snippets/mint_system.ir_model.stock_quant.x_package_type.xml](https://o
 ### X Note
 
 ID: `mint_system.ir_model.stock_quant_package.x_note`
+
+Inherit ID: `ir_model.stock_quant_package`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -4981,6 +5357,8 @@ Source: [snippets/mint_system.ir_model.stock_quant_package.x_note.xml](https://o
 ### X Quant Location Id
 
 ID: `mint_system.ir_model.stock_valuation_layer.x_quant_location_id`
+
+Inherit ID: `ir_model.stock_valuation_layer`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -5018,6 +5396,8 @@ Source: [snippets/mint_system.ir_model.stock_valuation_layer.x_quant_location_id
 
 ID: `mint_system.ir_model.survey_user_input.x_department_id`
 
+Inherit ID: `ir_model.survey_user_input`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -5044,6 +5424,8 @@ Source: [snippets/mint_system.ir_model.survey_user_input.x_department_id.xml](ht
 ### X Manager Id
 
 ID: `mint_system.ir_model.survey_user_input.x_manager_id`
+
+Inherit ID: `ir_model.survey_user_input`
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>

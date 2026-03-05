@@ -6,6 +6,8 @@
 
 ID: `mint_system.mail.activity.x_reference`
 
+Inherit ID: `mail.activity`
+
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
@@ -35,8 +37,10 @@ Source: [snippets/mint_system.mail.activity.x_reference.xml](https://odoo.build/
 
 ID: `mint_system.mail.mail_activity_view_form_popup.x_reference`
 
+Inherit ID: `mail.mail_activity_view_form_popup`
+
 ```xml
-<data inherit_id="mail.mail_activity_view_form_popup" priority="50">
+<data priority="50">
     <field name="summary" position="before">
         <field name="x_reference" widget="reference"/>
     </field>
@@ -53,8 +57,10 @@ Source: [snippets/mint_system.mail.mail_activity_view_form_popup.x_reference.xml
 
 ID: `mint_system.mail.mail_activity_view_tree.activity_view`
 
+Inherit ID: `mail.mail_activity_view_tree`
+
 ```xml
-<data inherit_id="mail.mail_activity_view_tree" priority="50">
+<data priority="50">
     <tree position="replace">
         <tree string="Next Activities" expand="1" decoration-danger="date_deadline &lt; current_date" decoration-success="date_deadline == current_date" default_order="date_deadline" create="false">
             <field name="date_deadline_time"/>
@@ -80,8 +86,10 @@ Source: [snippets/mint_system.mail.mail_activity_view_tree.activity_view.xml](ht
 
 ID: `mint_system.mail.mail_notification_borders.reduce_to_content`
 
+Inherit ID: `mail.mail_notification_borders`
+
 ```xml
-<data inherit_id="mail.mail_notification_borders" priority="50">
+<data priority="50">
     <xpath expr="//tbody" position="replace">
         <tbody>
             <!-- CONTENT -->
@@ -114,8 +122,10 @@ Source: [snippets/mint_system.mail.mail_notification_borders.reduce_to_content.x
 
 ID: `mint_system.mail.mail_notification_borders.remove_logo`
 
+Inherit ID: `mail.mail_notification_borders`
+
 ```xml
-<data inherit_id="mail.mail_notification_borders" priority="50">
+<data priority="50">
     <xpath expr="//table[@summary='o_mail_notification']//table/tr/td[2]/img" position="replace">
   </xpath>
 </data>
@@ -129,8 +139,10 @@ Source: [snippets/mint_system.mail.mail_notification_borders.remove_logo.xml](ht
 
 ID: `mint_system.mail.mail_notification_borders.white_background`
 
+Inherit ID: `mail.mail_notification_borders`
+
 ```xml
-<data inherit_id="mail.mail_notification_borders" priority="50">
+<data priority="50">
     <xpath expr="//table" position="attributes">
         <attribute name="style" separator=";" add="background-color: #fff"/>
     </xpath>
@@ -147,8 +159,10 @@ Source: [snippets/mint_system.mail.mail_notification_borders.white_background.xm
 
 ID: `mint_system.mail.mail_notification_email.remove_logo`
 
+Inherit ID: `mail.mail_notification_email`
+
 ```xml
-<data inherit_id="mail.mail_notification_email" priority="50">
+<data priority="50">
     <xpath expr="//div[@summary='o_mail_notification']/table/tbody/tr/td[2]/img" position="replace">
   </xpath>
 </data>
@@ -164,8 +178,10 @@ Source: [snippets/mint_system.mail.mail_notification_email.remove_logo.xml](http
 
 ID: `mint_system.mail.mail_notification_layout.debrand`
 
+Inherit ID: `mail.mail_notification_layout`
+
 ```xml
-<data inherit_id="mail.mail_notification_layout" priority="50">
+<data priority="50">
     <xpath expr="//div[1]/p[1]" position="replace"/>
 </data>
 
@@ -178,17 +194,14 @@ Source: [snippets/mint_system.mail.mail_notification_layout.debrand.xml](https:/
 
 ID: `mint_system.mail.mail_notification_layout.embed_logo`
 
-```xml
-<data inherit_id="mail.mail_notification_layout" priority="50">
-    <img position="replace">
-        <img
-            t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))"
-            style="padding: 0px; margin: 0px; height: auto; max-width: 200px; max-height: 36px;"
-            t-att-alt="'%s' % company.name"
-        />
-    </img>
-</data>
+Inherit ID: `mail.mail_notification_layout`
 
+```xml
+<data priority="50">
+    <xpath expr="//body[1]/div[1]/div[1]" position="before">
+        <img t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))" style="padding: 0px; margin: 0px; height: auto; max-width: 200px; max-height: 36px;" t-att-alt="'%s' % company.name"/>
+    </xpath>
+</data>
 ```
 Edit: [snippets/mint_system.mail.mail_notification_layout.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.embed_logo.xml)
 
@@ -198,8 +211,10 @@ Source: [snippets/mint_system.mail.mail_notification_layout.embed_logo.xml](http
 
 ID: `mint_system.mail.mail_notification_layout.remove_access_link`
 
+Inherit ID: `mail.mail_notification_layout`
+
 ```xml
-<data inherit_id="mail.mail_notification_layout" priority="60">
+<data priority="60">
     <xpath expr="//td[@t-if='has_button_access']" position="replace"/>
 </data>
 
@@ -214,8 +229,10 @@ Source: [snippets/mint_system.mail.mail_notification_layout.remove_access_link.x
 
 ID: `mint_system.mail.mail_notification_light.align_left`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//td[@align='center']" position="attributes">
         <attribute name="align">left</attribute>
     </xpath>
@@ -230,8 +247,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.align_left.xml](https
 
 ID: `mint_system.mail.mail_notification_light.debrand`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <xpath expr="//body[1]/table[1]/tr[2]/td[1]" position="replace"/>
 </data>
 
@@ -244,8 +263,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.debrand.xml](https://
 
 ID: `mint_system.mail.mail_notification_light.embed_logo`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <img position="replace">
         <img
             t-att-src="'data:image/png;base64,%s' % (company.logo_web.decode('utf-8'))"
@@ -264,8 +285,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.embed_logo.xml](https
 
 ID: `mint_system.mail.mail_notification_light.reduce_to_content`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <xpath expr="//t/table" position="replace">
         <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
             <tr>
@@ -301,8 +324,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.reduce_to_content.xml
 
 ID: `mint_system.mail.mail_notification_light.remove_access_link`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//t[@t-if='has_button_access']/.." position="replace">
         <td valign="middle">
             <span style="font-size: 10px;">
@@ -325,8 +350,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.remove_access_link.xm
 
 ID: `mint_system.mail.mail_notification_light.remove_logo`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr/td/table/tr/td[2]/img" position="replace">
   </xpath>
 </data>
@@ -340,8 +367,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.remove_logo.xml](http
 
 ID: `mint_system.mail.mail_notification_light.remove_model_name`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//span[1]" position="replace"/>
 </data>
 
@@ -354,8 +383,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.remove_model_name.xml
 
 ID: `mint_system.mail.mail_notification_light.replace_footer`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr[3]/td/div" position="replace">
         <div style="color: #999999">
             <a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
@@ -374,8 +405,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.replace_footer.xml](h
 
 ID: `mint_system.mail.mail_notification_light.set_model_name`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//span[1]" position="replace">
         <span style="font-size: 10px;">
             <t t-esc="model_description or 'document'"/>
@@ -393,8 +426,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.set_model_name.xml](h
 
 ID: `mint_system.mail.mail_notification_light.white_background`
 
+Inherit ID: `mail.mail_notification_light`
+
 ```xml
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//t/table" position="attributes">
         <attribute name="style" separator=";" add="background-color: #fff"/>
     </xpath>
@@ -411,8 +446,10 @@ Source: [snippets/mint_system.mail.mail_notification_light.white_background.xml]
 
 ID: `mint_system.mail.mail_notification_paynow.align_left`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="60">
+<data priority="60">
     <xpath expr="//td[@align='center']" position="attributes">
         <attribute name="align">left</attribute>
     </xpath>
@@ -427,8 +464,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.align_left.xml](http
 
 ID: `mint_system.mail.mail_notification_paynow.reduce_to_content`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="50">
+<data priority="50">
     <xpath expr="//t/table" position="replace">
         <table border="0" cellpadding="0" cellspacing="0" style="padding-top: 16px; background-color: #F1F1F1; font-family:Verdana, Arial,sans-serif; color: #454748; width: 100%; border-collapse:separate;">
             <tr>
@@ -464,8 +503,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.reduce_to_content.xm
 
 ID: `mint_system.mail.mail_notification_paynow.remove_access_link`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="60">
+<data priority="60">
     <t t-if="record._name == 'sale.order'" position="replace"/>
 </data>
 
@@ -478,8 +519,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.remove_access_link.x
 
 ID: `mint_system.mail.mail_notification_paynow.remove_logo`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr/td/table/tr/td[2]/img" position="replace">
   </xpath>
 </data>
@@ -493,8 +536,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.remove_logo.xml](htt
 
 ID: `mint_system.mail.mail_notification_paynow.remove_signature`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr[2]/td/t[2]" position="replace">
   </xpath>
 </data>
@@ -508,8 +553,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.remove_signature.xml
 
 ID: `mint_system.mail.mail_notification_paynow.replace_footer`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr[3]/td/div" position="replace">
         <div style="color: #999999">
             <a t-att-href="'%s' % company.website" style="text-decoration:none; color: #999999;">
@@ -528,8 +575,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.replace_footer.xml](
 
 ID: `mint_system.mail.mail_notification_paynow.set_model_name`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="60">
+<data priority="60">
     <xpath expr="//td[1]/span[1]" position="replace">
         <span style="font-size: 10px;">
             <t t-esc="model_description or 'document'"/>
@@ -547,8 +596,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.set_model_name.xml](
 
 ID: `mint_system.mail.mail_notification_paynow.white_background`
 
+Inherit ID: `mail.mail_notification_paynow`
+
 ```xml
-<data inherit_id="mail.mail_notification_paynow" priority="60">
+<data priority="60">
     <xpath expr="//t/table" position="attributes">
         <attribute name="style" separator=";" add="background-color: #fff"/>
     </xpath>
@@ -565,8 +616,10 @@ Source: [snippets/mint_system.mail.mail_notification_paynow.white_background.xml
 
 ID: `mint_system.mail.message_activity_assigned.redirect_access_link`
 
+Inherit ID: `mail.message_activity_assigned`
+
 ```xml
-<data inherit_id="mail.message_activity_assigned" priority="50">
+<data priority="50">
     <xpath expr="//p[1]" position="replace">
         <p style="margin: 16px 0px 16px 0px;">
             <span t-esc="activity._name"/>
@@ -590,8 +643,10 @@ Source: [snippets/mint_system.mail.message_activity_assigned.redirect_access_lin
 
 ID: `mint_system.mail.message_activity_assigned.remove_access_link`
 
+Inherit ID: `mail.message_activity_assigned`
+
 ```xml
-<data inherit_id="mail.message_activity_assigned" priority="50">
+<data priority="50">
     <xpath expr="//p[1]" position="replace"/>
 </data>
 
@@ -604,8 +659,10 @@ Source: [snippets/mint_system.mail.message_activity_assigned.remove_access_link.
 
 ID: `mint_system.mail.message_activity_assigned.set_access_link_my_activities`
 
+Inherit ID: `mail.message_activity_assigned`
+
 ```xml
-<data inherit_id="mail.message_activity_assigned" priority="50">
+<data priority="50">
     <xpath expr="//p[1]" position="replace">
         <p style="margin: 16px 0px 16px 0px;">
             <t t-if="activity.res_model == 'hr.employee'">
@@ -633,8 +690,10 @@ Source: [snippets/mint_system.mail.message_activity_assigned.set_access_link_my_
 
 ID: `mint_system.mail.view_mail_tree.editable`
 
+Inherit ID: `mail.view_mail_tree`
+
 ```xml
-<data inherit_id="mail.view_mail_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="editable"/>
     </tree>

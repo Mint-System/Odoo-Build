@@ -1,4 +1,4 @@
-<data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="50">
+<data priority="50">
     <xpath expr="//tr[1]/t[1]/td[1]" position="replace">
         <td>
             <span class="o_bold" t-field="line.product_id.name"/>

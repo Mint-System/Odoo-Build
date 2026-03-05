@@ -6,8 +6,10 @@
 
 ID: `mint_system.purchase_requisition_send.view_purchase_requisition_form.relocate_send_button`
 
+Inherit ID: `purchase_requisition_send.view_purchase_requisition_form`
+
 ```xml
-<data inherit_id="purchase_requisition_send.view_purchase_requisition_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='action_order_send']" position="replace"/>
     <xpath expr="//button[@name='493']" position="after">
         <button name="action_order_send" states="draft,sent,ongoing,open" string="Send by Email" type="object" class="btn-primary"/>

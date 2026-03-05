@@ -1,4 +1,4 @@
-<data inherit_id="hr_payroll.view_hr_payslip_line_tree" priority="50">
+<data priority="50">
     <field name="total" position="after">
         <field name="slip_id" optional="show"/>
     </field>

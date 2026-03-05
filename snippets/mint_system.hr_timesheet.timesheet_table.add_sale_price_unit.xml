@@ -1,4 +1,4 @@
-<data inherit_id="hr_timesheet.timesheet_table" priority="50">
+<data priority="50">
 
    <xpath expr="//thead//tr/th[3]" position="replace">
       <th class="text-start align-middle">

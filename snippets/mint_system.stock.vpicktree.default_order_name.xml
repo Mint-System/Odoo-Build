@@ -1,4 +1,4 @@
-<data inherit_id="stock.vpicktree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="default_order">name desc</attribute>
     </tree>

@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="60">
+<data priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
         <t t-set="display_hs_code" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
         <th name="th_hs_code" class="text-start" t-if="display_hs_code">

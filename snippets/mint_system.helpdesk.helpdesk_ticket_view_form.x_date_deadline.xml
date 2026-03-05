@@ -1,4 +1,4 @@
-<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+<data priority="50">
     <field name="domain_user_ids" position="after">
         <field name="x_date_deadline" widget="date"/>
     </field>

@@ -1,4 +1,4 @@
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='date']" position="replace">
         <th id="date" class="align-middle">
             <span>Datum und Uhrzeit</span>

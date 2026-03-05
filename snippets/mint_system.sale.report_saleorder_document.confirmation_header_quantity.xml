@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_quantity']" position="replace">
         <t t-if="is_confirmation">
             <th name="th_quantity" id="product_uom_qty" class="text-right">Backlog</th>

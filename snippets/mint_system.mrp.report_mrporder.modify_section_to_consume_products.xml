@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//table[@t-if='o.move_raw_ids']" position="replace">
         <style>
     table#section_consumed_products {

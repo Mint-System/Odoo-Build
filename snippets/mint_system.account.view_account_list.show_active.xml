@@ -1,4 +1,4 @@
-<data inherit_id="account.view_account_list" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='reconcile']" position="after">
         <field name="active" widget="boolean_toggle"/>
     </xpath>

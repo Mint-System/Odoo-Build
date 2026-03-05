@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisition_document" priority="50">
+<data priority="50">
 
 <xpath expr="//thead/tr/th[7]" position="replace">
   <th class="text-end"><strong>Unit Price</strong></th>

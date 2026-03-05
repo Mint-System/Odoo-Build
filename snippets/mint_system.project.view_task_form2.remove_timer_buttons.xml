@@ -1,4 +1,4 @@
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <button name="action_timer_start" position="replace"/>
     <button name="action_timer_stop" position="replace"/>
     <button name="action_timer_pause" position="replace"/>

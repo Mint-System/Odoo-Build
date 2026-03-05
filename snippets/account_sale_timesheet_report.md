@@ -6,8 +6,10 @@
 
 ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_linebreak`
 
+Inherit ID: `account_sale_timesheet_report.report_invoice_document`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//h3[1]" position="before">
         <p style="page-break-before:always;">&#xA0;</p>
     </xpath>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_docum
 
 ID: `mint_system.account_sale_timesheet_report.report_invoice_document.add_pagebreak`
 
+Inherit ID: `account_sale_timesheet_report.report_invoice_document`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='qrcode']" position="after">
         <t t-if="print_with_timesheets">
             <p style="page-break-before:always;"/>
@@ -42,8 +46,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_docum
 
 ID: `mint_system.account_sale_timesheet_report.report_invoice_with_timesheets.print_with_payments`
 
+Inherit ID: `account_sale_timesheet_report.report_invoice_with_timesheets`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.report_invoice_with_timesheets" priority="50">
+<data priority="50">
     <xpath expr="/t[1]/t[1]/t[1]/t[1]" position="after">
         <t t-set="print_with_payments" t-value="True"/>
     </xpath>
@@ -60,8 +66,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.report_invoice_with_
 
 ID: `mint_system.account_sale_timesheet_report.report_sale.set_page_font_size`
 
+Inherit ID: `account_sale_timesheet_report.report_sale`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.report_sale" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             body {
@@ -80,8 +88,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_page
 
 ID: `mint_system.account_sale_timesheet_report.report_sale.set_title_font_size`
 
+Inherit ID: `account_sale_timesheet_report.report_sale`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.report_sale" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             h2 {
@@ -102,8 +112,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.report_sale.set_titl
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.add_title_space`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+<data priority="50">
     <h2 position="attributes">
         <attribute name="style">padding-bottom: 25px</attribute>
     </h2>
@@ -118,8 +130,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.add
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_page_font_size`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             body {
@@ -138,8 +152,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_report.set_title_font_size`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_report`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_report" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="inside">
         <style>
             h2 {
@@ -160,8 +176,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_report.set
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.add_start_and_end_hour`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='date']" position="replace">
         <th id="date" class="align-middle">
             <span>Datum und Uhrzeit</span>
@@ -187,8 +205,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.add_
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.format_table_border`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+<data priority="50">
 
     <xpath
         expr="//table[hasclass('table-timesheet-entries')]"
@@ -265,8 +285,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.form
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.set_table_font_size`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+<data priority="50">
     <xpath expr="//table[hasclass('table-timesheet-entries')]" position="before">
         <style>
             table.table-timesheet-entries {
@@ -285,8 +307,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.set_
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table.show_from_until_times`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='date']" position="after">
         <th id="from_until" style="white-space: nowrap;">Zeit</th>
     </xpath>
@@ -303,8 +327,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table.show
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.show_from_until_times`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='line_date']" position="after">
         <td id="line_from_until" style="white-space: nowrap;"><span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/> - <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
     </td>
@@ -320,8 +346,10 @@ Source: [snippets/mint_system.account_sale_timesheet_report.timesheet_table_line
 
 ID: `mint_system.account_sale_timesheet_report.timesheet_table_lines.sort_lines_by_time`
 
+Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
+
 ```xml
-<data inherit_id="account_sale_timesheet_report.timesheet_table_lines" priority="50">
+<data priority="50">
     <xpath expr="//tr[1]" position="before">
         <t t-set="lines" t-value="lines.sorted(lambda l: l.from_time)"/>
         <t t-set="lines" t-value="lines.sorted(lambda l: l.date)"/>

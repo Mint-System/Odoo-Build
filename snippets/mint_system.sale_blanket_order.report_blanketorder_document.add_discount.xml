@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='price_subtotal']" position="after">
         <!-- Is there a discount on at least one line? -->
         <t t-set="display_discount" t-value="any(l.discount for l in doc.line_ids)"/>

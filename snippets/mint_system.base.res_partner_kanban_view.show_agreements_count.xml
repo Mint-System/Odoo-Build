@@ -1,4 +1,4 @@
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//kanban/field[@name='type']" position="after">
         <field name="agreements_count"/>
     </xpath>

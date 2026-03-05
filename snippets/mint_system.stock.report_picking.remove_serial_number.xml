@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//th[@t-if='has_serial_number']" position="replace">
   </xpath>
     <xpath expr="//td[@t-if='has_serial_number']" position="replace">

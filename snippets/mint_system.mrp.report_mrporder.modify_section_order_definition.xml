@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
         <style>
      .table &gt; :not(:first-child) {

@@ -1,4 +1,4 @@
-<data inherit_id="mail.mail_notification_paynow" priority="50">
+<data priority="50">
     <xpath expr="//tbody/tr[2]/td/t[2]" position="replace">
   </xpath>
 </data>

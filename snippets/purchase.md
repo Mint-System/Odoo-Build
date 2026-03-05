@@ -6,8 +6,10 @@
 
 ID: `mint_system.purchase.mail_notification_confirm.modify_buttons`
 
+Inherit ID: `purchase.mail_notification_confirm`
+
 ```xml
-<data inherit_id="purchase.mail_notification_confirm" priority="50">
+<data priority="50">
     <xpath expr="//t[1]/a/.." position="replace">
         <t t-if="record._name == 'purchase.order' and record.env.context.get('is_reminder')">
             <a t-att-href="record.get_confirm_url(confirm_type='reminder')" style="margin-right: 10px; background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
@@ -39,8 +41,10 @@ Source: [snippets/mint_system.purchase.mail_notification_confirm.modify_buttons.
 
 ID: `mint_system.purchase.purchase_history_tree.add_date_planned`
 
+Inherit ID: `purchase.purchase_history_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_history_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="after">
         <field name="product_id"/>
     </xpath>
@@ -55,8 +59,10 @@ Source: [snippets/mint_system.purchase.purchase_history_tree.add_date_planned.xm
 
 ID: `mint_system.purchase.purchase_history_tree.add_product_id`
 
+Inherit ID: `purchase.purchase_history_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_history_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="after">
         <field name="product_id"/>
     </xpath>
@@ -73,8 +79,10 @@ Source: [snippets/mint_system.purchase.purchase_history_tree.add_product_id.xml]
 
 ID: `mint_system.purchase.purchase_order_form.add_qty_to_invoice`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='products']//tree/field[@name='date_planned']" position="after">
         <field name="qty_to_invoice" optional="hide"/>
     </xpath>
@@ -89,8 +97,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.add_qty_to_invoice.xm
 
 ID: `mint_system.purchase.purchase_order_form.add_x_comment`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="x_comment"/>
     </xpath>
@@ -105,8 +115,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.add_x_comment.xml](ht
 
 ID: `mint_system.purchase.purchase_order_form.date_planned_readonly`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='date_planned_div']/field[@name='date_planned']" position="attributes">
         <attribute name="attrs">{'readonly': True}</attribute>
     </xpath>
@@ -121,8 +133,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.date_planned_readonly
 
 ID: `mint_system.purchase.purchase_order_form.filter_customer_is_company`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//group[1]/group[1]/field[2]" position="replace">
         <field name="partner_id" widget="res_partner_many2one" domain="[('is_company', '=', True)]" context="{'res_partner_search_mode': 'supplier', 'show_vat': True, 'default_is_company': 'True'}" placeholder="Name, TIN, Email, or Reference"/>
     </xpath>
@@ -137,8 +151,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.filter_customer_is_co
 
 ID: `mint_system.purchase.purchase_order_form.format_dates`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="attributes">
         <attribute name="options">{"show_time":false}</attribute>
         <attribute name="widget">datetime</attribute>
@@ -166,8 +182,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.format_dates.xml](htt
 
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_date_approve`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_approve']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
@@ -182,8 +200,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_date_
 
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_invoice_status`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="attributes">
         <attribute name="attrs">{"readonly": False}</attribute>
     </xpath>
@@ -198,8 +218,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_invoi
 
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_ref`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_ref']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
@@ -214,8 +236,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_partn
 
 ID: `mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_id`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_shipping_id']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
@@ -226,12 +250,32 @@ Edit: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_partner
 
 Source: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml](https://odoo.build/snippets/mint_system.purchase.purchase_order_form.modify_readonly_partner_shipping_id.xml)
 
+### Modify Readonly Tag Ids
+
+ID: `mint_system.purchase.purchase_order_form.modify_readonly_tag_ids`
+
+Inherit ID: `purchase.purchase_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='tag_ids']" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_tag_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.purchase_order_form.modify_readonly_tag_ids.xml)
+
+Source: [snippets/mint_system.purchase.purchase_order_form.modify_readonly_tag_ids.xml](https://odoo.build/snippets/mint_system.purchase.purchase_order_form.modify_readonly_tag_ids.xml)
+
 ### Modify Visibility Button Confirm Reminder Mail
 
 ID: `mint_system.purchase.purchase_order_form.modify_visibility_button_confirm_reminder_mail`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='confirm_reminder_mail']" position="attributes">
         <attribute name="groups">base.group_user</attribute>
     </xpath>
@@ -246,8 +290,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.modify_visibility_but
 
 ID: `mint_system.purchase.purchase_order_form.relocate_product_qty_and_uom`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='products']//tree/field[@name='product_qty']" position="replace">
   </xpath>
     <xpath expr="//page[@name='products']//tree/field[@name='product_uom']" position="replace">
@@ -267,8 +313,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.relocate_product_qty_
 
 ID: `mint_system.purchase.purchase_order_form.remove_optional_qty_received`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='qty_received']" position="attributes">
         <attribute name="optional"/>
     </xpath>
@@ -283,8 +331,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.remove_optional_qty_r
 
 ID: `mint_system.purchase.purchase_order_form.show_dest_address_id`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='purchase_delivery_invoice']//field[@name='company_id']" position="after">
         <field name="dest_address_id"/>
     </xpath>
@@ -299,8 +349,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.show_dest_address_id.
 
 ID: `mint_system.purchase.purchase_order_form.show_move_dest`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
         <field name="move_ids" widget="many2many" optional="hide"/>
     </xpath>
@@ -315,8 +367,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.show_move_dest.xml](h
 
 ID: `mint_system.purchase.purchase_order_form.show_procurement_group`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='origin']" position="after">
         <field name="group_id"/>
     </xpath>
@@ -334,8 +388,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.show_procurement_grou
 
 ID: `mint_system.purchase.purchase_order_form.x_alternative_invoice_address`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
 
   <xpath expr="//form[1]/sheet[1]/group[1]/group[1]/field[@name='currency_id']" position="after">
     <field name="x_alternative_invoice_address"/>
@@ -351,8 +407,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_alternative_invoice
 
 ID: `mint_system.purchase.purchase_order_form.x_drawing_file`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='order_line']/tree[1]/field[@name='name']" position="after">
         <field name="x_drawing_file"/>
     </xpath>
@@ -372,8 +430,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_drawing_file.xml](h
 
 ID: `mint_system.purchase.purchase_order_form.x_group_ids`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <field name="user_id" position="after">
         <field name="x_group_ids" widget="many2many_tags"/>
     </field>
@@ -388,8 +448,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_group_ids.xml](http
 
 ID: `mint_system.purchase.purchase_order_form.x_is_hidden`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="x_is_hidden" groups="purchase.group_purchase_executives"/>
     </xpath>
@@ -404,8 +466,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_is_hidden.xml](http
 
 ID: `mint_system.purchase.purchase_order_form.x_payment_state`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='picking_type_id']" position="after">
         <field name="x_payment_state"/>
     </xpath>
@@ -420,8 +484,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_payment_state.xml](
 
 ID: `mint_system.purchase.purchase_order_form.x_recurring_inverval`
 
+Inherit ID: `purchase.purchase_order_form`
+
 ```xml
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <field name="order_type" position="after">
         <field name="x_recurring_inverval"/>
     </field>
@@ -438,8 +504,10 @@ Source: [snippets/mint_system.purchase.purchase_order_form.x_recurring_inverval.
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_comment`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="after">
         <field name="comment" optional="show"/>
     </xpath>
@@ -454,8 +522,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.add_comment.xml]
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_date_planned`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="after">
         <field string="Lieferdatum" widget="date" name="date_planned" decoration-danger="date_planned &lt; current_date"/>
     </xpath>
@@ -470,8 +540,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.add_date_planned
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_mail_reception_confirmed`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="after">
         <field name="mail_reception_confirmed" optional="show"/>
     </xpath>
@@ -486,8 +558,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.add_mail_recepti
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.add_receipt_status`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='state']" position="after">
         <field name="receipt_status" decoration-success="receipt_status=='full'" decoration-danger="receipt_status=='pending'" decoration-warning="receipt_status=='partial'"/>
     </xpath>
@@ -502,8 +576,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.add_receipt_stat
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.format_date_order`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="attributes">
         <attribute name="widget">date</attribute>
     </xpath>
@@ -518,8 +594,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.format_date_orde
 
 ID: `mint_system.purchase.purchase_order_kpis_tree.x_payment_state`
 
+Inherit ID: `purchase.purchase_order_kpis_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_kpis_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="before">
         <field name="x_payment_state" decoration-success="x_payment_state=='paid'" decoration-danger="x_payment_state=='not_paid'" decoration-warning="x_payment_state=='in_payment'" widget="badge"/>
     </xpath>
@@ -536,8 +614,10 @@ Source: [snippets/mint_system.purchase.purchase_order_kpis_tree.x_payment_state.
 
 ID: `mint_system.purchase.purchase_order_line_tree.reset_view`
 
+Inherit ID: `purchase.purchase_order_line_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_line_tree" priority="50">
+<data priority="50">
     <field name="name" position="replace">
     </field>
     <field name="price_unit" position="replace">
@@ -578,8 +658,10 @@ Source: [snippets/mint_system.purchase.purchase_order_line_tree.reset_view.xml](
 
 ID: `mint_system.purchase.purchase_order_view_search.add_invoice_status`
 
+Inherit ID: `purchase.purchase_order_view_search`
+
 ```xml
-<data inherit_id="purchase.purchase_order_view_search" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='order_date']" position="after">
         <filter string="Invoice Status" name="invoice_state" domain="[]" context="{'group_by': 'invoice_status'}"/>
     </xpath>
@@ -594,8 +676,10 @@ Source: [snippets/mint_system.purchase.purchase_order_view_search.add_invoice_st
 
 ID: `mint_system.purchase.purchase_order_view_search.modify_product_id`
 
+Inherit ID: `purchase.purchase_order_view_search`
+
 ```xml
-<data inherit_id="purchase.purchase_order_view_search" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='product_id']" position="replace">
         <field name="product_id" filter_domain="['|','|',('order_line.product_id', 'ilike', self),('order_line.product_id.type_description', 'ilike', self),('order_line.product_id.type_description2', 'ilike', self)]"/>
     </xpath>
@@ -612,8 +696,10 @@ Source: [snippets/mint_system.purchase.purchase_order_view_search.modify_product
 
 ID: `mint_system.purchase.purchase_order_view_tree.add_mail_reception_confirmed`
 
+Inherit ID: `purchase.purchase_order_view_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="after">
         <field name="mail_reception_confirmed" optional="show"/>
     </xpath>
@@ -628,8 +714,10 @@ Source: [snippets/mint_system.purchase.purchase_order_view_tree.add_mail_recepti
 
 ID: `mint_system.purchase.purchase_order_view_tree.format_state`
 
+Inherit ID: `purchase.purchase_order_view_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='state']" position="attributes">
         <attribute name="invisible">0</attribute>
         <attribute name="widget">badge</attribute>
@@ -648,8 +736,10 @@ Source: [snippets/mint_system.purchase.purchase_order_view_tree.format_state.xml
 
 ID: `mint_system.purchase.purchase_order_view_tree.x_payment_tree`
 
+Inherit ID: `purchase.purchase_order_view_tree`
+
 ```xml
-<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="before">
         <field name="x_payment_state" decoration-success="x_payment_state=='paid'" decoration-danger="x_payment_state=='not_paid'" decoration-warning="x_payment_state=='in_payment'" widget="badge"/>
     </xpath>
@@ -666,8 +756,10 @@ Source: [snippets/mint_system.purchase.purchase_order_view_tree.x_payment_tree.x
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_address`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
 	<xpath expr="//t[@t-set='address']" position="after">
 
@@ -762,8 +854,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_address
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_agreement`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[2]/div[4]" position="after">
         <div t-if="o.requisition_id" class="col-3 bm-2">
             <strong>Purchase Agreement:</strong>
@@ -781,8 +875,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_agreeme
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_date_approve`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div/div[3]" position="replace">
         <div t-if="o.user_id" class="col-3 bm-2">
             <strong>Order Date:</strong>
@@ -800,8 +896,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_date_ap
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_date_planned`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//th[@name='th_description']" position="after">
         <th name="th_date_planned" class="text-start">
@@ -826,8 +924,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_date_pl
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_discount`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_price_unit']" position="after">
         <th name="th_discount" class="text-end">
             <strong>Discount</strong>
@@ -848,8 +948,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_discoun
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_email`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/p[1]" position="after">
         <span t-field="o.user_id.email"/>
     </xpath>
@@ -864,8 +966,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_email.x
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_footer`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='oe_structure']/.." position="after">
         <style>
       table#footer {
@@ -907,8 +1011,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_footer.
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_infotable`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="before">
         <style>
     table#info {
@@ -993,8 +1099,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_infotab
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_infotable_brand`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <style>
     table#info {
@@ -1088,12 +1196,56 @@ Edit: [snippets/mint_system.purchase.report_purchaseorder_document.add_infotable
 
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_infotable_brand.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.add_infotable_brand.xml)
 
+### Add Product Description
+
+ID: `mint_system.purchase.report_purchaseorder_document.add_product_description`
+
+Inherit ID: `purchase.report_purchaseorder_document`
+
+```xml
+<data priority="50">
+
+    <xpath expr="//td[@id='product']" position="inside">
+        <t t-if="line.product_id.type_description">
+            <span t-field="line.product_id.description"/>
+        </t>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.add_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.add_product_description.xml)
+
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_product_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.add_product_description.xml)
+
+### Add Product Type Description
+
+ID: `mint_system.purchase.report_purchaseorder_document.add_product_type_description`
+
+Inherit ID: `purchase.report_purchaseorder_document`
+
+```xml
+<data priority="50">
+
+    <xpath expr="//td[@id='product']" position="inside">
+        <t t-if="line.product_id.type_description">
+            <span t-field="line.product_id.type_description"/>
+        </t>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.add_product_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.add_product_type_description.xml)
+
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_product_type_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.add_product_type_description.xml)
+
 ### Add Taxes
 
 ID: `mint_system.purchase.report_purchaseorder_document.add_taxes`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_amount']" position="after">
         <th name="th_amount">
             <span/>
@@ -1115,8 +1267,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_taxes.x
 
 ID: `mint_system.purchase.report_purchaseorder_document.append_incoterm`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='total']" position="after">
         <div class="row">
             <div class="col">
@@ -1137,8 +1291,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.append_inco
 
 ID: `mint_system.purchase.report_purchaseorder_document.append_payment_terms`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='total']" position="after">
         <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
             <div class="col">
@@ -1160,8 +1316,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.append_paym
 
 ID: `mint_system.purchase.report_purchaseorder_document.date_created`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[2]/div[2]" position="after">
         <div t-if="o.create_date" class="col-3 bm-2">
             <strong>Date Created:</strong>
@@ -1179,8 +1337,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.date_create
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_address_blocks`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']/div" position="attributes">
         <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
         <attribute name="t-options-fields">['address', 'name']</attribute>
@@ -1205,8 +1365,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_addr
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_as_date`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[3]/p[1]" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
     </xpath>
@@ -1224,8 +1386,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_as_d
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_date`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">&gt;
+<data priority="50">&gt;
 
   <xpath expr="//tbody//td/span[@t-field='line.date_planned']" position="attributes"><attribute name="t-options-widget">"date"</attribute></xpath>
 
@@ -1240,8 +1404,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_date
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
         <t t-if="order_line.product_uom.id == 1">
             <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
@@ -1258,8 +1424,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_qty.
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_qty_with_decimal`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.product_qty']" position="replace">
         <t t-if="line.product_uom.id == 12">
             <span id="product_qty" t-field="line.product_qty" t-options="{'widget': 'integer'}"/>
@@ -1278,8 +1446,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_qty_
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_title`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">&gt;
+<data priority="50">&gt;
 
   <xpath expr="//div/h2[1]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
   
@@ -1298,8 +1468,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_titl
 
 ID: `mint_system.purchase.report_purchaseorder_document.format_total`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='total']/div" position="attributes">
         <attribute name="class"/>
     </xpath>
@@ -1314,8 +1486,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_tota
 
 ID: `mint_system.purchase.report_purchaseorder_document.general_information`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//p[@t-field='o.notes']" position="after">
        
@@ -1353,8 +1527,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.general_inf
 
 ID: `mint_system.purchase.report_purchaseorder_document.get_position`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
             <strong>Pos</strong>
@@ -1376,8 +1552,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.get_positio
 
 ID: `mint_system.purchase.report_purchaseorder_document.header_margin`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/table" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 2rem"/>
     </xpath>
@@ -1392,8 +1570,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.header_marg
 
 ID: `mint_system.purchase.report_purchaseorder_document.hide_discount`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//th[@name='th_discount']" position="replace">
         <t t-set="display_discount" t-value="any(line.discount &gt; 0 for line in o.order_line)"/>
@@ -1423,8 +1603,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.hide_discou
 
 ID: `mint_system.purchase.report_purchaseorder_document.hide_taxes`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//th[@name='th_taxes']" position="replace">
         <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>
@@ -1450,8 +1632,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.hide_taxes.
 
 ID: `mint_system.purchase.report_purchaseorder_document.modify_main_table`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <!-- add default_code   -->
     <xpath expr="//table/thead/tr/th[1]" position="after">
         <th>
@@ -1565,8 +1749,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.modify_main
 
 ID: `mint_system.purchase.report_purchaseorder_document.product_description_replace`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>
@@ -1588,8 +1774,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.product_des
 
 ID: `mint_system.purchase.report_purchaseorder_document.product_hide_bracket_description`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="replace">
         <td id="product">
             <span t-esc="line.name.split('(')[0].strip()"/>
@@ -1606,8 +1794,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.product_hid
 
 ID: `mint_system.purchase.report_purchaseorder_document.qty_remaining`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@id='product_uom']" position="after">
         <t t-set="product" t-value="o.requisition_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>
         <t t-if="product"> / <span t-esc="product.product_qty - product.qty_ordered"/> <span t-field="line.product_uom.name"/></t>
@@ -1626,8 +1816,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.qty_remaini
 
 ID: `mint_system.purchase.report_purchaseorder_document.remove_informations`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
 </xpath>
 </data>
@@ -1641,8 +1833,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.remove_info
 
 ID: `mint_system.purchase.report_purchaseorder_document.remove_summary_table`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='total']" position="replace">
 </xpath>
 </data>
@@ -1656,8 +1850,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.remove_summ
 
 ID: `mint_system.purchase.report_purchaseorder_document.remove_taxes`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_taxes']" position="replace"/>
     <xpath expr="//td[@name='td_taxes']" position="replace"/>
 </data>
@@ -1670,8 +1866,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.remove_taxe
 
 ID: `mint_system.purchase.report_purchaseorder_document.remove_user_id`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-field='o.user_id']/.." position="replace">
     </xpath>
 </data>
@@ -1685,8 +1883,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.remove_user
 
 ID: `mint_system.purchase.report_purchaseorder_document.remove_vat`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-if='o.partner_id.vat']" position="replace">
 </xpath>
 </data>
@@ -1700,8 +1900,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.remove_vat.
 
 ID: `mint_system.purchase.report_purchaseorder_document.rename_deadline`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[2]/div[3]/strong" position="replace">
         <strong>Deadline:</strong>
     </xpath>
@@ -1722,8 +1924,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.rename_dead
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_address_and_information_block`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']" position="replace"/>
     <xpath expr="//div[@class='page'][1]" position="before">
         <div class="row text-900 o_bold">
@@ -1784,8 +1988,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_add
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <style>
     table#info {
@@ -1904,8 +2110,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_inf
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
 
@@ -2003,8 +2211,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_inf
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_partner_id`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']/div" position="replace">
         <div style="font-size:10pt; line-height: 1.2; padding-bottom:33mm">
             <t t-if="o.partner_order_id.parent_name">
@@ -2026,8 +2236,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_par
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_product_description`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="replace">
         <td id="product">
             <span class="o_bold" t-field="line.product_id.name"/>
@@ -2046,8 +2258,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_pro
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_representative`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']//p[@t-field='o.user_id']" position="replace">
         <p t-field="o.user_id.email"/>
     </xpath>
@@ -2062,8 +2276,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_rep
 
 ID: `mint_system.purchase.report_purchaseorder_document.replace_taxes_id`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//thead//th[@name='th_taxes']" position="replace"/>
     <xpath expr="//thead//th[@name='th_amount']" position="before">
         <th name="th_taxes" class="text-right">
@@ -2087,8 +2303,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_tax
 
 ID: `mint_system.purchase.report_purchaseorder_document.round_price`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//tbody//span[@t-field='line.price_unit']" position="replace">
         <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
     </xpath>
@@ -2103,8 +2321,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.round_price
 
 ID: `mint_system.purchase.report_purchaseorder_document.row_date_align_left`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="49">
+<data priority="49">
     <xpath expr="/t/t/div/table/thead/tr/th[3]" position="attributes">
         <attribute name="class" separator=" " add="text-left" remove="text-center"/>
     </xpath>
@@ -2125,8 +2345,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.row_date_al
 
 ID: `mint_system.purchase.report_purchaseorder_document.second_row`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//td[@id='product']/../.." position="after">
         <t t-if="line.position">
@@ -2161,8 +2383,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.second_row.
 
 ID: `mint_system.purchase.report_purchaseorder_document.sequence_in_table`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>
@@ -2189,8 +2413,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.sequence_in
 
 ID: `mint_system.purchase.report_purchaseorder_document.set_ids`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
         <attribute name="id">product_qty</attribute>
     </xpath>
@@ -2208,8 +2434,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.set_ids.xml
 
 ID: `mint_system.purchase.report_purchaseorder_document.show_seller_product`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <!-- <t t-foreach="line.product_id.seller_ids" t-as="seller">
       <span t-field="seller.name"/>
   </t> -->
@@ -2228,8 +2456,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.show_seller
 
 ID: `mint_system.purchase.report_purchaseorder_document.sort_by_name`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.product_qty']" position="attributes">
         <attribute name="id">product_qty</attribute>
     </xpath>
@@ -2247,8 +2477,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.sort_by_nam
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_airwork`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         h2 {
@@ -2278,8 +2510,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_airwo
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_carbo_link`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+<data priority="60">
 
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
@@ -2319,8 +2553,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_carbo
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_gelso`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="class">text-start</attribute>
         <attribute name="style" separator=" " add="width: 350px"/>
@@ -2340,8 +2576,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_gelso
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_moser`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         .o_company_1_layout {
@@ -2390,8 +2628,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_moser
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_swift-link`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+<data priority="60">
 
 	<xpath expr="//table[contains(@class,'o_main_table')]/tbody/t/tr" position="attributes">
 		<attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>
@@ -2411,8 +2651,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_tissa`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
 		  .table-sm {
@@ -2464,8 +2706,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_tissa
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_trimada`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
 		.o_company_1_layout {
@@ -2484,8 +2728,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_trima
 
 ID: `mint_system.purchase.report_purchaseorder_document.style_xinomer`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="60">
+<data priority="60">
 
 	<xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']/tbody" position="after">
 		<style>
@@ -2531,8 +2777,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_xinom
 
 ID: `mint_system.purchase.report_purchaseorder_document.terms_and_conditions`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[5]" position="after">
         <div class="row">
             <div class="col">
@@ -2557,8 +2805,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.terms_and_c
 
 ID: `mint_system.purchase.report_purchaseorder_document.title_margin`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 2rem"/>
     </xpath>
@@ -2573,8 +2823,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.title_margi
 
 ID: `mint_system.purchase.report_purchaseorder_document.x_warranty`
 
+Inherit ID: `purchase.report_purchaseorder_document`
+
 ```xml
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="inside">
         <br/>
         <span t-field="line.product_id.x_warranty"/>
@@ -2592,8 +2844,10 @@ Source: [snippets/mint_system.purchase.report_purchaseorder_document.x_warranty.
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_default_code`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//thead/tr/th[1]" position="after">
         <th>
             <strong>Artikel Nr.</strong>
@@ -2615,8 +2869,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_def
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_footer`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='oe_structure']/.." position="after">
         <style>
       table#footer {
@@ -2658,8 +2914,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_foo
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_infoblock`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="after">
         <div id="infoblock" class="row mt32 mb32">
             <div t-if="o.user_id" class="col-3 bm-2">
@@ -2695,8 +2953,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_inf
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_informations2`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="after">
 
         <style>
@@ -2775,8 +3035,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_inf
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_infotable`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="after">
         <style>
       table#info {
@@ -2856,8 +3118,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_inf
 
 ID: `mint_system.purchase.report_purchasequotation_document.add_infotable_brand`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.name']/../.." position="after">
         <style>
       table#info {
@@ -2938,12 +3202,57 @@ Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_infot
 
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_infotable_brand.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_infotable_brand.xml)
 
+### Add Product Description
+
+ID: `mint_system.purchase.report_purchasequotation_document.add_product_description`
+
+Inherit ID: `purchase.report_purchasequotation_document`
+
+```xml
+<data priority="50">
+
+    <xpath expr="//td[@id='product']" position="inside">
+        <t t-if="order_line.product_id.type_description">
+            <span t-field="order_line.product_id.description"/>
+        </t>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.add_product_description.xml)
+
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_product_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_product_description.xml)
+
+### Add Product Type Description
+
+ID: `mint_system.purchase.report_purchasequotation_document.add_product_type_description`
+
+Inherit ID: `purchase.report_purchasequotation_document`
+
+```xml
+<data priority="50">
+    
+      <xpath expr="//td[@id='product']" position="inside">
+        <t t-if="order_line.product_id.type_description">
+            <br/>
+            <span t-field="order_line.product_id.type_description"/>
+        </t>
+    </xpath>
+    
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_product_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.add_product_type_description.xml)
+
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_product_type_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_product_type_description.xml)
+
 ### Append Payment Terms
 
 ID: `mint_system.purchase.report_purchasequotation_document.append_payment_terms`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/table" position="after">
         <div class="row" style="margin-top: 1rem; margin-bottom: 1rem">
             <div class="col">
@@ -2965,8 +3274,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.append_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_address_blocks`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']/div" position="attributes">
         <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
         <attribute name="t-options-fields">['address', 'name']</attribute>
@@ -2990,8 +3301,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_as_date`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='order_line.date_planned']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
     </xpath>
@@ -3006,8 +3319,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_date`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//tbody//td/span[@t-field='order_line.date_planned']" position="attributes">
         <attribute name="t-options-widget">"date"</attribute>
     </xpath>
@@ -3022,8 +3337,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_qty`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
         <t t-if="order_line.product_uom.id == 1">
             <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
@@ -3040,8 +3357,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_qty_with_decimal`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@id='product_qty']" position="replace">
         <t t-if="line.product_uom.id == 1">
             <span id="product_qty" t-field="line.product_qty" t-options="{'widget': 'integer'}"/>
@@ -3061,8 +3380,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.format_title`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">>
+<data priority="50">>
 
   <xpath expr="//div/h2[1]" position="attributes">
     <attribute name="style">color: black; margin-top: 2rem</attribute>
@@ -3078,8 +3399,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.format_
 
 ID: `mint_system.purchase.report_purchasequotation_document.get_position`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[1]" position="before">
         <th class="text-start">
             <strong>Pos</strong>
@@ -3100,8 +3423,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.get_pos
 
 ID: `mint_system.purchase.report_purchasequotation_document.header_margin`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">;
+<data priority="50">;
 
   <xpath expr="//div/h2[1]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
 
@@ -3116,8 +3441,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.header_
 
 ID: `mint_system.purchase.report_purchasequotation_document.hide_incoterm`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@t-if='o.incoterm_id']" position="replace"/>
 </data>
 
@@ -3130,8 +3457,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.hide_in
 
 ID: `mint_system.purchase.report_purchasequotation_document.modify_main_table`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <!-- replace product description -->
     <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
         <t>
@@ -3233,8 +3562,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.modify_
 
 ID: `mint_system.purchase.report_purchasequotation_document.product_hide_bracket_description`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="replace">
         <td id="product">
             <span t-esc="order_line.name.split('(')[0].strip()"/>
@@ -3251,8 +3582,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.product
 
 ID: `mint_system.purchase.report_purchasequotation_document.qty_with_decimal`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@id='product_qty']" position="replace">
         <t t-if="order_line.product_uom.id == 1">
             <span id="product_qty" t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>
@@ -3272,8 +3605,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.qty_wit
 
 ID: `mint_system.purchase.report_purchasequotation_document.remove_date_planned`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_expected_date']" position="replace">
   </xpath>
     <xpath expr="//span[@t-field='order_line.date_planned']/.." position="replace">
@@ -3289,8 +3624,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.remove_
 
 ID: `mint_system.purchase.report_purchasequotation_document.remove_incoterms`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace"/>
     <!--
     <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/strong[1]" position="replace"/>
@@ -3307,8 +3644,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.remove_
 
 ID: `mint_system.purchase.report_purchasequotation_document.remove_vat`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">&gt;
+<data priority="50">&gt;
 
     <xpath expr="//t[@t-set='address']/p" position="replace">
     </xpath>
@@ -3324,8 +3663,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.remove_
 
 ID: `mint_system.purchase.report_purchasequotation_document.repeat_table_header`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//thead[@style='display: table-row-group']" position="attributes">
         <attribute name="style"/>
     </xpath>
@@ -3340,8 +3681,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.repeat_
 
 ID: `mint_system.purchase.report_purchasequotation_document.replace_informations2`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
 
         <style>
@@ -3414,8 +3757,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace
 
 ID: `mint_system.purchase.report_purchasequotation_document.replace_partner_id`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']/div" position="replace">
         <div style="font-size:10pt; line-height: 1.2; padding-bottom:33mm">
             <t t-if="o.partner_order_id.parent_name">
@@ -3437,8 +3782,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace
 
 ID: `mint_system.purchase.report_purchasequotation_document.replace_product_description`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="replace">
         <td id="product">
             <span class="o_bold" t-field="order_line.product_id.name"/>
@@ -3457,8 +3804,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace
 
 ID: `mint_system.purchase.report_purchasequotation_document.replace_title`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@t-field='o.name']/.." position="replace">
 
 <div class="mt-4">
@@ -3479,8 +3828,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace
 
 ID: `mint_system.purchase.report_purchasequotation_document.row_date_align_left`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[2]" position="attributes">
         <attribute name="class" separator=" " add="text-left" remove="text-center"/>
     </xpath>
@@ -3498,8 +3849,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.row_dat
 
 ID: `mint_system.purchase.report_purchasequotation_document.sequence_in_table`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>
@@ -3525,8 +3878,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.sequenc
 
 ID: `mint_system.purchase.report_purchasequotation_document.set_ids`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='order_line.product_qty']" position="attributes">
         <attribute name="id">product_qty</attribute>
     </xpath>
@@ -3541,8 +3896,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.set_ids
 
 ID: `mint_system.purchase.report_purchasequotation_document.sort_by_name`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//table/tbody/t" position="attributes">
         <attribute name="t-foreach">sorted_order_lines</attribute>
         <attribute name="t-as">order_lines</attribute>
@@ -3558,8 +3915,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.sort_by
 
 ID: `mint_system.purchase.report_purchasequotation_document.style_airwork`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+<data priority="60">
   <xpath expr="//div[hasclass('page')]" position="before">
     <style>
         h2 {
@@ -3597,8 +3956,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_a
 
 ID: `mint_system.purchase.report_purchasequotation_document.style_gelso`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
 
   <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
     <attribute name="class">table table-borderless mt-4</attribute>
@@ -3623,8 +3984,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_g
 
 ID: `mint_system.purchase.report_purchasequotation_document.style_moser`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
         .o_company_1_layout {
@@ -3666,12 +4029,33 @@ Edit: [snippets/mint_system.purchase.report_purchasequotation_document.style_mos
 
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_moser.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.style_moser.xml)
 
+### Style Swift-Link
+
+ID: `mint_system.purchase.report_purchasequotation_document.style_swift-link`
+
+Inherit ID: `purchase.report_purchasequotation_document`
+
+```xml
+<data priority="60">
+
+  <xpath expr="//table[contains(@class,'table-borderless')]/tbody/t/tr" position="attributes">
+    <attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>
+  </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml)
+
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml)
+
 ### Style Tissa
 
 ID: `mint_system.purchase.report_purchasequotation_document.style_tissa`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
 
 	<xpath expr="//div[hasclass('page')]" position="before">
 		<style>
@@ -3711,8 +4095,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_t
 
 ID: `mint_system.purchase.report_purchasequotation_document.style_trimada`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
     .o_company_1_layout {
@@ -3731,8 +4117,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_t
 
 ID: `mint_system.purchase.report_purchasequotation_document.terms_and_conditions`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[3]" position="after">
         <div class="row">
             <div class="col">
@@ -3757,8 +4145,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.terms_a
 
 ID: `mint_system.purchase.report_purchasequotation_document.title_margin`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div/h2[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 2rem"/>
     </xpath>
@@ -3773,8 +4163,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.title_m
 
 ID: `mint_system.purchase.report_purchasequotation_document.x_warranty`
 
+Inherit ID: `purchase.report_purchasequotation_document`
+
 ```xml
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product']" position="inside">
         <br/>
         <span t-field="order_line.product_id.x_warranty"/>
@@ -3792,8 +4184,10 @@ Source: [snippets/mint_system.purchase.report_purchasequotation_document.x_warra
 
 ID: `mint_system.purchase.view_purchase_order_filter.add_state`
 
+Inherit ID: `purchase.view_purchase_order_filter`
+
 ```xml
-<data inherit_id="purchase.view_purchase_order_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='order_date']" position="after">
         <filter string="Status" name="order_state" domain="[]" context="{'group_by': 'state'}"/>
     </xpath>
@@ -3808,8 +4202,10 @@ Source: [snippets/mint_system.purchase.view_purchase_order_filter.add_state.xml]
 
 ID: `mint_system.purchase.view_purchase_order_filter.modify_product_id`
 
+Inherit ID: `purchase.view_purchase_order_filter`
+
 ```xml
-<data inherit_id="purchase.view_purchase_order_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='product_id']" position="replace">
         <field name="product_id" filter_domain="['|','|',('order_line.product_id', 'ilike', self),('order_line.product_id.type_description', 'ilike', self),('order_line.product_id.type_description2', 'ilike', self)]"/>
     </xpath>

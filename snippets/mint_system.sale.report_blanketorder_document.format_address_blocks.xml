@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='col-xs-6']/.." position="replace">
         <t t-set="doc" t-value="doc.with_context({'lang':doc.partner_id.lang})"/>
         <t t-set="address">

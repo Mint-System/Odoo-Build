@@ -1,4 +1,4 @@
-<data inherit_id="maintenance.hr_equipment_request_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='maintenance_type']" position="after">
         <field name="x_calibrated_until"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <!-- Odoo 17.0 -->
     <xpath expr="//span[@id='payment_terms_note_id']/.." position="after">
         <div class="row">

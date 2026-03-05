@@ -1,4 +1,4 @@
-<data inherit_id="account.view_bank_statement_form" priority="50">
+<data priority="50">
     <page name="statement_line_ids" position="after">
         <page string="Kassenpositionen" name="cashbox_ids" attrs="{'invisible': [('journal_type','!=','cash')]}">
             <group>

@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_picking_form" priority="50">
+<data priority="50">
     <xpath expr="//label[@for='partner_id']/.." position="before">
         <field name="x_name"/>
     </xpath>

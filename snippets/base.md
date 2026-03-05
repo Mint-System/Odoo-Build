@@ -6,8 +6,10 @@
 
 ID: `mint_system.base.contact_name.format_parent_name`
 
+Inherit ID: `base.contact_name`
+
 ```xml
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//t[1]/span" position="replace">
         <!--if object has no parent show name only-->
         <t t-if="not object.parent_name">
@@ -35,8 +37,10 @@ Source: [snippets/mint_system.base.contact_name.format_parent_name.xml](https://
 
 ID: `mint_system.base.contact_name.modify_name`
 
+Inherit ID: `base.contact_name`
+
 ```xml
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//div" position="replace">
         <t t-if="object.parent_name">
             <div t-esc="object.parent_name"/>
@@ -70,8 +74,10 @@ Source: [snippets/mint_system.base.contact_name.modify_name.xml](https://odoo.bu
 
 ID: `mint_system.base.contact_name.remove_parent_name`
 
+Inherit ID: `base.contact_name`
+
 ```xml
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//t[2]" position="replace"/>
     <xpath expr="//span[@itemprop='name']" position="attributes">
         <attribute name="t-esc">object.name</attribute>
@@ -89,8 +95,10 @@ Source: [snippets/mint_system.base.contact_name.remove_parent_name.xml](https://
 
 ID: `mint_system.base.ir_cron_view_tree.show_ir_actions_server_id`
 
+Inherit ID: `base.ir_cron_view_tree`
+
 ```xml
-<data inherit_id="base.ir_cron_view_tree" priority="50">
+<data priority="50">
     <field name="model_id" position="after">
         <field name="ir_actions_server_id" optional="hide"/>
     </field>
@@ -107,8 +115,10 @@ Source: [snippets/mint_system.base.ir_cron_view_tree.show_ir_actions_server_id.x
 
 ID: `mint_system.base.ir_filters_view_form.remove_domain_widget`
 
+Inherit ID: `base.ir_filters_view_form`
+
 ```xml
-<data inherit_id="base.ir_filters_view_form" priority="50">
+<data priority="50">
     <field name="domain" position="attributes">
         <attribute name="widget"/>
     </field>
@@ -125,8 +135,10 @@ Source: [snippets/mint_system.base.ir_filters_view_form.remove_domain_widget.xml
 
 ID: `mint_system.base.module_view_kanban.group_erp_system`
 
+Inherit ID: `base.module_view_kanban`
+
 ```xml
-<data inherit_id="base.module_view_kanban" priority="50">
+<data priority="50">
     <button name="button_immediate_install" position="attributes">
         <attribute name="groups">base.group_erp_manager</attribute>
     </button>
@@ -152,8 +164,10 @@ Source: [snippets/mint_system.base.module_view_kanban.group_erp_system.xml](http
 
 ID: `mint_system.base.res_bank_view_search.add_zip_bic_code_city`
 
+Inherit ID: `base.res_bank_view_search`
+
 ```xml
-<data inherit_id="base.res_bank_view_search" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <separator/>
         <field string="PLZ" name="zip"/>
@@ -174,8 +188,10 @@ Source: [snippets/mint_system.base.res_bank_view_search.add_zip_bic_code_city.xm
 
 ID: `mint_system.base.res_partner_kanban_view.show_agreements_count`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//kanban/field[@name='type']" position="after">
         <field name="agreements_count"/>
     </xpath>
@@ -200,8 +216,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.show_agreements_count
 
 ID: `mint_system.base.res_partner_kanban_view.show_phone`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//li/field[@name='email']/.." position="before">
         <li t-if="record.phone.raw_value" class="o_text_overflow">
             <field name="phone"/>
@@ -218,9 +236,11 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.show_phone.xml](https
 
 ID: `mint_system.base.res_partner_kanban_view.show_pricelist`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='email']" position="after">
         <field name="property_product_pricelist"/>
     </xpath>
@@ -240,8 +260,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.show_pricelist.xml](h
 
 ID: `mint_system.base.res_partner_kanban_view.show_website`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//li/field[@name='email']/.." position="after">
         <li t-if="record.website.raw_value" class="o_text_overflow">
             <field name="website"/>
@@ -258,8 +280,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.show_website.xml](htt
 
 ID: `mint_system.base.res_partner_kanban_view.x_eori`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
         <field name="x_eori"/>
@@ -275,8 +299,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.x_eori.xml](https://o
 
 ID: `mint_system.base.res_partner_kanban_view.x_schema`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']" position="before">
         <field name="x_schema" widget="badge"/>
         <br/>
@@ -292,8 +318,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.x_schema.xml](https:/
 
 ID: `mint_system.base.res_partner_kanban_view.x_vat`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
         <field name="x_vat"/>
@@ -309,8 +337,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.x_vat.xml](https://od
 
 ID: `mint_system.base.res_partner_kanban_view.x_zaz`
 
+Inherit ID: `base.res_partner_kanban_view`
+
 ```xml
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
         <field name="x_zaz"/>
@@ -328,8 +358,10 @@ Source: [snippets/mint_system.base.res_partner_kanban_view.x_zaz.xml](https://od
 
 ID: `mint_system.base.user_groups_view.remove_fleet_groups`
 
+Inherit ID: `base.user_groups_view`
+
 ```xml
-<data inherit_id="base.user_groups_view" priority="50">
+<data priority="50">
     <field name="in_group_154" position="replace"/>
     <field name="in_group_153" position="replace"/>
 </data>
@@ -345,8 +377,10 @@ Source: [snippets/mint_system.base.user_groups_view.remove_fleet_groups.xml](htt
 
 ID: `mint_system.base.view_bank_form.add_display_name`
 
+Inherit ID: `base.view_bank_form`
+
 ```xml
-<data inherit_id="base.view_bank_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="display_name"/>
     </xpath>
@@ -363,8 +397,10 @@ Source: [snippets/mint_system.base.view_bank_form.add_display_name.xml](https://
 
 ID: `mint_system.base.view_company_form.show_account_onboarding_panel`
 
+Inherit ID: `base.view_company_form`
+
 ```xml
-<data inherit_id="base.view_company_form" priority="50">
+<data priority="50">
     <field name="website" position="after">
         <field name="account_dashboard_onboarding_state"/>
     </field>
@@ -379,8 +415,10 @@ Source: [snippets/mint_system.base.view_company_form.show_account_onboarding_pan
 
 ID: `mint_system.base.view_company_form.show_analytic_plan_id`
 
+Inherit ID: `base.view_company_form`
+
 ```xml
-<data inherit_id="base.view_company_form" priority="50">
+<data priority="50">
     <field name="website" position="after">
         <field name="analytic_plan_id"/>
     </field>
@@ -395,8 +433,10 @@ Source: [snippets/mint_system.base.view_company_form.show_analytic_plan_id.xml](
 
 ID: `mint_system.base.view_company_form.show_font`
 
+Inherit ID: `base.view_company_form`
+
 ```xml
-<data inherit_id="base.view_company_form" priority="50">
+<data priority="50">
     <field name="favicon" position="after">
         <field name="font"/>
     </field>
@@ -413,8 +453,10 @@ Source: [snippets/mint_system.base.view_company_form.show_font.xml](https://odoo
 
 ID: `mint_system.base.view_company_tree.show_id`
 
+Inherit ID: `base.view_company_tree`
+
 ```xml
-<data inherit_id="base.view_company_tree" priority="50">
+<data priority="50">
     <field name="sequence" position="before">
         <field name="id"/>
     </field>
@@ -431,8 +473,10 @@ Source: [snippets/mint_system.base.view_company_tree.show_id.xml](https://odoo.b
 
 ID: `mint_system.base.view_country_tree.set_limit`
 
+Inherit ID: `base.view_country_tree`
+
 ```xml
-<data inherit_id="base.view_country_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="limit">250</attribute>
     </tree>
@@ -449,8 +493,10 @@ Source: [snippets/mint_system.base.view_country_tree.set_limit.xml](https://odoo
 
 ID: `mint_system.base.view_model_fields_form.show_state`
 
+Inherit ID: `base.view_model_fields_form`
+
 ```xml
-<data inherit_id="base.view_model_fields_form" priority="50">
+<data priority="50">
     <field name="ttype" position="after">
         <field name="state"/>
     </field>
@@ -467,8 +513,10 @@ Source: [snippets/mint_system.base.view_model_fields_form.show_state.xml](https:
 
 ID: `mint_system.base.view_partner_form.add_commercial_partner_id`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='bank_ids']/.." position="before">
         <group>
             <field name="commercial_partner_id" readonly="0"/>
@@ -485,8 +533,10 @@ Source: [snippets/mint_system.base.view_partner_form.add_commercial_partner_id.x
 
 ID: `mint_system.base.view_partner_form.add_credit_limit`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='property_account_payable_id']" position="after">
         <field name="credit_limit"/>
     </xpath>
@@ -503,8 +553,10 @@ Source: [snippets/mint_system.base.view_partner_form.add_credit_limit.xml](https
 
 ID: `mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="52">&gt;
+<data priority="52">&gt;
 
 <data><xpath expr="//page[@name='contact_addresses']/field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[1]/field[@name='comment']" position="before"><field name="department"/><field name="lang"/></xpath></data>
 
@@ -519,8 +571,10 @@ Source: [snippets/mint_system.base.view_partner_form.add_department_and_lang_on_
 
 ID: `mint_system.base.view_partner_form.add_display_name`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="display_name"/>
     </xpath>
@@ -535,8 +589,10 @@ Source: [snippets/mint_system.base.view_partner_form.add_display_name.xml](https
 
 ID: `mint_system.base.view_partner_form.attributes_child_ids`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='child_ids']" position="attributes">
         <attribute name="mode">tree</attribute>
     </xpath>
@@ -551,8 +607,10 @@ Source: [snippets/mint_system.base.view_partner_form.attributes_child_ids.xml](h
 
 ID: `mint_system.base.view_partner_form.hide_company_registry`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
   <xpath expr="//field[@name='company_registry']" position="attributes">
     <attribute name="invisible">1</attribute>
   </xpath>
@@ -566,8 +624,10 @@ Source: [snippets/mint_system.base.view_partner_form.hide_company_registry.xml](
 
 ID: `mint_system.base.view_partner_form.hide_meeting`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='schedule_meeting']" position="attributes">
         <attribute name="invisible">1</attribute>
     </xpath>
@@ -582,8 +642,10 @@ Source: [snippets/mint_system.base.view_partner_form.hide_meeting.xml](https://o
 
 ID: `mint_system.base.view_partner_form.hide_opportunity`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='action_view_opportunity']" position="attributes">
         <attribute name="invisible">1</attribute>
     </xpath>
@@ -598,8 +660,10 @@ Source: [snippets/mint_system.base.view_partner_form.hide_opportunity.xml](https
 
 ID: `mint_system.base.view_partner_form.lang_required`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//sheet/group/group/field[@name='lang']" position="attributes">
         <attribute name="required">1</attribute>
     </xpath>
@@ -614,8 +678,10 @@ Source: [snippets/mint_system.base.view_partner_form.lang_required.xml](https://
 
 ID: `mint_system.base.view_partner_form.move_company_registry`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <xpath expr="//page[@name='sales_purchases']//field[@name='company_registry']" position="move"/>
     </xpath>
@@ -630,8 +696,10 @@ Source: [snippets/mint_system.base.view_partner_form.move_company_registry.xml](
 
 ID: `mint_system.base.view_partner_form.move_property_product_pricelist`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='property_product_pricelist']" position="replace"/>
     <xpath expr="//field[@name='vat']" position="after">
         <field name="property_product_pricelist" groups="product.group_product_pricelist" attrs="{'invisible': [('is_company','=',False),('parent_id','!=',False)]}"/>
@@ -650,8 +718,10 @@ Source: [snippets/mint_system.base.view_partner_form.move_property_product_price
 
 ID: `mint_system.base.view_partner_form.move_ref`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
     <xpath expr="//field[@name='vat']" position="after">
@@ -671,8 +741,10 @@ Source: [snippets/mint_system.base.view_partner_form.move_ref.xml](https://odoo.
 
 ID: `mint_system.base.view_partner_form.move_zip_and_city`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='city']" position="replace"/>
     <xpath expr="//field[@name='state_id']" position="replace"/>
     <xpath expr="//field[@name='zip']" position="replace"/>
@@ -692,8 +764,10 @@ Source: [snippets/mint_system.base.view_partner_form.move_zip_and_city.xml](http
 
 ID: `mint_system.base.view_partner_form.readonly_property_product_pricelist`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='property_product_pricelist']" position="attributes">
         <attribute name="readonly">1</attribute>
     </xpath>
@@ -708,8 +782,10 @@ Source: [snippets/mint_system.base.view_partner_form.readonly_property_product_p
 
 ID: `mint_system.base.view_partner_form.remove_smart_buttons`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <button name="schedule_meeting" position="replace"/>
     <button name="action_view_opportunity" position="replace"/>
     <xpath expr="//field[@name='task_count']/.." position="replace"/>
@@ -730,8 +806,10 @@ Source: [snippets/mint_system.base.view_partner_form.remove_smart_buttons.xml](h
 
 ID: `mint_system.base.view_partner_form.show_color`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="color" widget="color_picker"/>
     </xpath>
@@ -746,8 +824,10 @@ Source: [snippets/mint_system.base.view_partner_form.show_color.xml](https://odo
 
 ID: `mint_system.base.view_partner_form.show_industry`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='industry_id']" position="attributes">
         <attribute name="attrs">{'invisible': False}</attribute>
     </xpath>
@@ -762,8 +842,10 @@ Source: [snippets/mint_system.base.view_partner_form.show_industry.xml](https://
 
 ID: `mint_system.base.view_partner_form.show_type`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='street']" position="before">
         <field name="type" readonly="1"/>
     </xpath>
@@ -778,8 +860,10 @@ Source: [snippets/mint_system.base.view_partner_form.show_type.xml](https://odoo
 
 ID: `mint_system.base.view_partner_form.show_user_id`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='internal_notes']" position="inside">
         <field name="user_id"/>
     </xpath>
@@ -794,8 +878,10 @@ Source: [snippets/mint_system.base.view_partner_form.show_user_id.xml](https://o
 
 ID: `mint_system.base.view_partner_form.show_user_ids`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='internal_notes']" position="inside">
         <field name="user_ids"/>
     </xpath>
@@ -810,8 +896,10 @@ Source: [snippets/mint_system.base.view_partner_form.show_user_ids.xml](https://
 
 ID: `mint_system.base.view_partner_form.x_bexioid`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_bexioid" readonly="1"/>
     </xpath>
@@ -829,8 +917,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_bexioid.xml](https://odoo
 
 ID: `mint_system.base.view_partner_form.x_birthdate`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_birthdate" attrs="{'invisible': [('is_company','=',True)]}"/>
     </xpath>
@@ -845,8 +935,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_birthdate.xml](https://od
 
 ID: `mint_system.base.view_partner_form.x_created_on`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_created_on"/>
     </xpath>
@@ -861,8 +953,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_created_on.xml](https://o
 
 ID: `mint_system.base.view_partner_form.x_eori`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_eori"/>
     </field>
@@ -876,8 +970,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_eori.xml](https://odoo.bu
 
 ID: `mint_system.base.view_partner_form.x_external_ref`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_external_ref"/>
     </xpath>
@@ -892,8 +988,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_external_ref.xml](https:/
 
 ID: `mint_system.base.view_partner_form.x_global_location_number`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
@@ -911,8 +1009,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_global_location_number.xm
 
 ID: `mint_system.base.view_partner_form.x_packaging_ref`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='ref']" position="after">
         <field name="x_packaging_ref"/>
     </xpath>
@@ -927,8 +1027,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_packaging_ref.xml](https:
 
 ID: `mint_system.base.view_partner_form.x_privacy_visibility`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="x_privacy_visibility"/>
     </xpath>
@@ -943,8 +1045,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_privacy_visibility.xml](h
 
 ID: `mint_system.base.view_partner_form.x_remarks`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="before">
         <field name="x_remarks"/>
     </xpath>
@@ -958,8 +1062,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_remarks.xml](https://odoo
 
 ID: `mint_system.base.view_partner_form.x_schema`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_schema" optional="show" widget="badge"/>
     </field>
@@ -973,8 +1079,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_schema.xml](https://odoo.
 
 ID: `mint_system.base.view_partner_form.x_vat`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_vat"/>
     </field>
@@ -988,8 +1096,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_vat.xml](https://odoo.bui
 
 ID: `mint_system.base.view_partner_form.x_vst`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_vst"/>
     </xpath>
@@ -1007,8 +1117,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_vst.xml](https://odoo.bui
 
 ID: `mint_system.base.view_partner_form.x_zaz`
 
+Inherit ID: `base.view_partner_form`
+
 ```xml
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_zaz"/>
     </field>
@@ -1024,8 +1136,10 @@ Source: [snippets/mint_system.base.view_partner_form.x_zaz.xml](https://odoo.bui
 
 ID: `mint_system.base.view_partner_tree.add_ref_zip_type`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='display_name']" position="after">
         <field name="ref"/>
     </xpath>
@@ -1046,6 +1160,8 @@ Source: [snippets/mint_system.base.view_partner_tree.add_ref_zip_type.xml](https
 
 ID: `mint_system.base.view_partner_tree.format_decoration`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
 <xpath expr="//field[@name='display_name']" position="attributes">
     <attribute name="decoration-bf">is_company</attribute>
@@ -1060,8 +1176,10 @@ Source: [snippets/mint_system.base.view_partner_tree.format_decoration.xml](http
 
 ID: `mint_system.base.view_partner_tree.move_zip_and_city`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="60">
+<data priority="60">
     <field name="city" position="replace"/>
     <field name="zip" position="replace"/>
     <field name="display_name" position="after">
@@ -1079,8 +1197,10 @@ Source: [snippets/mint_system.base.view_partner_tree.move_zip_and_city.xml](http
 
 ID: `mint_system.base.view_partner_tree.optional_payment_terms`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="vat" position="after">
         <field name="property_payment_term_id" optional="hide"/>
     </field>
@@ -1095,8 +1215,10 @@ Source: [snippets/mint_system.base.view_partner_tree.optional_payment_terms.xml]
 
 ID: `mint_system.base.view_partner_tree.optional_zip`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="city" position="before">
         <field name="zip" optional="hide"/>
     </field>
@@ -1111,8 +1233,10 @@ Source: [snippets/mint_system.base.view_partner_tree.optional_zip.xml](https://o
 
 ID: `mint_system.base.view_partner_tree.property_payment_term_id`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="category_id" position="after">
         <field name="property_payment_term_id" optional="hide"/>
     </field>
@@ -1127,8 +1251,10 @@ Source: [snippets/mint_system.base.view_partner_tree.property_payment_term_id.xm
 
 ID: `mint_system.base.view_partner_tree.show_company_registry`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="vat" position="before">
         <field name="company_registry" optional="show"/>
     </field>
@@ -1143,8 +1269,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_company_registry.xml](
 
 ID: `mint_system.base.view_partner_tree.show_industry`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="country_id" position="after">
         <field name="industry_id" optional="hide"/>
     </field>
@@ -1159,9 +1287,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_industry.xml](https://
 
 ID: `mint_system.base.view_partner_tree.show_pricelist`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<?xml version="1.0" encoding="utf-8"?>
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="property_product_pricelist" optional="show"/>
     </xpath>
@@ -1176,8 +1305,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_pricelist.xml](https:/
 
 ID: `mint_system.base.view_partner_tree.show_property_payment_term_id`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="category_id" position="after">
         <field name="property_payment_term_id" optional="show"/>
     </field>
@@ -1192,8 +1323,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_property_payment_term_
 
 ID: `mint_system.base.view_partner_tree.show_property_product_pricelist`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="60">
+<data priority="60">
     <field name="country_id" position="after">
         <field name="property_product_pricelist" optional="hide"/>
     </field>
@@ -1208,8 +1341,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_property_product_price
 
 ID: `mint_system.base.view_partner_tree.show_ref`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="complete_name" position="before">
         <field name="ref" optional="show" string="Ku-Nr."/>
     </field>
@@ -1224,8 +1359,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_ref.xml](https://odoo.
 
 ID: `mint_system.base.view_partner_tree.show_street`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="city" position="before">
         <field name="street" optional="show"/>
     </field>
@@ -1240,8 +1377,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_street.xml](https://od
 
 ID: `mint_system.base.view_partner_tree.show_type`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="complete_name" position="before">
         <field name="type" optional="show"/>
     </field>
@@ -1256,8 +1395,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_type.xml](https://odoo
 
 ID: `mint_system.base.view_partner_tree.show_x_schema`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_schema" optional="show"/>
     </field>
@@ -1272,8 +1413,10 @@ Source: [snippets/mint_system.base.view_partner_tree.show_x_schema.xml](https://
 
 ID: `mint_system.base.view_partner_tree.x_bexioid`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="active" position="after">
         <field name="x_bexioid" optional="hide"/>
     </field>
@@ -1288,8 +1431,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_bexioid.xml](https://odoo
 
 ID: `mint_system.base.view_partner_tree.x_eori`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_eori"/>
     </field>
@@ -1304,8 +1449,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_eori.xml](https://odoo.bu
 
 ID: `mint_system.base.view_partner_tree.x_first_sale_date`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="user_id" position="after">
         <field name="x_first_sale_date" optional="hide"/>
     </field>
@@ -1320,8 +1467,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_first_sale_date.xml](http
 
 ID: `mint_system.base.view_partner_tree.x_global_location_number`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='vat']" position="after">
         <field name="x_global_location_number"/>
     </xpath>
@@ -1339,8 +1488,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_global_location_number.xm
 
 ID: `mint_system.base.view_partner_tree.x_schema`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_schema" optional="show" widget="badge"/>
     </field>
@@ -1355,8 +1506,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_schema.xml](https://odoo.
 
 ID: `mint_system.base.view_partner_tree.x_vat`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_vat"/>
     </field>
@@ -1371,8 +1524,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_vat.xml](https://odoo.bui
 
 ID: `mint_system.base.view_partner_tree.x_vst`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="60">
+<data priority="60">
     <field name="active" position="after">
         <field name="x_vst" optional="hide"/>
     </field>
@@ -1387,8 +1542,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_vst.xml](https://odoo.bui
 
 ID: `mint_system.base.view_partner_tree.x_zaz`
 
+Inherit ID: `base.view_partner_tree`
+
 ```xml
-<data inherit_id="base.view_partner_tree" priority="50">
+<data priority="50">
     <field name="display_name" position="after">
         <field name="x_zaz"/>
     </field>
@@ -1405,8 +1562,10 @@ Source: [snippets/mint_system.base.view_partner_tree.x_zaz.xml](https://odoo.bui
 
 ID: `mint_system.base.view_res_bank_tree.add_zip`
 
+Inherit ID: `base.view_res_bank_tree`
+
 ```xml
-<data inherit_id="base.view_res_bank_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='city']" position="before">
         <field name="zip"/>
     </xpath>
@@ -1423,8 +1582,10 @@ Source: [snippets/mint_system.base.view_res_bank_tree.add_zip.xml](https://odoo.
 
 ID: `mint_system.base.view_res_partner_filter.add_type_description`
 
+Inherit ID: `base.view_res_partner_filter`
+
 ```xml
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='pricelist_id']" position="after">
         <separator/>
         <field string="Typenbezeichnung" name="type_description"/>
@@ -1441,8 +1602,10 @@ Source: [snippets/mint_system.base.view_res_partner_filter.add_type_description.
 
 ID: `mint_system.base.view_res_partner_filter.add_zip_and_city`
 
+Inherit ID: `base.view_res_partner_filter`
+
 ```xml
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <separator/>
         <field string="PLZ" name="zip"/>
@@ -1459,8 +1622,10 @@ Source: [snippets/mint_system.base.view_res_partner_filter.add_zip_and_city.xml]
 
 ID: `mint_system.base.view_res_partner_filter.fuzzy_search`
 
+Inherit ID: `base.view_res_partner_filter`
+
 ```xml
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <field name="name" position="attributes">
         <attribute name="filter_domain">['|', '|', '|', '|', ('name', '%', self), ('ref', 'ilike', self), ('email', 'ilike', self), ('vat', 'ilike', self), ('company_registry', 'ilike', self)]</attribute>
     </field>
@@ -1474,9 +1639,11 @@ Source: [snippets/mint_system.base.view_res_partner_filter.fuzzy_search.xml](htt
 
 ID: `mint_system.base.view_res_partner_filter.main_contacts`
 
+Inherit ID: `base.view_res_partner_filter`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='type_company']" position="after">
         <filter string="Main Contacts" name="main_contact" domain="[('type', '=', 'contact'), ('parent_id', '=', False )]"/>
     </xpath>
@@ -1491,8 +1658,10 @@ Source: [snippets/mint_system.base.view_res_partner_filter.main_contacts.xml](ht
 
 ID: `mint_system.base.view_res_partner_filter.search_zip`
 
+Inherit ID: `base.view_res_partner_filter`
+
 ```xml
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <field name="user_id" position="after">
         <field name="zip"/>
     </field>
@@ -1509,8 +1678,10 @@ Source: [snippets/mint_system.base.view_res_partner_filter.search_zip.xml](https
 
 ID: `mint_system.base.view_translation_lang_src_value_tree.show_comments`
 
+Inherit ID: `base.view_translation_lang_src_value_tree`
+
 ```xml
-<data inherit_id="base.view_translation_lang_src_value_tree" priority="50">
+<data priority="50">
     <field name="value" position="after">
         <field name="comments"/>
     </field>
@@ -1527,8 +1698,10 @@ Source: [snippets/mint_system.base.view_translation_lang_src_value_tree.show_com
 
 ID: `mint_system.base.view_translation_tree.show_comments`
 
+Inherit ID: `base.view_translation_tree`
+
 ```xml
-<data inherit_id="base.view_translation_tree" priority="50">
+<data priority="50">
     <field name="state" position="after">
         <field name="comments"/>
     </field>
@@ -1557,8 +1730,10 @@ Source: [snippets/mint_system.base.view_translation_tree.show_comments.xml](http
 
 ID: `mint_system.base.view_users_form.email`
 
+Inherit ID: `base.view_users_form`
+
 ```xml
-<data inherit_id="base.view_users_form" priority="50">
+<data priority="50">
     <field name="odoobot_state" position="after">
         <field name="email"/>
     </field>
@@ -1573,8 +1748,10 @@ Source: [snippets/mint_system.base.view_users_form.email.xml](https://odoo.build
 
 ID: `mint_system.base.view_users_form.show_color`
 
+Inherit ID: `base.view_users_form`
+
 ```xml
-<data inherit_id="base.view_users_form" priority="50">
+<data priority="50">
     <field name="service_user" position="after">
         <field name="color"/>
     </field>
@@ -1589,8 +1766,10 @@ Source: [snippets/mint_system.base.view_users_form.show_color.xml](https://odoo.
 
 ID: `mint_system.base.view_users_form.specific_ations`
 
+Inherit ID: `base.view_users_form`
+
 ```xml
-<data inherit_id="base.view_users_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='in_group_88']" position="attributes">
         <attribute name="help">M&#xE4;chtige Server-Aktionen (zum Beispiel "Lagerbuchung abbrechen")</attribute>
     </xpath>
@@ -1605,8 +1784,10 @@ Source: [snippets/mint_system.base.view_users_form.specific_ations.xml](https://
 
 ID: `mint_system.base.view_users_form.write_partner_id`
 
+Inherit ID: `base.view_users_form`
+
 ```xml
-<data inherit_id="base.view_users_form" priority="50">
+<data priority="50">
     <xpath expr="//group/field[@name='partner_id']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
@@ -1623,8 +1804,10 @@ Source: [snippets/mint_system.base.view_users_form.write_partner_id.xml](https:/
 
 ID: `mint_system.base.view_view_form.add_key`
 
+Inherit ID: `base.view_view_form`
+
 ```xml
-<data inherit_id="base.view_view_form" priority="50">
+<data priority="50">
     <xpath expr="//group[1]/field[@name='name']" position="before">
         <field name="key"/>
     </xpath>

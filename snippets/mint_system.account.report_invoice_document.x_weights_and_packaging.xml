@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
 
     <xpath expr="//p[@name='incoterm']" position="after">
         <table style="border: white; margin-bottom: 1rem;">

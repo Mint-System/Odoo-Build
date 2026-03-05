@@ -1,4 +1,4 @@
-<data inherit_id="product.product_pricelist_item_tree_view" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="editable">bottom</attribute>
     </tree>

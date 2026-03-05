@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_only_form_view" priority="50">
+<data priority="50">
     <group name="properties" position="before">
         <group>
             <group>

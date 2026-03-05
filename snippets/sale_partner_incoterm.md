@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`
 
+Inherit ID: `sale_partner_incoterm.view_partner_property_form`
+
 ```xml
-<data inherit_id="sale_partner_incoterm.view_partner_property_form" priority="50">
+<data priority="50">
 
   <xpath expr="//field[@name='sale_incoterm_id']" position="replace">    
     <field name="sale_incoterm_id" string="Default Sales Incoterm test"/>

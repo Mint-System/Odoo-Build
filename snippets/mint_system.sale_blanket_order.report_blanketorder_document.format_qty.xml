@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">  
+<data priority="50">  
     <xpath expr="//span[@t-field='l.original_uom_qty']" position="replace">
         <t t-if="l.product_uom.id == 1">
             <span t-field="l.original_uom_qty" t-options="{'widget': 'integer'}"/>

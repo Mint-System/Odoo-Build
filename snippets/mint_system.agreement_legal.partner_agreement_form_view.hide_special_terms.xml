@@ -1,4 +1,4 @@
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <page name="structure" position="attributes">
         <attribute name="invisible">1</attribute>
     </page>

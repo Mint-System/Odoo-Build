@@ -1,4 +1,4 @@
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="attributes">
         <attribute name="domain">[('is_company', '=', True)]</attribute>
     </xpath>

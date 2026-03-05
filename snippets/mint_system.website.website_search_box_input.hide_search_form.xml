@@ -1,4 +1,4 @@
-<data inherit_id="website.website_search_box_input" priority="50">
+<data priority="50">
     <xpath expr="//form" position="attributes">
         <attribute name="style">display: none;</attribute>
     </xpath>

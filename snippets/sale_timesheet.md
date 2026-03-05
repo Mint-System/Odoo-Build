@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_timesheet.timesheet_sale_page.replace_titel`
 
+Inherit ID: `sale_timesheet.timesheet_sale_page`
+
 ```xml
-<data inherit_id="sale_timesheet.timesheet_sale_page" priority="50">
+<data priority="50">
   <xpath expr="//h2" position="replace">
     <h2>
       <br/>

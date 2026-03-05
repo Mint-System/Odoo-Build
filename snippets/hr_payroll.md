@@ -6,6 +6,8 @@
 
 ID: `mint_system.hr_payroll.hr_payslip_line.view_pivot`
 
+Inherit ID: `hr_payroll.hr_payslip_line`
+
 ```xml
 <odoo>
     <record model="ir.ui.view" id="hr_payroll.hr_payslip_line.view_pivot">
@@ -30,8 +32,10 @@ Source: [snippets/mint_system.hr_payroll.hr_payslip_line.view_pivot.xml](https:/
 
 ID: `mint_system.hr_payroll.hr_payslip_line_view_search_register.filter_date_from`
 
+Inherit ID: `hr_payroll.hr_payslip_line_view_search_register`
+
 ```xml
-<data inherit_id="hr_payroll.hr_payslip_line_view_search_register" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='last_quarter']" position="after">
         <separator/>
         <filter string="Datum" name="date_filter" date="date_from" default_period="last_year"/>
@@ -49,8 +53,10 @@ Source: [snippets/mint_system.hr_payroll.hr_payslip_line_view_search_register.fi
 
 ID: `mint_system.hr_payroll.hr_salary_rule_form.switch_account`
 
+Inherit ID: `hr_payroll.hr_salary_rule_form`
+
 ```xml
-<data inherit_id="hr_payroll.hr_salary_rule_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='account_debit']" position="before">
         <xpath expr="//field[@name='account_credit']" position="move"/>
     </xpath>
@@ -67,8 +73,10 @@ Source: [snippets/mint_system.hr_payroll.hr_salary_rule_form.switch_account.xml]
 
 ID: `mint_system.hr_payroll.report_payslip.gio_custom_payroll`
 
+Inherit ID: `hr_payroll.report_payslip`
+
 ```xml
-<data inherit_id="hr_payroll.report_payslip" priority="50">
+<data priority="50">
     <t t-call="web.external_layout" position="replace">
         <t t-call="web.external_layout">
             <t t-set="address">
@@ -271,8 +279,10 @@ Source: [snippets/mint_system.hr_payroll.report_payslip.gio_custom_payroll.xml](
 
 ID: `mint_system.hr_payroll.report_payslip.gio_payroll_report`
 
+Inherit ID: `hr_payroll.report_payslip`
+
 ```xml
-<data inherit_id="hr_payroll.report_payslip" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='page']" position="replace">
         <div class="page" style="font-family:dinot !important;">
             <div class="row">
@@ -483,8 +493,10 @@ Source: [snippets/mint_system.hr_payroll.report_payslip.gio_payroll_report.xml](
 
 ID: `mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount`
 
+Inherit ID: `hr_payroll.view_hr_payslip_form`
+
 ```xml
-<data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
+<data priority="50">
     <field name="salary_rule_id" position="before">
         <field name="gio_amount" string="Basis" optional="show"/>
     </field>
@@ -499,8 +511,10 @@ Source: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_gio_amount.xm
 
 ID: `mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pdf`
 
+Inherit ID: `hr_payroll.view_hr_payslip_form`
+
 ```xml
-<data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
+<data priority="50">
     <field name="negative_net_to_report_message" position="after">
         <field name="queued_for_pdf"/>
     </field>
@@ -517,8 +531,10 @@ Source: [snippets/mint_system.hr_payroll.view_hr_payslip_form.show_queued_for_pd
 
 ID: `mint_system.hr_payroll.view_hr_payslip_line_tree.slip_show_optional`
 
+Inherit ID: `hr_payroll.view_hr_payslip_line_tree`
+
 ```xml
-<data inherit_id="hr_payroll.view_hr_payslip_line_tree" priority="50">
+<data priority="50">
     <field name="total" position="after">
         <field name="slip_id" optional="show"/>
     </field>

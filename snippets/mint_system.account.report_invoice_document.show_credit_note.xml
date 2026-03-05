@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="60">
+<data priority="60">
     <p name="payment_communication" position="before">
         <t t-if="print_with_payments and (o.payment_state != 'invoicing_legacy')">
             <t t-set="payments_vals" t-value="o.sudo().invoice_payments_widget and o.sudo().invoice_payments_widget['content'] or []"/>

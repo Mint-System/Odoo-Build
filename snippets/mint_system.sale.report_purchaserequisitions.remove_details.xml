@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_purchaserequisitions" priority="55">
+<data priority="55">
     <xpath expr="//div/t[2]" position="replace">
 
 </xpath>

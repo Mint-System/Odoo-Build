@@ -1,4 +1,4 @@
-<data inherit_id="base.ir_filters_view_form" priority="50">
+<data priority="50">
     <field name="domain" position="attributes">
         <attribute name="widget"/>
     </field>

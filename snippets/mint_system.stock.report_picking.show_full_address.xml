@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='partner_header']/div" position="attributes">
         <attribute name="t-options-fields">['name', 'phone', 'address']</attribute>
     </xpath>

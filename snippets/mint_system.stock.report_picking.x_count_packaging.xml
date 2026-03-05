@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//table[1]/thead/tr/th[2]" position="after">
         <th>
             <strong>Anzahl Verp.</strong>

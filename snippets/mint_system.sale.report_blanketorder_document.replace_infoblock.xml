@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace">
         <div class="row" id="informations">
             <div class="col-auto col-3 mw-100 mb-2" t-if="doc.client_order_ref">

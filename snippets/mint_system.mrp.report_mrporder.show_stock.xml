@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="60">
+<data priority="60">
     <xpath expr="//table/thead/tr/th[2]" position="after">
         <th>
             <span>Lagerort (Los) Menge</span>

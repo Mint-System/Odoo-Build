@@ -1,4 +1,4 @@
-<data inherit_id="business_requirement.view_business_requirement_form" priority="50">
+<data priority="50">
     <field name="origin" position="before">
         <field name="x_project_id"/>
     </field>

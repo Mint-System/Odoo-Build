@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
         <!-- 34.50 -> 34.50 -->

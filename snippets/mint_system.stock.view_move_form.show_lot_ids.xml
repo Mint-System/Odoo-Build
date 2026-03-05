@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_move_form" priority="50">
+<data priority="50">
     <field name="move_dest_ids" position="after">
         <field name="lot_ids"/>
     </field>

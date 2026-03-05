@@ -1,4 +1,4 @@
-<data inherit_id="calendar.view_calendar_event_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='page_misc']//field[@name='user_id']" position="after">
         <field name="res_id"/>
         <field name="res_model"/>

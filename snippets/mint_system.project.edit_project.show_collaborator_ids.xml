@@ -1,4 +1,4 @@
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <field name="privacy_visibility" position="after">
         <field name="collaborator_ids"/>
     </field>

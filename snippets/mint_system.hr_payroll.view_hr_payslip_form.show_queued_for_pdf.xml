@@ -1,4 +1,4 @@
-<data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
+<data priority="50">
     <field name="negative_net_to_report_message" position="after">
         <field name="queued_for_pdf"/>
     </field>

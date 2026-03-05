@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//div/div/div/img" position="before">
         <strong>R&#xFC;stschein Code:</strong>
     </xpath>

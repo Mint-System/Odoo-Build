@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='so_total_summary']/div/div" position="attributes">
         <attribute name="t-attf-class"/>
     </xpath>

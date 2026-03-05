@@ -6,6 +6,8 @@
 
 ID: `mint_system.mrp.label_production_view.tissa`
 
+Inherit ID: `mrp.label_production_view`
+
 ```xml
 <t t-name="mrp.label_production_view.tissa">
     <!--<t t-call="web.basic_layout">-->
@@ -52,6 +54,8 @@ Source: [snippets/mint_system.mrp.label_production_view.tissa.xml](https://odoo.
 ### Tissa Etikette Ketten
 
 ID: `mint_system.mrp.label_production_view.tissa_etikette_ketten`
+
+Inherit ID: `mrp.label_production_view`
 
 ```xml
 <t t-name="mrp.label_production_view.tissa_etikette_ketten">
@@ -129,6 +133,8 @@ Source: [snippets/mint_system.mrp.label_production_view.tissa_etikette_ketten.xm
 
 ID: `mint_system.mrp.label_production_view_pdf.aersolution`
 
+Inherit ID: `mrp.label_production_view_pdf`
+
 ```xml
 <t t-name="stock.report_reception_report_label.aersolution">
     <t t-call="web.basic_layout">
@@ -152,6 +158,8 @@ Source: [snippets/mint_system.mrp.label_production_view_pdf.aersolution.xml](htt
 ### Basis57
 
 ID: `mint_system.mrp.label_production_view_pdf.basis57`
+
+Inherit ID: `mrp.label_production_view_pdf`
 
 ```xml
 <t t-name="mrp.label_production_view_pdf.basis57">
@@ -362,6 +370,8 @@ Source: [snippets/mint_system.mrp.label_production_view_pdf.basis57.xml](https:/
 
 ID: `mint_system.mrp.label_production_view_pdf.trimada`
 
+Inherit ID: `mrp.label_production_view_pdf`
+
 ```xml
 <t t-name="mrp.label_production_view_pdf.trimada">
     <t t-call="web.basic_layout">
@@ -488,8 +498,10 @@ Source: [snippets/mint_system.mrp.label_production_view_pdf.trimada.xml](https:/
 
 ID: `mint_system.mrp.mrp_bom_form_view.x_note`
 
+Inherit ID: `mrp.mrp_bom_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_bom_form_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='picking_type_id']" position="after">
         <field name="x_note"/>
     </xpath>
@@ -506,8 +518,10 @@ Source: [snippets/mint_system.mrp.mrp_bom_form_view.x_note.xml](https://odoo.bui
 
 ID: `mint_system.mrp.mrp_bom_tree_view.sort_id`
 
+Inherit ID: `mrp.mrp_bom_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_bom_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="default_order">id desc</attribute>
     </xpath>
@@ -524,8 +538,10 @@ Source: [snippets/mint_system.mrp.mrp_bom_tree_view.sort_id.xml](https://odoo.bu
 
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <field name="user_id" position="before">
         <field name="date_deadline"/>
     </field>
@@ -550,8 +566,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline.xml
 
 ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <field name="date_move" position="after">
         <field name="date_deadline" attrs="{'readonly': 0}"/>
     </field>
@@ -566,8 +584,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline2.xm
 
 ID: `mint_system.mrp.mrp_production_form_view.add_origin`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//group[@name='group_extra_info']//field[@name='date_planned_start']/.." position="after">
         <field name="origin"/>
     </xpath>
@@ -582,8 +602,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.add_origin.xml](https
 
 ID: `mint_system.mrp.mrp_production_form_view.add_procurement_group_id`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//group[@name='group_extra_info']//field[@name='date_planned_start']/.." position="after">
         <field name="procurement_group_id"/>
     </xpath>
@@ -598,8 +620,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.add_procurement_group
 
 ID: `mint_system.mrp.mrp_production_form_view.finished_move_line_ids`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
         <field name="finished_move_line_ids" widget="many2many_tags"/>
     </xpath>
@@ -614,8 +638,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.finished_move_line_id
 
 ID: `mint_system.mrp.mrp_production_form_view.format_sale_id`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='sale_id']" position="attributes">
         <attribute name="readonly">False</attribute>
     </xpath>
@@ -630,8 +656,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.format_sale_id.xml](h
 
 ID: `mint_system.mrp.mrp_production_form_view.hide_date_deadline`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='date_deadline']" position="attributes">
         <attribute name="invisible">True</attribute>
     </xpath>
@@ -646,8 +674,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.hide_date_deadline.xm
 
 ID: `mint_system.mrp.mrp_production_form_view.move_finished_ids`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='location_dest_id']" position="after">
         <field name="move_finished_ids" widget="many2many_tags"/>
     </xpath>
@@ -662,8 +692,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.move_finished_ids.xml
 
 ID: `mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
 <!-- origin_ref: mrp.mrp_production_workorder_tree_editable_view -->
   <xpath expr="//field[@name='workorder_ids']" position="inside">
     <tree editable="bottom" js_class="tablet_list_view">
@@ -722,8 +754,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.replace_workorder_tre
 
 ID: `mint_system.mrp.mrp_production_form_view.show_backorder_and_procurement_group`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='picking_type_id']" position="after">
         <field name="procurement_group_id"/>
         <field name="backorder_sequence"/>
@@ -739,8 +773,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.show_backorder_and_pr
 
 ID: `mint_system.mrp.mrp_production_form_view.show_date_planned_finished`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <field name="user_id" position="before">
         <field name="date_planned_finished" readonly="1"/>
     </field>
@@ -755,8 +791,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.show_date_planned_fin
 
 ID: `mint_system.mrp.mrp_production_form_view.show_move_dest_ids`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <field name="bom_id" position="before">
         <field name="move_dest_ids"/>
     </field>
@@ -771,8 +809,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.show_move_dest_ids.xm
 
 ID: `mint_system.mrp.mrp_production_form_view.show_x_date_deadline`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <field name="user_id" position="before">
         <field name="x_date_deadline"/>
     </field>
@@ -787,8 +827,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.show_x_date_deadline.
 
 ID: `mint_system.mrp.mrp_production_form_view.x_note`
 
+Inherit ID: `mrp.mrp_production_form_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='origin']" position="after">
         <field name="x_note"/>
     </xpath>
@@ -805,8 +847,10 @@ Source: [snippets/mint_system.mrp.mrp_production_form_view.x_note.xml](https://o
 
 ID: `mint_system.mrp.mrp_production_tree_view.company_id`
 
+Inherit ID: `mrp.mrp_production_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="company_id" string="test" optional="show"/>
     </xpath>
@@ -821,8 +865,10 @@ Source: [snippets/mint_system.mrp.mrp_production_tree_view.company_id.xml](https
 
 ID: `mint_system.mrp.mrp_production_tree_view.hide_date_deadline`
 
+Inherit ID: `mrp.mrp_production_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_deadline']" position="replace">
   </xpath>
 </data>
@@ -836,8 +882,10 @@ Source: [snippets/mint_system.mrp.mrp_production_tree_view.hide_date_deadline.xm
 
 ID: `mint_system.mrp.mrp_production_tree_view.show_format_date_planned_start`
 
+Inherit ID: `mrp.mrp_production_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_planned_start']" position="attributes">
         <attribute name="widget">date</attribute>
     </xpath>
@@ -852,8 +900,10 @@ Source: [snippets/mint_system.mrp.mrp_production_tree_view.show_format_date_plan
 
 ID: `mint_system.mrp.mrp_production_tree_view.show_x_date_deadline`
 
+Inherit ID: `mrp.mrp_production_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_planned_start']" position="after">
         <field name="x_date_deadline"/>
     </xpath>
@@ -868,8 +918,10 @@ Source: [snippets/mint_system.mrp.mrp_production_tree_view.show_x_date_deadline.
 
 ID: `mint_system.mrp.mrp_production_tree_view.sort_date_planned_start`
 
+Inherit ID: `mrp.mrp_production_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="default_order">date_planned_start asc</attribute>
     </xpath>
@@ -886,8 +938,10 @@ Source: [snippets/mint_system.mrp.mrp_production_tree_view.sort_date_planned_sta
 
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_product_id`
 
+Inherit ID: `mrp.mrp_production_workorder_tree_editable_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="product_id"/>
     </xpath>
@@ -902,8 +956,10 @@ Source: [snippets/mint_system.mrp.mrp_production_workorder_tree_editable_view.ad
 
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.add_production_id`
 
+Inherit ID: `mrp.mrp_production_workorder_tree_editable_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="production_id"/>
     </xpath>
@@ -918,8 +974,10 @@ Source: [snippets/mint_system.mrp.mrp_production_workorder_tree_editable_view.ad
 
 ID: `mint_system.mrp.mrp_production_workorder_tree_editable_view.x_reservation_state`
 
+Inherit ID: `mrp.mrp_production_workorder_tree_editable_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_workorder_tree_editable_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_planned_start']" position="before">
         <field name="x_reservation_state"/>
     </xpath>
@@ -936,8 +994,10 @@ Source: [snippets/mint_system.mrp.mrp_production_workorder_tree_editable_view.x_
 
 ID: `mint_system.mrp.mrp_production_workorder_tree_view.hide_production_id`
 
+Inherit ID: `mrp.mrp_production_workorder_tree_view`
+
 ```xml
-<data inherit_id="mrp.mrp_production_workorder_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='production_id']" position="replace">
 </xpath>
 </data>
@@ -953,8 +1013,10 @@ Source: [snippets/mint_system.mrp.mrp_production_workorder_tree_view.hide_produc
 
 ID: `mint_system.mrp.oee_search_view.filter_wip`
 
+Inherit ID: `mrp.oee_search_view`
+
 ```xml
-<data inherit_id="mrp.oee_search_view" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='availability']" position="before">
         <filter name="wip" string="WIP" domain="[('x_production_id_state','=','progress')]"/>
     </xpath>
@@ -968,8 +1030,10 @@ Source: [snippets/mint_system.mrp.oee_search_view.filter_wip.xml](https://odoo.b
 
 ID: `mint_system.mrp.oee_search_view.wip`
 
+Inherit ID: `mrp.oee_search_view`
+
 ```xml
-<data inherit_id="mrp.oee_search_view" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='availability']" position="before">
         <filter name="wip" string="WIP" domain="[('x_production_id_state','=','progress')]"/>
     </xpath>
@@ -985,8 +1049,10 @@ Source: [snippets/mint_system.mrp.oee_search_view.wip.xml](https://odoo.build/sn
 
 ID: `mint_system.mrp.oee_tree_view.total_cost`
 
+Inherit ID: `mrp.oee_tree_view`
+
 ```xml
-<data inherit_id="mrp.oee_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='loss_id']" position="after">
         <field name="total_cost" optional="show" string="Total Employee Cost"/>
     </xpath>
@@ -1000,8 +1066,10 @@ Source: [snippets/mint_system.mrp.oee_tree_view.total_cost.xml](https://odoo.bui
 
 ID: `mint_system.mrp.oee_tree_view.x_production_id_state`
 
+Inherit ID: `mrp.oee_tree_view`
+
 ```xml
-<data inherit_id="mrp.oee_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_end']" position="after">
         <field optional="show" name="x_production_id_state"/>
     </xpath>
@@ -1015,8 +1083,10 @@ Source: [snippets/mint_system.mrp.oee_tree_view.x_production_id_state.xml](https
 
 ID: `mint_system.mrp.oee_tree_view.x_workcenter_id_costs_hour`
 
+Inherit ID: `mrp.oee_tree_view`
+
 ```xml
-<data inherit_id="mrp.oee_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field optional="show" name="x_workcenter_id_costs_hour"/>
     </xpath>
@@ -1032,8 +1102,10 @@ Source: [snippets/mint_system.mrp.oee_tree_view.x_workcenter_id_costs_hour.xml](
 
 ID: `mint_system.mrp.report_mrp_production_components.modify_section_consumed_products`
 
+Inherit ID: `mrp.report_mrp_production_components`
+
 ```xml
-<data inherit_id="mrp.report_mrp_production_components" priority="50">
+<data priority="50">
     <xpath expr="//table" position="replace">
         <style>
     table#section_consumed_products {
@@ -1129,8 +1201,10 @@ Source: [snippets/mint_system.mrp.report_mrp_production_components.modify_sectio
 
 ID: `mint_system.mrp.report_mrp_production_components.remove_barcode`
 
+Inherit ID: `mrp.report_mrp_production_components`
+
 ```xml
-<data inherit_id="mrp.report_mrp_production_components" priority="50">
+<data priority="50">
     <xpath expr="//th[@t-if='has_product_barcode']" position="replace"/>
     <xpath expr="//td[@t-if='has_product_barcode']" position="replace"/>
 </data>
@@ -1144,8 +1218,10 @@ Source: [snippets/mint_system.mrp.report_mrp_production_components.remove_barcod
 
 ID: `mint_system.mrp.report_mrp_production_components.replace_title_section_to_consume_products`
 
+Inherit ID: `mrp.report_mrp_production_components`
+
 ```xml
-<data inherit_id="mrp.report_mrp_production_components" priority="50">
+<data priority="50">
     <xpath expr="//h3" position="replace">
         <style>
       table#consumed_products {
@@ -1175,8 +1251,10 @@ Source: [snippets/mint_system.mrp.report_mrp_production_components.replace_title
 
 ID: `mint_system.mrp.report_mrp_production_components.show_expected`
 
+Inherit ID: `mrp.report_mrp_production_components`
+
 ```xml
-<data inherit_id="mrp.report_mrp_production_components" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='raw_line.product_id']" position="after">
         <t t-if="raw_line.forecast_expected_date">
             <br/>
@@ -1196,8 +1274,10 @@ Source: [snippets/mint_system.mrp.report_mrp_production_components.show_expected
 
 ID: `mint_system.mrp.report_mrp_production_components.show_stock`
 
+Inherit ID: `mrp.report_mrp_production_components`
+
 ```xml
-<data inherit_id="mrp.report_mrp_production_components" priority="60">
+<data priority="60">
     <xpath expr="//table//tr/th[2]" position="after">
         <th>
             <span>Lagerort (Los) Menge</span>
@@ -1227,8 +1307,10 @@ Source: [snippets/mint_system.mrp.report_mrp_production_components.show_stock.xm
 
 ID: `mint_system.mrp.report_mrporder.add_padding`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="/t/t/t/t/div/div[2]" position="attributes">
         <attribute name="style" add="padding-bottom: 2rem"/>
     </xpath>
@@ -1246,9 +1328,11 @@ Source: [snippets/mint_system.mrp.report_mrporder.add_padding.xml](https://odoo.
 
 ID: `mint_system.mrp.report_mrporder.list_quality_points`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
 <!-- List quality points in mrp order -->
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="/t/t/t/t/div/div[5]/table/tr[2]/td[1]/span" position="after">
         <ul>
             <li t-foreach="line2.operation_id.quality_point_ids" t-as="quality_point">
@@ -1267,8 +1351,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.list_quality_points.xml](https
 
 ID: `mint_system.mrp.report_mrporder.modify_section_consumed_products`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.product_id']/../.." position="after">
         <style>
       table#to_produce {
@@ -1316,8 +1402,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.modify_section_consumed_produc
 
 ID: `mint_system.mrp.report_mrporder.modify_section_operations`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//div[@t-if='o.workorder_ids']" position="replace">
         <style>
        h3 {
@@ -1392,8 +1480,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.modify_section_operations.xml]
 
 ID: `mint_system.mrp.report_mrporder.modify_section_order_definition`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.product_id']/../.." position="replace">
         <style>
      .table &gt; :not(:first-child) {
@@ -1485,8 +1575,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.modify_section_order_definitio
 
 ID: `mint_system.mrp.report_mrporder.modify_section_to_consume_products`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//table[@t-if='o.move_raw_ids']" position="replace">
         <style>
     table#section_consumed_products {
@@ -1576,8 +1668,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.modify_section_to_consume_prod
 
 ID: `mint_system.mrp.report_mrporder.quality_points`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
 
 	<xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
 		<ul style="list-style-type:none;">
@@ -1596,8 +1690,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.quality_points.xml](https://od
 
 ID: `mint_system.mrp.report_mrporder.remove_barcode`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//span/div[@t-field='o.name']" position="replace"/>
 </data>
 
@@ -1610,8 +1706,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.remove_barcode.xml](https://od
 
 ID: `mint_system.mrp.report_mrporder.remove_responsible`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.user_id']/../.." position="replace">
 </xpath>
 </data>
@@ -1625,8 +1723,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.remove_responsible.xml](https:
 
 ID: `mint_system.mrp.report_mrporder.replace_title_section_to_consume_products`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//h3[@t-if='o.move_raw_ids']" position="replace">
         <style>
       table#consumed_products {
@@ -1655,8 +1755,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.replace_title_section_to_consu
 
 ID: `mint_system.mrp.report_mrporder.show_dest_location`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
         <t t-if="o.finished_move_line_ids">
             <div class="col-3">
@@ -1684,8 +1786,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_dest_location.xml](https:
 
 ID: `mint_system.mrp.report_mrporder.show_expected`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//tr[1]/td[1]/span[1]" position="after">
         <t t-if="raw_line.forecast_expected_date">
             <br/>
@@ -1705,9 +1809,11 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_expected.xml](https://odo
 
 ID: `mint_system.mrp.report_mrporder.show_lot`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
 <!-- If lot is not available show forecasted days. -->
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="/t/t/t/t/div/table/tbody/t/tr/td[1]/span" position="after">
         <t t-if="raw_line.forecast_expected_date">
             <br/>
@@ -1739,8 +1845,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_lot.xml](https://odoo.bui
 
 ID: `mint_system.mrp.report_mrporder.show_lot_producing`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="60">
+<data priority="60">
     <xpath expr="//div/div[4]/div[1]/span" position="after">
         <span t-if="o.lot_producing_id"><br/>Los: <span t-field="o.lot_producing_id.name"/></span>
     </xpath>
@@ -1755,8 +1863,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_lot_producing.xml](https:
 
 ID: `mint_system.mrp.report_mrporder.show_planned`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//table/tr[1]/th[2]" position="after">
         <th>
             <strong>Start Date</strong>
@@ -1794,8 +1904,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_planned.xml](https://odoo
 
 ID: `mint_system.mrp.report_mrporder.show_put_away_rule_out_location`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
         <t t-set="putaway_rule_id" t-value="o.location_dest_id.putaway_rule_ids.filtered(lambda p: p.product_id == o.product_id)[:1]"/>
         <t t-if="putaway_rule_id">
@@ -1817,8 +1929,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_put_away_rule_out_locatio
 
 ID: `mint_system.mrp.report_mrporder.show_stock`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="60">
+<data priority="60">
     <xpath expr="//table/thead/tr/th[2]" position="after">
         <th>
             <span>Lagerort (Los) Menge</span>
@@ -1846,8 +1960,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.show_stock.xml](https://odoo.b
 
 ID: `mint_system.mrp.report_mrporder.title_with_border`
 
+Inherit ID: `mrp.report_mrporder`
+
 ```xml
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//h2/../.." position="attributes">
         <attribute name="id">title-with-border</attribute>
     </xpath>
@@ -1896,8 +2012,10 @@ Source: [snippets/mint_system.mrp.report_mrporder.title_with_border.xml](https:/
 
 ID: `mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading`
 
+Inherit ID: `mrp.stock_report_delivery_kit_sections`
+
 ```xml
-<data inherit_id="mrp.stock_report_delivery_kit_sections" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-esc='kit.display_name']" position="after"><br/>bestehend aus:       
     </xpath>
 </data>
@@ -1913,8 +2031,10 @@ Source: [snippets/mint_system.mrp.stock_report_delivery_kit_sections.expand_sect
 
 ID: `mint_system.mrp.view_mrp_bom_filter.add_operation_ids`
 
+Inherit ID: `mrp.view_mrp_bom_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_bom_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='bom_line_ids']" position="after">
         <filter string="Mit Vorg&#xE4;ngen" name="operation" domain="[('operation_ids', '!=', False)]"/>
         <filter string="Ohne Vorg&#xE4;nge" name="operation" domain="[('operation_ids', '=', False)]"/>
@@ -1930,8 +2050,10 @@ Source: [snippets/mint_system.mrp.view_mrp_bom_filter.add_operation_ids.xml](htt
 
 ID: `mint_system.mrp.view_mrp_bom_filter.add_x_type_description`
 
+Inherit ID: `mrp.view_mrp_bom_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_bom_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='bom_line_ids']" position="after">
         <field name="x_type_description" string="Typenbezeichnung" filter_domain="[('x_type_description', 'ilike', self)]"/>
     </xpath>
@@ -1948,8 +2070,10 @@ Source: [snippets/mint_system.mrp.view_mrp_bom_filter.add_x_type_description.xml
 
 ID: `mint_system.mrp.view_mrp_document_form.show_public`
 
+Inherit ID: `mrp.view_mrp_document_form`
+
 ```xml
-<data inherit_id="mrp.view_mrp_document_form" priority="50">
+<data priority="50">
     <field name="url" position="after">
         <field name="public"/>
     </field>
@@ -1966,8 +2090,10 @@ Source: [snippets/mint_system.mrp.view_mrp_document_form.show_public.xml](https:
 
 ID: `mint_system.mrp.view_mrp_production_filter.add_not_planned`
 
+Inherit ID: `mrp.view_mrp_production_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='filter_planned']" position="after">
         <filter string="Nicht geplant" name="filter_not_planned" domain="[('is_planned', '!=', True)]" groups="mrp.group_mrp_routings"/>
     </xpath>
@@ -1982,8 +2108,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_filter.add_not_planned.xml
 
 ID: `mint_system.mrp.view_mrp_production_filter.add_sale_id`
 
+Inherit ID: `mrp.view_mrp_production_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="replace">
         <field name="name" string="Manufacturing Order" filter_domain="['|', '|', ('name', 'ilike', self), ('origin', 'ilike', self), ('sale_id', 'ilike', self)]"/>
         <field name="sale_id"/>
@@ -2001,8 +2129,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_filter.add_sale_id.xml](ht
 
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_date_planned_start_set`
 
+Inherit ID: `mrp.view_mrp_production_work_order_search`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='date_start_filter']" position="after">
         <separator/>
         <filter string="Start Date Set" name="start_date_set" domain="[('date_planned_start', '!=', False)]"/>
@@ -2018,8 +2148,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_work_order_search.add_date
 
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_material_is_available`
 
+Inherit ID: `mrp.view_mrp_production_work_order_search`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='date_start_filter']" position="after">
         <separator/>
         <filter string="Material is available" name="material_is_available" domain="[('x_reservation_state', '=', 'assigned')]"/>
@@ -2035,8 +2167,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_work_order_search.add_mate
 
 ID: `mint_system.mrp.view_mrp_production_work_order_search.add_product_id`
 
+Inherit ID: `mrp.view_mrp_production_work_order_search`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_work_order_search" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field string="Produkt" name="product_id" filter_domain="['|', '|', '|', ('product_id.name', 'like', self), ('product_id.default_code', 'like', self), ('product_id.type_description', 'like', self), ('product_id.type_description2', 'like', self)]"/>
     </xpath>
@@ -2053,8 +2187,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_work_order_search.add_prod
 
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_date_planned_start_set`
 
+Inherit ID: `mrp.view_mrp_production_workorder_form_view_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='late']" position="after">
         <filter string="Start Date Set" name="start_date_set" domain="[('date_planned_start', '!=', False)]"/>
     </xpath>
@@ -2069,8 +2205,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_workorder_form_view_filter
 
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_planned`
 
+Inherit ID: `mrp.view_mrp_production_workorder_form_view_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='progress']" position="before">
         <filter string="Geplant" name="planned" domain="[('date_planned_start', '!=', False)]" context="{'search_default_planned': 1}"/>
         <filter string="Nicht geplant" name="not_planned" domain="[('date_planned_start', '=', False)]"/>
@@ -2086,8 +2224,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_workorder_form_view_filter
 
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.add_product_id`
 
+Inherit ID: `mrp.view_mrp_production_workorder_form_view_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='production_id']" position="after">
         <field string="Produkt" name="product_id" filter_domain="['|', '|', '|', ('product_id.name', 'like', self), ('product_id.default_code', 'like', self), ('product_id.type_description', 'like', self), ('product_id.type_description2', 'like', self)]"/>
     </xpath>
@@ -2102,8 +2242,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_workorder_form_view_filter
 
 ID: `mint_system.mrp.view_mrp_production_workorder_form_view_filter.x_finished_lot_id`
 
+Inherit ID: `mrp.view_mrp_production_workorder_form_view_filter`
+
 ```xml
-<data inherit_id="mrp.view_mrp_production_workorder_form_view_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="before">
         <field name="x_finished_lot_id"/>
     </xpath>
@@ -2120,8 +2262,10 @@ Source: [snippets/mint_system.mrp.view_mrp_production_workorder_form_view_filter
 
 ID: `mint_system.mrp.workcenter_line_kanban.add_date_planned_start`
 
+Inherit ID: `mrp.workcenter_line_kanban`
+
 ```xml
-<data inherit_id="mrp.workcenter_line_kanban" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='o_kanban_workorder_date']/h5" position="replace"/>
     <xpath expr="//div[@class='o_kanban_record_bottom']/h5" position="replace">
         <h5 class="oe_kanban_bottom_left">
@@ -2154,8 +2298,10 @@ Source: [snippets/mint_system.mrp.workcenter_line_kanban.add_date_planned_start.
 
 ID: `mint_system.mrp.workcenter_line_kanban.default_order_date_planned_start`
 
+Inherit ID: `mrp.workcenter_line_kanban`
+
 ```xml
-<data inherit_id="mrp.workcenter_line_kanban" priority="50">
+<data priority="50">
     <xpath expr="//kanban" position="attributes">
         <attribute name="default_order">date_planned_start</attribute>
     </xpath>

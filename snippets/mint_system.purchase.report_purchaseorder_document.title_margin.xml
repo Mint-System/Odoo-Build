@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[1]" position="attributes">
         <attribute name="style" separator=";" add="margin-top: 2rem"/>
     </xpath>

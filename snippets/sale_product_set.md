@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_product_set.view_order_stock_form.show_button_always`
 
+Inherit ID: `sale_product_set.view_order_stock_form`
+
 ```xml
-<data inherit_id="sale_product_set.view_order_stock_form" priority="50">
+<data priority="50">
     <button name="639" position="attributes">
         <attribute name="attrs"/>
     </button>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.sale_product_set.view_order_stock_form.show_button
 
 ID: `mint_system.sale_product_set.view_product_set_form.x_categ_id`
 
+Inherit ID: `sale_product_set.view_product_set_form`
+
 ```xml
-<data inherit_id="sale_product_set.view_product_set_form" priority="50">
+<data priority="50">
     <field name="product_id" position="after">
         <field name="x_categ_id"/>
     </field>

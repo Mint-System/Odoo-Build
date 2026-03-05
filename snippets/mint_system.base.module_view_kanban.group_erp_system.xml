@@ -1,4 +1,4 @@
-<data inherit_id="base.module_view_kanban" priority="50">
+<data priority="50">
     <button name="button_immediate_install" position="attributes">
         <attribute name="groups">base.group_erp_manager</attribute>
     </button>

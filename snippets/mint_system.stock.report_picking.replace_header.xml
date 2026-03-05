@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='right_box']/.." position="replace">
         <style>
 			table.trimada_header {

@@ -6,8 +6,10 @@
 
 ID: `mint_system.survey.layout.remove_brand_promotion_message`
 
+Inherit ID: `survey.layout`
+
 ```xml
-<data inherit_id="survey.layout" priority="50">
+<data priority="50">
     <div t-call="web.brand_promotion_message" position="replace"/>
 </data>
 
@@ -20,8 +22,10 @@ Source: [snippets/mint_system.survey.layout.remove_brand_promotion_message.xml](
 
 ID: `mint_system.survey.layout.set_head_title`
 
+Inherit ID: `survey.layout`
+
 ```xml
-<data inherit_id="survey.layout" priority="50">
+<data priority="50">
     <xpath expr="//head" position="before">
         <t t-if="survey">
             <t t-set="title" t-value="('Sozialinfo - ' + survey.title) if survey else 'Odoo'"/>
@@ -41,8 +45,10 @@ Source: [snippets/mint_system.survey.layout.set_head_title.xml](https://odoo.bui
 
 ID: `mint_system.survey.survey_question_form.add_button_start_survey`
 
+Inherit ID: `survey.survey_question_form`
+
 ```xml
-<data inherit_id="survey.survey_question_form" priority="50">
+<data priority="50">
     <button name="action_start_session" position="after">
         <button name="action_start_survey" string="Start Survey" type="object" attrs="{'invisible': [('state', '=', 'draft')]}"/>
     </button>
@@ -57,8 +63,10 @@ Source: [snippets/mint_system.survey.survey_question_form.add_button_start_surve
 
 ID: `mint_system.survey.survey_question_form.enable_create`
 
+Inherit ID: `survey.survey_question_form`
+
 ```xml
-<data inherit_id="survey.survey_question_form" priority="50">
+<data priority="50">
     <form position="attributes">
         <attribute name="create">1</attribute>
     </form>
@@ -75,8 +83,10 @@ Source: [snippets/mint_system.survey.survey_question_form.enable_create.xml](htt
 
 ID: `mint_system.survey.survey_question_tree.enable_create`
 
+Inherit ID: `survey.survey_question_tree`
+
 ```xml
-<data inherit_id="survey.survey_question_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
     </tree>
@@ -93,8 +103,10 @@ Source: [snippets/mint_system.survey.survey_question_tree.enable_create.xml](htt
 
 ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`
 
+Inherit ID: `survey.survey_user_input_view_tree`
+
 ```xml
-<data inherit_id="survey.survey_user_input_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="after">
         <field name="x_department_id" optional="show"/>
     </xpath>
@@ -109,8 +121,10 @@ Source: [snippets/mint_system.survey.survey_user_input_view_tree.x_department_id
 
 ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`
 
+Inherit ID: `survey.survey_user_input_view_tree`
+
 ```xml
-<data inherit_id="survey.survey_user_input_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_id']" position="after">
         <field name="x_manager_id" optional="show"/>
     </xpath>

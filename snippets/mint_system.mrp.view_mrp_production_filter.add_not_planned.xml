@@ -1,4 +1,4 @@
-<data inherit_id="mrp.view_mrp_production_filter" priority="50">
+<data priority="50">
     <xpath expr="//filter[@name='filter_planned']" position="after">
         <filter string="Nicht geplant" name="filter_not_planned" domain="[('is_planned', '!=', True)]" groups="mrp.group_mrp_routings"/>
     </xpath>

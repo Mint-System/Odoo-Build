@@ -1,4 +1,4 @@
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//li/field[@name='email']/.." position="after">
         <li t-if="record.website.raw_value" class="o_text_overflow">
             <field name="website"/>

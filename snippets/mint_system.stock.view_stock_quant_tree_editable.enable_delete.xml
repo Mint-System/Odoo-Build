@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="delete">1</attribute>
     </tree>

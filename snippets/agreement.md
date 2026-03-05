@@ -6,8 +6,10 @@
 
 ID: `mint_system.agreement.agreement_type_form_view.hide_domain`
 
+Inherit ID: `agreement.agreement_type_form_view`
+
 ```xml
-<data inherit_id="agreement.agreement_type_form_view" priority="50">
+<data priority="50">
     <field name="domain" position="replace"/>
 </data>
 

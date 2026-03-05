@@ -1,4 +1,4 @@
-<data inherit_id="product.product_normal_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='general_information']//field[@name='barcode']" position="replace"/>
     <xpath expr="//page[@name='general_information']//field[@name='categ_id']" position="after">
         <field name="barcode"/>

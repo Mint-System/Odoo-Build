@@ -1,4 +1,4 @@
-<data inherit_id="stock_delivery_note.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-if='o.delivery_note']" position="replace">
     </xpath>
     <xpath expr="//h2" position="after">

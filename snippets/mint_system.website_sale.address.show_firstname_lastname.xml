@@ -1,4 +1,4 @@
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='name']/.." position="after">
         <div t-attf-class="mb-3 #{error.get('firstname') and 'o_has_error' or ''} col-lg-12 div_firstname">
             <label class="col-form-label" for="firstname">Firstname</label>

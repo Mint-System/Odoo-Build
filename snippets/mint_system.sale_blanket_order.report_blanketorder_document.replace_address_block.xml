@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t/t/div/div[2]" position="replace">
         <t t-set="address">
             <div t-field="doc.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>

@@ -1,4 +1,4 @@
-<data inherit_id="account_batch_payment.print_batch_payment" priority="50">
+<data priority="50">
     <xpath expr=" //tr[@t-as='payment']" position="replace">
       
       <t t-set="sorted_payments" t-value="sorted(o.payment_ids, key=lambda p: (p.partner_id.name or ''))"/>

@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='order_line.product_qty']" position="replace">
         <t t-if="order_line.product_uom.id == 1">
             <span t-field="order_line.product_qty" t-options="{'widget': 'integer'}"/>

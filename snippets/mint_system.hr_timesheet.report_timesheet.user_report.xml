@@ -1,4 +1,4 @@
-<data inherit_id="hr_timesheet.report_timesheet" priority="50">
+<data priority="50">
     <!-- New title -->
     <xpath expr="/t/t/t/div/div[2]" position="after">
         <t t-set="min_date" t-value="min(docs.mapped('date'))"/>

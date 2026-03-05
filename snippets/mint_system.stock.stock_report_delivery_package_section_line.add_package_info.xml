@@ -1,4 +1,4 @@
-<data inherit_id="stock.stock_report_delivery_package_section_line" priority="50">
+<data priority="50">
     <xpath expr="/t/tr/td/span" position="before">
         <strong>Package: </strong>
         <span t-field="package.packaging_id.display_name"/>

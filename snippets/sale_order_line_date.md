@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`
 
+Inherit ID: `sale_order_line_date.report_saleorder_document`
+
 ```xml
-<data inherit_id="sale_order_line_date.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead//tr[1]//th[2]" position="replace">
         <th t-if="doc.state not in ['draft']" id="commitment_date" class="text-left">Commitment Date</th>
     </xpath>

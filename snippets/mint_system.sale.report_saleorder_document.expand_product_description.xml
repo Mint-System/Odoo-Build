@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="56">
+<data priority="56">
     <xpath expr="/t/t/div/table[2]/tbody/t[2]/tr/t[1]/td[3]/span" position="replace">
         <t>
             <span style="font-weight:bold;" t-field="line.product_id.type_description"/>

@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
 
 	<xpath expr="//tr[@t-foreach='o.workorder_ids']/td[1]/span" position="after">
 		<ul style="list-style-type:none;">

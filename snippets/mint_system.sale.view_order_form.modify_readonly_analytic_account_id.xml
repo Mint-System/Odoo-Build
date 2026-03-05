@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="attributes">
         <attribute name="readonly">False</attribute>
     </xpath>

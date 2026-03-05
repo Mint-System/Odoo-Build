@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//table[hasclass('o_main_table')]" position="before">
         <style>
             table.o_main_table th,

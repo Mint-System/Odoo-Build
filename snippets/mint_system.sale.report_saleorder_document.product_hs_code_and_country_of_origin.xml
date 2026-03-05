@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">
         <t t-if="line.product_id.hs_code">
             <br/>

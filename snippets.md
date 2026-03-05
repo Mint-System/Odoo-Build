@@ -67,6 +67,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Hr Contract](snippets/hr_contract.md)
 
+## [Hr Employee Attendance Report](snippets/hr_employee_attendance_report.md)
+
 ## [Hr Expense](snippets/hr_expense.md)
 
 ## [Hr Holidays](snippets/hr_holidays.md)
@@ -104,6 +106,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 ## [Maintenance](snippets/maintenance.md)
 
 ## [Maintenance Plan](snippets/maintenance_plan.md)
+
+## [Mint-System](snippets/mint-system.md)
 
 ## [Mrp](snippets/mrp.md)
 

@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.quantity']" position="replace">
         <span t-esc="'%.2f' % line.quantity"/>
     </xpath>

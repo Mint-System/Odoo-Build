@@ -6,8 +6,10 @@
 
 ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`
 
+Inherit ID: `account_followup.customer_statements_form_view`
+
 ```xml
-<data inherit_id="account_followup.customer_statements_form_view" priority="50">
+<data priority="50">
     <field name="blocked" position="replace" />
 </data>
 
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.account_followup.customer_statements_form_view.rem
 
 ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`
 
+Inherit ID: `account_followup.report_followup_print_all`
+
 ```xml
-<data inherit_id="account_followup.report_followup_print_all" priority="50">
+<data priority="50">
     <t t-call-assets="account_followup.assets_followup_report" position="after">
         <style>
         table.o_account_reports_table {
@@ -48,8 +52,10 @@ Source: [snippets/mint_system.account_followup.report_followup_print_all.style_s
 
 ID: `mint_system.account_followup.template_followup_report.format_table`
 
+Inherit ID: `account_followup.template_followup_report`
+
 ```xml
-<data inherit_id="account_followup.template_followup_report" priority="50">
+<data priority="50">
     <tbody position="before">
         <style>
             .o_account_followup th {
@@ -68,8 +74,10 @@ Source: [snippets/mint_system.account_followup.template_followup_report.format_t
 
 ID: `mint_system.account_followup.template_followup_report.padding_before_table`
 
+Inherit ID: `account_followup.template_followup_report`
+
 ```xml
-<data inherit_id="account_followup.template_followup_report" priority="50">
+<data priority="50">
     <xpath expr="//table[hasclass('o_account_reports_table')]" position="attributes">
         <attribute name="style">padding-top: 2rem</attribute>
     </xpath>
@@ -84,8 +92,10 @@ Source: [snippets/mint_system.account_followup.template_followup_report.padding_
 
 ID: `mint_system.account_followup.template_followup_report.remove_summary_placeholder`
 
+Inherit ID: `account_followup.template_followup_report`
+
 ```xml
-<data inherit_id="account_followup.template_followup_report" priority="50">
+<data priority="50">
     <xpath expr="//span[hasclass('o_account_report_summary_placeholder')]" position="replace"/>
 </data>
 

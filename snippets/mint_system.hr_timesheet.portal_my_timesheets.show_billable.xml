@@ -1,5 +1,5 @@
 <!-- Show billable field for timesheet entries -->
-<data inherit_id="hr_timesheet.portal_my_timesheets" priority="50">
+<data priority="50">
     <xpath expr="//thead/tr/th[4]" position="after">
         <th>Invoice Type</th>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_picking_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date']" position="attributes">
         <attribute name="invisible">0</attribute>
     </xpath>

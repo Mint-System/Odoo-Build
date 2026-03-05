@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_move_line_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="create">1</attribute>
     </tree>

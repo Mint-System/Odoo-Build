@@ -6,8 +6,10 @@
 
 ID: `mint_system.forestry_timesheet.report_project_task_deliveryslip.show_has_trailer`
 
+Inherit ID: `forestry_timesheet.report_project_task_deliveryslip`
+
 ```xml
-<data inherit_id="forestry_timesheet.report_project_task_deliveryslip" priority="50">
+<data priority="50">
     <t t-if="doc.vehicle_id" position="after">
         <br/>
         <t t-if="doc.vehicle_id">

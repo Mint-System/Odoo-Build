@@ -1,4 +1,4 @@
-<data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
+<data priority="50">
     <xpath expr="//h4/.." position="replace">
         <div class="title">Kontoauszug vom <span t-esc="date_from" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
             bis <span t-esc="date_to" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>

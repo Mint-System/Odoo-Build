@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <!-- Remove reference -->
     <xpath expr="/t/t/div/div[1]/div[5]" position="replace">
     </xpath>

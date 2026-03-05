@@ -6,8 +6,10 @@
 
 ID: `mint_system.auth_api_key.auth_api_key_form_view.enable_created_and_edit`
 
+Inherit ID: `auth_api_key.auth_api_key_form_view`
+
 ```xml
-<data inherit_id="auth_api_key.auth_api_key_form_view" priority="60">
+<data priority="60">
     <form position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>

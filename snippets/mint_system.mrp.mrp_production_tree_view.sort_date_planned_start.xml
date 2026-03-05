@@ -1,4 +1,4 @@
-<data inherit_id="mrp.mrp_production_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="default_order">date_planned_start asc</attribute>
     </xpath>

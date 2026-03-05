@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//th[@id='product_uom_qty']" position="replace"/>
     <xpath expr="//th[@id='th_to']" position="after">
         <th id="product_uom_qty">

@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout" priority="50">
+<data priority="50">
     <t t-name="web.external_layout.worksheet">
         <t t-if="not o" t-set="o" t-value="doc"/>
         <t t-if="not company">

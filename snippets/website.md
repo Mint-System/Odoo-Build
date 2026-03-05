@@ -6,8 +6,10 @@
 
 ID: `mint_system.website.option_header_brand_logo.hygentile_url`
 
+Inherit ID: `website.option_header_brand_logo`
+
 ```xml
-<data inherit_id="website.option_header_brand_logo" priority="50">
+<data priority="50">
     <xpath expr="//a" position="attributes">
         <attribute name="href">https://hygentile.com/</attribute>
     </xpath>
@@ -21,8 +23,10 @@ Source: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml
 
 ID: `mint_system.website.option_header_brand_logo.korporation_url`
 
+Inherit ID: `website.option_header_brand_logo`
+
 ```xml
-<data inherit_id="website.option_header_brand_logo" priority="50">
+<data priority="50">
     <xpath expr="//a" position="attributes">
         <attribute name="href">https://www.korporation.ch/</attribute>
     </xpath>
@@ -38,8 +42,10 @@ Source: [snippets/mint_system.website.option_header_brand_logo.korporation_url.x
 
 ID: `mint_system.website.website_search_box_input.hide_search_form`
 
+Inherit ID: `website.website_search_box_input`
+
 ```xml
-<data inherit_id="website.website_search_box_input" priority="50">
+<data priority="50">
     <xpath expr="//form" position="attributes">
         <attribute name="style">display: none;</attribute>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="agreement_legal.partner_agreement_list_view" priority="50">
+<data priority="50">
     <tree position="replace">
         <tree string="Agreements" default_order="code desc, name" multi_edit="1">
             <field name="code"/>

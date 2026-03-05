@@ -1,4 +1,4 @@
-<data inherit_id="sale.sale_order_portal_content" priority="50">
+<data priority="50">
     <t t-set="display_discount" position="replace">
         <t t-set="display_discount" t-value="any(l.discount or l.discount2 or l.discount3 for l in sale_order.order_line)"/>
     </t>

@@ -1,4 +1,4 @@
-<data inherit_id="hr.view_employee_form" priority="50">
+<data priority="50">
     <xpath expr="//header/button[@groups='hr.group_hr_manager']" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>
     </xpath>

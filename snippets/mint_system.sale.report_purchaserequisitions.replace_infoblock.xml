@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_purchaserequisitions" priority="53">
+<data priority="53">
     <xpath expr="//t/t/div/h2" position="after">
         <div class="row mt32 mb32" id="informations" style="font-size:16px; margin-bottom: 0rem">
             <div t-if="o.origin" class="col-auto col-3 mw-100 mb-2">

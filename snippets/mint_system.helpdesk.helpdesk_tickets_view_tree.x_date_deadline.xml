@@ -1,4 +1,4 @@
-<data inherit_id="helpdesk.helpdesk_tickets_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="x_date_deadline" widget="date"/>
     </xpath>

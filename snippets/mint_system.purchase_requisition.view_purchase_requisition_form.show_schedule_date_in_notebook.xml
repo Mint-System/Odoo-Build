@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.view_purchase_requisition_form" priority="50">
+<data priority="50">
     <xpath expr="//notebook//tree/field[@name='schedule_date']" position="attributes">
         <attribute name="groups"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="website_sale.products_item" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
         <span>From</span>
     </xpath>

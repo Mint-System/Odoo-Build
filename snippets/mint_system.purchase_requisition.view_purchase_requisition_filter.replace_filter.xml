@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.view_purchase_requisition_filter" priority="50">
+<data priority="50">
     <xpath expr="/search" position="replace">
         <search>
             <!-- Filter -->

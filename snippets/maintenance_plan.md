@@ -6,8 +6,10 @@
 
 ID: `mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date`
 
+Inherit ID: `maintenance_plan.maintenance_plan_view_form`
+
 ```xml
-<data inherit_id="maintenance_plan.maintenance_plan_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='next_maintenance_date']" position="replace"/>
 </data>
 

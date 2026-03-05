@@ -1,3 +1,3 @@
-<data inherit_id="base_location.view_partner_form" priority="50">
+<data priority="50">
     <field name="zip_id" position="replace"/>
 </data>

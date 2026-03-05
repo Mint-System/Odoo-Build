@@ -1,5 +1,5 @@
 <!-- Change style of first column -->
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//table" position="attributes">
         <attribute name="class" add="mint-system" separator=" "/>
     </xpath>

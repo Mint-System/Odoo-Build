@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//tbody" position="replace">
         <tbody class="invoice_tbody">
             <t t-set="current_subtotal" t-value="0"/>

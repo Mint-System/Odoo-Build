@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_move_line_form" priority="50">
+<data priority="50">
     <field name="lot_id" position="before">
         <field name="product_qty"/>
     </field>

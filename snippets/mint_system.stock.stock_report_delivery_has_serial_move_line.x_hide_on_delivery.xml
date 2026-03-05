@@ -1,4 +1,4 @@
-<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="55">
+<data priority="55">
     <xpath expr="/t" position="replace">
         <t t-name="stock.stock_report_delivery_has_serial_move_line">
             <t t-if="not move_line.product_id.x_hide_on_delivery and move_line.qty_done &gt; 0">

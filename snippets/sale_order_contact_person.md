@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_order_contact_person.view_sale_order_form_contact_person.modify_readonly_partner_contact_id`
 
+Inherit ID: `sale_order_contact_person.view_sale_order_form_contact_person`
+
 ```xml
-<data inherit_id="sale_order_contact_person.view_sale_order_form_contact_person" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_contact_id']" position="attributes">
         <attribute name="attrs">{'readonly': [('state','not in',('draft','sent','sale'))]}</attribute>
     </xpath>

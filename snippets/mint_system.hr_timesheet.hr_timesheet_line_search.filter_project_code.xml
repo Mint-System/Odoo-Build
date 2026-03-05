@@ -1,4 +1,4 @@
-<data inherit_id="hr_timesheet.hr_timesheet_line_search" priority="50">
+<data priority="50">
     <field name="project_id" position="replace">
         <field name="project_id" filter_domain="['|', ('project_id', 'ilike', self), ('project_id.code', 'ilike', self)]"/>
     </field>

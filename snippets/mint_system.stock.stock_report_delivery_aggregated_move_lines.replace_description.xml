@@ -1,4 +1,4 @@
-<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="50">
+<data priority="50">
     <xpath expr="//tr/td[2]" position="replace">
         <td>
             <span t-esc="aggregated_lines[line]['product']['description_sale']"/>
@@ -7,7 +7,7 @@
     </xpath>
 </data>
 <!--
-<data inherit_id="stock.stock_report_delivery_aggregated_move_lines" priority="49">
+<data priority="49">
 
   <xpath expr="//td[1]/span" position="replace">
     <span style="font-weight: bold" t-esc="aggregated_lines[line]['product']['name']"/>

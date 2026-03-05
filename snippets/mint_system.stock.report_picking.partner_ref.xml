@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='div_incoming_address']/div[1]" position="before">
         <div t-if="o.partner_id.ref">
             <span>

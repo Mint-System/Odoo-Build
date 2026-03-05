@@ -1,4 +1,4 @@
-<data inherit_id="hr_payroll.view_hr_payslip_form" priority="50">
+<data priority="50">
     <field name="salary_rule_id" position="before">
         <field name="gio_amount" string="Basis" optional="show"/>
     </field>

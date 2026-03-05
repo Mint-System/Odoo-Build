@@ -1,5 +1,5 @@
 <!-- Show custom field country of origin and hs code -->
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.name']" position="after">
         <t t-if="line.product_id.country_of_origin.code"><br/>
       Country of Origin: <span t-field="line.product_id.country_of_origin.code"/>

@@ -1,4 +1,4 @@
-<data inherit_id="mrp.view_mrp_bom_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='bom_line_ids']" position="after">
         <filter string="Mit Vorg&#xE4;ngen" name="operation" domain="[('operation_ids', '!=', False)]"/>
         <filter string="Ohne Vorg&#xE4;nge" name="operation" domain="[('operation_ids', '=', False)]"/>

@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_picking_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='display_assign_serial']" position="after">
         <field name="sequence" widget="handle"/>
     </xpath>

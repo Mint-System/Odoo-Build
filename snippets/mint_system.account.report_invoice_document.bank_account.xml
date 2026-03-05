@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/p[2]" position="after">
         <t t-if="o.company_id.id==1">
             <t t-if="o.currency_id.name=='CHF'">

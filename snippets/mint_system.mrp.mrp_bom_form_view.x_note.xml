@@ -1,4 +1,4 @@
-<data inherit_id="mrp.mrp_bom_form_view" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='picking_type_id']" position="after">
         <field name="x_note"/>
     </xpath>

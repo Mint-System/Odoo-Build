@@ -1,4 +1,4 @@
-<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+<data priority="50">
     <xpath expr="//div/div[@class='act_as_row lines']" position="replace">
         <div class="act_as_row lines" style="font-style: italic">
             <!--## col1 -->

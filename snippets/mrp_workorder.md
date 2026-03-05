@@ -6,8 +6,10 @@
 
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modify_readonly`
 
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
 ```xml
-<data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='finished_lot_id']" position="attributes">
         <attribute name="attrs">{'readonly': True}</attribute>
     </xpath>
@@ -25,8 +27,10 @@ Source: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.modif
 
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_action_continue`
 
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
 ```xml
-<data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='action_continue'][3]" position="replace">    
   </xpath>
     <xpath expr="//button[@name='action_continue'][3]" position="replace">    
@@ -42,8 +46,10 @@ Source: [snippets/mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remov
 
 ID: `mint_system.mrp_workorder.mrp_workorder_view_form_tablet.remove_button_do_finish`
 
+Inherit ID: `mrp_workorder.mrp_workorder_view_form_tablet`
+
 ```xml
-<data inherit_id="mrp_workorder.mrp_workorder_view_form_tablet" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='do_finish']" position="replace">    
   </xpath>
 </data>

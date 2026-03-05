@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_subtotal']" position="after">
         <th id="tax_amount">
             <span/>

@@ -1,4 +1,4 @@
-<data inherit_id="mail.view_mail_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="editable"/>
     </tree>

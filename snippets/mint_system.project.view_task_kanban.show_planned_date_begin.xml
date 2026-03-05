@@ -1,4 +1,4 @@
-<data inherit_id="project.view_task_kanban" priority="50">
+<data priority="50">
     <div name="date_deadline" position="replace">
         <div t-if="record.planned_date_begin.raw_value" name="planned_date_begin" attrs="{'invisible': [('is_closed', '=', True)]}">
             <field name="planned_date_begin" widget="remaining_days"/>

@@ -6,8 +6,10 @@
 
 ID: `mint_system.mail_activity_board.mail_activity_view_form_board.enable_edit_and_create`
 
+Inherit ID: `mail_activity_board.mail_activity_view_form_board`
+
 ```xml
-<data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
+<data priority="50">
     <form position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>
@@ -23,8 +25,10 @@ Source: [snippets/mint_system.mail_activity_board.mail_activity_view_form_board.
 
 ID: `mint_system.mail_activity_board.mail_activity_view_form_board.show_done_button`
 
+Inherit ID: `mail_activity_board.mail_activity_view_form_board`
+
 ```xml
-<data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
+<data priority="50">
     <xpath expr="//form/sheet" position="before">
         <header>
             <button string="Mark as Done" name="action_done" type="object" class="btn-secondary"/>
@@ -43,8 +47,10 @@ Source: [snippets/mint_system.mail_activity_board.mail_activity_view_form_board.
 
 ID: `mint_system.mail_activity_board.mail_activity_view_search.my_activities_filter`
 
+Inherit ID: `mail_activity_board.mail_activity_view_search`
+
 ```xml
-<data inherit_id="mail_activity_board.mail_activity_view_search" priority="50">
+<data priority="50">
     <filter name="activities_month" position="before">
         <filter string="Mir zugewiesen" name="my_activities" domain="[('user_id', '=', uid)]"/>
     </filter>
@@ -60,6 +66,8 @@ Source: [snippets/mint_system.mail_activity_board.mail_activity_view_search.my_a
 ### My Activities Filter
 
 ID: `mint_system.mail_activity_board.open_boards_activities.my_activities_filter`
+
+Inherit ID: `mail_activity_board.open_boards_activities`
 
 ```xml
 <odoo>

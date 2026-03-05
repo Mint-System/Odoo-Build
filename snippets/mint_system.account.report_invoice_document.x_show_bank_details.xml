@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <p name="payment_communication" position="after">
         <p t-if="o.x_show_bank_details">
             Please use the following communication for your payment: <b><span t-field="o.payment_reference"/></b>

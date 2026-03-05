@@ -1,4 +1,4 @@
-<data inherit_id="mail.mail_notification_light" priority="60">
+<data priority="60">
     <xpath expr="//t[@t-if='has_button_access']/.." position="replace">
         <td valign="middle">
             <span style="font-size: 10px;">

@@ -6,8 +6,10 @@
 
 ID: `mint_system.web.address_layout.colclass_value`
 
+Inherit ID: `web.address_layout`
+
 ```xml
-<data inherit_id="web.address_layout" priority="50">
+<data priority="50">
 
     <xpath expr="//t[@t-set='colclass']" position="replace">
         <t t-set="colclass" t-value="'col-sm-5' if report_type == 'html' else 'col-5'"/>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.web.address_layout.colclass_value.xml](https://odo
 
 ID: `mint_system.web.address_layout.format_address_block`
 
+Inherit ID: `web.address_layout`
+
 ```xml
-<data inherit_id="web.address_layout" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-if='address']" position="replace">
         <t t-if="address">
             <div class="address row">
@@ -54,8 +58,10 @@ Source: [snippets/mint_system.web.address_layout.format_address_block.xml](https
 
 ID: `mint_system.web.address_layout.repositioning_address_blocks`
 
+Inherit ID: `web.address_layout`
+
 ```xml
-<data inherit_id="web.address_layout" priority="50">
+<data priority="50">
     <xpath expr="//div" position="replace">
         <div t-if="address" class="address row mb-4" title="This block is not always present depending on the printed document.">            
             <!-- ADRESSE LINKS -->
@@ -90,8 +96,10 @@ Source: [snippets/mint_system.web.address_layout.repositioning_address_blocks.xm
 
 ID: `mint_system.web.address_layout.style_allnet`
 
+Inherit ID: `web.address_layout`
+
 ```xml
-<data inherit_id="web.address_layout" priority="60">   
+<data priority="60">   
     <xpath expr="//div[@id='informations']" position="attributes">
         <attribute name="style">font-size:10pt;</attribute>
     </xpath>
@@ -107,8 +115,10 @@ Source: [snippets/mint_system.web.address_layout.style_allnet.xml](https://odoo.
 
 ID: `mint_system.web.assets_common.pivot_measure_white_space`
 
+Inherit ID: `web.assets_common`
+
 ```xml
-<data inherit_id="web.assets_common" priority="50">
+<data priority="50">
     <xpath expr="." position="inside">
         <style>
             .o_pivot table thead th:not(.o_pivot_header_cell_closed):not(.o_pivot_header_cell_opened):not(.o_pivot_header_cell) {
@@ -127,8 +137,10 @@ Source: [snippets/mint_system.web.assets_common.pivot_measure_white_space.xml](h
 
 ID: `mint_system.web.assets_common.set_chatter_width`
 
+Inherit ID: `web.assets_common`
+
 ```xml
-<data inherit_id="web.assets_common" priority="50">
+<data priority="50">
     <xpath expr="." position="inside">
         <style>
           @media (min-width: 1534px) {
@@ -149,8 +161,10 @@ Source: [snippets/mint_system.web.assets_common.set_chatter_width.xml](https://o
 
 ID: `mint_system.web.assets_common.set_form_width`
 
+Inherit ID: `web.assets_common`
+
 ```xml
-<data inherit_id="web.assets_common" priority="50">
+<data priority="50">
     <xpath expr="." position="inside">
         <style>
           @media (min-width: 992px) {
@@ -173,8 +187,10 @@ Source: [snippets/mint_system.web.assets_common.set_form_width.xml](https://odoo
 
 ID: `mint_system.web.brand_promotion_message.remove`
 
+Inherit ID: `web.brand_promotion_message`
+
 ```xml
-<data inherit_id="web.brand_promotion_message" priority="50">
+<data priority="50">
     <xpath expr="//t[@name='Brand Promotion Message']" position="replace">
         <t name="Brand Promotion Message" t-name="web.brand_promotion_message"/>
     </xpath>
@@ -191,8 +207,10 @@ Source: [snippets/mint_system.web.brand_promotion_message.remove.xml](https://od
 
 ID: `mint_system.web.external_layout.worksheet`
 
+Inherit ID: `web.external_layout`
+
 ```xml
-<data inherit_id="web.external_layout" priority="50">
+<data priority="50">
     <t t-name="web.external_layout.worksheet">
         <t t-if="not o" t-set="o" t-value="doc"/>
         <t t-if="not company">
@@ -230,8 +248,10 @@ Source: [snippets/mint_system.web.external_layout.worksheet.xml](https://odoo.bu
 
 ID: `mint_system.web.external_layout_bold.add_bank`
 
+Inherit ID: `web.external_layout_bold`
+
 ```xml
-<data inherit_id="web.external_layout_bold" priority="50">
+<data priority="50">
 
     <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
         <attribute name="class">col-3</attribute>
@@ -269,8 +289,10 @@ Source: [snippets/mint_system.web.external_layout_bold.add_bank.xml](https://odo
 
 ID: `mint_system.web.external_layout_bold.remove_background_image`
 
+Inherit ID: `web.external_layout_bold`
+
 ```xml
-<data inherit_id="web.external_layout_bold" priority="50">
+<data priority="50">
     <xpath expr="/t/div[2]" position="replace">
         <div t-attf-class="article o_report_layout_bold o_company_#{company.id}_layout {{  'o_layout_background' if company.layout_background in ['Geometric', 'Custom']  else  '' }}" t-attf-style="background-image: url({{ 'data:image/png;base64,%s' % company.layout_background_image.decode('utf-8') if company.layout_background_image and company.layout_background == 'Custom' else '' }});" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id" t-att-data-oe-lang="o and o.env.context.get('lang')">
             <t t-call="web.address_layout"/>
@@ -288,8 +310,10 @@ Source: [snippets/mint_system.web.external_layout_bold.remove_background_image.x
 
 ID: `mint_system.web.external_layout_bold.set_header_footer_font_size`
 
+Inherit ID: `web.external_layout_bold`
+
 ```xml
-<data inherit_id="web.external_layout_bold" priority="50">
+<data priority="50">
     <xpath expr="/t/div[1]" position="before">
         <style>
       div.footer,
@@ -311,8 +335,10 @@ Source: [snippets/mint_system.web.external_layout_bold.set_header_footer_font_si
 
 ID: `mint_system.web.external_layout_boxed.footer_airwork`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="50">
+<data priority="50">
     <xpath expr="//div[@t-attf-class='footer o_boxed_footer o_company_#{company.id}_layout']" position="replace">
 
         <div t-attf-class="footer o_boxed_footer o_company_#{company.id}_layout">
@@ -355,8 +381,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.footer_airwork.xml](http
 
 ID: `mint_system.web.external_layout_boxed.footer_company_registry`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="50">
+<data priority="50">
     <xpath expr="//li[@t-if='company.vat']" position="after">
         <t t-if="company._name != 'base.document.layout'">
             <li t-if="company.company_registry" class="list-inline-item d-inline">CRN: <span t-field="company.company_registry"/>
@@ -374,8 +402,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.footer_company_registry.
 
 ID: `mint_system.web.external_layout_boxed.hide_company_details`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='company_address']/.." position="replace"/>
 </data>
 
@@ -388,9 +418,11 @@ Source: [snippets/mint_system.web.external_layout_boxed.hide_company_details.xml
 
 ID: `mint_system.web.external_layout_boxed.hide_page_numbering`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
 <?xml version="1.0"?>
-<data inherit_id="web.external_layout_boxed" priority="50">
+<data priority="50">
     <xpath expr="//span[@class='page']/.." position="replace"/>
 </data>
 ```
@@ -402,8 +434,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.hide_page_numbering.xml]
 
 ID: `mint_system.web.external_layout_boxed.increase_logo_size`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="50">
+<data priority="50">
     <xpath expr="//img[@t-if='company.logo']" position="attributes">
         <attribute name="style">width: 720px; margin-top: 10px</attribute>
     </xpath>
@@ -418,8 +452,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml](
 
 ID: `mint_system.web.external_layout_boxed.style_carbo_link`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="60">
+<data priority="60">
     <xpath expr="//div[@t-field='company.report_footer']/.." position="attributes">
         <attribute name="style">font-size: 76%</attribute>
     </xpath>
@@ -434,8 +470,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.style_carbo_link.xml](ht
 
 ID: `mint_system.web.external_layout_boxed.style_gelso`
 
+Inherit ID: `web.external_layout_boxed`
+
 ```xml
-<data inherit_id="web.external_layout_boxed" priority="60">
+<data priority="60">
     <xpath expr="//div[@class='o_boxed_header']" position="after">
         <style>
                 .mb8 {
@@ -466,8 +504,10 @@ Source: [snippets/mint_system.web.external_layout_boxed.style_gelso.xml](https:/
 
 ID: `mint_system.web.external_layout_standard.eksb_layout`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <div class="row">
@@ -521,8 +561,10 @@ Source: [snippets/mint_system.web.external_layout_standard.eksb_layout.xml](http
 
 ID: `mint_system.web.external_layout_standard.footer_Kunststoffsammelsack`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
   <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
    
     <t t-if="report_type == 'pdf'">
@@ -555,8 +597,10 @@ Source: [snippets/mint_system.web.external_layout_standard.footer_Kunststoffsamm
 
 ID: `mint_system.web.external_layout_standard.footer_airwork`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
   <xpath expr="//div[@t-attf-class='footer o_standard_footer o_company_#{company.id}_layout']" position="replace">
 
     <style>
@@ -619,8 +663,10 @@ Source: [snippets/mint_system.web.external_layout_standard.footer_airwork.xml](h
 
 ID: `mint_system.web.external_layout_standard.footer_brand`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
   <xpath expr="//div[@class='o_footer_content d-flex border-top pt-2']/.." position="replace">
 
     <t t-if="report_type == 'pdf'">
@@ -649,8 +695,10 @@ Source: [snippets/mint_system.web.external_layout_standard.footer_brand.xml](htt
 
 ID: `mint_system.web.external_layout_standard.footer_company_registry`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//li[@t-if='company.vat']" position="after">
         <t t-if="company._name != 'base.document.layout'">
             <li t-if="company.company_registry" class="list-inline-item d-inline">CRN: <span t-field="company.company_registry"/>
@@ -668,8 +716,10 @@ Source: [snippets/mint_system.web.external_layout_standard.footer_company_regist
 
 ID: `mint_system.web.external_layout_standard.format_header_slogan`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='moto']" position="replace">
         <style>
       h4 {
@@ -690,8 +740,10 @@ Source: [snippets/mint_system.web.external_layout_standard.format_header_slogan.
 
 ID: `mint_system.web.external_layout_standard.header_allnet`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div/div/img/../.." position="replace">
         
         <t t-if="report_type == 'pdf'">
@@ -721,8 +773,10 @@ Source: [snippets/mint_system.web.external_layout_standard.header_allnet.xml](ht
 
 ID: `mint_system.web.external_layout_standard.header_brand`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace">
 
         <t t-if="report_type == 'pdf'">
@@ -770,8 +824,10 @@ Source: [snippets/mint_system.web.external_layout_standard.header_brand.xml](htt
 
 ID: `mint_system.web.external_layout_standard.header_kunststoffsammelsack`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace">
      
         <t t-if="report_type == 'pdf'">
@@ -818,8 +874,10 @@ Source: [snippets/mint_system.web.external_layout_standard.header_kunststoffsamm
 
 ID: `mint_system.web.external_layout_standard.header_styles`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="before">
         <style>
         h2 {
@@ -838,8 +896,10 @@ Source: [snippets/mint_system.web.external_layout_standard.header_styles.xml](ht
 
 ID: `mint_system.web.external_layout_standard.hide_address`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='company_address']/.." position="replace"/>
 </data>
 
@@ -852,8 +912,10 @@ Source: [snippets/mint_system.web.external_layout_standard.hide_address.xml](htt
 
 ID: `mint_system.web.external_layout_standard.hide_header`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace"/>
 </data>
 
@@ -866,8 +928,10 @@ Source: [snippets/mint_system.web.external_layout_standard.hide_header.xml](http
 
 ID: `mint_system.web.external_layout_standard.hide_moto`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='moto']" position="replace"/>
 </data>
 
@@ -880,8 +944,10 @@ Source: [snippets/mint_system.web.external_layout_standard.hide_moto.xml](https:
 
 ID: `mint_system.web.external_layout_standard.increase_logo_size`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//img[@t-if='company.logo']" position="attributes">
         <!-- <attribute name="style">max-height: 90px;</attribute> -->
         <attribute name="style">max-width: 250px; margin-top: 10px</attribute>
@@ -897,8 +963,10 @@ Source: [snippets/mint_system.web.external_layout_standard.increase_logo_size.xm
 
 ID: `mint_system.web.external_layout_standard.move_company_details`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='row'][2]" position="replace"/>
     <xpath expr="//div[@name='moto']" position="replace">
         <div class="col-6 text-right" style="margin-top:22px;" t-field="company.report_header" name="moto"/>
@@ -917,8 +985,10 @@ Source: [snippets/mint_system.web.external_layout_standard.move_company_details.
 
 ID: `mint_system.web.external_layout_standard.remove_company_info_footer`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='financial_infos']/../ul[1]" position="replace">
   </xpath>
 </data>
@@ -932,9 +1002,11 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_company_info_f
 
 ID: `mint_system.web.external_layout_standard.remove_contact`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
 <!-- Remove contact info in footer -->
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <!-- Works until Odoo 14.0 -->
     <xpath expr="//li[@t-if='company.phone']" position="replace">
   </xpath>
@@ -951,8 +1023,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_contact.xml](h
 
 ID: `mint_system.web.external_layout_standard.remove_footer_line`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <div style="border-top: 1px solid black;" position="attributes">
         <attribute name="style"/>
     </div>
@@ -967,8 +1041,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_footer_line.xm
 
 ID: `mint_system.web.external_layout_standard.remove_header_address`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='company_address']" position="replace">
   </xpath>
 </data>
@@ -982,8 +1058,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_header_address
 
 ID: `mint_system.web.external_layout_standard.remove_header_line`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <div style="border-bottom: 1px solid black;" position="attributes">
         <attribute name="style"/>
     </div>
@@ -998,8 +1076,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_header_line.xm
 
 ID: `mint_system.web.external_layout_standard.remove_header_space`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('pt-5')]" position="attributes">
         <attribute name="class"/>
     </xpath>
@@ -1014,8 +1094,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_header_space.x
 
 ID: `mint_system.web.external_layout_standard.remove_paging`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <div t-if="report_type == 'pdf'" position="replace"/>
 </data>
 
@@ -1028,8 +1110,10 @@ Source: [snippets/mint_system.web.external_layout_standard.remove_paging.xml](ht
 
 ID: `mint_system.web.external_layout_standard.replace_footer`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
 <xpath expr="/t/div[3]" position="replace">
 
   <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
@@ -1109,8 +1193,10 @@ Source: [snippets/mint_system.web.external_layout_standard.replace_footer.xml](h
 
 ID: `mint_system.web.external_layout_standard.replace_footer_right`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//t[1]/div[3]" position="replace">
         <div t-attf-class="footer o_standard_footer o_company_#{company.id}_layout">
             <div class="text-right" style="">
@@ -1137,8 +1223,10 @@ Source: [snippets/mint_system.web.external_layout_standard.replace_footer_right.
 
 ID: `mint_system.web.external_layout_standard.replace_header`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <table style="width:100%; font-size: 9pt; color:rgb(102,102,102); border-color: white; font-family:arial;">
@@ -1187,8 +1275,10 @@ Source: [snippets/mint_system.web.external_layout_standard.replace_header.xml](h
 
 ID: `mint_system.web.external_layout_standard.replace_header_with_image`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <div class="row">
@@ -1217,9 +1307,11 @@ Source: [snippets/mint_system.web.external_layout_standard.replace_header_with_i
 
 ID: `mint_system.web.external_layout_standard.replace_url`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
 <!-- Replace website url in document footer -->
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <!-- Works until Odoo 14.0 -->
     <xpath expr="//li[@t-if='company.website']" position="replace">
         <li t-if="company.website" class="list-inline-item d-inline">www.example.ch</li>
@@ -1235,8 +1327,10 @@ Source: [snippets/mint_system.web.external_layout_standard.replace_url.xml](http
 
 ID: `mint_system.web.external_layout_standard.set_header_footer_font_size`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <!-- <xpath expr="/t/div[1]" position="before">
     <style>
       div.footer,
@@ -1267,8 +1361,10 @@ Source: [snippets/mint_system.web.external_layout_standard.set_header_footer_fon
 
 ID: `mint_system.web.external_layout_standard.show_sale_order_in_footer`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[3]/div[1]" position="before">
         <span t-if="xmlid == 'sale.report_saleorder'"/>
     </xpath>
@@ -1283,8 +1379,10 @@ Source: [snippets/mint_system.web.external_layout_standard.show_sale_order_in_fo
 
 ID: `mint_system.web.external_layout_standard.style_airwork`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="60">
+<data priority="60">
     <xpath expr="//div[1]/div[1]/div[1]" position="attributes">
         <attribute name="class">col-12 text-center</attribute>
     </xpath>
@@ -1305,8 +1403,10 @@ Source: [snippets/mint_system.web.external_layout_standard.style_airwork.xml](ht
 
 ID: `mint_system.web.external_layout_standard.style_allnet`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="60">
+<data priority="60">
 
     <xpath expr="//h2" position="attributes">
         <attribute name="style">font-size:18pt;</attribute>
@@ -1330,8 +1430,10 @@ Source: [snippets/mint_system.web.external_layout_standard.style_allnet.xml](htt
 
 ID: `mint_system.web.external_layout_standard.style_header`
 
+Inherit ID: `web.external_layout_standard`
+
 ```xml
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='col-12'][1]/div[1]" position="attributes">
         <attribute name="style">border-bottom: 0px ;</attribute>
     </xpath>
@@ -1345,6 +1447,8 @@ Source: [snippets/mint_system.web.external_layout_standard.style_header.xml](htt
 ### Tissa Layout
 
 ID: `mint_system.web.external_layout_standard.tissa_layout`
+
+Inherit ID: `web.external_layout_standard`
 
 ```xml
 <t t-name="web.external_layout_standard">
@@ -1410,8 +1514,10 @@ Source: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](htt
 
 ID: `mint_system.web.internal_layout.header_styles`
 
+Inherit ID: `web.internal_layout`
+
 ```xml
-<data inherit_id="web.internal_layout" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="before">
         <style>
         h2 {
@@ -1430,8 +1536,10 @@ Source: [snippets/mint_system.web.internal_layout.header_styles.xml](https://odo
 
 ID: `mint_system.web.internal_layout.replace_header`
 
+Inherit ID: `web.internal_layout`
+
 ```xml
-<data inherit_id="web.internal_layout" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='header']" position="replace">
         <div class="header">
             <div class="row">
@@ -1456,8 +1564,10 @@ Source: [snippets/mint_system.web.internal_layout.replace_header.xml](https://od
 
 ID: `mint_system.web.internal_layout.trimada`
 
+Inherit ID: `web.internal_layout`
+
 ```xml
-<data inherit_id="web.internal_layout" priority="16">
+<data priority="16">
     <t t-name="web.internal_layout.trimada">
         <t t-if="not o" t-set="o" t-value="doc"/>
         <t t-if="not company">
@@ -1510,8 +1620,10 @@ Source: [snippets/mint_system.web.internal_layout.trimada.xml](https://odoo.buil
 
 ID: `mint_system.web.layout.color_navbar`
 
+Inherit ID: `web.layout`
+
 ```xml
-<data inherit_id="web.layout" priority="50">
+<data priority="50">
     <!-- The id's of the companies have to be adjusted -->
     <xpath expr="//body" position="inside">
         <t t-if="request.httprequest.cookies.get('cids') and request.httprequest.cookies.get('cids')[0] == '1'">
@@ -1534,8 +1646,10 @@ Source: [snippets/mint_system.web.layout.color_navbar.xml](https://odoo.build/sn
 
 ID: `mint_system.web.login.remove_login_form`
 
+Inherit ID: `web.login`
+
 ```xml
-<data inherit_id="web.login" priority="50">
+<data priority="50">
     <xpath expr="//form/div[1]" position="attributes">
         <attribute name="t-if">'debug=1' in request.httprequest.url</attribute>
     </xpath>
@@ -1572,8 +1686,10 @@ Source: [snippets/mint_system.web.login.remove_login_form.xml](https://odoo.buil
 
 ID: `mint_system.web.login_layout.disable_footer`
 
+Inherit ID: `web.login_layout`
+
 ```xml
-<data inherit_id="web.login_layout" priority="50">
+<data priority="50">
     <xpath expr="//t/div" position="before">
         <t t-set="disable_footer" t-value="True"/>
     </xpath>
@@ -1590,8 +1706,10 @@ Source: [snippets/mint_system.web.login_layout.disable_footer.xml](https://odoo.
 
 ID: `mint_system.web.styles_company_report.set_font`
 
+Inherit ID: `web.styles_company_report`
+
 ```xml
-<data inherit_id="web.styles_company_report" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='font']" position="replace">
         <t t-set="font" t-value="'arial'"/>
     </xpath>

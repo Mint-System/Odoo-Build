@@ -1,4 +1,4 @@
-<data inherit_id="industry_fsm.project_task_view_list_fsm" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='progress']" position="after">
         <field name="id" string="ID" optional="hide"/>
     </xpath>

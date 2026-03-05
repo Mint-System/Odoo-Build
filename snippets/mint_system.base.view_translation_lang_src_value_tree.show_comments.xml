@@ -1,4 +1,4 @@
-<data inherit_id="base.view_translation_lang_src_value_tree" priority="50">
+<data priority="50">
     <field name="value" position="after">
         <field name="comments"/>
     </field>

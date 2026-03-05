@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//h2/../.." position="attributes">
         <attribute name="id">title-with-border</attribute>
     </xpath>

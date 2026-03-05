@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_bold" priority="50">
+<data priority="50">
 
     <xpath expr="//span[@t-field='company.report_footer']/../../div[1]" position="attributes">
         <attribute name="class">col-3</attribute>

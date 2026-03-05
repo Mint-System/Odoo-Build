@@ -1,4 +1,4 @@
-<data inherit_id="hr_holidays.hr_leave_view_form_manager_approve" priority="50">
+<data priority="50">
     <field name="employee_id" position="after">
         <field name="meeting_id"/>
     </field>

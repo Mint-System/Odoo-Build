@@ -1,3 +1,3 @@
-<data inherit_id="helpdesk.helpdesk_ticket_view_form" priority="50">
+<data priority="50">
     <field name="properties" position="replace"/>
 </data>

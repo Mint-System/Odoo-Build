@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']//p[@t-field='o.user_id']" position="replace">
         <p t-field="o.user_id.email"/>
     </xpath>

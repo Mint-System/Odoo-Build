@@ -1,4 +1,4 @@
-<data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
+<data priority="50">
     <form position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>

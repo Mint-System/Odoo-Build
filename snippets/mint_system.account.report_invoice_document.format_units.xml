@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@name='account_invoice_line_accountable']/td[2]" position="attributes">
         <attribute name="class">text-nowrap text-end</attribute>
     </xpath>

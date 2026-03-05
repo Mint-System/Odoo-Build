@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_description']" position="after">
         <th id="commitment_date">
             <span>Geplantes Datum ETD</span>

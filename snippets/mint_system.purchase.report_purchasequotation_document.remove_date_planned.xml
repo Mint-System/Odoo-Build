@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_expected_date']" position="replace">
   </xpath>
     <xpath expr="//span[@t-field='order_line.date_planned']/.." position="replace">

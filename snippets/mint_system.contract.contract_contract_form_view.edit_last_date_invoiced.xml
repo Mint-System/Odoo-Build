@@ -1,4 +1,4 @@
-<data inherit_id="contract.contract_contract_form_view" priority="50">
+<data priority="50">
     <field name="last_date_invoiced" position="attributes">
         <attribute name="readonly">0</attribute>
         <attribute name="groups"/>

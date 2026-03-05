@@ -1,4 +1,4 @@
-<data inherit_id="base.view_bank_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="display_name"/>
     </xpath>

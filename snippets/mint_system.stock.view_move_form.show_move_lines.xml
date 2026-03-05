@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_move_form" priority="50">
+<data priority="50">
     <group name="origin_grp" position="before">
         <group name="move_lines">
             <field name="move_line_ids">

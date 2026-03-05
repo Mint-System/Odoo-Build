@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='account_invoice_line_name']/span" position="attributes">
         <attribute name="style">white-space: pre-wrap;</attribute>
     </xpath>

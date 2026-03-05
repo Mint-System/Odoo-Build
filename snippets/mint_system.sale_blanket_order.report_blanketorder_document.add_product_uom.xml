@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table/thead//th[3]" position="after">
         <th name="th_product_uom" class="text-right">ME</th>
     </xpath>

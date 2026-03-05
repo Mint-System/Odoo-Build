@@ -1,4 +1,4 @@
-<data inherit_id="hr_attendance.view_attendance_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="edit">1</attribute>
     </tree>

@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='td_name']" position="inside">
         <br/>
         <span t-field="line.product_template_id.x_warranty"/>

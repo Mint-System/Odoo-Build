@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_standard" priority="60">
+<data priority="60">
     <xpath expr="//div[1]/div[1]/div[1]" position="attributes">
         <attribute name="class">col-12 text-center</attribute>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="contract.contract_contract_tree_view" priority="50">
+<data priority="50">
     <field name="partner_id" position="after">
         <field name="recurring_next_date" optional="show"/>
     </field>

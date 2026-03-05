@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="60">
+<data priority="60">
     <style>
       .cell_left {
       text-align: left;

@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']" position="replace"/>
     <xpath expr="//t[@t-set='information_block']" position="replace">
         <span>Carbo-Link AG | Underm&#xFC;listrasse 25 | CH 8320 Fehraltorf</span>

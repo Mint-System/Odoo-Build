@@ -6,8 +6,10 @@
 
 ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`
 
+Inherit ID: `fleet.fleet_vehicle_view_form`
+
 ```xml
-<data inherit_id="fleet.fleet_vehicle_view_form" priority="50">
+<data priority="50">
     <xpath expr="//group/group[5]" position="after">
         <group string="Reservation">
             <field name="reserved_ids">

@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="attributes">
         <attribute name="options">{"show_time":false}</attribute>
         <attribute name="widget">datetime</attribute>

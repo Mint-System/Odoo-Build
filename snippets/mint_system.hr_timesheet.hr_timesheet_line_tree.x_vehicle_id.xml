@@ -1,4 +1,4 @@
-<data inherit_id="hr_timesheet.hr_timesheet_line_tree" priority="50">
+<data priority="50">
     <xpath expr="//tree/field[@name='category_id']" position="after">
         <field name="x_vehicle_id" optional="hide"/>
     </xpath>

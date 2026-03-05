@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_purchaserequisitions" priority="49">
+<data priority="49">
     <xpath expr="//div/t[2]" position="after">
         <div style="font-size:16px; margin-top: 4rem">
             <p t-field="o.description"/>

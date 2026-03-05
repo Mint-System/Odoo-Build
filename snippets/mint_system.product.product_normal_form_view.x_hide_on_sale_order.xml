@@ -1,4 +1,4 @@
-<data inherit_id="product.product_normal_form_view" priority="50">
+<data priority="50">
     <field name="description_sale" position="after">
         <field name="x_hide_on_sale_order"/>
     </field>

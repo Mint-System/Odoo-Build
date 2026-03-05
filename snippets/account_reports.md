@@ -6,8 +6,10 @@
 
 ID: `mint_system.account_reports.view_archived_tag_move_tree.vat`
 
+Inherit ID: `account_reports.view_archived_tag_move_tree`
+
 ```xml
-<data inherit_id="account_reports.view_archived_tag_move_tree" priority="50">
+<data priority="50">
     <xpath expr="//tree/field[@name='partner_id']" position="after">
         <field name="partner_vat" string="USt-IdNr"/>
     </xpath>

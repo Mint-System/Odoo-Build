@@ -1,4 +1,4 @@
-<data inherit_id="hr_holidays.hr_leave_allocation_view_form" priority="50">
+<data priority="50">
     <field name="allocation_type" position="after">
         <field name="parent_id"/>
     </field>

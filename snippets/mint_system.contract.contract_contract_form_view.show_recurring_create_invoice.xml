@@ -1,4 +1,4 @@
-<data inherit_id="contract.contract_contract_form_view" priority="50">
+<data priority="50">
     <button name="recurring_create_invoice" position="attributes">
         <attribute name="groups"/>
     </button>

@@ -1,4 +1,4 @@
-<data inherit_id="mail_activity_board.mail_activity_view_search" priority="50">
+<data priority="50">
     <filter name="activities_month" position="before">
         <filter string="Mir zugewiesen" name="my_activities" domain="[('user_id', '=', uid)]"/>
     </filter>

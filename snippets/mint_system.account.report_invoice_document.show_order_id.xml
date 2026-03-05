@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="60">
+<data priority="60">
     <xpath expr="//td[@name='account_invoice_line_name']" position="replace">
         <td name="account_invoice_line_name">
             <t t-if="not line.sale_line_ids.task_id.sale_line_id.order_id">

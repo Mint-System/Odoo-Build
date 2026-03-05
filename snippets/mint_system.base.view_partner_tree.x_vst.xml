@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_tree" priority="60">
+<data priority="60">
     <field name="active" position="after">
         <field name="x_vst" optional="hide"/>
     </field>

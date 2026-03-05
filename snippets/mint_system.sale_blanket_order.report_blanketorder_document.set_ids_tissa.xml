@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='page']/div[2]" position="attributes">
         <attribute name="id">address</attribute>
         <attribute name="class" separator=" " add="trimada"/>

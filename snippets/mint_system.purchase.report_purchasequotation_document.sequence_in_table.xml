@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//table[1]/thead/tr/th[1]" position="before">
         <th>
             <span>Pos</span>

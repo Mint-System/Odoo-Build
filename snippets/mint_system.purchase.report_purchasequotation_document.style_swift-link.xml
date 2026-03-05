@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchasequotation_document" priority="60">
+<data priority="60">
 
   <xpath expr="//table[contains(@class,'table-borderless')]/tbody/t/tr" position="attributes">
     <attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>

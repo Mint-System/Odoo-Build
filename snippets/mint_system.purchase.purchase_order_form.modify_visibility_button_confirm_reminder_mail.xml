@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='confirm_reminder_mail']" position="attributes">
         <attribute name="groups">base.group_user</attribute>
     </xpath>

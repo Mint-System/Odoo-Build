@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_priceunit']" position="before">
         <th name="th_delivery_dates" class="text-right">Delivery Date</th>
     </xpath>

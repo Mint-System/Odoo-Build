@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_form" priority="50">
+<data priority="50">
     <field name="partner_id" position="after">
         <field name="project_id"/>
     </field>

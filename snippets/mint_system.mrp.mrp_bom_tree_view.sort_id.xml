@@ -1,4 +1,4 @@
-<data inherit_id="mrp.mrp_bom_tree_view" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="default_order">id desc</attribute>
     </xpath>

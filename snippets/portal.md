@@ -6,8 +6,10 @@
 
 ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
 
+Inherit ID: `portal.portal_my_details_fields`
+
 ```xml
-<data inherit_id="portal.portal_my_details_fields" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='name']/.." position="replace">
         <div t-attf-class="mb-3 #{error.get('firstname') and 'o_has_error' or ''} col-xl-6">
             <label class="col-form-label" for="firstname">Firstname</label>
@@ -29,8 +31,10 @@ Source: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_las
 
 ID: `mint_system.portal.portal_my_details_fields.show_street2`
 
+Inherit ID: `portal.portal_my_details_fields`
+
 ```xml
-<data inherit_id="portal.portal_my_details_fields" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='street']/.." position="after">
         <div t-attf-class="mb-3 #{error.get('street') and 'o_has_error' or ''} col-xl-6">
             <label class="col-form-label" for="street2">Street2</label>

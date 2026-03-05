@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='td_quantity']/span[1]" position="replace">
         <t t-if="is_confirmation">
             <span id="product_uom_qty_confirmed" t-esc="line.qty_to_deliver"/>

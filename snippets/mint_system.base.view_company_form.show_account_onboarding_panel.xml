@@ -1,4 +1,4 @@
-<data inherit_id="base.view_company_form" priority="50">
+<data priority="50">
     <field name="website" position="after">
         <field name="account_dashboard_onboarding_state"/>
     </field>

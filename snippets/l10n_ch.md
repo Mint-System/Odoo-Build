@@ -6,8 +6,10 @@
 
 ID: `mint_system.l10n_ch.isr_invoice_form.disable_print_buttons`
 
+Inherit ID: `l10n_ch.isr_invoice_form`
+
 ```xml
-<data inherit_id="l10n_ch.isr_invoice_form" priority="50">
+<data priority="50">
     <button name="print_ch_qr_bill" position="replace"/>
     <button id="l10n_ch_btn_isr_print_highlight" position="replace"/>
     <button id="btn_isr_print_normal" position="replace"/>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.l10n_ch.isr_invoice_form.disable_print_buttons.xml
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='swissqr_page_title']" position="before">
         <style>
           .swissqr_page_title {
@@ -45,8 +49,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace">
         <span if="o.company_id.country_id.code != 'CH'" t-field="o.company_id.country_id.code"/>
     </xpath>
@@ -70,8 +76,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_co
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_street`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street']" position="replace"/>
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.street2']" position="replace">
         <span t-field="o.partner_id.street2"/>
@@ -99,8 +107,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_street.xml
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <h1 position="attributes">
         <attribute name="style">white-space: nowrap;</attribute>
     </h1>
@@ -115,8 +125,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='report_header_style']" position="replace">
         <t t-set="report_header_style">padding-top:6.2mm; padding-left:23mm; padding-right:8.2mm;</t>
     </xpath>
@@ -131,8 +143,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_sty
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
     <xpath expr="//div[@id='receipt_indication_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
@@ -150,8 +164,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='indications_zone']//span[@t-field='company.country_id.code']" position="replace">
         <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
     </xpath>
@@ -182,8 +198,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//h1" position="replace">
         <h1 style="padding-left:8.2mm;" t-esc="o.name"/>
     </xpath>
@@ -198,8 +216,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_pref
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']" position="replace">
         <span t-esc="o.partner_id.name or o.partner_id.parent_id.name"/>
     </xpath>
@@ -217,8 +237,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercia
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='swissqr_content_v2']" position="after">
         <style>
           .trimada {
@@ -252,8 +274,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title.xml
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <t t-set="additional_info" position="replace">
         <t t-set="additional_info" t-value="o.name"/>
     </t>
@@ -268,8 +292,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_in
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('swissqr_page_title')]" position="before">
         <style>
       .swissqr_receipt {
@@ -294,8 +320,10 @@ Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml](
 
 ID: `mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name`
 
+Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
+
 ```xml
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath
         expr="//div[@id='indications_zone']//span[@t-field='o.partner_id.commercial_partner_id.name']"
         position="replace"

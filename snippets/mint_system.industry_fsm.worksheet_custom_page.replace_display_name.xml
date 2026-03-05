@@ -1,4 +1,4 @@
-<data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.display_name']" position="replace">
         <span t-field="line.name"/>
     </xpath>

@@ -6,8 +6,10 @@
 
 ID: `mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard`
 
+Inherit ID: `hr.hr_employee_public_view_form`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_form" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
         <button name="action_time_off_dashboard" type="object" class="oe_stat_button" icon="fa-calendar" context="{'search_default_employee_id': id}" groups="base.group_user" help="Remaining leaves">
             <div class="o_field_widget o_stat_info">
@@ -32,8 +34,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_of
 
 ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`
 
+Inherit ID: `hr.hr_employee_public_view_kanban`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+<data priority="50">
     <xpath expr="//ul/li[3]" position="after">
         <li t-if="record.mobile_phone.raw_value" class="o_force_ltr">
             <field name="mobile_phone"/>
@@ -50,8 +54,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone
 
 ID: `mint_system.hr.hr_employee_public_view_kanban.show_identification_id`
 
+Inherit ID: `hr.hr_employee_public_view_kanban`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+<data priority="50">
     <xpath expr="//templates" position="before">
         <field name="identification_id"/>
     </xpath>
@@ -73,8 +79,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_identificat
 
 ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`
 
+Inherit ID: `hr.hr_employee_public_view_kanban`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_kanban" priority="50">
+<data priority="50">
     <xpath expr="//templates" position="before">
         <field name="current_leave_id"/>
         <field name="current_leave_state"/>
@@ -99,8 +107,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](
 
 ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`
 
+Inherit ID: `hr.hr_employee_public_view_tree`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_tree" priority="50">
+<data priority="50">
     <field name="work_phone" position="after">
         <field name="mobile_phone" class="o_force_ltr"/>
     </field>
@@ -115,8 +125,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.x
 
 ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`
 
+Inherit ID: `hr.hr_employee_public_view_tree`
+
 ```xml
-<data inherit_id="hr.hr_employee_public_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='parent_id']" position="after">
         <field name="birthday_public"/>
     </xpath>
@@ -133,8 +145,10 @@ Source: [snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_publ
 
 ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`
 
+Inherit ID: `hr.hr_kanban_view_employees`
+
 ```xml
-<data inherit_id="hr.hr_kanban_view_employees" priority="50">
+<data priority="50">
     <xpath expr="//ul/li[3]" position="after">
         <li t-if="record.mobile_phone.raw_value" class="o_force_ltr">
             <field name="mobile_phone"/>
@@ -153,8 +167,10 @@ Source: [snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml](
 
 ID: `mint_system.hr.plan_wizard.plan_permission`
 
+Inherit ID: `hr.plan_wizard`
+
 ```xml
-<data inherit_id="hr.plan_wizard" priority="50">
+<data priority="50">
     <xpath expr="//footer/button[1]" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>
     </xpath>
@@ -171,8 +187,10 @@ Source: [snippets/mint_system.hr.plan_wizard.plan_permission.xml](https://odoo.b
 
 ID: `mint_system.hr.res_users_view_form_profile.show_identification_id`
 
+Inherit ID: `hr.res_users_view_form_profile`
+
 ```xml
-<data inherit_id="hr.res_users_view_form_profile" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='job_title']/.." position="before">
         <h2 class="col-12">
             <field name="identification_id" attrs="{'readonly': True}"/>
@@ -191,8 +209,10 @@ Source: [snippets/mint_system.hr.res_users_view_form_profile.show_identification
 
 ID: `mint_system.hr.view_employee_form.plan_permission`
 
+Inherit ID: `hr.view_employee_form`
+
 ```xml
-<data inherit_id="hr.view_employee_form" priority="50">
+<data priority="50">
     <xpath expr="//header/button[@groups='hr.group_hr_manager']" position="attributes">
         <attribute name="groups">hr.group_hr_user</attribute>
     </xpath>
@@ -207,8 +227,10 @@ Source: [snippets/mint_system.hr.view_employee_form.plan_permission.xml](https:/
 
 ID: `mint_system.hr.view_employee_form.show_last_attendance`
 
+Inherit ID: `hr.view_employee_form`
+
 ```xml
-<data inherit_id="hr.view_employee_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <field name="last_attendance_id"/>
     </xpath>
@@ -223,8 +245,10 @@ Source: [snippets/mint_system.hr.view_employee_form.show_last_attendance.xml](ht
 
 ID: `mint_system.hr.view_employee_form.user_id_domain`
 
+Inherit ID: `hr.view_employee_form`
+
 ```xml
-<data inherit_id="hr.view_employee_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="attributes">
         <attribute name="domain">[]</attribute>
     </xpath>
@@ -241,8 +265,10 @@ Source: [snippets/mint_system.hr.view_employee_form.user_id_domain.xml](https://
 
 ID: `mint_system.hr.view_employee_tree.add_mobile_phone`
 
+Inherit ID: `hr.view_employee_tree`
+
 ```xml
-<data inherit_id="hr.view_employee_tree" priority="50">
+<data priority="50">
     <field name="work_phone" position="after">
         <field name="mobile_phone" class="o_force_ltr"/>
     </field>
@@ -259,8 +285,10 @@ Source: [snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml](https:
 
 ID: `mint_system.hr.view_hr_job_form.description_widget_html`
 
+Inherit ID: `hr.view_hr_job_form`
+
 ```xml
-<data inherit_id="hr.view_hr_job_form" priority="50">
+<data priority="50">
     <field name="description" position="attributes">
         <attribute name="widget">html</attribute>
     </field>

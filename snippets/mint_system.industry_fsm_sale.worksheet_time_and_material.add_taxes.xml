@@ -1,4 +1,4 @@
-<data inherit_id="industry_fsm_sale.worksheet_time_and_material" priority="60">
+<data priority="60">
     <xpath expr="//th[@class='text-end'][4]" position="after">
         <th id="final_tax" t-if="final_tax" class="text-end">Taxes</th>
     </xpath>

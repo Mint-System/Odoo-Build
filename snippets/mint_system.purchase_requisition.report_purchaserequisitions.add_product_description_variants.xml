@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//tbody//span[@t-field='line_ids.product_id.name']" position="after">
         <t t-if="line_ids.product_description_variants">
             <br/>

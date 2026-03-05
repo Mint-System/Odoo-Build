@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='row mt32 mb32'][1]" position="inside">
         <t t-if="o.finished_move_line_ids">
             <div class="col-3">

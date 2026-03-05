@@ -1,3 +1,3 @@
-<data inherit_id="mail.mail_notification_light" priority="50">
+<data priority="50">
     <xpath expr="//body[1]/table[1]/tr[2]/td[1]" position="replace"/>
 </data>

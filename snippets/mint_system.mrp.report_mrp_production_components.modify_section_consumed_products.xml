@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrp_production_components" priority="50">
+<data priority="50">
     <xpath expr="//table" position="replace">
         <style>
     table#section_consumed_products {

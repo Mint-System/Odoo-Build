@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_stock_quant_tree_editable" priority="50">
+<data priority="50">
     <field name="removal_date" position="after">
         <field name="x_expiration_date" optional="show"/>
     </field>

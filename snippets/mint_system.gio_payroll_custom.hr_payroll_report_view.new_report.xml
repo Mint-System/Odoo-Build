@@ -1,4 +1,4 @@
-<data inherit_id="gio_payroll_custom.hr_payroll_report_view" priority="50">
+<data priority="50">
     <xpath expr="/t" position="replace">
         <template id="hr_payroll_report_view">
             <t t-foreach="docs" t-as="doc">

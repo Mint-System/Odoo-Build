@@ -6,6 +6,8 @@
 
 ID: `mint_system.res_groups.hr_holidays.holidays_self_responsible`
 
+Inherit ID: `res_groups.hr_holidays`
+
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>

@@ -1,4 +1,4 @@
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='field_required']" position="replace">
         <input type="hidden" name="field_required" t-att-value="'name,email'"/>
     </xpath>

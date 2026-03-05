@@ -6,8 +6,10 @@
 
 ID: `mint_system.project.edit_project.domain_action_view_so`
 
+Inherit ID: `project.edit_project`
+
 ```xml
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <button name="action_view_so" position="attributes">
         <attribute name="attrs">{}</attribute>
     </button>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.project.edit_project.domain_action_view_so.xml](ht
 
 ID: `mint_system.project.edit_project.show_collaborator_ids`
 
+Inherit ID: `project.edit_project`
+
 ```xml
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <field name="privacy_visibility" position="after">
         <field name="collaborator_ids"/>
     </field>
@@ -38,8 +42,10 @@ Source: [snippets/mint_system.project.edit_project.show_collaborator_ids.xml](ht
 
 ID: `mint_system.project.edit_project.show_date`
 
+Inherit ID: `project.edit_project`
+
 ```xml
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <field name="description" position="before">
         <group>
             <field name="date"/>
@@ -56,8 +62,10 @@ Source: [snippets/mint_system.project.edit_project.show_date.xml](https://odoo.b
 
 ID: `mint_system.project.edit_project.show_date_start`
 
+Inherit ID: `project.edit_project`
+
 ```xml
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <field name="description" position="before">
         <group>
             <field name="date_start"/>
@@ -74,8 +82,10 @@ Source: [snippets/mint_system.project.edit_project.show_date_start.xml](https://
 
 ID: `mint_system.project.edit_project.show_gantt_dates`
 
+Inherit ID: `project.edit_project`
+
 ```xml
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <field name="description" position="before">
         <label for="date_start" string="Planned Date"/>
         <div class="w-100">
@@ -100,8 +110,10 @@ Source: [snippets/mint_system.project.edit_project.show_gantt_dates.xml](https:/
 
 ID: `mint_system.project.view_project.disable_create`
 
+Inherit ID: `project.view_project`
+
 ```xml
-<data inherit_id="project.view_project" priority="50">
+<data priority="50">
     <xpath expr="//tree" position="attributes">
         <attribute name="create">0</attribute>
     </xpath>
@@ -116,8 +128,10 @@ Source: [snippets/mint_system.project.view_project.disable_create.xml](https://o
 
 ID: `mint_system.project.view_project.show_date_start`
 
+Inherit ID: `project.view_project`
+
 ```xml
-<data inherit_id="project.view_project" priority="50">
+<data priority="50">
     <field name="user_id" position="before">
         <field name="date_start" optional="show"/>
     </field>
@@ -132,8 +146,10 @@ Source: [snippets/mint_system.project.view_project.show_date_start.xml](https://
 
 ID: `mint_system.project.view_project.show_privacy_visibility`
 
+Inherit ID: `project.view_project`
+
 ```xml
-<data inherit_id="project.view_project" priority="50">
+<data priority="50">
     <field name="user_id" position="after">
         <field name="privacy_visibility" optional="hide"/>
     </field>
@@ -149,6 +165,8 @@ Source: [snippets/mint_system.project.view_project.show_privacy_visibility.xml](
 ### View
 
 ID: `mint_system.project.view_project_calendar.view`
+
+Inherit ID: `project.view_project_calendar`
 
 ```xml
 <record id="project.view_project_calendar.view" model="ir.ui.view">
@@ -174,8 +192,10 @@ Source: [snippets/mint_system.project.view_project_calendar.view.xml](https://od
 
 ID: `mint_system.project.view_project_kanban.disable_create`
 
+Inherit ID: `project.view_project_kanban`
+
 ```xml
-<data inherit_id="project.view_project_kanban" priority="50">
+<data priority="50">
     <xpath expr="//kanban" position="attributes">
         <attribute name="create">0</attribute>
     </xpath>
@@ -190,8 +210,10 @@ Source: [snippets/mint_system.project.view_project_kanban.disable_create.xml](ht
 
 ID: `mint_system.project.view_project_kanban.sort_date_desc`
 
+Inherit ID: `project.view_project_kanban`
+
 ```xml
-<data inherit_id="project.view_project_kanban" priority="50">
+<data priority="50">
     <xpath expr="//kanban" position="attributes">
         <attribute name="default_order">date desc</attribute>
       </xpath>
@@ -208,8 +230,10 @@ Source: [snippets/mint_system.project.view_project_kanban.sort_date_desc.xml](ht
 
 ID: `mint_system.project.view_task_form2.domain_gantt_dates`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <label for="planned_date_begin" position="attributes">
         <attribute name="attrs"/>
     </label>
@@ -227,8 +251,10 @@ Source: [snippets/mint_system.project.view_task_form2.domain_gantt_dates.xml](ht
 
 ID: `mint_system.project.view_task_form2.domain_sale_line_id_active`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='sale_line_id']" position="attributes">
         <attribute name="domain">[('x_service_policy', '=', 'delivered_timesheet'),('order_id.active', '=', True),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale'])]</attribute>
     </xpath>
@@ -243,8 +269,10 @@ Source: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_active
 
 ID: `mint_system.project.view_task_form2.domain_sale_line_id_service`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='sale_line_id']" position="attributes">
         <attribute name="domain">[('x_service_policy', '=', 'delivered_timesheet'),('company_id', '=', company_id), ('is_service', '=', True), ('order_partner_id', 'child_of', commercial_partner_id), ('is_expense', '=', False), ('state', 'in', ['sale', 'done']), ('order_id', '=?', project_sale_order_id)]</attribute>
     </xpath>
@@ -259,8 +287,10 @@ Source: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_servic
 
 ID: `mint_system.project.view_task_form2.parent_domain`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='parent_id']" position="replace">
         <field name="parent_id" domain="[('parent_id', '=', False),('project_id', '=', project_id)]" attrs="{'invisible' : [('subtask_count', '&gt;', 0)]}" groups="project.group_subtask_project"/>
     </xpath>
@@ -275,8 +305,10 @@ Source: [snippets/mint_system.project.view_task_form2.parent_domain.xml](https:/
 
 ID: `mint_system.project.view_task_form2.remove_timer_buttons`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <button name="action_timer_start" position="replace"/>
     <button name="action_timer_stop" position="replace"/>
     <button name="action_timer_pause" position="replace"/>
@@ -292,8 +324,10 @@ Source: [snippets/mint_system.project.view_task_form2.remove_timer_buttons.xml](
 
 ID: `mint_system.project.view_task_form2.show_allow_timesheets`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="after">
         <field name="allow_timesheets"/>
     </xpath>
@@ -308,8 +342,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_allow_timesheets.xml]
 
 ID: `mint_system.project.view_task_form2.show_analytic_account_active`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="after">
         <field name="analytic_account_active"/>
     </xpath>
@@ -324,8 +360,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_analytic_account_acti
 
 ID: `mint_system.project.view_task_form2.show_display_timesheet_timer`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="after">
         <field name="display_timesheet_timer"/>
     </xpath>
@@ -340,8 +378,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_display_timesheet_tim
 
 ID: `mint_system.project.view_task_form2.show_encode_uom_in_days`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="after">
         <field name="encode_uom_in_days"/>
     </xpath>
@@ -356,8 +396,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_encode_uom_in_days.xm
 
 ID: `mint_system.project.view_task_form2.show_gantt_dates`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <field name="date_deadline" position="after">
         <label for="planned_date_begin" string="Planned Date"/>
         <div class="w-100">
@@ -380,8 +422,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_gantt_dates.xml](http
 
 ID: `mint_system.project.view_task_form2.show_invoice_type`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='timesheet_ids']/tree[1]/field[@name='unit_amount']" position="after">
         <field name="timesheet_invoice_type"/>
     </xpath>
@@ -396,8 +440,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_invoice_type.xml](htt
 
 ID: `mint_system.project.view_task_form2.show_key`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='dependency_task_ids']/tree[1]/field[1]" position="before">
         <field name="key"/>
     </xpath>
@@ -412,8 +458,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_key.xml](https://odoo
 
 ID: `mint_system.project.view_task_form2.show_partner_mobile`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_phone']" position="after">
         <field name="partner_mobile" widget="phone"/>
     </xpath>
@@ -428,8 +476,10 @@ Source: [snippets/mint_system.project.view_task_form2.show_partner_mobile.xml](h
 
 ID: `mint_system.project.view_task_form2.timesheet_sort_date_desc`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='timesheet_ids']/tree" position="attributes">
         <attribute name="default_order">date desc</attribute>
     </xpath>
@@ -444,8 +494,10 @@ Source: [snippets/mint_system.project.view_task_form2.timesheet_sort_date_desc.x
 
 ID: `mint_system.project.view_task_form2.x_business_requirement_id`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <field name="partner_id" position="before">
         <field name="x_business_requirement_id" domain="[('x_project_id', '=', project_id)]" context="{'default_project_id': project_id}"/>
     </field>
@@ -460,8 +512,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_business_requirement_id.
 
 ID: `mint_system.project.view_task_form2.x_lead_id`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <field name="partner_id" position="before">
         <field name="x_lead_id" attrs="{'invisible': [('x_lead_id','=', False)]}"/>
     </field>
@@ -476,8 +530,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_lead_id.xml](https://odo
 
 ID: `mint_system.project.view_task_form2.x_not_billable`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <field name="partner_id" position="after">
         <field name="x_not_billable"/>
     </field>
@@ -492,8 +548,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_not_billable.xml](https:
 
 ID: `mint_system.project.view_task_form2.x_systemname`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='tag_ids']" position="after">
         <field name="x_systemname"/>
     </xpath>
@@ -508,8 +566,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_systemname.xml](https://
 
 ID: `mint_system.project.view_task_form2.x_user_text`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='tag_ids']" position="after">
         <field name="x_user_text"/>
     </xpath>
@@ -524,8 +584,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_user_text.xml](https://o
 
 ID: `mint_system.project.view_task_form2.x_vehicle_id`
 
+Inherit ID: `project.view_task_form2`
+
 ```xml
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_ids']" position="after">
         <field name="x_vehicle_id"/>
     </xpath>
@@ -542,8 +604,10 @@ Source: [snippets/mint_system.project.view_task_form2.x_vehicle_id.xml](https://
 
 ID: `mint_system.project.view_task_kanban.show_planned_date_begin`
 
+Inherit ID: `project.view_task_kanban`
+
 ```xml
-<data inherit_id="project.view_task_kanban" priority="50">
+<data priority="50">
     <div name="date_deadline" position="replace">
         <div t-if="record.planned_date_begin.raw_value" name="planned_date_begin" attrs="{'invisible': [('is_closed', '=', True)]}">
             <field name="planned_date_begin" widget="remaining_days"/>
@@ -562,8 +626,10 @@ Source: [snippets/mint_system.project.view_task_kanban.show_planned_date_begin.x
 
 ID: `mint_system.project.view_task_tree2.sale_line_optional`
 
+Inherit ID: `project.view_task_tree2`
+
 ```xml
-<data inherit_id="project.view_task_tree2" priority="50">
+<data priority="50">
     <field name="stage_id" position="after">
         <field name="sale_line_id" optional="hide"/>
     </field>

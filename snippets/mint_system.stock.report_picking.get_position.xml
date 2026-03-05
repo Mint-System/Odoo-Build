@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <!-- <xpath expr="//th[@name='th_product']" position="before">
     <t t-if="o.sale_id or o.purchase_id"> -->
     <xpath expr="//th[@id='default_code']" position="before">

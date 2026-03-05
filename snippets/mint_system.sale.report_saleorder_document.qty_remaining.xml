@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//td[@name='td_quantity']" position="replace">
         <t t-set="blanket_line_ids" t-value="doc.blanket_order_id.line_ids.filtered(lambda r: r.product_id.id == line.product_id.id)"/>
         <t t-set="remaining_qty" t-value="sum(blanket_line_ids.mapped('remaining_uom_qty'))"/>

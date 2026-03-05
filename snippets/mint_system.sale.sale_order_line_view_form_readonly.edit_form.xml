@@ -1,4 +1,4 @@
-<data inherit_id="sale.sale_order_line_view_form_readonly" priority="50">
+<data priority="50">
     <form position="replace">
         <form string="Sales Order Item">
             <sheet>

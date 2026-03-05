@@ -1,4 +1,4 @@
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//t[2]" position="replace"/>
     <xpath expr="//span[@itemprop='name']" position="attributes">
         <attribute name="t-esc">object.name</attribute>

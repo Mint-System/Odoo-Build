@@ -1,4 +1,4 @@
-<data inherit_id="account.view_bank_statement_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='statement_line_ids']//field[@name='ref']" position="after">
         <field name="move_id" optional="hidden"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="mail.mail_notification_borders" priority="50">
+<data priority="50">
     <xpath expr="//tbody" position="replace">
         <tbody>
             <!-- CONTENT -->

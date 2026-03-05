@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
         <style>
             table[name="invoice_line_table"] thead th {

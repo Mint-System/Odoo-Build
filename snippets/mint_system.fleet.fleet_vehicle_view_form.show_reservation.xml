@@ -1,4 +1,4 @@
-<data inherit_id="fleet.fleet_vehicle_view_form" priority="50">
+<data priority="50">
     <xpath expr="//group/group[5]" position="after">
         <group string="Reservation">
             <field name="reserved_ids">

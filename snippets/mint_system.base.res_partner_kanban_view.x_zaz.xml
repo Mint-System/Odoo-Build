@@ -1,4 +1,4 @@
-<data inherit_id="base.res_partner_kanban_view" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='kanban-box']//field[@name='display_name']/.." position="after">
         <br/>
         <field name="x_zaz"/>

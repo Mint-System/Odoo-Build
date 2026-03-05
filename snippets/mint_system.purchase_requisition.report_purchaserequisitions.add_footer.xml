@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//table[@id='main_table']" position="after">
         <style>
       table#footer {

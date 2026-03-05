@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="replace">
         <h2 class="mt16">
             <t t-if="not (env.context.get('proforma', False) or is_pro_forma)">

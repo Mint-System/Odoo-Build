@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='inventory']//field[@name='tracking']" position="after">
         <field name="last_outgoing_date"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="before">
         <!-- Get all sale orders without duplicates -->
         <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>

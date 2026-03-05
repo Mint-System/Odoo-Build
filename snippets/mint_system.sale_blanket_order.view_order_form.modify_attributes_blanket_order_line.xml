@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.view_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='blanket_order_line']" position="before">
         <field name="order_partner_id" invisible="1"/>
     </xpath>

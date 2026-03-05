@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//h2/t[2]/span" position="replace">
         <!-- <span>Auftragsbestätigung # </span> -->
         <span>Order Confirmation # </span>

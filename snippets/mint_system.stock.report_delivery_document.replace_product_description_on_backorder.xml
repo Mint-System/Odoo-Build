@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath t-if="o.backorder_ids and backorders" expr="//table[@name='stock_backorder_table']/tbody/t/tr/td[1]" position="replace">
         <td>
             <span style="font-weight: bold" t-field="bo_line.product_id.type_description"/>

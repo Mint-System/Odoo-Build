@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr[1]/th[1]" position="before">
         <th>
             <span>Pos</span>

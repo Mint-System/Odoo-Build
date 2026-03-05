@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_stock_move_line_operation_tree" priority="50">
+<data priority="50">
     <field name="product_uom_qty" position="attributes">
         <attribute name="readonly">0</attribute>
     </field>

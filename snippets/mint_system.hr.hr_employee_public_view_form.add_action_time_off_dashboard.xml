@@ -1,4 +1,4 @@
-<data inherit_id="hr.hr_employee_public_view_form" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('oe_button_box')]" position="inside">
         <button name="action_time_off_dashboard" type="object" class="oe_stat_button" icon="fa-calendar" context="{'search_default_employee_id': id}" groups="base.group_user" help="Remaining leaves">
             <div class="o_field_widget o_stat_info">

@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <div id="informations" position="replace">
         <style>
             div#informations th {}

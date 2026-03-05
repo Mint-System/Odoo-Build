@@ -1,4 +1,4 @@
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='partner_phone']" position="after">
         <field name="partner_mobile" widget="phone"/>
     </xpath>

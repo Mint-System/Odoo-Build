@@ -1,4 +1,4 @@
-<data inherit_id="account_sale_timesheet_report.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//h3[1]" position="before">
         <p style="page-break-before:always;">&#xA0;</p>
     </xpath>

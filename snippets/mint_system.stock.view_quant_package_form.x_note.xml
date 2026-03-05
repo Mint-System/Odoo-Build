@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_quant_package_form" priority="50">
+<data priority="50">
     <xpath expr="//group/group/field[@name='location_id']" position="after">
         <field name="x_note"/>
     </xpath>

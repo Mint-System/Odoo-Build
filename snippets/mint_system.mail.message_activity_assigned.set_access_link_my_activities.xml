@@ -1,4 +1,4 @@
-<data inherit_id="mail.message_activity_assigned" priority="50">
+<data priority="50">
     <xpath expr="//p[1]" position="replace">
         <p style="margin: 16px 0px 16px 0px;">
             <t t-if="activity.res_model == 'hr.employee'">

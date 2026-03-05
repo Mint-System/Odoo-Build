@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <p t-field="doc.note" position="replace">
         <style>
             div#note {

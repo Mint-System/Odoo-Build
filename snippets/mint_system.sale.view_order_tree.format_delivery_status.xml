@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='delivery_status']" position="attributes">
         <attribute name="widget">badge</attribute>
         <attribute name="decoration-success">delivery_status=='full'</attribute>

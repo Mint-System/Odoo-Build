@@ -6,8 +6,10 @@
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.agreement_subtype_domain`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <field name="agreement_subtype_id" position="attributes">
         <attribute name="domain"/>
     </field>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.agreem
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.description_optional`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <field name="description" position="attributes">
         <attribute name="required">False</attribute>
     </field>
@@ -39,8 +43,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.descri
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_description`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <field name="description" position="replace"/>
 </data>
 
@@ -53,8 +59,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_d
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_parties`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <field name="use_parties_content" position="attributes">
         <attribute name="invisible">1</attribute>
     </field>
@@ -72,8 +80,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_p
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.hide_special_terms`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <page name="structure" position="attributes">
         <attribute name="invisible">1</attribute>
     </page>
@@ -97,8 +107,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.hide_s
 
 ID: `mint_system.agreement_legal.partner_agreement_form_view.x_group_ids_and_x_user_ids`
 
+Inherit ID: `agreement_legal.partner_agreement_form_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_form_view" priority="50">
+<data priority="50">
     <field name="agreement_subtype_id" position="after">
         <field name="x_group_ids" widget="many2many_tags" domain="[('category_id.name','=','Agreement')]"/>
         <field name="x_user_ids" widget="many2many_tags"/>
@@ -116,8 +128,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_form_view.x_grou
 
 ID: `mint_system.agreement_legal.partner_agreement_list_view.replace_tree`
 
+Inherit ID: `agreement_legal.partner_agreement_list_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_list_view" priority="50">
+<data priority="50">
     <tree position="replace">
         <tree string="Agreements" default_order="code desc, name" multi_edit="1">
             <field name="code"/>
@@ -145,8 +159,10 @@ Source: [snippets/mint_system.agreement_legal.partner_agreement_list_view.replac
 
 ID: `mint_system.agreement_legal.partner_agreement_search_view.partner_first`
 
+Inherit ID: `agreement_legal.partner_agreement_search_view`
+
 ```xml
-<data inherit_id="agreement_legal.partner_agreement_search_view" priority="50">
+<data priority="50">
     <field name="name" position="replace"/>
     <field name="partner_id" position="replace"/>
     <field name="code" position="before">

@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_description']" position="before">
         <th name="th_picking_name" class="text-right">
             <span>Delivery Bill</span>

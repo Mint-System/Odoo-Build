@@ -1,4 +1,4 @@
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="mode">week</attribute>
     </calendar>

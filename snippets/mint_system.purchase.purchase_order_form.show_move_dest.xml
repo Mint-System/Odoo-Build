@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='order_line']/tree//field[@name='price_unit']" position="after">
         <field name="move_ids" widget="many2many" optional="hide"/>
     </xpath>

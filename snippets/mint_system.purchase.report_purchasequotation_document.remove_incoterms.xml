@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='informations']" position="replace"/>
     <!--
     <xpath expr="/t[1]/t[1]/div[1]/div[2]/div[1]/strong[1]" position="replace"/>

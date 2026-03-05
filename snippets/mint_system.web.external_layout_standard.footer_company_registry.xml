@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//li[@t-if='company.vat']" position="after">
         <t t-if="company._name != 'base.document.layout'">
             <li t-if="company.company_registry" class="list-inline-item d-inline">CRN: <span t-field="company.company_registry"/>

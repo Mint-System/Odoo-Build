@@ -1,4 +1,4 @@
-<data inherit_id="stock.stock_report_delivery_has_serial_move_line" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='move_line.lot_id.name']" position="after">
        <span t-field="move_line.lot_id.name" t-options="{&quot;widget&quot;: &quot;barcode&quot;, &quot;width&quot;: 350, &quot;height&quot;: 50}"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="hr_contract.hr_contract_view_form" priority="50">
+<data priority="50">
     <field name="structure_type_id" position="after">
         <field name="x_struct_id"/>
     </field>

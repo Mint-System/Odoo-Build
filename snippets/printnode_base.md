@@ -6,8 +6,10 @@
 
 ID: `mint_system.printnode_base.printnode_scenario_domain_editor.remove_domain_widget`
 
+Inherit ID: `printnode_base.printnode_scenario_domain_editor`
+
 ```xml
-<data inherit_id="printnode_base.printnode_scenario_domain_editor" priority="50">
+<data priority="50">
     <field name="domain" position="attributes">
         <attribute name="widget"/>
     </field>

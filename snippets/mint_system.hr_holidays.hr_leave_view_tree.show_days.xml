@@ -1,4 +1,4 @@
-<data inherit_id="hr_holidays.hr_leave_view_tree" priority="50">
+<data priority="50">
     <field name="duration_display" position="before">
         <field name="number_of_days" sum="Number of Days" optional="hide"/>
     </field>

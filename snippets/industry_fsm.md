@@ -6,8 +6,10 @@
 
 ID: `mint_system.industry_fsm.project_task_view_list_fsm.show_id`
 
+Inherit ID: `industry_fsm.project_task_view_list_fsm`
+
 ```xml
-<data inherit_id="industry_fsm.project_task_view_list_fsm" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='progress']" position="after">
         <field name="id" string="ID" optional="hide"/>
     </xpath>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.industry_fsm.project_task_view_list_fsm.show_id.xm
 
 ID: `mint_system.industry_fsm.worksheet_custom.add_info`
 
+Inherit ID: `industry_fsm.worksheet_custom`
+
 ```xml
-<data inherit_id="industry_fsm.worksheet_custom" priority="50">
+<data priority="50">
     <xpath expr="//div[1]" position="before">
         <h1>Arbeitsrapport</h1>
         <span id="title">
@@ -69,8 +73,10 @@ Source: [snippets/mint_system.industry_fsm.worksheet_custom.add_info.xml](https:
 
 ID: `mint_system.industry_fsm.worksheet_custom.replace_layout`
 
+Inherit ID: `industry_fsm.worksheet_custom`
+
 ```xml
-<data inherit_id="industry_fsm.worksheet_custom" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-call='web.external_layout']" position="replace">
         <t t-call="web.external_layout_worksheet">
             <t t-call="industry_fsm.worksheet_custom_page" t-lang="doc.partner_id.lang"/>
@@ -89,8 +95,10 @@ Source: [snippets/mint_system.industry_fsm.worksheet_custom.replace_layout.xml](
 
 ID: `mint_system.industry_fsm.worksheet_custom_page.remove_address`
 
+Inherit ID: `industry_fsm.worksheet_custom_page`
+
 ```xml
-<data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
+<data priority="50">
     <xpath expr="//div/div[1]" position="replace"/>
 </data>
 
@@ -103,8 +111,10 @@ Source: [snippets/mint_system.industry_fsm.worksheet_custom_page.remove_address.
 
 ID: `mint_system.industry_fsm.worksheet_custom_page.replace_display_name`
 
+Inherit ID: `industry_fsm.worksheet_custom_page`
+
 ```xml
-<data inherit_id="industry_fsm.worksheet_custom_page" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='line.display_name']" position="replace">
         <span t-field="line.name"/>
     </xpath>
@@ -119,8 +129,10 @@ Source: [snippets/mint_system.industry_fsm.worksheet_custom_page.replace_display
 
 ID: `mint_system.industry_fsm.worksheet_custom_page.style_moser`
 
+Inherit ID: `industry_fsm.worksheet_custom_page`
+
 ```xml
-<data inherit_id="industry_fsm.worksheet_custom_page" priority="60">
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
               h1 {

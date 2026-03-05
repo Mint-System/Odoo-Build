@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//tbody[1]//td[1]/span" position="after">
         <t t-if="ml.product_id.drawing_file">
             <br/>

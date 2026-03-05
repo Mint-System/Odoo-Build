@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_quotation_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='create_date']" position="after">
         <field name="date_order" widget="date" optional="show"/>
     </xpath>

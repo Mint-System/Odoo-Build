@@ -6,8 +6,10 @@
 
 ID: `mint_system.contract.contract_contract_form_view.edit_last_date_invoiced`
 
+Inherit ID: `contract.contract_contract_form_view`
+
 ```xml
-<data inherit_id="contract.contract_contract_form_view" priority="50">
+<data priority="50">
     <field name="last_date_invoiced" position="attributes">
         <attribute name="readonly">0</attribute>
         <attribute name="groups"/>
@@ -23,8 +25,10 @@ Source: [snippets/mint_system.contract.contract_contract_form_view.edit_last_dat
 
 ID: `mint_system.contract.contract_contract_form_view.show_recurring_create_invoice`
 
+Inherit ID: `contract.contract_contract_form_view`
+
 ```xml
-<data inherit_id="contract.contract_contract_form_view" priority="50">
+<data priority="50">
     <button name="recurring_create_invoice" position="attributes">
         <attribute name="groups"/>
     </button>
@@ -41,8 +45,10 @@ Source: [snippets/mint_system.contract.contract_contract_form_view.show_recurrin
 
 ID: `mint_system.contract.contract_contract_tree_view.show_recurring_next_date`
 
+Inherit ID: `contract.contract_contract_tree_view`
+
 ```xml
-<data inherit_id="contract.contract_contract_tree_view" priority="50">
+<data priority="50">
     <field name="partner_id" position="after">
         <field name="recurring_next_date" optional="show"/>
     </field>

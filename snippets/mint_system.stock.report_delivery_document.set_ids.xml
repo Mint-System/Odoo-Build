@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="60">
+<data priority="60">
     <xpath expr="//table[@name='stock_move_table']//th[2]" position="attributes">
         <attribute name="id">description</attribute>
     </xpath>

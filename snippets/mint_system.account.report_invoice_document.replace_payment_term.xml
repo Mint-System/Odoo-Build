@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
   <xpath expr="//div[@name='payment_term']" position="replace">
 
     <t t-if="o.invoice_payment_term_id.note and o.company_id.id == 8">

@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_standard" priority="60">
+<data priority="60">
 
     <xpath expr="//h2" position="attributes">
         <attribute name="style">font-size:18pt;</attribute>

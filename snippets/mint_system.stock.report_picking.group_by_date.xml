@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('page')]" position="before">
         <!-- Get all lines without duplicates -->
         <t t-set="dates" t-value="list(set([d.date() for d in o.move_ids_without_package.mapped('date')]))"/>

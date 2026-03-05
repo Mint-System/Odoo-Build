@@ -1,4 +1,4 @@
-<data inherit_id="mail.mail_notification_paynow" priority="60">
+<data priority="60">
     <xpath expr="//td[1]/span[1]" position="replace">
         <span style="font-size: 10px;">
             <t t-esc="model_description or 'document'"/>

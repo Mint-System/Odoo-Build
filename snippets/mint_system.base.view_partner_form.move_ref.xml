@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='sales_purchases']//field[@name='ref']" position="replace">
   </xpath>
     <xpath expr="//field[@name='vat']" position="after">

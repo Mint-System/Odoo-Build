@@ -1,4 +1,4 @@
-<data inherit_id="sale_management.sale_order_form_quote" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='optional_products']" position="attributes">
         <attribute name="invisible">1</attribute>
     </xpath>

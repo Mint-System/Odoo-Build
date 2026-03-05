@@ -1,4 +1,4 @@
-<data inherit_id="certificate_planer.document_form" priority="50">
+<data priority="50">
     <button name="view_document_report" position="attributes">
         <attribute name="invisible">1</attribute>
     </button>

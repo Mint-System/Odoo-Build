@@ -6,8 +6,10 @@
 
 ID: `mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates`
 
+Inherit ID: `account_ebics_batch.ebics_batch_log_view_tree`
+
 ```xml
-<data inherit_id="account_ebics_batch.ebics_batch_log_view_tree" priority="50">
+<data priority="50">
     <field name="create_date" position="after">
       <field name="date_from"/>
       <field name="date_to"/>

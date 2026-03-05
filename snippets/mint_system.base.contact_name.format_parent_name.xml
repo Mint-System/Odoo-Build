@@ -1,4 +1,4 @@
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//t[1]/span" position="replace">
         <!--if object has no parent show name only-->
         <t t-if="not object.parent_name">

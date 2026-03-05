@@ -1,5 +1,5 @@
 <!-- Align invoice tax row right -->
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_taxes']" position="attributes">
         <attribute name="t-attf-class" separator=" " remove="text-right" add="text-right"/>
     </xpath>

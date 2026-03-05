@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='category_id']" position="after">
         <field name="color" widget="color_picker"/>
     </xpath>

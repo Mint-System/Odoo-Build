@@ -1,4 +1,4 @@
-<data inherit_id="web.internal_layout" priority="16">
+<data priority="16">
     <t t-name="web.internal_layout.trimada">
         <t t-if="not o" t-set="o" t-value="doc"/>
         <t t-if="not company">

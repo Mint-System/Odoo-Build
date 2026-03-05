@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//td[@id='product_qty']" position="replace">
         <td id="product_qty" class="text-right">
             <span id="qty" t-field="line_ids.product_qty"/>

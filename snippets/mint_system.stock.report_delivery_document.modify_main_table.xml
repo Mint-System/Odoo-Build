@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <!-- header -->
     <!--<xpath expr="//table[@name='stock_move_table']/thead" position="attributes">-->
     <!--  <attribute name="style">color: black; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black</attribute>-->

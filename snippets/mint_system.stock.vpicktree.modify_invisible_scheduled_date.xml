@@ -1,4 +1,4 @@
-<data inherit_id="stock.vpicktree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='scheduled_date']" position="attributes">
         <attribute name="attrs">{'invisible': [('state', 'in' , 'cancel')]}</attribute>
     </xpath>

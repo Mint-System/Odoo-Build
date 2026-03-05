@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@name='payment_communication']" position="replace">
   </xpath>
     <p t-if="o.invoice_payment_term_id" name="payment_term">

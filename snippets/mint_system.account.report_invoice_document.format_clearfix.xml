@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='total']/div" position="attributes">
         <attribute name="t-attf-class"/>
     </xpath>

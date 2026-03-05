@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.view_blanket_order_search" priority="50">
+<data priority="50">
     <xpath expr="/search" position="replace">
         <search>
             <!-- Filter -->

@@ -6,8 +6,10 @@
 
 ID: `mint_system.stock_account.stock_valuation_layer_tree.add_stock_move_id`
 
+Inherit ID: `stock_account.stock_valuation_layer_tree`
+
 ```xml
-<data inherit_id="stock_account.stock_valuation_layer_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='product_id']" position="after">
         <field name="stock_move_id"/>
     </xpath>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_stock
 
 ID: `mint_system.stock_account.stock_valuation_layer_tree.add_x_quant_location_id`
 
+Inherit ID: `stock_account.stock_valuation_layer_tree`
+
 ```xml
-<data inherit_id="stock_account.stock_valuation_layer_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='product_id']" position="after">
         <field name="x_quant_location_id"/>
     </xpath>
@@ -40,8 +44,10 @@ Source: [snippets/mint_system.stock_account.stock_valuation_layer_tree.add_x_qua
 
 ID: `mint_system.stock_account.view_inventory_valuation_search.group_by_x_quant_location_id`
 
+Inherit ID: `stock_account.view_inventory_valuation_search`
+
 ```xml
-<data inherit_id="stock_account.view_inventory_valuation_search" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='product_tmpl_id']" position="after">
         <filter string="Ort" name="x_quant_location_id" domain="[]" context="{'group_by': 'x_quant_location_id'}"/>
     </xpath>

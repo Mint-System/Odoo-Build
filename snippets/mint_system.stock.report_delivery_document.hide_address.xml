@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@name='customer_address']" position="replace"/>
     <xpath expr="//div[@name='partner_header']" position="replace"/>
 </data>

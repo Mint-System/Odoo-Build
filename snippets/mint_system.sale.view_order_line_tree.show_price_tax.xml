@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_line_tree" priority="50">
+<data priority="50">
     <field name="price_subtotal" position="before">
         <field name="price_tax" sum="Gesamtsteuer" optional="show"/>
     </field>

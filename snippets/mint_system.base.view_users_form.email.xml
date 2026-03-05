@@ -1,4 +1,4 @@
-<data inherit_id="base.view_users_form" priority="50">
+<data priority="50">
     <field name="odoobot_state" position="after">
         <field name="email"/>
     </field>

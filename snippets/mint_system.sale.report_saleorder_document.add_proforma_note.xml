@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <!-- <xpath expr="//p[@name='order_note']" position="after"> -->
     <xpath expr="//span[@name='order_note']" position="after">
         <t t-if="is_pro_forma">

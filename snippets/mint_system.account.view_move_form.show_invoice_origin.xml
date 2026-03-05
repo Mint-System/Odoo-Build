@@ -1,4 +1,4 @@
-<data inherit_id="account.view_move_form" priority="50">
+<data priority="50">
     <xpath expr="//group[@id='other_tab_group']//field[@name='ref']" position="after">
         <field name="invoice_origin" readonly="0"/>
     </xpath>

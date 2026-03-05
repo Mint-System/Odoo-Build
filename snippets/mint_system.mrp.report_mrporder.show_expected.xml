@@ -1,4 +1,4 @@
-<data inherit_id="mrp.report_mrporder" priority="50">
+<data priority="50">
     <xpath expr="//tr[1]/td[1]/span[1]" position="after">
         <t t-if="raw_line.forecast_expected_date">
             <br/>

@@ -6,8 +6,10 @@
 
 ID: `mint_system.delivery.report_delivery_document2.remove_hs_code`
 
+Inherit ID: `delivery.report_delivery_document2`
+
 ```xml
-<data inherit_id="delivery.report_delivery_document2" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='has_hs_code']" position="replace">
   </xpath>
 </data>
@@ -23,8 +25,10 @@ Source: [snippets/mint_system.delivery.report_delivery_document2.remove_hs_code.
 
 ID: `mint_system.delivery.view_picking_withcarrier_out_form.modify_readonly_carrier_id`
 
+Inherit ID: `delivery.view_picking_withcarrier_out_form`
+
 ```xml
-<data inherit_id="delivery.view_picking_withcarrier_out_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='carrier_id']" position="attributes">
         <attribute name="attrs">{'readonly': ['|', ('is_locked', '=', True), ('state', 'in', [('done', 'cancel')])]}</attribute>
     </xpath>

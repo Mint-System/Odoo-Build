@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='date_order']" position="after">
         <label for="commitment_date" string="Delivery Date"/>
         <div name="commitment_date_div" class="o_row">

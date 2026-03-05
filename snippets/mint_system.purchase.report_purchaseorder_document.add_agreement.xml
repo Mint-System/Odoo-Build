@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="/t/t/div/div[2]/div[4]" position="after">
         <div t-if="o.requisition_id" class="col-3 bm-2">
             <strong>Purchase Agreement:</strong>

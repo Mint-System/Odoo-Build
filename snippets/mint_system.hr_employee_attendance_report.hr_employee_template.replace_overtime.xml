@@ -1,4 +1,4 @@
-<data inherit_id="hr_employee_attendance_report.hr_employee_template" priority="50">
+<data priority="50">
     <xpath expr="//th[@name='th_overtime']" position="replace">
     <th class="text-end" name="th_overtime" t-if="fixed_work_hours">
         Flexitime

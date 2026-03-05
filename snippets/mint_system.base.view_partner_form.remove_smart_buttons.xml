@@ -1,4 +1,4 @@
-<data inherit_id="base.view_partner_form" priority="50">
+<data priority="50">
     <button name="schedule_meeting" position="replace"/>
     <button name="action_view_opportunity" position="replace"/>
     <xpath expr="//field[@name='task_count']/.." position="replace"/>

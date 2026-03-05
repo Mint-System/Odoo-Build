@@ -1,4 +1,4 @@
-<data inherit_id="sale.sale_order_portal_content" priority="50">
+<data priority="50">
     <xpath expr="//table[@id='sales_order_table']//tr/th[1]" position="before">
         <th class="text-left">Pos</th>
     </xpath>

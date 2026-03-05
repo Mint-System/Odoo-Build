@@ -1,4 +1,4 @@
-<data inherit_id="base.view_model_fields_form" priority="50">
+<data priority="50">
     <field name="ttype" position="after">
         <field name="state"/>
     </field>

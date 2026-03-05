@@ -1,4 +1,4 @@
-<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+<data priority="50">
 
     <xpath expr="//div[@class='information_block']/.." position="replace">
         <style>

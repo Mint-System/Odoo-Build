@@ -1,4 +1,4 @@
-<data inherit_id="web.address_layout" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-if='address']" position="replace">
         <t t-if="address">
             <div class="address row">

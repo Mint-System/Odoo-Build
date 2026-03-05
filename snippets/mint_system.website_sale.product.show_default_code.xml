@@ -1,4 +1,4 @@
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <p t-field="product.description_sale" position="after">
         <p t-if="product_variant.default_code">
             <strong>Artikelnummer:</strong>

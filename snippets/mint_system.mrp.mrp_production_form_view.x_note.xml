@@ -1,4 +1,4 @@
-<data inherit_id="mrp.mrp_production_form_view" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='miscellaneous']//field[@name='origin']" position="after">
         <field name="x_note"/>
     </xpath>

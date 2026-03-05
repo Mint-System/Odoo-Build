@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_form" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='products']//tree/field[@name='product_qty']" position="replace">
   </xpath>
     <xpath expr="//page[@name='products']//tree/field[@name='product_uom']" position="replace">

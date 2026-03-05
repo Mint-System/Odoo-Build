@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
 
     <xpath expr="//th[@name='th_taxes']" position="replace">
         <t t-set="display_tax" t-value="any(l.taxes_id for l in o.order_line)"/>

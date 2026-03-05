@@ -1,4 +1,4 @@
-<data inherit_id="purchase.purchase_order_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='invoice_status']" position="after">
         <field name="mail_reception_confirmed" optional="show"/>
     </xpath>

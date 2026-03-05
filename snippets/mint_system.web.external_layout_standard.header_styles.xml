@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="/t/div" position="before">
         <style>
         h2 {

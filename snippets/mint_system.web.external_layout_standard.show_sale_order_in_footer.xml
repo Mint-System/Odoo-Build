@@ -1,4 +1,4 @@
-<data inherit_id="web.external_layout_standard" priority="50">
+<data priority="50">
     <xpath expr="//div[3]/div[1]" position="before">
         <span t-if="xmlid == 'sale.report_saleorder'"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="base.contact_name" priority="50">
+<data priority="50">
     <xpath expr="//div" position="replace">
         <t t-if="object.parent_name">
             <div t-esc="object.parent_name"/>

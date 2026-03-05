@@ -1,4 +1,4 @@
-<data inherit_id="subscription_oca.view_sale_order_pending_filter" priority="50">
+<data priority="50">
     <search position="replace">
       
         <search>

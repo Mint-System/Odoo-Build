@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='report-wrapping-flexbox clearfix row mt32 mb32']" position="replace">
 
         <style>

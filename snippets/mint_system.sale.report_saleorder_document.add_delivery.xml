@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//div/table/thead/tr/th[4]" position="after">
         <th>
             <span>LS</span>

@@ -1,4 +1,4 @@
-<data inherit_id="base.view_country_tree" priority="50">
+<data priority="50">
     <tree position="attributes">
         <attribute name="limit">250</attribute>
     </tree>

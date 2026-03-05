@@ -6,8 +6,10 @@
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="create">1</attribute>
     </calendar>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <field name="expected_revenue" position="replace"/>
 </data>
 
@@ -36,8 +40,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml]
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="mode">week</attribute>
     </calendar>
@@ -52,8 +58,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml](ht
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="date_start">date_deadline</attribute>
     </calendar>
@@ -68,8 +76,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="date_start">x_date_start</attribute>
     </calendar>
@@ -84,8 +94,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xm
 
 ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`
 
+Inherit ID: `crm.crm_case_calendar_view_leads`
+
 ```xml
-<data inherit_id="crm.crm_case_calendar_view_leads" priority="50">
+<data priority="50">
     <calendar position="attributes">
         <attribute name="date_stop">x_date_stop</attribute>
     </calendar>
@@ -102,8 +114,10 @@ Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](
 
 ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <field name="date_deadline" position="attributes">
         <attribute name="required">1</attribute>
     </field>
@@ -118,8 +132,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml]
 
 ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <field name="date_deadline" position="attributes">
         <attribute name="invisible">1</attribute>
     </field>
@@ -134,8 +150,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml](htt
 
 ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <xpath expr="//label[@for='expected_revenue']/../.." position="attributes">
         <attribute name="invisible">1</attribute>
     </xpath>
@@ -150,8 +168,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml](
 
 ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <button name="action_set_won_rainbowman" position="replace">
   </button>
     <button name="action_set_lost" position="replace">
@@ -171,8 +191,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml](
 
 ID: `mint_system.crm.crm_lead_view_form.x_date_start`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <field name="date_deadline" position="replace">
         <field name="x_date_start" required="1" widget="datetime"/>
     </field>
@@ -187,8 +209,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml](https://o
 
 ID: `mint_system.crm.crm_lead_view_form.x_date_stop`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <field name="x_date_start" position="after">
         <field name="x_date_stop" readonly="1" widget="datetime"/>
     </field>
@@ -203,8 +227,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml](https://od
 
 ID: `mint_system.crm.crm_lead_view_form.x_mobile`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='phone']/.." position="after">
         <label for="x_mobile" class="oe_inline"/>
         <div class="o_row">
@@ -222,8 +248,10 @@ Source: [snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml](https://odoo.
 
 ID: `mint_system.crm.crm_lead_view_form.x_task_id`
 
+Inherit ID: `crm.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm.crm_lead_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='phone']/.." position="after">
         <label for="x_task_id" class="oe_inline"/>
         <div class="o_row">

@@ -6,8 +6,10 @@
 
 ID: `mint_system.base_location.view_partner_form.remove_zip_id`
 
+Inherit ID: `base_location.view_partner_form`
+
 ```xml
-<data inherit_id="base_location.view_partner_form" priority="50">
+<data priority="50">
     <field name="zip_id" position="replace"/>
 </data>
 

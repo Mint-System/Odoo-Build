@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_form_view" priority="50">
+<data priority="50">
     <xpath expr="//h1/field[@name='name']" position="after">
         <h2>
             <field name="type_description"/>

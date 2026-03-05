@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_tree_view" priority="50">
+<data priority="50">
     <xpath expr="/tree" position="attributes">
         <attribute name="default_order">default_code asc"</attribute>
     </xpath>

@@ -1,3 +1,3 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-if='doc.partner_id.vat']" position="replace"/>
 </data>

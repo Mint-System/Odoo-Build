@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]/span" position="after">
         <t t-if="move.product_id.drawing_file">
             <br/>

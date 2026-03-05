@@ -6,8 +6,10 @@
 
 ID: `mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups`
 
+Inherit ID: `mrp_account.mrp_production_form_view_inherited`
+
 ```xml
-<data inherit_id="mrp_account.mrp_production_form_view_inherited" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='action_view_stock_valuation_layers']" position="attributes">
         <attribute name="groups"/>
     </xpath>

@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@t-field='doc.note']" position="before">
         <div class="row">
             <div class="col">

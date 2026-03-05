@@ -1,4 +1,4 @@
-<data inherit_id="project.view_project_kanban" priority="50">
+<data priority="50">
     <xpath expr="//kanban" position="attributes">
         <attribute name="create">0</attribute>
     </xpath>

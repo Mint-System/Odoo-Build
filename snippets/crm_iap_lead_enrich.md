@@ -6,8 +6,10 @@
 
 ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`
 
+Inherit ID: `crm_iap_lead_enrich.crm_lead_view_form`
+
 ```xml
-<data inherit_id="crm_iap_lead_enrich.crm_lead_view_form" priority="50">
+<data priority="50">
     <xpath position="replace">
   </xpath>
 </data>

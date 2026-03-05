@@ -1,4 +1,4 @@
-<data inherit_id="web.internal_layout" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='header']" position="replace">
         <div class="header">
             <div class="row">

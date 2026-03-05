@@ -1,4 +1,4 @@
-<data inherit_id="web.address_layout" priority="50">
+<data priority="50">
     <xpath expr="//div" position="replace">
         <div t-if="address" class="address row mb-4" title="This block is not always present depending on the printed document.">            
             <!-- ADRESSE LINKS -->

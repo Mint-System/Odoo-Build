@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']" position="after">
         <t t-set="information_block">
             <!-- <t t-if="o.partner_shipping_id != o.partner_id"> -->

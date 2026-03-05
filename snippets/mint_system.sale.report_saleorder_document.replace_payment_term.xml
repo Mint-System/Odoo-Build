@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
         <div class="row">
             <div class="col">

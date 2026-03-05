@@ -1,4 +1,4 @@
-<data inherit_id="project.edit_project" priority="50">
+<data priority="50">
     <button name="action_view_so" position="attributes">
         <attribute name="attrs">{}</attribute>
     </button>

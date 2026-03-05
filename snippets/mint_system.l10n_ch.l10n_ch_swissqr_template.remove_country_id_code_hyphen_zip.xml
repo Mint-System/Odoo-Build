@@ -1,4 +1,4 @@
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='indications_zone']//span[@t-field='company.country_id.code']" position="replace">
         <span t-esc="company.country_id.code and company.zip and (company.country_id.code + '-' + company.zip) or company.country_id.code or company.zip"/>
     </xpath>

@@ -6,8 +6,10 @@
 
 ID: `mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until`
 
+Inherit ID: `maintenance.hr_equipment_request_view_form`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_request_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='maintenance_type']" position="after">
         <field name="x_calibrated_until"/>
     </xpath>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calib
 
 ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`
 
+Inherit ID: `maintenance.hr_equipment_request_view_tree`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_request_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="schedule_date"/>
     </xpath>
@@ -40,8 +44,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_sc
 
 ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`
 
+Inherit ID: `maintenance.hr_equipment_request_view_tree`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_request_view_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='request_date']" position="after">
         <field name="x_calibrated_until"/>
     </xpath>
@@ -58,8 +64,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calib
 
 ID: `mint_system.maintenance.hr_equipment_view_form.x_calibrated_until`
 
+Inherit ID: `maintenance.hr_equipment_view_form`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_calibrated_until"/>
     </xpath>
@@ -74,8 +82,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_un
 
 ID: `mint_system.maintenance.hr_equipment_view_form.x_date_action_required`
 
+Inherit ID: `maintenance.hr_equipment_view_form`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_date_action_required"/>
     </xpath>
@@ -90,8 +100,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_r
 
 ID: `mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work`
 
+Inherit ID: `maintenance.hr_equipment_view_form`
+
 ```xml
-<data inherit_id="maintenance.hr_equipment_view_form" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='workcenter_id']" position="after">
         <field name="x_lead_time_recovery_work"/>
     </xpath>
@@ -108,8 +120,10 @@ Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_rec
 
 ID: `mint_system.maintenance.hr_equipment_view_search.calibration`
 
+Inherit ID: `maintenance.hr_equipment_view_search`
+
 ```xml
-<data>
+<data priority="50">
     <xpath expr="//field[@name='owner_user_id']" position="after">
         <filter string="Not calibrated" name="not_calibrated" domain="['|', ('x_calibrated_until', '&lt;', context_today().strftime('%Y-%m-%d')), ('x_calibrated_until', '=', False)]"/>
         <filter string="Need for action" name="need_for_action" domain="[('x_date_action_required', '&lt;', context_today().strftime('%Y-%m-%d'))]"/>

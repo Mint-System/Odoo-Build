@@ -1,4 +1,4 @@
-<data inherit_id="base.res_bank_view_search" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <separator/>
         <field string="PLZ" name="zip"/>

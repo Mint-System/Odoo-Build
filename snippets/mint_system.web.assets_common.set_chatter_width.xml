@@ -1,4 +1,4 @@
-<data inherit_id="web.assets_common" priority="50">
+<data priority="50">
     <xpath expr="." position="inside">
         <style>
           @media (min-width: 1534px) {

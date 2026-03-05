@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+<data priority="50">
 
   <xpath expr="//table[@class='table table-sm mt-4']" position="attributes">
     <attribute name="class">table table-borderless mt-4</attribute>

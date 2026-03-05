@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_move_tree" priority="50">
+<data priority="50">
     <field name="location_dest_id" position="after">
         <field name="partner_id" optional="hide"/>
     </field>

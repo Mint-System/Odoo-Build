@@ -1,4 +1,4 @@
-<data inherit_id="base.view_res_partner_filter" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='user_id']" position="after">
         <separator/>
         <field string="PLZ" name="zip"/>

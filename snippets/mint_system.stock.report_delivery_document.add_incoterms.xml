@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//div[1]/div[1]/div[2]" position="after">
         <div class="col-auto" name="div_incoterms">
             <strong>Incoterms:</strong>

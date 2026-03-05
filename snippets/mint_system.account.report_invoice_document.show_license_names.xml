@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@name='invoice_line_table']//td[@name='account_invoice_line_name']/span[1]" position="after">
         <t t-set="license_ids" t-value="line.sale_line_ids.mapped('license_ids')"/>
         <t t-if="license_ids">

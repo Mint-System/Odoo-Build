@@ -1,4 +1,4 @@
-<data inherit_id="hr.hr_employee_public_view_tree" priority="50">
+<data priority="50">
     <field name="work_phone" position="after">
         <field name="mobile_phone" class="o_force_ltr"/>
     </field>

@@ -502,6 +502,8 @@ load-ssh-key() {
 lint() {
     echo "Run pre-commit in $PWD"
     pre-commit run
+    echo "Run snippet linting"
+    lint-snippets
 }
 
 update-snippets-doc() {
@@ -2765,41 +2767,37 @@ lint-snippets() {
 
     for file in $files; do
 
+        # Skip files that don't have <data> elements (like templates)
+        if ! grep -q '<data' "$file"; then
+            continue
+        fi
+
         # Access various snippet parameters
         local filename=$(basename "$file")
         local snippet_module=$(echo "$filename" | cut -d. -f2)
         local report=$(echo "$filename" | cut -d. -f3)
         local edit=$(echo "$filename" | cut -d. -f4)
-        local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        local type=$(echo 'cat //data/@type' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        local model=$(echo 'cat //data/@model' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        local priority=$(echo 'cat //data/@priority' | xmllint --shell "$file" | awk -F'[="]' '!/>/{print $(NF-1)}')
-        local module_name=$(echo "$inherit_id" | cut -d. -f 1 )
-        local xml_id=$(echo "$inherit_id" | cut -d. -f 2 )
+        local priority=$(echo 'cat //data/@priority' | xmllint --shell "$file" | awk -F'[="'] '!/>/{print $(NF-1)}')
 
-        # Check filename
-        local count_dots=$(echo "$filename" | grep -o "\." | wc -l)
-        if [[ "$count_dots" -ge 5 ]]; then
+        # Check filename format - should be mint_system.module.xml_id.edit.xml
+        local expected_pattern="mint_system\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.xml"
+        if [[ ! "$filename" =~ $expected_pattern ]]; then
             echo "Linting failed for $file"
-            echo "Dots count: $count_dots"
-            echo "  Filename: $snippet_module.$report"
+            echo "Filename does not match expected pattern: $expected_pattern"
             exit 1
         fi
 
-        # Check if inherit id matches the filename
-        if [[ -n "$inherit_id" ]]; then
-            if [[ "$inherit_id" != "$snippet_module.$report" ]]; then
-                echo "Linting failed for $file"
-                echo " Inherit: $inherit_id"
-                echo "Filename: $snippet_module.$report"
-                exit 1
-            fi
-        fi
-
         # Check if priority is set
-        if [[ -z "$priority" ]] && [[ -n "$inherit_id" ]]; then
+        if [[ -z "$priority" ]]; then
             echo "Linting failed for $file"
             echo 'No priority is set.'
+            exit 1
+        fi
+
+        # Check XML format with xmllint
+        if ! xmllint --format "$file" >/dev/null 2>&1; then
+            echo "Linting failed for $file"
+            echo "XML format is invalid."
             exit 1
         fi
     done

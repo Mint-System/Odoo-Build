@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <div t-field="doc.partner_invoice_id" position="before">
         <div>
             <span itemprop="name" t-field="doc.partner_invoice_id.name"/>

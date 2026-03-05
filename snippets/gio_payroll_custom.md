@@ -6,8 +6,10 @@
 
 ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`
 
+Inherit ID: `gio_payroll_custom.gio_view_hr_contract_form`
+
 ```xml
-<data inherit_id="gio_payroll_custom.gio_view_hr_contract_form" priority="50">
+<data priority="50">
     <field name="gio_holiday_rate" position="attributes">
         <attribute name="widget">percentage</attribute>
     </field>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holid
 
 ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`
 
+Inherit ID: `gio_payroll_custom.hr_payroll_report_view`
+
 ```xml
-<data inherit_id="gio_payroll_custom.hr_payroll_report_view" priority="50">
+<data priority="50">
     <xpath expr="/t" position="replace">
         <template id="hr_payroll_report_view">
             <t t-foreach="docs" t-as="doc">

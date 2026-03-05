@@ -1,4 +1,4 @@
-<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']" position="replace"/>
     <xpath expr="//div[@class='page'][1]" position="before">
         <div class="row text-900 o_bold">

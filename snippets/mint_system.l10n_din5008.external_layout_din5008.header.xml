@@ -1,4 +1,4 @@
-<data inherit_id="l10n_din5008.external_layout_din5008" priority="50">
+<data priority="50">
     <xpath expr="//table[@class='company_header table-borderless']" position="replace">
         <style>
       .din_page.header table img {

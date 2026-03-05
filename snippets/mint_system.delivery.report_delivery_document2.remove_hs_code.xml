@@ -1,4 +1,4 @@
-<data inherit_id="delivery.report_delivery_document2" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='has_hs_code']" position="replace">
   </xpath>
 </data>

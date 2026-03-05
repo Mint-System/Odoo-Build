@@ -1,4 +1,4 @@
-<data inherit_id="sale.sale_order_portal_content" priority="50">
+<data priority="50">
     <xpath expr="//table/thead/tr/th[6]" position="replace">
   </xpath>
     <xpath expr="//table/thead/tr/th[5]" position="replace">

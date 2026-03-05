@@ -1,4 +1,4 @@
-<data inherit_id="sale_blanket_order.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='l.price_subtotal']" position="replace">
         <span t-esc="'{0:,.2f}'.format(float(l.price_subtotal)).replace(',','\'')"/>
     </xpath>

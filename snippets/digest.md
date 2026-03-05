@@ -6,6 +6,8 @@
 
 ID: `mint_system.digest.digest_mail_main.report`
 
+Inherit ID: `digest.digest_mail_main`
+
 ```xml
 <t t-name="digest.digest_mail_main.report">
     <t t-set="body">

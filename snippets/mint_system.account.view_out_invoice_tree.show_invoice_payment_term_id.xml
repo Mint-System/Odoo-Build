@@ -1,4 +1,4 @@
-<data inherit_id="account.view_out_invoice_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='state']" position="after">
         <field name="invoice_payment_term_id" optional="hide"/>
     </xpath>

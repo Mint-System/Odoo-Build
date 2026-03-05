@@ -6,8 +6,10 @@
 
 ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`
 
+Inherit ID: `sale_management.sale_order_form_quote`
+
 ```xml
-<data inherit_id="sale_management.sale_order_form_quote" priority="50">
+<data priority="50">
     <xpath expr="//page[@name='optional_products']" position="attributes">
         <attribute name="invisible">1</attribute>
     </xpath>

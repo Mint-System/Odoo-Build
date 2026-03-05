@@ -1,4 +1,4 @@
-<data inherit_id="account.document_tax_totals" priority="50">
+<data priority="50">
     <xpath expr="//t/t[1]" position="replace">
         <style>
 			table.trimada_summary tr {

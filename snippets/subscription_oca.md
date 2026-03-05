@@ -6,8 +6,10 @@
 
 ID: `mint_system.subscription_oca.sale_subscription_form.edit_date_start`
 
+Inherit ID: `subscription_oca.sale_subscription_form`
+
 ```xml
-<data inherit_id="subscription_oca.sale_subscription_form" priority="50">
+<data priority="50">
     <field name="date_start" position="attributes">
         <attribute name="attrs">{'readonly':[('active','=',False)]}</attribute>
     </field>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_
 
 ID: `mint_system.subscription_oca.view_sale_order_pending_filter.overwrite`
 
+Inherit ID: `subscription_oca.view_sale_order_pending_filter`
+
 ```xml
-<data inherit_id="subscription_oca.view_sale_order_pending_filter" priority="50">
+<data priority="50">
     <search position="replace">
       
         <search>
@@ -49,6 +53,7 @@ ID: `mint_system.subscription_oca.view_sale_order_pending_filter.overwrite`
             <separator/>
             <field name="to_renew"/>
             <filter string="Pending subscriptions" name="pendingsubs" domain="[('to_renew','=', True)]"/>
+             <filter string="Archived" name="inactive" domain="[('active','=',False)]"/>
             <separator/>
             <group expand="0" string="Group By">
                 <filter string="Salesperson" name="sales_person" domain="[]" context="{'group_by':'user_id'}"/>

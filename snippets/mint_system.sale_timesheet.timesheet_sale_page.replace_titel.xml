@@ -1,4 +1,4 @@
-<data inherit_id="sale_timesheet.timesheet_sale_page" priority="50">
+<data priority="50">
   <xpath expr="//h2" position="replace">
     <h2>
       <br/>

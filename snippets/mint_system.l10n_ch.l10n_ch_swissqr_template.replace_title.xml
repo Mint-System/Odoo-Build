@@ -1,4 +1,4 @@
-<data inherit_id="l10n_ch.l10n_ch_swissqr_template" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='swissqr_content_v2']" position="after">
         <style>
           .trimada {

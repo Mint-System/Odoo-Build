@@ -6,8 +6,10 @@
 
 ID: `mint_system.account_financial_report.general_ledger.replace_layout`
 
+Inherit ID: `account_financial_report.general_ledger`
+
 ```xml
-<data inherit_id="account_financial_report.general_ledger" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-call='account_financial_report.internal_layout']" position="attributes">
         <attribute name="t-call">account_financial_report.internal_layout_trimada</attribute>
     </xpath>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.account_financial_report.general_ledger.replace_la
 
 ID: `mint_system.account_financial_report.internal_layout.style_trimada`
 
+Inherit ID: `account_financial_report.internal_layout`
+
 ```xml
-<data inherit_id="account_financial_report.internal_layout" priority="60">
+<data priority="60">
     <xpath expr="//link" position="replace">
         <style>
             .act_as_table {
@@ -153,6 +157,8 @@ Source: [snippets/mint_system.account_financial_report.internal_layout.style_tri
 ### Trimada
 
 ID: `mint_system.account_financial_report.internal_layout.trimada`
+
+Inherit ID: `account_financial_report.internal_layout`
 
 ```xml
 <t t-name="account_financial_report.internal_layout">
@@ -327,8 +333,10 @@ Source: [snippets/mint_system.account_financial_report.internal_layout.trimada.x
 
 ID: `mint_system.account_financial_report.report_general_ledger_base.hide_filters`
 
+Inherit ID: `account_financial_report.report_general_ledger_base`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-call='account_financial_report.report_general_ledger_filters']" position="replace"/>
 </data>
 
@@ -341,8 +349,10 @@ Source: [snippets/mint_system.account_financial_report.report_general_ledger_bas
 
 ID: `mint_system.account_financial_report.report_general_ledger_base.replace_title`
 
+Inherit ID: `account_financial_report.report_general_ledger_base`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_base" priority="50">
+<data priority="50">
     <xpath expr="//h4/.." position="replace">
         <div class="title">Kontoauszug vom <span t-esc="date_from" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
             bis <span t-esc="date_to" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
@@ -361,8 +371,10 @@ Source: [snippets/mint_system.account_financial_report.report_general_ledger_bas
 
 ID: `mint_system.account_financial_report.report_general_ledger_ending_cumul.hide`
 
+Inherit ID: `account_financial_report.report_general_ledger_ending_cumul`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_ending_cumul" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='act_as_row labels']" position="replace"/>
 </data>
 
@@ -377,8 +389,10 @@ Source: [snippets/mint_system.account_financial_report.report_general_ledger_end
 
 ID: `mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated`
 
+Inherit ID: `account_financial_report.report_general_ledger_lines`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+<data priority="50">
     <xpath expr="//div/div[@class='act_as_row lines']" position="replace">
         <div class="act_as_row lines" style="font-style: italic">
             <!--## col1 -->
@@ -519,8 +533,10 @@ Source: [snippets/mint_system.account_financial_report.report_general_ledger_lin
 
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_header`
 
+Inherit ID: `account_financial_report.report_general_ledger_lines`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='act_as_row labels']" position="replace">
         <div class="act_as_row labels">
             <!--## col1 date-->
@@ -560,8 +576,10 @@ Source: [snippets/mint_system.account_financial_report.report_general_ledger_lin
 
 ID: `mint_system.account_financial_report.report_general_ledger_lines.replace_lines`
 
+Inherit ID: `account_financial_report.report_general_ledger_lines`
+
 ```xml
-<data inherit_id="account_financial_report.report_general_ledger_lines" priority="50">
+<data priority="50">
     <xpath expr="//t/div[@class='act_as_row lines']" position="replace">
         <div class="act_as_row lines">
             <!--## col1 -->

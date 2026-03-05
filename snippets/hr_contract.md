@@ -6,8 +6,10 @@
 
 ID: `mint_system.hr_contract.hr_contract_view_form.x_struct_id`
 
+Inherit ID: `hr_contract.hr_contract_view_form`
+
 ```xml
-<data inherit_id="hr_contract.hr_contract_view_form" priority="50">
+<data priority="50">
     <field name="structure_type_id" position="after">
         <field name="x_struct_id"/>
     </field>
@@ -24,8 +26,10 @@ Source: [snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml]
 
 ID: `mint_system.hr_contract.hr_contract_view_kanban.show_start_date`
 
+Inherit ID: `hr_contract.hr_contract_view_kanban`
+
 ```xml
-<data inherit_id="hr_contract.hr_contract_view_kanban" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='job_id']" position="after">
         <br/>
         <field name="date_start"/>

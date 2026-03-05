@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_delivery_document" priority="50">
+<data priority="50">
     <xpath expr="//span[@t-field='o.name']" position="before">
         <t t-if="o.picking_type_id.id == 2">
             <span>Delivery slip </span>

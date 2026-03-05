@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//p[@name='order_note']" position="before">
         <t t-if="doc.state != 'sale'">
             <p>

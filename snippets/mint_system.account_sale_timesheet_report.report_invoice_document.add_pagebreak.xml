@@ -1,4 +1,4 @@
-<data inherit_id="account_sale_timesheet_report.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='qrcode']" position="after">
         <t t-if="print_with_timesheets">
             <p style="page-break-before:always;"/>

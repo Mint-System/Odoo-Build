@@ -1,4 +1,4 @@
-<data inherit_id="account.view_invoice_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='ref']" position="attributes">
         <attribute name="string">Bestellnummer Kunde</attribute>
     </xpath>

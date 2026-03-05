@@ -1,4 +1,4 @@
-<data inherit_id="sale.variants" priority="50">
+<data priority="50">
     <xpath expr="//span[hasclass('variant_price_extra')]" position="before">
         <style>
             li.variant_attribute .badge {

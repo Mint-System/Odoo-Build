@@ -6,8 +6,10 @@
 
 ID: `mint_system.website_sale.address.countries_filter`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <t t-foreach="countries" position="attributes">
         <attribute name="t-foreach">countries.filtered(lambda c: c.code in ['CH', 'LI'])</attribute>
     </t>
@@ -22,8 +24,10 @@ Source: [snippets/mint_system.website_sale.address.countries_filter.xml](https:/
 
 ID: `mint_system.website_sale.address.hide_shipping_use_same`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//input[@id='shipping_use_same']/.." position="attributes">
         <attribute name="style">display: none;</attribute>
     </xpath>
@@ -38,8 +42,10 @@ Source: [snippets/mint_system.website_sale.address.hide_shipping_use_same.xml](h
 
 ID: `mint_system.website_sale.address.hide_state`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='div_state']" position="replace">    
     </xpath>    
 </data>
@@ -53,8 +59,10 @@ Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://odoo.
 
 ID: `mint_system.website_sale.address.hide_street2`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='div_street2']" position="replace">    
     </xpath>    
 </data>
@@ -68,8 +76,10 @@ Source: [snippets/mint_system.website_sale.address.hide_street2.xml](https://odo
 
 ID: `mint_system.website_sale.address.overwrite_required`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='field_required']" position="replace">
         <input type="hidden" name="field_required" t-att-value="'name,email'"/>
     </xpath>
@@ -99,8 +109,10 @@ Source: [snippets/mint_system.website_sale.address.overwrite_required.xml](https
 
 ID: `mint_system.website_sale.address.show_firstname_lastname`
 
+Inherit ID: `website_sale.address`
+
 ```xml
-<data inherit_id="website_sale.address" priority="50">
+<data priority="50">
     <xpath expr="//input[@name='name']/.." position="after">
         <div t-attf-class="mb-3 #{error.get('firstname') and 'o_has_error' or ''} col-lg-12 div_firstname">
             <label class="col-form-label" for="firstname">Firstname</label>
@@ -127,8 +139,10 @@ Source: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](
 
 ID: `mint_system.website_sale.confirmation.show_shipping_name`
 
+Inherit ID: `website_sale.confirmation`
+
 ```xml
-<data inherit_id="website_sale.confirmation" priority="50">
+<data priority="50">
     <span t-esc="order.partner_invoice_id" position="before"><span t-esc="order.partner_invoice_id.name" class="address-inline"/>,
   </span>
     <span t-esc="order.partner_shipping_id" position="before"><span t-esc="order.partner_shipping_id.name" class="address-inline"/>,
@@ -146,8 +160,10 @@ Source: [snippets/mint_system.website_sale.confirmation.show_shipping_name.xml](
 
 ID: `mint_system.website_sale.header_cart_link.hide_cart`
 
+Inherit ID: `website_sale.header_cart_link`
+
 ```xml
-<data inherit_id="website_sale.header_cart_link" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-attf='o_wsale_my_cart']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
     </xpath>
@@ -164,8 +180,10 @@ Source: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https
 
 ID: `mint_system.website_sale.payment_confirmation_status.remove_communication`
 
+Inherit ID: `website_sale.payment_confirmation_status`
+
 ```xml
-<data inherit_id="website_sale.payment_confirmation_status" priority="50">
+<data priority="50">
     <xpath expr="//div[@t-if='order.reference']" position="replace"/>
 </data>
 
@@ -180,8 +198,10 @@ Source: [snippets/mint_system.website_sale.payment_confirmation_status.remove_co
 
 ID: `mint_system.website_sale.product.hide_cart`
 
+Inherit ID: `website_sale.product`
+
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='add_to_cart_wrap']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
     </xpath>
@@ -201,8 +221,10 @@ Source: [snippets/mint_system.website_sale.product.hide_cart.xml](https://odoo.b
 
 ID: `mint_system.website_sale.product.hide_price`
 
+Inherit ID: `website_sale.product`
+
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-call='website_sale.product_price']" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
     </xpath>
@@ -217,8 +239,10 @@ Source: [snippets/mint_system.website_sale.product.hide_price.xml](https://odoo.
 
 ID: `mint_system.website_sale.product.show_default_code`
 
+Inherit ID: `website_sale.product`
+
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <p t-field="product.description_sale" position="after">
         <p t-if="product_variant.default_code">
             <strong>Artikelnummer:</strong>
@@ -236,8 +260,10 @@ Source: [snippets/mint_system.website_sale.product.show_default_code.xml](https:
 
 ID: `mint_system.website_sale.product.show_product_dimension`
 
+Inherit ID: `website_sale.product`
+
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Dimensions</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.dimension_ids" t-as="dimension"><li><span t-field="dimension.name"/><t t-if="dimension.value"><span t-field="dimension.value"/></t></li></t></ul></div>
     </xpath>
@@ -252,8 +278,10 @@ Source: [snippets/mint_system.website_sale.product.show_product_dimension.xml](h
 
 ID: `mint_system.website_sale.product.show_product_material`
 
+Inherit ID: `website_sale.product`
+
 ```xml
-<data inherit_id="website_sale.product" priority="50">
+<data priority="50">
     <xpath expr="//div[@id='product_details']" position="inside">
         <div t-if="product_variant.material_ids" name="material_ids"><strong>Materials</strong>: <br/><ul class="un-styled"><t t-foreach="product_variant.material_ids" t-as="material"><li><span t-field="material.name"/><t t-if="material.percent"><span t-field="material.percent"/></t></li></t></ul></div>
     </xpath>
@@ -270,9 +298,11 @@ Source: [snippets/mint_system.website_sale.product.show_product_material.xml](ht
 
 ID: `mint_system.website_sale.products_categories.bigger_categories_button`
 
+Inherit ID: `website_sale.products_categories`
+
 ```xml
 <!-- Add class to categories button -->
-<data inherit_id="website_sale.products_categories" priority="50">
+<data priority="50">
     <xpath expr="//button" position="replace">
         <button type="button" class="btn btn-secondary d-lg-none mb-2" data-target="#wsale_products_categories_collapse" data-toggle="collapse">
           Show categories
@@ -291,8 +321,10 @@ Source: [snippets/mint_system.website_sale.products_categories.bigger_categories
 
 ID: `mint_system.website_sale.products_item.hide_price`
 
+Inherit ID: `website_sale.products_item`
+
 ```xml
-<data inherit_id="website_sale.products_item" priority="50">
+<data priority="50">
     <xpath expr="//div[hasclass('o_wsale_product_sub')]" position="attributes">
         <attribute name="t-if">request.session.uid</attribute>
     </xpath>
@@ -307,8 +339,10 @@ Source: [snippets/mint_system.website_sale.products_item.hide_price.xml](https:/
 
 ID: `mint_system.website_sale.products_item.prefix_price`
 
+Inherit ID: `website_sale.products_item`
+
 ```xml
-<data inherit_id="website_sale.products_item" priority="50">
+<data priority="50">
     <xpath expr="//div[@class='product_price'][1]/t[1]" position="before">
         <span>From</span>
     </xpath>

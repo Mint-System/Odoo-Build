@@ -1,4 +1,4 @@
-<data inherit_id="mail_activity_board.mail_activity_view_form_board" priority="50">
+<data priority="50">
     <xpath expr="//form/sheet" position="before">
         <header>
             <button string="Mark as Done" name="action_done" type="object" class="btn-secondary"/>

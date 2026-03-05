@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_blanketorder_document" priority="50">
+<data priority="50">
     <xpath expr="//table[@id='summary']" position="after">
         <style>
       table#footer {

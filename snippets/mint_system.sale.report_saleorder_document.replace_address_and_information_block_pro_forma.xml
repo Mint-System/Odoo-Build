@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-set='address']" position="replace">
         <t t-if="is_pro_forma and doc.partner_id != doc.partner_sale_id">
             <t t-set="address">

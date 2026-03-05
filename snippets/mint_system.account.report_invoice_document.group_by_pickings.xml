@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="before">
         <!-- Get all pickings without duplicates -->
         <t t-set="pickings" t-value="list(set(o.invoice_line_ids.picking_ids.filtered(lambda p: p.state != 'cancel')))"/>

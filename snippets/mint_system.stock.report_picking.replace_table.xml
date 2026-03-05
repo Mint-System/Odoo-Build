@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//table[@t-if='o.move_line_ids and o.move_ids_without_package']" position="replace">
         <table style="width:100%; font-family: arial; font-size: 9pt; margin-top: 20px" t-if="o.move_line_ids and o.move_ids_without_package">
             <t t-set="has_barcode" t-value="any(move_line.product_id and move_line.product_id.sudo().barcode or move_line.package_id for move_line in o.move_line_ids)"/>

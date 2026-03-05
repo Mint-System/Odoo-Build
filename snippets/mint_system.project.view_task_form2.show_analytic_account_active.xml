@@ -1,4 +1,4 @@
-<data inherit_id="project.view_task_form2" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='analytic_account_id']" position="after">
         <field name="analytic_account_active"/>
     </xpath>

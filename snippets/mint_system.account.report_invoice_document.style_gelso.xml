@@ -1,4 +1,4 @@
-<data inherit_id="account.report_invoice_document" priority="60">
+<data priority="60">
 
     <xpath expr="//div[@id='right-elements']" position="attributes">
         <attribute name="t-attf-class">d-flex justify-content-end w-100</attribute>

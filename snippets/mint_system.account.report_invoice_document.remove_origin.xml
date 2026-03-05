@@ -1,3 +1,3 @@
-<data inherit_id="account.report_invoice_document" priority="50">
+<data priority="50">
     <div name="origin" position="replace"/>
 </data>

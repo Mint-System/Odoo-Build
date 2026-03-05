@@ -1,4 +1,4 @@
-<data inherit_id="sale.report_saleorder_document" priority="60">
+<data priority="60">
 
     <xpath expr="//tbody[@class='sale_tbody']" position="after">
         <style>

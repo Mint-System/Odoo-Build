@@ -1,4 +1,4 @@
-<data inherit_id="product.product_template_only_form_view" priority="50">
+<data priority="50">
     <field name="hs_code" position="after">
         <field name="x_hide_on_delivery" widget="boolean_toggle"/>
     </field>

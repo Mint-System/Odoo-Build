@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_tree" priority="50">
+<data priority="50">
     <xpath expr="//field[@name='name']" position="after">
         <field name="x_country_id_name"/>
     </xpath>

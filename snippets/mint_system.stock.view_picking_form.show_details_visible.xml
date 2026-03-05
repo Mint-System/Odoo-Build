@@ -1,4 +1,4 @@
-<data inherit_id="stock.view_picking_form" priority="50">
+<data priority="50">
     <xpath expr="//button[@name='action_show_details']" position="attributes">
         <attribute name="attrs"/>
     </xpath>

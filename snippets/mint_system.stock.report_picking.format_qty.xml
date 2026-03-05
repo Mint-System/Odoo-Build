@@ -1,4 +1,4 @@
-<data inherit_id="stock.report_picking" priority="50">
+<data priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <t t-if="ml.product_uom_id.id == 1">
             <span id="product_uom_qty" t-field="ml.product_uom_qty" t-options="{'widget': 'integer'}"/>

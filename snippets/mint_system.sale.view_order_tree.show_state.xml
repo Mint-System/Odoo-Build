@@ -1,4 +1,4 @@
-<data inherit_id="sale.view_order_tree" priority="50">
+<data priority="50">
     <field name="invoice_status" position="after">
         <field name="state" decoration-success="state == 'sale' or state == 'done'" decoration-info="state == 'draft' or state == 'sent'" widget="badge" optional="show"/>
     </field>

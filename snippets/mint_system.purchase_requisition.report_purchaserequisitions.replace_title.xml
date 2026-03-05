@@ -1,4 +1,4 @@
-<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+<data priority="50">
     <xpath expr="//h2" position="replace">
         <t t-if="o.state_blanket_order == 'draft'">
             <h2>Request for Quotation purchase contract <span t-field="o.name"/></h2>
