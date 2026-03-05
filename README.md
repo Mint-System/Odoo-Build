@@ -380,7 +380,7 @@ task all
 
 Refine the templates based on the linter results.
 
-### Debug Odoo with VSCode.
+### Debug Odoo with VSCode
 
 In VSCode define a break point for a selected method.
 
