@@ -1,4 +1,0 @@
-<field name="barcode" position="after">
-    <field name="x_beh_search_term_one"/>
-    <field name="x_beh_search_term_two"/>
-</field>

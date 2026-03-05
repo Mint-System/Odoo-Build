@@ -1,0 +1,62 @@
+#!/usr/bin/env python3
+"""
+Lint Odoo snippet files for proper naming conventions and XML validity.
+
+Enforces:
+- Filename pattern: mint_system.module.view.action.operation.xml (5 segments)
+- Only alphanumeric characters and underscores in segments
+- Valid XML format
+"""
+
+import re
+import sys
+import xml.etree.ElementTree as ET
+from pathlib import Path
+
+
+def lint_snippets():
+    """Lint all snippet files in the snippets directory."""
+    snippets_dir = Path("snippets")
+    xml_files = snippets_dir.glob("*.xml")
+    
+    errors = []
+    
+    for file_path in xml_files:
+        filename = file_path.name
+        
+        # Check 1: Filename starts with mint_system. and ends with .xml
+        if not re.match(r'^mint_system\..*\.xml$', filename):
+            errors.append(f"{filename}: Filename should start with 'mint_system.' and end with '.xml'")
+            continue
+        
+        # Check 2: Exactly 4 dots (5 segments)
+        dot_count = filename.count('.')
+        if dot_count != 4:
+            errors.append(f"{filename}: Filename should have 4 dots (5 segments, found {dot_count})")
+            continue
+        
+        # Check 3: Middle segments contain only allowed characters
+        middle_part = filename[len("mint_system."):-len(".xml")]
+        if not re.match(r'^[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$', middle_part):
+            errors.append(f"{filename}: Middle segments contain invalid characters: {middle_part}")
+            continue
+        
+        # Check 4: Valid XML format
+        try:
+            ET.parse(file_path)
+        except ET.ParseError as e:
+            errors.append(f"{filename}: Invalid XML format: {str(e)}")
+            continue
+    
+    if errors:
+        print("Linting failed:")
+        for error in errors:
+            print(f"  - {error}")
+        sys.exit(1)
+    else:
+        print("No problems with snippets found.")
+        sys.exit(0)
+
+
+if __name__ == "__main__":
+    lint_snippets()

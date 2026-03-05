@@ -2762,45 +2762,7 @@ remove-snippet() {
 
 lint-snippets() {
     echo 'Lint snippets files...'
-
-    local files="snippets/*.xml"
-
-    for file in $files; do
-
-        # Check filename format - should be mint_system.module.view.action.xml (4-5 segments)
-        local filename=$(basename "$file")
-        
-        # Check starts with mint_system. and ends with .xml
-        if [[ ! "$filename" =~ ^mint_system\..*\.xml$ ]]; then
-            echo "Linting failed for $file"
-            echo "Filename should start with 'mint_system.' and end with '.xml'"
-            exit 1
-        fi
-        
-        # Count dots - should be 3 or 4 dots (4 or 5 segments)
-        local dot_count=$(echo "$filename" | tr -cd '.' | wc -c)
-        if [ "$dot_count" -ne 3 ] && [ "$dot_count" -ne 4 ]; then
-            echo "Linting failed for $file"
-            echo "Filename should have 3 or 4 dots (found $dot_count)"
-            exit 1
-        fi
-        
-        # Check that all segments between mint_system and xml contain only allowed characters
-        local middle_part=$(echo "$filename" | sed 's/^mint_system\.//;s/\.xml$//')
-        if [[ ! "$middle_part" =~ ^[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$ ]]; then
-            echo "Linting failed for $file"
-            echo "Middle segments contain invalid characters: $middle_part"
-            exit 1
-        fi
-
-        # Check XML format with xmllint
-        if ! xmllint --format "$file" >/dev/null 2>&1; then
-            echo "Linting failed for $file"
-            echo "XML format is invalid."
-            exit 1
-        fi
-    done
-    echo 'No problems with snippets found.'
+    ./bin/lint-snippets
 }
 
 # Project commands
