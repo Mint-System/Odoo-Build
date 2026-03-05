@@ -118,6 +118,7 @@ help-table() {
     rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
     rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
     rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
+    rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
     rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
     rows+=("<<<MODULE>>>| | ")
     rows+=("list-modules|[path]|Get modules in path as bash array.")
@@ -1839,29 +1840,6 @@ list-packages() {
     uv pip list
 }
 
-generate-module-repo() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    local repo_path="$1"
-    local repo_name=$(basename "$repo_path")
-
-    # If repo already exists, create new branch
-    if [[ -d "$repo_path/.git" ]]; then
-        echo "Create new branch $repo_name in $repo_path"
-        cd "$repo_path" || exit
-        git switch --orphan -c "$ODOO_VERSION"
-
-        echo "Remove all files from $repo_path"
-        rm -rf "$repo_path/*"
-    fi
-
-    echo "Copy template files from templates/$ODOO_VERSION to $repo_path"
-    cp "templates/$ODOO_VERSION/*" "$repo_path"
-}
-
 # Module commands
 
 init-module() {
@@ -2132,6 +2110,29 @@ generate-module-security() {
     echo "access_${model_name}_manager,access.$model_dot_name.manager,model_${model_name},base.group_erp_manager,1,1,1,1" >> "$access_file"
 }
 
+generate-module-repo() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+
+    local repo_path="$1"
+    local repo_name=$(basename "$repo_path")
+
+    # If repo already exists, create new branch
+    if [[ -d "$repo_path/.git" ]]; then
+        echo "Create new branch $repo_name in $repo_path"
+        cd "$repo_path" || exit
+        git switch --orphan -c "$ODOO_VERSION"
+
+        echo "Remove all files from $repo_path"
+        rm -rf "$repo_path/*"
+    fi
+
+    echo "Copy template files from templates/$ODOO_VERSION to $repo_path"
+    template-repo "$repo_path"
+}
+
 export-module-vars() {
     export MODULE_NAME=$(basename "$1") # partner_email_history
     export MODEL_DOT_NAME="$2" # res.partner
@@ -2167,6 +2168,21 @@ generate-module-model() {
     envsubst < templates/model.py > "$module_path/models/$MODEL_NAME.py"
     echo "from . import $model_name" >> "$module_path/models/__init__.py"
     echo "File "$module_path/models/$MODEL_NAME.py created.
+}
+
+generate-module-translation() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local module_name=$(basename "$1")
+
+    echo "Translate module $module_name."
+    translate-module "$module_path"
+
+    echo "Translate the de.po with llm..."
+    task update-with-llm "$module_path/i18n/de.po" "Add missing tranlstions."
 }
 
 generate-module-inherit() {
