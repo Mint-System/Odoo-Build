@@ -116,8 +116,9 @@ help-table() {
     rows+=("generate-module-security|[path][model]|Generate model access file.")
     rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
     rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
-    rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
+    rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
     rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
+    rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
     rows+=("<<<MODULE>>>| | ")
     rows+=("list-modules|[path]|Get modules in path as bash array.")
     rows+=("pytest-module|[path]|Run module tests with pytest.")
@@ -2131,6 +2132,24 @@ generate-module-security() {
     echo "access_${model_name}_manager,access.$model_dot_name.manager,model_${model_name},base.group_erp_manager,1,1,1,1" >> "$access_file"
 }
 
+export-module-vars() {
+    export MODULE_NAME=$(basename "$1") # partner_email_history
+    export MODEL_DOT_NAME="$2" # res.partner
+    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
+    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
+    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
+    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+}
+
+export-module-inherit-vars() {
+    export MODEL_DOT_NAME="$3" # sale.order
+    export VIEW_REF="$2" # sale.view_order_form
+    export MODEL_NAME=${MODEL_DOT_NAME//\./_} # sale_order
+    export MODULE_NAME=$(basename "$1") # sale_helm
+    export SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1) # sale
+    export XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2) # view_order_form
+}
+
 generate-module-model() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
@@ -2144,11 +2163,7 @@ generate-module-model() {
     local module_name=$(basename "$1")
 
     echo 'Substitute model template'
-    export MODEL_DOT_NAME="$2" # res.partner
-    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    export-module-vars "$1" "$2"
     envsubst < templates/model.py > "$module_path/models/$MODEL_NAME.py"
     echo "from . import $model_name" >> "$module_path/models/__init__.py"
     echo "File "$module_path/models/$MODEL_NAME.py created.
@@ -2167,11 +2182,7 @@ generate-module-inherit() {
     local module_name=$(basename "$1")
 
     echo 'Substitute model template'
-    export MODEL_DOT_NAME="$2" # res.partner
-    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    export-module-vars "$1" "$2"
     envsubst < templates/inherit.py > "$module_path/models/$MODEL_NAME.py"
     echo "from . import $MODEL_NAME" >> "$module_path/models/__init__.py"
     echo "File "$module_path/models/$MODEL_NAME.py created.
@@ -2191,11 +2202,7 @@ generate-module-views() {
 
     echo 'Substitute view template'
     mkdir -p "$module_path/views"
-    export MODEL_DOT_NAME="$2" # res.partner
-    export MODEL_NAME=$(echo "$MODEL_DOT_NAME" | tr '.' '_') # res_partner
-    export NAME=$(echo "$MODEL_DOT_NAME" | cut -d"." -f2  | sed 's/[^_]\+/\L\u&/g') # Partners
-    export MODEL_DESCRIPTION=$(echo "$MODEL_NAME" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g') # Res Partner
-    export MODEL_CAMEL_NAME=$(echo "$MODEL_DESCRIPTION" | sed 's/ //g') # ResPartner
+    export-module-vars "$2"
     envsubst < templates/model_views.xml > "$module_path/views/${MODEL_NAME}_views.xml"
     echo "Update file $module_name/__manifest__.py with:"
     echo -e "\t\"views/${MODEL_NAME}_views.xml\","
@@ -2214,19 +2221,34 @@ generate-module-snippet() {
         echo '$3 is empty.'
         exit
     fi
-    local module_path="$1" # addons/sale_workflow/sale_helm
+    local module_path="$1"
 
     echo 'Substitute snippet template'
-    export MODEL_DOT_NAME="$3" # sale.order
-    export VIEW_REF="$2" # sale.view_order_form
-    export MODEL_NAME=${MODEL_DOT_NAME//\./_}
-    export MODULE_NAME=$(basename "$1")
-    export SRC_MODULE_NAME=$(echo "$VIEW_REF" | cut -d"." -f1)
-    export XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
     mkdir -p "$module_path/views"
+    export-module-inherit-vars "$1" "$2" "$3" # addons/sale_workflow/sale_helm sale.view_order_form sale.order
     envsubst < templates/model_snippet.xml > "$module_path/views/${MODEL_NAME}_views.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with:"
     echo -e "\t\"views/${MODEL_NAME}_views.xml\","
+}
+
+generate-module-report() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local module_name=$(basename "$1")
+
+    echo 'Substitute view template'
+    mkdir -p "$module_path/report"
+    export-module-vars "$1" "$2"
+    envsubst < templates/model_templates.xml > "$module_path/report/${MODEL_NAME}_templates.xml"
+    echo "Update file $module_name/__manifest__.py with:"
+    echo -e "\t\"report/${MODEL_NAME}_templates.xml\","
 }
 
 release-module() {
