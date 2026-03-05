@@ -1,4 +1,4 @@
-<data inherit_id="hr_employee_attendance_report.hr_employee_template">
+<data inherit_id="hr_employee_attendance_report.hr_employee_template" priority="50">
     <xpath expr="//div[@name='report_head']" position="replace">
          <div name="report_head">
              <h5 class="attendance-report">Attendance Report</h5>

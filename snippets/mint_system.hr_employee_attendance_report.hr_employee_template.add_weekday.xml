@@ -1,0 +1,3 @@
+<xpath expr="//td[@id='date']" position="inside">
+    <t t-out="attendance['date']" t-options="{'widget': 'date', 'format': 'EEE'}"/>
+</xpath>
