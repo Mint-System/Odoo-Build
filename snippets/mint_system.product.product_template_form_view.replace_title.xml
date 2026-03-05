@@ -6,6 +6,7 @@
                     <td style="width:60%">
                         <h1>
                             <field name="name" placeholder="Product Name"/>
+                            <field name="priority" widget="priority" class="me-3"/>
                         </h1>
                     </td>
                     <td style="width:40%; text-valign: bottom">
