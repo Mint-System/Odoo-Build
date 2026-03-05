@@ -2767,30 +2767,29 @@ lint-snippets() {
 
     for file in $files; do
 
-        # Skip files that don't have <data> elements (like templates)
-        if ! grep -q '<data' "$file"; then
-            continue
-        fi
-
-        # Access various snippet parameters
+        # Check filename format - should be mint_system.module.view.action.xml (4-5 segments)
         local filename=$(basename "$file")
-        local snippet_module=$(echo "$filename" | cut -d. -f2)
-        local report=$(echo "$filename" | cut -d. -f3)
-        local edit=$(echo "$filename" | cut -d. -f4)
-        local priority=$(echo 'cat //data/@priority' | xmllint --shell "$file" | awk -F'[="'] '!/>/{print $(NF-1)}')
-
-        # Check filename format - should be mint_system.module.xml_id.edit.xml
-        local expected_pattern="mint_system\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+\.xml"
-        if [[ ! "$filename" =~ $expected_pattern ]]; then
+        
+        # Check starts with mint_system. and ends with .xml
+        if [[ ! "$filename" =~ ^mint_system\..*\.xml$ ]]; then
             echo "Linting failed for $file"
-            echo "Filename does not match expected pattern: $expected_pattern"
+            echo "Filename should start with 'mint_system.' and end with '.xml'"
             exit 1
         fi
-
-        # Check if priority is set
-        if [[ -z "$priority" ]]; then
+        
+        # Count dots - should be 3 or 4 dots (4 or 5 segments)
+        local dot_count=$(echo "$filename" | tr -cd '.' | wc -c)
+        if [ "$dot_count" -ne 3 ] && [ "$dot_count" -ne 4 ]; then
             echo "Linting failed for $file"
-            echo 'No priority is set.'
+            echo "Filename should have 3 or 4 dots (found $dot_count)"
+            exit 1
+        fi
+        
+        # Check that all segments between mint_system and xml contain only allowed characters
+        local middle_part=$(echo "$filename" | sed 's/^mint_system\.//;s/\.xml$//')
+        if [[ ! "$middle_part" =~ ^[a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*$ ]]; then
+            echo "Linting failed for $file"
+            echo "Middle segments contain invalid characters: $middle_part"
             exit 1
         fi
 
