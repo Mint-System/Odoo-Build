@@ -2215,7 +2215,8 @@ generate-module-snippet() {
     export XML_ID=$(echo "$VIEW_REF" | cut -d"." -f2)
     mkdir -p "$module_path/views"
     envsubst < templates/model_snippet.xml > "$module_path/views/${MODEL_NAME}_views.xml"
-    echo "Update file $MODULE_NAME/__manifest__.py with: \"views/${MODEL_NAME}_views.xml\""
+    echo "Update file $MODULE_NAME/__manifest__.py with:"
+    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
 }
 
 release-module() {
