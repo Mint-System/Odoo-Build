@@ -148,6 +148,7 @@ help-table() {
     rows+=("exec|[name][cmd]|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
     rows+=("manifestoo|[param]|Execute manifestoo cli.")
+    rows+=("oboobin|[param]|Execute odoo binary.")
     rows+=("odoocli|[param]|Execute odoocli cli.")
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
@@ -2014,14 +2015,38 @@ create-module() {
         exit
     fi
 
-    local module_name=$(basename "$1")
-    local parent_dir=$(dirname "$1")
+    local module_path="$1"
+    local module_name=$(basename "$module_path")
+    local parent_dir=$(dirname "$module_path")
 
     echo "Scaffolding module $module_name in ${parent_dir}..."
     odoo scaffold "$module_name" "$parent_dir" -t templates/module
 
-    echo "Update title, summary, version, license, depends and data in the '__manifest__.py'."
-    echo "Remove the 'security' folder if not required."
+    echo 'Prompt for module manifest values...'
+    export MODULE_TITLE=$(echo "$module_name" | sed 's/[^_]\+/\L\u&/g' | sed 's/_/ /g')
+
+    read -p "Summary: " MODULE_SUMMARY
+    export MODULE_SUMMARY
+
+    while true; do
+        read -p "License (AGPL-3/OPL-1): " MODULE_LICENSE
+        [[ "$MODULE_LICENSE" == "AGPL-3" || "$MODULE_LICENSE" == "OPL-1" ]] && break
+        echo "Invalid. Use AGPL-3 or OPL-1."
+    done
+    export MODULE_LICENSE
+
+    read -p "Depends (comma-separated): " MODULE_DEPENDS
+    export MODULE_DEPENDS
+
+    while true; do
+        read -p "Demo? (y/n): " DEMO_RESPONSE
+        [[ "$DEMO_RESPONSE" == "y" ]] && export MODULE_DEMO_KEY='"demo": ["demo/demo.xml"],' && break
+        [[ "$DEMO_RESPONSE" == "n" ]] && export MODULE_DEMO_KEY="" && break
+        echo "Answer y or n."
+    done
+
+    envsubst < templates/module/__manifest__.py > "$module_path/__manifest__.py"
+    echo "Templated the file $module_path/__manifest__.py file."
 }
 
 generate-module-docs() {
@@ -2110,6 +2135,9 @@ generate-module-security() {
     echo "Add model access to $access_file"
     echo "access_${model_name}_user,access.$model_dot_name.user,model_${model_name},base.group_user,1,0,0,0" >> "$access_file"
     echo "access_${model_name}_manager,access.$model_dot_name.manager,model_${model_name},base.group_erp_manager,1,1,1,1" >> "$access_file"
+
+    echo "Update file $module_name/__manifest__.py with:"
+    echo -e "\t\"security/ir.model.access.csv\","
 }
 
 generate-module-repo() {
@@ -2937,6 +2965,10 @@ commit-and-push-revision() {
 test-xmlrpc() {
     load-dotenv "$1"
     echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
+}
+
+odoobin(){
+    odoo "$@"
 }
 
 odoocli(){
