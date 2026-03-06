@@ -2040,9 +2040,30 @@ create-module() {
 
     while true; do
         read -p "Demo? (y/n): " DEMO_RESPONSE
-        [[ "$DEMO_RESPONSE" == "y" ]] && export MODULE_DEMO_KEY='"demo": ["demo/demo.xml"],' && break
-        [[ "$DEMO_RESPONSE" == "n" ]] && export MODULE_DEMO_KEY="" && break
-        echo "Answer y or n."
+        if [[ "$DEMO_RESPONSE" == "y" ]]; then
+            export MODULE_DEMO_KEY='"demo": ["demo/demo.xml"],'
+            mkdir -p "$module_path/demo"
+            cp templates/demo.xml "$module_path/demo/demo.xml"
+            break
+        elif [[ "$DEMO_RESPONSE" == "n" ]]; then
+            export MODULE_DEMO_KEY=""
+            break
+        else
+            echo "Answer y or n."
+        fi
+    done
+
+    while true; do
+        read -p "Test instructions? (y/n): " TEST_RESPONSE
+        if [[ "$TEST_RESPONSE" == "y" ]]; then
+            mkdir -p "$module_path/tests"
+            touch "$module_path/tests/TEST_INSTRUCTIONS.rst"
+            break
+        elif [[ "$TEST_RESPONSE" == "n" ]]; then
+            break
+        else
+            echo "Answer y or n."
+        fi
     done
 
     envsubst < templates/module/__manifest__.py > "$module_path/__manifest__.py"
