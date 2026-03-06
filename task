@@ -2066,8 +2066,9 @@ create-module() {
         fi
     done
 
+    export ODOO_VERSION
     envsubst < templates/module/__manifest__.py > "$module_path/__manifest__.py"
-    echo "Templated the file $module_path/__manifest__.py file."
+    echo "Templated the mdoule $module_path"
 }
 
 generate-module-docs() {
