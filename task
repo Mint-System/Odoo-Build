@@ -2233,7 +2233,7 @@ generate-module-translation() {
     translate-module "$module_path"
 
     echo "Translate the de.po with llm..."
-    task update-with-llm "$module_path/i18n/de.po" "Add missing tranlstions."
+    task update-with-llm "$module_path/i18n/de.po" "Add missing translations."
 }
 
 generate-module-inherit() {
