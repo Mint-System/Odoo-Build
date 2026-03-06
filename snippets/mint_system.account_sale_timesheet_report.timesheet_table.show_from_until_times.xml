@@ -1,5 +1,5 @@
 <data priority="50">
     <xpath expr="//th[@id='date']" position="after">
-        <th id="from_until" style="white-space: nowrap;">Zeit</th>
+        <th id="from_until"><span>Zeit</span></th>
     </xpath>
 </data>
