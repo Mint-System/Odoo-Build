@@ -1,0 +1,14 @@
+<data priority="60">    
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .din_page.invoice_note tr .address {
+            font-size: 110%;
+            width: 90mm;
+            }  
+            
+        .din_page.invoice_note tr .shipping_address {
+            font-size: 110%;
+            }
+        </style>
+    </xpath>
+</data>
