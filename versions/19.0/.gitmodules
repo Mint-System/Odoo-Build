@@ -52,3 +52,7 @@
 	path = addons/spreadsheet
 	url = git@github.com:Mint-System/Odoo-Apps-Spreadsheet.git
 	branch = 19.0
+[submodule "addons/product_attribute"]
+	path = addons/product_attribute
+	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
+	branch = 19.0
