@@ -1,5 +1,0 @@
-<data priority="50">
-    <xpath expr="(//button[@name='action_confirm'])[2]" position="attributes">
-        <attribute name="name">action_confirm_save_only</attribute>
-    </xpath>
-</data>
