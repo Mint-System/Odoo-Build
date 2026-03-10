@@ -229,18 +229,28 @@ upgrade-odoo() {
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
         if [[ "$POSTGRES_CONTAINER" != "$TARGET_POSTGRES_CONTAINER" ]]; then
             if [[ "$DATABASE" = "odoo" ]]; then
+                echo "Rename database '$DATABASE' to '${DATABASE}-old'"
+                $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
+            else
+                echo "Rename database '$DATABASE' to '${DATABASE}-old'"
                 $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
             fi
+
+            echo "Rename database '$TARGET_DATABASE' to '$DATABASE'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         else
+            echo "Rename database '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
+            echo "Rename database '$TARGET_DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         fi
         $ssh_server docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
 
         if [[ "$DATABASE" = "odoo" ]]; then
+            echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/$DATABASE-old"
         fi
+        echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}-old'"
         $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
     fi
 
