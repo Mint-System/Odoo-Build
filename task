@@ -12,7 +12,7 @@ help-table() {
     local max_cmd=7 max_opt=6 max_desc=11
 
     rows+=("Command|Option|Description")
-    rows+=("<<<ENV>>>| | ")
+    rows+=("===ENV===| | ")
     rows+=("backup-env-files|[path]|Archive and copy ,env files to target location.")
     rows+=("copy-dotenv|[env][env]|Copy .env file.")
     rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
@@ -25,7 +25,7 @@ help-table() {
     rows+=("restore-dotenv-files|[path]|Extract and copy .env files from backup file.")
     rows+=("save-dotenv||Store content of .env in pass entry.")
     rows+=("show-dotenv|[env]|Output content of the .env file.")
-    rows+=("<<<GIT>>>| | ")
+    rows+=("===GIT===| | ")
     rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
     rows+=("add-git-folder|[branch][url][path]|Add git folder to .gitmodules and .gitmodule.csv.")
     rows+=("checkout|[version]|Checkout Odoo version.")
@@ -44,7 +44,7 @@ help-table() {
     rows+=("stage-git-folder|[path]|Stage all files in git folders in path.")
     rows+=("switch-git-folder|[branch][path]|Switch branch for all git folders from the .gitmodules file.")
     rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
-    rows+=("<<<DOCKER>>>| | ")
+    rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
     rows+=("build|[folder][output]|Build Docker image from target folder.")
     rows+=("login-docker|[user][token]|Setup Docker Hub login credentials.")
@@ -54,12 +54,12 @@ help-table() {
     rows+=("remove|[name]|Remove containers and volumes.")
     rows+=("test-image|[folder]|Test Docker image from target folder.")
     rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
-    rows+=("<<<VUEPRESS>>>| | ")
+    rows+=("===VUEPRESS===| | ")
     rows+=("build-vuepress||Create Vuepress build.")
     rows+=("install-vuepress||Install Node build dependencies.")
     rows+=("dev-vuepress||Start Vuepress development server.")
     rows+=("serve-vuepress||Serve Vuepress build.")
-    rows+=("<<<DATABASE>>>| | ")
+    rows+=("===DATABASE===| | ")
     rows+=("change-uuid|[env]|Change database uuid via xmlrpc.")
     rows+=("clear-assets|[db]|Clear all assets of Odoo database.")
     rows+=("clear-filestore|[db]|Clear local filestore folder.")
@@ -73,7 +73,7 @@ help-table() {
     rows+=("set-admin|[db]|Sets the password for the first user in database.")
     rows+=("update-module|[db][name,path]|Update target Odoo module.")
     rows+=("update-module-list|[db]|Update module list of Odoo database.")
-    rows+=("<<<REVISION>>>| | ")
+    rows+=("===REVISION===| | ")
     rows+=("checkout-latest-revision|[version]|Checkout the latest revision of the Odoo version.")
     rows+=("checkout-revision|[revision]|Load Odoo revision env var and checkout git folders.")
     rows+=("commit-and-push-revision|[revision]|Commit all changes and tag with current revision.")
@@ -82,10 +82,10 @@ help-table() {
     rows+=("load-latest-revision|[version]|Load the latest revision of the Odoo version.")
     rows+=("load-revision|[revision]|Load env var from specified revision.")
     rows+=("show-revision|[revision]|Show references of Odoo revision.")
-    rows+=("<<<LLM>>>| | ")
+    rows+=("===LLM===| | ")
     rows+=("commit-with-llm||Commit with llm generated commit message.")
     rows+=("update-with-llm|[glob][prompt]|Feed module files with prompt to LLM and apply file changes.")
-    rows+=("<<<SNIPPETS>>>| | ")
+    rows+=("===SNIPPETS===| | ")
     rows+=("create-snippet|[xml-id]|Create snippet from template.")
     rows+=("install-snippet|[env][path]|Install snippet definition.")
     rows+=("disable-snippet|[env][path]|Disable snippet by path or xml-id.")
@@ -93,7 +93,7 @@ help-table() {
     rows+=("lint-snippets||Run checks for all snippets.")
     rows+=("remove-snippet|[env][path]|Remove snippet by path or xml-id.")
     rows+=("update-snippet|[env][path]|Update snippet definition.")
-    rows+=("<<<INSTALL>>>| | ")
+    rows+=("===INSTALL===| | ")
     rows+=("activate-venv||Activate virtualenv.")
     rows+=("init-venv||Initialize python virtual env.")
     rows+=("disable-mailserver|[env]|Disable mail server settings via xmlrpc.")
@@ -103,11 +103,11 @@ help-table() {
     rows+=("list-packages||List installed python packages.")
     rows+=("init-module|[db][path,module]|Initialize Odoo module.")
     rows+=("set-addons-path||Set Odoo addons path env variable.")
-    rows+=("<<<MIGRATION>>>| | ")
+    rows+=("===MIGRATION===| | ")
     rows+=("export-website-data|[env]|Export website data from Odoo database.")
     rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
-    rows+=("<<<GENERATE>>>| | ")
+    rows+=("===GENERATE===| | ")
     rows+=("create-module|[path]|Create new Odoo module from template.")
     rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
     rows+=("generate-module-model|[path][model]|Generate model in module folder.")
@@ -120,7 +120,7 @@ help-table() {
     rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
     rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
     rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
-    rows+=("<<<MODULE>>>| | ")
+    rows+=("===MODULE===| | ")
     rows+=("list-modules|[path]|Get modules in path as bash array.")
     rows+=("pytest-module|[path]|Run module tests with pytest.")
     rows+=("release-module|[path]|Create GitHub release for a module.")
@@ -131,7 +131,7 @@ help-table() {
     rows+=("upload-module|[env][path]|Zip and upload Odoo module.")
     rows+=("visualize-dependencies|[path]|Generate visualizations of module dependencies.")
     rows+=("zip-module|[path]|Create zip file for module.")
-    rows+=("<<<HELPER>>>| | ")
+    rows+=("===HELPER===| | ")
     rows+=("generate-admin-password|[pass]|Generate hash for Odoo master password.")
     rows+=("generate-ssh-keys||Generate ssh key pair.")
     rows+=("generate-pg-ssl-keys||Generate PostgreSQL SSL key material.")
@@ -143,7 +143,7 @@ help-table() {
     rows+=("info||Show values of project env vars.")
     rows+=("load-ssh-key||Load SSH private key from env var.")
     rows+=("update-module-license|[grep]|Update LICENSE file for each matching module.")
-    rows+=("<<<RUN>>>| | ")
+    rows+=("===RUN===| | ")
     rows+=("debug|[name]|Debugg application.")
     rows+=("exec|[name][cmd]|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
@@ -158,7 +158,7 @@ help-table() {
     rows+=("start|[name][db]|Start service. Use list to show services.")
     rows+=("stop|[name]|Stop containers.")
     rows+=("test-xmlrpc|[env]|Test json rpc connection.")
-    rows+=("<<<PROJECT>>>| | ")
+    rows+=("===PROJECT===| | ")
     rows+=("lint||Run precommit for this project.")
     rows+=("list-versions||List available Odoo versions.")
     rows+=("check-version||Check if Odoo source is the correct version.")
@@ -169,15 +169,15 @@ help-table() {
     rows+=("template-repo|[path]|Update the repo folder from template.")
     rows+=("test-project|[cleanup]|Run tests for this project.")
     rows+=("version||Show version of required tools.")
-    rows+=("<<<PERFORMANCE>>>| | ")
+    rows+=("===PERFORMANCE===| | ")
     rows+=("record-with-memray|[name]|Record application memory usage with memray.")
     rows+=("record-with-py-spy|[pid]|Record and create flamechart for a process.")
-    rows+=("<<<DOCS>>>| | ")
+    rows+=("===DOCS===| | ")
     rows+=("update-docs||Update all project docs.")
     rows+=("update-modules-doc||Update modules docs file.")
     rows+=("update-revisions-doc||Update revisions doc file.")
     rows+=("update-snippets-doc||Update snippets doc file.")
-    rows+=("<<<UPGRADE>>>| | ")
+    rows+=("===UPGRADE===| | ")
     rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
     rows+=("upgrade-odoo|[env][step]|Run the Odoo upgrade for a target environment.")
 
@@ -201,9 +201,9 @@ help-table() {
     local first_row=true
     for row in "${rows[@]:1}"; do
         IFS='|' read -r cmd opt desc <<< "$row"
-        if [[ "$cmd" =~ ^\<\<\<.*\>\>\>$ ]]; then
-            group_name="${cmd/\<\<\</}"
-            group_name="${group_name/\>\>\>/}"
+        if [[ "$cmd" =~ ^===.*===$ ]]; then
+            group_name="${cmd/===/}"
+            group_name="${group_name/===/}"
             
             if [ "$first_row" = true ]; then
                 first_row=false
@@ -2396,254 +2396,8 @@ migrate-module() {
 }
 
 upgrade-odoo() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-    if [[ "$1" =~ "list" ]]; then
-        echo "info"
-        echo "all-test"
-        echo "all-production"
-        echo "dump"
-        echo "filestore"
-        echo "drop"
-        echo "upgrade-test"
-        echo "upgrade-production"
-        echo "clear-assets"
-        echo "init"
-        echo "uninstall"
-        echo "auto-update"
-        echo "update"
-        echo "configure-test"
-        echo "configure-production"
-        echo "restart"
-        echo "logs"
-        echo "shell"
-        echo "psql"
-        echo "rename-production"
-        echo "stop-container"
-        echo "browse"
-        exit
-    fi
-    if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
-        exit
-    fi
-    load-dotenv "$1"
-    temp_folder="/var/tmp"
-    
-    # Setup ssh aliases
-    ssh_server="ssh -p $PORT $SERVER"
-    ssh_target_server="ssh -t -p $TARGET_PORT $TARGET_SERVER"
-    scp_exec="scp"
-    if [[ -n "$JUMP_HOST" ]]; then
-        log-warning "Source connection uses jump host: $JUMP_HOST"
-        ssh_server="ssh -p $PORT -J $JUMP_HOST $SERVER"
-        scp_exec="scp -o ProxyJump=$JUMP_HOST"
-    fi
-    if [[ -n "$TARGET_JUMP_HOST" ]]; then
-        log-warning "Target connection uses jump host: $JUMP_HOST"
-        ssh_target_server="ssh -t -p $TARGET_PORT -J $TARGET_JUMP_HOST $TARGET_SERVER"
-    fi
-
-    if [[ "$2" =~ "info" ]]; then
-        echo ""
-        echo "Source Enviroment"
-        echo "-----------------"
-        echo "Host: $HOST"
-        echo "Server: $SERVER:$PORT"
-        echo "Jump Host: $JUMP_HOST"
-        echo "Odoo Container: $ODOO_CONTAINER"
-        echo "Odoo Version: $ODOO_VERSION"
-        echo "Postgres Container: $POSTGRES_CONTAINER"
-        echo "Database: $DATABASE"
-        echo ""
-        echo "Target Enviroment"
-        echo "-----------------"
-        echo "Host: $TARGET_HOST"
-        echo "Server: $TARGET_SERVER:$TARGET_PORT"
-        echo "Jump Host: $TARGET_JUMP_HOST"
-        echo "Odoo Container: $TARGET_ODOO_CONTAINER"
-        echo "Odoo Version: $TARGET_ODOO_VERSION"
-        echo "Postgres Container: $TARGET_POSTGRES_CONTAINER"
-        echo "Database: $TARGET_DATABASE"
-        echo ""
-        echo "Upgrade Configuration"
-        echo "---------------------"
-        echo "Init Addons: $ODOO_ADDONS_INIT"
-        echo "Uninstall Addons: $ODOO_ADDONS_UNINSTALL"
-        echo ""
-        echo "Test Config: $ODOO_CONFIGURE_TEST"
-        echo "Production Config: $ODOO_CONFIGURE_PRODUCTION"
-        echo ""
-    fi
-
-    if [[ "$2" =~ "all-test" ]]; then
-        echo "#FIXME: implement this command."
-    fi
-
-
-    if [[ "$2" =~ "all-production" ]]; then
-        echo "#FIXME: implement this command."
-    fi
-
-    if [[ "$2" =~ "dump" ]]; then
-        log-warning "Run step 'dump' on $SERVER."
-
-        $ssh_server sudo docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
-
-        if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
-            log-warning "Source and target host are different."
-
-            echo "Copy dump from $SERVER to $TARGET_SERVER..."
-            $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
-            $scp_exec "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
-            $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
-        else
-            $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
-        fi
-    fi
-
-    if [[ "$2" =~ "filestore" ]]; then
-        log-warning "Run step 'filestore' on $SERVER."
-
-        $ssh_server docker-export -c "$ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
-
-        if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
-            log-warning "Source and target host are different."
-
-            echo "Copy filestore from $SERVER to $TARGET_SERVER..."
-            $scp_exec "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
-            $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r     
-        else
-            $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
-        fi
-    fi
-
-    if [[ "$2" = "drop" ]]; then
-        log-warning "Run step 'drop' on $TARGET_SERVER."
-        $ssh_target_server docker-postgres-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
-    fi
-
-    if [[ "$2" = "upgrade-test" ]]; then
-        log-warning "Run step 'upgrade-test' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
-    fi
-
-    if [[ "$2" = "upgrade-production" ]]; then
-        log-warning "Run step 'upgrade-production' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-upgrade -m production -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
-    fi
-
-    if [[ "$2" = "clear-assets" ]]; then
-        log-warning "Run step 'clear-assets' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
-    fi
-
-    if [[ "$2" = "init" ]]; then
-        log-warning "Run step 'init' on $TARGET_SERVER."
-        if [[ -n "$ODOO_ADDONS_INIT" ]]; then
-            $ssh_target_server docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
-        else
-            echo "Nothing to do."
-        fi
-    fi
-
-    if [[ "$2" = "uninstall" ]]; then
-        log-warning "Run step 'uninstall' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
-    fi
-
-    if [[ "$2" = "auto-update" ]]; then
-        log-warning "Run step 'auto-update' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "env['ir.module.module'].upgrade_changed_checksum()"
-    fi
-
-    if [[ "$2" = "update" ]]; then
-        log-warning "Run step 'update' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
-    fi
-
-    if [[ "$2" = "configure-test" ]]; then
-        log-warning "Run step 'configure' on $TARGET_SERVER."
-        if [[ -n "$ODOO_CONFIGURE_TEST" ]]; then
-            $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
-        else
-            echo "Nothing to do."
-        fi
-    fi
-
-    if [[ "$2" = "configure-production" ]]; then
-        log-warning "Run step 'configure' on $TARGET_SERVER."
-        if [[ -n "$ODOO_CONFIGURE_PRODUCTION" ]]; then
-            $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
-        else
-            echo "Nothing to do."
-        fi
-    fi
-
-    if [[ "$2" = "restart" ]]; then
-        log-warning "Run step 'restart' on $TARGET_SERVER."
-        $ssh_target_server docker restart "$TARGET_ODOO_CONTAINER" "$TARGET_POSTGRES_CONTAINER"
-    fi
-
-    if [[ "$2" = "logs" ]]; then
-        log-warning "Run step 'logs' on $TARGET_SERVER."
-        containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
-        $ssh_target_server docker logs -f "$containe_id" --tail 10
-    fi
-
-    if [[ "$2" = "shell" ]]; then
-        log-warning "Run step 'shell' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
-    fi
-
-    if [[ "$2" = "psql" ]]; then
-        log-warning "Run step 'psql' on $TARGET_SERVER."
-        $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
-    fi
-
-    if [[ "$2" = "env" ]]; then
-        log-warning "Run step 'env' on $TARGET_SERVER."
-        containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
-        $ssh_target_server docker exec "$containe_id" env
-    fi
-
-    if [[ "$2" = "conf" ]]; then
-        log-warning "Run step 'conf' on $TARGET_SERVER."
-        containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
-        $ssh_target_server docker exec "$containe_id" cat /etc/odoo/odoo.conf
-    fi
-
-    if [[ "$2" = "stop-container" ]]; then
-        log-warning "Run step 'stop-container' on $TARGET_SERVER."
-        $ssh_server docker stop "$ODOO_CONTAINER"
-    fi
-
-    if [[ "$2" = "rename-production" ]]; then
-        log-warning "Run step 'rename-production' on $TARGET_SERVER."
-        if [[ "$POSTGRES_CONTAINER" != "$TARGET_POSTGRES_CONTAINER" ]]; then
-            if [[ "$DATABASE" = "odoo" ]]; then
-                $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
-            fi
-            $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
-        else
-            $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
-            $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
-        fi
-        $ssh_server docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
-
-        if [[ "$DATABASE" = "odoo" ]]; then
-            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/$DATABASE-old"
-        fi
-        $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
-    fi
-
-    if [[ "$2" = "browse" ]]; then
-        log-warning "Run step '$2' on $TARGET_SERVER."
-        open-url-with-delay "https://$TARGET_HOST" 0
-    fi
-
+    source ./bin/upgrade-odoo
+    upgrade-odoo "$@"
 }
 
 # Snippet commands
