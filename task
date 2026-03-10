@@ -2449,12 +2449,13 @@ install-snippet() {
     # Generate view name from filename
     local file=$(basename "$2")
     local name="${file%.xml}"
-    local inherit_id=$(echo 'cat //data/@inherit_id' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
+    local inherit_id=$(echo "$name" | cut -d. -f 2,3 )
+    local module_name=$(echo "$inherit_id" | cut -d. -f 1 )
+    local xml_id=$(echo "$inherit_id" | cut -d. -f 2 )
+
     local type=$(echo 'cat //data/@type' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
     local model=$(echo 'cat //data/@model' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
     local priority=$(echo 'cat //data/@priority' | xmllint --shell "$2" | awk -F'[="]' '!/>/{print $(NF-1)}')
-    local module_name=$(echo "$inherit_id" | cut -d. -f 1 )
-    local xml_id=$(echo "$inherit_id" | cut -d. -f 2 )
 
     # Set default values
     : ${type:='qweb'}
