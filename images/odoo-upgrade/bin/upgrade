@@ -159,8 +159,8 @@ class StateMachine:
         return "new"
 
     def new_handler(self):
-        input_source, token, ssh_key, data_server_name, data_server_user, data_server_path = self.get_context_data(
-            "input_source", "token", "ssh_key", "data_server_name", "data_server_user", "data_server_path"
+        input_source, token, ssh_key, data_server_name = self.get_context_data(
+            "input_source", "token", "ssh_key", "data_server_name"
         )
         restore_db = not self.get_context_data("no_restore")
 
@@ -177,8 +177,6 @@ class StateMachine:
             dump_path,
             data_server_name,
             info["ssh_port"],
-            data_server_user,
-            data_server_path,
             ssh_key,
             dest_dump_name,
         )
@@ -223,10 +221,7 @@ class StateMachine:
             token,
             ssh_key,
             core_count,
-            aim,
             data_server_name,
-            data_server_user,
-            data_server_path,
             no_restore,
             dump_dest_path,
         ) = self.get_context_data(
@@ -234,10 +229,7 @@ class StateMachine:
             "token",
             "ssh_key",
             "core_count",
-            "aim",
             "data_server_name",
-            "data_server_user",
-            "data_server_path",
             "no_restore",
             "host_dump_download_path",
         )
@@ -247,8 +239,6 @@ class StateMachine:
         download_dump(
             data_server_name,
             info["ssh_port"],
-            data_server_user,
-            data_server_path,
             info["dump_name"],
             ssh_key,
             dump_dest_path,
@@ -348,14 +338,14 @@ def generate_default_ssh_keys():
         run_command(["ssh-keygen", "-t", "rsa", "-N", "", "-f", DEFAULT_SSH_KEY_NAME])
 
 
-def upload_dump(dump_path, server, port, user, path, ssh_key, dest_dump_name=None):
+def upload_dump(dump_path, server, port, ssh_key, dest_dump_name=None):
     """
     Upload the database dump to the server through SSH.
     """
     server_string = "{}@{}:{}".format(
-        user,
+        DATA_SERVER_USER,
         server,
-        "{}/{}".format(path, dest_dump_name) if dest_dump_name else path,
+        "{}/{}".format(DATA_SERVER_PATH, dest_dump_name) if dest_dump_name else DATA_SERVER_PATH,
     )
     ssh = "ssh -p {} -o IdentitiesOnly=yes -o StrictHostKeyChecking=yes -o UserKnownHostsFile={} -i {}".format(
         port,
@@ -373,11 +363,12 @@ def upload_dump(dump_path, server, port, user, path, ssh_key, dest_dump_name=Non
         run_command(
             [
                 "rsync",
-                "--chmod=u+rwx,g+rwx,o+r",
                 "--info=progress2",
                 "--delete-after",
-                "-are",
-                ssh,
+                "--recursive",
+                "--links",
+                "--times",
+                "--rsh=" + ssh,
                 dump_path,
                 server_string,
             ],
@@ -394,7 +385,7 @@ def upload_dump(dump_path, server, port, user, path, ssh_key, dest_dump_name=Non
         sys.exit(1)
 
 
-def download_dump(server, port, user, dump_path, dump_name, ssh_key, dump_dest_path="."):
+def download_dump(server, port, dump_name, ssh_key, dump_dest_path="."):
     """
     Download a database dump and its filestore from the server through SSH
     """
@@ -403,7 +394,7 @@ def download_dump(server, port, user, dump_path, dump_name, ssh_key, dump_dest_p
         KNOWN_HOSTS_NAME,
         ssh_key,
     )
-    server = "{}@{}:{}".format(user, server, dump_path)
+    server = "{}@{}:{}".format(DATA_SERVER_USER, server, DATA_SERVER_PATH)
     server_dump_path = os.path.join(server, dump_name)
     server_fs_path = os.path.join(server, FILESTORE_NAME)
     reports_path = os.path.join(server, "upgrade-report.html")
@@ -973,18 +964,6 @@ def parse_command_line():
             "--data-server-name",
             help=argparse.SUPPRESS,  # Deprecated: not used anymore, ignored
         )
-        subparser.add_argument(
-            "-u",
-            "--data-server-user",
-            help="The server user where to download/upload dumps (default: %(default)s)",
-            default=DATA_SERVER_USER,
-        )
-        subparser.add_argument(
-            "-p",
-            "--data-server-path",
-            help="The path on the server where to download/upload dumps (default: %(default)s)",
-            default=DATA_SERVER_PATH,
-        )
 
     def add_token_argument(subparser):
         subparser.add_argument(
@@ -1337,8 +1316,6 @@ def set_common_context(args):
         {
             "ssh_key": args.ssh_key,
             "core_count": args.core_count,
-            "data_server_user": args.data_server_user,
-            "data_server_path": args.data_server_path,
             "no_restore": args.no_restore,
         }
     )

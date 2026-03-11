@@ -38,12 +38,12 @@ upgrade-odoo() {
     temp_folder="/var/tmp"
     
     # Setup ssh aliases
-    ssh_server="ssh -p $PORT $SERVER"
-    ssh_target_server="ssh -t -p $TARGET_PORT $TARGET_SERVER"
+    ssh_server="ssh -p $PORT ${USERNAME}@${SERVER}"
+    ssh_target_server="ssh -t -p $TARGET_PORT ${TARGET_USERNAME}@${TARGET_SERVER}"
     scp_exec="scp"
     if [[ -n "$JUMP_HOST" ]]; then
         log-warning "Source connection uses jump host: $JUMP_HOST"
-        ssh_server="ssh -p $PORT -J $JUMP_HOST $SERVER"
+        ssh_server="ssh -p $PORT -J $JUMP_HOST ${USERNAME}@${SERVER}"
         scp_exec="scp -o ProxyJump=$JUMP_HOST"
     fi
     if [[ -n "$TARGET_JUMP_HOST" ]]; then
@@ -57,6 +57,7 @@ upgrade-odoo() {
         echo "-----------------"
         echo "Host: $HOST"
         echo "Server: $SERVER:$PORT"
+        echo "Username: $USERNAME"
         echo "Jump Host: $JUMP_HOST"
         echo "Odoo Container: $ODOO_CONTAINER"
         echo "Odoo Version: $ODOO_VERSION"
@@ -67,6 +68,7 @@ upgrade-odoo() {
         echo "-----------------"
         echo "Host: $TARGET_HOST"
         echo "Server: $TARGET_SERVER:$TARGET_PORT"
+        echo "Username: $TARGET_USERNAME"
         echo "Jump Host: $TARGET_JUMP_HOST"
         echo "Odoo Container: $TARGET_ODOO_CONTAINER"
         echo "Odoo Version: $TARGET_ODOO_VERSION"
@@ -95,7 +97,7 @@ upgrade-odoo() {
     if [[ "$2" =~ "dump" ]]; then
         log-warning "Run step 'dump' on $SERVER."
 
-        $ssh_server sudo docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
+        $ssh_server docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
 
         if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
             log-warning "Source and target host are different."
@@ -103,9 +105,9 @@ upgrade-odoo() {
             echo "Copy dump from $SERVER to $TARGET_SERVER..."
             $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
             $scp_exec "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
-            $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
+            $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
         else
-            $ssh_target_server sudo docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
+            $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
         fi
     fi
 
