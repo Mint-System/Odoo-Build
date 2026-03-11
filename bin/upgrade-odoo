@@ -158,7 +158,11 @@ upgrade-odoo() {
 
     if [[ "$2" = "uninstall" ]]; then
         log-warning "Run step 'uninstall' on $TARGET_SERVER."
-        $ssh_target_server docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
+        if [[ -n "$ODOO_ADDONS_UNINSTALL" ]]; then
+            $ssh_target_server docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
+        else
+            echo "Nothing to do."
+        fi
     fi
 
     if [[ "$2" = "auto-update" ]]; then
