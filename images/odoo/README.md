@@ -473,6 +473,10 @@ Compatibility with other images is mainly achieved by using the same environment
 
 ## Files
 
+### odoo.conf
+
+The `/etc/odoo/odoo.conf` is templated during container start. To output the content run `docker exec odoo conf`.
+
 ### pyproject.toml
 
 When mounting your `pyproject.toml` to `/var/lib/odoo/pyproject.toml` the `sync-python-project` script will run `uv sync --active` in the directory.
@@ -557,6 +561,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`aggregate-git-repos`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/aggregate-git-repos)
 - [`check-database-initialized`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/check-database-initialized)
 - [`clone-git-addons`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/clone-git-addons)
+- [`conf`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/conf)
 - [`download-git-archive`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-git-archive)
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
