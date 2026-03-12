@@ -1,0 +1,4 @@
+<data priority="50">
+    <th name="th_quantity" position="replace"/>
+    <td name="td_product_quantity" position="replace"/>
+</data>
