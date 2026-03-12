@@ -1,0 +1,3 @@
+<data priority="50">
+    <t t-set="address" position="replace" />
+</data>

@@ -1,5 +1,6 @@
 <data priority="50">
-    <div style="border-top: 1px solid black;" position="attributes">
-        <attribute name="style"/>
-    </div>
+    <xpath expr="//div[hasclass('o_footer_content')]" position="attributes">
+        <!-- Remove class border-top -->
+        <attribute name="class">o_footer_content d-flex pt-2</attribute>
+    </xpath>
 </data>

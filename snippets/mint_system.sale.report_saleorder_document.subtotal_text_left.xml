@@ -1,0 +1,9 @@
+<data priority="50">
+    <th name="th_subtotal" position="attributes">
+        <attribute name="class">text-left</attribute>
+    </th>
+
+    <td name="td_product_subtotal" position="attributes">
+        <attribute name="class">text-left</attribute>
+    </td>
+</data>
