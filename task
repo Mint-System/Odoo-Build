@@ -18,12 +18,10 @@ help-table() {
     rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
     rows+=("edit-dotenv|[env]|Open .env file in default editor.")
     rows+=("list-dotenv||List .env files.")
-    rows+=("load-dotenv||Restore content of .env from pass entry.")
     rows+=("load-dotenv|[env]|Load and export .env file.")
     rows+=("remove-dotenv|[env]|Remove environment config.")
     rows+=("rename-dotenv|[env][env]|Rename .env file.")
     rows+=("restore-dotenv-files|[path]|Extract and copy .env files from backup file.")
-    rows+=("save-dotenv||Store content of .env in pass entry.")
     rows+=("show-dotenv|[env]|Output content of the .env file.")
     rows+=("===GIT===| | ")
     rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
@@ -148,7 +146,7 @@ help-table() {
     rows+=("exec|[name][cmd]|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
     rows+=("manifestoo|[param]|Execute manifestoo cli.")
-    rows+=("oboobin|[param]|Execute odoo binary.")
+    rows+=("odoobin|[param]|Execute odoo binary.")
     rows+=("odoocli|[param]|Execute odoocli cli.")
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
@@ -254,7 +252,6 @@ help() {
 
 # Static env vars
 
-PASS_ENTRY="$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')"
 ODOO_RC="odoo.conf"
 TASK_DOTENV_DIR="$PWD/vault"
 export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
@@ -307,6 +304,8 @@ fi
 
 if [ "$WITHOUT_DEMO" = "True" ]; then
     ODOO_PARAM="--without-demo=all"
+else
+    ODOO_PARAM="--with-demo"
 fi
 
 # Import commands
@@ -334,12 +333,12 @@ fi
 info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
-    echo "Pass Entry: $PASS_ENTRY"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Version: $ODOO_VERSION"
     echo "Odoo Port: $ODOO_PORT"
     echo "Postgres Port: $POSTGRES_PORT"
     echo "Odoo Language: $ODOO_LANGUAGE"
+    echo "Odoo Param: $ODOO_PARAM"
     echo "Container Registry: $CONTAINER_REGISTRY"
     echo "Container Config: $CONTAINER_CONFIG"
     echo "Addons Path: $ADDONS_PATH"
