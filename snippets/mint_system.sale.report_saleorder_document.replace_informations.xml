@@ -1,46 +1,98 @@
 <data priority="50">
-    <div id="informations" position="replace">
+
+    <xpath expr="//div[@id='informations']" position="replace">
+
         <style>
-            div#informations th {}
-            div#informations td {}
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
         </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <strong class="mr-4">Datum:</strong>
-                        <span t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="doc.date_order">
+                    <td width="200px">Date</td>
+                    <td width="500px">
+                        <span id="date_order" t-field="doc.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
                     </td>
+                </t>
+            </tr>
+            <t t-if="doc.state != 'sale'">
+                <tr>
+                    <t t-if="doc.validity_date">
+                        <td>Validity Date</td>
+                        <td>
+                            <span id="validity_date" t-field="doc.validity_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                        </td>
+                    </t>
+                </tr>
+            </t>
+            <tr>
+                <t t-if="doc.client_order_ref">
+                    <td>Your Reference</td>
                     <td>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
+                        <span t-field="doc.client_order_ref"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="doc.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.commitment_date">
+                    <td>Delivery Date</td>
+                    <td>
+                        <span t-field="doc.commitment_date" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.incoterm">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="doc.incoterm.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
                         <span t-field="doc.payment_term_id"/>
                     </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="doc.user_id">
+                    <td>Our Contact</td>
                     <td>
-                        <strong t-if="doc.partner_sale_id" class="mr-2">Ihr Kontakt:</strong>
-                        <span t-if="doc.partner_sale_id" t-field="doc.partner_sale_id.name"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td>
-                        <strong t-if="doc.validity_date and doc.state in ['draft','sent']" class="mr-2">G&#xFC;ltigkeit:</strong>
-                        <span t-if="doc.validity_date and doc.state in ['draft','sent']" t-field="doc.validity_date" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                    </td>
-                    <td>
-                        <strong class="mr-2">Unser Kontakt:</strong>
                         <span t-field="doc.user_id"/>
+                        <t t-if="doc.user_id.email">
+                           ,                            <span t-field="doc.user_id.email"/>
+                        </t>
+                        <t t-if="doc.user_id.phone">
+                           ,                            <span t-field="doc.user_id.phone"/>
+                        </t>
                     </td>
-                    <td>
-                        <strong t-if="doc.client_order_ref" class="mr-2">Ihre Referenz:</strong>
-                        <span t-if="doc.client_order_ref" t-field="doc.client_order_ref"/>
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <strong class="mr-2" t-if="doc.project_id">Unsere Referenz:</strong>
-                        <span t-field="doc.project_id"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
+                </t>
+            </tr>
+        </table>
+    </xpath>
 </data>

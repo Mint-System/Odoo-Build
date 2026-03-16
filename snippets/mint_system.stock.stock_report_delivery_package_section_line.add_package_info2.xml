@@ -1,9 +1,0 @@
-<data priority="50">
-    <xpath expr="//td[@name='package_info']" position="inside">
-        <t t-if="package.package_type_id.display_name">
-       
-        <span>(</span><span t-field="package.package_type_id.display_name"/><span>)</span>
-        </t>
-       
-    </xpath>
-</data>

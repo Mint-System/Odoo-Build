@@ -1,52 +1,84 @@
 <data priority="50">
-    <xpath expr="//div[@class='page']/div[1]" position="replace">
+
+    <xpath expr="//div[@name='div_origin']/.." position="replace">
+
         <style>
-            div#informations p {
-                margin-bottom: 0rem;
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
             }
-            div#informations div {
-                display: inline-block;
-                vertical-align: top;
+            table#info td {
+            color: black;
+            border: transparent;
             }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
         </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
+
+        <table id="infotable" style="width: 700px; margin-bottom: 50px">
+            <tr>
+                <t t-if="o.date_done">
+                    <td width="200px">Delivery Date</td>
+                    <td width="500px">
+                        <span id="date_done" t-field="o.date_done" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.sale_id.client_order_ref">
+                    <td>Your Reference</td>
                     <td>
-                        <strong>Versanddatum:</strong>
-                        <t t-if="o.state == 'done'">
-                            <span
-                                t-field="o.date_done"
-                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                            />
+                        <span t-field="o.sale_id.client_order_ref"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.origin">
+                    <td>Order Reference</td>
+                    <td>
+                        <span t-field="o.origin"/>
+                    </td>
+                </t>
+            </tr>
+            
+           
+             <tr>
+                <t t-if="o.sale_id.incoterm">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.sale_id.incoterm.name"/>
+                    </td>
+                </t>
+            </tr>
+           
+            
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
                         </t>
-                        <t t-if="o.state != 'done'">
-                            <span
-                                t-field="o.scheduled_date"
-                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                            />
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
                         </t>
                     </td>
-                    <td>
-                        <strong>Unser Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.user_id" />
-                    </td>
-                    <td>
-                        <strong>Ihr Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <strong>Unsere Referenz:</strong>
-                        <span t-field="o.origin" />
-                    </td>
-                    <td t-if="o.sudo().sale_id.client_order_ref">
-                        <strong>Ihre Referenz:</strong>
-                        <span t-field="o.sudo().sale_id.client_order_ref" />
-                    </td>
-                </tr>
-            </table>
-        </div>
+                </t>
+            </tr>
+        </table>      
     </xpath>
 </data>
