@@ -302,9 +302,9 @@ else
     PYTHON_NOTIFY="inotify"
 fi
 
-if [ "$WITHOUT_DEMO" = "True" ]; then
+if [[ "$WITHOUT_DEMO" = "True" ]]; then
     ODOO_PARAM="--without-demo=all"
-else
+elif [[ "$ODOO_VERSION" = "19.0" ]]; then
     ODOO_PARAM="--with-demo"
 fi
 
