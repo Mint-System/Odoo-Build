@@ -2300,11 +2300,11 @@ generate-module-snippet() {
 
 generate-module-report() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/model is empty.'
         exit
     fi
     local module_path="$1"
