@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[@t-field='doc.date_order']/.." position="replace">
+        <div t-if="doc.next_invoice_date" class="col" name="subscription_next_invoice_date">
+            <strong>Nächste Abrechnung</strong>
+            <div t-field="doc.next_invoice_date"/>
+        </div>
+    </xpath>
+</data>
