@@ -262,7 +262,7 @@ upgrade-odoo() {
             # The upgrade container replaces the production definition
 
             # Rename production filestore in production container
-            echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}-old'"
+            echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
 
             # Copy filestore from upgrade container
