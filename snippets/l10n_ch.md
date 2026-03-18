@@ -337,5 +337,3 @@ Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xm
 
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml)
 
-## Qr Report Main
-

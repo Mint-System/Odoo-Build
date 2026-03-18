@@ -791,7 +791,6 @@ Inherit ID: `base.view_partner_form`
     <xpath expr="//field[@name='task_count']/.." position="replace"/>
     <xpath expr="//field[@name='purchase_order_count']/.." position="replace"/>
     <xpath expr="//field[@name='supplier_invoice_count']/.." position="replace"/>
-    <button name="open_partner_ledger" position="replace"/>
     <xpath expr="//field[@name='mass_mailing_contacts_count']/.." position="replace"/>
     <xpath expr="//field[@name='mass_mailing_stats_count']/.." position="replace"/>
     <field name="is_published" position="replace"/>

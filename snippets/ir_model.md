@@ -202,33 +202,6 @@ Edit: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.
 
 Source: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://odoo.build/snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml)
 
-## Account Invoice Report
-
-### X Shipping Address
-
-ID: `mint_system.ir_model.account_invoice_report.x_shipping_address`
-
-Inherit ID: `ir_model.account_invoice_report`
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
-    <record id="x_shipping_address" model="ir.model.fields">
-        <field name="field_description">Lieferadresse</field>
-        <field name="model">account.invoice.report</field>
-        <field name="model_id" ref="account.model_account_invoice_report"/>
-        <field name="name">x_shipping_id</field>
-        <field name="readonly" eval="True"/>
-        <field name="ttype">many2one</field>
-        <field name="related">move_id.partner_shipping_id</field>
-    </record>
-</odoo>
-
-```
-Edit: [snippets/mint_system.ir_model.account_invoice_report.x_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_invoice_report.x_shipping_address.xml)
-
-Source: [snippets/mint_system.ir_model.account_invoice_report.x_shipping_address.xml](https://odoo.build/snippets/mint_system.ir_model.account_invoice_report.x_shipping_address.xml)
-
 ## Account Move
 
 ### X Account Codes
@@ -1593,6 +1566,32 @@ Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_
 
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml)
 
+### X Location
+
+ID: `mint_system.ir_model.maintenance_equipment.x_location`
+
+Inherit ID: `ir_model.maintenance_equipment`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_shipping_address" model="ir.model.fields">
+        <field name="field_description">Backup for location</field>
+        <field name="model">maintenance.equipment</field>
+        <field name="model_id" ref="maintenance.model_maintenance_equipment"/>
+        <field name="name">x_location</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="False"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+    </record>
+</odoo>
+
+```
+Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_location.xml)
+
+Source: [snippets/mint_system.ir_model.maintenance_equipment.x_location.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_location.xml)
+
 ### X Maintenance Kind Id
 
 ID: `mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id`
@@ -2003,32 +2002,6 @@ Inherit ID: `ir_model.mrp_workorder`
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <odoo>
-    <record id="x_type_description" model="ir.model.fields">
-        <field name="field_description">Typenbezeichnung</field>
-        <field name="model">mrp.workorder</field>
-        <field name="model_id" ref="mrp.model_mrp_workorder"/>
-        <field name="name">x_type_description</field>
-        <field name="store" eval="False"/>
-        <field name="readonly" eval="True"/>
-        <field name="copied" eval="False"/>
-        <field name="related">product_id.type_description</field>
-    </record>
-</odoo>
-
-```
-Edit: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)
-
-Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)
-
-### X Type Description2
-
-ID: `mint_system.ir_model.mrp_workorder.x_type_description2`
-
-Inherit ID: `ir_model.mrp_workorder`
-
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<odoo>
     <record id="x_type_description2" model="ir.model.fields">
         <field name="field_description">Typenbezeichnung 2</field>
         <field name="model">mrp.workorder</field>
@@ -2042,9 +2015,9 @@ Inherit ID: `ir_model.mrp_workorder`
 </odoo>
 
 ```
-Edit: [snippets/mint_system.ir_model.mrp_workorder.x_type_description2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_type_description2.xml)
+Edit: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)
 
-Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description2.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_type_description2.xml)
+Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)
 
 ## Product Category
 

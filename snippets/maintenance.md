@@ -114,6 +114,24 @@ Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recov
 
 Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml)
 
+### X Location
+
+ID: `mint_system.maintenance.hr_equipment_view_form.x_location`
+
+Inherit ID: `maintenance.hr_equipment_view_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='scrap_date']" position="after">
+        <field name="x_location"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml)
+
+Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml)
+
 ## Hr Equipment View Search
 
 ### Calibration

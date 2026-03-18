@@ -1992,128 +1992,6 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[@id='informations']" position="replace">
-        <style>
-    table#info {
-      width: 100%;
-      margin-bottom: 25px;
-      font-size: 9pt;
-      font-family: arial;
-    }
-     table#info tr {
-      line-height: 1.2;
-      text-align: left;
-    }
-    .note {
-      font-size: 9pt;
-    }
-    </style>
-        <table id="info">
-            <tr>
-                <td width="17%">Oder Date</td>
-                <td width="40%">
-                    <t t-if="o.date_approve">
-                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                    <t t-else="">
-                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                </td>
-                <td width="18%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <t t-if="o.requisition_id">
-                    <td>Purchase Contract</td>
-                    <td>
-                        <span t-field="o.requisition_id"/>
-                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
-            </t>
-                    </td>
-                </t>
-            </tr>
-            <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td/>
-                <td/>
-            </tr>
-        </table>
-        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_header"/>
-        </t>
-    </xpath>
-    <!--
-  <xpath expr="//div[@id='informations']" position="replace">
-    
-    <div id="informations">
-    <table width="100%">
-      <tr>
-        <td width="17%">Kunden-Nr.</td>
-        <td width="41%">
-          <span t-field="o.partner_id.ref"/>
-        </td>
-        <td width="17%">Datum</td>
-        <td width="25%">
-          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Ihre Referenz</td>
-        <td>
-          <span t-field="o.partner_ref"/>
-        </td>
-        <td>Kontaktperson</td>
-        <td>
-          <span t-field="o.user_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td/>
-        <td/>
-        <td>Mwst-Nr:</td>
-        <td>
-          <span t-field="res_company.vat"/> MWST
-        </td>
-      </tr>
-    </table>
-    </div>
- 
- </xpath>
- -->
-</data>
-
-```
-Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml)
-
-Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml)
-
-### Replace Informations2
-
-ID: `mint_system.purchase.report_purchaseorder_document.replace_informations2`
-
-Inherit ID: `purchase.report_purchaseorder_document`
-
-```xml
-<data priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
 
@@ -2203,9 +2081,9 @@ Inherit ID: `purchase.report_purchaseorder_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations2.xml)
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml)
 
-Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations2.xml)
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_informations.xml)
 
 ### Replace Partner Id
 
@@ -2624,9 +2502,9 @@ Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_moser.x
 
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_moser.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_moser.xml)
 
-### Style Swift-Link
+### Style Swift Link
 
-ID: `mint_system.purchase.report_purchaseorder_document.style_swift-link`
+ID: `mint_system.purchase.report_purchaseorder_document.style_swift_link`
 
 Inherit ID: `purchase.report_purchaseorder_document`
 
@@ -2643,9 +2521,9 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml)
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.style_swift_link.xml)
 
-Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_swift-link.xml)
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_swift_link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_swift_link.xml)
 
 ### Style Tissa
 
@@ -2949,9 +2827,9 @@ Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_infob
 
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_infoblock.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_infoblock.xml)
 
-### Add Informations2
+### Add Informations
 
-ID: `mint_system.purchase.report_purchasequotation_document.add_informations2`
+ID: `mint_system.purchase.report_purchasequotation_document.add_informations`
 
 Inherit ID: `purchase.report_purchasequotation_document`
 
@@ -3027,9 +2905,9 @@ Inherit ID: `purchase.report_purchasequotation_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.add_informations2.xml)
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.add_informations.xml)
 
-Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_informations2.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_informations2.xml)
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_informations.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_informations.xml)
 
 ### Add Infotable
 
@@ -3677,9 +3555,9 @@ Edit: [snippets/mint_system.purchase.report_purchasequotation_document.repeat_ta
 
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.repeat_table_header.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.repeat_table_header.xml)
 
-### Replace Informations2
+### Replace Informations
 
-ID: `mint_system.purchase.report_purchasequotation_document.replace_informations2`
+ID: `mint_system.purchase.report_purchasequotation_document.replace_informations`
 
 Inherit ID: `purchase.report_purchasequotation_document`
 
@@ -3749,9 +3627,9 @@ Inherit ID: `purchase.report_purchasequotation_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.purchase.report_purchasequotation_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.replace_informations2.xml)
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.replace_informations.xml)
 
-Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.replace_informations2.xml)
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace_informations.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.replace_informations.xml)
 
 ### Replace Partner Id
 
@@ -4029,9 +3907,9 @@ Edit: [snippets/mint_system.purchase.report_purchasequotation_document.style_mos
 
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_moser.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.style_moser.xml)
 
-### Style Swift-Link
+### Style Swift Link
 
-ID: `mint_system.purchase.report_purchasequotation_document.style_swift-link`
+ID: `mint_system.purchase.report_purchasequotation_document.style_swift_link`
 
 Inherit ID: `purchase.report_purchasequotation_document`
 
@@ -4044,9 +3922,9 @@ Inherit ID: `purchase.report_purchasequotation_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml)
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.style_swift_link.xml)
 
-Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.style_swift-link.xml)
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.style_swift_link.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.style_swift_link.xml)
 
 ### Style Tissa
 

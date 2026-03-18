@@ -159,6 +159,29 @@ Edit: [snippets/mint_system.account.email_template_edi_invoice.translation_mint_
 
 Source: [snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml](https://odoo.build/snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml)
 
+## Knowledge
+
+### Knowledge Article View Form
+
+ID: `mint_system.account.knowledge.knowledge_article_view_form`
+
+Inherit ID: `account.knowledge`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('o_knowledge_body')]" position="before">
+        <style>
+            .odoo-editor-editable {
+              max-width: 100% !important;
+            }
+        </style>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml)
+
+Source: [snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml](https://odoo.build/snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml)
+
 ## Portal Invoice Page
 
 ### Convert Html Note
@@ -513,12 +536,51 @@ Inherit ID: `account.report_invoice_document`
 
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
-                <td style="width: 335px; font-size: 6pt; line-height: 1.3; padding-bottom: 0px">               
+                <td style="width: 335px; line-height: 1.3; padding-bottom: 0px">               
+                    <t t-if="o.company_id.id == 2">
                         The General Terms and Conditions of
-                    <t t-out="o.company_id.name"/>apply.                    
-                    <t t-if="o.company_id.website">
-                        For current version see
-                        <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
+                        <t t-out="o.company_id.name"/> apply.
+                        <t t-if="o.company_id.website">
+                            For current version see
+                            <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
+                        </t>
+                    </t>
+                    <t t-if="o.company_id.id == 1">
+                    <div style="font-weight: bold; padding-bottom: 5px">
+                        <span>Payment Instructions - Use SEPA payment if possible!</span>
+                    </div>
+                    <div>
+                        <t>
+                            <div t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.name"/>
+                            <div>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.street"/>,
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.country.code"/> -
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.zip"/>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.city"/>
+                            </div>
+                            <div>
+                            <span>BIC / SWIFT:</span>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.bic"/>
+                            </div>
+                            <span>(</span>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].currency_id"/>
+                            <span>)</span>
+                            <span>IBAN:</span>
+                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].acc_number"/>
+                            
+                        </t>
+                    </div>
+                    <div>
+                        <t>
+                            <div style="font-weight: bold; padding-bottom: 5px; padding-top: 15px">
+                                <span>Company No. / VAT No.</span>
+                            </div>
+                            <div>
+                            <span>UID:</span>
+                            <span t-field="o.company_id.partner_id.vat"/>
+                            </div>
+                        </t>
+                    </div>
                     </t>
                 </td>
                 <td style="width: 40px"/>
@@ -527,6 +589,7 @@ Inherit ID: `account.report_invoice_document`
                         <span>Payable until: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
+                <t t-if="o.company_id.id == 2">
                     <div>
                         <t>
                             <div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
@@ -537,12 +600,14 @@ Inherit ID: `account.report_invoice_document`
                             <span>)</span>
                         </t>
                     </div>
+                </t>
                 </td>
             </tr>
 
         </table>
     </xpath>
 </data>
+
 ```
 Edit: [snippets/mint_system.account.report_invoice_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_general_information.xml)
 
@@ -637,14 +702,14 @@ Inherit ID: `account.report_invoice_document`
 ```xml
 <data priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
-    <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])" >
+    <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])">
             
-        Gemäss Rahmen-Dienstleistungsvertrag <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])" />
- erlauben wir uns, für unsere augeführten IPR-Leistungen folgende Rechnung zu stellen:
+        <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])"/>
 
         </t>
     </xpath>
 </data>
+
 ```
 Edit: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_text.xml)
 
@@ -851,6 +916,27 @@ Inherit ID: `account.report_invoice_document`
 Edit: [snippets/mint_system.account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_note.xml)
 
 Source: [snippets/mint_system.account.report_invoice_document.add_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_note.xml)
+
+### Add Order Footer Text
+
+ID: `mint_system.account.report_invoice_document.add_order_footer_text`
+
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+<!-- Displays the (internal) note from Sale Order in the Invoice's Footer -->
+    <xpath expr="//div[@id='payment_term']" position="after">
+        <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('internal_note') if x])">
+        <span t-raw="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('internal_note') if x])"/><br/>
+        </t>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml)
+
+Source: [snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml)
 
 ### Add Percentage Sign
 
@@ -1583,35 +1669,6 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="51">
-
-  <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
-    <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
-      <th id="position">
-        <span>Pos</span>
-      </th>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-    <td id="position">
-      <span t-esc="line.position"/>
-    </td>
-  </xpath>
-
-</data>
-```
-Edit: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.get_position.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.get_position.xml)
-
-### Get Position2
-
-ID: `mint_system.account.report_invoice_document.get_position2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="51">
     <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
        
         <th id="position" class="text-start">
@@ -1626,9 +1683,9 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.get_position2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.get_position.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.get_position2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.get_position2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.get_position.xml)
 
 ### Group By Pickings
 
@@ -1819,145 +1876,6 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//h2" position="before">
-        <!-- Get all sale orders without duplicates -->
-        <t t-set="sale_orders" t-value="list(set([line.order_id for line in o.invoice_line_ids.sale_line_ids]))"/>
-        <!-- Store if has sale orders -->
-        <t t-set="has_sale_orders" t-value="len(sale_orders) &gt; 0"/>
-        <!-- Store if has multiple sale orders -->
-        <t t-set="has_multiple_sale_orders" t-value="len(sale_orders) &gt; 1"/>
-        <!-- Store if has lines without sale orders -->
-        <t t-set="has_lines_without_sale_orders" t-value="len(o.invoice_line_ids.filtered(lambda l: not l.sale_line_ids)) &gt; 0"/>
-    </xpath>
-
-    <xpath expr="//h2/span[3]" position="replace">
-        <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and not has_multiple_sale_orders">Rechnung</span>
-        <span t-if="o.move_type == 'out_invoice' and o.state == 'posted' and has_multiple_sale_orders">Sammelrechnung</span>
-    </xpath>
-
-    <xpath expr="//t[@t-foreach='lines']" position="replace">
-        <!-- Add empty sale order if there are lines without sale orders -->
-        <t t-if="not has_sale_orders or has_lines_without_sale_orders">
-            <t t-set="null" t-value="sale_orders.append(False)"/>
-        </t>
-        <!-- <p t-esc="sale_orders"/> -->
-        <!-- <p t-esc="has_sale_orders"/> -->
-        <!-- <p t-esc="has_multiple_sale_orders"/> -->
-        <!-- <p t-esc="has_lines_without_sale_orders"/> -->
-        <t t-foreach="sale_orders" t-as="sale_order">
-            <tr t-if="has_sale_orders and sale_order" class="o_line_note">
-                <td colspan="99" style="padding-top: 1rem;">
-                    <strong>
-                        <span>Verkaufsauftrag </span>
-                        <span t-esc="sale_order.name"/>
-                        <span t-if="sale_order.client_order_ref">/</span>
-                        <span t-if="sale_order.client_order_ref" t-esc="sale_order.client_order_ref"/>
-                        <span> vom </span>
-                        <span t-esc="sale_order.date_order" t-options="{'widget': 'date'}"/>
-                        <span>:</span>
-                    </strong>
-                </td>
-            </tr>
-            <tr t-if="not sale_order" class="o_line_note">
-                <td colspan="99" style="padding-top: 1rem;">
-                    <strong>
-                        <span>Weitere Positionen: </span>
-                    </strong>
-                </td>
-            </tr>
-
-            <t t-foreach="lines" t-as="line">
-                <!-- Show line if sale order is set and linked or not sale order is set and line is unlinked  -->
-
-                <t t-if="(sale_order and sale_order in line.sale_line_ids.order_id) or (not line.sale_line_ids and not sale_order)">
-                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
-                    <t t-set="current_subtotal" t-value="current_subtotal + line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
-                    <tr t-att-class="'bg-200 font-weight-bold o_line_section' if line.display_type == 'line_section' else 'font-italic o_line_note' if line.display_type == 'line_note' else ''">
-
-                        <t t-if="line.display_type == 'product'" name="account_invoice_line_accountable">
-                            <td id="position">
-                                <span t-field="line.position"/>
-                            </td>
-                            <td name="account_invoice_line_name">
-                                <span t-field="line.name" t-options="{'widget': 'text'}"/>
-                                <t t-if="line.product_id.country_of_origin.code">
-                                    <br/>
-                                    <span>Country of Origin: </span>
-                                    <span t-field="line.product_id.country_of_origin.code"/>
-                                </t>
-                                <t t-if="line.product_id.hs_code">
-                                    <br/>
-                                    <span>HS Code: </span>
-                                    <span t-field="line.product_id.hs_code"/>
-                                </t>
-                                <t t-if="line.product_id.weight">
-                                    <br/>
-                                    <span>Weight: <span t-field="line.product_id.weight"/>
-                                    </span>
-                                    <span t-field="line.product_id.weight_uom_id.display_name"/>
-                                </t>
-                            </td>
-                            <td class="text-end">
-                                <t t-if="line.product_uom_id.id == 1">
-                                    <span id="product_qty" t-field="line.quantity" t-options="{'widget': 'integer'}"/>
-                                </t>
-                                <t t-else="">
-                                    <span id="product_qty" t-field="line.quantity"/>
-                                </t>
-                                <span t-field="line.product_uom_id" groups="uom.group_uom"/>
-                            </td>
-                            <td t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                <span class="text-nowrap" t-field="line.price_unit"/>
-                            </td>
-                            <td t-if="display_discount" t-attf-class="text-right {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                <span class="text-nowrap" t-field="line.discount"/>
-                            </td>
-                            <td t-attf-class="text-left {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
-                                <span t-esc="', '.join(map(lambda x: (x.description or x.name), line.tax_ids))" id="line_tax_ids"/>
-                            </td>
-                            <td class="text-end o_price_total">
-                                <span class="text-nowrap" t-field="line.price_subtotal"/>
-                            </td>
-                        </t>
-                        <t t-if="line.display_type == 'line_section'">
-                            <td colspan="99">
-                                <span t-field="line.name" t-options="{'widget': 'text'}"/>
-                            </td>
-                            <t t-set="current_section" t-value="line"/>
-                            <t t-set="current_subtotal" t-value="0"/>
-                        </t>
-                        <t t-if="line.display_type == 'line_note'">
-                            <td colspan="99">
-                                <span t-field="line.name" t-options="{'widget': 'text'}"/>
-                            </td>
-                        </t>
-                    </tr>
-                    <t t-if="current_section and (line_last or lines[line_index+1].display_type == 'line_section')">
-                        <tr class="is-subtotal text-end">
-                            <td colspan="99">
-                                <strong class="mr16">Subtotal</strong>
-                                <span t-esc="current_subtotal" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                            </td>
-                        </tr>
-                    </t>
-                </t>
-            </t>
-        </t>
-    </xpath>
-</data>
-```
-Edit: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
-
-### Group By Sale Order2
-
-ID: `mint_system.account.report_invoice_document.group_by_sale_order2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="50">
 
     <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
         <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
@@ -2094,9 +2012,9 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.group_by_sale_order2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_sale_order2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.group_by_sale_order2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_sale_order2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
 
 ### Hide Delivery Date
 
@@ -2826,76 +2744,6 @@ Inherit ID: `account.report_invoice_document`
 <data priority="50">
     <xpath expr="//*[@id='informations']" position="replace">
         <style>
-      table#informations{
-        white-space: nowrap;
-      }
-    </style>
-        <table id="informations" class="table table-borderless table-sm">
-            <tr>
-                <td>
-                    <strong>Rechnungsdatum: </strong>
-                    <span t-field="o.invoice_date"/>
-                </td>
-                <td>
-                    <strong>Kontakt Rechnung: </strong>
-                    <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.name)" t-as="delivery_partner">
-                        <span t-esc="delivery_partner.name"/>
-                    </t>
-                </td>
-                <td>
-                    <strong>Zahlbar innert: </strong>
-                    <span t-field="o.invoice_payment_term_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Kontakt Verkauf: </strong>
-                    <span t-field="o.invoice_user_id"/>
-                </td>
-                <td>
-                    <strong>Tel. Direkt: </strong>
-                    <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.phone)" t-as="delivery_partner">
-                        <span t-esc="delivery_partner.phone"/>
-                    </t>
-                </td>
-                <td>
-        </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Kunden-Nr.: </strong>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>
-                    <strong>E-Mail:</strong>
-                    <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'invoice' and c.email)" t-as="delivery_partner">
-                        <span t-esc="delivery_partner.email"/>
-                    </t>
-                </td>
-                <td>
-                    <!-- <strong>MWST: </strong>
-          <span t-field="res_company.vat" /> -->
-                </td>
-            </tr>
-        </table>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
-
-### Replace Information Table2
-
-ID: `mint_system.account.report_invoice_document.replace_information_table2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="50">
-    <xpath expr="//*[@id='informations']" position="replace">
-        <style>
       table#informations {
         white-space: nowrap;
       }
@@ -2975,9 +2823,9 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.replace_information_table2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_information_table2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Information Table3
 
@@ -3106,109 +2954,6 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="50">
-    <div id="informations" position="replace">
-        <style>
-      div#informations p {
-        margin-bottom: 0rem;
-      }
-      div#informations div {
-        display: inline-block;
-        vertical-align: top;
-      }
-    </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <t t-if="o.move_type == 'out_invoice'">
-                            <strong class="mr-2">Rechnungsdatum:</strong>
-                        </t>
-                        <t t-elif="o.move_type == 'out_refund'">
-                            <strong class="mr-2">Gutschriftdatum:</strong>
-                        </t>
-                        <t t-elif="o.move_type == 'out_receipt'">
-                            <strong class="mr-2">Quittungsdatum:</strong>
-                        </t>
-                        <t t-else="">
-                            <strong>Datum:</strong>
-                        </t>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_date"
-                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                        />
-                    </td>
-                    <td>
-                        <strong class="mr-2">Zahlungsbedingungen:</strong>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_payment_term_id"
-                        />
-                    </td>
-                    <!--<t t-set="partner_contact_id" t-value="o.invoice_line_ids.sale_line_ids.order_id.mapped('partner_contact_id')[:1]" />-->
-                    <td t-if="o.partner_sale_id">
-                        <strong
-                            class="mr-2"
-                        >&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;Ihr Kontakt:</strong>
-                        <span class="ms-2" t-field="o.partner_sale_id.name" />
-                    </td>
-                </tr>
-                <tr>
-                    <td
-                        t-if="o.invoice_date_due and o.move_type == 'out_invoice' and o.state == 'posted'"
-                    >
-                        <strong class="mr-2">F&#xE4;lligkeitsdatum:</strong>
-                        <span
-                            class="ms-2"
-                            t-field="o.invoice_date_due"
-                            t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                        />
-                    </td>
-                    <td t-else="" />
-                    <td>
-                        <strong class="mr-2">Unser Kontakt:</strong>
-                        <span class="ms-2" t-field="o.invoice_user_id.name" />
-                    </td>
-                    <td t-if="o.ref" rowspan="2">
-                        <div>
-                            <strong class="mr-2">Ihre Referenz:</strong>
-                        </div>
-                        <div class="ms-2" t-field="o.ref" />
-                    </td>
-                </tr>
-                <tr>
-                    <t
-                        t-set="order_id"
-                        t-value="o.invoice_line_ids.sale_line_ids.mapped('order_id')[:1]"
-                    />
-                    <td t-if="order_id" colspan="2">
-                        <strong class="mr-2">Unsere Referenz:</strong>
-                        <span
-                            class="ms-2"
-                            t-if="order_id.project_id.key"
-                            t-esc="'[' + order_id.project_id.key + '] ' + order_id.name"
-                        />
-                        <span class="ms-2" t-else="" t-field="order_id.name" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </div>
-</data>
-
-```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
-
-### Replace Informations2
-
-ID: `mint_system.account.report_invoice_document.replace_informations2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="50">
 
     <xpath expr="//div[@id='informations']" position="replace">
 
@@ -3302,9 +3047,9 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
 
 ### Replace Infotable
 
@@ -3731,60 +3476,6 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="attributes">
-        <attribute name="class" separator=" " add="first"/>
-    </xpath>
-    <xpath expr="//tbody[hasclass('invoice_tbody')]//tr" position="after">
-        <t t-if="line.product_id.type_description">
-            <tr class="second">
-                <td/>
-                <td/>
-                <td colspan="5">
-                    <span t-field="line.external_name"/>
-                    <br/>
-                    <t t-if="line.product_id.country_of_origin_id.code">
-          Ursprungsland:
-          <span t-field="line.product_id.country_of_origin_id.code"/>
-        </t>
-                    <t t-if="line.product_id.hs_code">
-          / Zollposition:
-          <span t-field="line.product_id.hs_code"/>
-        </t>
-                </td>
-            </tr>
-        </t>
-        <t t-if="not line.product_id.type_description">
-            <tr class="second">
-                <td/>
-                <td/>
-                <td colspan="5">
-                    <t t-if="line.product_id.country_of_origin_id.code">
-          Ursprungsland:
-          <span t-field="line.product_id.country_of_origin_id.code"/>
-        </t>
-                    <t t-if="line.product_id.hs_code">
-          / Zollposition:
-          <span t-field="line.product_id.hs_code"/>
-        </t>
-                </td>
-            </tr>
-        </t>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.second_row.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.second_row.xml)
-
-### Second Row2
-
-ID: `mint_system.account.report_invoice_document.second_row2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="50">
 
     <xpath expr="//td[@name='account_invoice_line_name']/../.." position="after">
         <t t-if="line.position">
@@ -3811,9 +3502,9 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.second_row2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.second_row2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.second_row.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.second_row2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.second_row2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.second_row.xml)
 
 ### Sequence In Table
 
@@ -4078,31 +3769,6 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="60">
-    <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="after">
-        <th name="th_hs_code" class="text-right">
-            <span>HS-Code</span>
-        </th>
-    </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//span[@t-field='line.quantity']/.." position="after">
-        <td name="td_hs_code" class="text-right">
-            <span t-esc="line.product_id.intrastat_id.code"/>
-        </td>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
-
-Source: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
-
-### Show Hs Code2
-
-ID: `mint_system.account.report_invoice_document.show_hs_code2`
-
-Inherit ID: `account.report_invoice_document`
-
-```xml
-<data priority="60">
     <xpath expr="//table[@name='invoice_line_table']//th[@name='th_quantity']" position="before">
         <t t-set="display_hs_code" t-value="any(l.hs_code for l in o.invoice_line_ids.product_id)"/>
         <th name="th_hs_code" class="text-start" t-if="display_hs_code">
@@ -4117,9 +3783,9 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_hs_code2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_hs_code2.xml)
+Edit: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
 
-Source: [snippets/mint_system.account.report_invoice_document.show_hs_code2.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_hs_code2.xml)
+Source: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
 
 ### Show License Names
 
