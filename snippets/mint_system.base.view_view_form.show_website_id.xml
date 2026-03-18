@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//field[@name='xml_id']" position="after">
+        <field name="website_id"/>
+    </xpath>
+    <xpath expr="//list/field[@name='xml_id']" position="after">
+        <field name="website_id"/>
+    </xpath>
+</data>
