@@ -105,8 +105,9 @@ help-table() {
     rows+=("export-website-data|[env]|Export website data from Odoo database.")
     rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
-    rows+=("===GENERATE===| | ")
+    rows+=("===DEVELOP===| | ")
     rows+=("create-module|[path]|Create new Odoo module from template.")
+    rows+=("create-repo|[path]|Odoo module repo from template.")
     rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
     rows+=("generate-module-model|[path][model]|Generate model in module folder.")
     rows+=("generate-module-inherit|[path][model]|Generate inherited model in module folder.")
@@ -115,9 +116,9 @@ help-table() {
     rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
     rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
     rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
-    rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
     rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
     rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
+    rows+=("generate-repo-docs|[path]|Generate repo files from template.")
     rows+=("===MODULE===| | ")
     rows+=("list-modules|[path]|Get modules in path as bash array.")
     rows+=("pytest-module|[path]|Run module tests with pytest.")
@@ -164,13 +165,12 @@ help-table() {
     rows+=("save-version||Save git folder refs to version folder.")
     rows+=("template-compose||Template the Docker compose file.")
     rows+=("template-odoo-rc||Template the Odoo config file.")
-    rows+=("template-repo|[path]|Update the repo folder from template.")
     rows+=("test-project|[cleanup]|Run tests for this project.")
     rows+=("version||Show version of required tools.")
     rows+=("===PERFORMANCE===| | ")
     rows+=("record-with-memray|[name]|Record application memory usage with memray.")
     rows+=("record-with-py-spy|[pid]|Record and create flamechart for a process.")
-    rows+=("===DOCS===| | ")
+    rows+=("===DOC===| | ")
     rows+=("update-docs||Update all project docs.")
     rows+=("update-modules-doc||Update modules docs file.")
     rows+=("update-revisions-doc||Update revisions doc file.")
@@ -563,7 +563,7 @@ update-module-license() {
     done
 }
 
-template-repo(){
+generate-repo-docs(){
     if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
     local repo_path="$1"
 
@@ -2161,7 +2161,7 @@ generate-module-security() {
     echo -e "\t\"security/ir.model.access.csv\","
 }
 
-generate-module-repo() {
+create-repo() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2179,9 +2179,6 @@ generate-module-repo() {
         echo "Remove all files from $repo_path"
         rm -rf "$repo_path/*"
     fi
-
-    echo "Copy template files from templates/$ODOO_VERSION to $repo_path"
-    template-repo "$repo_path"
 }
 
 export-module-vars() {
