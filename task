@@ -44,7 +44,10 @@ help-table() {
     rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
     rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
-    rows+=("build|[folder][output]|Build Docker image from target folder.")
+    rows+=("build-odoo|[output]|Build Odoo Docker image.")
+    rows+=("build-odoo-mailgate|[output]|Build Odoo Mailgate Docker image.")
+    rows+=("build-odoo-upgrade|[output]|Build Odoo Upgrade Docker image.")
+    rows+=("build-odoo-cli|[output]|Build Odoo CLI Docker image.")
     rows+=("login-docker|[user][token]|Setup Docker Hub login credentials.")
     rows+=("login-podman|[user][token]|Login into registry with podman.")
     rows+=("container-ps||List container processes.")
@@ -691,39 +694,13 @@ container-ps() {
     $CONTAINER_ENGINE ps
 }
 
-build() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
+build-odoo() {
+    manifest_file="images/odoo/Dockerfile"
+    CONTAINER_TAG="odoo:$ODOO_VERSION"
 
-    # Set container tag based on Dockerfile
-    local manifest_file
-    local latest_tag
-
-    if [[ "$1" == "images/odoo" ]]; then
-        manifest_file="images/odoo/Dockerfile"
-        latest_tag="odoo:$ODOO_VERSION"
-    fi
-    if [[ "$1" == "images/odoo-mailgate" ]]; then
-        manifest_file="images/odoo-mailgate/Dockerfile"
-        CONTAINER_TAG="odoo-mailgate"
-        latest_tag="odoo-mailgate:latest"
-    elif [[ "$1" == "images/odoo-upgrade" ]]; then
-        manifest_file="images/odoo-upgrade/Dockerfile"
-        CONTAINER_TAG="odoo-upgrade"
-        latest_tag="odoo-upgrade:latest"
-    elif [[ "$1" == "images/odoocli" ]]; then
-        manifest_file="images/odoocli/Dockerfile"
-        CONTAINER_TAG="odoocli"
-        latest_tag="odoocli:latest"
-    fi
-
-    # Load Odoo revision
     local odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
 
-    # Select Python version
     case "$ODOO_VERSION" in
         "15.0")
             local python_version="3.9"
@@ -747,13 +724,13 @@ build() {
     esac
 
     local docker_output="--load"
-    if [[ -n "$2" ]]; then
-        docker_output="$2"
+    if [[ -n "$1" ]]; then
+        docker_output="$1"
     fi
 
-    # Output configuration
     echo "Python Version: $python_version"
     echo "Platform: $PLATFORM"
+    echo "Enterprise Ref: $ODOO_ENTERPRISE_REF"
     echo "Docker Output: $docker_output"
 
     echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
@@ -774,8 +751,107 @@ build() {
         --build-arg ODOO_DATE="$odoo_date" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
         --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
-        --tag "${CONTAINER_REGISTRY}/${latest_tag}" \
         "$docker_output"
+}
+
+build-odoo-cli() {
+    manifest_file="images/odoo-cli/Dockerfile"
+    CONTAINER_TAG="odoo-cli:latest"
+
+    local docker_output="--load"
+    if [[ -n "$1" ]]; then
+        docker_output="$1"
+    fi
+
+    echo "Platform: $PLATFORM"
+    echo "Docker Output: $docker_output"
+
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+
+    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
+        docker buildx create --name odoo_builder --use
+        docker buildx inspect --bootstrap
+    else
+        docker buildx use odoo_builder
+    fi
+
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+        --file "$manifest_file" \
+        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        "$docker_output"
+}
+
+build-odoo-mailgate() {
+    manifest_file="images/odoo-mailgate/Dockerfile"
+    CONTAINER_TAG="odoo-mailgate:latest"
+
+    local docker_output="--load"
+    if [[ -n "$1" ]]; then
+        docker_output="$1"
+    fi
+
+    echo "Platform: $PLATFORM"
+    echo "Docker Output: $docker_output"
+
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+
+    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
+        docker buildx create --name odoo_builder --use
+        docker buildx inspect --bootstrap
+    else
+        docker buildx use odoo_builder
+    fi
+
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
+        --file "$manifest_file" \
+        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        "$docker_output"
+}
+
+build-odoo-upgrade() {
+    local manifest_file="images/odoo-upgrade/Dockerfile"
+    local postgres_versions="14 15 16 17"
+    local docker_output="--load"
+
+    if [[ -n "$1" ]]; then
+        docker_output="$1"
+    fi
+
+    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
+        docker buildx create --name odoo_builder --use
+        docker buildx inspect --bootstrap
+    else
+        docker buildx use odoo_builder
+    fi
+
+    for postgres_version in $postgres_versions; do
+        local CONTAINER_TAG="odoo-upgrade:$postgres_version"
+        local full_tag="${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+
+        echo "Posgres Version: $postgres_version"
+        echo "Platform: $PLATFORM"
+        echo "Docker Output: $docker_output"
+        echo "Removing existing image: $full_tag"
+        docker image rm -f "$full_tag" 2>/dev/null || true
+
+        echo "Running Docker build for $full_tag on platform $PLATFORM"
+        SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) \
+            docker buildx build --platform "$PLATFORM" . \
+                --file "$manifest_file" \
+                --build-arg POSTGRES_VERSION="$postgres_version" \
+                --tag "$full_tag" \
+                "$docker_output"
+
+        if [[ $? -ne 0 ]]; then
+            echo "Build failed for PostgreSQL $postgres_version"
+            return 1
+        fi
+        echo "Build succeeded for PostgreSQL $postgres_version"
+    done
 }
 
 load-latest-revision() {

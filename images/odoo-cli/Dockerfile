@@ -9,7 +9,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/* \
     && ln -s /usr/bin/python3 /usr/bin/python
 
-COPY ./images/odoocli/bin/* /usr/local/bin/
+COPY ./images/odoo-cli/bin/* /usr/local/bin/
 RUN chmod +x /usr/local/bin/odoocli
 
 ENTRYPOINT ["odoocli"]

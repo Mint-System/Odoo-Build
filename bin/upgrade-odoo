@@ -35,8 +35,12 @@ upgrade-odoo() {
         exit
     fi
     load-dotenv "$1"
+
     temp_folder="/var/tmp"
-    
+    if [[ -n "$TEMP_FOLDER" ]]; then
+        temp_folder="$TEMP_FOLDER"
+    fi
+
     # Setup ssh aliases
     ssh_server="ssh -p $PORT ${USERNAME}@${SERVER}"
     ssh_target_server="ssh -t -p $TARGET_PORT ${TARGET_USERNAME}@${TARGET_SERVER}"
@@ -63,6 +67,7 @@ upgrade-odoo() {
         echo "Odoo Version: $ODOO_VERSION"
         echo "Postgres Container: $POSTGRES_CONTAINER"
         echo "Database: $DATABASE"
+        echo "Temp Folder: $temp_folder"
         echo ""
         echo "Target Enviroment"
         echo "-----------------"
@@ -262,12 +267,16 @@ upgrade-odoo() {
             # The upgrade container replaces the production definition
 
             # Rename production filestore in production container
-            echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
-            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
+            echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
+            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
 
-            # Copy filestore from upgrade container
-            echo "Copy filestore '$TARGET_DATABASE' to '$DATABASE'"
-            $ssh_server docker-volume-copy -s "${TARGET_ODOO_CONTAINER}:/filestore/$TARGET_DATABASE" -t "${ODOO_CONTAINER}:/filestore/$DATABASE"
+            # # Rename production filestore in production container
+            # echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
+            # $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
+
+            # # Copy filestore from upgrade container
+            # echo "Copy filestore '$TARGET_DATABASE' to '$DATABASE'"
+            # $ssh_server docker-volume-copy -s "${TARGET_ODOO_CONTAINER}:/filestore/$TARGET_DATABASE" -t "${ODOO_CONTAINER}:/filestore/$DATABASE"
         else
             if [[ "$DATABASE" = "odoo" ]]; then
                 echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
@@ -278,8 +287,6 @@ upgrade-odoo() {
             echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
             $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
         fi
-
-
     fi
 
     if [[ "$2" = "browse" ]]; then

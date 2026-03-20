@@ -41,6 +41,6 @@ jobs:
       - name: Test Odoo image
         run: ./task test-image images/odoo
       - name: Build
-        run: ./task build images/odoo --push
+        run: ./task build-odoo --push
         env:
           PLATFORM: "linux/amd64,linux/arm64"
