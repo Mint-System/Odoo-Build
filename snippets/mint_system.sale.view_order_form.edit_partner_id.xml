@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='partner_id']" position="attributes">
+        <attribute name="readonly">0</attribute>
+    </xpath>
+</data>
