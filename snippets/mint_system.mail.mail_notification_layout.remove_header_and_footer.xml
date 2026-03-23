@@ -6,4 +6,3 @@
         <t t-set="show_footer" t-value="False" />
     </xpath>
 </data>
-
