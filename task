@@ -2176,10 +2176,10 @@ generate-module-docs() {
     echo 'Touch __init__.py'
     touch "$module_path/__init__.py"
 
-    echo "Generate OCA readme for $ORG_NAME org."
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
-    oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
+    echo "Generate OCA readme for $ORG_NAME/$repo_name org."
+    oca-gen-addon-readme --org-name=$ORG_NAME --repo-name=$repo_name --branch=$ODOO_VERSION  --addon-dir=$module_path
 }
 
 generate-module-migration() {
