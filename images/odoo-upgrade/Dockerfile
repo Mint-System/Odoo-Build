@@ -1,5 +1,5 @@
-ARG POSTGRES_VERSION
 FROM debian:stable-slim
+ARG POSTGRES_VERSION
 
 WORKDIR /root
 
@@ -18,6 +18,8 @@ RUN . /etc/os-release && \
 RUN apt-get update && apt-get install -y \
     postgresql-client-$POSTGRES_VERSION \
     && rm -rf /var/lib/apt/lists/*
+
+RUN which pg_dump && pg_dump --version
 
 RUN apt-get update && apt-get install -y \
     openssh-client \
