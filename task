@@ -733,8 +733,8 @@ build-odoo() {
     echo "Enterprise Ref: $ODOO_ENTERPRISE_REF"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_revision_tag}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${container_revision_tag}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -743,7 +743,7 @@ build-odoo() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_revision_tag} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
         --build-arg PYTHON_VERSION="$python_version" \
