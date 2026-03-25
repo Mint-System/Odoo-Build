@@ -1,8 +1,0 @@
-<data priority="50">
-    <t t-set="address" position="replace">
-        <t t-set="address">
-            <div style="padding-top: 5rem" />
-            <p class="text-left"><span t-field="doc.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}">2023-12-31</span> | <span t-out="doc.user_id.display_name" /></p>
-        </t>
-    </t>
-</data>

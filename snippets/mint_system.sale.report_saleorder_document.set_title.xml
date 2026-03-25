@@ -1,0 +1,10 @@
+<data priority="50">
+    <t t-set="layout_document_title" position="replace">
+        <t t-set="layout_document_title">
+            <span t-if="is_proforma">Pro-Forma Invoice </span>
+            <span t-elif="doc.state in ['draft','sent']">Offer for </span>
+            <span t-else="">Order </span>
+            <span t-field="doc.name">SO0000</span>
+        </t>
+    </t>
+</data>
