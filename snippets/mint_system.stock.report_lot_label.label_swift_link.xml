@@ -1,51 +1,34 @@
-<data inherit_id="report_lot_label" priority="50">
+<data priority="50">
     <xpath expr="//t[@t-name='stock.report_lot_label']" position="replace">
 
         <t t-name="stock.report_lot_label">
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.basic_layout">
                     <t t-call="web.html_container">
-
                         <table style="border: 1px solid white; height: 23mm; width: 38mm; background-color: white; font-size:7pt; position:relative; left:-10px;">
                             <tr>
                                 <td>
-                                <div t-att-style="'position:relative; width:45mm; height:20mm; margin-top: 5px; border: 0px solid %s;' % (o.env.user.company_id.primary_color or 'black')">
+                                <div t-att-style="'position:relative; width:45mm; height:18mm; margin-top: 5px; border: 0px solid %s;' % (o.env.user.company_id.primary_color or 'black')">
+                                    <!-- Define final_barcode -->
                                     <t t-set="final_barcode" t-value="''"/>
-                                    <t t-if="env.user.has_group('stock.group_stock_lot_print_gs1')">
-                                        <t t-if="o.product_id.valid_ean" t-set="final_barcode" t-value="'01' + '0' * (14 - len(o.product_id.barcode)) + o.product_id.barcode"/>
-                                        <t name="gs1_datamatrix_lot" t-if="o.product_id.tracking == 'lot'" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
-                                        <t t-elif="o.product_id.tracking == 'serial'" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
-                                    </t>
-                                  
+                                        <t name="gs1_datamatrix_lot" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
+                                        
+                                    <!-- Left section with default_code, name and qty -->
                                     <div class="o_label_4x12" t-if="o.product_id.default_code" t-att-style="'width:22mm' if final_barcode else ''">[<t t-out="o.product_id.default_code"/>]</div>
                                     <div class="o_label_4x12" t-esc="o.product_id.name[:30]" t-att-style="'width:22mm; font-weight: bold' if final_barcode else ''">Demo Product</div>
                                     <div class="o_label_4x12" t-esc="'Qty ' + str(o.product_qty)" t-att-style="'width:22mm; font-weight: bold; margin-top: 5px' if final_barcode else ''">Demo Qty</div>
-                                    
-                                    <!--
-                                    <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:22mm' if final_barcode else ''">Demo Lot/SN</div>
-                                    -->
-                                    <t t-if="env.user.has_group('stock.group_stock_lot_print_gs1')">
-                                        
-                                        <!--
-                                        <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; bottom:.5px'">
-                                        -->
-                                        
-                                        <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; top:.5px'">
-                                            <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:17mm; height:17mm'}">12345678901</span>
-                                        </div>
-                                    </t>
-                                    <t t-else="">
-                                        <span t-field="o.name" t-options="{'widget': 'barcode', 'img_style': 'width:100%; height:35%'}">Demo Lot/SN</span>
-                                    </t>
+                                    <!-- Data matrix in right section -->
+                                    <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; top:.5px'">
+                                        <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:17mm; height:17mm'}">12345678901</span>
+                                    </div>
                                 </div>
-                                   
                                 </td>
-                                
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                 <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:100%' if final_barcode else ''">Demo Lot/SN</div>
-                                 </td>
+                                    <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:100%' if final_barcode else ''">Demo Lot/SN</div>
+                                    <div class="o_label_4x12" t-esc="o.product_id.type_description[:30]" t-att-style="'width:100%; font-weight: bold' if final_barcode else ''">Product Code</div>
+                                </td>
                             </tr>
                             
                         </table>
