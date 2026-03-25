@@ -694,12 +694,11 @@ container-ps() {
 }
 
 build-odoo() {
+    odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    source "revisions/$ODOO_REVISION"
     manifest_file="images/odoo/Dockerfile"
     container_tag="odoo:$ODOO_VERSION"
     container_revision_tag="odoo:$ODOO_REVISION"
-
-    local odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
-    source "revisions/$ODOO_REVISION"
 
     case "$ODOO_VERSION" in
         "15.0")
