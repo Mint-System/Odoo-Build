@@ -695,7 +695,8 @@ container-ps() {
 
 build-odoo() {
     manifest_file="images/odoo/Dockerfile"
-    CONTAINER_TAG="odoo:$ODOO_VERSION"
+    container_tag="odoo:$ODOO_VERSION"
+    container_revision_tag="odoo:$ODOO_REVISION"
 
     local odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
     source "revisions/$ODOO_REVISION"
@@ -732,8 +733,8 @@ build-odoo() {
     echo "Enterprise Ref: $ODOO_ENTERPRISE_REF"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -742,20 +743,21 @@ build-odoo() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
         --build-arg PYTHON_VERSION="$python_version" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
         --build-arg ODOO_DATE="$odoo_date" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
+        --tag "${CONTAINER_REGISTRY}/${container_revision_tag}" \
         "$docker_output"
 }
 
 build-odoo-cli() {
     manifest_file="images/odoo-cli/Dockerfile"
-    CONTAINER_TAG="odoo-cli:latest"
+    container_tag="odoo-cli:latest"
 
     local docker_output="--load"
     if [[ -n "$1" ]]; then
@@ -765,8 +767,8 @@ build-odoo-cli() {
     echo "Platform: $PLATFORM"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -775,16 +777,16 @@ build-odoo-cli() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
-        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
         "$docker_output"
 }
 
 build-odoo-mailgate() {
     manifest_file="images/odoo-mailgate/Dockerfile"
-    CONTAINER_TAG="odoo-mailgate:latest"
+    container_tag="odoo-mailgate:latest"
 
     local docker_output="--load"
     if [[ -n "$1" ]]; then
@@ -794,8 +796,8 @@ build-odoo-mailgate() {
     echo "Platform: $PLATFORM"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -804,10 +806,10 @@ build-odoo-mailgate() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
-        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
         "$docker_output"
 }
 
@@ -828,8 +830,7 @@ build-odoo-upgrade() {
     fi
 
     for postgres_version in $postgres_versions; do
-        local CONTAINER_TAG="odoo-upgrade:$postgres_version"
-        local full_tag="${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        container_tag="odoo-upgrade:$postgres_version"
 
         echo "Posgres Version: $postgres_version"
         echo "Platform: $PLATFORM"
@@ -842,7 +843,7 @@ build-odoo-upgrade() {
             docker buildx build --platform "$PLATFORM" . \
                 --file "$manifest_file" \
                 --build-arg POSTGRES_VERSION="$postgres_version" \
-                --tag "$full_tag" \
+                --tag "${CONTAINER_REGISTRY}/${container_tag}" \
                 "$docker_output"
 
         if [[ $? -ne 0 ]]; then
@@ -953,12 +954,12 @@ test-image() {
     fi
 
     if [[ "$1" == "images/odoo-upgrade" ]]; then
-        CONTAINER_TAG="odoo-upgrade"
+        container_tag="odoo-upgrade"
     elif [[ "$1" == "images/odoo-cli" ]]; then
-        CONTAINER_TAG="odoocli"
+        container_tag="odoo-cli"
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
+    if [[ "$container_tag" =~ ^odoo: ]]; then
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
@@ -1007,12 +1008,12 @@ EOF
         [[ "$git_proto" == "ssh://" ]] && log-success "Test success."
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
+    if [[ "$container_tag" =~ ^odoo-upgrade ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
         docker run -it mintsystem/odoo-upgrade --help
     fi
 
-    if [[ "$CONTAINER_TAG" =~ ^odoocli ]]; then
+    if [[ "$container_tag" =~ ^odoo-cli ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
