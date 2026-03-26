@@ -1,0 +1,7 @@
+<data priority="60">    
+    <xpath expr="//t[@t-out='message.body']" position="replace">
+        <div style="font-size: 13px;">
+        <t t-out="message.body"/>
+        </div>
+    </xpath>   
+</data>

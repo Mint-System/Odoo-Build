@@ -1,0 +1,7 @@
+<data priority="50">
+
+    <xpath expr="//div[2]/div[2]" position="replace">
+        <div t-if="report_type == 'pdf'" style="font-family: Arial; font-size: 13px " class="text-nowrap">Page <span class="page"/> of <span class="topage"/></div>
+    </xpath>
+
+</data>

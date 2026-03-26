@@ -1,5 +1,4 @@
 <data priority="60">
-
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
             

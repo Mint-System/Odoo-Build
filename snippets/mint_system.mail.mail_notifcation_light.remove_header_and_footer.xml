@@ -1,0 +1,11 @@
+<data priority="60">
+    <xpath expr="(//tbody//tr)[1]" position="replace"/>
+    <xpath expr="(//tbody//tr)[2]" position="replace"/>
+    <xpath expr="(//table/tr)[2]" position="replace">
+        <tr>
+            <td>
+                <hr width="100%" style="background-color:rgb(204,204,204);border:medium none;clear:both;display:block;font-size:0px;min-height:1px;line-height:0; margin: 16px 0px 4px 0px;"/>
+            </td>
+        </tr>
+    </xpath>
+</data>
