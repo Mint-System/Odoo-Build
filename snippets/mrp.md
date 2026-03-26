@@ -542,15 +542,43 @@ Inherit ID: `mrp.mrp_production_form_view`
 
 ```xml
 <data priority="50">
-    <field name="date_move" position="after">
-        <field name="date_deadline" attrs="{'readonly': 0}"/>
+    <field name="user_id" position="before">
+        <field name="date_deadline"/>
     </field>
+    <data>
+        <xpath expr="//field[@name='move_raw_ids']/tree[1]/field[@name='product_id']" position="after">
+            <field name="date_deadline" optional="hide"/>
+        </xpath>
+    </data>
+    <data>
+        <xpath expr="//field[@name='move_raw_ids']/tree[1]/field[@name='product_id']" position="after">
+            <field name="date"/>
+        </xpath>
+    </data>
 </data>
 
 ```
 Edit: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline.xml)
 
 Source: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline.xml)
+
+### Add Date Deadline2
+
+ID: `mint_system.mrp.mrp_production_form_view.add_date_deadline2`
+
+Inherit ID: `mrp.mrp_production_form_view`
+
+```xml
+<data priority="50">
+    <field name="date_move" position="after">
+        <field name="date_deadline" attrs="{'readonly': 0}"/>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline2.xml)
+
+Source: [snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline2.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.add_date_deadline2.xml)
 
 ### Add Origin
 

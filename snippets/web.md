@@ -448,32 +448,6 @@ Edit: [snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml](ht
 
 Source: [snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.increase_logo_size.xml)
 
-### Increase Tagline Size
-
-ID: `mint_system.web.external_layout_boxed.increase_tagline_size`
-
-Inherit ID: `web.external_layout_boxed`
-
-```xml
-<data priority="50">
-    <div t-if="company.report_header" position="attributes">
-        <!-- Remove class mw-50 -->
-        <attribute name="class">o_company_tagline fw-bold</attribute>
-    </div>
-    <div t-if="company.report_header"  position="before">
-        <style>
-            .o_company_tagline {
-                font-size: 1rem
-            }
-        </style>
-    </div>
-</data>
-
-```
-Edit: [snippets/mint_system.web.external_layout_boxed.increase_tagline_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_boxed.increase_tagline_size.xml)
-
-Source: [snippets/mint_system.web.external_layout_boxed.increase_tagline_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_boxed.increase_tagline_size.xml)
-
 ### Style Carbo Link
 
 ID: `mint_system.web.external_layout_boxed.style_carbo_link`
@@ -738,24 +712,6 @@ Edit: [snippets/mint_system.web.external_layout_standard.footer_company_registry
 
 Source: [snippets/mint_system.web.external_layout_standard.footer_company_registry.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_company_registry.xml)
 
-### Footer Paging Only
-
-ID: `mint_system.web.external_layout_standard.footer_paging_only`
-
-Inherit ID: `web.external_layout_standard`
-
-```xml
-<data priority="50">
-    <div t-if="report_type == 'pdf'" position="replace">
-        <div t-if="report_type == 'pdf'" class="text-nowrap"><span class="page"/> / <span class="topage"/></div>
-    </div>
-</data>
-
-```
-Edit: [snippets/mint_system.web.external_layout_standard.footer_paging_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.footer_paging_only.xml)
-
-Source: [snippets/mint_system.web.external_layout_standard.footer_paging_only.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.footer_paging_only.xml)
-
 ### Format Header Slogan
 
 ID: `mint_system.web.external_layout_standard.format_header_slogan`
@@ -1003,32 +959,6 @@ Edit: [snippets/mint_system.web.external_layout_standard.increase_logo_size.xml]
 
 Source: [snippets/mint_system.web.external_layout_standard.increase_logo_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.increase_logo_size.xml)
 
-### Increase Tagline Size
-
-ID: `mint_system.web.external_layout_standard.increase_tagline_size`
-
-Inherit ID: `web.external_layout_standard`
-
-```xml
-<data priority="50">
-    <div t-if="company.report_header" position="attributes">
-        <!-- Remove class mw-50 -->
-        <attribute name="class">o_company_tagline fw-bold</attribute>
-    </div>
-    <div t-if="company.report_header"  position="before">
-        <style>
-            .o_company_tagline {
-                font-size: 1rem
-            }
-        </style>
-    </div>
-</data>
-
-```
-Edit: [snippets/mint_system.web.external_layout_standard.increase_tagline_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.increase_tagline_size.xml)
-
-Source: [snippets/mint_system.web.external_layout_standard.increase_tagline_size.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.increase_tagline_size.xml)
-
 ### Move Company Details
 
 ID: `mint_system.web.external_layout_standard.move_company_details`
@@ -1097,10 +1027,9 @@ Inherit ID: `web.external_layout_standard`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[hasclass('o_footer_content')]" position="attributes">
-        <!-- Remove class border-top -->
-        <attribute name="class">o_footer_content d-flex pt-2</attribute>
-    </xpath>
+    <div style="border-top: 1px solid black;" position="attributes">
+        <attribute name="style"/>
+    </div>
 </data>
 
 ```

@@ -18,10 +18,12 @@ help-table() {
     rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
     rows+=("edit-dotenv|[env]|Open .env file in default editor.")
     rows+=("list-dotenv||List .env files.")
+    rows+=("load-dotenv||Restore content of .env from pass entry.")
     rows+=("load-dotenv|[env]|Load and export .env file.")
     rows+=("remove-dotenv|[env]|Remove environment config.")
     rows+=("rename-dotenv|[env][env]|Rename .env file.")
     rows+=("restore-dotenv-files|[path]|Extract and copy .env files from backup file.")
+    rows+=("save-dotenv||Store content of .env in pass entry.")
     rows+=("show-dotenv|[env]|Output content of the .env file.")
     rows+=("===GIT===| | ")
     rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
@@ -44,13 +46,11 @@ help-table() {
     rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
     rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
-    rows+=("build-odoo|[output]|Build Odoo Docker image.")
-    rows+=("build-odoo-mailgate|[output]|Build Odoo Mailgate Docker image.")
-    rows+=("build-odoo-upgrade|[output]|Build Odoo Upgrade Docker image.")
-    rows+=("build-odoo-cli|[output]|Build Odoo CLI Docker image.")
+    rows+=("build|[folder][output]|Build Docker image from target folder.")
     rows+=("login-docker|[user][token]|Setup Docker Hub login credentials.")
     rows+=("login-podman|[user][token]|Login into registry with podman.")
     rows+=("container-ps||List container processes.")
+    rows+=("push|[folder]|Publish Docker image from target folder.")
     rows+=("remove|[name]|Remove containers and volumes.")
     rows+=("test-image|[folder]|Test Docker image from target folder.")
     rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
@@ -107,9 +107,8 @@ help-table() {
     rows+=("export-website-data|[env]|Export website data from Odoo database.")
     rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
-    rows+=("===DEVELOP===| | ")
+    rows+=("===GENERATE===| | ")
     rows+=("create-module|[path]|Create new Odoo module from template.")
-    rows+=("create-repo|[path]|Odoo module repo from template.")
     rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
     rows+=("generate-module-model|[path][model]|Generate model in module folder.")
     rows+=("generate-module-inherit|[path][model]|Generate inherited model in module folder.")
@@ -118,9 +117,9 @@ help-table() {
     rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
     rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
     rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
+    rows+=("generate-module-repo|[path]|Initialize Odoo module repo from template.")
     rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
     rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
-    rows+=("generate-repo-docs|[path]|Generate repo files from template.")
     rows+=("===MODULE===| | ")
     rows+=("list-modules|[path]|Get modules in path as bash array.")
     rows+=("pytest-module|[path]|Run module tests with pytest.")
@@ -149,7 +148,7 @@ help-table() {
     rows+=("exec|[name][cmd]|Run command in container.")
     rows+=("logs|[name]|Tail container logs. Default is '\''odoo'\''.")
     rows+=("manifestoo|[param]|Execute manifestoo cli.")
-    rows+=("odoobin|[param]|Execute odoo binary.")
+    rows+=("oboobin|[param]|Execute odoo binary.")
     rows+=("odoocli|[param]|Execute odoocli cli.")
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
@@ -167,12 +166,13 @@ help-table() {
     rows+=("save-version||Save git folder refs to version folder.")
     rows+=("template-compose||Template the Docker compose file.")
     rows+=("template-odoo-rc||Template the Odoo config file.")
+    rows+=("template-repo|[path]|Update the repo folder from template.")
     rows+=("test-project|[cleanup]|Run tests for this project.")
     rows+=("version||Show version of required tools.")
     rows+=("===PERFORMANCE===| | ")
     rows+=("record-with-memray|[name]|Record application memory usage with memray.")
     rows+=("record-with-py-spy|[pid]|Record and create flamechart for a process.")
-    rows+=("===DOC===| | ")
+    rows+=("===DOCS===| | ")
     rows+=("update-docs||Update all project docs.")
     rows+=("update-modules-doc||Update modules docs file.")
     rows+=("update-revisions-doc||Update revisions doc file.")
@@ -254,6 +254,7 @@ help() {
 
 # Static env vars
 
+PASS_ENTRY="$(echo "env/${PWD##*/}" | tr '[:upper:]' '[:lower:]')"
 ODOO_RC="odoo.conf"
 TASK_DOTENV_DIR="$PWD/vault"
 export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
@@ -304,10 +305,8 @@ else
     PYTHON_NOTIFY="inotify"
 fi
 
-if [[ "$WITHOUT_DEMO" = "True" ]]; then
+if [ "$WITHOUT_DEMO" = "True" ]; then
     ODOO_PARAM="--without-demo=all"
-elif [[ "$ODOO_VERSION" = "19.0" ]]; then
-    ODOO_PARAM="--with-demo"
 fi
 
 # Import commands
@@ -335,12 +334,12 @@ fi
 info() {
     set-addons-path
     echo "OS Release: $OS_RELEASE"
+    echo "Pass Entry: $PASS_ENTRY"
     echo "Odoo Revision: $ODOO_REVISION"
     echo "Odoo Version: $ODOO_VERSION"
     echo "Odoo Port: $ODOO_PORT"
     echo "Postgres Port: $POSTGRES_PORT"
     echo "Odoo Language: $ODOO_LANGUAGE"
-    echo "Odoo Param: $ODOO_PARAM"
     echo "Container Registry: $CONTAINER_REGISTRY"
     echo "Container Config: $CONTAINER_CONFIG"
     echo "Addons Path: $ADDONS_PATH"
@@ -565,7 +564,7 @@ update-module-license() {
     done
 }
 
-generate-repo-docs(){
+template-repo(){
     if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
     local repo_path="$1"
 
@@ -693,13 +692,39 @@ container-ps() {
     $CONTAINER_ENGINE ps
 }
 
-build-odoo() {
-    odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
-    source "revisions/$ODOO_REVISION"
-    manifest_file="images/odoo/Dockerfile"
-    container_tag="odoo:$ODOO_VERSION"
-    container_revision_tag="odoo:$ODOO_REVISION"
+build() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
 
+    # Set container tag based on Dockerfile
+    local manifest_file
+    local latest_tag
+
+    if [[ "$1" == "images/odoo" ]]; then
+        manifest_file="images/odoo/Dockerfile"
+        latest_tag="odoo:$ODOO_VERSION"
+    fi
+    if [[ "$1" == "images/odoo-mailgate" ]]; then
+        manifest_file="images/odoo-mailgate/Dockerfile"
+        CONTAINER_TAG="odoo-mailgate"
+        latest_tag="odoo-mailgate:latest"
+    elif [[ "$1" == "images/odoo-upgrade" ]]; then
+        manifest_file="images/odoo-upgrade/Dockerfile"
+        CONTAINER_TAG="odoo-upgrade"
+        latest_tag="odoo-upgrade:latest"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        manifest_file="images/odoocli/Dockerfile"
+        CONTAINER_TAG="odoocli"
+        latest_tag="odoocli:latest"
+    fi
+
+    # Load Odoo revision
+    local odoo_date=$(echo "$ODOO_REVISION" | cut -d'.' -f3-)
+    source "revisions/$ODOO_REVISION"
+
+    # Select Python version
     case "$ODOO_VERSION" in
         "15.0")
             local python_version="3.9"
@@ -723,17 +748,17 @@ build-odoo() {
     esac
 
     local docker_output="--load"
-    if [[ -n "$1" ]]; then
-        docker_output="$1"
+    if [[ -n "$2" ]]; then
+        docker_output="$2"
     fi
 
+    # Output configuration
     echo "Python Version: $python_version"
     echo "Platform: $PLATFORM"
-    echo "Enterprise Ref: $ODOO_ENTERPRISE_REF"
     echo "Docker Output: $docker_output"
 
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_revision_tag}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${container_revision_tag}"
+    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+    docker image rm -f "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
 
     if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
         docker buildx create --name odoo_builder --use
@@ -742,115 +767,16 @@ build-odoo() {
         docker buildx use odoo_builder
     fi
 
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_revision_tag} for ${PLATFORM}"
+    echo "Run Docker build ${CONTAINER_REGISTRY}/${CONTAINER_TAG} for ${PLATFORM}"
     SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
         --file "$manifest_file" \
         --build-arg PYTHON_VERSION="$python_version" \
         --build-arg ODOO_VERSION="$ODOO_VERSION" \
         --build-arg ODOO_DATE="$odoo_date" \
         --build-arg ODOO_ENTERPRISE_REF="$ODOO_ENTERPRISE_REF" \
-        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
-        --tag "${CONTAINER_REGISTRY}/${container_revision_tag}" \
+        --tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" \
+        --tag "${CONTAINER_REGISTRY}/${latest_tag}" \
         "$docker_output"
-}
-
-build-odoo-cli() {
-    manifest_file="images/odoo-cli/Dockerfile"
-    container_tag="odoo-cli:latest"
-
-    local docker_output="--load"
-    if [[ -n "$1" ]]; then
-        docker_output="$1"
-    fi
-
-    echo "Platform: $PLATFORM"
-    echo "Docker Output: $docker_output"
-
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
-
-    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
-        docker buildx create --name odoo_builder --use
-        docker buildx inspect --bootstrap
-    else
-        docker buildx use odoo_builder
-    fi
-
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
-        --file "$manifest_file" \
-        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
-        "$docker_output"
-}
-
-build-odoo-mailgate() {
-    manifest_file="images/odoo-mailgate/Dockerfile"
-    container_tag="odoo-mailgate:latest"
-
-    local docker_output="--load"
-    if [[ -n "$1" ]]; then
-        docker_output="$1"
-    fi
-
-    echo "Platform: $PLATFORM"
-    echo "Docker Output: $docker_output"
-
-    echo "Remove container image with tag ${CONTAINER_REGISTRY}/${container_tag}"
-    docker image rm -f "${CONTAINER_REGISTRY}/${container_tag}"
-
-    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
-        docker buildx create --name odoo_builder --use
-        docker buildx inspect --bootstrap
-    else
-        docker buildx use odoo_builder
-    fi
-
-    echo "Run Docker build ${CONTAINER_REGISTRY}/${container_tag} for ${PLATFORM}"
-    SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) docker buildx build --platform "$PLATFORM" . \
-        --file "$manifest_file" \
-        --tag "${CONTAINER_REGISTRY}/${container_tag}" \
-        "$docker_output"
-}
-
-build-odoo-upgrade() {
-    local manifest_file="images/odoo-upgrade/Dockerfile"
-    local postgres_versions="14 15 16 17"
-    local docker_output="--load"
-
-    if [[ -n "$1" ]]; then
-        docker_output="$1"
-    fi
-
-    if ! docker buildx inspect odoo_builder >/dev/null 2>&1; then
-        docker buildx create --name odoo_builder --use
-        docker buildx inspect --bootstrap
-    else
-        docker buildx use odoo_builder
-    fi
-
-    for postgres_version in $postgres_versions; do
-        container_tag="odoo-upgrade:$postgres_version"
-
-        echo "Posgres Version: $postgres_version"
-        echo "Platform: $PLATFORM"
-        echo "Docker Output: $docker_output"
-        echo "Removing existing image: $full_tag"
-        docker image rm -f "$full_tag" 2>/dev/null || true
-
-        echo "Running Docker build for $full_tag on platform $PLATFORM"
-        SOURCE_DATE_EPOCH=$(git -C odoo log -1 --pretty=%ct) \
-            docker buildx build --platform "$PLATFORM" . \
-                --file "$manifest_file" \
-                --build-arg POSTGRES_VERSION="$postgres_version" \
-                --tag "${CONTAINER_REGISTRY}/${container_tag}" \
-                "$docker_output"
-
-        if [[ $? -ne 0 ]]; then
-            echo "Build failed for PostgreSQL $postgres_version"
-            return 1
-        fi
-        echo "Build succeeded for PostgreSQL $postgres_version"
-    done
 }
 
 load-latest-revision() {
@@ -953,12 +879,12 @@ test-image() {
     fi
 
     if [[ "$1" == "images/odoo-upgrade" ]]; then
-        container_tag="odoo-upgrade"
-    elif [[ "$1" == "images/odoo-cli" ]]; then
-        container_tag="odoo-cli"
+        CONTAINER_TAG="odoo-upgrade"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        CONTAINER_TAG="odoocli"
     fi
 
-    if [[ "$container_tag" =~ ^odoo: ]]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoo: ]]; then
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
@@ -1007,12 +933,12 @@ EOF
         [[ "$git_proto" == "ssh://" ]] && log-success "Test success."
     fi
 
-    if [[ "$container_tag" =~ ^odoo-upgrade ]]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoo-upgrade ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
         docker run -it mintsystem/odoo-upgrade --help
     fi
 
-    if [[ "$container_tag" =~ ^odoo-cli ]]; then
+    if [[ "$CONTAINER_TAG" =~ ^odoocli ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
@@ -1020,6 +946,42 @@ EOF
                 mintsystem/odoocli "$@"
             }
         docker_odoocli --help
+    fi
+}
+
+push() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local latest_tag
+
+    if [[ "$1" == "images/odoo" ]]; then
+        latest_tag="odoo:$ODOO_VERSION"
+    elif [[ "$1" == "images/odoo-mailgate" ]]; then
+        CONTAINER_TAG="odoo-mailgate"
+        latest_tag="odoo-mailgate:latest"
+    elif [[ "$1" == "images/odoo-upgrade" ]]; then
+        CONTAINER_TAG="odoo-upgrade"
+        latest_tag="odoo-upgrade:latest"
+    elif [[ "$1" == "images/odoocli" ]]; then
+        CONTAINER_TAG="odoocli"
+        latest_tag="odoocli:latest"
+    fi
+
+    echo "Tag container image ${CONTAINER_REGISTRY}/${CONTAINER_TAG} with ${CONTAINER_REGISTRY}/${latest_tag}"
+    $CONTAINER_ENGINE tag "${CONTAINER_REGISTRY}/${CONTAINER_TAG}" "${CONTAINER_REGISTRY}/${latest_tag}"
+
+    if [[ "$CONTAINER_ENGINE" == "docker" ]]; then
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        docker --config "$CONTAINER_CONFIG" push "${CONTAINER_REGISTRY}/${latest_tag}"
+    fi
+
+    if [[ "$CONTAINER_ENGINE" == "podman" ]]; then
+        echo "Push container image to ${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}/${CONTAINER_TAG}"
+        podman push "${CONTAINER_REGISTRY}/${latest_tag}"
     fi
 }
 
@@ -1774,8 +1736,8 @@ disable-mailserver() {
     fi
 
     load-dotenv "$1"
-    images/odoo-cli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
-    images/odoo-cli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
+    images/odoocli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
 }
 
 change-uuid() {
@@ -1787,7 +1749,7 @@ change-uuid() {
     load-dotenv "$1"
     local uuid=$(uuidgen)
     echo "Set uuid $uuid for $1."
-    images/odoo-cli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$uuid'"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$uuid'"
 }
 
 update-module-list() {
@@ -2139,10 +2101,10 @@ generate-module-docs() {
     echo 'Touch __init__.py'
     touch "$module_path/__init__.py"
 
+    echo "Generate OCA readme for $ORG_NAME org."
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
-    echo "Generate OCA readme for $ORG_NAME/$repo_name org."
-    oca-gen-addon-readme --org-name=$ORG_NAME --repo-name=$repo_name --branch=$ODOO_VERSION  --addon-dir=$module_path
+    oca-gen-addon-readme --repo-name=$repo_name --branch=$ODOO_VERSION --org-name=$ORG_NAME --addon-dir=$module_path
 }
 
 generate-module-migration() {
@@ -2200,7 +2162,7 @@ generate-module-security() {
     echo -e "\t\"security/ir.model.access.csv\","
 }
 
-create-repo() {
+generate-module-repo() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2218,6 +2180,9 @@ create-repo() {
         echo "Remove all files from $repo_path"
         rm -rf "$repo_path/*"
     fi
+
+    echo "Copy template files from templates/$ODOO_VERSION to $repo_path"
+    template-repo "$repo_path"
 }
 
 export-module-vars() {
@@ -2336,11 +2301,11 @@ generate-module-snippet() {
 
 generate-module-report() {
     if [[ -z "$1" ]]; then
-        echo '$1/path is empty.'
+        echo '$1 is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2/model is empty.'
+        echo '$2 is empty.'
         exit
     fi
     local module_path="$1"
@@ -2413,18 +2378,21 @@ migrate-module() {
     fi
     local module_path="$1"
     local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
-    local module=$(basename "$module_path")
-    # local addons_path=$(dirname "$module_path")
 
-    # echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
-    # odoo upgrade_code --addons-path "$addons_path" --from "$source_odoo_version"
+    if [[ "$ODOO_VERSION" == "19.0" ]]; then
+        local module=$(basename "$module_path")
+        local addons_path=$(dirname "$module_path")
 
-    # echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
-    # sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
-    
-    echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
-    odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
-        --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
+        echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
+        odoo upgrade_code --addons-path "$addons_path" --from "$source_odoo_version"
+
+        echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
+        sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
+    else
+        echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
+        odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
+            --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
+    fi
 }
 
 upgrade-odoo() {
@@ -2494,11 +2462,11 @@ install-snippet() {
 
     load-dotenv "$1"
     echo "Search for view with name $module_name.$xml_id"
-    inherit_id=$(images/odoo-cli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$xml_id'), ('module', '=', '$module_name')]")
+    inherit_id=$(images/odoocli/bin/odoocli --method "read" --model "ir.model.data" --field "res_id" --domain "[('name', '=', '$xml_id'), ('module', '=', '$module_name')]")
     echo "Found view id $inherit_id"
 
     echo "Apply view $name"
-    images/odoo-cli/bin/odoocli --method 'create' --model 'ir.ui.view' --value "{
+    images/odoocli/bin/odoocli --method 'create' --model 'ir.ui.view' --value "{
         'name': '$name',
         'type': '$type',
         'model': '$model',
@@ -2525,7 +2493,7 @@ update-snippet() {
 
     load-dotenv "$1"
     echo "Update view with name $name"
-    images/odoo-cli/bin/odoocli --method 'write' --model 'ir.ui.view' --include-archived --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
+    images/odoocli/bin/odoocli --method 'write' --model 'ir.ui.view' --include-archived --domain "[('name', '=', '$name')]" --field 'arch_base' --value "'''$(cat "$2")'''"
     enable-snippet "$1" "$2"
 }
 
@@ -2550,7 +2518,7 @@ disable-snippet() {
 
     load-dotenv "$1"
     echo "Disable view with name $name"
-    images/odoo-cli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --domain "[('name', '=', '$name')]" --field "active" --value "False"
 }
 
 enable-snippet() {
@@ -2572,7 +2540,7 @@ enable-snippet() {
 
     load-dotenv "$1"
     echo "Enable view with name $name"
-    images/odoo-cli/bin/odoocli --method 'write' --model "ir.ui.view" --include-archived --domain "[('name', '=', '$name')]" --field "active" --value "True"
+    images/odoocli/bin/odoocli --method 'write' --model "ir.ui.view" --include-archived --domain "[('name', '=', '$name')]" --field "active" --value "True"
 }
 
 remove-snippet() {
@@ -2594,7 +2562,7 @@ remove-snippet() {
 
     load-dotenv "$1"
     echo "Remove view with name $name"
-    images/odoo-cli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$name')]"
+    images/odoocli/bin/odoocli --method "unlink" --model "ir.ui.view" --domain "[('name', '=', '$name')]"
 }
 
 lint-snippets() {
@@ -2773,7 +2741,7 @@ commit-and-push-revision() {
 
 test-xmlrpc() {
     load-dotenv "$1"
-    echo "Connect to database and count res.partner records: $(images/odoo-cli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
+    echo "Connect to database and count res.partner records: $(images/odoocli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
 }
 
 odoobin(){
@@ -2781,7 +2749,7 @@ odoobin(){
 }
 
 odoocli(){
-    images/odoo-cli/bin/odoocli "$@"
+    images/odoocli/bin/odoocli "$@"
 }
 
 manifestoo(){

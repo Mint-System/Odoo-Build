@@ -1,8 +1,5 @@
 <data priority="50">
     <xpath expr="//span[@t-field='line.price_unit']" position="replace">
-        <!-- 34.00 -> 34 -->
-        <!-- 34.50 -> 34.50 -->
-        <!-- 34.75 -> 34.75 -->
-        <span t-esc="'%g' % line.price_unit if int(line.price_unit) == line.price_unit else '%.2f' % line.price_unit"/>
+        <span t-esc="'%g' % line.price_unit if str(line.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line.price_unit"/>
     </xpath>
 </data>

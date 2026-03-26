@@ -107,6 +107,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Maintenance Plan](snippets/maintenance_plan.md)
 
+## [Mint-System](snippets/mint-system.md)
+
 ## [Mrp](snippets/mrp.md)
 
 ## [Mrp Account](snippets/mrp_account.md)
@@ -144,8 +146,6 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 ## [Sale Order Contact Person](snippets/sale_order_contact_person.md)
 
 ## [Sale Order Line Date](snippets/sale_order_line_date.md)
-
-## [Sale Order Notes](snippets/sale_order_notes.md)
 
 ## [Sale Order Picking Note](snippets/sale_order_picking_note.md)
 

@@ -1,7 +1,0 @@
-<data priority="50">
-    <group  name="accounting_info_group" position="after">
-        <group string="Delivery" name="accounting_delivery_group">
-            <field name="sending_data" />
-        </group>
-    </group>
-</data>

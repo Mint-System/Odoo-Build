@@ -10,11 +10,11 @@ Inherit ID: `hr_attendance.view_attendance_overtime_tree`
 
 ```xml
 <data priority="50" groups="hr_attendance.group_hr_attendance_manager">
-    <list position="attributes">
+    <tree position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>
         <attribute name="editable">top</attribute>
-    </list>
+    </tree>
 </data>
 
 ```

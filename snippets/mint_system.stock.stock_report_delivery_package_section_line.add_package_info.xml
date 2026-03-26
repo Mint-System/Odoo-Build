@@ -1,9 +1,14 @@
 <data priority="50">
-    <xpath expr="//td[@name='package_info']" position="inside">
-        <t t-if="package.package_type_id.display_name">
-       
-        <span>(</span><span t-field="package.package_type_id.display_name"/><span>)</span>
-        </t>
-       
+    <xpath expr="/t/tr/td/span" position="before">
+        <strong>Package: </strong>
+        <span t-field="package.packaging_id.display_name"/>
+        <strong>, </strong>
+        <span t-field="package.packaging_id.packaging_length"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.width"/>
+        <strong> cm x </strong>
+        <span t-field="package.packaging_id.height"/>
+        <strong> cm</strong>
+        <strong> (L x W x H), </strong>
     </xpath>
 </data>

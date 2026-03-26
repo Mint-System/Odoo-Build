@@ -71,6 +71,10 @@ export default defineUserConfig({
                                     link: '/images/odoo-mailgate/',
                                 },
                                 {
+                                    text: 'Odoo MCP',
+                                    link: '/images/odoo-mcp/',
+                                },
+                                {
                                     text: 'Odoo Upgrade',
                                     link: '/images/odoo-mcp/',
                                 },

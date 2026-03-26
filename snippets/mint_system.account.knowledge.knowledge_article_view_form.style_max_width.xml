@@ -1,9 +1,0 @@
-<data priority="50">
-    <xpath expr="//div[hasclass('o_knowledge_body')]" position="before">
-        <style>
-            .odoo-editor-editable {
-              max-width: 100% !important;
-            }
-        </style>
-    </xpath>
-</data>
