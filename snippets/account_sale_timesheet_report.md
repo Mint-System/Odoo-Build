@@ -312,7 +312,7 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table`
 ```xml
 <data priority="50">
     <xpath expr="//th[@id='date']" position="after">
-        <th id="from_until"><span>Zeit</span></th>
+        <th id="from_until" style="white-space: nowrap;">Zeit</th>
     </xpath>
 </data>
 
@@ -332,7 +332,7 @@ Inherit ID: `account_sale_timesheet_report.timesheet_table_lines`
 ```xml
 <data priority="50">
     <xpath expr="//td[@id='line_date']" position="after">
-        <td id="line_from_until" style="white-space: nowrap;"><span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/> <span>-</span> <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
+        <td id="line_from_until" style="white-space: nowrap;"><span t-field="line.from_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/> - <span t-field="line.until_time" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}"/>
     </td>
     </xpath>
 </data>

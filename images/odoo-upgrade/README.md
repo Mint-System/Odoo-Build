@@ -9,13 +9,6 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-upgrade
 
 ## Usage
 
-Supported Postgres versions:
-
-- [`14`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/14)
-- [`15`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/15)
-- [`16`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/16)
-- [`17`](https://hub.docker.com/layers/mintsystem/odoo-upgrade/17)
-
 Setup environment vaiables:
 
 ```bash
@@ -35,7 +28,7 @@ docker run -it \
     --name odoo-upgrade \
     -v /var/tmp/odoo-upgrade:/root
     -e PGHOST="$PGHOST" -e PGUSER="$PGUSER" -e PGPASSWORD="$PGPASSWORD" \
-    --network="$NETWORK" mintsystem/odoo-upgrade:16 \
+    --network="$NETWORK" mintsystem/odoo-upgrade \
     test -d "$DATABASE" -t "$TARGET_VERSION" -r "$TARGET_DATABASE"
 ```
 
@@ -72,7 +65,9 @@ pg_dump: detail: server version: 16.9; pg_dump version: 15.12 (Debian 15.12-0+de
 
 **Solution**
 
-Ensure that the local postgres server does not have a never version than the upgrade image.
+Ensure that the local postgres server does not have a never version than the remote server.
+
+If necessary downgrade the local postgres server.
 
 ### Unrecognized parameter transaction_timeout
 
@@ -86,4 +81,5 @@ pg_restore: error: could not execute query: ERROR:  unrecognized configuration p
 
 **Solution**
 
-Nothing to worry. The database has been restored despite the error.
+The database has been restored despite the error.
+But it is recommended to use postgres version 17.

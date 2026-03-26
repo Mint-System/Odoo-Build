@@ -1,8 +1,5 @@
 <data priority="50">
-    <span t-field="line.discount" position="attributes">
-        <attribute name="t-options-widget">"integer"</attribute>
-    </span>
-    <span t-field="line.discount" position="after">
-        <span> %</span>
+    <span t-field="line.discount" position="replace">
+        <span t-esc="'{0:.2f}'.format(line.discount)"/>
     </span>
 </data>

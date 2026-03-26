@@ -55,9 +55,9 @@ Edit: [snippets/mint_system.website_sale.address.hide_state.xml](https://github.
 
 Source: [snippets/mint_system.website_sale.address.hide_state.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_state.xml)
 
-### Hide Street
+### Hide Street2
 
-ID: `mint_system.website_sale.address.hide_street`
+ID: `mint_system.website_sale.address.hide_street2`
 
 Inherit ID: `website_sale.address`
 
@@ -68,9 +68,9 @@ Inherit ID: `website_sale.address`
 </data>
 
 ```
-Edit: [snippets/mint_system.website_sale.address.hide_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street.xml)
+Edit: [snippets/mint_system.website_sale.address.hide_street2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.hide_street2.xml)
 
-Source: [snippets/mint_system.website_sale.address.hide_street.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_street.xml)
+Source: [snippets/mint_system.website_sale.address.hide_street2.xml](https://odoo.build/snippets/mint_system.website_sale.address.hide_street2.xml)
 
 ### Overwrite Required
 

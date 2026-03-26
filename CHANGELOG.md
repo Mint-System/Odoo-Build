@@ -33,8 +33,6 @@ All notable changes to this project will be documented in this file. The format 
 - Added `activate-venv` as default call for all commands.
 - New command `aggregate-git-repos`.
 - Template migration scripts with `generate-module-migration`
-- New command `create-repo` to initialize Odoo module repo from template.
-- New command `generate-repo-docs` to generate repo files from template.
 
 ### Changed
 
@@ -52,8 +50,6 @@ All notable changes to this project will be documented in this file. The format 
 - Refactored `test-modules` function.
 - Renamed `generate-module` to `create-module`.
 - **BREAKING**: Renamed `ODOO_DATABASE` to `DB_NAME` across all scripts, templates, and documentation.
-- Help table section `===GENERATE===` renamed to `===DEVELOP===`.
-- Help table section `===DOCS===` renamed to `===DOC===`.
 
 ## 2025-09-12
 

@@ -27,16 +27,15 @@ memray
 git+https://github.com/OCA/openupgradelib.git@master
 git+https://github.com/odoo/upgrade-util@master ; python_version <= '3.12'
 
-# Acsone
+# OCA Tools
 manifestoo
+oca-port
+odoo-module-migrator
 click-odoo-contrib
 git-aggregator
-hatch-odoo
-
-# OCA Tools
-git+https://github.com/OCA/oca-port
-git+https://github.com/OCA/odoo-module-migrator
 git+https://github.com/OCA/maintainer-tools
+hatch-odoo
+copier
 odoo-addon-module-auto-update; python_version >= '3.10'
 
 # Odoo Compatibility

@@ -1,8 +1,0 @@
-<data priority="50">
-    <xpath expr="//div/span[@t-field='doc.note']" position="after">
-        <t t-if="not is_html_empty(doc.user_id.signature)">
-            <br/><br/>
-            <t t-out="doc.user_id.signature or ''">Mitchell Admin</t>
-        </t>
-    </xpath>
-</data>

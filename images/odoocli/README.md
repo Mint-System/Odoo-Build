@@ -1,11 +1,11 @@
-[Mint System Odoo CLI](https://odoo.build/images/odooo-ctl/)
+[Mint System Odoo CLI](https://odoo.build/images/odoooctl/)
 ===
 
-[![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-cli)](https://hub.docker.com/r/mintsystem/odoo-cli/)
+[![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoocli)](https://hub.docker.com/r/mintsystem/odoocli/)
 
-Image to run the odoo-cli.
+Image to run the odoocli.
 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoo-cli>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoocli>
 
 ## Usage
 
@@ -19,13 +19,13 @@ export ODOO_USERNAME="admin"
 export ODOO_PASSWORD="admin"
 ```
 
-Setup a function for the `odoocli` command:
+Setup a function for the odoocli command:
 
 ```bash
 odoocli() {
     docker run -it \
         -e ODOO_URL="$ODOO_URL" -e ODOO_DATABASE="$ODOO_DATABASE" -e ODOO_USERNAME="$ODOO_USERNAME" -e ODOO_PASSWORD="$ODOO_PASSWORD" \
-        --network="$NETWORK" mintsystem/odoo-cli "$@"
+        --network="$NETWORK" mintsystem/odoocli "$@"
 }
 ```
 

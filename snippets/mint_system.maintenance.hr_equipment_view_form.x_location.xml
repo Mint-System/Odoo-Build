@@ -1,5 +1,0 @@
-<data priority="50">
-    <xpath expr="//field[@name='scrap_date']" position="after">
-        <field name="x_location"/>
-    </xpath>
-</data>

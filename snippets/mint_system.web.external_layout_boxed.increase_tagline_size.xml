@@ -3,7 +3,7 @@
         <!-- Remove class mw-50 -->
         <attribute name="class">o_company_tagline fw-bold</attribute>
     </div>
-    <div t-if="company.report_header" position="before">
+    <div t-if="company.report_header"  position="before">
         <style>
             .o_company_tagline {
                 font-size: 1rem
