@@ -1839,7 +1839,7 @@ visualize-dependencies() {
     fi
 
     mkdir -p tmp
-    ./bin/odoo-module-dependencies "$1"
+    ./bin/visualize-dependencies "$1"
     open-with-os tmp/odoo-module-dependencies.html
     cat tmp/odoo-module-dependencies.mmd
 }
