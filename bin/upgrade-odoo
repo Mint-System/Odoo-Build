@@ -35,8 +35,12 @@ upgrade-odoo() {
         exit
     fi
     load-dotenv "$1"
+
     temp_folder="/var/tmp"
-    
+    if [[ -n "$TEMP_FOLDER" ]]; then
+        temp_folder="$TEMP_FOLDER"
+    fi
+
     # Setup ssh aliases
     ssh_server="ssh -p $PORT ${USERNAME}@${SERVER}"
     ssh_target_server="ssh -t -p $TARGET_PORT ${TARGET_USERNAME}@${TARGET_SERVER}"
@@ -63,6 +67,7 @@ upgrade-odoo() {
         echo "Odoo Version: $ODOO_VERSION"
         echo "Postgres Container: $POSTGRES_CONTAINER"
         echo "Database: $DATABASE"
+        echo "Temp Folder: $temp_folder"
         echo ""
         echo "Target Enviroment"
         echo "-----------------"
@@ -235,7 +240,7 @@ upgrade-odoo() {
         log-warning "Run step 'rename-production' on $TARGET_SERVER."
 
         if [[ "$POSTGRES_CONTAINER" != "$TARGET_POSTGRES_CONTAINER" ]]; then
-            # The database is new
+            # The database is running in a new container
             if [[ "$DATABASE" = "odoo" ]]; then
                 # Rename odoo database in the new container
                 echo "Rename database '$DATABASE' to '${DATABASE}-old'"
@@ -246,10 +251,11 @@ upgrade-odoo() {
             echo "Rename database '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
 
-            # Rename upgrade database in the new container
+            # Rename upgradeto production database in new container
             echo "Rename database '$TARGET_DATABASE' to '$DATABASE'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         else
+            # Rename upgrade to production database in container
             echo "Rename database '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
             echo "Rename database '$TARGET_DATABASE' to '${DATABASE}-old'"
@@ -257,12 +263,30 @@ upgrade-odoo() {
         fi
         $ssh_server docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
 
-        if [[ "$DATABASE" = "odoo" ]]; then
-            echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
-            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/$DATABASE-old"
+        if [[ "$ODOO_CONTAINER" != "$TARGET_ODOO_CONTAINER" ]]; then
+            # The upgrade container replaces the production definition
+
+            # Rename production filestore in production container
+            echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
+            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
+
+            # # Rename production filestore in production container
+            # echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
+            # $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
+
+            # # Copy filestore from upgrade container
+            # echo "Copy filestore '$TARGET_DATABASE' to '$DATABASE'"
+            # $ssh_server docker-volume-copy -s "${TARGET_ODOO_CONTAINER}:/filestore/$TARGET_DATABASE" -t "${ODOO_CONTAINER}:/filestore/$DATABASE"
+        else
+            if [[ "$DATABASE" = "odoo" ]]; then
+                echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
+                $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
+            fi
+
+            # Rename filestore in production container
+            echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
+            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
         fi
-        echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}-old'"
-        $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
     fi
 
     if [[ "$2" = "browse" ]]; then

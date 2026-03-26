@@ -2394,73 +2394,23 @@ Inherit ID: `stock.report_delivery_document`
 
 ```xml
 <data priority="60">
-    <xpath expr="//table[@name='stock_move_table']/thead/tr/th[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <th id="position" class="text-start">
-                <strong>Pos</strong>
-            </th>
-        </t>
-    </xpath>
+
     <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <th id="position" class="text-start">
-                <strong>Pos</strong>
-            </th>
-        </t>
+        <th id="position" class="text-start">
+            <strong>Pos.</strong>
+        </th>
     </xpath>
     <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <th id="position" class="text-start">
-                <strong>Pos</strong>
-            </th>
-        </t>
+        <th id="position" class="text-start">
+            <strong>Pos.</strong>
+        </th>
     </xpath>
-    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <td id="position">
-                <span t-esc="move.position"/>
-            </td>
-        </t>
-    </xpath>
-    <xpath expr="//table[@name='stock_backorder_table']/tbody//tr/td[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <td id="position">
-                <span t-esc="bo_line.position"/>
-            </td>
-        </t>
-    </xpath>
-</data>
 
+</data>
 ```
 Edit: [snippets/mint_system.stock.report_delivery_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.get_position.xml)
 
 Source: [snippets/mint_system.stock.report_delivery_document.get_position.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.get_position.xml)
-
-### Get Position2
-
-ID: `mint_system.stock.report_delivery_document.get_position2`
-
-Inherit ID: `stock.report_delivery_document`
-
-```xml
-<data priority="60">
-
-    <xpath expr="//table[@name='stock_move_line_table']/thead/tr/th[1]" position="before">
-        <th id="position" class="text-start">
-            <strong>Pos.</strong>
-        </th>
-    </xpath>
-    <xpath expr="//table[@name='stock_backorder_table']/thead/tr/th[1]" position="before">
-        <th id="position" class="text-start">
-            <strong>Pos.</strong>
-        </th>
-    </xpath>
-
-</data>
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.get_position2.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.get_position2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.get_position2.xml)
 
 ### Header Margin
 
@@ -3263,119 +3213,6 @@ Inherit ID: `stock.report_delivery_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[@class='page']/div[1]" position="replace">
-        <table class="table table-borderless table-sm">
-            <tr>
-                <td>
-                    <strong>Verkaufsauftrag: </strong>
-                    <span t-field="o.sale_id.name"/>
-                </td>
-                <td>
-                    <strong>Bestelldatum: </strong>
-                    <span t-field="o.sale_id.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                </td>
-                <td>
-                    <strong>Kontakt Verkauf: </strong>
-                    <span t-field="o.sale_id.user_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    <strong>Kunden-Nr.: </strong>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>
-                    <strong>Lieferdatum: </strong>
-                    <span t-field="o.move_lines[0].date_deadline" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                </td>
-                <td>
-                    <strong>Tel. Direkt: </strong>
-                    <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.phone)" t-as="delivery_partner">
-                        <span t-esc="delivery_partner.phone"/>
-                    </t>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
-                        <strong>Spediteur: </strong>
-                        <span t-field="o.carrier_id"/>
-                    </div>
-                </td>
-                <td>
-                    <strong>E-Mail: </strong>
-                    <t t-foreach="res_company.partner_id.child_ids.filtered(lambda c: c.type == 'delivery' and c.email)" t-as="delivery_partner">
-                        <span t-esc="delivery_partner.email"/>
-                    </t>
-                </td>
-            </tr>
-        </table>
-    </xpath>
-    <!-- Odoo 17
-
-     <xpath expr="//div[@class='page']/div[2]" position="replace">
-
-        <div class="row">
-            <div class="col-4">
-                <strong>Verkaufsauftrag: </strong>
-                <span t-field="o.sale_id.name"/>
-            </div>
-            <div class="col-3">
-                <strong>Bestelldatum: </strong>
-                <span t-field="o.sale_id.date_order" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-            </div>
-            <div class="col-5" style="margin-left: 60px">
-                <strong>Kontakt Verkauf: </strong>
-                <span t-field="o.sale_id.user_id"/>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-4">
-                <strong>Kunden-Nr.: </strong>
-                <span t-field="o.partner_id.ref"/>
-            </div>
-            <div class="col-3">
-                <strong>Lieferdatum: </strong>
-                <span t-esc="o.date_done" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-            </div>
-            <div class="col-5" style="margin-left: 60px">
-                <strong>Tel. Direkt: </strong>
-                <span t-field="o.sale_id.user_id.phone"/>
-            </div>
-        </div>
-        <div class="row" style="margin-bottom: 40px">
-            <div class="col-4">
-                <div t-if="o.picking_type_id.code == 'outgoing' and o.carrier_id">
-                    <strong>Spediteur: </strong>
-                    <span t-field="o.carrier_id"/>
-                </div>
-            </div>
-            <div class="col-3">
-            </div>
-            <div class="col-5" style="margin-left: 60px">
-                <strong>E-Mail: </strong>
-                <span t-field="o.sale_id.user_id.email"/>
-            </div>
-        </div>
-
-    </xpath>
-    -->
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
-
-### Replace Information Table2
-
-ID: `mint_system.stock.report_delivery_document.replace_information_table2`
-
-Inherit ID: `stock.report_delivery_document`
-
-```xml
-<data priority="50">
     <xpath expr="//div[@class='report-wrapping-flexbox clearfix row mt32 mb32']" position="replace">
 
         <style>
@@ -3428,78 +3265,13 @@ Inherit ID: `stock.report_delivery_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_information_table2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_information_table.xml)
 
 ### Replace Informations
 
 ID: `mint_system.stock.report_delivery_document.replace_informations`
-
-Inherit ID: `stock.report_delivery_document`
-
-```xml
-<data priority="50">
-    <xpath expr="//div[@class='page']/div[1]" position="replace">
-        <style>
-            div#informations p {
-                margin-bottom: 0rem;
-            }
-            div#informations div {
-                display: inline-block;
-                vertical-align: top;
-            }
-        </style>
-        <div id="informations">
-            <table class="table table-borderless table-sm">
-                <tr>
-                    <td>
-                        <strong>Versanddatum:</strong>
-                        <t t-if="o.state == 'done'">
-                            <span
-                                t-field="o.date_done"
-                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                            />
-                        </t>
-                        <t t-if="o.state != 'done'">
-                            <span
-                                t-field="o.scheduled_date"
-                                t-options="{&quot;widget&quot;: &quot;date&quot;}"
-                            />
-                        </t>
-                    </td>
-                    <td>
-                        <strong>Unser Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.user_id" />
-                    </td>
-                    <td>
-                        <strong>Ihr Kontakt:</strong>
-                        <span t-field="o.sudo().sale_id.partner_sale_id.name" />
-                    </td>
-                </tr>
-                <tr>
-                    <td colspan="2">
-                        <strong>Unsere Referenz:</strong>
-                        <span t-field="o.origin" />
-                    </td>
-                    <td t-if="o.sudo().sale_id.client_order_ref">
-                        <strong>Ihre Referenz:</strong>
-                        <span t-field="o.sudo().sale_id.client_order_ref" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
-
-### Replace Informations2
-
-ID: `mint_system.stock.report_delivery_document.replace_informations2`
 
 Inherit ID: `stock.report_delivery_document`
 
@@ -3589,9 +3361,9 @@ Inherit ID: `stock.report_delivery_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.replace_informations2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_informations2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.replace_informations2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_informations2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.replace_informations.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_informations.xml)
 
 ### Replace Infotable
 
@@ -3992,33 +3764,6 @@ Inherit ID: `stock.report_delivery_document`
 <data priority="50">
     <xpath expr="//span[@id='qty']" position="replace">
         <!-- 34.00 -> 34 -->
-        <!-- 34.50 -> 34.50 -->
-        <!-- 34.75 -> 34.75 -->
-        <span id="qty" t-esc="'%g' % move.product_uom_qty if int(move.product_uom_qty) == move.product_uom_qty else '%.2f' % move.product_uom_qty"/>
-    </xpath>
-    <xpath expr="//span[@id='open_qty']" position="replace">
-        <!-- 34.00 -> 34 -->
-        <!-- 34.50 -> 34.50 -->
-        <!-- 34.75 -> 34.75 -->
-        <span id="open_qty" t-esc="'%g' % bo_line.product_uom_qty if int(bo_line.product_uom_qty) == bo_line.product_uom_qty else '%.2f' % bo_line.product_uom_qty"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
-
-Source: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
-
-### Round Qty2
-
-ID: `mint_system.stock.report_delivery_document.round_qty2`
-
-Inherit ID: `stock.report_delivery_document`
-
-```xml
-<data priority="50">
-    <xpath expr="//span[@id='qty']" position="replace">
-        <!-- 34.00 -> 34 -->
         <!-- 34.50 -> 34.5 -->
         <!-- 34.75 -> 34.75 -->
         <span id="qty" t-esc="'%g' % move.product_uom_qty"/>
@@ -4032,9 +3777,9 @@ Inherit ID: `stock.report_delivery_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock.report_delivery_document.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.round_qty2.xml)
+Edit: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
 
-Source: [snippets/mint_system.stock.report_delivery_document.round_qty2.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.round_qty2.xml)
+Source: [snippets/mint_system.stock.report_delivery_document.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.round_qty.xml)
 
 ### Sale Order Note
 
@@ -4599,6 +4344,32 @@ Inherit ID: `stock.report_delivery_document`
 Edit: [snippets/mint_system.stock.report_delivery_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_lapp.xml)
 
 Source: [snippets/mint_system.stock.report_delivery_document.style_lapp.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_lapp.xml)
+
+### Style Swift Link
+
+ID: `mint_system.stock.report_delivery_document.style_swift_link`
+
+Inherit ID: `stock.report_delivery_document`
+
+```xml
+<data priority="60">    
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+        .din_page.invoice_note tr .address {
+            font-size: 110%;
+            width: 90mm;
+            }  
+            
+        .din_page.invoice_note tr .shipping_address {
+            font-size: 110%;
+            }
+        </style>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.stock.report_delivery_document.style_swift_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.style_swift_link.xml)
+
+Source: [snippets/mint_system.stock.report_delivery_document.style_swift_link.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.style_swift_link.xml)
 
 ### Style Swissfragrance
 
@@ -5223,6 +4994,77 @@ Inherit ID: `stock.report_lot_label`
 Edit: [snippets/mint_system.stock.report_lot_label.aersolution.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_lot_label.aersolution.xml)
 
 Source: [snippets/mint_system.stock.report_lot_label.aersolution.xml](https://odoo.build/snippets/mint_system.stock.report_lot_label.aersolution.xml)
+
+### Label Swift Link
+
+ID: `mint_system.stock.report_lot_label.label_swift_link`
+
+Inherit ID: `stock.report_lot_label`
+
+```xml
+<data inherit_id="report_lot_label" priority="50">
+    <xpath expr="//t[@t-name='stock.report_lot_label']" position="replace">
+
+        <t t-name="stock.report_lot_label">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <t t-call="web.html_container">
+
+                        <table style="border: 1px solid white; height: 23mm; width: 38mm; background-color: white; font-size:7pt; position:relative; left:-10px;">
+                            <tr>
+                                <td>
+                                <div t-att-style="'position:relative; width:45mm; height:20mm; margin-top: 5px; border: 0px solid %s;' % (o.env.user.company_id.primary_color or 'black')">
+                                    <t t-set="final_barcode" t-value="''"/>
+                                    <t t-if="env.user.has_group('stock.group_stock_lot_print_gs1')">
+                                        <t t-if="o.product_id.valid_ean" t-set="final_barcode" t-value="'01' + '0' * (14 - len(o.product_id.barcode)) + o.product_id.barcode"/>
+                                        <t name="gs1_datamatrix_lot" t-if="o.product_id.tracking == 'lot'" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
+                                        <t t-elif="o.product_id.tracking == 'serial'" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
+                                    </t>
+                                  
+                                    <div class="o_label_4x12" t-if="o.product_id.default_code" t-att-style="'width:22mm' if final_barcode else ''">[<t t-out="o.product_id.default_code"/>]</div>
+                                    <div class="o_label_4x12" t-esc="o.product_id.name[:30]" t-att-style="'width:22mm; font-weight: bold' if final_barcode else ''">Demo Product</div>
+                                    <div class="o_label_4x12" t-esc="'Qty ' + str(o.product_qty)" t-att-style="'width:22mm; font-weight: bold; margin-top: 5px' if final_barcode else ''">Demo Qty</div>
+                                    
+                                    <!--
+                                    <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:22mm' if final_barcode else ''">Demo Lot/SN</div>
+                                    -->
+                                    <t t-if="env.user.has_group('stock.group_stock_lot_print_gs1')">
+                                        
+                                        <!--
+                                        <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; bottom:.5px'">
+                                        -->
+                                        
+                                        <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; top:.5px'">
+                                            <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:17mm; height:17mm'}">12345678901</span>
+                                        </div>
+                                    </t>
+                                    <t t-else="">
+                                        <span t-field="o.name" t-options="{'widget': 'barcode', 'img_style': 'width:100%; height:35%'}">Demo Lot/SN</span>
+                                    </t>
+                                </div>
+                                   
+                                </td>
+                                
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                 <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:100%' if final_barcode else ''">Demo Lot/SN</div>
+                                 </td>
+                            </tr>
+                            
+                        </table>
+                    </t>
+
+                </t>
+            </t>
+        </t>
+
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.stock.report_lot_label.label_swift_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_lot_label.label_swift_link.xml)
+
+Source: [snippets/mint_system.stock.report_lot_label.label_swift_link.xml](https://odoo.build/snippets/mint_system.stock.report_lot_label.label_swift_link.xml)
 
 ## Report Picking
 
@@ -6282,33 +6124,6 @@ Inherit ID: `stock.report_picking`
 <data priority="50">
     <xpath expr="//span[@id='product_uom_qty']" position="replace">
         <!-- 34.00 -> 34 -->
-        <!-- 34.50 -> 34.50 -->
-        <!-- 34.75 -> 34.75 -->
-        <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty if int(ml.product_uom_qty) == ml.product_uom_qty else '%.2f' % ml.product_uom_qty"/>
-    </xpath>
-    <xpath expr="//span[@id='qty_available']" position="replace">
-        <!-- 34.00 -> 34 -->
-        <!-- 34.50 -> 34.50 -->
-        <!-- 34.75 -> 34.75 -->
-        <span id="qty_available" t-esc="'%g' % ml.product_id.qty_available if int(ml.product_id.qty_available) == ml.product_id.qty_available else '%.2f' % ml.product_id.qty_available"/>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.round_qty.xml)
-
-Source: [snippets/mint_system.stock.report_picking.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_picking.round_qty.xml)
-
-### Round Qty2
-
-ID: `mint_system.stock.report_picking.round_qty2`
-
-Inherit ID: `stock.report_picking`
-
-```xml
-<data priority="50">
-    <xpath expr="//span[@id='product_uom_qty']" position="replace">
-        <!-- 34.00 -> 34 -->
         <!-- 34.50 -> 34.5 -->
         <!-- 34.75 -> 34.75 -->
         <span id="product_uom_qty" t-esc="'%g' % ml.product_uom_qty"/>
@@ -6322,9 +6137,9 @@ Inherit ID: `stock.report_picking`
 </data>
 
 ```
-Edit: [snippets/mint_system.stock.report_picking.round_qty2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.round_qty2.xml)
+Edit: [snippets/mint_system.stock.report_picking.round_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_picking.round_qty.xml)
 
-Source: [snippets/mint_system.stock.report_picking.round_qty2.xml](https://odoo.build/snippets/mint_system.stock.report_picking.round_qty2.xml)
+Source: [snippets/mint_system.stock.report_picking.round_qty.xml](https://odoo.build/snippets/mint_system.stock.report_picking.round_qty.xml)
 
 ### Set Ids
 
@@ -7309,28 +7124,6 @@ Inherit ID: `stock.stock_report_delivery_has_serial_move_line`
 
 ```xml
 <data priority="50">
-    <xpath expr="//td[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
-            <td id="position">
-                <span t-esc="move_line.move_id.position"/>
-            </td>
-        </t>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
-
-Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
-
-### Get Position2
-
-ID: `mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2`
-
-Inherit ID: `stock.stock_report_delivery_has_serial_move_line`
-
-```xml
-<data priority="50">
       <xpath expr="//td[1]" position="before">
             <td id="position">
                   <span t-esc="move_line.move_id.position"/>
@@ -7338,9 +7131,9 @@ Inherit ID: `stock.stock_report_delivery_has_serial_move_line`
       </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
 
-Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position2.xml)
+Source: [snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_has_serial_move_line.get_position.xml)
 
 ### Hide Lot
 
@@ -7596,33 +7389,6 @@ Inherit ID: `stock.stock_report_delivery_package_section_line`
 
 ```xml
 <data priority="50">
-    <xpath expr="/t/tr/td/span" position="before">
-        <strong>Package: </strong>
-        <span t-field="package.packaging_id.display_name"/>
-        <strong>, </strong>
-        <span t-field="package.packaging_id.packaging_length"/>
-        <strong> cm x </strong>
-        <span t-field="package.packaging_id.width"/>
-        <strong> cm x </strong>
-        <span t-field="package.packaging_id.height"/>
-        <strong> cm</strong>
-        <strong> (L x W x H), </strong>
-    </xpath>
-</data>
-
-```
-Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
-
-Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
-
-### Add Package Info2
-
-ID: `mint_system.stock.stock_report_delivery_package_section_line.add_package_info2`
-
-Inherit ID: `stock.stock_report_delivery_package_section_line`
-
-```xml
-<data priority="50">
     <xpath expr="//td[@name='package_info']" position="inside">
         <t t-if="package.package_type_id.display_name">
        
@@ -7632,9 +7398,9 @@ Inherit ID: `stock.stock_report_delivery_package_section_line`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml)
+Edit: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
 
-Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info2.xml)
+Source: [snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_package_section_line.add_package_info.xml)
 
 ### Add Type
 

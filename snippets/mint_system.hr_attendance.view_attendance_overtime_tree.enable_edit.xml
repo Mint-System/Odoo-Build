@@ -1,7 +1,7 @@
 <data priority="50" groups="hr_attendance.group_hr_attendance_manager">
-    <tree position="attributes">
+    <list position="attributes">
         <attribute name="create">1</attribute>
         <attribute name="edit">1</attribute>
         <attribute name="editable">top</attribute>
-    </tree>
+    </list>
 </data>

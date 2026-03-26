@@ -1,17 +1,14 @@
 <data priority="51">
-
-  <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
-    <t t-if="o.invoice_line_ids.sale_line_ids or o.invoice_line_ids.purchase_line_id">
-      <th id="position">
-        <span>Pos</span>
-      </th>
-    </t>
-  </xpath>
-
-  <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
-    <td id="position">
-      <span t-esc="line.position"/>
-    </td>
-  </xpath>
-
+    <xpath expr="//table[@name='invoice_line_table']//th[1]" position="before">
+       
+        <th id="position" class="text-start">
+            <span>Pos.</span>
+        </th>
+    </xpath>
+    <xpath expr="//table[@name='invoice_line_table']//t[1]/td[1]" position="before">
+        
+        <td id="position">
+            <span t-esc="line.position"/>
+        </td>
+    </xpath>
 </data>

@@ -1,109 +1,89 @@
 <data priority="50">
+
     <xpath expr="//div[@id='informations']" position="replace">
+
         <style>
-    table#info {
-      width: 100%;
-      margin-bottom: 25px;
-      font-size: 9pt;
-      font-family: arial;
-    }
-     table#info tr {
-      line-height: 1.2;
-      text-align: left;
-    }
-    .note {
-      font-size: 9pt;
-    }
-    </style>
-        <table id="info">
+            table#info {
+            width: 100%;
+            margin-bottom: 25px;
+            border: transparent;            
+            }
+            table#info td {
+            color: black;
+            border: transparent;
+            }
+            table#info td:last-child {
+            background-color: transparent;
+            }
+            table#info tr {
+            text-align: top;
+            } 
+        </style>
+
+        <table id="info" style="width: 700px; margin-bottom: 50px">
             <tr>
-                <td width="17%">Oder Date</td>
-                <td width="40%">
-                    <t t-if="o.date_approve">
-                        <span id="date_approve" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                    <t t-else="">
-                        <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-                    </t>
-                </td>
-                <td width="18%">Our Reference</td>
-                <td width="25%">
-                    <span t-field="o.user_id"/>
-                </td>
+                <t t-if="o.date_approve">
+                    <td width="200px">Date</td>
+                    <td width="500px">
+                        <span id="date_order" t-field="o.date_approve" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
+                    </td>
+                </t>
             </tr>
-            <tr>
-                <td>Customer No.</td>
-                <td>
-                    <span t-field="o.partner_id.ref"/>
-                </td>
-                <td>Incoterm</td>
-                <td>
-                    <span t-field="o.incoterm_id"/>
-                </td>
-            </tr>
-            <tr>
-                <td/>
-                <td>
-                    <span t-field="o.partner_ref"/>
-                </td>
-                <t t-if="o.requisition_id">
-                    <td>Purchase Contract</td>
+             <tr>
+                <t t-if="o.date_planned">
+                    <td>Delivery Date</td>
                     <td>
-                        <span t-field="o.requisition_id"/>
-                        <t t-if="o.requisition_id.partner_ref"> /              <span t-field="o.requisition_id.partner_ref"/>
-            </t>
+                        <span t-field="o.date_planned"/>
                     </td>
                 </t>
             </tr>
             <tr>
-                <td>Reference</td>
-                <td>
-                    <span t-field="o.comment"/>
-                </td>
-                <td/>
-                <td/>
+                <t t-if="o.partner_ref">
+                    <td>Your Reference</td>
+                    <td>
+                        <span t-field="o.partner_ref"/>
+                    </td>
+                </t>
             </tr>
-        </table>
-        <t t-if="o.note_header != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
-            <span class="note" t-field="o.note_header"/>
-        </t>
+            <tr>
+                <t t-if="o.partner_id.parent_id">
+                    <td>Your Contact</td>
+                    <td>
+                        <span t-field="o.partner_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            
+            <tr>
+                <t t-if="o.incoterm_id">
+                    <td>Incoterm</td>
+                    <td>
+                        <span t-field="o.incoterm_id.name"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.payment_term_id">
+                    <td>Payment terms</td>
+                    <td>
+                        <span t-field="o.payment_term_id"/>
+                    </td>
+                </t>
+            </tr>
+            <tr>
+                <t t-if="o.user_id">
+                    <td>Our Contact</td>
+                    <td>
+                        <span t-field="o.user_id"/>
+                        <t t-if="o.user_id.email">
+                           ,                            <span t-field="o.user_id.email"/>
+                        </t>
+                        <t t-if="o.user_id.phone">
+                           ,                            <span t-field="o.user_id.phone"/>
+                        </t>
+                    </td>
+                </t>
+            </tr>
+        </table>      
     </xpath>
-    <!--
-  <xpath expr="//div[@id='informations']" position="replace">
-    
-    <div id="informations">
-    <table width="100%">
-      <tr>
-        <td width="17%">Kunden-Nr.</td>
-        <td width="41%">
-          <span t-field="o.partner_id.ref"/>
-        </td>
-        <td width="17%">Datum</td>
-        <td width="25%">
-          <span t-field="o.date_order" t-options="{ &quot;widget&quot;: &quot;date&quot; }"/>
-        </td>
-      </tr>
-      <tr>
-        <td>Ihre Referenz</td>
-        <td>
-          <span t-field="o.partner_ref"/>
-        </td>
-        <td>Kontaktperson</td>
-        <td>
-          <span t-field="o.user_id"/>
-        </td>
-      </tr>
-      <tr>
-        <td/>
-        <td/>
-        <td>Mwst-Nr:</td>
-        <td>
-          <span t-field="res_company.vat"/> MWST
-        </td>
-      </tr>
-    </table>
-    </div>
- 
- </xpath>
- -->
 </data>

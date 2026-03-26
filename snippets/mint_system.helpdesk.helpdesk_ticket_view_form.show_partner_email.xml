@@ -1,0 +1,5 @@
+<data priority="50">
+    <field name="partner_id" position="after">
+        <field name="partner_name" />
+    </field>
+</data>

@@ -19,7 +19,7 @@ setuptools ; python_version >= '3.12' # python3-setuptools
 # Performance
 memray
 
-# OCA Tools
+# Acsone
 manifestoo
 click-odoo-contrib
 git-aggregator

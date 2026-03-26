@@ -1,9 +1,7 @@
 <data priority="50">
-    <xpath expr="//td[1]" position="before">
-        <t t-if="o.sale_id or o.purchase_id">
+      <xpath expr="//td[1]" position="before">
             <td id="position">
-                <span t-esc="move_line.move_id.position"/>
+                  <span t-esc="move_line.move_id.position"/>
             </td>
-        </t>
-    </xpath>
+      </xpath>
 </data>

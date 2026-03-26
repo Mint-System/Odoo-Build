@@ -467,6 +467,7 @@ Inherit ID: `product.product_template_form_view`
                     <td style="width:60%">
                         <h1>
                             <field name="name" placeholder="Product Name"/>
+                            <field name="priority" widget="priority" class="me-3"/>
                         </h1>
                     </td>
                     <td style="width:40%; text-valign: bottom">
@@ -683,6 +684,22 @@ Inherit ID: `product.product_template_only_form_view`
 Edit: [snippets/mint_system.product.product_template_only_form_view.show_handle.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_only_form_view.show_handle.xml)
 
 Source: [snippets/mint_system.product.product_template_only_form_view.show_handle.xml](https://odoo.build/snippets/mint_system.product.product_template_only_form_view.show_handle.xml)
+
+### Show Search Terms
+
+ID: `mint_system.product.product_template_only_form_view.show_search_terms`
+
+Inherit ID: `product.product_template_only_form_view`
+
+```xml
+<field name="barcode" position="after">
+    <field name="x_beh_search_term_one"/>
+    <field name="x_beh_search_term_two"/>
+</field>
+```
+Edit: [snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml)
+
+Source: [snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml](https://odoo.build/snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml)
 
 ### X Calibre
 

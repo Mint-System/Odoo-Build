@@ -1,41 +1,26 @@
 <data priority="50">
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="attributes">
-        <attribute name="t-att-class">"first"</attribute>
-    </xpath>
-    <xpath expr="//tbody[hasclass('sale_tbody')]/t/tr[1]" position="after">
-        <t t-if="line.product_id.type_description">
-            <tr class="second">
+
+    <xpath expr="//td[@name='td_name']/../.." position="after">
+        <t t-if="line.position">
+            <tr style="border-top: solid white !important">
                 <td/>
-                <td/>
-                <td colspan="6">
+                <td colspan="3">
                     <span t-field="line.name"/>
-                    <br/>
-                    <t t-if="line.product_id.country_of_origin_id.code">
-                        <span>Ursprungsland:</span>
-                        <span t-field="line.product_id.country_of_origin_id.code"/>
-                    </t>
                     <t t-if="line.product_id.hs_code">
-                        <span>/ Zollposition:</span>
+                        <br/>
+                        <span>HS-Code: </span>
                         <span t-field="line.product_id.hs_code"/>
                     </t>
                 </td>
-            </tr>
-        </t>
-        <t t-if="not line.product_id.type_description">
-            <tr class="second">
                 <td/>
-                <td/>
-                <td colspan="6">
-                    <t t-if="line.product_id.country_of_origin_id.code">
-                        <span>Ursprungsland:</span>
-                        <span t-field="line.product_id.country_of_origin_id.code"/>
-                    </t>
-                    <t t-if="line.product_id.hs_code">
-                        <span>/ Zollposition:</span>
-                        <span t-field="line.product_id.hs_code"/>
-                    </t>
-                </td>
             </tr>
         </t>
     </xpath>
+
+    <xpath expr="//td[@name='td_name']" position="replace">
+        <td name="td_name">
+            <strong t-field="line.product_template_id"/>
+        </td>
+    </xpath>
+
 </data>

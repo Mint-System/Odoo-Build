@@ -1,0 +1,5 @@
+<data priority="50">
+    <span t-field="doc.note_header" position="after">
+        <div style="page-break-after: always;"></div>
+    </span>
+</data>
