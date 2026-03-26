@@ -2073,7 +2073,7 @@ create-module() {
     done
     export MODULE_LICENSE
 
-    read -p "Depends (comma-separated): " MODULE_DEPENDS
+    read -p "Depends (comma-separated and quoted): " MODULE_DEPENDS
     export MODULE_DEPENDS
 
     while true; do
@@ -2098,6 +2098,21 @@ create-module() {
             touch "$module_path/tests/TEST_INSTRUCTIONS.rst"
             break
         elif [[ "$TEST_RESPONSE" == "n" ]]; then
+            break
+        else
+            echo "Answer y or n."
+        fi
+    done
+
+    while true; do
+        read -p "Security? (y/n): " TEST_RESPONSE
+        if [[ "$TEST_RESPONSE" == "y" ]]; then
+            export MODULE_DATA_KEY='"data": ["security/security.xml"],'
+            mkdir -p "$module_path/security"
+            cp templates/security.xml "$module_path/security/security.xml"
+            break
+        elif [[ "$TEST_RESPONSE" == "n" ]]; then
+            export MODULE_DATA_KEY='"data": [],'
             break
         else
             echo "Answer y or n."

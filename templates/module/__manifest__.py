@@ -10,8 +10,8 @@
     "development_status": "Production/Stable",
     "version": "$ODOO_VERSION.1.0.0",
     "license": "$MODULE_LICENSE",
-    "depends": ["$MODULE_DEPENDS"],
-    "data": [],
+    "depends": [$MODULE_DEPENDS],
+    $MODULE_DATA_KEY
     "installable": True,
     "application": False,
     "auto_install": False,
