@@ -27,7 +27,7 @@
                             <tr>
                                 <td colspan="2">
                                     <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:100%' if final_barcode else ''">Demo Lot/SN</div>
-                                    <div class="o_label_4x12" t-esc="o.product_id.type_description[:30]" t-att-style="'width:100%; font-weight: bold' if final_barcode else ''">Product Code</div>
+                                    <div class="o_label_4x12" t-if="o.product_id.type_description" t-esc="o.product_id.type_description[:30]" t-att-style="'width:100%; font-weight: bold' if final_barcode else ''">Product Code</div>
                                 </td>
                             </tr>
                             
