@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[@id='informations']" position="before">
+        <div style="font-size: 13px; margin-top: 15px; margin-bottom: 12px">
+            <strong>MWST-Nr.:</strong>
+            <span t-field="o.company_id.vat"/>
+        </div>
+    </xpath>
+</data>
