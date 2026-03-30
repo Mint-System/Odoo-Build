@@ -1,0 +1,5 @@
+<data priority="50">
+    <t t-set="show_footer" position="before">
+        <t t-set="email_notification_force_footer" t-value="True" />
+    </t>
+</data>
