@@ -1,0 +1,6 @@
+<data priority="50">
+    <xpath expr="//field[@name='complete_name']" position="replace">
+        <field name="firstname" string="Firstname"/>
+        <field name="lastname" string="Lastname"/>
+    </xpath>
+</data>
