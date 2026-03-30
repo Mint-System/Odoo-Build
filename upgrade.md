@@ -101,30 +101,30 @@ Before going live with an upgraded Odoo database, the new enviroments needs to b
 
 ### Execute
 
-You can run the entire test upgrade process with `task upgrade-odoo acme all-test`. This command executes all steps required to get the test enviroment. List the steps with `task upgrade-odoo list`. Here are the details for each step:
+List the steps with `task upgrade-odoo list`. Here are the details for each step:
 
-**dump**
+**dump-database**
 
 Dump and restore the production database on the Postgres container.
 
 ```bash
-task upgrade-odoo acme dump
+task upgrade-odoo acme dump-database
 ```
 
-**filestore**
+**dump-filestore**
 
 Export and import the Odoo filestore.
 
 ```bash
-task upgrade-odoo acme filestore
+task upgrade-odoo acme dump-filestore
 ```
 
-**drop**
+**drop-database**
 
 Drop the existing upgrade database.
 
 ```bash
-task upgrade-odoo acme drop
+task upgrade-odoo acme drop-database
 ```
 
 **upgrade-test**
@@ -201,6 +201,14 @@ task upgrade-odoo acme restart
 
 At any point the upgrade process can fail and requires investigating. There are additional commands that help troubleshooting the issues:
 
+**list-databases**
+
+List databases in source and target Postgres container.
+
+```bash
+task upgrade-odoo acme list-databases
+```
+
 **logs**
 
 Show log of target Odoo container.
@@ -261,8 +269,6 @@ The goals is that production url `https://odoo.example.com` points to the contai
 
 ### Execute
 
-In order to run the production upgrade execute `task upgrade-odoo acme all-production`. Similar to `all-test` this command runs all comands to get an upgraded Odoo enviroment. Only difference is that it runs in production mode.
-
 **production**
 
 Run the Odoo upgrade scripts in production mode. This will **not** neutralize the database after an upgrade.
@@ -291,17 +297,41 @@ Run simple smoke tests. Ensure that the upgrade wenn well. There is no need to e
 
 ### Rename
 
-Until here it is still possible to abort the go-live. To go-live means to rename the target database to the original database name and ensure that `https://odoo.example.com` points to the target environment. Use this command to rename the database:
+Until here it is still possible to abort the go-live. To go-live means to rename the target database to the original database name and ensure that `https://odoo.example.com` points to the target environment. Use this command to rename:
 
-**rename-production**
+**rename-database**
 
-Rename target database to source database.
+Rename target database to source name.
 
 ```bash
-task upgrade-odoo acme rename-production
+task upgrade-odoo acme rename-database
 ```
 
 As the final step, update DNS records and/or proxy configuration so that `https://odoo.example.com` points to `host2.example.com`.
+
+### Restore
+
+Insead of renaming the target database, you can also restore the database and filestore into the source enviroment. This makes sense if you want to deploy the upgraded database to `host1.example.com`. And instead of updating the DNS records and/or proxy configuration, you replace the Odoo production instance with the definitions of the uprade instance.
+
+**restore-database**
+
+Restore source database from target databases.
+
+```bash
+task upgrade-odoo acme restore-database
+```
+
+The existing source database will be renamed to `${DATABASE}-old`.
+
+**restore-filestore**
+
+Restore source filestore from target filestore.
+
+```bash
+task upgrade-odoo acme restore-filestore
+```
+
+The existing source filestore will be renamed to `${DATABASE}-old`.
 
 ### Recovery
 

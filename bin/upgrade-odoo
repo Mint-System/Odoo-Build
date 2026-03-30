@@ -7,11 +7,9 @@ upgrade-odoo() {
     fi
     if [[ "$1" =~ "list" ]]; then
         echo "info"
-        echo "all-test"
-        echo "all-production"
-        echo "dump"
-        echo "filestore"
-        echo "drop"
+        echo "dump-database"
+        echo "drop-filestore"
+        echo "drop-database"
         echo "upgrade-test"
         echo "upgrade-production"
         echo "clear-assets"
@@ -22,10 +20,13 @@ upgrade-odoo() {
         echo "configure-test"
         echo "configure-production"
         echo "restart"
+        echo "list-databases"
         echo "logs"
         echo "shell"
         echo "psql"
-        echo "rename-production"
+        echo "rename-database"
+        echo "restore-database"
+        echo "restore-filestore"
         echo "stop-container"
         echo "browse"
         exit
@@ -90,17 +91,8 @@ upgrade-odoo() {
         echo ""
     fi
 
-    if [[ "$2" =~ "all-test" ]]; then
-        echo "#FIXME: implement this command."
-    fi
-
-
-    if [[ "$2" =~ "all-production" ]]; then
-        echo "#FIXME: implement this command."
-    fi
-
-    if [[ "$2" =~ "dump" ]]; then
-        log-warning "Run step 'dump' on $SERVER."
+    if [[ "$2" =~ "dump-database" ]]; then
+        log-warning "Run step '$2' on $SERVER."
 
         $ssh_server docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
 
@@ -116,8 +108,8 @@ upgrade-odoo() {
         fi
     fi
 
-    if [[ "$2" =~ "filestore" ]]; then
-        log-warning "Run step 'filestore' on $SERVER."
+    if [[ "$2" =~ "dump-filestore" ]]; then
+        log-warning "Run step '$2' on $SERVER."
 
         $ssh_server docker-export -c "$ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
 
@@ -132,28 +124,28 @@ upgrade-odoo() {
         fi
     fi
 
-    if [[ "$2" = "drop" ]]; then
-        log-warning "Run step 'drop' on $TARGET_SERVER."
+    if [[ "$2" = "drop-databse" ]]; then
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
     if [[ "$2" = "upgrade-test" ]]; then
-        log-warning "Run step 'upgrade-test' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-upgrade -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
     fi
 
     if [[ "$2" = "upgrade-production" ]]; then
-        log-warning "Run step 'upgrade-production' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-upgrade -m production -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -s "$ODOO_VERSION" -n "$TARGET_DATABASE" -t "$TARGET_ODOO_VERSION"
     fi
 
     if [[ "$2" = "clear-assets" ]]; then
-        log-warning "Run step 'clear-assets' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-clear-assets -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
     if [[ "$2" = "init" ]]; then
-        log-warning "Run step 'init' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         if [[ -n "$ODOO_ADDONS_INIT" ]]; then
             $ssh_target_server docker-odoo-init -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -i "$ODOO_ADDONS_INIT"
         else
@@ -162,7 +154,7 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" = "uninstall" ]]; then
-        log-warning "Run step 'uninstall' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         if [[ -n "$ODOO_ADDONS_UNINSTALL" ]]; then
             $ssh_target_server docker-odoo-uninstall -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u "$ODOO_ADDONS_UNINSTALL"
         else
@@ -171,17 +163,17 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" = "auto-update" ]]; then
-        log-warning "Run step 'auto-update' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "env['ir.module.module'].upgrade_changed_checksum()"
     fi
 
     if [[ "$2" = "update" ]]; then
-        log-warning "Run step 'update' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-update -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -u all
     fi
 
     if [[ "$2" = "configure-test" ]]; then
-        log-warning "Run step 'configure' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         if [[ -n "$ODOO_CONFIGURE_TEST" ]]; then
             $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_TEST\""
         else
@@ -190,7 +182,7 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" = "configure-production" ]]; then
-        log-warning "Run step 'configure' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         if [[ -n "$ODOO_CONFIGURE_PRODUCTION" ]]; then
             $ssh_target_server  docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE" -f -p "\"$ODOO_CONFIGURE_PRODUCTION\""
         else
@@ -199,91 +191,108 @@ upgrade-odoo() {
     fi
 
     if [[ "$2" = "restart" ]]; then
-        log-warning "Run step 'restart' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker restart "$TARGET_ODOO_CONTAINER" "$TARGET_POSTGRES_CONTAINER"
     fi
 
     if [[ "$2" = "logs" ]]; then
-        log-warning "Run step 'logs' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker logs -f "$containe_id" --tail 10
     fi
 
     if [[ "$2" = "shell" ]]; then
-        log-warning "Run step 'shell' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-odoo-shell -c "$TARGET_ODOO_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
+    if [[ "$2" = "list-databases" ]]; then
+        log-warning "Run step '$2' on $SERVER."
+        echo "${POSTGRES_CONTAINER}:"
+        $ssh_server docker-postgres-list -c "$POSTGRES_CONTAINER"
+
+        log-warning "Run step '$2' on $TARGET_SERVER."
+        echo "${TARGET_POSTGRES_CONTAINER}:"
+        $ssh_target_server docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
+    fi
+
     if [[ "$2" = "psql" ]]; then
-        log-warning "Run step 'psql' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-shell -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
 
     if [[ "$2" = "env" ]]; then
-        log-warning "Run step 'env' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker exec "$containe_id" env
     fi
 
     if [[ "$2" = "conf" ]]; then
-        log-warning "Run step 'conf' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         containe_id=$($ssh_target_server docker ps -f "name=$TARGET_ODOO_CONTAINER" --format '{{.ID}}' | head -n1)
         $ssh_target_server docker exec "$containe_id" cat /etc/odoo/odoo.conf
     fi
 
     if [[ "$2" = "stop-container" ]]; then
-        log-warning "Run step 'stop-container' on $TARGET_SERVER."
+        log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_server docker stop "$ODOO_CONTAINER"
     fi
 
-    if [[ "$2" = "rename-production" ]]; then
-        log-warning "Run step 'rename-production' on $TARGET_SERVER."
+    if [[ "$2" = "rename-database" ]]; then
+        log-warning "Run step '$2' on $SERVER."
+
+        #FIXME: Ensure this works if source and target server are different.
 
         if [[ "$POSTGRES_CONTAINER" != "$TARGET_POSTGRES_CONTAINER" ]]; then
             # The database is running in a new container
             if [[ "$DATABASE" = "odoo" ]]; then
-                # Rename odoo database in the new container
+                # Rename odoo database in the target container
                 echo "Rename database '$DATABASE' to '${DATABASE}-old'"
                 $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
             fi
 
-            # Rename database in the old container
+            # Rename database in source container
             echo "Rename database '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
 
-            # Rename upgradeto production database in new container
+            # Rename upgrade to production database in target container
             echo "Rename database '$TARGET_DATABASE' to '$DATABASE'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         else
-            # Rename upgrade to production database in container
+            # Rename upgrade to production database in target container
             echo "Rename database '$DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$DATABASE" -t "${DATABASE}-old"
             echo "Rename database '$TARGET_DATABASE' to '${DATABASE}-old'"
             $ssh_server docker-postgres-rename -c "$TARGET_POSTGRES_CONTAINER" -s "$TARGET_DATABASE" -t "$DATABASE"
         fi
-        $ssh_server docker-postgres-list -c "$TARGET_POSTGRES_CONTAINER"
+    fi
+
+    if [[ "$2" = "restore-database" ]]; then
+        log-warning "Run step '$2' on $SERVER."
+
+        #FIXME: Dump and copy filestore from target server to source server
+    fi
+
+    if [[ "$2" = "restore-filestore" ]]; then
+        log-warning "Run step '$2' on $SERVER."
+
+        #FIXME: Dump and copy filestore from target server to source server
 
         if [[ "$ODOO_CONTAINER" != "$TARGET_ODOO_CONTAINER" ]]; then
-            # The upgrade container replaces the production definition
+            # Rename production filestore in source container
+            echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
+            $ssh_server docker exec "$ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
 
-            # Rename production filestore in production container
-            echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
-            $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
-
-            # # Rename production filestore in production container
-            # echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
-            # $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
-
-            # # Copy filestore from upgrade container
-            # echo "Copy filestore '$TARGET_DATABASE' to '$DATABASE'"
-            # $ssh_server docker-volume-copy -s "${TARGET_ODOO_CONTAINER}:/filestore/$TARGET_DATABASE" -t "${ODOO_CONTAINER}:/filestore/$DATABASE"
+            # Copy filestore from source container
+            echo "Copy filestore '$TARGET_DATABASE' to '$DATABASE'"
+            $ssh_server docker-volume-copy -s "${TARGET_ODOO_CONTAINER}:/filestore/$TARGET_DATABASE" -t "${ODOO_CONTAINER}:/filestore/$DATABASE"
         else
             if [[ "$DATABASE" = "odoo" ]]; then
                 echo "Rename filestore '$DATABASE' to '${DATABASE}-old'"
                 $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$DATABASE" "/var/lib/odoo/filestore/${DATABASE}-old"
             fi
 
-            # Rename filestore in production container
+            # Rename filestore in target container
             echo "Rename filestore '$TARGET_DATABASE' to '${DATABASE}'"
             $ssh_server docker exec "$TARGET_ODOO_CONTAINER" mv "/var/lib/odoo/filestore/$TARGET_DATABASE" "/var/lib/odoo/filestore/$DATABASE"
         fi
