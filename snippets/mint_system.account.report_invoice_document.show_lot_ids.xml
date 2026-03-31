@@ -4,7 +4,7 @@
         <t t-if="lot_ids">
             <br/>
             <span>Seriennummern:</span>
-            <t t-esc="', '.join(lot_ids.mapped('name'))"/>
+            <span t-esc="', '.join(lot_ids.mapped('name'))"></span>
             <!-- <ul class="list-unstyled">
         <t t-foreach="lot_ids" t-as="lot">
           <li t-esc="lot.name" />
