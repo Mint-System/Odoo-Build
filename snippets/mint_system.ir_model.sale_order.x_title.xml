@@ -7,7 +7,7 @@
         <field name="name">x_title</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/>
+        <field name="copied" eval="True"/>
         <field name="ttype">char</field>       
     </record>
 </odoo>
