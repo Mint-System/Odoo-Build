@@ -1,0 +1,10 @@
+<data priority="50">
+
+  <xpath expr="//span[@t-field='doc.name']" position="replace">
+    <span> - </span>
+    <span t-field="doc.x_title"/>
+    <br></br>
+    <span t-field="doc.name" style="font-size: 10pt;">SO0000</span>
+  </xpath>
+  
+</data>
