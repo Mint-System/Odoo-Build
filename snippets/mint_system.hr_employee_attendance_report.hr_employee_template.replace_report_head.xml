@@ -1,21 +1,9 @@
 <data priority="50">
     <xpath expr="//div[@name='report_head']" position="replace">
          <div name="report_head">
-            <t t-if="dates[doc.id]['start_date'] and dates[doc.id]['end_date']">
-                <t t-set="start" t-value="dates[doc.id]['start_date']"/>
-                <t t-set="end" t-value="dates[doc.id]['end_date']"/>
-            </t>
             <div style="background-color: black; color: white; padding: 10px;">
              <h2 class="attendance-report" style="font-size:20pt; margin: 0; font-weight: bold;">Stundenrapport
-                <t t-if="start.day == 1 and end.day == (end + relativedelta(day=31)).day">
-                    <span class="month-label">
-                        <t t-esc="start.strftime('%B')"/> 
-                    </span>
-                </t>
-                <t t-else="">
-                    <span t-out="start" t-options="{'widget': 'date'}"/> - <span t-out="end" t-options="{'widget': 'date'}"/>
-                </t>
-
+                <t t-esc="date_label"/>
              </h2>
              </div>
              <p style="margin-top: 10px;"><span class="light-text">Name:</span> <span t-out="doc.name"/>
