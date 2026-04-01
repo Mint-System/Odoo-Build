@@ -6,10 +6,10 @@
                 <t t-set="end" t-value="dates[doc.id]['end_date']"/>
             </t>
             <div style="background-color: black; color: white; padding: 10px;">
-             <h2 class="attendance-report" style="font-size:20pt; margin: 0; font-weight: bold;">Hourly report
+             <h2 class="attendance-report" style="font-size:20pt; margin: 0; font-weight: bold;">Stundenrapport
                 <t t-if="start.day == 1 and end.day == (end + relativedelta(day=31)).day">
                     <span class="month-label">
-                        <t t-esc="start.strftime('%B')"/> <!-- e.g., "January" -->
+                        <t t-esc="start.strftime('%B')"/> 
                     </span>
                 </t>
                 <t t-else="">
@@ -18,7 +18,7 @@
 
              </h2>
              </div>
-             <p style="margin-top: 10px;"><span class="light-text">Employee:</span> <span t-out="doc.name"/>
+             <p style="margin-top: 10px;"><span class="light-text">Name:</span> <span t-out="doc.name"/>
              </p>
             
          </div>           

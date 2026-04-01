@@ -1,0 +1,27 @@
+<data priority="50">
+    <xpath expr="//th[@name='th_date']" position="replace">
+        <th class="text-start" name="th_date">
+            Datum
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_planned_hours']" position="replace">
+        <th class="text-end" name="th_planned_hours" t-if="fixed_work_hours">
+            Soll Zeit [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_leave_hours']" position="replace">
+        <th class="text-end" name="th_leave_hours" t-if="fixed_work_hours">
+            Abw. [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_worked_hours']" position="replace">
+        <th class="text-end" name="th_worked_hours">
+            Ist Zeit [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_overtime']" position="replace">
+        <th class="text-end" name="th_overtime" t-if="fixed_work_hours">
+            Gleitzeit [h]
+        </th>
+    </xpath>
+</data>

@@ -1,19 +1,19 @@
 <data priority="50">
     <xpath expr="//th[@name='th_overtime']" position="replace">
     <th class="text-end" name="th_overtime" t-if="fixed_work_hours">
-        Flexitime
+        Gleitzeit
     </th>
     </xpath>
 
     <xpath expr="//th[@name='th_overtime_sum']" position="replace">
     <th class="text-end" name="th_overtime_sum">
-       Flexitime
+       Gleitzeit
     </th>
     </xpath>
 
     <xpath expr="//th[@name='th_overtime_total']" position="replace">
     <th class="text-end" name="th_overtime_total">
-       Flexitime Total
+       Gleitzeit ges.
     </th>
     </xpath>
 </data>
