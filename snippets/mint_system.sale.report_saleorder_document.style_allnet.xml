@@ -12,7 +12,7 @@
             }
             
         .o_table_standard th {
-            border-bottom: 1px solid rgba(51, 51, 147, 0.05);
+            border-bottom: 1px solid #e9ecef;
             }
             
         .o_company_1_layout h2 {
@@ -20,7 +20,8 @@
             }
             
         h2 {
-           font-size:23px; 
+           font-size:23px;
+           margin-top: 70px;
            margin-bottom: 30px;
             }  
             
@@ -42,10 +43,14 @@
             }    
 
         .table td {
-            border-top: 1px solid rgba(51, 51, 147, 0.05);
+            border-top: 1px solid #e9ecef;
             padding: 2px;
             font-size: 75%;
             }  
+            
+        .o_total td {
+            border-top: 1px solid black;
+            }
        
         </style>
     </xpath>
@@ -63,7 +68,7 @@
     </xpath>
 
     <xpath expr="//td[@name='td_section_line']" position="attributes">
-        <attribute name="style">padding: 3px; font-size:13px; background-color:rgba(51, 51, 147, 0.05)</attribute>
+        <attribute name="style">padding: 3px; font-size:13px; background-color:#e9ecef</attribute>
     </xpath>
 
     <xpath expr="//th[@name='th_discount']" position="attributes">
@@ -75,11 +80,11 @@
     </xpath>
 
     <xpath expr="//thead/tr/td[@name='th_option_name']" position="attributes">
-        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+        <attribute name="style">font-size: 13px; color: #e9ecef;</attribute>
     </xpath>
 
     <xpath expr="//thead/tr/td[@name='th_option_price_unit']" position="attributes">
-        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+        <attribute name="style">font-size: 13px; color: #e9ecef;</attribute>
     </xpath>
 
 </data>

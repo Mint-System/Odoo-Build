@@ -1,0 +1,10 @@
+<data priority="50">
+    <xpath expr="//span[@t-field='o.name']" position="replace">
+        <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_title') if x])">
+            <span> - </span>
+            <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_title') if x])"/>
+            <br/>
+            <span t-field="o.name" style="font-size: 10pt;">RE</span>
+        </t>
+    </xpath>
+</data>

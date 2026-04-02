@@ -1,0 +1,10 @@
+<data priority="50">
+    <xpath expr="//div[@name='invoice_date']" position="after">
+        <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('plan_id') if x])">
+            <div class="col" name="plan_id">
+                <strong>Laufzeit</strong>
+                <div t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('plan_id.name') if x])"/>
+            </div>
+        </t>
+    </xpath>
+</data>

@@ -1,0 +1,64 @@
+<data priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            
+        .o_company_1_layout .o_total strong {
+            color: black;
+            }
+            
+        .o_company_1_layout #informations strong {
+            color: black;
+            }
+            
+        .o_line_section {
+            background: #dee2e6;
+            }
+            
+         .o_table_standard table:not(.o_ignore_layout_styling) td:first-child {
+            padding: 3px;
+            }
+            
+        .o_company_1_layout h2 {
+            color: black;
+            margin-top: 50px;
+            }
+       
+       .mb-3 {
+            font-size: 13px;
+            }
+
+        .table th {
+            border-top: 1px solid #e9ecef;
+            color: black;
+            font-weight: bold;
+            padding: 2px;
+            font-size: 13px;
+            }
+
+
+        .table td {
+            border-top: 1px solid #e9ecef;
+            padding: 2px;
+            font-size: 75%;
+            }  
+            
+        .o_total td {
+            border-top: 1px solid black;
+            }
+            
+        p {
+            color: black;
+            }
+       
+        </style>
+    </xpath>
+
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_discount']" position="attributes">
+        <attribute name="style">width: 60px</attribute>
+    </xpath>
+
+</data>
