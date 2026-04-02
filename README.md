@@ -84,12 +84,6 @@ The browser will be opened automatically.
 
 ### Run Odoo as container
 
-Set the Odoo addons path in your `.env` file:
-
-```bash
-ODOO_ADDONS_PATH=/mnt/addons/,/mnt/oca/,/mnt/enterprise,/mnt/themes/
-```
-
 Run container compose.
 
 ```bash
