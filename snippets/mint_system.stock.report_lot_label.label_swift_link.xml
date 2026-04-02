@@ -5,29 +5,29 @@
             <t t-foreach="docs" t-as="o">
                 <t t-call="web.basic_layout">
                     <t t-call="web.html_container">
-                        <table style="border: 1px solid white; height: 23mm; width: 38mm; background-color: white; font-size:7pt; position:relative; left:-10px;">
+                        <table style="border: 1px solid white; height: 40mm; width: 60mm; background-color: white; font-size:10.5pt; position:relative; left:-5px;">
                             <tr>
                                 <td>
-                                <div t-att-style="'position:relative; width:45mm; height:18mm; margin-top: 5px; border: 0px solid %s;' % (o.env.user.company_id.primary_color or 'black')">
+                                <div class="o_label_4x12" t-if="o.product_id.default_code" t-att-style="'font-size:20pt; font-weight: bold; margin-left: 5mm'"><t t-out="o.product_id.default_code"/></div>
+                                <div t-att-style="'position:relative; width:65mm; height:22mm; margin-top: 1px'">
                                     <!-- Define final_barcode -->
                                     <t t-set="final_barcode" t-value="''"/>
                                         <t name="gs1_datamatrix_lot" t-set="final_barcode" t-value="(final_barcode or '') + o.name"/>
-                                        
-                                    <!-- Left section with default_code, name and qty -->
-                                    <div class="o_label_4x12" t-if="o.product_id.default_code" t-att-style="'width:22mm' if final_barcode else ''">[<t t-out="o.product_id.default_code"/>]</div>
-                                    <div class="o_label_4x12" t-esc="o.product_id.name[:30]" t-att-style="'width:22mm; font-weight: bold' if final_barcode else ''">Demo Product</div>
-                                    <div class="o_label_4x12" t-esc="'Qty ' + str(o.product_qty)" t-att-style="'width:22mm; font-weight: bold; margin-top: 5px' if final_barcode else ''">Demo Qty</div>
                                     <!-- Data matrix in right section -->
-                                    <div t-if="final_barcode" t-att-style="'position:absolute; right:.5px; top:.5px'">
-                                        <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:17mm; height:17mm'}">12345678901</span>
+                                    <div t-if="final_barcode" t-att-style="'position:absolute; right:2px; top:5px'">
+                                        <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:18mm; height:18mm'}">12345678901</span>
                                     </div>
+                                    <!-- Left section with default_code, name and qty -->
+                                    <div class="o_label_4x12" t-esc="o.product_id.name[:36]" t-att-style="'width:36mm;'">Demo Product</div>
+                                    <div class="o_label_4x12" t-esc="'Qty ' + str(o.product_qty)" t-att-style="'width:36mm; font-weight: bold; margin-top: 1px'">Demo Qty</div>
+                                    
                                 </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td colspan="2">
-                                    <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'width:100%' if final_barcode else ''">Demo Lot/SN</div>
-                                    <div class="o_label_4x12" t-if="o.product_id.type_description" t-esc="o.product_id.type_description[:30]" t-att-style="'width:100%; font-weight: bold' if final_barcode else ''">Product Code</div>
+                                    <div class="o_label_4x12" name="lot_name" t-field="o.name" t-att-style="'font-size:11pt'">Demo Lot/SN</div>
+                                    <div class="o_label_4x12" t-if="o.product_id.type_description" t-esc="o.product_id.type_description[:30]" t-att-style="'width:100%'">Product Code</div>
                                 </td>
                             </tr>
                             
