@@ -1094,7 +1094,7 @@ install() {
         sudo apt update
 
         echo -e "\033[38;5;214mApt\033[0m: Install python-ldap and psycopg2 build dependencies"
-        sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev postgresql-devel
+        sudo apt-get install -y libsasl2-dev libldap2-dev libssl-dev libpq-dev python3-dev
 
         echo -e "\033[38;5;214mApt\033[0m: Install xmllint, ripgrep and gettext"
         sudo apt install -y libxml2-utils ripgrep gettext
