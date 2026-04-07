@@ -18,7 +18,7 @@
                                         <span t-out="final_barcode" t-options="{'widget': 'barcode', 'symbology': 'ECC200DataMatrix', 'img_style': 'width:18mm; height:18mm'}">12345678901</span>
                                     </div>
                                     <!-- Left section with default_code, name and qty -->
-                                    <div class="o_label_4x12" t-esc="o.product_id.name[:36]" t-att-style="'width:36mm;'">Demo Product</div>
+                                    <div class="o_label_4x12" t-esc="o.product_id.name[:36]" t-att-style="'width:40mm;'">Demo Product</div>
                                     <div class="o_label_4x12" t-esc="'Qty ' + str(o.product_qty)" t-att-style="'width:36mm; font-weight: bold; margin-top: 1px'">Demo Qty</div>
                                     
                                 </div>
