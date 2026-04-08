@@ -138,7 +138,7 @@ upgrade-odoo() {
         fi
     fi
 
-    if [[ "$2" = "drop-databse" ]]; then
+    if [[ "$2" = "drop-database" ]]; then
         log-warning "Run step '$2' on $TARGET_SERVER."
         $ssh_target_server docker-postgres-drop -c "$TARGET_POSTGRES_CONTAINER" -d "$TARGET_DATABASE"
     fi
