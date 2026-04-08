@@ -44,7 +44,8 @@ upgrade-odoo() {
 
     # Setup ssh aliases
     ssh_server="ssh -p $PORT ${USERNAME}@${SERVER}"
-    ssh_target_server="ssh -t -p $TARGET_PORT ${TARGET_USERNAME}@${TARGET_SERVER}"
+    ssh_target_server="ssh -t -p $TARGET_PORT ${TARGET_USERNAME:-$USERNAME}@${TARGET_SERVER}"
+
     scp_exec="scp"
     if [[ -n "$JUMP_HOST" ]]; then
         log-warning "Source connection uses jump host: $JUMP_HOST"
@@ -74,7 +75,7 @@ upgrade-odoo() {
         echo "-----------------"
         echo "Host: $TARGET_HOST"
         echo "Server: $TARGET_SERVER:$TARGET_PORT"
-        echo "Username: $TARGET_USERNAME"
+        echo "Username: ${TARGET_USERNAME:-$USERNAME}"
         echo "Jump Host: $TARGET_JUMP_HOST"
         echo "Odoo Container: $TARGET_ODOO_CONTAINER"
         echo "Odoo Version: $TARGET_ODOO_VERSION"
@@ -94,16 +95,22 @@ upgrade-odoo() {
     if [[ "$2" =~ "dump-database" ]]; then
         log-warning "Run step '$2' on $SERVER."
 
-        $ssh_server docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
+        echo "Dump $DATABASE on $POSTGRES_CONTAINER..."
+        $ssh_server sudo docker-postgres-backup -c "$POSTGRES_CONTAINER" -d "$DATABASE" -o "$temp_folder"
 
         if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
             log-warning "Source and target host are different."
 
-            echo "Copy dump from $SERVER to $TARGET_SERVER..."
+            echo "Downloading dump from $SERVER..."
+            rsync -avz -e "ssh -p $PORT" "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "tmp/$DATABASE.sql"
+            echo "Uploading dump to $TARGET_SERVER..."
             $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
-            $scp_exec "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
+            rsync -avz -e "ssh -p $TARGET_PORT" "tmp/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
+        
+            echo "Restore dump $DATABASE to $TARGET_POSTGRES_CONTAINER..."
             $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
         else
+            echo "Restore dump $DATABASE to $TARGET_POSTGRES_CONTAINER..."
             $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
         fi
     fi
@@ -111,15 +118,22 @@ upgrade-odoo() {
     if [[ "$2" =~ "dump-filestore" ]]; then
         log-warning "Run step '$2' on $SERVER."
 
+        echo "Export $DATABASE filestore on $ODOO_CONTAINER..."
         $ssh_server docker-export -c "$ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$DATABASE" -o "$temp_folder"
 
         if [[ "$SERVER" != "$TARGET_SERVER" ]]; then
             log-warning "Source and target host are different."
 
-            echo "Copy filestore from $SERVER to $TARGET_SERVER..."
-            $scp_exec "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+            echo "Downloading filestore from $SERVER..."
+            rsync -avz -e "ssh -p $PORT" "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "tmp/$ODOO_CONTAINER.tar"
+            echo "Uploading filestore to $TARGET_SERVER..."
+            $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
+            rsync -avz -e "ssh -p $TARGET_PORT" "tmp/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
+
+            echo "Restore $TARGET_DATABASE filestore to $TARGET_ODOO_CONTAINER..."
             $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r     
         else
+            echo "Restore $TARGET_DATABASE filestore to $TARGET_ODOO_CONTAINER..."
             $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
         fi
     fi
@@ -302,5 +316,4 @@ upgrade-odoo() {
         log-warning "Run step '$2' on $TARGET_SERVER."
         open-url-with-delay "https://$TARGET_HOST" 0
     fi
-
 }
