@@ -1,0 +1,8 @@
+<data priority="50">
+    <field name="assign_date" position="attributes">
+        <attribute name="groups"></attribute>
+    </field>
+    <field name="scrap_date" position="attributes">
+        <attribute name="groups"></attribute>
+    </field>
+</data>
