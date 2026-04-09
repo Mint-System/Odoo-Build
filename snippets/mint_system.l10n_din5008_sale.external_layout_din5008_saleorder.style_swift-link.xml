@@ -1,0 +1,11 @@
+<data priority="60">
+
+    <xpath expr="//t[@t-set='din5008_address_block']/tr" position="attributes">
+        <attribute name="style">font-size: 16px;</attribute>
+    </xpath>
+    
+    <xpath expr="//address[@t-esc='doc.partner_shipping_id']" position="attributes">
+        <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True}</attribute>/&gt;
+    </xpath>
+    
+</data>

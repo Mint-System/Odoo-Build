@@ -1,5 +1,5 @@
 <data priority="50">
-    <xpath expr="//group[@name='order_details']/field[@name='date_order']" position="before">
+    <xpath expr="///group[@name='order_details']" position="inside">
         <field name="x_title"/>
     </xpath>
 </data>

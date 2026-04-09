@@ -1,0 +1,11 @@
+<data priority="60">
+
+    <xpath expr="//div[@class='address']" position="attributes">
+        <attribute name="style">font-size: 13px;</attribute>
+    </xpath>
+
+    <xpath expr="//div[@class='colored_address']" position="attributes">
+        <attribute name="style">font-size: 10px;</attribute>
+    </xpath>
+
+</data>
