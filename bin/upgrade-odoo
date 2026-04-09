@@ -103,16 +103,15 @@ upgrade-odoo() {
 
             echo "Downloading dump from $SERVER..."
             rsync -avz -e "ssh -p $PORT" "$SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" "tmp/$DATABASE.sql"
+            
             echo "Uploading dump to $TARGET_SERVER..."
-            $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
-            rsync -avz -e "ssh -p $TARGET_PORT" "tmp/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql"
-        
-            echo "Restore dump $DATABASE to $TARGET_POSTGRES_CONTAINER..."
-            $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$TARGET_POSTGRES_CONTAINER/$DATABASE.sql" -r
-        else
-            echo "Restore dump $DATABASE to $TARGET_POSTGRES_CONTAINER..."
-            $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
+            $ssh_target_server mkdir -p "$temp_folder/$POSTGRES_CONTAINER"
+            rsync -avz -e "ssh -p $TARGET_PORT" "tmp/$DATABASE.sql" "$TARGET_SERVER:$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql"
+            rm "tmp/$DATABASE.sql"
         fi
+
+        echo "Restore dump $DATABASE to $TARGET_POSTGRES_CONTAINER..."
+        $ssh_target_server docker-postgres-restore -c "$TARGET_POSTGRES_CONTAINER" -d "$DATABASE" -f "$temp_folder/$POSTGRES_CONTAINER/$DATABASE.sql" -r
     fi
 
     if [[ "$2" =~ "dump-filestore" ]]; then
@@ -126,16 +125,15 @@ upgrade-odoo() {
 
             echo "Downloading filestore from $SERVER..."
             rsync -avz -e "ssh -p $PORT" "$SERVER:$temp_folder/$ODOO_CONTAINER.tar" "tmp/$ODOO_CONTAINER.tar"
+            
             echo "Uploading filestore to $TARGET_SERVER..."
             $ssh_target_server mkdir -p "$temp_folder/$TARGET_POSTGRES_CONTAINER"
             rsync -avz -e "ssh -p $TARGET_PORT" "tmp/$ODOO_CONTAINER.tar" "$TARGET_SERVER:$temp_folder/$TARGET_ODOO_CONTAINER.tar"
-
-            echo "Restore $TARGET_DATABASE filestore to $TARGET_ODOO_CONTAINER..."
-            $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$TARGET_ODOO_CONTAINER.tar" -r     
-        else
-            echo "Restore $TARGET_DATABASE filestore to $TARGET_ODOO_CONTAINER..."
-            $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
+            rm "tmp/$ODOO_CONTAINER.tar"
         fi
+        
+        echo "Restore $TARGET_DATABASE filestore to $TARGET_ODOO_CONTAINER..."
+        $ssh_target_server docker-import -c "$TARGET_ODOO_CONTAINER" -p "/var/lib/odoo/filestore/$TARGET_DATABASE" -f "$temp_folder/$ODOO_CONTAINER.tar" -r
     fi
 
     if [[ "$2" = "drop-database" ]]; then
