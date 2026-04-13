@@ -1,0 +1,5 @@
+<data priority="50">
+    <field name="name" position="after">
+        <field name="alias_name" optional="hide"/>
+    </field>
+</data>
