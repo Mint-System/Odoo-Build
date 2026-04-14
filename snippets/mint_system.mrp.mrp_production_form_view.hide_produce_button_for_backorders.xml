@@ -1,0 +1,25 @@
+<data priority="50">
+    <xpath expr="//button[@name='button_mark_done'][1]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or not move_raw_ids or not show_produce
+        </attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][2]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or not move_raw_ids or not show_produce_all
+        </attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][3]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or move_raw_ids or not show_produce
+        </attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][4]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or move_raw_ids or not show_produce_all
+        </attribute>
+    </xpath>
+</data>
