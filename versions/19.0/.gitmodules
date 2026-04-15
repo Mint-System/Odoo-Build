@@ -56,3 +56,7 @@
 	path = addons/product_attribute
 	url = git@github.com:Mint-System/Odoo-Apps-Product-Attribute.git
 	branch = 19.0
+[submodule "oca/mass-mailing"]
+	path = oca/mass-mailing
+	url = git@github.com:Mint-System/mass-mailing.git
+	branch = 19.0
