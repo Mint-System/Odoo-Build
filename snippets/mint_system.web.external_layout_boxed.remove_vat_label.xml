@@ -1,0 +1,4 @@
+<data priority="50">
+    <xpath expr="///li[3]" position="replace" />
+    <xpath expr="///li[4]" position="replace" />
+</data>
