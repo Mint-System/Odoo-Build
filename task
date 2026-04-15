@@ -2263,12 +2263,11 @@ generate-module-model() {
         exit
     fi
     local module_path="$1"
-    local module_name=$(basename "$1")
 
     echo 'Substitute model template'
     export-module-vars "$1" "$2"
     envsubst < templates/model.py > "$module_path/models/$MODEL_NAME.py"
-    echo "from . import $model_name" >> "$module_path/models/__init__.py"
+    echo "from . import $MODEL_NAME" >> "$module_path/models/__init__.py"
     echo "File "$module_path/models/$MODEL_NAME.py created.
 }
 
@@ -2320,7 +2319,7 @@ generate-module-views() {
 
     echo 'Substitute view template'
     mkdir -p "$module_path/views"
-    export-module-vars "$2"
+    export-module-vars "$1" "$2"
     envsubst < templates/model_views.xml > "$module_path/views/${MODEL_NAME}_views.xml"
     echo "Update file $module_name/__manifest__.py with:"
     echo -e "\t\"views/${MODEL_NAME}_views.xml\","
@@ -2328,15 +2327,15 @@ generate-module-views() {
 
 generate-module-snippet() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/ref is empty.'
         exit
     fi
     if [[ -z "$3" ]]; then
-        echo '$3 is empty.'
+        echo '$3/model is empty.'
         exit
     fi
     local module_path="$1"
