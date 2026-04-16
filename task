@@ -42,6 +42,7 @@ help-table() {
     rows+=("stage-git-folder|[path]|Stage all files in git folders in path.")
     rows+=("switch-git-folder|[branch][path]|Switch branch for all git folders from the .gitmodules file.")
     rows+=("sync-git-folder|[branch][path]|Switch, stash and pull all git folders.")
+    rows+=("run-pre-commit|[path]|Run pre-commit in path.")
     rows+=("===DOCKER===| | ")
     rows+=("archive-docker-tags||Archive Docker image tags on hub older than 1 year.")
     rows+=("build-odoo|[output]|Build Odoo Docker image.")
@@ -103,7 +104,7 @@ help-table() {
     rows+=("list-packages||List installed python packages.")
     rows+=("init-module|[db][path,module]|Initialize Odoo module.")
     rows+=("set-addons-path||Set Odoo addons path env variable.")
-    rows+=("===MIGRATION===| | ")
+    rows+=("===DATA===| | ")
     rows+=("export-website-data|[env]|Export website data from Odoo database.")
     rows+=("import-csv|[db][path]|Import data from csv. Filename is PostgreSQL table name.")
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
@@ -178,6 +179,7 @@ help-table() {
     rows+=("update-revisions-doc||Update revisions doc file.")
     rows+=("update-snippets-doc||Update snippets doc file.")
     rows+=("===UPGRADE===| | ")
+    rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
     rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
     rows+=("upgrade-odoo|[env][step]|Run the Odoo upgrade for a target environment.")
 
@@ -262,7 +264,7 @@ CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
 
 # Updateable env vars
 
-ORG_NAME=${ORG_NAME:=Mint-System}
+USER_ORG=${USER_ORG:=Mint-System}
 DB_NAME=${DB_NAME:="$ODOO_VERSION"}
 WITHOUT_DEMO=${WITHOUT_DEMO:=False}
 ODOO_LANGUAGE=${ODOO_LANGUAGE:=de_CH}
@@ -522,7 +524,7 @@ A Odoo revision is a snapshot of git references of the Odoo source and modules a
 For each major release there are multiple revisions.\n" > "revisions.md"
 
     declare -A revisions
-    local path_url="https://github.com/${ORG_NAME}/Odoo-Build/tree/main"
+    local path_url="https://github.com/${USER_ORG}/Odoo-Build/tree/main"
 
     for file in $(ls revisions/ | sort -rV); do
         local revision="$file"
@@ -1981,7 +1983,7 @@ test-module() {
 
     set-addons-path
     echo "Testing module $module..."
-    odoo -d "$DB_NAME" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-tags /"$module_name"
+    odoo -d "$DB_NAME" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 test-modules() {
@@ -2156,8 +2158,8 @@ generate-module-docs() {
 
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
-    echo "Generate OCA readme for $ORG_NAME/$repo_name org."
-    oca-gen-addon-readme --org-name=$ORG_NAME --repo-name=$repo_name --branch=$ODOO_VERSION  --addon-dir=$module_path
+    echo "Generate OCA readme for $USER_ORG/$repo_name org."
+    oca-gen-addon-readme --org-name=$USER_ORG --repo-name=$repo_name --branch=$ODOO_VERSION  --addon-dir=$module_path
 }
 
 generate-module-migration() {
@@ -2419,6 +2421,49 @@ zip-module() {
 }
 
 # Upgrade commands
+
+prepare-migration-brach() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2/module is empty.'
+        exit
+    fi
+    if [[ -z "$3" ]]; then
+        echo '$3/version is empty.'
+        exit
+    fi
+    repo="$1"
+    module="$2"
+    version="$3"
+    
+    echo "Create migration branch for $mdoule module in $repo for version $version"
+    git -C "$repo" checkout -b "$ODOO_VERSION-mig-$module" "origin/$version"
+
+    echo "Checkout $module from $version"
+    git -C "$repo" checkout "$version" "$module"
+    # echo "Create patch file from version $version to $ODOO_VERSION"
+    # git format-patch --keep-subject --stdout origin/$ODOO_VERSION..origin/$version -- $module | git am -3 --keep
+
+    echo "Run pre-commit"
+    cd "$repo"
+    pre-commit run -a
+
+    echo "Commit the changes"
+    git add --all
+    git commit -m "[IMP] $module: pre-commit auto fixes"  --no-verify
+
+    echo "Add git remote for OCA"
+    repo_name="$repo"
+    git remote add oca $(git remote get-url origin)
+
+    echo "Add git remote for $USER_ORG"
+    repo_name="$repo"
+    user_org="${USER_ORG,,}"
+    git remote add "$user_org" "https://github.com/${USER_ORG}/Odoo-Apps-$repo_name"
+}
 
 migrate-module() {
     if [[ -z "$1" ]]; then
