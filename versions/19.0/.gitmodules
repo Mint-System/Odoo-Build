@@ -60,3 +60,7 @@
 	path = oca/mass-mailing
 	url = git@github.com:OCA/mass-mailing.git
 	branch = 19.0
+[submodule "oca/account-analytic"]
+	path = oca/account-analytic
+	url = git@github.com:OCA/account-analytic.git
+	branch = 19.0

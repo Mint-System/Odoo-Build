@@ -2439,8 +2439,8 @@ prepare-migration-brach() {
     module="$2"
     version="$3"
     
-    echo "Create migration branch for $mdoule module in $repo for version $version"
-    git -C "$repo" checkout -b "$ODOO_VERSION-mig-$module" "origin/$version"
+    echo "Create migration branch for $mdoule module in $repo for version $ODOO_VERSION"
+    git -C "$repo" checkout -b "$ODOO_VERSION-mig-$module" "origin/$ODOO_VERSION"
 
     echo "Checkout $module from $version"
     git -C "$repo" checkout "$version" "$module"
