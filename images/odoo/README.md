@@ -493,28 +493,6 @@ The image includes the [nginx web server](https://nginx.org/). If the container 
 
 Make sure to set `WORKERS` to `1` or more, otherwise the real-time connection of Odoo will not work. Having one or more workers will start the gevent listener on port `8072`.
 
-## Build
-
-This image can be customized by any extend.
-
-### Install packages
-
-Update the image with Python packages:
-
-```dockerfile
-FROM mintsystem/odoo:18.0
-
-RUN uv pip install prometheus-client astor fastapi python-multipart ujson a2wsgi parse-accept-language pyjwt
-```
-
-Or with apt packages:
-
-```dockerfile
-FROM mintsystem/odoo:18.0
-
-RUN apt-get update && apt-get install -y libgl1-mesa-glx poppler-utils tesseract-ocr
-```
-
 ## Develop
 
 See [Odoo Build > Build and publish container image](https://odoo.build/#build-and-publish-container-image) for details.
