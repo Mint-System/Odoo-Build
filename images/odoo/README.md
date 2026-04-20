@@ -34,11 +34,11 @@ The Mint System Odoo image runs with a very basic configuration, but can also be
 
 Supported tags:
 
-- [`19.0.20260305`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20260305), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
-- [`18.0.20260305`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20260305), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
-- [`17.0.20260305`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20260305), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
-- [`16.0.20260305`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20260305), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
-- [`15.0.20260305`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20260305), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
+- [`19.0.20260409`](https://hub.docker.com/layers/mintsystem/odoo/19.0.20260409), [`19.0`](https://hub.docker.com/layers/mintsystem/odoo/19.0)
+- [`18.0.20260409`](https://hub.docker.com/layers/mintsystem/odoo/18.0.20260409), [`18.0`](https://hub.docker.com/layers/mintsystem/odoo/18.0)
+- [`17.0.20260409`](https://hub.docker.com/layers/mintsystem/odoo/17.0.20260409), [`17.0`](https://hub.docker.com/layers/mintsystem/odoo/17.0)
+- [`16.0.20260409`](https://hub.docker.com/layers/mintsystem/odoo/16.0.20260409), [`16.0`](https://hub.docker.com/layers/mintsystem/odoo/16.0)
+- [`15.0.20260409`](https://hub.docker.com/layers/mintsystem/odoo/15.0.20260409), [`15.0`](https://hub.docker.com/layers/mintsystem/odoo/15.0)
 
 ### Minimal
 
@@ -559,7 +559,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`aggregate-git-repos`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/aggregate-git-repos)
 - [`check-database-initialized`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/check-database-initialized)
 - [`clone-git-addons`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/clone-git-addons)
-- [`conf`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/conf)
+- [`config`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/config)
 - [`download-git-archive`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-git-archive)
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
