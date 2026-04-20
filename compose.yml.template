@@ -77,9 +77,9 @@ services:
       AUTO_UPDATE_MODULES_LIST: "${AUTO_UPDATE_MODULES_LIST}"
       #db_user_FILE: /run/secrets/db_user
       #db_password_FILE: /run/secrets/db_password
-    secrets:
-      - db_user
-      - db_password
+    # secrets:
+    #   - db_user
+    #   - db_password
     command: ${ODOO_COMMAND}
     ports:
       - "${ODOO_PORT}:8069"
@@ -163,8 +163,8 @@ volumes:
 networks:
   default:
     name: odoo-build_default
-secrets:
-  db_user:
-    file: ./tmp/db_user.txt
-  db_password:
-    file: ./tmp/db_password.txt
+# secrets:
+#   db_user:
+#     file: ./tmp/db_user.txt
+#   db_password:
+#     file: ./tmp/db_password.txt
