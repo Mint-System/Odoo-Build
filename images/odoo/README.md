@@ -169,6 +169,11 @@ services:
       AUTO_UPDATE_MODULES_LIST: True
       ADDITIONAL_ODOO_RC: "syslog = True"
       IR_CONFIG_PARAMETER: "web.base.url = https://odoo.example.com"
+      db_user_FILE: /run/secrets/db_user
+      db_password_FILE: /run/secrets/db_password
+    secrets:
+      - db_user
+      - db_password
     ports:
       - "127.0.0.1:8069:8069"
     volumes:
@@ -194,6 +199,11 @@ services:
 volumes:
   odoo-data:
   db-data:
+secrets:
+  db_user:
+    file: ./secrets/db_user.txt
+  db_password:
+    file: ./secrets/db_password.txt
 ```
 
 The environment variables are explained in detail further down.
@@ -477,6 +487,10 @@ Compatibility with other images is mainly achieved by using the same environment
 
 The `/etc/odoo/odoo.conf` is templated during container start. To output the content run `docker exec odoo conf`.
 
+### requirements.txt
+
+If you mount a `requirements.txt` to `/var/lib/odoo/requirements.txt` the `install-python-packages` script will run `uv pip install -r requirements.txt ` in the directory.
+
 ### pyproject.toml
 
 When mounting your `pyproject.toml` to `/var/lib/odoo/pyproject.toml` the `sync-python-project` script will run `uv sync --active` in the directory.
@@ -502,11 +516,12 @@ See [Odoo Build > Build and publish container image](https://odoo.build/#build-a
 The most important image paths are:
 
 - `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
-- `/mnt/extra-addons` Nested module are loaded from this path by default.
-- `/mnt/test-addons` Recommended mount path for modules to test.
+- `/mnt/extra-addons` Nested module folders are loaded from this path by default.
+- `/mnt/test-addons` Default mount path for modules to test.
 - `/opt/odoo/addons` Contains the Odoo community edition modules.
-- `/opt/odoo-venv` This is where Python packages are installed.
-- `/var/lib/odoo` Odoo data folder.
+- `/opt/odoo/venv` This is where Odoo packages are installed.
+- `/var/lib/odoo` Odoo data folder for persistence.
+- `/var/lib/odoo/venv` Additional Python packages are installed here.
 - `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
 - `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
 - `/var/lib/odoo/git` The cloned module repos are stored here.

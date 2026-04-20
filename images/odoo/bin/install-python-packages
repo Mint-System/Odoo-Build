@@ -1,19 +1,25 @@
 #!/usr/bin/env bash
 set -e
 
+log-entrypoint 'Check status of PyPi.'
+http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ --connect-timeout 5 --max-time 10 | grep 'HTTP/2 200')
+
+if [[ -z "$http_pypi_ok" ]]; then
+    log-entrypoint 'PyPI is unreachable. Installing from local cache or private repos may still work.'
+fi
+
 if [[ -n "$PYTHON_INSTALL" ]]; then
-
-    log-entrypoint 'Check status of PyPi.'
-    http_pypi_ok=$(curl -s --head --request GET https://pypi.org/simple/ | grep 'HTTP/2 200')
-
-    if [[ -n "$http_pypi_ok" ]]; then
-        # Handle both newline and comma-separated formats
-        if [[ "$PYTHON_INSTALL" == *","* ]]; then
-            # Comma-separated format
-            uv pip install $(echo "$PYTHON_INSTALL" | tr ',' ' ')
-        else
-            # Newline-separated or space-separated format
-            uv pip install $PYTHON_INSTALL
-        fi
+    # Handle both newline and comma-separated formats
+    if [[ "$PYTHON_INSTALL" == *","* ]]; then
+        # Comma-separated format
+        uv pip install $(echo "$PYTHON_INSTALL" | tr ',' ' ')
+    else
+        # Newline-separated or space-separated format
+        uv pip install $PYTHON_INSTALL
     fi
+fi
+
+if [[ -f "/var/lib/odoo/requirements.txt" ]]; then
+    log-entrypoint 'Installing Python packages from requirements.txt...'
+    uv pip install -r /var/lib/odoo/requirements.txt
 fi

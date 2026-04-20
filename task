@@ -159,7 +159,7 @@ help-table() {
     rows+=("source||Source the Python virtual env.")
     rows+=("start|[name][db]|Start service. Use list to show services.")
     rows+=("stop|[name]|Stop containers.")
-    rows+=("test-xmlrpc|[env]|Test json rpc connection.")
+    rows+=("test-xmlrpc|[env]|Test xml rpc connection.")
     rows+=("===PROJECT===| | ")
     rows+=("lint||Run precommit for this project.")
     rows+=("list-versions||List available Odoo versions.")
@@ -982,9 +982,9 @@ test-image() {
         echo -e "\033[38;5;214mTEST\033[0m: Sync python project."
         cat > tmp/pyproject.toml << 'EOF'
 [project]
-name = "test-project"
+name = "odoo-build-project"
 version = "0.1.0"
-description = "Test project for uv sync"
+description = "Test project for uv sync."
 dependencies = [
     "requests>=2.28.0",
     "click>=8.0.0",
@@ -1543,6 +1543,17 @@ test-project() {
             sleep 3
             ELAPSED=$((ELAPSED + 3))
         done
+
+        echo -e "\033[38;5;214mTEST\033[0m: Setup requirements.txt file."
+        exec odoo bash -c "echo 'click>=8.0.0' > /var/lib/odoo/requirements.txt"
+        exec odoo install-python-packages
+        click_path=$(exec odoo bash -c "python3 -c 'import click; print(click.__file__)'")
+        if echo "$click_path" | grep -q "/var/lib/odoo/venv/"; then
+            log-success "click is installed in persisted venv."
+        else
+            log-error "click is NOT in /var/lib/odoo/venv/ — found at: $click_path"
+            exit 1
+        fi
 
         echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
         cat << EOF > tmp/repos.yml
