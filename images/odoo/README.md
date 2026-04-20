@@ -322,7 +322,7 @@ Odoo supports the PostgreSQL database only.
 - `PGSSLMODE`: SSL mode for postgres connection. Default is `prefer`.
 - `PGSSLROOTCERT`: Path too ssl root cert. Required when using `verify-ca` mode.
 
-Load secrets from file with variables:
+Load variables from file by settings these compose secrets:
 
 - `db_user_FILE`: Load database `username` from `db_user` secret.
 - `db_password_FILE`: Load database user password from `db_password` secret.
