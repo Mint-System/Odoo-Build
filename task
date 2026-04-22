@@ -615,8 +615,7 @@ get-module-version() {
         echo '\$1 is empty.'
     else
         # Get version of module
-        local version=$(grep -m 1 \"version "$1/__manifest__.py" |  sed "s;';\";g"  | sed "s/,//g" | sed  's/#.*//g')
-        version=$(echo "{ $version }" | jq .version | sed 's/"//g' | sed 's/null//g')
+        local version=$(python -c "import ast; print(ast.literal_eval(open('$1/__manifest__.py').read())['version'])")
 
         # Set default version
         [[ -z "$version" ]] && version=0.0
