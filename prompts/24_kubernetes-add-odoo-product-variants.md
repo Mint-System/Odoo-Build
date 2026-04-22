@@ -18,7 +18,7 @@ Read the `AGENTS.md` and `README.md` to get an understanding of the project.
 
 ## Task
 
-I want you to update the product definition in `addons/kubernetes/helm/data/data.xml`.
+I want you to update the product definition in `addons/kubernetes/helm/data/helm_chart_odoo_data.xml`.
 
 Setup major versions 17.0, 18.0 and 19.0 as product attribute "Version".
 
@@ -31,9 +31,9 @@ For each version and Odoo edition create a `product.product`:
 - product_odoo_enterprise_edition_18_0
 - product_odoo_enterprise_edition_17_0
 
-Then I want you setup mutltiple helm chart values in `addons/kubernetes/helm/data/data.xml`.
+Then I want you setup mutltiple helm chart values in `addons/kubernetes/helm/data/helm_chart_odoo_data.xml`.
 
-For each major version add an release value "image" with two option_ids:
+For each major version add a release with path "image" with two option_ids:
 
 filter_product_ids: product_odoo_community_edition_19_0, product_odoo_enterprise_edition_19_0
 mintsystem/odoo:19.0.20260305
