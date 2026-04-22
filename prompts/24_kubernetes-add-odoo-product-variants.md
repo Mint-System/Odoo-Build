@@ -31,7 +31,7 @@ For each version and Odoo edition create a `product.product`:
 - product_odoo_enterprise_edition_18_0
 - product_odoo_enterprise_edition_17_0
 
-See `odoo/addons/product/data/product_demo.xml` for examples.
+See `odoo/addons/product/data/product_attribute_demo.xml` and `odoo/addons/product/data/product_demo.xml` for examples.
 
 Then I want you setup mutltiple helm chart values in `addons/kubernetes/helm/data/helm_chart_odoo_data.xml`.
 
