@@ -64,3 +64,7 @@
 	path = oca/account-analytic
 	url = git@github.com:OCA/account-analytic.git
 	branch = 19.0
+[submodule "addons/website"]
+	path = addons/website
+	url = git@github.com:Mint-System/Odoo-Apps-Website
+	branch = 19.0

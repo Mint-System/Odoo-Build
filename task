@@ -2239,8 +2239,7 @@ create-repo() {
     # If repo already exists, create new branch
     if [[ -d "$repo_path/.git" ]]; then
         echo "Create new branch $repo_name in $repo_path"
-        cd "$repo_path" || exit
-        git switch --orphan -c "$ODOO_VERSION"
+        git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
 
         echo "Remove all files from $repo_path"
         rm -rf "$repo_path/*"
