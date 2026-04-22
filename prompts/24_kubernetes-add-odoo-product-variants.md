@@ -31,6 +31,8 @@ For each version and Odoo edition create a `product.product`:
 - product_odoo_enterprise_edition_18_0
 - product_odoo_enterprise_edition_17_0
 
+See `odoo/addons/product/data/product_demo.xml` for examples.
+
 Then I want you setup mutltiple helm chart values in `addons/kubernetes/helm/data/helm_chart_odoo_data.xml`.
 
 For each major version add a release with path "image" with two option_ids:
@@ -42,7 +44,6 @@ mintsystem/odoo:19.0.20260409
 filter_product_ids: product_odoo_community_edition_18_0, product_odoo_enterprise_edition_18_0
 mintsystem/odoo:18.0.20260305
 mintsystem/odoo:18.0.20260409
-
 
 filter_product_ids: product_odoo_community_edition_17_0, product_odoo_enterprise_edition_17_0
 mintsystem/odoo:17.0.20260305
