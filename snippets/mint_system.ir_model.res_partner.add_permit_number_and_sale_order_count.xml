@@ -1,0 +1,6 @@
+<data inherit_id="base.view_partner_tree" priority="50">
+    <xpath expr="//field[@name='complete_name']" position="after">
+        <field name="sale_order_count" string="Anzahl"/>
+        <field name="permit_number" string="Patentnummer"/>
+    </xpath>
+</data>
