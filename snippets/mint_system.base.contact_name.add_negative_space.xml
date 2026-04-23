@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div" position="attributes">
+        <attribute name="style">margin-bottom: -2px;</attribute>
+    </xpath>
+</data>
