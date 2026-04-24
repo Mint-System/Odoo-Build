@@ -1,0 +1,18 @@
+<data priority="50">
+   <xpath expr="//div[@class='o_account_reports_header']" position="replace">
+      <div class="o_account_reports_header">
+        <div class="print_only">
+            <h2>
+                <strong>
+                    <t t-if="options.get('email_subject')">
+                        <t t-out="options['email_subject']"/>
+                    </t>
+                    <t t-else="">
+                        Pending Invoices
+                    </t>
+                </strong>
+            </h2>
+        </div>
+    </div>
+  </xpath>
+</data>
