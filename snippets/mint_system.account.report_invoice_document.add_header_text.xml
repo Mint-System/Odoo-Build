@@ -1,7 +1,7 @@
 <data priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
     <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])">
-            
+
         <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])"/>
 
         </t>
