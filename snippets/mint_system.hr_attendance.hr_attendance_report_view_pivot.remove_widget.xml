@@ -1,0 +1,8 @@
+<data priority="16">
+     <xpath expr="//field[@name='worked_hours']" position="attributes">
+          <attribute name="widget"/>
+    </xpath>
+    <xpath expr="//field[@name='overtime_hours']" position="attributes">
+          <attribute name="widget"/>
+    </xpath>
+</data>

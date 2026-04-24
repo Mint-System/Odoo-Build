@@ -1,0 +1,8 @@
+<data priority="50">
+  <xpath expr="//field[@name='planned_hours']" position="attributes">
+      <attribute name="widget"/>
+  </xpath>
+  <xpath expr="//field[@name='diff_hours']" position="attributes">
+      <attribute name="widget"/>
+  </xpath>
+</data>
