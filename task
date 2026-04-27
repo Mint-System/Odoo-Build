@@ -2700,20 +2700,15 @@ checkout() {
 }
 
 save-version() {
-    local git_folders_file="versions/$ODOO_VERSION/"
-    echo "Save git refs to .gitmodules.csv."
-
-    local git_folders=$(ls-git-folder .)
-    echo "path,rev" > ".gitmodules.csv"
-    for git_folder in $git_folders; do
-        local commit_ref=$(git -C "$git_folder" rev-parse HEAD)
-        echo "$git_folder,$commit_ref" >> ".gitmodules.csv"
-    done
+    save-git-folder .
 
     echo "Copy .gitmodules and .python-version to 'versions/$ODOO_VERSION'"
     cp ".gitmodules" "versions/$ODOO_VERSION/"
-    cp ".gitmodules.csv" "versions/$ODOO_VERSION/"
     cp ".python-version" "versions/$ODOO_VERSION/"
+    
+    echo "Remove .gitmoduels.csv."
+    rm ".gitmodules.csv"
+    rm "versions/$ODOO_VERSION/.gitmodules.csv."
 }
 
 
