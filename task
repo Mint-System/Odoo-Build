@@ -2708,7 +2708,7 @@ save-version() {
     
     echo "Remove .gitmoduels.csv."
     rm ".gitmodules.csv"
-    rm "versions/$ODOO_VERSION/.gitmodules.csv."
+    rm "versions/$ODOO_VERSION/.gitmodules.csv"
 }
 
 

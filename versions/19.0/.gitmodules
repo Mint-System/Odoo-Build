@@ -9,7 +9,7 @@
 	url = git@github.com:odoo/enterprise.git
 	branch = 19.0
 	shallow = true
-	commit = 21ed8a6c1cad8d533d04659a3997c2d7e0c3965b
+	commit = 2c39cae95fdb4e23f969c79544ac987451c3c1fa
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -84,11 +84,4 @@
 	path = addons/website
 	url = git@github.com:Mint-System/Odoo-Apps-Website
 	branch = 19.0
-<<<<<<< HEAD
-[submodule "oca/hr-attendance"]
-	path = oca/hr-attendance
-	url = git@github.com:OCA/hr-attendance.git
-	branch = 19.0
-=======
 	commit = 23dfeee60286c38d5034ecc43fda947a4dfcfa5f
->>>>>>> 7225964a (feat(task): remove .gitmodules.csv and use save-git-folder for version saving)
