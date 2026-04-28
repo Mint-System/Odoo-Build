@@ -2089,6 +2089,21 @@ create-module() {
     export MODULE_DEPENDS
 
     while true; do
+        read -p "Data? (y/n): " DATA_RESPONSE
+        if [[ "$DATA_RESPONSE" == "y" ]]; then
+            export MODULE_DATA_KEY='"data": ["data/data.xml"],'
+            mkdir -p "$module_path/demo"
+            cp templates/data.xml "$module_path/data/data.xml"
+            break
+        elif [[ "$DATA_RESPONSE" == "n" ]]; then
+            export MODULE_DATA_KEY='"data": [],'
+            break
+        else
+            echo "Answer y or n."
+        fi
+    done
+
+    while true; do
         read -p "Demo? (y/n): " DEMO_RESPONSE
         if [[ "$DEMO_RESPONSE" == "y" ]]; then
             export MODULE_DEMO_KEY='"demo": ["demo/demo.xml"],'
