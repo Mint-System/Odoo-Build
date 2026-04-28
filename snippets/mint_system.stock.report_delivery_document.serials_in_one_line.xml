@@ -1,0 +1,39 @@
+<data priority="50">
+  <xpath expr="//tr[@t-foreach='o.move_ids.move_line_ids']" position="replace">
+     <t t-foreach="o.move_ids" t-as="move">
+        <t t-set="serial_lines" t-value="move.move_line_ids"/>
+        <t t-if="serial_lines">
+            <!-- row with product name and total quantity -->
+            <tr>
+                <td>
+                    <span t-field="move.product_id"/>
+                    <!-- Description workaround (same logic as original sub-template) -->
+                    <t t-if="not description and description != ''">
+                        <t t-set="description" t-value="move.description_picking"/>
+                    </t>
+                    <p t-if="description != '' and description != move.product_id.display_name and description != move.product_id.name">
+                        <span t-out="description" t-options="{'widget': 'text'}"/>
+                    </p>
+                </td>
+                <!-- multi-level package column -->
+                <td t-if="has_multi_level_packages"/>
+                <!-- Empty lot/serial column in the product row -->
+                <td t-if="has_serial_number" class="text-end"/>
+                <!-- Total quantity: sum all move_line quantities -->
+                <td class="text-end" name="move_line_lot_quantity">
+                    <span t-out="format_number(sum(serial_lines.mapped('quantity')))"/>
+                    <span t-field="move.product_uom"/>
+                </td>
+            </tr>
+            <!-- All serial numbers joined on one line, spanning all columns -->
+            <tr>
+                <td t-att-colspan="2 + (1 if has_multi_level_packages else 0) + (1 if has_serial_number else 0)" class="text-muted" style="padding-top:0; padding-bottom:4px;">
+                    <small>
+                        <t t-out="', '.join(serial_lines.mapped('lot_id.name'))"/>
+                    </small>
+                </td>
+            </tr>
+        </t>
+    </t>
+  </xpath>
+</data>
