@@ -13,6 +13,7 @@ services:
       PORT: 5432
       PGHOST: db
       PGUSER: odoo
+      PGPASSWORD: odoo
       PGPORT: 5432
       DB_NAME: "${DB_NAME}"
       DB_MAXCONN: ${DB_MAXCONN}
