@@ -36,8 +36,8 @@ check_config() {
     local value="$2"
     local file_var="${param}_FILE"
 
-    if [ -n "${!file_var}" ] && [ -f "${!file_var}" ]; then
-        value=$(cat "${!file_var}" | tr -d '\n\r' | sed 's/["\n\r]//g')
+    if [[ -n "$file_var" ]] && [[ -f "$file_var" ]]; then
+        value=$(cat "$file_var" | tr -d '\n\r' | sed 's/["\n\r]//g')
     elif grep -q -E "^\s*\b${param}\b\s*=" "$ODOO_RC" ; then
         value=$(grep -E "^\s*\b${param}\b\s*=" "$ODOO_RC" | cut -d " " -f3 | sed 's/["\n\r]//g')
     fi
