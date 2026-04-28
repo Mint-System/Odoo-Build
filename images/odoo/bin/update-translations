@@ -12,7 +12,7 @@ if check-database-initialized "$database"; then
     log-entrypoint 'Updating translations for all active languages and installed modules.'
     (exec odoo shell "${DB_ARGS[@]}" --database "$database" --config "$ODOO_RC" --stop-after-init --no-http << EOF
 for lang in env['res.lang'].search([]):
-env['ir.module.module'].search([('state', '=', 'installed')])._update_translations(lang.code, overwrite=True)
+    env['ir.module.module'].search([('state', '=', 'installed')])._update_translations(lang.code, overwrite=True)
 env.cr.commit()
 print('Translations updated successfully')
 EOF
