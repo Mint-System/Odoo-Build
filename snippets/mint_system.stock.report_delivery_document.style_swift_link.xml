@@ -1,6 +1,7 @@
-<data priority="60">    
+<data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
+
         .din_page.invoice_note tr .address {
             font-size: 110%;
             width: 90mm;
@@ -9,6 +10,24 @@
         .din_page.invoice_note tr .shipping_address {
             font-size: 110%;
             }
+            
+        small {
+            font-family: monosize;
+            font-size: 12px;
+            }
+        th {
+            font-weight: bold;
+            }
+         
         </style>
     </xpath>
+
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr" position="attributes">
+        <attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='stock_backorder_table']/tbody/tr" position="attributes">
+        <attribute name="style">border-bottom: 1px solid rgba(0,0,0,0.35)</attribute>
+    </xpath>
+
 </data>
