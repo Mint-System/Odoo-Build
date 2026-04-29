@@ -1,8 +1,16 @@
 <data priority="50">
+  <xpath expr="//th[@name='lot_serial']" position="replace">
+       <th name="lot_serial" class="text-end" t-else=""/>
+  </xpath>
+  <xpath expr="//th[@name='th_sml_product']" position="replace">
+        <th name="th_sml_product">Product<br/><span style="font-family: monospace;">Lot/Serial Number</span></th>
+  </xpath>
+  
   <xpath expr="//tr[@t-foreach='o.move_ids.move_line_ids']" position="replace">
      <t t-foreach="o.move_ids" t-as="move">
         <t t-set="serial_lines" t-value="move.move_line_ids"/>
         <t t-if="serial_lines">
+            <t t-set="show_border" t-value="not move_last"/>
             <!-- row with product name and total quantity -->
             <tr>
                 <td>
@@ -20,18 +28,19 @@
                 <!-- Empty lot/serial column in the product row -->
                 <td t-if="has_serial_number" class="text-end"/>
                 <!-- Total quantity: sum all move_line quantities -->
-                <td class="text-end" name="move_line_lot_quantity">
+                <td class="text-end" name="move_line_lot_quantity" style="white-space: nowrap;">
                     <span t-out="format_number(sum(serial_lines.mapped('quantity')))"/>
                     <span t-field="move.product_uom"/>
                 </td>
             </tr>
-            <!-- All serial numbers joined on one line, spanning all columns -->
+            <!-- All serial numbers joined on one line, spanning all columns except the last one-->
             <tr>
-                <td t-att-colspan="2 + (1 if has_multi_level_packages else 0) + (1 if has_serial_number else 0)" class="text-muted" style="padding-top:0; padding-bottom:4px;">
+                <td t-att-colspan="1 + (1 if has_multi_level_packages else 0) + (1 if has_serial_number else 0)" class="text-muted" t-att-style="'font-family:monospace; padding-top:0; word-break: keep-all; overflow-wrap: normal;' + (' border-bottom: 1px solid #dee2e6;' if show_border else '')">
                     <small>
-                        <t t-out="', '.join(serial_lines.mapped('lot_id.name'))"/>
+                        <t t-out="', '.join(move.lot_ids.mapped('name')).replace('-', '\u2011')"/>
                     </small>
                 </td>
+                <td t-att-style="'border-bottom: 1px solid #dee2e6;' if show_border else ''"/>
             </tr>
         </t>
     </t>
