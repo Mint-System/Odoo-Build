@@ -3,7 +3,7 @@
        <th name="lot_serial" class="text-end" t-else=""/>
   </xpath>
   <xpath expr="//th[@name='th_sml_product']" position="replace">
-        <th name="th_sml_product">Product<br/><span style="font-family: monospace;">Lot/Serial Number</span></th>
+        <th name="th_sml_product">Product<br/><span>Lot/Serial Number</span></th>
   </xpath>
   
   <xpath expr="//tr[@t-foreach='o.move_ids.move_line_ids']" position="replace">
