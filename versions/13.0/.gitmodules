@@ -2,149 +2,186 @@
 	path = addons/theme_mint_system
 	url = git@github.com:Mint-System/Odoo-Theme-Mint-System.git
 	branch = 13.0
+	commit = 4a92a8df1b5d3f98df0d6f259420944b4caaf6ca
 [submodule  "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 13.0
 	shallow = true
+	commit = b27b98153f966c36700d154bdad4603eb85ecb32
 [submodule  "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 13.0
 	shallow = true
+	commit = 4cc086d330b73514fbc64a7fcf22d8a7a9f1b691
 [submodule  "oca/project"]
 	path = oca/project
 	url = git@github.com:OCA/project.git
 	branch = 13.0
+	commit = 0271ea50d175bbae9112523d06427652b5b1700e
 [submodule  "oca/l10n-switzerland"]
 	path = oca/l10n-switzerland
 	url = git@github.com:OCA/l10n-switzerland.git
 	branch = 13.0
+	commit = 0cd86809463a3bd2ba1c1e291f850b45564f9084
 [submodule  "oca/knowledge"]
 	path = oca/knowledge
 	url = git@github.com:OCA/knowledge.git
 	branch = 13.0
+	commit = ca68d3f6f52f1d9507f7cb0d1607f38de2e259b3
 [submodule  "oca/crm"]
 	path = oca/crm
 	url = git@github.com:OCA/crm.git
 	branch = 13.0
+	commit = 6bee05c3fe4edcf7672d4f6cf8e6e7ee99829935
 [submodule  "oca/timesheet"]
 	path = oca/timesheet
 	url = git@github.com:OCA/timesheet.git
 	branch = 13.0
+	commit = 051ff201f77047680fcf444e8d48d6390c9336df
 [submodule  "oca/web"]
 	path = oca/web
 	url = git@github.com:OCA/web.git
 	branch = 13.0
+	commit = a2fb358b183191bb3a16358a81828f032527f9d9
 [submodule  "oca/server-auth"]
 	path = oca/server-auth
 	url = git@github.com:OCA/server-auth.git
 	branch = 13.0
+	commit = 87ca50e2cdeba79e143850bb0dd08a1dea35bc31
 [submodule  "addons/certificate_planer"]
 	path = addons/certificate_planer
 	url = git@github.com:Mint-System/Certificate-Planner.git
 	branch = 13.0
+	commit = e2dde706fe90cc18fa3dcef6a8d08920bb18e770
 [submodule  "oca/hr-holidays"]
 	path = oca/hr-holidays
 	url = git@github.com:OCA/hr-holidays.git
 	branch = 13.0
+	commit = 2b2bfe508320cf4d3896b26ee01667af6b2ecef5
 [submodule  "oca/hr-attendance"]
 	path = oca/hr-attendance
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 13.0
+	commit = 51e6ff7be29d01ab0b4120fb373db7e48ce4aea5
 [submodule  "oca/server-backend"]
 	path = oca/server-backend
 	url = git@github.com:OCA/server-backend.git
 	branch = 13.0
+	commit = ceebbda8cca89c86843184ccb586dbbbbec78dbe
 [submodule  "oca/server-ux"]
 	path = oca/server-ux
 	url = git@github.com:OCA/server-ux.git
 	branch = 13.0
+	commit = 0a5572f2f880bdc9802d023aeff5bb8846ac8865
 [submodule  "oca/stock-logistics-workflow"]
 	path = oca/stock-logistics-workflow
 	url = git@github.com:OCA/stock-logistics-workflow.git
 	branch = 13.0
+	commit = 0bb658440bf0c5a775a8e1bfd05bfd324cc88e42
 [submodule  "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
 	branch = 13.0
+	commit = 6ac52e17f3e70990cc177d1749c8b2827b66df86
 [submodule  "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
 	branch = 13.0
+	commit = 8d8ff598ab5aaebf395bb388e8e73e75eb1bf158
 [submodule  "oca/website"]
 	path = oca/website
 	url = git@github.com:OCA/website.git
 	branch = 13.0
+	commit = 4a854f8d27acf358a67c03619753e41fad6f912f
 [submodule  "addons/hr"]
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 13.0
+	commit = d23b5f1088dd5d28dc91b21ba588ff8c4f945a5b
 [submodule  "oca/reporting-engine"]
 	path = oca/reporting-engine
 	url = git@github.com:OCA/reporting-engine.git
 	branch = 13.0
+	commit = e394303d3030d54bc570bae4c75a438fc71bc71e
 [submodule  "oca/server-tools"]
 	path = oca/server-tools
 	url = git@github.com:OCA/server-tools.git
 	branch = 13.0
+	commit = 98b9e9a1d1f5f29d11fe8c5edfefc27f192d383d
 [submodule "oca/product-attribute"]
 	path = oca/product-attribute
 	url = git@github.com:OCA/product-attribute.git
 	branch = 13.0
+	commit = de5d5127f80d20b63e959df007ac142bb48088e2
 [submodule "oca/sale-workflow"]
 	path = oca/sale-workflow
 	url = git@github.com:OCA/sale-workflow.git
 	branch = 13.0
+	commit = 334ef67d62260ebbefacf7726a6242537c1e5679
 [submodule "addons/purchase_workflow"]
 	path = addons/purchase_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Purchase-Workflow.git
 	branch = 13.0
+	commit = 64823a89d5db768a928e836dd7443954f268fb9d
 [submodule "oca/social"]
 	path = oca/social
 	url = git@github.com:OCA/social.git
 	branch = 13.0
+	commit = 7d075ac409e77a64ab9aad268215c9bd3acc9181
 [submodule "oca/dms"]
 	path = oca/dms
 	url = git@github.com:OCA/dms.git
 	branch = 13.0
+	commit = 3cf2f339367ed87f0e6448b29efe4336047dd202
 [submodule "oca/bank-statement-import"]
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
 	branch = 13.0
+	commit = 806995270a27dcaf7d7023448e97c95ea4e62b2f
 [submodule "oca/rest-framework"]
 	path = oca/rest-framework
 	url = git@github.com:OCA/rest-framework.git
 	branch = 13.0
+	commit = 147763321830b4a2a7595101f9c4bc5229e59198
 [submodule "oca/contract"]
 	path = oca/contract
 	url = git@github.com:OCA/contract.git
 	branch = 13.0
+	commit = 60e67bd946d4c6b25324c90595d4de8736fe2122
 [submodule "addons/project"]
 	path = addons/project
 	url = git@github.com:Mint-System/Odoo-Apps-Project.git
 	branch = 13.0
+	commit = 3e4b70b4381fcc1c84739cce8c9fd9d06b395a36
 [submodule "oca/purchase-workflow"]
 	path = oca/purchase-workflow
 	url = git@github.com:OCA/purchase-workflow.git
 	branch = 13.0
+	commit = f1ff601320d60d68704a3866ba969b21d247b8d3
 [submodule "oca/stock-logistics-warehouse"]
 	path = oca/stock-logistics-warehouse
 	url = git@github.com:OCA/stock-logistics-warehouse.git
 	branch = 13.0
+	commit = 6192cbb42627c75712765cac77c8ad61ac731801
 [submodule "oca/account-invoicing"]
 	path = oca/account-invoicing
 	url = git@github.com:OCA/account-invoicing.git
 	branch = 13.0
+	commit = 4292ec12492d1a33d8c1dee6b6a6d8f9b576c0a5
 [submodule "oca/business-requirement"]
 	path = oca/business-requirement
 	url = git@github.com:OCA/business-requirement.git
 	branch = 13.0
+	commit = e9b40036f9bfe13ca73c7667ab71492332acc71d
 [submodule "oca/server-env"]
 	path = oca/server-env
 	url = git@github.com:OCA/server-env.git
 	branch = 13.0
+	commit = 9d2069b7940561a543c59f18e9250cdb6c3fdb9d
 [submodule "addons/server_tools"]
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 13.0
+	commit = f431608c4524b2a3e19dea2a462db489a8aa9e4d
