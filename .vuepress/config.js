@@ -69,7 +69,7 @@ export default defineUserConfig({
                                 {
                                     text: 'Odoo CLI',
                                     link: '/images/odoo-cli/',
-                                }
+                                },
                                 {
                                     text: 'Odoo Mailgate',
                                     link: '/images/odoo-mailgate/',
