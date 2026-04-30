@@ -952,7 +952,7 @@ test-image-script() {
         echo '$1/path is empty.'
         exit
     fi
-    
+
     if [[ "$1" == "images/odoo" ]]; then
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
@@ -1540,11 +1540,13 @@ test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Setup requirements.txt file."
         exec odoo bash -c "echo 'click>=8.0.0' > /var/lib/odoo/requirements.txt"
         exec odoo install-python-packages
-        click_path=$(exec odoo bash -c "python3 -c 'import click; print(click.__file__)'")
-        if echo "$click_path" | grep -q "/var/lib/odoo/venv/"; then
+
+        # FIXME: Cannot use exec
+        click_path=$(docker exec odoo python3 -c 'import click; print(click.__file__)')
+        if echo "$click_path" | grep -q "/opt/odoo/venv/"; then
             log-success "click is installed in persisted venv."
         else
-            log-error "click is NOT in /var/lib/odoo/venv/ — found at: $click_path"
+            log-error "click is NOT in /opt/odoo/venv/ — found at: $click_path"
             exit 1
         fi
 
@@ -1583,19 +1585,19 @@ EOF
         echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         exec odoo update-modules
-        #FIXME: Check if module is auto updated
+        # FIXME: Check if module is auto updated
         # docker logs odoo 2>&1 | grep "Run click-odoo-update."
 
         echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
         restart odoo
-        #FIXME: Check if translations updated
+        # FIXME: Check if translations updated
         # docker logs odoo 2>&1 | grep "Updating translations for all active languages and installed modules."
 
         echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
         drop-db test
 
-        #FIXME: These tests do not work in GitHub Runner env.
+        # FIXME: These tests do not work in GitHub Runner env.
         # echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
         # exec odoo setup-tests
         # exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Partner-Contact
@@ -1626,7 +1628,7 @@ EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
         echo "Execute the module upgrade."
         exec odoo update-module partner_firstname
-        #FIXME: Check if module is migrated
+        # FIXME: Check if module is migrated
         # docker logs odoo 2>&1 | grep "module partner_firstname: Running migration"
     fi
 }
