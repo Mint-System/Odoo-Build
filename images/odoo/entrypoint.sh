@@ -16,6 +16,9 @@ unset ODOO_ADDONS_PATH
 unset ADDONS_PATH
 install-python-packages
 
+# Add runtime and additional package venv to python path
+export PYTHONPATH=$(/var/lib/odoo/venv/bin/python -c "import site; print(site.getsitepackages()[0])"):/opt/odoo/
+
 # Set the postgres database host, port, user and password according to the environment
 # and pass them as arguments to the odoo process if not present in the config file
 PGHOST=${PGHOST:='db'}

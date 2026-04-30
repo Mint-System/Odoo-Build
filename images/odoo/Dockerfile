@@ -151,7 +151,6 @@ COPY --from=builder /opt/odoo /opt/odoo
 # Setup environment path
 ENV PATH=/var/lib/odoo/venv/bin:/opt/odoo/venv/bin:$PATH
 ENV ADDONS_PATH=/opt/odoo/addons
-ENV PYTHONPATH=/var/lib/odoo/venv/lib/python${PYTHON_VERSION}/site-packages:/opt/odoo/
 
 # Copy entrypoint scripts and Odoo configuration file
 COPY ./images/odoo/bin/* /usr/local/bin/
