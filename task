@@ -949,17 +949,11 @@ test-image-script() {
     set -e
 
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
-
-    if [[ "$1" == "images/odoo-upgrade" ]]; then
-        container_tag="odoo-upgrade"
-    elif [[ "$1" == "images/odoo-cli" ]]; then
-        container_tag="odoo-cli"
-    fi
-
-    if [[ "$container_tag" =~ ^odoo: ]]; then
+    
+    if [[ "$1" == "images/odoo" ]]; then
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
@@ -1008,12 +1002,7 @@ EOF
         [[ "$git_proto" == "ssh://" ]] && log-success "Test success."
     fi
 
-    if [[ "$container_tag" =~ ^odoo-upgrade ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
-        docker run -it mintsystem/odoo-upgrade --help
-    fi
-
-    if [[ "$container_tag" =~ ^odoo-cli ]]; then
+    if [[ "$1" == "images/odoo-cli" ]]; then
         echo -e "\033[38;5;214mTEST\033[0m: Show help of odoocli."
         docker_odoocli() {
             docker run -it \
@@ -1021,6 +1010,11 @@ EOF
                 mintsystem/odoocli "$@"
             }
         docker_odoocli --help
+    fi
+
+    if [[ "$1" == "images/odoo-upgrade" ]]; then
+        echo -e "\033[38;5;214mTEST\033[0m: Show help of odoo-upgrade."
+        docker run -it mintsystem/odoo-upgrade --help
     fi
 }
 
