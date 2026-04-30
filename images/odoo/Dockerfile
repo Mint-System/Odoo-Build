@@ -142,15 +142,16 @@ RUN pnpm install -g rtlcss
 # Install uv for Python package management
 COPY --from=ghcr.io/astral-sh/uv:0.7.21 /uv /uvx /bin/
 
-# Prepare virtual env for custom packages
-RUN uv venv /var/lib/odoo/venv
-
 # Copy the virtual environment and Odoo from the builder stage
+COPY --from=builder /opt/odoo/venv /opt/odoo/venv
 COPY --from=builder /opt/odoo /opt/odoo
 
 # Setup environment path
-ENV PATH=/var/lib/odoo/venv/bin:/opt/odoo/venv/bin:$PATH
+ENV PATH=/opt/odoo/venv/bin:$PATH
 ENV ADDONS_PATH=/opt/odoo/addons
+
+# Resolve odoo to /opt/odoo/odoo
+ENV PYTHONPATH=/opt/odoo
 
 # Copy entrypoint scripts and Odoo configuration file
 COPY ./images/odoo/bin/* /usr/local/bin/
@@ -163,6 +164,7 @@ WORKDIR /opt/odoo
 # Setup folder and permissions:
 # Config: /etc/odoo
 # Data: /var/lib/odoo
+# Python: /opt/odoo/venv
 # Addons: /mnt/extra-addons
 RUN mkdir -p /var/lib/odoo \
     && mkdir -p /mnt/extra-addons
@@ -170,6 +172,7 @@ RUN mkdir -p /var/lib/odoo \
 # Set OpenShift compatible permissions - Make directories writable by any user ID
 RUN chmod -R 775 /etc/odoo \
     /var/lib/odoo \
+    /opt/odoo/venv \
     /mnt/extra-addons
 
 # Nginx configuration

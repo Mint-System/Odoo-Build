@@ -526,7 +526,6 @@ The most important image paths are:
 - `/opt/odoo/addons` Contains the Odoo community edition modules.
 - `/opt/odoo/venv` This is where Odoo packages are installed.
 - `/var/lib/odoo` Odoo data folder for persistence.
-- `/var/lib/odoo/venv` Additional Python packages are installed here.
 - `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
 - `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
 - `/var/lib/odoo/git` The cloned module repos are stored here.

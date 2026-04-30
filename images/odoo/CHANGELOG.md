@@ -23,6 +23,10 @@ All notable changes to this project will be documented in this file. The format 
 - Updated `entrypoint.sh` to support loading database credentials from files via `_FILE` environment variables.
 - Renamed `bin/conf` to `bin/config` for consistency.
 - Updated `task` script to reflect correct test description for `test-xmlrpc` (now "Test xml rpc connection").
+- Removed `/var/lib/odoo/venv` from `README.md` as it is no longer used.
+- Updated `Dockerfile` to copy `/opt/odoo/venv` from builder stage and set `PYTHONPATH=/opt/odoo`.
+- Removed `PYTHONPATH` export for `/var/lib/odoo/venv` in `entrypoint.sh` since it is no longer used.
+- Renamed `test-image` to `test-image-script` in `task` script for clarity.
 
 ### Fixed
 

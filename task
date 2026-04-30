@@ -53,7 +53,7 @@ help-table() {
     rows+=("login-podman|[user][token]|Login into registry with podman.")
     rows+=("container-ps||List container processes.")
     rows+=("remove|[name]|Remove containers and volumes.")
-    rows+=("test-image|[folder]|Test Docker image from target folder.")
+    rows+=("test-image-script|[folder]|Test scripts of target Docker image folder.")
     rows+=("test-odoo-version-regex||Test the Odoo module version regex filter.")
     rows+=("===VUEPRESS===| | ")
     rows+=("build-vuepress||Create Vuepress build.")
@@ -944,7 +944,7 @@ test-odoo-version-regex() {
         echo "ADDONS_PATH: $ADDONS_PATH"
 }
 
-test-image() {
+test-image-script() {
     # Test the scripts of the Docker images without starting the enviroment.
     set -e
 
