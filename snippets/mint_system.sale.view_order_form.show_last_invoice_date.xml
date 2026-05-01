@@ -1,0 +1,5 @@
+<data priority="50">
+    <field name="next_invoice_date" position="after">
+        <field name="last_invoice_date"/>
+    </field>
+</data>
