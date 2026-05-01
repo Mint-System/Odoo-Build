@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[hasclass('col-8')]" position="attributes">
+        <attribute name="class">col-7</attribute>
+    </xpath>
+    <xpath expr="//div[hasclass('col-4')]" position="attributes">
+        <attribute name="class">col-5</attribute>
+    </xpath>
+</data>
