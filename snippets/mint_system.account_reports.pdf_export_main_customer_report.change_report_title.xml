@@ -1,0 +1,10 @@
+<data priority="50">
+    <xpath expr="//t[@t-out='report_title']" position="replace">
+        <t t-if="report.id == report.env.ref('account_reports.followup_report').id">
+                <span>Zahlungserinnerung</span>
+        </t>
+        <t t-else="">
+            <t t-out="report_title"/>
+        </t>
+    </xpath>
+</data>
