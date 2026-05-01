@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='calendar_id']" position="after">
+        <field name="time_type"/>
+    </xpath>
+</data>
