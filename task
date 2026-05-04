@@ -1475,12 +1475,12 @@ test-project() {
     # This starts the Docker environment and uses internal and external tools to run commands.
 
     if [[ "$1" == "cleanup" ]]; then
-        echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment."
+        echo -e "\033[38;5;214mTEST\033[0m: Cleanup test environment"
         drop-db test
         remove odoo
+        docker volume rm odoo-build_odoo-data
         git -C oca/partner-contact clean -df
         git -C oca/partner-contact checkout .
-        remove-dotenv test
     else
         version
         info
@@ -1489,18 +1489,18 @@ test-project() {
         echo -e "\033[38;5;214mTEST\033[0m: Clone module repo with https"
         (git clone -b "$ODOO_VERSION" https://github.com/OCA/partner-contact.git oca/partner-contact) || true
 
-        echo -e "\033[38;5;214mTEST\033[0m: Start container environment."
+        echo -e "\033[38;5;214mTEST\033[0m: Start container environment"
         export BROWSER_OPEN=false
         start db,mail
 
-        echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons."
+        echo -e "\033[38;5;214mTEST\033[0m: Clone Odoo addons"
         generate-ssh-keys
         export GIT_SSH_PRIVATE_KEY
         export GIT_SSH_PUBLIC_KEY
         export ADDONS_GIT_REPOS="https://github.com/OCA/server-env.git#${ODOO_VERSION},https://github.com/OCA/server-tools.git#${ODOO_VERSION},https://github.com/Mint-System/Odoo-Apps-Server-Tools.git#${ODOO_VERSION}"
         run odoo clone-git-addons
 
-        echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database."
+        echo -e "\033[38;5;214mTEST\033[0m: Init Odoo database"
         export ODOO_ADDONS_PATH="/mnt/oca/partner-contact"
         export DB_NAME=test
         export WITHOUT_DEMO=False
@@ -1511,7 +1511,7 @@ test-project() {
         export PYTHON_INSTALL=prometheus-client,manifestoo
         run odoo init-db
 
-        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container."
+        echo -e "\033[38;5;214mTEST\033[0m: Start Odoo container"
         export ODOO_MAIL_SMTP_HOST=mail
         export ODOO_MAIL_SMTP_PORT=1025
         export ODOO_MAIL_SMTP_ENCRYPTION=none
@@ -1537,7 +1537,7 @@ test-project() {
             ELAPSED=$((ELAPSED + 3))
         done
 
-        echo -e "\033[38;5;214mTEST\033[0m: Setup requirements.txt file."
+        echo -e "\033[38;5;214mTEST\033[0m: Setup requirements.txt file"
         exec odoo bash -c "echo 'click>=8.0.0' > /var/lib/odoo/requirements.txt"
         exec odoo install-python-packages
 
@@ -1550,7 +1550,7 @@ test-project() {
             exit 1
         fi
 
-        echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file."
+        echo -e "\033[38;5;214mTEST\033[0m: Init repos.yml file"
         cat << EOF > tmp/repos.yml
 github.com/Mint-System/Odoo-Apps-Partner-Contact:
     remotes:
@@ -1562,10 +1562,10 @@ EOF
         docker cp tmp/repos.yml odoo:/var/lib/odoo/git/repos.yml
         exec odoo aggregate-git-repos
 
-        echo -e "\033[38;5;214mTEST\033[0m: Init OCA module."
+        echo -e "\033[38;5;214mTEST\033[0m: Init OCA module"
         exec odoo init-module partner_firstname
 
-        echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials."
+        echo -e "\033[38;5;214mTEST\033[0m: Setup and check RPC credentials"
         export ODOO_URL="http://localhost:8069"
         export ODOO_DATABASE=test
         export ODOO_USERNAME=test
@@ -1576,28 +1576,26 @@ EOF
         show-dotenv test
         test-xmlrpc test
 
-        echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet."
+        echo -e "\033[38;5;214mTEST\033[0m: Install, update, disable and remove snippet"
         install-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
         update-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
         disable-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
         remove-snippet test snippets/mint_system.base.view_partner_form.show_type.xml
 
-        echo -e "\033[38;5;214mTEST\033[0m: Check module auto update."
+        echo -e "\033[38;5;214mTEST\033[0m: Check module auto update"
         sed -i 's/First name/Firstname/g' oca/partner-contact/partner_firstname/models/res_partner.py
         exec odoo update-modules
         # FIXME: Check if module is auto updated
         # docker logs odoo 2>&1 | grep "Run click-odoo-update."
 
-        echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update."
+        echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update"
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
         restart odoo
         # FIXME: Check if translations updated
         # docker logs odoo 2>&1 | grep "Updating translations for all active languages and installed modules."
 
-        echo -e "\033[38;5;214mTEST\033[0m: Drop the test database."
-        drop-db test
-
         # FIXME: These tests do not work in GitHub Runner env.
+
         # echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
         # exec odoo setup-tests
         # exec odoo ls /var/lib/odoo/git/github.com/Mint-System/Odoo-Apps-Partner-Contact
@@ -1606,7 +1604,7 @@ EOF
         # CONTAINER_EXEC_PARAM="-w /mnt/oca/partner-contact"
         # exec odoo run-tests
 
-        echo -e "\033[38;5;214mTEST\033[0m: Run module migration."
+        echo -e "\033[38;5;214mTEST\033[0m: Run module migration"
         echo "Setup pre migration script for partner_firstname..."
         mkdir -p oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0
         cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0/pre-migrate.py
@@ -1615,14 +1613,11 @@ from odoo.upgrade import util
 
 _logger = logging.getLogger(__name__)
 
-
 def migrate(cr, version):
     env = util.env(cr)
-
     partners = env["res.partner"].search([])
     for partner in partners:
         partner.name += "!"
-
     _logger.info("Updated %s partners", len(partners))
 EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
@@ -1630,6 +1625,9 @@ EOF
         exec odoo update-module partner_firstname
         # FIXME: Check if module is migrated
         # docker logs odoo 2>&1 | grep "module partner_firstname: Running migration"
+
+        # echo -e "\033[38;5;214mTEST\033[0m: Drop the test database"
+        # drop-db test
     fi
 }
 
