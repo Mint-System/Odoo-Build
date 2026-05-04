@@ -25,9 +25,9 @@ help-table() {
     rows+=("show-dotenv|[env]|Output content of the .env file.")
     rows+=("===GIT===| | ")
     rows+=("aggregate-git-folders|[path]|Run gitaggregate for the repos.yaml.")
-    rows+=("add-git-folder|[branch][url][path]|Add git folder to .gitmodules and .gitmodule.csv.")
+    rows+=("add-git-folder|[branch][url][path]|Add git folder to .gitmodules.")
     rows+=("checkout|[version]|Checkout Odoo version.")
-    rows+=("checkout-git-folder|[branch][path]|Checkout git commit from .gitmodules.csv.")
+    rows+=("checkout-git-folder|[branch][path]|Checkout git commit from .gitmodules.")
     rows+=("commit-git-folder|[message][path]|Commit all changes in path.")
     rows+=("clean-git-folder|[path]|Clean git folder.")
     rows+=("clone-git-folder|[branch][path][version]|Clone git folder listed in the .gitmodules file.")
@@ -2697,9 +2697,8 @@ load-version() {
         ODOO_VERSION="$1"
     fi
 
-    echo "Copy .gitmodules, .gitmodules.csv and .python-version from 'versions/$ODOO_VERSION'."
+    echo "Copy .gitmodules and .python-version from 'versions/$ODOO_VERSION'."
     cp "versions/$ODOO_VERSION/.gitmodules" .
-    cp "versions/$ODOO_VERSION/.gitmodules.csv" .
     cp "versions/$ODOO_VERSION/.python-version" .
 }
 
