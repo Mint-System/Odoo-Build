@@ -1591,9 +1591,14 @@ EOF
         echo -e "\033[38;5;214mTEST\033[0m: Check translations auto update"
         sed -i 's/Nachname/Familienname/g' oca/partner-contact/partner_firstname/i18n/de.po
         restart odoo
-        # FIXME: Check if translations updated
+        sleep 3
+        # FIXME: Check if translation is updated
         # docker logs odoo 2>&1 | grep "Updating translations for all active languages and installed modules."
-
+        field_description=$(task shell test "print(env.ref('partner_firstname.field_res_partner__lastname').field_description)")
+        if [[ "$user_count" != "Familienname" ]]; then
+            log-error "Expected 'Familienname' field description, but got $field_description"
+            exit 1
+        fi
         # FIXME: These tests do not work in GitHub Runner env.
 
         # echo -e "\033[38;5;214mTEST\033[0m: Prepare container for testing."
@@ -1623,6 +1628,12 @@ EOF
         sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.9.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
         echo "Execute the module upgrade."
         exec odoo update-module partner_firstname
+        partner_count=$(task shell test "print(env['res.partner'].search_count([('name','=','Mitchell Adminx')]))")
+        if [[ "$user_count" != "1" ]]; then
+            log-error "Expected 1 partner, but got $partner_count"
+            exit 1
+        fi
+
         # FIXME: Check if module is migrated
         # docker logs odoo 2>&1 | grep "module partner_firstname: Running migration"
 
