@@ -1606,8 +1606,8 @@ EOF
 
         echo -e "\033[38;5;214mTEST\033[0m: Run module migration"
         echo "Setup pre migration script for partner_firstname..."
-        mkdir -p oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0
-        cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.2.0.0/pre-migrate.py
+        mkdir -p oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.9.0.0
+        cat << EOF > oca/partner-contact/partner_firstname/migrations/${ODOO_VERSION}.9.0.0/pre-migrate.py
 import logging
 from odoo.upgrade import util
 
@@ -1617,10 +1617,10 @@ def migrate(cr, version):
     env = util.env(cr)
     partners = env["res.partner"].search([])
     for partner in partners:
-        partner.name += "!"
+        partner.name += "x"
     _logger.info("Updated %s partners", len(partners))
 EOF
-        sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.2.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
+        sed -i "/\"version\":/c\    \"version\": \"${ODOO_VERSION}.9.0.0\"," oca/partner-contact/partner_firstname/__manifest__.py
         echo "Execute the module upgrade."
         exec odoo update-module partner_firstname
         # FIXME: Check if module is migrated
