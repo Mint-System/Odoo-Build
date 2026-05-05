@@ -4,8 +4,7 @@
 
 ### Hygentile Url
 
-ID: `mint_system.website.option_header_brand_logo.hygentile_url`
-
+ID: `mint_system.website.option_header_brand_logo.hygentile_url`\
 Inherit ID: `website.option_header_brand_logo`
 
 ```xml
@@ -15,14 +14,12 @@ Inherit ID: `website.option_header_brand_logo`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)
-
+Edit: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)\
 Source: [snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml](https://odoo.build/snippets/mint_system.website.option_header_brand_logo.hygentile_url.xml)
 
 ### Korporation Url
 
-ID: `mint_system.website.option_header_brand_logo.korporation_url`
-
+ID: `mint_system.website.option_header_brand_logo.korporation_url`\
 Inherit ID: `website.option_header_brand_logo`
 
 ```xml
@@ -32,16 +29,14 @@ Inherit ID: `website.option_header_brand_logo`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.website.option_header_brand_logo.korporation_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.korporation_url.xml)
-
+Edit: [snippets/mint_system.website.option_header_brand_logo.korporation_url.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.option_header_brand_logo.korporation_url.xml)\
 Source: [snippets/mint_system.website.option_header_brand_logo.korporation_url.xml](https://odoo.build/snippets/mint_system.website.option_header_brand_logo.korporation_url.xml)
 
 ## Website Search Box Input
 
 ### Hide Search Form
 
-ID: `mint_system.website.website_search_box_input.hide_search_form`
-
+ID: `mint_system.website.website_search_box_input.hide_search_form`\
 Inherit ID: `website.website_search_box_input`
 
 ```xml
@@ -52,7 +47,6 @@ Inherit ID: `website.website_search_box_input`
 </data>
 
 ```
-Edit: [snippets/mint_system.website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.website_search_box_input.hide_search_form.xml)
-
+Edit: [snippets/mint_system.website.website_search_box_input.hide_search_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website.website_search_box_input.hide_search_form.xml)\
 Source: [snippets/mint_system.website.website_search_box_input.hide_search_form.xml](https://odoo.build/snippets/mint_system.website.website_search_box_input.hide_search_form.xml)
 

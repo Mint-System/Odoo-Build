@@ -4,8 +4,7 @@
 
 ### Remove Break
 
-ID: `mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break`
-
+ID: `mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break`\
 Inherit ID: `hr_attendance_kanban.view_hr_attendance_employee_kanban`
 
 ```xml
@@ -14,7 +13,6 @@ Inherit ID: `hr_attendance_kanban.view_hr_attendance_employee_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml)
-
+Edit: [snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml)\
 Source: [snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml](https://odoo.build/snippets/mint_system.hr_attendance_kanban.view_hr_attendance_employee_kanban.remove_break.xml)
 

@@ -4,8 +4,7 @@
 
 ### Hide Optional Products
 
-ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`
-
+ID: `mint_system.sale_management.sale_order_form_quote.hide_optional_products`\
 Inherit ID: `sale_management.sale_order_form_quote`
 
 ```xml
@@ -16,7 +15,6 @@ Inherit ID: `sale_management.sale_order_form_quote`
 </data>
 
 ```
-Edit: [snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml)
-
+Edit: [snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml)\
 Source: [snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml](https://odoo.build/snippets/mint_system.sale_management.sale_order_form_quote.hide_optional_products.xml)
 

@@ -4,8 +4,7 @@
 
 ### Add Action Time Off Dashboard
 
-ID: `mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard`
-
+ID: `mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard`\
 Inherit ID: `hr.hr_employee_public_view_form`
 
 ```xml
@@ -24,16 +23,14 @@ Inherit ID: `hr.hr_employee_public_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_form.add_action_time_off_dashboard.xml)
 
 ## Hr Employee Public View Kanban
 
 ### Add Mobile Phone
 
-ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`
-
+ID: `mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone`\
 Inherit ID: `hr.hr_employee_public_view_kanban`
 
 ```xml
@@ -46,14 +43,12 @@ Inherit ID: `hr.hr_employee_public_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_kanban.add_mobile_phone.xml)
 
 ### Show Identification Id
 
-ID: `mint_system.hr.hr_employee_public_view_kanban.show_identification_id`
-
+ID: `mint_system.hr.hr_employee_public_view_kanban.show_identification_id`\
 Inherit ID: `hr.hr_employee_public_view_kanban`
 
 ```xml
@@ -71,14 +66,12 @@ Inherit ID: `hr.hr_employee_public_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_kanban.show_identification_id.xml)
 
 ### Show Leave
 
-ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`
-
+ID: `mint_system.hr.hr_employee_public_view_kanban.show_leave`\
 Inherit ID: `hr.hr_employee_public_view_kanban`
 
 ```xml
@@ -97,16 +90,14 @@ Inherit ID: `hr.hr_employee_public_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_kanban.show_leave.xml)
 
 ## Hr Employee Public View Tree
 
 ### Add Mobile Phone
 
-ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`
-
+ID: `mint_system.hr.hr_employee_public_view_tree.add_mobile_phone`\
 Inherit ID: `hr.hr_employee_public_view_tree`
 
 ```xml
@@ -117,14 +108,12 @@ Inherit ID: `hr.hr_employee_public_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_tree.add_mobile_phone.xml)
 
 ### Show Birthday Public
 
-ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`
-
+ID: `mint_system.hr.hr_employee_public_view_tree.show_birthday_public`\
 Inherit ID: `hr.hr_employee_public_view_tree`
 
 ```xml
@@ -135,16 +124,14 @@ Inherit ID: `hr.hr_employee_public_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml)
-
+Edit: [snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml)\
 Source: [snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml](https://odoo.build/snippets/mint_system.hr.hr_employee_public_view_tree.show_birthday_public.xml)
 
 ## Hr Kanban View Employees
 
 ### Add Mobile Phone
 
-ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`
-
+ID: `mint_system.hr.hr_kanban_view_employees.add_mobile_phone`\
 Inherit ID: `hr.hr_kanban_view_employees`
 
 ```xml
@@ -157,16 +144,14 @@ Inherit ID: `hr.hr_kanban_view_employees`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml)
-
+Edit: [snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml)\
 Source: [snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml](https://odoo.build/snippets/mint_system.hr.hr_kanban_view_employees.add_mobile_phone.xml)
 
 ## Plan Wizard
 
 ### Plan Permission
 
-ID: `mint_system.hr.plan_wizard.plan_permission`
-
+ID: `mint_system.hr.plan_wizard.plan_permission`\
 Inherit ID: `hr.plan_wizard`
 
 ```xml
@@ -177,16 +162,14 @@ Inherit ID: `hr.plan_wizard`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.plan_wizard.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.plan_wizard.plan_permission.xml)
-
+Edit: [snippets/mint_system.hr.plan_wizard.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.plan_wizard.plan_permission.xml)\
 Source: [snippets/mint_system.hr.plan_wizard.plan_permission.xml](https://odoo.build/snippets/mint_system.hr.plan_wizard.plan_permission.xml)
 
 ## Res Users View Form Profile
 
 ### Show Identification Id
 
-ID: `mint_system.hr.res_users_view_form_profile.show_identification_id`
-
+ID: `mint_system.hr.res_users_view_form_profile.show_identification_id`\
 Inherit ID: `hr.res_users_view_form_profile`
 
 ```xml
@@ -199,16 +182,14 @@ Inherit ID: `hr.res_users_view_form_profile`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml)
-
+Edit: [snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml)\
 Source: [snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml](https://odoo.build/snippets/mint_system.hr.res_users_view_form_profile.show_identification_id.xml)
 
 ## View Employee Form
 
 ### Plan Permission
 
-ID: `mint_system.hr.view_employee_form.plan_permission`
-
+ID: `mint_system.hr.view_employee_form.plan_permission`\
 Inherit ID: `hr.view_employee_form`
 
 ```xml
@@ -219,14 +200,12 @@ Inherit ID: `hr.view_employee_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.plan_permission.xml)
-
+Edit: [snippets/mint_system.hr.view_employee_form.plan_permission.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.plan_permission.xml)\
 Source: [snippets/mint_system.hr.view_employee_form.plan_permission.xml](https://odoo.build/snippets/mint_system.hr.view_employee_form.plan_permission.xml)
 
 ### Show Last Attendance
 
-ID: `mint_system.hr.view_employee_form.show_last_attendance`
-
+ID: `mint_system.hr.view_employee_form.show_last_attendance`\
 Inherit ID: `hr.view_employee_form`
 
 ```xml
@@ -237,14 +216,12 @@ Inherit ID: `hr.view_employee_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.view_employee_form.show_last_attendance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.show_last_attendance.xml)
-
+Edit: [snippets/mint_system.hr.view_employee_form.show_last_attendance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.show_last_attendance.xml)\
 Source: [snippets/mint_system.hr.view_employee_form.show_last_attendance.xml](https://odoo.build/snippets/mint_system.hr.view_employee_form.show_last_attendance.xml)
 
 ### User Id Domain
 
-ID: `mint_system.hr.view_employee_form.user_id_domain`
-
+ID: `mint_system.hr.view_employee_form.user_id_domain`\
 Inherit ID: `hr.view_employee_form`
 
 ```xml
@@ -255,16 +232,14 @@ Inherit ID: `hr.view_employee_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.view_employee_form.user_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.user_id_domain.xml)
-
+Edit: [snippets/mint_system.hr.view_employee_form.user_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_form.user_id_domain.xml)\
 Source: [snippets/mint_system.hr.view_employee_form.user_id_domain.xml](https://odoo.build/snippets/mint_system.hr.view_employee_form.user_id_domain.xml)
 
 ## View Employee Tree
 
 ### Add Mobile Phone
 
-ID: `mint_system.hr.view_employee_tree.add_mobile_phone`
-
+ID: `mint_system.hr.view_employee_tree.add_mobile_phone`\
 Inherit ID: `hr.view_employee_tree`
 
 ```xml
@@ -275,16 +250,14 @@ Inherit ID: `hr.view_employee_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml)
-
+Edit: [snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml)\
 Source: [snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml](https://odoo.build/snippets/mint_system.hr.view_employee_tree.add_mobile_phone.xml)
 
 ## View Hr Job Form
 
 ### Description Widget Html
 
-ID: `mint_system.hr.view_hr_job_form.description_widget_html`
-
+ID: `mint_system.hr.view_hr_job_form.description_widget_html`\
 Inherit ID: `hr.view_hr_job_form`
 
 ```xml
@@ -295,7 +268,6 @@ Inherit ID: `hr.view_hr_job_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml)
-
+Edit: [snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml)\
 Source: [snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml](https://odoo.build/snippets/mint_system.hr.view_hr_job_form.description_widget_html.xml)
 

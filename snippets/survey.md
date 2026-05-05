@@ -4,8 +4,7 @@
 
 ### Remove Brand Promotion Message
 
-ID: `mint_system.survey.layout.remove_brand_promotion_message`
-
+ID: `mint_system.survey.layout.remove_brand_promotion_message`\
 Inherit ID: `survey.layout`
 
 ```xml
@@ -14,14 +13,12 @@ Inherit ID: `survey.layout`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.layout.remove_brand_promotion_message.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.layout.remove_brand_promotion_message.xml)
-
+Edit: [snippets/mint_system.survey.layout.remove_brand_promotion_message.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.layout.remove_brand_promotion_message.xml)\
 Source: [snippets/mint_system.survey.layout.remove_brand_promotion_message.xml](https://odoo.build/snippets/mint_system.survey.layout.remove_brand_promotion_message.xml)
 
 ### Set Head Title
 
-ID: `mint_system.survey.layout.set_head_title`
-
+ID: `mint_system.survey.layout.set_head_title`\
 Inherit ID: `survey.layout`
 
 ```xml
@@ -35,16 +32,14 @@ Inherit ID: `survey.layout`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.layout.set_head_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.layout.set_head_title.xml)
-
+Edit: [snippets/mint_system.survey.layout.set_head_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.layout.set_head_title.xml)\
 Source: [snippets/mint_system.survey.layout.set_head_title.xml](https://odoo.build/snippets/mint_system.survey.layout.set_head_title.xml)
 
 ## Survey Question Form
 
 ### Add Button Start Survey
 
-ID: `mint_system.survey.survey_question_form.add_button_start_survey`
-
+ID: `mint_system.survey.survey_question_form.add_button_start_survey`\
 Inherit ID: `survey.survey_question_form`
 
 ```xml
@@ -55,14 +50,12 @@ Inherit ID: `survey.survey_question_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml)
-
+Edit: [snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml)\
 Source: [snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml](https://odoo.build/snippets/mint_system.survey.survey_question_form.add_button_start_survey.xml)
 
 ### Enable Create
 
-ID: `mint_system.survey.survey_question_form.enable_create`
-
+ID: `mint_system.survey.survey_question_form.enable_create`\
 Inherit ID: `survey.survey_question_form`
 
 ```xml
@@ -73,16 +66,14 @@ Inherit ID: `survey.survey_question_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.survey_question_form.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_form.enable_create.xml)
-
+Edit: [snippets/mint_system.survey.survey_question_form.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_form.enable_create.xml)\
 Source: [snippets/mint_system.survey.survey_question_form.enable_create.xml](https://odoo.build/snippets/mint_system.survey.survey_question_form.enable_create.xml)
 
 ## Survey Question Tree
 
 ### Enable Create
 
-ID: `mint_system.survey.survey_question_tree.enable_create`
-
+ID: `mint_system.survey.survey_question_tree.enable_create`\
 Inherit ID: `survey.survey_question_tree`
 
 ```xml
@@ -93,16 +84,14 @@ Inherit ID: `survey.survey_question_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_tree.enable_create.xml)
-
+Edit: [snippets/mint_system.survey.survey_question_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_question_tree.enable_create.xml)\
 Source: [snippets/mint_system.survey.survey_question_tree.enable_create.xml](https://odoo.build/snippets/mint_system.survey.survey_question_tree.enable_create.xml)
 
 ## Survey User Input View Tree
 
 ### X Department Id
 
-ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`
-
+ID: `mint_system.survey.survey_user_input_view_tree.x_department_id`\
 Inherit ID: `survey.survey_user_input_view_tree`
 
 ```xml
@@ -113,14 +102,12 @@ Inherit ID: `survey.survey_user_input_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml)
-
+Edit: [snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml)\
 Source: [snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml](https://odoo.build/snippets/mint_system.survey.survey_user_input_view_tree.x_department_id.xml)
 
 ### X Manager Id
 
-ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`
-
+ID: `mint_system.survey.survey_user_input_view_tree.x_manager_id`\
 Inherit ID: `survey.survey_user_input_view_tree`
 
 ```xml
@@ -131,7 +118,6 @@ Inherit ID: `survey.survey_user_input_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml)
-
+Edit: [snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml)\
 Source: [snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml](https://odoo.build/snippets/mint_system.survey.survey_user_input_view_tree.x_manager_id.xml)
 

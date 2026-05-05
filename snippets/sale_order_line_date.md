@@ -4,8 +4,7 @@
 
 ### Hide In State Draft
 
-ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`
-
+ID: `mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft`\
 Inherit ID: `sale_order_line_date.report_saleorder_document`
 
 ```xml
@@ -21,7 +20,6 @@ Inherit ID: `sale_order_line_date.report_saleorder_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
-
+Edit: [snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)\
 Source: [snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml](https://odoo.build/snippets/mint_system.sale_order_line_date.report_saleorder_document.hide_in_state_draft.xml)
 

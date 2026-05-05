@@ -4,8 +4,7 @@
 
 ### Hide Next Maintenance Date
 
-ID: `mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date`
-
+ID: `mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date`\
 Inherit ID: `maintenance_plan.maintenance_plan_view_form`
 
 ```xml
@@ -14,7 +13,6 @@ Inherit ID: `maintenance_plan.maintenance_plan_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml)
-
+Edit: [snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml)\
 Source: [snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml](https://odoo.build/snippets/mint_system.maintenance_plan.maintenance_plan_view_form.hide_next_maintenance_date.xml)
 

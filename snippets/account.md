@@ -4,8 +4,7 @@
 
 ### Replace Summary
 
-ID: `mint_system.account.document_tax_totals.replace_summary`
-
+ID: `mint_system.account.document_tax_totals.replace_summary`\
 Inherit ID: `account.document_tax_totals`
 
 ```xml
@@ -102,16 +101,14 @@ Inherit ID: `account.document_tax_totals`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.document_tax_totals.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.document_tax_totals.replace_summary.xml)
-
+Edit: [snippets/mint_system.account.document_tax_totals.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.document_tax_totals.replace_summary.xml)\
 Source: [snippets/mint_system.account.document_tax_totals.replace_summary.xml](https://odoo.build/snippets/mint_system.account.document_tax_totals.replace_summary.xml)
 
 ## Email Template Edi Invoice
 
 ### Translation Mint System
 
-ID: `mint_system.account.email_template_edi_invoice.translation_mint_system`
-
+ID: `mint_system.account.email_template_edi_invoice.translation_mint_system`\
 Inherit ID: `account.email_template_edi_invoice`
 
 ```xml
@@ -155,39 +152,14 @@ Inherit ID: `account.email_template_edi_invoice`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml)
-
+Edit: [snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml)\
 Source: [snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml](https://odoo.build/snippets/mint_system.account.email_template_edi_invoice.translation_mint_system.xml)
-
-## Knowledge
-
-### Knowledge Article View Form
-
-ID: `mint_system.account.knowledge.knowledge_article_view_form`
-
-Inherit ID: `account.knowledge`
-
-```xml
-<data priority="50">
-    <xpath expr="//div[hasclass('o_knowledge_body')]" position="before">
-        <style>
-            .odoo-editor-editable {
-              max-width: 100% !important;
-            }
-        </style>
-    </xpath>
-</data>
-```
-Edit: [snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml)
-
-Source: [snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml](https://odoo.build/snippets/mint_system.account.knowledge.knowledge_article_view_form.style_max_width.xml)
 
 ## Portal Invoice Page
 
 ### Convert Html Note
 
-ID: `mint_system.account.portal_invoice_page.convert_html_note`
-
+ID: `mint_system.account.portal_invoice_page.convert_html_note`\
 Inherit ID: `account.portal_invoice_page`
 
 ```xml
@@ -207,16 +179,14 @@ Inherit ID: `account.portal_invoice_page`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.portal_invoice_page.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.portal_invoice_page.convert_html_note.xml)
-
+Edit: [snippets/mint_system.account.portal_invoice_page.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.portal_invoice_page.convert_html_note.xml)\
 Source: [snippets/mint_system.account.portal_invoice_page.convert_html_note.xml](https://odoo.build/snippets/mint_system.account.portal_invoice_page.convert_html_note.xml)
 
 ## Report Invoice
 
 ### Print With Payments
 
-ID: `mint_system.account.report_invoice.print_with_payments`
-
+ID: `mint_system.account.report_invoice.print_with_payments`\
 Inherit ID: `account.report_invoice`
 
 ```xml
@@ -227,16 +197,14 @@ Inherit ID: `account.report_invoice`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice.print_with_payments.xml)
-
+Edit: [snippets/mint_system.account.report_invoice.print_with_payments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice.print_with_payments.xml)\
 Source: [snippets/mint_system.account.report_invoice.print_with_payments.xml](https://odoo.build/snippets/mint_system.account.report_invoice.print_with_payments.xml)
 
 ## Report Invoice Document
 
 ### Add Address
 
-ID: `mint_system.account.report_invoice_document.add_address`
-
+ID: `mint_system.account.report_invoice_document.add_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -392,14 +360,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_address.xml)
 
 ### Add Address Space
 
-ID: `mint_system.account.report_invoice_document.add_address_space`
-
+ID: `mint_system.account.report_invoice_document.add_address_space`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -414,14 +380,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_address_space.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_address_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_address_space.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_address_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_address_space.xml)
 
 ### Add Bocco Id
 
-ID: `mint_system.account.report_invoice_document.add_bocco_id`
-
+ID: `mint_system.account.report_invoice_document.add_bocco_id`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -434,14 +398,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_bocco_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_bocco_id.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_bocco_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_bocco_id.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_bocco_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_bocco_id.xml)
 
 ### Add Comment Space
 
-ID: `mint_system.account.report_invoice_document.add_comment_space`
-
+ID: `mint_system.account.report_invoice_document.add_comment_space`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -458,14 +420,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_comment_space.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_comment_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_comment_space.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_comment_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_comment_space.xml)
 
 ### Add Company Vat
 
-ID: `mint_system.account.report_invoice_document.add_company_vat`
-
+ID: `mint_system.account.report_invoice_document.add_company_vat`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -480,14 +440,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_company_vat.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_company_vat.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_company_vat.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_company_vat.xml)
 
 ### Add Current Subtotal Space
 
-ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`
-
+ID: `mint_system.account.report_invoice_document.add_current_subtotal_space`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -500,33 +458,30 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_current_subtotal_space.xml)
 
 ### Add Footer Text
 
-ID: `mint_system.account.report_invoice_document.add_footer_text`
-
+ID: `mint_system.account.report_invoice_document.add_footer_text`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
-<data priority="50">
+<data inherit_id="account.report_invoice_document" priority="50">
     <xpath expr="//div[@id='payment_term']" position="after">
         <t t-if="o.partner_shipping_id.country_id.id == 57">
        Verlagerung der Steuerschuld auf den Leistungs- und Rechnungsempfänger (Empfängerortprinzip gem. Art. 8 MWST).
         </t>
     </xpath>
 </data>
-```
-Edit: [snippets/mint_system.account.report_invoice_document.add_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_footer_text.xml)
 
+```
+Edit: [snippets/mint_system.account.report_invoice_document.add_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_footer_text.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_footer_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_footer_text.xml)
 
 ### Add General Information
 
-ID: `mint_system.account.report_invoice_document.add_general_information`
-
+ID: `mint_system.account.report_invoice_document.add_general_information`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -536,7 +491,7 @@ Inherit ID: `account.report_invoice_document`
 
         <table style="margin-left: 0px; margin-top: 30px; border: transparent">
             <tr style="height: 100px;">
-                <td style="width: 335px; line-height: 1.3; padding-bottom: 0px">               
+                <td style="width: 335px; line-height: 1.3; padding-bottom: 0px">
                     <t t-if="o.company_id.id == 2">
                         The General Terms and Conditions of
                         <t t-out="o.company_id.name"/> apply.
@@ -545,7 +500,7 @@ Inherit ID: `account.report_invoice_document`
                             <span t-out="o.company_id.website.replace('http://', '').replace('https://', '')"/>.
                         </t>
                     </t>
-                    <t t-if="o.company_id.id == 1">
+                    <t t-if="o.company_id.id == 1 and o.move_type == 'out_invoice' ">
                     <div style="font-weight: bold; padding-bottom: 5px">
                         <span>Payment Instructions - Use SEPA payment if possible!</span>
                     </div>
@@ -567,7 +522,7 @@ Inherit ID: `account.report_invoice_document`
                             <span>)</span>
                             <span>IBAN:</span>
                             <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].acc_number"/>
-                            
+
                         </t>
                     </div>
                     <div>
@@ -585,10 +540,12 @@ Inherit ID: `account.report_invoice_document`
                 </td>
                 <td style="width: 40px"/>
                 <td style="width: 300px; vertical-align: top">
+                    <t t-if="o.move_type == 'out_invoice' ">
                     <div style="font-weight: bold; padding-bottom: 15px">
                         <span>Payable until: </span>
                         <span t-field="o.invoice_payment_term_id"/>
                     </div>
+                    </t>
                 <t t-if="o.company_id.id == 2">
                     <div>
                         <t>
@@ -609,14 +566,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_general_information.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_general_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_general_information.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_general_information.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_general_information.xml)
 
 ### Add Head
 
-ID: `mint_system.account.report_invoice_document.add_head`
-
+ID: `mint_system.account.report_invoice_document.add_head`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -628,14 +583,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_head.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_head.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_head.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_head.xml)
 
 ### Add Header And Footer Note
 
-ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`
-
+ID: `mint_system.account.report_invoice_document.add_header_and_footer_note`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -653,14 +606,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_and_footer_note.xml)
 
 ### Add Header Padding
 
-ID: `mint_system.account.report_invoice_document.add_header_padding`
-
+ID: `mint_system.account.report_invoice_document.add_header_padding`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -671,14 +622,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_header_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_padding.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_header_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_padding.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_header_padding.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_padding.xml)
 
 ### Add Header Space
 
-ID: `mint_system.account.report_invoice_document.add_header_space`
-
+ID: `mint_system.account.report_invoice_document.add_header_space`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -689,21 +638,19 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_space.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_space.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_header_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_space.xml)
 
 ### Add Header Text
 
-ID: `mint_system.account.report_invoice_document.add_header_text`
-
+ID: `mint_system.account.report_invoice_document.add_header_text`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="50">
     <xpath expr="//table[@name='invoice_line_table']" position="before">
     <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])">
-            
+
         <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_blanket_order') if x])"/>
 
         </t>
@@ -711,14 +658,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_text.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_header_text.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_header_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_header_text.xml)
 
 ### Add Iban
 
-ID: `mint_system.account.report_invoice_document.add_iban`
-
+ID: `mint_system.account.report_invoice_document.add_iban`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -771,14 +716,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_iban.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_iban.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_iban.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_iban.xml)
 
 ### Add Iban And Bank
 
-ID: `mint_system.account.report_invoice_document.add_iban_and_bank`
-
+ID: `mint_system.account.report_invoice_document.add_iban_and_bank`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -802,14 +745,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_iban_and_bank.xml)
 
 ### Add Information Space
 
-ID: `mint_system.account.report_invoice_document.add_information_space`
-
+ID: `mint_system.account.report_invoice_document.add_information_space`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -825,14 +766,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_information_space.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_information_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_information_space.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_information_space.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_information_space.xml)
 
 ### Add Membership Note
 
-ID: `mint_system.account.report_invoice_document.add_membership_note`
-
+ID: `mint_system.account.report_invoice_document.add_membership_note`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -849,14 +788,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_membership_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_membership_note.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_membership_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_membership_note.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_membership_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_membership_note.xml)
 
 ### Add Note
 
-ID: `mint_system.account.report_invoice_document.add_note`
-
+ID: `mint_system.account.report_invoice_document.add_note`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -913,14 +850,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_note.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_note.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_note.xml)
 
 ### Add Order Footer Text
 
-ID: `mint_system.account.report_invoice_document.add_order_footer_text`
-
+ID: `mint_system.account.report_invoice_document.add_order_footer_text`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -934,14 +869,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_order_footer_text.xml)
 
 ### Add Percentage Sign
 
-ID: `mint_system.account.report_invoice_document.add_percentage_sign`
-
+ID: `mint_system.account.report_invoice_document.add_percentage_sign`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -953,14 +886,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_percentage_sign.xml)
 
 ### Add Picking Date
 
-ID: `mint_system.account.report_invoice_document.add_picking_date`
-
+ID: `mint_system.account.report_invoice_document.add_picking_date`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -978,14 +909,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_picking_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_picking_date.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_picking_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_picking_date.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_picking_date.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_picking_date.xml)
 
 ### Add Picking Name
 
-ID: `mint_system.account.report_invoice_document.add_picking_name`
-
+ID: `mint_system.account.report_invoice_document.add_picking_name`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1003,14 +932,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_picking_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_picking_name.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_picking_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_picking_name.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_picking_name.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_picking_name.xml)
 
 ### Add Qr Iban
 
-ID: `mint_system.account.report_invoice_document.add_qr_iban`
-
+ID: `mint_system.account.report_invoice_document.add_qr_iban`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1024,14 +951,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_qr_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_qr_iban.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_qr_iban.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_qr_iban.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_qr_iban.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_qr_iban.xml)
 
 ### Add Sale Order Contact Name
 
-ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`
-
+ID: `mint_system.account.report_invoice_document.add_sale_order_contact_name`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1047,14 +972,12 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_sale_order_contact_name.xml)
 
 ### Add Sale Person
 
-ID: `mint_system.account.report_invoice_document.add_sale_person`
-
+ID: `mint_system.account.report_invoice_document.add_sale_person`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1081,14 +1004,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_sale_person.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_sale_person.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_sale_person.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_sale_person.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_sale_person.xml)
 
 ### Add Salesperson
 
-ID: `mint_system.account.report_invoice_document.add_salesperson`
-
+ID: `mint_system.account.report_invoice_document.add_salesperson`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1115,14 +1036,12 @@ Inherit ID: `account.report_invoice_document`
   </xpath> -->
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_salesperson.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_salesperson.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_salesperson.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_salesperson.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_salesperson.xml)
 
 ### Add Taxes
 
-ID: `mint_system.account.report_invoice_document.add_taxes`
-
+ID: `mint_system.account.report_invoice_document.add_taxes`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1147,14 +1066,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_taxes.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.add_taxes.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.add_taxes.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.add_taxes.xml)
 
 ### Align Taxes
 
-ID: `mint_system.account.report_invoice_document.align_taxes`
-
+ID: `mint_system.account.report_invoice_document.align_taxes`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1169,14 +1086,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.align_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.align_taxes.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.align_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.align_taxes.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.align_taxes.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.align_taxes.xml)
 
 ### Bank Account
 
-ID: `mint_system.account.report_invoice_document.bank_account`
-
+ID: `mint_system.account.report_invoice_document.bank_account`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1208,14 +1123,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.bank_account.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.bank_account.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.bank_account.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.bank_account.xml)
 
 ### Convert Html Note
 
-ID: `mint_system.account.report_invoice_document.convert_html_note`
-
+ID: `mint_system.account.report_invoice_document.convert_html_note`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1235,14 +1148,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.convert_html_note.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.convert_html_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.convert_html_note.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.convert_html_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.convert_html_note.xml)
 
 ### Custom Address
 
-ID: `mint_system.account.report_invoice_document.custom_address`
-
+ID: `mint_system.account.report_invoice_document.custom_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1289,14 +1200,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.custom_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.custom_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.custom_address.xml)
 
 ### Custom Payment Term
 
-ID: `mint_system.account.report_invoice_document.custom_payment_term`
-
+ID: `mint_system.account.report_invoice_document.custom_payment_term`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1318,14 +1227,12 @@ Inherit ID: `account.report_invoice_document`
 -->
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.custom_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_payment_term.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.custom_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_payment_term.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.custom_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.custom_payment_term.xml)
 
 ### Custom Taxes
 
-ID: `mint_system.account.report_invoice_document.custom_taxes`
-
+ID: `mint_system.account.report_invoice_document.custom_taxes`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1343,14 +1250,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.custom_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_taxes.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.custom_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.custom_taxes.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.custom_taxes.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.custom_taxes.xml)
 
 ### Display Shipping Address
 
-ID: `mint_system.account.report_invoice_document.display_shipping_address`
-
+ID: `mint_system.account.report_invoice_document.display_shipping_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1368,14 +1273,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.display_shipping_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.display_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.display_shipping_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.display_shipping_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.display_shipping_address.xml)
 
 ### Force Company Vat
 
-ID: `mint_system.account.report_invoice_document.force_company_vat`
-
+ID: `mint_system.account.report_invoice_document.force_company_vat`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1386,14 +1289,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.force_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.force_company_vat.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.force_company_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.force_company_vat.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.force_company_vat.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.force_company_vat.xml)
 
 ### Format Address Blocks
 
-ID: `mint_system.account.report_invoice_document.format_address_blocks`
-
+ID: `mint_system.account.report_invoice_document.format_address_blocks`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1404,14 +1305,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_address_blocks.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_address_blocks.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_address_blocks.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_address_blocks.xml)
 
 ### Format Clearfix
 
-ID: `mint_system.account.report_invoice_document.format_clearfix`
-
+ID: `mint_system.account.report_invoice_document.format_clearfix`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1422,14 +1321,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_clearfix.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_clearfix.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_clearfix.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_clearfix.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_clearfix.xml)
 
 ### Format Description
 
-ID: `mint_system.account.report_invoice_document.format_description`
-
+ID: `mint_system.account.report_invoice_document.format_description`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1440,14 +1337,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_description.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_description.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_description.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_description.xml)
 
 ### Format Discount
 
-ID: `mint_system.account.report_invoice_document.format_discount`
-
+ID: `mint_system.account.report_invoice_document.format_discount`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1465,14 +1360,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_discount.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_discount.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_discount.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_discount.xml)
 
 ### Format Line Total
 
-ID: `mint_system.account.report_invoice_document.format_line_total`
-
+ID: `mint_system.account.report_invoice_document.format_line_total`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1486,14 +1379,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_line_total.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_line_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_line_total.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_line_total.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_line_total.xml)
 
 ### Format Payment Term
 
-ID: `mint_system.account.report_invoice_document.format_payment_term`
-
+ID: `mint_system.account.report_invoice_document.format_payment_term`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1510,14 +1401,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_payment_term.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_payment_term.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_payment_term.xml)
 
 ### Format Pos
 
-ID: `mint_system.account.report_invoice_document.format_pos`
-
+ID: `mint_system.account.report_invoice_document.format_pos`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1528,14 +1417,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_pos.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_pos.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_pos.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_pos.xml)
 
 ### Format Qty Without Decimal
 
-ID: `mint_system.account.report_invoice_document.format_qty_without_decimal`
-
+ID: `mint_system.account.report_invoice_document.format_qty_without_decimal`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1551,14 +1438,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_qty_without_decimal.xml)
 
 ### Format Table Border
 
-ID: `mint_system.account.report_invoice_document.format_table_border`
-
+ID: `mint_system.account.report_invoice_document.format_table_border`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1599,14 +1484,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_border.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_table_border.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_border.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_table_border.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_table_border.xml)
 
 ### Format Table Head
 
-ID: `mint_system.account.report_invoice_document.format_table_head`
-
+ID: `mint_system.account.report_invoice_document.format_table_head`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1621,14 +1504,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_table_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_head.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_table_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_table_head.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_table_head.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_table_head.xml)
 
 ### Format Title
 
-ID: `mint_system.account.report_invoice_document.format_title`
-
+ID: `mint_system.account.report_invoice_document.format_title`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1639,14 +1520,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_title.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_title.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_title.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_title.xml)
 
 ### Format Units
 
-ID: `mint_system.account.report_invoice_document.format_units`
-
+ID: `mint_system.account.report_invoice_document.format_units`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1657,14 +1536,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.format_units.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_units.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.format_units.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.format_units.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.format_units.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.format_units.xml)
 
 ### Get Position
 
-ID: `mint_system.account.report_invoice_document.get_position`
-
+ID: `mint_system.account.report_invoice_document.get_position`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1683,14 +1560,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.get_position.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.get_position.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.get_position.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.get_position.xml)
 
 ### Group By Pickings
 
-ID: `mint_system.account.report_invoice_document.group_by_pickings`
-
+ID: `mint_system.account.report_invoice_document.group_by_pickings`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1801,14 +1676,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_pickings.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.group_by_pickings.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_pickings.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.group_by_pickings.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_pickings.xml)
 
 ### Group By Product
 
-ID: `mint_system.account.report_invoice_document.group_by_product`
-
+ID: `mint_system.account.report_invoice_document.group_by_product`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -1864,14 +1737,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_product.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.group_by_product.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_product.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.group_by_product.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_product.xml)
 
 ### Group By Sale Order
 
-ID: `mint_system.account.report_invoice_document.group_by_sale_order`
-
+ID: `mint_system.account.report_invoice_document.group_by_sale_order`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2012,14 +1883,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.group_by_sale_order.xml)
 
 ### Hide Delivery Date
 
-ID: `mint_system.account.report_invoice_document.hide_delivery_date`
-
+ID: `mint_system.account.report_invoice_document.hide_delivery_date`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2028,14 +1897,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_delivery_date.xml)
 
 ### Hide Incoterm
 
-ID: `mint_system.account.report_invoice_document.hide_incoterm`
-
+ID: `mint_system.account.report_invoice_document.hide_incoterm`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2044,14 +1911,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_incoterm.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_incoterm.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_incoterm.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_incoterm.xml)
 
 ### Hide Partner Id Ref
 
-ID: `mint_system.account.report_invoice_document.hide_partner_id_ref`
-
+ID: `mint_system.account.report_invoice_document.hide_partner_id_ref`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2060,14 +1925,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_partner_id_ref.xml)
 
 ### Hide Payment Term
 
-ID: `mint_system.account.report_invoice_document.hide_payment_term`
-
+ID: `mint_system.account.report_invoice_document.hide_payment_term`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2075,14 +1938,12 @@ Inherit ID: `account.report_invoice_document`
   <xpath expr="//span[@id='payment_terms_note_id']" position="replace"/>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_payment_term.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_payment_term.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_payment_term.xml)
 
 ### Hide Totals Company Currency
 
-ID: `mint_system.account.report_invoice_document.hide_totals_company_currency`
-
+ID: `mint_system.account.report_invoice_document.hide_totals_company_currency`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2091,14 +1952,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_totals_company_currency.xml)
 
 ### Hide Vat
 
-ID: `mint_system.account.report_invoice_document.hide_vat`
-
+ID: `mint_system.account.report_invoice_document.hide_vat`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2110,14 +1969,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.hide_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_vat.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.hide_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.hide_vat.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.hide_vat.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.hide_vat.xml)
 
 ### Margin After Title
 
-ID: `mint_system.account.report_invoice_document.margin_after_title`
-
+ID: `mint_system.account.report_invoice_document.margin_after_title`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2128,14 +1985,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_after_title.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.margin_after_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_after_title.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.margin_after_title.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.margin_after_title.xml)
 
 ### Margin Before Invoice Table
 
-ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`
-
+ID: `mint_system.account.report_invoice_document.margin_before_invoice_table`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2146,14 +2001,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.margin_before_invoice_table.xml)
 
 ### Margin Before Title
 
-ID: `mint_system.account.report_invoice_document.margin_before_title`
-
+ID: `mint_system.account.report_invoice_document.margin_before_title`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2164,14 +2017,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_before_title.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.margin_before_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.margin_before_title.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.margin_before_title.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.margin_before_title.xml)
 
 ### Modify Main Table
 
-ID: `mint_system.account.report_invoice_document.modify_main_table`
-
+ID: `mint_system.account.report_invoice_document.modify_main_table`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2276,14 +2127,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.modify_main_table.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.modify_main_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.modify_main_table.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.modify_main_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.modify_main_table.xml)
 
 ### Move Incoterm
 
-ID: `mint_system.account.report_invoice_document.move_incoterm`
-
+ID: `mint_system.account.report_invoice_document.move_incoterm`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2298,14 +2147,12 @@ Inherit ID: `account.report_invoice_document`
   
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.move_incoterm.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.move_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.move_incoterm.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.move_incoterm.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.move_incoterm.xml)
 
 ### Move Narration
 
-ID: `mint_system.account.report_invoice_document.move_narration`
-
+ID: `mint_system.account.report_invoice_document.move_narration`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2316,14 +2163,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.move_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.move_narration.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.move_narration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.move_narration.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.move_narration.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.move_narration.xml)
 
 ### Net Value Summary
 
-ID: `mint_system.account.report_invoice_document.net_value_summary`
-
+ID: `mint_system.account.report_invoice_document.net_value_summary`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2350,14 +2195,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.net_value_summary.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.net_value_summary.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.net_value_summary.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.net_value_summary.xml)
 
 ### Product Hs Code And Origin
 
-ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`
-
+ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2374,14 +2217,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.product_hs_code_and_origin.xml)
 
 ### Product Weight
 
-ID: `mint_system.account.report_invoice_document.product_weight`
-
+ID: `mint_system.account.report_invoice_document.product_weight`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2395,14 +2236,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.product_weight.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.product_weight.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.product_weight.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.product_weight.xml)
 
 ### Remove Incoterm
 
-ID: `mint_system.account.report_invoice_document.remove_incoterm`
-
+ID: `mint_system.account.report_invoice_document.remove_incoterm`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2412,14 +2251,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_incoterm.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_incoterm.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_incoterm.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_incoterm.xml)
 
 ### Remove Origin
 
-ID: `mint_system.account.report_invoice_document.remove_origin`
-
+ID: `mint_system.account.report_invoice_document.remove_origin`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2428,14 +2265,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_origin.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_origin.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_origin.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_origin.xml)
 
 ### Remove Payment Communication
 
-ID: `mint_system.account.report_invoice_document.remove_payment_communication`
-
+ID: `mint_system.account.report_invoice_document.remove_payment_communication`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2444,14 +2279,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_payment_communication.xml)
 
 ### Remove Payment Term
 
-ID: `mint_system.account.report_invoice_document.remove_payment_term`
-
+ID: `mint_system.account.report_invoice_document.remove_payment_term`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2460,14 +2293,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_payment_term.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_payment_term.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_payment_term.xml)
 
 ### Remove Reference
 
-ID: `mint_system.account.report_invoice_document.remove_reference`
-
+ID: `mint_system.account.report_invoice_document.remove_reference`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2476,14 +2307,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_reference.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_reference.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_reference.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_reference.xml)
 
 ### Remove Shipping Address
 
-ID: `mint_system.account.report_invoice_document.remove_shipping_address`
-
+ID: `mint_system.account.report_invoice_document.remove_shipping_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2492,14 +2321,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_shipping_address.xml)
 
 ### Remove Summary Table
 
-ID: `mint_system.account.report_invoice_document.remove_summary_table`
-
+ID: `mint_system.account.report_invoice_document.remove_summary_table`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2509,14 +2336,28 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_summary_table.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_summary_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_summary_table.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_summary_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_summary_table.xml)
+
+### Remove Table Borderless Class
+
+ID: `mint_system.account.report_invoice_document.remove_table_borderless_class`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <table position="attributes">
+        <attribute name="class" remove="table-borderless" separator=" " />
+    </table>
+</data>
+
+```
+Edit: [snippets/mint_system.account.report_invoice_document.remove_table_borderless_class.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_table_borderless_class.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.remove_table_borderless_class.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_table_borderless_class.xml)
 
 ### Remove Tax Currency
 
-ID: `mint_system.account.report_invoice_document.remove_tax_currency`
-
+ID: `mint_system.account.report_invoice_document.remove_tax_currency`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2526,14 +2367,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_tax_currency.xml)
 
 ### Remove Taxes
 
-ID: `mint_system.account.report_invoice_document.remove_taxes`
-
+ID: `mint_system.account.report_invoice_document.remove_taxes`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2543,14 +2382,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_taxes.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_taxes.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_taxes.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_taxes.xml)
 
 ### Remove Vat Id
 
-ID: `mint_system.account.report_invoice_document.remove_vat_id`
-
+ID: `mint_system.account.report_invoice_document.remove_vat_id`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2560,14 +2397,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.remove_vat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_vat_id.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.remove_vat_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.remove_vat_id.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.remove_vat_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.remove_vat_id.xml)
 
 ### Replace Address
 
-ID: `mint_system.account.report_invoice_document.replace_address`
-
+ID: `mint_system.account.report_invoice_document.replace_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2599,14 +2434,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_address.xml)
 
 ### Replace Address And Information Block
 
-ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`
-
+ID: `mint_system.account.report_invoice_document.replace_address_and_information_block`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2656,14 +2489,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_address_and_information_block.xml)
 
 ### Replace Footer
 
-ID: `mint_system.account.report_invoice_document.replace_footer`
-
+ID: `mint_system.account.report_invoice_document.replace_footer`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2730,14 +2561,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_footer.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_footer.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_footer.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_footer.xml)
 
 ### Replace Information Table
 
-ID: `mint_system.account.report_invoice_document.replace_information_table`
-
+ID: `mint_system.account.report_invoice_document.replace_information_table`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2823,14 +2652,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_information_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_information_table.xml)
 
 ### Replace Information Table3
 
-ID: `mint_system.account.report_invoice_document.replace_information_table3`
-
+ID: `mint_system.account.report_invoice_document.replace_information_table3`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -2942,14 +2769,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table3.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table3.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_information_table3.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_information_table3.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_information_table3.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_information_table3.xml)
 
 ### Replace Informations
 
-ID: `mint_system.account.report_invoice_document.replace_informations`
-
+ID: `mint_system.account.report_invoice_document.replace_informations`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3047,14 +2872,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_informations.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_informations.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_informations.xml)
 
 ### Replace Infotable
 
-ID: `mint_system.account.report_invoice_document.replace_infotable`
-
+ID: `mint_system.account.report_invoice_document.replace_infotable`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3132,14 +2955,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_infotable.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_infotable.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_infotable.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_infotable.xml)
 
 ### Replace Partner Bank Id
 
-ID: `mint_system.account.report_invoice_document.replace_partner_bank_id`
-
+ID: `mint_system.account.report_invoice_document.replace_partner_bank_id`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3155,14 +2976,12 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_partner_bank_id.xml)
 
 ### Replace Payment Communication
 
-ID: `mint_system.account.report_invoice_document.replace_payment_communication`
-
+ID: `mint_system.account.report_invoice_document.replace_payment_communication`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3179,14 +2998,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_payment_communication.xml)
 
 ### Replace Payment Term
 
-ID: `mint_system.account.report_invoice_document.replace_payment_term`
-
+ID: `mint_system.account.report_invoice_document.replace_payment_term`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3206,14 +3023,12 @@ Inherit ID: `account.report_invoice_document`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_payment_term.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_payment_term.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_payment_term.xml)
 
 ### Replace Product Description
 
-ID: `mint_system.account.report_invoice_document.replace_product_description`
-
+ID: `mint_system.account.report_invoice_document.replace_product_description`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3241,14 +3056,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_product_description.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_product_description.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_product_description.xml)
 
 ### Replace Summary
 
-ID: `mint_system.account.report_invoice_document.replace_summary`
-
+ID: `mint_system.account.report_invoice_document.replace_summary`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3370,14 +3183,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_summary.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_summary.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.replace_summary.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.replace_summary.xml)
 
 ### Reset Address
 
-ID: `mint_system.account.report_invoice_document.reset_address`
-
+ID: `mint_system.account.report_invoice_document.reset_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3392,14 +3203,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.reset_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.reset_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.reset_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.reset_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.reset_address.xml)
 
 ### Round Price
 
-ID: `mint_system.account.report_invoice_document.round_price`
-
+ID: `mint_system.account.report_invoice_document.round_price`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3410,14 +3219,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_price.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_price.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.round_price.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.round_price.xml)
 
 ### Round Price Unit
 
-ID: `mint_system.account.report_invoice_document.round_price_unit`
-
+ID: `mint_system.account.report_invoice_document.round_price_unit`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3428,14 +3235,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.round_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_price_unit.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.round_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_price_unit.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.round_price_unit.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.round_price_unit.xml)
 
 ### Round Quantity
 
-ID: `mint_system.account.report_invoice_document.round_quantity`
-
+ID: `mint_system.account.report_invoice_document.round_quantity`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3446,14 +3251,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.round_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_quantity.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.round_quantity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_quantity.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.round_quantity.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.round_quantity.xml)
 
 ### Round Total Price
 
-ID: `mint_system.account.report_invoice_document.round_total_price`
-
+ID: `mint_system.account.report_invoice_document.round_total_price`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3464,14 +3267,52 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_total_price.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.round_total_price.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.round_total_price.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.round_total_price.xml)
+
+### Sale Order Plan Id
+
+ID: `mint_system.account.report_invoice_document.sale_order_plan_id`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@name='invoice_date']" position="after">
+        <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('plan_id') if x])">
+            <div class="col" name="plan_id">
+                <strong>Laufzeit</strong>
+                <div t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('plan_id.name') if x])"/>
+            </div>
+        </t>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.sale_order_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.sale_order_plan_id.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.sale_order_plan_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.sale_order_plan_id.xml)
+
+### Sale Order X Title
+
+ID: `mint_system.account.report_invoice_document.sale_order_x_title`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//span[@t-field='o.name']" position="replace">
+        <t t-if="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_title') if x])">
+            <span> - </span>
+            <span t-esc="', '.join([str(x) for x in o.invoice_line_ids.sale_line_ids.order_id.mapped('x_title') if x])"/>
+            <br/>
+            <span t-field="o.name" style="font-size: 10pt;">RE</span>
+        </t>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.sale_order_x_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.sale_order_x_title.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.sale_order_x_title.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.sale_order_x_title.xml)
 
 ### Second Row
 
-ID: `mint_system.account.report_invoice_document.second_row`
-
+ID: `mint_system.account.report_invoice_document.second_row`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3502,14 +3343,12 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.second_row.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.second_row.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.second_row.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.second_row.xml)
 
 ### Sequence In Table
 
-ID: `mint_system.account.report_invoice_document.sequence_in_table`
-
+ID: `mint_system.account.report_invoice_document.sequence_in_table`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3531,14 +3370,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.sequence_in_table.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.sequence_in_table.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.sequence_in_table.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.sequence_in_table.xml)
 
 ### Set Ids
 
-ID: `mint_system.account.report_invoice_document.set_ids`
-
+ID: `mint_system.account.report_invoice_document.set_ids`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3561,14 +3398,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_ids.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_ids.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.set_ids.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.set_ids.xml)
 
 ### Set Page Font Size
 
-ID: `mint_system.account.report_invoice_document.set_page_font_size`
-
+ID: `mint_system.account.report_invoice_document.set_page_font_size`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3583,14 +3418,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_page_font_size.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.set_page_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_page_font_size.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.set_page_font_size.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.set_page_font_size.xml)
 
 ### Set Table Font Size
 
-ID: `mint_system.account.report_invoice_document.set_table_font_size`
-
+ID: `mint_system.account.report_invoice_document.set_table_font_size`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3606,14 +3439,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_table_font_size.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.set_table_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_table_font_size.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.set_table_font_size.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.set_table_font_size.xml)
 
 ### Set Title Font Size
 
-ID: `mint_system.account.report_invoice_document.set_title_font_size`
-
+ID: `mint_system.account.report_invoice_document.set_title_font_size`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3628,14 +3459,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_title_font_size.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.set_title_font_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_title_font_size.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.set_title_font_size.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.set_title_font_size.xml)
 
 ### Show Categ Id
 
-ID: `mint_system.account.report_invoice_document.show_categ_id`
-
+ID: `mint_system.account.report_invoice_document.show_categ_id`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3648,14 +3477,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_categ_id.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_categ_id.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_categ_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_categ_id.xml)
 
 ### Show Country Of Origin
 
-ID: `mint_system.account.report_invoice_document.show_country_of_origin`
-
+ID: `mint_system.account.report_invoice_document.show_country_of_origin`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3675,14 +3502,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_country_of_origin.xml)
 
 ### Show Credit Note
 
-ID: `mint_system.account.report_invoice_document.show_credit_note`
-
+ID: `mint_system.account.report_invoice_document.show_credit_note`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3703,14 +3528,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_credit_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_credit_note.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_credit_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_credit_note.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_credit_note.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_credit_note.xml)
 
 ### Show Customer Info Product Code
 
-ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`
-
+ID: `mint_system.account.report_invoice_document.show_customer_info_product_code`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3724,14 +3547,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_customer_info_product_code.xml)
 
 ### Show Default Code
 
-ID: `mint_system.account.report_invoice_document.show_default_code`
-
+ID: `mint_system.account.report_invoice_document.show_default_code`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3757,14 +3578,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_default_code.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_default_code.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_default_code.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_default_code.xml)
 
 ### Show Hs Code
 
-ID: `mint_system.account.report_invoice_document.show_hs_code`
-
+ID: `mint_system.account.report_invoice_document.show_hs_code`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3783,14 +3602,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_hs_code.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_hs_code.xml)
 
 ### Show License Names
 
-ID: `mint_system.account.report_invoice_document.show_license_names`
-
+ID: `mint_system.account.report_invoice_document.show_license_names`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3805,14 +3622,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_license_names.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_license_names.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_license_names.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_license_names.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_license_names.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_license_names.xml)
 
 ### Show Lot Ids
 
-ID: `mint_system.account.report_invoice_document.show_lot_ids`
-
+ID: `mint_system.account.report_invoice_document.show_lot_ids`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3822,7 +3637,7 @@ Inherit ID: `account.report_invoice_document`
         <t t-if="lot_ids">
             <br/>
             <span>Seriennummern:</span>
-            <t t-esc="', '.join(lot_ids.mapped('name'))"/>
+            <span t-esc="', '.join(lot_ids.mapped('name'))"></span>
             <!-- <ul class="list-unstyled">
         <t t-foreach="lot_ids" t-as="lot">
           <li t-esc="lot.name" />
@@ -3833,14 +3648,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_lot_ids.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_lot_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_lot_ids.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_lot_ids.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_lot_ids.xml)
 
 ### Show Order Id
 
-ID: `mint_system.account.report_invoice_document.show_order_id`
-
+ID: `mint_system.account.report_invoice_document.show_order_id`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3860,14 +3673,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_order_id.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_order_id.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_order_id.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_order_id.xml)
 
 ### Show Parent Partner Reference
 
-ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`
-
+ID: `mint_system.account.report_invoice_document.show_parent_partner_reference`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3881,14 +3692,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_parent_partner_reference.xml)
 
 ### Show Product Name
 
-ID: `mint_system.account.report_invoice_document.show_product_name`
-
+ID: `mint_system.account.report_invoice_document.show_product_name`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3905,14 +3714,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_product_name.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_product_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_product_name.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_product_name.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_product_name.xml)
 
 ### Show Ref External
 
-ID: `mint_system.account.report_invoice_document.show_ref_external`
-
+ID: `mint_system.account.report_invoice_document.show_ref_external`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3929,14 +3736,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_ref_external.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_ref_external.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_ref_external.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_ref_external.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_ref_external.xml)
 
 ### Show Sale Line Ids
 
-ID: `mint_system.account.report_invoice_document.show_sale_line_ids`
-
+ID: `mint_system.account.report_invoice_document.show_sale_line_ids`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3954,14 +3759,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_sale_line_ids.xml)
 
 ### Show Shipping Address
 
-ID: `mint_system.account.report_invoice_document.show_shipping_address`
-
+ID: `mint_system.account.report_invoice_document.show_shipping_address`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -3977,14 +3780,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_shipping_address.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_shipping_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_shipping_address.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_shipping_address.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_shipping_address.xml)
 
 ### Show Triple Discount
 
-ID: `mint_system.account.report_invoice_document.show_triple_discount`
-
+ID: `mint_system.account.report_invoice_document.show_triple_discount`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4000,14 +3801,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_triple_discount.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_triple_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_triple_discount.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_triple_discount.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_triple_discount.xml)
 
 ### Show Weight
 
-ID: `mint_system.account.report_invoice_document.show_weight`
-
+ID: `mint_system.account.report_invoice_document.show_weight`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4037,14 +3836,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_weight.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.show_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.show_weight.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.show_weight.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.show_weight.xml)
 
 ### Style Airwork
 
-ID: `mint_system.account.report_invoice_document.style_airwork`
-
+ID: `mint_system.account.report_invoice_document.style_airwork`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4054,14 +3851,86 @@ Inherit ID: `account.report_invoice_document`
     </xpath>    
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_airwork.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_airwork.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_airwork.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_airwork.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_airwork.xml)
+
+### Style Allnet
+
+ID: `mint_system.account.report_invoice_document.style_allnet`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            
+        .o_company_1_layout .o_total strong {
+            color: black;
+            }
+            
+        .o_company_1_layout #informations strong {
+            color: black;
+            }
+            
+        .o_line_section {
+            background: #dee2e6;
+            }
+            
+         .o_table_standard table:not(.o_ignore_layout_styling) td:first-child {
+            padding: 3px;
+            }
+            
+        .o_company_1_layout h2 {
+            color: black;
+            margin-top: 50px;
+            }
+       
+       .mb-3 {
+            font-size: 13px;
+            }
+
+        .table th {
+            border-top: 1px solid #e9ecef;
+            color: black;
+            font-weight: bold;
+            padding: 2px;
+            font-size: 13px;
+            }
+
+
+        .table td {
+            border-top: 1px solid #e9ecef;
+            padding: 2px;
+            font-size: 75%;
+            }  
+            
+        .o_total td {
+            border-top: 1px solid black;
+            }
+            
+        p {
+            color: black;
+            }
+       
+        </style>
+    </xpath>
+
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_discount']" position="attributes">
+        <attribute name="style">width: 60px</attribute>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.style_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_allnet.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.style_allnet.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_allnet.xml)
 
 ### Style Carbo Link
 
-ID: `mint_system.account.report_invoice_document.style_carbo_link`
-
+ID: `mint_system.account.report_invoice_document.style_carbo_link`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4086,14 +3955,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_carbo_link.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_carbo_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_carbo_link.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_carbo_link.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_carbo_link.xml)
 
 ### Style Gelso
 
-ID: `mint_system.account.report_invoice_document.style_gelso`
-
+ID: `mint_system.account.report_invoice_document.style_gelso`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4109,14 +3976,12 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_gelso.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_gelso.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_gelso.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_gelso.xml)
 
 ### Style Kunststoffsammelsack
 
-ID: `mint_system.account.report_invoice_document.style_kunststoffsammelsack`
-
+ID: `mint_system.account.report_invoice_document.style_kunststoffsammelsack`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4136,14 +4001,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_kunststoffsammelsack.xml)
 
 ### Style Lapp
 
-ID: `mint_system.account.report_invoice_document.style_lapp`
-
+ID: `mint_system.account.report_invoice_document.style_lapp`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4179,14 +4042,12 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_lapp.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_lapp.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_lapp.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_lapp.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_lapp.xml)
 
 ### Style Moser
 
-ID: `mint_system.account.report_invoice_document.style_moser`
-
+ID: `mint_system.account.report_invoice_document.style_moser`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4225,14 +4086,106 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_moser.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_moser.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_moser.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_moser.xml)
+
+### Style Style Allnet
+
+ID: `mint_system.account.report_invoice_document.style_style_allnet`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="60">
+    <xpath expr="//div[hasclass('page')]" position="before">
+        <style>
+            
+        .o_company_1_layout .o_total strong {
+            color: black;
+            }
+            
+        .o_company_1_layout #informations strong {
+            color: black;
+            }
+            
+        .o_table_standard th {
+            border-bottom: 1px solid rgba(51, 51, 147, 0.05);
+            }
+            
+        .o_company_1_layout h2 {
+            color: black;
+            }
+            
+        h2 {
+           font-size:23px; 
+           margin-bottom: 30px;
+            }  
+            
+       h4 {
+           font-size:16px; 
+           font-weight: bold;
+            }   
+        
+        p {
+           font-size: 75%;
+            }
+
+        .table th {
+            border-top: 1px solid #dee2e6;
+            color: black;
+            font-weight: bold;
+            padding: 2px;
+            font-size: 13px;
+            }    
+
+        .table td {
+            border-top: 1px solid rgba(51, 51, 147, 0.05);
+            padding: 2px;
+            font-size: 75%;
+            }  
+       
+        </style>
+    </xpath>
+
+    <xpath expr="//div[@id='informations']" position="attributes">
+        <attribute name="style">font-size:10pt</attribute>
+    </xpath>
+
+    <xpath expr="//div[@t-field='doc.partner_shipping_id']" position="attributes">
+        <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
+    </xpath>
+
+    <xpath expr="//td[@name='td_section_subtotal']" position="attributes">
+        <attribute name="style">padding: 2px</attribute>
+    </xpath>
+
+    <xpath expr="//td[@name='td_section_line']" position="attributes">
+        <attribute name="style">padding: 3px; font-size:13px; background-color:rgba(51, 51, 147, 0.05)</attribute>
+    </xpath>
+
+    <xpath expr="//th[@name='th_discount']" position="attributes">
+        <attribute name="style">width: 60px</attribute>
+    </xpath>
+
+    <xpath expr="//table[@name='table_optional_products']" position="attributes">
+        <attribute name="style">border: 1px solid white</attribute>
+    </xpath>
+
+    <xpath expr="//thead/tr/td[@name='th_option_name']" position="attributes">
+        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+    </xpath>
+
+    <xpath expr="//thead/tr/td[@name='th_option_price_unit']" position="attributes">
+        <attribute name="style">font-size: 13px; color: #29438e;</attribute>
+    </xpath>
+
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.style_style_allnet.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_style_allnet.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.style_style_allnet.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_style_allnet.xml)
 
 ### Style Swissfragrance
 
-ID: `mint_system.account.report_invoice_document.style_swissfragrance`
-
+ID: `mint_system.account.report_invoice_document.style_swissfragrance`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4243,14 +4196,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_swissfragrance.xml)
 
 ### Style Tissa
 
-ID: `mint_system.account.report_invoice_document.style_tissa`
-
+ID: `mint_system.account.report_invoice_document.style_tissa`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4299,14 +4250,12 @@ Inherit ID: `account.report_invoice_document`
     
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_tissa.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_tissa.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_tissa.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_tissa.xml)
 
 ### Style Trimada
 
-ID: `mint_system.account.report_invoice_document.style_trimada`
-
+ID: `mint_system.account.report_invoice_document.style_trimada`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4404,14 +4353,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_trimada.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.style_trimada.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.style_trimada.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.style_trimada.xml)
 
 ### Subtotal Or Total
 
-ID: `mint_system.account.report_invoice_document.subtotal_or_total`
-
+ID: `mint_system.account.report_invoice_document.subtotal_or_total`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4434,14 +4381,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.subtotal_or_total.xml)
 
 ### Switch Address Block
 
-ID: `mint_system.account.report_invoice_document.switch_address_block`
-
+ID: `mint_system.account.report_invoice_document.switch_address_block`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4459,14 +4404,27 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.switch_address_block.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.switch_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.switch_address_block.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.switch_address_block.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.switch_address_block.xml)
+
+### Table Width 100 Percent
+
+ID: `mint_system.account.report_invoice_document.table_width_100_percent`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="60">
+    <xpath expr="//table[@name='invoice_line_table']" position="attributes">
+        <attribute name="style">width:100%;</attribute> 
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.account.report_invoice_document.table_width_100_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.table_width_100_percent.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.table_width_100_percent.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.table_width_100_percent.xml)
 
 ### Tissa Rechnungstext
 
-ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`
-
+ID: `mint_system.account.report_invoice_document.tissa_rechnungstext`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4488,14 +4446,12 @@ Inherit ID: `account.report_invoice_document`
 -->
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.tissa_rechnungstext.xml)
 
 ### Tissa Replace Infotable
 
-ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`
-
+ID: `mint_system.account.report_invoice_document.tissa_replace_infotable`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4600,14 +4556,12 @@ Inherit ID: `account.report_invoice_document`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.tissa_replace_infotable.xml)
 
 ### Unit Precision
 
-ID: `mint_system.account.report_invoice_document.unit_precision`
-
+ID: `mint_system.account.report_invoice_document.unit_precision`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4618,14 +4572,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.unit_precision.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.unit_precision.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.unit_precision.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.unit_precision.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.unit_precision.xml)
 
 ### X Hide On Invoice
 
-ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`
-
+ID: `mint_system.account.report_invoice_document.x_hide_on_invoice`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4636,14 +4588,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_hide_on_invoice.xml)
 
 ### X Hide Partner Name
 
-ID: `mint_system.account.report_invoice_document.x_hide_partner_name`
-
+ID: `mint_system.account.report_invoice_document.x_hide_partner_name`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4659,14 +4609,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_hide_partner_name.xml)
 
 ### X Name
 
-ID: `mint_system.account.report_invoice_document.x_name`
-
+ID: `mint_system.account.report_invoice_document.x_name`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4727,14 +4675,12 @@ Inherit ID: `account.report_invoice_document`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_name.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_name.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_name.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_name.xml)
 
 ### X Picking List
 
-ID: `mint_system.account.report_invoice_document.x_picking_list`
-
+ID: `mint_system.account.report_invoice_document.x_picking_list`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4745,14 +4691,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_picking_list.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_picking_list.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_picking_list.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_picking_list.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_picking_list.xml)
 
 ### X Show Bank Details
 
-ID: `mint_system.account.report_invoice_document.x_show_bank_details`
-
+ID: `mint_system.account.report_invoice_document.x_show_bank_details`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4778,14 +4722,12 @@ Inherit ID: `account.report_invoice_document`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_show_bank_details.xml)
 
 ### X Weights And Packaging
 
-ID: `mint_system.account.report_invoice_document.x_weights_and_packaging`
-
+ID: `mint_system.account.report_invoice_document.x_weights_and_packaging`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
@@ -4824,16 +4766,14 @@ Inherit ID: `account.report_invoice_document`
 
 </data>
 ```
-Edit: [snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml)
-
+Edit: [snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.x_weights_and_packaging.xml)
 
 ## Report Timesheet
 
 ### Report
 
-ID: `mint_system.account.report_timesheet.report`
-
+ID: `mint_system.account.report_timesheet.report`\
 Inherit ID: `account.report_timesheet`
 
 ```xml
@@ -4848,16 +4788,14 @@ Inherit ID: `account.report_timesheet`
 </t>
 
 ```
-Edit: [snippets/mint_system.account.report_timesheet.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_timesheet.report.xml)
-
+Edit: [snippets/mint_system.account.report_timesheet.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_timesheet.report.xml)\
 Source: [snippets/mint_system.account.report_timesheet.report.xml](https://odoo.build/snippets/mint_system.account.report_timesheet.report.xml)
 
 ## Res Config Settings View Form
 
 ### Domain Expense Currency Exchange Account Id
 
-ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id`
-
+ID: `mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id`\
 Inherit ID: `account.res_config_settings_view_form`
 
 ```xml
@@ -4868,16 +4806,14 @@ Inherit ID: `account.res_config_settings_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
-
+Edit: [snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)\
 Source: [snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml](https://odoo.build/snippets/mint_system.account.res_config_settings_view_form.domain_expense_currency_exchange_account_id.xml)
 
 ## View Account Invoice Filter
 
 ### Is Move Sent
 
-ID: `mint_system.account.view_account_invoice_filter.is_move_sent`
-
+ID: `mint_system.account.view_account_invoice_filter.is_move_sent`\
 Inherit ID: `account.view_account_invoice_filter`
 
 ```xml
@@ -4889,14 +4825,12 @@ Inherit ID: `account.view_account_invoice_filter`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml)
-
+Edit: [snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml)\
 Source: [snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml](https://odoo.build/snippets/mint_system.account.view_account_invoice_filter.is_move_sent.xml)
 
 ### Partner Id
 
-ID: `mint_system.account.view_account_invoice_filter.partner_id`
-
+ID: `mint_system.account.view_account_invoice_filter.partner_id`\
 Inherit ID: `account.view_account_invoice_filter`
 
 ```xml
@@ -4907,16 +4841,14 @@ Inherit ID: `account.view_account_invoice_filter`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_invoice_filter.partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_filter.partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_account_invoice_filter.partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_filter.partner_id.xml)\
 Source: [snippets/mint_system.account.view_account_invoice_filter.partner_id.xml](https://odoo.build/snippets/mint_system.account.view_account_invoice_filter.partner_id.xml)
 
 ## View Account Invoice Report Search
 
 ### Domain X Shipping Id
 
-ID: `mint_system.account.view_account_invoice_report_search.domain_x_shipping_id`
-
+ID: `mint_system.account.view_account_invoice_report_search.domain_x_shipping_id`\
 Inherit ID: `account.view_account_invoice_report_search`
 
 ```xml
@@ -4927,14 +4859,12 @@ Inherit ID: `account.view_account_invoice_report_search`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml)
-
+Edit: [snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml)\
 Source: [snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml](https://odoo.build/snippets/mint_system.account.view_account_invoice_report_search.domain_x_shipping_id.xml)
 
 ### Group X Shipping Id
 
-ID: `mint_system.account.view_account_invoice_report_search.group_x_shipping_id`
-
+ID: `mint_system.account.view_account_invoice_report_search.group_x_shipping_id`\
 Inherit ID: `account.view_account_invoice_report_search`
 
 ```xml
@@ -4945,16 +4875,14 @@ Inherit ID: `account.view_account_invoice_report_search`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml)
-
+Edit: [snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml)\
 Source: [snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml](https://odoo.build/snippets/mint_system.account.view_account_invoice_report_search.group_x_shipping_id.xml)
 
 ## View Account Journal Form
 
 ### Show Payment Method Code
 
-ID: `mint_system.account.view_account_journal_form.show_payment_method_code`
-
+ID: `mint_system.account.view_account_journal_form.show_payment_method_code`\
 Inherit ID: `account.view_account_journal_form`
 
 ```xml
@@ -4965,16 +4893,14 @@ Inherit ID: `account.view_account_journal_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml)
-
+Edit: [snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml)\
 Source: [snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml](https://odoo.build/snippets/mint_system.account.view_account_journal_form.show_payment_method_code.xml)
 
 ## View Account List
 
 ### Show Active
 
-ID: `mint_system.account.view_account_list.show_active`
-
+ID: `mint_system.account.view_account_list.show_active`\
 Inherit ID: `account.view_account_list`
 
 ```xml
@@ -4985,14 +4911,12 @@ Inherit ID: `account.view_account_list`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_list.show_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_list.show_active.xml)
-
+Edit: [snippets/mint_system.account.view_account_list.show_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_list.show_active.xml)\
 Source: [snippets/mint_system.account.view_account_list.show_active.xml](https://odoo.build/snippets/mint_system.account.view_account_list.show_active.xml)
 
 ### Show Deprecated
 
-ID: `mint_system.account.view_account_list.show_deprecated`
-
+ID: `mint_system.account.view_account_list.show_deprecated`\
 Inherit ID: `account.view_account_list`
 
 ```xml
@@ -5003,16 +4927,14 @@ Inherit ID: `account.view_account_list`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_list.show_deprecated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_list.show_deprecated.xml)
-
+Edit: [snippets/mint_system.account.view_account_list.show_deprecated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_list.show_deprecated.xml)\
 Source: [snippets/mint_system.account.view_account_list.show_deprecated.xml](https://odoo.build/snippets/mint_system.account.view_account_list.show_deprecated.xml)
 
 ## View Account Move Filter
 
 ### X Account Codes
 
-ID: `mint_system.account.view_account_move_filter.x_account_codes`
-
+ID: `mint_system.account.view_account_move_filter.x_account_codes`\
 Inherit ID: `account.view_account_move_filter`
 
 ```xml
@@ -5023,16 +4945,14 @@ Inherit ID: `account.view_account_move_filter`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_move_filter.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_move_filter.x_account_codes.xml)
-
+Edit: [snippets/mint_system.account.view_account_move_filter.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_move_filter.x_account_codes.xml)\
 Source: [snippets/mint_system.account.view_account_move_filter.x_account_codes.xml](https://odoo.build/snippets/mint_system.account.view_account_move_filter.x_account_codes.xml)
 
 ## View Account Payment Register Form
 
 ### Show Partner Id
 
-ID: `mint_system.account.view_account_payment_register_form.show_partner_id`
-
+ID: `mint_system.account.view_account_payment_register_form.show_partner_id`\
 Inherit ID: `account.view_account_payment_register_form`
 
 ```xml
@@ -5043,16 +4963,14 @@ Inherit ID: `account.view_account_payment_register_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml)\
 Source: [snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_account_payment_register_form.show_partner_id.xml)
 
 ## View Bank Statement Form
 
 ### Edit Balance
 
-ID: `mint_system.account.view_bank_statement_form.edit_balance`
-
+ID: `mint_system.account.view_bank_statement_form.edit_balance`\
 Inherit ID: `account.view_bank_statement_form`
 
 ```xml
@@ -5066,14 +4984,12 @@ Inherit ID: `account.view_bank_statement_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_form.edit_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.edit_balance.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_form.edit_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.edit_balance.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_form.edit_balance.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_form.edit_balance.xml)
 
 ### Edit Transactions
 
-ID: `mint_system.account.view_bank_statement_form.edit_transactions`
-
+ID: `mint_system.account.view_bank_statement_form.edit_transactions`\
 Inherit ID: `account.view_bank_statement_form`
 
 ```xml
@@ -5084,14 +5000,12 @@ Inherit ID: `account.view_bank_statement_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_form.edit_transactions.xml)
 
 ### Show Cashbox
 
-ID: `mint_system.account.view_bank_statement_form.show_cashbox`
-
+ID: `mint_system.account.view_bank_statement_form.show_cashbox`\
 Inherit ID: `account.view_bank_statement_form`
 
 ```xml
@@ -5102,14 +5016,12 @@ Inherit ID: `account.view_bank_statement_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_form.show_cashbox.xml)
 
 ### Show Move Id
 
-ID: `mint_system.account.view_bank_statement_form.show_move_id`
-
+ID: `mint_system.account.view_bank_statement_form.show_move_id`\
 Inherit ID: `account.view_bank_statement_form`
 
 ```xml
@@ -5120,14 +5032,12 @@ Inherit ID: `account.view_bank_statement_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.show_move_id.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_form.show_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.show_move_id.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_form.show_move_id.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_form.show_move_id.xml)
 
 ### X Cashbox Start Ids
 
-ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`
-
+ID: `mint_system.account.view_bank_statement_form.x_cashbox_start_ids`\
 Inherit ID: `account.view_bank_statement_form`
 
 ```xml
@@ -5157,16 +5067,14 @@ Inherit ID: `account.view_bank_statement_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_form.x_cashbox_start_ids.xml)
 
 ## View Bank Statement Line Search
 
 ### Filter Move Id
 
-ID: `mint_system.account.view_bank_statement_line_search.filter_move_id`
-
+ID: `mint_system.account.view_bank_statement_line_search.filter_move_id`\
 Inherit ID: `account.view_bank_statement_line_search`
 
 ```xml
@@ -5177,16 +5085,14 @@ Inherit ID: `account.view_bank_statement_line_search`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_line_search.filter_move_id.xml)
 
 ## View Bank Statement Line Tree
 
 ### Enable Create
 
-ID: `mint_system.account.view_bank_statement_line_tree.enable_create`
-
+ID: `mint_system.account.view_bank_statement_line_tree.enable_create`\
 Inherit ID: `account.view_bank_statement_line_tree`
 
 ```xml
@@ -5197,16 +5103,14 @@ Inherit ID: `account.view_bank_statement_line_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml)
-
+Edit: [snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml)\
 Source: [snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml](https://odoo.build/snippets/mint_system.account.view_bank_statement_line_tree.enable_create.xml)
 
 ## View In Invoice Tree
 
 ### Add Discount Date
 
-ID: `mint_system.account.view_in_invoice_tree.add_discount_date`
-
+ID: `mint_system.account.view_in_invoice_tree.add_discount_date`\
 Inherit ID: `account.view_in_invoice_tree`
 
 ```xml
@@ -5217,14 +5121,12 @@ Inherit ID: `account.view_in_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml)
-
+Edit: [snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml)\
 Source: [snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml](https://odoo.build/snippets/mint_system.account.view_in_invoice_tree.add_discount_date.xml)
 
 ### Format Invoice Date Due
 
-ID: `mint_system.account.view_in_invoice_tree.format_invoice_date_due`
-
+ID: `mint_system.account.view_in_invoice_tree.format_invoice_date_due`\
 Inherit ID: `account.view_in_invoice_tree`
 
 ```xml
@@ -5235,16 +5137,14 @@ Inherit ID: `account.view_in_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml)
-
+Edit: [snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml)\
 Source: [snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml](https://odoo.build/snippets/mint_system.account.view_in_invoice_tree.format_invoice_date_due.xml)
 
 ## View Invoice Tree
 
 ### Add Currency Id
 
-ID: `mint_system.account.view_invoice_tree.add_currency_id`
-
+ID: `mint_system.account.view_invoice_tree.add_currency_id`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5255,14 +5155,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.add_currency_id.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.add_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.add_currency_id.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.add_currency_id.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.add_currency_id.xml)
 
 ### Add Is Move Sent
 
-ID: `mint_system.account.view_invoice_tree.add_is_move_sent`
-
+ID: `mint_system.account.view_invoice_tree.add_is_move_sent`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5273,14 +5171,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.add_is_move_sent.xml)
 
 ### Format Ref
 
-ID: `mint_system.account.view_invoice_tree.format_ref`
-
+ID: `mint_system.account.view_invoice_tree.format_ref`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5291,14 +5187,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.format_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.format_ref.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.format_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.format_ref.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.format_ref.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.format_ref.xml)
 
 ### Show Date
 
-ID: `mint_system.account.view_invoice_tree.show_date`
-
+ID: `mint_system.account.view_invoice_tree.show_date`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5309,14 +5203,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.show_date.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.show_date.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.show_date.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.show_date.xml)
 
 ### X Account Codes
 
-ID: `mint_system.account.view_invoice_tree.x_account_codes`
-
+ID: `mint_system.account.view_invoice_tree.x_account_codes`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5327,14 +5219,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_account_codes.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_account_codes.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.x_account_codes.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.x_account_codes.xml)
 
 ### X Bexio Name
 
-ID: `mint_system.account.view_invoice_tree.x_bexio_name`
-
+ID: `mint_system.account.view_invoice_tree.x_bexio_name`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5345,14 +5235,12 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.x_bexio_name.xml)
 
 ### X Recurring Inverval
 
-ID: `mint_system.account.view_invoice_tree.x_recurring_inverval`
-
+ID: `mint_system.account.view_invoice_tree.x_recurring_inverval`\
 Inherit ID: `account.view_invoice_tree`
 
 ```xml
@@ -5363,16 +5251,14 @@ Inherit ID: `account.view_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml)
-
+Edit: [snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml)\
 Source: [snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml](https://odoo.build/snippets/mint_system.account.view_invoice_tree.x_recurring_inverval.xml)
 
 ## View Move Form
 
 ### Domain Partner Bank Ids
 
-ID: `mint_system.account.view_move_form.domain_partner_bank_ids`
-
+ID: `mint_system.account.view_move_form.domain_partner_bank_ids`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5383,14 +5269,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml)\
 Source: [snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml](https://odoo.build/snippets/mint_system.account.view_move_form.domain_partner_bank_ids.xml)
 
 ### Edit Invoice Date
 
-ID: `mint_system.account.view_move_form.edit_invoice_date`
-
+ID: `mint_system.account.view_move_form.edit_invoice_date`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5401,14 +5285,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.edit_invoice_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.edit_invoice_date.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.edit_invoice_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.edit_invoice_date.xml)\
 Source: [snippets/mint_system.account.view_move_form.edit_invoice_date.xml](https://odoo.build/snippets/mint_system.account.view_move_form.edit_invoice_date.xml)
 
 ### Format Partner Bank Id
 
-ID: `mint_system.account.view_move_form.format_partner_bank_id`
-
+ID: `mint_system.account.view_move_form.format_partner_bank_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5419,14 +5301,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.format_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.format_partner_bank_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.format_partner_bank_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.format_partner_bank_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.format_partner_bank_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.format_partner_bank_id.xml)
 
 ### Hide Payment Reference
 
-ID: `mint_system.account.view_move_form.hide_payment_reference`
-
+ID: `mint_system.account.view_move_form.hide_payment_reference`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5436,14 +5316,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_payment_reference.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.hide_payment_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_payment_reference.xml)\
 Source: [snippets/mint_system.account.view_move_form.hide_payment_reference.xml](https://odoo.build/snippets/mint_system.account.view_move_form.hide_payment_reference.xml)
 
 ### Hide Post Before Check
 
-ID: `mint_system.account.view_move_form.hide_post_before_check`
-
+ID: `mint_system.account.view_move_form.hide_post_before_check`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5457,14 +5335,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.hide_post_before_check.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_post_before_check.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.hide_post_before_check.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_post_before_check.xml)\
 Source: [snippets/mint_system.account.view_move_form.hide_post_before_check.xml](https://odoo.build/snippets/mint_system.account.view_move_form.hide_post_before_check.xml)
 
 ### Hide Send Button On Refund
 
-ID: `mint_system.account.view_move_form.hide_send_button_on_refund`
-
+ID: `mint_system.account.view_move_form.hide_send_button_on_refund`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5478,14 +5354,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml)\
 Source: [snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml](https://odoo.build/snippets/mint_system.account.view_move_form.hide_send_button_on_refund.xml)
 
 ### Move Ref
 
-ID: `mint_system.account.view_move_form.move_ref`
-
+ID: `mint_system.account.view_move_form.move_ref`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5498,14 +5372,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.move_ref.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.move_ref.xml)\
 Source: [snippets/mint_system.account.view_move_form.move_ref.xml](https://odoo.build/snippets/mint_system.account.view_move_form.move_ref.xml)
 
 ### Move To Check
 
-ID: `mint_system.account.view_move_form.move_to_check`
-
+ID: `mint_system.account.view_move_form.move_to_check`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5517,14 +5389,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.move_to_check.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.move_to_check.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.move_to_check.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.move_to_check.xml)\
 Source: [snippets/mint_system.account.view_move_form.move_to_check.xml](https://odoo.build/snippets/mint_system.account.view_move_form.move_to_check.xml)
 
 ### Payment Reference Readonly
 
-ID: `mint_system.account.view_move_form.payment_reference_readonly`
-
+ID: `mint_system.account.view_move_form.payment_reference_readonly`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5535,14 +5405,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.payment_reference_readonly.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.payment_reference_readonly.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.payment_reference_readonly.xml)\
 Source: [snippets/mint_system.account.view_move_form.payment_reference_readonly.xml](https://odoo.build/snippets/mint_system.account.view_move_form.payment_reference_readonly.xml)
 
 ### Remove Isr Button
 
-ID: `mint_system.account.view_move_form.remove_isr_button`
-
+ID: `mint_system.account.view_move_form.remove_isr_button`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5552,14 +5420,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.remove_isr_button.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.remove_isr_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.remove_isr_button.xml)\
 Source: [snippets/mint_system.account.view_move_form.remove_isr_button.xml](https://odoo.build/snippets/mint_system.account.view_move_form.remove_isr_button.xml)
 
 ### Replace Button Scan Wizzard
 
-ID: `mint_system.account.view_move_form.replace_button_scan_wizzard`
-
+ID: `mint_system.account.view_move_form.replace_button_scan_wizzard`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5573,14 +5439,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml)\
 Source: [snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml](https://odoo.build/snippets/mint_system.account.view_move_form.replace_button_scan_wizzard.xml)
 
 ### Show Bank Partner Id
 
-ID: `mint_system.account.view_move_form.show_bank_partner_id`
-
+ID: `mint_system.account.view_move_form.show_bank_partner_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5591,14 +5455,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_bank_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_bank_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_bank_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_bank_partner_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_bank_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_bank_partner_id.xml)
 
 ### Show Commercial Partner Id
 
-ID: `mint_system.account.view_move_form.show_commercial_partner_id`
-
+ID: `mint_system.account.view_move_form.show_commercial_partner_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5609,14 +5471,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_commercial_partner_id.xml)
 
 ### Show Invoice Origin
 
-ID: `mint_system.account.view_move_form.show_invoice_origin`
-
+ID: `mint_system.account.view_move_form.show_invoice_origin`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5627,14 +5487,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_invoice_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_invoice_origin.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_invoice_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_invoice_origin.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_invoice_origin.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_invoice_origin.xml)
 
 ### Show Is Move Sent
 
-ID: `mint_system.account.view_move_form.show_is_move_sent`
-
+ID: `mint_system.account.view_move_form.show_is_move_sent`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5645,14 +5503,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_is_move_sent.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_is_move_sent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_is_move_sent.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_is_move_sent.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_is_move_sent.xml)
 
 ### Show Line Partner Id
 
-ID: `mint_system.account.view_move_form.show_line_partner_id`
-
+ID: `mint_system.account.view_move_form.show_line_partner_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5666,14 +5522,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_line_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_line_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_line_partner_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_line_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_line_partner_id.xml)
 
 ### Show Partner Id
 
-ID: `mint_system.account.view_move_form.show_partner_id`
-
+ID: `mint_system.account.view_move_form.show_partner_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5684,14 +5538,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_partner_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_partner_id.xml)
 
 ### Show Payment Ids
 
-ID: `mint_system.account.view_move_form.show_payment_ids`
-
+ID: `mint_system.account.view_move_form.show_payment_ids`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5702,14 +5554,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_payment_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_payment_ids.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_payment_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_payment_ids.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_payment_ids.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_payment_ids.xml)
 
 ### Show Payment State
 
-ID: `mint_system.account.view_move_form.show_payment_state`
-
+ID: `mint_system.account.view_move_form.show_payment_state`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5720,14 +5570,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_payment_state.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_payment_state.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_payment_state.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_payment_state.xml)
 
 ### Show Posted Before
 
-ID: `mint_system.account.view_move_form.show_posted_before`
-
+ID: `mint_system.account.view_move_form.show_posted_before`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5738,14 +5586,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_posted_before.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_posted_before.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_posted_before.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_posted_before.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_posted_before.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_posted_before.xml)
 
 ### Show Sale Order Lines
 
-ID: `mint_system.account.view_move_form.show_sale_order_lines`
-
+ID: `mint_system.account.view_move_form.show_sale_order_lines`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5756,14 +5602,30 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_sale_order_lines.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_sale_order_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_sale_order_lines.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_sale_order_lines.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_sale_order_lines.xml)
+
+### Show Sending Data
+
+ID: `mint_system.account.view_move_form.show_sending_data`\
+Inherit ID: `account.view_move_form`
+
+```xml
+<data priority="50">
+    <group  name="accounting_info_group" position="after">
+        <group string="Delivery" name="accounting_delivery_group">
+            <field name="sending_data" />
+        </group>
+    </group>
+</data>
+
+```
+Edit: [snippets/mint_system.account.view_move_form.show_sending_data.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_sending_data.xml)\
+Source: [snippets/mint_system.account.view_move_form.show_sending_data.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_sending_data.xml)
 
 ### Show Stock Move Line Ids
 
-ID: `mint_system.account.view_move_form.show_stock_move_line_ids`
-
+ID: `mint_system.account.view_move_form.show_stock_move_line_ids`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5774,14 +5636,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_stock_move_line_ids.xml)
 
 ### Show Subscription Dates
 
-ID: `mint_system.account.view_move_form.show_subscription_dates`
-
+ID: `mint_system.account.view_move_form.show_subscription_dates`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5793,14 +5653,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_subscription_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_subscription_dates.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_subscription_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_subscription_dates.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_subscription_dates.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_subscription_dates.xml)
 
 ### Show Tax Line Id
 
-ID: `mint_system.account.view_move_form.show_tax_line_id`
-
+ID: `mint_system.account.view_move_form.show_tax_line_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5812,14 +5670,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_tax_line_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_tax_line_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_tax_line_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_tax_line_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_tax_line_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_tax_line_id.xml)
 
 ### Show User Id
 
-ID: `mint_system.account.view_move_form.show_user_id`
-
+ID: `mint_system.account.view_move_form.show_user_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5830,14 +5686,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_user_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.show_user_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.show_user_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.show_user_id.xml)
 
 ### X Bexio Name
 
-ID: `mint_system.account.view_move_form.x_bexio_name`
-
+ID: `mint_system.account.view_move_form.x_bexio_name`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5848,14 +5702,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_bexio_name.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_bexio_name.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_bexio_name.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_bexio_name.xml)
 
 ### X Drawing File
 
-ID: `mint_system.account.view_move_form.x_drawing_file`
-
+ID: `mint_system.account.view_move_form.x_drawing_file`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5866,14 +5718,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_drawing_file.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_drawing_file.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_drawing_file.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_drawing_file.xml)
 
 ### X Duplicate Found
 
-ID: `mint_system.account.view_move_form.x_duplicate_found`
-
+ID: `mint_system.account.view_move_form.x_duplicate_found`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5888,14 +5738,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_duplicate_found.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_duplicate_found.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_duplicate_found.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_duplicate_found.xml)
 
 ### X Group Ids
 
-ID: `mint_system.account.view_move_form.x_group_ids`
-
+ID: `mint_system.account.view_move_form.x_group_ids`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5906,14 +5754,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_group_ids.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_group_ids.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_group_ids.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_group_ids.xml)
 
 ### X Group Weights And Packaging
 
-ID: `mint_system.account.view_move_form.x_group_weights_and_packaging`
-
+ID: `mint_system.account.view_move_form.x_group_weights_and_packaging`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5929,14 +5775,12 @@ Inherit ID: `account.view_move_form`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_group_weights_and_packaging.xml)
 
 ### X Has Downpayment Warn Msg
 
-ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`
-
+ID: `mint_system.account.view_move_form.x_has_downpayment_warn_msg`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5950,14 +5794,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_has_downpayment_warn_msg.xml)
 
 ### X Hide Partner Name
 
-ID: `mint_system.account.view_move_form.x_hide_partner_name`
-
+ID: `mint_system.account.view_move_form.x_hide_partner_name`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5968,14 +5810,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_hide_partner_name.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_hide_partner_name.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_hide_partner_name.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_hide_partner_name.xml)
 
 ### X Invoice Text
 
-ID: `mint_system.account.view_move_form.x_invoice_text`
-
+ID: `mint_system.account.view_move_form.x_invoice_text`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -5987,14 +5827,12 @@ Inherit ID: `account.view_move_form`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_invoice_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_invoice_text.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_invoice_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_invoice_text.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_invoice_text.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_invoice_text.xml)
 
 ### X Invoice Warn Msg
 
-ID: `mint_system.account.view_move_form.x_invoice_warn_msg`
-
+ID: `mint_system.account.view_move_form.x_invoice_warn_msg`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -6009,14 +5847,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_invoice_warn_msg.xml)
 
 ### X Recurring Inverval
 
-ID: `mint_system.account.view_move_form.x_recurring_inverval`
-
+ID: `mint_system.account.view_move_form.x_recurring_inverval`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -6027,14 +5863,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_recurring_inverval.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_recurring_inverval.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_recurring_inverval.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_recurring_inverval.xml)
 
 ### X Sale Order Id
 
-ID: `mint_system.account.view_move_form.x_sale_order_id`
-
+ID: `mint_system.account.view_move_form.x_sale_order_id`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -6045,14 +5879,12 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_sale_order_id.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_sale_order_id.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_sale_order_id.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_sale_order_id.xml)
 
 ### X Show Bank Details
 
-ID: `mint_system.account.view_move_form.x_show_bank_details`
-
+ID: `mint_system.account.view_move_form.x_show_bank_details`\
 Inherit ID: `account.view_move_form`
 
 ```xml
@@ -6063,16 +5895,14 @@ Inherit ID: `account.view_move_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_form.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_show_bank_details.xml)
-
+Edit: [snippets/mint_system.account.view_move_form.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_form.x_show_bank_details.xml)\
 Source: [snippets/mint_system.account.view_move_form.x_show_bank_details.xml](https://odoo.build/snippets/mint_system.account.view_move_form.x_show_bank_details.xml)
 
 ## View Move Line Tax Audit Tree
 
 ### Show Balance
 
-ID: `mint_system.account.view_move_line_tax_audit_tree.show_balance`
-
+ID: `mint_system.account.view_move_line_tax_audit_tree.show_balance`\
 Inherit ID: `account.view_move_line_tax_audit_tree`
 
 ```xml
@@ -6083,14 +5913,12 @@ Inherit ID: `account.view_move_line_tax_audit_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml)\
 Source: [snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tax_audit_tree.show_balance.xml)
 
 ### Sum Currency
 
-ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`
-
+ID: `mint_system.account.view_move_line_tax_audit_tree.sum_currency`\
 Inherit ID: `account.view_move_line_tax_audit_tree`
 
 ```xml
@@ -6101,16 +5929,14 @@ Inherit ID: `account.view_move_line_tax_audit_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml)\
 Source: [snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tax_audit_tree.sum_currency.xml)
 
 ## View Move Line Tree
 
 ### Enable Create
 
-ID: `mint_system.account.view_move_line_tree.enable_create`
-
+ID: `mint_system.account.view_move_line_tree.enable_create`\
 Inherit ID: `account.view_move_line_tree`
 
 ```xml
@@ -6121,14 +5947,12 @@ Inherit ID: `account.view_move_line_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.enable_create.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tree.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.enable_create.xml)\
 Source: [snippets/mint_system.account.view_move_line_tree.enable_create.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tree.enable_create.xml)
 
 ### Show Cumulated Balance
 
-ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`
-
+ID: `mint_system.account.view_move_line_tree.show_cumulated_balance`\
 Inherit ID: `account.view_move_line_tree`
 
 ```xml
@@ -6139,14 +5963,12 @@ Inherit ID: `account.view_move_line_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml)\
 Source: [snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tree.show_cumulated_balance.xml)
 
 ### Vat
 
-ID: `mint_system.account.view_move_line_tree.vat`
-
+ID: `mint_system.account.view_move_line_tree.vat`\
 Inherit ID: `account.view_move_line_tree`
 
 ```xml
@@ -6157,16 +5979,14 @@ Inherit ID: `account.view_move_line_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.vat.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tree.vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree.vat.xml)\
 Source: [snippets/mint_system.account.view_move_line_tree.vat.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tree.vat.xml)
 
 ## View Move Line Tree Grouped General
 
 ### Amount Currency Optional
 
-ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`
-
+ID: `mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional`\
 Inherit ID: `account.view_move_line_tree_grouped_general`
 
 ```xml
@@ -6177,16 +5997,14 @@ Inherit ID: `account.view_move_line_tree_grouped_general`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
-
+Edit: [snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml)\
 Source: [snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml](https://odoo.build/snippets/mint_system.account.view_move_line_tree_grouped_general.amount_currency_optional.xml)
 
 ## View Move Tree
 
 ### Show Create Date
 
-ID: `mint_system.account.view_move_tree.show_create_date`
-
+ID: `mint_system.account.view_move_tree.show_create_date`\
 Inherit ID: `account.view_move_tree`
 
 ```xml
@@ -6196,14 +6014,12 @@ Inherit ID: `account.view_move_tree`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account.view_move_tree.show_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_tree.show_create_date.xml)
-
+Edit: [snippets/mint_system.account.view_move_tree.show_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_tree.show_create_date.xml)\
 Source: [snippets/mint_system.account.view_move_tree.show_create_date.xml](https://odoo.build/snippets/mint_system.account.view_move_tree.show_create_date.xml)
 
 ### X Account Codes
 
-ID: `mint_system.account.view_move_tree.x_account_codes`
-
+ID: `mint_system.account.view_move_tree.x_account_codes`\
 Inherit ID: `account.view_move_tree`
 
 ```xml
@@ -6214,16 +6030,14 @@ Inherit ID: `account.view_move_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_move_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_tree.x_account_codes.xml)
-
+Edit: [snippets/mint_system.account.view_move_tree.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_move_tree.x_account_codes.xml)\
 Source: [snippets/mint_system.account.view_move_tree.x_account_codes.xml](https://odoo.build/snippets/mint_system.account.view_move_tree.x_account_codes.xml)
 
 ## View Out Invoice Tree
 
 ### Format Invoice Date Due
 
-ID: `mint_system.account.view_out_invoice_tree.format_invoice_date_due`
-
+ID: `mint_system.account.view_out_invoice_tree.format_invoice_date_due`\
 Inherit ID: `account.view_out_invoice_tree`
 
 ```xml
@@ -6234,14 +6048,12 @@ Inherit ID: `account.view_out_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml)
-
+Edit: [snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml)\
 Source: [snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml](https://odoo.build/snippets/mint_system.account.view_out_invoice_tree.format_invoice_date_due.xml)
 
 ### Show Discount
 
-ID: `mint_system.account.view_out_invoice_tree.show_discount`
-
+ID: `mint_system.account.view_out_invoice_tree.show_discount`\
 Inherit ID: `account.view_out_invoice_tree`
 
 ```xml
@@ -6253,14 +6065,12 @@ Inherit ID: `account.view_out_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_out_invoice_tree.show_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_discount.xml)
-
+Edit: [snippets/mint_system.account.view_out_invoice_tree.show_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_discount.xml)\
 Source: [snippets/mint_system.account.view_out_invoice_tree.show_discount.xml](https://odoo.build/snippets/mint_system.account.view_out_invoice_tree.show_discount.xml)
 
 ### Show Invoice Payment Term Id
 
-ID: `mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id`
-
+ID: `mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id`\
 Inherit ID: `account.view_out_invoice_tree`
 
 ```xml
@@ -6271,14 +6081,12 @@ Inherit ID: `account.view_out_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml)
-
+Edit: [snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml)\
 Source: [snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml](https://odoo.build/snippets/mint_system.account.view_out_invoice_tree.show_invoice_payment_term_id.xml)
 
 ### Show Partner Shipping
 
-ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`
-
+ID: `mint_system.account.view_out_invoice_tree.show_partner_shipping`\
 Inherit ID: `account.view_out_invoice_tree`
 
 ```xml
@@ -6289,16 +6097,14 @@ Inherit ID: `account.view_out_invoice_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml)
-
+Edit: [snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml)\
 Source: [snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml](https://odoo.build/snippets/mint_system.account.view_out_invoice_tree.show_partner_shipping.xml)
 
 ## View Partner Property Form
 
 ### Show Commercial Partner Id
 
-ID: `mint_system.account.view_partner_property_form.show_commercial_partner_id`
-
+ID: `mint_system.account.view_partner_property_form.show_commercial_partner_id`\
 Inherit ID: `account.view_partner_property_form`
 
 ```xml
@@ -6309,7 +6115,6 @@ Inherit ID: `account.view_partner_property_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml)
-
+Edit: [snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml)\
 Source: [snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml](https://odoo.build/snippets/mint_system.account.view_partner_property_form.show_commercial_partner_id.xml)
 

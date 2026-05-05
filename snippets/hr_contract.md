@@ -4,8 +4,7 @@
 
 ### X Struct Id
 
-ID: `mint_system.hr_contract.hr_contract_view_form.x_struct_id`
-
+ID: `mint_system.hr_contract.hr_contract_view_form.x_struct_id`\
 Inherit ID: `hr_contract.hr_contract_view_form`
 
 ```xml
@@ -16,16 +15,14 @@ Inherit ID: `hr_contract.hr_contract_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml)
-
+Edit: [snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml)\
 Source: [snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml](https://odoo.build/snippets/mint_system.hr_contract.hr_contract_view_form.x_struct_id.xml)
 
 ## Hr Contract View Kanban
 
 ### Show Start Date
 
-ID: `mint_system.hr_contract.hr_contract_view_kanban.show_start_date`
-
+ID: `mint_system.hr_contract.hr_contract_view_kanban.show_start_date`\
 Inherit ID: `hr_contract.hr_contract_view_kanban`
 
 ```xml
@@ -37,7 +34,6 @@ Inherit ID: `hr_contract.hr_contract_view_kanban`
 </data>
 
 ```
-Edit: [snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml)
-
+Edit: [snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml)\
 Source: [snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml](https://odoo.build/snippets/mint_system.hr_contract.hr_contract_view_kanban.show_start_date.xml)
 

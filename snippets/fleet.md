@@ -4,8 +4,7 @@
 
 ### Show Reservation
 
-ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`
-
+ID: `mint_system.fleet.fleet_vehicle_view_form.show_reservation`\
 Inherit ID: `fleet.fleet_vehicle_view_form`
 
 ```xml
@@ -23,7 +22,6 @@ Inherit ID: `fleet.fleet_vehicle_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)
-
+Edit: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)\
 Source: [snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml](https://odoo.build/snippets/mint_system.fleet.fleet_vehicle_view_form.show_reservation.xml)
 

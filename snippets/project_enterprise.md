@@ -4,8 +4,7 @@
 
 ### Attributes Planned Date
 
-ID: `mint_system.project_enterprise.project_task_view_form.attributes_planned_date`
-
+ID: `mint_system.project_enterprise.project_task_view_form.attributes_planned_date`\
 Inherit ID: `project_enterprise.project_task_view_form`
 
 ```xml
@@ -16,7 +15,6 @@ Inherit ID: `project_enterprise.project_task_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml)
-
+Edit: [snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml)\
 Source: [snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml](https://odoo.build/snippets/mint_system.project_enterprise.project_task_view_form.attributes_planned_date.xml)
 

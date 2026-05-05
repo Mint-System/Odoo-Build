@@ -4,8 +4,7 @@
 
 ### Remove Blocked
 
-ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`
-
+ID: `mint_system.account_followup.customer_statements_form_view.remove_blocked`\
 Inherit ID: `account_followup.customer_statements_form_view`
 
 ```xml
@@ -14,16 +13,14 @@ Inherit ID: `account_followup.customer_statements_form_view`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)
-
+Edit: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)\
 Source: [snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml](https://odoo.build/snippets/mint_system.account_followup.customer_statements_form_view.remove_blocked.xml)
 
 ## Report Followup Print All
 
 ### Style Sozialinfo
 
-ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`
-
+ID: `mint_system.account_followup.report_followup_print_all.style_sozialinfo`\
 Inherit ID: `account_followup.report_followup_print_all`
 
 ```xml
@@ -42,16 +39,14 @@ Inherit ID: `account_followup.report_followup_print_all`
     </t>
 </data>
 ```
-Edit: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)
-
+Edit: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)\
 Source: [snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml](https://odoo.build/snippets/mint_system.account_followup.report_followup_print_all.style_sozialinfo.xml)
 
 ## Template Followup Report
 
 ### Format Table
 
-ID: `mint_system.account_followup.template_followup_report.format_table`
-
+ID: `mint_system.account_followup.template_followup_report.format_table`\
 Inherit ID: `account_followup.template_followup_report`
 
 ```xml
@@ -66,14 +61,41 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.format_table.xml)
-
+Edit: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.format_table.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.format_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.format_table.xml)
+
+### Get Header From Email Subject
+
+ID: `mint_system.account_followup.template_followup_report.get_header_from_email_subject`\
+Inherit ID: `account_followup.template_followup_report`
+
+```xml
+<data priority="50">
+   <xpath expr="//div[@class='o_account_reports_header']" position="replace">
+      <div class="o_account_reports_header">
+        <div class="print_only">
+            <h2>
+                <strong>
+                    <t t-if="options.get('email_subject')">
+                        <t t-out="options['email_subject']"/>
+                    </t>
+                    <t t-else="">
+                        Pending Invoices
+                    </t>
+                </strong>
+            </h2>
+        </div>
+    </div>
+  </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml)\
+Source: [snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.get_header_from_email_subject.xml)
 
 ### Padding Before Table
 
-ID: `mint_system.account_followup.template_followup_report.padding_before_table`
-
+ID: `mint_system.account_followup.template_followup_report.padding_before_table`\
 Inherit ID: `account_followup.template_followup_report`
 
 ```xml
@@ -84,14 +106,12 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)
-
+Edit: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.padding_before_table.xml)
 
 ### Remove Summary Placeholder
 
-ID: `mint_system.account_followup.template_followup_report.remove_summary_placeholder`
-
+ID: `mint_system.account_followup.template_followup_report.remove_summary_placeholder`\
 Inherit ID: `account_followup.template_followup_report`
 
 ```xml
@@ -100,7 +120,6 @@ Inherit ID: `account_followup.template_followup_report`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)
-
+Edit: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)\
 Source: [snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml](https://odoo.build/snippets/mint_system.account_followup.template_followup_report.remove_summary_placeholder.xml)
 

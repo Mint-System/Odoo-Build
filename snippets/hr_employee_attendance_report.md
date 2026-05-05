@@ -4,8 +4,7 @@
 
 ### Add Weekday
 
-ID: `mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday`
-
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday`\
 Inherit ID: `hr_employee_attendance_report.hr_employee_template`
 
 ```xml
@@ -13,14 +12,12 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
     <t t-out="attendance['date']" t-options="{'widget': 'date', 'format': 'EEE'}"/>
 </xpath>
 ```
-Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml)
-
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml)
 
 ### Attendance Table Attributes
 
-ID: `mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes`
-
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes`\
 Inherit ID: `hr_employee_attendance_report.hr_employee_template`
 
 ```xml
@@ -31,14 +28,49 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
      </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml)
-
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml)
+
+### Attendances Table Columns
+
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns`\
+Inherit ID: `hr_employee_attendance_report.hr_employee_template`
+
+```xml
+<data priority="50">
+    <xpath expr="//th[@name='th_date']" position="replace">
+        <th class="text-start" name="th_date">
+            Datum
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_planned_hours']" position="replace">
+        <th class="text-end" name="th_planned_hours" t-if="fixed_work_hours">
+            Soll Zeit [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_leave_hours']" position="replace">
+        <th class="text-end" name="th_leave_hours" t-if="fixed_work_hours">
+            Abw. [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_worked_hours']" position="replace">
+        <th class="text-end" name="th_worked_hours">
+            Ist Zeit [h]
+        </th>
+    </xpath>
+    <xpath expr="//th[@name='th_overtime']" position="replace">
+        <th class="text-end" name="th_overtime" t-if="fixed_work_hours">
+            Gleitzeit [h]
+        </th>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml)\
+Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml)
 
 ### Change Column Order
 
-ID: `mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order`
-
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order`\
 Inherit ID: `hr_employee_attendance_report.hr_employee_template`
 
 ```xml
@@ -53,71 +85,59 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
    </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml)
-
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml)
 
 ### Replace Overtime
 
-ID: `mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime`
-
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime`\
 Inherit ID: `hr_employee_attendance_report.hr_employee_template`
 
 ```xml
 <data priority="50">
     <xpath expr="//th[@name='th_overtime']" position="replace">
     <th class="text-end" name="th_overtime" t-if="fixed_work_hours">
-        Flexitime
+        Gleitzeit
     </th>
     </xpath>
 
     <xpath expr="//th[@name='th_overtime_sum']" position="replace">
     <th class="text-end" name="th_overtime_sum">
-       Flexitime
+       Gleitzeit
     </th>
     </xpath>
 
     <xpath expr="//th[@name='th_overtime_total']" position="replace">
     <th class="text-end" name="th_overtime_total">
-       Flexitime Total
+       Gleitzeit ges.
     </th>
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml)
-
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml)
 
 ### Replace Report Head
 
-ID: `mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head`
-
+ID: `mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head`\
 Inherit ID: `hr_employee_attendance_report.hr_employee_template`
 
 ```xml
 <data priority="50">
     <xpath expr="//div[@name='report_head']" position="replace">
          <div name="report_head">
-             <h5 class="attendance-report">Attendance Report</h5>
-             <p><span class="light-text">Employee:</span> <span
-                     t-out="doc.name"
-                 />
+            <div style="background-color: black; color: white; padding: 10px;">
+             <h2 class="attendance-report" style="font-size:20pt; margin: 0; font-weight: bold;">Stundenrapport
+                <t t-esc="date_label"/>
+             </h2>
+             </div>
+             <p style="margin-top: 10px;"><span class="light-text">Name:</span> <span t-out="doc.name"/>
              </p>
-             <p><span class="light-text">From:</span> <span
-                     t-out="dates[doc.id]['start_date']"
-                     t-options="{'widget': 'date'}"
-                 />
-                 <span class="light-text">Until: </span><span
-                     t-out="dates[doc.id]['end_date']"
-                     t-options="{'widget': 'date'}"
-                 />
-             </p>
-
+            
          </div>           
      </xpath> 
 </data>
 ```
-Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml)
-
+Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml)
 

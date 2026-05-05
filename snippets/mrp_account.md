@@ -4,8 +4,7 @@
 
 ### Modify Groups
 
-ID: `mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups`
-
+ID: `mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups`\
 Inherit ID: `mrp_account.mrp_production_form_view_inherited`
 
 ```xml
@@ -16,7 +15,6 @@ Inherit ID: `mrp_account.mrp_production_form_view_inherited`
 </data>
 
 ```
-Edit: [snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml)
-
+Edit: [snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml)\
 Source: [snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml](https://odoo.build/snippets/mint_system.mrp_account.mrp_production_form_view_inherited.modify_groups.xml)
 

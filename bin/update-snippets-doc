@@ -106,7 +106,7 @@ def main():
                 # Add edit section to module doc file
                 with open(doc_file, "a") as module_doc:
                     module_doc.write(f"### {edit_title}\n\n")
-                    module_doc.write(f"ID: `{snippet_prefix}.{module}.{xml_id}.{edit}`\n\n")
+                    module_doc.write(f"ID: `{snippet_prefix}.{module}.{xml_id}.{edit}`\\\n")
                     module_doc.write(f"Inherit ID: `{module}.{xml_id}`\n\n")
                     module_doc.write("```xml\n")
 
@@ -115,7 +115,7 @@ def main():
                         module_doc.write(xml_file.read())
 
                     module_doc.write("\n```\n")
-                    module_doc.write(f"Edit: [{file}]({edit_url}/{file})\n\n")
+                    module_doc.write(f"Edit: [{file}]({edit_url}/{file})\\\n")
                     module_doc.write(f"Source: [{file}]({source_url}/{file})\n\n")
 
     # Create sidebar.js

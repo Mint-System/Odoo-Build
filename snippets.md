@@ -65,6 +65,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Hr Attendance Kanban](snippets/hr_attendance_kanban.md)
 
+## [Hr Attendance Report Add Flexitime](snippets/hr_attendance_report_add_flexitime.md)
+
 ## [Hr Contract](snippets/hr_contract.md)
 
 ## [Hr Employee Attendance Report](snippets/hr_employee_attendance_report.md)
@@ -90,6 +92,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 ## [Ir Model](snippets/ir_model.md)
 
 ## [Ir Ui View](snippets/ir_ui_view.md)
+
+## [Knowledge](snippets/knowledge.md)
 
 ## [L10n Ch](snippets/l10n_ch.md)
 
@@ -132,6 +136,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 ## [Purchase Requisition Send](snippets/purchase_requisition_send.md)
 
 ## [Res Groups](snippets/res_groups.md)
+
+## [Resource](snippets/resource.md)
 
 ## [Sale](snippets/sale.md)
 

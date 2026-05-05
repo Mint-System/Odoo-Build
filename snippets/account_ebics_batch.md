@@ -4,8 +4,7 @@
 
 ### Show Dates
 
-ID: `mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates`
-
+ID: `mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates`\
 Inherit ID: `account_ebics_batch.ebics_batch_log_view_tree`
 
 ```xml
@@ -17,7 +16,6 @@ Inherit ID: `account_ebics_batch.ebics_batch_log_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml)
-
+Edit: [snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml)\
 Source: [snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml](https://odoo.build/snippets/mint_system.account_ebics_batch.ebics_batch_log_view_tree.show_dates.xml)
 

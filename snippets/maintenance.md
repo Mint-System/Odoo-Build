@@ -4,8 +4,7 @@
 
 ### X Calibrated Until
 
-ID: `mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until`
-
+ID: `mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until`\
 Inherit ID: `maintenance.hr_equipment_request_view_form`
 
 ```xml
@@ -16,16 +15,14 @@ Inherit ID: `maintenance.hr_equipment_request_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_request_view_form.x_calibrated_until.xml)
 
 ## Hr Equipment Request View Tree
 
 ### Show Schedule Date
 
-ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`
-
+ID: `mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date`\
 Inherit ID: `maintenance.hr_equipment_request_view_tree`
 
 ```xml
@@ -36,14 +33,12 @@ Inherit ID: `maintenance.hr_equipment_request_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_request_view_tree.show_schedule_date.xml)
 
 ### X Calibrated Until
 
-ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`
-
+ID: `mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until`\
 Inherit ID: `maintenance.hr_equipment_request_view_tree`
 
 ```xml
@@ -54,16 +49,33 @@ Inherit ID: `maintenance.hr_equipment_request_view_tree`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_request_view_tree.x_calibrated_until.xml)
 
 ## Hr Equipment View Form
 
+### Remove Groups No One
+
+ID: `mint_system.maintenance.hr_equipment_view_form.remove_groups_no_one`\
+Inherit ID: `maintenance.hr_equipment_view_form`
+
+```xml
+<data priority="50">
+    <field name="assign_date" position="attributes">
+        <attribute name="groups"></attribute>
+    </field>
+    <field name="scrap_date" position="attributes">
+        <attribute name="groups"></attribute>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.remove_groups_no_one.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.remove_groups_no_one.xml)\
+Source: [snippets/mint_system.maintenance.hr_equipment_view_form.remove_groups_no_one.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.remove_groups_no_one.xml)
+
 ### X Calibrated Until
 
-ID: `mint_system.maintenance.hr_equipment_view_form.x_calibrated_until`
-
+ID: `mint_system.maintenance.hr_equipment_view_form.x_calibrated_until`\
 Inherit ID: `maintenance.hr_equipment_view_form`
 
 ```xml
@@ -74,14 +86,12 @@ Inherit ID: `maintenance.hr_equipment_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_calibrated_until.xml)
 
 ### X Date Action Required
 
-ID: `mint_system.maintenance.hr_equipment_view_form.x_date_action_required`
-
+ID: `mint_system.maintenance.hr_equipment_view_form.x_date_action_required`\
 Inherit ID: `maintenance.hr_equipment_view_form`
 
 ```xml
@@ -92,14 +102,12 @@ Inherit ID: `maintenance.hr_equipment_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_date_action_required.xml)
 
 ### X Lead Time Recovery Work
 
-ID: `mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work`
-
+ID: `mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work`\
 Inherit ID: `maintenance.hr_equipment_view_form`
 
 ```xml
@@ -110,14 +118,12 @@ Inherit ID: `maintenance.hr_equipment_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_lead_time_recovery_work.xml)
 
 ### X Location
 
-ID: `mint_system.maintenance.hr_equipment_view_form.x_location`
-
+ID: `mint_system.maintenance.hr_equipment_view_form.x_location`\
 Inherit ID: `maintenance.hr_equipment_view_form`
 
 ```xml
@@ -128,16 +134,14 @@ Inherit ID: `maintenance.hr_equipment_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_form.x_location.xml)
 
 ## Hr Equipment View Search
 
 ### Calibration
 
-ID: `mint_system.maintenance.hr_equipment_view_search.calibration`
-
+ID: `mint_system.maintenance.hr_equipment_view_search.calibration`\
 Inherit ID: `maintenance.hr_equipment_view_search`
 
 ```xml
@@ -148,7 +152,6 @@ Inherit ID: `maintenance.hr_equipment_view_search`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml)
-
+Edit: [snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml)\
 Source: [snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml](https://odoo.build/snippets/mint_system.maintenance.hr_equipment_view_search.calibration.xml)
 

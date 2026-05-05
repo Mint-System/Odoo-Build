@@ -4,8 +4,7 @@
 
 ### Show Field
 
-ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`
-
+ID: `mint_system.sale_partner_incoterm.view_partner_property_form.show_field`\
 Inherit ID: `sale_partner_incoterm.view_partner_property_form`
 
 ```xml
@@ -18,7 +17,6 @@ Inherit ID: `sale_partner_incoterm.view_partner_property_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml)
-
+Edit: [snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml)\
 Source: [snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml](https://odoo.build/snippets/mint_system.sale_partner_incoterm.view_partner_property_form.show_field.xml)
 

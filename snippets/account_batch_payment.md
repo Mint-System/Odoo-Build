@@ -4,8 +4,7 @@
 
 ### Add Row
 
-ID: `mint_system.account_batch_payment.print_batch_payment.add_row`
-
+ID: `mint_system.account_batch_payment.print_batch_payment.add_row`\
 Inherit ID: `account_batch_payment.print_batch_payment`
 
 ```xml
@@ -24,14 +23,12 @@ Inherit ID: `account_batch_payment.print_batch_payment`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)
-
+Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)\
 Source: [snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.add_row.xml)
 
 ### Sort
 
-ID: `mint_system.account_batch_payment.print_batch_payment.sort`
-
+ID: `mint_system.account_batch_payment.print_batch_payment.sort`\
 Inherit ID: `account_batch_payment.print_batch_payment`
 
 ```xml
@@ -58,16 +55,14 @@ Inherit ID: `account_batch_payment.print_batch_payment`
     </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)
-
+Edit: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)\
 Source: [snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml](https://odoo.build/snippets/mint_system.account_batch_payment.print_batch_payment.sort.xml)
 
 ## View Batch Payment Form
 
 ### Show Sct Generic
 
-ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`
-
+ID: `mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic`\
 Inherit ID: `account_batch_payment.view_batch_payment_form`
 
 ```xml
@@ -78,7 +73,6 @@ Inherit ID: `account_batch_payment.view_batch_payment_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
-
+Edit: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)\
 Source: [snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml](https://odoo.build/snippets/mint_system.account_batch_payment.view_batch_payment_form.show_sct_generic.xml)
 

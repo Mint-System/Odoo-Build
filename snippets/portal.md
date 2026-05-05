@@ -4,8 +4,7 @@
 
 ### Show Firstname Lastname
 
-ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`
-
+ID: `mint_system.portal.portal_my_details_fields.show_firstname_lastname`\
 Inherit ID: `portal.portal_my_details_fields`
 
 ```xml
@@ -23,14 +22,12 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-Edit: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)
-
+Edit: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)\
 Source: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)
 
 ### Show Street
 
-ID: `mint_system.portal.portal_my_details_fields.show_street`
-
+ID: `mint_system.portal.portal_my_details_fields.show_street`\
 Inherit ID: `portal.portal_my_details_fields`
 
 ```xml
@@ -44,7 +41,6 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-Edit: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)
-
+Edit: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)\
 Source: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)
 

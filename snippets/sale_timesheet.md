@@ -4,8 +4,7 @@
 
 ### Replace Titel
 
-ID: `mint_system.sale_timesheet.timesheet_sale_page.replace_titel`
-
+ID: `mint_system.sale_timesheet.timesheet_sale_page.replace_titel`\
 Inherit ID: `sale_timesheet.timesheet_sale_page`
 
 ```xml
@@ -19,7 +18,6 @@ Inherit ID: `sale_timesheet.timesheet_sale_page`
   </xpath>
 </data>
 ```
-Edit: [snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml)
-
+Edit: [snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml)\
 Source: [snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml](https://odoo.build/snippets/mint_system.sale_timesheet.timesheet_sale_page.replace_titel.xml)
 

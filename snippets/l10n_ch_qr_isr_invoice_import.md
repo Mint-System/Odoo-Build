@@ -4,8 +4,7 @@
 
 ### Show Partner Id
 
-ID: `mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id`
-
+ID: `mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id`\
 Inherit ID: `l10n_ch_qr_isr_invoice_import.account_invoice_import_form`
 
 ```xml
@@ -16,7 +15,6 @@ Inherit ID: `l10n_ch_qr_isr_invoice_import.account_invoice_import_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml)
-
+Edit: [snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml)\
 Source: [snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml](https://odoo.build/snippets/mint_system.l10n_ch_qr_isr_invoice_import.account_invoice_import_form.show_partner_id.xml)
 

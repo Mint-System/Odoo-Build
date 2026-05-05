@@ -4,8 +4,7 @@
 
 ### Hide Enrich Revenue
 
-ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`
-
+ID: `mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue`\
 Inherit ID: `crm_iap_lead_enrich.crm_lead_view_form`
 
 ```xml
@@ -15,7 +14,6 @@ Inherit ID: `crm_iap_lead_enrich.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)
-
+Edit: [snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)\
 Source: [snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml](https://odoo.build/snippets/mint_system.crm_iap_lead_enrich.crm_lead_view_form.hide_enrich_revenue.xml)
 

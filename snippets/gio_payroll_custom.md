@@ -4,8 +4,7 @@
 
 ### Holiday Wage As Percentage
 
-ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`
-
+ID: `mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage`\
 Inherit ID: `gio_payroll_custom.gio_view_hr_contract_form`
 
 ```xml
@@ -16,16 +15,14 @@ Inherit ID: `gio_payroll_custom.gio_view_hr_contract_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)
-
+Edit: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)\
 Source: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://odoo.build/snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)
 
 ## Hr Payroll Report View
 
 ### New Report
 
-ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`
-
+ID: `mint_system.gio_payroll_custom.hr_payroll_report_view.new_report`\
 Inherit ID: `gio_payroll_custom.hr_payroll_report_view`
 
 ```xml
@@ -225,7 +222,6 @@ Inherit ID: `gio_payroll_custom.hr_payroll_report_view`
 </data>
 
 ```
-Edit: [snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml)
-
+Edit: [snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml)\
 Source: [snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://odoo.build/snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml)
 

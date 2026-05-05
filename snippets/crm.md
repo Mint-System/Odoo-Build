@@ -4,8 +4,7 @@
 
 ### Enable Create
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.enable_create`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -16,14 +15,12 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.enable_create.xml)
 
 ### Hide Revenue
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.hide_revenue`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -32,14 +29,12 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.hide_revenue.xml)
 
 ### Mode Week
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.mode_week`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -50,14 +45,12 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.mode_week.xml)
 
 ### Use Date Deadline
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_deadline`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -68,14 +61,12 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_deadline.xml)
 
 ### Use Date Start
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.use_date_start`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -86,14 +77,12 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.use_date_start.xml)
 
 ### X Date Stop
 
-ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`
-
+ID: `mint_system.crm.crm_case_calendar_view_leads.x_date_stop`\
 Inherit ID: `crm.crm_case_calendar_view_leads`
 
 ```xml
@@ -104,16 +93,14 @@ Inherit ID: `crm.crm_case_calendar_view_leads`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml)
-
+Edit: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml)\
 Source: [snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml](https://odoo.build/snippets/mint_system.crm.crm_case_calendar_view_leads.x_date_stop.xml)
 
 ## Crm Lead View Form
 
 ### Date Deadline Required
 
-ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`
-
+ID: `mint_system.crm.crm_lead_view_form.date_deadline_required`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -124,14 +111,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.date_deadline_required.xml)
 
 ### Hide Date Deadline
 
-ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`
-
+ID: `mint_system.crm.crm_lead_view_form.hide_date_deadline`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -142,14 +127,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.hide_date_deadline.xml)
 
 ### Hide Expected Revenue
 
-ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`
-
+ID: `mint_system.crm.crm_lead_view_form.hide_expected_revenue`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -160,14 +143,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.hide_expected_revenue.xml)
 
 ### Hide Lost Won Buttons
 
-ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`
-
+ID: `mint_system.crm.crm_lead_view_form.hide_lost_won_buttons`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -183,14 +164,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.hide_lost_won_buttons.xml)
 
 ### X Date Start
 
-ID: `mint_system.crm.crm_lead_view_form.x_date_start`
-
+ID: `mint_system.crm.crm_lead_view_form.x_date_start`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -201,14 +180,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.x_date_start.xml)
 
 ### X Date Stop
 
-ID: `mint_system.crm.crm_lead_view_form.x_date_stop`
-
+ID: `mint_system.crm.crm_lead_view_form.x_date_stop`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -219,14 +196,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.x_date_stop.xml)
 
 ### X Mobile
 
-ID: `mint_system.crm.crm_lead_view_form.x_mobile`
-
+ID: `mint_system.crm.crm_lead_view_form.x_mobile`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -240,14 +215,12 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.x_mobile.xml)
 
 ### X Task Id
 
-ID: `mint_system.crm.crm_lead_view_form.x_task_id`
-
+ID: `mint_system.crm.crm_lead_view_form.x_task_id`\
 Inherit ID: `crm.crm_lead_view_form`
 
 ```xml
@@ -261,7 +234,6 @@ Inherit ID: `crm.crm_lead_view_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml)
-
+Edit: [snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml)\
 Source: [snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml](https://odoo.build/snippets/mint_system.crm.crm_lead_view_form.x_task_id.xml)
 

@@ -4,8 +4,7 @@
 
 ### Edit Date Start
 
-ID: `mint_system.subscription_oca.sale_subscription_form.edit_date_start`
-
+ID: `mint_system.subscription_oca.sale_subscription_form.edit_date_start`\
 Inherit ID: `subscription_oca.sale_subscription_form`
 
 ```xml
@@ -16,16 +15,14 @@ Inherit ID: `subscription_oca.sale_subscription_form`
 </data>
 
 ```
-Edit: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml)
-
+Edit: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml)\
 Source: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml](https://odoo.build/snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml)
 
 ## View Sale Order Pending Filter
 
 ### Overwrite
 
-ID: `mint_system.subscription_oca.view_sale_order_pending_filter.overwrite`
-
+ID: `mint_system.subscription_oca.view_sale_order_pending_filter.overwrite`\
 Inherit ID: `subscription_oca.view_sale_order_pending_filter`
 
 ```xml
@@ -69,7 +66,6 @@ Inherit ID: `subscription_oca.view_sale_order_pending_filter`
 </data>
 
 ```
-Edit: [snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml)
-
+Edit: [snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml)\
 Source: [snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml](https://odoo.build/snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml)
 
