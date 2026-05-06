@@ -35,6 +35,7 @@ All notable changes to this project will be documented in this file. The format 
 - Template migration scripts with `generate-module-migration`
 - New command `create-repo` to initialize Odoo module repo from template.
 - New command `generate-repo-docs` to generate repo files from template.
+- New command `register-module-repos` to register module repositories on apps.odoo.com with auto-scan enabled.
 
 ### Changed
 
