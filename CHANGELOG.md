@@ -65,6 +65,7 @@ All notable changes to this project will be documented in this file. The format 
 - Removed any instance `--upgrade-path`.
 - The `build`, `push` and `test-image` require folder param.
 - Replace `--xmlrpc-port` with `--htt-port`.
+- Updated Odoo CLI commands to use `--config="$ODOO_RC"` instead of `--config "$ODOO_RC"` for consistent quoting.
 
 ### Added
 

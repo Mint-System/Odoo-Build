@@ -1246,7 +1246,7 @@ start() {
 
         echo "Open http://localhost:$port url in your browser."
         open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
-        odoo --database="$database" --config "$ODOO_RC" \
+        odoo --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 
@@ -1262,7 +1262,7 @@ start() {
 
         echo "Open http://localhost:$port url in your browser."
         open-url-with-delay "http://localhost:$port/web?debug=1&db=$database" 2 &
-        odoo --database="$database" --config "$ODOO_RC" \
+        odoo --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --dev=all --log-level="$LOG_LEVEL"
     fi
 
@@ -1295,7 +1295,7 @@ debug() {
         echo 'Starting Odoo with the debugger on port 5678.'
         echo "Attach a debugpy debugger and open http://localhost:$port url in your browser."
 
-        python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
+        python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 }
@@ -1362,7 +1362,7 @@ record-with-memray() {
 
         mkdir -p tmp
         rm "$output_file"
-        python3 -m memray run -o "$output_file" $(which odoo) --database="$DATABASE" --config "$ODOO_RC" \
+        python3 -m memray run -o "$output_file" $(which odoo) --database="$DATABASE" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
         python3 -m memray flamegraph "$output_file"
         open-with-os "tmp/memray-flamegraph-output.html"
@@ -1654,9 +1654,9 @@ shell() {
 
     set-addons-path
     if [[ -n "$code" ]]; then
-        echo "$code" | odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+        echo "$code" | odoo shell --database "$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
     else
-        odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+        odoo shell --database "$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
     fi
 }
 
@@ -1683,9 +1683,9 @@ init-db() {
 
     echo "Initialize database $database with $odoo_init_addons."
     if [[ -n "$ODOO_PARAM" ]]; then
-        odoo -d "$database" -i "$odoo_init_addons" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
+        odoo --database="$database" -i "$odoo_init_addons" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE" "$ODOO_PARAM"
     else
-        odoo -d "$database" -i "$odoo_init_addons" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+        odoo --database="$database" -i "$odoo_init_addons" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
     fi
 }
 
@@ -1737,7 +1737,7 @@ load-language() {
     set-addons-path
 
     echo "Setup language $language for database $database:"
-    odoo -d "$database" -u all --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$language"
+    odoo --database="$database" -u all --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$language"
 }
 
 set-admin() {
@@ -1815,7 +1815,7 @@ update-module-list() {
     fi
 
     set-addons-path
-    echo "env['ir.module.module'].update_list()" | odoo shell --database "$1" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    echo "env['ir.module.module'].update_list()" | odoo shell --database "$1" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
 patch-database() {
@@ -1847,7 +1847,7 @@ cloc-odoo() {
     fi
 
     set-addons-path
-    odoo cloc -d "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+    odoo cloc --database="$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
 }
 
 visualize-dependencies() {
@@ -1929,7 +1929,7 @@ init-module() {
 
     set-addons-path
     echo "Initialize module $modules on ${database}..."
-    odoo -d "$database" -i "$modules" --config "$ODOO_RC" \
+    odoo --database="$database" -i "$modules" --config="$ODOO_RC" \
         --addons-path="$ADDONS_PATH" --stop-after-init --no-http \
         --log-level="$LOG_LEVEL"
 }
@@ -1953,10 +1953,10 @@ update-module() {
     echo "Updating module $module_name on ${database}..."
     if [[ -n "$ODOO_PARAM" ]]; then
         odoo --database "$database" --update "$module_name" \
-            --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
+            --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http "$ODOO_PARAM"
     else
         odoo --database "$database" --update "$module_name" \
-            --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
+            --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http
     fi
 }
 
@@ -1982,7 +1982,11 @@ translate-module() {
     set-addons-path
     echo "Generate $language tranlsation file for $module_name on ${database}..."
     mkdir -p "$module_path/i18n/"
-    odoo -d "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$module_name" -l "$language" --i18n-export "$module_path/i18n/$language.po"
+    if [[ "$ODOO_VERSION" == "19.0" ]]; then
+        odoo --addons-path="$ADDONS_PATH" i18n export "$module_name" --languages "$language" -d "$database" -c "$ODOO_RC"
+    else
+        odoo --database="$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --modules "$module_name" -l "$language" --i18n-export "$module_path/i18n/$language.po"
+    fi
 
     # If lang is de_CH then rename the file to de.po.
     if [[ "$language" == "de_CH" ]]; then
@@ -1999,7 +2003,7 @@ test-module() {
 
     set-addons-path
     echo "Testing module $module..."
-    odoo -d "$DB_NAME" -i "$module" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
+    odoo -d "$DB_NAME" -i "$module" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 test-modules() {
@@ -2018,10 +2022,10 @@ test-modules() {
 
     depends_modules=$(manifestoo --select-addons-dir "$1" list-depends --separator=,)
     echo "Setup test database with "$ODOO_LANGUAGE" lang and depends modules: $depends_modules"
-    odoo -d "$DB_NAME" -i "$depends_modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
+    odoo -d "$DB_NAME" -i "$depends_modules" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --load-language "$ODOO_LANGUAGE"
 
     echo "Testing modules: $modules"
-    odoo -d "$DB_NAME" -i "$modules" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
+    odoo -d "$DB_NAME" -i "$modules" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --stop-after-init --no-http --test-enable
 }
 
 pytest-module() {
@@ -2062,7 +2066,7 @@ remove-module() {
     set-addons-path
     echo "Remove module $module_name"
     echo "self.env['ir.module.module'].search([('name', '=', '$module_name')]).button_immediate_uninstall()" |
-    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell --database "$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
 create-module() {
@@ -2490,7 +2494,7 @@ prepare-migration-brach() {
 
     echo "Checkout $module from $version"
     git -C "$repo" checkout "$version" "$module"
-    
+
     echo "Create patch file from version $version to $ODOO_VERSION"
     git format-patch --keep-subject --stdout origin/$ODOO_VERSION..origin/$version -- $module | git am -3 --keep
 
@@ -2558,7 +2562,7 @@ reset-views() {
     set-addons-path
     echo "Reset views for key $key"
     echo "self.env['ir.ui.view'].search([('key', 'ilike', '$key')]).reset_arch(mode='hard')" |
-    odoo shell --database "$database" --config "$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
+    odoo shell --database "$database" --config="$ODOO_RC" --addons-path="$ADDONS_PATH" --no-http
 }
 
 create-snippet() {
