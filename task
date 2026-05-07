@@ -2490,8 +2490,9 @@ prepare-migration-brach() {
 
     echo "Checkout $module from $version"
     git -C "$repo" checkout "$version" "$module"
-    # echo "Create patch file from version $version to $ODOO_VERSION"
-    # git format-patch --keep-subject --stdout origin/$ODOO_VERSION..origin/$version -- $module | git am -3 --keep
+    
+    echo "Create patch file from version $version to $ODOO_VERSION"
+    git format-patch --keep-subject --stdout origin/$ODOO_VERSION..origin/$version -- $module | git am -3 --keep
 
     echo "Run pre-commit"
     cd "$repo"
