@@ -47,7 +47,7 @@
                 </td>
                 <td>Incoterm</td>
                 <td>
-                    <span t-field="doc.incoterm"/>
+                    <span t-field="doc.incoterm.name"/>
                 </td>
             </tr>
             <tr>

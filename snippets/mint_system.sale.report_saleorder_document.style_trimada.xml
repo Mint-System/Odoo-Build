@@ -4,6 +4,9 @@
 			.o_company_1_layout {
 				font-family: arial;
 			}
+			span {
+			    line-height: 1.3;
+			}
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -11,9 +14,11 @@
 			}
 			table.trimada tr.first td {
 				padding-bottom: 0;
+				line-height: 1.5;
 			}
 			table.trimada tr.second td {
 				padding-top: 0;
+				line-height: 1.5;
 			}
 			table.trimada tr.second {
 				border-bottom: 1px solid rgb(220,220,220);
@@ -37,9 +42,6 @@
 			  text-align: right;
 			}
 			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody #commitment_date {
 			  text-align: right;
 			}
 			table.trimada tbody td span#product_uom_qty {
@@ -73,9 +75,6 @@
     </xpath>
     <xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
         <attribute name="class">text-start</attribute>
-    </xpath>
-    <xpath expr="//table/thead//th[@name='th_commitment_date']" position="attributes">
-        <attribute name="class">text-end</attribute>
     </xpath>
     <xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
         <attribute name="class">text-end</attribute>

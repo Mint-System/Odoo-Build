@@ -1,4 +1,4 @@
 <data priority="50">
-    <xpath expr="//div/p/span[@t-field='doc.payment_term_id.note']" position="replace">
+    <xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
     </xpath>
 </data>

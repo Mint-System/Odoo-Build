@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='commitment_date']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
