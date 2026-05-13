@@ -1,0 +1,6 @@
+<data priority="50">
+    <field name="name" position="after">
+        <field name="x_beh_search_term_one" string="Suchterm"/>
+        <field name="x_beh_search_term_two" string="Bezeichnung 2"/>
+    </field>
+</data>
