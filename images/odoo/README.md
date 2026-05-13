@@ -7,7 +7,7 @@ A better Odoo image.
 
 This container image is an improvement of the official Odoo image:
 
-- 📦 Package management is handled with [uv](https://docs.astral.sh/uv/) for Python and [pnpm](https://pnpm.io/) for Node.
+- 📦 Package management is handled with [uv](https://docs.astral.sh/uv/).
 - 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions.html).
 - 💎 The image build process ensures reproducibility.
 - ⚙️ Configuration of `odoo.conf` is managed through environment variables.

@@ -90,11 +90,8 @@ RUN apt-get update && \
         libcairo2 \
         libxml2 \
         libxslt1.1 \
-        # container dependencies:
         ripgrep \
         nginx \
-        # pnpm dependencies:
-        libatomic1 \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \
@@ -132,15 +129,11 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
     && rm -f /etc/apt/sources.list.d/pgdg.list \
     && rm -rf /var/lib/apt/lists/*
 
-# Install pnpm
-RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
-
-# Add pnpm to PATH
-ENV PNPM_HOME="/root/.local/share/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-
-# Install Node.js via pnpm and install rtlcss globally
-RUN pnpm env use --global lts && pnpm install -g rtlcss
+# Install Node.js and rtlcss
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends nodejs npm && \
+    npm install -g rtlcss && \
+    rm -rf /var/lib/apt/lists/*
 
 # Install uv for Python package management
 COPY --from=ghcr.io/astral-sh/uv:0.7.21 /uv /uvx /bin/

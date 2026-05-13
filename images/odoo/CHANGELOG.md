@@ -11,6 +11,7 @@ All notable changes to this project will be documented in this file. The format 
 - New virtual environment path `/var/lib/odoo/venv` for additional Python packages.
 - Support for loading database credentials from files via `db_user_FILE` and `db_password_FILE` environment variables.
 - Added `secrets` section in `compose.yml.template` to support loading database credentials from files.
+- Added Node.js and rtlcss installation via `apt-get` and `npm` instead of pnpm.
 
 ### Changed
 
@@ -27,6 +28,7 @@ All notable changes to this project will be documented in this file. The format 
 - Updated `Dockerfile` to copy `/opt/odoo/venv` from builder stage and set `PYTHONPATH=/opt/odoo`.
 - Removed `PYTHONPATH` export for `/var/lib/odoo/venv` in `entrypoint.sh` since it is no longer used.
 - Renamed `test-image` to `test-image-script` in `task` script for clarity.
+- Replaced pnpm-based Node.js and rtlcss installation with direct `apt-get` and `npm` installation in `Dockerfile`.
 
 ### Fixed
 
