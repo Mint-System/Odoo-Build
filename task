@@ -2158,7 +2158,7 @@ create-module() {
 
     export ODOO_VERSION
     envsubst < templates/module/__manifest__.py > "$module_path/__manifest__.py"
-    echo "Templated the mdoule $module_path"
+    echo "Templated the module $module_path"
 }
 
 generate-module-docs() {
@@ -2489,7 +2489,7 @@ prepare-migration-brach() {
     module="$2"
     version="$3"
     
-    echo "Create migration branch for $mdoule module in $repo for version $ODOO_VERSION"
+    echo "Create migration branch for $module module in $repo for version $ODOO_VERSION"
     git -C "$repo" checkout -b "$ODOO_VERSION-mig-$module" "origin/$ODOO_VERSION"
 
     echo "Checkout $module from $version"
