@@ -130,7 +130,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN curl -fsSL https://get.pnpm.io/install.sh | SHELL=/bin/bash bash -
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
 
 # Add pnpm to PATH
 ENV PNPM_HOME="/root/.local/share/pnpm"
