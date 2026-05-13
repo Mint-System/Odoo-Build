@@ -90,8 +90,11 @@ RUN apt-get update && \
         libcairo2 \
         libxml2 \
         libxslt1.1 \
+        # container dependencies:
         ripgrep \
         nginx \
+        # pnpm dependencies:
+        libatomic1 \
         # wkhtmltopdf dependencies:
         libjpeg62-turbo \
         libx11-6 \
@@ -130,7 +133,7 @@ RUN echo 'deb http://apt.postgresql.org/pub/repos/apt/ bookworm-pgdg main' > /et
     && rm -rf /var/lib/apt/lists/*
 
 # Install pnpm
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+RUN curl -fsSL https://get.pnpm.io/install.sh | sh -
 
 # Add pnpm to PATH
 ENV PNPM_HOME="/root/.local/share/pnpm"
