@@ -19,23 +19,29 @@
                     </div>
                     <div>
                         <t>
-                            <div t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.name"/>
-                            <div>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.street"/>,
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.country.code"/> -
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.zip"/>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.city"/>
+                            <!-- Find the bank account with the correct currency -->
+                            <t t-set="bank_account" t-value="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0] if o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id) else None"/>
+                            <div t-if="bank_account">
+                                <div t-field="bank_account.bank_id.name"/>
+                                <div>
+                                    <t t-if="bank_account.bank_id.street"><span t-field="bank_account.bank_id.street"/>,</t>
+                                    <t t-if="bank_account.bank_id.country"><span t-field="bank_account.bank_id.country.code"/> - </t>
+                                    <span t-field="bank_account.bank_id.zip"/>
+                                    <span t-field="bank_account.bank_id.city"/>
+                                </div>
+                                <div>
+                                    <span>BIC / SWIFT:</span>
+                                    <span t-field="bank_account.bank_id.bic"/>
+                                </div>
+                                <span>(</span>
+                                <span t-field="bank_account.currency_id"/>
+                                <span>)</span>
+                                <span>IBAN:</span>
+                                <span t-field="bank_account.acc_number"/>
                             </div>
-                            <div>
-                            <span>BIC / SWIFT:</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.bic"/>
+                            <div t-if="not bank_account" style="color: red;">
+                                Bitte Kontodaten pflegen (Kontakte &gt; <span t-esc="o.company_id.name"/> &gt; Buchhaltung &gt; Bankkonten)
                             </div>
-                            <span>(</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].currency_id"/>
-                            <span>)</span>
-                            <span>IBAN:</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].acc_number"/>
-
                         </t>
                     </div>
                     <div>
