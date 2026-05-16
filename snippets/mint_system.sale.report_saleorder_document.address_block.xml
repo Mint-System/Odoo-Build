@@ -9,7 +9,7 @@
       .title {
         font-size: 8pt;
         font-weight: bold;
-        padding-bottom: 3px;
+        padding-bottom: 4px;
       }
       .margin {
         padding-bottom: 33mm;

@@ -1,26 +1,22 @@
 <data priority="50">
 
-    <xpath expr="//td[@id='product']/../.." position="after">
-        <t t-if="line.position">
-            <tr style="border-top: solid white !important">
-                <td/>
-                <td colspan="5">
-                    <span t-field="line.name"/>
-                    <t t-if="line.product_id.hs_code">
-                        <br/>
-                        <span>HS-Code: </span><br/>
-                        <span t-field="line.product_id.hs_code"/>
-                    </t>
-                </td>
-                <td/>
-            </tr>
-        </t>
-    </xpath>
-
-    <xpath expr="//td[@id='product']" position="replace">
-        <td name="td_name">
-            <strong t-field="line.product_id"/>
-        </td>
+    <xpath expr="//tbody//tr[1]" position="after">
+        <tr>
+            <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+                <span t-field="line.name"/>
+                <br/>
+                <t t-if="line.product_id.country_of_origin.code">Ursprungsland: <span t-field="line.product_id.country_of_origin.code"/>
+                </t>
+                <t t-if="line.product_id.hs_code"> / Zollposition: <span t-field="line.product_id.hs_code"/>
+                </t>
+            </td>
+            <td/>
+        </tr>
+        <tr style="border-bottom: 1px solid rgb(220,220,220)">
+            <td colspan="8"/>
+        </tr>
     </xpath>
 
 </data>

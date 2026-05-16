@@ -1,0 +1,14 @@
+<data priority="50">
+
+  <xpath expr="//table/thead/tr/th[1]" position="after">
+    <th>
+      <span>Artikel Nr.</span>
+    </th>
+  </xpath>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="after">
+    <td>
+      <span t-field="line.product_id.default_code"/>
+    </td>
+  </xpath>
+  
+</data>
