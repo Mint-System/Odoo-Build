@@ -1,32 +1,32 @@
-<data priority="50">
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
     <xpath expr="//div[@class='oe_structure']/.." position="after">
         <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
-        margin-top: 25px;
-        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
       }
-    </style>
+        </style>
         <table id="footer">
             <tr>
-                <td width="40%" t-if="o.payment_term_id.note">
-                    <span>Zahlungsbedingungen </span>
+                <td width="40%" t-if="o.payment_term_id">
+                    <span>Zahlungsbedingungen</span>
                     <span t-field="o.payment_term_id"/>
                 </td>
                 <td width="60%">
-                    <span>Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen</span>
+                    <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>MWST-Nr: </span>
+                    <span>MWST-Nr:</span>
                     <span t-field="o.company_id.vat"/>
                 </td>
             </tr>
         </table>
     </xpath>
+
 </data>

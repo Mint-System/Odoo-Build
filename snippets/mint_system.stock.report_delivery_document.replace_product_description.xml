@@ -9,9 +9,9 @@
             </t>
             <span t-field="move.description_picking"/>
             <br/>
-            <t t-if="move.product_id.country_of_origin_id.code">
+            <t t-if="move.product_id.country_of_origin.code">
                 <span>Ursprungsland: </span>
-                <span t-field="move.product_id.country_of_origin_id.code"/>
+                <span t-field="move.product_id.country_of_origin.code"/>
             </t>
             <t t-if="move.product_id.hs_code">
                 <span>/ Zollposition: </span>
@@ -19,4 +19,7 @@
             </t>
         </td>
     </xpath>
+    
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[2]" position="replace"/>
+
 </data>

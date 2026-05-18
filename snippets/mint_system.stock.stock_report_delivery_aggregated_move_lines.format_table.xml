@@ -1,12 +1,16 @@
 <data priority="50">
-    <xpath expr="//td[@name='move_line_aggregated_qty_done']" position="attributes">
+
+    <xpath expr="//td[@name='move_line_aggregated_quantity']" position="attributes">
         <attribute name="class">text-right</attribute>
     </xpath>
-    <xpath expr="//td[@name='move_line_aggregated_qty_done']/span[1]" position="attributes">
+
+    <xpath expr="//td[@name='move_line_aggregated_quantity']/t/span[1]" position="attributes">
         <attribute name="style">font-weight: bold</attribute>
         <attribute name="t-options">{'widget': 'integer'}</attribute>
     </xpath>
+
     <xpath expr="//tr/td/p" position="attributes">
         <attribute name="style">margin-bottom:0px</attribute>
     </xpath>
+
 </data>

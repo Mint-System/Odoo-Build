@@ -1,9 +1,7 @@
 <data priority="50">
-    <xpath expr="//td[@id='product']" position="replace">
-        <td id="product">
-            <span class="o_bold" t-field="order_line.product_id.name"/>
-            <br/>
-            <span t-field="order_line.name"/>
-        </td>
-    </xpath>
+   <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
+    <t>
+      <span style="font-weight:bold;" t-field="order_line.product_id.type_description"/>
+    </t>
+  </xpath>
 </data>
