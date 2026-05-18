@@ -20,7 +20,7 @@
                     <div>
                         <t>
                             <!-- Find the bank account with the correct currency -->
-                            <t t-set="bank_account" t-value="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0] if o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id) else None"/>
+                            <t t-set="bank_account" t-value="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[:1]"/>
                             <div t-if="bank_account">
                                 <div t-field="bank_account.bank_id.name"/>
                                 <div>
