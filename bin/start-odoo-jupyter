@@ -1,0 +1,179 @@
+#!/usr/bin/env python3
+"""Start Jupyter Lab with Odoo environment"""
+
+import sys
+import os
+import argparse
+import subprocess
+import json
+
+def main():
+    parser = argparse.ArgumentParser(description='Start Jupyter Lab with Odoo')
+    parser.add_argument('database', nargs='?', help='Database name')
+    parser.add_argument('-d', '--database', dest='database_opt', help='Database name')
+    
+    args = parser.parse_args()
+    dbname = args.database or args.database_opt
+    
+    if not dbname:
+        dbname = os.environ.get('DB_NAME')
+    
+    if not dbname:
+        print("ERROR: No database specified")
+        print("Usage: bin/start-odoo-jupyter <database_name>")
+        sys.exit(1)
+    
+    # Ensure dbname is a string (not a list)
+    if isinstance(dbname, list):
+        dbname = dbname[0]
+    
+    # Create notebook directory
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    project_root = os.path.dirname(script_dir)
+    notebook_dir = os.path.join(project_root, 'tmp')
+    os.makedirs(notebook_dir, exist_ok=True)
+    
+    # Create main.ipynb with Odoo initialization template using environment variables
+    main_notebook = os.path.join(notebook_dir, 'main.ipynb')
+    
+    if not os.path.exists(main_notebook):
+        notebook_content = {
+            "cells": [
+                {
+                    "cell_type": "markdown",
+                    "metadata": {},
+                    "source": [
+                        "# Odoo Environment\n",
+                        "Run this cell to initialize Odoo:\n",
+                        "\n",
+                        "```python\n",
+                        "import os\n",
+                        "import odoo\n",
+                        "from odoo.tools import config\n",
+                        "from odoo.modules.registry import Registry\n",
+                        "from odoo import api\n",
+                        "\n",
+                        "# Configure Odoo from environment variables\n",
+                        "dbname = os.environ.get('DB_NAME', '19.0')\n",
+                        "\n",
+                        "# Ensure dbname is a string (not a list)\n",
+                        "if isinstance(dbname, list):\n",
+                        "    dbname = dbname[0]\n",
+                        "\n",
+                        "config['db_name'] = dbname\n",
+                        "config['db_host'] = os.environ.get('PGHOST', 'localhost')\n",
+                        "config['db_port'] = os.environ.get('PGPORT', '5432')\n",
+                        "config['db_user'] = os.environ.get('PGUSER', 'odoo')\n",
+                        "config['db_password'] = os.environ.get('PGPASSWORD', 'odoo')\n",
+                        "\n",
+                        "# Load environment\n",
+                        "registry = Registry(dbname)\n",
+                        "cr = registry.cursor()\n",
+                        "env = api.Environment(cr, api.SUPERUSER_ID, {})\n",
+                        "```\n",
+                        "\n",
+                        "## Available Variables:\n",
+                        "- `odoo` - Odoo module\n",
+                        "- `env` - Odoo environment\n",
+                        "- `cr` - Database cursor\n",
+                        "- `self` - Current user (env.user)\n",
+                        "- `uid` - User ID\n",
+                        "- `api` - Odoo API module\n",
+                        "\n",
+                        "## Example Usage:\n",
+                        "```python\n",
+                        "# Search for partners\n",
+                        "env['res.partner'].search([], limit=5)\n",
+                        "\n",
+                        "# Get current user\n",
+                        "env.user.name\n",
+                        "\n",
+                        "# Execute raw SQL\n",
+                        "cr.execute('SELECT * FROM res_partner LIMIT 5')\n",
+                        "cr.fetchall()\n",
+                        "```"
+                    ]
+                },
+                {
+                    "cell_type": "code",
+                    "execution_count": None,
+                    "metadata": {},
+                    "outputs": [],
+                    "source": [
+                        "# Initialize Odoo from environment variables\n",
+                        "import os\n",
+                        "import odoo\n",
+                        "from odoo.tools import config\n",
+                        "from odoo.modules.registry import Registry\n",
+                        "from odoo import api\n",
+                        "\n",
+                        "dbname = os.environ.get('DB_NAME', '19.0')\n",
+                        "\n",
+                        "# Ensure dbname is a string (not a list)\n",
+                        "if isinstance(dbname, list):\n",
+                        "    dbname = dbname[0]\n",
+                        "\n",
+                        "config['db_name'] = dbname\n",
+                        "config['db_host'] = os.environ.get('PGHOST', 'localhost')\n",
+                        "config['db_port'] = os.environ.get('PGPORT', '5432')\n",
+                        "config['db_user'] = os.environ.get('PGUSER', 'odoo')\n",
+                        "config['db_password'] = os.environ.get('PGPASSWORD', 'odoo')\n",
+                        "\n",
+                        "registry = Registry(dbname)\n",
+                        "cr = registry.cursor()\n",
+                        "env = api.Environment(cr, api.SUPERUSER_ID, {})\n",
+                        "\n",
+                        "print(f'Database: {dbname}')\n",
+                        "print(f'User: {env.user.name}')\n",
+                        "print(f'Models loaded: {len(env.registry.models)}')"
+                    ]
+                }
+            ],
+            "metadata": {
+                "kernelspec": {
+                    "display_name": "Python 3",
+                    "language": "python",
+                    "name": "python3"
+                },
+                "language_info": {
+                    "name": "python",
+                    "version": "3.12.0"
+                }
+            },
+            "nbformat": 4,
+            "nbformat_minor": 4
+        }
+        
+        with open(main_notebook, 'w') as f:
+            json.dump(notebook_content, f, indent=2)
+        
+        print(f"  Created notebook: {main_notebook}")
+    else:
+        print(f"  Notebook exists: {main_notebook}")
+    
+    # Start Jupyter Lab
+    print("Starting Jupyter Lab...")
+    print(f"Opening in your browser at: http://localhost:8888")
+    print(f"Notebook directory: {notebook_dir}")
+    print("\n" + "="*60)
+    print("Run the initialization cell in main.ipynb to load Odoo")
+    print("="*60 + "\n")
+    
+    # Get token from environment (persisted) or generate one
+    token = os.environ.get('JUPYTER_TOKEN', '')
+    
+    cmd = [
+        'jupyter-lab',
+        f'--ServerApp.root_dir={notebook_dir}',
+        '--ServerApp.open_browser=True',
+        '--ServerApp.port=8888',
+        '--ServerApp.allow_origin=*',
+    ]
+    
+    if token:
+        cmd.append(f'--ServerApp.token={token}')
+    
+    subprocess.run(cmd)
+
+if __name__ == '__main__':
+    main()

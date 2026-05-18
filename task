@@ -1219,6 +1219,7 @@ start() {
         echo "hatch"
         echo "odoo"
         echo "odoo-nginx"
+        echo "jupyter"
     fi
 
     if [[ "$1" =~ "admin" ]]; then
@@ -1283,6 +1284,11 @@ start() {
         echo 'Open http://localhost:8080 url in your browser.'
         open-url-with-delay "http://localhost:8080" 2 & $COMPOSE_COMMAND up -d odoo
     fi
+
+    if [[ "$1" =~ "jupyter" ]]; then
+        # jupyter lab
+        ./bin/start-odoo-jupyter "$database"
+    fi
 }
 
 debug() {
@@ -1290,6 +1296,11 @@ debug() {
         echo '$1 is empty.'
         exit
     fi
+    local database="$2"
+    if [[ -z "$database" ]]; then
+        database="$DB_NAME"
+    fi
+
     set-addons-path
 
     local port=8069
@@ -1301,7 +1312,7 @@ debug() {
         echo 'Starting Odoo with the debugger on port 5678.'
         echo "Attach a debugpy debugger and open http://localhost:$port url in your browser."
 
-        python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$DATABASE" --config="$ODOO_RC" \
+        python -m debugpy --listen 5678 --wait-for-client $(which odoo) --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
     fi
 }
@@ -1356,6 +1367,10 @@ record-with-memray() {
         echo '$1 is empty.'
         exit
     fi
+    local database="$2"
+    if [[ -z "$database" ]]; then
+        database="$DB_NAME"
+    fi
     set-addons-path
 
     local port=8069
@@ -1368,7 +1383,7 @@ record-with-memray() {
 
         mkdir -p tmp
         rm "$output_file"
-        python3 -m memray run -o "$output_file" $(which odoo) --database="$DATABASE" --config="$ODOO_RC" \
+        python3 -m memray run -o "$output_file" $(which odoo) --database="$database" --config="$ODOO_RC" \
             --http-port="$port" --addons-path="$ADDONS_PATH" --dev=all --log-level="$LOG_LEVEL"
         python3 -m memray flamegraph "$output_file"
         open-with-os "tmp/memray-flamegraph-output.html"

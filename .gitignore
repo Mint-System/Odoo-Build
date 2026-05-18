@@ -61,3 +61,6 @@ thirdparty/*
 themes
 upgrade-util
 odoo-build-vault
+
+# Jupyter Notebooks
+.ipynb_checkpoints
