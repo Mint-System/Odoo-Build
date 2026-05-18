@@ -156,6 +156,7 @@ help-table() {
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
     rows+=("run|[name][cmd]|Run container with command.")
+    rows+=("run-jupyter-notebook|[path][db]|Run juypter notebook with papermill.")
     rows+=("shell|[db][code]|Start interactive odoo shell or run code.")
     rows+=("source||Source the Python virtual env.")
     rows+=("start|[name][db]|Start service. Use list to show services.")
@@ -1319,11 +1320,11 @@ debug() {
 
 run() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/name is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/cmd is empty.'
         exit
     fi
 
@@ -1331,6 +1332,19 @@ run() {
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2" "$3"
+}
+
+run-jupyter-notebook() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
+    local database="$2"
+    if [[ -z "$database" ]]; then
+        database="$DB_NAME"
+    fi
+    
+    ./bin/run-jupyter-notebook "$1" "$database"
 }
 
 exec() {

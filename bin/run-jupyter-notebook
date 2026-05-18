@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""Execute a Jupyter notebook with a preloaded Odoo environment."""
+
+from __future__ import annotations
+
+import argparse
+import os
+import subprocess
+import sys
+from pathlib import Path
+
+
+STARTUP_TEMPLATE = r'''
+import os
+import atexit
+
+import odoo
+from odoo import api
+from odoo.modules.registry import Registry
+from odoo.tools import config
+
+
+db_name = os.environ["DB_NAME"]
+
+config["db_name"] = db_name
+config["db_host"] = os.environ.get("PGHOST", "localhost")
+config["db_port"] = os.environ.get("PGPORT", "5432")
+config["db_user"] = os.environ.get("PGUSER", "odoo")
+config["db_password"] = os.environ.get("PGPASSWORD", "odoo")
+
+
+registry = Registry(db_name)
+cr = registry.cursor()
+
+uid = 2
+
+ctx = api.Environment(cr, uid, {})["res.users"].context_get()
+
+env = api.Environment(cr, uid, ctx)
+
+self = env.user
+
+
+ip = get_ipython()
+
+ip.push({
+    "odoo": odoo,
+    "env": env,
+    "cr": cr,
+    "uid": uid,
+    "self": self,
+    "api": api,
+})
+
+
+@atexit.register
+def _cleanup():
+    try:
+        cr.rollback()
+        cr.close()
+    except Exception:
+        pass
+
+
+print("=" * 60)
+print(f"Odoo ready: {db_name}")
+print(f"User: {env.user.name}")
+print(f"Models: {len(env.registry.models)}")
+print("=" * 60)
+'''
+
+
+def create_startup_script(ipython_dir: Path) -> None:
+    startup_dir = ipython_dir / "profile_default" / "startup"
+    startup_dir.mkdir(parents=True, exist_ok=True)
+
+    startup_file = startup_dir / "00-odoo.py"
+
+    startup_file.write_text(STARTUP_TEMPLATE)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Execute Jupyter notebook with papermill"
+    )
+
+    parser.add_argument(
+        "notebook_path",
+        help="Path to notebook file",
+    )
+
+    parser.add_argument(
+        "database",
+        nargs="?",
+        default=os.environ.get("DB_NAME"),
+    )
+
+    args = parser.parse_args()
+
+    notebook_path = Path(args.notebook_path).resolve()
+
+    if not notebook_path.exists():
+        print(f"ERROR: Notebook not found: {notebook_path}", file=sys.stderr)
+        sys.exit(1)
+
+    db_name = args.database
+
+    if not db_name:
+        print("ERROR: No database specified", file=sys.stderr)
+        sys.exit(1)
+
+    project_root = notebook_path.parent
+
+    ipython_dir = project_root / ".ipython"
+
+    create_startup_script(ipython_dir)
+
+    env = os.environ.copy()
+
+    env["DB_NAME"] = db_name
+
+    env.setdefault("PGHOST", "localhost")
+    env.setdefault("PGPORT", "5432")
+    env.setdefault("PGUSER", "odoo")
+    env.setdefault("PGPASSWORD", "odoo")
+
+    env["IPYTHONDIR"] = str(ipython_dir)
+
+    output_path = notebook_path
+
+    cmd = [
+        "papermill",
+        "--log-output",
+        str(notebook_path),
+        str(output_path),
+    ]
+
+    print()
+    print("=" * 60)
+    print("Executing notebook")
+    print("=" * 60)
+    print(f"Notebook : {notebook_path}")
+    print(f"Database : {db_name}")
+    print()
+
+    try:
+        subprocess.run(
+            cmd,
+            env=env,
+            check=True,
+        )
+
+    except subprocess.CalledProcessError:
+        print("ERROR: Notebook execution failed", file=sys.stderr)
+        sys.exit(1)
+
+    except FileNotFoundError:
+        print(
+            "ERROR: papermill not found. Install with: pip install papermill",
+            file=sys.stderr,
+        )
+        sys.exit(1)
+
+    print()
+    print("=" * 60)
+    print("Notebook executed successfully")
+    print("=" * 60)
+    print(output_path)
+    print()
+
+
+if __name__ == "__main__":
+    main()

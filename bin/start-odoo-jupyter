@@ -1,179 +1,198 @@
 #!/usr/bin/env python3
-"""Start Jupyter Lab with Odoo environment"""
+"""
+Start Jupyter Lab with a preloaded Odoo environment.
 
-import sys
-import os
+The notebook itself contains NO bootstrap code.
+Everything is initialized in the kernel startup process.
+"""
+
+from __future__ import annotations
+
 import argparse
-import subprocess
 import json
+import os
+import subprocess
+from pathlib import Path
 
-def main():
-    parser = argparse.ArgumentParser(description='Start Jupyter Lab with Odoo')
-    parser.add_argument('database', nargs='?', help='Database name')
-    parser.add_argument('-d', '--database', dest='database_opt', help='Database name')
-    
-    args = parser.parse_args()
-    dbname = args.database or args.database_opt
-    
-    if not dbname:
-        dbname = os.environ.get('DB_NAME')
-    
-    if not dbname:
-        print("ERROR: No database specified")
-        print("Usage: bin/start-odoo-jupyter <database_name>")
-        sys.exit(1)
-    
-    # Ensure dbname is a string (not a list)
-    if isinstance(dbname, list):
-        dbname = dbname[0]
-    
-    # Create notebook directory
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    project_root = os.path.dirname(script_dir)
-    notebook_dir = os.path.join(project_root, 'tmp')
-    os.makedirs(notebook_dir, exist_ok=True)
-    
-    # Create main.ipynb with Odoo initialization template using environment variables
-    main_notebook = os.path.join(notebook_dir, 'main.ipynb')
-    
-    if not os.path.exists(main_notebook):
-        notebook_content = {
-            "cells": [
-                {
-                    "cell_type": "markdown",
-                    "metadata": {},
-                    "source": [
-                        "# Odoo Environment\n",
-                        "Run this cell to initialize Odoo:\n",
-                        "\n",
-                        "```python\n",
-                        "import os\n",
-                        "import odoo\n",
-                        "from odoo.tools import config\n",
-                        "from odoo.modules.registry import Registry\n",
-                        "from odoo import api\n",
-                        "\n",
-                        "# Configure Odoo from environment variables\n",
-                        "dbname = os.environ.get('DB_NAME', '19.0')\n",
-                        "\n",
-                        "# Ensure dbname is a string (not a list)\n",
-                        "if isinstance(dbname, list):\n",
-                        "    dbname = dbname[0]\n",
-                        "\n",
-                        "config['db_name'] = dbname\n",
-                        "config['db_host'] = os.environ.get('PGHOST', 'localhost')\n",
-                        "config['db_port'] = os.environ.get('PGPORT', '5432')\n",
-                        "config['db_user'] = os.environ.get('PGUSER', 'odoo')\n",
-                        "config['db_password'] = os.environ.get('PGPASSWORD', 'odoo')\n",
-                        "\n",
-                        "# Load environment\n",
-                        "registry = Registry(dbname)\n",
-                        "cr = registry.cursor()\n",
-                        "env = api.Environment(cr, api.SUPERUSER_ID, {})\n",
-                        "```\n",
-                        "\n",
-                        "## Available Variables:\n",
-                        "- `odoo` - Odoo module\n",
-                        "- `env` - Odoo environment\n",
-                        "- `cr` - Database cursor\n",
-                        "- `self` - Current user (env.user)\n",
-                        "- `uid` - User ID\n",
-                        "- `api` - Odoo API module\n",
-                        "\n",
-                        "## Example Usage:\n",
-                        "```python\n",
-                        "# Search for partners\n",
-                        "env['res.partner'].search([], limit=5)\n",
-                        "\n",
-                        "# Get current user\n",
-                        "env.user.name\n",
-                        "\n",
-                        "# Execute raw SQL\n",
-                        "cr.execute('SELECT * FROM res_partner LIMIT 5')\n",
-                        "cr.fetchall()\n",
-                        "```"
-                    ]
-                },
-                {
-                    "cell_type": "code",
-                    "execution_count": None,
-                    "metadata": {},
-                    "outputs": [],
-                    "source": [
-                        "# Initialize Odoo from environment variables\n",
-                        "import os\n",
-                        "import odoo\n",
-                        "from odoo.tools import config\n",
-                        "from odoo.modules.registry import Registry\n",
-                        "from odoo import api\n",
-                        "\n",
-                        "dbname = os.environ.get('DB_NAME', '19.0')\n",
-                        "\n",
-                        "# Ensure dbname is a string (not a list)\n",
-                        "if isinstance(dbname, list):\n",
-                        "    dbname = dbname[0]\n",
-                        "\n",
-                        "config['db_name'] = dbname\n",
-                        "config['db_host'] = os.environ.get('PGHOST', 'localhost')\n",
-                        "config['db_port'] = os.environ.get('PGPORT', '5432')\n",
-                        "config['db_user'] = os.environ.get('PGUSER', 'odoo')\n",
-                        "config['db_password'] = os.environ.get('PGPASSWORD', 'odoo')\n",
-                        "\n",
-                        "registry = Registry(dbname)\n",
-                        "cr = registry.cursor()\n",
-                        "env = api.Environment(cr, api.SUPERUSER_ID, {})\n",
-                        "\n",
-                        "print(f'Database: {dbname}')\n",
-                        "print(f'User: {env.user.name}')\n",
-                        "print(f'Models loaded: {len(env.registry.models)}')"
-                    ]
-                }
-            ],
-            "metadata": {
-                "kernelspec": {
-                    "display_name": "Python 3",
-                    "language": "python",
-                    "name": "python3"
-                },
-                "language_info": {
-                    "name": "python",
-                    "version": "3.12.0"
-                }
+
+STARTUP_TEMPLATE = r'''
+import os
+import atexit
+
+import odoo
+from odoo import api
+from odoo.modules.registry import Registry
+from odoo.tools import config
+
+
+db_name = os.environ["DB_NAME"]
+
+config["db_name"] = db_name
+config["db_host"] = os.environ.get("PGHOST", "localhost")
+config["db_port"] = os.environ.get("PGPORT", "5432")
+config["db_user"] = os.environ.get("PGUSER", "odoo")
+config["db_password"] = os.environ.get("PGPASSWORD", "odoo")
+
+
+registry = Registry(db_name)
+cr = registry.cursor()
+
+uid = 2
+
+ctx = api.Environment(cr, uid, {})["res.users"].context_get()
+
+env = api.Environment(cr, uid, ctx)
+
+self = env.user
+
+
+ip = get_ipython()
+
+ip.push({
+    "odoo": odoo,
+    "env": env,
+    "cr": cr,
+    "uid": uid,
+    "self": self,
+    "api": api,
+})
+
+
+@atexit.register
+def _cleanup():
+    try:
+        cr.rollback()
+        cr.close()
+    except Exception:
+        pass
+
+
+print("=" * 60)
+print(f"Odoo ready: {db_name}")
+print(f"User: {env.user.name}")
+print(f"Models: {len(env.registry.models)}")
+print("=" * 60)
+'''
+
+
+def create_notebook(path: Path) -> None:
+    """
+    Create a clean notebook with zero bootstrap code.
+    """
+
+    if path.exists():
+        return
+
+    notebook = {
+        "cells": [
+            {
+                "cell_type": "markdown",
+                "metadata": {},
+                "source": [
+                    "# Odoo Notebook\n",
+                    "\n",
+                    "Available automatically:\n",
+                    "\n",
+                    "- `env`\n",
+                    "- `cr`\n",
+                    "- `odoo`\n",
+                    "- `self`\n",
+                    "- `uid`\n",
+                    "- `api`\n",
+                ],
             },
-            "nbformat": 4,
-            "nbformat_minor": 4
-        }
-        
-        with open(main_notebook, 'w') as f:
-            json.dump(notebook_content, f, indent=2)
-        
-        print(f"  Created notebook: {main_notebook}")
-    else:
-        print(f"  Notebook exists: {main_notebook}")
-    
-    # Start Jupyter Lab
-    print("Starting Jupyter Lab...")
-    print(f"Opening in your browser at: http://localhost:8888")
-    print(f"Notebook directory: {notebook_dir}")
-    print("\n" + "="*60)
-    print("Run the initialization cell in main.ipynb to load Odoo")
-    print("="*60 + "\n")
-    
-    # Get token from environment (persisted) or generate one
-    token = os.environ.get('JUPYTER_TOKEN', '')
-    
-    cmd = [
-        'jupyter-lab',
-        f'--ServerApp.root_dir={notebook_dir}',
-        '--ServerApp.open_browser=True',
-        '--ServerApp.port=8888',
-        '--ServerApp.allow_origin=*',
-    ]
-    
-    if token:
-        cmd.append(f'--ServerApp.token={token}')
-    
-    subprocess.run(cmd)
+            {
+                "cell_type": "code",
+                "execution_count": None,
+                "metadata": {},
+                "outputs": [],
+                "source": [
+                    "env.user.name"
+                ],
+            },
+        ],
+        "metadata": {
+            "kernelspec": {
+                "display_name": "Python 3",
+                "language": "python",
+                "name": "python3",
+            },
+            "language_info": {
+                "name": "python",
+            },
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5,
+    }
 
-if __name__ == '__main__':
+    path.write_text(json.dumps(notebook, indent=2))
+
+
+def create_startup_script(ipython_dir: Path) -> None:
+    """
+    Create IPython startup hook.
+    """
+
+    startup_dir = ipython_dir / "profile_default" / "startup"
+    startup_dir.mkdir(parents=True, exist_ok=True)
+
+    startup_file = startup_dir / "00-odoo.py"
+
+    startup_file.write_text(STARTUP_TEMPLATE)
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+
+    parser.add_argument(
+        "database",
+        nargs="?",
+        default=os.environ.get("DB_NAME", "odoo"),
+    )
+
+    args = parser.parse_args()
+
+    db_name = args.database
+
+    script_dir = Path(__file__).resolve().parent
+    project_root = script_dir.parent
+
+    notebook_dir = project_root / "tmp"
+    notebook_dir.mkdir(exist_ok=True)
+
+    ipython_dir = notebook_dir / ".ipython"
+
+    env = os.environ.copy()
+
+    env["DB_NAME"] = db_name
+    env.setdefault("PGHOST", "localhost")
+    env.setdefault("PGPORT", "5432")
+    env.setdefault("PGUSER", "odoo")
+    env.setdefault("PGPASSWORD", "odoo")
+
+    env["IPYTHONDIR"] = str(ipython_dir)
+
+    create_startup_script(ipython_dir)
+
+    create_notebook(notebook_dir / "main.ipynb")
+
+    print()
+    print("=" * 60)
+    print("Starting Jupyter Lab with Odoo")
+    print("=" * 60)
+    print(f"Database : {db_name}")
+    print(f"Notebook : {notebook_dir}")
+    print()
+
+    cmd = [
+        "jupyter-lab",
+        f"--ServerApp.root_dir={notebook_dir}",
+        "--ServerApp.open_browser=True",
+        "--ServerApp.port=8888",
+    ]
+
+    subprocess.run(cmd, env=env)
+
+
+if __name__ == "__main__":
     main()
