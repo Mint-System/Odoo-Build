@@ -462,6 +462,12 @@ set-addons-path() {
         git_folders_path=$(echo "$git_folders_path" | sed "s|${exclude},||g; s|^${exclude}$||")
     done
 
+    # Add included addons
+    local includes="addons/thirdparty"
+    for include in $includes; do
+        git_folders_path="$include,$git_folders_path"
+    done
+
     # Filter valid directories
     local valid_paths=""
     while IFS= read -r addon; do
