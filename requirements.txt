@@ -45,5 +45,4 @@ rl-renderPM
 
 # Jupyter Notebook 
 jupyter
-ipykernel
 papermill

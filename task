@@ -156,7 +156,6 @@ help-table() {
     rows+=("psql|[db]|Start interactive psql shell.")
     rows+=("restart|[name]|Restart container.")
     rows+=("run|[name][cmd]|Run container with command.")
-    rows+=("run-jupyter-notebook|[path][db]|Run juypter notebook with papermill.")
     rows+=("shell|[db][code]|Start interactive odoo shell or run code.")
     rows+=("source||Source the Python virtual env.")
     rows+=("start|[name][db]|Start service. Use list to show services.")
@@ -184,7 +183,11 @@ help-table() {
     rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
     rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
     rows+=("upgrade-odoo|[env][step]|Run the Odoo upgrade for a target environment.")
-
+    rows+=("===JUPYTER===| | ")
+    rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
+    rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
+    rows+=("run-jupyter-notebook|[path][db]|Run juypter notebook with papermill.")
+    
     for row in "${rows[@]}"; do
         IFS='|' read -r cmd opt desc <<< "$row"
         (( ${#cmd} > max_cmd )) && max_cmd=${#cmd}
@@ -724,9 +727,6 @@ build-odoo() {
             local python_version="3.12"
             ;;
         "19.0")
-            local python_version="3.13"
-            ;;
-        *)
             local python_version="3.12"
             ;;
     esac
@@ -1285,11 +1285,6 @@ start() {
         echo 'Open http://localhost:8080 url in your browser.'
         open-url-with-delay "http://localhost:8080" 2 & $COMPOSE_COMMAND up -d odoo
     fi
-
-    if [[ "$1" =~ "jupyter" ]]; then
-        # jupyter lab
-        ./bin/start-odoo-jupyter "$database"
-    fi
 }
 
 debug() {
@@ -1332,6 +1327,27 @@ run() {
 
     echo "Run '$1' container with command '$2'."
     $COMPOSE_COMMAND run --rm "$1" "$2" "$3"
+}
+
+init-odoo-jupyter() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
+    ./bin/init-odoo-jupyter "$1"
+}
+
+start-odoo-jupyter() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
+    local database="$2"
+    if [[ -z "$database" ]]; then
+        database="$DB_NAME"
+    fi
+    local token="odoo"
+    ./bin/start-odoo-jupyter "$1" "$database" "$token"
 }
 
 run-jupyter-notebook() {

@@ -1,0 +1,144 @@
+#!/usr/bin/env python3
+"""
+Initialize a Jupyter Lab directory with Odoo bootstrap files.
+
+Creates:
+  - <path>/.ipython/profile_default/startup/00-odoo.py
+  - <path>/main.ipynb
+"""
+
+from __future__ import annotations
+
+import argparse
+import json
+from pathlib import Path
+
+
+STARTUP_TEMPLATE = r'''
+import os
+import atexit
+
+import odoo
+from odoo import api
+from odoo.modules.registry import Registry
+from odoo.tools import config
+
+
+db_name = os.environ["DB_NAME"]
+config["db_name"] = db_name
+config["db_host"] = os.environ.get("PGHOST", "localhost")
+config["db_port"] = os.environ.get("PGPORT", "5432")
+config["db_user"] = os.environ.get("PGUSER", "odoo")
+config["db_password"] = os.environ.get("PGPASSWORD", "odoo")
+
+registry = Registry(db_name)
+cr = registry.cursor()
+uid = 2
+ctx = api.Environment(cr, uid, {})["res.users"].context_get()
+env = api.Environment(cr, uid, ctx)
+self = env.user
+
+ip = get_ipython()
+ip.push({
+    "odoo": odoo,
+    "env": env,
+    "cr": cr,
+    "uid": uid,
+    "self": self,
+    "api": api,
+})
+
+
+@atexit.register
+def _cleanup():
+    try:
+        cr.rollback()
+        cr.close()
+    except Exception:
+        pass
+'''
+
+
+def create_notebook(path: Path) -> None:
+    if path.exists():
+        print(f"Notebook already exists, skipping: {path}")
+        return
+
+    notebook = {
+        "cells": [
+            {
+                "cell_type": "markdown",
+                "metadata": {},
+                "source": [
+                    "# Odoo Notebook\n",
+                    "\n",
+                    "Available automatically:\n",
+                    "\n",
+                    "- `env`\n",
+                    "- `cr`\n",
+                    "- `odoo`\n",
+                    "- `self`\n",
+                    "- `uid`\n",
+                    "- `api`\n",
+                ],
+            },
+            {
+                "cell_type": "code",
+                "execution_count": None,
+                "metadata": {},
+                "outputs": [],
+                "source": ["env.user.name"],
+            },
+        ],
+        "metadata": {
+            "kernelspec": {
+                "display_name": "Python 3",
+                "language": "python",
+                "name": "python3",
+            },
+            "language_info": {
+                "name": "python",
+            },
+        },
+        "nbformat": 4,
+        "nbformat_minor": 5,
+    }
+
+    path.write_text(json.dumps(notebook, indent=2))
+    print(f"Created notebook: {path}")
+
+
+def create_startup_script(ipython_dir: Path) -> None:
+    startup_dir = ipython_dir / "profile_default" / "startup"
+    startup_dir.mkdir(parents=True, exist_ok=True)
+
+    startup_file = startup_dir / "00-odoo.py"
+    startup_file.write_text(STARTUP_TEMPLATE)
+    print(f"Created startup script: {startup_file}")
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser(
+        description="Initialize a directory for Odoo Jupyter Lab."
+    )
+    parser.add_argument("path", help="Directory to initialize (e.g. tmp)")
+    args = parser.parse_args()
+
+    notebook_dir = Path(args.path).resolve()
+    notebook_dir.mkdir(parents=True, exist_ok=True)
+
+    ipython_dir = notebook_dir / ".ipython"
+
+    print()
+    print("Initializing Odoo Jupyter directory")
+    print(f"Path: {notebook_dir}")
+    print()
+
+    create_startup_script(ipython_dir)
+    create_notebook(notebook_dir / "main.ipynb")
+
+    print()
+    print("Done. Run 'task start-odoo-jupyter <path> [database]' to launch.")
+
+if __name__ == "__main__":
+    main()
