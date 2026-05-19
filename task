@@ -2209,7 +2209,9 @@ create-module() {
 
     export ODOO_VERSION
     envsubst < templates/module/__manifest__.py > "$module_path/__manifest__.py"
-    echo "Templated the module $module_path"
+    echo "Created the module $module_path"
+
+    generate-module-docs "$module_path"
 }
 
 generate-module-docs() {
@@ -2244,7 +2246,7 @@ generate-module-docs() {
 
     local repo_url=$(git -C "$(dirname $module_path)" remote get-url origin)
     local repo_name=$(basename "${repo_url%.git}")
-    echo "Generate OCA readme for $USER_ORG/$repo_name org."
+    echo "Generate OCA README.rst"
     oca-gen-addon-readme --org-name=$USER_ORG --repo-name=$repo_name --branch=$ODOO_VERSION  --addon-dir=$module_path
 }
 

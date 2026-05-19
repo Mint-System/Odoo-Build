@@ -1,0 +1,5 @@
+<data priority="50">
+    <kanban position="attributes">
+        <attribute name="default_order">create_date asc, priority desc, sla_deadline, id</attribute>
+    </kanban>
+</data>
