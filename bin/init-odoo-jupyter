@@ -11,22 +11,20 @@ from __future__ import annotations
 
 import argparse
 import json
+import os
+import subprocess
 from pathlib import Path
 
-JUPYTER_CONFIG = """\
-c.LabApp.blocked_extensions_list = [
-    "@jupyterlab/extensionmanager-extension",
-    "@jupyterlab/settingeditor-extension",
-]
-"""
 
 def create_jupyter_config(notebook_dir: Path) -> None:
-    config_file = notebook_dir / "jupyter_lab_config.py"
-    if config_file.exists():
-        return
-    config_file.write_text(JUPYTER_CONFIG)
-    print(f"Created Jupyter config: {config_file}")
-
+    config_dir = notebook_dir / ".jupyter"
+    env = os.environ.copy()
+    env["JUPYTER_CONFIG_DIR"] = str(config_dir)
+    subprocess.run(
+        ["uv", "run", "jupyter", "lab", "--generate-config"],
+        env=env,
+        check=True,
+    )
 
 STARTUP_TEMPLATE = r'''
 import os
@@ -36,6 +34,7 @@ import odoo
 from odoo import api
 from odoo.modules.registry import Registry
 from odoo.tools import config
+
 
 db_name = os.environ["DB_NAME"]
 config["db_name"] = db_name
