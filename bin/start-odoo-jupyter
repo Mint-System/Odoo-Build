@@ -48,6 +48,7 @@ def main() -> None:
     env.setdefault("PGUSER", "odoo")
     env.setdefault("PGPASSWORD", "odoo")
     env["IPYTHONDIR"] = str(ipython_dir)
+    env["JUPYTER_CONFIG_FILE"] = str(notebook_dir / "jupyter_lab_config.py")
 
     print()
     print("Starting Jupyter Lab with Odoo")
@@ -64,6 +65,20 @@ def main() -> None:
     ]
 
     subprocess.run(cmd, env=env)
+
+    # log_path = notebook_dir / "jupyter.log"
+
+    # with open(log_path, "w") as log:
+    #     process = subprocess.Popen(
+    #         cmd,
+    #         env=env,
+    #         # start_new_session=True,
+    #         stdout=log,
+    #         stderr=log,
+    #     )
+
+    # print(f"PID : {process.pid}")
+    # print(f"Log : {log_path}")
 
 
 if __name__ == "__main__":

@@ -13,6 +13,20 @@ import argparse
 import json
 from pathlib import Path
 
+JUPYTER_CONFIG = """\
+c.LabApp.blocked_extensions_list = [
+    "@jupyterlab/extensionmanager-extension",
+    "@jupyterlab/settingeditor-extension",
+]
+"""
+
+def create_jupyter_config(notebook_dir: Path) -> None:
+    config_file = notebook_dir / "jupyter_lab_config.py"
+    if config_file.exists():
+        return
+    config_file.write_text(JUPYTER_CONFIG)
+    print(f"Created Jupyter config: {config_file}")
+
 
 STARTUP_TEMPLATE = r'''
 import os
@@ -22,7 +36,6 @@ import odoo
 from odoo import api
 from odoo.modules.registry import Registry
 from odoo.tools import config
-
 
 db_name = os.environ["DB_NAME"]
 config["db_name"] = db_name
@@ -48,7 +61,6 @@ ip.push({
     "api": api,
 })
 
-
 @atexit.register
 def _cleanup():
     try:
@@ -57,7 +69,6 @@ def _cleanup():
     except Exception:
         pass
 '''
-
 
 def create_notebook(path: Path) -> None:
     if path.exists():
@@ -135,10 +146,12 @@ def main() -> None:
     print()
 
     create_startup_script(ipython_dir)
+    create_jupyter_config(notebook_dir)
     create_notebook(notebook_dir / "main.ipynb")
 
     print()
     print("Done. Run 'task start-odoo-jupyter <path> [database]' to launch.")
+
 
 if __name__ == "__main__":
     main()
