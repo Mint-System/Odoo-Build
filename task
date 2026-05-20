@@ -1365,7 +1365,7 @@ run-jupyter-notebook() {
 
 exec() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/container is empty.'
         exit
     fi
     local container="$1"
