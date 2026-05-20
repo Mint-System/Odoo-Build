@@ -93,10 +93,6 @@ export default defineUserConfig({
                             link: '/modules',
                         },
                         {
-                            text: 'Upgrade',
-                            link: '/upgrade',
-                        },
-                        {
                             text: 'Changelog',
                             link: '/CHANGELOG',
                         }
