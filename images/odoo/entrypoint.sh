@@ -66,12 +66,6 @@ if [[ "$AUTO_UPDATE_TRANSLATIONS" = "True" ]]; then
 fi
 
 case "$1" in
-    -- | memray)
-        shift
-        log-entrypoint 'Start Odoo with memray.'
-        rm -f /var/lib/odoo/memray-capture.bin
-        exec python3 -m memray run -o /var/lib/odoo/memray-capture.bin $(which odoo) "$@" "${DB_ARGS[@]}"
-        ;;
     -- | odoo)
         shift
         if [[ "$1" == "scaffold" ]] ; then

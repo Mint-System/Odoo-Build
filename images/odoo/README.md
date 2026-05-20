@@ -531,25 +531,6 @@ The most important image paths are:
 - `/var/lib/odoo/git` The cloned module repos are stored here.
 - `/var/lib/odoo/sessions` Location where werkzeug stores session information.
 
-### Capture memory profile
-
-With [memray](https://bloomberg.github.io/memray/) you can visualize the memory usage of Odoo.
-
-Run Odoo with memray.
-
-```bash
-docker compose exec -p 127.0.0.1:8069:8069 odoo memray
-```
-
-Finish the recording with <kbd>ctrl</kbd>+<kbd>c</kbd>.
-
-Generate the flamegraph and copy the flamegraph to the host.
-
-```bash
-docker compose exec odoo python3 -m memray flamegraph /var/lib/odoo/memray-capture.bin
-docker cp odoo:/var/lib/odoo/memray-flamegraph-capture.html ./tmp/
-```
-
 ### Scripts
 
 Under the hood the image uses several scripts to manage Odoo. Make yourself familiar with these scripts:

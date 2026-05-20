@@ -16,9 +16,6 @@ lxml # python3-lxml
 setuptools<82 ; python_version <= '3.11' # python3-setuptools
 setuptools ; python_version >= '3.12' # python3-setuptools
 
-# Performance
-memray
-
 # Acsone
 manifestoo
 click-odoo-contrib

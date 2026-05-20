@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
-## [Unreleased]
+## 2026-05-20
 
 ### Added
 
@@ -29,6 +29,8 @@ All notable changes to this project will be documented in this file. The format 
 - Removed `PYTHONPATH` export for `/var/lib/odoo/venv` in `entrypoint.sh` since it is no longer used.
 - Renamed `test-image` to `test-image-script` in `task` script for clarity.
 - Replaced pnpm-based Node.js and rtlcss installation with direct `apt-get` and `npm` installation in `Dockerfile`.
+- Removed memray support from `entrypoint.sh` and corresponding documentation from `README.md`.
+- Removed memray from `requirements.txt`.
 
 ### Fixed
 
