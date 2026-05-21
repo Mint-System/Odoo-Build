@@ -2342,14 +2342,16 @@ init-repo-branch() {
     local repo_path="$1"
     local repo_name=$(basename "$repo_path")
 
-    # If repo already exists, create new branch
-    if [[ -d "$repo_path/.git" ]]; then
-        echo "Create new branch $ODOO_VERSION in $repo_path"
-        git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
+    echo "Create new branch $ODOO_VERSION in $repo_path"
+    git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
 
-        echo "Remove all files from $repo_path"
-        rm -rf "$repo_path/*"
-    fi
+    echo "Remove all files from $repo_path"
+    rm -rf "$repo_path/*"
+
+    generate-repo-docs "$repo_path"
+
+    echo -e "Use this command to register as git folder:\n"
+    echo -e "\ttask add-git-folder $git_url $ODOO_VERSION $repo_path\n"
 }
 
 export-module-vars() {

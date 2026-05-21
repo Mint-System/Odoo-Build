@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/odoo.git
 	branch = 19.0
 	shallow = true
-	commit = 32301e8acba31140408bead9677c466baf0e0a45
+	commit = f4fad0c78e6df46b406081a13c3cff0a98e430f4
 [submodule "enterprise"]
 	path = enterprise
 	url = git@github.com:odoo/enterprise.git
 	branch = 19.0
 	shallow = true
-	commit = af3e13b2881c7647aed022f29a187149c95bb255
+	commit = ba350523694fba9d460a3d3219278ebc423cb392
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -90,3 +90,8 @@
 	url = git@github.com:OCA/hr-attendance.git
 	branch = 19.0
 	commit = 6af354e9e0f21ebec6c9c052c2789578d33d206a
+[submodule "addons/partner_contact"]
+	path = addons/partner_contact
+	url = git@github.com:Mint-System/Odoo-Apps-Partner-Contact.git
+	branch = 19.0
+	commit = HEAD
