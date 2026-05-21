@@ -2326,7 +2326,7 @@ create-repo() {
     echo "Init git with branch $ODOO_VERSION"
     git -C "$repo_path" init --initial-branch "$ODOO_VERSION"
 
-    local git_url="git@github.com/${USER_ORG}/Odoo-Apps-$repo_name"
+    local git_url="git@github.com:${USER_ORG}/Odoo-Apps-$repo_name"
     echo "Add git remote: $git_url "
     git -C "$repo_path" remote add origin "$git_url"
 
