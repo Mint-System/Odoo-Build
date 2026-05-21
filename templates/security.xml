@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
 
-    <record id="module_category_category" model="ir.module.category">
-        <field name="name">Category</field>
-        <field name="description">Helps you manage your category.</field>
+    <record id="module_category_$CATEGORY" model="ir.module.category">
+        <field name="name">$CATEGORY_NAME</field>
+        <field name="description">$CATEGORY_HELP</field>
         <field name="sequence">3</field>
     </record>
 

@@ -110,7 +110,8 @@ help-table() {
     rows+=("import-website-data|[env]|Import website data to Odoo database.")
     rows+=("===DEVELOP===| | ")
     rows+=("create-module|[path]|Create new Odoo module from template.")
-    rows+=("create-repo|[path]|Odoo module repo from template.")
+    rows+=("create-repo|[path]|Create a new Odoo module repo.")
+    rows+=("init-repo-branch|[path]|Create branch for current Odoo version in repo.")
     rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
     rows+=("generate-module-model|[path][model]|Generate model in module folder.")
     rows+=("generate-module-inherit|[path][model]|Generate inherited model in module folder.")
@@ -579,7 +580,10 @@ update-module-license() {
 }
 
 generate-repo-docs(){
-    if [[ -z "$1" ]]; then echo '\$1 is empty.'; exit; fi
+    if [[ -z "$1" ]]; then 
+        echo '\$1/path is empty.'
+        exit
+    fi
     local repo_path="$1"
 
     echo "Copy task file to $repo_path."
@@ -2307,16 +2311,40 @@ generate-module-security() {
 
 create-repo() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
+    local repo_path="$1"
+    local repo_folder=$(basename "$repo_path")
+    local repo_name=$(echo "$repo_folder" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
 
+    echo "Create folder $repo_path."
+    mkdir -p "$repo_path"
+
+    generate-repo-docs "$repo_path"
+
+    echo "Init git with branch $ODOO_VERSION"
+    git -C "$repo_path" init --initial-branch "$ODOO_VERSION"
+
+    local git_url="git@github.com/${USER_ORG}/Odoo-Apps-$repo_name"
+    echo "Add git remote: $git_url "
+    git -C "$repo_path" remote add origin "$git_url"
+
+    echo -e "Use this command to register as git folder:\n"
+    echo -e "\ttask add-git-folder $git_url $ODOO_VERSION $repo_path\n"
+}
+
+init-repo-branch() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
     local repo_path="$1"
     local repo_name=$(basename "$repo_path")
 
     # If repo already exists, create new branch
     if [[ -d "$repo_path/.git" ]]; then
-        echo "Create new branch $repo_name in $repo_path"
+        echo "Create new branch $ODOO_VERSION in $repo_path"
         git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
 
         echo "Remove all files from $repo_path"

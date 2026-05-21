@@ -5,7 +5,7 @@
         $MODULE_SUMMARY
     """,
     "author": "Mint System GmbH",
-    "website": "https://www.mint-system.ch",
+    "website": "https://www.mint-system.ch/",
     "category": "Repository",
     "development_status": "Production/Stable",
     "version": "$ODOO_VERSION.1.0.0",
