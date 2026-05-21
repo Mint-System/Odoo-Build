@@ -9,13 +9,13 @@
 
     <record id="group_user" model="res.groups">
         <field name="name">User</field>
+        <field name="category_id" ref="module_category_$CATEGORY" />
         <field name="implied_ids" eval="[(4, ref('base.group_user'))]" />
-        <field name="category_id" ref="module_category_category" />
     </record>
 
     <record id="group_manager" model="res.groups">
         <field name="name">Administrator</field>
-        <field name="category_id" ref="module_category_category" />
+        <field name="category_id" ref="module_category_$CATEGORY" />
         <field name="implied_ids" eval="[(4, ref('group_user'))]" />
         <field
             name="users"
