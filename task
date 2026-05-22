@@ -2374,11 +2374,11 @@ export-module-inherit-vars() {
 
 generate-module-model() {
     if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
+        echo '$1/path is empty.'
         exit
     fi
     if [[ -z "$2" ]]; then
-        echo '$2 is empty.'
+        echo '$2/model is empty.'
         exit
     fi
     local module_path="$1"
@@ -2388,6 +2388,28 @@ generate-module-model() {
     envsubst < templates/model.py > "$module_path/models/$MODEL_NAME.py"
     echo "from . import $MODEL_NAME" >> "$module_path/models/__init__.py"
     echo "File "$module_path/models/$MODEL_NAME.py created.
+}
+
+generate-module-wizard() {
+    if [[ -z "$1" ]]; then
+        echo '$1/path is empty.'
+        exit
+    fi
+    if [[ -z "$2" ]]; then
+        echo '$2/model is empty.'
+        exit
+    fi
+    local module_path="$1"
+
+    echo 'Create wizard folder and init file'
+    mkdir -p "$module_path/wizard"
+    touch "$module_path/wizard/__init__.py"
+
+    echo 'Substitute wizard template'
+    export-module-vars "$1" "$2"
+    envsubst < templates/wizard.py > "$module_path/wizard/$MODEL_NAME.py"
+    echo "from . import $MODEL_NAME" >> "$module_path/wizard/__init__.py"
+    echo "File "$module_path/wizard/$MODEL_NAME.py created.
 }
 
 generate-module-translation() {
