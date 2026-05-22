@@ -373,3 +373,9 @@ There are new commands in the Odoo Build project:
 - Start and deploy to Minikube (Kubernetes) `task start-minikube|init-minikube` see `k8s` folder for details
 - Removed `compose` in favor of `docker compose` plugin
 - Updated troubleshooting section
+
+## 2025-09-12
+
+### Changed
+
+- Renamed `remove-module` to `uninstall-module` for consistency with Odoo terminology.

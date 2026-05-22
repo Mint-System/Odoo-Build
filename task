@@ -128,7 +128,7 @@ help-table() {
     rows+=("pytest-module|[path]|Run module tests with pytest.")
     rows+=("release-module|[path]|Create GitHub release for a module.")
     rows+=("register-module-repos|[version]|[path]|Register module repos on apps.odoo.com.")
-    rows+=("remove-module|[db][name]|Remove target Odoo module.")
+    rows+=("uninstall-module|[db][name]|Remove target Odoo module.")
     rows+=("test-module|[path]|Test target Odoo module.")
     rows+=("test-modules|[path]|Test target Odoo modules in repo folder.")
     rows+=("translate-module|[path][lang][db]|Generate translation for Odoo module.")
@@ -2103,7 +2103,7 @@ pytest-module() {
     pytest -s --odoo-http --odoo-config="$odoo_config" --odoo-database="$DB_NAME" "$module_path"
 }
 
-remove-module() {
+uninstall-module() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
