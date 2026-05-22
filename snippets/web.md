@@ -1245,6 +1245,13 @@ Inherit ID: `web.external_layout_standard`
     <xpath expr="/t/div" position="replace">
         <div t-attf-class="header o_company_#{company.id}_layout" t-att-style="report_header_style">
             <table style="width:100%; font-size: 9pt; color:rgb(102,102,102); border-color: white; font-family:arial;">
+
+                <style>
+    	span {
+		    line-height: 1.2;
+		}
+                </style>
+
                 <tr height="27px;">
                     <td style="width:19%; border-left: 1px solid rgb(102,102,102);"/>
                     <td style="width:18%; border-left: 1px solid rgb(102,102,102);"/>
@@ -1271,14 +1278,14 @@ Inherit ID: `web.external_layout_standard`
                     <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">CH-<span t-field="company.partner_id.zip"/>
                     <span t-field="company.partner_id.city"/>
                 </td>
-                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Fax 056 618 77 07</td>
-                    <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">
-                        <span t-field="company.partner_id.email"/>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </xpath>
+                <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">Fax 056 618 77 07</td>
+                <td style="border-left: 1px solid rgb(102,102,102); padding-left: 10px;">
+                    <span t-field="company.partner_id.email"/>
+                </td>
+            </tr>
+        </table>
+    </div>
+</xpath>
 </data>
 
 ```
@@ -1501,6 +1508,23 @@ Inherit ID: `web.external_layout_standard`
 ```
 Edit: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_standard.tissa_layout.xml)\
 Source: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](https://odoo.build/snippets/mint_system.web.external_layout_standard.tissa_layout.xml)
+
+## External Layout Striped
+
+### Remove Header Address
+
+ID: `mint_system.web.external_layout_striped.remove_header_address`\
+Inherit ID: `web.external_layout_striped`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@name='company_address']" position="replace">
+  </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.web.external_layout_striped.remove_header_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_striped.remove_header_address.xml)\
+Source: [snippets/mint_system.web.external_layout_striped.remove_header_address.xml](https://odoo.build/snippets/mint_system.web.external_layout_striped.remove_header_address.xml)
 
 ## Internal Layout
 

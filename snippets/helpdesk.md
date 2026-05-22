@@ -96,6 +96,22 @@ Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_form.x_link_with_ids
 
 ## Helpdesk Ticket View Kanban
 
+### Sort Create Date
+
+ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date`\
+Inherit ID: `helpdesk.helpdesk_ticket_view_kanban`
+
+```xml
+<data priority="50">
+    <kanban position="attributes">
+        <attribute name="default_order">create_date asc, priority desc, sla_deadline, id</attribute>
+    </kanban>
+</data>
+
+```
+Edit: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml)\
+Source: [snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_ticket_view_kanban.sort_create_date.xml)
+
 ### X Date Deadline
 
 ID: `mint_system.helpdesk.helpdesk_ticket_view_kanban.x_date_deadline`\
@@ -149,6 +165,22 @@ Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_
 Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_search_base.advanced_search.xml)
 
 ## Helpdesk Tickets View Tree
+
+### Sort Create Date
+
+ID: `mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date`\
+Inherit ID: `helpdesk.helpdesk_tickets_view_tree`
+
+```xml
+<data priority="50">
+    <list position="attributes">
+        <attribute name="default_order">create_date asc, priority desc, sla_deadline, id</attribute>
+    </list>
+</data>
+
+```
+Edit: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml)\
+Source: [snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml](https://odoo.build/snippets/mint_system.helpdesk.helpdesk_tickets_view_tree.sort_create_date.xml)
 
 ### X Date Deadline
 

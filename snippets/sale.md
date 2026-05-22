@@ -1584,7 +1584,7 @@ Inherit ID: `sale.report_saleorder_document`
                 </td>
                 <td>Incoterm</td>
                 <td>
-                    <span t-field="doc.incoterm"/>
+                    <span t-field="doc.incoterm.name"/>
                 </td>
             </tr>
             <tr>
@@ -2073,7 +2073,7 @@ Inherit ID: `sale.report_saleorder_document`
       .title {
         font-size: 8pt;
         font-weight: bold;
-        padding-bottom: 3px;
+        padding-bottom: 4px;
       }
       .margin {
         padding-bottom: 33mm;
@@ -2501,6 +2501,22 @@ Inherit ID: `sale.report_saleorder_document`
 ```
 Edit: [snippets/mint_system.sale.report_saleorder_document.format_title_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.format_title_trimada.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.format_title_trimada.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.format_title_trimada.xml)
+
+### Format Tr Note
+
+ID: `mint_system.sale.report_saleorder_document.format_tr_note`\
+Inherit ID: `sale.report_saleorder_document`
+
+```xml
+<data priority="50">
+   <tr name="tr_note" position="attributes">
+        <attribute name="class">o_line_note</attribute>
+    </tr>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.report_saleorder_document.format_tr_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.format_tr_note.xml)\
+Source: [snippets/mint_system.sale.report_saleorder_document.format_tr_note.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.format_tr_note.xml)
 
 ### Get Position
 
@@ -3012,7 +3028,7 @@ Inherit ID: `sale.report_saleorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div/p/span[@t-field='doc.payment_term_id.note']" position="replace">
+    <xpath expr="//span[@t-field='doc.payment_term_id.note']/.." position="replace">
     </xpath>
 </data>
 
@@ -3670,43 +3686,46 @@ ID: `mint_system.sale.report_saleorder_document.replace_summary`\
 Inherit ID: `sale.report_saleorder_document`
 
 ```xml
-<data priority="50">
+<data inherit_id="sale.report_saleorder_document" priority="50">
+
     <xpath expr="//div[@name='so_total_summary']" position="replace">
+
         <style>
-            table.trimada_summary tr {
-                border-top: solid 1px !important;
-                border-bottom: solid 1px;
-            }
-            table.trimada_details tr {
-              border-top: 0px !important;
-              border-bottom: 0px;
-              line-height: 0.7;
-            }
-            table.trimada_summary #amount_untaxed_label {
-                width: 15.5%;
-                text-align: left;
-            }
-            table.trimada_summary #amount_untaxed {
-                width: 23%;
-                text-align: left;
-            }
-            table.trimada_summary #amount_by_group_label {
-                width: 12%;
-                text-align: left;
-            }
-            table.trimada_summary #amount_by_group {
-                width: 17%;
-                text-align: left;
-            }
-            table.trimada_summary #current_subtotal_label {
-                width: 14%;
-                text-align: right;
-            }
-            table.trimada_summary #current_subtotal {
-                width: 18%;
-                text-align: right;
-            }
-    </style>
+			table.trimada_summary tr {
+				border-top: solid 1px !important;
+				border-bottom: solid 1px;
+			}
+			table.trimada_details tr {
+			  border-top: 0px !important;
+			  border-bottom: 0px;
+			  line-height: 0.7;
+			}
+			table.trimada_summary #amount_untaxed_label {
+				width: 15.5%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_untaxed {
+				width: 23%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_by_group_label {
+				width: 12%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_by_group {
+				width: 17%;
+				text-align: left;
+			}
+			table.trimada_summary #current_subtotal_label {
+				width: 14%;
+				text-align: right;
+			}
+			table.trimada_summary #current_subtotal {
+				width: 18%;
+				text-align: right;
+			}
+        </style>
+
         <table class="table table-borderless table-sm trimada trimada_summary o_main_table">
             <tr>
                 <td id="amount_untaxed_label">
@@ -3715,30 +3734,25 @@ Inherit ID: `sale.report_saleorder_document`
                 <td id="amount_untaxed">
                     <span t-field="doc.amount_untaxed"/>
                 </td>
+
                 <td>
                     <table class="trimada_details">
-                        <t t-foreach="doc.amount_by_group" t-as="amount_by_group">
-                            <tr style="">
-                                <t t-if="amount_by_group[5] == 1 and doc.amount_untaxed == amount_by_group[2]">
-                                    <td name="td_amount_by_group_label_3">
-                                        <span t-esc="amount_by_group[0]"/>
-                                    </td>
-                                    <td name="td_amount_by_group_3" class="text-right o_price_total">
-                                        <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
-                                    </td>
-                                </t>
-                                <t t-else="">
+                        <t t-foreach="doc.tax_totals['groups_by_subtotal'].values()" t-as="groups">
+                            <t t-foreach="groups" t-as="tax_group">
+                                <tr>
                                     <td name="td_amount_by_group_label">
-                                        <span t-esc="amount_by_group[0]"/>
+                                        <span t-esc="tax_group['tax_group_name']"/>
                                     </td>
-                                    <td name="td_amount_by_group" class="text-right o_price_total">
-                                        <span t-esc="amount_by_group[1]" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: doc.pricelist_id.currency_id}"/>
+
+                                    <td name="td_amount_by_group" class="text-end o_price_total">
+                                        <span t-esc="tax_group['tax_group_amount']" t-options="{                                           'widget': 'monetary',                                           'display_currency': doc.currency_id                                       }"/>
                                     </td>
-                                </t>
-                            </tr>
+                                </tr>
+                            </t>
                         </t>
                     </table>
                 </td>
+
                 <td id="current_subtotal_label">
                     <strong>Rechnungsbetrag</strong>
                 </td>
@@ -3747,9 +3761,9 @@ Inherit ID: `sale.report_saleorder_document`
                 </td>
             </tr>
         </table>
+
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.sale.report_saleorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.replace_summary.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.replace_summary.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.replace_summary.xml)
@@ -4688,6 +4702,9 @@ Inherit ID: `sale.report_saleorder_document`
 			.o_company_1_layout {
 				font-family: arial;
 			}
+			span {
+			    line-height: 1.3;
+			}
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
@@ -4695,9 +4712,11 @@ Inherit ID: `sale.report_saleorder_document`
 			}
 			table.trimada tr.first td {
 				padding-bottom: 0;
+				line-height: 1.5;
 			}
 			table.trimada tr.second td {
 				padding-top: 0;
+				line-height: 1.5;
 			}
 			table.trimada tr.second {
 				border-bottom: 1px solid rgb(220,220,220);
@@ -4721,9 +4740,6 @@ Inherit ID: `sale.report_saleorder_document`
 			  text-align: right;
 			}
 			table.trimada tbody td#default_code {
-			  text-align: right;
-			}
-			table.trimada tbody #commitment_date {
 			  text-align: right;
 			}
 			table.trimada tbody td span#product_uom_qty {
@@ -4758,14 +4774,10 @@ Inherit ID: `sale.report_saleorder_document`
     <xpath expr="//table/thead//tr[1]//th[3]" position="attributes">
         <attribute name="class">text-start</attribute>
     </xpath>
-    <xpath expr="//table/thead//th[@name='th_commitment_date']" position="attributes">
-        <attribute name="class">text-end</attribute>
-    </xpath>
     <xpath expr="//table/tbody//tr[1]//td[3]" position="attributes">
         <attribute name="class">text-end</attribute>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.sale.report_saleorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.style_trimada.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.style_trimada.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.style_trimada.xml)
@@ -5923,6 +5935,21 @@ Inherit ID: `sale.view_order_form`
 ```
 Edit: [snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml)\
 Source: [snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.modify_readonly_carrier_id.xml)
+
+### Modify Readonly Commitment Date
+
+ID: `mint_system.sale.view_order_form.modify_readonly_commitment_date`\
+Inherit ID: `sale.view_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='commitment_date']" position="attributes">
+        <attribute name="readonly">False</attribute>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.sale.view_order_form.modify_readonly_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.view_order_form.modify_readonly_commitment_date.xml)\
+Source: [snippets/mint_system.sale.view_order_form.modify_readonly_commitment_date.xml](https://odoo.build/snippets/mint_system.sale.view_order_form.modify_readonly_commitment_date.xml)
 
 ### Modify Readonly Date Order
 

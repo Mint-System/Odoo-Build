@@ -101,6 +101,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [L10n Din5008](snippets/l10n_din5008.md)
 
+## [L10n Din5008 Sale](snippets/l10n_din5008_sale.md)
+
 ## [Mail](snippets/mail.md)
 
 ## [Mail Activity Board](snippets/mail_activity_board.md)

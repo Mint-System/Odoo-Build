@@ -49,6 +49,7 @@ export default [
 '/snippets/l10n_ch.md',
 '/snippets/l10n_ch_qr_isr_invoice_import.md',
 '/snippets/l10n_din5008.md',
+'/snippets/l10n_din5008_sale.md',
 '/snippets/mail.md',
 '/snippets/mail_activity_board.md',
 '/snippets/mail_tracking.md',

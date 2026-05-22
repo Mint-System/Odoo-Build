@@ -36,6 +36,9 @@ Inherit ID: `account_reports.pdf_export_main_customer_report`
     <xpath expr="//div[hasclass('col-4')]" position="attributes">
         <attribute name="class">col-5</attribute>
     </xpath>
+    <xpath expr="//div[hasclass('row')]" position="attributes">
+        <attribute name="class">row mt-2</attribute>
+    </xpath>
 </data>
 
 ```

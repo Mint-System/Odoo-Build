@@ -796,14 +796,30 @@ Inherit ID: `base.view_partner_form`
 
 ```xml
 <data priority="50">
-    <xpath expr="//field[@name='street']" position="before">
-        <field name="type" readonly="1"/>
+    <xpath expr="/form//field[@name='parent_id']" position="before">
+        <field name="type"/>
     </xpath>
 </data>
 
 ```
 Edit: [snippets/mint_system.base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_type.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_type.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_type.xml)
+
+### Show Type On Child
+
+ID: `mint_system.base.view_partner_form.show_type_on_child`\
+Inherit ID: `base.view_partner_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//form//form//field[@name='type']" position="after">
+        <field name="company_type" widget="radio" options="{'horizontal': true}" invisible="type != 'other'"/>
+    </xpath>
+</data>
+
+```
+Edit: [snippets/mint_system.base.view_partner_form.show_type_on_child.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_type_on_child.xml)\
+Source: [snippets/mint_system.base.view_partner_form.show_type_on_child.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_type_on_child.xml)
 
 ### Show User Id
 

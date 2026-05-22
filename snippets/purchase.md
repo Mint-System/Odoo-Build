@@ -898,38 +898,67 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[@class='oe_structure']/.." position="after">
+    <xpath expr="//table[3]" position="after">
         <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
         margin-top: 25px;
         border-color: white;
+        line-height: 1.5;
       }
       table#footer tr, td {
         vertical-align: top;
+        border-color: white;
       }
     </style>
         <table id="footer">
             <tr>
-                <td width="40%" t-if="o.payment_term_id.note">
+                <td width="50%" t-if="doc.payment_term_id">
                     <span>Zahlungsbedingungen </span>
-                    <span t-field="o.payment_term_id"/>
+                    <span t-field="doc.payment_term_id"/>
                 </td>
-                <td width="60%">
-                    <span>Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen</span>
-                </td>
+                <td width="50%" t-if="not doc.payment_term_id">
+        </td>
+                <td width="50%">
+          Lieferung gemäss unseren allgemeinen Lieferbedingungen
+        </td>
             </tr>
             <tr>
                 <td>
                     <span>MWST-Nr: </span>
-                    <span t-field="o.company_id.vat"/>
+                    <span t-field="doc.company_id.vat"/>
+                </td>
+                <td>
+                    <table width="100%">
+                        <tr>
+                            <td width="35%">
+               Bankverbindungen:
+            </td>
+                            <td width="65%">
+              UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
+             </td>
+                        </tr>
+                        <tr>
+                            <td>
+            </td>
+                            <td>
+            (CHF) IBAN CH63 0027 3273 Q978 6962 0
+            </td>
+                        </tr>
+                        <tr>
+                            <td>
+            </td>
+                            <td>
+            (EUR) IBAN CH59 0027 3273 HN10 3698 0
+            </td>
+                        </tr>
+                    </table>
                 </td>
             </tr>
         </table>
     </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.add_footer.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.add_footer.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.add_footer.xml)
@@ -1250,22 +1279,26 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_address_blocks`\
 Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
-<data priority="50">
-    <xpath expr="//t[@t-set='address']/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
-    </xpath>
-    <xpath expr="/t/t/t[4]/t/strong" position="replace">
-        <div style="font-size:8pt; font-weight:bold; padding-bottom: 5px">Shipping address:</div>
-    </xpath>
-    <xpath expr="/t/t/t[4]/t/div/span" position="replace">
-  </xpath>
-    <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
-    </xpath>
-</data>
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
+  <xpath expr="//t[@t-set='address']/div" position="attributes">
+    <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm;</attribute>
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/strong" position="replace">
+    <div style="font-size:8pt; padding-bottom: 4px; font-weight:bold">Shipping address:</div>
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/div/span" position="replace">
+  </xpath>
+
+  <xpath expr="/t/t/t[4]/t/div/div" position="attributes">
+    <attribute name="style">font-size:10pt; line-height: 1.2;</attribute>
+    <attribute name="t-options-fields">['address', 'name']</attribute>
+  </xpath>
+
+</data>
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.format_address_blocks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.format_address_blocks.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.format_address_blocks.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.format_address_blocks.xml)
@@ -1349,13 +1382,13 @@ ID: `mint_system.purchase.report_purchaseorder_document.format_title`\
 Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
-<data priority="50">&gt;
+<data priority="50">
 
-  <xpath expr="//div/h2[1]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
+  <xpath expr="//div/h2[1]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
   
-  <xpath expr="//div/h2[2]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
+  <xpath expr="//div/h2[2]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
   
-  <xpath expr="//div/h2[3]" position="attributes"><attribute name="style">color: black; margin-top: 2rem</attribute></xpath>
+  <xpath expr="//div/h2[3]" position="attributes"><attribute name="style">color: black; font-size:13pt; font-weight:bold; margin-top:10mm; margin-bottom:3mm</attribute></xpath>
 
 </data>
 
@@ -1978,15 +2011,14 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//td[@id='product']" position="replace">
-        <td id="product">
-            <span class="o_bold" t-field="line.product_id.name"/>
-            <br/>
-            <span t-field="line.name"/>
-        </td>
-    </xpath>
-</data>
 
+    <xpath expr="//table/tbody/t[2]/tr/t[1]/td[3]/span" position="replace">
+        <t>
+            <span style="font-weight:bold;" t-field="line.product_id.type_description"/>
+        </t>
+    </xpath>
+
+</data>
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_product_description.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_product_description.xml)
@@ -2006,6 +2038,55 @@ Inherit ID: `purchase.report_purchaseorder_document`
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_representative.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_representative.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_representative.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_representative.xml)
+
+### Replace Summary
+
+ID: `mint_system.purchase.report_purchaseorder_document.replace_summary`\
+Inherit ID: `purchase.report_purchaseorder_document`
+
+```xml
+<data inherit_id="purchase.report_purchaseorder_document" priority="50">
+
+<xpath expr="//table[@class='table table-borderless table-sm']" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+    <table class="table table-borderless table-sm" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+
+      <tr >
+        <td style="width:15.5%; text-align:left">
+          <Strong>Warenwert</Strong>
+        </td>
+        <td style="width:23%; text-align:left">
+          <span t-field="o.amount_untaxed"/>
+        </td>
+
+        <t t-if="o.amount_tax > 0">
+          <td style="width:12%; text-align:left">MWST</td>
+          <td style="width:17%; text-align:left">
+            <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+          </td>
+        </t>
+        <t t-elif="o.amount_tax == 0">
+          <td></td>
+          <td></td>
+        </t>
+
+        <td style="width:14%; text-align:right">
+          <Strong>Bestellbetrag</Strong>
+        </td>
+        <td style="width:18%; text-align:right" class="text-right">
+          <span t-field="o.amount_total" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
+        </td>
+      </tr>
+
+    </table>
+  </xpath>
+  
+ </data>
+```
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml)\
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml)
 
 ### Replace Taxes Id
 
@@ -2078,27 +2159,23 @@ Inherit ID: `purchase.report_purchaseorder_document`
 ```xml
 <data priority="50">
 
-    <xpath expr="//td[@id='product']/../.." position="after">
-        <t t-if="line.position">
-            <tr style="border-top: solid white !important">
-                <td/>
-                <td colspan="5">
-                    <span t-field="line.name"/>
-                    <t t-if="line.product_id.hs_code">
-                        <br/>
-                        <span>HS-Code: </span><br/>
-                        <span t-field="line.product_id.hs_code"/>
-                    </t>
-                </td>
-                <td/>
-            </tr>
-        </t>
-    </xpath>
-
-    <xpath expr="//td[@id='product']" position="replace">
-        <td name="td_name">
-            <strong t-field="line.product_id"/>
-        </td>
+    <xpath expr="//tbody//tr[1]" position="after">
+        <tr>
+            <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+                <span t-field="line.name"/>
+                <br/>
+                <t t-if="line.product_id.country_of_origin.code">Ursprungsland: <span t-field="line.product_id.country_of_origin.code"/>
+                </t>
+                <t t-if="line.product_id.hs_code"> / Zollposition: <span t-field="line.product_id.hs_code"/>
+                </t>
+            </td>
+            <td/>
+        </tr>
+        <tr style="border-bottom: 1px solid rgb(220,220,220)">
+            <td colspan="8"/>
+        </tr>
     </xpath>
 
 </data>
@@ -2152,6 +2229,31 @@ Inherit ID: `purchase.report_purchaseorder_document`
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.set_ids.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.set_ids.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.set_ids.xml)
+
+### Show Default Code
+
+ID: `mint_system.purchase.report_purchaseorder_document.show_default_code`\
+Inherit ID: `purchase.report_purchaseorder_document`
+
+```xml
+<data priority="50">
+
+  <xpath expr="//table/thead/tr/th[1]" position="after">
+    <th>
+      <span>Artikel Nr.</span>
+    </th>
+  </xpath>
+  <xpath expr="//table/tbody/t/tr/t[1]/td[1]" position="after">
+    <td>
+      <span t-field="line.product_id.default_code"/>
+    </td>
+  </xpath>
+  
+</data>
+
+```
+Edit: [snippets/mint_system.purchase.report_purchaseorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.show_default_code.xml)\
+Source: [snippets/mint_system.purchase.report_purchaseorder_document.show_default_code.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.show_default_code.xml)
 
 ### Show Seller Product
 
@@ -2416,15 +2518,78 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
 		.o_company_1_layout {
   			font-family: arial;
-		}			
+		}
+		span {
+			    line-height: 1.3;
+		}
 		</style>
-    </xpath>
-</data>
+	</xpath>
 
+	<!-- format main_table -->
+	<xpath expr="//table[2]" position="attributes">
+		<attribute name="style">width: 100%; font-size:9pt</attribute>
+		<attribute name="class">table table-borderless table-sm</attribute>
+	</xpath>
+
+	<!-- header-->
+	<xpath expr="//table[2]/thead/tr" position="attributes">
+		<attribute name="style">border-top:solid 1px; border-bottom: solid 1px; color: black;</attribute>
+	</xpath>
+
+	<!-- header: position -->
+	<xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
+		<attribute name="style">width: 5mm</attribute>/&gt;
+	</xpath>
+
+	<!-- header: default code -->
+	<xpath expr="//table[2]/thead/tr/th[2]" position="attributes">
+		<attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>"/&gt;
+	</xpath>
+
+	<!-- header: description -->
+	<xpath expr="//th[@name='th_description']" position="attributes">
+		<attribute name="style">width: 73mm</attribute>/&gt;
+		<attribute name="class" separator=" " add="text-start"/>
+	</xpath>
+
+	<!-- header: date_planned -->
+	<xpath expr="//th[@name='th_date_req']" position="attributes">
+		<attribute name="class" separator=" " add="text-start" remove="text-center"/>
+	</xpath>
+
+	<!-- header: qty -->
+	<xpath expr="//table[2]/thead/tr/th[5]" position="attributes">
+		<attribute name="style">text-align: right; padding-right: 5px</attribute>"/&gt;
+	</xpath>
+
+	<!-- position -->
+	<xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[1]" position="attributes">
+		<attribute name="style">text-align: right</attribute>/&gt;
+	</xpath>
+
+	<!-- default code -->
+	<xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[2]" position="attributes">
+		<attribute name="style">text-align: right; padding-right: 10px;</attribute>/&gt;
+	</xpath>
+
+	<xpath expr="//table[2]/tbody/t[2]/tr[1]/t[1]/td[4]" position="attributes">
+		<attribute name="class" separator=" " add="text-left" remove="text-center"/>
+		<attribute name="t-options-widget">"date"</attribute>
+	</xpath>
+
+	<!-- qty-->
+	<xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+		<attribute name="t-options-widget">"integer"</attribute>
+	</xpath>
+	<xpath expr="/t/t/div/table[2]/tbody/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+		<attribute name="class" separator=" " add="o_bold"/>
+	</xpath>
+
+</data>
 ```
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.style_trimada.xml)\
 Source: [snippets/mint_system.purchase.report_purchaseorder_document.style_trimada.xml](https://odoo.build/snippets/mint_system.purchase.report_purchaseorder_document.style_trimada.xml)
@@ -2566,39 +2731,38 @@ ID: `mint_system.purchase.report_purchasequotation_document.add_footer`\
 Inherit ID: `purchase.report_purchasequotation_document`
 
 ```xml
-<data priority="50">
+<data inherit_id="purchase.report_purchasequotation_document" priority="50">
+
     <xpath expr="//div[@class='oe_structure']/.." position="after">
         <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
-        margin-top: 25px;
-        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
       }
-    </style>
+        </style>
         <table id="footer">
             <tr>
-                <td width="40%" t-if="o.payment_term_id.note">
-                    <span>Zahlungsbedingungen </span>
+                <td width="40%" t-if="o.payment_term_id">
+                    <span>Zahlungsbedingungen</span>
                     <span t-field="o.payment_term_id"/>
                 </td>
                 <td width="60%">
-                    <span>Lieferung gem&#xE4;ss unseren allgemeinen Einkaufsbedingungen</span>
+                    <span>Lieferung gemäss unseren allgemeinen Einkaufsbedingungen</span>
                 </td>
             </tr>
             <tr>
                 <td>
-                    <span>MWST-Nr: </span>
+                    <span>MWST-Nr:</span>
                     <span t-field="o.company_id.vat"/>
                 </td>
             </tr>
         </table>
     </xpath>
-</data>
 
+</data>
 ```
 Edit: [snippets/mint_system.purchase.report_purchasequotation_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.add_footer.xml)\
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.add_footer.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.add_footer.xml)
@@ -3428,18 +3592,53 @@ Inherit ID: `purchase.report_purchasequotation_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//td[@id='product']" position="replace">
-        <td id="product">
-            <span class="o_bold" t-field="order_line.product_id.name"/>
-            <br/>
-            <span t-field="order_line.name"/>
-        </td>
-    </xpath>
+   <xpath expr="//table/tbody/t/tr/t[1]/td[3]/span" position="replace">
+    <t>
+      <span style="font-weight:bold;" t-field="order_line.product_id.type_description"/>
+    </t>
+  </xpath>
 </data>
-
 ```
 Edit: [snippets/mint_system.purchase.report_purchasequotation_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.replace_product_description.xml)\
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.replace_product_description.xml)
+
+### Replace Summary
+
+ID: `mint_system.purchase.report_purchasequotation_document.replace_summary`\
+Inherit ID: `purchase.report_purchasequotation_document`
+
+```xml
+<data priority="50">
+   <xpath expr="//table[2]" position="after">
+    <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
+      <span class="note" t-field="o.note_footer"/>
+    </t>
+    <table class="table table-borderless table-sm" style="margin-top:20px; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
+      
+      <tr >
+        <td style="width:15.5%; text-align:left">
+          <Strong>Warenwert</Strong>
+        </td>
+        <td style="width:23%; text-align:left">
+          <span t-field="o.currency_id"/>
+        </td>
+        <td style="width:12%; text-align:left"></td>
+        <td style="width:17%; text-align:left">         
+        </td>
+        <td style="width:14%; text-align:right">
+          <Strong>Bestellbetrag</Strong>
+        </td>
+        <td style="width:18%; text-align:right" class="text-right">
+          <span t-field="o.currency_id"/>
+        </td>
+      </tr>
+
+    </table>    
+  </xpath>
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.replace_summary.xml)\
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.replace_summary.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.replace_summary.xml)
 
 ### Replace Title
 
@@ -3481,6 +3680,36 @@ Inherit ID: `purchase.report_purchasequotation_document`
 ```
 Edit: [snippets/mint_system.purchase.report_purchasequotation_document.row_date_align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.row_date_align_left.xml)\
 Source: [snippets/mint_system.purchase.report_purchasequotation_document.row_date_align_left.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.row_date_align_left.xml)
+
+### Second Row
+
+ID: `mint_system.purchase.report_purchasequotation_document.second_row`\
+Inherit ID: `purchase.report_purchasequotation_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//tbody//tr[1]" position="after">
+        <tr>
+            <td style="padding-bottom :10px; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2"/>
+            <td style="padding:0; padding-left:3px; line-height: 1.2" colspan="4">
+                <span t-field="order_line.name"/>
+                <br/>
+                <t t-if="order_line.product_id.country_of_origin.code">Ursprungsland: <span t-field="order_line.product_id.country_of_origin.code"/>
+                </t>
+                <t t-if="order_line.product_id.hs_code"> / Zollposition: <span t-field="order_line.product_id.hs_code"/>
+                </t>
+            </td>
+
+        </tr>
+        <tr style="border-bottom: 1px solid rgb(220,220,220)">
+            <td colspan="8"/>
+        </tr>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.purchase.report_purchasequotation_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchasequotation_document.second_row.xml)\
+Source: [snippets/mint_system.purchase.report_purchasequotation_document.second_row.xml](https://odoo.build/snippets/mint_system.purchase.report_purchasequotation_document.second_row.xml)
 
 ### Sequence In Table
 
@@ -3721,11 +3950,75 @@ Inherit ID: `purchase.report_purchasequotation_document`
 <data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
-    .o_company_1_layout {
-      font-family: arial;
-    }
-    </style>
+		.o_company_1_layout {
+  			font-family: arial;
+		}
+		span {
+			    line-height: 1.3;
+		}
+        </style>
     </xpath>
+
+    <!-- format main_table -->
+    <xpath expr="//table[2]" position="attributes">
+        <attribute name="style">width: 100%; font-size:9pt</attribute>
+        <attribute name="class">table table-borderless table-sm</attribute>
+    </xpath>
+
+    <!-- header-->
+    <xpath expr="//table[2]/thead/tr" position="attributes">
+        <attribute name="style">border-top:solid 1px; border-bottom: solid 1px; color: black;</attribute>
+    </xpath>
+
+    <!-- header: position -->
+    <xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
+        <attribute name="style">width: 5mm</attribute>/&gt;
+    </xpath>
+
+    <!-- header: default code -->
+    <xpath expr="//table[2]/thead/tr/th[2]" position="attributes">
+        <attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>"/&gt;
+    </xpath>
+
+    <!-- header: description -->
+    <xpath expr="//th[@name='th_description']" position="attributes">
+        <attribute name="style">width: 73mm</attribute>/&gt;
+        <attribute name="class" separator=" " add="text-start"/>
+    </xpath>
+
+    <!-- header: date_planned -->
+    <xpath expr="//th[@name='th_date_req']" position="attributes">
+        <attribute name="class" separator=" " add="text-start" remove="text-center"/>
+    </xpath>
+
+    <!-- header: qty -->
+    <xpath expr="//table[2]/thead/tr/th[5]" position="attributes">
+        <attribute name="style">text-align: right; padding-right: 5px</attribute>"/&gt;
+    </xpath>
+
+    <!-- position -->
+    <xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[1]" position="attributes">
+        <attribute name="style">text-align: right</attribute>/&gt;
+    </xpath>
+
+    <!-- default code -->
+    <xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[2]" position="attributes">
+        <attribute name="style">text-align: right; padding-right: 10px;</attribute>/&gt;
+    </xpath>
+
+    <xpath expr="//table[2]/tbody/t[2]/tr[1]/t[1]/td[4]" position="attributes">
+        <attribute name="class" separator=" " add="text-left" remove="text-center"/>
+        <attribute name="t-options-widget">"date"</attribute>
+    </xpath>
+
+    <!-- qty-->
+    <xpath expr="/t[1]/t[1]/div[1]/table[2]/tbody[1]/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+        <attribute name="t-options-widget">"integer"</attribute>
+    </xpath>
+    <xpath expr="/t/t/div/table[2]/tbody/t[2]/tr[1]/t[1]/td[5]/span[1]" position="attributes">
+        <attribute name="class" separator=" " add="o_bold"/>
+    </xpath>
+
 </data>
 
 ```

@@ -646,6 +646,22 @@ Inherit ID: `product.product_template_only_form_view`
 Edit: [snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml)\
 Source: [snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml](https://odoo.build/snippets/mint_system.product.product_template_only_form_view.show_search_terms.xml)
 
+### Show Tariff Code
+
+ID: `mint_system.product.product_template_only_form_view.show_tariff_code`\
+Inherit ID: `product.product_template_only_form_view`
+
+```xml
+<data priority="50">
+    <field name="barcode" position="after">
+        <field name="x_tariff_code" />
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.product.product_template_only_form_view.show_tariff_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_only_form_view.show_tariff_code.xml)\
+Source: [snippets/mint_system.product.product_template_only_form_view.show_tariff_code.xml](https://odoo.build/snippets/mint_system.product.product_template_only_form_view.show_tariff_code.xml)
+
 ### X Calibre
 
 ID: `mint_system.product.product_template_only_form_view.x_calibre`\
@@ -848,6 +864,23 @@ Inherit ID: `product.product_template_tree_view`
 ```
 Edit: [snippets/mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)\
 Source: [snippets/mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml](https://odoo.build/snippets/mint_system.product.product_template_tree_view.add_last_update_create_date_and_x_xml_id.xml)
+
+### Add Search Fields
+
+ID: `mint_system.product.product_template_tree_view.add_search_fields`\
+Inherit ID: `product.product_template_tree_view`
+
+```xml
+<data priority="50">
+    <field name="name" position="after">
+        <field name="x_beh_search_term_one" string="Suchterm"/>
+        <field name="x_beh_search_term_two" string="Bezeichnung 2"/>
+    </field>
+</data>
+
+```
+Edit: [snippets/mint_system.product.product_template_tree_view.add_search_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_tree_view.add_search_fields.xml)\
+Source: [snippets/mint_system.product.product_template_tree_view.add_search_fields.xml](https://odoo.build/snippets/mint_system.product.product_template_tree_view.add_search_fields.xml)
 
 ### Remove Default Code And Responsible
 

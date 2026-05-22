@@ -3474,9 +3474,9 @@ Inherit ID: `stock.report_delivery_document`
             </t>
             <span t-field="move.description_picking"/>
             <br/>
-            <t t-if="move.product_id.country_of_origin_id.code">
+            <t t-if="move.product_id.country_of_origin.code">
                 <span>Ursprungsland: </span>
-                <span t-field="move.product_id.country_of_origin_id.code"/>
+                <span t-field="move.product_id.country_of_origin.code"/>
             </t>
             <t t-if="move.product_id.hs_code">
                 <span>/ Zollposition: </span>
@@ -3484,8 +3484,10 @@ Inherit ID: `stock.report_delivery_document`
             </t>
         </td>
     </xpath>
-</data>
+    
+    <xpath expr="//table[@name='stock_move_table']/tbody/tr/td[2]" position="replace"/>
 
+</data>
 ```
 Edit: [snippets/mint_system.stock.report_delivery_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.report_delivery_document.replace_product_description.xml)\
 Source: [snippets/mint_system.stock.report_delivery_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.stock.report_delivery_document.replace_product_description.xml)
@@ -3534,7 +3536,7 @@ Inherit ID: `stock.report_delivery_document`
 ```xml
 <data priority="60">
     <xpath expr="//span[@t-field='move.product_uom_qty']" position="replace">
-        <span t-field="move.quantity_done"/>
+        <span t-field="move.quantity"/>
     </xpath>
 </data>
 
@@ -6488,20 +6490,23 @@ Inherit ID: `stock.stock_report_delivery_aggregated_move_lines`
 
 ```xml
 <data priority="49">
-    <xpath expr="///tr/td[1]/p/span[1]" position="after">
-        <br/>
-        <t t-if="aggregated_lines[line]['product']['country_of_origin_id']['code'] and aggregated_lines[line]['hs_code']">
-          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin_id']['code']"/>
+  <xpath expr="///tr/td[1]/p/span[1]" position="after">
+    <br/>
+    <t t-if="aggregated_lines[line]['product']['country_of_origin']['code'] and aggregated_lines[line]['hs_code']">
+          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin']['code']"/>
           / HS Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
 
   </t>
-        <t t-if="aggregated_lines[line]['hs_code'] and not aggregated_lines[line]['product']['country_of_origin_id']['code']">
+  <t t-if="aggregated_lines[line]['hs_code'] and not aggregated_lines[line]['product']['country_of_origin']['code']">
           HS Code: <span t-esc="aggregated_lines[line]['hs_code']"/>
   </t>
-        <t t-if="aggregated_lines[line]['product']['country_of_origin_id']['code'] and not aggregated_lines[line]['hs_code']">
-          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin_id']['code']"/>
+
+  <t t-if="aggregated_lines[line]['product']['country_of_origin']['code'] and not aggregated_lines[line]['hs_code']">
+          Country of origin: <span t-esc="aggregated_lines[line]['product']['country_of_origin']['code']"/>
   </t>
-    </xpath>
+
+</xpath>
+
 </data>
 
 ```
@@ -6611,18 +6616,21 @@ Inherit ID: `stock.stock_report_delivery_aggregated_move_lines`
 
 ```xml
 <data priority="50">
-    <xpath expr="//td[@name='move_line_aggregated_qty_done']" position="attributes">
+
+    <xpath expr="//td[@name='move_line_aggregated_quantity']" position="attributes">
         <attribute name="class">text-right</attribute>
     </xpath>
-    <xpath expr="//td[@name='move_line_aggregated_qty_done']/span[1]" position="attributes">
+
+    <xpath expr="//td[@name='move_line_aggregated_quantity']/t/span[1]" position="attributes">
         <attribute name="style">font-weight: bold</attribute>
         <attribute name="t-options">{'widget': 'integer'}</attribute>
     </xpath>
+
     <xpath expr="//tr/td/p" position="attributes">
         <attribute name="style">margin-bottom:0px</attribute>
     </xpath>
-</data>
 
+</data>
 ```
 Edit: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml)\
 Source: [snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml](https://odoo.build/snippets/mint_system.stock.stock_report_delivery_aggregated_move_lines.format_table.xml)
