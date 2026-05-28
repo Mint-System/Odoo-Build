@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div[@id='payment_term']" position="attributes">
+        <attribute name="style">clear: both;</attribute>
+    </xpath>
+</data>

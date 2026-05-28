@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//p[@name='payment_communication']" position="attributes">
+        <attribute name="style">page-break-inside: avoid;</attribute>
+    </xpath>
+</data>
