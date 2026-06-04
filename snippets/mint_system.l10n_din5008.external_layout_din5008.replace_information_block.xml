@@ -11,11 +11,11 @@
             div.information_block {
                 line-height: 1.5;
             }
-
+            
             .din_page.invoice_note tr .information_block {
                 margin-left: 10mm;
             }
-
+            
         </style>
 
         <td style="vertical-align: top;">
@@ -69,14 +69,16 @@
                                 <span t-field="o.invoice_date_due"/>
                             </td>
                         </tr>
-                        <tr>
-                            <td>
-                                <span>Our Order</span>
-                            </td>
-                            <td>
-                                <span t-field="o.invoice_origin"/>
-                            </td>
-                        </tr>
+                        <t t-if="o.invoice_origin">
+                            <tr>
+                                <td>
+                                    <span>Our Order</span>
+                                </td>
+                                <td>
+                                    <span t-field="o.invoice_origin"/>
+                                </td>
+                            </tr>
+                        </t>
                         <t t-if="o.ref">
                         <tr>
                             <td>
