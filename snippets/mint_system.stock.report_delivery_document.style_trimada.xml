@@ -1,14 +1,15 @@
-<data priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
-		  .o_company_1_layout {
-        font-family: arial;
-      }
+<data inherit_id="stock.report_delivery_document" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
 			table.trimada {
 				font-size: 9pt;
 				font-family: arial;
 				color: black;
-			}
+			}		
+			.o_company_1_layout {
+				font-family: arial;
+			}    
 			table.trimada thead tr {
 				border-top:solid 1px;
 				border-bottom: solid 1px;
@@ -28,7 +29,6 @@
 			  width: 25mm;
 			  text-align: right !important;
 			}
-			
 			table.trimada tbody td#position {
 			  text-align: right;
 			}
@@ -50,12 +50,6 @@
 			table.trimada tbody span#open_qty {
 			  font-weight: bold;
 			}
-			address div {
-			  line-height: 1.2;
-			}
-			.d-flex span {
-			  line-height: 1.2;
-			}
 			.subtitel {
 				font-size: 11pt;
 				font-family: arial;
@@ -65,15 +59,15 @@
 				font-size: 9pt;
 				font-family: arial;
 			}
-			th#description {
-			  text-align: left;
-			}
 		</style>
-    </xpath>
-    <table name="stock_move_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
-    <table name="stock_backorder_table" position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless"/>
-    </table>
+	</xpath>
+
+	<table name="stock_move_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
+	<table name="stock_backorder_table" position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</table>
+
 </data>

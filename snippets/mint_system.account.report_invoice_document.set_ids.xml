@@ -5,13 +5,15 @@
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="id">description</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
+    <!--
+    <xpath expr="//table[@name='invoice_line_table']//td[3]" position="attributes">
         <attribute name="id">quantity</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+    -->
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
         <attribute name="id">qty</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+    <xpath expr="//table[@name='invoice_line_table']//td[4]/span[1]" position="attributes">
         <attribute name="id">price</attribute>
     </xpath>
 </data>

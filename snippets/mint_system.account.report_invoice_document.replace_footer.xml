@@ -1,61 +1,66 @@
-<data priority="50">
-    <xpath expr="//p[@name='payment_communication']" position="replace">
+<data inherit_id="account.report_invoice_document" priority="50">
+
+
+  <xpath expr="//p[@name='payment_communication']" position="replace">
   </xpath>
-    <p t-if="o.invoice_payment_term_id" name="payment_term">
-        <span t-field="o.invoice_payment_term_id.note"/>
-    </p>
-    <xpath expr="//p[@t-if='o.invoice_incoterm_id']" position="replace">
-        <style>
+
+  <xpath expr="//span[@id='payment_terms_note_id']" position="replace">
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
       }
       table#footer tr, td {
         vertical-align: top;
+        line-height: 1.1;
+        padding-bottom: 2px;
       }
     </style>
-        <table id="footer">
-            <tr>
-                <td t-if="o.invoice_payment_term_id" name="payment_term">
-          Zahlungsbedingungen: <span t-field="o.invoice_payment_term_id.note"/>
+    <table id="footer">
+      <tr>
+        <td t-if="o.invoice_payment_term_id" name="payment_term">
+          <span>Zahlungsbedingungen: </span>
+          <span t-field="o.invoice_payment_term_id"/>
         </td>
-                <td width="50%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Lieferbedingungen
+        <td width="50%">
+          Lieferung gemäss unseren allgemeinen Lieferbedingungen
         </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr: 
+      </tr>
+      <tr>
+        <td>
+          <span>MWST-Nr: </span>
           <span t-field="o.company_id.vat"/>
         </td>
-                <td>
-                    <table width="100%">
-                        <tr>
-                            <td width="35%">
+        <td>
+          <table width="100%">
+            <tr>
+              <td width="35%">
                Bankverbindungen:
               </td>
-                            <td width="65%">
+              <td width="65%">
               UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
               </td>
-                        </tr>
-                        <tr>
-                            <td>
+            </tr>
+            <tr>
+              <td>
               </td>
-                            <td>
+              <td>
             (CHF) IBAN CH63 0027 3273 Q978 6962 0
               </td>
-                        </tr>
-                        <tr>
-                            <td>
+            </tr>
+
+            <tr>
+              <td>
               </td>
-                            <td>
+              <td>
             (EUR) IBAN CH59 0027 3273 HN10 3698 0
               </td>
-                        </tr>
-                    </table>
-                </td>
             </tr>
-        </table>
-    </xpath>
-    <xpath expr="//p[@name='payment_term']" position="replace">
+          </table>
+        </td>
+      </tr>
+    </table>
+
   </xpath>
+
 </data>
