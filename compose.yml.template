@@ -80,6 +80,7 @@ services:
     ports:
       - "${ODOO_PORT}:8069"
       - "${NGINX_PORT}:8080"
+      - "${JPYTER_LAB_PORT}:8888"
     volumes:
       - odoo-data:/var/lib/odoo
 ${VOLUME_MOUNTS}
