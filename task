@@ -468,10 +468,10 @@ set-addons-path() {
     done
 
     # Add included addons
-    local includes="addons/thirdparty"
-    for include in $includes; do
-        git_folders_path="$include,$git_folders_path"
-    done
+    # local includes="addons/thirdparty"
+    # for include in $includes; do
+    #     git_folders_path="$include,$git_folders_path"
+    # done
 
     # Filter valid directories
     local valid_paths=""
