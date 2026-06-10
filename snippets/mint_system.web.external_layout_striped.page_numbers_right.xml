@@ -1,0 +1,6 @@
+<data priority="50">
+    <xpath expr="//div[@t-field='company.report_footer']/.." position="attributes">
+        <attribute name="class">o_footer_content border-top pt-2</attribute>
+        <attribute name="style">text-align: right;</attribute>
+    </xpath>
+</data>
