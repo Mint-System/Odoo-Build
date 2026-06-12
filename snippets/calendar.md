@@ -15,6 +15,7 @@ Inherit ID: `calendar.view_calendar_event_calendar`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_calendar.default_mode_week.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_calendar.default_mode_week.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_calendar.default_mode_week.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_calendar.default_mode_week.xml)
 
@@ -32,6 +33,7 @@ Inherit ID: `calendar.view_calendar_event_calendar`
 </odoo>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_calendar.set_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_calendar.set_color.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_calendar.set_color.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_calendar.set_color.xml)
 
@@ -48,6 +50,7 @@ Inherit ID: `calendar.view_calendar_event_calendar`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_calendar.show_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_calendar.show_location.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_calendar.show_location.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_calendar.show_location.xml)
 
@@ -65,6 +68,7 @@ Inherit ID: `calendar.view_calendar_event_calendar`
 </odoo>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_calendar.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_calendar.x_color.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_calendar.x_color.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_calendar.x_color.xml)
 
@@ -89,6 +93,7 @@ Inherit ID: `calendar.view_calendar_event_calendar_timeline`
 </odoo>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_calendar_timeline.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_calendar_timeline.view.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_calendar_timeline.view.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_calendar_timeline.view.xml)
 
@@ -108,6 +113,7 @@ Inherit ID: `calendar.view_calendar_event_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_form.show_res_model_and_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_form.show_res_model_and_id.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_form.show_res_model_and_id.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_form.show_res_model_and_id.xml)
 
@@ -124,6 +130,6 @@ Inherit ID: `calendar.view_calendar_event_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.calendar.view_calendar_event_form.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.calendar.view_calendar_event_form.x_color.xml)\
 Source: [snippets/mint_system.calendar.view_calendar_event_form.x_color.xml](https://odoo.build/snippets/mint_system.calendar.view_calendar_event_form.x_color.xml)
-

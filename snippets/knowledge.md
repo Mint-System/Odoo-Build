@@ -18,6 +18,6 @@ Inherit ID: `knowledge.knowledge_article_view_form`
     </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.knowledge.knowledge_article_view_form.style_max_width.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.knowledge.knowledge_article_view_form.style_max_width.xml)\
 Source: [snippets/mint_system.knowledge.knowledge_article_view_form.style_max_width.xml](https://odoo.build/snippets/mint_system.knowledge.knowledge_article_view_form.style_max_width.xml)
-
