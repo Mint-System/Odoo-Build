@@ -13,6 +13,7 @@ Inherit ID: `sale_subscription.payment_checkout_inherit`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)\
 Source: [snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml](https://odoo.build/snippets/mint_system.sale_subscription.payment_checkout_inherit.remove_is_subscription_note.xml)
 
@@ -31,6 +32,7 @@ Inherit ID: `sale_subscription.sale_subscription_order_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)\
 Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.remove_upsell_button.xml)
 
@@ -47,6 +49,7 @@ Inherit ID: `sale_subscription.sale_subscription_order_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml)\
 Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_end_date.xml)
 
@@ -65,6 +68,7 @@ Inherit ID: `sale_subscription.sale_subscription_order_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml)\
 Source: [snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_order_view_form.show_template_id.xml)
 
@@ -83,6 +87,6 @@ Inherit ID: `sale_subscription.sale_subscription_template_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)\
 Source: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
-

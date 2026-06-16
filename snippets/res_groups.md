@@ -18,6 +18,6 @@ Inherit ID: `res_groups.hr_holidays`
 </odoo>
 
 ```
+
 Edit: [snippets/mint_system.res_groups.hr_holidays.holidays_self_responsible.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.res_groups.hr_holidays.holidays_self_responsible.xml)\
 Source: [snippets/mint_system.res_groups.hr_holidays.holidays_self_responsible.xml](https://odoo.build/snippets/mint_system.res_groups.hr_holidays.holidays_self_responsible.xml)
-

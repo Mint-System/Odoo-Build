@@ -15,6 +15,7 @@ Inherit ID: `base.contact_name`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.contact_name.add_negative_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.contact_name.add_negative_space.xml)\
 Source: [snippets/mint_system.base.contact_name.add_negative_space.xml](https://odoo.build/snippets/mint_system.base.contact_name.add_negative_space.xml)
 
@@ -44,6 +45,7 @@ Inherit ID: `base.contact_name`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.contact_name.format_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.contact_name.format_parent_name.xml)\
 Source: [snippets/mint_system.base.contact_name.format_parent_name.xml](https://odoo.build/snippets/mint_system.base.contact_name.format_parent_name.xml)
 
@@ -57,7 +59,7 @@ Inherit ID: `base.contact_name`
     <xpath expr="//div" position="replace">
         <t t-if="object.parent_name">
             <div t-esc="object.parent_name"/>
-            <!-- 
+            <!--
             <div t-esc="object.parent_id.name2"/>
             -->
             <span t-field="object.title"/>
@@ -79,6 +81,7 @@ Inherit ID: `base.contact_name`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.contact_name.modify_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.contact_name.modify_name.xml)\
 Source: [snippets/mint_system.base.contact_name.modify_name.xml](https://odoo.build/snippets/mint_system.base.contact_name.modify_name.xml)
 
@@ -96,6 +99,7 @@ Inherit ID: `base.contact_name`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.contact_name.remove_parent_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.contact_name.remove_parent_name.xml)\
 Source: [snippets/mint_system.base.contact_name.remove_parent_name.xml](https://odoo.build/snippets/mint_system.base.contact_name.remove_parent_name.xml)
 
@@ -114,6 +118,7 @@ Inherit ID: `base.ir_cron_view_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.ir_cron_view_tree.show_ir_actions_server_id.xml)\
 Source: [snippets/mint_system.base.ir_cron_view_tree.show_ir_actions_server_id.xml](https://odoo.build/snippets/mint_system.base.ir_cron_view_tree.show_ir_actions_server_id.xml)
 
@@ -132,6 +137,7 @@ Inherit ID: `base.ir_filters_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.ir_filters_view_form.remove_domain_widget.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.ir_filters_view_form.remove_domain_widget.xml)\
 Source: [snippets/mint_system.base.ir_filters_view_form.remove_domain_widget.xml](https://odoo.build/snippets/mint_system.base.ir_filters_view_form.remove_domain_widget.xml)
 
@@ -159,6 +165,7 @@ Inherit ID: `base.module_view_kanban`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.module_view_kanban.group_erp_system.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.module_view_kanban.group_erp_system.xml)\
 Source: [snippets/mint_system.base.module_view_kanban.group_erp_system.xml](https://odoo.build/snippets/mint_system.base.module_view_kanban.group_erp_system.xml)
 
@@ -181,6 +188,7 @@ Inherit ID: `base.res_bank_view_search`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_bank_view_search.add_zip_bic_code_city.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_bank_view_search.add_zip_bic_code_city.xml)\
 Source: [snippets/mint_system.base.res_bank_view_search.add_zip_bic_code_city.xml](https://odoo.build/snippets/mint_system.base.res_bank_view_search.add_zip_bic_code_city.xml)
 
@@ -209,6 +217,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.show_agreements_count.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.show_agreements_count.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.show_agreements_count.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.show_agreements_count.xml)
 
@@ -227,6 +236,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.show_phone.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.show_phone.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.show_phone.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.show_phone.xml)
 
@@ -249,6 +259,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.show_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.show_pricelist.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.show_pricelist.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.show_pricelist.xml)
 
@@ -267,6 +278,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.show_website.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.show_website.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.show_website.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.show_website.xml)
 
@@ -284,6 +296,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.x_eori.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.x_eori.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.x_eori.xml)
 
@@ -301,6 +314,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.x_schema.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.x_schema.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.x_schema.xml)
 
@@ -318,6 +332,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.x_vat.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.x_vat.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.x_vat.xml)
 
@@ -335,6 +350,7 @@ Inherit ID: `base.res_partner_kanban_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.res_partner_kanban_view.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.res_partner_kanban_view.x_zaz.xml)\
 Source: [snippets/mint_system.base.res_partner_kanban_view.x_zaz.xml](https://odoo.build/snippets/mint_system.base.res_partner_kanban_view.x_zaz.xml)
 
@@ -352,6 +368,7 @@ Inherit ID: `base.user_groups_view`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.user_groups_view.remove_fleet_groups.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.user_groups_view.remove_fleet_groups.xml)\
 Source: [snippets/mint_system.base.user_groups_view.remove_fleet_groups.xml](https://odoo.build/snippets/mint_system.base.user_groups_view.remove_fleet_groups.xml)
 
@@ -370,6 +387,7 @@ Inherit ID: `base.view_bank_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_bank_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_bank_form.add_display_name.xml)\
 Source: [snippets/mint_system.base.view_bank_form.add_display_name.xml](https://odoo.build/snippets/mint_system.base.view_bank_form.add_display_name.xml)
 
@@ -388,6 +406,7 @@ Inherit ID: `base.view_company_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_company_form.show_account_onboarding_panel.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_company_form.show_account_onboarding_panel.xml)\
 Source: [snippets/mint_system.base.view_company_form.show_account_onboarding_panel.xml](https://odoo.build/snippets/mint_system.base.view_company_form.show_account_onboarding_panel.xml)
 
@@ -404,6 +423,7 @@ Inherit ID: `base.view_company_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_company_form.show_analytic_plan_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_company_form.show_analytic_plan_id.xml)\
 Source: [snippets/mint_system.base.view_company_form.show_analytic_plan_id.xml](https://odoo.build/snippets/mint_system.base.view_company_form.show_analytic_plan_id.xml)
 
@@ -420,6 +440,7 @@ Inherit ID: `base.view_company_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_company_form.show_font.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_company_form.show_font.xml)\
 Source: [snippets/mint_system.base.view_company_form.show_font.xml](https://odoo.build/snippets/mint_system.base.view_company_form.show_font.xml)
 
@@ -438,6 +459,7 @@ Inherit ID: `base.view_company_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_company_tree.show_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_company_tree.show_id.xml)\
 Source: [snippets/mint_system.base.view_company_tree.show_id.xml](https://odoo.build/snippets/mint_system.base.view_company_tree.show_id.xml)
 
@@ -456,6 +478,7 @@ Inherit ID: `base.view_country_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_country_tree.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_country_tree.set_limit.xml)\
 Source: [snippets/mint_system.base.view_country_tree.set_limit.xml](https://odoo.build/snippets/mint_system.base.view_country_tree.set_limit.xml)
 
@@ -474,6 +497,7 @@ Inherit ID: `base.view_model_fields_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_model_fields_form.show_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_model_fields_form.show_state.xml)\
 Source: [snippets/mint_system.base.view_model_fields_form.show_state.xml](https://odoo.build/snippets/mint_system.base.view_model_fields_form.show_state.xml)
 
@@ -494,6 +518,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.add_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.add_commercial_partner_id.xml)\
 Source: [snippets/mint_system.base.view_partner_form.add_commercial_partner_id.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.add_commercial_partner_id.xml)
 
@@ -512,6 +537,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.add_credit_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.add_credit_limit.xml)\
 Source: [snippets/mint_system.base.view_partner_form.add_credit_limit.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.add_credit_limit.xml)
 
@@ -528,6 +554,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml)\
 Source: [snippets/mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.add_department_and_lang_on_page_contact_addresses.xml)
 
@@ -544,6 +571,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.add_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.add_display_name.xml)\
 Source: [snippets/mint_system.base.view_partner_form.add_display_name.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.add_display_name.xml)
 
@@ -560,6 +588,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.attributes_child_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.attributes_child_ids.xml)\
 Source: [snippets/mint_system.base.view_partner_form.attributes_child_ids.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.attributes_child_ids.xml)
 
@@ -575,6 +604,7 @@ Inherit ID: `base.view_partner_form`
   </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.hide_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.hide_company_registry.xml)\
 Source: [snippets/mint_system.base.view_partner_form.hide_company_registry.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.hide_company_registry.xml)
 
@@ -591,6 +621,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.hide_meeting.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.hide_meeting.xml)\
 Source: [snippets/mint_system.base.view_partner_form.hide_meeting.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.hide_meeting.xml)
 
@@ -607,6 +638,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.hide_opportunity.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.hide_opportunity.xml)\
 Source: [snippets/mint_system.base.view_partner_form.hide_opportunity.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.hide_opportunity.xml)
 
@@ -623,6 +655,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.hide_partner_ledger.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.hide_partner_ledger.xml)\
 Source: [snippets/mint_system.base.view_partner_form.hide_partner_ledger.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.hide_partner_ledger.xml)
 
@@ -639,6 +672,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.lang_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.lang_required.xml)\
 Source: [snippets/mint_system.base.view_partner_form.lang_required.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.lang_required.xml)
 
@@ -655,6 +689,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.move_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_company_registry.xml)\
 Source: [snippets/mint_system.base.view_partner_form.move_company_registry.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_company_registry.xml)
 
@@ -675,6 +710,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.move_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_property_product_pricelist.xml)\
 Source: [snippets/mint_system.base.view_partner_form.move_property_product_pricelist.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_property_product_pricelist.xml)
 
@@ -696,6 +732,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.move_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_ref.xml)\
 Source: [snippets/mint_system.base.view_partner_form.move_ref.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_ref.xml)
 
@@ -717,6 +754,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.move_zip_and_city.xml)\
 Source: [snippets/mint_system.base.view_partner_form.move_zip_and_city.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.move_zip_and_city.xml)
 
@@ -733,6 +771,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.readonly_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.readonly_property_product_pricelist.xml)\
 Source: [snippets/mint_system.base.view_partner_form.readonly_property_product_pricelist.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.readonly_property_product_pricelist.xml)
 
@@ -754,6 +793,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.remove_smart_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.remove_smart_buttons.xml)\
 Source: [snippets/mint_system.base.view_partner_form.remove_smart_buttons.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.remove_smart_buttons.xml)
 
@@ -770,6 +810,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_color.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_color.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_color.xml)
 
@@ -786,6 +827,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_industry.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_industry.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_industry.xml)
 
@@ -802,6 +844,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_type.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_type.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_type.xml)
 
@@ -818,6 +861,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_type_on_child.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_type_on_child.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_type_on_child.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_type_on_child.xml)
 
@@ -834,6 +878,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_user_id.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_user_id.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_user_id.xml)
 
@@ -850,6 +895,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.show_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.show_user_ids.xml)\
 Source: [snippets/mint_system.base.view_partner_form.show_user_ids.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.show_user_ids.xml)
 
@@ -869,6 +915,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_bexioid.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_bexioid.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_bexioid.xml)
 
@@ -885,6 +932,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_birthdate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_birthdate.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_birthdate.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_birthdate.xml)
 
@@ -901,6 +949,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_created_on.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_created_on.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_created_on.xml)
 
@@ -916,6 +965,7 @@ Inherit ID: `base.view_partner_form`
     </field>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_eori.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_eori.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_eori.xml)
 
@@ -932,6 +982,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_external_ref.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_external_ref.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_external_ref.xml)
 
@@ -951,6 +1002,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_global_location_number.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_global_location_number.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_global_location_number.xml)
 
@@ -967,6 +1019,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_packaging_ref.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_packaging_ref.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_packaging_ref.xml)
 
@@ -983,6 +1036,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_privacy_visibility.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_privacy_visibility.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_privacy_visibility.xml)
 
@@ -998,6 +1052,7 @@ Inherit ID: `base.view_partner_form`
     </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_remarks.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_remarks.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_remarks.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_remarks.xml)
 
@@ -1013,6 +1068,7 @@ Inherit ID: `base.view_partner_form`
     </field>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_schema.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_schema.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_schema.xml)
 
@@ -1028,6 +1084,7 @@ Inherit ID: `base.view_partner_form`
     </field>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_vat.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_vat.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_vat.xml)
 
@@ -1047,6 +1104,7 @@ Inherit ID: `base.view_partner_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_vst.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_vst.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_vst.xml)
 
@@ -1062,6 +1120,7 @@ Inherit ID: `base.view_partner_form`
     </field>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_form.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_form.x_zaz.xml)\
 Source: [snippets/mint_system.base.view_partner_form.x_zaz.xml](https://odoo.build/snippets/mint_system.base.view_partner_form.x_zaz.xml)
 
@@ -1086,6 +1145,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.add_ref_zip_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.add_ref_zip_type.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.add_ref_zip_type.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.add_ref_zip_type.xml)
 
@@ -1100,6 +1160,7 @@ Inherit ID: `base.view_partner_tree`
 </xpath>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.format_decoration.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.format_decoration.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.format_decoration.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.format_decoration.xml)
 
@@ -1119,6 +1180,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.move_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.move_zip_and_city.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.move_zip_and_city.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.move_zip_and_city.xml)
 
@@ -1135,6 +1197,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.optional_payment_terms.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.optional_payment_terms.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.optional_payment_terms.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.optional_payment_terms.xml)
 
@@ -1151,6 +1214,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.optional_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.optional_zip.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.optional_zip.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.optional_zip.xml)
 
@@ -1167,6 +1231,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.property_payment_term_id.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.property_payment_term_id.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.property_payment_term_id.xml)
 
@@ -1183,6 +1248,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_company_registry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_company_registry.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_company_registry.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_company_registry.xml)
 
@@ -1199,6 +1265,7 @@ Inherit ID: `base.view_partner_tree`
     </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_first_last_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_first_last_name.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_first_last_name.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_first_last_name.xml)
 
@@ -1215,6 +1282,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_industry.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_industry.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_industry.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_industry.xml)
 
@@ -1231,6 +1299,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_pricelist.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_pricelist.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_pricelist.xml)
 
@@ -1247,6 +1316,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_property_payment_term_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_property_payment_term_id.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_property_payment_term_id.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_property_payment_term_id.xml)
 
@@ -1263,6 +1333,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_property_product_pricelist.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_property_product_pricelist.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_property_product_pricelist.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_property_product_pricelist.xml)
 
@@ -1279,6 +1350,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_ref.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_ref.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_ref.xml)
 
@@ -1295,6 +1367,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_street.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_street.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_street.xml)
 
@@ -1311,6 +1384,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_type.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_type.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_type.xml)
 
@@ -1327,6 +1401,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.show_x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.show_x_schema.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.show_x_schema.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.show_x_schema.xml)
 
@@ -1343,6 +1418,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_bexioid.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_bexioid.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_bexioid.xml)
 
@@ -1359,6 +1435,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_eori.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_eori.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_eori.xml)
 
@@ -1375,6 +1452,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_first_sale_date.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_first_sale_date.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_first_sale_date.xml)
 
@@ -1394,6 +1472,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_global_location_number.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_global_location_number.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_global_location_number.xml)
 
@@ -1410,6 +1489,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_schema.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_schema.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_schema.xml)
 
@@ -1426,6 +1506,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_vat.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_vat.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_vat.xml)
 
@@ -1442,6 +1523,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_vst.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_vst.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_vst.xml)
 
@@ -1458,6 +1540,7 @@ Inherit ID: `base.view_partner_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_partner_tree.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_partner_tree.x_zaz.xml)\
 Source: [snippets/mint_system.base.view_partner_tree.x_zaz.xml](https://odoo.build/snippets/mint_system.base.view_partner_tree.x_zaz.xml)
 
@@ -1476,6 +1559,7 @@ Inherit ID: `base.view_res_bank_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_res_bank_tree.add_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_bank_tree.add_zip.xml)\
 Source: [snippets/mint_system.base.view_res_bank_tree.add_zip.xml](https://odoo.build/snippets/mint_system.base.view_res_bank_tree.add_zip.xml)
 
@@ -1496,6 +1580,7 @@ Inherit ID: `base.view_res_partner_filter`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_res_partner_filter.add_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_partner_filter.add_type_description.xml)\
 Source: [snippets/mint_system.base.view_res_partner_filter.add_type_description.xml](https://odoo.build/snippets/mint_system.base.view_res_partner_filter.add_type_description.xml)
 
@@ -1514,6 +1599,7 @@ Inherit ID: `base.view_res_partner_filter`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_res_partner_filter.add_zip_and_city.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_partner_filter.add_zip_and_city.xml)\
 Source: [snippets/mint_system.base.view_res_partner_filter.add_zip_and_city.xml](https://odoo.build/snippets/mint_system.base.view_res_partner_filter.add_zip_and_city.xml)
 
@@ -1529,6 +1615,7 @@ Inherit ID: `base.view_res_partner_filter`
     </field>
 </data>
 ```
+
 Edit: [snippets/mint_system.base.view_res_partner_filter.fuzzy_search.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_partner_filter.fuzzy_search.xml)\
 Source: [snippets/mint_system.base.view_res_partner_filter.fuzzy_search.xml](https://odoo.build/snippets/mint_system.base.view_res_partner_filter.fuzzy_search.xml)
 
@@ -1546,6 +1633,7 @@ Inherit ID: `base.view_res_partner_filter`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_res_partner_filter.main_contacts.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_partner_filter.main_contacts.xml)\
 Source: [snippets/mint_system.base.view_res_partner_filter.main_contacts.xml](https://odoo.build/snippets/mint_system.base.view_res_partner_filter.main_contacts.xml)
 
@@ -1562,6 +1650,7 @@ Inherit ID: `base.view_res_partner_filter`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_res_partner_filter.search_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_res_partner_filter.search_zip.xml)\
 Source: [snippets/mint_system.base.view_res_partner_filter.search_zip.xml](https://odoo.build/snippets/mint_system.base.view_res_partner_filter.search_zip.xml)
 
@@ -1580,6 +1669,7 @@ Inherit ID: `base.view_translation_lang_src_value_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_translation_lang_src_value_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_translation_lang_src_value_tree.show_comments.xml)\
 Source: [snippets/mint_system.base.view_translation_lang_src_value_tree.show_comments.xml](https://odoo.build/snippets/mint_system.base.view_translation_lang_src_value_tree.show_comments.xml)
 
@@ -1610,6 +1700,7 @@ Inherit ID: `base.view_translation_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_translation_tree.show_comments.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_translation_tree.show_comments.xml)\
 Source: [snippets/mint_system.base.view_translation_tree.show_comments.xml](https://odoo.build/snippets/mint_system.base.view_translation_tree.show_comments.xml)
 
@@ -1628,6 +1719,7 @@ Inherit ID: `base.view_users_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_users_form.email.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.email.xml)\
 Source: [snippets/mint_system.base.view_users_form.email.xml](https://odoo.build/snippets/mint_system.base.view_users_form.email.xml)
 
@@ -1644,6 +1736,7 @@ Inherit ID: `base.view_users_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_users_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.show_color.xml)\
 Source: [snippets/mint_system.base.view_users_form.show_color.xml](https://odoo.build/snippets/mint_system.base.view_users_form.show_color.xml)
 
@@ -1660,6 +1753,7 @@ Inherit ID: `base.view_users_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_users_form.specific_ations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.specific_ations.xml)\
 Source: [snippets/mint_system.base.view_users_form.specific_ations.xml](https://odoo.build/snippets/mint_system.base.view_users_form.specific_ations.xml)
 
@@ -1676,6 +1770,7 @@ Inherit ID: `base.view_users_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_users_form.write_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.write_partner_id.xml)\
 Source: [snippets/mint_system.base.view_users_form.write_partner_id.xml](https://odoo.build/snippets/mint_system.base.view_users_form.write_partner_id.xml)
 
@@ -1694,6 +1789,7 @@ Inherit ID: `base.view_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_view_form.add_key.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_view_form.add_key.xml)\
 Source: [snippets/mint_system.base.view_view_form.add_key.xml](https://odoo.build/snippets/mint_system.base.view_view_form.add_key.xml)
 
@@ -1713,6 +1809,6 @@ Inherit ID: `base.view_view_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.base.view_view_form.show_website_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_view_form.show_website_id.xml)\
 Source: [snippets/mint_system.base.view_view_form.show_website_id.xml](https://odoo.build/snippets/mint_system.base.view_view_form.show_website_id.xml)
-

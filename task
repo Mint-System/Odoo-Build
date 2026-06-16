@@ -2348,7 +2348,7 @@ init-repo-branch() {
     git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
 
     echo "Remove all files from $repo_path"
-    rm -rf "$repo_path/*"
+    rm -rf "$repo_path/"*
 
     generate-repo-docs "$repo_path"
 
@@ -2592,9 +2592,9 @@ prepare-migration-brach() {
         echo '$3/version is empty.'
         exit
     fi
-    repo="$1"
-    module="$2"
-    version="$3"
+    local repo="$1"
+    local module="$2"
+    local version="$3"
     
     echo "Create migration branch for $module module in $repo for version $ODOO_VERSION"
     git -C "$repo" checkout -b "$ODOO_VERSION-mig-$module" "origin/$ODOO_VERSION"
@@ -2614,12 +2614,11 @@ prepare-migration-brach() {
     git commit -m "[IMP] $module: pre-commit auto fixes"  --no-verify
 
     echo "Add git remote for OCA"
-    repo_name="$repo"
     git remote add oca $(git remote get-url origin)
 
     echo "Add git remote for $USER_ORG"
-    repo_name="$repo"
-    user_org="${USER_ORG,,}"
+    local user_org="${USER_ORG,,}"
+    local repo_name=$(echo "$repo" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
     git remote add "$user_org" "https://github.com/${USER_ORG}/Odoo-Apps-$repo_name"
 }
 

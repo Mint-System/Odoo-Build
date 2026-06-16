@@ -15,6 +15,7 @@ Inherit ID: `industry_fsm_sale.project_task_view_search_fsm`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.add_description.xml)
 
@@ -31,6 +32,7 @@ Inherit ID: `industry_fsm_sale.project_task_view_search_fsm`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_systemname.xml)
 
@@ -47,6 +49,7 @@ Inherit ID: `industry_fsm_sale.project_task_view_search_fsm`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.project_task_view_search_fsm.x_user_text.xml)
 
@@ -70,6 +73,7 @@ Inherit ID: `industry_fsm_sale.worksheet_time_and_material`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.add_taxes.xml)
 
@@ -85,6 +89,7 @@ Inherit ID: `industry_fsm_sale.worksheet_time_and_material`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.remove_taxes.xml)
 
@@ -105,6 +110,7 @@ Inherit ID: `industry_fsm_sale.worksheet_time_and_material`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.replace_product_description.xml)
 
@@ -121,6 +127,7 @@ Inherit ID: `industry_fsm_sale.worksheet_time_and_material`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.round_final_total.xml)
 
@@ -144,6 +151,6 @@ Inherit ID: `industry_fsm_sale.worksheet_time_and_material`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser.xml)\
 Source: [snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser.xml](https://odoo.build/snippets/mint_system.industry_fsm_sale.worksheet_time_and_material.style_moser.xml)
-

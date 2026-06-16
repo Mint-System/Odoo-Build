@@ -15,6 +15,7 @@ Inherit ID: `sale_order_notes.report_saleorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_order_notes.report_saleorder_document.add_line_break_after_header_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_order_notes.report_saleorder_document.add_line_break_after_header_note.xml)\
 Source: [snippets/mint_system.sale_order_notes.report_saleorder_document.add_line_break_after_header_note.xml](https://odoo.build/snippets/mint_system.sale_order_notes.report_saleorder_document.add_line_break_after_header_note.xml)
 
@@ -35,6 +36,6 @@ Inherit ID: `sale_order_notes.report_saleorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_order_notes.report_saleorder_document.format_notes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_order_notes.report_saleorder_document.format_notes.xml)\
 Source: [snippets/mint_system.sale_order_notes.report_saleorder_document.format_notes.xml](https://odoo.build/snippets/mint_system.sale_order_notes.report_saleorder_document.format_notes.xml)
-
