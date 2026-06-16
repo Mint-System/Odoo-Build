@@ -1,28 +1,5 @@
 <data priority="50">
-    <xpath expr="//div[@class='clearfix']" position="replace">
-        <div class="clearfix" t-elif="(providers_sudo or tokens_sudo) and (next_billing_details.get('next_invoice_amount')&gt; 0) and sale_order.state != 'sale'">
-            <p id="wc_warning_closed" t-if="sale_order.subscription_state == '6_churn'">
-                <h3 class="mb-1">Reopen your subscription</h3>
-                Your subscription is closed.
-                <t t-if="missing_periods == 1">If you wish to reopen it, you can pay your invoice for the current invoicing period.</t>
-                <t t-if="missing_periods &gt; 1">If you wish to reopen it, the <t t-out="missing_periods"/> missing payments (from <span t-field="sale_order.next_invoice_date"/> to this day) will be automatically processed.</t>
-            </p>
-            <h3 t-else="" class="mb-1">Anticipate payment <span t-out="next_billing_details.get('next_invoice_amount')" t-options="{&quot;widget&quot;: &quot;monetary&quot;,&quot;display_currency&quot;: sale_order.currency_id}"/></h3>
-            <div t-if="sale_order.get_portal_last_transaction().state == 'pending'">
-                <div class="alert alert-warning m-1 mt-3">
-                    <span>
-                        There is already a pending payment for this subscription.
-                    </span>
-                </div>
-            </div>
-            <div>
-                <hr class="mt-1 mb-2"/>
-                <t t-call="payment.form">
-                    <t t-set="amount" t-value="next_billing_details.get('next_invoice_amount')"/>
-                    <t t-set="landing_route" t-value="sale_order.get_portal_url()"/>
-                    <t t-set="subscription_anticipate" t-value="True"/>
-                </t>
-            </div>
-        </div>
+    <xpath expr="//div[@class='clearfix']" position="attributes">
+        <attribute name="t-elif">(providers_sudo or tokens_sudo) and (next_billing_details.get('next_invoice_amount')&gt; 0) and sale_order.state != 'sale'</attribute>
     </xpath>
 </data>
