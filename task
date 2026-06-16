@@ -2348,7 +2348,7 @@ init-repo-branch() {
     git -C "$repo_path" checkout --orphan="$ODOO_VERSION"
 
     echo "Remove all files from $repo_path"
-    rm -rf "$repo_path/*"
+    rm -rf "$repo_path/"*
 
     generate-repo-docs "$repo_path"
 
