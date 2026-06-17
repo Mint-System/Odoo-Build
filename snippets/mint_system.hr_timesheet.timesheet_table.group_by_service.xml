@@ -5,6 +5,16 @@
         <t t-foreach="lines" t-as="line">
             <t t-set="timesheet_task" t-value="timesheet_task+[line.task_id.sudo().sale_line_id.product_id]"/>
         </t>
+        <style>
+            td#titleline {
+                font-weight:bold;
+                line-height:2;
+                vertical-align:baseline;
+            }
+            span#sum {
+                margin-right: 15px;
+            }
+        </style>
 
             <div class="col-12">
                 <table class="table table-sm">
@@ -31,7 +41,7 @@
                        <!-- Foreach service product list entries -->
                         <t t-foreach="set(timesheet_task)" t-as="task">
                             <tr>
-                                <td t-esc="task.name" colspan="100" style="font-weight:bold; line-height:2; vertical-align:baseline;" valign="bottom">No task assigned</td>
+                                <td t-esc="task.name" id="titleline" colspan="100" valign="bottom">No task assigned</td>
                             </tr>
                             <t t-set="bg_highlight" t-value="True"/>
                             <tr t-foreach="lines" t-as="line" t-att-style="'background-color: #F1F1F1;' if bg_highlight else ''">
@@ -63,11 +73,11 @@
                             <tr>
                                 <td class="text-end" colspan="100">
                                     <strong t-if="not is_uom_day">
-                                        <span style="margin-right: 15px;">Total (Hours)</span>
+                                        <span id="sum">Total (Hours)</span>
                                         <t t-esc="sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}">2 hours</t>
                                     </strong>
                                     <strong t-else="">
-                                        <span style="margin-right: 15px;">Total (Days)</span>
+                                        <span id="sum">Total (Days)</span>
                                         <t t-esc="lines._convert_hours_to_days(sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount')))" t-options="{'widget': 'timesheet_uom'}">1 day</t>
                                     </strong>
                                 </td>
