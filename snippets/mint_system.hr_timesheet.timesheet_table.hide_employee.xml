@@ -1,0 +1,8 @@
+<data priority="50">
+
+   <xpath expr="//thead//tr/th[2]" position="replace" />
+
+
+   <xpath expr="//tbody//tr/td[2]" position="replace" />
+
+</data>
