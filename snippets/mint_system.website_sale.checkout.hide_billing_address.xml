@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//t[@t-call='website_sale.billing_address_list']" position="replace"/>
+</data>

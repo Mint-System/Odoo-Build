@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div[@id='billing_container']" position="replace"/>
+    <xpath expr="//div[@class='d-flex justify-content-between align-items-start gap-3 mt-4 pt-2']" position="replace"/>
+    <xpath expr="//div[@class='form-check form-switch mt-2']" position="replace"/>
+</data>
