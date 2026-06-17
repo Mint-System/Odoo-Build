@@ -23,6 +23,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_discount.xml)
 
@@ -92,6 +93,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_footer.xml)
 
@@ -128,6 +130,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_and_footer_note.xml)
 
@@ -144,6 +147,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_header_space.xml)
 
@@ -216,6 +220,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_infotable.xml)
 
@@ -237,6 +242,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
     </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_payment_term.xml)
 
@@ -258,6 +264,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_product_uom.xml)
 
@@ -269,13 +276,14 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 ```xml
 <data priority="50">
     <xpath expr="//div[@name='comment']" position="before">
-        <p>MwSt.-Nr.: 
+        <p>MwSt.-Nr.:
       <span t-field="o.company_id.vat"/>
     </p>
     </xpath>
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.add_vat.xml)
 
@@ -298,6 +306,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.address_block.xml)
 
@@ -344,6 +353,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
 </data>
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.change_column_order.xml)
 
@@ -364,6 +374,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.extend_title.xml)
 
@@ -373,7 +384,7 @@ ID: `mint_system.sale_blanket_order.report_blanketorder_document.format_qty`\
 Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
 ```xml
-<data priority="50">  
+<data priority="50">
     <xpath expr="//span[@t-field='l.original_uom_qty']" position="replace">
         <t t-if="l.product_uom.id == 1">
             <span t-field="l.original_uom_qty" t-options="{'widget': 'integer'}"/>
@@ -385,6 +396,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty.xml)
 
@@ -406,6 +418,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.format_qty_with_decimal.xml)
 
@@ -429,6 +442,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.get_position.xml)
 
@@ -444,6 +458,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.hide_date_schedule.xml)
 
@@ -469,6 +484,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.modify_information_block.xml)
 
@@ -494,6 +510,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.relocate_price_unit.xml)
 
@@ -509,6 +526,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_date_schedule.xml)
 
@@ -524,6 +542,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_informations.xml)
 
@@ -538,6 +557,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.remove_vat.xml)
 
@@ -557,6 +577,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_address_block.xml)
 
@@ -598,6 +619,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infoblock.xml)
 
@@ -686,6 +708,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
   </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_infotable_tissa.xml)
 
@@ -702,6 +725,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_partner_id.xml)
 
@@ -718,6 +742,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_description.xml)
 
@@ -734,6 +759,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_product_id.xml)
 
@@ -771,6 +797,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_summary.xml)
 
@@ -790,6 +817,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.replace_title.xml)
 
@@ -806,6 +834,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_price.xml)
 
@@ -822,6 +851,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.round_total_price.xml)
 
@@ -872,6 +902,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.second_row.xml)
 
@@ -902,6 +933,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
 </data>
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.sequence_in_table.xml)
 
@@ -925,7 +957,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 
       <xpath expr="//table[2]//th[2]" position="attributes">
         <attribute name="id">description</attribute>
-    </xpath>    
+    </xpath>
 
     <xpath expr="//table[2]//th[3]" position="attributes">
         <attribute name="id">date_schedule</attribute>
@@ -951,11 +983,11 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
     <xpath expr="//table[2]//th[5]" position="attributes">
         <attribute name="id">price_subtotal</attribute>
     </xpath>
-    
+
     xpath expr="//table[2]//td[5]" position="attributes">
         <attribute name="id">price_subtotal</attribute>
     </xpath>
-    
+
     <xpath expr="//table[2]//th[6]" position="attributes">
         <attribute name="id">price_total</attribute>
     </xpath>
@@ -963,6 +995,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids.xml)
 
@@ -983,6 +1016,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.set_ids_tissa.xml)
 
@@ -1006,6 +1040,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_default_code.xml)
 
@@ -1029,6 +1064,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.show_description.xml)
 
@@ -1041,15 +1077,16 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 <data priority="60">
     <xpath expr="//div[hasclass('page')]" position="before">
         <style>
-            div#informations {            
+            div#informations {
                 font-size: 16px;
                 margin-bottom: 0rem;
-            }            
+            }
         </style>
     </xpath>
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_gelso.xml)
 
@@ -1105,6 +1142,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_tissa.xml)
 
@@ -1172,6 +1210,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.style_trimada.xml)
 
@@ -1188,6 +1227,7 @@ Inherit ID: `sale_blanket_order.report_blanketorder_document`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml)\
 Source: [snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.report_blanketorder_document.title_margin.xml)
 
@@ -1206,6 +1246,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.fiscal_position_id.xml)
 
@@ -1216,12 +1257,13 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 
 ```xml
 <data priority="50">
-    <xpath expr="//field[@name='carrier_id']" position="attributes">       
+    <xpath expr="//field[@name='carrier_id']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_carrier_id.xml)
 
@@ -1232,12 +1274,13 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 
 ```xml
 <data priority="50">
-    <xpath expr="//field[@name='currency_id']" position="attributes">       
+    <xpath expr="//field[@name='currency_id']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_currency_id.xml)
 
@@ -1254,6 +1297,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_date_confirmed.xml)
 
@@ -1264,12 +1308,13 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 
 ```xml
 <data priority="50">
-    <xpath expr="//field[@name='incoterm']" position="attributes">       
+    <xpath expr="//field[@name='incoterm']" position="attributes">
         <attribute name="readonly">0</attribute>
     </xpath>
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.modify_attributes_incoterm.xml)
 
@@ -1286,6 +1331,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.move_client_order_ref.xml)
 
@@ -1305,6 +1351,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_product_uom_category_id.xml)
 
@@ -1321,6 +1368,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_form.x_state.xml)
 
@@ -1366,6 +1414,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_search`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_search.replace_filter.xml)
 
@@ -1387,6 +1436,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.activities.xml)
 
@@ -1418,6 +1468,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.reset_view.xml)
 
@@ -1434,6 +1485,7 @@ Inherit ID: `sale_blanket_order.view_blanket_order_tree`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_blanket_order_tree.state.xml)
 
@@ -1455,6 +1507,6 @@ Inherit ID: `sale_blanket_order.view_order_form`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)\
 Source: [snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml](https://odoo.build/snippets/mint_system.sale_blanket_order.view_order_form.modify_attributes_blanket_order_line.xml)
-

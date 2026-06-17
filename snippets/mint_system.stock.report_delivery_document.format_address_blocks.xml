@@ -1,7 +1,10 @@
-<data priority="50">
-    <xpath expr="//t[@t-set='address']/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
-        <attribute name="t-options-fields">['address', 'name']</attribute>
+<data priority="50">    
+    <xpath expr="//t[@t-set='address']/div/div/span" position="attributes">
+         <attribute name="style">font-size:10pt; line-height: 1.2</attribute>
+    </xpath>    
+    <xpath expr="//t[@t-set='address']/div/div/div" position="attributes">
+        <attribute name="style">font-size:10pt; padding-bottom:33mm</attribute>
+        <attribute name="t-options">{"widget": "contact", "fields": ["address", "name"], "no_marker": True, "phone_icons": False}</attribute>
     </xpath>
 </data>
 <!--

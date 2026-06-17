@@ -23,9 +23,9 @@
     <xpath expr="//table[@name='stock_backorder_table']//th[3]" position="attributes">
         <attribute name="id">open_quantity</attribute>
     </xpath>
-    <xpath expr="//table[@name='stock_backorder_table']//td[3]/span[1]" position="attributes">
+    <xpath expr="//table[@name='stock_backorder_table']//td[2]/span[1]" position="attributes">
         <attribute name="id">open_qty</attribute>
-    </xpath>
+    </xpath>  
     <xpath expr="//table[@name='stock_backorder_table']//th[4]" position="attributes">
         <attribute name="id">quantity</attribute>
     </xpath>

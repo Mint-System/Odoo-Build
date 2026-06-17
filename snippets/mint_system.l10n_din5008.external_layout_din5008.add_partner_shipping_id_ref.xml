@@ -1,10 +1,12 @@
 <data priority="50">
 
     <xpath expr="//table/tr/td/div/div[2]" position="after">
+        <t t-if="o._name == 'account.move' or o._name == 'sale.order'">
         <t t-if="o.partner_shipping_id.ref">
             <div>
                 Customer No.: <span t-field="o.partner_shipping_id.ref"/>
             </div>
+        </t>
         </t>
     </xpath>
 

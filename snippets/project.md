@@ -15,6 +15,7 @@ Inherit ID: `project.edit_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.edit_project.domain_action_view_so.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.edit_project.domain_action_view_so.xml)\
 Source: [snippets/mint_system.project.edit_project.domain_action_view_so.xml](https://odoo.build/snippets/mint_system.project.edit_project.domain_action_view_so.xml)
 
@@ -31,6 +32,7 @@ Inherit ID: `project.edit_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.edit_project.show_collaborator_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.edit_project.show_collaborator_ids.xml)\
 Source: [snippets/mint_system.project.edit_project.show_collaborator_ids.xml](https://odoo.build/snippets/mint_system.project.edit_project.show_collaborator_ids.xml)
 
@@ -49,6 +51,7 @@ Inherit ID: `project.edit_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.edit_project.show_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.edit_project.show_date.xml)\
 Source: [snippets/mint_system.project.edit_project.show_date.xml](https://odoo.build/snippets/mint_system.project.edit_project.show_date.xml)
 
@@ -67,6 +70,7 @@ Inherit ID: `project.edit_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.edit_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.edit_project.show_date_start.xml)\
 Source: [snippets/mint_system.project.edit_project.show_date_start.xml](https://odoo.build/snippets/mint_system.project.edit_project.show_date_start.xml)
 
@@ -91,6 +95,7 @@ Inherit ID: `project.edit_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.edit_project.show_gantt_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.edit_project.show_gantt_dates.xml)\
 Source: [snippets/mint_system.project.edit_project.show_gantt_dates.xml](https://odoo.build/snippets/mint_system.project.edit_project.show_gantt_dates.xml)
 
@@ -109,6 +114,7 @@ Inherit ID: `project.view_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project.disable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project.disable_create.xml)\
 Source: [snippets/mint_system.project.view_project.disable_create.xml](https://odoo.build/snippets/mint_system.project.view_project.disable_create.xml)
 
@@ -125,6 +131,7 @@ Inherit ID: `project.view_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project.show_alias_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project.show_alias_name.xml)\
 Source: [snippets/mint_system.project.view_project.show_alias_name.xml](https://odoo.build/snippets/mint_system.project.view_project.show_alias_name.xml)
 
@@ -141,6 +148,7 @@ Inherit ID: `project.view_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project.show_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project.show_date_start.xml)\
 Source: [snippets/mint_system.project.view_project.show_date_start.xml](https://odoo.build/snippets/mint_system.project.view_project.show_date_start.xml)
 
@@ -157,6 +165,7 @@ Inherit ID: `project.view_project`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project.show_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project.show_privacy_visibility.xml)\
 Source: [snippets/mint_system.project.view_project.show_privacy_visibility.xml](https://odoo.build/snippets/mint_system.project.view_project.show_privacy_visibility.xml)
 
@@ -181,6 +190,7 @@ Inherit ID: `project.view_project_calendar`
 </record>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project_calendar.view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project_calendar.view.xml)\
 Source: [snippets/mint_system.project.view_project_calendar.view.xml](https://odoo.build/snippets/mint_system.project.view_project_calendar.view.xml)
 
@@ -199,6 +209,7 @@ Inherit ID: `project.view_project_kanban`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project_kanban.disable_create.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project_kanban.disable_create.xml)\
 Source: [snippets/mint_system.project.view_project_kanban.disable_create.xml](https://odoo.build/snippets/mint_system.project.view_project_kanban.disable_create.xml)
 
@@ -215,6 +226,7 @@ Inherit ID: `project.view_project_kanban`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_project_kanban.sort_date_desc.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_project_kanban.sort_date_desc.xml)\
 Source: [snippets/mint_system.project.view_project_kanban.sort_date_desc.xml](https://odoo.build/snippets/mint_system.project.view_project_kanban.sort_date_desc.xml)
 
@@ -236,6 +248,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.domain_gantt_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.domain_gantt_dates.xml)\
 Source: [snippets/mint_system.project.view_task_form2.domain_gantt_dates.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.domain_gantt_dates.xml)
 
@@ -252,6 +265,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.domain_sale_line_id_active.xml)\
 Source: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_active.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.domain_sale_line_id_active.xml)
 
@@ -268,6 +282,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.domain_sale_line_id_service.xml)\
 Source: [snippets/mint_system.project.view_task_form2.domain_sale_line_id_service.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.domain_sale_line_id_service.xml)
 
@@ -284,6 +299,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.parent_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.parent_domain.xml)\
 Source: [snippets/mint_system.project.view_task_form2.parent_domain.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.parent_domain.xml)
 
@@ -301,6 +317,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.remove_timer_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.remove_timer_buttons.xml)\
 Source: [snippets/mint_system.project.view_task_form2.remove_timer_buttons.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.remove_timer_buttons.xml)
 
@@ -317,6 +334,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_allow_timesheets.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_allow_timesheets.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_allow_timesheets.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_allow_timesheets.xml)
 
@@ -333,6 +351,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml)
 
@@ -349,6 +368,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_display_timesheet_timer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_display_timesheet_timer.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_display_timesheet_timer.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_display_timesheet_timer.xml)
 
@@ -365,6 +385,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_encode_uom_in_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_encode_uom_in_days.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_encode_uom_in_days.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_encode_uom_in_days.xml)
 
@@ -389,6 +410,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_gantt_dates.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_gantt_dates.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_gantt_dates.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_gantt_dates.xml)
 
@@ -405,6 +427,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_invoice_type.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_invoice_type.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_invoice_type.xml)
 
@@ -421,6 +444,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_key.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_key.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_key.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_key.xml)
 
@@ -437,6 +461,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.show_partner_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_partner_mobile.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_partner_mobile.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_partner_mobile.xml)
 
@@ -453,6 +478,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.timesheet_sort_date_desc.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.timesheet_sort_date_desc.xml)\
 Source: [snippets/mint_system.project.view_task_form2.timesheet_sort_date_desc.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.timesheet_sort_date_desc.xml)
 
@@ -469,6 +495,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_business_requirement_id.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_business_requirement_id.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_business_requirement_id.xml)
 
@@ -485,6 +512,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_lead_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_lead_id.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_lead_id.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_lead_id.xml)
 
@@ -501,6 +529,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_not_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_not_billable.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_not_billable.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_not_billable.xml)
 
@@ -517,6 +546,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_systemname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_systemname.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_systemname.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_systemname.xml)
 
@@ -533,6 +563,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_user_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_user_text.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_user_text.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_user_text.xml)
 
@@ -549,6 +580,7 @@ Inherit ID: `project.view_task_form2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_form2.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.x_vehicle_id.xml)\
 Source: [snippets/mint_system.project.view_task_form2.x_vehicle_id.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.x_vehicle_id.xml)
 
@@ -569,6 +601,7 @@ Inherit ID: `project.view_task_kanban`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_kanban.show_planned_date_begin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_kanban.show_planned_date_begin.xml)\
 Source: [snippets/mint_system.project.view_task_kanban.show_planned_date_begin.xml](https://odoo.build/snippets/mint_system.project.view_task_kanban.show_planned_date_begin.xml)
 
@@ -587,6 +620,6 @@ Inherit ID: `project.view_task_tree2`
 </data>
 
 ```
+
 Edit: [snippets/mint_system.project.view_task_tree2.sale_line_optional.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_tree2.sale_line_optional.xml)\
 Source: [snippets/mint_system.project.view_task_tree2.sale_line_optional.xml](https://odoo.build/snippets/mint_system.project.view_task_tree2.sale_line_optional.xml)
-

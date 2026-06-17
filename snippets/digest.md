@@ -50,6 +50,6 @@ Inherit ID: `digest.digest_mail_main`
 </t>
 
 ```
+
 Edit: [snippets/mint_system.digest.digest_mail_main.report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.digest.digest_mail_main.report.xml)\
 Source: [snippets/mint_system.digest.digest_mail_main.report.xml](https://odoo.build/snippets/mint_system.digest.digest_mail_main.report.xml)
-

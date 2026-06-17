@@ -16,6 +16,6 @@ Inherit ID: `stock_delivery.stock_report_delivery_has_serial_move_line_inherit_d
     </xpath>
 </data>
 ```
+
 Edit: [snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml)\
 Source: [snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml](https://odoo.build/snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml)
-

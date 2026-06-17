@@ -61,7 +61,7 @@ def main() -> None:
         "jupyter-lab",
         f"--ServerApp.root_dir={notebook_dir}",
         f"--ServerApp.token={token}",
-        "--ServerApp.open_browser=False",
+        # "--ServerApp.open_browser=False",
         "--ServerApp.port=8888",
     ]
 
