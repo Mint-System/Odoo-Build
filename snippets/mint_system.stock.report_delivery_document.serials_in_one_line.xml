@@ -3,6 +3,7 @@
        <th name="lot_serial" class="text-end" t-else=""/>
   </xpath>
   <xpath expr="//th[@name='th_sml_product']" position="replace">
+      <!-- If Pos is not wanted delete / comment the following line -->
         <th name="th_sml_position">Pos</th>
         <th name="th_sml_product">Product<br/><span>Lot/Serial Number</span></th>
   </xpath>
@@ -14,6 +15,7 @@
             <t t-set="show_border" t-value="not move_last"/>
             <!-- row with product name and total quantity -->
             <tr>
+                <!-- If Pos is not wanted delete / comment the following <td>...</td> -->
                 <td>
                     <span t-field="move.position"/>
                 </td>
