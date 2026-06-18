@@ -5,7 +5,7 @@
   <xpath expr="//th[@name='th_sml_product']" position="replace">
         <th name="th_sml_product">Product<br/><span>Lot/Serial Number</span></th>
   </xpath>
-  
+
   <xpath expr="//tr[@t-foreach='o.move_ids.move_line_ids']" position="replace">
      <t t-foreach="o.move_ids" t-as="move">
         <t t-set="serial_lines" t-value="move.move_line_ids"/>
@@ -37,7 +37,7 @@
             <tr>
                 <td t-att-colspan="1 + (1 if has_multi_level_packages else 0) + (1 if has_serial_number else 0)" class="text-muted" t-att-style="'font-family:monospace; padding-top:0; word-break: keep-all; overflow-wrap: normal;' + (' border-bottom: 1px solid #dee2e6;' if show_border else '')">
                     <small>
-                        <t t-out="', '.join(move.lot_ids.mapped('name')).replace('-', '\u2011')"/>
+                        <t t-out="', '.join(sorted(move.lot_ids.mapped('name'))).replace('-', '\u2011')"/>
                     </small>
                 </td>
                 <td t-att-style="'border-bottom: 1px solid #dee2e6;' if show_border else ''"/>
