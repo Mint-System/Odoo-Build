@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[@name='div_sched_date']" position="after">
+        <div t-if="o.carrier_id" class="col col-3 mw-100 mb-2">
+            <strong>Carrier</strong>
+            <div t-field="o.carrier_id" class="m-0"/>
+        </div>
+    </xpath>
+</data>

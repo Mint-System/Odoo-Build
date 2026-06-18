@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//div[@name='div_operator']" position="replace"/>
+</data>

@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//div[@id='address_on_payment']" position="replace"/>
+</data>

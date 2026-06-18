@@ -1,0 +1,3 @@
+<data priority="50">
+     <xpath expr="//div[@t-if='o.shipping_weight']" position="replace"/>
+</data>
