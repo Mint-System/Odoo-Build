@@ -1,0 +1,9 @@
+<data priority="50">
+    <xpath expr="//page[@name='purchase']" position="inside">
+        <group>
+            <group string="Purchase Notes" name="purchase_note">
+                <field colspan="2" name="x_purchase_note" nolabel="1" placeholder="This note is internal."/>
+            </group>
+        </group>
+    </xpath>
+</data>

@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//div[@name='div_origin']" position="replace">
+        <div t-if="o.sale_id" class="col col-3 mw-100 mb-2" name="div_origin">
+            <strong>Order number</strong>
+            <div t-field="o.sale_id.name" class="m-0">S0001</div>
+        </div>
+    </xpath>
+</data>

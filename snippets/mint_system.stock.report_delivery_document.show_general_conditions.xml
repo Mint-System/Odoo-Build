@@ -1,0 +1,13 @@
+<data priority="50">
+    <xpath expr="//div[@t-if='not o.signature']" position="before">
+        <div class="mt-3">
+            <p>
+                If goods are returned, we will deduct at least 20~% of the net value of the goods from the refund. 
+                In addition, care must be taken to ensure that the returned products are in perfect 
+                and cleaned condition and in their original packaging.
+                The exact deduction from the net value of the goods depends on the condition of the goods returned to us. 
+                <br/>If you have any questions, please do not hesitate to contact us.
+            </p>
+        </div>
+    </xpath>
+</data>
