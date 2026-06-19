@@ -1,0 +1,8 @@
+<data priority="50">
+    <xpath expr="//td[@class='shipping_address']/t[3]" position="after">
+        <div t-if="o.partner_id.ref" class="mb-0" name="div_partner_id">
+            <strong>Customer Ref.</strong>
+            <div t-esc="o.partner_id.ref" class="m-0"/>
+        </div>
+    </xpath>
+</data>
