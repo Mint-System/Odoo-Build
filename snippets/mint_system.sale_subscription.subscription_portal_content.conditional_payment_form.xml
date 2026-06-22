@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div[@class='clearfix']" position="attributes">
+        <attribute name="t-elif">(providers_sudo or tokens_sudo) and (next_billing_details.get('next_invoice_amount')&gt; 0) and sale_order.state != 'sale'</attribute>
+    </xpath>
+</data>
