@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//button[@name='action_done']" position="replace"/>
+</data>
