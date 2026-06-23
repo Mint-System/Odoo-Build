@@ -1,0 +1,10 @@
+<data priority="50">
+    <xpath expr="//div[hasclass('col')]" position="before">
+        <t t-if="request.session.pop('cart_cleared_notice', False)">
+            <div class="alert alert-info alert-dismissible fade show  mt-3" role="alert">
+                Ihr Warenkorb wurde geleert, weil die Preisliste geändert wurde.<br/>
+                Bitte legen Sie das gewünschte Patent erneut in den Warenkorb.
+            </div>
+        </t>
+    </xpath>
+</data>
