@@ -1,3 +1,9 @@
 <data priority="50">
-    <xpath expr="//t[@t-call='website_sale.billing_address_list']" position="replace"/>
+    <xpath expr="//t[@t-call='website_sale.billing_address_list']" position="replace">
+        <div style="display:none !important;">
+            <t t-call="website_sale.billing_address_list">
+                <t t-set="addresses" t-value="billing_addresses"/>
+            </t>
+        </div>
+    </xpath>
 </data>
