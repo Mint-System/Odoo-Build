@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='move_raw_ids']/list" position="attributes">
+        <attribute name="limit">250</attribute>
+    </xpath>
+</data>
