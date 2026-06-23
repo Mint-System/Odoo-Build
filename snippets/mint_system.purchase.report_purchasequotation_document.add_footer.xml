@@ -5,6 +5,7 @@
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;

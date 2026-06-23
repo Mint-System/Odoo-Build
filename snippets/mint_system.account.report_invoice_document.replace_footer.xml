@@ -1,19 +1,23 @@
 <data inherit_id="account.report_invoice_document" priority="50">
 
-
+ 
   <xpath expr="//p[@name='payment_communication']" position="replace">
   </xpath>
-
+  
   <xpath expr="//span[@id='payment_terms_note_id']" position="replace">
     <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
         line-height: 1.1;
         padding-bottom: 2px;
+      }
+      table#footer_bank {
+        border-color: white;
       }
     </style>
     <table id="footer">
@@ -28,11 +32,11 @@
       </tr>
       <tr>
         <td>
-          <span>MWST-Nr: </span>
-          <span t-field="o.company_id.vat"/>
+            <span>MWST-Nr: </span>
+            <span t-field="o.company_id.vat"/>
         </td>
         <td>
-          <table width="100%">
+          <table id="footer_bank" width="100%">
             <tr>
               <td width="35%">
                Bankverbindungen:
@@ -60,7 +64,7 @@
         </td>
       </tr>
     </table>
-
+    
   </xpath>
 
 </data>

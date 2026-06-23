@@ -7,6 +7,7 @@
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
+        border-color: white;
       }
         table#infotable tr {
         line-height: 1.2;
