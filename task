@@ -2619,7 +2619,7 @@ prepare-migration-brach() {
     echo "Add git remote for $USER_ORG"
     local user_org="${USER_ORG,,}"
     local repo_name=$(echo "$repo" | sed 's/_/-/g' | sed 's/\b\(.\)/\u\1/g')
-    git remote add "$user_org" "https://github.com/${USER_ORG}/Odoo-Apps-$repo_name"
+    git remote add "$user_org" "https://github.com/${USER_ORG}/$repo_name"
 }
 
 migrate-module() {
