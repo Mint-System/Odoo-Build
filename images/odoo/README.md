@@ -246,7 +246,7 @@ docker compose exec odoo aggregate-git-repos
 
 ### Download Odoo Enterprise
 
-Run the `download-git-archive` script to download the Odoo Enterprise modules:
+Run the `download-git-archive` script to download the [Odoo Enterprise modules](https://github.com/odoo/enterprise/):
 
 ```bash
 docker compose exec odoo download-git-archive
