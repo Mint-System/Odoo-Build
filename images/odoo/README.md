@@ -207,7 +207,7 @@ secrets:
 
 The environment variables are explained in detail further down.
 
-## Usage
+### Actions
 
 The Mint System Odoo image makes preparing and running Odoo very easy.
 
