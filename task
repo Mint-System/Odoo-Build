@@ -3046,7 +3046,8 @@ install-vuepress() {
 }
 
 dev-vuepress() {
-    pnpm run dev
+    open-url-with-delay http://localhost:8080 5 & \
+        pnpm run dev
 }
 
 build-vuepress() {
@@ -3061,7 +3062,8 @@ build-vuepress() {
 
 serve-vuepress() {
     cd .vuepress/dist
-    pnpx serve
+    open-url-with-delay http://localhost:3000 2 & \
+        pnpx serve
 }
 
 if [[ "$1" == *","* ]]; then

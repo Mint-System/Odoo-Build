@@ -10,11 +10,10 @@ This container image is an improvement of the official Odoo image:
 - 📦 Package management is handled with [uv](https://docs.astral.sh/uv/).
 - 🔄 The Odoo source is based on a specific [revision](https://odoo.build/revisions.html).
 - 💎 The image build process ensures reproducibility.
-- ⚙️ Configuration of `odoo.conf` is managed through environment variables.
+- ⚙️ Configuration of `odoo.conf` is done through environment variables.
 - 🌱 Addons are cloned from git repositories.
 - 🛠️ Python packages are installed at runtime.
 - 📂 The system detects addons in nested module folders.
-- 💾 Session information can be stored in the database.
 - 🖥️ Environment name is retrieved from server configuration.
 - 📋 Database initialization with selected modules.
 - 📜 The image includes built-in [manifestoo](https://github.com/acsone/manifestoo) and [click-odoo-contrib](https://github.com/acsone/click-odoo-contrib).
@@ -42,7 +41,7 @@ Supported tags:
 
 ### Minimal
 
-The following `compose.yml` is a minimal setup:
+The following `compose.yml` shows a minimal setup:
 
 ```yml
 services:
@@ -208,25 +207,35 @@ secrets:
 
 The environment variables are explained in detail further down.
 
-## Lifecycle
+## Usage
 
-The Mint System Odoo image has this container lifecycle in mind:
+The Mint System Odoo image makes preparing and running Odoo very easy.
 
-- **Initialize**: Clone addons and initialize the database.
-- **Start**: The container starts and updates the execution environment.
-- **Execute**: Actions performed while the container is running.
-- **Analyze**: Analyse the current state of the container.
-- **Test**: Test modules in the container.
+**Initalize**
 
-### Initialize
+Before starting the container you can initalize the database with these actions:
 
-Before starting the container you can initalize the database with selected scripts.
+- **Clone addons**
+- **Download Odoo Enterprise**
+- **Init database**
 
-Run the `download-git-archive` script to download the Odoo Enterprise modules:
+**Run**
 
-```bash
-docker compose exec odoo download-git-archive
-```
+After the entrypoint script is executed you can install and update modules:
+
+- **Run entrypoint**
+- **Init module**
+- **Update module**
+- **Update all modules**
+
+**Develop**
+
+Check the state of modules or run tests.
+
+- **Use manifestoo**
+- **Run tests**
+
+### Clone addons
 
 Run the `clone-git-addons` or `aggregate-git-repos` script to clone module repos:
 
@@ -235,15 +244,27 @@ docker compose exec odoo clone-git-addons
 docker compose exec odoo aggregate-git-repos
 ```
 
+### Download Odoo Enterprise
+
+Run the `download-git-archive` script to download the Odoo Enterprise modules:
+
+```bash
+docker compose exec odoo download-git-archive
+```
+
+This script requires `GITHUB_USERNAME` and `GITHUB_PAT`. The image has a pre-defined `ODOO_ENTERPRISE_REF` and `ODOO_ENTERPRISE_PATH`.
+
+### Init database
+
 Run the `init-db` script to initalize the Odoo database:
 
 ```bash
 docker compose exec odoo init-db
 ```
 
-The scripts are configured with environment variables.
+All scripts use `DB_NAME` as target database.
 
-### Start
+### Run entrypoint
 
 Once you start the container the `entrypoint.sh` script will:
 
@@ -255,7 +276,7 @@ Once you start the container the `entrypoint.sh` script will:
 - Run the `update-translations` script if enabled.
 - Start the Odoo server.
 
-### Execute
+### Init module
 
 Once the container is running, install modules with:
 
@@ -263,11 +284,15 @@ Once the container is running, install modules with:
 docker compose exec odoo init-module partner_firstname
 ```
 
+### Update module
+
 Or update specific modules with this command:
 
 ```bash
 docker compose exec odoo update-module partner_firstname
 ```
+
+### Update all modules
 
 There is also the option to update all modules:
 
@@ -275,11 +300,9 @@ There is also the option to update all modules:
 docker compose exec odoo update-modules
 ```
 
-All of these commands use the `DB_NAME` as target database.
-
 The `update-modules` command uses[click-odoo-contrib](https://github.com/acsone/click-odoo-contrib) to update all Odoo modules. On the first run each installed module is updated and a checksum is computed and stored in the database. On subsequent executions the update is only performed for modules with a different checksum.
 
-### Analyze
+### Use manifestoo
 
 With the [manifestoo](https://github.com/acsone/manifestoo) cli you can query the module manifest files.
 
@@ -289,7 +312,7 @@ List all modules:
 docker exec odoo bash -c "manifestoo --select-found list --separator=,"
 ```
 
-### Test
+### Run tests
 
 The `run-tests` script runs module tests and produces a `coverage.xml` file.
 
@@ -381,7 +404,8 @@ The image can clone git repositories.
 - `FORGEJO_URL`: Url of Forgejo instance. Default is `https://codeberg.org`.
 - `FORGEJO_USERNAME`: Forgejo Username for https git clone.
 - `FORGEJO_PAT`: Forgejo access token for https git clone and archive download.
-- `ADDONS_GIT_REPOS` Comma or line-break seperated list of git clone urls appended with `#` and branch name.
+- `ADDONS_GIT_REPOS`: Comma or line-break seperated list of git clone urls appended with `#` and branch name.
+- `ODOO_ENTERPRISE_REF`: Commit ref of Odoo Enterprise repo. Default is based on the image revision date.
 
 You can use https and git urls for `ADDONS_GIT_REPOS`:
 
