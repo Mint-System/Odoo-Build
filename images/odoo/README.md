@@ -27,7 +27,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
 Changelog: <https://odoo.build/images/odoo/CHANGELOG.html>
 
-## Usage
+## Compose
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
 
@@ -207,7 +207,7 @@ secrets:
 
 The environment variables are explained in detail further down.
 
-### Actions
+### Usage
 
 The Mint System Odoo image makes preparing and running Odoo very easy.
 
