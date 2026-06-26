@@ -27,7 +27,7 @@ Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo/>
 
 Changelog: <https://odoo.build/images/odoo/CHANGELOG.html>
 
-## Usage
+## Compose
 
 The Mint System Odoo image runs with a very basic configuration, but can also be highly customized with environment variables.
 
@@ -246,7 +246,7 @@ docker compose exec odoo aggregate-git-repos
 
 ### Download Odoo Enterprise
 
-Run the `download-git-archive` script to download the Odoo Enterprise modules:
+Run the `download-git-archive` script to download the [Odoo Enterprise modules](https://github.com/odoo/enterprise/):
 
 ```bash
 docker compose exec odoo download-git-archive
