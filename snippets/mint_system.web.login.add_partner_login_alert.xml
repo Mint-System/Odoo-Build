@@ -1,0 +1,7 @@
+<data priority="50">
+    <xpath expr="//input[@name='csrf_token']" position="after">
+        <div class="alert alert-info" role="alert">
+            <span>Partner-Login: hier können sich zertifizierte Partner anmelden.</span>
+        </div>
+    </xpath>
+</data>
