@@ -1,0 +1,7 @@
+<data priority="50">
+    <xpath expr="//div[@name='partner_header']" position="replace">
+        <div t-if="show_partner" name="partner_header">
+            <div t-field="partner.commercial_partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True, &quot;phone_icons&quot;: False}"/>
+        </div>
+    </xpath>
+</data>
