@@ -51,7 +51,7 @@
                             </div>
                             <div>
                             <span>UID:</span>
-                            <span t-field="o.company_id.partner_id.vat"/>
+                            <span t-field="o.company_id.partner_id.vat"/> VAT
                             </div>
                         </t>
                     </div>
