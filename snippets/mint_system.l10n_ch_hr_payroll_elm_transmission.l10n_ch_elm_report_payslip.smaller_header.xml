@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//h2[@id='payslip_name']" position="attributes">
+        <attribute name="style">font-size: 20px;</attribute>
+    </xpath>
+</data>
