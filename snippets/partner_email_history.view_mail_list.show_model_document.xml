@@ -1,6 +1,0 @@
-<data priority="50">
-    <xpath expr="//field[@name='body']" position="after">
-        <field name="model" string="Model"/>
-        <field name="record_name" string="Document"/>
-    </xpath>
-</data>
