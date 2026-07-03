@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="commercial_partner_id" />
+    </xpath>
+</data>
