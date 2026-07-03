@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div[@t-out='o.move_ids[0].partner_id or o.partner_id']" position="attributes">
+      <attribute name="style">visibility: hidden;</attribute>
+    </xpath>
+</data>
