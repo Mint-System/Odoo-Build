@@ -3,9 +3,9 @@
 
 [![Docker pulls](https://img.shields.io/docker/pulls/mintsystem/odoo-cli)](https://hub.docker.com/r/mintsystem/odoo-cli/)
 
-Image to run the odoo-cli.
+Image to run the odoocli command.
 
-Source: <https://github.com/Mint-System/Odoo-Build/tree/main/image/odoo-cli>
+Source: <https://github.com/Mint-System/Odoo-Build/tree/main/images/odoo-cli>
 
 ## Usage
 
