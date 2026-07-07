@@ -18,6 +18,6 @@ Inherit ID: `l10n_din5008_stock.report_delivery_document`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml)\
 Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml](https://odoo.build/snippets/mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference.xml)
+

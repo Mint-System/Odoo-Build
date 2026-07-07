@@ -66,6 +66,6 @@ Inherit ID: `l10n_din5008_sale.report_saleorder_document`
     </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_din5008_sale.report_saleorder_document.l10n_din5008_sale_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_sale.report_saleorder_document.l10n_din5008_sale_blanket_order.xml)\
 Source: [snippets/mint_system.l10n_din5008_sale.report_saleorder_document.l10n_din5008_sale_blanket_order.xml](https://odoo.build/snippets/mint_system.l10n_din5008_sale.report_saleorder_document.l10n_din5008_sale_blanket_order.xml)
+

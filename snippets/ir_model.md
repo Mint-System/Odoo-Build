@@ -24,7 +24,6 @@ Inherit ID: `ir_model.account_analytic_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_analytic_line.x_parent_id_display_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_analytic_line.x_parent_id_display_name.xml)\
 Source: [snippets/mint_system.ir_model.account_analytic_line.x_parent_id_display_name.xml](https://odoo.build/snippets/mint_system.ir_model.account_analytic_line.x_parent_id_display_name.xml)
 
@@ -50,7 +49,6 @@ Inherit ID: `ir_model.account_analytic_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_analytic_line.x_phase_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_analytic_line.x_phase_id_name.xml)\
 Source: [snippets/mint_system.ir_model.account_analytic_line.x_phase_id_name.xml](https://odoo.build/snippets/mint_system.ir_model.account_analytic_line.x_phase_id_name.xml)
 
@@ -77,7 +75,6 @@ Inherit ID: `ir_model.account_analytic_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_analytic_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_analytic_line.x_sale_order_id.xml)\
 Source: [snippets/mint_system.ir_model.account_analytic_line.x_sale_order_id.xml](https://odoo.build/snippets/mint_system.ir_model.account_analytic_line.x_sale_order_id.xml)
 
@@ -106,7 +103,6 @@ Inherit ID: `ir_model.account_analytic_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type.xml)\
 Source: [snippets/mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type.xml](https://odoo.build/snippets/mint_system.ir_model.account_analytic_line.x_timesheet_invoice_type.xml)
 
@@ -133,7 +129,6 @@ Inherit ID: `ir_model.account_analytic_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_analytic_line.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_analytic_line.x_vehicle_id.xml)\
 Source: [snippets/mint_system.ir_model.account_analytic_line.x_vehicle_id.xml](https://odoo.build/snippets/mint_system.ir_model.account_analytic_line.x_vehicle_id.xml)
 
@@ -163,7 +158,6 @@ Inherit ID: `ir_model.account_bank_statement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_end_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_bank_statement.x_cashbox_end_ids.xml)\
 Source: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_end_ids.xml](https://odoo.build/snippets/mint_system.ir_model.account_bank_statement.x_cashbox_end_ids.xml)
 
@@ -191,7 +185,6 @@ Inherit ID: `ir_model.account_bank_statement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml)\
 Source: [snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml](https://odoo.build/snippets/mint_system.ir_model.account_bank_statement.x_cashbox_start_ids.xml)
 
@@ -224,7 +217,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_account_codes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_account_codes.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_account_codes.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_account_codes.xml)
 
@@ -249,7 +241,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_bexio_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_bexio_name.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_bexio_name.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_bexio_name.xml)
 
@@ -275,7 +266,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_country_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_country_id.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_country_id.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_country_id.xml)
 
@@ -301,7 +291,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_date_done.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_date_done.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_date_done.xml)
 
@@ -340,7 +329,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_duplicate_found.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_duplicate_found.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_duplicate_found.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_duplicate_found.xml)
 
@@ -354,7 +342,7 @@ Inherit ID: `ir_model.account_move`
 <odoo>
     <record id="x_gross_weight" model="ir.model.fields">
         <field name="field_description">Bruttogewicht [kg]</field>
-        <field name="model">account.move</field>
+        <field name="model">account.move</field>        
         <field name="name">x_gross_weight</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
@@ -363,7 +351,6 @@ Inherit ID: `ir_model.account_move`
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_gross_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_gross_weight.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_gross_weight.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_gross_weight.xml)
 
@@ -394,7 +381,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_group_ids.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_group_ids.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_group_ids.xml)
 
@@ -425,7 +411,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_has_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_has_downpayment.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_has_downpayment.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_has_downpayment.xml)
 
@@ -450,7 +435,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_hide_partner_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_hide_partner_name.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_hide_partner_name.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_hide_partner_name.xml)
 
@@ -477,7 +461,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_hr_expense_sheet_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_hr_expense_sheet_ids.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_hr_expense_sheet_ids.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_hr_expense_sheet_ids.xml)
 
@@ -506,7 +489,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_invoice_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_invoice_text.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_invoice_text.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_invoice_text.xml)
 
@@ -532,7 +514,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_invoice_warn_msg.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_invoice_warn_msg.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_invoice_warn_msg.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_invoice_warn_msg.xml)
 
@@ -557,7 +538,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_is_test.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_is_test.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_is_test.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_is_test.xml)
 
@@ -571,7 +551,7 @@ Inherit ID: `ir_model.account_move`
 <odoo>
     <record id="x_net_weight" model="ir.model.fields">
         <field name="field_description">Nettogewicht [kg]</field>
-        <field name="model">account.move</field>
+        <field name="model">account.move</field>        
         <field name="name">x_net_weight</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
@@ -580,7 +560,6 @@ Inherit ID: `ir_model.account_move`
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_net_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_net_weight.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_net_weight.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_net_weight.xml)
 
@@ -594,7 +573,7 @@ Inherit ID: `ir_model.account_move`
 <odoo>
     <record id="x_packaging" model="ir.model.fields">
         <field name="field_description">Verpackung</field>
-        <field name="model">account.move</field>
+        <field name="model">account.move</field>        
         <field name="name">x_packaging</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
@@ -603,7 +582,6 @@ Inherit ID: `ir_model.account_move`
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_packaging.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_packaging.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_packaging.xml)
 
@@ -635,7 +613,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_picking_list.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_picking_list.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_picking_list.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_picking_list.xml)
 
@@ -666,7 +643,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_recurring_inverval.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_recurring_inverval.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_recurring_inverval.xml)
 
@@ -691,7 +667,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_show_bank_details.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_show_bank_details.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_show_bank_details.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_show_bank_details.xml)
 
@@ -715,7 +690,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_studio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_studio_description.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_studio_description.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_studio_description.xml)
 
@@ -747,7 +721,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_total_credit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_total_credit.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_total_credit.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_total_credit.xml)
 
@@ -779,7 +752,6 @@ Inherit ID: `ir_model.account_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move.x_total_debit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move.x_total_debit.xml)\
 Source: [snippets/mint_system.ir_model.account_move.x_total_debit.xml](https://odoo.build/snippets/mint_system.ir_model.account_move.x_total_debit.xml)
 
@@ -807,7 +779,6 @@ Inherit ID: `ir_model.account_move_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move_line.x_drawing_file.xml)\
 Source: [snippets/mint_system.ir_model.account_move_line.x_drawing_file.xml](https://odoo.build/snippets/mint_system.ir_model.account_move_line.x_drawing_file.xml)
 
@@ -837,7 +808,6 @@ Inherit ID: `ir_model.account_move_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move_line.x_sale_order_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move_line.x_sale_order_id.xml)\
 Source: [snippets/mint_system.ir_model.account_move_line.x_sale_order_id.xml](https://odoo.build/snippets/mint_system.ir_model.account_move_line.x_sale_order_id.xml)
 
@@ -865,7 +835,6 @@ Inherit ID: `ir_model.account_move_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.account_move_line.x_tax_group_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.account_move_line.x_tax_group_id.xml)\
 Source: [snippets/mint_system.ir_model.account_move_line.x_tax_group_id.xml](https://odoo.build/snippets/mint_system.ir_model.account_move_line.x_tax_group_id.xml)
 
@@ -893,7 +862,6 @@ Inherit ID: `ir_model.agreement_agreement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.agreement_agreement.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.agreement_agreement.x_group_ids.xml)\
 Source: [snippets/mint_system.ir_model.agreement_agreement.x_group_ids.xml](https://odoo.build/snippets/mint_system.ir_model.agreement_agreement.x_group_ids.xml)
 
@@ -919,7 +887,6 @@ Inherit ID: `ir_model.agreement_agreement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.agreement_agreement.x_user_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.agreement_agreement.x_user_ids.xml)\
 Source: [snippets/mint_system.ir_model.agreement_agreement.x_user_ids.xml](https://odoo.build/snippets/mint_system.ir_model.agreement_agreement.x_user_ids.xml)
 
@@ -946,7 +913,6 @@ Inherit ID: `ir_model.business_requirement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.business_requirement.x_estimated_cost.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.business_requirement.x_estimated_cost.xml)\
 Source: [snippets/mint_system.ir_model.business_requirement.x_estimated_cost.xml](https://odoo.build/snippets/mint_system.ir_model.business_requirement.x_estimated_cost.xml)
 
@@ -971,7 +937,6 @@ Inherit ID: `ir_model.business_requirement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.business_requirement.x_planned_hours.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.business_requirement.x_planned_hours.xml)\
 Source: [snippets/mint_system.ir_model.business_requirement.x_planned_hours.xml](https://odoo.build/snippets/mint_system.ir_model.business_requirement.x_planned_hours.xml)
 
@@ -997,7 +962,6 @@ Inherit ID: `ir_model.business_requirement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.business_requirement.x_project_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.business_requirement.x_project_id.xml)\
 Source: [snippets/mint_system.ir_model.business_requirement.x_project_id.xml](https://odoo.build/snippets/mint_system.ir_model.business_requirement.x_project_id.xml)
 
@@ -1027,7 +991,6 @@ Inherit ID: `ir_model.business_requirement`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.business_requirement.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.business_requirement.x_task_id.xml)\
 Source: [snippets/mint_system.ir_model.business_requirement.x_task_id.xml](https://odoo.build/snippets/mint_system.ir_model.business_requirement.x_task_id.xml)
 
@@ -1054,7 +1017,6 @@ Inherit ID: `ir_model.calendar_event`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.calendar_event.x_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.calendar_event.x_color.xml)\
 Source: [snippets/mint_system.ir_model.calendar_event.x_color.xml](https://odoo.build/snippets/mint_system.ir_model.calendar_event.x_color.xml)
 
@@ -1081,7 +1043,6 @@ Inherit ID: `ir_model.crm_lead`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.crm_lead.x_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.crm_lead.x_date_start.xml)\
 Source: [snippets/mint_system.ir_model.crm_lead.x_date_start.xml](https://odoo.build/snippets/mint_system.ir_model.crm_lead.x_date_start.xml)
 
@@ -1110,7 +1071,6 @@ Inherit ID: `ir_model.crm_lead`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.crm_lead.x_date_stop.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.crm_lead.x_date_stop.xml)\
 Source: [snippets/mint_system.ir_model.crm_lead.x_date_stop.xml](https://odoo.build/snippets/mint_system.ir_model.crm_lead.x_date_stop.xml)
 
@@ -1137,7 +1097,6 @@ Inherit ID: `ir_model.crm_lead`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.crm_lead.x_mobile.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.crm_lead.x_mobile.xml)\
 Source: [snippets/mint_system.ir_model.crm_lead.x_mobile.xml](https://odoo.build/snippets/mint_system.ir_model.crm_lead.x_mobile.xml)
 
@@ -1163,7 +1122,6 @@ Inherit ID: `ir_model.crm_lead`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.crm_lead.x_task_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.crm_lead.x_task_id.xml)\
 Source: [snippets/mint_system.ir_model.crm_lead.x_task_id.xml](https://odoo.build/snippets/mint_system.ir_model.crm_lead.x_task_id.xml)
 
@@ -1190,7 +1148,6 @@ Inherit ID: `ir_model.helpdesk_ticket`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.helpdesk_ticket.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.helpdesk_ticket.x_date_deadline.xml)\
 Source: [snippets/mint_system.ir_model.helpdesk_ticket.x_date_deadline.xml](https://odoo.build/snippets/mint_system.ir_model.helpdesk_ticket.x_date_deadline.xml)
 
@@ -1216,7 +1173,6 @@ Inherit ID: `ir_model.helpdesk_ticket`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.helpdesk_ticket.x_link_with_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.helpdesk_ticket.x_link_with_ids.xml)\
 Source: [snippets/mint_system.ir_model.helpdesk_ticket.x_link_with_ids.xml](https://odoo.build/snippets/mint_system.ir_model.helpdesk_ticket.x_link_with_ids.xml)
 
@@ -1244,7 +1200,6 @@ Inherit ID: `ir_model.hr_applicant`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_applicant.x_gdpr.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_applicant.x_gdpr.xml)\
 Source: [snippets/mint_system.ir_model.hr_applicant.x_gdpr.xml](https://odoo.build/snippets/mint_system.ir_model.hr_applicant.x_gdpr.xml)
 
@@ -1272,7 +1227,6 @@ Inherit ID: `ir_model.hr_contract`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_contract.x_struct_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_contract.x_struct_id.xml)\
 Source: [snippets/mint_system.ir_model.hr_contract.x_struct_id.xml](https://odoo.build/snippets/mint_system.ir_model.hr_contract.x_struct_id.xml)
 
@@ -1300,7 +1254,6 @@ Inherit ID: `ir_model.hr_expense`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_expense.x_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_expense.x_partner_id.xml)\
 Source: [snippets/mint_system.ir_model.hr_expense.x_partner_id.xml](https://odoo.build/snippets/mint_system.ir_model.hr_expense.x_partner_id.xml)
 
@@ -1330,7 +1283,6 @@ Inherit ID: `ir_model.hr_leave`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_leave.x_number_of_hours.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_leave.x_number_of_hours.xml)\
 Source: [snippets/mint_system.ir_model.hr_leave.x_number_of_hours.xml](https://odoo.build/snippets/mint_system.ir_model.hr_leave.x_number_of_hours.xml)
 
@@ -1356,7 +1308,6 @@ Inherit ID: `ir_model.hr_leave`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_leave.x_requires_allocation.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_leave.x_requires_allocation.xml)\
 Source: [snippets/mint_system.ir_model.hr_leave.x_requires_allocation.xml](https://odoo.build/snippets/mint_system.ir_model.hr_leave.x_requires_allocation.xml)
 
@@ -1386,7 +1337,6 @@ Inherit ID: `ir_model.hr_payslip_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.hr_payslip_line.x_code_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.hr_payslip_line.x_code_name.xml)\
 Source: [snippets/mint_system.ir_model.hr_payslip_line.x_code_name.xml](https://odoo.build/snippets/mint_system.ir_model.hr_payslip_line.x_code_name.xml)
 
@@ -1415,7 +1365,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_calibrated_until.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_calibrated_until.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_calibrated_until.xml)
 
@@ -1448,7 +1397,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_date_action_required.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_date_action_required.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_date_action_required.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_date_action_required.xml)
 
@@ -1482,7 +1430,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_last_maintenance_request.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_last_maintenance_request.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_last_maintenance_request.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_last_maintenance_request.xml)
 
@@ -1508,7 +1455,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_lead_time_recovery_work.xml)
 
@@ -1533,7 +1479,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_location.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_location.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_location.xml)
 
@@ -1561,7 +1506,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_maintenance_kind_id.xml)
 
@@ -1595,7 +1539,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_next_maintenance_request.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_next_maintenance_request.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_next_maintenance_request.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_next_maintenance_request.xml)
 
@@ -1622,7 +1565,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_schedule_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_schedule_date.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_schedule_date.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_schedule_date.xml)
 
@@ -1650,7 +1592,6 @@ Inherit ID: `ir_model.maintenance_equipment`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_equipment.x_stage_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_equipment.x_stage_id.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_equipment.x_stage_id.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_equipment.x_stage_id.xml)
 
@@ -1678,7 +1619,6 @@ Inherit ID: `ir_model.maintenance_request`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.maintenance_request.x_calibrated_until.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.maintenance_request.x_calibrated_until.xml)\
 Source: [snippets/mint_system.ir_model.maintenance_request.x_calibrated_until.xml](https://odoo.build/snippets/mint_system.ir_model.maintenance_request.x_calibrated_until.xml)
 
@@ -1705,7 +1645,6 @@ Inherit ID: `ir_model.mrp_bom`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_bom.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_bom.x_note.xml)\
 Source: [snippets/mint_system.ir_model.mrp_bom.x_note.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_bom.x_note.xml)
 
@@ -1732,7 +1671,6 @@ Inherit ID: `ir_model.mrp_bom`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_bom.x_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_bom.x_type_description.xml)\
 Source: [snippets/mint_system.ir_model.mrp_bom.x_type_description.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_bom.x_type_description.xml)
 
@@ -1759,7 +1697,6 @@ Inherit ID: `ir_model.mrp_production`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_production.x_date_deadline.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_production.x_date_deadline.xml)\
 Source: [snippets/mint_system.ir_model.mrp_production.x_date_deadline.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_production.x_date_deadline.xml)
 
@@ -1789,7 +1726,6 @@ Inherit ID: `ir_model.mrp_production`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_production.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_production.x_note.xml)\
 Source: [snippets/mint_system.ir_model.mrp_production.x_note.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_production.x_note.xml)
 
@@ -1816,7 +1752,6 @@ Inherit ID: `ir_model.mrp_production`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_production.x_quality_check_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_production.x_quality_check_ids.xml)\
 Source: [snippets/mint_system.ir_model.mrp_production.x_quality_check_ids.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_production.x_quality_check_ids.xml)
 
@@ -1834,15 +1769,14 @@ Inherit ID: `ir_model.mrp_workcenter_productivity`
         <field name="field_description">MO State</field>
         <field name="model">model_mrp_workcenter_productivity</field>
         <field name="model_id" ref="mrp_workorder.model_mrp_workcenter_productivity"/>
-        <field name="name">x_production_id_state</field>
-        <field name="ttype">selection</field>
+        <field name="name">x_production_id_state</field>   
+        <field name="ttype">selection</field>    
         <field name="readonly" eval="True"/>
-        <field name="store" eval="False"/>
+        <field name="store" eval="False"/>             
         <field name="related">production_id.state</field>
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_production_id_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workcenter_productivity.x_production_id_state.xml)\
 Source: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_production_id_state.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workcenter_productivity.x_production_id_state.xml)
 
@@ -1858,15 +1792,14 @@ Inherit ID: `ir_model.mrp_workcenter_productivity`
         <field name="field_description">Workcenter Cost Per Hour</field>
         <field name="model">model_mrp_workcenter</field>
         <field name="model_id" ref="mrp_workorder.model_mrp_workcenter"/>
-        <field name="name">x_workcenter_id_costs_hour</field>
-        <field name="ttype">float</field>
+        <field name="name">x_workcenter_id_costs_hour</field>   
+        <field name="ttype">float</field>      
         <field name="readonly" eval="True"/>
-        <field name="store" eval="True"/>
+        <field name="store" eval="True"/>     
         <field name="related">workcenter_id.costs_hour</field>
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_id_costs_hour.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_id_costs_hour.xml)\
 Source: [snippets/mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_id_costs_hour.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workcenter_productivity.x_workcenter_id_costs_hour.xml)
 
@@ -1894,7 +1827,6 @@ Inherit ID: `ir_model.mrp_workorder`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_workorder.x_finished_lot_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_finished_lot_id.xml)\
 Source: [snippets/mint_system.ir_model.mrp_workorder.x_finished_lot_id.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_finished_lot_id.xml)
 
@@ -1920,7 +1852,6 @@ Inherit ID: `ir_model.mrp_workorder`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_workorder.x_reservation_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_reservation_state.xml)\
 Source: [snippets/mint_system.ir_model.mrp_workorder.x_reservation_state.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_reservation_state.xml)
 
@@ -1945,7 +1876,6 @@ Inherit ID: `ir_model.mrp_workorder`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)\
 Source: [snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml](https://odoo.build/snippets/mint_system.ir_model.mrp_workorder.x_type_description.xml)
 
@@ -1972,7 +1902,6 @@ Inherit ID: `ir_model.product_category`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_category.x_relevant_for_certificate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_category.x_relevant_for_certificate.xml)\
 Source: [snippets/mint_system.ir_model.product_category.x_relevant_for_certificate.xml](https://odoo.build/snippets/mint_system.ir_model.product_category.x_relevant_for_certificate.xml)
 
@@ -1999,7 +1928,6 @@ Inherit ID: `ir_model.product_packaging`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_packaging.x_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_packaging.x_description.xml)\
 Source: [snippets/mint_system.ir_model.product_packaging.x_description.xml](https://odoo.build/snippets/mint_system.ir_model.product_packaging.x_description.xml)
 
@@ -2024,7 +1952,6 @@ Inherit ID: `ir_model.product_packaging`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_packaging.x_qty_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_packaging.x_qty_description.xml)\
 Source: [snippets/mint_system.ir_model.product_packaging.x_qty_description.xml](https://odoo.build/snippets/mint_system.ir_model.product_packaging.x_qty_description.xml)
 
@@ -2053,7 +1980,6 @@ Inherit ID: `ir_model.product_set_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_set_line.x_categ_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_set_line.x_categ_id.xml)\
 Source: [snippets/mint_system.ir_model.product_set_line.x_categ_id.xml](https://odoo.build/snippets/mint_system.ir_model.product_set_line.x_categ_id.xml)
 
@@ -2080,7 +2006,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_calibre.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_calibre.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_calibre.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_calibre.xml)
 
@@ -2105,7 +2030,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_expiration_days.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_expiration_days.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_expiration_days.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_expiration_days.xml)
 
@@ -2130,7 +2054,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_hide_on_delivery.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_hide_on_delivery.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_hide_on_delivery.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_hide_on_delivery.xml)
 
@@ -2155,7 +2078,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_hide_on_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_hide_on_invoice.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_hide_on_invoice.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_hide_on_invoice.xml)
 
@@ -2180,7 +2102,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_hide_on_sale_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_hide_on_sale_order.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_hide_on_sale_order.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_hide_on_sale_order.xml)
 
@@ -2209,7 +2130,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_product_label.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_product_label.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_product_label.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_product_label.xml)
 
@@ -2234,7 +2154,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_purchase_price.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_purchase_price.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_purchase_price.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_purchase_price.xml)
 
@@ -2259,7 +2178,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_storage_temperature.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_storage_temperature.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_storage_temperature.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_storage_temperature.xml)
 
@@ -2284,7 +2202,6 @@ Inherit ID: `ir_model.product_template`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_warranty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_warranty.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_warranty.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_warranty.xml)
 
@@ -2314,7 +2231,6 @@ for record in self:
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.product_template.x_xml_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.product_template.x_xml_id.xml)\
 Source: [snippets/mint_system.ir_model.product_template.x_xml_id.xml](https://odoo.build/snippets/mint_system.ir_model.product_template.x_xml_id.xml)
 
@@ -2345,7 +2261,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_business_requirement_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_business_requirement_id.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_business_requirement_id.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_business_requirement_id.xml)
 
@@ -2374,7 +2289,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_lead_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_lead_id.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_lead_id.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_lead_id.xml)
 
@@ -2399,7 +2313,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_not_billable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_not_billable.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_not_billable.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_not_billable.xml)
 
@@ -2424,7 +2337,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_systemname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_systemname.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_systemname.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_systemname.xml)
 
@@ -2449,7 +2361,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_user_text.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_user_text.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_user_text.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_user_text.xml)
 
@@ -2475,7 +2386,6 @@ Inherit ID: `ir_model.project_task`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.project_task.x_vehicle_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.project_task.x_vehicle_id.xml)\
 Source: [snippets/mint_system.ir_model.project_task.x_vehicle_id.xml](https://odoo.build/snippets/mint_system.ir_model.project_task.x_vehicle_id.xml)
 
@@ -2494,14 +2404,13 @@ Inherit ID: `ir_model.purchase_order`
         <field name="model">purchase.order</field>
         <field name="model_id" ref="purchase.model_purchase_order"/>
         <field name="name">x_alternative_invoice_address</field>
-        <field name="store" eval="True"/>
+        <field name="store" eval="True"/>           
         <field name="ttype">many2one</field>
         <field name="relation">res.partner</field>
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_alternative_invoice_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_alternative_invoice_address.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_alternative_invoice_address.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_alternative_invoice_address.xml)
 
@@ -2526,7 +2435,6 @@ Inherit ID: `ir_model.purchase_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_comment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_comment.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_comment.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_comment.xml)
 
@@ -2553,7 +2461,6 @@ Inherit ID: `ir_model.purchase_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_group_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_group_ids.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_group_ids.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_group_ids.xml)
 
@@ -2572,13 +2479,12 @@ Inherit ID: `ir_model.purchase_order`
         <field name="name">x_is_hidden</field>
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
-        <field name="copied" eval="False"/>
-        <field name="ttype">boolean</field>
+        <field name="copied" eval="False"/>    
+        <field name="ttype">boolean</field>        
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_is_hidden.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_is_hidden.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_is_hidden.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_is_hidden.xml)
 
@@ -2610,7 +2516,7 @@ Inherit ID: `ir_model.purchase_order`
         has_only_paid_invoices = all(rec.invoice_ids.mapped(lambda i: i.payment_state == 'paid'))
         has_in_payment_invoices = any(rec.invoice_ids.mapped(lambda i: i.payment_state == 'in_payment'))
         has_not_paid_invoices = any(rec.invoice_ids.mapped(lambda i: i.payment_state == 'not_paid'))
-
+      
         if has_only_paid_invoices:
           rec['x_payment_state'] = 'paid'
         elif has_in_payment_invoices:
@@ -2623,7 +2529,6 @@ Inherit ID: `ir_model.purchase_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_payment_state.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_payment_state.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_payment_state.xml)
 
@@ -2654,7 +2559,6 @@ Inherit ID: `ir_model.purchase_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order.x_recurring_inverval.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order.x_recurring_inverval.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order.x_recurring_inverval.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order.x_recurring_inverval.xml)
 
@@ -2682,7 +2586,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_date_approve.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_date_approve.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_date_approve.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_date_approve.xml)
 
@@ -2708,7 +2611,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_drawing_file.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_drawing_file.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_drawing_file.xml)
 
@@ -2734,7 +2636,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_origin.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_origin.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_origin.xml)
 
@@ -2760,7 +2661,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_partner_ref.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_partner_ref.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_partner_ref.xml)
 
@@ -2786,7 +2686,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_state.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_state.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_state.xml)
 
@@ -2813,7 +2712,6 @@ Inherit ID: `ir_model.purchase_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.purchase_order_line.x_user_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.purchase_order_line.x_user_id.xml)\
 Source: [snippets/mint_system.ir_model.purchase_order_line.x_user_id.xml](https://odoo.build/snippets/mint_system.ir_model.purchase_order_line.x_user_id.xml)
 
@@ -2846,7 +2744,6 @@ Inherit ID: `ir_model.quality_check`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.quality_check.x_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.quality_check.x_active.xml)\
 Source: [snippets/mint_system.ir_model.quality_check.x_active.xml](https://odoo.build/snippets/mint_system.ir_model.quality_check.x_active.xml)
 
@@ -2865,7 +2762,6 @@ Inherit ID: `ir_model.res_partner`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.add_permit_number_and_sale_order_count.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.add_permit_number_and_sale_order_count.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.add_permit_number_and_sale_order_count.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.add_permit_number_and_sale_order_count.xml)
 
@@ -2890,7 +2786,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_birthdate.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_birthdate.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_birthdate.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_birthdate.xml)
 
@@ -2915,7 +2810,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_created_on.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_created_on.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_created_on.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_created_on.xml)
 
@@ -2942,7 +2836,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_department_id.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_department_id.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_department_id.xml)
 
@@ -2968,7 +2861,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_eori.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_eori.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_eori.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_eori.xml)
 
@@ -2993,7 +2885,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_external_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_external_ref.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_external_ref.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_external_ref.xml)
 
@@ -3026,7 +2917,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_first_sale_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_first_sale_date.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_first_sale_date.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_first_sale_date.xml)
 
@@ -3052,7 +2942,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_global_location_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_global_location_number.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_global_location_number.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_global_location_number.xml)
 
@@ -3077,7 +2966,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_packaging_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_packaging_ref.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_packaging_ref.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_packaging_ref.xml)
 
@@ -3103,7 +2991,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_privacy_visibility.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_privacy_visibility.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_privacy_visibility.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_privacy_visibility.xml)
 
@@ -3129,7 +3016,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_schema.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_schema.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_schema.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_schema.xml)
 
@@ -3156,7 +3042,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_stock_move_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_stock_move_ids.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_stock_move_ids.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_stock_move_ids.xml)
 
@@ -3182,7 +3067,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_vat.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_vat.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_vat.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_vat.xml)
 
@@ -3208,7 +3092,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_vst.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_vst.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_vst.xml)
 
@@ -3234,7 +3117,6 @@ Inherit ID: `ir_model.res_partner`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.res_partner.x_zaz.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.res_partner.x_zaz.xml)\
 Source: [snippets/mint_system.ir_model.res_partner.x_zaz.xml](https://odoo.build/snippets/mint_system.ir_model.res_partner.x_zaz.xml)
 
@@ -3263,7 +3145,6 @@ Inherit ID: `ir_model.sale_blanket_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id.xml)\
 Source: [snippets/mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id.xml](https://odoo.build/snippets/mint_system.ir_model.sale_blanket_order_line.x_product_uom_category_id.xml)
 
@@ -3290,7 +3171,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_as4import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_as4import.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_as4import.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_as4import.xml)
 
@@ -3315,7 +3195,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_bexioid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_bexioid.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_bexioid.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_bexioid.xml)
 
@@ -3339,7 +3218,6 @@ Inherit ID: `ir_model.sale_order`
     </record>
 </odoo>
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_blanket_order.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_blanket_order.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_blanket_order.xml)
 
@@ -3364,7 +3242,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_client_project_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_client_project_ref.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_client_project_ref.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_client_project_ref.xml)
 
@@ -3390,7 +3267,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_country_id_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_country_id_name.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_country_id_name.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_country_id_name.xml)
 
@@ -3417,7 +3293,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_incoterm_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_incoterm_blanket_order.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_incoterm_blanket_order.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_incoterm_blanket_order.xml)
 
@@ -3443,7 +3318,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_industry_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_industry_id.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_industry_id.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_industry_id.xml)
 
@@ -3468,7 +3342,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_is_test.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_is_test.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_is_test.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_is_test.xml)
 
@@ -3493,7 +3366,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_order_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_order_number.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_order_number.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_order_number.xml)
 
@@ -3519,7 +3391,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_partner_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_partner_ref.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_partner_ref.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_partner_ref.xml)
 
@@ -3551,7 +3422,7 @@ Inherit ID: `ir_model.sale_order`
         has_only_paid_invoices = all(rec.invoice_ids.mapped(lambda i: i.payment_state == 'paid'))
         has_in_payment_invoices = any(rec.invoice_ids.mapped(lambda i: i.payment_state == 'in_payment'))
         has_not_paid_invoices = any(rec.invoice_ids.mapped(lambda i: i.payment_state == 'not_paid'))
-
+      
         if has_only_paid_invoices:
           rec['x_payment_state'] = 'paid'
         elif has_in_payment_invoices:
@@ -3564,7 +3435,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_payment_state.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_payment_state.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_payment_state.xml)
 
@@ -3591,7 +3461,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_payment_term_blanket_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_payment_term_blanket_order.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_payment_term_blanket_order.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_payment_term_blanket_order.xml)
 
@@ -3620,7 +3489,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_product_uom_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_product_uom_qty.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_product_uom_qty.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_product_uom_qty.xml)
 
@@ -3649,7 +3517,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_project.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_project.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_project.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_project.xml)
 
@@ -3673,7 +3540,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_studio_description.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_studio_description.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_studio_description.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_studio_description.xml)
 
@@ -3693,12 +3559,11 @@ Inherit ID: `ir_model.sale_order`
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="True"/>
-        <field name="ttype">char</field>
+        <field name="ttype">char</field>       
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_title.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_title.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_title.xml)
 
@@ -3724,7 +3589,6 @@ Inherit ID: `ir_model.sale_order`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order.x_vst.xml)\
 Source: [snippets/mint_system.ir_model.sale_order.x_vst.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order.x_vst.xml)
 
@@ -3752,7 +3616,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_client_order_ref.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_client_order_ref.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_client_order_ref.xml)
 
@@ -3778,7 +3641,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_commitment_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_commitment_date.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_commitment_date.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_commitment_date.xml)
 
@@ -3804,7 +3666,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_date_order.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_date_order.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_date_order.xml)
 
@@ -3830,7 +3691,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_drawing_file.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_drawing_file.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_drawing_file.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_drawing_file.xml)
 
@@ -3856,7 +3716,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_industry_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_industry_id.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_industry_id.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_industry_id.xml)
 
@@ -3889,7 +3748,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_margin_percent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_margin_percent.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_margin_percent.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_margin_percent.xml)
 
@@ -3915,7 +3773,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_pricelist_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_pricelist_id.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_pricelist_id.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_pricelist_id.xml)
 
@@ -3941,7 +3798,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_service_policy.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_service_policy.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_service_policy.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_service_policy.xml)
 
@@ -3967,7 +3823,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_service_tracking.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_service_tracking.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_service_tracking.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_service_tracking.xml)
 
@@ -3993,7 +3848,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_state.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_state.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_state.xml)
 
@@ -4021,7 +3875,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_taxed_amount.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_taxed_amount.xml)
 
@@ -4049,7 +3902,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_taxed_amount_invoiced.xml)
 
@@ -4077,7 +3929,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_untaxed_amount.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_untaxed_amount.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_untaxed_amount.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_untaxed_amount.xml)
 
@@ -4105,7 +3956,6 @@ Inherit ID: `ir_model.sale_order_line`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.sale_order_line.x_weight_delivered.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.sale_order_line.x_weight_delivered.xml)\
 Source: [snippets/mint_system.ir_model.sale_order_line.x_weight_delivered.xml](https://odoo.build/snippets/mint_system.ir_model.sale_order_line.x_weight_delivered.xml)
 
@@ -4136,7 +3986,6 @@ Inherit ID: `ir_model.stock_location`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_location.x_should_be_valued.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_location.x_should_be_valued.xml)\
 Source: [snippets/mint_system.ir_model.stock_location.x_should_be_valued.xml](https://odoo.build/snippets/mint_system.ir_model.stock_location.x_should_be_valued.xml)
 
@@ -4154,15 +4003,14 @@ Inherit ID: `ir_model.stock_lot`
         <field name="field_description">Produktgewicht</field>
         <field name="model">stock.lot</field>
         <field name="model_id" ref="stock.model_stock_lot"/>
-        <field name="name">x_product_weight</field>
-        <field name="readonly" eval="True"/>
+        <field name="name">x_product_weight</field>        
+        <field name="readonly" eval="True"/>       
         <field name="ttype">float</field>
-        <field name="related">product_id.product_weight</field>
+        <field name="related">product_id.product_weight</field>        
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_lot.x_product_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_lot.x_product_weight.xml)\
 Source: [snippets/mint_system.ir_model.stock_lot.x_product_weight.xml](https://odoo.build/snippets/mint_system.ir_model.stock_lot.x_product_weight.xml)
 
@@ -4178,15 +4026,14 @@ Inherit ID: `ir_model.stock_lot`
         <field name="field_description">Produktgewicht Masseinheit</field>
         <field name="model">stock.lot</field>
         <field name="model_id" ref="stock.model_stock_lot"/>
-        <field name="name">x_weight_uom_id</field>
-        <field name="readonly" eval="True"/>
+        <field name="name">x_weight_uom_id</field>        
+        <field name="readonly" eval="True"/>       
         <field name="ttype">char</field>
-        <field name="related">product_id.weight_uom_id.name</field>
+        <field name="related">product_id.weight_uom_id.name</field>        
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_lot.x_weight_uom_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_lot.x_weight_uom_name.xml)\
 Source: [snippets/mint_system.ir_model.stock_lot.x_weight_uom_name.xml](https://odoo.build/snippets/mint_system.ir_model.stock_lot.x_weight_uom_name.xml)
 
@@ -4216,20 +4063,19 @@ Inherit ID: `ir_model.stock_move`
             if rec.product_packaging and rec.product_packaging.qty:
               product_qty = rec.product_packaging.qty
               count_boxes = rec.quantity_done / product_qty
-
+              
               rec['x_count_boxes'] = int(-(-count_boxes // 1))
-
+              
               if rec.product_packaging.parent_packaging and rec.product_packaging.parent_packaging.qty:
                 parent_qty = rec.product_packaging.parent_packaging.qty
                 count_boxes = rec.quantity_done / parent_qty
-
+                
                 rec['x_count_boxes'] = int(-(-count_boxes // 1))
         </field>
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_count_boxes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_count_boxes.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_count_boxes.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_count_boxes.xml)
 
@@ -4259,7 +4105,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_count_packaging.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_count_packaging.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_count_packaging.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_count_packaging.xml)
 
@@ -4288,7 +4133,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_label_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_label_qty.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_label_qty.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_label_qty.xml)
 
@@ -4320,7 +4164,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_operation_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_operation_qty.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_operation_qty.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_operation_qty.xml)
 
@@ -4346,7 +4189,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml)
 
@@ -4373,7 +4215,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_picking_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_picking_partner_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_picking_partner_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_picking_partner_id.xml)
 
@@ -4398,7 +4239,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_print_parent_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_print_parent_only.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_print_parent_only.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_print_parent_only.xml)
 
@@ -4423,7 +4263,6 @@ Inherit ID: `ir_model.stock_move`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_print_without_parent.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_print_without_parent.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_print_without_parent.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_print_without_parent.xml)
 
@@ -4448,17 +4287,16 @@ Inherit ID: `ir_model.stock_move`
         <field name="depends">state</field>
         <field name="compute">for record in self:
   if record.state == 'done':
-
+    
     record['x_scrap_id'] = 1
   else:
-
+    
     record['x_scrap_id'] = 0
     </field>
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_move.x_scrap_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_scrap_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_scrap_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_scrap_id.xml)
 
@@ -4486,7 +4324,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_as4_import.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_as4_import.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_as4_import.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_as4_import.xml)
 
@@ -4511,7 +4348,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_autocomplete.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_autocomplete.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_autocomplete.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_autocomplete.xml)
 
@@ -4537,7 +4373,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_client_order_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_client_order_ref.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_client_order_ref.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_client_order_ref.xml)
 
@@ -4557,12 +4392,11 @@ Inherit ID: `ir_model.stock_picking`
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="False"/>
-        <field name="ttype">date</field>
+        <field name="ttype">date</field>        
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_date_done.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_date_done.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_date_done.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_date_done.xml)
 
@@ -4588,7 +4422,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_date_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_date_order.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_date_order.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_date_order.xml)
 
@@ -4606,14 +4439,13 @@ Inherit ID: `ir_model.stock_picking`
         <field name="model_id" ref="stock.model_stock_picking"/>
         <field name="name">x_incoterm</field>
         <field name="relation">account.incoterms</field>
-        <field name="store" eval="True"/>
+        <field name="store" eval="True"/>       
         <field name="copied" eval="True"/>
-        <field name="ttype">many2one</field>
+        <field name="ttype">many2one</field>       
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_incoterm.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_incoterm.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_incoterm.xml)
 
@@ -4633,12 +4465,11 @@ Inherit ID: `ir_model.stock_picking`
         <field name="store" eval="True"/>
         <field name="readonly" eval="False"/>
         <field name="copied" eval="False"/>
-        <field name="ttype">char</field>
+        <field name="ttype">char</field>        
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_name.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_name.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_name.xml)
 
@@ -4672,7 +4503,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_origin.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_origin.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_origin.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_origin.xml)
 
@@ -4698,7 +4528,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_origin_and_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_origin_and_partner_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_origin_and_partner_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_origin_and_partner_id.xml)
 
@@ -4717,14 +4546,13 @@ Inherit ID: `ir_model.stock_picking`
         <field name="name">x_sale_id_incoterm</field>
         <field name="relation">account.incoterms</field>
         <field name="readonly" eval="True"/>
-        <field name="store" eval="True"/>
-        <field name="ttype">many2one</field>
-        <field name="related">sale_id.incoterm</field>
+        <field name="store" eval="True"/>      
+        <field name="ttype">many2one</field>  
+        <field name="related">sale_id.incoterm</field>  
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_sale_id_incoterm.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_sale_id_incoterm.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_sale_id_incoterm.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_sale_id_incoterm.xml)
 
@@ -4750,7 +4578,6 @@ Inherit ID: `ir_model.stock_picking`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_picking.x_vst.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_picking.x_vst.xml)\
 Source: [snippets/mint_system.ir_model.stock_picking.x_vst.xml](https://odoo.build/snippets/mint_system.ir_model.stock_picking.x_vst.xml)
 
@@ -4777,7 +4604,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_autoremove.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_autoremove.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_autoremove.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_autoremove.xml)
 
@@ -4801,7 +4627,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_default_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_default_code.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_default_code.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_default_code.xml)
 
@@ -4826,7 +4651,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_device_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_device_name.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_device_name.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_device_name.xml)
 
@@ -4850,7 +4674,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pol.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pol.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pol.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pol.xml)
 
@@ -4874,7 +4697,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pos.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pos.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pos.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_forcepoint_pos.xml)
 
@@ -4899,7 +4721,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_hostname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_hostname.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_hostname.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_hostname.xml)
 
@@ -4925,7 +4746,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_ip_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_ip_address.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_ip_address.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_ip_address.xml)
 
@@ -4950,7 +4770,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_location.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_location.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_location.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_location.xml)
 
@@ -4981,7 +4800,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_managed_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_managed_service.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_managed_service.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_managed_service.xml)
 
@@ -5013,7 +4831,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_production_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_production_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_production_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_production_id.xml)
 
@@ -5040,7 +4857,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_production_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_production_ids.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_production_ids.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_production_ids.xml)
 
@@ -5069,7 +4885,6 @@ Inherit ID: `ir_model.stock_production_lot`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_production_lot.x_weight_uom.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_production_lot.x_weight_uom.xml)\
 Source: [snippets/mint_system.ir_model.stock_production_lot.x_weight_uom.xml](https://odoo.build/snippets/mint_system.ir_model.stock_production_lot.x_weight_uom.xml)
 
@@ -5098,7 +4913,6 @@ Inherit ID: `ir_model.stock_quant`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_quant.x_expiration_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_quant.x_expiration_date.xml)\
 Source: [snippets/mint_system.ir_model.stock_quant.x_expiration_date.xml](https://odoo.build/snippets/mint_system.ir_model.stock_quant.x_expiration_date.xml)
 
@@ -5125,7 +4939,6 @@ Inherit ID: `ir_model.stock_quant`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_quant.x_last_delivery_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_quant.x_last_delivery_partner_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_quant.x_last_delivery_partner_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_quant.x_last_delivery_partner_id.xml)
 
@@ -5141,15 +4954,14 @@ Inherit ID: `ir_model.stock_quant`
         <field name="field_description">Pakettyp</field>
         <field name="model">stock.quant</field>
         <field name="model_id" ref="stock.model_stock_quant"/>
-        <field name="name">x_package_type</field>
+        <field name="name">x_package_type</field> 
         <field name="readonly" eval="True"/>
-        <field name="ttype">char</field>
+        <field name="ttype">char</field>       
         <field name="related">package_id.package_type_id.display_name</field>
     </record>
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_quant.x_package_type.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_quant.x_package_type.xml)\
 Source: [snippets/mint_system.ir_model.stock_quant.x_package_type.xml](https://odoo.build/snippets/mint_system.ir_model.stock_quant.x_package_type.xml)
 
@@ -5176,7 +4988,6 @@ Inherit ID: `ir_model.stock_quant_package`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_quant_package.x_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_quant_package.x_note.xml)\
 Source: [snippets/mint_system.ir_model.stock_quant_package.x_note.xml](https://odoo.build/snippets/mint_system.ir_model.stock_quant_package.x_note.xml)
 
@@ -5213,7 +5024,6 @@ Inherit ID: `ir_model.stock_valuation_layer`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.stock_valuation_layer.x_quant_location_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_valuation_layer.x_quant_location_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_valuation_layer.x_quant_location_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_valuation_layer.x_quant_location_id.xml)
 
@@ -5243,7 +5053,6 @@ Inherit ID: `ir_model.survey_user_input`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.survey_user_input.x_department_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.survey_user_input.x_department_id.xml)\
 Source: [snippets/mint_system.ir_model.survey_user_input.x_department_id.xml](https://odoo.build/snippets/mint_system.ir_model.survey_user_input.x_department_id.xml)
 
@@ -5271,6 +5080,6 @@ Inherit ID: `ir_model.survey_user_input`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.ir_model.survey_user_input.x_manager_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.survey_user_input.x_manager_id.xml)\
 Source: [snippets/mint_system.ir_model.survey_user_input.x_manager_id.xml](https://odoo.build/snippets/mint_system.ir_model.survey_user_input.x_manager_id.xml)
+

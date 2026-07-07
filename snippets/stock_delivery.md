@@ -9,10 +9,9 @@ Inherit ID: `stock_delivery.report_delivery_document2`
 
 ```xml
 <data priority="50">
-    <xpath expr="//div[@t-if='o.carrier_id']" position="replace"/>
+    <xpath expr="//div[@t-if='o.carrier_id']" position="replace"/> 
 </data>
 ```
-
 Edit: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier.xml)\
 Source: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier.xml](https://odoo.build/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier.xml)
 
@@ -26,7 +25,6 @@ Inherit ID: `stock_delivery.report_delivery_document2`
     <xpath expr="//div[t[@t-if='o.carrier_tracking_ref']]" position="replace"/>
 </data>
 ```
-
 Edit: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_code.xml)\
 Source: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_code.xml](https://odoo.build/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_code.xml)
 
@@ -40,7 +38,6 @@ Inherit ID: `stock_delivery.report_delivery_document2`
      <xpath expr="//div[@t-if='o.carrier_tracking_ref']" position="replace"/>
 </data>
 ```
-
 Edit: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_tracking_ref.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_tracking_ref.xml)\
 Source: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_tracking_ref.xml](https://odoo.build/snippets/mint_system.stock_delivery.report_delivery_document2.hide_carrier_tracking_ref.xml)
 
@@ -54,7 +51,6 @@ Inherit ID: `stock_delivery.report_delivery_document2`
      <xpath expr="//div[@t-if='o.shipping_weight']" position="replace"/>
 </data>
 ```
-
 Edit: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_total_weight.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.report_delivery_document2.hide_total_weight.xml)\
 Source: [snippets/mint_system.stock_delivery.report_delivery_document2.hide_total_weight.xml](https://odoo.build/snippets/mint_system.stock_delivery.report_delivery_document2.hide_total_weight.xml)
 
@@ -74,6 +70,6 @@ Inherit ID: `stock_delivery.stock_report_delivery_has_serial_move_line_inherit_d
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml)\
 Source: [snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml](https://odoo.build/snippets/mint_system.stock_delivery.stock_report_delivery_has_serial_move_line_inherit_delivery.intrastat_code_id.xml)
+

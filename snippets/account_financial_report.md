@@ -15,7 +15,6 @@ Inherit ID: `account_financial_report.general_ledger`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.general_ledger.replace_layout.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.general_ledger.replace_layout.xml)\
 Source: [snippets/mint_system.account_financial_report.general_ledger.replace_layout.xml](https://odoo.build/snippets/mint_system.account_financial_report.general_ledger.replace_layout.xml)
 
@@ -148,7 +147,6 @@ Inherit ID: `account_financial_report.internal_layout`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.internal_layout.style_trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.internal_layout.style_trimada.xml)\
 Source: [snippets/mint_system.account_financial_report.internal_layout.style_trimada.xml](https://odoo.build/snippets/mint_system.account_financial_report.internal_layout.style_trimada.xml)
 
@@ -206,9 +204,9 @@ Inherit ID: `account_financial_report.internal_layout`
             .act_as_cell {
                 display: table-cell !important;
                 page-break-inside: avoid;
-
+                
                 padding: 3px;
-                border-style: none none solid none !important;
+                border-style: none none solid none !important;            
             }
             .act_as_thead {
                 display: table-header-group !important;
@@ -230,8 +228,8 @@ Inherit ID: `account_financial_report.internal_layout`
             .list_table .act_as_row {
                 border-left: 0px;
                 border-right: 0px;
-                text-align: center;
-                font-size: 12px;
+                text-align: center;        
+                font-size: 12px;                
                 padding-right: 3px;
                 padding-left: 3px;
                 padding-top: 2px;
@@ -264,8 +262,8 @@ Inherit ID: `account_financial_report.internal_layout`
             .initial_balance .act_as_cell {
                 font-style: italic;
             }
-            .account_title {
-                font-size: 16px;
+            .account_title {                          
+                font-size: 16px;                
                 font-weight: bold;
             }
             .account_title.labels {
@@ -320,7 +318,6 @@ Inherit ID: `account_financial_report.internal_layout`
 </t>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.internal_layout.trimada.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.internal_layout.trimada.xml)\
 Source: [snippets/mint_system.account_financial_report.internal_layout.trimada.xml](https://odoo.build/snippets/mint_system.account_financial_report.internal_layout.trimada.xml)
 
@@ -337,7 +334,6 @@ Inherit ID: `account_financial_report.report_general_ledger_base`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_base.hide_filters.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_base.hide_filters.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_base.hide_filters.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_base.hide_filters.xml)
 
@@ -356,7 +352,6 @@ Inherit ID: `account_financial_report.report_general_ledger_base`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_base.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_base.replace_title.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_base.replace_title.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_base.replace_title.xml)
 
@@ -373,7 +368,6 @@ Inherit ID: `account_financial_report.report_general_ledger_ending_cumul`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_ending_cumul.hide.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_ending_cumul.hide.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_ending_cumul.hide.xml)
 
@@ -518,7 +512,6 @@ Inherit ID: `account_financial_report.report_general_ledger_lines`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_lines.initial_balance_and_cumulated.xml)
 
@@ -560,7 +553,6 @@ Inherit ID: `account_financial_report.report_general_ledger_lines`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_header.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_header.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_header.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_header.xml)
 
@@ -678,6 +670,6 @@ Inherit ID: `account_financial_report.report_general_ledger_lines`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_lines.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_lines.xml)\
 Source: [snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_lines.xml](https://odoo.build/snippets/mint_system.account_financial_report.report_general_ledger_lines.replace_lines.xml)
+

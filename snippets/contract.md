@@ -16,7 +16,6 @@ Inherit ID: `contract.contract_contract_form_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.contract.contract_contract_form_view.edit_last_date_invoiced.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.contract.contract_contract_form_view.edit_last_date_invoiced.xml)\
 Source: [snippets/mint_system.contract.contract_contract_form_view.edit_last_date_invoiced.xml](https://odoo.build/snippets/mint_system.contract.contract_contract_form_view.edit_last_date_invoiced.xml)
 
@@ -33,7 +32,6 @@ Inherit ID: `contract.contract_contract_form_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.contract.contract_contract_form_view.show_recurring_create_invoice.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.contract.contract_contract_form_view.show_recurring_create_invoice.xml)\
 Source: [snippets/mint_system.contract.contract_contract_form_view.show_recurring_create_invoice.xml](https://odoo.build/snippets/mint_system.contract.contract_contract_form_view.show_recurring_create_invoice.xml)
 
@@ -52,6 +50,6 @@ Inherit ID: `contract.contract_contract_tree_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.contract.contract_contract_tree_view.show_recurring_next_date.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.contract.contract_contract_tree_view.show_recurring_next_date.xml)\
 Source: [snippets/mint_system.contract.contract_contract_tree_view.show_recurring_next_date.xml](https://odoo.build/snippets/mint_system.contract.contract_contract_tree_view.show_recurring_next_date.xml)
+
