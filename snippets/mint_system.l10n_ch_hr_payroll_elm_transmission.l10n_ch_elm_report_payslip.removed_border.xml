@@ -1,5 +1,5 @@
 <data priority="50">
-    <xpath expr="//table[hasclass('o_table_ch_infos')]/tbody" position="attributes">
+    <xpath expr="//table[not(contains(@class, 'mb-5')) and contains(@class, 'o_table_ch_infos')]/tbody" position="attributes">
         <attribute name="style">border: none;</attribute>
     </xpath>
 </data>
