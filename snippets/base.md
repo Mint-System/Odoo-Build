@@ -1740,6 +1740,23 @@ Inherit ID: `base.view_users_form`
 Edit: [snippets/mint_system.base.view_users_form.show_color.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.show_color.xml)\
 Source: [snippets/mint_system.base.view_users_form.show_color.xml](https://odoo.build/snippets/mint_system.base.view_users_form.show_color.xml)
 
+### Show Oauth Uid
+
+ID: `mint_system.base.view_users_form.show_oauth_uid`\
+Inherit ID: `base.view_users_form`
+
+```xml
+<data priority="50">
+    <field name="service_user" position="after">
+        <field name="oauth_uid"/>
+    </field>
+</data>
+
+```
+
+Edit: [snippets/mint_system.base.view_users_form.show_oauth_uid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.base.view_users_form.show_oauth_uid.xml)\
+Source: [snippets/mint_system.base.view_users_form.show_oauth_uid.xml](https://odoo.build/snippets/mint_system.base.view_users_form.show_oauth_uid.xml)
+
 ### Specific Ations
 
 ID: `mint_system.base.view_users_form.specific_ations`\

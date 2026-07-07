@@ -355,6 +355,22 @@ Inherit ID: `project.view_task_form2`
 Edit: [snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml)\
 Source: [snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_analytic_account_active.xml)
 
+### Show Commercial Partner Id
+
+ID: `mint_system.project.view_task_form2.show_commercial_partner_id`\
+Inherit ID: `project.view_task_form2`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='partner_id']" position="after">
+        <field name="commercial_partner_id" />
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.project.view_task_form2.show_commercial_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.project.view_task_form2.show_commercial_partner_id.xml)\
+Source: [snippets/mint_system.project.view_task_form2.show_commercial_partner_id.xml](https://odoo.build/snippets/mint_system.project.view_task_form2.show_commercial_partner_id.xml)
+
 ### Show Display Timesheet Timer
 
 ID: `mint_system.project.view_task_form2.show_display_timesheet_timer`\

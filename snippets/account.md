@@ -517,23 +517,29 @@ Inherit ID: `account.report_invoice_document`
                     </div>
                     <div>
                         <t>
-                            <div t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.name"/>
-                            <div>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.street"/>,
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.country.code"/> -
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.zip"/>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.city"/>
+                            <!-- Find the bank account with the correct currency -->
+                            <t t-set="bank_account" t-value="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[:1]"/>
+                            <div t-if="bank_account">
+                                <div t-field="bank_account.bank_id.name"/>
+                                <div>
+                                    <t t-if="bank_account.bank_id.street"><span t-field="bank_account.bank_id.street"/>,</t>
+                                    <t t-if="bank_account.bank_id.country"><span t-field="bank_account.bank_id.country.code"/> - </t>
+                                    <span t-field="bank_account.bank_id.zip"/>
+                                    <span t-field="bank_account.bank_id.city"/>
+                                </div>
+                                <div>
+                                    <span>BIC / SWIFT:</span>
+                                    <span t-field="bank_account.bank_id.bic"/>
+                                </div>
+                                <span>(</span>
+                                <span t-field="bank_account.currency_id"/>
+                                <span>)</span>
+                                <span>IBAN:</span>
+                                <span t-field="bank_account.acc_number"/>
                             </div>
-                            <div>
-                            <span>BIC / SWIFT:</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].bank_id.bic"/>
+                            <div t-if="not bank_account" style="color: red;">
+                                Bitte Kontodaten pflegen (Kontakte &gt; <span t-esc="o.company_id.name"/> &gt; Buchhaltung &gt; Bankkonten)
                             </div>
-                            <span>(</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].currency_id"/>
-                            <span>)</span>
-                            <span>IBAN:</span>
-                            <span t-field="o.company_id.partner_id.bank_ids.filtered(lambda bank: bank.currency_id == o.currency_id)[0].acc_number"/>
-
                         </t>
                     </div>
                     <div>
@@ -543,7 +549,7 @@ Inherit ID: `account.report_invoice_document`
                             </div>
                             <div>
                             <span>UID:</span>
-                            <span t-field="o.company_id.partner_id.vat"/>
+                            <span t-field="o.company_id.partner_id.vat"/> VAT
                             </div>
                         </t>
                     </div>
@@ -1159,6 +1165,22 @@ Inherit ID: `account.report_invoice_document`
 Edit: [snippets/mint_system.account.report_invoice_document.bank_account.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.bank_account.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.bank_account.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.bank_account.xml)
 
+### Clear Before Payment Term
+
+ID: `mint_system.account.report_invoice_document.clear_before_payment_term`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='payment_term']" position="attributes">
+        <attribute name="style">clear: both;</attribute>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.account.report_invoice_document.clear_before_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.clear_before_payment_term.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.clear_before_payment_term.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.clear_before_payment_term.xml)
+
 ### Convert Html Note
 
 ID: `mint_system.account.report_invoice_document.convert_html_note`\
@@ -1338,9 +1360,14 @@ Inherit ID: `account.report_invoice_document`
 
 ```xml
 <data priority="50">
-    <xpath expr="//t[@t-set='address']/div" position="attributes">
-        <attribute name="style">font-size:10pt; line-height: 1.2; padding-bottom:33mm</attribute>
+
+    <xpath expr="//div[@name='shipping_address_block']/strong" position="attributes">
+        <attribute name="style">font-size:9pt</attribute>
     </xpath>
+
+    <xpath expr="//div[@t-if='o.partner_id.vat']" position="replace">
+    </xpath>
+
 </data>
 
 ```
@@ -2266,6 +2293,22 @@ Inherit ID: `account.report_invoice_document`
 Edit: [snippets/mint_system.account.report_invoice_document.net_value_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.net_value_summary.xml)\
 Source: [snippets/mint_system.account.report_invoice_document.net_value_summary.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.net_value_summary.xml)
 
+### Payment Communication Avoid Pagebreak
+
+ID: `mint_system.account.report_invoice_document.payment_communication_avoid_pagebreak`\
+Inherit ID: `account.report_invoice_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//p[@name='payment_communication']" position="attributes">
+        <attribute name="style">page-break-inside: avoid;</attribute>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.account.report_invoice_document.payment_communication_avoid_pagebreak.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.payment_communication_avoid_pagebreak.xml)\
+Source: [snippets/mint_system.account.report_invoice_document.payment_communication_avoid_pagebreak.xml](https://odoo.build/snippets/mint_system.account.report_invoice_document.payment_communication_avoid_pagebreak.xml)
+
 ### Product Hs Code And Origin
 
 ID: `mint_system.account.report_invoice_document.product_hs_code_and_origin`\
@@ -2581,68 +2624,76 @@ ID: `mint_system.account.report_invoice_document.replace_footer`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
-<data priority="50">
-    <xpath expr="//p[@name='payment_communication']" position="replace">
+<data inherit_id="account.report_invoice_document" priority="50">
+
+
+  <xpath expr="//p[@name='payment_communication']" position="replace">
   </xpath>
-    <p t-if="o.invoice_payment_term_id" name="payment_term">
-        <span t-field="o.invoice_payment_term_id.note"/>
-    </p>
-    <xpath expr="//p[@t-if='o.invoice_incoterm_id']" position="replace">
-        <style>
+
+  <xpath expr="//span[@id='payment_terms_note_id']" position="replace">
+    <style>
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;
+        line-height: 1.1;
+        padding-bottom: 2px;
+      }
+      table#footer_bank {
+        border-color: white;
       }
     </style>
-        <table id="footer">
+    <table id="footer">
+      <tr>
+        <td t-if="o.invoice_payment_term_id" name="payment_term">
+          <span>Zahlungsbedingungen: </span>
+          <span t-field="o.invoice_payment_term_id"/>
+        </td>
+        <td width="50%">
+          Lieferung gemäss unseren allgemeinen Lieferbedingungen
+        </td>
+      </tr>
+      <tr>
+        <td>
+            <span>MWST-Nr: </span>
+            <span t-field="o.company_id.vat"/>
+        </td>
+        <td>
+          <table id="footer_bank" width="100%">
             <tr>
-                <td t-if="o.invoice_payment_term_id" name="payment_term">
-          Zahlungsbedingungen: <span t-field="o.invoice_payment_term_id.note"/>
-        </td>
-                <td width="50%">
-          Lieferung gem&#xE4;ss unseren allgemeinen Lieferbedingungen
-        </td>
-            </tr>
-            <tr>
-                <td>MWST-Nr:
-          <span t-field="o.company_id.vat"/>
-        </td>
-                <td>
-                    <table width="100%">
-                        <tr>
-                            <td width="35%">
+              <td width="35%">
                Bankverbindungen:
               </td>
-                            <td width="65%">
+              <td width="65%">
               UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
               </td>
-                        </tr>
-                        <tr>
-                            <td>
+            </tr>
+            <tr>
+              <td>
               </td>
-                            <td>
+              <td>
             (CHF) IBAN CH63 0027 3273 Q978 6962 0
               </td>
-                        </tr>
-                        <tr>
-                            <td>
+            </tr>
+
+            <tr>
+              <td>
               </td>
-                            <td>
+              <td>
             (EUR) IBAN CH59 0027 3273 HN10 3698 0
               </td>
-                        </tr>
-                    </table>
-                </td>
             </tr>
-        </table>
-    </xpath>
-    <xpath expr="//p[@name='payment_term']" position="replace">
-  </xpath>
-</data>
+          </table>
+        </td>
+      </tr>
+    </table>
 
+  </xpath>
+
+</data>
 ```
 
 Edit: [snippets/mint_system.account.report_invoice_document.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_footer.xml)\
@@ -3024,7 +3075,7 @@ Inherit ID: `account.report_invoice_document`
                 </td>
                 <td>Incoterm</td>
                 <td>
-                    <span t-field="o.invoice_incoterm_id"/>
+                    <span t-field="o.invoice_incoterm_id.name"/>
                 </td>
             </tr>
             <tr>
@@ -3157,123 +3208,98 @@ ID: `mint_system.account.report_invoice_document.replace_summary`\
 Inherit ID: `account.report_invoice_document`
 
 ```xml
-<data priority="50">
+<data inherit_id="account.report_invoice_document" priority="50">
+
     <xpath expr="//table[@name='invoice_line_table']" position="after">
+
         <style>
-            table.trimada_summary tr {
-                border-top: solid 1px !important;
-                border-bottom: solid 1px;
-                page-break-inside: avoid;
-            }
-            table.trimada_details tr {
-              border-top: 0px !important;
-              border-bottom: 0px;
-              line-height: 0.7;
-            }
-            table.trimada_summary #amount_untaxed_label {
-                width: 11.5%;
-                text-align: left;
-            }
-            table.trimada_details td#amount_by_group0 {
-                width: 8%;
-                text-align: left;
-            }
-            table.trimada_details td#amount_by_group3 {
-                width: 21%;
-                text-align: right;
-                padding-right: 10%;
-            }
-            table.trimada_details td#amount_by_group4 {
-                width: 27%;
-                text-align: right;
-                padding-right: 15%;
-            }
-            table.trimada_summary td#amount_by_group_label {
-                width: 12%;
-                text-align: left;
-            }
-            table.trimada_summary td#amount_by_group {
-                width: 17%;
-                text-align: left;
-            }
-            table.trimada_summary #amount_total_label {
-                width: 14%;
-                text-align: right;
-            }
-            table.trimada_summary #amount_total {
-                width: 18%;
-                text-align: right;
-            }
-    </style>
+			table.trimada_summary tr {
+				border-top: solid 1px !important;
+				border-bottom: solid 1px;
+				page-break-inside: avoid;
+			}
+			table.trimada_details tr {
+			  border-top: 0px !important;
+			  border-bottom: 0px;
+			  line-height: 0.7;
+			}
+			table.trimada_summary #amount_untaxed_label {
+				width: 11.5%;
+				text-align: left;
+			}
+			table.trimada_details td#amount_by_group0 {
+				width: 8%;
+				text-align: left;
+			}
+			table.trimada_details td#amount_by_group3 {
+				width: 21%;
+				text-align: right;
+				padding-right: 10%;
+			}
+			table.trimada_details td#amount_by_group4 {
+				width: 27%;
+				text-align: right;
+				padding-right: 15%;
+			}
+			table.trimada_summary td#amount_by_group_label {
+				width: 12%;
+				text-align: left;
+			}
+			table.trimada_summary td#amount_by_group {
+				width: 17%;
+				text-align: left;
+			}
+			table.trimada_summary #amount_total_label {
+				width: 14%;
+				text-align: right;
+			}
+			table.trimada_summary #amount_total {
+				width: 18%;
+				text-align: right;
+			}
+        </style>
+
         <table class="table table-borderless table-sm trimada trimada_summary">
-            <td id="amount_untaxed_label">
-                <Strong>Warenwert</Strong>
-            </td>
-            <td>
-                <table class="trimada_details">
-                    <t t-foreach="o.amount_by_group" t-as="amount_by_group">
-                        <tr style="">
-                            <td id="amount_by_group4">
-                                <span>
-                                    <t t-esc="amount_by_group[4]"/>
-                                </span>
-                            </td>
-                            <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
-                                <td id="amount_by_group0">
-                                    <span class="text-nowrap" t-esc="amount_by_group[0]"/>
-                                </td>
-                                <td id="amount_by_group3" class="text-right o_price_total">
-                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>
-                                </td>
-                            </t>
-                            <t t-else="">
-                                <td id="amount_by_group0">
-                                    <span t-esc="amount_by_group[0]"/>
-                                </td>
-                                <td id="amount_by_group3" class="text-right o_price_total">
-                                    <span class="text-nowrap" t-esc="amount_by_group[3]"/>
-                                </td>
-                            </t>
-                        </tr>
-                    </t>
-                    <t t-if="print_with_payments">
-                        <t t-if="o.payment_state != 'invoicing_legacy'">
-                            <t t-set="payments_vals" t-value="o.sudo()._get_reconciled_info_JSON_values()"/>
-                            <t t-foreach="payments_vals" t-as="payment_vals">
-                                <tr>
-                                    <td>
-                                        <i class="oe_form_field text-right oe_payment_label">Paid on <t t-esc="payment_vals['date']" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-                    </i>
-                                    </td>
-                                    <td class="text-right">
-                                        <span t-esc="payment_vals['amount']" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
-                                    </td>
-                                </tr>
-                            </t>
-                            <t t-if="len(payments_vals) &gt; 0">
-                                <tr class="border-black">
-                                    <td>
-                                        <strong>Amount Due</strong>
-                                    </td>
-                                    <td class="text-right">
-                                        <span t-field="o.amount_residual"/>
-                                    </td>
-                                </tr>
-                            </t>
-                        </t>
-                    </t>
-                </table>
-            </td>
+
+            <t t-set="tax_totals" t-value="o.tax_totals or {}"/>
+            <t t-foreach="tax_totals.get('subtotals')" t-as="subtotal">
+
+                <td id="amount_untaxed_label">
+                    <Strong>Warenwert</Strong>
+                </td>
+
+                <td id="amount_by_group4" class="text-end">
+                    <span t-att-class="oe_subtotal_footer_separator" t-out="subtotal['formatted_amount']">27.00</span>
+                </td>
+
+            </t>
+
+            <t t-set="subtotal_to_show" t-value="subtotal['name']"/>
+            <t t-foreach="tax_totals['groups_by_subtotal'][subtotal_to_show]" t-as="amount_by_group">
+                <t t-set="display_tax_base" t-value="tax_totals['display_tax_base']"/>
+                <td id="amount_by_group0">
+                    <span t-out="amount_by_group['tax_group_name']">Tax 15%</span>
+                </td>
+                <td id="amount_by_group3" class="text-end o_price_total">
+                    <span class="text-nowrap" t-out="amount_by_group['formatted_tax_group_amount']">4.05</span>
+                </td>
+            </t>
+
             <td id="amount_total_label">
                 <strong>Total</strong>
             </td>
-            <td id="amount_total">
-                <span class="text-nowrap" t-field="o.amount_total"/>
+            <td id="amount_total" class="text-end">
+                <span t-out="tax_totals.get('formatted_amount_total')">31.05</span>
             </td>
-        </table>
-    </xpath>
-</data>
 
+        </table>
+
+    </xpath>
+
+    <xpath expr="//div[@id='total']" position="replace">
+    </xpath>
+
+</data>
 ```
 
 Edit: [snippets/mint_system.account.report_invoice_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.replace_summary.xml)\
@@ -3488,17 +3514,18 @@ Inherit ID: `account.report_invoice_document`
     <xpath expr="//th[@name='th_description']" position="attributes">
         <attribute name="id">description</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]" position="attributes">
+    <!--
+    <xpath expr="//table[@name='invoice_line_table']//td[3]" position="attributes">
         <attribute name="id">quantity</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[2]/span[1]" position="attributes">
+    -->
+    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
         <attribute name="id">qty</attribute>
     </xpath>
-    <xpath expr="//table[@name='invoice_line_table']//td[3]/span[1]" position="attributes">
+    <xpath expr="//table[@name='invoice_line_table']//td[4]/span[1]" position="attributes">
         <attribute name="id">price</attribute>
     </xpath>
 </data>
-
 ```
 
 Edit: [snippets/mint_system.account.report_invoice_document.set_ids.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.account.report_invoice_document.set_ids.xml)\

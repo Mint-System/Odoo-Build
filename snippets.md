@@ -55,6 +55,8 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [Forestry Timesheet](snippets/forestry_timesheet.md)
 
+## [Gds Invoice](snippets/gds_invoice.md)
+
 ## [Gio Payroll Custom](snippets/gio_payroll_custom.md)
 
 ## [Helpdesk](snippets/helpdesk.md)
@@ -97,11 +99,15 @@ In Odoo everything is described as an XML document. Snippets are modifications (
 
 ## [L10n Ch](snippets/l10n_ch.md)
 
+## [L10n Ch Hr Payroll Elm Transmission](snippets/l10n_ch_hr_payroll_elm_transmission.md)
+
 ## [L10n Ch Qr Isr Invoice Import](snippets/l10n_ch_qr_isr_invoice_import.md)
 
 ## [L10n Din5008](snippets/l10n_din5008.md)
 
 ## [L10n Din5008 Sale](snippets/l10n_din5008_sale.md)
+
+## [L10n Din5008 Stock](snippets/l10n_din5008_stock.md)
 
 ## [Mail](snippets/mail.md)
 

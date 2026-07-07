@@ -489,6 +489,23 @@ Source: [snippets/mint_system.mrp.label_production_view_pdf.trimada.xml](https:/
 
 ## Mrp Bom Form View
 
+### Set Limit
+
+ID: `mint_system.mrp.mrp_bom_form_view.set_limit`\
+Inherit ID: `mrp.mrp_bom_form_view`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='bom_line_ids']/list" position="attributes">
+        <attribute name="limit">250</attribute>
+    </xpath>
+</data>
+
+```
+
+Edit: [snippets/mint_system.mrp.mrp_bom_form_view.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_bom_form_view.set_limit.xml)\
+Source: [snippets/mint_system.mrp.mrp_bom_form_view.set_limit.xml](https://odoo.build/snippets/mint_system.mrp.mrp_bom_form_view.set_limit.xml)
+
 ### X Note
 
 ID: `mint_system.mrp.mrp_bom_form_view.x_note`\
@@ -577,6 +594,47 @@ Inherit ID: `mrp.mrp_production_form_view`
 
 Edit: [snippets/mint_system.mrp.mrp_production_form_view.add_procurement_group_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.add_procurement_group_id.xml)\
 Source: [snippets/mint_system.mrp.mrp_production_form_view.add_procurement_group_id.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.add_procurement_group_id.xml)
+
+### Change Produce Button Text For Backorders
+
+ID: `mint_system.mrp.mrp_production_form_view.change_produce_button_text_for_backorders`\
+Inherit ID: `mrp.mrp_production_form_view`
+
+```xml
+<data priority="50">
+    <xpath expr="//button[@name='button_mark_done'][1]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or not move_raw_ids or not show_produce
+        </attribute>
+        <attribute name="string">Prepare All</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][2]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or not move_raw_ids or not show_produce_all
+        </attribute>
+        <attribute name="string">Prepare All</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][3]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or move_raw_ids or not show_produce
+        </attribute>
+        <attribute name="string">Prepare All</attribute>
+    </xpath>
+
+    <xpath expr="//button[@name='button_mark_done'][4]" position="attributes">
+        <attribute name="invisible">
+            (backorder_sequence &gt; 0) or move_raw_ids or not show_produce_all
+        </attribute>
+        <attribute name="string">Prepare All</attribute>
+    </xpath>
+</data>
+
+```
+
+Edit: [snippets/mint_system.mrp.mrp_production_form_view.change_produce_button_text_for_backorders.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.change_produce_button_text_for_backorders.xml)\
+Source: [snippets/mint_system.mrp.mrp_production_form_view.change_produce_button_text_for_backorders.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.change_produce_button_text_for_backorders.xml)
 
 ### Finished Move Line Ids
 
@@ -743,6 +801,22 @@ Inherit ID: `mrp.mrp_production_form_view`
 
 Edit: [snippets/mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view.xml)\
 Source: [snippets/mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.replace_workorder_tree_view.xml)
+
+### Set Limit
+
+ID: `mint_system.mrp.mrp_production_form_view.set_limit`\
+Inherit ID: `mrp.mrp_production_form_view`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='move_raw_ids']/list" position="attributes">
+        <attribute name="limit">250</attribute>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.mrp.mrp_production_form_view.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.mrp_production_form_view.set_limit.xml)\
+Source: [snippets/mint_system.mrp.mrp_production_form_view.set_limit.xml](https://odoo.build/snippets/mint_system.mrp.mrp_production_form_view.set_limit.xml)
 
 ### Show Backorder And Procurement Group
 
@@ -2013,6 +2087,22 @@ Inherit ID: `mrp.stock_report_delivery_kit_sections`
 
 Edit: [snippets/mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading.xml)\
 Source: [snippets/mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading.xml](https://odoo.build/snippets/mint_system.mrp.stock_report_delivery_kit_sections.expand_section_heading.xml)
+
+## View Mrp Batch Produce Form
+
+### Remove Done Button
+
+ID: `mint_system.mrp.view_mrp_batch_produce_form.remove_done_button`\
+Inherit ID: `mrp.view_mrp_batch_produce_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//button[@name='action_done']" position="replace"/>
+</data>
+```
+
+Edit: [snippets/mint_system.mrp.view_mrp_batch_produce_form.remove_done_button.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mrp.view_mrp_batch_produce_form.remove_done_button.xml)\
+Source: [snippets/mint_system.mrp.view_mrp_batch_produce_form.remove_done_button.xml](https://odoo.build/snippets/mint_system.mrp.view_mrp_batch_produce_form.remove_done_button.xml)
 
 ## View Mrp Bom Filter
 

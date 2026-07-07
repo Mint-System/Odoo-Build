@@ -1,0 +1,5 @@
+<data priority="50">
+    <list position="attributes">
+        <attribute name="default_order">scheduled_date desc</attribute>
+    </list>
+</data>

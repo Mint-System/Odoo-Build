@@ -598,6 +598,131 @@ Inherit ID: `hr_timesheet.timesheet_table`
 Edit: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)\
 Source: [snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.add_sale_price_unit.xml)
 
+### Group By Service
+
+ID: `mint_system.hr_timesheet.timesheet_table.group_by_service`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="50">
+    <xpath expr="//div/div[1]" position="replace">
+        <!-- Get all invoice types -->
+        <t t-set="timesheet_task" t-value="[]"/>
+        <t t-foreach="lines" t-as="line">
+            <t t-set="timesheet_task" t-value="timesheet_task+[line.task_id.sudo().sale_line_id.product_id]"/>
+        </t>
+        <style>
+            td#titleline {
+                font-weight:bold;
+                line-height:2;
+                vertical-align:baseline;
+            }
+            span#sum {
+                margin-right: 15px;
+            }
+        </style>
+
+            <div class="col-12">
+                <table class="table table-sm">
+                    <thead style="display: table-row-group">
+                        <tr>
+                            <t t-set="timesheet_record_label" t-value="False"/>
+                            <t t-if="show_task">
+                                <t t-set="timesheet_record_label">Task</t>
+                            </t>
+                            <t t-elif="show_project">
+                                <t t-set="timesheet_record_label">Project</t>
+                            </t>
+                            <th class="text-start align-middle"><span>Date</span></th>
+                            <!-- Employee removed here -->
+                            <th class="text-start align-middle" t-if="timesheet_record_label"><span t-out="timesheet_record_label"/></th>
+                            <th class="text-start align-middle"><span>Description</span></th>
+                            <th class="text-end">
+                                <span t-if="not is_uom_day">Hours</span>
+                                <span t-else="">Days</span>
+                            </th>
+                        </tr>
+                   </thead>
+                   <tbody>
+                       <!-- Foreach service product list entries -->
+                        <t t-foreach="set(timesheet_task)" t-as="task">
+                            <tr>
+                                <td t-esc="task.name" id="titleline" colspan="100" valign="bottom">No task assigned</td>
+                            </tr>
+                            <t t-set="bg_highlight" t-value="True"/>
+                            <tr t-foreach="lines" t-as="line" t-att-style="'background-color: #F1F1F1;' if bg_highlight else ''">
+                                <!-- Only show lines with the correct service product -->
+                                <t t-if="task==line.task_id.sudo().sale_line_id.product_id">
+                                <t t-set="bg_highlight" t-value="not bg_highlight"/>
+                                <td class="align-middle">
+                                   <span t-field="line.date">2021-09-01</span>
+                                </td>
+                                <!-- Employee removed here -->
+                                <t t-set="timesheet_record_info" t-value="False"/>
+                                <t t-if="show_project">
+                                    <t t-set="timesheet_record_info" t-value="line.project_id.sudo().name"/>
+                                    <t t-if="show_task and line.task_id" t-set="timesheet_record_info" t-value="line.task_id.sudo().name"/>
+                                </t>
+                                <t t-elif="show_task" t-set="timesheet_record_info" t-value="line.task_id.sudo().name"/>
+                                <td t-if="show_task or show_project" class="align-middle">
+                                    <span t-if="timesheet_record_info" t-out="timesheet_record_info">Research and Development</span>
+                                </td>
+                                <td class="align-middle">
+                                    <span t-field="line.name" t-options="{'widget': 'text'}">Call client and discuss project</span>
+                                </td>
+                                <td class="text-end align-middle">
+                                    <span t-if="not is_uom_day" t-field="line.unit_amount" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}">2 hours</span>
+                                    <span t-else="" t-esc="line._get_timesheet_time_day()" t-options="{'widget': 'timesheet_uom'}">1 day</span>
+                                </td>
+                                </t>
+                            </tr>
+                            <tr>
+                                <td class="text-end" colspan="100">
+                                    <strong t-if="not is_uom_day">
+                                        <span id="sum">Total (Hours)</span>
+                                        <t t-esc="sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount'))" t-options="{'widget': 'duration', 'digital': True, 'unit': 'hour', 'round': 'minute'}">2 hours</t>
+                                    </strong>
+                                    <strong t-else="">
+                                        <span id="sum">Total (Days)</span>
+                                        <t t-esc="lines._convert_hours_to_days(sum(lines.filtered(lambda line: task == line.task_id.sudo().sale_line_id.product_id).mapped('unit_amount')))" t-options="{'widget': 'timesheet_uom'}">1 day</t>
+                                    </strong>
+                                </td>
+                            </tr>
+                        </t>
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+
+
+    </xpath>
+</data>
+
+```
+
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.group_by_service.xml)
+
+### Hide Employee
+
+ID: `mint_system.hr_timesheet.timesheet_table.hide_employee`\
+Inherit ID: `hr_timesheet.timesheet_table`
+
+```xml
+<data priority="50">
+
+   <xpath expr="//thead//tr/th[2]" position="replace" />
+
+
+   <xpath expr="//tbody//tr/td[2]" position="replace" />
+
+</data>
+
+```
+
+Edit: [snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml)\
+Source: [snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml](https://odoo.build/snippets/mint_system.hr_timesheet.timesheet_table.hide_employee.xml)
+
 ### Style Lapp
 
 ID: `mint_system.hr_timesheet.timesheet_table.style_lapp`\

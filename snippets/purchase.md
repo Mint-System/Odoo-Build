@@ -327,6 +327,22 @@ Inherit ID: `purchase.purchase_order_form`
 Edit: [snippets/mint_system.purchase.purchase_order_form.remove_optional_qty_received.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.purchase_order_form.remove_optional_qty_received.xml)\
 Source: [snippets/mint_system.purchase.purchase_order_form.remove_optional_qty_received.xml](https://odoo.build/snippets/mint_system.purchase.purchase_order_form.remove_optional_qty_received.xml)
 
+### Set Limit
+
+ID: `mint_system.purchase.purchase_order_form.set_limit`\
+Inherit ID: `purchase.purchase_order_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='order_line']/list" position="attributes">
+        <attribute name="limit">200</attribute>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.purchase.purchase_order_form.set_limit.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.purchase_order_form.set_limit.xml)\
+Source: [snippets/mint_system.purchase.purchase_order_form.set_limit.xml](https://odoo.build/snippets/mint_system.purchase.purchase_order_form.set_limit.xml)
+
 ### Show Dest Address Id
 
 ID: `mint_system.purchase.purchase_order_form.show_dest_address_id`\
@@ -2127,13 +2143,13 @@ Inherit ID: `purchase.report_purchaseorder_document`
 ```xml
 <data inherit_id="purchase.report_purchaseorder_document" priority="50">
 
-<xpath expr="//table[@class='table table-borderless table-sm']" position="after">
+  <xpath expr="//table[@class='table table-sm o_main_table table-borderless mt-4']" position="after">
     <t t-if="o.note_footer != '&lt;p&gt;&lt;br&gt;&lt;/p&gt;'">
       <span class="note" t-field="o.note_footer"/>
     </t>
     <table class="table table-borderless table-sm" style="margin-top:20px; width:100%; color:black; font-family: arial; font-size:9pt; border-top-style:solid; border-bottom-style:solid; border-width:1px; border-color:black">
 
-      <tr >
+      <tr>
         <td style="width:15.5%; text-align:left">
           <Strong>Warenwert</Strong>
         </td>
@@ -2141,15 +2157,15 @@ Inherit ID: `purchase.report_purchaseorder_document`
           <span t-field="o.amount_untaxed"/>
         </td>
 
-        <t t-if="o.amount_tax > 0">
+        <t t-if="o.amount_tax &gt; 0">
           <td style="width:12%; text-align:left">MWST</td>
           <td style="width:17%; text-align:left">
             <span t-field="o.amount_tax" t-options="{&quot;widget&quot;: &quot;monetary&quot;, &quot;display_currency&quot;: o.currency_id}"/>
           </td>
         </t>
         <t t-elif="o.amount_tax == 0">
-          <td></td>
-          <td></td>
+          <td/>
+          <td/>
         </t>
 
         <td style="width:14%; text-align:right">
@@ -2163,7 +2179,9 @@ Inherit ID: `purchase.report_purchaseorder_document`
     </table>
   </xpath>
 
- </data>
+  <xpath expr="//div[@id='total']" position="replace"/>
+
+</data>
 ```
 
 Edit: [snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase.report_purchaseorder_document.replace_summary.xml)\
@@ -2638,17 +2656,17 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 	<!-- header: position -->
 	<xpath expr="//table[2]/thead/tr/th[1]" position="attributes">
-		<attribute name="style">width: 5mm</attribute>/&gt;
+		<attribute name="style">width: 5mm</attribute>
 	</xpath>
 
 	<!-- header: default code -->
 	<xpath expr="//table[2]/thead/tr/th[2]" position="attributes">
-		<attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>"/&gt;
+		<attribute name="style">width: 27mm; text-align: right; padding-right: 10px</attribute>
 	</xpath>
 
 	<!-- header: description -->
 	<xpath expr="//th[@name='th_description']" position="attributes">
-		<attribute name="style">width: 73mm</attribute>/&gt;
+		<attribute name="style">width: 73mm</attribute>
 		<attribute name="class" separator=" " add="text-start"/>
 	</xpath>
 
@@ -2659,17 +2677,17 @@ Inherit ID: `purchase.report_purchaseorder_document`
 
 	<!-- header: qty -->
 	<xpath expr="//table[2]/thead/tr/th[5]" position="attributes">
-		<attribute name="style">text-align: right; padding-right: 5px</attribute>"/&gt;
+		<attribute name="style">text-align: right; padding-right: 5px</attribute>
 	</xpath>
 
 	<!-- position -->
 	<xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[1]" position="attributes">
-		<attribute name="style">text-align: right</attribute>/&gt;
+		<attribute name="style">text-align: right</attribute>
 	</xpath>
 
 	<!-- default code -->
 	<xpath expr="//table[2]/tbody/t[2]/tr/t[1]/td[2]" position="attributes">
-		<attribute name="style">text-align: right; padding-right: 10px;</attribute>/&gt;
+		<attribute name="style">text-align: right; padding-right: 10px;</attribute>
 	</xpath>
 
 	<xpath expr="//table[2]/tbody/t[2]/tr[1]/t[1]/td[4]" position="attributes">
@@ -2840,6 +2858,7 @@ Inherit ID: `purchase.report_purchasequotation_document`
       table#footer {
         width: 100%;
         font-size: 8pt;
+        border-color: white;
       }
       table#footer tr, td {
         vertical-align: top;

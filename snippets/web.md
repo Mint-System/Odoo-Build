@@ -1569,6 +1569,24 @@ Source: [snippets/mint_system.web.external_layout_standard.tissa_layout.xml](htt
 
 ## External Layout Striped
 
+### Page Numbers Right
+
+ID: `mint_system.web.external_layout_striped.page_numbers_right`\
+Inherit ID: `web.external_layout_striped`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@t-field='company.report_footer']/.." position="attributes">
+        <attribute name="class">o_footer_content border-top pt-2</attribute>
+        <attribute name="style">text-align: right;</attribute>
+    </xpath>
+</data>
+
+```
+
+Edit: [snippets/mint_system.web.external_layout_striped.page_numbers_right.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.external_layout_striped.page_numbers_right.xml)\
+Source: [snippets/mint_system.web.external_layout_striped.page_numbers_right.xml](https://odoo.build/snippets/mint_system.web.external_layout_striped.page_numbers_right.xml)
+
 ### Remove Header Address
 
 ID: `mint_system.web.external_layout_striped.remove_header_address`\
@@ -1714,6 +1732,24 @@ Edit: [snippets/mint_system.web.layout.color_navbar.xml](https://github.com/Mint
 Source: [snippets/mint_system.web.layout.color_navbar.xml](https://odoo.build/snippets/mint_system.web.layout.color_navbar.xml)
 
 ## Login
+
+### Add Partner Login Alert
+
+ID: `mint_system.web.login.add_partner_login_alert`\
+Inherit ID: `web.login`
+
+```xml
+<data priority="50">
+    <xpath expr="//input[@name='csrf_token']" position="after">
+        <div class="alert alert-info" role="alert">
+            <span>Partner-Login: hier können sich zertifizierte Partner anmelden.</span>
+        </div>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.web.login.add_partner_login_alert.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.web.login.add_partner_login_alert.xml)\
+Source: [snippets/mint_system.web.login.add_partner_login_alert.xml](https://odoo.build/snippets/mint_system.web.login.add_partner_login_alert.xml)
 
 ### Remove Login Form
 

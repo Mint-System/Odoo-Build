@@ -90,3 +90,21 @@ Inherit ID: `sale_subscription.sale_subscription_template_view_form`
 
 Edit: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)\
 Source: [snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml](https://odoo.build/snippets/mint_system.sale_subscription.sale_subscription_template_view_form.journal_id_domain.xml)
+
+## Subscription Portal Content
+
+### Conditional Payment Form
+
+ID: `mint_system.sale_subscription.subscription_portal_content.conditional_payment_form`\
+Inherit ID: `sale_subscription.subscription_portal_content`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@class='clearfix']" position="attributes">
+        <attribute name="t-elif">(providers_sudo or tokens_sudo) and (next_billing_details.get('next_invoice_amount')&gt; 0) and sale_order.state != 'sale'</attribute>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.sale_subscription.subscription_portal_content.conditional_payment_form.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale_subscription.subscription_portal_content.conditional_payment_form.xml)\
+Source: [snippets/mint_system.sale_subscription.subscription_portal_content.conditional_payment_form.xml](https://odoo.build/snippets/mint_system.sale_subscription.subscription_portal_content.conditional_payment_form.xml)

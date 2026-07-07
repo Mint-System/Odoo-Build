@@ -383,6 +383,60 @@ Inherit ID: `purchase_requisition.report_purchaserequisition_document`
 Edit: [snippets/mint_system.purchase_requisition.report_purchaserequisition_document.replace_titel.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition.report_purchaserequisition_document.replace_titel.xml)\
 Source: [snippets/mint_system.purchase_requisition.report_purchaserequisition_document.replace_titel.xml](https://odoo.build/snippets/mint_system.purchase_requisition.report_purchaserequisition_document.replace_titel.xml)
 
+### Second Row
+
+ID: `mint_system.purchase_requisition.report_purchaserequisition_document.second_row`\
+Inherit ID: `purchase_requisition.report_purchaserequisition_document`
+
+```xml
+<?xml version="1.0"?>
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//table[@id='main_table']/tbody[1]/tr[1]" position="attributes">
+    <attribute name="t-att-class">"first"</attribute>
+  </xpath>
+
+  <xpath expr="//table[@id='main_table']/tbody[1]/tr[1]/td[3]" position="after">
+    <t t-if="line_ids.product_id.type_description">
+      <tr class="second">
+        <td></td>
+        <td colspan="5">
+          <span t-field="line_ids.product_description_variants"/>
+          <br/>
+          <t t-if="line_ids.product_id.country_of_origin.code">
+          Ursprungsland:
+            <span t-field="line_ids.product_id.country_of_origin.code" />
+          </t>
+          <t t-if="line_ids.product_id.hs_code">
+          / Zollposition:
+            <span t-field="line_ids.product_id.hs_code" />
+          </t>
+        </td>
+      </tr>
+    </t>
+    <t t-if="not line_ids.product_id.type_description">
+      <tr class="second">
+        <td></td>
+        <td colspan="5">
+          <t t-if="line_ids.product_id.country_of_origin.code">
+          Ursprungsland:
+            <span t-field="line_ids.product_id.country_of_origin.code" />
+          </t>
+          <t t-if="line_ids.product_id.hs_code">
+          / Zollposition:
+            <span t-field="line_ids.product_id.hs_code" />
+          </t>
+        </td>
+      </tr>
+    </t>
+  </xpath>
+
+</data>
+```
+
+Edit: [snippets/mint_system.purchase_requisition.report_purchaserequisition_document.second_row.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.purchase_requisition.report_purchaserequisition_document.second_row.xml)\
+Source: [snippets/mint_system.purchase_requisition.report_purchaserequisition_document.second_row.xml](https://odoo.build/snippets/mint_system.purchase_requisition.report_purchaserequisition_document.second_row.xml)
+
 ### Sequence In Table
 
 ID: `mint_system.purchase_requisition.report_purchaserequisition_document.sequence_in_table`\

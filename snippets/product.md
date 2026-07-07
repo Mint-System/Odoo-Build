@@ -496,6 +496,46 @@ Inherit ID: `product.product_template_form_view`
 Edit: [snippets/mint_system.product.product_template_form_view.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_form_view.replace_title.xml)\
 Source: [snippets/mint_system.product.product_template_form_view.replace_title.xml](https://odoo.build/snippets/mint_system.product.product_template_form_view.replace_title.xml)
 
+### Show Purchase Note
+
+ID: `mint_system.product.product_template_form_view.show_purchase_note`\
+Inherit ID: `product.product_template_form_view`
+
+```xml
+<data priority="50">
+    <xpath expr="//page[@name='purchase']" position="inside">
+        <group>
+            <group string="Purchase Notes" name="purchase_note">
+                <field colspan="2" name="x_purchase_note" nolabel="1" placeholder="This note is internal."/>
+            </group>
+        </group>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.product.product_template_form_view.show_purchase_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_form_view.show_purchase_note.xml)\
+Source: [snippets/mint_system.product.product_template_form_view.show_purchase_note.xml](https://odoo.build/snippets/mint_system.product.product_template_form_view.show_purchase_note.xml)
+
+### Show Sale Note
+
+ID: `mint_system.product.product_template_form_view.show_sale_note`\
+Inherit ID: `product.product_template_form_view`
+
+```xml
+<data priority="50">
+    <xpath expr="//page[@name='sales']" position="inside">
+        <group>
+            <group string="Sale Notes" name="sale_note">
+                <field colspan="2" name="x_sale_note" nolabel="1" placeholder="This note is internal."/>
+            </group>
+        </group>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.product.product_template_form_view.show_sale_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.product.product_template_form_view.show_sale_note.xml)\
+Source: [snippets/mint_system.product.product_template_form_view.show_sale_note.xml](https://odoo.build/snippets/mint_system.product.product_template_form_view.show_sale_note.xml)
+
 ## Product Template Kanban View
 
 ### Add Product Info

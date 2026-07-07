@@ -4,7 +4,7 @@
         <div name="commitment_date_div" class="o_row">
             <field name="commitment_date"/>
             <span name="expected_date_span" class="text-muted">Expected: <field name="expected_date" class="oe_inline" widget="date"/>
-      </span>
+            </span>
         </div>
     </xpath>
     <xpath expr="//group/group[@name='sale_shipping']" position="replace"/>

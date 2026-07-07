@@ -5362,6 +5362,23 @@ Inherit ID: `sale.sale_order_line_view_form_readonly`
 Edit: [snippets/mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)\
 Source: [snippets/mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment.xml](https://odoo.build/snippets/mint_system.sale.sale_order_line_view_form_readonly.show_is_downpayment.xml)
 
+### Show Order Partner Id
+
+ID: `mint_system.sale.sale_order_line_view_form_readonly.show_order_partner_id`\
+Inherit ID: `sale.sale_order_line_view_form_readonly`
+
+```xml
+<data priority="50">
+    <field name="order_id" position="after">
+        <field name="order_partner_id"/>
+    </field>
+</data>
+
+```
+
+Edit: [snippets/mint_system.sale.sale_order_line_view_form_readonly.show_order_partner_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.sale_order_line_view_form_readonly.show_order_partner_id.xml)\
+Source: [snippets/mint_system.sale.sale_order_line_view_form_readonly.show_order_partner_id.xml](https://odoo.build/snippets/mint_system.sale.sale_order_line_view_form_readonly.show_order_partner_id.xml)
+
 ### Show Project Id
 
 ID: `mint_system.sale.sale_order_line_view_form_readonly.show_project_id`\
@@ -5481,6 +5498,22 @@ Inherit ID: `sale.sale_order_portal_content`
 
 Edit: [snippets/mint_system.sale.sale_order_portal_content.format_qty.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.sale_order_portal_content.format_qty.xml)\
 Source: [snippets/mint_system.sale.sale_order_portal_content.format_qty.xml](https://odoo.build/snippets/mint_system.sale.sale_order_portal_content.format_qty.xml)
+
+### Format Tr Note
+
+ID: `mint_system.sale.sale_order_portal_content.format_tr_note`\
+Inherit ID: `sale.sale_order_portal_content`
+
+```xml
+<data priority="50">
+   <tr name="tr_note" position="attributes">
+        <attribute name="class">o_line_note</attribute>
+    </tr>
+</data>
+```
+
+Edit: [snippets/mint_system.sale.sale_order_portal_content.format_tr_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.sale_order_portal_content.format_tr_note.xml)\
+Source: [snippets/mint_system.sale.sale_order_portal_content.format_tr_note.xml](https://odoo.build/snippets/mint_system.sale.sale_order_portal_content.format_tr_note.xml)
 
 ### Get Position
 

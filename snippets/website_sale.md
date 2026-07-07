@@ -127,6 +127,51 @@ Inherit ID: `website_sale.address`
 Edit: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)\
 Source: [snippets/mint_system.website_sale.address.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.website_sale.address.show_firstname_lastname.xml)
 
+## Cart
+
+### Cart Cleared Alert
+
+ID: `mint_system.website_sale.cart.cart_cleared_alert`\
+Inherit ID: `website_sale.cart`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[hasclass('col')]" position="before">
+        <t t-if="request.session.pop('cart_cleared_notice', False)">
+            <div class="alert alert-info alert-dismissible fade show  mt-3" role="alert">
+                Ihr Warenkorb wurde geleert, weil die Preisliste geändert wurde.<br/>
+                Bitte legen Sie das gewünschte Patent erneut in den Warenkorb.
+            </div>
+        </t>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)\
+Source: [snippets/mint_system.website_sale.cart.cart_cleared_alert.xml](https://odoo.build/snippets/mint_system.website_sale.cart.cart_cleared_alert.xml)
+
+## Checkout
+
+### Hide Billing Address
+
+ID: `mint_system.website_sale.checkout.hide_billing_address`\
+Inherit ID: `website_sale.checkout`
+
+```xml
+<data priority="50">
+    <xpath expr="//t[@t-call='website_sale.billing_address_list']" position="replace">
+        <div style="display:none !important;">
+            <t t-call="website_sale.billing_address_list">
+                <t t-set="addresses" t-value="billing_addresses"/>
+            </t>
+        </div>
+    </xpath>
+</data>
+```
+
+Edit: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)\
+Source: [snippets/mint_system.website_sale.checkout.hide_billing_address.xml](https://odoo.build/snippets/mint_system.website_sale.checkout.hide_billing_address.xml)
+
 ## Confirmation
 
 ### Show Shipping Name
@@ -166,6 +211,22 @@ Inherit ID: `website_sale.header_cart_link`
 Edit: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)\
 Source: [snippets/mint_system.website_sale.header_cart_link.hide_cart.xml](https://odoo.build/snippets/mint_system.website_sale.header_cart_link.hide_cart.xml)
 
+## Payment
+
+### Hide Address
+
+ID: `mint_system.website_sale.payment.hide_address`\
+Inherit ID: `website_sale.payment`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@id='address_on_payment']" position="replace"/>
+</data>
+```
+
+Edit: [snippets/mint_system.website_sale.payment.hide_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment.hide_address.xml)\
+Source: [snippets/mint_system.website_sale.payment.hide_address.xml](https://odoo.build/snippets/mint_system.website_sale.payment.hide_address.xml)
+
 ## Payment Confirmation Status
 
 ### Remove Communication
@@ -182,6 +243,25 @@ Inherit ID: `website_sale.payment_confirmation_status`
 
 Edit: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)\
 Source: [snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml](https://odoo.build/snippets/mint_system.website_sale.payment_confirmation_status.remove_communication.xml)
+
+## Pricelist List
+
+### Group Admin Only
+
+ID: `mint_system.website_sale.pricelist_list.group_admin_only`\
+Inherit ID: `website_sale.pricelist_list`
+
+```xml
+<data priority="50">
+    <t t-set="pricelist" position="before">
+        <t t-set="hasPricelistDropdown" t-value="hasPricelistDropdown and env.user.has_group('sales_team.group_sale_manager')"/>
+    </t>
+</data>
+
+```
+
+Edit: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)\
+Source: [snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml](https://odoo.build/snippets/mint_system.website_sale.pricelist_list.group_admin_only.xml)
 
 ## Product
 
