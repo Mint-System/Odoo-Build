@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/enterprise.git
 	branch = 17.0
 	shallow = true
-	commit = 34c020eb3bd7f87cddf9c974c632e001212383d2
+	commit = c2c2e0ad8a99c99b5ffdfe6ca21deadc3ee39d72
 [submodule "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 17.0
 	shallow = true
-	commit = 9e6d181cf1da561ef4a7bef2619107ad3203a2ec
+	commit = 20a0d9e93236857dc81f7594f18e561f0efcf51f
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -34,7 +34,7 @@
 	path = addons/hr
 	url = git@github.com:Mint-System/Odoo-Apps-HR.git
 	branch = 17.0
-	commit = 2d20cdd1be67628ec823f3232abf2b972a1c883c
+	commit = 12d558fb1386cd94dd050dc8b145140d346deca3
 [submodule "addons/stock_logistics_workflow"]
 	path = addons/stock_logistics_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Stock-Logistics-Workflow.git
@@ -94,7 +94,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 17.0
-	commit = d2dafabdce1f386f4e6e5fe5681ad0195d9cff07
+	commit = c619e069301466ecb366819a5855a9dc25925ee4
 [submodule "oca/bank-statement-import"]
 	path = oca/bank-statement-import
 	url = git@github.com:OCA/bank-statement-import.git
@@ -170,3 +170,8 @@
 	url = git@github.com:Mint-System/Odoo-Apps-Management-System.git
 	branch = 17.0
 	commit = 4a013e253767b8fa5fc6f82740595fe7f6d12dbf
+[submodule "addons/social"]
+	path = addons/social
+	url = 17.0
+	branch = git@github.com:Mint-System/Odoo-Apps-Social.git
+	commit = f8becce18553a995f6013790227a0c52cd7eb12c
