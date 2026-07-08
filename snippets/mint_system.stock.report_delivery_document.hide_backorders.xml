@@ -1,0 +1,4 @@
+<data priority="50">
+    <xpath expr="//t[@t-set='backorders']/following-sibling::div[2]" position="replace"/>
+    <xpath expr="//t[@t-set='backorders']/following-sibling::div[1]" position="replace"/>
+</data>
