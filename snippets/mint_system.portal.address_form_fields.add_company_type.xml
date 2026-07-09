@@ -1,0 +1,56 @@
+<data priority="50">
+    <xpath expr="//input[@name='street2']" position="attributes">
+        <attribute name="name">street2_display</attribute>
+    </xpath>
+
+    <xpath expr="//input[@name='street2_display']" position="after">
+        <input type="hidden" name="street2" class="js_street2_hidden"/>
+    </xpath>
+    
+    <xpath expr="//div[@id='div_vat']" position="after">
+        
+        <div id="company_type" class="col-lg-6 mb-2">
+            <label class="col-form-label fw-normal label-optional" for="o_company_type">
+                Company Type
+            </label>
+            <div>
+                <t t-foreach="[('person', 'Individual'), ('company', 'Company')]" t-as="ct">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input js_company_type_selector" type="radio" name="company_type_ui" t-att-value="ct[0]" t-att-id="'o_type_%s' % ct[0]" t-att-checked="'checked' if partner_sudo.company_type == ct[0] else None"/>
+                    <label class="form-check-label" t-att-for="'o_type_%s' % ct[0]" t-esc="ct[1]"/>
+                </div>
+            </t>
+            </div>
+        </div>
+    </xpath>
+    
+     <xpath expr="//input[@name='required_fields']" position="after">
+       <script type="text/javascript">
+            (function () {
+                var form = document.currentScript.closest('form');
+                if (!form) return;
+
+                function syncHiddenStreet2() {
+                    var displayInput = form.querySelector("input[name='street2_display']");
+                    var hiddenInput = form.querySelector("input[name='street2']");
+                    var selectedType = form.querySelector(".js_company_type_selector:checked");
+                    if (displayInput &amp;&amp; hiddenInput &amp;&amp; selectedType) {
+                        hiddenInput.value = displayInput.value + '###' + selectedType.value;
+                    }
+                }
+
+                var displayInput = form.querySelector("input[name='street2_display']");
+                if (displayInput) {
+                    displayInput.addEventListener('input', syncHiddenStreet2);
+                }
+                form.querySelectorAll('.js_company_type_selector').forEach(function (radio) {
+                    radio.addEventListener('change', syncHiddenStreet2);
+                });
+                form.addEventListener('submit', syncHiddenStreet2);
+
+                // initial sync on load, in case the user submits without touching anything
+                syncHiddenStreet2();
+            })();
+        </script>
+    </xpath>
+</data>
