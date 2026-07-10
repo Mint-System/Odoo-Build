@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//t[@t-set='can_be_edited']" position="replace">
+        <t t-set="can_be_edited" t-value="contact._can_be_edited_by_current_customer(order_sudo=order) and contact.type != 'invoice'"/>
+    </xpath>
+</data>

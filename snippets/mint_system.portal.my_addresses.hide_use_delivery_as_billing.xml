@@ -1,0 +1,5 @@
+<data priority="50">
+     <xpath expr="//div[@class='form-check form-switch mt-2']" position="attributes">
+         <attribute name="class">d-none</attribute>
+    </xpath>
+</data>

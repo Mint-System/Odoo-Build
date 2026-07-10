@@ -1,0 +1,3 @@
+<data priority="50">
+    <xpath expr="//a[@role='button']" position="replace" />
+</data>
