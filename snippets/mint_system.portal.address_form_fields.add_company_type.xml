@@ -7,19 +7,21 @@
         <input type="hidden" name="street2" class="js_street2_hidden"/>
     </xpath>
     
-    <xpath expr="//div[@id='div_vat']" position="after">
-        
-        <div id="company_type" class="col-lg-6 mb-2">
+    <xpath expr="//t[@name='b2b_fields']/div" position="after">
+        <div id="company_type" class="col-lg-12 mb-2">
             <label class="col-form-label fw-normal label-optional" for="o_company_type">
                 Company Type
             </label>
             <div>
-                <t t-foreach="[('person', 'Individual'), ('company', 'Company')]" t-as="ct">
-                <div class="form-check form-check-inline">
-                    <input class="form-check-input js_company_type_selector" type="radio" name="company_type_ui" t-att-value="ct[0]" t-att-id="'o_type_%s' % ct[0]" t-att-checked="'checked' if partner_sudo.company_type == ct[0] else None"/>
-                    <label class="form-check-label" t-att-for="'o_type_%s' % ct[0]" t-esc="ct[1]"/>
-                </div>
-            </t>
+                <t t-foreach="['person', 'company']" t-as="ct">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input js_company_type_selector" type="radio" name="company_type_ui" t-att-value="ct" t-att-id="'o_type_%s' % ct" t-att-checked="'checked' if partner_sudo.company_type == ct else None"/>
+                        <label class="form-check-label" t-att-for="'o_type_%s' % ct">
+                            <span t-if="ct == 'person'">Individual</span>
+                            <span t-if="ct == 'company'">Company</span>
+                        </label>
+                    </div>
+                </t>
             </div>
         </div>
     </xpath>
