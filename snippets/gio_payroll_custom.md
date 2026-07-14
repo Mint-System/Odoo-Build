@@ -15,7 +15,6 @@ Inherit ID: `gio_payroll_custom.gio_view_hr_contract_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)\
 Source: [snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml](https://odoo.build/snippets/mint_system.gio_payroll_custom.gio_view_hr_contract_form.holiday_wage_as_percentage.xml)
 
@@ -223,6 +222,6 @@ Inherit ID: `gio_payroll_custom.hr_payroll_report_view`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml)\
 Source: [snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml](https://odoo.build/snippets/mint_system.gio_payroll_custom.hr_payroll_report_view.new_report.xml)
+

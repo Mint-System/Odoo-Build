@@ -16,7 +16,6 @@ Inherit ID: `portal.address_form_fields`
 
 </data>
 ```
-
 Edit: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)\
 Source: [snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml](https://odoo.build/snippets/mint_system.portal.address_form_fields.move_b2b_fields.xml)
 
@@ -34,7 +33,6 @@ Inherit ID: `portal.my_addresses`
     <xpath expr="//div[@class='form-check form-switch mt-2']" position="replace"/>
 </data>
 ```
-
 Edit: [snippets/mint_system.portal.my_addresses.hide_billing_address.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.my_addresses.hide_billing_address.xml)\
 Source: [snippets/mint_system.portal.my_addresses.hide_billing_address.xml](https://odoo.build/snippets/mint_system.portal.my_addresses.hide_billing_address.xml)
 
@@ -60,7 +58,6 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)\
 Source: [snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_firstname_lastname.xml)
 
@@ -80,6 +77,6 @@ Inherit ID: `portal.portal_my_details_fields`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)\
 Source: [snippets/mint_system.portal.portal_my_details_fields.show_street.xml](https://odoo.build/snippets/mint_system.portal.portal_my_details_fields.show_street.xml)
+

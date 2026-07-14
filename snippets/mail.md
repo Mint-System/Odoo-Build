@@ -26,7 +26,6 @@ Inherit ID: `mail.activity`
 </odoo>
 
 ```
-
 Edit: [snippets/mint_system.mail.activity.x_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.activity.x_reference.xml)\
 Source: [snippets/mint_system.mail.activity.x_reference.xml](https://odoo.build/snippets/mint_system.mail.activity.x_reference.xml)
 
@@ -44,7 +43,6 @@ Inherit ID: `mail.email_template_form`
     </field>
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.email_template_form.show_email_layout_xmlid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.email_template_form.show_email_layout_xmlid.xml)\
 Source: [snippets/mint_system.mail.email_template_form.show_email_layout_xmlid.xml](https://odoo.build/snippets/mint_system.mail.email_template_form.show_email_layout_xmlid.xml)
 
@@ -63,7 +61,6 @@ Inherit ID: `mail.mail_activity_view_form_popup`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_activity_view_form_popup.x_reference.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_activity_view_form_popup.x_reference.xml)\
 Source: [snippets/mint_system.mail.mail_activity_view_form_popup.x_reference.xml](https://odoo.build/snippets/mint_system.mail.mail_activity_view_form_popup.x_reference.xml)
 
@@ -91,7 +88,6 @@ Inherit ID: `mail.mail_activity_view_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_activity_view_tree.activity_view.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_activity_view_tree.activity_view.xml)\
 Source: [snippets/mint_system.mail.mail_activity_view_tree.activity_view.xml](https://odoo.build/snippets/mint_system.mail.mail_activity_view_tree.activity_view.xml)
 
@@ -103,15 +99,14 @@ ID: `mint_system.mail.mail_notifcation_light.font_and_size`\
 Inherit ID: `mail.mail_notifcation_light`
 
 ```xml
-<data priority="60">
+<data priority="60">    
     <xpath expr="//t[@t-out='message.body']" position="replace">
         <div style="font-size: 13px;">
         <t t-out="message.body"/>
         </div>
-    </xpath>
+    </xpath>   
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.mail_notifcation_light.font_and_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notifcation_light.font_and_size.xml)\
 Source: [snippets/mint_system.mail.mail_notifcation_light.font_and_size.xml](https://odoo.build/snippets/mint_system.mail.mail_notifcation_light.font_and_size.xml)
 
@@ -133,7 +128,6 @@ Inherit ID: `mail.mail_notifcation_light`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.mail_notifcation_light.remove_header_and_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notifcation_light.remove_header_and_footer.xml)\
 Source: [snippets/mint_system.mail.mail_notifcation_light.remove_header_and_footer.xml](https://odoo.build/snippets/mint_system.mail.mail_notifcation_light.remove_header_and_footer.xml)
 
@@ -170,7 +164,6 @@ Inherit ID: `mail.mail_notification_borders`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_borders.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_borders.reduce_to_content.xml)\
 Source: [snippets/mint_system.mail.mail_notification_borders.reduce_to_content.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_borders.reduce_to_content.xml)
 
@@ -186,7 +179,6 @@ Inherit ID: `mail.mail_notification_borders`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_borders.remove_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_borders.remove_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_borders.remove_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_borders.remove_logo.xml)
 
@@ -203,7 +195,6 @@ Inherit ID: `mail.mail_notification_borders`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_borders.white_background.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_borders.white_background.xml)\
 Source: [snippets/mint_system.mail.mail_notification_borders.white_background.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_borders.white_background.xml)
 
@@ -221,7 +212,6 @@ Inherit ID: `mail.mail_notification_email`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_email.remove_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_email.remove_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_email.remove_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_email.remove_logo.xml)
 
@@ -238,7 +228,6 @@ Inherit ID: `mail.mail_notification_layout`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.debrand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.debrand.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.debrand.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.debrand.xml)
 
@@ -254,7 +243,6 @@ Inherit ID: `mail.mail_notification_layout`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.embed_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.embed_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.embed_logo.xml)
 
@@ -278,7 +266,6 @@ Inherit ID: `mail.mail_notification_layout`
 
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.font_and_size.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.font_and_size.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.font_and_size.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.font_and_size.xml)
 
@@ -294,7 +281,6 @@ Inherit ID: `mail.mail_notification_layout`
     </t>
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.force_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.force_footer.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.force_footer.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.force_footer.xml)
 
@@ -311,7 +297,6 @@ Inherit ID: `mail.mail_notification_layout`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.remove_access_link.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.remove_access_link.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.remove_access_link.xml)
 
@@ -331,7 +316,6 @@ Inherit ID: `mail.mail_notification_layout`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.remove_header_and_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.remove_header_and_footer.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.remove_header_and_footer.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.remove_header_and_footer.xml)
 
@@ -346,7 +330,6 @@ Inherit ID: `mail.mail_notification_layout`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml)\
 Source: [snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_layout.remove_unfollow_link.xml)
 
@@ -365,7 +348,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.align_left.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.align_left.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.align_left.xml)
 
@@ -380,7 +362,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.debrand.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.debrand.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.debrand.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.debrand.xml)
 
@@ -401,7 +382,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.embed_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.embed_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.embed_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.embed_logo.xml)
 
@@ -439,7 +419,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.reduce_to_content.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.reduce_to_content.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.reduce_to_content.xml)
 
@@ -464,7 +443,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.remove_access_link.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.remove_access_link.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.remove_access_link.xml)
 
@@ -480,7 +458,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.remove_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.remove_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.remove_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.remove_logo.xml)
 
@@ -495,7 +472,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.remove_model_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.remove_model_name.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.remove_model_name.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.remove_model_name.xml)
 
@@ -516,7 +492,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.replace_footer.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.replace_footer.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.replace_footer.xml)
 
@@ -536,7 +511,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.set_model_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.set_model_name.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.set_model_name.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.set_model_name.xml)
 
@@ -553,7 +527,6 @@ Inherit ID: `mail.mail_notification_light`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_light.white_background.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_light.white_background.xml)\
 Source: [snippets/mint_system.mail.mail_notification_light.white_background.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_light.white_background.xml)
 
@@ -572,7 +545,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.align_left.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.align_left.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.align_left.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.align_left.xml)
 
@@ -610,7 +582,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.reduce_to_content.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.reduce_to_content.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.reduce_to_content.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.reduce_to_content.xml)
 
@@ -625,7 +596,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.remove_access_link.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.remove_access_link.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.remove_access_link.xml)
 
@@ -641,7 +611,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.remove_logo.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.remove_logo.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.remove_logo.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.remove_logo.xml)
 
@@ -657,7 +626,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.remove_signature.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.remove_signature.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.remove_signature.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.remove_signature.xml)
 
@@ -678,7 +646,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.replace_footer.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.replace_footer.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.replace_footer.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.replace_footer.xml)
 
@@ -698,7 +665,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.set_model_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.set_model_name.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.set_model_name.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.set_model_name.xml)
 
@@ -715,7 +681,6 @@ Inherit ID: `mail.mail_notification_paynow`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.mail_notification_paynow.white_background.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.mail_notification_paynow.white_background.xml)\
 Source: [snippets/mint_system.mail.mail_notification_paynow.white_background.xml](https://odoo.build/snippets/mint_system.mail.mail_notification_paynow.white_background.xml)
 
@@ -743,7 +708,6 @@ Inherit ID: `mail.message_activity_assigned`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.message_activity_assigned.redirect_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.message_activity_assigned.redirect_access_link.xml)\
 Source: [snippets/mint_system.mail.message_activity_assigned.redirect_access_link.xml](https://odoo.build/snippets/mint_system.mail.message_activity_assigned.redirect_access_link.xml)
 
@@ -758,7 +722,6 @@ Inherit ID: `mail.message_activity_assigned`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.message_activity_assigned.remove_access_link.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.message_activity_assigned.remove_access_link.xml)\
 Source: [snippets/mint_system.mail.message_activity_assigned.remove_access_link.xml](https://odoo.build/snippets/mint_system.mail.message_activity_assigned.remove_access_link.xml)
 
@@ -786,7 +749,6 @@ Inherit ID: `mail.message_activity_assigned`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.message_activity_assigned.set_access_link_my_activities.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.message_activity_assigned.set_access_link_my_activities.xml)\
 Source: [snippets/mint_system.mail.message_activity_assigned.set_access_link_my_activities.xml](https://odoo.build/snippets/mint_system.mail.message_activity_assigned.set_access_link_my_activities.xml)
 
@@ -804,7 +766,6 @@ Inherit ID: `mail.view_mail_form`
     </field>
 </data>
 ```
-
 Edit: [snippets/mint_system.mail.view_mail_form.show_email_layout_xmlid.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.view_mail_form.show_email_layout_xmlid.xml)\
 Source: [snippets/mint_system.mail.view_mail_form.show_email_layout_xmlid.xml](https://odoo.build/snippets/mint_system.mail.view_mail_form.show_email_layout_xmlid.xml)
 
@@ -826,6 +787,6 @@ Inherit ID: `mail.view_mail_tree`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.mail.view_mail_tree.editable.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.mail.view_mail_tree.editable.xml)\
 Source: [snippets/mint_system.mail.view_mail_tree.editable.xml](https://odoo.build/snippets/mint_system.mail.view_mail_tree.editable.xml)
+

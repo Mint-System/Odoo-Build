@@ -15,7 +15,6 @@ Inherit ID: `l10n_ch.isr_invoice_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.isr_invoice_form.disable_print_buttons.xml)\
 Source: [snippets/mint_system.l10n_ch.isr_invoice_form.disable_print_buttons.xml](https://odoo.build/snippets/mint_system.l10n_ch.isr_invoice_form.disable_print_buttons.xml)
 
@@ -39,7 +38,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.add_title_padding.xml)
 
@@ -65,7 +63,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_country_code.xml)
 
@@ -95,7 +92,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_street.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_street.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_street.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_street.xml)
 
@@ -112,7 +108,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.format_title_line_break.xml)
 
@@ -129,7 +124,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.modify_header_style.xml)
 
@@ -140,16 +134,15 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 
 ```xml
 <data priority="50">
-
+    
     <xpath expr="//div[@id='receipt_indication_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
     <xpath expr="//div[@id='receipt_indication_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
-
+    
     <xpath expr="//div[@id='indications_zone']//span[@t-field='o.company_id.country_id.code']" position="replace"/>
     <xpath expr="//div[@id='indications_zone']//div[4]/span[@t-field='o.partner_id.country_id.code']" position="replace"/>
-
+    
 </data>
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code.xml)
 
@@ -182,7 +175,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_country_id_code_hyphen_zip.xml)
 
@@ -199,7 +191,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.remove_title_prefix.xml)
 
@@ -219,7 +210,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_commercial_partner.xml)
 
@@ -255,7 +245,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.replace_title.xml)
 
@@ -272,7 +261,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.set_additional_information.xml)
 
@@ -299,7 +287,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.style_moser.xml)
 
@@ -319,6 +306,6 @@ Inherit ID: `l10n_ch.l10n_ch_swissqr_template`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml)\
 Source: [snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml](https://odoo.build/snippets/mint_system.l10n_ch.l10n_ch_swissqr_template.use_invoice_name.xml)
+

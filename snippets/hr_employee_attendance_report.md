@@ -12,7 +12,6 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
     <t t-out="attendance['date']" t-options="{'widget': 'date', 'format': 'EEE'}"/>
 </xpath>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.add_weekday.xml)
 
@@ -29,7 +28,6 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
      </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendance_table_attributes.xml)
 
@@ -67,7 +65,6 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.attendances_table_columns.xml)
 
@@ -88,7 +85,6 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
    </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.change_column_order.xml)
 
@@ -118,7 +114,6 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
     </xpath>
 </data>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_overtime.xml)
 
@@ -138,11 +133,11 @@ Inherit ID: `hr_employee_attendance_report.hr_employee_template`
              </div>
              <p style="margin-top: 10px;"><span class="light-text">Name:</span> <span t-out="doc.name"/>
              </p>
-
-         </div>
-     </xpath>
+            
+         </div>           
+     </xpath> 
 </data>
 ```
-
 Edit: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml)\
 Source: [snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml](https://odoo.build/snippets/mint_system.hr_employee_attendance_report.hr_employee_template.replace_report_head.xml)
+

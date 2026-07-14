@@ -15,7 +15,6 @@ Inherit ID: `subscription_oca.sale_subscription_form`
 </data>
 
 ```
-
 Edit: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml)\
 Source: [snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml](https://odoo.build/snippets/mint_system.subscription_oca.sale_subscription_form.edit_date_start.xml)
 
@@ -29,13 +28,13 @@ Inherit ID: `subscription_oca.view_sale_order_pending_filter`
 ```xml
 <data priority="50">
     <search position="replace">
-
+      
         <search>
             <field name="name" string="Subscription" filter_domain="['|', ('name', 'ilike', self), ('code', 'ilike', self)]"/>
             <field name="partner_id" operator="child_of"/>
             <field name="user_id"/>
             <field name="template_id"/>
-
+            
             <filter name="my_subscriptions" string="My Subscriptions" domain="[('user_id','=',uid)]"/>
             <filter string="Unassigned" name="contracts_not_assigned" help="Subscriptions that are not assigned to an account manager." domain="[('user_id', '=', False)]"/>
             <separator/>
@@ -62,11 +61,11 @@ Inherit ID: `subscription_oca.view_sale_order_pending_filter`
                 <filter string="End Date" name="end_month" domain="[]" context="{'group_by' : 'date'}"/>
             </group>
         </search>
-
+        
     </search>
 </data>
 
 ```
-
 Edit: [snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml)\
 Source: [snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml](https://odoo.build/snippets/mint_system.subscription_oca.view_sale_order_pending_filter.overwrite.xml)
+
