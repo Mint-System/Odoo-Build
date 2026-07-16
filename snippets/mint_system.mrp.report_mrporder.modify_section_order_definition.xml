@@ -26,7 +26,7 @@
      .col-6 {
       padding: 0 0 0 0;
     }
-    </style>
+        </style>
         <div class="row table th">
             <div class="col-2">
                 <span>Produkt</span>
@@ -56,7 +56,7 @@
                 <span>Menge</span>
             </div>
             <div class="col-4">
-      </div>
+            </div>
             <div class="col-6">
                 <span>Datum</span>
             </div>
@@ -71,11 +71,11 @@
                 </strong>
             </div>
             <div class="col-3">
-        Start: <span t-field="o.date_planned_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-      </div>
+        Start: <span t-field="o.date_start" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+            </div>
             <div class="col-3 text-end">
-                <strong>Termin: <span t-field="o.date_planned_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
-        </strong>
+                <strong>Termin: <span t-field="o.date_finished" t-options="{&quot;widget&quot;: &quot;date&quot;}"/>
+                </strong>
             </div>
         </div>
     </xpath>
