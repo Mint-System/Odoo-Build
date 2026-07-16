@@ -1,7 +1,7 @@
 <t t-name="stock.label_transfer_template_view.trimada">
     <t t-call="web.basic_layout">
         <t t-foreach="docs" t-as="picking">
-            <t t-foreach="picking.move_lines" t-as="move">
+            <t t-foreach="picking.move_line_ids" t-as="move">
                 <style>
                     .label {
                         font-family: arial;
@@ -22,7 +22,7 @@
                         padding-bottom: 3mm;
                     }
                     .title {
-                        font-size: 13mm;
+                        font-size: 11mm;
                         margin: 3mm 3mm 0 3mm;
                         font-weight: bold;
                         text-align: center;
@@ -70,8 +70,9 @@
                             <div class="col-6 box2">
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
-                            <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.barcode, 250, 85)" alt="Barcode"/>
+                            <div t-if="move.product_id.barcode" class="col-6 box2 text-end">
+                                <img t-att-src="'/report/barcode/Code128/%s?width=250&amp;height=85&amp;quiet=0' % move.product_id.barcode"
+                                     alt="Barcode"/>
                             </div>
                         </div>
                         <div class="frame">
@@ -92,7 +93,7 @@
                                 </div>
                             </div>
                             <div class="col-6 box3">
-                                <div t-if="move.product_id.feeder_id" class="text-right">
+                                <div t-if="move.product_id.feeder_id" class="text-end">
                                     <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', move.product_id.feeder_id, 250, 80)" alt="Barcode"/>
                                     <br/>
                                 </div>
@@ -102,7 +103,7 @@
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
                         </div>
                     </div>
                 </div>

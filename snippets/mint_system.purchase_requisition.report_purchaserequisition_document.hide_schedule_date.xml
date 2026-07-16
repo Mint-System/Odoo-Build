@@ -1,0 +1,9 @@
+<data inherit_id="purchase_requisition.report_purchaserequisitions" priority="50">
+
+  <xpath expr="//th[4]" position="replace"/>
+  <xpath expr="//td[4]" position="replace"/>
+  
+  <xpath expr="//th[4]" position="replace"/>
+  <xpath expr="//td[4]" position="replace"/>
+  
+</data>

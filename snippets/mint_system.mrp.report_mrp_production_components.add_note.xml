@@ -1,0 +1,25 @@
+<data priority="50">
+    <xpath expr="//table[@id='section_consumed_products']" position="after">
+        <style>
+        table#note {
+        width: 100%;
+        margin: 0 10px 10px 10px;
+        font-size: 10pt;
+        }    
+        </style>
+
+        <h3 style="margin-top: 50px">
+            <span>
+            Note
+            </span>
+        </h3>
+
+        <table id="note">
+            <tr>
+                <td>
+                    <span t-field="o.x_note"/>
+                </td>
+            </tr>
+        </table>
+    </xpath>
+</data>
