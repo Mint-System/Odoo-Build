@@ -65,7 +65,7 @@
                                 <span t-esc="product.default_code"/>
                             </div>
                             <div t-if="product.barcode" class="col-6 box2 text-right">
-                                <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.barcode, 250, 85)" alt="Barcode"/>
+                                <span t-field="product.barcode" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 85,'quiet': 0,'img_style': 'width:250px;height:85px;' }"/>
                             </div>
                         </div>
                         <div class="frame">
@@ -79,7 +79,7 @@
                         <div class="row delivery">
                             <div class="col-12 box3 text-center">
                                 <div t-if="product.feeder_id">
-                                    <img t-att-src="'/report/barcode/?type=%s&amp;value=%s&amp;width=%s&amp;height=%s&amp;quiet=0' % ('Code128', product.feeder_id, 250, 80)" alt="Barcode"/>
+                                    <span t-field="product.feeder_id" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 80,'quiet': 0,'img_style': 'width:250px;height:80px;' }"/>
                                     <br/>
                                 </div>
                                 <div class="text-center">
@@ -88,7 +88,7 @@
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
                         </div>
                     </div>
                     <p style="page-break-before:always;"/>

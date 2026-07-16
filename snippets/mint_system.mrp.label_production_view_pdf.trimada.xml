@@ -16,10 +16,10 @@
             margin: 2mm 0 2mm 0;
           }
           .padding {
-              padding-bottom: 3mm;
+              padding-bottom: 0mm;
           }
           .title {
-              font-size: 13mm;
+              font-size: 11mm;
               margin: 3mm 3mm 0 3mm;
               font-weight: bold;
               text-align: center;
@@ -27,7 +27,7 @@
               line-height: 1;
           }
           .description {
-              font-size: 10mm;
+              font-size: 9mm;
               margin: 0 3mm 0 3mm;
               text-align: center;
               height: 23mm;
@@ -48,7 +48,7 @@
               border-bottom: solid 1px;
           }
           .order {
-              font-size: 8mm;
+              font-size: 7mm;
               margin: 3mm 3mm 0 3mm;
               text-align: left;
               border-bottom: solid 1px;
@@ -62,21 +62,22 @@
               font-size: 5mm;
               text-align: center;
               height: 8mm;
-              line-height: 12mm;
+              line-height: 10mm;
           }
           .col-6 {
             padding-right: 0;
             padding-left: 0;
           }
-        </style>
+                </style>
+
                 <div class="page">
                     <div class="label">
                         <div class="row title">
                             <div class="col-6 box2">
                                 <span t-esc="move.product_id.default_code"/>
                             </div>
-                            <div t-if="move.product_id.barcode" class="col-6 box2 text-right">
-                                <span t-field="move.product_id.barcode" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:85px;'}"/>
+                            <div t-if="move.product_id.barcode" class="col-6 box2 text-end">
+                                <span t-field="move.product_id.barcode" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 85,'quiet': 0,'img_style': 'width:250px;height:85px;' }"/>
                             </div>
                         </div>
                         <div class="description">
@@ -88,7 +89,7 @@
                         <div class="row order">
                             <div class="col-6 box3">
                                 <div class="padding info">
-                                    <span t-esc="production.date_planned_finished" t-options="{'widget': 'date'}"/>
+                                    <span t-esc="production.date_finished" t-options="{'widget': 'date'}"/>
                                 </div>
                                 <div class="padding">
                                     <strong>
@@ -97,17 +98,17 @@
                                 </div>
                             </div>
                             <div class="col-6 box">
-                                <div t-if="production.name" class="text-right">
-                                    <span t-field="production.name" t-options-quiet="0" t-options="{'widget': 'barcode', 'img_style': 'float:right; width:250px; height:80px;'}"/>
+                                <div t-if="production.name" class="text-end">
+                                    <span t-field="production.name" t-options="{'widget': 'barcode', 'symbology': 'Code128', 'width': 250,'height': 80,'quiet': 0,'img_style': 'width:250px;height:80px;' }"/>
                                 </div>
                             </div>
                         </div>
                         <div class="comment">
-                            <span>Trimada AG, CH-5610 Wohlen &#x2013; www.trimada.ch</span>
+                            <span>Trimada AG, CH-5610 Wohlen – www.trimada.ch</span>
                         </div>
                     </div>
                 </div>
-            </t>
+             </t>
         </t>
     </t>
 </t>
