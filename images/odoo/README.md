@@ -246,10 +246,10 @@ docker compose exec odoo aggregate-git-repos
 
 ### Download Odoo Enterprise
 
-Run the `download-git-archive` script to download the [Odoo Enterprise modules](https://github.com/odoo/enterprise/):
+Run the `download-odoo-enterprise` script to download the [Odoo Enterprise modules](https://github.com/odoo/enterprise/):
 
 ```bash
-docker compose exec odoo download-git-archive
+docker compose exec odoo download-odoo-enterprise
 ```
 
 This script requires `GITHUB_USERNAME` and `GITHUB_PAT`. The image has a pre-defined `ODOO_ENTERPRISE_REF` and `ODOO_ENTERPRISE_PATH`.
@@ -564,7 +564,7 @@ Under the hood the image uses several scripts to manage Odoo. Make yourself fami
 - [`check-database-initialized`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/check-database-initialized)
 - [`clone-git-addons`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/clone-git-addons)
 - [`config`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/config)
-- [`download-git-archive`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-git-archive)
+- [`download-odoo-enterprise`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/download-odoo-enterprise)
 - [`init-db`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-db)
 - [`init-module`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/init-module)
 - [`install-python-packages`](https://github.com/Mint-System/Odoo-Build/blob/main/images/odoo/bin/install-python-packages)
