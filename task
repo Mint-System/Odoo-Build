@@ -284,6 +284,7 @@ POSTGRES_SSL=${POSTGRES_SSL:=on}
 PGSSLMODE=${PGSSLMODE:=prefer}
 LOG_LEVEL=${LOG_LEVEL:=info}
 CONTAINER_REGISTRY=${CONTAINER_REGISTRY:=mintsystem}
+CONTAINER_NETWORK=${CONTAINER_NETWORK:=odoo-build_default}
 PLATFORM=${PLATFORM:=linux/amd64}
 CONTAINER_ENGINE=${CONTAINER_ENGINE:=docker}
 COMPOSE_COMMAND=${COMPOSE_COMMAND:=docker compose}
@@ -701,9 +702,12 @@ template-compose() {
     if [[ -d "./themes" ]]; then
         VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./themes:/mnt/themes"$'\n'
     fi
+    # if [[ -n "$ODOO_ADDONS_PATH" ]] && [[ -d "$ODOO_ADDONS_PATH" ]]; then
+    #     VOLUME_MOUNTS="${VOLUME_MOUNTS}      - ./$ODOO_ADDONS_PATH:/mnt/extra-addons"$'\n'
+    # fi
     VOLUME_MOUNTS="${VOLUME_MOUNTS%$'\n'}"
     export VOLUME_MOUNTS
-    
+
     envsubst < "compose.yml.template" > "compose.yml"
 }
 

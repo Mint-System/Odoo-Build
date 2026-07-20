@@ -159,4 +159,4 @@ volumes:
   mail-data:
 networks:
   default:
-    name: odoo-build_default
+    name: "${CONTAINER_NETWORK}"
