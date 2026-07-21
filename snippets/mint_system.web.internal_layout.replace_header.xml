@@ -1,4 +1,4 @@
-<data priority="50">
+<data inherit_id="web.internal_layout" priority="50">
     <xpath expr="//div[@class='header']" position="replace">
         <div class="header">
             <div class="row">
@@ -6,8 +6,8 @@
                 </div>
                 <div class="col-4 text-center">
                 </div>
-                <div class="col-4 text-right">
-                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:61px; margin-right: 40px;"/>
+                <div class="col-4 text-end">
+                    <img t-if="company.logo" t-att-src="image_data_uri(company.logo)" alt="Logo" style="height:72px; margin-right:-5mm;"/>
                 </div>
             </div>
         </div>
