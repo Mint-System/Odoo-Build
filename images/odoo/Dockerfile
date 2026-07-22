@@ -154,10 +154,8 @@ COPY ./images/odoo/bin/* /usr/local/bin/
 COPY ./images/odoo/entrypoint.sh /
 COPY ./images/odoo/odoo.conf.template /etc/odoo/
 
-# Set the working directory
-WORKDIR /opt/odoo
-
 # Setup folder and permissions:
+# Home: /home/odoo
 # Config: /etc/odoo
 # Data: /var/lib/odoo
 # Python: /opt/odoo/venv
@@ -165,11 +163,23 @@ WORKDIR /opt/odoo
 RUN mkdir -p /var/lib/odoo \
     && mkdir -p /mnt/extra-addons
 
-# Set OpenShift compatible permissions - Make directories writable by any user ID
-RUN chmod -R 775 /etc/odoo \
+# Set OpenShift compatible permissions - arbitrary UID runs as gid 0
+RUN chmod -R g=u /home/odoo \
+    /etc/odoo \
     /var/lib/odoo \
     /opt/odoo/venv \
     /mnt/extra-addons
+RUN chmod -R g=u /home/odoo \
+    /etc/odoo \
+    /var/lib/odoo \
+    /opt/odoo/venv \
+    /mnt/extra-addons
+
+# Set the working directory
+WORKDIR /opt/odoo
+
+# Set home directory
+ENV HOME=/home/odoo
 
 # Nginx configuration
 RUN mkdir -p /var/cache/nginx/odoo

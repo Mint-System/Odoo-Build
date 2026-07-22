@@ -422,7 +422,7 @@ The entrypoint script searches for module folders in the addons path and creates
 
 - `ODOO_ADDONS_PATH` Comma seperated list of container paths pointing to addon folders. Default is:
   - `/mnt/extra-addons` Default location for custom modules.
-  - `/var/lib/odoo/enterprise` Reserved location for Odoo enterprise modules.
+  - `/var/lib/odoo/enterprise` Reserved location for Odoo Enterprise modules.
   - `/var/lib/odoo/git` Reserved location for git repos.
   - `TEST_ADDONS_DIR` Variable location for module testing.
   - `/opt/odoo/addons` Reserved location for Odoo community modules.
@@ -544,16 +544,18 @@ See [Odoo Build > Build and publish container image](https://odoo.build/#build-a
 
 The most important image paths are:
 
-- `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files.
-- `/mnt/extra-addons` Nested module folders are loaded from this path by default.
-- `/mnt/test-addons` Default mount path for modules to test.
-- `/opt/odoo/addons` Contains the Odoo community edition modules.
-- `/opt/odoo/venv` This is where Odoo packages are installed.
-- `/var/lib/odoo` Odoo data folder for persistence.
-- `/var/lib/odoo/enterprise` Odoo enterprise modules are downloaded to this folder.
-- `/var/lib/odoo/filestore` For every database name Odoo creates a filestore.
-- `/var/lib/odoo/git` The cloned module repos are stored here.
-- `/var/lib/odoo/sessions` Location where werkzeug stores session information.
+- `/etc/odoo` Contains the `odoo.conf` and `odoo.conf.template` files
+- `/home/odoo` Home directory of the container user
+- `/mnt/extra-addons` Nested module folders are loaded from this path by default
+- `/mnt/test-addons` Default mount path for modules to test
+- `/opt/odoo` Location for Odo source
+- `/opt/odoo/addons` Contains the Odoo community edition modules
+- `/opt/odoo/venv` Virtual environment for Python runtime and packages
+- `/var/lib/odoo` Odoo data folder for persistence
+- `/var/lib/odoo/enterprise` Odoo Enterprise modules are downloaded to this folder
+- `/var/lib/odoo/filestore` For every database Odoo creates a filestore
+- `/var/lib/odoo/git` The cloned module repos are stored here
+- `/var/lib/odoo/sessions` Location where werkzeug stores session information
 
 ### Scripts
 
