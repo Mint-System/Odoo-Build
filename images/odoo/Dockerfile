@@ -160,20 +160,13 @@ COPY ./images/odoo/odoo.conf.template /etc/odoo/
 # Data: /var/lib/odoo
 # Python: /opt/odoo/venv
 # Addons: /mnt/extra-addons
-RUN mkdir -p /var/lib/odoo \
-    && mkdir -p /mnt/extra-addons
+
+# Create folders
+RUN mkdir -p /home/odoo /var/lib/odoo /mnt/extra-addons
 
 # Set OpenShift compatible permissions - arbitrary UID runs as gid 0
-RUN chmod -R g=u /home/odoo \
-    /etc/odoo \
-    /var/lib/odoo \
-    /opt/odoo/venv \
-    /mnt/extra-addons
-RUN chmod -R g=u /home/odoo \
-    /etc/odoo \
-    /var/lib/odoo \
-    /opt/odoo/venv \
-    /mnt/extra-addons
+RUN chgrp -R 0 /home/odoo /etc/odoo /var/lib/odoo /opt/odoo/venv /mnt/extra-addons \
+    && chmod -R g=u /home/odoo /etc/odoo /var/lib/odoo /opt/odoo/venv /mnt/extra-addons
 
 # Set the working directory
 WORKDIR /opt/odoo
