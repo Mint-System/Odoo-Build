@@ -6,7 +6,7 @@
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
-        border-color: white;
+        border: transparent;
       }
         table#info tr {
         line-height: 1.2;

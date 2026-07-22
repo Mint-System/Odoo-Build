@@ -4,7 +4,7 @@
       table#footer {
         width: 100%;
         font-size: 8pt;
-        border-color: white;
+        border-color: transparent;
       }
       table#footer tr, td {
         vertical-align: top;

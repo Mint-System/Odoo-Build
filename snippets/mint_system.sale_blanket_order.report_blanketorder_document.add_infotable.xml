@@ -6,6 +6,7 @@
         margin-bottom: 25px;
         font-size: 9pt;
         font-family: arial;
+        border-color: white;
       }
         table#info tr {
         line-height: 1.2;
@@ -43,7 +44,7 @@
                 </td>
                 <td>Incoterm</td>
                 <td>
-                    <span t-field="doc.incoterm"/>
+                    <span t-field="doc.incoterm.name"/>
                 </td>
             </tr>
             <tr>
