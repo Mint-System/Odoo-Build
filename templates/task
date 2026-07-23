@@ -174,8 +174,8 @@ else
     case "$1" in
         all)
             install
-            lint
             docs
+            lint
             build
             ;;
         *)
