@@ -2840,14 +2840,21 @@ checkout() {
 
     # Load .gitmodules and .python-version
     load-version "$ODOO_VERSION"
+
     # Set .env
     load-revision "$ODOO_VERSION"
+
     # Clone the addons
     clone-git-folder .
+
     # Checkout commit ref
     checkout-git-folder "$ODOO_VERSION" .
-    # Upate branch
+
+    # Update branch
     switch-git-folder "$ODOO_VERSION" .
+
+    # List git folders
+    list-git-folder .
 }
 
 save-version() {
