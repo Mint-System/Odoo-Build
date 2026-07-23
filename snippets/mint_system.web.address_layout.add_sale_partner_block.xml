@@ -1,0 +1,16 @@
+<data priority="50">
+    <xpath expr="//t[@t-if='information_block']" position="before">
+        <t t-if="show_sale_partner_block">
+            <div name="sale_partner_block" class="col-4">
+                <t t-raw="sale_partner_block"/>
+            </div>
+        </t>
+    </xpath>
+    
+    <xpath expr="//div[@name='information_block']" position="attributes">
+        <attribute name="t-att-class">'col-4' if show_sale_partner_block else 'col-6'</attribute>
+    </xpath>
+    <xpath expr="//div[@name='address']" position="attributes">
+        <attribute name="t-att-class">'col-4' if show_sale_partner_block else (not custom_layout_address and colclass or information_block and colclass)</attribute>
+    </xpath>
+</data>
