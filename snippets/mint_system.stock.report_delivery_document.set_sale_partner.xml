@@ -1,0 +1,7 @@
+<data priority="50">
+  <xpath expr="//div[@name='customer_address']" position="inside">
+      <t t-if="o.sale_id and o.sale_id.partner_id and o.partner_id and o.sale_id.partner_id != o.partner_id">
+          <t t-set="partner" t-value="o.sale_id.partner_id"/>
+      </t> 
+  </xpath>
+</data>
