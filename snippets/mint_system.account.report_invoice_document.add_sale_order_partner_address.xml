@@ -1,0 +1,26 @@
+<data priority="50">    
+    <xpath expr="//t[@t-if='o.partner_shipping_id and (o.partner_shipping_id != o.partner_id)']" position="before">
+        <t t-set="sale_order" t-value="o.invoice_line_ids.sale_line_ids.order_id[:1]"/>
+        <t t-set="show_sale_partner_block" t-value="bool(sale_order and sale_order.partner_id and sale_order.partner_id != o.commercial_partner_id)"/>
+        <div class="col-4" name="sale_order_customer_address_block_wrapper">
+            <t t-set="sale_partner_block">
+                <div t-if="sale_order and sale_order.partner_id and sale_order.partner_id != o.commercial_partner_id">
+                    <strong class="d-block mt-3">Customer Address</strong>
+                    <div t-field="sale_order.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
+                </div>
+            </t>
+        </div>
+    </xpath>
+    <xpath expr="//div[@class='col-6'][t[@t-set='information_block']]" position="attributes">
+        <attribute name="class">'col-4' if show_sale_partner_block else 'col-6'</attribute>
+    </xpath>
+    <xpath expr="//div[@name='address_not_same_as_shipping']" position="attributes">
+        <attribute name="class">'col-4' if show_sale_partner_block else 'col-6'</attribute>
+    </xpath>
+    <xpath expr="//div[@name='address_same_as_shipping']" position="attributes">
+        <attribute name="class">'offset-col-4 col-4' if show_sale_partner_block else 'offset-col-6 col-6'</attribute>
+    </xpath>
+    <xpath expr="//div[@name='no_shipping']" position="attributes">
+        <attribute name="class">'offset-col-4 col-4' if show_sale_partner_block else 'offset-col-6 col-6'</attribute>
+    </xpath>
+</data>
