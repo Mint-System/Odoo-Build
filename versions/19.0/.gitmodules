@@ -19,7 +19,7 @@
 	path = addons/server_tools
 	url = git@github.com:Mint-System/Odoo-Apps-Server-Tools.git
 	branch = 19.0
-	commit = fa0218830558698521f0c41b475b7e14280746a0
+	commit = e401af72f882be55bf1eca3cc4d1c1693875cb93
 [submodule "oca/partner-contact"]
 	path = oca/partner-contact
 	url = git@github.com:OCA/partner-contact.git
@@ -34,7 +34,7 @@
 	path = addons/sale_workflow
 	url = git@github.com:Mint-System/Odoo-Apps-Sale-Workflow.git
 	branch = 19.0
-	commit = a37ec7a899e5ebe043107e28bd06a431b5b95e89
+	commit = 1c5326fd0a061604d664364afe972560b8b54f34
 [submodule "addons/account_invoicing"]
 	path = addons/account_invoicing
 	url = git@github.com:Mint-System/Odoo-Apps-Account-Invoicing.git
@@ -105,3 +105,8 @@
 	url = git@github.com:Mint-System/manufacture.git
 	branch = 19.0
 	commit = 3d485d5f69f7493fb782cfd48329bd9e9616175b
+[submodule "oca/openupgrade"]
+	path = oca/openupgrade
+	url = git@github.com:OCA/OpenUpgrade.git
+	branch = 19.0
+	commit = c8f348669c109724961c865d96621bb42e73f44d
