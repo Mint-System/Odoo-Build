@@ -114,11 +114,11 @@ help-table() {
     rows+=("init-repo-branch|[path]|Create branch for current Odoo version in repo.")
     rows+=("generate-module-docs|[path]|Generate readme file for module with OCA tools.")
     rows+=("generate-module-model|[path][model]|Generate model in module folder.")
-    rows+=("generate-module-inherit|[path][model]|Generate inherited model in module folder.")
+    rows+=("generate-module-inherit-model|[path][model]|Generate inherited model in module folder.")
     rows+=("generate-module-views|[path][model]|Generate model views in module folder.")
     rows+=("generate-module-security|[path][model]|Generate model access file.")
     rows+=("generate-module-migration|[path]|Generate migration script for currentmodule version.")
-    rows+=("generate-module-snippet|[path][ref][model]|Generate snippet for referefenced view.")
+    rows+=("generate-module-inherit-view|[path][ref][model]|Generate snippet for referefenced view.")
     rows+=("generate-module-report|[path][model]|Generate report for a model in module folder.")
     rows+=("generate-module-translation|[path]|Generate module translation and update with llm.")
     rows+=("generate-module-wizard|[path][model]|Generate wizard for a model in module folder.")
@@ -2433,7 +2433,7 @@ generate-module-translation() {
     task update-with-llm "$module_path/i18n/de.po" "Add missing translations."
 }
 
-generate-module-inherit() {
+generate-module-inherit-model() {
     if [[ -z "$1" ]]; then
         echo '$1 is empty.'
         exit
@@ -2467,12 +2467,12 @@ generate-module-views() {
     echo 'Substitute view template'
     mkdir -p "$module_path/views"
     export-module-vars "$1" "$2"
-    envsubst < templates/model_views.xml > "$module_path/views/${MODEL_NAME}_views.xml"
+    envsubst < templates/view.xml > "$module_path/views/${MODEL_NAME}.xml"
     echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
+    echo -e "\t\"views/${MODEL_NAME}.xml\","
 }
 
-generate-module-snippet() {
+generate-module-inherit-view() {
     if [[ -z "$1" ]]; then
         echo '$1/path is empty.'
         exit
@@ -2487,12 +2487,12 @@ generate-module-snippet() {
     fi
     local module_path="$1"
 
-    echo 'Substitute snippet template'
+    echo 'Substitute inherit template'
     mkdir -p "$module_path/views"
     export-module-inherit-vars "$1" "$2" "$3" # addons/sale_workflow/sale_helm sale.view_order_form sale.order
-    envsubst < templates/model_snippet.xml > "$module_path/views/${MODEL_NAME}_views.xml"
+    envsubst < templates/inherit.xml > "$module_path/views/${MODEL_NAME}.xml"
     echo "Update file $MODULE_NAME/__manifest__.py with:"
-    echo -e "\t\"views/${MODEL_NAME}_views.xml\","
+    echo -e "\t\"views/${MODEL_NAME}.xml\","
 }
 
 generate-module-report() {
@@ -2510,9 +2510,9 @@ generate-module-report() {
     echo 'Substitute view template'
     mkdir -p "$module_path/report"
     export-module-vars "$1" "$2"
-    envsubst < templates/model_templates.xml > "$module_path/report/${MODEL_NAME}_templates.xml"
+    envsubst < templates/template.xml > "$module_path/report/${MODEL_NAME}.xml"
     echo "Update file $module_name/__manifest__.py with:"
-    echo -e "\t\"report/${MODEL_NAME}_templates.xml\","
+    echo -e "\t\"report/${MODEL_NAME}.xml\","
 }
 
 release-module() {

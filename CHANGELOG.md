@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+## 2026-07-27
+
 ### Fixed
 
 - Removed unnecessary `local` keyword in `list-databases` script to avoid scoping issues.
@@ -55,6 +57,12 @@ All notable changes to this project will be documented in this file. The format 
 - **BREAKING**: Renamed `ODOO_DATABASE` to `DB_NAME` across all scripts, templates, and documentation.
 - Help table section `===GENERATE===` renamed to `===DEVELOP===`.
 - Help table section `===DOCS===` renamed to `===DOC===`.
+- Renamed `generate-module-inherit` to `generate-module-inherit-model`.
+- Renamed `generate-module-snippet` to `generate-module-inherit-view`.
+- Renamed `generate-module-views` output file from `${MODEL_NAME}_views.xml` to `${MODEL_NAME}.xml`.
+- Renamed `generate-module-inherit-view` output file from `${MODEL_NAME}_views.xml` to `${MODEL_NAME}.xml`.
+- Renamed `generate-module-report` output file from `${MODEL_NAME}_templates.xml` to `${MODEL_NAME}.xml`.
+- Updated template file names: `model_views.xml` to `view.xml`, `model_snippet.xml` to `inherit.xml`, `model_templates.xml` to `template.xml`.
 
 ## 2025-09-12
 
@@ -97,7 +105,6 @@ All notable changes to this project will be documented in this file. The format 
 - The `build.yml` workflow builds the Docker image.
 
 ### Fixed
-
 - Change sysctl conf file.
 - Add submodule will checout branch.
 
