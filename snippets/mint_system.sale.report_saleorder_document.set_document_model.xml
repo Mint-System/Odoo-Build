@@ -1,0 +1,5 @@
+<data priority="50">    
+    <xpath expr="//t[@t-call='web.external_layout']" position="before">
+        <t t-set="document_model" t-value="'saleorder'"/>
+    </xpath>    
+</data>

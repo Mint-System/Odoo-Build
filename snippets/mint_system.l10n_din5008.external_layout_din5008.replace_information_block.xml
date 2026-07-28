@@ -24,7 +24,7 @@
                 <t t-if="o and 'l10n_din5008_template_data' in o" t-set="template_data" t-value="o.l10n_din5008_template_data"/>
                 <table>
 
-                    <t t-if="o._name not in ['sale.order', 'stock.picking']">
+                    <t t-if="document_model not in ['saleorder', 'stockpicking']">
 
                         <tr>
                             <td colspan="2" style="font-size: 14px; font-weight: bold; padding-bottom: 7px; white-space: nowrap;">
@@ -44,7 +44,7 @@
                     </t>
 
                     <!-- Ausgangsrechnung -->
-                    <t t-if="o._name == 'account.move'">
+                    <t t-if="document_model == 'accountmove'">
                         <tr>
                             <td>
                                 <span>Invoice No.</span>
@@ -112,7 +112,7 @@
                     </t>
 
                     <!-- Angebot/Verkaufsauftrag  -->
-                    <t t-if="o._name == 'sale.order'">
+                    <t t-if="document_model == 'saleorder'">
 
                         <t t-if="is_pro_forma">
                             <tr>
@@ -219,7 +219,7 @@
                     </t>
 
                     <!-- Bestellung  -->
-                    <t t-if="o._name == 'purchase.order'">
+                    <t t-if="document_model == 'purchaseorder'">
                         <tr>
                             <td>
                                 <span>Purchase No.</span>
@@ -259,7 +259,7 @@
                     </t>
 
                     <!-- Lieferschein  -->
-                    <t t-if="o._name == 'stock.picking'">
+                    <t t-if="document_model == 'stockpicking'">
 
                         <t t-if="valued">
                             <tr>
