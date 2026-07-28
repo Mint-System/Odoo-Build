@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//div[@t-field='company.report_footer']" position="attributes">
+        <attribute name="t-if">o and o._name == 'account.move'</attribute>
+    </xpath>
+</data>
