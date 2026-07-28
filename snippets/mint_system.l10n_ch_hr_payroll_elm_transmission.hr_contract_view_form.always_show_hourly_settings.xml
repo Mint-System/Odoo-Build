@@ -1,0 +1,17 @@
+<data priority="50">
+    <xpath expr="//label[@for='l10n_ch_contractual_holidays_rate']" position="attributes">
+        <attribute name="invisible"/>
+    </xpath>
+    <xpath expr="//div[@name='l10n_ch_contractual_holidays_rate']" position="attributes">
+        <attribute name="invisible"/>
+    </xpath>
+    <xpath expr="//label[@for='l10n_ch_contractual_public_holidays_rate']" position="attributes">
+        <attribute name="invisible"/>
+    </xpath>
+    <xpath expr="//div[@name='l10n_ch_contractual_public_holidays_rate']" position="attributes">
+        <attribute name="invisible"/>
+    </xpath>
+    <xpath expr="//field[@name='l10n_ch_contractual_vacation_pay']" position="attributes">
+        <attribute name="invisible"/>
+    </xpath>
+</data>
