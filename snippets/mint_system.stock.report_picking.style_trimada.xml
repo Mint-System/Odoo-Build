@@ -1,6 +1,7 @@
-<data priority="60">
-    <xpath expr="//div[hasclass('page')]" position="before">
-        <style>
+<data inherit_id="stock.report_picking" priority="60">
+
+	<xpath expr="//div[hasclass('page')]" position="before">
+		<style>
 		  p {
 		    font-size: 9pt;
 				font-family: arial;
@@ -51,6 +52,9 @@
 			table.trimada tbody td span#product_uom_qty {
 			  font-weight: bold;
 			}
+			table.trimada tbody td span#quantity_product_uom {
+			  font-weight: bold;
+			}
 			table.trimada tbody td span#product_uom_qty_done {
 			  font-weight: bold;
 			}
@@ -88,11 +92,10 @@
 				padding-bottom: 3mm;
 			}
 		</style>
-    </xpath>
-    <xpath expr="//th[@name='th_product']/../../.." position="attributes">
-        <attribute name="class" separator=" " add="trimada table-borderless text-start"/>
-    </xpath>
-    <xpath expr="//th[@name='th_barcode']" position="attributes">
-        <attribute name="class">text-end</attribute>
-    </xpath>
+	</xpath>
+
+.	<xpath expr="//th[@name='th_product']/../../.." position="attributes">
+		<attribute name="class" separator=" " add="trimada table-borderless"/>
+	</xpath>
+
 </data>

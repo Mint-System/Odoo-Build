@@ -5,12 +5,15 @@
         width: 100%;
         font-size: 8pt;
         line-height: 1.5;
-        border-color: white;
+        border: transparent;
       }
       table#footer tr, td {
         vertical-align: top;
       }
-    </style>
+      table#inner_table {
+        border: transparent;
+      }
+        </style>
         <table id="footer">
             <tr>
                 <td width="40%" t-if="doc.payment_term_id">
@@ -19,7 +22,7 @@
                 </td>
                 <td width="60%">
           Delivery according to our general delivery conditions
-        </td>
+                </td>
             </tr>
             <tr>
                 <td>
@@ -27,28 +30,28 @@
                     <span t-field="doc.company_id.vat"/>
                 </td>
                 <td>
-                    <table width="100%">
+                    <table id="inner_table" width="100%">
                         <tr>
                             <td width="35%">
                Bank accounts:
-            </td>
+                            </td>
                             <td width="65%">
               UBS AG, 6301 Zug, BLZ 273, SWIFT UBSWCHZH80A
-             </td>
+                            </td>
                         </tr>
                         <tr>
                             <td>
-            </td>
+                            </td>
                             <td>
             (CHF) IBAN CH63 0027 3273 Q978 6962 0
-            </td>
+                            </td>
                         </tr>
                         <tr>
                             <td>
-            </td>
+                            </td>
                             <td>
             (EUR) IBAN CH59 0027 3273 HN10 3698 0
-            </td>
+                            </td>
                         </tr>
                     </table>
                 </td>

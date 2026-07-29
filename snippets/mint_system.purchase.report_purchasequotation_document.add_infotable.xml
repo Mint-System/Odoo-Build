@@ -37,7 +37,7 @@
                 </td>
                 <td>Incoterm</td>
                 <td>
-                    <span t-field="o.incoterm_id"/>
+                    <span t-field="o.incoterm_id.name"/>
                 </td>
             </tr>
             <tr>
