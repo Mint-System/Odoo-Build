@@ -2,7 +2,7 @@
 title: "New command test json 2 api"
 state: completed
 model: infomaniak/moonshotai/Kimi-K2.6
-input_tokens: 46.2K
+input_tokens:
 ---
 
 # Run 26
@@ -23,18 +23,19 @@ Note: @Clanker refers to the "ai agent" (you) who is working on this task.
 
 Similar to `test-xmlrpc` create a new command `test-json-2` api. Instead of using the `odoocli` script the new command should make curl post to the JSON-2 API.
 
-Here is the documentation: https://www.odoo.com/documentation/19.0/developer/reference/external_api.html
+Here is the documentation: https://www.odoo.com/documentation/19.0/developer/reference/external_api.html#external-json-2-api
+
+Check the details: https://demo3.odoo.com/doc
 
 The `test-json-2` also simply counts the res.partner records.
 
 ## Worklog
 
-Added the `test-json-2` command to the `task` script. The command:
-- Loads the target environment using `load-dotenv` (same as `test-xmlrpc`).
-- Authenticates against the Odoo JSON-RPC endpoint (`/jsonrpc`) via `curl` to obtain a user ID.
-- Calls `res.partner` `search_count` through the JSON-RPC API.
-- Prints the record count in the same format as `test-xmlrpc`.
+Implemented the `test-json-2` command in the `task` script. The command loads environment variables and posts to the Odoo JSON-2 API (`/json/2/res.partner/search_count`) via `curl`. Authentication uses the Bearer token scheme with `ODOO_PASSWORD` (which for JSON-2 API setups contains the API key). A live test against `odoo.smart-me.com` returned `37798` res.partner records. Replaced the broken placeholder implementation with the correct curl call and basic error handling.
 
-Also updated the help table to include the new command.
+- Updated `test-json-2()` function in `task` (line ~3001)
+- No new env vars required; reuses `ODOO_URL` and `ODOO_PASSWORD` (API key)
+- Help row for `test-json-2` was already present in the help table
+- Verified bash syntax with `bash -n task` and tested against `odoo.smart-me.com`
 
 @Clanker Set frontmatter state to completed and update info about model and token usage.

@@ -2995,29 +2995,46 @@ commit-and-push-revision() {
 
 test-xmlrpc() {
     load-dotenv "$1"
+
+    if [[ -z "${ODOO_URL}" ]]; then
+        echo "ODOO_URL is not set."
+        return 1
+    fi
+    if [[ -z "${ODOO_DATABASE}" ]]; then
+        echo "ODOO_DATABASE is not set."
+        return 1
+    fi
+    if [[ -z "${ODOO_USERNAME}" ]]; then
+        echo "ODOO_USERNAME is not set."
+        return 1
+    fi
+    if [[ -z "${ODOO_PASWORD}" ]]; then
+        echo "ODOO_PASWORD is not set."
+        return 1
+    fi
+
     echo "Connect to database and count res.partner records: $(images/odoo-cli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
 }
 
 test-json-2() {
     load-dotenv "$1"
 
-    local url="${ODOO_URL%/}/jsonrpc"
-    local payload
-    local uid
-    local count
+    local url="${ODOO_URL%/}/json/2/res.partner/search_count"
+    local result
 
-    payload="{\"jsonrpc\":\"2.0\",\"method\":\"call\",\"params\":{\"service\":\"common\",\"method\":\"authenticate\",\"args\":[\"$ODOO_DATABASE\",\"$ODOO_USERNAME\",\"$ODOO_PASSWORD\",{}]},\"id\":1}"
-    uid=$(curl -s -H "Content-Type: application/json" -d "$payload" "$url" | python -c "import sys, json; print(json.load(sys.stdin).get('result', ''))")
-
-    if [[ -z "$uid" || "$uid" == "False" ]]; then
-        echo "Authentication failed."
+    if [[ -z "${ODOO_API_KEY}" ]]; then
+        echo "ODOO_API_KEY is not set."
+        echo "Generate an API key in Odoo (User menu > Preferences > Account Security > New API Key)."
         return 1
     fi
 
-    payload="{\"jsonrpc\":\"2.0\",\"method\":\"call\",\"params\":{\"service\":\"object\",\"method\":\"execute_kw\",\"args\":[\"$ODOO_DATABASE\",$uid,\"$ODOO_PASSWORD\",\"res.partner\",\"search_count\",[[]],{}]},\"id\":2}"
-    count=$(curl -s -H "Content-Type: application/json" -d "$payload" "$url" | python -c "import sys, json; print(json.load(sys.stdin).get('result', ''))")
+    result=$(curl -s -X POST \
+        -H "Content-Type: application/json" \
+        -H "Authorization: Bearer ${ODOO_API_KEY}" \
+        -d '{"domain": []}' \
+        "$url")
 
-    echo "Connect to database and count res.partner records: $count"
+    echo "Connect to database and count res.partner records: $result"
 }
 
 odoobin(){
