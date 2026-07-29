@@ -2578,7 +2578,7 @@ register-module-repos() {
     echo "Path: $path"
     echo ""
 
-    ./register-module-repos "$path" "$version"
+    ./bin/register-module-repos "$path" "$version"
 }
 
 # Upgrade commands

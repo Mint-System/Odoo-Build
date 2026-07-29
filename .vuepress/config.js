@@ -40,8 +40,6 @@ export default defineUserConfig({
             { text: 'Snippets', link: '/snippets' },
             { text: 'Revisions', link: '/revisions' },
             { text: 'Modules', link: '/modules' },
-            { text: 'Changelog', link: '/CHANGELOG' },
-            { text: 'Mint System', link: 'https://www.mint-system.ch/odoo' },
             { text: 'Chat', link: 'https://matrix.to/#/!gmucNdFKeaGvdzcGTP:mint-system.ch?via=mint-system.ch'}
         ],
         sidebar: {
@@ -92,10 +90,6 @@ export default defineUserConfig({
                             text: 'Modules',
                             link: '/modules',
                         },
-                        {
-                            text: 'Changelog',
-                            link: '/CHANGELOG',
-                        }
                     ],
                 },
             ],
@@ -109,13 +103,14 @@ export default defineUserConfig({
         }
     }),
     plugins: [
-        // slimsearchPlugin({
-        //     indexContent: true,
-        //     suggestion: false
-        // }),
-        searchPlugin({
-          maxSuggestions: 10,
+        slimsearchPlugin({
+            indexContent: true,
+            suggestion: false,
+            sortStrategy: "total"
         }),
+        // searchPlugin({
+        //   maxSuggestions: 10,
+        // }),
         plausiblePlugin({
             'domain': 'odoo.build'
         }),

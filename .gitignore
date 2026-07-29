@@ -8,6 +8,7 @@ node_modules
 .temp
 .cache
 dist
+pnpm-workspace.yaml
 
 # File management
 
@@ -63,4 +64,5 @@ upgrade-util
 odoo-build-vault
 
 # Jupyter Notebooks
+
 .ipynb_checkpoints
