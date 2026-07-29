@@ -1,5 +1,6 @@
 ---
 title: Maintenance mode for Odoo image
+state: completed
 ---
 
 # Run 18

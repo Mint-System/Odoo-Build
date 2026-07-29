@@ -1,5 +1,6 @@
 ---
 title: "Script to add module repos to apps.odoo.com"
+state: completed
 ---
 
 # Run 25

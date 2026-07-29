@@ -1,5 +1,6 @@
 ---
 title: Move task git folder functions to taskfile.build
+state: completed
 ---
 
 # Run 19

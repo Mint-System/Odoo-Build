@@ -162,6 +162,7 @@ help-table() {
     rows+=("start|[name][db]|Start service. Use list to show services.")
     rows+=("stop|[name]|Stop containers.")
     rows+=("test-xmlrpc|[env]|Test xml rpc connection.")
+    rows+=("test-json-2|[env]|Test JSON API connection.")
     rows+=("===PROJECT===| | ")
     rows+=("lint||Run precommit for this project.")
     rows+=("list-versions||List available Odoo versions.")
@@ -2990,11 +2991,33 @@ commit-and-push-revision() {
     git push -f --tags
 }
 
-# RPC commands
+# RUN commands
 
 test-xmlrpc() {
     load-dotenv "$1"
     echo "Connect to database and count res.partner records: $(images/odoo-cli/bin/odoocli --model 'res.partner' --method 'search_count' --domain '[]')"
+}
+
+test-json-2() {
+    load-dotenv "$1"
+
+    local url="${ODOO_URL%/}/jsonrpc"
+    local payload
+    local uid
+    local count
+
+    payload="{\"jsonrpc\":\"2.0\",\"method\":\"call\",\"params\":{\"service\":\"common\",\"method\":\"authenticate\",\"args\":[\"$ODOO_DATABASE\",\"$ODOO_USERNAME\",\"$ODOO_PASSWORD\",{}]},\"id\":1}"
+    uid=$(curl -s -H "Content-Type: application/json" -d "$payload" "$url" | python -c "import sys, json; print(json.load(sys.stdin).get('result', ''))")
+
+    if [[ -z "$uid" || "$uid" == "False" ]]; then
+        echo "Authentication failed."
+        return 1
+    fi
+
+    payload="{\"jsonrpc\":\"2.0\",\"method\":\"call\",\"params\":{\"service\":\"object\",\"method\":\"execute_kw\",\"args\":[\"$ODOO_DATABASE\",$uid,\"$ODOO_PASSWORD\",\"res.partner\",\"search_count\",[[]],{}]},\"id\":2}"
+    count=$(curl -s -H "Content-Type: application/json" -d "$payload" "$url" | python -c "import sys, json; print(json.load(sys.stdin).get('result', ''))")
+
+    echo "Connect to database and count res.partner records: $count"
 }
 
 odoobin(){

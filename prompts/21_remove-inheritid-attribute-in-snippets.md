@@ -1,5 +1,6 @@
 ---
 title: Remove inherit_id attribute in snippets
+state: completed
 ---
 
 # Run 21

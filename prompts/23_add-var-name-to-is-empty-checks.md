@@ -1,5 +1,6 @@
 ---
 title: Add var name to is empty checks
+state: completed
 ---
 
 # Run 23

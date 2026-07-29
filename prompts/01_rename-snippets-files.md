@@ -1,5 +1,6 @@
 ---
 title: Rename snippets files
+state: completed
 ---
 
 Read the `AGENTS.md` to get an understanding of the project.

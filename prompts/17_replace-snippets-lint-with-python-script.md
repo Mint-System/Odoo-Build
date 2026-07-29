@@ -1,5 +1,6 @@
 ---
 title: Replace snippets lint with python script
+state: completed
 ---
 
 # Run 17

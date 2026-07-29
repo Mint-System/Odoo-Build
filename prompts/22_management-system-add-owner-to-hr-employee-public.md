@@ -1,5 +1,6 @@
 ---
 title: "Management System: Add owner to hr employee public"
+state: completed
 ---
 
 # Run 22
