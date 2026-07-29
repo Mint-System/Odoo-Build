@@ -1,0 +1,7 @@
+<data priority="50">
+    <xpath expr="//table[@id='main_table']/tbody/tr/td[4]" position="replace">
+        <td id="price_unit" class="text-end">
+            <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line_ids.price_unit"/>
+        </td>
+    </xpath>
+</data>

@@ -1,0 +1,5 @@
+<data priority="50">
+ 
+  <xpath expr="//th[@id='name']" position="replace"/>
+ 
+</data>

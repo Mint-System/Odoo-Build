@@ -1,19 +1,23 @@
 <data priority="50">
 
-	<xpath expr="//div[2]" position="attributes">
-		<attribute name="id">info_table</attribute>
-	</xpath>
+    <xpath expr="//div[@class='row my-2']" position="attributes">
+        <attribute name="id">informations</attribute>
+    </xpath>
 
-	<xpath expr="//h3[1]" position="attributes">
-		<attribute name="id">title_product</attribute>
-	</xpath>
+    <xpath expr="//table[@class='table table-sm']" position="attributes">
+        <attribute name="id">main_table</attribute>
+    </xpath>
 
-	<xpath expr="//span[@t-field='line_ids.product_qty']" position="attributes">
-		<attribute name="id">product_qty</attribute>
-	</xpath>
+    <xpath expr="//table[@id='main_table']/thead/tr/th[3]" position="attributes">
+        <attribute name="id">test</attribute>
+    </xpath>
 
-	<xpath expr="//table" position="attributes">
-		<attribute name="id">details</attribute>
-	</xpath>
+    <xpath expr="//table[@id='main_table']/tbody/tr/td[3]" position="attributes">
+        <attribute name="id">product_qty</attribute>
+    </xpath>
+
+    <xpath expr="//table[@id='main_table']/tbody/tr/td[4]" position="attributes">
+        <attribute name="id">product_uom</attribute>
+    </xpath>
 
 </data>

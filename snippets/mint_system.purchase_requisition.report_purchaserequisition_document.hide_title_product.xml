@@ -1,5 +1,3 @@
-<data priority="50">  
-
- <xpath expr="//h3[@id='title_product']" position="replace"/> 
-
+<data priority="50">
+    <xpath expr="//t/h3" position="replace"/>
 </data>

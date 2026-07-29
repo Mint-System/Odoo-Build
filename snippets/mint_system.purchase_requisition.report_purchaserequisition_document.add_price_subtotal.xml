@@ -1,0 +1,14 @@
+<data priority="50">
+    <xpath expr="//table[@id='main_table']/thead/tr/th[4]" position="after">
+        <th id="price_subtotal" class="text-right">
+            <strong>Price Subtotal</strong>
+        </th>
+    </xpath>
+    
+    <xpath expr="//table[@id='main_table']/tbody/tr/td[5]" position="after">
+        <td id="price_subtotal" class="text-right">
+            <span t-field="line_ids.price_subtotal"/>
+        </td>
+    </xpath>
+
+</data>
