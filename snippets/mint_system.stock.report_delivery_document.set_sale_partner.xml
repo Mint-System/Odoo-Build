@@ -4,4 +4,13 @@
           <t t-set="partner" t-value="o.sale_id.partner_id"/>
       </t> 
   </xpath>
+  <xpath expr="//div[@name='customer_address']" position="after">
+    <div name="customer_address" t-if="o.picking_type_id.code=='outgoing' and partner and partner == partner.commercial_partner_id">
+        <strong>Customer Address</strong>
+        <t t-if="o.sale_id and o.sale_id.partner_id and o.partner_id and o.sale_id.partner_id != o.partner_id">
+          <t t-set="partner" t-value="o.sale_id.partner_id"/>
+        </t> 
+        <t t-set="show_partner" t-value="True"/>
+    </div>
+ </xpath>
 </data>
