@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='parent_id']" position="after">
+        <field name="x_imported_from_insightly"/>
+    </xpath>
+</data>
