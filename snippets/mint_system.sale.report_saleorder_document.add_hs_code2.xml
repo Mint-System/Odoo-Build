@@ -6,7 +6,8 @@
         </th>
     </xpath>
     <xpath expr="//td[@name='td_quantity']" position="before">
-        <td name="td_hs_code" class="text-start">
+        <t t-set="display_hs_code" t-value="any(l.hs_code for l in lines_to_report.product_id)"/>
+        <td name="td_hs_code" class="text-start" t-if="display_hs_code">
             <span t-field="line.product_id.hs_code"/>
         </td>
     </xpath>

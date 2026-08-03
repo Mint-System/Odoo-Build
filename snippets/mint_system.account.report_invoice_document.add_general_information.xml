@@ -15,8 +15,12 @@
                             <div t-if="bank_account">
                                 <div t-field="bank_account.bank_id.name"/>
                                 <div>
-                                    <t t-if="bank_account.bank_id.street"><span t-field="bank_account.bank_id.street"/>,</t>
-                                    <t t-if="bank_account.bank_id.country"><span t-field="bank_account.bank_id.country.code"/> - </t>
+                                    <t t-if="bank_account.bank_id.street">
+                                        <span t-field="bank_account.bank_id.street"/>
+,</t>
+                                    <t t-if="bank_account.bank_id.country">
+                                        <span t-field="bank_account.bank_id.country.code"/>
+ - </t>
                                     <span t-field="bank_account.bank_id.zip"/>
                                     <span t-field="bank_account.bank_id.city"/>
                                 </div>
@@ -31,7 +35,8 @@
                                 <span t-field="bank_account.acc_number"/>
                             </div>
                             <div t-if="not bank_account" style="color: red;">
-                                Bitte Kontodaten pflegen (Kontakte &gt; <span t-esc="o.company_id.name"/> &gt; Buchhaltung &gt; Bankkonten)
+                                Bitte Kontodaten pflegen (Kontakte &gt; <span t-esc="o.company_id.name"/>
+ &gt; Buchhaltung &gt; Bankkonten)
                             </div>
                         </t>
                     </div>
@@ -39,18 +44,16 @@
                 <td style="width: 40px"/>
                 <td style="width: 300px; vertical-align: top">
                     <t t-if="o.move_type == 'out_invoice' ">
-                    <div style="font-weight: bold; padding-bottom: 15px">
-                        <span>Payable until: </span>
-                        <span t-field="o.invoice_payment_term_id"/>
-                    </div>
+                        <div style="font-weight: bold; padding-bottom: 15px">
+                            <span>Payable until: </span>
+                            <span t-field="o.invoice_payment_term_id"/>
+                        </div>
                     </t>
-                <t t-if="o.company_id.id == 2">
                     <div>
                         <t>
-                            <div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>                            
+                            <div t-field="o.company_id.partner_id" t-options="{&quot;widget&quot;: &quot;contact&quot;, &quot;fields&quot;: [&quot;address&quot;, &quot;name&quot;], &quot;no_marker&quot;: True}"/>
                         </t>
                     </div>
-                </t>
                 </td>
             </tr>
 
