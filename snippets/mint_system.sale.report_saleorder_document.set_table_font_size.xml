@@ -1,10 +1,12 @@
 <data priority="50">
     <xpath expr="//table[hasclass('o_main_table')]" position="before">
         <style>
-      table.o_main_table th,
-      table.o_main_table td {
-        font-size: 0.8rem;
-      }
+            table.o_main_table th,
+            table.o_main_table td,
+            table.o_total_table th,
+            table.o_total_table td {
+                font-size: 10px;
+            }
     </style>
     </xpath>
 </data>

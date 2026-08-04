@@ -1,0 +1,9 @@
+<data priority="50">
+    <table name="invoice_line_table" position="attributes">
+        <attribute name="style">font-size:10pt</attribute>
+    </table>
+
+    <div id="total"  position="attributes">
+        <attribute name="style">font-size:10pt</attribute>
+    </div>
+</data>
