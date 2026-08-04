@@ -1,0 +1,65 @@
+<data priority="50">
+    <xpath expr="//t[@t-name='stock.report_lot_label']" position="replace">
+
+        <t t-name="stock.report_lot_label">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.basic_layout">
+                    <t t-call="web.html_container">
+
+                        <table style="border: 1px solid white; height: 90mm; width: 120mm;">
+                            <style>
+                                div#textarea {
+                                    margin:1mm;
+                                    margin-top:10mm;
+                                    margin-bottom:5mm;
+                                    padding:0;
+                                    text-align:center;
+                                    border-collapse:collapse;
+                                }
+                            </style>
+                            <!-- Section 1: Product -->
+                            <tr style="height: 10mm;">
+                                <td>
+                                    <div id="textarea">
+                                        <t t-set="name_text" t-value="o.product_id.name or ''"/>
+                                        <t t-set="name_len" t-value="len(name_text) + 9 if name_text else 1"/>
+                                        <t t-set="max_font_size" t-value="int(30 * 3.78)"/>
+                                        <t t-set="font_size" t-value="min(min(140, max(20, int(350 / name_len * 2))), max_font_size)"/>
+                                        <t t-set="line_height" t-value="int(font_size * 1.1)"/>
+                                        <span t-out="'Produkt: %s' % o.product_id.name" t-att-style="'font-size:{}px; line-height:{}px;'.format(font_size, line_height)">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Section 2: Lot -->
+                            <tr style="height: 10mm;">
+                                <td>
+                                    <div id="textarea">
+                                        <t t-set="lot_text" t-value="o.name or ''"/>
+                                        <t t-set="lot_len" t-value="len(lot_text) + 7 if lot_text else 1"/>
+                                        <t t-set="max_font_size_lot" t-value="int(30 * 3.78)"/>
+                                        <t t-set="font_size_lot" t-value="min(min(140, max(20, int(350 / lot_len * 2))), max_font_size_lot)"/>
+                                        <t t-set="line_height_lot" t-value="int(font_size_lot * 1.1)"/>
+                                        <span t-out="'Losnr: %s' % o.name" t-att-style="'font-size:{}px; line-height:{}px;'.format(font_size_lot, line_height_lot)">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <!-- Section 3: Barcode -->
+                            <tr>
+                                <td>
+                                    <div class="text-center">
+                                        <span t-if="o.name" t-field="o.name" style="margin-bottom: 0px;" t-options="{'widget': 'barcode', 'humanreadable': 0, 'symbology': 'auto','img_style': 'width:120mm;height:25mm; '}">
+                                        </span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </t>
+
+                </t>
+            </t>
+        </t>
+
+    </xpath>
+</data>
