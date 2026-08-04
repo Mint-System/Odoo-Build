@@ -9,16 +9,13 @@
     
     <xpath expr="//t[@name='b2b_fields']/div" position="after">
         <div id="company_type" class="col-lg-12 mb-2">
-            <label class="col-form-label fw-normal label-optional" for="o_company_type">
-                Company Type
-            </label>
             <div>
                 <t t-foreach="['person', 'company']" t-as="ct">
                     <div class="form-check form-check-inline">
                         <input class="form-check-input js_company_type_selector" type="radio" name="company_type_ui" t-att-value="ct" t-att-id="'o_type_%s' % ct" t-att-checked="'checked' if partner_sudo.company_type == ct else None"/>
                         <label class="form-check-label" t-att-for="'o_type_%s' % ct">
-                            <span t-if="ct == 'person'">Individual</span>
-                            <span t-if="ct == 'company'">Company</span>
+                            <span t-if="ct == 'person'">Person</span>
+                            <span t-if="ct == 'company'">Other Company</span>
                         </label>
                     </div>
                 </t>

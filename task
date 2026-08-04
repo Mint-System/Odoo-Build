@@ -3008,8 +3008,8 @@ test-xmlrpc() {
         echo "ODOO_USERNAME is not set."
         return 1
     fi
-    if [[ -z "${ODOO_PASWORD}" ]]; then
-        echo "ODOO_PASWORD is not set."
+    if [[ -z "${ODOO_PASSWORD}" ]]; then
+        echo "ODOO_PASSWORD is not set."
         return 1
     fi
 
