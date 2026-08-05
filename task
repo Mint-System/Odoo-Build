@@ -13,7 +13,6 @@ help-table() {
 
     rows+=("Command|Option|Description")
     rows+=("===ENV===| | ")
-    rows+=("backup-env-files|[path]|Archive and copy ,env files to target location.")
     rows+=("copy-dotenv|[env][env]|Copy .env file.")
     rows+=("create-dotenv|[env][type]|Create .env file of type nextcloud, odoo, upgrade.")
     rows+=("edit-dotenv|[env]|Open .env file in default editor.")
@@ -184,7 +183,6 @@ help-table() {
     rows+=("===UPGRADE===| | ")
     rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
     rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
-    rows+=("upgrade-odoo|[env][step]|Run the Odoo upgrade for a target environment.")
     rows+=("===JUPYTER===| | ")
     rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
     rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
@@ -264,7 +262,6 @@ help() {
 # Static env vars
 
 ODOO_RC="odoo.conf"
-TASK_DOTENV_DIR="$PWD/vault"
 export PYTHONPATH="$PWD/odoo" # Required so upgrade-util does not overwrite the odoo namespace
 ODOO_VERSION=$(echo "$ODOO_REVISION" | cut -d'.' -f1-2)
 CONTAINER_CONFIG="$HOME/.docker/$CONTAINER_REGISTRY"
@@ -2646,11 +2643,6 @@ migrate-module() {
     echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
     odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
         --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
-}
-
-upgrade-odoo() {
-    source ./bin/upgrade-odoo
-    upgrade-odoo "$@"
 }
 
 # Snippet commands

@@ -4,6 +4,11 @@ All notable changes to this project will be documented in this file. The format 
 
 ## Undefined
 
+### Removed
+
+- Removed `upgrade-odoo` command and associated documentation.
+- Removed `Upgrade` section from documentation navigation.
+
 ## 2026-07-27
 
 ### Fixed
