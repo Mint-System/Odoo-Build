@@ -21,8 +21,17 @@ Note: @Clanker refers to the "ai agent" (you) who is working on this task.
 
 ## Task
 
-I would like to have a command `check-module-versions` that takes a list as input:
+First I want you to update the `bin/update-modules-doc` script. It should also produce a `modules.csv` file.
 
+The file looks like this:
+
+```csv
+forge, organisation, repo, module, versions
+github.com, Mint-System, odoo-apps-account-financial-reporting, account_financial_report_contra_accounts, 14.0,15.0;16.0
+...
+```
+
+Then I would like to have a command `check-module-versions` that takes a list as input:
 
 ```
 account_financial_report
@@ -51,16 +60,16 @@ subscription_oca
 web_responsive
 ```
 
-I then looks up every module in `modules.md` and returns a table with available versions:
+I then looks up every module in `modules.csv` and returns a table with available versions:
 
 ```
-| name | versions |
-|---|---|
+| name                  | versions   |
+|-----------------------|------------|
 | account_reconcile_oca | 14.0, 16.0 |
 ...
 ```
 
-Of course the width of the table seperator and space is dynamic.
+Of course the width of the table seperator and space is dynamic. See `help-table` for details.
 
 ## Worklog
 

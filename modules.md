@@ -38,7 +38,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | account_followup_subscribe | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_followup_subscribe) [18.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/18.0/account_followup_subscribe) |
 | account_invoice_carrier | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_carrier) [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_invoice_carrier) [17.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/17.0/account_invoice_carrier) |
 | account_invoice_comment | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_comment) [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_invoice_comment) [17.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/17.0/account_invoice_comment) [18.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/18.0/account_invoice_comment) |
-| account_invoice_description | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_description) [15.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/15.0/account_invoice_description) [17.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/17.0/account_invoice_description) |
+| account_invoice_description | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_description) [15.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/15.0/account_invoice_description) [17.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/17.0/account_invoice_description) [18.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/18.0/account_invoice_description) |
 | account_invoice_detail | [14.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/14.0/account_invoice_detail) [15.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/15.0/account_invoice_detail) |
 | account_invoice_move_date | [16.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/16.0/account_invoice_move_date) [18.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/18.0/account_invoice_move_date) |
 | account_invoice_multiline_ref | [15.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/15.0/account_invoice_multiline_ref) [17.0](https://github.com/Mint-System/odoo-apps-account-invoicing/tree/17.0/account_invoice_multiline_ref) |
@@ -122,6 +122,9 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 |---|---|
 | jupyter_lab | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/jupyter_lab) |
 | jupyter_notebook_run | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/jupyter_notebook_run) |
+| project_menu | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/project_menu) |
+| project_phase | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/project_phase) |
+| project_phase_estimate | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/project_phase_estimate) |
 | prompts | [18.0](https://github.com/Mint-System/odoo-apps-data-analytic/tree/18.0/prompts) |
 
 ### demand-planner
@@ -150,7 +153,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_attendance_report_pivot_add_leaves | [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_attendance_report_pivot_add_leaves) |
 | hr_attendance_user_acl | [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_attendance_user_acl) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_attendance_user_acl) |
 | hr_birthday_calendar | [13.0](https://github.com/Mint-System/odoo-apps-hr/tree/13.0/hr_birthday_calendar) [14.0](https://github.com/Mint-System/odoo-apps-hr/tree/14.0/hr_birthday_calendar) |
-| hr_contract_leaves_domain | [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_contract_leaves_domain) |
+| hr_contract_leaves_domain | [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_contract_leaves_domain) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_contract_leaves_domain) |
 | hr_employee_attendance_report | [14.0](https://github.com/Mint-System/odoo-apps-hr/tree/14.0/hr_employee_attendance_report) [15.0](https://github.com/Mint-System/odoo-apps-hr/tree/15.0/hr_employee_attendance_report) [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_employee_attendance_report) [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_employee_attendance_report) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_employee_attendance_report) |
 | hr_employee_attendance_report_balances | [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_employee_attendance_report_balances) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_employee_attendance_report_balances) |
 | hr_employee_attendance_report_batch_send | [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_employee_attendance_report_batch_send) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_employee_attendance_report_batch_send) |
@@ -171,6 +174,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_holidays_type_note | [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_holidays_type_note) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_holidays_type_note) |
 | hr_holidays_user_acl | [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_holidays_user_acl) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_holidays_user_acl) |
 | hr_holidays_working_time | [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_holidays_working_time) [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_holidays_working_time) |
+| hr_payslip_report_manual_note | [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/hr_payslip_report_manual_note) |
 | hr_recruitment_firstname | [13.0](https://github.com/Mint-System/odoo-apps-hr/tree/13.0/hr_recruitment_firstname) [14.0](https://github.com/Mint-System/odoo-apps-hr/tree/14.0/hr_recruitment_firstname) |
 | hr_shortname | [13.0](https://github.com/Mint-System/odoo-apps-hr/tree/13.0/hr_shortname) [14.0](https://github.com/Mint-System/odoo-apps-hr/tree/14.0/hr_shortname) |
 | hr_timesheet_from_until | [15.0](https://github.com/Mint-System/odoo-apps-hr/tree/15.0/hr_timesheet_from_until) [16.0](https://github.com/Mint-System/odoo-apps-hr/tree/16.0/hr_timesheet_from_until) [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/hr_timesheet_from_until) |
@@ -179,6 +183,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | hr_vehicle_request_calendar | [13.0](https://github.com/Mint-System/odoo-apps-hr/tree/13.0/hr_vehicle_request_calendar) [14.0](https://github.com/Mint-System/odoo-apps-hr/tree/14.0/hr_vehicle_request_calendar) |
 | hr_work_entry_profile | [15.0](https://github.com/Mint-System/odoo-apps-hr/tree/15.0/hr_work_entry_profile) |
 | project_timesheet_limit | [15.0](https://github.com/Mint-System/odoo-apps-hr/tree/15.0/project_timesheet_limit) [17.0](https://github.com/Mint-System/odoo-apps-hr/tree/17.0/project_timesheet_limit) |
+| resource_attendance_time_type | [18.0](https://github.com/Mint-System/odoo-apps-hr/tree/18.0/resource_attendance_time_type) |
 | resource_calendar_get_days | [15.0](https://github.com/Mint-System/odoo-apps-hr/tree/15.0/resource_calendar_get_days) |
 
 ### kubernetes
@@ -194,6 +199,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | kubectl_contacts | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/kubectl_contacts) |
 | kubectl_import | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/kubectl_import) |
 | kubectl_mintcloud | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/kubectl_mintcloud) |
+| prompts | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/prompts) |
 | sale_helm | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/sale_helm) |
 | website_kubectl | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/website_kubectl) |
 | website_kubectl_mintcloud | [18.0](https://github.com/Mint-System/odoo-apps-kubernetes/tree/18.0/website_kubectl_mintcloud) |
@@ -204,6 +210,9 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 
  | name | links |
 |---|---|
+| account_move_mail_thread | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/account_move_mail_thread) |
+| account_move_unsubscribe | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/account_move_unsubscribe) |
+| mail_unsubscribe | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/mail_unsubscribe) |
 | mgmt_asset | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/mgmt_asset) [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_asset) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_asset) |
 | mgmt_asset_hr | [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_asset_hr) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_asset_hr) |
 | mgmt_asset_maintenance | [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_asset_maintenance) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_asset_maintenance) |
@@ -218,6 +227,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mgmt_requirement | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/mgmt_requirement) [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_requirement) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_requirement) |
 | mgmt_requirement_knowledge | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/mgmt_requirement_knowledge) [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_requirement_knowledge) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_requirement_knowledge) |
 | mgmt_risk | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/mgmt_risk) [18.0](https://github.com/Mint-System/odoo-apps-management-system/tree/18.0/mgmt_risk) [19.0](https://github.com/Mint-System/odoo-apps-management-system/tree/19.0/mgmt_risk) |
+| purchase_order_unsubscribe | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/purchase_order_unsubscribe) |
+| sale_order_unsubscribe | [17.0](https://github.com/Mint-System/odoo-apps-management-system/tree/17.0/sale_order_unsubscribe) |
 
 ### manufacture
 
@@ -231,10 +242,11 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_bom_position | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_bom_position) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/mrp_bom_position) [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/mrp_bom_position) |
 | mrp_documents_share | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_documents_share) [15.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/15.0/mrp_documents_share) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/mrp_documents_share) [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/mrp_documents_share) [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_documents_share) |
 | mrp_production_assign_lot | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_production_assign_lot) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/mrp_production_assign_lot) |
+| mrp_production_button_done | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_production_button_done) |
 | mrp_production_create_upstream_backorder | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_production_create_upstream_backorder) [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/mrp_production_create_upstream_backorder) |
 | mrp_production_downstream_lot | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_production_downstream_lot) |
 | mrp_production_generate_lot | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_production_generate_lot) |
-| mrp_production_merge_pickings | [19.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/19.0/mrp_production_merge_pickings) |
+| mrp_production_merge_pickings | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_production_merge_pickings) [19.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/19.0/mrp_production_merge_pickings) |
 | mrp_production_note | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_production_note) |
 | mrp_production_parallel | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_production_parallel) |
 | mrp_production_parallel_maintenance | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_production_parallel_maintenance) |
@@ -249,7 +261,9 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | mrp_suborder_sale_info | [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/mrp_suborder_sale_info) |
 | mrp_workorder_disable_autostart | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_workorder_disable_autostart) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/mrp_workorder_disable_autostart) |
 | mrp_workorder_enhance_display | [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/mrp_workorder_enhance_display) |
+| mrp_workorder_hide_shop_floor_buttons | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_workorder_hide_shop_floor_buttons) |
 | mrp_workorder_parallel | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_workorder_parallel) |
+| mrp_workorder_play_button | [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/mrp_workorder_play_button) |
 | mrp_workorder_set_producing_qty | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/mrp_workorder_set_producing_qty) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/mrp_workorder_set_producing_qty) |
 | stock_mrp_available | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/stock_mrp_available) |
 | stock_mrp_traceability_list | [14.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/14.0/stock_mrp_traceability_list) [16.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/16.0/stock_mrp_traceability_list) [17.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/17.0/stock_mrp_traceability_list) [18.0](https://github.com/Mint-System/odoo-apps-manufacture/tree/18.0/stock_mrp_traceability_list) |
@@ -340,7 +354,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | purchase_order_line_position | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_line_position) [15.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/15.0/purchase_order_line_position) [16.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/16.0/purchase_order_line_position) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_line_position) [19.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/19.0/purchase_order_line_position) |
 | purchase_order_line_price_default | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_line_price_default) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_line_price_default) |
 | purchase_order_line_relay_price | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_line_relay_price) |
-| purchase_order_notes | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_notes) [16.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/16.0/purchase_order_notes) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_notes) |
+| purchase_order_notes | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_notes) [16.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/16.0/purchase_order_notes) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_notes) [18.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/18.0/purchase_order_notes) |
 | purchase_order_partner_incoterm | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_partner_incoterm) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_partner_incoterm) |
 | purchase_order_partner_shipping | [14.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/14.0/purchase_order_partner_shipping) [17.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/17.0/purchase_order_partner_shipping) |
 | purchase_order_subscription | [16.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/16.0/purchase_order_subscription) [18.0](https://github.com/Mint-System/odoo-apps-purchase-workflow/tree/18.0/purchase_order_subscription) |
@@ -396,8 +410,8 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_crm_note | [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_crm_note) |
 | sale_crm_ref | [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_crm_ref) |
 | sale_expense_description_date | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_expense_description_date) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_expense_description_date) |
-| sale_expense_link | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_expense_link) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_expense_link) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_expense_link) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_expense_link) |
-| sale_expense_unlink | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_expense_unlink) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_expense_unlink) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_expense_unlink) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_expense_unlink) |
+| sale_expense_link | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_expense_link) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_expense_link) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_expense_link) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_expense_link) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_expense_link) |
+| sale_expense_unlink | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_expense_unlink) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_expense_unlink) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_expense_unlink) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_expense_unlink) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_expense_unlink) |
 | sale_order_check_price | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_check_price) |
 | sale_order_comment | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_comment) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_comment) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_comment) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_comment) |
 | sale_order_contact_person | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_contact_person) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_contact_person) |
@@ -419,36 +433,38 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | sale_order_line_temporary_price | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_line_temporary_price) |
 | sale_order_mrp_production_cancel | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_mrp_production_cancel) |
 | sale_order_multi_pricelist | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_multi_pricelist) |
-| sale_order_notes | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_notes) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_notes) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_notes) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_notes) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_notes) |
+| sale_order_notes | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_notes) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_notes) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_notes) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_notes) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_notes) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_notes) |
 | sale_order_partner_membership | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_partner_membership) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_partner_membership) |
 | sale_order_partner_pricelist | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_partner_pricelist) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_partner_pricelist) |
 | sale_order_partner_ref | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_partner_ref) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_partner_ref) |
 | sale_order_permit | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_permit) |
 | sale_order_project_key | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_project_key) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_project_key) |
-| sale_order_ref | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_ref) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_ref) |
+| sale_order_ref | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_ref) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_ref) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_ref) |
 | sale_order_sale_partner | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_sale_partner) [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_order_sale_partner) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_sale_partner) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_sale_partner) |
-| sale_order_template_notes | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_template_notes) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_template_notes) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_template_notes) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_template_notes) |
+| sale_order_template_notes | [14.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/14.0/sale_order_template_notes) [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_order_template_notes) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_order_template_notes) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_order_template_notes) [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_order_template_notes) |
 | sale_partner_shipping_group | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_partner_shipping_group) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_partner_shipping_group) |
 | sale_product_set_search | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_product_set_search) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_product_set_search) |
-| sale_project_key | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_key) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_project_key) |
-| sale_project_link | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_link) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_project_link) |
-| sale_project_phase_estimate | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_phase_estimate) |
+| sale_project_key | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_key) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_project_key) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_project_key) |
+| sale_project_link | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_link) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_project_link) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_project_link) |
+| sale_project_phase_estimate | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_project_phase_estimate) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_project_phase_estimate) |
 | sale_renting_line_period | [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_renting_line_period) |
 | sale_renting_lot_available | [19.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/19.0/sale_renting_lot_available) |
 | sale_restricted_qty_default | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_restricted_qty_default) |
 | sale_stock_owner | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_stock_owner) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_stock_owner) |
 | sale_subscription_billing_period_display | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_billing_period_display) |
+| sale_subscription_disable_next_invoice_closing | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_disable_next_invoice_closing) |
 | sale_subscription_disable_tokenization | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_subscription_disable_tokenization) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_disable_tokenization) |
+| sale_subscription_disable_unpaid_closing | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_disable_unpaid_closing) |
 | sale_subscription_invoice_draft | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_invoice_draft) |
 | sale_subscription_partner_pricelist | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_subscription_partner_pricelist) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_partner_pricelist) |
 | sale_subscription_period_discount | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_subscription_period_discount) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_period_discount) |
 | sale_subscription_pricelist_fixed_discount | [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_subscription_pricelist_fixed_discount) |
 | sale_timesheet_billable | [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_timesheet_billable) |
-| sale_timesheet_billable_price | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_billable_price) |
-| sale_timesheet_estimate_report | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_estimate_report) |
+| sale_timesheet_billable_price | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_billable_price) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_timesheet_billable_price) |
+| sale_timesheet_estimate_report | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_estimate_report) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_timesheet_estimate_report) |
 | sale_timesheet_link_reversed | [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_timesheet_link_reversed) |
-| sale_timesheet_report_group_invoice_type | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_report_group_invoice_type) |
-| sale_timesheet_report_project_details | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_report_project_details) |
+| sale_timesheet_report_group_invoice_type | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_report_group_invoice_type) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_timesheet_report_group_invoice_type) |
+| sale_timesheet_report_project_details | [16.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/16.0/sale_timesheet_report_project_details) [18.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/18.0/sale_timesheet_report_project_details) |
 | sale_timesheet_total_validated | [15.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/15.0/sale_timesheet_total_validated) [17.0](https://github.com/Mint-System/odoo-apps-sale-workflow/tree/17.0/sale_timesheet_total_validated) |
 
 ### server-tools
@@ -470,12 +486,13 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | board_users | [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/board_users) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/board_users) |
 | external_sql_tests | [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/external_sql_tests) |
 | float_align_at_decimal | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/float_align_at_decimal) |
-| home_background_image | [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/home_background_image) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/home_background_image) [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/home_background_image) |
+| home_background_image | [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/home_background_image) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/home_background_image) [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/home_background_image) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/home_background_image) |
 | ir_attachment_edit | [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/ir_attachment_edit) |
 | mail_disable_translation | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_disable_translation) |
 | mail_force_from | [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/mail_force_from) |
 | mail_format_with_parent | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_format_with_parent) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/mail_format_with_parent) |
 | mail_server_filter | [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/mail_server_filter) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/mail_server_filter) [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_server_filter) [17.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/17.0/mail_server_filter) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/mail_server_filter) [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/mail_server_filter) |
+| mail_server_filter_model | [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/mail_server_filter_model) |
 | mail_service_users | [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/mail_service_users) [15.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/15.0/mail_service_users) [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_service_users) [17.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/17.0/mail_service_users) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/mail_service_users) [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/mail_service_users) |
 | mail_tracking_helpdesk_bounce_ticket | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/mail_tracking_helpdesk_bounce_ticket) |
 | product_disable_translation | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/product_disable_translation) |
@@ -483,7 +500,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | server_config_environment | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/server_config_environment) [17.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/17.0/server_config_environment) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/server_config_environment) |
 | show_db_name | [13.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/13.0/show_db_name) [14.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/14.0/show_db_name) |
 | snippet_manager | [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/snippet_manager) |
-| test_bus | [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/test_bus) |
+| test_bus | [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/test_bus) [19.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/19.0/test_bus) |
 | url_slug | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/url_slug) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/url_slug) |
 | web_editor_disable_convert_inline | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/web_editor_disable_convert_inline) [18.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/18.0/web_editor_disable_convert_inline) |
 | web_enterprise_admin_expiration_panel | [16.0](https://github.com/Mint-System/odoo-apps-server-tools/tree/16.0/web_enterprise_admin_expiration_panel) |
@@ -496,17 +513,17 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 
  | name | links |
 |---|---|
-| account_move_mail_thread | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/account_move_mail_thread) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/account_move_mail_thread) |
+| account_move_mail_thread | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/account_move_mail_thread) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/account_move_mail_thread) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/account_move_mail_thread) |
 | account_move_send_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/account_move_send_unsubscribe) |
-| account_move_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/account_move_unsubscribe) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/account_move_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/account_move_unsubscribe) |
+| account_move_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/account_move_unsubscribe) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/account_move_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/account_move_unsubscribe) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/account_move_unsubscribe) |
 | mail_activity_datetime | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_activity_datetime) |
 | mail_channel_follow_model | [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_channel_follow_model) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/mail_channel_follow_model) |
-| mail_composer_default_template | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_composer_default_template) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_composer_default_template) |
+| mail_composer_default_template | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_composer_default_template) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_composer_default_template) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/mail_composer_default_template) |
 | mail_composer_mass_layout | [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_composer_mass_layout) |
 | mail_no_autofollow | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_no_autofollow) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_no_autofollow) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_no_autofollow) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/mail_no_autofollow) |
 | mail_template_subscribe | [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_template_subscribe) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/mail_template_subscribe) |
 | mail_thread_context | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_thread_context) |
-| mail_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_unsubscribe) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_unsubscribe) |
+| mail_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/mail_unsubscribe) [15.0](https://github.com/Mint-System/odoo-apps-social/tree/15.0/mail_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/mail_unsubscribe) [18.0](https://github.com/Mint-System/odoo-apps-social/tree/18.0/mail_unsubscribe) |
 | purchase_order_send_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/purchase_order_send_unsubscribe) |
 | purchase_order_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/purchase_order_unsubscribe) [16.0](https://github.com/Mint-System/odoo-apps-social/tree/16.0/purchase_order_unsubscribe) |
 | sale_order_send_unsubscribe | [14.0](https://github.com/Mint-System/odoo-apps-social/tree/14.0/sale_order_send_unsubscribe) |
@@ -560,6 +577,7 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | stock_picking_mrp_production_done | [14.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/14.0/stock_picking_mrp_production_done) |
 | stock_picking_notes | [14.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/14.0/stock_picking_notes) [16.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/16.0/stock_picking_notes) [17.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/17.0/stock_picking_notes) |
 | stock_picking_responsible | [14.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/14.0/stock_picking_responsible) [16.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/16.0/stock_picking_responsible) [17.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/17.0/stock_picking_responsible) |
+| stock_picking_split_and_validate | [18.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/18.0/stock_picking_split_and_validate) |
 | stock_product_last_move | [14.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/14.0/stock_product_last_move) [16.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/16.0/stock_product_last_move) [17.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/17.0/stock_product_last_move) |
 | stock_production_lot_active | [17.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/17.0/stock_production_lot_active) |
 | stock_production_lot_date | [14.0](https://github.com/Mint-System/odoo-apps-stock-logistics-workflow/tree/14.0/stock_production_lot_date) |
@@ -604,11 +622,11 @@ This page shows all the modules managed with Odoo Build grouped by organization 
 | prompts | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/prompts) |
 | website_blog_rss_feed | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_blog_rss_feed) |
 | website_blog_wordpress_url | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_blog_wordpress_url) |
-| website_date_of_birth | [14.0](https://github.com/Mint-System/odoo-apps-website/tree/14.0/website_date_of_birth) [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_date_of_birth) |
+| website_date_of_birth | [14.0](https://github.com/Mint-System/odoo-apps-website/tree/14.0/website_date_of_birth) [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_date_of_birth) [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_date_of_birth) |
 | website_form_check | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_form_check) |
 | website_product_description | [14.0](https://github.com/Mint-System/odoo-apps-website/tree/14.0/website_product_description) [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_product_description) |
 | website_sale_address_optional_phone | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_sale_address_optional_phone) |
-| website_sale_default_country_ch | [14.0](https://github.com/Mint-System/odoo-apps-website/tree/14.0/website_sale_default_country_ch) [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_sale_default_country_ch) |
+| website_sale_default_country_ch | [14.0](https://github.com/Mint-System/odoo-apps-website/tree/14.0/website_sale_default_country_ch) [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_sale_default_country_ch) [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_sale_default_country_ch) |
 | website_sale_disable_cart | [18.0](https://github.com/Mint-System/odoo-apps-website/tree/18.0/website_sale_disable_cart) |
 | website_sale_float_qty | [16.0](https://github.com/Mint-System/odoo-apps-website/tree/16.0/website_sale_float_qty) |
 | website_sale_minimum_order_quantity | [15.0](https://github.com/Mint-System/odoo-apps-website/tree/15.0/website_sale_minimum_order_quantity) [16.0](https://github.com/Mint-System/odoo-apps-website/tree/16.0/website_sale_minimum_order_quantity) |
