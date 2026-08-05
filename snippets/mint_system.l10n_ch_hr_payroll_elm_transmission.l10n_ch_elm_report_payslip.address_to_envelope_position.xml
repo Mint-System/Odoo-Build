@@ -1,7 +1,7 @@
 <data priority="50">
 
-    <xpath expr="//tr[td/strong[contains(text(), 'Name')]]" position="replace"/>
-    <xpath expr="//tr[td/strong[contains(text(), 'Ad')]]" position="replace"/>
+    <xpath expr="//tr[td[span[@t-field='o.employee_id']]]" position="replace"/>
+    <xpath expr="//tr[td[span[@t-field='o.employee_id.private_street']]]" position="replace"/>
     <xpath expr="//h2[@id='payslip_name']" position="replace"/>
     
     <xpath expr="//div[hasclass('page')]/table[hasclass('o_table_ch_infos')]" position="before">
