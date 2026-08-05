@@ -31,6 +31,22 @@ github.com, Mint-System, odoo-apps-account-financial-reporting, account_financia
 ...
 ```
 
+Note that command `task update-modules-doc` that is executing this script will take a long time. For every Odoo version all submodules are checked out synced:
+
+```python
+
+# Switch to the version
+subprocess.run(["./task", "checkout", version])
+
+# Pull all submodules
+subprocess.run(["./task", "sync-git-folder"])
+
+# Get all submodules
+submodules = read_gitmodules(".gitmodules")
+```
+
+Do not execute the script. I will do it myself.
+
 Then I would like to have a command `check-module-versions` that takes a list as input:
 
 ```
@@ -60,7 +76,7 @@ subscription_oca
 web_responsive
 ```
 
-I then looks up every module in `modules.csv` and returns a table with available versions:
+And then looks up every module in `modules.csv` and returns a table with available versions:
 
 ```
 | name                  | versions   |
