@@ -180,7 +180,8 @@ help-table() {
     rows+=("update-snippets-doc||Update snippets doc file.")
     rows+=("===UPGRADE===| | ")
     rows+=("prepare-migration-brach|[path][module][version]|Create migration branch for a module.")
-    rows+=("migrate-module|[path]|Migrate module code from to target Odoo version.")
+    rows+=("migrate-module|[path]|Migrate module code to target Odoo version.")
+    rows+=("backport-module|[path]|Backport module code to target Odoo version.")
     rows+=("===JUPYTER===| | ")
     rows+=("init-odoo-jupyter|[path]|Init jypyter lab directory.")
     rows+=("start-odoo-jupyter|[path][db]|Start juypter lab in directory.")
@@ -2607,18 +2608,25 @@ migrate-module() {
     local module_path="$1"
     local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
     local module=$(basename "$module_path")
-    # local addons_path=$(dirname "$module_path")
 
-    # echo "Run Odoo upgrade_code command for $module_path from ${source_odoo_version}..."
-    # odoo upgrade_code --addons-path "$addons_path" --from "$source_odoo_version"
-
-    # echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
-    # sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
-    
     echo "Run odoo-module-migrator for $module with source $source_odoo_version and target ${ODOO_VERSION}..."
     odoo-module-migrate --directory $(dirname "$module_path") --modules $(basename "$module_path") \
         --init-version-name $source_odoo_version --target-version-name $ODOO_VERSION --no-commit
 }
+
+backport-module() {
+    if [[ -z "$1" ]]; then
+        echo '$1 is empty.'
+        exit
+    fi
+    local module_path="$1"
+    local source_odoo_version=$(get-module-version $module_path | cut -d'.' -f1,2)
+    local module=$(basename "$module_path")
+
+    echo "Replace manifest version $source_odoo_version with $ODOO_VERSION."
+    sed -i -E "s/$source_odoo_version/$ODOO_VERSION/g" "$module_path/__manifest__.py"
+}
+
 
 # Snippet commands
 
