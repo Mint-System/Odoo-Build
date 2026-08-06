@@ -60,7 +60,6 @@ help-table() {
     rows+=("dev-vuepress||Start Vuepress development server.")
     rows+=("serve-vuepress||Serve Vuepress build.")
     rows+=("===DATABASE===| | ")
-    rows+=("change-uuid|[env]|Change database uuid via xmlrpc.")
     rows+=("clear-assets|[db]|Clear all assets of Odoo database.")
     rows+=("clear-filestore|[db]|Clear local filestore folder.")
     rows+=("clear-views|[db]|Clear all views of Odoo database.")
@@ -96,7 +95,6 @@ help-table() {
     rows+=("===INSTALL===| | ")
     rows+=("activate-venv||Activate virtualenv.")
     rows+=("init-venv||Initialize python virtual env.")
-    rows+=("disable-mailserver|[env]|Disable mail server settings via xmlrpc.")
     rows+=("install||Install Odoo requirements in source folder.")
     rows+=("install-ansible-build-scripts|[role]|Install scripts of the specified Ansbile role.")
     rows+=("install-requirements|[db][path]|Install python packages from requirements.txt.")
@@ -1842,29 +1840,6 @@ clear-views() {
 clear-filestore() {
     echo "Remove directory $HOME/.local/share/Odoo/filestore/$1"
     rm -rf "$HOME/.local/share/Odoo/filestore/$1"
-}
-
-disable-mailserver() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    load-dotenv "$1"
-    images/odoo-cli/bin/odoocli --method 'write' --model 'ir.mail_server' --field 'active' --value False --domain "[]"
-    images/odoo-cli/bin/odoocli --method 'write' --model 'fetchmail.server' --field 'active' --value False --domain "[]"
-}
-
-change-uuid() {
-    if [[ -z "$1" ]]; then
-        echo '$1 is empty.'
-        exit
-    fi
-
-    load-dotenv "$1"
-    local uuid=$(uuidgen)
-    echo "Set uuid $uuid for $1."
-    images/odoo-cli/bin/odoocli --method 'write' --model 'ir.config_parameter' --domain "[('key', '=', 'database.uuid')]" --field 'value' --value "'$uuid'"
 }
 
 update-module-list() {
