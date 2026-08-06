@@ -3,13 +3,13 @@
 	url = git@github.com:odoo/enterprise.git
 	branch = 17.0
 	shallow = true
-	commit = c2c2e0ad8a99c99b5ffdfe6ca21deadc3ee39d72
+	commit = 5c367815f362024cb338848bb558b9ee31595e48
 [submodule "odoo"]
 	path = odoo
 	url = git@github.com:odoo/odoo.git
 	branch = 17.0
 	shallow = true
-	commit = 20a0d9e93236857dc81f7594f18e561f0efcf51f
+	commit = fef1dc6ba2019f61d1ca148156e0b69a00e7752d
 [submodule "themes"]
 	path = themes
 	url = git@github.com:odoo/design-themes.git
@@ -172,6 +172,6 @@
 	commit = 4a013e253767b8fa5fc6f82740595fe7f6d12dbf
 [submodule "addons/social"]
 	path = addons/social
-	url = 17.0
-	branch = git@github.com:Mint-System/Odoo-Apps-Social.git
+	url = git@github.com:Mint-System/Odoo-Apps-Social.git
+	branch = 17.0
 	commit = f8becce18553a995f6013790227a0c52cd7eb12c
