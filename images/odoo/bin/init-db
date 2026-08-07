@@ -12,19 +12,19 @@ log-entrypoint "Starting database initialization for $database."
 log-entrypoint "Database connection: $PGUSER@$PGHOST:$PGPORT"
 
 log-entrypoint 'Waiting for database connection...'
-until psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -c '\q' 2>/dev/null; do
+until psql -d postgres -c '\q'; do
     log-entrypoint 'Database not ready, waiting 2 seconds...'
     sleep 2
 done
 log-entrypoint 'Database connection established.'
 
 log-entrypoint "Check if database $database exists..."
-database_exists=$(exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$database'")
+database_exists=$(exec psql -d postgres -tAc "SELECT COUNT(*) FROM pg_database WHERE datname = '$database'")
 
 # If it does not exist, create it
 if [[ "$database_exists" = "0" ]]; then
     log-entrypoint "Create database $database..."
-    (exec psql "postgres://$PGUSER:$PGPASSWORD@$PGHOST:$PGPORT/postgres" -tAc "CREATE DATABASE \"$database\";") || true
+    (exec psql -d postgres -tAc "CREATE DATABASE \"$database\";") || true
     log-entrypoint 'Database creation completed.'
 else
     log-entrypoint "Database $database already exists."

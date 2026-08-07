@@ -514,7 +514,7 @@ Compatibility with other images is mainly achieved by using the same environment
 
 ### odoo.conf
 
-The `/etc/odoo/odoo.conf` is templated during container start. To output the content run `docker exec odoo conf`.
+The `/etc/odoo/odoo.conf` is templated during container start. To output the content run `docker exec odoo config`.
 
 ### requirements.txt
 
