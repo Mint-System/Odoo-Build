@@ -1,0 +1,7 @@
+<data priority="50">
+    <xpath expr="//table/tr/td/div/t/span[@t-field='company.zip']/.." position="replace">
+        <t t-if="company.zip">
+            <span>· CH-</span><span t-field="company.zip"/>
+        </t>
+    </xpath>
+</data>
