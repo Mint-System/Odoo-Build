@@ -23,17 +23,16 @@
                                         margin-top:10mm;
                                         text-align:center;
                                         border-collapse:collapse;
+                                        border: 1px solid white;
                                     }
                                 </style>
                                 <tr>
-                                    <td >
+                                    <td>
                                         <t t-set="name_text" t-value="o.name or ''"/>
                                         <t t-set="name_len" t-value="len(name_text) if name_text else 1"/>
                                         <t t-set="max_font_size" t-value="200"/>
                                         <t t-set="font_size" t-value="min(max(20, int(450 / name_len * 2)), max_font_size)"/>
                                         <t t-set="line_height" t-value="int(font_size * 1.1)"/>
-                                        <!-- Fix height at 38 mm -->
-                                    <!--    <div style="margin:0 auto; min-height:38mm; max-height:38mm; height:38mm; text-align:center; overflow:hidden;"> -->
                                         <div id="textarea">
                                             <span t-out="o.name" t-att-style="'display:inline-block; white-space:nowrap; overflow:hidden; font-size:{}px; line-height:{}px;'.format(font_size, line_height)">
                                             </span>
