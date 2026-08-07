@@ -1,0 +1,5 @@
+<data>
+    <xpath expr="//div[@name='company_address']//ul[@name='company_address_list']" position="attributes">
+        <attribute name="class" add="small" separator=" "/>
+    </xpath>
+</data>
