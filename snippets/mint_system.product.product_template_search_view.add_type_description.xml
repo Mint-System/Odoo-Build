@@ -1,6 +1,5 @@
 <data priority="50">
-    <xpath expr="//field[@name='attribute_line_ids']" position="after">
-        <separator/>
+    <xpath expr="//field[@name='categ_id']" position="after">
         <field string="Typenbezeichnung" name="type_description" filter_domain="['|', ('type_description', 'like', self), ('type_description2', 'like', self)]"/>
     </xpath>
 </data>
