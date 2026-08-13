@@ -1,14 +1,14 @@
 <data priority="50">
     <xpath expr="//div[@t-if='has_delivery']" position="attributes">
-         <attribute name="class">d-none</attribute>
+        <attribute name="class">d-none</attribute>
+        <!--<attribute name="t-if">use_delivery_as_billing and has_delivery</attribute>-->
     </xpath>
     
     <div id="billing_address_list" position="before">
-        <style t-if="has_delivery">
+        <style t-if="use_delivery_as_billing and has_delivery">
             #billing_address_list {
                 display: none;
             }
         </style>
     </div>
-
 </data>
