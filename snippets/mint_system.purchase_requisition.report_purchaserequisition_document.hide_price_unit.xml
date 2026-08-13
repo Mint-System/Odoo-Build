@@ -1,0 +1,19 @@
+<data priority="50">
+
+    <th t-if="o.type_id.quantity_copy == 'none'">Price Unit</th>
+
+    <xpath expr="//th[4]" position="replace">
+        <t t-if="o.state_blanket_order != 'draft'">
+            <th t-if="o.type_id.quantity_copy == 'none'" class="text-end">Price Unit</th>
+        </t>
+    </xpath>
+
+    <xpath expr="//tbody/tr/td[4]" position="replace">
+        <t t-if="o.state_blanket_order != 'draft'">
+            <td id="price_unit" t-if="o.type_id.quantity_copy == 'none'" class="text-end">
+                <span t-esc="'%g' % line_ids.price_unit if str(line_ids.price_unit)[::-1].find('.') &gt;= 3 else '%.2f' % line_ids.price_unit"/>
+            </td>
+        </t>
+    </xpath>
+
+</data>

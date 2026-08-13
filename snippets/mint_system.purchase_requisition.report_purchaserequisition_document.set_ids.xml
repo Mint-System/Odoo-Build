@@ -1,4 +1,4 @@
-<data priority="50">
+<data priority="48">
 
     <xpath expr="//div[@class='row my-2']" position="attributes">
         <attribute name="id">informations</attribute>

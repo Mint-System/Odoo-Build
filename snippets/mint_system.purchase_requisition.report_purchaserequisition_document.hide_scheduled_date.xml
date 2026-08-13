@@ -1,4 +1,7 @@
 <data priority="50">
-     <xpath expr="//table[@id='main_table']/thead/tr/th[6]" position="replace"/>
-    <xpath expr="//table[@id='main_table']/tbody/tr/td[7]" position="replace"/>
+
+    <xpath expr="//table[@id='main_table']/thead/tr/th[6]" position="replace">
+        <th style="width: 1px"/>
+    </xpath>
+
 </data>
