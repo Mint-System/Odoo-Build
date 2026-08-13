@@ -1,16 +1,14 @@
-<data priority="50">
-    <xpath expr="//td[@name='td_note_line']/.." position="replace">
-        <t t-if="line.display_type == 'line_note' and not '&lt;!DOCTYPE html&gt;' in line.name">
-            <td name="td_note_line" colspan="99">
-                <span t-field="line.name"/>
-            </td>
-        </t>
-    </xpath>
-    <xpath expr="//td[@name='td_section_subtotal']/../.." position="after">
-        <t t-if="line.display_type == 'line_note' and '&lt;!DOCTYPE html&gt;' in line.name">
-            <td name="td_html_line" colspan="99">
+<data priority="50">  
+    <td name="td_note_name" position="replace">
+        <t t-if="'&lt;!DOCTYPE html&gt;' in line.name">
+            <td name="td_note_name" colspan="99" t-att-class="padding_class">
                 <t t-raw="line.name.replace('&lt;!DOCTYPE html&gt;', '')"/>
             </td>
         </t>
-    </xpath>
+        <t t-else="">
+            <td name="td_note_name" colspan="99" t-att-class="padding_class">
+                <span t-field="line.name">A note, whose content usually applies to the section or product above.</span>
+            </td>
+        </t>
+    </td>
 </data>

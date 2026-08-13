@@ -1,0 +1,9 @@
+<data priority="50">
+    <head position="inside">
+        <style>
+            :root {
+                --body-font-size: 0.8rem;
+            }
+        </style>
+    </head>
+</data>
