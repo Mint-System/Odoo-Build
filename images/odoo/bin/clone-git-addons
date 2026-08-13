@@ -3,11 +3,19 @@
 # set -e
 
 if [[ -n "$ADDONS_GIT_REPOS" ]]; then
-    github_url="${GITLAB_URL:=https://github.com}"
+    github_url="${GITHUB_URL:=https://github.com}"
     gitlab_url="${GITLAB_URL:=https://gitlab.com}"
     forgejo_url="${FORGEJO_URL:=https://codeberg.org}"
     local_path="${LOCAL_PATH:=/var/lib/odoo/git}"
     git_clone_depth="${GIT_CLONE_DEPTH:=999}"
+
+    # Ensure configured URLs always have a protocol, so the comparison
+    # ${git_proto}${git_hostname} = "$github_url" / "$gitlab_url" works
+    # even when GITLAB_URL or GITHUB_URL is passed without one.
+    # Defaults to https:// when missing.
+    [[ "$github_url" =~ ^[a-zA-Z]+:// ]] || github_url="https://${github_url}"
+    [[ "$gitlab_url"  =~ ^[a-zA-Z]+:// ]] || gitlab_url="https://${gitlab_url}"
+    [[ "$forgejo_url" =~ ^[a-zA-Z]+:// ]] || forgejo_url="https://${gitlab_url}"
 
     # Setup git SSH key
     mkdir -p "$HOME/.ssh"
