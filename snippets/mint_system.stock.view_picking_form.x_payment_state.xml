@@ -1,0 +1,5 @@
+<data priority="50">
+    <xpath expr="//field[@name='product_uom_qty']" position="before">
+        <field name="x_payment_state"/>
+    </xpath>
+</data>

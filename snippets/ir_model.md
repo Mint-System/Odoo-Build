@@ -4219,6 +4219,52 @@ Inherit ID: `ir_model.stock_move`
 Edit: [snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml)\
 Source: [snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_packaging_uom_id.xml)
 
+### X Payment State
+
+ID: `mint_system.ir_model.stock_move.x_payment_state`\
+Inherit ID: `ir_model.stock_move`
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="x_payment_state" model="ir.model.fields">
+        <field name="field_description">Zahlungsstatus</field>
+        <field name="model">stock.move</field>
+        <field name="model_id" ref="stock.model_stock_move"/>
+        <field name="name">x_payment_state</field>
+        <field name="store" eval="True"/>
+        <field name="readonly" eval="True"/>
+        <field name="copied" eval="False"/>
+        <field name="ttype">char</field>
+        <field name="depends">sale_line_id,sale_line_id.invoice_lines,sale_line_id,sale_line_id.invoice_lines.move_id.payment_state</field>
+        <field name="compute">
+state_labels = {
+    'not_paid': 'Nicht bezahlt',
+    'in_payment': 'In Zahlung',
+    'paid': 'Bezahlt',
+    'partial': 'Teilweise bezahlt',
+    'reversed': 'Storniert',
+    'blocked': 'Gesperrt',
+    'invoicing_legacy': 'Altes Abrechnungssystem',
+}
+for rec in self:
+    if not rec.sale_line_id and self.backorder_id:
+      rec['x_payment_state'] = 'Nicht definiert (Lieferrückstand)'
+    elif rec.sale_line_id and not rec.sale_line_id.invoice_lines:
+      rec['x_payment_state'] = 'Nicht bezahlt'
+    elif rec.sale_line_id and rec.sale_line_id.invoice_lines:
+      move_id = rec.sale_line_id.invoice_lines.move_id[0]
+    #   raise UserError(move_id.payment_state)
+      rec['x_payment_state'] = state_labels[move_id.payment_state]
+    else:
+      rec['x_payment_state'] = 'Nicht definiert'
+        </field>
+    </record>
+</odoo>
+```
+Edit: [snippets/mint_system.ir_model.stock_move.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.ir_model.stock_move.x_payment_state.xml)\
+Source: [snippets/mint_system.ir_model.stock_move.x_payment_state.xml](https://odoo.build/snippets/mint_system.ir_model.stock_move.x_payment_state.xml)
+
 ### X Picking Partner Id
 
 ID: `mint_system.ir_model.stock_move.x_picking_partner_id`\

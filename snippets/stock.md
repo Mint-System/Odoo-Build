@@ -8401,6 +8401,21 @@ Inherit ID: `stock.view_picking_form`
 Edit: [snippets/mint_system.stock.view_picking_form.x_name.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_name.xml)\
 Source: [snippets/mint_system.stock.view_picking_form.x_name.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_name.xml)
 
+### X Payment State
+
+ID: `mint_system.stock.view_picking_form.x_payment_state`\
+Inherit ID: `stock.view_picking_form`
+
+```xml
+<data priority="50">
+    <xpath expr="//field[@name='product_uom_qty']" position="before">
+        <field name="x_payment_state"/>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.stock.view_picking_form.x_payment_state.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.stock.view_picking_form.x_payment_state.xml)\
+Source: [snippets/mint_system.stock.view_picking_form.x_payment_state.xml](https://odoo.build/snippets/mint_system.stock.view_picking_form.x_payment_state.xml)
+
 ### X Vst
 
 ID: `mint_system.stock.view_picking_form.x_vst`\
