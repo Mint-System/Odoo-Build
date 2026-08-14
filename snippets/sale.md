@@ -2927,6 +2927,22 @@ Inherit ID: `sale.report_saleorder_document`
 Edit: [snippets/mint_system.sale.report_saleorder_document.move_payment_term.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.move_payment_term.xml)\
 Source: [snippets/mint_system.sale.report_saleorder_document.move_payment_term.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.move_payment_term.xml)
 
+### Move Payment Term Note
+
+ID: `mint_system.sale.report_saleorder_document.move_payment_term_note`\
+Inherit ID: `sale.report_saleorder_document`
+
+```xml
+<data priority="50">
+    <span t-field="doc.note" position="before">
+        <p t-if="not is_html_empty(doc.payment_term_id.note)" position="move"/>
+    </span>
+</data>
+
+```
+Edit: [snippets/mint_system.sale.report_saleorder_document.move_payment_term_note.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.sale.report_saleorder_document.move_payment_term_note.xml)\
+Source: [snippets/mint_system.sale.report_saleorder_document.move_payment_term_note.xml](https://odoo.build/snippets/mint_system.sale.report_saleorder_document.move_payment_term_note.xml)
+
 ### Product Hs Code And Country Of Origin
 
 ID: `mint_system.sale.report_saleorder_document.product_hs_code_and_country_of_origin`\

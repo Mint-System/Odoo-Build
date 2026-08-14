@@ -2,6 +2,24 @@
 
 ## Report Delivery Document
 
+### Add Phone Number
+
+ID: `mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number`\
+Inherit ID: `l10n_din5008_stock.report_delivery_document`
+
+```xml
+<data priority="50">
+    <xpath expr="//div[@t-if='o.partner_id.vat']" position="after">
+        <t t-set="display_phone" t-value="o.sale_id.x_studio_customer_phone or o.partner_id.commercial_partner_id.phone"/>
+        <div t-if="display_phone">
+            <span>Fon</span> <span t-esc="display_phone"/>
+        </div>
+    </xpath>
+</data>
+```
+Edit: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml](https://github.com/Mint-System/Odoo-Build/tree/main/snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml)\
+Source: [snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml](https://odoo.build/snippets/mint_system.l10n_din5008_stock.report_delivery_document.add_phone_number.xml)
+
 ### Show Partner Reference
 
 ID: `mint_system.l10n_din5008_stock.report_delivery_document.show_partner_reference`\
